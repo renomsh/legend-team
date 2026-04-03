@@ -1,0 +1,19 @@
+{
+  "role": "editor",
+  "topicsHandled": [
+    {
+      "topicId": "topic_002",
+      "title": "레전드팀 업그레이드",
+      "date": "2026-04-03",
+      "reportPath": "reports/2026-04-03_legend-team-upgrade/editor_rev01.md",
+      "agentsIntegrated": ["ace", "arki", "fin", "riki"],
+      "novaInvoked": false,
+      "gaps": ["R-02 수동 누락 리스크 — 세션 종료 체크리스트 필요"]
+    }
+  ],
+  "synthesisPatterns": [
+    "Executive Summary → Agent 기여 요약 테이블 → 통합 권고 → 미해소 질문 → 버전 노트",
+    "Nova 미호출 시 반드시 novaInvoked: false 명시"
+  ],
+  "lastUpdated": "2026-04-03T00:00:00.000Z"
+}

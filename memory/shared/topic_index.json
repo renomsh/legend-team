@@ -1,0 +1,28 @@
+{
+  "topics": [
+    {
+      "id": "topic_001",
+      "title": "레전드팀의 shared asset 조회 프로토콜 설계",
+      "status": "closed",
+      "created": "2026-04-02",
+      "path": "topics/topic_001"
+    },
+    {
+      "id": "topic_002",
+      "title": "레전드팀 업그레이드 (v0.1.0 → v0.2.0)",
+      "status": "closed",
+      "created": "2026-04-03",
+      "path": "reports/2026-04-03_legend-team-upgrade",
+      "reportFiles": [
+        "ace_rev01.md",
+        "arki_rev01.md",
+        "fin_rev01.md",
+        "riki_rev01.md",
+        "editor_rev01.md"
+      ],
+      "masterDecisions": ["D-001", "D-002", "D-003", "D-004", "D-005"],
+      "outcome": "v0.2.0 기준 확정 및 실행 완료"
+    }
+  ],
+  "lastUpdated": "2026-04-03T00:00:00.000Z"
+}

@@ -1,0 +1,60 @@
+{
+  "decisions": [
+    {
+      "id": "D-001",
+      "date": "2026-04-03",
+      "session": "session_002",
+      "topic": "legend-team-upgrade",
+      "axis": "v0.2.0 기준",
+      "decision": "A",
+      "value": "메모리 초기화 + reports/ 구조 생성만으로 v0.2.0 선언. TS 자동화는 v0.3.0으로 이연.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-002",
+      "date": "2026-04-03",
+      "session": "session_002",
+      "topic": "legend-team-upgrade",
+      "axis": "실행 방식",
+      "decision": "A",
+      "value": "Claude Code가 세션 중 직접 파일 기록하는 수동 프로토콜 채택.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-003",
+      "date": "2026-04-03",
+      "session": "session_002",
+      "topic": "legend-team-upgrade",
+      "axis": "dashboard.html 처우",
+      "decision": "B",
+      "value": "app/internal-viewer.html로 이름 변경. CLAUDE.md에 내부 뷰어 예외 조항 추가.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-004",
+      "date": "2026-04-03",
+      "session": "session_002",
+      "topic": "legend-team-upgrade",
+      "axis": "reports/ 구조",
+      "decision": "제안대로",
+      "value": "reports/{YYYY-MM-DD}_{topic-slug}/{role}_rev{n}.md",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-005",
+      "date": "2026-04-03",
+      "session": "session_002",
+      "topic": "legend-team-upgrade",
+      "axis": "Nova 승격 기준",
+      "decision": "유지",
+      "value": "Master가 명시적으로 요청할 때만 Nova 호출. 자동 트리거 조건 미정의.",
+      "authority": "master",
+      "status": "confirmed"
+    }
+  ],
+  "lastUpdated": "2026-04-03T00:00:00.000Z"
+}

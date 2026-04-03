@@ -1,0 +1,32 @@
+{
+  "evidence": [
+    {
+      "id": "E-001",
+      "date": "2026-04-03",
+      "topic": "legend-team-upgrade",
+      "type": "structural-diagnosis",
+      "source": "arki",
+      "finding": "memory/sessions/current_session.json, memory/shared/decision_ledger.json, memory/shared/topic_index.json, memory/shared/glossary.json, memory/shared/evidence_index.json 파일이 v0.1.0 시점에 비어있었음",
+      "status": "resolved-in-v0.2.0"
+    },
+    {
+      "id": "E-002",
+      "date": "2026-04-03",
+      "topic": "legend-team-upgrade",
+      "type": "principle-violation",
+      "source": "arki",
+      "finding": "app/dashboard.html이 CLAUDE.md 'Never start from UI' 원칙과 충돌함",
+      "status": "resolved-D-003"
+    },
+    {
+      "id": "E-003",
+      "date": "2026-04-03",
+      "topic": "legend-team-upgrade",
+      "type": "risk",
+      "source": "riki",
+      "finding": "수동 기록 프로토콜 채택(결정 2A) 시 세션 간 누락 리스크 잔존",
+      "status": "accepted-residual-risk"
+    }
+  ],
+  "lastUpdated": "2026-04-03T00:00:00.000Z"
+}

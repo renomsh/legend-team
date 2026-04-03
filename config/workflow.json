@@ -1,0 +1,66 @@
+{
+  "workflow": {
+    "mode": "topic-sequential",
+    "description": "Each topic is processed through a defined agent sequence. Outputs are revision-tracked and never silently overwritten.",
+    "topicLifecycle": ["open", "in-progress", "review", "closed"],
+    "revisionPolicy": {
+      "append": true,
+      "silentOverwrite": false,
+      "versionField": "revision",
+      "timestampRequired": true
+    }
+  },
+  "defaultSequence": ["ace", "arki", "fin", "riki", "editor"],
+  "phases": [
+    {
+      "phase": 1,
+      "name": "framing",
+      "lead": "ace",
+      "optional": false,
+      "description": "Ace opens the topic, defines decision axes, sets scope (in/out), sequences the agenda, and surfaces load-bearing assumptions."
+    },
+    {
+      "phase": 2,
+      "name": "structure",
+      "lead": "arki",
+      "optional": false,
+      "description": "Arki maps structural requirements, component relationships, dependencies, and design constraints."
+    },
+    {
+      "phase": 3,
+      "name": "financials",
+      "lead": "fin",
+      "optional": false,
+      "description": "Fin evaluates cost, resource needs, return profile, and economic viability."
+    },
+    {
+      "phase": 4,
+      "name": "risk",
+      "lead": "riki",
+      "optional": false,
+      "description": "Riki pressure-tests the plan: failure modes, assumption audit, contradictions between agents, execution distortions, and rejected logic."
+    },
+    {
+      "phase": 5,
+      "name": "synthesis",
+      "lead": "editor",
+      "optional": false,
+      "description": "Editor integrates all agent outputs into the final artifact. Owns synthesis, revision handling, version transitions, and report compilation."
+    }
+  ],
+  "optionalExtensions": [
+    {
+      "name": "speculation",
+      "lead": "nova",
+      "trigger": "explicit config flag or command — never invoked by default",
+      "description": "Nova contributes speculative or contrarian angles as a separate, labeled stretch output. Nova outputs are advisory only and must not be treated as authoritative.",
+      "insertAfter": "risk",
+      "outputStatus": "speculative"
+    }
+  ],
+  "masterFeedback": {
+    "timing": "after any phase or at close",
+    "authority": "overrides all agent outputs",
+    "log": "memory/master/master_feedback_log.json"
+  }
+}

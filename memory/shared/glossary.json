@@ -1,0 +1,41 @@
+{
+  "terms": [
+    {
+      "term": "memory-first",
+      "definition": "모든 에이전트 출력, 세션 상태, 결정 사항을 파일로 먼저 저장하는 운용 원칙. 인메모리 컨텍스트에만 의존하지 않는다.",
+      "addedBy": "arki",
+      "date": "2026-04-03"
+    },
+    {
+      "term": "revision",
+      "definition": "동일 토픽에 대해 에이전트가 산출물을 갱신할 때마다 증가하는 버전 번호. rev01, rev02 형식. 이전 버전은 보존한다.",
+      "addedBy": "editor",
+      "date": "2026-04-03"
+    },
+    {
+      "term": "master feedback",
+      "definition": "Master(사용자)가 에이전트 출력에 대해 제공하는 피드백. 모든 에이전트 출력을 오버라이드하는 최고 권위.",
+      "addedBy": "ace",
+      "date": "2026-04-03"
+    },
+    {
+      "term": "topic-slug",
+      "definition": "토픽을 식별하는 파일시스템 친화적 문자열. 형식: {YYYY-MM-DD}_{주제-영문소문자}. 예: 2026-04-03_legend-team-upgrade",
+      "addedBy": "arki",
+      "date": "2026-04-03"
+    },
+    {
+      "term": "speculative",
+      "definition": "Nova가 생성하는 출력의 기본 상태. Master가 명시적으로 승격(promote)하지 않는 한 주요 합산에 포함되지 않는다.",
+      "addedBy": "editor",
+      "date": "2026-04-03"
+    },
+    {
+      "term": "수동 기록 프로토콜",
+      "definition": "Claude Code가 세션 중 직접 파일 Write 도구를 사용해 에이전트 출력을 reports/에 저장하는 방식. TS 자동화 코드 없이 운용 가능.",
+      "addedBy": "fin",
+      "date": "2026-04-03"
+    }
+  ],
+  "lastUpdated": "2026-04-03T00:00:00.000Z"
+}
