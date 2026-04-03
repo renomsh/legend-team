@@ -1,0 +1,19 @@
+{
+  "sessionId": "session_002",
+  "topic": "legend-team-upgrade",
+  "topicSlug": "2026-04-03_legend-team-upgrade",
+  "status": "closed",
+  "startedAt": "2026-04-03T00:00:00.000Z",
+  "closedAt": "2026-04-03T00:00:00.000Z",
+  "mode": "observation",
+  "agentsCompleted": ["ace", "arki", "fin", "riki", "editor"],
+  "novaInvoked": false,
+  "masterDecisions": [
+    { "id": "D-001", "axis": "v0.2.0 기준", "decision": "A", "value": "메모리 초기화 + reports/ 구조 생성" },
+    { "id": "D-002", "axis": "실행 방식", "decision": "A", "value": "수동 기록 프로토콜 (Claude Code)" },
+    { "id": "D-003", "axis": "dashboard.html 처우", "decision": "B", "value": "internal-viewer.html 이름 변경 + CLAUDE.md 예외 명시" },
+    { "id": "D-004", "axis": "reports/ 구조", "decision": "제안대로", "value": "reports/{date_topic}/{role}_rev{n}.md" },
+    { "id": "D-005", "axis": "Nova 승격 기준", "decision": "유지", "value": "Master 명시 요청 시만" }
+  ],
+  "reportPath": "reports/2026-04-03_legend-team-upgrade/"
+}

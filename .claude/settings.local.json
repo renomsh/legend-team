@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx ts-node:*)",
+      "Bash(node_modules/.bin/ts-node scripts/init-project.ts)",
+      "Bash(command -v node)",
+      "Bash(node node_modules/.bin/ts-node scripts/create-topic.ts \"레전드팀의 shared asset 조회 프로토콜 설계\")",
+      "Bash(where node:*)",
+      "Bash(cmd.exe /c \"where node\")",
+      "Bash(npm search:*)",
+      "Bash(npm install:*)",
+      "Bash(omnara --version)",
+      "Bash(omnara --help)",
+      "Bash(\"/c/Users/문성훈/AppData/Local/Omnara/bin/omnara.exe\" --help)",
+      "Bash(\"/c/Users/문성훈/AppData/Local/Omnara/bin/omnara.exe\" workspace:*)",
+      "mcp__Claude_Preview__preview_start"
+    ]
+  }
+}

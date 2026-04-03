@@ -1,0 +1,35 @@
+{
+  "name": "legend-team",
+  "version": "0.2.0",
+  "description": "Memory-first, topic-based strategy system with role-separated agents",
+  "created": "2026-04-02",
+  "upgraded": "2026-04-03",
+  "changelog": {
+    "v0.1.0": "초기 구조체 — 에이전트 정의, 워크플로우, 메모리 스키마 파일 생성",
+    "v0.2.0": "메모리 실질화 (모든 shared/role 메모리 초기값 기록), reports/ 구조 생성, app/internal-viewer.html 명시, CLAUDE.md UI 예외 조항 추가, 수동 기록 프로토콜 채택"
+  },
+  "architecture": "file-based",
+  "stack": ["Node.js", "TypeScript", "JSON", "Markdown"],
+  "memory": {
+    "strategy": "topic-indexed",
+    "revisionHistory": true,
+    "masterFeedbackAuthoritative": true,
+    "silentOverwriteForbidden": true
+  },
+  "agents": ["ace", "arki", "fin", "riki", "editor", "nova"],
+  "agentStatus": {
+    "ace": "active",
+    "arki": "active",
+    "fin": "active",
+    "riki": "active",
+    "editor": "active",
+    "nova": "speculative"
+  },
+  "paths": {
+    "agents": "agents/",
+    "config": "config/",
+    "memory": "memory/",
+    "reports": "reports/",
+    "logs": "logs/"
+  }
+}

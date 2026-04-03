@@ -1,0 +1,20 @@
+{
+  "role": "riki",
+  "topicsHandled": [
+    {
+      "topicId": "topic_002",
+      "title": "레전드팀 업그레이드",
+      "date": "2026-04-03",
+      "reportPath": "reports/2026-04-03_legend-team-upgrade/riki_rev01.md",
+      "criticalRisks": ["R-01", "R-02", "R-04", "R-05"],
+      "resolvedRisks": ["R-03(결정 3B)", "R-04(결정 1A 범위 확정)"],
+      "residualRisks": ["R-02(수동 누락 — v0.3.0 자동화 전까지 잔존)"]
+    }
+  ],
+  "tripWires": [
+    "다음 세션에서 topic_index.json이 비어있으면 → 업그레이드 실패",
+    "reports/에 파일이 없으면 → 수동 기록 프로토콜 미작동",
+    "decision_ledger.json에 결정이 없으면 → 메모리 시스템 미작동"
+  ],
+  "lastUpdated": "2026-04-03T00:00:00.000Z"
+}

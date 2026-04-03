@@ -1,0 +1,24 @@
+{
+  "preferences": {
+    "defaultMode": "observation",
+    "fileInspectability": true,
+    "agentExecutionStyle": "prompt-driven",
+    "memoryStrategy": "file-based",
+    "uiPolicy": "no-new-ui",
+    "novaPolicy": "explicit-request-only",
+    "reportStructure": "reports/{YYYY-MM-DD}_{topic-slug}/{role}_rev{n}.md",
+    "revisionPolicy": "append-never-overwrite",
+    "versioningPreference": "incremental"
+  },
+  "versions": {
+    "v0.1.0": {
+      "date": "2026-04-02",
+      "description": "초기 구조체 — 에이전트 정의, 워크플로우, 메모리 스키마"
+    },
+    "v0.2.0": {
+      "date": "2026-04-03",
+      "description": "메모리 실질화 + reports/ 구조 생성 + internal-viewer 명시"
+    }
+  },
+  "lastUpdated": "2026-04-03T00:00:00.000Z"
+}

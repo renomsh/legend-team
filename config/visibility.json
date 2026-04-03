@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "description": "역할별 shared asset 조회 권한 매트릭스",
+  "assets": {
+    "topic_index.json": {
+      "ace": "required",
+      "arki": "optional",
+      "fin": "optional",
+      "riki": "required",
+      "editor": "required",
+      "nova": "optional"
+    },
+    "decision_ledger.json": {
+      "ace": "required",
+      "arki": "optional",
+      "fin": "optional",
+      "riki": "required",
+      "editor": "required",
+      "nova": "optional"
+    },
+    "evidence_index.json": {
+      "ace": "required",
+      "arki": "optional",
+      "fin": "optional",
+      "riki": "required",
+      "editor": "required",
+      "nova": "optional"
+    },
+    "glossary.json": {
+      "ace": "required",
+      "arki": "required",
+      "fin": "optional",
+      "riki": "required",
+      "editor": "required",
+      "nova": "optional"
+    },
+    "project_charter.json": {
+      "ace": "required",
+      "arki": "optional",
+      "fin": "optional",
+      "riki": "required",
+      "editor": "optional",
+      "nova": "optional"
+    }
+  },
+  "queryScope": {
+    "evidence_index": {
+      "default": "all_topics",
+      "filterByTopic": "optional"
+    }
+  }
+}

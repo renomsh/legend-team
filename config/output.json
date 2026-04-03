@@ -1,0 +1,44 @@
+{
+  "output": {
+    "storageFormat": "file-based",
+    "rootPath": "reports/",
+    "namingConvention": "{topic_id}_{agent}_{revision}.md",
+    "revisionTracking": {
+      "enabled": true,
+      "field": "revision",
+      "startAt": 1,
+      "incrementOn": "any update"
+    },
+    "requiredFrontmatter": ["topic", "agent", "revision", "date", "status", "accessed_assets"],
+    "statusValues": ["draft", "reviewed", "master-approved", "superseded"],
+    "silentOverwritePolicy": "forbidden",
+    "supersededBehavior": "mark as superseded, keep file, append new revision as separate file"
+  },
+  "formats": {
+    "agentReport": {
+      "extension": ".md",
+      "structure": ["frontmatter", "summary", "analysis", "recommendations", "open_questions"]
+    },
+    "topicIndex": {
+      "extension": ".json",
+      "location": "memory/shared/topic_index.json"
+    },
+    "masterFeedback": {
+      "extension": ".json",
+      "location": "memory/master/master_feedback_log.json",
+      "append": true
+    },
+    "decisionLedger": {
+      "extension": ".json",
+      "location": "memory/shared/decision_ledger.json",
+      "append": true
+    }
+  },
+  "displayRules": {
+    "noUI": true,
+    "noJSX": true,
+    "noDashboards": true,
+    "preferMarkdown": true,
+    "preferJSON": true
+  }
+}

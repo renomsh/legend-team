@@ -1,0 +1,22 @@
+{
+  "name": "legend-team",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "init": "ts-node scripts/init-project.ts",
+    "create-topic": "ts-node scripts/create-topic.ts",
+    "dashboard": "ts-node scripts/generate-dashboard.ts",
+    "serve": "ts-node scripts/generate-dashboard.ts && npx http-server app -p 8080 -c-1 -o dashboard.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.2"
+  }
+}

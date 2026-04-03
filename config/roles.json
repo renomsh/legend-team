@@ -1,0 +1,59 @@
+{
+  "roles": {
+    "ace": {
+      "id": "ace",
+      "name": "Ace",
+      "domain": "strategy",
+      "status": "active",
+      "authority": "primary",
+      "description": "Lead strategist and framing agent. Opens topics, shapes the agenda, defines decision axes, and sets inclusion/exclusion scope. Does not own final synthesis or revision handling.",
+      "owns": ["topic framing", "decision axes", "agenda sequencing", "scope definition"]
+    },
+    "arki": {
+      "id": "arki",
+      "name": "Arki",
+      "domain": "architecture",
+      "status": "active",
+      "authority": "domain",
+      "description": "Systems architect. Designs the structural backbone of plans, models, and data flows.",
+      "owns": ["system design", "structure proposals", "dependency mapping"]
+    },
+    "fin": {
+      "id": "fin",
+      "name": "Fin",
+      "domain": "finance",
+      "status": "active",
+      "authority": "domain",
+      "description": "Financial analyst. Evaluates economic viability, cost structures, and resource allocation.",
+      "owns": ["financial modeling", "cost-benefit analysis", "resource projections"]
+    },
+    "riki": {
+      "id": "riki",
+      "name": "Riki",
+      "domain": "risk",
+      "status": "active",
+      "authority": "domain",
+      "description": "Adversarial analyst. Identifies failure modes, exposes weak assumptions, surfaces contradictions between agent outputs, documents execution distortions, and logs rejected logic.",
+      "owns": ["risk registers", "assumption audits", "contradiction logs", "execution distortion analysis", "rejected logic records"]
+    },
+    "editor": {
+      "id": "editor",
+      "name": "Editor",
+      "domain": "communication",
+      "status": "active",
+      "authority": "domain",
+      "description": "Synthesis and output owner. Integrates all agent contributions, compiles final reports, manages revision handling and version transitions, and generates canonical artifacts.",
+      "owns": ["synthesis", "report compilation", "revision handling", "version transitions", "artifact generation"]
+    },
+    "nova": {
+      "id": "nova",
+      "name": "Nova",
+      "domain": "speculation",
+      "status": "speculative",
+      "authority": "advisory",
+      "description": "Speculative thinker. Explores unconventional possibilities, challenges assumptions, and surfaces non-obvious angles. Not authoritative until explicitly promoted.",
+      "owns": ["speculative scenarios", "contrarian perspectives", "what-if expansions"]
+    }
+  },
+  "hierarchyNote": "Master feedback overrides all agent outputs. Nova remains advisory and must not be treated as authoritative unless explicitly promoted by the master."
+}

@@ -1,0 +1,8 @@
+{
+  "role": "nova",
+  "status": "speculative",
+  "invocationPolicy": "Master 명시 요청 시만. 자동 트리거 없음.",
+  "topicsInvoked": [],
+  "note": "Nova는 결정 5에 따라 현상 유지. Master가 명시적으로 호출할 때만 활성화.",
+  "lastUpdated": "2026-04-03T00:00:00.000Z"
+}
