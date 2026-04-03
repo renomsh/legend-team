@@ -6,8 +6,14 @@
   "scripts": {
     "init": "ts-node scripts/init-project.ts",
     "create-topic": "ts-node scripts/create-topic.ts",
-    "dashboard": "ts-node scripts/generate-dashboard.ts",
-    "serve": "ts-node scripts/generate-dashboard.ts && npx http-server app -p 8080 -c-1 -o dashboard.html",
+    "session:start": "ts-node scripts/session-log.ts start",
+    "session:end": "ts-node scripts/session-log.ts end",
+    "debate": "ts-node scripts/run-debate.ts",
+    "feedback": "ts-node scripts/apply-feedback.ts",
+    "report": "ts-node scripts/build-report.ts",
+    "validate": "ts-node scripts/validate-output.ts",
+    "evidence": "ts-node scripts/log-evidence.ts",
+    "viewer": "ts-node scripts/generate-dashboard.ts && npx http-server app -p 8080 -c-1 -o internal-viewer.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
