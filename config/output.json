@@ -2,7 +2,9 @@
   "output": {
     "storageFormat": "file-based",
     "rootPath": "reports/",
-    "namingConvention": "{topic_id}_{agent}_{revision}.md",
+    "namingConvention": "{role}_rev{n}.md",
+    "directoryConvention": "reports/{YYYY-MM-DD}_{topic-slug}/",
+    "legacyNaming": "{topic_id}_{agent}_{revision}.md",
     "revisionTracking": {
       "enabled": true,
       "field": "revision",

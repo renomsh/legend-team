@@ -14,6 +14,7 @@ const REQUIRED_FOLDERS: string[] = [
   'agents',
   'config',
   'reports',
+  'scripts',
   'src/types',
 ];
 
@@ -33,7 +34,19 @@ const BASE_FILES: Array<{ relPath: string; content: unknown }> = [
   },
   {
     relPath: 'memory/master/master_feedback_log.json',
-    content: { feedback: [] },
+    content: { feedbackLog: [] },
+  },
+  {
+    relPath: 'memory/sessions/session_index.json',
+    content: { sessions: [], lastUpdated: new Date().toISOString() },
+  },
+  {
+    relPath: 'memory/shared/glossary.json',
+    content: { terms: [], lastUpdated: new Date().toISOString() },
+  },
+  {
+    relPath: 'memory/shared/project_charter.json',
+    content: {},
   },
 ];
 

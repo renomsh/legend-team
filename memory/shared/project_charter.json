@@ -1,0 +1,63 @@
+{
+  "charter": {
+    "name": "legend-team",
+    "version": "0.2.0",
+    "purpose": "Memory-first, topic-based strategy system. Master receives structured analysis from role-separated agents on any strategic topic, with all outputs preserved in inspectable, revisionable files.",
+    "principles": [
+      "Memory first: all agent outputs, decisions, and session state are written to files immediately. No analysis lives only in conversation context.",
+      "Role separation: each agent (ace, arki, fin, riki, editor, nova) owns a distinct domain. Agents must not exceed their domain without escalating.",
+      "Master authority: all master feedback overrides agent outputs. No agent may ignore or paper over master direction.",
+      "No silent overwrite: every revision creates a new file. Prior versions are preserved.",
+      "Inspectability: every decision, every assumption, every contradiction must be traceable to a file.",
+      "No UI first: structural and strategic analysis precedes any interface or visualization work."
+    ],
+    "inScope": [
+      "Topic-based strategic analysis",
+      "Multi-role structured debate (ace → arki → fin → riki → editor)",
+      "File-based memory: decisions, evidence, glossary, session state",
+      "Revision history for all agent outputs",
+      "Master feedback integration and logging"
+    ],
+    "outOfScope": [
+      "External API integrations (unless explicitly approved by Master)",
+      "Frontend UI or dashboards (app/internal-viewer.html is the only permitted exception)",
+      "JSX, React, or framework-based UI",
+      "Real-time or streaming analysis",
+      "Autonomous agent action without Master approval"
+    ],
+    "roles": {
+      "ace": "Lead strategist. Opens topics, defines decision axes, sets scope, sequences the agenda.",
+      "arki": "Systems architect. Maps structure, dependencies, and design constraints.",
+      "fin": "Financial analyst. Evaluates cost, return, and resource viability.",
+      "riki": "Adversarial analyst. Exposes failure modes, weak assumptions, and contradictions.",
+      "editor": "Synthesis owner. Integrates all agent outputs into final artifacts.",
+      "nova": "Speculative thinker. Advisory only. Invoked by Master request only."
+    },
+    "masterAuthority": "Master feedback is the highest authority in the system. Any agent output, decision, or plan can be overridden by Master at any point. Master decisions are recorded in memory/master/master_feedback_log.json and memory/shared/decision_ledger.json.",
+    "sessionProtocol": "See CLAUDE.md § Session Protocol for start/end checklist.",
+    "reportStructure": "reports/{YYYY-MM-DD}_{topic-slug}/{role}_rev{n}.md",
+    "memoryFiles": {
+      "topic_index": "memory/shared/topic_index.json",
+      "decision_ledger": "memory/shared/decision_ledger.json",
+      "evidence_index": "memory/shared/evidence_index.json",
+      "glossary": "memory/shared/glossary.json",
+      "project_charter": "memory/shared/project_charter.json",
+      "current_session": "memory/sessions/current_session.json",
+      "master_feedback_log": "memory/master/master_feedback_log.json",
+      "master_preferences": "memory/master/master_preferences.json"
+    }
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "date": "2026-04-02",
+      "summary": "Initial structure: agents, config, memory schema files created."
+    },
+    {
+      "version": "0.2.0",
+      "date": "2026-04-03",
+      "summary": "Memory initialized, reports/ structure created, session protocol adopted, project_charter written, TS scripts implemented."
+    }
+  ],
+  "lastUpdated": "2026-04-03T00:00:00.000Z"
+}
