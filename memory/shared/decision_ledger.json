@@ -28,10 +28,13 @@
       "session": "session_002",
       "topic": "legend-team-upgrade",
       "axis": "dashboard.html 처우",
-      "decision": "B",
-      "value": "app/internal-viewer.html로 이름 변경. CLAUDE.md에 내부 뷰어 예외 조항 추가.",
+      "decision": "B → revised 2026-04-04",
+      "value": "app/ 디렉토리를 읽기 전용 다중 페이지 정적 뷰어로 확장 허용. 읽기 인터랙션(네비게이션, 필터, 검색) 허용. 쓰기 인터랙션(폼, 입력, 상태 변경) 금지. 프레임워크 도입 금지 유지.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "revisedAt": "2026-04-04",
+      "revisedIn": "session_003",
+      "priorValue": "app/internal-viewer.html로 이름 변경. CLAUDE.md에 내부 뷰어 예외 조항 추가."
     },
     {
       "id": "D-004",
@@ -54,7 +57,53 @@
       "value": "Master가 명시적으로 요청할 때만 Nova 호출. 자동 트리거 조건 미정의.",
       "authority": "master",
       "status": "confirmed"
+    },
+    {
+      "id": "D-006",
+      "date": "2026-04-04",
+      "session": "session_003",
+      "topic": "local-vs-server",
+      "axis": "배포 방식",
+      "decision": "A",
+      "value": "정적 사이트 배포 (Cloudflare Pages + Cloudflare Access). 모바일/PC 브라우저로 접근.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-007",
+      "date": "2026-04-04",
+      "session": "session_003",
+      "topic": "local-vs-server",
+      "axis": "배포 대상 범위",
+      "decision": "A → revised",
+      "value": "전체 배포 (memory/master/ 포함). Master는 모든 것을 봐야 함. 보안은 Cloudflare Access 인증에 위임.",
+      "authority": "master",
+      "status": "confirmed",
+      "revisedAt": "2026-04-04",
+      "priorValue": "reports/ + memory/shared/ 일부만 배포. memory/master/는 완전 제외."
+    },
+    {
+      "id": "D-008",
+      "date": "2026-04-04",
+      "session": "session_003",
+      "topic": "local-vs-server",
+      "axis": "Push 자동화",
+      "decision": "B",
+      "value": "git hook 또는 스크립트로 세션 종료 시 자동 push.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-009",
+      "date": "2026-04-04",
+      "session": "session_003",
+      "topic": "role-definition",
+      "axis": "Ace/Editor 역할 재정의",
+      "decision": "Master 지시",
+      "value": "Ace가 종합검토 수행. Editor는 결과물 작성/정리/출력만 담당. Editor에서 synthesis 역할 완전 분리.",
+      "authority": "master",
+      "status": "confirmed"
     }
   ],
-  "lastUpdated": "2026-04-03T00:00:00.000Z"
+  "lastUpdated": "2026-04-04T00:00:00.000Z"
 }

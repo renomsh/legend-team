@@ -1,5 +1,6 @@
 {
   "role": "ace",
+  "responsibility": "Lead strategist. Framing + decision axes + scope + comprehensive review of all role outputs + final recommendation to Master.",
   "topicsHandled": [
     {
       "topicId": "topic_002",
@@ -8,10 +9,24 @@
       "reportPath": "reports/2026-04-03_legend-team-upgrade/ace_rev01.md",
       "keyFraming": "v0.1.0 구조체 → v0.2.0 작동 시스템 전환",
       "decisionAxes": 4
+    },
+    {
+      "topicId": "topic_003",
+      "title": "로컬 업그레이드 vs 서버 이전",
+      "date": "2026-04-04",
+      "keyFraming": "쓰기 경로(Claude Code) 유지 + 읽기 경로(서버) 확장",
+      "decisionAxes": 3,
+      "status": "in-progress"
     }
   ],
   "framePatterns": [
-    "시스템 자체를 토픽으로 삼을 때: 현재 상태 진단 → 목표 상태 정의 → 결정 축 도출"
+    "시스템 자체를 토픽으로 삼을 때: 현재 상태 진단 → 목표 상태 정의 → 결정 축 도출",
+    "인프라 이전 토픽: 읽기/쓰기 경로 분리 → 각 경로별 옵션 평가 → 보안 축 추가"
   ],
-  "lastUpdated": "2026-04-03T00:00:00.000Z"
+  "roleUpdate": {
+    "date": "2026-04-04",
+    "change": "종합검토 책임 공식 배정 (Master 지시). Editor에서 synthesis 역할 분리.",
+    "decisionRef": "Master feedback session_003"
+  },
+  "lastUpdated": "2026-04-04T00:00:00.000Z"
 }

@@ -1,50 +1,48 @@
 {
-  "sessionId": "session_002",
-  "topic": "legend-team-upgrade",
-  "topicSlug": "2026-04-03_legend-team-upgrade",
+  "sessionId": "session_003",
+  "topic": "local-upgrade-vs-server-migration",
+  "topicSlug": "2026-04-04_local-vs-server",
   "status": "closed",
-  "startedAt": "2026-04-03T00:00:00.000Z",
-  "closedAt": "2026-04-03T06:10:35.694Z",
+  "startedAt": "2026-04-04T00:00:00.000Z",
+  "closedAt": "2026-04-04T20:30:00.000Z",
   "mode": "observation",
-  "agentsCompleted": [
-    "ace",
-    "arki",
-    "fin",
-    "riki",
-    "editor"
-  ],
-  "novaInvoked": false,
+  "agentsCompleted": ["ace", "arki", "fin", "riki", "nova", "ace-review", "editor"],
+  "novaInvoked": true,
   "masterDecisions": [
     {
-      "id": "D-001",
-      "axis": "v0.2.0 기준",
+      "id": "D-006",
+      "axis": "배포 방식",
       "decision": "A",
-      "value": "메모리 초기화 + reports/ 구조 생성"
+      "value": "정적 사이트 (Cloudflare Pages + Access)"
     },
     {
-      "id": "D-002",
-      "axis": "실행 방식",
-      "decision": "A",
-      "value": "수동 기록 프로토콜 (Claude Code)"
+      "id": "D-007",
+      "axis": "배포 대상 범위",
+      "decision": "A → revised",
+      "value": "전체 배포. 보안은 Cloudflare Access에 위임"
     },
     {
-      "id": "D-003",
-      "axis": "dashboard.html 처우",
+      "id": "D-008",
+      "axis": "Push 자동화",
       "decision": "B",
-      "value": "internal-viewer.html 이름 변경 + CLAUDE.md 예외 명시"
+      "value": "git hook/스크립트 자동 push"
     },
     {
-      "id": "D-004",
-      "axis": "reports/ 구조",
-      "decision": "제안대로",
-      "value": "reports/{date_topic}/{role}_rev{n}.md"
+      "id": "D-009",
+      "axis": "Ace/Editor 역할 재정의",
+      "decision": "Master 지시",
+      "value": "Ace=종합검토, Editor=결과물 출력만"
     },
     {
-      "id": "D-005",
-      "axis": "Nova 승격 기준",
-      "decision": "유지",
-      "value": "Master 명시 요청 시만"
+      "id": "D-003 revised",
+      "axis": "뷰어 정책",
+      "decision": "다중 페이지 읽기 전용 허용, 쓰기 금지"
+    },
+    {
+      "id": "D-007 revised",
+      "axis": "배포 범위",
+      "decision": "전체 배포, master/ 포함"
     }
   ],
-  "reportPath": "reports/2026-04-03_legend-team-upgrade/"
+  "reportPath": "reports/2026-04-04_local-vs-server/"
 }

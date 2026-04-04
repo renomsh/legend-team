@@ -25,7 +25,25 @@
       ],
       "masterDecisions": ["D-001", "D-002", "D-003", "D-004", "D-005"],
       "outcome": "v0.2.0 기준 확정 및 실행 완료"
+    },
+    {
+      "id": "topic_003",
+      "title": "로컬 업그레이드 vs 서버 이전 → Cloudflare Pages 배포",
+      "status": "closed",
+      "created": "2026-04-04",
+      "path": "reports/2026-04-04_local-vs-server",
+      "reportPath": "reports/2026-04-04_local-vs-server",
+      "reportFiles": [
+        "ace_rev01.md",
+        "arki_rev01.md",
+        "fin_rev01.md",
+        "riki_rev01.md",
+        "nova_rev01.md",
+        "editor_rev01.md"
+      ],
+      "masterDecisions": ["D-006", "D-007", "D-008", "D-009", "D-003 revised", "D-007 revised"],
+      "outcome": "Cloudflare Pages 배포 완료. 다중 페이지 뷰어 구현. Ace/Editor 역할 재정의."
     }
   ],
-  "lastUpdated": "2026-04-03T00:00:00.000Z"
+  "lastUpdated": "2026-04-04T00:00:00.000Z"
 }

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legend Team</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <span class="nav-brand">LEGEND TEAM</span>
+    <a href="index.html" class="nav-link">Dashboard</a>
+    <a href="decisions.html" class="nav-link">Decisions</a>
+    <a href="session.html" class="nav-link">Session</a>
+    <a href="feedback.html" class="nav-link">Feedback</a>
+  </nav>
+
+  <div class="page">
+    <!-- Header -->
+    <div class="page-header">
+      <div class="page-title">Dashboard</div>
+      <div class="page-sub" id="charterSub">Memory-First · Topic-Based · Role-Separated</div>
+    </div>
+
+    <!-- Roles -->
+    <div class="section-title">Agents</div>
+    <div class="roles-grid" id="rolesGrid">
+      <div class="role-card" style="--card-color: var(--accent-blue)">
+        <div class="role-icon">&#x2694;&#xFE0F;</div>
+        <div class="role-phase">Phase 1 + Review</div>
+        <div class="role-name">ACE</div>
+        <div class="role-domain">Strategy</div>
+        <div class="role-desc">Lead strategist. Framing, decision axes, scope. Comprehensive review of all role outputs.</div>
+        <div class="role-status"><span class="status-dot dot-active"></span><span class="auth-badge auth-primary">primary</span></div>
+      </div>
+      <div class="role-card" style="--card-color: var(--accent-teal)">
+        <div class="role-icon">&#x1F3DB;&#xFE0F;</div>
+        <div class="role-phase">Phase 2</div>
+        <div class="role-name">ARKI</div>
+        <div class="role-domain">Architecture</div>
+        <div class="role-desc">Systems architect. Structure, dependencies, design constraints.</div>
+        <div class="role-status"><span class="status-dot dot-active"></span><span class="auth-badge auth-domain">domain</span></div>
+      </div>
+      <div class="role-card" style="--card-color: var(--accent-fin)">
+        <div class="role-icon">&#x1F4B0;</div>
+        <div class="role-phase">Phase 3</div>
+        <div class="role-name">FIN</div>
+        <div class="role-domain">Finance</div>
+        <div class="role-desc">Financial analyst. Cost, return, resource evaluation.</div>
+        <div class="role-status"><span class="status-dot dot-active"></span><span class="auth-badge auth-domain">domain</span></div>
+      </div>
+      <div class="role-card" style="--card-color: var(--accent-red)">
+        <div class="role-icon">&#x1F6E1;&#xFE0F;</div>
+        <div class="role-phase">Phase 4</div>
+        <div class="role-name">RIKI</div>
+        <div class="role-domain">Risk</div>
+        <div class="role-desc">Adversarial analyst. Failure modes, assumption audits, contradictions.</div>
+        <div class="role-status"><span class="status-dot dot-active"></span><span class="auth-badge auth-domain">domain</span></div>
+      </div>
+      <div class="role-card" style="--card-color: var(--accent-purple)">
+        <div class="role-icon">&#x1F4DD;</div>
+        <div class="role-phase">Phase 6</div>
+        <div class="role-name">EDITOR</div>
+        <div class="role-domain">Output</div>
+        <div class="role-desc">Artifact compiler. Formats, organizes, and outputs final documents.</div>
+        <div class="role-status"><span class="status-dot dot-active"></span><span class="auth-badge auth-domain">domain</span></div>
+      </div>
+      <div class="role-card" style="--card-color: var(--accent-gold); opacity: 0.7; border-style: dashed;">
+        <div class="role-icon">&#x1F31F;</div>
+        <div class="role-phase">Optional</div>
+        <div class="role-name">NOVA</div>
+        <div class="role-domain">Speculation</div>
+        <div class="role-desc">Speculative thinker. Advisory only. Master request only.</div>
+        <div class="role-status"><span class="status-dot dot-off"></span><span class="auth-badge auth-advisory">advisory</span></div>
+      </div>
+    </div>
+
+    <!-- Topic Index -->
+    <div class="section-title">Topics</div>
+    <div id="topicList"><div class="loading">Loading topics</div></div>
+
+    <!-- Recent Decisions -->
+    <div style="margin-top: 32px;">
+      <div class="section-title">Recent Decisions</div>
+      <div id="recentDecisions"><div class="loading">Loading decisions</div></div>
+    </div>
+  </div>
+
+  <script src="js/data-loader.js"></script>
+  <script src="js/nav.js"></script>
+  <script>
+    async function init() {
+      // Load topics
+      const topicData = await DataLoader.getTopicIndex();
+      const topicEl = document.getElementById('topicList');
+      if (topicData && topicData.topics && topicData.topics.length > 0) {
+        const rows = topicData.topics.map(t => `
+          <tr class="topic-row" onclick="location.href='topic.html?id=${t.id}'">
+            <td class="topic-id">${t.id}</td>
+            <td class="topic-title-cell">${t.title}</td>
+            <td>${statusBadge(t.status)}</td>
+            <td>${t.created || '—'}</td>
+          </tr>
+        `).join('');
+        topicEl.innerHTML = `
+          <table class="topic-table">
+            <thead><tr><th>ID</th><th>Title</th><th>Status</th><th>Created</th></tr></thead>
+            <tbody>${rows}</tbody>
+          </table>`;
+      } else {
+        topicEl.innerHTML = '<div class="empty-state">No topics found</div>';
+      }
+
+      // Load recent decisions (last 5)
+      const decData = await DataLoader.getDecisionLedger();
+      const decEl = document.getElementById('recentDecisions');
+      if (decData && decData.decisions && decData.decisions.length > 0) {
+        const recent = decData.decisions.slice(-5).reverse();
+        decEl.innerHTML = recent.map(d => `
+          <div class="decision-item">
+            <div class="decision-id">${d.id}</div>
+            <div class="decision-axis">${d.axis}</div>
+            <div class="decision-value">${d.value}</div>
+            <div class="decision-meta">
+              <span>${d.date}</span>
+              <span>${d.topic}</span>
+              <span>${d.status}</span>
+            </div>
+          </div>
+        `).join('');
+      } else {
+        decEl.innerHTML = '<div class="empty-state">No decisions found</div>';
+      }
+
+      // Load charter version
+      const charter = await DataLoader.getProjectCharter();
+      if (charter && charter.charter) {
+        document.getElementById('charterSub').textContent =
+          `v${charter.charter.version} · Memory-First · Topic-Based · Role-Separated`;
+      }
+    }
+    init();
+  </script>
+</body>
+</html>
