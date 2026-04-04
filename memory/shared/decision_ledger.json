@@ -54,7 +54,51 @@
       "value": "Master가 명시적으로 요청할 때만 Nova 호출. 자동 트리거 조건 미정의.",
       "authority": "master",
       "status": "confirmed"
+    },
+    {
+      "id": "D-006",
+      "date": "2026-04-04",
+      "session": "session_003",
+      "topic": "local-vs-server",
+      "axis": "배포 방식",
+      "decision": "A",
+      "value": "정적 사이트 배포 (Cloudflare Pages + Cloudflare Access). 모바일/PC 브라우저로 접근.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-007",
+      "date": "2026-04-04",
+      "session": "session_003",
+      "topic": "local-vs-server",
+      "axis": "배포 대상 범위",
+      "decision": "A",
+      "value": "reports/ + memory/shared/ 일부만 배포. memory/master/는 완전 제외.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-008",
+      "date": "2026-04-04",
+      "session": "session_003",
+      "topic": "local-vs-server",
+      "axis": "Push 자동화",
+      "decision": "B",
+      "value": "git hook 또는 스크립트로 세션 종료 시 자동 push.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-009",
+      "date": "2026-04-04",
+      "session": "session_003",
+      "topic": "role-definition",
+      "axis": "Ace/Editor 역할 재정의",
+      "decision": "Master 지시",
+      "value": "Ace가 종합검토 수행. Editor는 결과물 작성/정리/출력만 담당. Editor에서 synthesis 역할 완전 분리.",
+      "authority": "master",
+      "status": "confirmed"
     }
   ],
-  "lastUpdated": "2026-04-03T00:00:00.000Z"
+  "lastUpdated": "2026-04-04T00:00:00.000Z"
 }

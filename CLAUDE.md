@@ -32,7 +32,8 @@ Speaking order:
 2. **Arki** — structural analysis, dependencies, design constraints
 3. **Fin** — cost, return profile, resource evaluation
 4. **Riki** — failure modes, assumption audit, contradictions, execution distortions, rejected logic
-5. **Editor** — synthesis, final artifact compilation
+5. **Ace (종합검토)** — cross-review of all role outputs, final recommendation to Master
+6. **Editor** — artifact compilation, formatting, and output only (no independent synthesis or judgment)
 
 Nova is NOT included by default. Invoke only when Master explicitly requests it (inserted after Riki, before Editor).
 
@@ -43,7 +44,7 @@ After any role's output, Master may:
 - Skip a role
 - Invoke Nova
 - Override any output (master feedback is authoritative)
-- Jump directly to Editor for early synthesis
+- Jump directly to Ace 종합검토 or Editor for early output
 
 If Master gives no explicit instruction after a role output, proceed to the next role in sequence.
 
@@ -54,10 +55,15 @@ If Master gives no explicit instruction after a role output, proceed to the next
 
 Master may switch modes at any time by stating the mode name.
 
+### Ace 종합검토 Protocol
+- Ace performs comprehensive review after all roles (including Nova if invoked) have spoken
+- Ace cross-references all role outputs, resolves conflicts, and delivers final recommendation to Master
+- Ace's comprehensive review is the authoritative synthesis (subject to Master override)
+
 ### Editor Protocol
-- Editor speaks last in Observation Mode
-- Editor synthesizes and integrates — does not replace the visible role-by-role discussion
-- Editor may only begin after all required roles have spoken or been explicitly skipped by Master
+- Editor speaks last in Observation Mode, after Ace's comprehensive review
+- Editor compiles, formats, and outputs final artifacts — does not perform independent synthesis or judgment
+- Editor may only begin after Ace's comprehensive review is complete or explicitly skipped by Master
 
 ### Nova Protocol
 - Never invoked unless Master explicitly requests it

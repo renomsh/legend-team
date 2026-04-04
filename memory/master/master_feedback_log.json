@@ -16,7 +16,23 @@
       },
       "instruction": "필요한 우선순위로 프로그래밍해",
       "effect": "v0.2.0 업그레이드 즉시 실행"
+    },
+    {
+      "id": "MF-002",
+      "date": "2026-04-04",
+      "session": "session_003",
+      "topic": "local-vs-server + role-definition",
+      "afterAgent": "all (6명 전원 발언 후)",
+      "feedback": "역할 혼선 지적. Ace가 종합검토를 해야 하고, Editor는 결과물 작성/정리/출력만 해야 한다. 현재 Editor가 synthesis까지 하고 있어 역할이 흔들렸음.",
+      "decisions": {
+        "D-006": "A — 정적 사이트 (Cloudflare Pages + Access)",
+        "D-007": "A — reports/ + memory/shared/ 일부만 배포",
+        "D-008": "B — 자동 push",
+        "D-009": "Ace/Editor 역할 재정의"
+      },
+      "instruction": "지금 실행해",
+      "effect": "project_charter, CLAUDE.md, ace_memory, editor_memory 수정. decision_ledger에 D-006~009 기록."
     }
   ],
-  "lastUpdated": "2026-04-03T00:00:00.000Z"
+  "lastUpdated": "2026-04-04T00:00:00.000Z"
 }
