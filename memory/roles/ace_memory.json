@@ -16,7 +16,16 @@
       "date": "2026-04-04",
       "keyFraming": "쓰기 경로(Claude Code) 유지 + 읽기 경로(서버) 확장",
       "decisionAxes": 3,
-      "status": "in-progress"
+      "status": "closed"
+    },
+    {
+      "topicId": "topic_004",
+      "title": "v0.3.0 업그레이드 항목 검토",
+      "date": "2026-04-04",
+      "reportPath": "reports/2026-04-04_v030-upgrade-review/ace_rev01.md",
+      "keyFraming": "수동→자동 전환 범위 + 껍데기 자산 실질화 여부",
+      "decisionAxes": 4,
+      "status": "suspended — 브랜치 일원화로 중단, 다음 세션 재개"
     }
   ],
   "framePatterns": [

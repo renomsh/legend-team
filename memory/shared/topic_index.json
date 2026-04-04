@@ -43,7 +43,19 @@
       ],
       "masterDecisions": ["D-006", "D-007", "D-008", "D-009", "D-003 revised", "D-007 revised"],
       "outcome": "Cloudflare Pages 배포 완료. 다중 페이지 뷰어 구현. Ace/Editor 역할 재정의."
+    },
+    {
+      "id": "topic_004",
+      "title": "v0.3.0 업그레이드 항목 검토",
+      "status": "suspended",
+      "created": "2026-04-04",
+      "path": "reports/2026-04-04_v030-upgrade-review",
+      "reportPath": "reports/2026-04-04_v030-upgrade-review",
+      "reportFiles": ["ace_rev01.md"],
+      "masterDecisions": [],
+      "outcome": "Ace 프레이밍 완료 (축 4개 제안). 브랜치 분기 발견 → 일원화 실행. 의사결정 미완료 — 다음 세션 재개 필요.",
+      "note": "session_004. Ace만 발언. master↔origin/main 머지 후 세션 종료."
     }
   ],
-  "lastUpdated": "2026-04-04T00:00:00.000Z"
+  "lastUpdated": "2026-04-04T21:00:00.000Z"
 }

@@ -1,48 +1,27 @@
 {
-  "sessionId": "session_003",
-  "topic": "local-upgrade-vs-server-migration",
-  "topicSlug": "2026-04-04_local-vs-server",
+  "sessionId": "session_004",
+  "topic": "v0.3.0 업그레이드 항목 검토",
+  "topicSlug": "2026-04-04_v030-upgrade-review",
   "status": "closed",
   "startedAt": "2026-04-04T00:00:00.000Z",
-  "closedAt": "2026-04-04T20:30:00.000Z",
+  "closedAt": "2026-04-04T21:00:00.000Z",
   "mode": "observation",
-  "agentsCompleted": ["ace", "arki", "fin", "riki", "nova", "ace-review", "editor"],
-  "novaInvoked": true,
-  "masterDecisions": [
-    {
-      "id": "D-006",
-      "axis": "배포 방식",
-      "decision": "A",
-      "value": "정적 사이트 (Cloudflare Pages + Access)"
-    },
-    {
-      "id": "D-007",
-      "axis": "배포 대상 범위",
-      "decision": "A → revised",
-      "value": "전체 배포. 보안은 Cloudflare Access에 위임"
-    },
-    {
-      "id": "D-008",
-      "axis": "Push 자동화",
-      "decision": "B",
-      "value": "git hook/스크립트 자동 push"
-    },
-    {
-      "id": "D-009",
-      "axis": "Ace/Editor 역할 재정의",
-      "decision": "Master 지시",
-      "value": "Ace=종합검토, Editor=결과물 출력만"
-    },
-    {
-      "id": "D-003 revised",
-      "axis": "뷰어 정책",
-      "decision": "다중 페이지 읽기 전용 허용, 쓰기 금지"
-    },
-    {
-      "id": "D-007 revised",
-      "axis": "배포 범위",
-      "decision": "전체 배포, master/ 포함"
-    }
+  "agentsCompleted": ["ace"],
+  "novaInvoked": false,
+  "masterDecisions": [],
+  "reportPath": "reports/2026-04-04_v030-upgrade-review/",
+  "notes": [
+    "Ace 프레이밍 발언 후 Master가 모바일 호환 질문 → origin/main 분기 발견",
+    "Master 지시로 master ← origin/main 머지 실행 (충돌 8개 해결)",
+    "일원화 완료 후 Master 지시로 세션 종료",
+    "4개 의사결정 축 미결정 — 다음 세션에서 D-006~009 반영 후 재개 필요"
   ],
-  "reportPath": "reports/2026-04-04_local-vs-server/"
+  "gaps": [],
+  "mergeEvent": {
+    "from": "origin/main",
+    "to": "master",
+    "commit": "f1309be",
+    "conflictsResolved": 8,
+    "newContentAbsorbed": ["session_003 reports", "multi-page viewer", "scripts/build.js", "scripts/auto-push.js", "D-006~009"]
+  }
 }
