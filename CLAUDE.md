@@ -14,11 +14,13 @@ Rules:
 - Keep outputs revisionable and re-openable
 - Do not overwrite prior decisions or reports silently
 
-## UI Exception (v0.2.0 — confirmed 2026-04-03, Decision D-003)
-- `app/internal-viewer.html` is permitted as an internal read-only viewer for file-based outputs
-- This file must NOT be extended into an interactive app or dashboard
-- No new UI files may be created without explicit Master approval
+## Viewer Policy (updated 2026-04-04, Decision D-003 revised)
+- `app/` directory is a read-only multi-page static viewer for file-based outputs
+- Read interactions (navigation, filtering, search, expand/collapse) are permitted
+- Write interactions (forms, input fields, state-changing buttons) are strictly prohibited
+- All data changes must go through Claude Code only (D-002)
 - JSX, React, and framework-based UI remain strictly out of scope
+- Deployed via Cloudflare Pages (D-006), authenticated via Cloudflare Access
 
 ## Operating Protocol
 
@@ -97,5 +99,6 @@ Master may switch modes at any time by stating the mode name.
 5. Append master feedback to `memory/master/master_feedback_log.json` if any was given
 6. Update relevant `memory/roles/{role}_memory.json` files with new patterns or findings
 7. Log session event to `logs/app.log` via `ts-node scripts/session-log.ts end <topic-slug>`
+8. Auto-push to GitHub: `node scripts/auto-push.js "session end: <topic-slug>"` (D-008)
 
 **If any checklist item is skipped, note it as a gap in `memory/sessions/current_session.json`.**

@@ -18,8 +18,8 @@
     {
       "id": "D-007",
       "axis": "배포 대상 범위",
-      "decision": "A",
-      "value": "reports/ + memory/shared/ 일부만. master/ 제외"
+      "decision": "A → revised",
+      "value": "전체 배포. 보안은 Cloudflare Access에 위임"
     },
     {
       "id": "D-008",
