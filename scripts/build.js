@@ -62,7 +62,9 @@ function build() {
 
   // Clean dist
   if (fs.existsSync(DIST)) {
-    fs.rmSync(DIST, { recursive: true, force: true });
+    fs.rmSync
+      ? fs.rmSync(DIST, { recursive: true, force: true })
+      : fs.rmdirSync(DIST, { recursive: true });
     console.log('[build] Cleaned dist/');
   }
   ensureDir(DIST);
