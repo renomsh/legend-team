@@ -90,6 +90,7 @@ Master may switch modes at any time by stating the mode name.
 2. Read `memory/shared/topic_index.json` — confirm which topics are open/in-progress
 3. Read `memory/shared/decision_ledger.json` — load prior decisions before any agent speaks
 4. Update `current_session.json` with new session ID and topic if starting fresh
+5. Run `npm run session:start -- <topic-slug>` to register session in session_index.json (D-013)
 
 **Session End checklist:**
 1. Save all agent outputs to `reports/{YYYY-MM-DD}_{topic-slug}/{role}_rev{n}.md`
@@ -98,7 +99,9 @@ Master may switch modes at any time by stating the mode name.
 4. Update `memory/sessions/current_session.json` — set status to "closed", record closedAt
 5. Append master feedback to `memory/master/master_feedback_log.json` if any was given
 6. Update relevant `memory/roles/{role}_memory.json` files with new patterns or findings
-7. Log session event to `logs/app.log` via `ts-node scripts/session-log.ts end <topic-slug>`
-8. Auto-push to GitHub: `node scripts/auto-push.js "session end: <topic-slug>"` (D-008)
+7. Run `npm run validate -- reports/<topic-slug>/*.md` — confirm all outputs pass (D-013)
+8. Verify `memory/sessions/session_index.json` has an entry for this session (closure check — D-013)
+9. Log session event to `logs/app.log` via `npm run session:end -- <topic-slug>`
+10. Auto-push to GitHub: `node scripts/auto-push.js "session end: <topic-slug>"` (D-008)
 
 **If any checklist item is skipped, note it as a gap in `memory/sessions/current_session.json`.**

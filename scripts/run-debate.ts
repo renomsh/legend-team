@@ -1,12 +1,15 @@
 /**
  * run-debate.ts
+ * @deprecated LEGACY — 삭제 예정 (D-011, session_005)
+ *
+ * 현재 운영 방식(D-002: Claude Code 직접 Write)과 구조적으로 불일치.
+ * debate_log.json 기반 구조는 v0.1.0 이전 설계 흔적.
+ * 실제 호출 이력 없음. 다음 세션에서 삭제 예정.
+ *
  * Records an agent debate entry to a topic's debate_log.json.
  *
  * Usage:
  *   ts-node scripts/run-debate.ts <topicId> <agent> <phase> <filePath> [summary]
- *
- * Example:
- *   ts-node scripts/run-debate.ts topic_002 ace framing reports/2026-04-03_legend-team-upgrade/ace_rev01.md "Framing complete"
  */
 
 import * as fs from 'fs';

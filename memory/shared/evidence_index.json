@@ -26,7 +26,52 @@
       "source": "riki",
       "finding": "수동 기록 프로토콜 채택(결정 2A) 시 세션 간 누락 리스크 잔존",
       "status": "accepted-residual-risk"
+    },
+    {
+      "id": "E-004",
+      "date": "2026-04-05",
+      "topic": "v0.3.0-upgrade-review",
+      "type": "structural-diagnosis",
+      "source": "arki",
+      "finding": "session_index.json이 항상 비어있음. session-log.ts start가 한 번도 호출된 적 없음. 체크리스트 항목 존재 여부와 실행 여부는 별개임.",
+      "status": "resolved-D-013"
+    },
+    {
+      "id": "E-005",
+      "date": "2026-04-05",
+      "topic": "v0.3.0-upgrade-review",
+      "type": "config-drift",
+      "source": "arki",
+      "finding": "config/output.json의 requiredFrontmatter 필드명이 'agent'(잘못됨)였고, statusValues가 validate-output.ts와 불일치(4개 vs 6개)였음.",
+      "status": "resolved-P-01"
+    },
+    {
+      "id": "E-006",
+      "date": "2026-04-05",
+      "topic": "v0.3.0-upgrade-review",
+      "type": "data-error",
+      "source": "arki",
+      "finding": "master_feedback_log.json이 MF-002와 MF-003 사이 중괄호 초과로 invalid JSON 상태였음.",
+      "status": "resolved-P-02"
+    },
+    {
+      "id": "E-007",
+      "date": "2026-04-05",
+      "topic": "v0.3.0-upgrade-review",
+      "type": "audit-trail-gap",
+      "source": "riki",
+      "finding": "decision_ledger D-007 revised 내용이 master_feedback_log.json MF-002에 반영되지 않아 감사 trail 불일치 발생.",
+      "status": "resolved-P-03"
+    },
+    {
+      "id": "E-008",
+      "date": "2026-04-05",
+      "topic": "v0.3.0-upgrade-review",
+      "type": "dead-code",
+      "source": "arki",
+      "finding": "build-report.ts와 run-debate.ts가 현재 운영 방식(D-002 직접 Write)과 구조적으로 불일치. debate_log.json 기반 설계 흔적. 실제 호출 이력 없음.",
+      "status": "partially-resolved — run-debate.ts deprecated(D-011), build-report.ts 역할 재정의됨(D-012)"
     }
   ],
-  "lastUpdated": "2026-04-03T00:00:00.000Z"
+  "lastUpdated": "2026-04-05T00:00:00.000Z"
 }

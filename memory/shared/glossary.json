@@ -35,7 +35,25 @@
       "definition": "Claude Code가 세션 중 직접 파일 Write 도구를 사용해 에이전트 출력을 reports/에 저장하는 방식. TS 자동화 코드 없이 운용 가능.",
       "addedBy": "fin",
       "date": "2026-04-03"
+    },
+    {
+      "term": "publish compiler",
+      "definition": "topic_index와 reports/{dir}의 canonical report files를 읽어 viewer/publish 레이어가 소비하는 topic별 manifest와 summary metadata를 생성하는 스크립트. build-report.ts의 확정된 역할 정의(D-012).",
+      "addedBy": "master",
+      "date": "2026-04-05"
+    },
+    {
+      "term": "closure step",
+      "definition": "세션 종료 시 session_index.json 엔트리 존재 여부를 검증하는 단계. 세션 시작 스크립트 호출 여부를 사후 확인하는 실행 보장 메커니즘(D-013).",
+      "addedBy": "ace",
+      "date": "2026-04-05"
+    },
+    {
+      "term": "disposition matrix",
+      "definition": "여러 항목을 묶어 단일 축으로 결정하지 않고, 항목별로 처분 방식(삭제/보존/재설계 등)을 개별 결정하는 방식. 성격이 다른 항목을 같은 선택지로 묶으면 하나는 맞고 하나는 틀리는 결정이 나올 수 있을 때 사용.",
+      "addedBy": "master",
+      "date": "2026-04-05"
     }
   ],
-  "lastUpdated": "2026-04-03T00:00:00.000Z"
+  "lastUpdated": "2026-04-05T00:00:00.000Z"
 }

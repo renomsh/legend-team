@@ -8,7 +8,8 @@
     "novaPolicy": "explicit-request-only",
     "reportStructure": "reports/{YYYY-MM-DD}_{topic-slug}/{role}_rev{n}.md",
     "revisionPolicy": "append-never-overwrite",
-    "versioningPreference": "incremental"
+    "versioningPreference": "incremental",
+    "externalAiReviewPolicy": "review-before-incorporate — external AI responses must be verified against actual codebase before being accepted as Master feedback"
   },
   "versions": {
     "v0.1.0": {
@@ -18,7 +19,11 @@
     "v0.2.0": {
       "date": "2026-04-03",
       "description": "메모리 실질화 + reports/ 구조 생성 + internal-viewer 명시"
+    },
+    "v0.3.0": {
+      "date": "2026-04-05",
+      "description": "운영 부채 청산 + 연결 복구. config 드리프트 해소(D-010). 스크립트 처분 확정(D-011). build-report.ts publish compiler 정의(D-012). 세션 로깅 closure step 삽입(D-013). CLAUDE.md 프로토콜 갱신."
     }
   },
-  "lastUpdated": "2026-04-03T00:00:00.000Z"
+  "lastUpdated": "2026-04-05T00:00:00.000Z"
 }

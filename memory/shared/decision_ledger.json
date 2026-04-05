@@ -51,7 +51,7 @@
       "id": "D-005",
       "date": "2026-04-03",
       "session": "session_002",
-      "topic": "legend-team-upgrade",
+      "topic": "Nova 승격 기준",
       "axis": "Nova 승격 기준",
       "decision": "유지",
       "value": "Master가 명시적으로 요청할 때만 Nova 호출. 자동 트리거 조건 미정의.",
@@ -103,7 +103,51 @@
       "value": "Ace가 종합검토 수행. Editor는 결과물 작성/정리/출력만 담당. Editor에서 synthesis 역할 완전 분리.",
       "authority": "master",
       "status": "confirmed"
+    },
+    {
+      "id": "D-010",
+      "date": "2026-04-05",
+      "session": "session_005",
+      "topic": "v0.3.0-upgrade-review",
+      "axis": "v0.3.0 범위 전략",
+      "decision": "A",
+      "value": "정리 + 연결. 신규 기능 없음. 운영 부채 청산, 끊긴 스크립트 연결, config 드리프트 해소.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-011",
+      "date": "2026-04-05",
+      "session": "session_005",
+      "topic": "v0.3.0-upgrade-review",
+      "axis": "스크립트 처분 방식",
+      "decision": "파일별 disposition",
+      "value": "build-report.ts: publish compiler로 재설계. run-debate.ts: 삭제 예정 legacy 표기 후 다음 세션 삭제. generate-dashboard.ts: 변경 없음. session-log.ts: 세션 프로토콜 연결. validate-output.ts: 세션 종료 체크리스트 연결.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-012",
+      "date": "2026-04-05",
+      "session": "session_005",
+      "topic": "v0.3.0-upgrade-review",
+      "axis": "build-report.ts 역할 정의",
+      "decision": "A (Master 정의 확정)",
+      "value": "build-report.ts는 topic_index와 reports/{dir}의 canonical report files를 읽어, viewer/publish 레이어가 소비하는 topic별 manifest와 summary metadata를 생성하는 publish compiler다.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-013",
+      "date": "2026-04-05",
+      "session": "session_005",
+      "topic": "v0.3.0-upgrade-review",
+      "axis": "세션 로깅 실행 보장 방식",
+      "decision": "closure step 삽입",
+      "value": "세션 종료 시 session_index.json 엔트리 존재 여부 검증 단계 추가. CLAUDE.md 세션 시작/종료 체크리스트 갱신.",
+      "authority": "master",
+      "status": "confirmed"
     }
   ],
-  "lastUpdated": "2026-04-04T00:00:00.000Z"
+  "lastUpdated": "2026-04-05T00:00:00.000Z"
 }

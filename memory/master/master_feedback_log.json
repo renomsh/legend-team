@@ -26,13 +26,12 @@
       "feedback": "역할 혼선 지적. Ace가 종합검토를 해야 하고, Editor는 결과물 작성/정리/출력만 해야 한다. 현재 Editor가 synthesis까지 하고 있어 역할이 흔들렸음.",
       "decisions": {
         "D-006": "A — 정적 사이트 (Cloudflare Pages + Access)",
-        "D-007": "A — reports/ + memory/shared/ 일부만 배포",
+        "D-007": "A → revised — 전체 배포 (memory/master/ 포함). 초기 결정은 reports/ + memory/shared/ 일부만이었으나 Master 지시로 전체 배포로 개정.",
         "D-008": "B — 자동 push",
         "D-009": "Ace/Editor 역할 재정의"
       },
       "instruction": "지금 실행해",
       "effect": "project_charter, CLAUDE.md, ace_memory, editor_memory 수정. decision_ledger에 D-006~009 기록."
-    }
     },
     {
       "id": "MF-003",
@@ -44,7 +43,23 @@
       "decisions": {},
       "instruction": "여기까지 모두 로그, 저장하고 업데이트. 세션 종료.",
       "effect": "master ← origin/main 머지 완료. session_003 콘텐츠 흡수. topic_004 suspended 상태로 저장."
+    },
+    {
+      "id": "MF-004",
+      "date": "2026-04-05",
+      "session": "session_005",
+      "topic": "v0.3.0-upgrade-review",
+      "afterAgent": "ace 종합검토",
+      "feedback": "외부 AI 응답 2건 검토 — 저장소 불일치 확인, 유효 분석만 반영. 축 1-A 확정. 스크립트 처분 disposition matrix 확정. build-report.ts 역할 정의 확정.",
+      "decisions": {
+        "D-010": "축 1-A — 정리+연결",
+        "D-011": "스크립트별 disposition",
+        "D-012": "build-report.ts publish compiler 정의",
+        "D-013": "세션 로깅 closure step 삽입"
+      },
+      "instruction": "Editor 실행",
+      "effect": "decision_ledger D-010~013 등록. config 드리프트 수정. CLAUDE.md 프로토콜 갱신. 세션 산출물 저장."
     }
   ],
-  "lastUpdated": "2026-04-04T21:00:00.000Z"
+  "lastUpdated": "2026-04-05T00:00:00.000Z"
 }

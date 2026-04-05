@@ -47,15 +47,22 @@
     {
       "id": "topic_004",
       "title": "v0.3.0 업그레이드 항목 검토",
-      "status": "suspended",
+      "status": "closed",
       "created": "2026-04-04",
+      "closedAt": "2026-04-05",
       "path": "reports/2026-04-04_v030-upgrade-review",
       "reportPath": "reports/2026-04-04_v030-upgrade-review",
-      "reportFiles": ["ace_rev01.md"],
-      "masterDecisions": [],
-      "outcome": "Ace 프레이밍 완료 (축 4개 제안). 브랜치 분기 발견 → 일원화 실행. 의사결정 미완료 — 다음 세션 재개 필요.",
-      "note": "session_004. Ace만 발언. master↔origin/main 머지 후 세션 종료."
+      "reportFiles": [
+        "ace_rev01.md",
+        "ace_rev02.md",
+        "arki_rev01.md",
+        "fin_rev01.md",
+        "riki_rev01.md",
+        "editor_rev01.md"
+      ],
+      "masterDecisions": ["D-010", "D-011", "D-012", "D-013"],
+      "outcome": "v0.3.0 확정. 정리+연결 완료. config 드리프트 해소. 세션 프로토콜 실행 고리 확보. build-report.ts 역할 정의. run-debate.ts 삭제 예정 표기."
     }
   ],
-  "lastUpdated": "2026-04-04T21:00:00.000Z"
+  "lastUpdated": "2026-04-05T00:00:00.000Z"
 }
