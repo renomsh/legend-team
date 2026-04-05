@@ -51,7 +51,7 @@ function autoPush() {
   console.log('[auto-push] Committed:', message);
 
   // Push
-  const pushResult = run('git push origin');
+  const pushResult = run('git push origin main');
   if (pushResult !== null) {
     console.log('[auto-push] Pushed to origin successfully.');
   } else {

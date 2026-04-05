@@ -1,16 +1,18 @@
 {
-  "sessionId": "session_005",
-  "topic": "v0.3.0 운영 부채 폐쇄",
-  "topicSlug": "2026-04-05_v030-debt-close",
+  "sessionId": "session_006",
+  "topic": "Cloudflare 배포 미반영 진단 + main 브랜치 통일",
+  "topicSlug": "deploy-fix-branch-unify",
   "status": "closed",
-  "startedAt": "2026-04-05T00:00:00.000Z",
-  "mode": "observation",
+  "startedAt": "2026-04-05T06:00:00.000Z",
+  "mode": "direct",
   "agentsCompleted": [],
   "novaInvoked": false,
   "masterDecisions": [],
-  "reportPath": "reports/2026-04-05_v030-debt-close/",
-  "planPath": "memory/sessions/session_005_plan.md",
-  "notes": [],
+  "reportPath": null,
+  "notes": [
+    "origin/main이 session_003에서 멈춰 있었음 — auto-push.js가 master로 push하고 있었기 때문",
+    "master→main 동기화, 로컬 브랜치 main 전환, origin/master 삭제, auto-push.js 수정 완료"
+  ],
   "gaps": [],
-  "closedAt": "2026-04-05T05:27:05.580Z"
+  "closedAt": "2026-04-05T06:30:00.000Z"
 }
