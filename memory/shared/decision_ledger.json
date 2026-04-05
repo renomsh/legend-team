@@ -103,7 +103,40 @@
       "value": "Ace가 종합검토 수행. Editor는 결과물 작성/정리/출력만 담당. Editor에서 synthesis 역할 완전 분리.",
       "authority": "master",
       "status": "confirmed"
+    },
+    {
+      "id": "D-010",
+      "date": "2026-04-05",
+      "session": "session_005",
+      "topic": "v0.3.0-upgrade-review",
+      "axis": "build-report.ts 역할 정의",
+      "decision": "standalone publish compiler",
+      "value": "build-report.ts = standalone publish compiler. 입력: topic_index.json + reports/{dir}/*.md. 출력: published/topics_manifest.json, published/decisions_summary.json. build.js = packaging only (published/ → dist/ 복사). published/ 디렉토리 신설.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-011",
+      "date": "2026-04-05",
+      "session": "session_005",
+      "topic": "v0.3.0-upgrade-review",
+      "axis": "frontmatter status 통일",
+      "decision": "master-approved 단일화",
+      "value": "frontmatter status 값을 master-approved로 단일화. approved 폐기. 기존 파일 migration 완료 (2026-04-05).",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-012",
+      "date": "2026-04-05",
+      "session": "session_005",
+      "topic": "v0.3.0-upgrade-review",
+      "axis": "session 실행 확인 루프",
+      "decision": "2단계 방식",
+      "value": "임시 장치: current_session.json에 sessionLogCalled 플래그 추가. session-log.ts end 호출 시 true로 갱신. 최종 기준: session_index.json 원장 대조. 다음 세션 시작 시 이전 세션 sessionLogCalled 확인 → false이면 gap 기록.",
+      "authority": "master",
+      "status": "confirmed"
     }
   ],
-  "lastUpdated": "2026-04-04T00:00:00.000Z"
+  "lastUpdated": "2026-04-05T00:00:00.000Z"
 }

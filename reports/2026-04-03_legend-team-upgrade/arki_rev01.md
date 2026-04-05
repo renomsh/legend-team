@@ -3,7 +3,7 @@ topic: legend-team-upgrade
 role: arki
 revision: 1
 date: 2026-04-03
-status: approved
+status: master-approved
 accessed_assets:
   - file: glossary.json
     scope: current_topic

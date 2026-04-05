@@ -1,3 +1,8 @@
+// DEPRECATED 2026-04-05 — legacy v0.1 system (topics/{topicId}/debate_log.json)
+// Current system uses reports/{YYYY-MM-DD}_{slug}/{role}_rev{n}.md directly.
+// Pending _archived/ move next session (blocked by package.json "debate" script reference).
+// Do not use.
+
 /**
  * run-debate.ts
  * Records an agent debate entry to a topic's debate_log.json.

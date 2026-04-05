@@ -53,9 +53,20 @@
       "reportPath": "reports/2026-04-04_v030-upgrade-review",
       "reportFiles": ["ace_rev01.md"],
       "masterDecisions": [],
-      "outcome": "Ace 프레이밍 완료 (축 4개 제안). 브랜치 분기 발견 → 일원화 실행. 의사결정 미완료 — 다음 세션 재개 필요.",
-      "note": "session_004. Ace만 발언. master↔origin/main 머지 후 세션 종료."
+      "outcome": "Ace 프레이밍 완료 (축 4개 제안). 브랜치 분기 발견 → 일원화 실행. 의사결정 미완료.",
+      "note": "session_004. Ace만 발언. master↔origin/main 머지 후 세션 종료. session_005에서 재개 및 완료."
+    },
+    {
+      "id": "topic_005",
+      "title": "v0.3.0 업그레이드 항목 검토 (운영 부채 청산)",
+      "status": "closed",
+      "created": "2026-04-05",
+      "path": "reports/2026-04-05_v030-upgrade-review",
+      "reportPath": "reports/2026-04-05_v030-upgrade-review",
+      "reportFiles": ["ace_rev02.md", "arki_rev01.md", "fin_rev01.md", "riki_rev01.md", "editor_rev01.md"],
+      "masterDecisions": ["D-010", "D-011", "D-012"],
+      "outcome": "게이트 1+2 완료. OP-01~06 실행. D-010~012 확정. OP-02(build-report.ts 재설계)는 게이트 3으로 이연."
     }
   ],
-  "lastUpdated": "2026-04-04T21:00:00.000Z"
+  "lastUpdated": "2026-04-05T00:00:00.000Z"
 }

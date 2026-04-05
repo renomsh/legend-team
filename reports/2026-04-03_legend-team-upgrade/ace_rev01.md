@@ -3,7 +3,7 @@ topic: legend-team-upgrade
 role: ace
 revision: 1
 date: 2026-04-03
-status: approved
+status: master-approved
 accessed_assets:
   - file: topic_index.json
     scope: all_topics

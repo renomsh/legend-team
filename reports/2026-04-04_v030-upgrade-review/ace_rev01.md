@@ -3,7 +3,7 @@ topic: v0.3.0 업그레이드 항목 검토
 role: ace
 revision: 1
 date: 2026-04-04
-status: partial (세션 중 브랜치 일원화로 중단)
+status: draft
 accessed_assets:
   - file: current_session.json
     scope: session_002, session_003

@@ -30,6 +30,7 @@ interface SessionRecord {
   closedAt?: string;
   agentsCompleted: string[];
   gaps: string[];
+  sessionLogCalled?: boolean;
 }
 
 interface SessionIndex {
@@ -66,6 +67,13 @@ function startSession(topicSlug: string, mode = 'observation'): void {
   const index = readJson<SessionIndex>(SESSION_INDEX_PATH, { sessions: [], lastUpdated: '' });
   const sessionId = nextSessionId(index);
   const now = new Date().toISOString();
+
+  // D-012: check previous session sessionLogCalled flag
+  const prevSession = readJson<SessionRecord | null>(SESSION_PATH, null);
+  if (prevSession && prevSession.status === 'closed' && prevSession.sessionLogCalled !== true) {
+    log('WARN', 'session-log', `Previous session ${prevSession.sessionId} has sessionLogCalled=false — session-log.ts end may not have been called.`);
+    console.warn(`⚠ Gap detected: previous session (${prevSession.sessionId}) sessionLogCalled is false.`);
+  }
 
   const session: SessionRecord = {
     sessionId,
@@ -106,6 +114,7 @@ function endSession(topicSlug: string): void {
 
   session.status = 'closed';
   session.closedAt = now;
+  session.sessionLogCalled = true;
   writeJson(SESSION_PATH, session);
 
   // Update session index
