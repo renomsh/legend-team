@@ -65,6 +65,21 @@
       "masterDecisions": [],
       "path": "reports/2026-04-04_v030-upgrade-review"
     }
+    ,
+    {
+      "id": "topic_005",
+      "title": "레전드팀 v0.4.0 업그레이드 검토",
+      "status": "completed",
+      "created": "2026-04-05",
+      "controlPath": null,
+      "reportPath": "reports/2026-04-05_legend-team-upgrade-review",
+      "reportFiles": ["ace_rev01.md", "editor_rev01.md"],
+      "published": true,
+      "outcome": "v0.4.0 확정. 세션 체크리스트 자동화(H-01), 스크립트 정리, 자산 프로토콜 정의 완료.",
+      "masterDecisions": ["D-010", "D-011", "D-012", "D-013"],
+      "note": "topic_004(suspended) 승계. v0.3.0은 session_003~006 성과로 소급 확정. 이번 토픽은 v0.4.0 범위.",
+      "path": "reports/2026-04-05_legend-team-upgrade-review"
+    }
   ],
-  "lastUpdated": "2026-04-05T00:00:00.000Z"
+  "lastUpdated": "2026-04-05T12:00:00.000Z"
 }

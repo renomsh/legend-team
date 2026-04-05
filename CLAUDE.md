@@ -102,3 +102,37 @@ Master may switch modes at any time by stating the mode name.
 8. Auto-push to GitHub: `node scripts/auto-push.js "session end: <topic-slug>"` (D-008)
 
 **If any checklist item is skipped, note it as a gap in `memory/sessions/current_session.json`.**
+
+### Asset Protocols (v0.4.0, D-012)
+
+**evidence_index.json 운용 규칙:**
+- 기록 주체: 주로 Riki(리스크), Arki(구조 진단), 세션 정비 시 운영자
+- 기록 시점: 역할 발언 중 핵심 발견(finding)이 있을 때. 세션 종료 후 소급 기록도 허용
+- 필수 필드: id (E-NNN), date, topic, type, source, finding, status
+- type 값: structural-diagnosis | principle-violation | risk | assumption | data-error | operational-gap | legacy-ambiguity
+- status 값: open | resolved-{context} | accepted-residual-risk
+- 삭제 금지: status를 변경하되 엔트리를 삭제하지 않음
+- 스크립트: `ts-node scripts/log-evidence.ts` 사용 가능 (수동 기록도 허용)
+
+**glossary.json 운용 규칙:**
+- 기록 주체: 모든 역할. 새 용어를 처음 사용하거나 정의가 필요할 때 추가
+- 필수 필드: term, definition, addedBy, date
+- 갱신: 정의가 변경되면 기존 엔트리를 업데이트 (덮어쓰기 허용 — glossary는 최신 정의가 canonical)
+- 삭제: 더 이상 사용하지 않는 용어는 삭제 가능
+- 용어는 한국어 우선, 영어 병기 허용
+
+### Script Status (v0.4.0)
+
+**Active:**
+- `session-log.ts` — 세션 시작/종료 + 체크리스��� 검증 (H-01)
+- `validate-output.ts` — 리포트 frontmatter 검증
+- `auto-push.js` — 세션 종료 시 git push (D-008)
+- `build.js` — CF Pages 빌드 (canonical)
+
+**Utility:**
+- `create-topic.ts`, `apply-feedback.ts`, `log-evidence.ts` — 사용 가능
+
+**Deprecated:**
+- `run-debate.ts` — debate_log.json 기반, 사용 중지 (session_005)
+- `generate-dashboard.ts` — build.js로 대체 (session_007)
+- `build-report.ts` — run-debate.ts 의존, 사용 중지 (session_007)

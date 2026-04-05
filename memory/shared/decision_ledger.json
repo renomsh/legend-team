@@ -104,6 +104,51 @@
       "authority": "master",
       "status": "confirmed"
     }
+    ,
+    {
+      "id": "D-010",
+      "date": "2026-04-05",
+      "session": "session_007",
+      "topic": "legend-team-upgrade-review",
+      "axis": "v0.4.0 범위 전략",
+      "decision": "B",
+      "value": "자동화 + 자산 실질화. 세션 자동화 확장(H-01/H-02) + 자산 프로토콜 정의(N-01/N-03) + 스크립트 정리.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-011",
+      "date": "2026-04-05",
+      "session": "session_007",
+      "topic": "legend-team-upgrade-review",
+      "axis": "자동화 수준",
+      "decision": "A",
+      "value": "스크립트 보조. session-log.ts 확장 + validate-output.ts 연동. Claude Code가 호출하되 풀 오케스트레이션은 아님.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-012",
+      "date": "2026-04-05",
+      "session": "session_007",
+      "topic": "legend-team-upgrade-review",
+      "axis": "N-항목(자산 실질화) 처리",
+      "decision": "A",
+      "value": "v0.4.0에 포함. evidence_index 운용 프로토콜 + glossary 운용 기준 정의. 프로토콜 문서 수준.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-013",
+      "date": "2026-04-05",
+      "session": "session_007",
+      "topic": "legend-team-upgrade-review",
+      "axis": "v0.3.0 소급 확정",
+      "decision": "Master 지시",
+      "value": "session_003~006 성과(CF Pages 배포, 다중 페이지 뷰어, 역할 재정의, 운영 부채 폐쇄, main 브랜치 통일)를 v0.3.0으로 소급 확정. project.json 즉시 반영.",
+      "authority": "master",
+      "status": "confirmed"
+    }
   ],
-  "lastUpdated": "2026-04-04T00:00:00.000Z"
+  "lastUpdated": "2026-04-05T12:00:00.000Z"
 }

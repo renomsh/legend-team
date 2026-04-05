@@ -25,17 +25,27 @@
       "reportPath": "reports/2026-04-04_v030-upgrade-review/ace_rev01.md",
       "keyFraming": "수동→자동 전환 범위 + 껍데기 자산 실질화 여부",
       "decisionAxes": 4,
-      "status": "suspended — 브랜치 일원화로 중단, 다음 세션 재개"
+      "status": "suspended → topic_005에서 승계"
+    },
+    {
+      "topicId": "topic_005",
+      "title": "레전드팀 v0.4.0 업그레이드 검토",
+      "date": "2026-04-05",
+      "reportPath": "reports/2026-04-05_legend-team-upgrade-review/ace_rev01.md",
+      "keyFraming": "v0.3.0 소급 확정 + 3개 축(범위/자동화/N-항목)으로 재구성. 축4(viewer) 제거 — 이미 가동",
+      "decisionAxes": 3,
+      "status": "completed"
     }
   ],
   "framePatterns": [
     "시스템 자체를 토픽으로 삼을 때: 현재 상태 진단 → 목표 상태 정의 → 결정 축 도출",
-    "인프라 이전 토픽: 읽기/쓰기 경로 분리 → 각 경로별 옵션 평가 → 보안 축 추가"
+    "인프라 이전 토픽: 읽기/쓰기 경로 분리 → 각 경로별 옵션 평가 → 보안 축 추가",
+    "업그레이드 연속 토픽: 이전 프레이밍을 현재 시점 기준으로 재검증 후 승계. 해소된 항목 제거 필수."
   ],
   "roleUpdate": {
     "date": "2026-04-04",
     "change": "종합검토 책임 공식 배정 (Master 지시). Editor에서 synthesis 역할 분리.",
     "decisionRef": "Master feedback session_003"
   },
-  "lastUpdated": "2026-04-04T00:00:00.000Z"
+  "lastUpdated": "2026-04-05T12:00:00.000Z"
 }

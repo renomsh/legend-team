@@ -1,7 +1,10 @@
 /**
- * session-log.ts  [M-02 로그 시스템]
+ * session-log.ts  [M-02 로그 시스템 + H-01 체크리스트 검증]
  * Logs session start/end events to logs/app.log and updates
  * memory/sessions/current_session.json accordingly.
+ *
+ * On `end`: runs session-end checklist verification (CLAUDE.md protocol).
+ * Reports pass/warn per item — does NOT block session closure (D-011: script-assisted).
  *
  * Usage:
  *   ts-node scripts/session-log.ts start <topicSlug> [mode]
@@ -20,6 +23,10 @@ const ROOT = path.resolve(__dirname, '..');
 const APP_LOG = path.join(ROOT, 'logs', 'app.log');
 const SESSION_PATH = path.join(ROOT, 'memory', 'sessions', 'current_session.json');
 const SESSION_INDEX_PATH = path.join(ROOT, 'memory', 'sessions', 'session_index.json');
+const TOPIC_INDEX_PATH = path.join(ROOT, 'memory', 'shared', 'topic_index.json');
+const DECISION_LEDGER_PATH = path.join(ROOT, 'memory', 'shared', 'decision_ledger.json');
+const FEEDBACK_LOG_PATH = path.join(ROOT, 'memory', 'master', 'master_feedback_log.json');
+const REPORTS_DIR = path.join(ROOT, 'reports');
 
 interface SessionRecord {
   sessionId: string;
@@ -103,6 +110,73 @@ function startSession(topicSlug: string, mode = 'observation'): void {
   console.log(`  current_session.json updated`);
 }
 
+interface CheckResult {
+  item: string;
+  pass: boolean;
+  detail: string;
+}
+
+function runEndChecklist(session: SessionRecord): CheckResult[] {
+  const results: CheckResult[] = [];
+
+  // 1. Reports exist for this topic's reportPath
+  const reportPath = (session as any).reportPath as string | undefined;
+  if (reportPath) {
+    const fullReportPath = path.join(ROOT, reportPath);
+    if (fs.existsSync(fullReportPath)) {
+      const files = fs.readdirSync(fullReportPath).filter(f => f.endsWith('.md'));
+      results.push({ item: 'reports', pass: files.length > 0, detail: `${files.length} report file(s) in ${reportPath}` });
+    } else {
+      results.push({ item: 'reports', pass: false, detail: `reportPath not found: ${reportPath}` });
+    }
+  } else {
+    results.push({ item: 'reports', pass: false, detail: 'no reportPath in current_session.json' });
+  }
+
+  // 2. decision_ledger updated (if session has decisions)
+  const decisions = (session as any).masterDecisions as string[] | undefined;
+  if (decisions && decisions.length > 0) {
+    const ledger = readJson<{ decisions: any[] }>(DECISION_LEDGER_PATH, { decisions: [] });
+    const sessionDecisions = ledger.decisions.filter((d: any) => d.session === session.sessionId);
+    results.push({
+      item: 'decision_ledger',
+      pass: sessionDecisions.length > 0,
+      detail: sessionDecisions.length > 0
+        ? `${sessionDecisions.length} decision(s) recorded for ${session.sessionId}`
+        : `masterDecisions noted but none found in ledger for ${session.sessionId}`
+    });
+  } else {
+    results.push({ item: 'decision_ledger', pass: true, detail: 'no decisions this session — skip' });
+  }
+
+  // 3. topic_index has the topic
+  const topicIndex = readJson<{ topics: any[] }>(TOPIC_INDEX_PATH, { topics: [] });
+  const topicEntry = topicIndex.topics.find((t: any) =>
+    t.reportPath === reportPath || t.path === reportPath
+  );
+  results.push({
+    item: 'topic_index',
+    pass: !!topicEntry,
+    detail: topicEntry ? `topic found: ${topicEntry.id} (${topicEntry.status})` : 'topic not found in topic_index.json'
+  });
+
+  // 4. current_session status (will be set to closed after this check)
+  results.push({ item: 'current_session', pass: true, detail: 'will be set to closed' });
+
+  // 5. master_feedback_log (advisory — check if feedback entries exist for this session)
+  const feedbackLog = readJson<{ feedbackLog: any[] }>(FEEDBACK_LOG_PATH, { feedbackLog: [] });
+  const sessionFeedback = feedbackLog.feedbackLog.filter((f: any) => f.session === session.sessionId);
+  results.push({
+    item: 'master_feedback',
+    pass: true,
+    detail: sessionFeedback.length > 0
+      ? `${sessionFeedback.length} feedback entry(ies) recorded`
+      : 'no feedback entries — OK if none given'
+  });
+
+  return results;
+}
+
 function endSession(topicSlug: string): void {
   const session = readJson<SessionRecord | null>(SESSION_PATH, null);
   const now = new Date().toISOString();
@@ -116,6 +190,26 @@ function endSession(topicSlug: string): void {
   if (session.topicSlug !== topicSlug) {
     log('WARN', 'session-log', `END topicSlug mismatch. expected: ${session.topicSlug}, got: ${topicSlug}`);
     console.warn(`⚠ Topic slug mismatch. Current session: ${session.topicSlug}`);
+  }
+
+  // H-01: Run end-of-session checklist before closing
+  const checks = runEndChecklist(session);
+  const passed = checks.filter(c => c.pass).length;
+  const warned = checks.filter(c => !c.pass).length;
+
+  console.log(`\n── Session End Checklist ──`);
+  for (const c of checks) {
+    const icon = c.pass ? '✓' : '⚠';
+    console.log(`  ${icon} ${c.item}: ${c.detail}`);
+    log(c.pass ? 'INFO' : 'WARN', 'checklist', `${c.item}: ${c.detail}`);
+  }
+  console.log(`  ── ${passed} passed, ${warned} warned ──\n`);
+
+  if (warned > 0) {
+    session.gaps = session.gaps || [];
+    for (const c of checks.filter(c => !c.pass)) {
+      session.gaps.push(`checklist-warn: ${c.item} — ${c.detail}`);
+    }
   }
 
   session.status = 'closed';

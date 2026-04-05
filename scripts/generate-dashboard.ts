@@ -1,3 +1,10 @@
+/**
+ * @deprecated superseded by build.js (session_007, v0.4.0)
+ * build.js가 다중 페이지 뷰어(app/*.html → dist/) 빌드를 담당.
+ * 이 스크립트는 레거시 internal-viewer.html 생성용이며 더 이상 사용하지 않음.
+ * package.json "viewer" 참조 제거 완료.
+ */
+
 import * as fs from 'fs';
 import * as path from 'path';
 

@@ -1,18 +1,26 @@
 {
-  "sessionId": "session_006",
-  "topic": "Cloudflare 배포 미반영 진단 + main 브랜치 통일",
-  "topicSlug": "deploy-fix-branch-unify",
+  "sessionId": "session_007",
+  "topic": "레전드팀 v0.4.0 업그레이드 검토",
+  "topicSlug": "legend-team-upgrade-review",
   "status": "closed",
-  "startedAt": "2026-04-05T06:00:00.000Z",
-  "mode": "direct",
-  "agentsCompleted": [],
+  "startedAt": "2026-04-05T12:00:00.000Z",
+  "mode": "observation",
+  "agentsCompleted": [
+    "ace"
+  ],
   "novaInvoked": false,
-  "masterDecisions": [],
-  "reportPath": null,
+  "masterDecisions": [
+    "축1: B (자동화 + 자산 실질화)",
+    "축2: A (스크립트 보조)",
+    "축3: A (v0.4.0에 포함, 프로토콜 수준)",
+    "v0.3.0 소급 확정 (session_003~006 성과)"
+  ],
+  "reportPath": "reports/2026-04-05_legend-team-upgrade-review",
   "notes": [
-    "origin/main이 session_003에서 멈춰 있었음 — auto-push.js가 master로 push하고 있었기 때문",
-    "master→main 동기화, 로컬 브랜치 main 전환, origin/master 삭제, auto-push.js 수정 완료"
+    "topic_004(suspended) 승계, v0.4.0으로 레이블 변경",
+    "Master 지적: v0.3.0은 이미 반영됨 (배포+뷰어+부채정리). project.json v0.2.0→v0.3.0 즉시 수정",
+    "축4(viewer 연동) 제거 — 이미 가동 중"
   ],
   "gaps": [],
-  "closedAt": "2026-04-05T06:30:00.000Z"
+  "closedAt": "2026-04-05T12:29:28.254Z"
 }

@@ -1,16 +1,15 @@
 /**
- * build-report.ts
+ * @deprecated superseded (session_007, v0.4.0)
+ * debate_log.json 기반 리포트 빌드 — run-debate.ts(deprecated)에 의존.
+ * 현재 리포트는 Claude Code가 직접 reports/{date}_{slug}/{role}_rev{n}.md로 작성(D-002).
+ * package.json "report" 참조 제거 완료.
+ *
+ * build-report.ts (original description below)
  * Compiles a final report for a topic by:
  * 1. Resolving controlPath from topic_index.json
  * 2. Reading all role debate entries from controlPath/debate_log.json
  * 3. Writing a report manifest to reportPath/manifest.json
  * 4. Printing a structured summary of all contributions
- *
- * Usage:
- *   ts-node scripts/build-report.ts <topicId>
- *
- * Example:
- *   ts-node scripts/build-report.ts topic_005
  */
 
 import * as fs from 'fs';

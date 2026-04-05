@@ -4,3 +4,17 @@
 [2026-04-04T23:46:59.915Z] [validate-output] Validated 14 files — 14 passed, 0 failed, 14 legacy
 [2026-04-05T05:27:05.589Z] [INFO] [session-log] END session_005 | topic: 2026-04-05_v030-debt-close | duration: 327m
 [2026-04-05T05:27:05.594Z] [INFO] [session-log] OP-04 PASS: session_005 confirmed in session_index with closedAt
+[2026-04-05T12:27:02.660Z] [INFO] [checklist] reports: 2 report file(s) in reports/2026-04-05_legend-team-upgrade-review
+[2026-04-05T12:27:02.661Z] [INFO] [checklist] decision_ledger: 4 decision(s) recorded for session_007
+[2026-04-05T12:27:02.662Z] [INFO] [checklist] topic_index: topic found: topic_005 (in-progress)
+[2026-04-05T12:27:02.663Z] [INFO] [checklist] current_session: will be set to closed
+[2026-04-05T12:27:02.663Z] [INFO] [checklist] master_feedback: no feedback entries — OK if none given
+[2026-04-05T12:27:02.665Z] [INFO] [session-log] END session_007 | topic: legend-team-upgrade-review | duration: 27m
+[2026-04-05T12:27:02.666Z] [WARN] [session-log] OP-04 FAIL: session_007 not found or missing closedAt in session_index
+[2026-04-05T12:29:28.270Z] [INFO] [checklist] reports: 2 report file(s) in reports/2026-04-05_legend-team-upgrade-review
+[2026-04-05T12:29:28.272Z] [INFO] [checklist] decision_ledger: 4 decision(s) recorded for session_007
+[2026-04-05T12:29:28.274Z] [INFO] [checklist] topic_index: topic found: topic_005 (completed)
+[2026-04-05T12:29:28.277Z] [INFO] [checklist] current_session: will be set to closed
+[2026-04-05T12:29:28.279Z] [INFO] [checklist] master_feedback: no feedback entries — OK if none given
+[2026-04-05T12:29:28.285Z] [INFO] [session-log] END session_007 | topic: legend-team-upgrade-review | duration: 29m
+[2026-04-05T12:29:28.287Z] [INFO] [session-log] OP-04 PASS: session_007 confirmed in session_index with closedAt

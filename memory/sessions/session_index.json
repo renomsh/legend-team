@@ -37,15 +37,21 @@
       "topicSlug": "2026-04-05_v030-debt-close",
       "startedAt": "2026-04-05T00:00:00.000Z",
       "closedAt": "2026-04-05T05:27:05.580Z"
-    }
+    },
     {
       "sessionId": "session_006",
       "topicSlug": "deploy-fix-branch-unify",
       "startedAt": "2026-04-05T06:00:00.000Z",
       "closedAt": "2026-04-05T06:30:00.000Z",
       "note": "Cloudflare 배포 미반영 원인: auto-push.js가 master로 push, CF는 main 감시. main 통일 완료."
+    },
+    {
+      "sessionId": "session_007",
+      "topicSlug": "legend-team-upgrade-review",
+      "startedAt": "2026-04-05T12:00:00.000Z",
+      "closedAt": "2026-04-05T12:29:28.254Z"
     }
   ],
-  "lastUpdated": "2026-04-05T06:30:00.000Z",
+  "lastUpdated": "2026-04-05T12:29:28.254Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
