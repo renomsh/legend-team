@@ -21,6 +21,24 @@ function run(cmd) {
   }
 }
 
+function getCurrentBranch() {
+  const branch = run('git rev-parse --abbrev-ref HEAD');
+  return branch ? branch.trim() : null;
+}
+
+function getMainRepoRoot() {
+  // In a worktree, find the main repo's working directory
+  const commonDir = run('git rev-parse --git-common-dir');
+  if (!commonDir) return null;
+  const resolved = path.resolve(ROOT, commonDir.trim());
+  // .git/worktrees/xxx -> go up to .git, then up to repo root
+  if (resolved.includes('worktrees')) {
+    return path.resolve(resolved, '..', '..');
+  }
+  // Already in main repo (.git)
+  return path.resolve(resolved, '..');
+}
+
 function autoPush() {
   const message = process.argv[2] || `session update: ${new Date().toISOString().split('T')[0]}`;
 
@@ -50,12 +68,49 @@ function autoPush() {
   }
   console.log('[auto-push] Committed:', message);
 
-  // Push
-  const pushResult = run('git push origin main');
-  if (pushResult !== null) {
-    console.log('[auto-push] Pushed to origin successfully.');
+  const currentBranch = getCurrentBranch();
+  console.log(`[auto-push] Current branch: ${currentBranch}`);
+
+  if (currentBranch && currentBranch !== 'main') {
+    // Running in a worktree — merge into main before pushing
+    console.log(`[auto-push] Worktree detected. Merging ${currentBranch} → main...`);
+
+    const mainRoot = getMainRepoRoot();
+    if (!mainRoot) {
+      console.error('[auto-push] Could not resolve main repo root. Manual merge required.');
+      return;
+    }
+
+    // Merge from the main repo's working directory (where main is checked out)
+    try {
+      execSync(`git merge ${currentBranch} --ff-only`, {
+        cwd: mainRoot, encoding: 'utf8', stdio: 'pipe'
+      });
+      console.log(`[auto-push] Merged ${currentBranch} into main.`);
+    } catch (e) {
+      console.error(`[auto-push] Fast-forward merge failed. Manual merge required.`);
+      console.error(e.stderr || e.message);
+      return;
+    }
+
+    // Push main from the main repo root
+    try {
+      execSync('git push origin main', {
+        cwd: mainRoot, encoding: 'utf8', stdio: 'pipe'
+      });
+      console.log('[auto-push] Pushed main to origin successfully.');
+    } catch (e) {
+      console.error('[auto-push] Push failed. Manual push required.');
+      console.error(e.stderr || e.message);
+    }
   } else {
-    console.error('[auto-push] Push failed. Manual push required.');
+    // On main — push directly
+    const pushResult = run('git push origin main');
+    if (pushResult !== null) {
+      console.log('[auto-push] Pushed to origin successfully.');
+    } else {
+      console.error('[auto-push] Push failed. Manual push required.');
+    }
   }
 }
 
