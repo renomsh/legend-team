@@ -5,17 +5,20 @@
       "title": "레전드팀의 shared asset 조회 프로토콜 설계",
       "status": "closed",
       "created": "2026-04-02",
-      "path": "topics/topic_001",
+      "controlPath": "topics/topic_001",
       "reportPath": "reports/2026-04-02_shared-asset-protocol",
       "reportFiles": ["ace_rev01.md", "editor_rev01.md"],
-      "note": "retroactive — individual role debate files not recovered. Ace + Editor reconstruction only."
+      "published": true,
+      "note": "retroactive — individual role debate files not recovered. Ace + Editor reconstruction only.",
+      "path": "topics/topic_001"
     },
     {
       "id": "topic_002",
       "title": "레전드팀 업그레이드 (v0.1.0 → v0.2.0)",
       "status": "closed",
       "created": "2026-04-03",
-      "path": "reports/2026-04-03_legend-team-upgrade",
+      "controlPath": null,
+      "reportPath": "reports/2026-04-03_legend-team-upgrade",
       "reportFiles": [
         "ace_rev01.md",
         "arki_rev01.md",
@@ -23,15 +26,17 @@
         "riki_rev01.md",
         "editor_rev01.md"
       ],
+      "published": true,
+      "outcome": "v0.2.0 기준 확정 및 실행 완료",
       "masterDecisions": ["D-001", "D-002", "D-003", "D-004", "D-005"],
-      "outcome": "v0.2.0 기준 확정 및 실행 완료"
+      "path": "reports/2026-04-03_legend-team-upgrade"
     },
     {
       "id": "topic_003",
       "title": "로컬 업그레이드 vs 서버 이전 → Cloudflare Pages 배포",
       "status": "closed",
       "created": "2026-04-04",
-      "path": "reports/2026-04-04_local-vs-server",
+      "controlPath": null,
       "reportPath": "reports/2026-04-04_local-vs-server",
       "reportFiles": [
         "ace_rev01.md",
@@ -41,21 +46,25 @@
         "nova_rev01.md",
         "editor_rev01.md"
       ],
+      "published": true,
+      "outcome": "Cloudflare Pages 배포 완료. 다중 페이지 뷰어 구현. Ace/Editor 역할 재정의.",
       "masterDecisions": ["D-006", "D-007", "D-008", "D-009", "D-003 revised", "D-007 revised"],
-      "outcome": "Cloudflare Pages 배포 완료. 다중 페이지 뷰어 구현. Ace/Editor 역할 재정의."
+      "path": "reports/2026-04-04_local-vs-server"
     },
     {
       "id": "topic_004",
       "title": "v0.3.0 업그레이드 항목 검토",
       "status": "suspended",
       "created": "2026-04-04",
-      "path": "reports/2026-04-04_v030-upgrade-review",
+      "controlPath": null,
       "reportPath": "reports/2026-04-04_v030-upgrade-review",
       "reportFiles": ["ace_rev01.md"],
-      "masterDecisions": [],
+      "published": false,
       "outcome": "Ace 프레이밍 완료 (축 4개 제안). 브랜치 분기 발견 → 일원화 실행. 의사결정 미완료 — 다음 세션 재개 필요.",
-      "note": "session_004. Ace만 발언. master↔origin/main 머지 후 세션 종료."
+      "note": "session_004. Ace만 발언. master↔origin/main 머지 후 세션 종료.",
+      "masterDecisions": [],
+      "path": "reports/2026-04-04_v030-upgrade-review"
     }
   ],
-  "lastUpdated": "2026-04-04T21:00:00.000Z"
+  "lastUpdated": "2026-04-05T00:00:00.000Z"
 }

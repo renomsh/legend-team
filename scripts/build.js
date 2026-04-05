@@ -1,7 +1,10 @@
 /**
  * Build script for Legend Team static viewer
- * Copies app/ source + memory/ + reports/ into dist/
- * Generates manifest.json for data-loader
+ * Copies app/ source + memory/ + reports/ + logs/ into dist/
+ * Generates:
+ *   dist/data/manifest.json              — raw file inventory
+ *   dist/data/published/topics_manifest.json — viewer-facing topic list (publish contract)
+ *   dist/data/published/decisions_summary.json — decision ledger summary
  *
  * Usage: node scripts/build.js
  */
@@ -20,7 +23,7 @@ const DATA_SOURCES = [
   { src: 'logs', dest: 'data/logs' }
 ];
 
-// ── Utilities ──
+// ── Utilities ──────────────────────────────────────────────────────────────
 
 function ensureDir(dir) {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
@@ -55,7 +58,64 @@ function listFilesRecursive(dir, base = '') {
   return results;
 }
 
-// ── Main Build ──
+function readJsonSafe(filePath) {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
+// ── Published Manifest ─────────────────────────────────────────────────────
+
+/**
+ * Generate viewer-facing topics_manifest.json from topic_index.json.
+ * Only includes fields safe for the viewer (no raw control-plane paths leaked).
+ */
+function buildTopicsManifest() {
+  const indexPath = path.join(ROOT, 'memory/shared/topic_index.json');
+  const raw = readJsonSafe(indexPath);
+  if (!raw || !Array.isArray(raw.topics)) {
+    console.warn('[build] Could not read topic_index.json — skipping topics_manifest');
+    return null;
+  }
+
+  const topics = raw.topics.map(t => ({
+    id: t.id,
+    title: t.title,
+    status: t.status,
+    created: t.created,
+    reportPath: t.reportPath ?? null,
+    reportFiles: t.reportFiles ?? [],
+    published: t.published ?? false,
+    outcome: t.outcome ?? null,
+    note: t.note ?? null,
+  }));
+
+  return {
+    generatedAt: new Date().toISOString(),
+    topics,
+  };
+}
+
+/**
+ * Generate viewer-facing decisions_summary.json from decision_ledger.json.
+ * Includes all decisions as-is (already viewer-safe).
+ */
+function buildDecisionsSummary() {
+  const ledgerPath = path.join(ROOT, 'memory/shared/decision_ledger.json');
+  const raw = readJsonSafe(ledgerPath);
+  if (!raw) {
+    console.warn('[build] Could not read decision_ledger.json — skipping decisions_summary');
+    return null;
+  }
+  return {
+    generatedAt: new Date().toISOString(),
+    decisions: raw.decisions ?? [],
+  };
+}
+
+// ── Main Build ─────────────────────────────────────────────────────────────
 
 function build() {
   console.log('[build] Starting...');
@@ -69,7 +129,7 @@ function build() {
   }
   ensureDir(DIST);
 
-  // Copy app source files (HTML, CSS, JS) — excluding internal-viewer.html (legacy)
+  // Copy app source files (HTML, CSS, JS) — excluding legacy internal-viewer.html
   const appEntries = fs.readdirSync(APP_SRC, { withFileTypes: true });
   for (const entry of appEntries) {
     const srcPath = path.join(APP_SRC, entry.name);
@@ -87,29 +147,53 @@ function build() {
   console.log('[build] Copied app/ source files');
 
   // Copy data directories
-  const manifest = {};
+  const fileManifest = {};
   for (const { src, dest } of DATA_SOURCES) {
     const srcPath = path.join(ROOT, src);
     const destPath = path.join(DIST, dest);
     if (fs.existsSync(srcPath)) {
       copyDirRecursive(srcPath, destPath);
-      manifest[src] = listFilesRecursive(srcPath);
-      console.log(`[build] Copied ${src}/ → ${dest}/ (${manifest[src].length} files)`);
+      fileManifest[src] = listFilesRecursive(srcPath);
+      console.log(`[build] Copied ${src}/ → ${dest}/ (${fileManifest[src].length} files)`);
     } else {
       console.log(`[build] Skipping ${src}/ (not found)`);
-      manifest[src] = [];
+      fileManifest[src] = [];
     }
   }
 
-  // Generate manifest.json
-  const manifestPath = path.join(DIST, 'data', 'manifest.json');
+  // Generate raw file manifest (legacy, kept for backward compat)
+  const rawManifestPath = path.join(DIST, 'data', 'manifest.json');
   ensureDir(path.join(DIST, 'data'));
-  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
-  console.log('[build] Generated manifest.json');
+  fs.writeFileSync(rawManifestPath, JSON.stringify(fileManifest, null, 2));
+  console.log('[build] Generated data/manifest.json');
+
+  // Generate published/ artifacts
+  const publishedDir = path.join(DIST, 'data', 'published');
+  ensureDir(publishedDir);
+
+  // topics_manifest.json — required for viewer topic list
+  const topicsManifest = buildTopicsManifest();
+  if (topicsManifest) {
+    fs.writeFileSync(
+      path.join(publishedDir, 'topics_manifest.json'),
+      JSON.stringify(topicsManifest, null, 2)
+    );
+    console.log(`[build] Generated data/published/topics_manifest.json (${topicsManifest.topics.length} topics)`);
+  }
+
+  // decisions_summary.json — optional but useful for viewer
+  const decisionsSummary = buildDecisionsSummary();
+  if (decisionsSummary) {
+    fs.writeFileSync(
+      path.join(publishedDir, 'decisions_summary.json'),
+      JSON.stringify(decisionsSummary, null, 2)
+    );
+    console.log(`[build] Generated data/published/decisions_summary.json (${decisionsSummary.decisions.length} decisions)`);
+  }
 
   // Summary
-  const totalFiles = Object.values(manifest).reduce((a, b) => a + b.length, 0);
-  console.log(`[build] Done. dist/ ready with ${totalFiles} data files.`);
+  const totalFiles = Object.values(fileManifest).reduce((a, b) => a + b.length, 0);
+  console.log(`[build] Done. dist/ ready with ${totalFiles} data files + published/ artifacts.`);
 }
 
 build();

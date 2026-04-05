@@ -3,7 +3,8 @@ topic: v0.3.0 업그레이드 항목 검토
 role: ace
 revision: 1
 date: 2026-04-04
-status: partial (세션 중 브랜치 일원화로 중단)
+status: partial
+note: 세션 중 브랜치 일원화(master←origin/main)로 중단. 4개 의사결정 축 미결정. topic_004 suspended.
 accessed_assets:
   - file: current_session.json
     scope: session_002, session_003

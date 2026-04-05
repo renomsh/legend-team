@@ -66,6 +66,20 @@ function startSession(topicSlug: string, mode = 'observation'): void {
   const index = readJson<SessionIndex>(SESSION_INDEX_PATH, { sessions: [], lastUpdated: '' });
   const sessionId = nextSessionId(index);
   const now = new Date().toISOString();
+  const gaps: string[] = [];
+
+  // OP-04: check if previous session was properly closed
+  const last = index.sessions.length > 0 ? index.sessions[index.sessions.length - 1] : null;
+  if (last && !last.closedAt) {
+    const gapMsg = `gap: ${last.sessionId} (${last.topicSlug}) has no closedAt — session-log end was not run`;
+    gaps.push(gapMsg);
+    log('WARN', 'session-log', gapMsg);
+    console.warn(`  ⚠ ${gapMsg}`);
+    // Mark gap in session_index
+    index.sessions = index.sessions.map(s =>
+      s.sessionId === last.sessionId ? { ...s, gap: true } : s
+    );
+  }
 
   const session: SessionRecord = {
     sessionId,
@@ -74,7 +88,7 @@ function startSession(topicSlug: string, mode = 'observation'): void {
     mode,
     startedAt: now,
     agentsCompleted: [],
-    gaps: [],
+    gaps,
   };
 
   writeJson(SESSION_PATH, session);
@@ -126,6 +140,16 @@ function endSession(topicSlug: string): void {
   if (session.gaps && session.gaps.length > 0) {
     console.log(`  ⚠ Gaps recorded: ${session.gaps.join(', ')}`);
   }
+  // OP-04: confirm session_index entry exists and has closedAt
+  const verifyIndex = readJson<SessionIndex>(SESSION_INDEX_PATH, { sessions: [], lastUpdated: '' });
+  const entry = verifyIndex.sessions.find(s => s.sessionId === session.sessionId);
+  if (entry && entry.closedAt) {
+    console.log(`  ✓ OP-04 check: session_index entry verified (closedAt: ${entry.closedAt})`);
+    log('INFO', 'session-log', `OP-04 PASS: ${session.sessionId} confirmed in session_index with closedAt`);
+  } else {
+    console.warn(`  ✗ OP-04 check: session_index entry missing or no closedAt`);
+    log('WARN', 'session-log', `OP-04 FAIL: ${session.sessionId} not found or missing closedAt in session_index`);
+  }
 }
 
 function run(): void {
@@ -144,6 +168,8 @@ function run(): void {
     endSession(topicSlug);
   } else {
     console.error(`Unknown action: ${action}. Must be "start" or "end".`);
+    console.error('  ts-node scripts/session-log.ts start <topicSlug> [mode]');
+    console.error('  ts-node scripts/session-log.ts end   <topicSlug>');
     process.exit(1);
   }
 }

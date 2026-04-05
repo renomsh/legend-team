@@ -1,3 +1,16 @@
+/**
+ * create-topic.ts
+ * Creates a new topic with control-plane workspace (topics/{id}) and registers
+ * it in topic_index.json with both controlPath and reportPath.
+ *
+ * Usage:
+ *   ts-node scripts/create-topic.ts "<topic title>"
+ *   ts-node scripts/create-topic.ts "<topic title>" <slug>
+ *
+ * Example:
+ *   ts-node scripts/create-topic.ts "팀 운영 구조 재설계" team-restructure
+ */
+
 import * as fs from 'fs';
 import * as path from 'path';
 import type { TopicIndex, TopicIndexEntry } from '../src/types/index';
@@ -32,15 +45,22 @@ function writeJson(absPath: string, content: unknown): void {
   fs.writeFileSync(absPath, JSON.stringify(content, null, 2) + '\n', 'utf8');
 }
 
-function agendaTemplate(id: string, title: string, date: string): string {
+/** Canonical v0.3.0 frontmatter template for Ace's agenda */
+function agendaTemplate(id: string, topicSlug: string, title: string, date: string): string {
   return [
     '---',
     `topic: ${id}`,
+    `topic_slug: ${topicSlug}`,
     `title: ${title}`,
-    'agent: ace',
+    'role: ace',
+    'phase: framing',
     'revision: 1',
     `date: ${date}`,
-    'status: draft',
+    'report_status: draft',
+    'session_status: open',
+    'accessed_assets:',
+    '  - topic_index.json',
+    '  - decision_ledger.json',
     '---',
     '',
     '## Topic Statement',
@@ -62,7 +82,16 @@ function agendaTemplate(id: string, title: string, date: string): string {
   ].join('\n');
 }
 
-function createTopic(title: string): void {
+function slugify(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9가-힣\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-')
+    .slice(0, 50);
+}
+
+function createTopic(title: string, explicitSlug?: string): void {
   const index = readTopicIndex();
   const id = nextTopicId(index);
   const topicDir = path.join(ROOT, 'topics', id);
@@ -74,9 +103,11 @@ function createTopic(title: string): void {
 
   const now = new Date().toISOString();
   const date = now.slice(0, 10);
+  const topicSlug = explicitSlug ?? slugify(title);
+  const reportPath = `reports/${date}_${topicSlug}`;
 
-  // Create folder structure (reports/ subfolder included)
-  fs.mkdirSync(path.join(topicDir, 'reports'), { recursive: true });
+  // Create control-plane folder structure
+  fs.mkdirSync(topicDir, { recursive: true });
 
   // topic_meta.json
   writeJson(path.join(topicDir, 'topic_meta.json'), {
@@ -89,10 +120,10 @@ function createTopic(title: string): void {
     tags: [],
   });
 
-  // agenda.md — structured placeholder for Ace to fill in
+  // agenda.md — canonical v0.3.0 frontmatter
   fs.writeFileSync(
     path.join(topicDir, 'agenda.md'),
-    agendaTemplate(id, title, date),
+    agendaTemplate(id, topicSlug, title, date),
     'utf8'
   );
 
@@ -104,12 +135,17 @@ function createTopic(title: string): void {
   writeJson(path.join(topicDir, 'revision_history.json'), { topicId: id, revisions: [] });
   writeJson(path.join(topicDir, 'speculative_options.json'), { topicId: id, options: [] });
 
-  // Register in topic_index.json
+  // Register in topic_index.json with 2-plane paths
   const entry: TopicIndexEntry = {
     id,
     title,
     status: 'open',
     created: date,
+    controlPath: `topics/${id}`,
+    reportPath,
+    reportFiles: [],
+    published: false,
+    // legacy fallback
     path: `topics/${id}`,
   };
   index.topics.push(entry);
@@ -118,22 +154,23 @@ function createTopic(title: string): void {
 
   // Summary
   console.log(`\nTopic created: ${id} — "${title}"`);
-  console.log(`  topics/${id}/topic_meta.json`);
-  console.log(`  topics/${id}/agenda.md`);
-  console.log(`  topics/${id}/debate_log.json`);
-  console.log(`  topics/${id}/decisions.json`);
-  console.log(`  topics/${id}/open_issues.json`);
-  console.log(`  topics/${id}/master_feedback.json`);
-  console.log(`  topics/${id}/revision_history.json`);
-  console.log(`  topics/${id}/speculative_options.json`);
-  console.log(`  topics/${id}/reports/`);
+  console.log(`  Control plane:  topics/${id}/`);
+  console.log(`    topic_meta.json, agenda.md, debate_log.json`);
+  console.log(`    decisions.json, open_issues.json, master_feedback.json`);
+  console.log(`    revision_history.json, speculative_options.json`);
+  console.log(`  Report plane:   ${reportPath}/  (created on first build-report run)`);
   console.log(`\nRegistered in memory/shared/topic_index.json`);
+  console.log(`  controlPath: topics/${id}`);
+  console.log(`  reportPath:  ${reportPath}`);
 }
 
-const title = process.argv[2];
+const args = process.argv.slice(2);
+const title = args[0];
+const slug = args[1];
+
 if (!title || title.trim().length === 0) {
-  console.error('Usage: ts-node scripts/create-topic.ts "<topic title>"');
+  console.error('Usage: ts-node scripts/create-topic.ts "<topic title>" [slug]');
   process.exit(1);
 }
 
-createTopic(title.trim());
+createTopic(title.trim(), slug?.trim());

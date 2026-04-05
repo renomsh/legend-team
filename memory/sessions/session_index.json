@@ -1,4 +1,44 @@
 {
-  "sessions": [],
-  "lastUpdated": "2026-04-03T06:10:35.694Z"
+  "sessions": [
+    {
+      "sessionId": "session_001",
+      "topicSlug": "2026-04-02_shared-asset-protocol",
+      "startedAt": "2026-04-02T00:00:00.000Z",
+      "closedAt": "2026-04-02T23:59:00.000Z",
+      "retroactive": true,
+      "gap": "session-log.ts가 존재하지 않던 시점에 진행된 세션. 기록 소급 불가. topic_index 및 reports/2026-04-02_shared-asset-protocol 기준으로 재구성."
+    },
+    {
+      "sessionId": "session_002",
+      "topicSlug": "2026-04-03_legend-team-upgrade",
+      "startedAt": "2026-04-03T00:00:00.000Z",
+      "closedAt": "2026-04-03T23:59:00.000Z",
+      "retroactive": true,
+      "gap": "session-log.ts end 미실행 — 수동 프로토콜 채택(D-002) 시점 세션. session_index 기록 없음. topic_index 및 reports/2026-04-03_legend-team-upgrade 기준으로 재구성."
+    },
+    {
+      "sessionId": "session_003",
+      "topicSlug": "2026-04-04_local-vs-server",
+      "startedAt": "2026-04-04T00:00:00.000Z",
+      "closedAt": "2026-04-04T20:00:00.000Z",
+      "retroactive": true,
+      "gap": "session-log.ts end 미실행. reports/2026-04-04_local-vs-server 존재. D-006~009 확정. Cloudflare Pages 배포 완료."
+    },
+    {
+      "sessionId": "session_004",
+      "topicSlug": "2026-04-04_v030-upgrade-review",
+      "startedAt": "2026-04-04T00:00:00.000Z",
+      "closedAt": "2026-04-04T21:00:00.000Z",
+      "retroactive": true,
+      "gap": "session-log.ts end 미실행. Ace 발언 후 브랜치 일원화(master←origin/main) 실행 후 세션 종료. 4개 의사결정 축 미결정. topic_004 suspended."
+    },
+    {
+      "sessionId": "session_005",
+      "topicSlug": "2026-04-05_v030-debt-close",
+      "startedAt": "2026-04-05T00:00:00.000Z",
+      "closedAt": "2026-04-05T05:27:05.580Z"
+    }
+  ],
+  "lastUpdated": "2026-04-05T05:27:05.580Z",
+  "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

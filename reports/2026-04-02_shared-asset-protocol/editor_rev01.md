@@ -3,7 +3,7 @@ topic: topic_001
 role: editor
 revision: 1
 date: 2026-04-02
-status: master-approved
+status: approved
 retroactive: true
 contributing_agents: [ace, arki, fin, riki, editor]
 nova_invoked: false

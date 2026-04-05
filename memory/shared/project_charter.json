@@ -1,11 +1,12 @@
 {
   "charter": {
     "name": "legend-team",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "purpose": "Memory-first, topic-based strategy system. Master receives structured analysis from role-separated agents on any strategic topic, with all outputs preserved in inspectable, revisionable files.",
     "principles": [
       "Memory first: all agent outputs, decisions, and session state are written to files immediately. No analysis lives only in conversation context.",
       "Role separation: each agent (ace, arki, fin, riki, editor, nova) owns a distinct domain. Agents must not exceed their domain without escalating.",
+      "2-plane contract: local file-based write channel (Claude Code) and Cloudflare Pages read channel are kept strictly separate. No write operations through the viewer.",
       "Master authority: all master feedback overrides agent outputs. No agent may ignore or paper over master direction.",
       "No silent overwrite: every revision creates a new file. Prior versions are preserved.",
       "Inspectability: every decision, every assumption, every contradiction must be traceable to a file.",
@@ -13,25 +14,40 @@
     ],
     "inScope": [
       "Topic-based strategic analysis",
-      "Multi-role structured debate (ace → arki → fin → riki → editor)",
+      "Multi-role structured debate (ace → arki → fin → riki → ace review → editor)",
       "File-based memory: decisions, evidence, glossary, session state",
       "Revision history for all agent outputs",
-      "Master feedback integration and logging"
+      "Master feedback integration and logging",
+      "Read-only static viewer via Cloudflare Pages (D-006)"
     ],
     "outOfScope": [
       "External API integrations (unless explicitly approved by Master)",
-      "Frontend UI or dashboards (app/internal-viewer.html is the only permitted exception)",
-      "JSX, React, or framework-based UI",
+      "Frontend UI frameworks: JSX, React, or component-based UI",
+      "Write interactions in the viewer (forms, state-changing buttons)",
       "Real-time or streaming analysis",
       "Autonomous agent action without Master approval"
     ],
     "roles": {
-      "ace": "Lead strategist. Opens topics, defines decision axes, sets scope, sequences the agenda. Performs comprehensive review of all role outputs and delivers final recommendation to Master.",
+      "ace": "Lead strategist and final arbiter. Opens topics, defines decision axes, sets scope, sequences the agenda. Performs comprehensive cross-review of all role outputs and delivers the final recommendation to Master.",
       "arki": "Systems architect. Maps structure, dependencies, and design constraints.",
       "fin": "Financial analyst. Evaluates cost, return, and resource viability.",
       "riki": "Adversarial analyst. Exposes failure modes, weak assumptions, and contradictions.",
-      "editor": "Artifact compiler. Formats, organizes, and outputs final documents based on Ace's comprehensive review. Does not perform independent synthesis or judgment.",
-      "nova": "Speculative thinker. Advisory only. Invoked by Master request only."
+      "editor": "Artifact compiler and output packager. Formats, organizes, and outputs final documents based on Ace's comprehensive review. Does not perform independent synthesis or judgment.",
+      "nova": "Speculative thinker. Advisory only. Invoked by Master request only. Never authoritative unless explicitly promoted."
+    },
+    "workflowPhases": {
+      "1": "framing (ace)",
+      "2": "structure (arki)",
+      "3": "financials (fin)",
+      "4": "risk (riki)",
+      "4b": "speculation (nova) — optional, Master-invoked only",
+      "5": "review (ace) — cross-review + final recommendation",
+      "6": "output (editor) — compile + format artifacts"
+    },
+    "topicContract": {
+      "controlPath": "topics/{topicId} — write-channel workspace (agenda, debate_log, decisions, issues, feedback)",
+      "reportPath": "reports/{YYYY-MM-DD}_{topic-slug} — artifact plane (role reports, publish metadata)",
+      "publishedManifest": "dist/data/published/topics_manifest.json — viewer-facing topic list"
     },
     "masterAuthority": "Master feedback is the highest authority in the system. Any agent output, decision, or plan can be overridden by Master at any point. Master decisions are recorded in memory/master/master_feedback_log.json and memory/shared/decision_ledger.json.",
     "sessionProtocol": "See CLAUDE.md § Session Protocol for start/end checklist.",
@@ -57,7 +73,12 @@
       "version": "0.2.0",
       "date": "2026-04-03",
       "summary": "Memory initialized, reports/ structure created, session protocol adopted, project_charter written, TS scripts implemented."
+    },
+    {
+      "version": "0.3.0",
+      "date": "2026-04-05",
+      "summary": "Contract alignment: 2-plane read/write separation formalized. Ace/Editor authority boundary clarified. Workflow phases 1-6 canonical. topic_index schema upgraded to controlPath/reportPath. frontmatter schema canonicalized (role, report_status, session_status). Published manifest introduced."
     }
   ],
-  "lastUpdated": "2026-04-04T00:00:00.000Z"
+  "lastUpdated": "2026-04-05T00:00:00.000Z"
 }

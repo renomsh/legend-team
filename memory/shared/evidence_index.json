@@ -26,7 +26,34 @@
       "source": "riki",
       "finding": "수동 기록 프로토콜 채택(결정 2A) 시 세션 간 누락 리스크 잔존",
       "status": "accepted-residual-risk"
+    },
+    {
+      "id": "E-004",
+      "date": "2026-04-05",
+      "topic": "v030-debt-close",
+      "type": "data-error",
+      "source": "session_005/OP-01",
+      "finding": "master_feedback_log.json: JSON 구문 오류(MF-002 뒤 여분의 }) + D-007 감사 trail 불일치(초기값 기록, revised값 누락)",
+      "status": "resolved-session_005"
+    },
+    {
+      "id": "E-005",
+      "date": "2026-04-05",
+      "topic": "v030-debt-close",
+      "type": "operational-gap",
+      "source": "session_005/OP-06",
+      "finding": "session_index.json이 빈 배열 상태였음 — session_001~004 모두 session-log.ts end 미실행으로 기록 누락",
+      "status": "resolved-session_005-retroactive"
+    },
+    {
+      "id": "E-006",
+      "date": "2026-04-05",
+      "topic": "v030-debt-close",
+      "type": "legacy-ambiguity",
+      "source": "session_005/OP-05",
+      "finding": "reports/ 내 status 값 혼용: master-approved(2건), partial(...)(1건) — canonical 값 불일치",
+      "status": "resolved-session_005"
     }
   ],
-  "lastUpdated": "2026-04-03T00:00:00.000Z"
+  "lastUpdated": "2026-04-05T00:00:00.000Z"
 }

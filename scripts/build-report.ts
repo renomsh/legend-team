@@ -1,24 +1,26 @@
 /**
  * build-report.ts
  * Compiles a final report for a topic by:
- * 1. Reading all agent debate entries from debate_log.json
- * 2. Writing a report manifest to topics/{topicId}/reports/manifest.json
- * 3. Printing a structured summary of all contributions
+ * 1. Resolving controlPath from topic_index.json
+ * 2. Reading all role debate entries from controlPath/debate_log.json
+ * 3. Writing a report manifest to reportPath/manifest.json
+ * 4. Printing a structured summary of all contributions
  *
  * Usage:
  *   ts-node scripts/build-report.ts <topicId>
  *
  * Example:
- *   ts-node scripts/build-report.ts topic_002
+ *   ts-node scripts/build-report.ts topic_005
  */
 
 import * as fs from 'fs';
 import * as path from 'path';
-import type { DebateEntry, ReportMeta, AgentId } from '../src/types/index';
+import type { DebateEntry, ReportMeta, RoleId, TopicIndex } from '../src/types/index';
 
 const ROOT = path.resolve(__dirname, '..');
+const TOPIC_INDEX_PATH = path.join(ROOT, 'memory/shared/topic_index.json');
 
-const AGENT_ORDER: AgentId[] = ['ace', 'arki', 'fin', 'riki', 'nova', 'editor'];
+const ROLE_ORDER: RoleId[] = ['ace', 'arki', 'fin', 'riki', 'nova', 'editor'];
 
 function readJson<T>(absPath: string, fallback: T): T {
   if (!fs.existsSync(absPath)) return fallback;
@@ -35,6 +37,23 @@ function appendLog(message: string): void {
   const logPath = path.join(ROOT, 'logs', 'app.log');
   const line = `[${new Date().toISOString()}] [build-report] ${message}\n`;
   fs.appendFileSync(logPath, line, 'utf8');
+}
+
+interface TopicPaths {
+  controlPath: string;
+  reportPath: string;
+}
+
+/** Resolve controlPath and reportPath for a topic from topic_index */
+function resolveTopicPaths(topicId: string): TopicPaths {
+  const index = readJson<TopicIndex>(TOPIC_INDEX_PATH, { topics: [], lastUpdated: '' });
+  const entry = index.topics.find(t => t.id === topicId);
+
+  const controlPath = entry?.controlPath ?? `topics/${topicId}`;
+  // reportPath: prefer explicit field; fallback to control-plane topics/{id}/reports (legacy)
+  const reportPath = entry?.reportPath ?? `topics/${topicId}/reports`;
+
+  return { controlPath, reportPath };
 }
 
 function nextRevision(reportsDir: string): number {
@@ -56,28 +75,29 @@ function run(): void {
     process.exit(1);
   }
 
-  const topicDir = path.join(ROOT, 'topics', topicId);
-  const debateLogPath = path.join(topicDir, 'debate_log.json');
+  const { controlPath, reportPath } = resolveTopicPaths(topicId);
+  const debateLogPath = path.join(ROOT, controlPath, 'debate_log.json');
 
   if (!fs.existsSync(debateLogPath)) {
-    console.error(`No debate log found: topics/${topicId}/debate_log.json`);
-    console.error('Run run-debate.ts first to record agent outputs.');
+    console.error(`No debate log found: ${controlPath}/debate_log.json`);
+    console.error('Run run-debate.ts first to record role outputs.');
     process.exit(1);
   }
 
   interface DebateLog { topicId: string; entries: DebateEntry[] }
   const debateLog = readJson<DebateLog>(debateLogPath, { topicId, entries: [] });
 
-  // Only include latest submitted entries per agent
-  const latestByAgent = new Map<AgentId, DebateEntry>();
+  // Only include latest submitted entries per role
+  const latestByRole = new Map<RoleId, DebateEntry>();
   for (const entry of debateLog.entries) {
     if (entry.status === 'submitted') {
-      latestByAgent.set(entry.agent, entry);
+      const roleKey = (entry.role ?? entry.agent) as RoleId;
+      latestByRole.set(roleKey, entry);
     }
   }
 
-  const contributingAgents = AGENT_ORDER.filter(a => latestByAgent.has(a));
-  const entries = contributingAgents.map(a => latestByAgent.get(a)!);
+  const contributingRoles = ROLE_ORDER.filter(r => latestByRole.has(r));
+  const entries = contributingRoles.map(r => latestByRole.get(r)!);
 
   if (entries.length === 0) {
     console.error('No submitted debate entries found. Nothing to compile.');
@@ -85,7 +105,7 @@ function run(): void {
   }
 
   const date = new Date().toISOString().slice(0, 10);
-  const reportsDir = path.join(topicDir, 'reports');
+  const reportsDir = path.join(ROOT, reportPath);
   if (!fs.existsSync(reportsDir)) {
     fs.mkdirSync(reportsDir, { recursive: true });
   }
@@ -97,31 +117,33 @@ function run(): void {
     revision,
     date,
     status: 'draft',
-    contributingAgents,
-    filePath: `topics/${topicId}/reports/manifest.json`,
-    summary: `Report rev${revision} — ${contributingAgents.length} agents: ${contributingAgents.join(', ')}`,
+    contributingRoles,
+    filePath: `${reportPath}/manifest.json`,
+    summary: `Report rev${revision} — ${contributingRoles.length} roles: ${contributingRoles.join(', ')}`,
   };
 
-  // Write/update manifest
+  // Write/update manifest in reportPath
   const manifestPath = path.join(reportsDir, 'manifest.json');
   interface ManifestFile { topicId: string; reports: ReportMeta[] }
   const manifest = readJson<ManifestFile>(manifestPath, { topicId, reports: [] });
   manifest.reports.push(reportMeta);
   writeJson(manifestPath, manifest);
 
-  appendLog(`Built report rev${revision} for ${topicId} — agents: ${contributingAgents.join(', ')}`);
+  appendLog(`Built report rev${revision} for ${topicId} — roles: ${contributingRoles.join(', ')} → ${reportPath}`);
 
   // Print summary
   console.log(`\n✓ Report compiled: ${topicId} rev${revision}`);
   console.log(`  date: ${date}`);
-  console.log(`  agents: ${contributingAgents.join(', ')}`);
-  console.log(`\n  Agent contributions:`);
+  console.log(`  roles: ${contributingRoles.join(', ')}`);
+  console.log(`\n  Role contributions:`);
   for (const entry of entries) {
-    console.log(`    [${entry.agent}] ${entry.phase} — ${entry.filePath}`);
+    const r = entry.role ?? entry.agent;
+    console.log(`    [${r}] ${entry.phase} — ${entry.filePath}`);
     if (entry.summary) console.log(`           ${entry.summary}`);
   }
-  console.log(`\n  Manifest: topics/${topicId}/reports/manifest.json`);
-  console.log(`  Status: draft (run apply-feedback.ts to mark as master-approved)`);
+  console.log(`\n  Control plane:  ${controlPath}/debate_log.json`);
+  console.log(`  Report plane:   ${reportPath}/manifest.json`);
+  console.log(`  Status: draft (run apply-feedback.ts to mark as approved)`);
 }
 
 run();

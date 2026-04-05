@@ -26,13 +26,13 @@
       "feedback": "역할 혼선 지적. Ace가 종합검토를 해야 하고, Editor는 결과물 작성/정리/출력만 해야 한다. 현재 Editor가 synthesis까지 하고 있어 역할이 흔들렸음.",
       "decisions": {
         "D-006": "A — 정적 사이트 (Cloudflare Pages + Access)",
-        "D-007": "A — reports/ + memory/shared/ 일부만 배포",
+        "D-007": "A → revised 세션 중: 전체 배포 (memory/master/ 포함). 초기 결정은 reports/ + memory/shared/ 일부만 배포였으나, 세션 중 Master 지시로 전체 배포로 변경. decision_ledger D-007 revised 값 기준.",
         "D-008": "B — 자동 push",
         "D-009": "Ace/Editor 역할 재정의"
       },
       "instruction": "지금 실행해",
-      "effect": "project_charter, CLAUDE.md, ace_memory, editor_memory 수정. decision_ledger에 D-006~009 기록."
-    }
+      "effect": "project_charter, CLAUDE.md, ace_memory, editor_memory 수정. decision_ledger에 D-006~009 기록.",
+      "auditNote": "OP-01 (session_005): D-007 감사 trail 불일치 보정. 원래 기록('일부만 배포')은 초기 결정값이며 세션 중 revised됨. decision_ledger D-007 revised 값이 canonical."
     },
     {
       "id": "MF-003",
@@ -46,5 +46,5 @@
       "effect": "master ← origin/main 머지 완료. session_003 콘텐츠 흡수. topic_004 suspended 상태로 저장."
     }
   ],
-  "lastUpdated": "2026-04-04T21:00:00.000Z"
+  "lastUpdated": "2026-04-05T00:00:00.000Z"
 }

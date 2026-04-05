@@ -3,7 +3,7 @@ topic: topic_001
 role: ace
 revision: 1
 date: 2026-04-02
-status: master-approved
+status: approved
 retroactive: true
 accessed_assets:
   - file: topic_index.json

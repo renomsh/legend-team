@@ -69,13 +69,10 @@
       // Reports tab
       const reportsEl = document.getElementById('tab-reports');
       if (topic.reportFiles && topic.reportFiles.length > 0) {
-        const reportPath = topic.path || `reports/${topic.created}_${topicId}`;
-        // Determine the folder path for reports
+        // Determine the folder path for reports — use reportPath (publish contract)
         let folderBase = '';
-        if (topic.path && topic.path.startsWith('reports/')) {
-          folderBase = topic.path.replace('reports/', '');
-        } else if (topic.reportPath) {
-          folderBase = topic.reportPath.replace('reports/', '').replace(/\/$/, '');
+        if (topic.reportPath) {
+          folderBase = topic.reportPath.replace(/^reports\//, '').replace(/\/$/, '');
         } else {
           folderBase = `${topic.created}_${topicId}`;
         }
@@ -99,7 +96,7 @@
       const decData = await DataLoader.getDecisionLedger();
       const decEl = document.getElementById('tab-decisions');
       if (decData && decData.decisions) {
-        const topicSlug = topic.path?.split('/').pop() || topic.id;
+        const topicSlug = topic.id;
         const topicDecs = decData.decisions.filter(d =>
           d.topic === topicSlug ||
           d.topic === topic.title ||
