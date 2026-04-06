@@ -36,6 +36,16 @@
       "decisionAxes": 3,
       "status": "completed"
     }
+    ,
+    {
+      "topicId": "topic_006",
+      "title": "데일리잡 DB매핑 검토",
+      "date": "2026-04-06",
+      "reportPath": "reports/2026-04-06_dailyjob-db-mapping/ace_rev01.md",
+      "keyFraming": "3단계 매칭(사업자번호→기업명정규화→퍼지). 두 DB 중복률 낮음(12% 확정). 퍼지 매칭 복합검증 필요.",
+      "decisionAxes": 0,
+      "status": "suspended"
+    }
   ],
   "framePatterns": [
     "시스템 자체를 토픽으로 삼을 때: 현재 상태 진단 → 목표 상태 정의 → 결정 축 도출",
@@ -47,5 +57,5 @@
     "change": "종합검토 책임 공식 배정 (Master 지시). Editor에서 synthesis 역할 분리.",
     "decisionRef": "Master feedback session_003"
   },
-  "lastUpdated": "2026-04-05T12:00:00.000Z"
+  "lastUpdated": "2026-04-06T10:00:00.000Z"
 }

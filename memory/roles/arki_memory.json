@@ -9,10 +9,23 @@
       "gapsFound": ["GAP-01: 메모리 껍데기", "GAP-02: 실행 루틴 없음", "GAP-03: dashboard.html 원칙 위반", "GAP-04: reports/ 없음"],
       "resolvedBy": "v0.2.0 업그레이드"
     }
+    ,
+    {
+      "topicId": "topic_006",
+      "title": "데일리잡 DB매핑 검토",
+      "date": "2026-04-06",
+      "reportPath": "reports/2026-04-06_dailyjob-db-mapping/arki_rev01.md",
+      "gapsFound": ["퍼지 매칭 시 단일 기준(기업명) → 오매칭 다수 발생"],
+      "resolvedBy": "미해결 — 복합검증 로직 추가 예정"
+    }
   ],
   "structuralPatterns": [
     "메모리 파일이 비어있을 때: 스키마 우선 정의 → 초기값 채우기 → 갱신 프로토콜 명시",
     "reports/ 구조: {YYYY-MM-DD}_{topic-slug}/{role}_rev{n}.md"
   ],
-  "lastUpdated": "2026-04-03T00:00:00.000Z"
+  "structuralPatterns_data": [
+    "DB 매핑: 사업자번호(정규화) > 기업명(정규화) > 퍼지(바이그램+보조키). 퍼지 단독은 오매칭 위험.",
+    "대규모 퍼지 매칭 최적화: 바이그램 인덱스로 후보 축소 후 유사도 비교"
+  ],
+  "lastUpdated": "2026-04-06T10:00:00.000Z"
 }

@@ -45,6 +45,18 @@
       "instruction": "여기까지 모두 로그, 저장하고 업데이트. 세션 종료.",
       "effect": "master ← origin/main 머지 완료. session_003 콘텐츠 흡수. topic_004 suspended 상태로 저장."
     }
+    ,
+    {
+      "id": "MF-004",
+      "date": "2026-04-06",
+      "session": "session_008",
+      "topic": "dailyjob-db-mapping",
+      "afterAgent": "ace (종합검토)",
+      "feedback": "퍼지 매칭에서 이름 유사도만으로 매핑하면 다른 회사가 연결됨. 주소, 사업자번호 등 보조 키 교차 검증 필요.",
+      "decisions": {},
+      "instruction": "복합 검증 로직으로 개선 후 재실행",
+      "effect": "토픽 suspended. 다음 세션에서 주소·연락처 등 복합검증 추가 후 재매핑 예정."
+    }
   ],
-  "lastUpdated": "2026-04-05T00:00:00.000Z"
+  "lastUpdated": "2026-04-06T10:00:00.000Z"
 }

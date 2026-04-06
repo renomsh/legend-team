@@ -1,26 +1,25 @@
 {
-  "sessionId": "session_007",
-  "topic": "레전드팀 v0.4.0 업그레이드 검토",
-  "topicSlug": "legend-team-upgrade-review",
+  "sessionId": "session_008",
+  "topic": "데일리잡 DB매핑 검토",
+  "topicSlug": "dailyjob-db-mapping",
   "status": "closed",
-  "startedAt": "2026-04-05T12:00:00.000Z",
+  "startedAt": "2026-04-06T09:00:00.000Z",
   "mode": "observation",
   "agentsCompleted": [
-    "ace"
+    "ace",
+    "arki"
   ],
   "novaInvoked": false,
-  "masterDecisions": [
-    "축1: B (자동화 + 자산 실질화)",
-    "축2: A (스크립트 보조)",
-    "축3: A (v0.4.0에 포함, 프로토콜 수준)",
-    "v0.3.0 소급 확정 (session_003~006 성과)"
-  ],
-  "reportPath": "reports/2026-04-05_legend-team-upgrade-review",
+  "masterDecisions": [],
+  "reportPath": "reports/2026-04-06_dailyjob-db-mapping",
   "notes": [
-    "topic_004(suspended) 승계, v0.4.0으로 레이블 변경",
-    "Master 지적: v0.3.0은 이미 반영됨 (배포+뷰어+부채정리). project.json v0.2.0→v0.3.0 즉시 수정",
-    "축4(viewer 연동) 제거 — 이미 가동 중"
+    "데일리잡 4004건 ↔ HSM 계열사/그룹사 데이터 매핑",
+    "3단계 매칭: 사업자번호(193건) → 기업명정규화(202건) → 퍼지(1,537건)",
+    "확정 매칭 479건(12%), 검수필요 1,803건(45%), 미매칭 1,722건(43%)",
+    "산출물: Data/데일리잡_HSM매핑결과.xlsx (5시트)",
+    "Master 피드백: 퍼지 매칭 시 이름만으로 부족, 주소·사업자번호 등 보조키 교차검증 필요",
+    "토픽 suspended — 복합검증 로직 추가 후 재개 예정"
   ],
   "gaps": [],
-  "closedAt": "2026-04-05T12:29:28.254Z"
+  "closedAt": "2026-04-06T00:07:14.482Z"
 }
