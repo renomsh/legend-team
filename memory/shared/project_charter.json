@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-team",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "purpose": "Memory-first, topic-based strategy system. Master receives structured analysis from role-separated agents on any strategic topic, with all outputs preserved in inspectable, revisionable files.",
     "principles": [
       "Memory first: all agent outputs, decisions, and session state are written to files immediately. No analysis lives only in conversation context.",
@@ -78,7 +78,12 @@
       "version": "0.3.0",
       "date": "2026-04-05",
       "summary": "Contract alignment: 2-plane read/write separation formalized. Ace/Editor authority boundary clarified. Workflow phases 1-6 canonical. topic_index schema upgraded to controlPath/reportPath. frontmatter schema canonicalized (role, report_status, session_status). Published manifest introduced."
+    },
+    {
+      "version": "0.4.0",
+      "date": "2026-04-07",
+      "summary": "Asset protocols introduced (D-012): evidence_index.json, glossary.json 운용 규칙 정립. deprecated 스크립트 정리 (run-debate.ts, generate-dashboard.ts, build-report.ts). /open, /close custom commands 추가."
     }
   ],
-  "lastUpdated": "2026-04-05T00:00:00.000Z"
+  "lastUpdated": "2026-04-08T00:00:00.000Z"
 }
