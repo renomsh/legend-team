@@ -57,8 +57,15 @@
       "startedAt": "2026-04-06T09:00:00.000Z",
       "closedAt": "2026-04-06T00:07:14.482Z",
       "note": "데일리잡 4004건 ↔ HSM DB 매핑. 확정 479건(12%), 검수필요 1803건(45%), 미매칭 1722건(43%). 퍼지 매칭 복합검증 필요 — 토픽 suspended."
+    },
+    {
+      "sessionId": "session_009",
+      "topicSlug": "storage-quality-review",
+      "startedAt": "2026-04-08T09:00:00.000Z",
+      "closedAt": "2026-04-08T00:05:52.764Z",
+      "note": "학습 순환 고리 수복. 세션 프로토콜 보정, role memory 소급, evidence/glossary/feedback 수복. v0.5.0 선언."
     }
   ],
-  "lastUpdated": "2026-04-06T00:07:14.482Z",
+  "lastUpdated": "2026-04-08T00:05:52.764Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

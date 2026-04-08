@@ -21,11 +21,12 @@
   ],
   "structuralPatterns": [
     "메모리 파일이 비어있을 때: 스키마 우선 정의 → 초기값 채우기 → 갱신 프로토콜 명시",
-    "reports/ 구조: {YYYY-MM-DD}_{topic-slug}/{role}_rev{n}.md"
+    "reports/ 구조: {YYYY-MM-DD}_{topic-slug}/{role}_rev{n}.md",
+    "자산 정체 진단: lastUpdated 기준으로 갱신 주기 확인. 프로토콜 존재 ≠ 실행. 실제 파일 상태로 검증."
   ],
   "structuralPatterns_data": [
     "DB 매핑: 사업자번호(정규화) > 기업명(정규화) > 퍼지(바이그램+보조키). 퍼지 단독은 오매칭 위험.",
     "대규모 퍼지 매칭 최적화: 바이그램 인덱스로 후보 축소 후 유사도 비교"
   ],
-  "lastUpdated": "2026-04-06T10:00:00.000Z"
+  "lastUpdated": "2026-04-08T10:30:00.000Z"
 }

@@ -1,5 +1,6 @@
 {
   "role": "riki",
+  "responsibility": "Adversarial analyst. Assumption audit, failure modes, contradictions, execution distortions, rejected logic.",
   "topicsHandled": [
     {
       "topicId": "topic_002",
@@ -9,12 +10,38 @@
       "criticalRisks": ["R-01", "R-02", "R-04", "R-05"],
       "resolvedRisks": ["R-03(결정 3B)", "R-04(결정 1A 범위 확정)"],
       "residualRisks": ["R-02(수동 누락 — v0.3.0 자동화 전까지 잔존)"]
+    },
+    {
+      "topicId": "topic_003",
+      "title": "로컬 업그레이드 vs 서버 이전",
+      "date": "2026-04-04",
+      "reportPath": "reports/2026-04-04_local-vs-server/riki_rev01.md",
+      "criticalRisks": ["R-1 전략 데이터 노출(🟡)", "R-2 Push 규율 붕괴(🟡)", "R-3 뷰어 확장 유혹(🟡)"],
+      "resolvedRisks": ["R-2(D-008 자동push)", "R-3(D-003 revised CLAUDE.md 명시)"],
+      "residualRisks": ["R-1(Cloudflare Access 단일 방어선 — Master가 수용)"]
+    },
+    {
+      "topicId": "topic_007",
+      "title": "레전드팀 저장 내용 기준 점검",
+      "date": "2026-04-08",
+      "reportPath": null,
+      "criticalRisks": ["R-01 세션 시작 시 role memory 미로드", "R-02 미발언 역할 memory 갱신 모호성"],
+      "resolvedRisks": [],
+      "residualRisks": ["R-03 소급 수정이 재발 방지를 대체할 위험"]
     }
+  ],
+  "riskPatterns": [
+    "인증·보안 토픽: 방어 계층 수를 확인. 단일 계층이면 잔존 리스크로 명시",
+    "프로토콜 토픽: '규칙이 있다'와 '규칙이 실행된다'를 구분. 체크리스트 존재 ≠ 이행",
+    "데이터 매칭 토픽: 단일 기준 매칭은 오매칭 리스크. 복합검증(2+ 키) 필수 여부 검토",
+    "소급 수정: 소급 자체보다 재발 방지 구조가 우선. 소급만으로 완결 처리하지 않도록 감시"
   ],
   "tripWires": [
     "다음 세션에서 topic_index.json이 비어있으면 → 업그레이드 실패",
     "reports/에 파일이 없으면 → 수동 기록 프로토콜 미작동",
-    "decision_ledger.json에 결정이 없으면 → 메모리 시스템 미작동"
+    "decision_ledger.json에 결정이 없으면 → 메모리 시스템 미작동",
+    "세션 시작 시 role memory를 읽지 않으면 → 학습 순환 고리 단절 (R-01, session_009)",
+    "feedback_log에 status 필드 없으면 → Master가 이행 여부를 매번 수동 확인해야 함"
   ],
-  "lastUpdated": "2026-04-03T00:00:00.000Z"
+  "lastUpdated": "2026-04-08T09:00:00.000Z"
 }

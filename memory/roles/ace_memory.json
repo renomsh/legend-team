@@ -45,17 +45,27 @@
       "keyFraming": "3단계 매칭(사업자번호→기업명정규화→퍼지). 두 DB 중복률 낮음(12% 확정). 퍼지 매칭 복합검증 필요.",
       "decisionAxes": 0,
       "status": "suspended"
+    },
+    {
+      "topicId": "topic_007",
+      "title": "레전드팀 저장 내용 기준 점검",
+      "date": "2026-04-08",
+      "reportPath": "reports/2026-04-08_storage-quality-review/ace_rev01.md",
+      "keyFraming": "시스템 메타 점검 — '쓰기는 되지만 순환하지 않는' 상태 진단. 5개 축(피드백반영/활용수준/호출기준/최우선과제/종합)",
+      "decisionAxes": 0,
+      "status": "completed"
     }
   ],
   "framePatterns": [
     "시스템 자체를 토픽으로 삼을 때: 현재 상태 진단 → 목표 상태 정의 → 결정 축 도출",
     "인프라 이전 토픽: 읽기/쓰기 경로 분리 → 각 경로별 옵션 평가 → 보안 축 추가",
-    "업그레이드 연속 토픽: 이전 프레이밍을 현재 시점 기준으로 재검증 후 승계. 해소된 항목 제거 필수."
+    "업그레이드 연속 토픽: 이전 프레이밍을 현재 시점 기준으로 재검증 후 승계. 해소된 항목 제거 필수.",
+    "메타 점검 토픽: 자산별 기록 충실도 × 호출 가능성 매트릭스. '존재'와 '작동'을 구분. 순환 구조(읽기↔쓰기) 단절 여부 확인."
   ],
   "roleUpdate": {
     "date": "2026-04-04",
     "change": "종합검토 책임 공식 배정 (Master 지시). Editor에서 synthesis 역할 분리.",
     "decisionRef": "Master feedback session_003"
   },
-  "lastUpdated": "2026-04-06T10:00:00.000Z"
+  "lastUpdated": "2026-04-08T10:30:00.000Z"
 }

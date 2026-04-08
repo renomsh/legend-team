@@ -1,25 +1,28 @@
 {
-  "sessionId": "session_008",
-  "topic": "데일리잡 DB매핑 검토",
-  "topicSlug": "dailyjob-db-mapping",
+  "sessionId": "session_009",
+  "topic": "레전드팀 저장 내용 기준 점검",
+  "topicSlug": "storage-quality-review",
   "status": "closed",
-  "startedAt": "2026-04-06T09:00:00.000Z",
+  "startedAt": "2026-04-08T09:00:00.000Z",
+  "closedAt": "2026-04-08T00:05:52.764Z",
   "mode": "observation",
   "agentsCompleted": [
     "ace",
-    "arki"
+    "arki",
+    "fin",
+    "riki",
+    "editor"
   ],
   "novaInvoked": false,
   "masterDecisions": [],
-  "reportPath": "reports/2026-04-06_dailyjob-db-mapping",
+  "reportPath": "reports/2026-04-08_storage-quality-review",
   "notes": [
-    "데일리잡 4004건 ↔ HSM 계열사/그룹사 데이터 매핑",
-    "3단계 매칭: 사업자번호(193건) → 기업명정규화(202건) → 퍼지(1,537건)",
-    "확정 매칭 479건(12%), 검수필요 1,803건(45%), 미매칭 1,722건(43%)",
-    "산출물: Data/데일리잡_HSM매핑결과.xlsx (5시트)",
-    "Master 피드백: 퍼지 매칭 시 이름만으로 부족, 주소·사업자번호 등 보조키 교차검증 필요",
-    "토픽 suspended — 복합검증 로직 추가 후 재개 예정"
+    "학습 순환 고리 수복: 세션 시작 체크리스트에 role memory 로드 추가",
+    "Role memory 소급 갱신: Riki/Fin/Editor (session_002~008 학습 반영)",
+    "Evidence 소급 7건(E-007~E-013), Glossary 9개 용어 추가",
+    "Feedback 이행추적 status 필드 도입 + viewer 반영",
+    "v0.5.0 선언",
+    "다음 토픽 예고: 토픽 유형별 역할 호출 오케스트레이션 기준 수립"
   ],
-  "gaps": [],
-  "closedAt": "2026-04-06T00:07:14.482Z"
+  "gaps": []
 }

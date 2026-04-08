@@ -15,7 +15,9 @@
         "D-005": "유지"
       },
       "instruction": "필요한 우선순위로 프로그래밍해",
-      "effect": "v0.2.0 업그레이드 즉시 실행"
+      "effect": "v0.2.0 업그레이드 즉시 실행",
+      "status": "resolved",
+      "statusNote": "v0.2.0 업그레이드 완료. 5개 결정 모두 반영됨."
     },
     {
       "id": "MF-002",
@@ -32,7 +34,9 @@
       },
       "instruction": "지금 실행해",
       "effect": "project_charter, CLAUDE.md, ace_memory, editor_memory 수정. decision_ledger에 D-006~009 기록.",
-      "auditNote": "OP-01 (session_005): D-007 감사 trail 불일치 보정. 원래 기록('일부만 배포')은 초기 결정값이며 세션 중 revised됨. decision_ledger D-007 revised 값이 canonical."
+      "auditNote": "OP-01 (session_005): D-007 감사 trail 불일치 보정. 원래 기록('일부만 배포')은 초기 결정값이며 세션 중 revised됨. decision_ledger D-007 revised 값이 canonical.",
+      "status": "resolved",
+      "statusNote": "CF Pages 배포 완료. Ace/Editor 역할 재정의 CLAUDE.md 반영. D-006~009 모두 이행."
     },
     {
       "id": "MF-003",
@@ -43,9 +47,10 @@
       "feedback": "모바일 호환 확인 요청 → origin/main 분기 발견. 브랜치 일원화 지시 ('머지하고 진행을 일원화 시켜'). 일원화 완료 후 세션 종료 지시.",
       "decisions": {},
       "instruction": "여기까지 모두 로그, 저장하고 업데이트. 세션 종료.",
-      "effect": "master ← origin/main 머지 완료. session_003 콘텐츠 흡수. topic_004 suspended 상태로 저장."
-    }
-    ,
+      "effect": "master ← origin/main 머지 완료. session_003 콘텐츠 흡수. topic_004 suspended 상태로 저장.",
+      "status": "resolved",
+      "statusNote": "브랜치 일원화(main) 완료. session_006에서 최종 확인."
+    },
     {
       "id": "MF-004",
       "date": "2026-04-06",
@@ -55,8 +60,12 @@
       "feedback": "퍼지 매칭에서 이름 유사도만으로 매핑하면 다른 회사가 연결됨. 주소, 사업자번호 등 보조 키 교차 검증 필요.",
       "decisions": {},
       "instruction": "복합 검증 로직으로 개선 후 재실행",
-      "effect": "토픽 suspended. 다음 세션에서 주소·연락처 등 복합검증 추가 후 재매핑 예정."
+      "effect": "토픽 suspended. 다음 세션에서 주소·연락처 등 복합검증 추가 후 재매핑 예정.",
+      "status": "pending",
+      "statusNote": "topic_006 suspended 상태. 복합검증 로직 미구현. 재개 시 이행 예정."
     }
   ],
-  "lastUpdated": "2026-04-06T10:00:00.000Z"
+  "statusValues": ["pending", "in-progress", "resolved"],
+  "statusUpdatedBy": "Claude Code at session end — based on topic status and implementation evidence",
+  "lastUpdated": "2026-04-08T09:00:00.000Z"
 }

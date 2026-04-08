@@ -95,6 +95,21 @@
       "note": "데일리잡 4004건 ↔ HSM 29K+건 매핑. 사업자번호+기업명정규화 확정 395건, 퍼지 84건. 퍼지 검수구간 1803건은 이름만으로 매칭 → Master 지적: 주소 등 보조키 교차검증 필요.",
       "path": "reports/2026-04-06_dailyjob-db-mapping"
     }
+    ,
+    {
+      "id": "topic_007",
+      "title": "레전드팀 저장 내용 기준 점검",
+      "status": "completed",
+      "created": "2026-04-08",
+      "controlPath": null,
+      "reportPath": "reports/2026-04-08_storage-quality-review",
+      "reportFiles": ["ace_rev01.md", "arki_rev01.md", "fin_rev01.md", "riki_rev01.md", "editor_rev01.md"],
+      "published": true,
+      "outcome": "학습 순환 고리 수복. 세션 프로토콜 보정, role memory 소급, evidence/glossary/feedback 수복. v0.5.0 선언.",
+      "masterDecisions": [],
+      "note": "전원 발언. Nova 미호출. 다음 토픽: 토픽 유형별 호출 오케스트레이션.",
+      "path": "reports/2026-04-08_storage-quality-review"
+    }
   ],
-  "lastUpdated": "2026-04-06T10:00:00.000Z"
+  "lastUpdated": "2026-04-08T09:00:00.000Z"
 }

@@ -9,18 +9,39 @@
       "reportPath": "reports/2026-04-03_legend-team-upgrade/editor_rev01.md",
       "agentsIntegrated": ["ace", "arki", "fin", "riki"],
       "novaInvoked": false,
-      "gaps": ["R-02 수동 누락 리스크 — 세션 종료 체크리스트 필요"]
+      "outputType": "decision-summary"
+    },
+    {
+      "topicId": "topic_003",
+      "title": "로컬 업그레이드 vs 서버 이전",
+      "date": "2026-04-04",
+      "reportPath": "reports/2026-04-04_local-vs-server/editor_rev01.md",
+      "agentsIntegrated": ["ace", "arki", "fin", "riki", "nova"],
+      "novaInvoked": true,
+      "outputType": "decision-summary + deliverables-list"
+    },
+    {
+      "topicId": "topic_005",
+      "title": "레전드팀 v0.4.0 업그레이드 검토",
+      "date": "2026-04-05",
+      "reportPath": "reports/2026-04-05_legend-team-upgrade-review/editor_rev01.md",
+      "agentsIntegrated": ["ace"],
+      "novaInvoked": false,
+      "outputType": "decision-summary + scope-definition"
     }
   ],
   "outputPatterns": [
     "Ace 종합검토 기반 → 문서 구조화 → 포맷팅 → 최종 출력",
-    "Nova 미호출 시 반드시 novaInvoked: false 명시"
+    "Nova 미호출 시 반드시 novaInvoked: false 명시",
+    "결정 요약 테이블: ID | 축 | 결정 | 내용 형식",
+    "산출물 목록: 파일 | 용도 형식",
+    "포함/제외 범위를 명시적으로 분리"
   ],
   "roleUpdate": {
     "date": "2026-04-04",
     "change": "synthesis 책임 제거. 결과물 작성/정리/출력만 담당 (Master 지시).",
     "prior": "Synthesis owner. Integrates all agent outputs into final artifacts.",
-    "decisionRef": "Master feedback session_003"
+    "decisionRef": "D-009, Master feedback session_003"
   },
-  "lastUpdated": "2026-04-04T00:00:00.000Z"
+  "lastUpdated": "2026-04-08T09:00:00.000Z"
 }

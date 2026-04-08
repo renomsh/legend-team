@@ -89,7 +89,8 @@ Master may switch modes at any time by stating the mode name.
 1. Read `memory/sessions/current_session.json` — confirm topic and mode
 2. Read `memory/shared/topic_index.json` — confirm which topics are open/in-progress
 3. Read `memory/shared/decision_ledger.json` — load prior decisions before any agent speaks
-4. Update `current_session.json` with new session ID and topic if starting fresh
+4. Read `memory/roles/{role}_memory.json` for roles expected to speak — load prior patterns and findings
+5. Update `current_session.json` with new session ID and topic if starting fresh
 
 **Session End checklist:**
 1. Save all agent outputs to `reports/{YYYY-MM-DD}_{topic-slug}/{role}_rev{n}.md`
@@ -97,7 +98,7 @@ Master may switch modes at any time by stating the mode name.
 3. Update `memory/shared/topic_index.json` with topic status change
 4. Update `memory/sessions/current_session.json` — set status to "closed", record closedAt
 5. Append master feedback to `memory/master/master_feedback_log.json` if any was given
-6. Update relevant `memory/roles/{role}_memory.json` files with new patterns or findings
+6. Update `memory/roles/{role}_memory.json` for roles that spoke — record new patterns, findings, or structural learnings. Roles that did not speak may be skipped (not a gap).
 7. Log session event to `logs/app.log` via `ts-node scripts/session-log.ts end <topic-slug>`
 8. Auto-push to GitHub: `node scripts/auto-push.js "session end: <topic-slug>"` (D-008)
 
@@ -120,6 +121,12 @@ Master may switch modes at any time by stating the mode name.
 - 갱신: 정의가 변경되면 기존 엔트리를 업데이트 (덮어쓰기 허용 — glossary는 최신 정의가 canonical)
 - 삭제: 더 이상 사용하지 않는 용어는 삭제 가능
 - 용어는 한국어 우선, 영어 병기 허용
+
+**master_feedback_log.json 운용 규칙 (v0.5.0):**
+- status 값: pending | in-progress | resolved
+- 갱신 주체: Claude Code가 세션 종료 시 자동 판정 (토픽 상태 및 구현 증거 기준)
+- statusNote: 이행 상태에 대한 간단한 설명
+- 삭제 금지: status를 변경하되 엔트리를 삭제하지 않음
 
 ### Script Status (v0.4.0)
 

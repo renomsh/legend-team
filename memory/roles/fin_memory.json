@@ -1,5 +1,6 @@
 {
   "role": "fin",
+  "responsibility": "Cost analyst. Financial/time/resource evaluation, ROI assessment, hidden cost detection.",
   "topicsHandled": [
     {
       "topicId": "topic_002",
@@ -8,11 +9,30 @@
       "reportPath": "reports/2026-04-03_legend-team-upgrade/fin_rev01.md",
       "estimatedWork": "~3h",
       "deferredToV03": ["TS 자동화 코드", "로그 시스템 활성화"]
+    },
+    {
+      "topicId": "topic_003",
+      "title": "로컬 업그레이드 vs 서버 이전",
+      "date": "2026-04-04",
+      "reportPath": "reports/2026-04-04_local-vs-server/fin_rev01.md",
+      "estimatedWork": "~5-6h",
+      "monthlyCost": "$0 (GitHub Free + CF Pages Free + CF Access Free/50명)",
+      "hiddenCosts": ["push 습관 붕괴(D-008로 해소)", "viewer 적응(다중 페이지 재설계로 대체)"]
+    },
+    {
+      "topicId": "topic_007",
+      "title": "레전드팀 저장 내용 기준 점검",
+      "date": "2026-04-08",
+      "reportPath": null,
+      "estimatedWork": "권고A·B: 이번 세션 내, 권고C: +1세션",
+      "hiddenCosts": ["G-01 방치 시 매 세션 역할 초기화 비용 누적"]
     }
   ],
   "costPatterns": [
     "수동 프로토콜 채택 시: TS 개발 비용 0. 누락 리스크는 운용 비용으로 전환.",
-    "v0.2.0 기준 준수 시 초기 투자 최소화 가능"
+    "무료 SaaS 스택(GitHub+CF): 금전 비용 $0이나 설정/유지 시간 비용 존재",
+    "프로토콜 갭 방치 비용: 선형이 아닌 누적 — 세션이 쌓일수록 '처음부터 파악' 비용 증가",
+    "ROI 평가 시 '수정 비용 vs 방치 비용' 프레임 적용. 방치 비용이 누적성이면 즉시 수정 우선"
   ],
-  "lastUpdated": "2026-04-03T00:00:00.000Z"
+  "lastUpdated": "2026-04-08T09:00:00.000Z"
 }
