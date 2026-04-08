@@ -32,3 +32,25 @@
 [2026-04-08T00:05:52.771Z] [INFO] [checklist] master_feedback: no feedback entries — OK if none given
 [2026-04-08T00:05:52.774Z] [INFO] [session-log] END session_009 | topic: storage-quality-review | duration: -534m
 [2026-04-08T00:05:52.776Z] [INFO] [session-log] OP-04 PASS: session_009 confirmed in session_index with closedAt
+[2026-04-08T06:00:49.489Z] [INFO] [checklist] reports: all 5 registered file(s) present: ace_rev01.md, arki_rev01.md, fin_rev01.md, riki_rev01.md, editor_rev01.md
+[2026-04-08T06:00:49.490Z] [INFO] [checklist] decision_ledger: no decisions this session — skip
+[2026-04-08T06:00:49.490Z] [INFO] [checklist] topic_index: topic found: topic_007 (completed)
+[2026-04-08T06:00:49.491Z] [INFO] [checklist] current_session: will be set to closed
+[2026-04-08T06:00:49.491Z] [INFO] [checklist] master_feedback: no feedback entries — OK if none given
+[2026-04-08T06:00:49.493Z] [INFO] [session-log] END session_009 | topic: storage-quality-review | duration: -179m
+[2026-04-08T06:00:49.494Z] [INFO] [session-log] OP-04 PASS: session_009 confirmed in session_index with closedAt
+[2026-04-08T06:04:00.894Z] [WARN] [session-log] END topicSlug mismatch. expected: storage-quality-review, got: viewer-display-diagnosis
+[2026-04-08T06:04:00.896Z] [INFO] [checklist] reports: all 5 registered file(s) present: ace_rev01.md, arki_rev01.md, fin_rev01.md, riki_rev01.md, editor_rev01.md
+[2026-04-08T06:04:00.897Z] [INFO] [checklist] decision_ledger: no decisions this session — skip
+[2026-04-08T06:04:00.898Z] [INFO] [checklist] topic_index: topic found: topic_007 (completed)
+[2026-04-08T06:04:00.898Z] [INFO] [checklist] current_session: will be set to closed
+[2026-04-08T06:04:00.898Z] [INFO] [checklist] master_feedback: no feedback entries — OK if none given
+[2026-04-08T06:04:00.900Z] [INFO] [session-log] END session_009 | topic: viewer-display-diagnosis | duration: -176m
+[2026-04-08T06:04:00.900Z] [INFO] [session-log] OP-04 PASS: session_009 confirmed in session_index with closedAt
+[2026-04-08T06:04:30.088Z] [INFO] [checklist] reports: all 1 registered file(s) present: editor_rev01.md
+[2026-04-08T06:04:30.089Z] [INFO] [checklist] decision_ledger: no decisions this session — skip
+[2026-04-08T06:04:30.089Z] [INFO] [checklist] topic_index: topic found: topic_008 (completed)
+[2026-04-08T06:04:30.090Z] [INFO] [checklist] current_session: will be set to closed
+[2026-04-08T06:04:30.090Z] [INFO] [checklist] master_feedback: no feedback entries — OK if none given
+[2026-04-08T06:04:30.092Z] [INFO] [session-log] END session_010 | topic: viewer-display-diagnosis | duration: -235m
+[2026-04-08T06:04:30.092Z] [WARN] [session-log] OP-04 FAIL: session_010 not found or missing closedAt in session_index
