@@ -108,6 +108,14 @@ function buildTopicsManifest() {
   if (warnings.length > 0) {
     warnings.forEach(w => console.warn(w));
     console.warn(`[build] ${warnings.length} missing report file(s) detected — viewer will show errors for these topics`);
+    // Fail the build if any published topic has missing files
+    const publishedMissing = topics.filter(t => t.published && t.reportFiles.some(
+      f => !fs.existsSync(path.join(ROOT, t.reportPath, f))
+    ));
+    if (publishedMissing.length > 0) {
+      console.error(`[build] FATAL: ${publishedMissing.map(t => t.id).join(', ')} marked published but missing report files — aborting build`);
+      process.exit(1);
+    }
   }
 
   return {

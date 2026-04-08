@@ -106,13 +106,13 @@
         if (topicDecs.length > 0) {
           decEl.innerHTML = topicDecs.map(d => `
             <div class="decision-item">
-              <div class="decision-id">${d.id}</div>
-              <div class="decision-axis">${d.axis}</div>
-              <div class="decision-value">${d.value}</div>
+              <div class="decision-id">${escHtml(d.id)}</div>
+              <div class="decision-axis">${escHtml(d.axis)}</div>
+              <div class="decision-value">${escHtml(d.value)}</div>
               <div class="decision-meta">
-                <span>${d.date}</span>
-                <span>${d.decision}</span>
-                <span>${d.status}</span>
+                <span>${escHtml(d.date)}</span>
+                <span>${escHtml(d.decision)}</span>
+                <span>${escHtml(d.status)}</span>
               </div>
             </div>
           `).join('');
@@ -133,9 +133,9 @@
         if (topicFb.length > 0) {
           fbEl.innerHTML = topicFb.map(f => `
             <div class="feedback-item">
-              <div class="feedback-id">${f.id}</div>
-              <div class="feedback-text">${f.feedback}</div>
-              <div class="feedback-meta">${f.date} · ${f.session} · ${f.instruction || ''}</div>
+              <div class="feedback-id">${escHtml(f.id)}</div>
+              <div class="feedback-text">${escHtml(f.feedback)}</div>
+              <div class="feedback-meta">${escHtml(f.date)} · ${escHtml(f.session)} · ${escHtml(f.instruction || '')}</div>
             </div>
           `).join('');
         } else {

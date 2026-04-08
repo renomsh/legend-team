@@ -107,12 +107,19 @@ function mdToHtml(md) {
   return out.join('\n');
 }
 
+function sanitizeHref(url) {
+  // Allow only http/https/relative paths — block javascript:, data:, etc.
+  return /^(https?:\/\/|#|\/)/.test(url.trim()) ? url.trim() : '#';
+}
+
 function inlineFormat(text) {
   return text
-    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/`([^`]+)`/g, (_, code) => `<code>${escHtml(code)}</code>`)
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     .replace(/\*([^*]+)\*/g, '<em>$1</em>')
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, url) =>
+      `<a href="${escHtml(sanitizeHref(url))}">${escHtml(label)}</a>`
+    );
 }
 
 // Export for module usage

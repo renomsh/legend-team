@@ -1,0 +1,6 @@
+# Legend Team — Cloudflare Pages redirect rules
+#
+# No SPA catch-all intentionally.
+# All pages are explicit static HTML files (index.html, topic.html, etc.)
+# Missing data/ files must return 404 — not index.html.
+# This overrides any CF Pages dashboard SPA mode setting.
