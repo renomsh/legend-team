@@ -119,15 +119,35 @@ interface CheckResult {
 function runEndChecklist(session: SessionRecord): CheckResult[] {
   const results: CheckResult[] = [];
 
-  // 1. Reports exist for this topic's reportPath
+  // 1. Reports: cross-validate topic_index.json reportFiles vs actual disk files
   const reportPath = (session as any).reportPath as string | undefined;
   if (reportPath) {
     const fullReportPath = path.join(ROOT, reportPath);
-    if (fs.existsSync(fullReportPath)) {
-      const files = fs.readdirSync(fullReportPath).filter(f => f.endsWith('.md'));
-      results.push({ item: 'reports', pass: files.length > 0, detail: `${files.length} report file(s) in ${reportPath}` });
+    // Find topic entry in topic_index to get registered reportFiles
+    const topicIdx = readJson<{ topics: any[] }>(TOPIC_INDEX_PATH, { topics: [] });
+    const topicEntry = topicIdx.topics.find((t: any) =>
+      t.reportPath === reportPath || t.path === reportPath
+    );
+    const registeredFiles: string[] = topicEntry?.reportFiles ?? [];
+
+    if (!fs.existsSync(fullReportPath)) {
+      results.push({ item: 'reports', pass: false, detail: `reportPath not found on disk: ${reportPath}` });
+    } else if (registeredFiles.length === 0) {
+      // No files registered — just check directory has something
+      const onDisk = fs.readdirSync(fullReportPath).filter((f: string) => f.endsWith('.md'));
+      results.push({ item: 'reports', pass: onDisk.length > 0, detail: `${onDisk.length} file(s) on disk, none registered in topic_index` });
     } else {
-      results.push({ item: 'reports', pass: false, detail: `reportPath not found: ${reportPath}` });
+      // Cross-validate each registered file
+      const missing = registeredFiles.filter(f => !fs.existsSync(path.join(fullReportPath, f)));
+      if (missing.length === 0) {
+        results.push({ item: 'reports', pass: true, detail: `all ${registeredFiles.length} registered file(s) present: ${registeredFiles.join(', ')}` });
+      } else {
+        results.push({
+          item: 'reports',
+          pass: false,
+          detail: `MISSING ${missing.length}/${registeredFiles.length} file(s): ${missing.join(', ')} — create before committing`
+        });
+      }
     }
   } else {
     results.push({ item: 'reports', pass: false, detail: 'no reportPath in current_session.json' });
