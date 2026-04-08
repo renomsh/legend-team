@@ -62,10 +62,17 @@
       "sessionId": "session_009",
       "topicSlug": "storage-quality-review",
       "startedAt": "2026-04-08T09:00:00.000Z",
-      "closedAt": "2026-04-08T00:05:52.764Z",
+      "closedAt": "2026-04-08T06:04:00.892Z",
       "note": "학습 순환 고리 수복. 세션 프로토콜 보정, role memory 소급, evidence/glossary/feedback 수복. v0.5.0 선언."
+    },
+    {
+      "sessionId": "session_010",
+      "topicSlug": "viewer-display-diagnosis",
+      "startedAt": "2026-04-08T10:00:00.000Z",
+      "closedAt": "2026-04-08T06:04:30.085Z",
+      "note": "현황판 표시 오류 root cause 확정 + 수복. 3단계 방어 게이트 수립. XSS 패치. session-log.ts 교차검증 추가."
     }
   ],
-  "lastUpdated": "2026-04-08T00:05:52.764Z",
+  "lastUpdated": "2026-04-08T10:05:00.000Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
