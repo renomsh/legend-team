@@ -80,6 +80,8 @@ function buildTopicsManifest() {
     return null;
   }
 
+  const warnings = [];
+
   const topics = raw.topics.map(t => ({
     id: t.id,
     title: t.title,
@@ -92,9 +94,26 @@ function buildTopicsManifest() {
     note: t.note ?? null,
   }));
 
+  // Cross-validate: check that every registered reportFile actually exists on disk
+  for (const t of topics) {
+    if (!t.reportPath || !t.reportFiles.length) continue;
+    for (const f of t.reportFiles) {
+      const filePath = path.join(ROOT, t.reportPath, f);
+      if (!fs.existsSync(filePath)) {
+        warnings.push(`[build] WARN: ${t.id} (${t.reportPath}/${f}) registered in topic_index but file not found on disk`);
+      }
+    }
+  }
+
+  if (warnings.length > 0) {
+    warnings.forEach(w => console.warn(w));
+    console.warn(`[build] ${warnings.length} missing report file(s) detected — viewer will show errors for these topics`);
+  }
+
   return {
     generatedAt: new Date().toISOString(),
     topics,
+    buildWarnings: warnings.length > 0 ? warnings : undefined,
   };
 }
 
