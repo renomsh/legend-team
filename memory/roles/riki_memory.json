@@ -43,5 +43,19 @@
     "세션 시작 시 role memory를 읽지 않으면 → 학습 순환 고리 단절 (R-01, session_009)",
     "feedback_log에 status 필드 없으면 → Master가 이행 여부를 매번 수동 확인해야 함"
   ],
-  "lastUpdated": "2026-04-08T09:00:00.000Z"
+  ,
+  "riskPatterns_new": [
+    "외부 델타 채택 시: 전제 조건(선행 작업) 미이행 상태에서 규칙만 추가하면 경고 피로 또는 dead rule 생성. 선행 조건 이행을 Editor 단계에서 반드시 확인.",
+    "분류 체계 없는 유형 의존 규칙: 일반 원칙화로 연착륙. 분류 체계 도입 시 자연 흡수 가능."
+  ],
+  "topicsHandled_new": [
+    {
+      "topicId": "topic_009",
+      "title": "2팀 내용 업그레이드 — 델타팩 활용 점검",
+      "date": "2026-04-09",
+      "criticalRisks": [],
+      "residualRisks": ["R-05: 분류 체계 없는 FR-003 — 일반 원칙화로 수용 가능 수준"]
+    }
+  ],
+  "lastUpdated": "2026-04-09T09:30:00.000Z"
 }

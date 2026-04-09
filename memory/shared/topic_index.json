@@ -125,5 +125,21 @@
       "path": "reports/2026-04-08_viewer-display-diagnosis"
     }
   ],
-  "lastUpdated": "2026-04-08T10:00:00.000Z"
+    ,
+    {
+      "id": "topic_009",
+      "title": "2팀 내용 업그레이드 — 델타팩 활용 점검",
+      "status": "completed",
+      "created": "2026-04-09",
+      "controlPath": null,
+      "reportPath": "reports/2026-04-09_upgrade-delta-pack-review",
+      "reportFiles": ["arki_rev01.md", "riki_rev01.md", "ace_rev01.md", "editor_rev01.md"],
+      "published": true,
+      "outcome": "2팀 델타팩 4건 채택 적용 완료. CLAUDE.md 3개 원칙 추가/강화. config/project.json 버전 동기화. 분류 체계는 별도 토픽 이연.",
+      "masterDecisions": ["D-014"],
+      "note": "Arki, Riki, Ace 발언. Nova 미호출. 변경 없이 점검 후 Master 지시로 즉시 적용.",
+      "path": "reports/2026-04-09_upgrade-delta-pack-review"
+    }
+  ],
+  "lastUpdated": "2026-04-09T09:00:00.000Z"
 }
