@@ -22,18 +22,31 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
+import { ROOT, readJson, appendLog } from './lib/utils';
 
-const ROOT = path.resolve(__dirname, '..');
+// ── Load canonical schema from config ────────────────────────────────────────
 
-// ── Canonical schema ─────────────────────────────────────────────────────────
+interface OutputConfig {
+  output: {
+    requiredFrontmatter: string[];
+    reportStatusValues: string[];
+    sessionStatusValues: string[];
+  };
+}
 
-const CANONICAL_REQUIRED = ['topic', 'role', 'phase', 'revision', 'date', 'report_status', 'session_status', 'accessed_assets'];
+interface RolesConfig {
+  roles: Record<string, { id: string }>;
+}
 
-const VALID_ROLES = ['ace', 'arki', 'fin', 'riki', 'editor', 'nova', 'master'];
+const outputConfig = readJson<OutputConfig>(path.join(ROOT, 'config/output.json'), {
+  output: { requiredFrontmatter: [], reportStatusValues: [], sessionStatusValues: [] }
+});
+const rolesConfig = readJson<RolesConfig>(path.join(ROOT, 'config/roles.json'), { roles: {} });
 
-const VALID_REPORT_STATUSES = ['draft', 'reviewed', 'approved', 'superseded', 'speculative'];
-
-const VALID_SESSION_STATUSES = ['open', 'in-progress', 'review', 'suspended', 'closed'];
+const CANONICAL_REQUIRED = outputConfig.output.requiredFrontmatter;
+const VALID_ROLES = [...Object.keys(rolesConfig.roles), 'master'];
+const VALID_REPORT_STATUSES = outputConfig.output.reportStatusValues;
+const VALID_SESSION_STATUSES = outputConfig.output.sessionStatusValues;
 
 // ── Legacy schema (backward compat) ─────────────────────────────────────────
 
@@ -181,14 +194,6 @@ function validateFile(filePath: string, strict: boolean): ValidationResult {
   return result;
 }
 
-// ── Logger ───────────────────────────────────────────────────────────────────
-
-function appendLog(message: string): void {
-  const logPath = path.join(ROOT, 'logs', 'app.log');
-  const line = `[${new Date().toISOString()}] [validate-output] ${message}\n`;
-  fs.appendFileSync(logPath, line, 'utf8');
-}
-
 // ── Runner ───────────────────────────────────────────────────────────────────
 
 function run(): void {
@@ -228,7 +233,7 @@ function run(): void {
   }
 
   const summary = `Validated ${results.length} files — ${passed.length} passed, ${failed.length} failed, ${legacy.length} legacy`;
-  appendLog(summary);
+  appendLog('validate-output', summary);
 
   if (failed.length > 0) {
     console.log(`\n✗ ${failed.length} file(s) failed validation`);

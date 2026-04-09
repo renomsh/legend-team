@@ -14,35 +14,16 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import type { TopicIndex, TopicIndexEntry } from '../src/types/index';
+import { ROOT, readJson, writeJson, nextId } from './lib/utils';
 
-const ROOT = path.resolve(__dirname, '..');
 const TOPIC_INDEX_PATH = path.join(ROOT, 'memory/shared/topic_index.json');
 
-function pad(n: number): string {
-  return String(n).padStart(3, '0');
-}
-
 function readTopicIndex(): TopicIndex {
-  if (!fs.existsSync(TOPIC_INDEX_PATH)) {
-    return { topics: [], lastUpdated: new Date().toISOString() };
-  }
-  const raw = fs.readFileSync(TOPIC_INDEX_PATH, 'utf8').trim();
-  if (!raw) {
-    return { topics: [], lastUpdated: new Date().toISOString() };
-  }
-  return JSON.parse(raw) as TopicIndex;
+  return readJson<TopicIndex>(TOPIC_INDEX_PATH, { topics: [], lastUpdated: new Date().toISOString() });
 }
 
 function nextTopicId(index: TopicIndex): string {
-  const nums = index.topics
-    .map(t => parseInt(t.id.replace('topic_', ''), 10))
-    .filter(n => !isNaN(n));
-  const next = nums.length > 0 ? Math.max(...nums) + 1 : 1;
-  return `topic_${pad(next)}`;
-}
-
-function writeJson(absPath: string, content: unknown): void {
-  fs.writeFileSync(absPath, JSON.stringify(content, null, 2) + '\n', 'utf8');
+  return nextId(index.topics, 'topic_');
 }
 
 /** Canonical v0.3.0 frontmatter template for Ace's agenda */

@@ -13,11 +13,10 @@
  *   ts-node scripts/log-evidence.ts topic_002 risk riki "Memory files empty in v0.1.0" open
  */
 
-import * as fs from 'fs';
 import * as path from 'path';
 import type { Evidence, AgentId } from '../src/types/index';
+import { ROOT, readJson, writeJson, appendLog, nextId } from './lib/utils';
 
-const ROOT = path.resolve(__dirname, '..');
 const EVIDENCE_PATH = path.join(ROOT, 'memory', 'shared', 'evidence_index.json');
 
 const VALID_TYPES = [
@@ -26,31 +25,6 @@ const VALID_TYPES = [
 ];
 
 const VALID_AGENTS: AgentId[] = ['ace', 'arki', 'fin', 'riki', 'editor', 'nova', 'master'];
-
-function readJson<T>(absPath: string, fallback: T): T {
-  if (!fs.existsSync(absPath)) return fallback;
-  const raw = fs.readFileSync(absPath, 'utf8').trim();
-  if (!raw) return fallback;
-  return JSON.parse(raw) as T;
-}
-
-function writeJson(absPath: string, content: unknown): void {
-  fs.writeFileSync(absPath, JSON.stringify(content, null, 2) + '\n', 'utf8');
-}
-
-function appendLog(message: string): void {
-  const logPath = path.join(ROOT, 'logs', 'app.log');
-  const line = `[${new Date().toISOString()}] [log-evidence] ${message}\n`;
-  fs.appendFileSync(logPath, line, 'utf8');
-}
-
-function nextId(entries: Array<{ id: string }>): string {
-  const nums = entries
-    .map(e => parseInt(e.id.replace('E-', ''), 10))
-    .filter(n => !isNaN(n));
-  const next = nums.length > 0 ? Math.max(...nums) + 1 : 1;
-  return `E-${String(next).padStart(3, '0')}`;
-}
 
 function run(): void {
   const [topicSlug, type, source, finding, status = 'open'] = process.argv.slice(2);
@@ -69,7 +43,7 @@ function run(): void {
   interface EvidenceIndex { evidence: Evidence[]; lastUpdated: string }
   const index = readJson<EvidenceIndex>(EVIDENCE_PATH, { evidence: [], lastUpdated: '' });
 
-  const id = nextId(index.evidence);
+  const id = nextId(index.evidence, 'E-');
   const date = new Date().toISOString().slice(0, 10);
   const sourceAgent = VALID_AGENTS.includes(source as AgentId) ? source as AgentId : 'master';
 
@@ -89,7 +63,7 @@ function run(): void {
   index.lastUpdated = new Date().toISOString();
   writeJson(EVIDENCE_PATH, index);
 
-  appendLog(`Logged evidence ${id}: [${type}] ${finding.slice(0, 60)}`);
+  appendLog('log-evidence', `Logged evidence ${id}: [${type}] ${finding.slice(0, 60)}`);
 
   console.log(`✓ Evidence logged: ${id}`);
   console.log(`  topic: ${topicSlug} | type: ${type} | source: ${source}`);

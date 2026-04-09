@@ -17,16 +17,13 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
+import { ROOT, readJson, writeJson, appendLog, nextId } from './lib/utils';
 
-const ROOT = path.resolve(__dirname, '..');
-
-const APP_LOG = path.join(ROOT, 'logs', 'app.log');
 const SESSION_PATH = path.join(ROOT, 'memory', 'sessions', 'current_session.json');
 const SESSION_INDEX_PATH = path.join(ROOT, 'memory', 'sessions', 'session_index.json');
 const TOPIC_INDEX_PATH = path.join(ROOT, 'memory', 'shared', 'topic_index.json');
 const DECISION_LEDGER_PATH = path.join(ROOT, 'memory', 'shared', 'decision_ledger.json');
 const FEEDBACK_LOG_PATH = path.join(ROOT, 'memory', 'master', 'master_feedback_log.json');
-const REPORTS_DIR = path.join(ROOT, 'reports');
 
 interface SessionRecord {
   sessionId: string;
@@ -44,29 +41,13 @@ interface SessionIndex {
   lastUpdated: string;
 }
 
-function readJson<T>(absPath: string, fallback: T): T {
-  if (!fs.existsSync(absPath)) return fallback;
-  const raw = fs.readFileSync(absPath, 'utf8').trim();
-  if (!raw) return fallback;
-  return JSON.parse(raw) as T;
-}
-
-function writeJson(absPath: string, content: unknown): void {
-  fs.writeFileSync(absPath, JSON.stringify(content, null, 2) + '\n', 'utf8');
-}
-
 function log(level: 'INFO' | 'WARN' | 'ERROR', context: string, message: string): void {
-  const line = `[${new Date().toISOString()}] [${level}] [${context}] ${message}\n`;
-  fs.appendFileSync(APP_LOG, line, 'utf8');
-  console.log(line.trim());
+  appendLog(context, `[${level}] ${message}`);
+  console.log(`[${new Date().toISOString()}] [${level}] [${context}] ${message}`);
 }
 
 function nextSessionId(index: SessionIndex): string {
-  const nums = index.sessions
-    .map(s => parseInt(s.sessionId.replace('session_', ''), 10))
-    .filter(n => !isNaN(n));
-  const next = nums.length > 0 ? Math.max(...nums) + 1 : 1;
-  return `session_${String(next).padStart(3, '0')}`;
+  return nextId(index.sessions.map(s => ({ id: s.sessionId })), 'session_');
 }
 
 function startSession(topicSlug: string, mode = 'observation'): void {

@@ -13,33 +13,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import type { MasterFeedback } from '../src/types/index';
-
-const ROOT = path.resolve(__dirname, '..');
-
-function readJson<T>(absPath: string, fallback: T): T {
-  if (!fs.existsSync(absPath)) return fallback;
-  const raw = fs.readFileSync(absPath, 'utf8').trim();
-  if (!raw) return fallback;
-  return JSON.parse(raw) as T;
-}
-
-function writeJson(absPath: string, content: unknown): void {
-  fs.writeFileSync(absPath, JSON.stringify(content, null, 2) + '\n', 'utf8');
-}
-
-function appendLog(message: string): void {
-  const logPath = path.join(ROOT, 'logs', 'app.log');
-  const line = `[${new Date().toISOString()}] [apply-feedback] ${message}\n`;
-  fs.appendFileSync(logPath, line, 'utf8');
-}
-
-function nextId(entries: MasterFeedback[]): string {
-  const nums = entries
-    .map(e => parseInt(e.id.replace('MF-', ''), 10))
-    .filter(n => !isNaN(n));
-  const next = nums.length > 0 ? Math.max(...nums) + 1 : 1;
-  return `MF-${String(next).padStart(3, '0')}`;
-}
+import { ROOT, readJson, writeJson, appendLog, nextId } from './lib/utils';
 
 function run(): void {
   const args = process.argv.slice(2);
@@ -64,7 +38,7 @@ function run(): void {
   interface GlobalFeedbackLog { feedbackLog: MasterFeedback[] }
   const globalLog = readJson<GlobalFeedbackLog>(globalLogPath, { feedbackLog: [] });
 
-  const id = nextId([...topicLog.feedback, ...globalLog.feedbackLog]);
+  const id = nextId([...topicLog.feedback, ...globalLog.feedbackLog], 'MF-');
 
   const entry: MasterFeedback = {
     id,
@@ -92,7 +66,7 @@ function run(): void {
 
   writeJson(topicFeedbackPath, topicLog);
   writeJson(globalLogPath, globalLog);
-  appendLog(`Recorded feedback ${id} for ${topicId} / ${phase}`);
+  appendLog('apply-feedback', `Recorded feedback ${id} for ${topicId} / ${phase}`);
 
   console.log(`✓ Master feedback recorded: ${id}`);
   console.log(`  topic: ${topicId} | phase: ${phase}`);

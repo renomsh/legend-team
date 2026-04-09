@@ -11,8 +11,9 @@
       "startAt": 1,
       "incrementOn": "any update"
     },
-    "requiredFrontmatter": ["topic", "agent", "revision", "date", "status", "accessed_assets"],
-    "statusValues": ["draft", "reviewed", "master-approved", "superseded"],
+    "requiredFrontmatter": ["topic", "role", "phase", "revision", "date", "report_status", "session_status", "accessed_assets"],
+    "reportStatusValues": ["draft", "reviewed", "approved", "superseded", "speculative"],
+    "sessionStatusValues": ["open", "in-progress", "review", "suspended", "closed"],
     "silentOverwritePolicy": "forbidden",
     "supersededBehavior": "mark as superseded, keep file, append new revision as separate file"
   },
