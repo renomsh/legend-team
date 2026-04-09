@@ -134,7 +134,7 @@ Master may switch modes at any time by stating the mode name.
 ### Script Status (v0.4.0)
 
 **Active:**
-- `session-log.ts` — 세션 시작/종료 + 체크리스��� 검증 (H-01)
+- `session-log.ts` — 세션 시작/종료 + 체크리스트 검증 (H-01)
 - `validate-output.ts` — 리포트 frontmatter 검증
 - `auto-push.js` — 세션 종료 시 git push (D-008)
 - `build.js` — CF Pages 빌드 (canonical)
