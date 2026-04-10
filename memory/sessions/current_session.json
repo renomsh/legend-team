@@ -1,29 +1,31 @@
 {
-  "sessionId": "session_012",
-  "topic": "역할 재정의",
-  "topicSlug": "role-redefinition",
+  "sessionId": "session_013",
+  "topic": "Ace 측정구조 설계",
+  "topicSlug": "ace-measurement-structure",
   "status": "closed",
-  "startedAt": "2026-04-10T09:00:00.000Z",
-  "closedAt": "2026-04-10T06:13:54.621Z",
+  "startedAt": "2026-04-10T12:00:00.000Z",
+  "closedAt": "2026-04-10T07:01:49.581Z",
   "mode": "observation",
   "agentsCompleted": [
-    "ace",
+    "nova",
     "arki",
     "fin",
     "riki",
+    "ace",
     "editor"
   ],
-  "novaInvoked": false,
-  "masterDecisions": [
-    "D-015"
-  ],
-  "reportPath": "reports/2026-04-10_role-redefinition",
+  "novaInvoked": true,
+  "masterDecisions": [],
+  "reportPath": "reports/2026-04-10_ace-measurement-structure",
   "notes": [
-    "범위: 역할 재정의만. 토픽 세그먼트 별도 이연.",
-    "Master 핵심 프레임: Ace = Master 판단 대리인, 후행 통합기 → 선행 제안기 진화",
-    "Fin Financial→Resource 변경 Master 기각: 사업적 재무 주력 유지",
-    "Riki masterSelectionPatterns 제안 채택 (구현은 이연)",
-    "topic_004 status suspended→closed 수정 반영"
+    "인프라 작업 — topic_010에서 이연된 Ace 측정구조 구현",
+    "전원 의견 후 Arki 안 채택 (observations를 Decision 레코드 내장)",
+    "Master: 정형/비정형 분리 자체가 리스크",
+    "Master: Ace=동일화 대상, 실무 부산물로 학습",
+    "lessonLog 기록 기준 확정",
+    "다음 토픽: 유형별 호출 세그먼트 + 분류 체계 (새 세션)"
   ],
-  "gaps": []
+  "gaps": [
+    "세션 미개설 상태에서 진행 — session_013으로 소급 기록"
+  ]
 }

@@ -150,7 +150,21 @@
       "masterDecisions": ["D-015"],
       "note": "전원 발언. Nova 미호출. 이연: Ace memory 측정구조, 토픽 세그먼트.",
       "path": "reports/2026-04-10_role-redefinition"
+    },
+    {
+      "id": "topic_010a",
+      "title": "Ace 측정구조 설계 — masterSelectionPatterns 구현",
+      "status": "completed",
+      "created": "2026-04-10",
+      "closedAt": "2026-04-10",
+      "controlPath": null,
+      "reportPath": "reports/2026-04-10_ace-measurement-structure",
+      "reportFiles": ["editor_rev01.md"],
+      "published": false,
+      "outcome": "masterSelectionPatterns + lessonLog 구현. Ace 추천 필수화. observations를 Decision 레코드 내장으로 확정.",
+      "masterDecisions": [],
+      "note": "인프라 작업. 정식 토픽 아닌 topic_010 후속 구조 정비. 전원 의견 → Arki 안 채택."
     }
   ],
-  "lastUpdated": "2026-04-10T09:00:00.000Z"
+  "lastUpdated": "2026-04-10T12:00:00.000Z"
 }

@@ -39,7 +39,17 @@
       "date": "2026-04-10",
       "gapsFound": ["Editor '다음 토픽 예고' — 도메인 밖 선행 제안"],
       "resolvedBy": "Editor 정의에서 선행 제안 명시 제외"
+    },
+    {
+      "topicId": "topic_010a",
+      "title": "Ace 측정구조 설계",
+      "date": "2026-04-10",
+      "gapsFound": [],
+      "resolvedBy": "observations를 Decision 레코드 내장으로 확정 (별도 배열 분리 기각)"
     }
   ],
-  "lastUpdated": "2026-04-10T09:00:00.000Z"
+  "structuralPatterns_design": [
+    "정형/비정형 데이터를 별도 컨테이너로 분리하면 경계 판단·중복·누락 3중 리스크. 비정형은 정형 레코드에 자유기술 필드로 내장이 안정적."
+  ],
+  "lastUpdated": "2026-04-10T12:30:00.000Z"
 }

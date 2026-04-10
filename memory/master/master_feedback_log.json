@@ -92,6 +92,20 @@
       "status": "resolved",
       "statusNote": "charter, roles.json, 리포트 5건 모두 반영 완료."
     }
+    ,
+    {
+      "id": "MF-007",
+      "date": "2026-04-10",
+      "session": "session_013",
+      "topic": "ace-measurement-structure",
+      "afterAgent": "ace (구조 제안)",
+      "feedback": "1) Ace=Master 동일화 대상, 다른 역할은 보완/충돌 축. Riki의 채택률 의식 차단 기각. 2) 학습 대상은 선택 흔적(채택안, 기각안, 수정이유, 재사용기준). 3) 정형/비정형 별도 배열 분리는 리스크 → Arki 확인 후 내장으로 확정. 4) 레전드팀은 별도 프로젝트가 아니라 실무 부산물로 학습. 5) lessonLog 기록 기준 승인.",
+      "decisions": {},
+      "instruction": "Arki 의견 채택, selectionReason 필수 필드 추가, 해당 기준으로 운용",
+      "effect": "ace_memory.json 재구조화, agents/ace.md 프로토콜 추가",
+      "status": "resolved",
+      "statusNote": "구조 구현 완료. 운용은 다음 토픽부터."
+    }
   ],
   "statusValues": ["pending", "in-progress", "resolved"],
   "statusUpdatedBy": "Claude Code at session end — based on topic status and implementation evidence",
