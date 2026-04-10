@@ -96,12 +96,11 @@
       const decData = await DataLoader.getDecisionLedger();
       const decEl = document.getElementById('tab-decisions');
       if (decData && decData.decisions) {
-        const topicSlug = topic.id;
+        const mdSet = new Set(topic.masterDecisions || []);
         const topicDecs = decData.decisions.filter(d =>
-          d.topic === topicSlug ||
-          d.topic === topic.title ||
-          d.session === topic.id ||
-          (topic.masterDecisions && topic.masterDecisions.includes(d.id))
+          mdSet.has(d.id) ||
+          d.topic === topicId ||
+          d.topic === topic.title
         );
         if (topicDecs.length > 0) {
           decEl.innerHTML = topicDecs.map(d => `
@@ -125,10 +124,14 @@
       const fbData = await DataLoader.getMasterFeedback();
       const fbEl = document.getElementById('tab-feedback');
       if (fbData && fbData.feedbackLog) {
+        // Build a set of session IDs linked to this topic from decision ledger
+        const topicSessionIds = new Set(
+          topicDecs.map(d => d.session).filter(Boolean)
+        );
         const topicFb = fbData.feedbackLog.filter(f =>
-          f.topic?.includes(topic.title?.substring(0, 10)) ||
+          topicSessionIds.has(f.session) ||
           f.topic?.includes(topicId) ||
-          f.session === topic.id
+          (topic.masterDecisions || []).some(did => f.decisions && did in f.decisions)
         );
         if (topicFb.length > 0) {
           fbEl.innerHTML = topicFb.map(f => `
