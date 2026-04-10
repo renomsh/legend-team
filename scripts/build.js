@@ -157,15 +157,11 @@ function build() {
   }
   ensureDir(DIST);
 
-  // Copy app source files (HTML, CSS, JS) — excluding legacy internal-viewer.html
+  // Copy app source files (HTML, CSS, JS)
   const appEntries = fs.readdirSync(APP_SRC, { withFileTypes: true });
   for (const entry of appEntries) {
     const srcPath = path.join(APP_SRC, entry.name);
     const destPath = path.join(DIST, entry.name);
-    if (entry.name === 'internal-viewer.html') {
-      console.log('[build] Skipping legacy internal-viewer.html');
-      continue;
-    }
     if (entry.isDirectory()) {
       copyDirRecursive(srcPath, destPath);
     } else {

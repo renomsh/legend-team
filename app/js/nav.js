@@ -33,8 +33,8 @@ function statusBadge(status) {
   const cls = status === 'open' ? 'status-open' :
               status === 'in-progress' ? 'status-in-progress' :
               'status-closed';
-  const label = status === 'open' ? '진행중' :
-                status === 'in-progress' ? '진행중' :
-                status === 'closed' ? '완료' : status;
+  const label = status === 'open' ? 'open' :
+                status === 'in-progress' ? 'in-progress' :
+                status === 'closed' ? 'completed' : status;
   return `<span class="status-badge ${cls}">${label}</span>`;
 }
