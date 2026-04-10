@@ -92,6 +92,7 @@ function buildTopicsManifest() {
     published: t.published ?? false,
     outcome: t.outcome ?? null,
     note: t.note ?? null,
+    masterDecisions: t.masterDecisions ?? [],
   }));
 
   // Cross-validate: check that every registered reportFile actually exists on disk
