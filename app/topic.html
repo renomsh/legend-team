@@ -95,9 +95,10 @@
       // Decisions tab — filter by topic
       const decData = await DataLoader.getDecisionLedger();
       const decEl = document.getElementById('tab-decisions');
+      const mdSet = new Set(topic.masterDecisions || []);
+      let topicDecs = [];
       if (decData && decData.decisions) {
-        const mdSet = new Set(topic.masterDecisions || []);
-        const topicDecs = decData.decisions.filter(d =>
+        topicDecs = decData.decisions.filter(d =>
           mdSet.has(d.id) ||
           d.topic === topicId ||
           d.topic === topic.title
@@ -124,7 +125,6 @@
       const fbData = await DataLoader.getMasterFeedback();
       const fbEl = document.getElementById('tab-feedback');
       if (fbData && fbData.feedbackLog) {
-        // Build a set of session IDs linked to this topic from decision ledger
         const topicSessionIds = new Set(
           topicDecs.map(d => d.session).filter(Boolean)
         );
