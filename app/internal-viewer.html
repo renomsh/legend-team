@@ -111,9 +111,9 @@
     .topic-date  { font-size: 11px; }
     .no-topics   { text-align: center; color: #334; padding: 20px; }
     .status-badge { font-size: 10px; padding: 2px 8px; border-radius: 4px; letter-spacing: 1px; }
-    .status-open   { background: #0d2a1a; color: #2ecc71; }
-    .status-review { background: #1a1a00; color: #f0c040; }
-    .status-closed { background: #1a1a2e; color: #556; }
+    .status-open   { background: var(--status-open-bg); color: var(--status-open); }
+    .status-review { background: var(--status-progress-bg); color: var(--status-progress); }
+    .status-closed { background: var(--status-closed-bg); color: var(--status-closed); }
     .topic-row { cursor: pointer; transition: background 0.12s; }
     .topic-row:hover td { background: #0e0e20; }
     .topic-meta-counts { display: flex; gap: 8px; }
@@ -197,9 +197,9 @@
     .agent-seq-table td { font-size: 12px; padding: 8px 10px; border-bottom: 1px solid #0f0f1e; }
     .agent-name-cell { display: flex; align-items: center; gap: 8px; }
     .agent-dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
-    .seq-status-done    { color: #2ecc71; }
-    .seq-status-pending { color: #446; }
-    .seq-status-skipped { color: #7a6010; }
+    .seq-status-done    { color: var(--status-open); }
+    .seq-status-pending { color: var(--text-tertiary); }
+    .seq-status-skipped { color: var(--accent-gold); }
 
     /* ── AGENDA TAB ── */
     .agenda-content { font-size: 12px; line-height: 1.7; color: #8090a8; }
@@ -246,8 +246,8 @@
     .feedback-text  { font-size: 12px; color: #a0b0c8; line-height: 1.6; margin-bottom: 8px; }
     .feedback-directive { font-size: 11px; color: #7080a0; font-style: italic; border-top: 1px solid #1a1a2e; padding-top: 8px; }
     .feedback-status { font-size: 10px; margin-top: 6px; }
-    .fstat-applied  { color: #2ecc71; }
-    .fstat-pending  { color: #f0c040; }
+    .fstat-applied  { color: var(--status-open); }
+    .fstat-pending  { color: var(--status-progress); }
 
     /* ── REPORTS TAB ── */
     .report-item {
