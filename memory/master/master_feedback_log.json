@@ -61,11 +61,24 @@
       "decisions": {},
       "instruction": "복합 검증 로직으로 개선 후 재실행",
       "effect": "토픽 suspended. 다음 세션에서 주소·연락처 등 복합검증 추가 후 재매핑 예정.",
-      "status": "pending",
-      "statusNote": "topic_006 suspended 상태. 복합검증 로직 미구현. 재개 시 이행 예정."
+      "status": "resolved",
+      "statusNote": "2026-04-10 복합검증 기준 확정(MF-005). Master 수작업 비교 검증으로 topic_006 종결."
+    },
+    {
+      "id": "MF-005",
+      "date": "2026-04-10",
+      "session": "session_012",
+      "topic": "dailyjob-db-mapping",
+      "afterAgent": "N/A (세션 외 피드백)",
+      "feedback": "퍼지매칭 복합검증 로직 구체화. 3가지 규칙:\n1. 퍼지매칭은 적합도 80% 이상만 후보로 추출\n2. 사업자번호가 다를 경우 미매칭 처리 (사업자번호 불일치 = 강제 제외)\n3. 지역(주소) 및 전화번호 비교로 교차검증",
+      "decisions": {},
+      "instruction": "해당 규칙을 복합검증 로직에 반영하여 topic_006 재개 시 적용",
+      "effect": "topic_006 재개 조건 충족. 구체적 검증 기준 확정.",
+      "status": "resolved",
+      "statusNote": "Master 수작업 비교 검증으로 이행 완료. topic_006 종결(2026-04-10)."
     }
   ],
   "statusValues": ["pending", "in-progress", "resolved"],
   "statusUpdatedBy": "Claude Code at session end — based on topic status and implementation evidence",
-  "lastUpdated": "2026-04-08T09:00:00.000Z"
+  "lastUpdated": "2026-04-10T00:00:00.000Z"
 }
