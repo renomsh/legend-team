@@ -54,7 +54,7 @@
     {
       "id": "topic_004",
       "title": "v0.3.0 업그레이드 항목 검토",
-      "status": "suspended",
+      "status": "closed",
       "created": "2026-04-04",
       "controlPath": null,
       "reportPath": "reports/2026-04-04_v030-upgrade-review",
@@ -135,6 +135,21 @@
       "note": "Arki, Riki, Ace 발언. Nova 미호출. 변경 없이 점검 후 Master 지시로 즉시 적용.",
       "path": "reports/2026-04-09_upgrade-delta-pack-review"
     }
+    ,
+    {
+      "id": "topic_010",
+      "title": "역할 재정의",
+      "status": "in-progress",
+      "created": "2026-04-10",
+      "controlPath": null,
+      "reportPath": "reports/2026-04-10_role-redefinition",
+      "reportFiles": [],
+      "published": false,
+      "outcome": null,
+      "masterDecisions": [],
+      "note": "역할 범위/권한 재조정. 토픽 세그먼트는 별도 토픽으로 이연.",
+      "path": "reports/2026-04-10_role-redefinition"
+    }
   ],
-  "lastUpdated": "2026-04-09T09:30:00.000Z"
+  "lastUpdated": "2026-04-10T09:00:00.000Z"
 }

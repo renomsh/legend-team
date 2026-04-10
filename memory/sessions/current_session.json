@@ -1,29 +1,17 @@
 {
-  "sessionId": "session_011",
-  "topic": "2팀 내용 업그레이드 — 델타팩 활용 점검",
-  "topicSlug": "upgrade-delta-pack-review",
-  "status": "closed",
-  "startedAt": "2026-04-09T09:00:00.000Z",
-  "closedAt": "2026-04-09T04:30:43.780Z",
+  "sessionId": "session_012",
+  "topic": "역할 재정의",
+  "topicSlug": "role-redefinition",
+  "status": "open",
+  "startedAt": "2026-04-10T09:00:00.000Z",
   "mode": "observation",
-  "agentsCompleted": [
-    "arki",
-    "riki",
-    "ace",
-    "editor"
-  ],
+  "agentsCompleted": [],
   "novaInvoked": false,
-  "masterDecisions": [
-    "D-014"
-  ],
-  "reportPath": "reports/2026-04-09_upgrade-delta-pack-review",
+  "masterDecisions": [],
+  "reportPath": "reports/2026-04-10_role-redefinition",
   "notes": [
-    "2팀 delta pack 분석 — 1팀 업그레이드 활용 항목 점검 및 즉시 적용",
-    "채택: FR-002(Ace 오케스트레이션), FR-003(작업 정의 선행), FR-004(Master 피드백 확대 해석 금지), DX-003(charter 버전 체크)",
-    "선행 조건: config/project.json 버전 0.2.0→0.5.0 동기화 완료",
-    "미적용: DX-004, DX-006, 조건부 항목 전체",
-    "분류 체계(DX-001/DX-007): 별도 토픽 이연",
-    "추가 수정: CLAUDE.md Script Status 인코딩 깨짐(체크리스트) 수정 완료"
+    "범위: 역할 재정의만. 토픽 세그먼트(DX-001/DX-007)는 별도 토픽으로 이연.",
+    "Master 지시: 역할만 정의하는 것으로 한정"
   ],
   "gaps": []
 }
