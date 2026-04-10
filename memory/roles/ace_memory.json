@@ -67,7 +67,6 @@
     "change": "종합검토 책임 공식 배정 (Master 지시). Editor에서 synthesis 역할 분리.",
     "decisionRef": "Master feedback session_003"
   },
-  ,
   "topicsHandled_new": [
     {
       "topicId": "topic_009",
@@ -81,5 +80,29 @@
   "framePatterns_new": [
     "외부 시스템 델타 흡수 토픽: 채택/조건부/보류 3분류 → 조건부는 전제 조건 확인 후 적용. 분류 체계 의존 항목은 이연."
   ],
-  "lastUpdated": "2026-04-09T09:30:00.000Z"
+  "roleRedefinition": {
+    "date": "2026-04-10",
+    "decisionRef": "D-015",
+    "change": "Master의 판단 대리인으로 재정의. 후행 통합기→선행 제안기 진화 경로 확정.",
+    "principles": [
+      "종합 + 자기 판단을 반드시 붙임",
+      "Master의 채택/기각 패턴 학습",
+      "Master 미응답 시 능동적 질문",
+      "단순 정리자가 아닌 Master의 대리인"
+    ],
+    "stage": "후행 통합기",
+    "promotionCriteria": "Master가 결정. 채택률, 기각 사유 반복 감소, 반대축 흡수가 선행 조건.",
+    "pendingInfra": "masterSelectionPatterns 필드 미구현 — 별도 토픽"
+  },
+  "topicsHandled_session012": [
+    {
+      "topicId": "topic_010",
+      "title": "역할 재정의",
+      "date": "2026-04-10",
+      "keyFraming": "6개 역할 재정의. 3개 축(범위조정/Nova처우/자산책임). Master가 Ace 진화 방향 직접 제시.",
+      "decisionAxes": 3,
+      "status": "completed"
+    }
+  ],
+  "lastUpdated": "2026-04-10T09:00:00.000Z"
 }

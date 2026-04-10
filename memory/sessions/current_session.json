@@ -2,16 +2,28 @@
   "sessionId": "session_012",
   "topic": "역할 재정의",
   "topicSlug": "role-redefinition",
-  "status": "open",
+  "status": "closed",
   "startedAt": "2026-04-10T09:00:00.000Z",
+  "closedAt": "2026-04-10T06:13:54.621Z",
   "mode": "observation",
-  "agentsCompleted": [],
+  "agentsCompleted": [
+    "ace",
+    "arki",
+    "fin",
+    "riki",
+    "editor"
+  ],
   "novaInvoked": false,
-  "masterDecisions": [],
+  "masterDecisions": [
+    "D-015"
+  ],
   "reportPath": "reports/2026-04-10_role-redefinition",
   "notes": [
-    "범위: 역할 재정의만. 토픽 세그먼트(DX-001/DX-007)는 별도 토픽으로 이연.",
-    "Master 지시: 역할만 정의하는 것으로 한정"
+    "범위: 역할 재정의만. 토픽 세그먼트 별도 이연.",
+    "Master 핵심 프레임: Ace = Master 판단 대리인, 후행 통합기 → 선행 제안기 진화",
+    "Fin Financial→Resource 변경 Master 기각: 사업적 재무 주력 유지",
+    "Riki masterSelectionPatterns 제안 채택 (구현은 이연)",
+    "topic_004 status suspended→closed 수정 반영"
   ],
   "gaps": []
 }

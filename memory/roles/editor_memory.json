@@ -38,10 +38,13 @@
     "포함/제외 범위를 명시적으로 분리"
   ],
   "roleUpdate": {
-    "date": "2026-04-04",
-    "change": "synthesis 책임 제거. 결과물 작성/정리/출력만 담당 (Master 지시).",
-    "prior": "Synthesis owner. Integrates all agent outputs into final artifacts.",
-    "decisionRef": "D-009, Master feedback session_003"
+    "date": "2026-04-10",
+    "change": "기록자로 재정의(D-015). 편집 판단만 수행. 내용 판단/선행 제안 명시 제외. domain 'communication'→'output'.",
+    "prior": "Artifact compiler. synthesis 제거(D-009).",
+    "decisionRef": "D-015, session_012"
   },
-  "lastUpdated": "2026-04-08T09:00:00.000Z"
+  "outputPatterns_new": [
+    "선행 제안(다음 토픽 예고 등)은 Editor 도메인 밖 — topic_007에서 발견된 경계 위반 사례"
+  ],
+  "lastUpdated": "2026-04-10T09:00:00.000Z"
 }

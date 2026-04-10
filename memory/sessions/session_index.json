@@ -78,8 +78,15 @@
       "startedAt": "2026-04-09T09:00:00.000Z",
       "closedAt": "2026-04-09T04:30:43.780Z",
       "note": "2팀 델타팩 4건 채택 적용. CLAUDE.md 원칙 3건 추가/강화. config/project.json 버전 동기화. D-014 확정."
+    },
+    {
+      "sessionId": "session_012",
+      "topicSlug": "role-redefinition",
+      "startedAt": "2026-04-10T09:00:00.000Z",
+      "closedAt": "2026-04-10T06:13:54.621Z",
+      "note": "6개 역할 재정의. Ace=Master 판단 대리인. D-015 확정. 전원 발언. Nova 미호출."
     }
   ],
-  "lastUpdated": "2026-04-09T04:30:43.780Z",
+  "lastUpdated": "2026-04-10T06:13:54.621Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

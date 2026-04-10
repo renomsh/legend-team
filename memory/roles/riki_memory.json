@@ -43,7 +43,6 @@
     "세션 시작 시 role memory를 읽지 않으면 → 학습 순환 고리 단절 (R-01, session_009)",
     "feedback_log에 status 필드 없으면 → Master가 이행 여부를 매번 수동 확인해야 함"
   ],
-  ,
   "riskPatterns_new": [
     "외부 델타 채택 시: 전제 조건(선행 작업) 미이행 상태에서 규칙만 추가하면 경고 피로 또는 dead rule 생성. 선행 조건 이행을 Editor 단계에서 반드시 확인.",
     "분류 체계 없는 유형 의존 규칙: 일반 원칙화로 연착륙. 분류 체계 도입 시 자연 흡수 가능."
@@ -57,5 +56,18 @@
       "residualRisks": ["R-05: 분류 체계 없는 FR-003 — 일반 원칙화로 수용 가능 수준"]
     }
   ],
-  "lastUpdated": "2026-04-09T09:30:00.000Z"
+  "topicsHandled_session012": [
+    {
+      "topicId": "topic_010",
+      "title": "역할 재정의",
+      "date": "2026-04-10",
+      "criticalRisks": ["R-02 눈치 vs 학습 — Ace memory에 Master 선택 패턴 미기록"],
+      "residualRisks": ["masterSelectionPatterns 미구현 — 정의만 있고 기록 구조 없음"],
+      "masterAdopted": "masterSelectionPatterns 제안 채택 (구현 이연)"
+    }
+  ],
+  "riskPatterns_session012": [
+    "역할 재정의 시: 정의 변경과 인프라 변경을 구분. 정의만 바꾸고 인프라가 안 따라오면 dead rule."
+  ],
+  "lastUpdated": "2026-04-10T09:00:00.000Z"
 }

@@ -140,15 +140,15 @@
     {
       "id": "topic_010",
       "title": "역할 재정의",
-      "status": "in-progress",
+      "status": "completed",
       "created": "2026-04-10",
       "controlPath": null,
       "reportPath": "reports/2026-04-10_role-redefinition",
-      "reportFiles": [],
-      "published": false,
-      "outcome": null,
-      "masterDecisions": [],
-      "note": "역할 범위/권한 재조정. 토픽 세그먼트는 별도 토픽으로 이연.",
+      "reportFiles": ["ace_rev01.md", "arki_rev01.md", "fin_rev01.md", "riki_rev01.md", "editor_rev01.md"],
+      "published": true,
+      "outcome": "6개 역할 재정의 완료. Ace=Master 판단 대리인(후행→선행 진화). Fin Financial 유지. Editor 기록자 한정. Riki adversarial 강화.",
+      "masterDecisions": ["D-015"],
+      "note": "전원 발언. Nova 미호출. 이연: Ace memory 측정구조, 토픽 세그먼트.",
       "path": "reports/2026-04-10_role-redefinition"
     }
   ],

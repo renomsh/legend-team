@@ -76,9 +76,24 @@
       "effect": "topic_006 재개 조건 충족. 구체적 검증 기준 확정.",
       "status": "resolved",
       "statusNote": "Master 수작업 비교 검증으로 이행 완료. topic_006 종결(2026-04-10)."
+    },
+    {
+      "id": "MF-006",
+      "date": "2026-04-10",
+      "session": "session_012",
+      "topic": "role-redefinition",
+      "afterAgent": "ace (종합검토)",
+      "feedback": "Ace = Master의 판단 대리인. 후행 통합기→선행 제안기 진화. 종합+자기판단 필수. Master 미응답 시 능동 질문. 채택/기각 사유 학습 필수. Fin Financial→Resource 변경 기각(사업적 재무 주력). Riki masterSelectionPatterns 채택.",
+      "decisions": {
+        "D-015": "6개 역할 재정의 확정"
+      },
+      "instruction": "project_charter.json, config/roles.json 반영",
+      "effect": "역할 정의 전면 갱신. Ace 진화 경로 명시. Editor 기록자 한정.",
+      "status": "resolved",
+      "statusNote": "charter, roles.json, 리포트 5건 모두 반영 완료."
     }
   ],
   "statusValues": ["pending", "in-progress", "resolved"],
   "statusUpdatedBy": "Claude Code at session end — based on topic status and implementation evidence",
-  "lastUpdated": "2026-04-10T00:00:00.000Z"
+  "lastUpdated": "2026-04-10T09:00:00.000Z"
 }
