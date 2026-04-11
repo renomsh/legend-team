@@ -164,7 +164,21 @@
       "outcome": "masterSelectionPatterns + lessonLog 구현. Ace 추천 필수화. observations를 Decision 레코드 내장으로 확정.",
       "masterDecisions": [],
       "note": "인프라 작업. 정식 토픽 아닌 topic_010 후속 구조 정비. 전원 의견 → Arki 안 채택."
+    },
+    {
+      "id": "topic_011",
+      "title": "DeepTutor GitHub repository 검토",
+      "status": "completed",
+      "created": "2026-04-11",
+      "closedAt": "2026-04-11",
+      "controlPath": null,
+      "reportPath": "reports/2026-04-11_deeptutor-review",
+      "reportFiles": ["ace_rev01.md", "editor_rev01.md", "eduagent-architecture.png", "EduAgent_Architecture_Report.docx"],
+      "published": false,
+      "outcome": "EduAgent 4단계 파이프라인 아키텍처 확정. DeepTutor는 레퍼런스만. 정보 축적이 핵심 비용. Ace/Nova/Arki 페르소나 업그레이드.",
+      "masterDecisions": [],
+      "note": "전원 발언(Nova 포함). MF-008 역할 피드백 3건. Word 보고서 생성."
     }
   ],
-  "lastUpdated": "2026-04-10T12:00:00.000Z"
+  "lastUpdated": "2026-04-11T09:00:00.000Z"
 }

@@ -92,8 +92,15 @@
       "startedAt": "2026-04-10T12:00:00.000Z",
       "closedAt": "2026-04-10T07:01:49.581Z",
       "note": "인프라 작업. Ace masterSelectionPatterns + lessonLog 구현. 추천 필수화. Arki 안 채택(observations 내장). Nova 호출."
+    },
+    {
+      "sessionId": "session_014",
+      "topicSlug": "deeptutor-review",
+      "startedAt": "2026-04-11T09:00:00.000Z",
+      "closedAt": "2026-04-11T11:56:37.035Z",
+      "note": "EduAgent 4단계 아키텍처 확정. DeepTutor 레퍼런스만. 전원 발언+Nova. MF-008 역할 페르소나 업그레이드. Word 보고서 생성."
     }
   ],
-  "lastUpdated": "2026-04-10T07:01:49.581Z",
+  "lastUpdated": "2026-04-11T11:56:37.035Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

@@ -105,6 +105,19 @@
       "effect": "ace_memory.json 재구조화, agents/ace.md 프로토콜 추가",
       "status": "resolved",
       "statusNote": "구조 구현 완료. 운용은 다음 토픽부터."
+    },
+    {
+      "id": "MF-008",
+      "date": "2026-04-11",
+      "session": "session_014",
+      "topic": "deeptutor-review",
+      "afterAgent": "ace (최종 종합)",
+      "feedback": "3가지 역할 피드백: 1) Arki — 아키텍처 그리는 방법론 학습, Agent 설계가 팀 과업. 아키텍처 수정 저장. 2) Nova — 의외성 없는 의견. 페르소나를 더 자유분방하고 한계 없게 업그레이드. 3) Ace — 의견과 전략적 방향 review 추가. 다각적 관점, 여러 case, 더 강하게 의견. 스마트하고 자신감 넘치는 캐릭터. + 전체: 각 역할별 스킬과 커넥터 적극 활용.",
+      "decisions": {},
+      "instruction": "agents/*.md 페르소나 업데이트, role memory 반영, 아키텍처 저장",
+      "effect": "arki.md(아키텍처 설계 역량 추가), nova.md(페르소나 업그레이드), ace.md(전략적 판단자 강화). 각 role memory 갱신.",
+      "status": "resolved",
+      "statusNote": "agents/*.md 3건 + role memory 3건 + 아키텍처 PNG 저장 완료."
     }
   ],
   "statusValues": ["pending", "in-progress", "resolved"],

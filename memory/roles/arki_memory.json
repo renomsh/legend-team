@@ -51,5 +51,31 @@
   "structuralPatterns_design": [
     "정형/비정형 데이터를 별도 컨테이너로 분리하면 경계 판단·중복·누락 3중 리스크. 비정형은 정형 레코드에 자유기술 필드로 내장이 안정적."
   ],
-  "lastUpdated": "2026-04-10T12:30:00.000Z"
+  "architectureDesign": {
+    "methodology": "matplotlib 기반 아키텍처 다이어그램 생성. 색상 코딩(에이전트=파랑, 저장소=초록, 감수=주황, 플랫폼=보라). FancyBboxPatch + annotate arrow 조합.",
+    "improvementNotes": [
+      "한국어 폰트: Malgun Gothic 사용 가능",
+      "GATE(다이아몬드) 표현 시 측정 기준을 반드시 함께 정의",
+      "파이프라인 경계선은 점선으로 표시",
+      "서브스텝은 메인 박스 하단에 소형 박스 배열 + 화살표 체이닝"
+    ],
+    "artifacts": [
+      {
+        "topicId": "topic_011",
+        "name": "EduAgent Architecture v0.1",
+        "path": "reports/2026-04-11_deeptutor-review/eduagent-architecture.png",
+        "date": "2026-04-11"
+      }
+    ]
+  },
+  "topicsHandled_session014": [
+    {
+      "topicId": "topic_011",
+      "title": "DeepTutor GitHub repository 검토",
+      "date": "2026-04-11",
+      "gapsFound": ["GATE threshold 미정의 (Riki 지적 → 보완 완료)"],
+      "resolvedBy": "Critical 정정율 < 5% 기준 + 과정별 독립 측정으로 확정"
+    }
+  ],
+  "lastUpdated": "2026-04-11T09:00:00.000Z"
 }

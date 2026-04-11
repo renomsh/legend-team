@@ -1,31 +1,30 @@
 {
-  "sessionId": "session_013",
-  "topic": "Ace 측정구조 설계",
-  "topicSlug": "ace-measurement-structure",
+  "sessionId": "session_014",
+  "topic": "DeepTutor GitHub repository 검토",
+  "topicSlug": "deeptutor-review",
   "status": "closed",
-  "startedAt": "2026-04-10T12:00:00.000Z",
-  "closedAt": "2026-04-10T07:01:49.581Z",
+  "startedAt": "2026-04-11T09:00:00.000Z",
+  "closedAt": "2026-04-11T11:56:37.035Z",
   "mode": "observation",
   "agentsCompleted": [
-    "nova",
+    "ace",
     "arki",
     "fin",
     "riki",
-    "ace",
+    "nova",
     "editor"
   ],
   "novaInvoked": true,
   "masterDecisions": [],
-  "reportPath": "reports/2026-04-10_ace-measurement-structure",
+  "reportPath": "reports/2026-04-11_deeptutor-review",
   "notes": [
-    "인프라 작업 — topic_010에서 이연된 Ace 측정구조 구현",
-    "전원 의견 후 Arki 안 채택 (observations를 Decision 레코드 내장)",
-    "Master: 정형/비정형 분리 자체가 리스크",
-    "Master: Ace=동일화 대상, 실무 부산물로 학습",
-    "lessonLog 기록 기준 확정",
-    "다음 토픽: 유형별 호출 세그먼트 + 분류 체계 (새 세션)"
+    "DeepTutor 오픈소스는 레퍼런스만 — 내부 자체 구축",
+    "EduAgent 4단계 파이프라인 아키텍처 확정",
+    "핵심 비용은 정보 축적 비용 — 아키텍처 위에서 운용의 결과로 자연 축적",
+    "Nova Solver 축소론 → Arki 반론 → Master가 Arki 승인",
+    "GATE 기준: Critical 정정율 < 5%, 과정별 독립 측정",
+    "MF-008: Ace/Nova/Arki 페르소나 업그레이드 지시 반영",
+    "Word 보고서(EduAgent_Architecture_Report.docx) 생성"
   ],
-  "gaps": [
-    "세션 미개설 상태에서 진행 — session_013으로 소급 기록"
-  ]
+  "gaps": []
 }
