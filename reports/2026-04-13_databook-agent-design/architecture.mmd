@@ -1,0 +1,39 @@
+graph LR
+    subgraph IN[" INPUT "]
+        direction TB
+        T1["기교1팀"]
+        T2["기교2팀"]
+        T3["기교3팀"]
+        F1["FS1팀"]
+        F2["FS2팀"]
+        FG["FS3GS팀"]
+    end
+
+    subgraph PIPE[" PIPELINE "]
+        direction TB
+        S0["Step 0: 준비 점검"]
+        S1["Step 1: 정규화"]
+        S2["Step 2: 전체 취합"]
+        S3["Step 3: 검증"]
+        S4["Step 4: 최종화"]
+        S0 -->|"Master 확인"| S1
+        S1 -->|"Master 확인"| S2
+        S2 -->|"Master 확인"| S3
+        S3 -->|"Master 확인"| S4
+    end
+
+    CFG["config/\nschema.json\nteams.json"]
+    PREV["previous/\n전주 취합본"]
+
+    subgraph OUT[" OUTPUT "]
+        FINAL["최종 데이터북 .xlsx"]
+        RPT["검증 리포트 .md"]
+        LOG["status.json"]
+    end
+
+    IN --> S0
+    CFG --> S1
+    PREV --> S3
+    S4 --> FINAL
+    S3 --> RPT
+    S4 --> LOG

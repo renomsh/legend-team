@@ -77,5 +77,50 @@
       "resolvedBy": "Critical 정정율 < 5% 기준 + 과정별 독립 측정으로 확정"
     }
   ],
-  "lastUpdated": "2026-04-11T09:00:00.000Z"
+  "topicsHandled_session015": [
+    {
+      "topicId": "topic_012",
+      "title": "데이터북 Agent 설계",
+      "date": "2026-04-13",
+      "reportPath": "reports/2026-04-13_databook-agent-design/arki_rev01.md",
+      "gapsFound": [
+        "팀 파일 포맷 .xlsb — openpyxl 미지원 (pyxlsb 필요)",
+        "헤더 위치 팀별 상이 (FS1: row 20, 취합본: row 3)",
+        "컬럼 수 불일치 (취합본 53열 vs FS1 55열 — 그룹사, 영업대표 변경전 추가)"
+      ],
+      "resolvedBy": "헤더 자동탐지 + 팀별 매핑 config + 템플릿 복사 방식 설계"
+    }
+  ],
+  "architectureDesign_updated": {
+    "methodology": "D2 다이어그램 도구 도입. Mermaid 대비 레이아웃 품질 우수. elk/dagre 레이아웃 엔진 선택 가능.",
+    "d2_install": "GitHub 릴리즈에서 바이너리 직접 설치 (winget/choco 권한 이슈). C:/Users/{user}/bin/d2.exe 경로.",
+    "d2_render": "SVG 생성 후 Playwright Chromium으로 PNG 변환. 뷰포트 = SVG 실제 크기 × scale.",
+    "improvementNotes": [
+      "D2 PNG 렌더링: Playwright 필요 (d2 자체 PNG는 Chromium spawn 이슈)",
+      "SVG 크기 자동 감지 후 scale 적용하여 viewport 설정",
+      "grid-columns 레이아웃은 연결선이 복잡해질 때 오히려 가독성 저하 — 플랫 노드 방식이 dagre 레이아웃과 잘 맞음"
+    ],
+    "artifacts": [
+      {
+        "topicId": "topic_011",
+        "name": "EduAgent Architecture v0.1",
+        "path": "reports/2026-04-11_deeptutor-review/eduagent-architecture.png",
+        "date": "2026-04-11"
+      },
+      {
+        "topicId": "topic_012",
+        "name": "Databook Agent Architecture v0.1",
+        "path": "reports/2026-04-13_databook-agent-design/architecture_d2.svg",
+        "date": "2026-04-13",
+        "tool": "D2 + Playwright"
+      }
+    ]
+  },
+  "structuralPatterns_agent": [
+    "이식형 에이전트 설계 시: 폴더 구조 + CLAUDE.md + config/ + scripts/ 4요소가 최소 단위",
+    "Excel 취합 에이전트 핵심은 '취합'이 아니라 '정규화'. 팀별 스키마 차이가 전체 난이도의 70%.",
+    "work/status.json으로 단계 간 상태 유지 → 세션 단절 후 재개 가능",
+    "openpyxl 서식 파괴 방지: 새 파일 생성 금지, previous/ 템플릿 복사 + 값만 덮어쓰기"
+  ],
+  "lastUpdated": "2026-04-13T09:00:00.000Z"
 }

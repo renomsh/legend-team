@@ -178,7 +178,21 @@
       "outcome": "EduAgent 4단계 파이프라인 아키텍처 확정. DeepTutor는 레퍼런스만. 정보 축적이 핵심 비용. Ace/Nova/Arki 페르소나 업그레이드.",
       "masterDecisions": [],
       "note": "전원 발언(Nova 포함). MF-008 역할 피드백 3건. Word 보고서 생성."
+    },
+    {
+      "id": "topic_012",
+      "title": "데이터북 Agent 설계",
+      "status": "suspended",
+      "created": "2026-04-13",
+      "closedAt": "2026-04-13",
+      "controlPath": null,
+      "reportPath": "reports/2026-04-13_databook-agent-design",
+      "reportFiles": ["arki_rev01.md", "editor_rev01.md", "architecture_d2.svg", "architecture_d2.png"],
+      "published": false,
+      "outcome": "설계 완료. 5단계 파이프라인 + 폴더구조 + 검증 리포트 방식 확정. D2 아키텍처 다이어그램 생성. 다음 세션: 7개 팀 파일 전수 조사 → canonical 스키마 → 프로토타입 구현.",
+      "masterDecisions": [],
+      "note": "전원 참석(Nova 포함). 실제 데이터 7,797건/53열 확인. .xlsb 포맷 이슈 발견. 프로토타입은 다음 세션."
     }
   ],
-  "lastUpdated": "2026-04-11T09:00:00.000Z"
+  "lastUpdated": "2026-04-13T09:00:00.000Z"
 }

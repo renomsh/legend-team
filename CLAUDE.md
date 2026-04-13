@@ -11,6 +11,10 @@ Rules:
 - Nova is optional and speculative unless explicitly promoted
 - Prefer explicit, inspectable, file-based structure
 - Use Node.js + TypeScript + file-based JSON/Markdown storage
+- Before creating any chart or dashboard, ask which type to use:
+  1. 표준 — ECharts (기본)
+  2. 분석 — Observable Plot
+  3. 특수 — D3.js
 - Keep outputs revisionable and re-openable
 - Do not overwrite prior decisions or reports silently
 - Before designing structure or architecture, first confirm the scope and goal of the work. Work definition precedes structural design.
