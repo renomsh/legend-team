@@ -135,5 +135,22 @@
   ],
   "statusValues": ["pending", "in-progress", "resolved"],
   "statusUpdatedBy": "Claude Code at session end — based on topic status and implementation evidence",
-  "lastUpdated": "2026-04-13T11:00:00.000Z"
+  ,
+    {
+      "id": "MF-010",
+      "date": "2026-04-14",
+      "session": "session_016",
+      "topic": "hybrid-scaleup300",
+      "afterAgent": "ace (레슨런)",
+      "feedback": "1) 프로젝트 정의 수정: '오너십 이전 프로젝트'가 아니라 '스케일업300 달성을 위해 오너십 이전이 필요하다'. 2) 기획 프로젝트 진행 시 목적·정의·배경·구조 수립이 선행되어야 함. 각 Agenda는 이후 실행·세부기획 필요한 Topic. 전체 구조 수립 단계에서 더 신중해야 함. 3) HTML 산출물은 기본적으로 전문적이고 우수한 시각화로 구현해야 함. 4) 나머지 레슨런(Riki 리스크 필터, Fin 단계 인식)은 Ace 의견 모두 반영.",
+      "decisions": {},
+      "instruction": "각자 필요 영역 memory 저장",
+      "effect": "feedback 5건 memory 저장 완료 (planning_project_structure, ace_problem_definition, editor_html_quality, riki_risk_filter, fin_stage_awareness)",
+      "status": "resolved",
+      "statusNote": "memory 저장 완료. MEMORY.md 인덱스 업데이트 완료."
+    }
+  ],
+  "statusValues": ["pending", "in-progress", "resolved"],
+  "statusUpdatedBy": "Claude Code at session end — based on topic status and implementation evidence",
+  "lastUpdated": "2026-04-14T14:00:00.000Z"
 }
