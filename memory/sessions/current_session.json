@@ -1,23 +1,22 @@
 {
-  "sessionId": "session_017",
-  "topic": "Superpowers 플러그인 업그레이드 검토",
-  "topicSlug": "superpowers-plugin-review",
+  "sessionId": "session_018",
+  "topic": "Superpowers 흡수 실행계획",
+  "topicSlug": "superpowers-absorption-plan",
   "status": "closed",
-  "startedAt": "2026-04-15T00:00:00.000Z",
-  "closedAt": "2026-04-15T12:00:00.000Z",
+  "startedAt": "2026-04-15T13:00:00.000Z",
+  "closedAt": "2026-04-15T14:30:00.000Z",
   "mode": "observation",
   "agentsCompleted": ["ace", "arki", "fin", "riki", "ace-synthesis", "editor"],
   "novaInvoked": false,
-  "masterDecisions": [],
-  "reportPath": "reports/2026-04-15_superpowers-plugin-review",
+  "masterDecisions": ["D-016", "D-017", "D-018", "D-019"],
+  "reportPath": "reports/2026-04-15_superpowers-absorption-plan",
   "notes": [
-    "Superpowers v5.0.7 14-skill 플러그인 검토",
-    "결론: 미설치. `ace-framing` 자작 skill로 자립 경로 채택",
-    "brainstorming 3번(정교화 질문)·7번(자가 검토)만 해체·흡수 대상",
-    "Phase 1~3 실행 및 실행 계획 작성 역할 공백은 topic_015로 이연",
-    "Master 3회 개입 — 3회차(분해·흡수 제안)가 결정적 전환점",
-    "Ace 3가지 실수 기록: 통으로 보기 / 의존 vs 자립 축 누락 / Riki·Arki 과장 제어 실패",
-    "레슨런 6건 memory 저장"
+    "실행계획 역할 공백 → Arki 통합 확정",
+    "Ace 오케스트레이터 선언 (D-019) — 1회 순환은 초기 스캐폴드",
+    "Schedule-on-Demand 원칙 (D-017) — 일정은 Master 요청 시에만",
+    "Arki 실행계획 오염 금지어 v0 (D-018) — Fin 1회 감사",
+    "Master 3회 개입 (3안 재명확화, 오케스트레이션 선언, 일정 원칙 추가)",
+    "레슨런 2건 memory 저장"
   ],
   "gaps": []
 }

@@ -170,7 +170,51 @@
       "value": "Ace를 Master의 판단 대리인으로 재정의. 후행 통합기→선행 제안기 진화 경로 확정(승격 시점은 Master 결정). Ace는 종합+자기판단 필수, Master 미응답 시 능동 질문. Arki 데이터구조 포함. Fin Financial 유지(사업적 재무 주력). Riki 실행왜곡+Ace초안 포함 adversarial 명시. Editor 기록자(편집판단만, 내용판단/선행제안 불가). Nova 현행유지.",
       "authority": "master",
       "status": "confirmed"
+    },
+    {
+      "id": "D-016",
+      "date": "2026-04-15",
+      "session": "session_018",
+      "topic": "superpowers-absorption-plan",
+      "axis": "실행계획 역할 귀속",
+      "decision": "Arki 통합",
+      "value": "Arki 발언에 '구조적 실행계획' 4번째 섹션을 추가. 내용: Phase 분해, 의존 그래프, 입력/출력/검증 게이트, 임계경로·병목·롤백, 전제·중단 조건. 발동은 Ace가 executionPlanMode(plan/conditional/none)로 판정. Ace=실행계획, Arki=구조설계자 본업 연장, 역할 수 증가 없음.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-017",
+      "date": "2026-04-15",
+      "session": "session_018",
+      "topic": "superpowers-absorption-plan",
+      "axis": "일정 수립 원칙 (Schedule-on-Demand)",
+      "decision": "Master 요청 시에만 수행",
+      "value": "일정·공수·담당 추정은 Master가 명시적으로 요청한 경우에만 수행. 요청 없는 자동 일정 생성 금지. Arki 실행계획은 시간축 제외(구조적 선후만). Fin은 구조 단계에서 방향성만 평가. Editor는 평시 일정 섹션 생성 금지. 이유: 실측 근거 없는 일정은 현실성 결여 → 의사결정 왜곡.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-018",
+      "date": "2026-04-15",
+      "session": "session_018",
+      "topic": "superpowers-absorption-plan",
+      "axis": "Arki 실행계획 오염 금지어 v0",
+      "decision": "3카테고리 금지 + Fin 감사",
+      "value": "금지어 3카테고리: (1) 절대시간(D+N일, N주차, MM/DD, 구체 날짜) (2) 인력배정(담당자:, 특정 이름, PD, MM) (3) 공수 단위(N시간, N일 소요, 공수). 허용: 구조적 선후 표현(Phase 완료→다음, 게이트 통과 후, 전제조건 충족 시). Fin이 첫 실행계획 산출 후 1회 감사, 감사 기준은 Fin memory에 축적.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-019",
+      "date": "2026-04-15",
+      "session": "session_018",
+      "topic": "superpowers-absorption-plan",
+      "axis": "Ace 오케스트레이터 선언",
+      "decision": "Ace=Orchestrator",
+      "value": "역할 호출 순서·횟수·재호출 여부는 Ace의 판단. 1역할 1발언 순차 순환은 초기 스캐폴드이며 프로토콜의 본질이 아님. Ace는 토픽 특성에 맞춰 reorder/re-call/skip/extend 가능. 판단 근거는 ace_memory.masterSelectionPatterns에 누적(topic type → role call pattern). 초기=수동+기록, 성숙기=패턴 매칭 자동화. Editor가 백업 게이트 역할(누락 시 경고).",
+      "authority": "master",
+      "status": "confirmed"
     }
   ],
-  "lastUpdated": "2026-04-10T09:00:00.000Z"
+  "lastUpdated": "2026-04-15T13:00:00.000Z"
 }

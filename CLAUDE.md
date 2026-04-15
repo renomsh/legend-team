@@ -34,15 +34,36 @@ When processing a topic, each role speaks in sequence. Master sees each role's o
 
 Do NOT merge all roles into a single response. Do NOT skip to Editor unless Master requests it.
 
-Speaking order:
-1. **Ace** — framing, decision axes, scope (in/out), key assumptions
-2. **Arki** — structural analysis, dependencies, design constraints
-3. **Fin** — cost, return profile, resource evaluation
+Speaking order (default scaffold — Ace may reorder/re-call roles adaptively, see Ace Orchestration Protocol):
+1. **Ace** — framing, decision axes, scope (in/out), key assumptions. Sets `executionPlanMode: plan | conditional | none` for the topic.
+2. **Arki** — structural analysis, dependencies, design constraints. **If `executionPlanMode = plan`**, extends with 4th section: 구조적 실행계획 (Phase 분해·의존 그래프·검증 게이트·롤백·전제·중단 조건). Time/owner/effort are out of scope — see Schedule-on-Demand principle.
+3. **Fin** — cost, return profile, resource evaluation (directional only in structural phases). Also audits Arki 실행계획 for contamination (금지어 리스트) when applicable.
 4. **Riki** — failure modes, assumption audit, contradictions, execution distortions, rejected logic
-5. **Ace (종합검토)** — cross-review of all role outputs, final recommendation to Master
+5. **Ace (종합검토)** — cross-review of all role outputs, final recommendation to Master. If `executionPlanMode = conditional` and a decision is made, Ace re-calls Arki for 실행계획 before Editor.
 6. **Editor** — artifact compilation, formatting, and output only (no independent synthesis or judgment)
 
 Nova is NOT included by default. Invoke only when Master explicitly requests it (inserted after Riki, before Editor).
+
+### Ace Orchestration Protocol (D-019, 2026-04-15)
+**Ace is the orchestrator.** Role call order, frequency, and re-calls are Ace's judgment based on topic characteristics — not a fixed 1-role-1-utterance loop. The default speaking order above is an early-stage scaffold, not the protocol's essence. Ace may:
+- Reorder roles when topic demands it
+- Re-call a role mid-session (e.g., Arki for 실행계획 after a decision is made)
+- Skip roles that add no value to the specific topic
+- Extend a role's speaking slot when the topic load requires it
+
+Rationale for calls is accumulated in `memory/roles/ace_memory.json` under `masterSelectionPatterns` (topic type → role call pattern). Early phase: manual judgment with explicit logging. Mature phase: pattern-matched auto-orchestration. Editor acts as a backup gate — if Ace forgets a needed re-call before session close, Editor flags it.
+
+### Schedule-on-Demand Principle (D-017, 2026-04-15)
+일정·공수·담당 추정은 **Master가 명시적으로 요청한 경우에만** 수행한다. 요청 없는 자동 일정 생성 금지 (Arki 실행계획·Fin 자원평가·Editor 산출물 모두 해당).
+
+**Arki 실행계획 오염 금지어 v0** (Fin 감사 기준):
+- 절대 시간: `D+N일`, `N주차`, `MM/DD`, 구체 날짜
+- 인력 배정: `담당자:`, 특정 이름, `PD`, `MM`
+- 공수 단위: `N시간`, `N일 소요`, `공수`
+
+**허용** (구조적 선후 표현): `Phase 1 완료 → Phase 2`, `게이트 A 통과 후`, `전제조건 X 충족 시`
+
+이유: 실측 근거 없는 일정은 현실성 결여 → 의사결정 왜곡 → Master 신뢰 저하.
 
 ### Master Intervention
 After any role's output, Master may:
