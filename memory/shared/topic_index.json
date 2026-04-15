@@ -235,7 +235,21 @@
       "outcome": "실행계획 역할을 Arki에 통합. Ace 오케스트레이터 선언(D-019), Schedule-on-Demand 원칙(D-017), 실행계획 오염 금지어 v0(D-018) 확정. CLAUDE.md·decision_ledger 반영 완료.",
       "masterDecisions": ["D-016", "D-017", "D-018", "D-019"],
       "note": "topic_014에서 이연. 전원 발언(Ace·Arki·Fin·Riki·Ace종합·Editor). Nova 미호출. Master 3회 개입(3안 재명확화, 오케스트레이션 선언, 일정 원칙). 레슨런 2건. session_018."
+    },
+    {
+      "id": "topic_016",
+      "title": "ace-framing 자작 skill 실제 구현",
+      "status": "completed",
+      "created": "2026-04-16",
+      "closedAt": "2026-04-16",
+      "controlPath": null,
+      "reportPath": "reports/2026-04-16_ace-framing-skill-implementation",
+      "reportFiles": ["ace_rev1.md", "arki_rev1.md", "riki_rev1.md", "editor_rev1.md"],
+      "published": false,
+      "outcome": "ace-framing skill 신규 작성 + CLAUDE.md 4건 업데이트 완료. brainstorming 3·7번 흡수 + 벤치마킹 4건(1·4·5·8번) 전부 반영. 역할 공통 자가검토 프로토콜 신설.",
+      "masterDecisions": [],
+      "note": "Ace·Arki·Riki·Ace종합·Editor 발언. Nova 미호출. Master 5회 개입. 이연: Editor 디자인 업그레이드, 압력 테스트, 나머지 13 skill 재평가. session_019."
     }
   ],
-  "lastUpdated": "2026-04-15T13:00:00.000Z"
+  "lastUpdated": "2026-04-16T09:00:00.000Z"
 }

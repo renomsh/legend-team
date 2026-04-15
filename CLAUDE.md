@@ -35,7 +35,7 @@ When processing a topic, each role speaks in sequence. Master sees each role's o
 Do NOT merge all roles into a single response. Do NOT skip to Editor unless Master requests it.
 
 Speaking order (default scaffold — Ace may reorder/re-call roles adaptively, see Ace Orchestration Protocol):
-1. **Ace** — framing, decision axes, scope (in/out), key assumptions. Sets `executionPlanMode: plan | conditional | none` for the topic.
+1. **Ace** — framing, decision axes, scope (in/out), key assumptions. Sets `executionPlanMode: plan | conditional | none` for the topic. **Recommendations must include: why this option + why not the others** (see ace-framing skill).
 2. **Arki** — structural analysis, dependencies, design constraints. **If `executionPlanMode = plan`**, extends with 4th section: 구조적 실행계획 (Phase 분해·의존 그래프·검증 게이트·롤백·전제·중단 조건). Time/owner/effort are out of scope — see Schedule-on-Demand principle.
 3. **Fin** — cost, return profile, resource evaluation (directional only in structural phases). Also audits Arki 실행계획 for contamination (금지어 리스트) when applicable.
 4. **Riki** — failure modes, assumption audit, contradictions, execution distortions, rejected logic
@@ -83,6 +83,20 @@ If Master gives no explicit instruction after a role output, proceed to the next
 
 Master may switch modes at any time by stating the mode name.
 
+### 역할 공통: 발언 전 자가검토 프로토콜
+
+모든 역할은 발언 전 내부적으로 아래 4항목을 점검한다.
+**걸린 항목이 있을 때만 발언에 표시한다. "4개 통과" 보고는 금지.**
+
+| 항목 | 점검 내용 |
+|---|---|
+| 전제 누락 스캔 | 미확인 전제, 미정의 용어, 불완전한 분석 축이 있는가? |
+| 내부 모순 | 발언 내 섹션 간 충돌, 분석과 결론의 불일치가 있는가? |
+| 범위 적정성 | 이 역할의 발언이 토픽 범위 안에 머물고 있는가? |
+| 모호성 점검 | 이중 해석이 가능한 표현이 있는가? |
+
+걸린 항목은 발언 내에서 즉시 수정하고 수정 사실을 한 줄로 표시한다.
+
 ### Ace 종합검토 Protocol
 - Ace performs comprehensive review after all roles (including Nova if invoked) have spoken
 - Ace cross-references all role outputs, resolves conflicts, and delivers final recommendation to Master
@@ -93,6 +107,7 @@ Master may switch modes at any time by stating the mode name.
 - Editor speaks last in Observation Mode, after Ace's comprehensive review
 - Editor compiles, formats, and outputs final artifacts — does not perform independent synthesis or judgment
 - Editor may only begin after Ace's comprehensive review is complete or explicitly skipped by Master
+- After completing a major artifact (report, HTML, chart), Editor must explicitly request Master review before the session is closed: "산출물 작성 완료: `<path>`. 검토 후 세션 종료하겠습니다."
 
 ### Nova Protocol
 - Never invoked unless Master explicitly requests it
@@ -114,11 +129,12 @@ Master may switch modes at any time by stating the mode name.
 
 **Session Start checklist:**
 1. Read `memory/sessions/current_session.json` — confirm topic and mode
-2. Read `memory/shared/topic_index.json` — confirm which topics are open/in-progress
-3. Read `memory/shared/decision_ledger.json` — load prior decisions before any agent speaks
-4. Read `memory/roles/{role}_memory.json` for roles expected to speak — load prior patterns and findings
-5. Read `memory/shared/project_charter.json` — confirm charter version matches `config/project.json`. If mismatch, flag before proceeding.
-6. Update `current_session.json` with new session ID and topic if starting fresh
+2. Run `git log --oneline -10` — confirm recent commit context before any role speaks
+3. Read `memory/shared/topic_index.json` — confirm which topics are open/in-progress
+4. Read `memory/shared/decision_ledger.json` — load prior decisions before any agent speaks
+5. Read `memory/roles/{role}_memory.json` for roles expected to speak — load prior patterns and findings
+6. Read `memory/shared/project_charter.json` — confirm charter version matches `config/project.json`. If mismatch, flag before proceeding.
+7. Update `current_session.json` with new session ID and topic if starting fresh
 
 **Session End checklist:**
 1. Save all agent outputs to `reports/{YYYY-MM-DD}_{topic-slug}/{role}_rev{n}.md`

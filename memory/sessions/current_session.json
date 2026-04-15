@@ -1,22 +1,22 @@
 {
-  "sessionId": "session_018",
-  "topic": "Superpowers 흡수 실행계획",
-  "topicSlug": "superpowers-absorption-plan",
+  "sessionId": "session_019",
+  "topic": "ace-framing 자작 skill 실제 구현",
+  "topicSlug": "ace-framing-skill-implementation",
   "status": "closed",
-  "startedAt": "2026-04-15T13:00:00.000Z",
-  "closedAt": "2026-04-15T14:30:00.000Z",
+  "startedAt": "2026-04-16T09:00:00.000Z",
+  "closedAt": "2026-04-16T11:00:00.000Z",
   "mode": "observation",
-  "agentsCompleted": ["ace", "arki", "fin", "riki", "ace-synthesis", "editor"],
+  "agentsCompleted": ["ace", "arki", "riki", "ace-synthesis", "editor"],
   "novaInvoked": false,
-  "masterDecisions": ["D-016", "D-017", "D-018", "D-019"],
-  "reportPath": "reports/2026-04-15_superpowers-absorption-plan",
+  "masterDecisions": [],
+  "reportPath": "reports/2026-04-16_ace-framing-skill-implementation",
   "notes": [
-    "실행계획 역할 공백 → Arki 통합 확정",
-    "Ace 오케스트레이터 선언 (D-019) — 1회 순환은 초기 스캐폴드",
-    "Schedule-on-Demand 원칙 (D-017) — 일정은 Master 요청 시에만",
-    "Arki 실행계획 오염 금지어 v0 (D-018) — Fin 1회 감사",
-    "Master 3회 개입 (3안 재명확화, 오케스트레이션 선언, 일정 원칙 추가)",
-    "레슨런 2건 memory 저장"
+    "ace-framing.md 신규 생성 (.claude/commands/)",
+    "CLAUDE.md 4건 업데이트: git log 추가, Ace 추천 근거 필수화, 역할 공통 자가검토 프로토콜 신설, Editor 리뷰 게이트",
+    "brainstorming 3·7번 흡수 + 1·4·5·8번 벤치마킹 전부 반영",
+    "Master 5회 개입 (self-review 전역화, 디자인 역할 질문, 벤치마킹 전체 적용, R-1·R-2 의견 요청, Arki 점검 요청)",
+    "이연: Editor 디자인 업그레이드, Phase 3 압력 테스트, 나머지 13 skill 재평가",
+    "레슨런 3건 (이미 있다≠품질 동등, self-review 공통 게이트, 텍스트→skill 행동 변화)"
   ],
   "gaps": []
 }

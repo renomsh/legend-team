@@ -151,6 +151,21 @@
     }
   ],
   "statusValues": ["pending", "in-progress", "resolved"],
+    ,
+    {
+      "id": "MF-011",
+      "date": "2026-04-16",
+      "session": "session_019",
+      "topic": "ace-framing-skill-implementation",
+      "afterAgent": "arki + riki",
+      "feedback": "1) self-review 전 역할에 필요. 2) 디자인 전담은 Editor 업그레이드로 수렴(보고서·HTML·차트), 별도 토픽 이연. 3) 벤치마킹 4건 모두 이번에 적용. 4) R-1·R-2 A안(걸린 항목만 노출, 현행 유지) 채택.",
+      "decisions": {},
+      "instruction": "모두 이번 토픽에서 구현",
+      "effect": "ace-framing.md 신규 + CLAUDE.md 4건 업데이트 완료",
+      "status": "resolved",
+      "statusNote": "전항목 구현 완료. Arki 점검 확인."
+    }
+  ],
   "statusUpdatedBy": "Claude Code at session end — based on topic status and implementation evidence",
-  "lastUpdated": "2026-04-14T14:00:00.000Z"
+  "lastUpdated": "2026-04-16T11:00:00.000Z"
 }
