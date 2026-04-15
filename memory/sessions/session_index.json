@@ -106,17 +106,22 @@
       "startedAt": "2026-04-13T09:00:00.000Z",
       "closedAt": "2026-04-13T12:19:23.523Z",
       "note": "데이터북 Agent 설계. 전원 참석+Nova. 5단계 파이프라인 확정. D2 아키텍처 다이어그램 생성. .xlsb 이슈 발견. 프로토타입 다음 세션."
-    }
-  ],
-  ,
+    },
     {
       "sessionId": "session_016",
       "topicSlug": "hybrid-scaleup300",
       "startedAt": "2026-04-14T09:00:00.000Z",
       "closedAt": "2026-04-14T14:00:00.000Z",
       "note": "스케일업300 과제 구조 설계. 8대 카테고리·FAST 다이어그램·액션 리스트 확정. Riki 전부 기각. 레슨런 5건 memory 저장. HTML/Word 산출물 생성."
+    },
+    {
+      "sessionId": "session_017",
+      "topicSlug": "superpowers-plugin-review",
+      "startedAt": "2026-04-15T00:00:00.000Z",
+      "closedAt": "2026-04-15T12:00:00.000Z",
+      "note": "Superpowers v5.0.7 검토 → 미설치 결정. 자립 경로 채택. `ace-framing` 자작 skill(brainstorming 3·7번 흡수)을 topic_015로 이연. 실행 계획 역할 공백도 이연. Master 3회 개입(3회차가 결정적). 레슨런 6건."
     }
   ],
-  "lastUpdated": "2026-04-14T14:00:00.000Z",
+  "lastUpdated": "2026-04-15T12:00:00.000Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
