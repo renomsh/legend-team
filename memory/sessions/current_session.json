@@ -5,13 +5,23 @@
   "status": "closed",
   "startedAt": "2026-04-16T07:00:00.000Z",
   "mode": "observation",
-  "agentsCompleted": [],
+  "agentsCompleted": [
+    "ace",
+    "arki",
+    "dev",
+    "editor"
+  ],
   "novaInvoked": false,
   "masterDecisions": [],
   "reportPath": "reports/2026-04-16_dev-test",
-  "notes": [],
-  "gaps": [
-    "checklist-warn: reports — reportPath not found on disk: reports/2026-04-16_dev-test"
+  "notes": [
+    "Arki → Dev 파이프라인 첫 실전 검증 완료",
+    "session-log.ts 버그 3종 수정: B-01(duration 음수), B-02(OP-04 FAIL), B-03(mismatch 불명확)",
+    "TopicIndexEntry 타입 실제 데이터 구조에 맞게 확장 (controlPath·reportPath·reportFiles·published)",
+    "TopicStatus에 'completed'·'suspended' 추가",
+    "tsc --noEmit 오류 0 확인",
+    "topic_index.json JSON 오염(배열 밖 삽입) 발견·수정"
   ],
-  "closedAt": "2026-04-16T08:56:46.214Z"
+  "gaps": [],
+  "closedAt": "2026-04-16T08:59:08.128Z"
 }
