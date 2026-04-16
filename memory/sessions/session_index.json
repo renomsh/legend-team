@@ -179,6 +179,15 @@
       "note": "3개 디자인 스타일 확정. 디자인 시스템 12개 파일 구현. design:design-critique 흡수. PD-003 삭제, PD-005 등록. v0.9.0 선언."
     }
   ],
-  "lastUpdated": "2026-04-16T14:00:00.000Z",
+    {
+      "sessionId": "session_026",
+      "topicSlug": "canva-integration",
+      "topic": "캔바 적용",
+      "startedAt": "2026-04-16T15:00:00.000Z",
+      "closedAt": "2026-04-16T16:00:00.000Z",
+      "note": "Canva MCP 3방식 테스트(AI생성·URL import·템플릿편집). AI 생성 품질 미달, 템플릿+편집은 기술 작동. 결론: Canva 채널 보류. 추가 발견: PPT 직접 생성 토큰 극소비 문제."
+    }
+  ],
+  "lastUpdated": "2026-04-16T16:00:00.000Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

@@ -205,6 +205,19 @@
       "effect": "topic_index.json 타입/명칭 소급 정비 완료. typeNote 전체 제거.",
       "status": "resolved",
       "statusNote": "소급 정비 완료. 이번 1회 한정 처리."
+    },
+    {
+      "id": "MF-016",
+      "date": "2026-04-16",
+      "session": "session_026",
+      "topic": "canva-integration",
+      "afterAgent": "editor",
+      "feedback": "캔바 적용은 보류. AI 생성 품질 미달(폰트/색상/이미지/템플릿 전부 부적합). 순위가 높던데 이유가 있을건데 별로네.",
+      "decisions": {},
+      "instruction": "Canva 채널 통합 보류. Claude Code PPT 직접 생성도 토큰 극소비(4장에 100% 소진) — 산출물 채널 문제 미해결.",
+      "effect": "topic_023 closed. Canva 채널 도입 보류. PPT 토큰 비용 문제는 별도 검토 필요.",
+      "status": "resolved",
+      "statusNote": "보류 결정 반영 완료."
     }
   ],
   "statusValues": ["pending", "in-progress", "resolved"],

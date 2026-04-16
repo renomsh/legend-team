@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_025",
-  "nextSessionId": "session_026",
+  "lastSessionId": "session_026",
+  "nextSessionId": "session_027",
   "currentVersion": "v0.9.0",
   "openTopics": [
     {
@@ -80,5 +80,5 @@
       "note": "현재 Figma 계정 미보유. 급하지 않음. 연동 시 CRITIQUE_CHECKLIST.md '미래 확장' 섹션 참조."
     }
   ],
-  "lastUpdated": "2026-04-16T11:00:00.000Z"
+  "lastUpdated": "2026-04-16T16:00:00.000Z"
 }

@@ -356,7 +356,22 @@
       "masterDecisions": ["D-023"],
       "outcome": "3개 디자인 스타일 체계 확정(Navy/Red/Gold) + HTML 보고서 디자인 시스템 구현 완료. design:design-critique 흡수 → CRITIQUE_CHECKLIST.md. PD-003 삭제. PD-005(Figma) 등록. v0.9.0 선언.",
       "note": "session_025. Ace·Arki·Dev·Editor 참여. Nova 미호출."
+    },
+    {
+      "id": "topic_023",
+      "type": "strategy",
+      "title": "캔바 적용",
+      "status": "closed",
+      "created": "2026-04-16",
+      "closedAt": "2026-04-16T16:00:00.000Z",
+      "controlPath": null,
+      "reportPath": "reports/2026-04-16_canva-integration",
+      "reportFiles": ["ace_rev1.md", "editor_rev1.md"],
+      "published": false,
+      "masterDecisions": [],
+      "outcome": "Canva 채널 통합 보류. AI 생성 품질 미달, 템플릿+편집 방식은 기술 작동 확인이나 Master 기준 미충족. 추가 발견: Claude Code PPT 직접 생성 = 토큰 극소비 문제.",
+      "note": "session_026. 캔바(Canva) 활용 전략 검토."
     }
   ],
-  "lastUpdated": "2026-04-16T13:00:00.000Z"
+  "lastUpdated": "2026-04-16T15:00:00.000Z"
 }
