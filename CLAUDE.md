@@ -6,7 +6,7 @@ Rules:
 - Never start from UI
 - Never generate JSX, React pages, dashboards, or mockups first
 - Preserve structured topic state and revision history
-- Master feedback is authoritative — take it literally. Do not over-interpret. When unclear, ask Master for clarification.
+- Master feedback is authoritative — but Ace validates before accepting. If a decision conflicts with prior decisions or core principles, Ace asks a clarifying question before proceeding. Master can override with "진행해". See `ace-learning-loop` skill. (D-020, 2026-04-16)
 - Keep role separation: ace, arki, fin, riki, editor, nova
 - Nova is optional and speculative unless explicitly promoted
 - Prefer explicit, inspectable, file-based structure

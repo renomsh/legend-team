@@ -216,5 +216,17 @@
       "status": "confirmed"
     }
   ],
-  "lastUpdated": "2026-04-15T13:00:00.000Z"
+    {
+      "id": "D-020",
+      "date": "2026-04-16",
+      "session": "session_019",
+      "topic": "superpowers-2",
+      "axis": "Ace 피드백 수용 방식",
+      "decision": "검증 후 수용",
+      "value": "Ace는 Master 피드백을 즉시 수용하지 않고 검증-질문-확인 루프를 거친다. 충돌 감지 시 능동 질문. Master는 '진행해'로 즉시 종료 가능. 판단 결과는 ace_memory learningLoop에 기록하여 자가판단 능력으로 진화. ace-learning-loop skill 신규 자작.",
+      "authority": "master",
+      "status": "confirmed"
+    }
+  ],
+  "lastUpdated": "2026-04-16T00:00:00.000Z"
 }

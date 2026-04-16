@@ -1,22 +1,14 @@
 {
-  "sessionId": "session_018",
-  "topic": "Superpowers 흡수 실행계획",
-  "topicSlug": "superpowers-absorption-plan",
-  "status": "closed",
-  "startedAt": "2026-04-15T13:00:00.000Z",
-  "closedAt": "2026-04-15T14:30:00.000Z",
+  "sessionId": "session_019",
+  "topic": "Superpowers #2",
+  "topicSlug": "superpowers-2",
+  "status": "open",
+  "startedAt": "2026-04-16T00:00:00.000Z",
   "mode": "observation",
-  "agentsCompleted": ["ace", "arki", "fin", "riki", "ace-synthesis", "editor"],
+  "agentsCompleted": [],
   "novaInvoked": false,
-  "masterDecisions": ["D-016", "D-017", "D-018", "D-019"],
-  "reportPath": "reports/2026-04-15_superpowers-absorption-plan",
-  "notes": [
-    "실행계획 역할 공백 → Arki 통합 확정",
-    "Ace 오케스트레이터 선언 (D-019) — 1회 순환은 초기 스캐폴드",
-    "Schedule-on-Demand 원칙 (D-017) — 일정은 Master 요청 시에만",
-    "Arki 실행계획 오염 금지어 v0 (D-018) — Fin 1회 감사",
-    "Master 3회 개입 (3안 재명확화, 오케스트레이션 선언, 일정 원칙 추가)",
-    "레슨런 2건 memory 저장"
-  ],
+  "masterDecisions": [],
+  "reportPath": "reports/2026-04-16_superpowers-2",
+  "notes": [],
   "gaps": []
 }
