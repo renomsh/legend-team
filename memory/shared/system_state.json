@@ -1,0 +1,81 @@
+{
+  "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
+  "lastSessionId": "session_023",
+  "nextSessionId": "session_024",
+  "currentVersion": "v0.8.0",
+  "openTopics": [
+    {
+      "id": "topic_012",
+      "title": "데이터북 Agent 설계",
+      "status": "suspended",
+      "reportPath": "reports/2026-04-13_databook-agent-design",
+      "note": "설계 완료. 다음: 7개 팀 파일 전수 조사 → canonical 스키마 확정 → 프로토타입 구현"
+    }
+  ],
+  "recentDecisions": [
+    {
+      "id": "D-017",
+      "date": "2026-04-15",
+      "axis": "Schedule-on-Demand 원칙",
+      "summary": "일정·공수·담당 추정은 Master 명시 요청 시에만. 자동 일정 생성 금지."
+    },
+    {
+      "id": "D-018",
+      "date": "2026-04-15",
+      "axis": "Arki 실행계획 오염 금지어 v0",
+      "summary": "절대시간·인력배정·공수단위 금지. 구조적 선후 표현만 허용. Fin 감사 의무."
+    },
+    {
+      "id": "D-019",
+      "date": "2026-04-15",
+      "axis": "Ace 오케스트레이터 선언",
+      "summary": "역할 호출 순서·횟수·재호출은 Ace 판단. 1역할 1발언은 초기 스캐폴드."
+    },
+    {
+      "id": "D-020",
+      "date": "2026-04-16",
+      "axis": "Ace 피드백 수용 방식",
+      "summary": "Master 피드백 즉시 수용 금지. 검증-질문-확인 루프. Master '진행해'로 즉시 종료 가능."
+    },
+    {
+      "id": "D-021",
+      "date": "2026-04-16",
+      "axis": "Dev 신설 + Editor 재정의",
+      "summary": "Dev 신설(구현·디버깅·테스트). Arki 설계 → Dev 구현 → Editor 산출물 파이프라인. v0.7.0."
+    }
+  ],
+  "pendingDeferrals": [
+    {
+      "id": "PD-001",
+      "fromSession": "session_023",
+      "fromTopic": "legend-team-efficiency",
+      "item": "과거 토픽 19개에 토픽 타입 레이블(type 필드) 부여 — topic_load_manifest.json 기준 검증 겸",
+      "status": "pending"
+    },
+    {
+      "id": "PD-002",
+      "fromSession": "session_013",
+      "fromTopic": "ace-measurement-structure",
+      "item": "토픽 유형별 역할 호출 세그먼트 + 분류 체계 설계 (topic_010 이연 항목)",
+      "status": "pending",
+      "note": "PD-001 타입 확정 후 자동 해소 가능"
+    },
+    {
+      "id": "PD-003",
+      "fromSession": "session_014",
+      "fromTopic": "deeptutor-review",
+      "item": "EduAgent 파일럿 과정 선정, LLM 선택(gpt-4o-mini vs Claude), 감수 인력 배정 기준 결정",
+      "status": "pending",
+      "note": "별도 프로젝트 성격. Master 판단 시점 미정"
+    },
+    {
+      "id": "PD-004",
+      "fromSession": "session_015",
+      "fromTopic": "databook-agent-design",
+      "item": "데이터북 Agent 프로토타입 구현: 7개 팀 파일 전수 투입 → canonical 스키마 → normalize.py + merge.py + validate.py",
+      "status": "pending",
+      "note": "topic_012 suspended와 동일 항목"
+    }
+  ],
+  "lastUpdated": "2026-04-16T10:45:00.000Z"
+}

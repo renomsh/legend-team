@@ -166,9 +166,22 @@
       "effect": "agents/dev.md 신설. agents/editor.md 개정. config/roles.json 7개 역할. 총 9개 skill. v0.7.0.",
       "status": "resolved",
       "statusNote": "모든 산출물 구현 완료. GitHub push 완료. 현황판 빌드 완료."
+    },
+    {
+      "id": "MF-013",
+      "date": "2026-04-16",
+      "session": "session_023",
+      "topic": "legend-team-efficiency",
+      "afterAgent": "ace",
+      "feedback": "분류기준이 필요하단 의미는 무슨말이야? 자연어로 보여줘도 돼. 어느것이 더 효율적이야?",
+      "decisions": {},
+      "instruction": "자동 추출 선택. '분류기준'은 Ace 과잉설계 — editor 보고서의 이연 섹션을 그대로 읽으면 됨.",
+      "effect": "close.md 9단계 d항에 editor 보고서 이연 섹션 자동 추출 규칙 추가. Ace 학습: 이미 구조화된 것을 재분류하려는 과잉 판단 자제.",
+      "status": "resolved",
+      "statusNote": "구현 완료. pendingDeferrals 자동 추출 체계 확립."
     }
   ],
   "statusValues": ["pending", "in-progress", "resolved"],
   "statusUpdatedBy": "Claude Code at session end — based on topic status and implementation evidence",
-  "lastUpdated": "2026-04-16T06:30:00.000Z"
+  "lastUpdated": "2026-04-16T10:45:00.000Z"
 }

@@ -112,13 +112,13 @@ Master may switch modes at any time by stating the mode name.
 
 ### Session Protocol
 
-**Session Start checklist:**
-1. Read `memory/sessions/current_session.json` — confirm topic and mode
-2. Read `memory/shared/topic_index.json` — confirm which topics are open/in-progress
-3. Read `memory/shared/decision_ledger.json` — load prior decisions before any agent speaks
-4. Read `memory/roles/{role}_memory.json` for roles expected to speak — load prior patterns and findings
-5. Read `memory/shared/project_charter.json` — confirm charter version matches `config/project.json`. If mismatch, flag before proceeding.
-6. Update `current_session.json` with new session ID and topic if starting fresh
+**Session Start checklist:** (→ `/open` 명령이 이 체크리스트를 실행. 직접 실행 시 아래 순서 따름)
+1. Read `memory/sessions/current_session.json` — confirm previous session is closed
+2. Read `memory/shared/system_state.json` (fast-path) — nextSessionId, openTopics, recentDecisions(최신 5개), pendingDeferrals 추출. 파일 없으면 원본 폴백.
+3. **이연 항목 List-up** — openTopics + pendingDeferrals를 Master에게 브리핑
+4. Read `memory/shared/topic_load_manifest.json` — 토픽 제목 키워드로 타입 판별 → 해당 role memory만 선택 로드
+5. Update `current_session.json` with new session ID and topic if starting fresh
+- ※ topic_index 전체·decision_ledger 전체·session_index 전체 읽기는 system_state 폴백 시에만
 
 **Session End checklist:**
 1. Save all agent outputs to `reports/{YYYY-MM-DD}_{topic-slug}/{role}_rev{n}.md`
