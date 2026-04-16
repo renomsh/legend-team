@@ -134,6 +134,19 @@
     "selfJudgmentHistory": [],
     "validationLog": [
       {
+        "id": "LL-005",
+        "date": "2026-04-16",
+        "topic": "efficiency-test-and-deferrals",
+        "trigger": "Master: '에이스 왜 반말써?' — 존댓말 미사용 지적",
+        "aceInitialPosition": "발언 스타일 제약 없이 진행",
+        "validationResult": "Ace오류",
+        "masterFinalDecision": "존댓말 필수. 문장 더 짧게, 액션 중심.",
+        "lesson": "역할 발언 시 항상 존댓말. 같은 내용도 짧게 자를 것. feedback_ace_speech_style.md로 세션 간 유지.",
+        "masterPattern": "Master는 간결한 액션 중심 발언 선호. 설명보다 액션.",
+        "selfJudgmentScore": 1,
+        "reusable": true
+      },
+      {
         "id": "LL-004",
         "date": "2026-04-16",
         "topic": "legend-team-efficiency",
@@ -161,6 +174,6 @@
       }
     ]
   },
-  "lastUpdated": "2026-04-16T10:45:00.000Z"
+  "lastUpdated": "2026-04-16T12:30:00.000Z"
 }
 

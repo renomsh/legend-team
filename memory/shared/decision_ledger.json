@@ -236,7 +236,18 @@
       "value": "Dev(데브) 에이전트 신설. 구현·디버깅·테스트 전담. Arki 설계 인수 → Dev 구현 → Editor 산출물 파이프라인 확립. 호출 조건: 구현·디버깅 토픽에서만. Arki↔Dev 경계: 인터페이스·구조까지 Arki, 이후 Dev. Editor 디자인 권한 확장: 시각 표현·레이아웃·다이어그램·HTML 형식 판단 허용, 내용·전략 판단 불가. v0.7.0 선언.",
       "authority": "master",
       "status": "confirmed"
+    },
+    {
+      "id": "D-022",
+      "date": "2026-04-16",
+      "session": "session_024",
+      "topic": "efficiency-test-and-deferrals",
+      "axis": "토픽명 사후 조정 원칙",
+      "decision": "Master 선언",
+      "value": "세션 종료 시 Ace가 실제 수행 내용과 명명된 토픽명을 대조. 불일치 시 수정 토픽명을 제안하고 Master 확인 후 확정. topic_index.json title·topicSlug·reportPath 일괄 반영. /close 체크리스트 1a에 명문화.",
+      "authority": "master",
+      "status": "confirmed"
     }
   ],
-  "lastUpdated": "2026-04-16T05:30:00.000Z"
+  "lastUpdated": "2026-04-16T11:00:00.000Z"
 }

@@ -179,9 +179,35 @@
       "effect": "close.md 9단계 d항에 editor 보고서 이연 섹션 자동 추출 규칙 추가. Ace 학습: 이미 구조화된 것을 재분류하려는 과잉 판단 자제.",
       "status": "resolved",
       "statusNote": "구현 완료. pendingDeferrals 자동 추출 체계 확립."
+    },
+    {
+      "id": "MF-014",
+      "date": "2026-04-16",
+      "session": "session_024",
+      "topic": "efficiency-test-and-deferrals",
+      "afterAgent": "ace",
+      "feedback": "에이스 왜 반말써? 효율화라면 토픽 확인. 타입 분류 진행. 이렇게 더 자르던가.",
+      "decisions": {},
+      "instruction": "존댓말 사용. 문장 더 짧게 액션 중심으로.",
+      "effect": "feedback memory 저장(feedback_ace_speech_style.md). 이후 발언 스타일 교정.",
+      "status": "resolved",
+      "statusNote": "즉시 교정 완료. feedback memory 저장으로 세션 간 유지."
+    },
+    {
+      "id": "MF-015",
+      "date": "2026-04-16",
+      "session": "session_024",
+      "topic": "efficiency-test-and-deferrals",
+      "afterAgent": "ace",
+      "feedback": "이번에 한해서 소급 적용하라고 (토픽 타입/명칭 정비)",
+      "decisions": {},
+      "instruction": "과거 토픽 타입 7건 + 명칭 2건 소급 수정. D-022는 전진 규칙 유지.",
+      "effect": "topic_index.json 타입/명칭 소급 정비 완료. typeNote 전체 제거.",
+      "status": "resolved",
+      "statusNote": "소급 정비 완료. 이번 1회 한정 처리."
     }
   ],
   "statusValues": ["pending", "in-progress", "resolved"],
   "statusUpdatedBy": "Claude Code at session end — based on topic status and implementation evidence",
-  "lastUpdated": "2026-04-16T10:45:00.000Z"
+  "lastUpdated": "2026-04-16T12:30:00.000Z"
 }

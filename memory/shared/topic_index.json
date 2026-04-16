@@ -2,6 +2,7 @@
   "topics": [
     {
       "id": "topic_001",
+      "type": "architecture",
       "title": "레전드팀의 shared asset 조회 프로토콜 설계",
       "status": "closed",
       "created": "2026-04-02",
@@ -14,6 +15,7 @@
     },
     {
       "id": "topic_002",
+      "type": "meta-review",
       "title": "레전드팀 업그레이드 (v0.1.0 → v0.2.0)",
       "status": "closed",
       "created": "2026-04-03",
@@ -33,6 +35,7 @@
     },
     {
       "id": "topic_003",
+      "type": "architecture",
       "title": "로컬 업그레이드 vs 서버 이전 → Cloudflare Pages 배포",
       "status": "closed",
       "created": "2026-04-04",
@@ -53,6 +56,7 @@
     },
     {
       "id": "topic_004",
+      "type": "meta-review",
       "title": "v0.3.0 업그레이드 항목 검토",
       "status": "closed",
       "created": "2026-04-04",
@@ -67,6 +71,7 @@
     },
     {
       "id": "topic_005",
+      "type": "meta-review",
       "title": "레전드팀 v0.4.0 업그레이드 검토",
       "status": "completed",
       "created": "2026-04-05",
@@ -81,6 +86,7 @@
     },
     {
       "id": "topic_006",
+      "type": "data-analysis",
       "title": "데일리잡 DB매핑 검토",
       "status": "completed",
       "created": "2026-04-06",
@@ -96,6 +102,7 @@
     },
     {
       "id": "topic_007",
+      "type": "meta-review",
       "title": "레전드팀 저장 내용 기준 점검",
       "status": "completed",
       "created": "2026-04-08",
@@ -110,6 +117,7 @@
     },
     {
       "id": "topic_008",
+      "type": "implementation",
       "title": "현황판 점검 — topic_007 표시 오류 원인 분석 및 수복",
       "status": "completed",
       "created": "2026-04-08",
@@ -124,6 +132,7 @@
     },
     {
       "id": "topic_009",
+      "type": "meta-review",
       "title": "2팀 내용 업그레이드 — 델타팩 활용 점검",
       "status": "completed",
       "created": "2026-04-09",
@@ -135,10 +144,10 @@
       "masterDecisions": ["D-014"],
       "note": "Arki, Riki, Ace 발언. Nova 미호출. 변경 없이 점검 후 Master 지시로 즉시 적용.",
       "path": "reports/2026-04-09_upgrade-delta-pack-review"
-    }
-    ,
+    },
     {
       "id": "topic_010",
+      "type": "meta-review",
       "title": "역할 재정의",
       "status": "completed",
       "created": "2026-04-10",
@@ -153,6 +162,7 @@
     },
     {
       "id": "topic_010a",
+      "type": "architecture",
       "title": "Ace 측정구조 설계 — masterSelectionPatterns 구현",
       "status": "completed",
       "created": "2026-04-10",
@@ -167,6 +177,7 @@
     },
     {
       "id": "topic_011",
+      "type": "strategy",
       "title": "DeepTutor GitHub repository 검토",
       "status": "completed",
       "created": "2026-04-11",
@@ -181,6 +192,7 @@
     },
     {
       "id": "topic_012",
+      "type": "architecture",
       "title": "데이터북 Agent 설계",
       "status": "suspended",
       "created": "2026-04-13",
@@ -195,6 +207,7 @@
     },
     {
       "id": "topic_013",
+      "type": "strategy",
       "title": "하이브리드러닝 스케일업300 과제 구조 설계",
       "status": "completed",
       "created": "2026-04-14",
@@ -209,6 +222,7 @@
     },
     {
       "id": "topic_014",
+      "type": "meta-review",
       "title": "Superpowers 플러그인 업그레이드 검토",
       "status": "completed",
       "created": "2026-04-15",
@@ -220,10 +234,10 @@
       "outcome": "Superpowers 미설치 결정. 자립 경로 채택. `ace-framing` 자작 skill 신설(brainstorming 3번·7번 해체·흡수)을 topic_015로 이연. 실행 계획 작성 역할 공백도 이연. clone은 참고서로 scratch/에 유지.",
       "masterDecisions": [],
       "note": "Ace·Arki·Fin·Riki·Ace종합·Editor 발언. Nova 미호출. Master 3회 개입(전략 세션 의미 질문, brainstorming 로직 설명 요청, 분해·흡수 제안 — 결정적 전환). 레슨런 6건. session_017."
-    }
-    ,
+    },
     {
       "id": "topic_015",
+      "type": "strategy",
       "title": "Superpowers 흡수 실행계획",
       "status": "completed",
       "created": "2026-04-15",
@@ -238,15 +252,13 @@
     },
     {
       "id": "topic_016",
-      "title": "Superpowers #2",
-      "status": "in-progress",
+      "type": "meta-review",
+      "title": "Superpowers 흡수 #2 — Ace 검증루프 도입",
+      "status": "completed",
       "created": "2026-04-16",
+      "closedAt": "2026-04-16",
       "controlPath": null,
       "reportPath": "reports/2026-04-16_superpowers-2",
-      "reportFiles": [],
-      "published": false,
-      "status": "completed",
-      "closedAt": "2026-04-16",
       "reportFiles": ["editor_rev1.md"],
       "published": false,
       "outcome": "Superpowers 14개 skill 전수 평가. 4개 흡수(writing-skills, verification-before-completion, dispatching-parallel-agents, ace-framing 작동 확인) + ace-learning-loop 레전드팀 고유 창작. Ace 검증-질문-수용 루프 도입(D-020). v0.6.0 선언.",
@@ -255,7 +267,8 @@
     },
     {
       "id": "topic_017",
-      "title": "Superpowers #3",
+      "type": "meta-review",
+      "title": "Superpowers 흡수 #3 — Dev 역할 신설",
       "status": "completed",
       "created": "2026-04-16",
       "closedAt": "2026-04-16",
@@ -269,6 +282,7 @@
     },
     {
       "id": "topic_018",
+      "type": "implementation",
       "title": "Dev Test",
       "status": "completed",
       "created": "2026-04-16",
@@ -283,6 +297,7 @@
     },
     {
       "id": "topic_019",
+      "type": "implementation",
       "title": "Dev role — 세션 클로즈 코딩 역할 점검",
       "status": "completed",
       "created": "2026-04-16",
@@ -297,6 +312,7 @@
     },
     {
       "id": "topic_020",
+      "type": "meta-review",
       "title": "legend-team 효율화",
       "status": "closed",
       "created": "2026-04-16",
@@ -308,8 +324,24 @@
       "masterDecisions": [],
       "outcome": "system_state fast-path 신설, topic_load_manifest 선택적 로드, pendingDeferrals 이연 관리 체계 구축. v0.8.0 선언. /open 로드 ~700줄 → ~50줄.",
       "note": "session_023. 다음: 토픽 타입 레이블링 19개 (PD-001)."
+    },
+    {
+      "id": "topic_021",
+      "type": "meta-review",
+      "title": "효율화 테스트 및 이연 과제 진행",
+      "status": "in-progress",
+      "created": "2026-04-16",
+      "closedAt": null,
+      "controlPath": null,
+      "reportPath": "reports/2026-04-16_efficiency-test-and-deferrals",
+      "reportFiles": ["ace_rev1.md", "fin_rev1.md", "editor_rev1.md"],
+      "published": false,
+      "masterDecisions": ["D-022"],
+      "status": "closed",
+      "closedAt": "2026-04-16T12:30:00.000Z",
+      "outcome": "효율화 fast-path 토큰 절감 실증(90% 감소). PD-001 21개 토픽 타입 레이블링 완료. PD-002 자동 해소. D-022 수립(토픽명 사후 조정 원칙). 소급 타입/명칭 정비 7건/2건. Fin 세션 전환 타이밍 기준 정의.",
+      "note": "session_024. compaction 1회 발생 후 세션 종료. 소급 정비는 이번 1회 한정(Master 지시)."
     }
   ],
-  "lastUpdated": "2026-04-16T10:45:00.000Z"
+  "lastUpdated": "2026-04-16T12:30:00.000Z"
 }
-

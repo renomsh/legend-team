@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_023",
-  "nextSessionId": "session_024",
+  "lastSessionId": "session_024",
+  "nextSessionId": "session_025",
   "currentVersion": "v0.8.0",
   "openTopics": [
     {
@@ -10,6 +10,13 @@
       "status": "suspended",
       "reportPath": "reports/2026-04-13_databook-agent-design",
       "note": "설계 완료. 다음: 7개 팀 파일 전수 조사 → canonical 스키마 확정 → 프로토타입 구현"
+    },
+    {
+      "id": "topic_021",
+      "title": "효율화 테스트 및 이연 과제 진행",
+      "status": "in-progress",
+      "reportPath": "reports/2026-04-16_efficiency-test-and-deferrals",
+      "note": "session_024 진행 중"
     }
   ],
   "recentDecisions": [
@@ -50,15 +57,18 @@
       "fromSession": "session_023",
       "fromTopic": "legend-team-efficiency",
       "item": "과거 토픽 19개에 토픽 타입 레이블(type 필드) 부여 — topic_load_manifest.json 기준 검증 겸",
-      "status": "pending"
+      "status": "resolved",
+      "resolvedIn": "session_024",
+      "note": "21개 토픽 전체 타입 부여 완료. 미매칭 3건 typeNote 기록(topic_008, topic_013, topic_015~017)."
     },
     {
       "id": "PD-002",
       "fromSession": "session_013",
       "fromTopic": "ace-measurement-structure",
       "item": "토픽 유형별 역할 호출 세그먼트 + 분류 체계 설계 (topic_010 이연 항목)",
-      "status": "pending",
-      "note": "PD-001 타입 확정 후 자동 해소 가능"
+      "status": "resolved",
+      "resolvedIn": "session_024",
+      "note": "PD-001 타입 확정으로 자동 해소. 키워드 미매칭 3종 typeNote로 문서화 완료."
     },
     {
       "id": "PD-003",
@@ -74,8 +84,8 @@
       "fromTopic": "databook-agent-design",
       "item": "데이터북 Agent 프로토타입 구현: 7개 팀 파일 전수 투입 → canonical 스키마 → normalize.py + merge.py + validate.py",
       "status": "pending",
-      "note": "topic_012 suspended와 동일 항목"
+      "note": "다음 주 진행 예정 (Master 확인 session_024)"
     }
   ],
-  "lastUpdated": "2026-04-16T10:45:00.000Z"
+  "lastUpdated": "2026-04-16T11:00:00.000Z"
 }
