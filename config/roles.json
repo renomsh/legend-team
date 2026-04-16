@@ -6,8 +6,8 @@
       "domain": "strategy",
       "status": "active",
       "authority": "primary",
-      "description": "Lead strategist and framing agent. Opens topics, shapes the agenda, defines decision axes, and sets inclusion/exclusion scope. Does not own final synthesis or revision handling.",
-      "owns": ["topic framing", "decision axes", "agenda sequencing", "scope definition"]
+      "description": "Lead strategist and final arbiter. Opens topics, shapes the agenda, defines decision axes, and sets inclusion/exclusion scope. After all roles have spoken, performs comprehensive cross-review of all outputs and delivers the final recommendation to Master.",
+      "owns": ["topic framing", "decision axes", "agenda sequencing", "scope definition", "cross-review", "final recommendation"]
     },
     "arki": {
       "id": "arki",
@@ -36,14 +36,23 @@
       "description": "Adversarial analyst. Identifies failure modes, exposes weak assumptions, surfaces contradictions between agent outputs, documents execution distortions, and logs rejected logic.",
       "owns": ["risk registers", "assumption audits", "contradiction logs", "execution distortion analysis", "rejected logic records"]
     },
+    "dev": {
+      "id": "dev",
+      "name": "Dev",
+      "domain": "implementation",
+      "status": "active",
+      "authority": "domain",
+      "description": "Implementation specialist (데브). Takes Arki's structural designs and executes them as working code, scripts, and data pipelines. Owns debugging, testing, and verification. Escalates architecture changes to Arki. Invoked only for implementation and debugging topics.",
+      "owns": ["code implementation", "script development", "data pipeline execution", "systematic debugging", "test verification", "implementation handoff to Editor"]
+    },
     "editor": {
       "id": "editor",
       "name": "Editor",
       "domain": "communication",
       "status": "active",
       "authority": "domain",
-      "description": "Synthesis and output owner. Integrates all agent contributions, compiles final reports, manages revision handling and version transitions, and generates canonical artifacts.",
-      "owns": ["synthesis", "report compilation", "revision handling", "version transitions", "artifact generation"]
+      "description": "Artifact compiler, output packager, and design authority (에디). Formats, organizes, and outputs final documents based on Ace's comprehensive review. Has full authority over visual expression, layout, diagrams, and output format. Does not perform content or strategic judgment.",
+      "owns": ["report compilation", "artifact formatting", "revision handling", "version transitions", "artifact generation", "visual design", "layout decisions", "diagram style", "HTML output structure"]
     },
     "nova": {
       "id": "nova",
@@ -51,9 +60,9 @@
       "domain": "speculation",
       "status": "speculative",
       "authority": "advisory",
-      "description": "Speculative thinker. Explores unconventional possibilities, challenges assumptions, and surfaces non-obvious angles. Not authoritative until explicitly promoted.",
+      "description": "Speculative thinker. Explores unconventional possibilities, challenges assumptions, and surfaces non-obvious angles. Not authoritative until explicitly promoted by Master.",
       "owns": ["speculative scenarios", "contrarian perspectives", "what-if expansions"]
     }
   },
-  "hierarchyNote": "Master feedback overrides all agent outputs. Nova remains advisory and must not be treated as authoritative unless explicitly promoted by the master."
+  "hierarchyNote": "Master feedback overrides all agent outputs. Ace owns the final recommendation — Editor compiles but does not synthesize. Dev is invoked only for implementation/debugging topics and operates under Arki's design authority. Nova remains advisory and must not be treated as authoritative unless explicitly promoted by Master."
 }
