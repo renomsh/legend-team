@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_024",
-  "nextSessionId": "session_025",
-  "currentVersion": "v0.8.0",
+  "lastSessionId": "session_025",
+  "nextSessionId": "session_026",
+  "currentVersion": "v0.9.0",
   "openTopics": [
     {
       "id": "topic_012",
@@ -10,21 +10,14 @@
       "status": "suspended",
       "reportPath": "reports/2026-04-13_databook-agent-design",
       "note": "설계 완료. 다음: 7개 팀 파일 전수 조사 → canonical 스키마 확정 → 프로토타입 구현"
-    },
-    {
-      "id": "topic_021",
-      "title": "효율화 테스트 및 이연 과제 진행",
-      "status": "in-progress",
-      "reportPath": "reports/2026-04-16_efficiency-test-and-deferrals",
-      "note": "session_024 진행 중"
     }
   ],
   "recentDecisions": [
     {
-      "id": "D-017",
-      "date": "2026-04-15",
-      "axis": "Schedule-on-Demand 원칙",
-      "summary": "일정·공수·담당 추정은 Master 명시 요청 시에만. 자동 일정 생성 금지."
+      "id": "D-023",
+      "date": "2026-04-16",
+      "axis": "디자인 시스템 체계 확정",
+      "summary": "3개 스타일(Navy/Red/Gold) + HTML 보고서 디자인 시스템 구현. v0.9.0."
     },
     {
       "id": "D-018",
@@ -71,20 +64,20 @@
       "note": "PD-001 타입 확정으로 자동 해소. 키워드 미매칭 3종 typeNote로 문서화 완료."
     },
     {
-      "id": "PD-003",
-      "fromSession": "session_014",
-      "fromTopic": "deeptutor-review",
-      "item": "EduAgent 파일럿 과정 선정, LLM 선택(gpt-4o-mini vs Claude), 감수 인력 배정 기준 결정",
-      "status": "pending",
-      "note": "별도 프로젝트 성격. Master 판단 시점 미정"
-    },
-    {
       "id": "PD-004",
       "fromSession": "session_015",
       "fromTopic": "databook-agent-design",
       "item": "데이터북 Agent 프로토타입 구현: 7개 팀 파일 전수 투입 → canonical 스키마 → normalize.py + merge.py + validate.py",
       "status": "pending",
       "note": "다음 주 진행 예정 (Master 확인 session_024)"
+    },
+    {
+      "id": "PD-005",
+      "fromSession": "session_025",
+      "fromTopic": "v090-design-upgrade",
+      "item": "Figma 연동 — 계정 생성 후 MCP 설정, design:design-critique 스킬 Figma 검수 항목 활성화, CRITIQUE_CHECKLIST.md Figma 섹션 구현",
+      "status": "pending",
+      "note": "현재 Figma 계정 미보유. 급하지 않음. 연동 시 CRITIQUE_CHECKLIST.md '미래 확장' 섹션 참조."
     }
   ],
   "lastUpdated": "2026-04-16T11:00:00.000Z"

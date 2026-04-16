@@ -247,7 +247,18 @@
       "value": "세션 종료 시 Ace가 실제 수행 내용과 명명된 토픽명을 대조. 불일치 시 수정 토픽명을 제안하고 Master 확인 후 확정. topic_index.json title·topicSlug·reportPath 일괄 반영. /close 체크리스트 1a에 명문화.",
       "authority": "master",
       "status": "confirmed"
+    },
+    {
+      "id": "D-023",
+      "date": "2026-04-16",
+      "session": "session_025",
+      "topic": "v090-design-upgrade",
+      "axis": "디자인 시스템 체계 확정",
+      "decision": "3개 스타일 + HTML 기준",
+      "value": "HTML 보고서 기준 3개 스타일 체계 확정. Style 1(Navy/Blue, 기존 레전드팀 스타일 정형화), Style 2(Black/Red, 임팩트 강조), Style 3(Gold/Editorial, 서사형). Word/PPT는 색상 토큰 참조 수준. 신규 보고서부터 적용. 디자인 시스템 구현: 토큰 JSON 3개 + base.css + style*.css 3개 + echarts 테마 3개 + report-base.html 템플릿 + CRITIQUE_CHECKLIST.md. v0.9.0 선언.",
+      "authority": "master",
+      "status": "confirmed"
     }
   ],
-  "lastUpdated": "2026-04-16T11:00:00.000Z"
+  "lastUpdated": "2026-04-16T14:00:00.000Z"
 }

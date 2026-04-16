@@ -168,8 +168,17 @@
       "startedAt": "2026-04-16T11:00:00.000Z",
       "closedAt": "2026-04-16T12:30:00.000Z",
       "note": "fast-path 토큰 절감 실증(90%). PD-001 21개 타입 레이블링 완료. PD-002 자동 해소. D-022 수립. 소급 타입/명칭 정비 7건/2건. Ace 존댓말 피드백. Fin 세션 전환 타이밍 기준."
+    },
+    {
+      "sessionId": "session_025",
+      "topicSlug": "v090-design-upgrade",
+      "topic": "v0.9.0 업그레이드 — 디자인 시각화 강화",
+      "startedAt": "2026-04-16T13:00:00.000Z",
+      "closedAt": "2026-04-16T14:00:00.000Z",
+      "decisions": ["D-023"],
+      "note": "3개 디자인 스타일 확정. 디자인 시스템 12개 파일 구현. design:design-critique 흡수. PD-003 삭제, PD-005 등록. v0.9.0 선언."
     }
   ],
-  "lastUpdated": "2026-04-16T12:30:00.000Z",
+  "lastUpdated": "2026-04-16T14:00:00.000Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
