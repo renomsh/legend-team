@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-team",
-    "version": "0.5.0",
+    "version": "0.6.0",
     "purpose": "Memory-first, topic-based strategy system. Master receives structured analysis from role-separated agents on any strategic topic, with all outputs preserved in inspectable, revisionable files.",
     "principles": [
       "Memory first: all agent outputs, decisions, and session state are written to files immediately. No analysis lives only in conversation context.",
@@ -90,5 +90,11 @@
       "summary": "학습 순환 고리 수복: 세션 시작 체크리스트에 role memory 로드 추가, 세션 종료 체크리스트 명확화. Role memory 소급 갱신(Riki/Fin/Editor). Evidence 소급 7건 추가(E-007~E-013). Glossary 9개 용어 추가. Feedback 이행추적 status 필드 도입 + viewer 반영."
     }
   ],
-  "lastUpdated": "2026-04-08T00:00:00.000Z"
+    {
+      "version": "0.6.0",
+      "date": "2026-04-16",
+      "summary": "Skill 시스템 도입 및 Superpowers 흡수 완료. 5개 자작 skill 구현(ace-framing, ace-learning-loop, writing-skills, dispatching-parallel-agents, verification-before-completion). Ace 검증-질문-수용 루프 도입(D-020) — 맹목 수용 폐기, 자가판단 진화 구조 수립. 레전드팀 고유 ace-learning-loop 신규 창작."
+    }
+  ],
+  "lastUpdated": "2026-04-16T00:00:00.000Z"
 }

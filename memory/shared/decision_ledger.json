@@ -214,8 +214,7 @@
       "value": "역할 호출 순서·횟수·재호출 여부는 Ace의 판단. 1역할 1발언 순차 순환은 초기 스캐폴드이며 프로토콜의 본질이 아님. Ace는 토픽 특성에 맞춰 reorder/re-call/skip/extend 가능. 판단 근거는 ace_memory.masterSelectionPatterns에 누적(topic type → role call pattern). 초기=수동+기록, 성숙기=패턴 매칭 자동화. Editor가 백업 게이트 역할(누락 시 경고).",
       "authority": "master",
       "status": "confirmed"
-    }
-  ],
+    },
     {
       "id": "D-020",
       "date": "2026-04-16",
