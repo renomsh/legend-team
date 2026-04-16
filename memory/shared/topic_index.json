@@ -280,8 +280,22 @@
       "masterDecisions": [],
       "outcome": "session-log.ts 버그 3종 수정(B-01 음수 duration, B-02 OP-04 FAIL, B-03 mismatch 불명확). TopicIndexEntry 타입 실제화. tsc 오류 0.",
       "note": "Dev 에이전트 첫 실전 투입. Arki 구조 분석 → Dev 구현 파이프라인 검증 완료."
+    },
+    {
+      "id": "topic_019",
+      "title": "Dev role — 세션 클로즈 코딩 역할 점검",
+      "status": "completed",
+      "created": "2026-04-16",
+      "closedAt": "2026-04-16",
+      "controlPath": null,
+      "reportPath": "reports/2026-04-16_dev-role-session-close",
+      "reportFiles": ["editor_rev1.md"],
+      "published": false,
+      "masterDecisions": [],
+      "outcome": "/open 비용 구조 최적화 완료(A+B+C+D'). open.md 2단계 로드+Ace 조건부 프레이밍. close.md closeVerified 마커. session-log.ts 읽기 전용 감사관 전환. TopicIndexEntry 선행 버그 수정. tsc 오류 0.",
+      "note": "session_022. Arki+Fin+Riki+Ace+Dev 전원 참여. E안(counters.json) 폐기. F안 A안에 흡수."
     }
   ],
-  "lastUpdated": "2026-04-16T07:00:00.000Z"
+  "lastUpdated": "2026-04-16T09:10:00.000Z"
 }
 

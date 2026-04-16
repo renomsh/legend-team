@@ -1,27 +1,22 @@
 {
-  "sessionId": "session_021",
-  "topic": "Dev Test",
-  "topicSlug": "dev-test",
+  "sessionId": "session_022",
+  "topic": "Dev role — 세션 클로즈 코딩 역할 점검",
+  "topicSlug": "dev-role-session-close",
   "status": "closed",
-  "startedAt": "2026-04-16T07:00:00.000Z",
+  "startedAt": "2026-04-16T09:10:00.000Z",
+  "closedAt": "2026-04-16T09:45:00.000Z",
   "mode": "observation",
-  "agentsCompleted": [
-    "ace",
-    "arki",
-    "dev",
-    "editor"
-  ],
+  "agentsCompleted": ["ace", "arki", "fin", "riki", "dev", "editor"],
   "novaInvoked": false,
   "masterDecisions": [],
-  "reportPath": "reports/2026-04-16_dev-test",
+  "reportPath": "reports/2026-04-16_dev-role-session-close",
   "notes": [
-    "Arki → Dev 파이프라인 첫 실전 검증 완료",
-    "session-log.ts 버그 3종 수정: B-01(duration 음수), B-02(OP-04 FAIL), B-03(mismatch 불명확)",
-    "TopicIndexEntry 타입 실제 데이터 구조에 맞게 확장 (controlPath·reportPath·reportFiles·published)",
-    "TopicStatus에 'completed'·'suspended' 추가",
-    "tsc --noEmit 오류 0 확인",
-    "topic_index.json JSON 오염(배열 밖 삽입) 발견·수정"
+    "/open 비용 구조 분석 및 최적화 완료 (A+B+C+D')",
+    "session-log.ts 읽기 전용 감사관으로 전환 (D')",
+    "open.md 2단계 로드 + Ace 조건부 프레이밍 (A+B)",
+    "close.md closeVerified 마커 추가 (C)",
+    "src/types/index.ts TopicIndexEntry 선행 버그 수정",
+    "tsc --noEmit 오류 0, session-log.ts end 실행 검증 완료"
   ],
-  "gaps": [],
-  "closedAt": "2026-04-16T08:59:08.128Z"
+  "gaps": []
 }

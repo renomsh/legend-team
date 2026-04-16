@@ -147,8 +147,15 @@
       "topicSlug": "dev-test",
       "startedAt": "2026-04-16T07:00:00.000Z",
       "closedAt": "2026-04-16T08:59:08.128Z"
+    },
+    {
+      "sessionId": "session_022",
+      "topicSlug": "dev-role-session-close",
+      "startedAt": "2026-04-16T09:10:00.000Z",
+      "closedAt": "2026-04-16T09:45:00.000Z",
+      "note": "/open 비용 최적화(A+B+C+D'). session-log.ts 감사관 전환. tsc 오류 0."
     }
   ],
-  "lastUpdated": "2026-04-16T08:59:08.128Z",
+  "lastUpdated": "2026-04-16T09:45:00.000Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

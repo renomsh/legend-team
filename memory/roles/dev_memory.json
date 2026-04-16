@@ -27,6 +27,10 @@
     "TypeScript 타입과 실제 JSON 구조 불일치는 tsc --noEmit으로만 감지 가능 (런타임은 통과)"
   ],
   "escalationHistory": [],
+  "implementationPatterns_session022": [
+    "역할 재정의 구현: 쓰기 제거 시 선행 조건 소멸 여부 먼저 확인 (B-02 retroactive push 제거 근거)",
+    "exit code 1은 critical 항목(reports, topic_index)에만. advisory(master_feedback)는 제외."
+  ],
   "lessonLog": [
     {
       "id": "DEV-LL-001",

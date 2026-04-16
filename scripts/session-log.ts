@@ -179,61 +179,35 @@ function runEndChecklist(session: SessionRecord): CheckResult[] {
 }
 
 function endSession(topicSlug: string): void {
+  // D': 읽기 전용 감사관 — 검증 + 로그만 수행. 쓰기 없음. /close가 모든 쓰기를 선행 완료.
   const session = readJson<SessionRecord | null>(SESSION_PATH, null);
-  const now = new Date().toISOString();
 
   if (!session) {
     log('WARN', 'session-log', `END called but no current session found. topicSlug: ${topicSlug}`);
     console.warn('⚠ No current session found in current_session.json');
-    return;
+    process.exit(1);
   }
 
   if (session.topicSlug !== topicSlug) {
-    log('WARN', 'session-log', `END topicSlug mismatch. expected: ${session.topicSlug}, got: ${topicSlug}. Using session value: ${session.topicSlug}`);
-    console.warn(`⚠ Topic slug mismatch (got: ${topicSlug}, using session value: ${session.topicSlug})`);
+    log('WARN', 'session-log', `END topicSlug mismatch. expected: ${session.topicSlug}, got: ${topicSlug}`);
+    console.warn(`⚠ Topic slug mismatch (got: ${topicSlug}, session value: ${session.topicSlug})`);
   }
 
-  // H-01: Run end-of-session checklist before closing
+  // H-01: 독립 감사 — /close와 별개로 디스크 실재 검증
   const checks = runEndChecklist(session);
+  const criticalFails = checks.filter(c => !c.pass && c.item !== 'master_feedback');
   const passed = checks.filter(c => c.pass).length;
   const warned = checks.filter(c => !c.pass).length;
 
-  console.log(`\n── Session End Checklist ──`);
+  console.log(`\n── Session End Audit (read-only) ──`);
   for (const c of checks) {
-    const icon = c.pass ? '✓' : '⚠';
+    const icon = c.pass ? '✓' : '✗';
     console.log(`  ${icon} ${c.item}: ${c.detail}`);
     log(c.pass ? 'INFO' : 'WARN', 'checklist', `${c.item}: ${c.detail}`);
   }
-  console.log(`  ── ${passed} passed, ${warned} warned ──\n`);
+  console.log(`  ── ${passed} passed, ${warned} failed ──\n`);
 
-  if (warned > 0) {
-    session.gaps = session.gaps || [];
-    for (const c of checks.filter(c => !c.pass)) {
-      session.gaps.push(`checklist-warn: ${c.item} — ${c.detail}`);
-    }
-  }
-
-  session.status = 'closed';
-  session.closedAt = now;
-  writeJson(SESSION_PATH, session);
-
-  // Update session index
-  const index = readJson<SessionIndex>(SESSION_INDEX_PATH, { sessions: [], lastUpdated: '' });
-  const existsInIndex = index.sessions.some(s => s.sessionId === session.sessionId);
-  if (existsInIndex) {
-    // B-02 fix: update existing entry
-    index.sessions = index.sessions.map(s =>
-      s.sessionId === session.sessionId ? { ...s, closedAt: now } : s
-    );
-  } else {
-    // B-02 fix: session was not started via session-log start — add entry now
-    index.sessions.push({ sessionId: session.sessionId, topicSlug: session.topicSlug, startedAt: session.startedAt, closedAt: now });
-    log('WARN', 'session-log', `session ${session.sessionId} was not in session_index — added retroactively`);
-  }
-  index.lastUpdated = now;
-  writeJson(SESSION_INDEX_PATH, index);
-
-  // B-01 fix: guard against negative duration when startedAt was manually set to a future time
+  // B-01 fix: guard against negative duration
   let duration = 'unknown';
   if (session.startedAt) {
     const ms = Date.now() - new Date(session.startedAt).getTime();
@@ -241,20 +215,15 @@ function endSession(topicSlug: string): void {
   }
 
   log('INFO', 'session-log', `END ${session.sessionId} | topic: ${topicSlug} | duration: ${duration}`);
-  console.log(`\n✓ Session closed: ${session.sessionId}`);
-  console.log(`  topic: ${topicSlug} | duration: ${duration}`);
-  if (session.gaps && session.gaps.length > 0) {
-    console.log(`  ⚠ Gaps recorded: ${session.gaps.join(', ')}`);
-  }
-  // OP-04: confirm session_index entry exists and has closedAt
-  const verifyIndex = readJson<SessionIndex>(SESSION_INDEX_PATH, { sessions: [], lastUpdated: '' });
-  const entry = verifyIndex.sessions.find(s => s.sessionId === session.sessionId);
-  if (entry && entry.closedAt) {
-    console.log(`  ✓ OP-04 check: session_index entry verified (closedAt: ${entry.closedAt})`);
-    log('INFO', 'session-log', `OP-04 PASS: ${session.sessionId} confirmed in session_index with closedAt`);
-  } else {
-    console.warn(`  ✗ OP-04 check: session_index entry missing or no closedAt`);
-    log('WARN', 'session-log', `OP-04 FAIL: ${session.sessionId} not found or missing closedAt in session_index`);
+  console.log(`✓ Audit complete: ${session.sessionId} | duration: ${duration}`);
+
+  // exit code 1 on critical failures — /close gates on this to record gaps
+  if (criticalFails.length > 0) {
+    console.error(`\n✗ Critical audit failures (${criticalFails.length}):`);
+    for (const c of criticalFails) {
+      console.error(`  - ${c.item}: ${c.detail}`);
+    }
+    process.exit(1);
   }
 }
 
