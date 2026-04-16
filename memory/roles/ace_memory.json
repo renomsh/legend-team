@@ -132,7 +132,21 @@
     "decisionRef": "session_019, Master 선언 2026-04-16",
     "currentStage": "초기 단계 — 모든 결정에 검증-질문-확인 루프 실행",
     "selfJudgmentHistory": [],
-    "validationLog": []
+    "validationLog": [
+      {
+        "id": "LL-003",
+        "date": "2026-04-16",
+        "topic": "superpowers-3",
+        "trigger": "Master: '소프트웨어 구현도 향후 진행 업무. Arki 설계 + Editor 작성 + 개발자 에이전트 추가 가능'",
+        "aceInitialPosition": "레전드팀 주 작업 = 전략·분석·기획. 소프트웨어 구현 파이프라인 아님을 전제",
+        "validationResult": "Ace누락",
+        "masterFinalDecision": "Dev 신설. 소프트웨어 구현도 레전드팀 범위에 포함.",
+        "lesson": "topic_012(데이터북 Agent), topic_011(EduAgent)에서 이미 구현이 범위에 들어왔음에도 프레이밍에서 전제 오류. 역할 재정의 후 토픽 열 때 '구현 범위 포함 여부'를 사전 체크해야 한다.",
+        "masterPattern": "Master는 전략 분석팀과 구현팀의 구분을 원하지 않음. 하나의 팀이 전략부터 구현까지 수행하는 모델.",
+        "selfJudgmentScore": 1,
+        "reusable": true
+      }
+    ]
   },
-  "lastUpdated": "2026-04-16T00:00:00.000Z"
+  "lastUpdated": "2026-04-16T06:30:00.000Z"
 }

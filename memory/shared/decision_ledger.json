@@ -225,7 +225,18 @@
       "value": "Ace는 Master 피드백을 즉시 수용하지 않고 검증-질문-확인 루프를 거친다. 충돌 감지 시 능동 질문. Master는 '진행해'로 즉시 종료 가능. 판단 결과는 ace_memory learningLoop에 기록하여 자가판단 능력으로 진화. ace-learning-loop skill 신규 자작.",
       "authority": "master",
       "status": "confirmed"
+    },
+    {
+      "id": "D-021",
+      "date": "2026-04-16",
+      "session": "session_020",
+      "topic": "superpowers-3",
+      "axis": "Dev 신설 + Editor 재정의",
+      "decision": "Master 동의",
+      "value": "Dev(데브) 에이전트 신설. 구현·디버깅·테스트 전담. Arki 설계 인수 → Dev 구현 → Editor 산출물 파이프라인 확립. 호출 조건: 구현·디버깅 토픽에서만. Arki↔Dev 경계: 인터페이스·구조까지 Arki, 이후 Dev. Editor 디자인 권한 확장: 시각 표현·레이아웃·다이어그램·HTML 형식 판단 허용, 내용·전략 판단 불가. v0.7.0 선언.",
+      "authority": "master",
+      "status": "confirmed"
     }
   ],
-  "lastUpdated": "2026-04-16T00:00:00.000Z"
+  "lastUpdated": "2026-04-16T05:30:00.000Z"
 }

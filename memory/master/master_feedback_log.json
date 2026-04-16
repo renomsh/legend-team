@@ -153,9 +153,22 @@
       "effect": "4개 skill 구현 + ace-learning-loop 창작. CLAUDE.md D-020 반영. v0.6.0.",
       "status": "resolved",
       "statusNote": "모든 산출물 구현 완료. GitHub push 완료."
+    },
+    {
+      "id": "MF-012",
+      "date": "2026-04-16",
+      "session": "session_020",
+      "topic": "superpowers-3",
+      "afterAgent": "ace-synthesis",
+      "feedback": "소프트웨어 구현도 향후 진행 업무. Arki 설계 + 별도 Dev 에이전트 + Editor 디자인 강화. 에이전트 명칭 Dev(데브). 나머지 항목 모두 동의.",
+      "decisions": { "D-021": "Dev 신설 + Editor 디자인 권한 확장" },
+      "instruction": "Dev 에이전트 신설, Editor 재정의, 4개 스킬 흡수(systematic-debugging·writing-plans·executing-plans·subagent-driven-development), v0.7.0 선언",
+      "effect": "agents/dev.md 신설. agents/editor.md 개정. config/roles.json 7개 역할. 총 9개 skill. v0.7.0.",
+      "status": "resolved",
+      "statusNote": "모든 산출물 구현 완료. GitHub push 완료. 현황판 빌드 완료."
     }
   ],
   "statusValues": ["pending", "in-progress", "resolved"],
   "statusUpdatedBy": "Claude Code at session end — based on topic status and implementation evidence",
-  "lastUpdated": "2026-04-16T00:00:00.000Z"
+  "lastUpdated": "2026-04-16T06:30:00.000Z"
 }
