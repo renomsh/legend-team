@@ -1,0 +1,60 @@
+direction: right
+
+# ─── INPUT ───────────────────────────────
+t1: 기교1팀 {shape: document; style.fill: "#DBEAFE"; style.stroke:"#5B8DEF"; style.font-size: 18}
+t2: 기교2팀 {shape: document; style.fill: "#DBEAFE"; style.stroke:"#5B8DEF"; style.font-size: 18}
+t3: 기교3팀 {shape: document; style.fill: "#DBEAFE"; style.stroke:"#5B8DEF"; style.font-size: 18}
+f1: FS1팀   {shape: document; style.fill: "#DBEAFE"; style.stroke:"#5B8DEF"; style.font-size: 18}
+f2: FS2팀   {shape: document; style.fill: "#DBEAFE"; style.stroke:"#5B8DEF"; style.font-size: 18}
+fg: FS3GS팀 {shape: document; style.fill: "#DBEAFE"; style.stroke:"#5B8DEF"; style.font-size: 18}
+
+# ─── PIPELINE ────────────────────────────
+s0: "Step 0\n준비 점검"          {style.fill: "#DCFCE7"; style.stroke:"#16A34A"; style.font-size: 17}
+s1: "Step 1\n정규화\nnormalize.py" {style.fill: "#DCFCE7"; style.stroke:"#16A34A"; style.font-size: 17}
+s2: "Step 2\n전체 취합\nmerge.py"  {style.fill: "#DCFCE7"; style.stroke:"#16A34A"; style.font-size: 17}
+s3: "Step 3\n검증\nvalidate.py"    {style.fill: "#DCFCE7"; style.stroke:"#16A34A"; style.font-size: 17}
+s4: "Step 4\n최종화\nfinalize.py"  {style.fill: "#DCFCE7"; style.stroke:"#16A34A"; style.font-size: 17}
+
+# ─── CONFIG ──────────────────────────────
+schema: "schema.json\ncanonical 53열" {shape: page; style.fill: "#FED7AA"; style.stroke:"#F97316"; style.font-size: 16}
+teams:  "teams.json\n팀별 매핑"       {shape: page; style.fill: "#FED7AA"; style.stroke:"#F97316"; style.font-size: 16}
+
+# ─── REFERENCE ───────────────────────────
+prev: "previous/\n전주 취합본" {shape: cylinder; style.fill: "#E5E7EB"; style.stroke:"#6B7280"; style.font-size: 16}
+
+# ─── WORK ────────────────────────────────
+w1: "normalized/\n팀별.xlsx" {shape: page; style.fill: "#FEF3C7"; style.stroke:"#D97706"; style.font-size: 16}
+w2: "merged.xlsx"            {shape: page; style.fill: "#FEF3C7"; style.stroke:"#D97706"; style.font-size: 16}
+st: "status.json"            {shape: page; style.fill: "#FEF3C7"; style.stroke:"#D97706"; style.font-size: 16}
+
+# ─── OUTPUT ──────────────────────────────
+final:  "최종 데이터북\n.xlsx" {shape: document; style.fill: "#F3E8FF"; style.stroke:"#A855F7"; style.bold:true; style.font-size: 17}
+report: "검증 리포트\n.md"     {shape: document; style.fill: "#F3E8FF"; style.stroke:"#A855F7"; style.font-size: 17}
+
+# ─── FLOW ─────────────────────────────────
+t1 -> s0
+t2 -> s0
+t3 -> s0
+f1 -> s0
+f2 -> s0
+fg -> s0
+
+s0 -> s1: "✅ Master 확인" {style.font-size: 14}
+s1 -> s2: "✅ Master 확인" {style.font-size: 14}
+s2 -> s3: "✅ Master 확인" {style.font-size: 14}
+s3 -> s4: "✅ Master 확인" {style.font-size: 14}
+
+schema -> s1: "스키마 정의" {style.font-size: 14}
+teams  -> s1: "팀 매핑"     {style.font-size: 14}
+prev   -> s3: "전주 비교 기준" {style.font-size: 14}
+
+s1 -> w1: "정규화 결과" {style.font-size: 14}
+s2 -> w2: "취합 결과"   {style.font-size: 14}
+s0 -> st
+s1 -> st
+s2 -> st
+s3 -> st
+s4 -> st
+
+s3 -> report: "검증 리포트" {style.font-size: 14}
+s4 -> final:  "최종본 생성" {style.font-size: 14}

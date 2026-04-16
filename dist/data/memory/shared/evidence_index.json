@@ -1,0 +1,122 @@
+{
+  "evidence": [
+    {
+      "id": "E-001",
+      "date": "2026-04-03",
+      "topic": "legend-team-upgrade",
+      "type": "structural-diagnosis",
+      "source": "arki",
+      "finding": "memory/sessions/current_session.json, memory/shared/decision_ledger.json, memory/shared/topic_index.json, memory/shared/glossary.json, memory/shared/evidence_index.json 파일이 v0.1.0 시점에 비어있었음",
+      "status": "resolved-in-v0.2.0"
+    },
+    {
+      "id": "E-002",
+      "date": "2026-04-03",
+      "topic": "legend-team-upgrade",
+      "type": "principle-violation",
+      "source": "arki",
+      "finding": "app/dashboard.html이 CLAUDE.md 'Never start from UI' 원칙과 충돌함",
+      "status": "resolved-D-003"
+    },
+    {
+      "id": "E-003",
+      "date": "2026-04-03",
+      "topic": "legend-team-upgrade",
+      "type": "risk",
+      "source": "riki",
+      "finding": "수동 기록 프로토콜 채택(결정 2A) 시 세션 간 누락 리스크 잔존",
+      "status": "accepted-residual-risk"
+    },
+    {
+      "id": "E-004",
+      "date": "2026-04-05",
+      "topic": "v030-debt-close",
+      "type": "data-error",
+      "source": "session_005/OP-01",
+      "finding": "master_feedback_log.json: JSON 구문 오류(MF-002 뒤 여분의 }) + D-007 감사 trail 불일치(초기값 기록, revised값 누락)",
+      "status": "resolved-session_005"
+    },
+    {
+      "id": "E-005",
+      "date": "2026-04-05",
+      "topic": "v030-debt-close",
+      "type": "operational-gap",
+      "source": "session_005/OP-06",
+      "finding": "session_index.json이 빈 배열 상태였음 — session_001~004 모두 session-log.ts end 미실행으로 기록 누락",
+      "status": "resolved-session_005-retroactive"
+    },
+    {
+      "id": "E-006",
+      "date": "2026-04-05",
+      "topic": "v030-debt-close",
+      "type": "legacy-ambiguity",
+      "source": "session_005/OP-05",
+      "finding": "reports/ 내 status 값 혼용: master-approved(2건), partial(...)(1건) — canonical 값 불일치",
+      "status": "resolved-session_005"
+    },
+    {
+      "id": "E-007",
+      "date": "2026-04-05",
+      "topic": "deploy-fix-branch-unify",
+      "type": "operational-gap",
+      "source": "session_006",
+      "finding": "auto-push.js가 master 브랜치로 push했으나 Cloudflare Pages는 main 브랜치를 감시 — 배포 미반영",
+      "status": "resolved-session_006-main-unify"
+    },
+    {
+      "id": "E-008",
+      "date": "2026-04-05",
+      "topic": "legend-team-upgrade-review",
+      "type": "structural-diagnosis",
+      "source": "session_007/arki",
+      "finding": "스크립트 12개 중 활성 4, deprecated 1, 미확인 7. generate-dashboard.ts와 build.js 역할 충돌 가능성",
+      "status": "resolved-session_007-script-cleanup"
+    },
+    {
+      "id": "E-009",
+      "date": "2026-04-05",
+      "topic": "legend-team-upgrade-review",
+      "type": "data-error",
+      "source": "session_007/riki",
+      "finding": "session_index.json JSON 구문 오류 — 즉시 수정",
+      "status": "resolved-session_007"
+    },
+    {
+      "id": "E-010",
+      "date": "2026-04-06",
+      "topic": "dailyjob-db-mapping",
+      "type": "risk",
+      "source": "session_008/ace+arki",
+      "finding": "퍼지 매칭 시 기업명 유사도 단일 기준으로 매칭하여 다른 회사가 연결되는 오매칭 다수 확인. 검수필요 구간 1,803건(45%)",
+      "status": "open"
+    },
+    {
+      "id": "E-011",
+      "date": "2026-04-06",
+      "topic": "dailyjob-db-mapping",
+      "type": "assumption",
+      "source": "session_008/ace",
+      "finding": "데일리잡과 HSM DB의 실질 중복률이 낮음 (사업자번호 기준 4.8%). 두 DB는 상당 부분 다른 기업군을 포함",
+      "status": "open"
+    },
+    {
+      "id": "E-012",
+      "date": "2026-04-08",
+      "topic": "storage-quality-review",
+      "type": "operational-gap",
+      "source": "session_009/riki",
+      "finding": "세션 시작 체크리스트에 role memory 로드 항목이 없어, 축적된 학습이 다음 세션에 전달되지 않는 구조적 결함",
+      "status": "resolved-session_009-CLAUDE.md-patched"
+    },
+    {
+      "id": "E-013",
+      "date": "2026-04-08",
+      "topic": "storage-quality-review",
+      "type": "operational-gap",
+      "source": "session_009/arki",
+      "finding": "Riki/Fin/Editor role memory가 session_002 이후 갱신되지 않음 (5개 세션분 학습 미축적). 세션 종료 체크리스트 항목 6이 Ace 외 미실행",
+      "status": "resolved-session_009-backfill"
+    }
+  ],
+  "lastUpdated": "2026-04-08T09:00:00.000Z"
+}

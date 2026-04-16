@@ -1,0 +1,126 @@
+{
+  "role": "arki",
+  "topicsHandled": [
+    {
+      "topicId": "topic_002",
+      "title": "레전드팀 업그레이드",
+      "date": "2026-04-03",
+      "reportPath": "reports/2026-04-03_legend-team-upgrade/arki_rev01.md",
+      "gapsFound": ["GAP-01: 메모리 껍데기", "GAP-02: 실행 루틴 없음", "GAP-03: dashboard.html 원칙 위반", "GAP-04: reports/ 없음"],
+      "resolvedBy": "v0.2.0 업그레이드"
+    }
+    ,
+    {
+      "topicId": "topic_006",
+      "title": "데일리잡 DB매핑 검토",
+      "date": "2026-04-06",
+      "reportPath": "reports/2026-04-06_dailyjob-db-mapping/arki_rev01.md",
+      "gapsFound": ["퍼지 매칭 시 단일 기준(기업명) → 오매칭 다수 발생"],
+      "resolvedBy": "미해결 — 복합검증 로직 추가 예정"
+    }
+  ],
+  "structuralPatterns": [
+    "메모리 파일이 비어있을 때: 스키마 우선 정의 → 초기값 채우기 → 갱신 프로토콜 명시",
+    "reports/ 구조: {YYYY-MM-DD}_{topic-slug}/{role}_rev{n}.md",
+    "자산 정체 진단: lastUpdated 기준으로 갱신 주기 확인. 프로토콜 존재 ≠ 실행. 실제 파일 상태로 검증."
+  ],
+  "structuralPatterns_data": [
+    "DB 매핑: 사업자번호(정규화) > 기업명(정규화) > 퍼지(바이그램+보조키). 퍼지 단독은 오매칭 위험.",
+    "대규모 퍼지 매칭 최적화: 바이그램 인덱스로 후보 축소 후 유사도 비교"
+  ],
+  "structuralPatterns_protocol": [
+    "2팀 델타팩 구조: delta_registry + feedback_rules + migration_map + merge_readiness 4종 세트. 채택/조건부/보류 3단 분류 구조는 재사용 가능한 패턴.",
+    "외부 시스템 델타 흡수 시: 분류 체계 의존 항목은 분류 체계 도입 전까지 일반 원칙화하여 연착륙."
+  ],
+  "topicsHandled_session012": [
+    {
+      "topicId": "topic_010",
+      "title": "역할 재정의",
+      "date": "2026-04-10",
+      "gapsFound": ["Editor '다음 토픽 예고' — 도메인 밖 선행 제안"],
+      "resolvedBy": "Editor 정의에서 선행 제안 명시 제외"
+    },
+    {
+      "topicId": "topic_010a",
+      "title": "Ace 측정구조 설계",
+      "date": "2026-04-10",
+      "gapsFound": [],
+      "resolvedBy": "observations를 Decision 레코드 내장으로 확정 (별도 배열 분리 기각)"
+    }
+  ],
+  "structuralPatterns_design": [
+    "정형/비정형 데이터를 별도 컨테이너로 분리하면 경계 판단·중복·누락 3중 리스크. 비정형은 정형 레코드에 자유기술 필드로 내장이 안정적."
+  ],
+  "architectureDesign": {
+    "methodology": "matplotlib 기반 아키텍처 다이어그램 생성. 색상 코딩(에이전트=파랑, 저장소=초록, 감수=주황, 플랫폼=보라). FancyBboxPatch + annotate arrow 조합.",
+    "improvementNotes": [
+      "한국어 폰트: Malgun Gothic 사용 가능",
+      "GATE(다이아몬드) 표현 시 측정 기준을 반드시 함께 정의",
+      "파이프라인 경계선은 점선으로 표시",
+      "서브스텝은 메인 박스 하단에 소형 박스 배열 + 화살표 체이닝"
+    ],
+    "artifacts": [
+      {
+        "topicId": "topic_011",
+        "name": "EduAgent Architecture v0.1",
+        "path": "reports/2026-04-11_deeptutor-review/eduagent-architecture.png",
+        "date": "2026-04-11"
+      }
+    ]
+  },
+  "topicsHandled_session014": [
+    {
+      "topicId": "topic_011",
+      "title": "DeepTutor GitHub repository 검토",
+      "date": "2026-04-11",
+      "gapsFound": ["GATE threshold 미정의 (Riki 지적 → 보완 완료)"],
+      "resolvedBy": "Critical 정정율 < 5% 기준 + 과정별 독립 측정으로 확정"
+    }
+  ],
+  "topicsHandled_session015": [
+    {
+      "topicId": "topic_012",
+      "title": "데이터북 Agent 설계",
+      "date": "2026-04-13",
+      "reportPath": "reports/2026-04-13_databook-agent-design/arki_rev01.md",
+      "gapsFound": [
+        "팀 파일 포맷 .xlsb — openpyxl 미지원 (pyxlsb 필요)",
+        "헤더 위치 팀별 상이 (FS1: row 20, 취합본: row 3)",
+        "컬럼 수 불일치 (취합본 53열 vs FS1 55열 — 그룹사, 영업대표 변경전 추가)"
+      ],
+      "resolvedBy": "헤더 자동탐지 + 팀별 매핑 config + 템플릿 복사 방식 설계"
+    }
+  ],
+  "architectureDesign_updated": {
+    "methodology": "D2 다이어그램 도구 도입. Mermaid 대비 레이아웃 품질 우수. elk/dagre 레이아웃 엔진 선택 가능.",
+    "d2_install": "GitHub 릴리즈에서 바이너리 직접 설치 (winget/choco 권한 이슈). C:/Users/{user}/bin/d2.exe 경로.",
+    "d2_render": "SVG 생성 후 Playwright Chromium으로 PNG 변환. 뷰포트 = SVG 실제 크기 × scale.",
+    "improvementNotes": [
+      "D2 PNG 렌더링: Playwright 필요 (d2 자체 PNG는 Chromium spawn 이슈)",
+      "SVG 크기 자동 감지 후 scale 적용하여 viewport 설정",
+      "grid-columns 레이아웃은 연결선이 복잡해질 때 오히려 가독성 저하 — 플랫 노드 방식이 dagre 레이아웃과 잘 맞음"
+    ],
+    "artifacts": [
+      {
+        "topicId": "topic_011",
+        "name": "EduAgent Architecture v0.1",
+        "path": "reports/2026-04-11_deeptutor-review/eduagent-architecture.png",
+        "date": "2026-04-11"
+      },
+      {
+        "topicId": "topic_012",
+        "name": "Databook Agent Architecture v0.1",
+        "path": "reports/2026-04-13_databook-agent-design/architecture_d2.svg",
+        "date": "2026-04-13",
+        "tool": "D2 + Playwright"
+      }
+    ]
+  },
+  "structuralPatterns_agent": [
+    "이식형 에이전트 설계 시: 폴더 구조 + CLAUDE.md + config/ + scripts/ 4요소가 최소 단위",
+    "Excel 취합 에이전트 핵심은 '취합'이 아니라 '정규화'. 팀별 스키마 차이가 전체 난이도의 70%.",
+    "work/status.json으로 단계 간 상태 유지 → 세션 단절 후 재개 가능",
+    "openpyxl 서식 파괴 방지: 새 파일 생성 금지, previous/ 템플릿 복사 + 값만 덮어쓰기"
+  ],
+  "lastUpdated": "2026-04-13T09:00:00.000Z"
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decisions — Legend Team</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <span class="nav-brand">LEGEND TEAM</span>
+    <a href="index.html" class="nav-link">Dashboard</a>
+    <a href="decisions.html" class="nav-link">Decisions</a>
+    <a href="session.html" class="nav-link">Session</a>
+    <a href="feedback.html" class="nav-link">Feedback</a>
+  </nav>
+
+  <div class="page">
+    <div class="page-header">
+      <div class="page-title">Decision Ledger</div>
+      <div class="page-sub" id="decCount">Loading...</div>
+    </div>
+
+    <!-- Filter -->
+    <div style="margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+      <select id="filterTopic" onchange="applyFilter()" style="background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 6px 10px; font-size: 11px;">
+        <option value="">All Topics</option>
+      </select>
+      <select id="filterStatus" onchange="applyFilter()" style="background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 6px 10px; font-size: 11px;">
+        <option value="">All Status</option>
+        <option value="confirmed">Confirmed</option>
+        <option value="pending">Pending</option>
+      </select>
+    </div>
+
+    <div id="decisionList"><div class="loading">Loading decisions</div></div>
+  </div>
+
+  <script src="js/data-loader.js"></script>
+  <script src="js/nav.js"></script>
+  <script>
+    let allDecisions = [];
+
+    function renderDecisions(decisions) {
+      const el = document.getElementById('decisionList');
+      if (decisions.length === 0) {
+        el.innerHTML = '<div class="empty-state">No decisions match filter</div>';
+        return;
+      }
+      el.innerHTML = decisions.map(d => `
+        <div class="decision-item">
+          <div class="decision-id">${d.id}</div>
+          <div class="decision-axis">${d.axis}</div>
+          <div class="decision-value">${d.value}</div>
+          <div class="decision-meta">
+            <span>${d.date}</span>
+            <span>${d.topic}</span>
+            <span>${d.session || ''}</span>
+            <span>${d.decision}</span>
+            <span>${statusBadge(d.status === 'confirmed' ? 'closed' : 'open')}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function applyFilter() {
+      const topic = document.getElementById('filterTopic').value;
+      const status = document.getElementById('filterStatus').value;
+      let filtered = allDecisions;
+      if (topic) filtered = filtered.filter(d => d.topic === topic);
+      if (status) filtered = filtered.filter(d => d.status === status);
+      renderDecisions(filtered);
+      document.getElementById('decCount').textContent = `${filtered.length} decisions`;
+    }
+
+    async function init() {
+      const data = await DataLoader.getDecisionLedger();
+      if (data && data.decisions) {
+        allDecisions = data.decisions;
+        document.getElementById('decCount').textContent = `${allDecisions.length} decisions total`;
+
+        // Populate topic filter
+        const topics = [...new Set(allDecisions.map(d => d.topic))];
+        const select = document.getElementById('filterTopic');
+        topics.forEach(t => {
+          const opt = document.createElement('option');
+          opt.value = t;
+          opt.textContent = t;
+          select.appendChild(opt);
+        });
+
+        renderDecisions(allDecisions);
+      } else {
+        document.getElementById('decisionList').innerHTML = '<div class="empty-state">No decisions found</div>';
+        document.getElementById('decCount').textContent = '0 decisions';
+      }
+    }
+    init();
+  </script>
+</body>
+</html>

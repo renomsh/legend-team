@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>하이브리드러닝 스케일업300 — 과제 구조 설계</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Malgun Gothic','Segoe UI',sans-serif; background:#f0f4f8; color:#1a202c; }
+.page { max-width:1160px; margin:0 auto; padding:40px 32px 80px; }
+h1 { font-size:26px; font-weight:700; margin-bottom:4px; }
+.meta { font-size:13px; color:#718096; margin-bottom:40px; }
+.section-title { font-size:18px; font-weight:700; color:#2c5282; border-left:5px solid #2c5282; padding-left:12px; margin:48px 0 20px; }
+.fast-wrap { background:#fff; border-radius:12px; padding:28px 20px 20px; box-shadow:0 2px 12px rgba(0,0,0,.08); overflow-x:auto; }
+.fast-label { display:flex; justify-content:space-between; font-size:10px; font-weight:700; color:#a0aec0; letter-spacing:.1em; text-transform:uppercase; padding:0 0 16px; border-bottom:1px solid #e2e8f0; margin-bottom:20px; }
+.fast-label span:nth-child(1){ width:130px; text-align:center; }
+.fast-label span:nth-child(2){ width:150px; text-align:center; }
+.fast-label span:nth-child(3){ width:155px; text-align:center; }
+.fast-label span:nth-child(4){ flex:1; text-align:center; }
+/* Action tables */
+.cat-block { margin-bottom:28px; }
+.cat-header { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+.cat-header h3 { font-size:15px; font-weight:700; color:#1a365d; }
+.badge { font-size:11px; font-weight:600; padding:2px 10px; border-radius:20px; white-space:nowrap; }
+.b-blue  { background:#ebf8ff; color:#2b6cb0; border:1px solid #bee3f8; }
+.b-red   { background:#fff5f5; color:#c53030; border:1px solid #fed7d7; }
+.b-green { background:#f0fff4; color:#276749; border:1px solid #c6f6d5; }
+.b-gray  { background:#f7fafc; color:#4a5568; border:1px solid #e2e8f0; }
+table { width:100%; border-collapse:collapse; background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,.06); }
+th { background:#2c5282; color:#fff; font-size:12px; padding:8px 14px; text-align:left; }
+td { border-bottom:1px solid #edf2f7; padding:8px 14px; font-size:13px; vertical-align:top; }
+tr:last-child td { border-bottom:none; }
+.tid { font-family:Consolas,monospace; font-weight:700; color:#2c5282; white-space:nowrap; }
+.tid.r { color:#c53030; }
+.nc { color:#718096; font-size:12px; }
+.star-row { background:#fffbeb; }
+.notes { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.nc2 { border-left:4px solid #ed8936; background:#fff; border-radius:0 8px 8px 0; padding:14px 16px; box-shadow:0 1px 4px rgba(0,0,0,.05); }
+.nc2 .nt { font-size:13px; font-weight:700; color:#c05621; margin-bottom:6px; }
+.nc2 p { font-size:12.5px; color:#4a5568; line-height:1.6; }
+@media(max-width:800px){ .notes{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<div class="page">
+<h1>하이브리드러닝 스케일업300 — 과제 구조 설계</h1>
+<div class="meta">2026-04-14 · Editor rev1 · 2027년 하이브리드러닝 300억 달성을 위한 구조 구축 프로젝트</div>
+
+<div class="section-title">1. FAST 다이어그램</div>
+<div class="fast-wrap">
+  <div class="fast-label">
+    <span>목표</span><span>핵심 기능</span><span>하위 기능</span><span>← WHY · HOW → &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 액션 항목</span>
+  </div>
+
+<!-- ══════════════════════════════════════════════════════
+     SVG: 모든 좌표 정밀 계산 버전
+
+     X축:
+       Root:    x=8   w=120  right=128  cx=68
+       Spine1:  x=138 (root→L2)
+       L2:      x=148 w=136  right=284  cx=216
+       Spine2:  x=295 (L2→L3)
+       L3:      x=305 w=142  right=447  cx=376
+       Actions: x=465 w=498
+
+     Y축 (action_h=24, inner_gap=4, subfunc_gap=10, section_gap=18):
+       Section A y=38~286  L2cy=162
+         A1 subfunc y=38  h=56  cy=66   actions: 40,68
+         A2 subfunc y=102 h=56  cy=130  actions: 104,132
+         A3 subfunc y=166 h=56  cy=194  actions: 168,196
+         A4 subfunc y=230 h=56  cy=258  actions: 232,260
+       Section B y=304~572  L2cy=438
+         B1 subfunc y=304 h=112 cy=360  actions: 306,334,362,390
+         B2 subfunc y=424 h=56  cy=452  actions: 426,454
+         B3 subfunc y=488 h=84  cy=530  actions: 490,518,546
+       Section C y=590~830  L2cy=710
+         C1 subfunc y=590 h=84  cy=632  actions: 592,620,648
+         C2 subfunc y=682 h=56  cy=710  actions: 684,712
+         C3 subfunc y=746 h=84  cy=788  actions: 748,776,804
+
+     Root: y=36 h=798 cy=435
+══════════════════════════════════════════════════════ -->
+
+<svg viewBox="0 0 965 836" width="100%" style="min-width:760px;display:block;" xmlns="http://www.w3.org/2000/svg" font-family="'Malgun Gothic','Segoe UI',sans-serif">
+<defs>
+  <marker id="ar" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+    <polygon points="0 0,7 3.5,0 7" fill="#4a90d9"/>
+  </marker>
+</defs>
+
+<!-- ── Root box ── -->
+<rect x="8" y="36" width="120" height="796" rx="8" fill="#1a365d"/>
+<text x="68" y="408" text-anchor="middle" fill="white" font-size="13" font-weight="700">27년</text>
+<text x="68" y="427" text-anchor="middle" fill="white" font-size="13" font-weight="700">하이브리드</text>
+<text x="68" y="446" text-anchor="middle" fill="white" font-size="13" font-weight="700">러닝</text>
+<text x="68" y="470" text-anchor="middle" fill="#63b3ed" font-size="19" font-weight="800">300억</text>
+<text x="68" y="492" text-anchor="middle" fill="white" font-size="13" font-weight="700">달성</text>
+
+<!-- ── L2 boxes ── -->
+<!-- A 부서R&R -->
+<rect x="148" y="38" width="136" height="250" rx="7" fill="#2c5282"/>
+<text x="216" y="153" text-anchor="middle" fill="white" font-size="12" font-weight="600">부서 R&amp;R을</text>
+<text x="216" y="169" text-anchor="middle" fill="white" font-size="12" font-weight="600">재정의한다</text>
+<!-- B 공급구조 -->
+<rect x="148" y="302" width="136" height="272" rx="7" fill="#2c5282"/>
+<text x="216" y="430" text-anchor="middle" fill="white" font-size="12" font-weight="600">공급 구조를</text>
+<text x="216" y="446" text-anchor="middle" fill="white" font-size="12" font-weight="600">재구축한다</text>
+<!-- C 가치창출 -->
+<rect x="148" y="588" width="136" height="244" rx="7" fill="#2c5282"/>
+<text x="216" y="700" text-anchor="middle" fill="white" font-size="12" font-weight="600">가치 창출을</text>
+<text x="216" y="716" text-anchor="middle" fill="white" font-size="12" font-weight="600">가속한다</text>
+
+<!-- ══ CONNECTORS ══ -->
+<!-- Root → L2 -->
+<line x1="128" y1="435" x2="138" y2="435" stroke="#4a90d9" stroke-width="1.5"/>
+<line x1="138" y1="163" x2="138" y2="710" stroke="#4a90d9" stroke-width="1.5"/>
+<line x1="138" y1="163" x2="147" y2="163" stroke="#4a90d9" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="138" y1="438" x2="147" y2="438" stroke="#4a90d9" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="138" y1="710" x2="147" y2="710" stroke="#4a90d9" stroke-width="1.5" marker-end="url(#ar)"/>
+
+<!-- L2-A → L3-A -->
+<line x1="284" y1="163" x2="295" y2="163" stroke="#4a90d9" stroke-width="1.5"/>
+<line x1="295" y1="66"  x2="295" y2="258" stroke="#4a90d9" stroke-width="1.5"/>
+<line x1="295" y1="66"  x2="304" y2="66"  stroke="#4a90d9" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="295" y1="130" x2="304" y2="130" stroke="#4a90d9" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="295" y1="194" x2="304" y2="194" stroke="#4a90d9" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="295" y1="258" x2="304" y2="258" stroke="#4a90d9" stroke-width="1.5" marker-end="url(#ar)"/>
+
+<!-- L2-B → L3-B -->
+<line x1="284" y1="438" x2="295" y2="438" stroke="#4a90d9" stroke-width="1.5"/>
+<line x1="295" y1="360" x2="295" y2="530" stroke="#4a90d9" stroke-width="1.5"/>
+<line x1="295" y1="360" x2="304" y2="360" stroke="#4a90d9" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="295" y1="452" x2="304" y2="452" stroke="#4a90d9" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="295" y1="530" x2="304" y2="530" stroke="#4a90d9" stroke-width="1.5" marker-end="url(#ar)"/>
+
+<!-- L2-C → L3-C -->
+<line x1="284" y1="710" x2="295" y2="710" stroke="#4a90d9" stroke-width="1.5"/>
+<line x1="295" y1="632" x2="295" y2="788" stroke="#4a90d9" stroke-width="1.5"/>
+<line x1="295" y1="632" x2="304" y2="632" stroke="#4a90d9" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="295" y1="710" x2="304" y2="710" stroke="#4a90d9" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="295" y1="788" x2="304" y2="788" stroke="#4a90d9" stroke-width="1.5" marker-end="url(#ar)"/>
+
+<!-- L3 → Actions -->
+<line x1="447" y1="66"  x2="464" y2="66"  stroke="#4a90d9" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="447" y1="130" x2="464" y2="130" stroke="#4a90d9" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="447" y1="194" x2="464" y2="194" stroke="#4a90d9" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="447" y1="258" x2="464" y2="258" stroke="#4a90d9" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="447" y1="360" x2="464" y2="360" stroke="#4a90d9" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="447" y1="452" x2="464" y2="452" stroke="#4a90d9" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="447" y1="530" x2="464" y2="530" stroke="#4a90d9" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="447" y1="632" x2="464" y2="632" stroke="#4a90d9" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="447" y1="710" x2="464" y2="710" stroke="#4a90d9" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="447" y1="788" x2="464" y2="788" stroke="#4a90d9" stroke-width="1.5" marker-end="url(#ar)"/>
+
+<!-- ══ L3 SUBFUNC BOXES (x=305 w=142) ══ -->
+<!-- A1 cy=66 -->
+<rect x="305" y="38"  width="142" height="56" rx="6" fill="#ebf4ff" stroke="#bee3f8" stroke-width="1.5"/>
+<text x="376" y="62"  text-anchor="middle" fill="#1a365d" font-size="11" font-weight="600">사업 오너십</text>
+<text x="376" y="77"  text-anchor="middle" fill="#1a365d" font-size="11" font-weight="600">교육사업본부 단일화</text>
+<!-- A2 cy=130 -->
+<rect x="305" y="102" width="142" height="56" rx="6" fill="#ebf4ff" stroke="#bee3f8" stroke-width="1.5"/>
+<text x="376" y="126" text-anchor="middle" fill="#1a365d" font-size="11" font-weight="600">연구원 R&amp;R</text>
+<text x="376" y="141" text-anchor="middle" fill="#1a365d" font-size="11" font-weight="600">재정의</text>
+<!-- A3 cy=194 -->
+<rect x="305" y="166" width="142" height="56" rx="6" fill="#ebf4ff" stroke="#bee3f8" stroke-width="1.5"/>
+<text x="376" y="190" text-anchor="middle" fill="#1a365d" font-size="11" font-weight="600">운영 R&amp;R</text>
+<text x="376" y="205" text-anchor="middle" fill="#1a365d" font-size="11" font-weight="600">재정의</text>
+<!-- A4 cy=258 -->
+<rect x="305" y="230" width="142" height="56" rx="6" fill="#ebf4ff" stroke="#bee3f8" stroke-width="1.5"/>
+<text x="376" y="254" text-anchor="middle" fill="#1a365d" font-size="11" font-weight="600">영업 R&amp;R</text>
+<text x="376" y="269" text-anchor="middle" fill="#1a365d" font-size="11" font-weight="600">재정의</text>
+<!-- B1 cy=360 -->
+<rect x="305" y="304" width="142" height="112" rx="6" fill="#ebf4ff" stroke="#bee3f8" stroke-width="1.5"/>
+<text x="376" y="354" text-anchor="middle" fill="#1a365d" font-size="11" font-weight="600">강사 공급 구조</text>
+<text x="376" y="369" text-anchor="middle" fill="#1a365d" font-size="11" font-weight="600">정비 + 확장</text>
+<!-- B2 cy=452 -->
+<rect x="305" y="424" width="142" height="56" rx="6" fill="#ebf4ff" stroke="#bee3f8" stroke-width="1.5"/>
+<text x="376" y="448" text-anchor="middle" fill="#1a365d" font-size="11" font-weight="600">생태계</text>
+<text x="376" y="463" text-anchor="middle" fill="#1a365d" font-size="11" font-weight="600">정립 + 분담</text>
+<!-- B3 cy=530 -->
+<rect x="305" y="488" width="142" height="84" rx="6" fill="#ebf4ff" stroke="#bee3f8" stroke-width="1.5"/>
+<text x="376" y="524" text-anchor="middle" fill="#1a365d" font-size="11" font-weight="600">운영 내재화</text>
+<text x="376" y="539" text-anchor="middle" fill="#1a365d" font-size="11" font-weight="600">PM 조직화</text>
+<!-- C1 cy=632 -->
+<rect x="305" y="590" width="142" height="84" rx="6" fill="#ebf4ff" stroke="#bee3f8" stroke-width="1.5"/>
+<text x="376" y="626" text-anchor="middle" fill="#1a365d" font-size="11" font-weight="600">4축 수익성</text>
+<text x="376" y="641" text-anchor="middle" fill="#1a365d" font-size="11" font-weight="600">동시 개선</text>
+<!-- C2 cy=710 -->
+<rect x="305" y="682" width="142" height="56" rx="6" fill="#ebf4ff" stroke="#bee3f8" stroke-width="1.5"/>
+<text x="376" y="706" text-anchor="middle" fill="#1a365d" font-size="11" font-weight="600">표준 자산</text>
+<text x="376" y="721" text-anchor="middle" fill="#1a365d" font-size="11" font-weight="600">정착·운영 가동</text>
+<!-- C3 cy=788 -->
+<rect x="305" y="746" width="142" height="84" rx="6" fill="#ebf4ff" stroke="#bee3f8" stroke-width="1.5"/>
+<text x="376" y="782" text-anchor="middle" fill="#1a365d" font-size="11" font-weight="600">고객 침투</text>
+<text x="376" y="797" text-anchor="middle" fill="#1a365d" font-size="11" font-weight="600">전환 견인</text>
+
+<!-- ══ ACTION ROWS (x=465 w=498 h=24) ══ -->
+<!-- badge x=467 w=36 h=20  text-x=485  action-text x=508 -->
+
+<!-- A1: y=40,68 -->
+<rect x="465" y="40"  width="494" height="24" rx="4" fill="#f7fafc" stroke="#e2e8f0"/>
+<rect x="467" y="42"  width="36"  height="20" rx="3" fill="#1a365d"/>
+<text x="485" y="56"  text-anchor="middle" fill="white" font-size="9" font-weight="700">1-1</text>
+<text x="510" y="57"  fill="#2d3748" font-size="11">사업 오너십 교육사업본부 이관 (의사결정·KPI·책임 귀속)</text>
+
+<rect x="465" y="68"  width="494" height="24" rx="4" fill="#f7fafc" stroke="#e2e8f0"/>
+<rect x="467" y="70"  width="36"  height="20" rx="3" fill="#1a365d"/>
+<text x="485" y="84"  text-anchor="middle" fill="white" font-size="9" font-weight="700">1-6</text>
+<text x="510" y="85"  fill="#2d3748" font-size="11">지라 분배 권한 이관 + 통합 대시보드 운영 수정</text>
+
+<!-- A2: y=104,132 -->
+<rect x="465" y="104" width="494" height="24" rx="4" fill="#fff5f5" stroke="#fed7d7"/>
+<rect x="467" y="106" width="36"  height="20" rx="3" fill="#c53030"/>
+<text x="485" y="120" text-anchor="middle" fill="white" font-size="9" font-weight="700">0-3</text>
+<text x="510" y="121" fill="#2d3748" font-size="11">유관 부서 R&amp;R 정의 미흡 해소 (선결 이슈)</text>
+
+<rect x="465" y="132" width="494" height="24" rx="4" fill="#f7fafc" stroke="#e2e8f0"/>
+<rect x="467" y="134" width="36"  height="20" rx="3" fill="#1a365d"/>
+<text x="485" y="148" text-anchor="middle" fill="white" font-size="9" font-weight="700">1-2</text>
+<text x="510" y="149" fill="#2d3748" font-size="11">연구원 R&amp;R: 컨설팅 / 교육과정 설계 / 표준과정 수립</text>
+
+<!-- A3: y=168,196 -->
+<rect x="465" y="168" width="494" height="24" rx="4" fill="#f7fafc" stroke="#e2e8f0"/>
+<rect x="467" y="170" width="36"  height="20" rx="3" fill="#1a365d"/>
+<text x="485" y="184" text-anchor="middle" fill="white" font-size="9" font-weight="700">1-3</text>
+<text x="510" y="185" fill="#2d3748" font-size="11">운영 R&amp;R: 전문성 내재화 + 외부→내부 전환 구조</text>
+
+<rect x="465" y="196" width="494" height="24" rx="4" fill="#f7fafc" stroke="#e2e8f0"/>
+<rect x="467" y="198" width="36"  height="20" rx="3" fill="#1a365d"/>
+<text x="485" y="212" text-anchor="middle" fill="white" font-size="9" font-weight="700">1-5</text>
+<text x="510" y="213" fill="#2d3748" font-size="11">부서간 협업 프로토콜 수립 (핸드오프·게이트·책임 매트릭스)</text>
+
+<!-- A4: y=232,260 -->
+<rect x="465" y="232" width="494" height="24" rx="4" fill="#f7fafc" stroke="#e2e8f0"/>
+<rect x="467" y="234" width="36"  height="20" rx="3" fill="#1a365d"/>
+<text x="485" y="248" text-anchor="middle" fill="white" font-size="9" font-weight="700">1-4</text>
+<text x="510" y="249" fill="#2d3748" font-size="11">영업 R&amp;R: 자기완결 제안 작성 + 사업기회 발굴 유지</text>
+
+<rect x="465" y="260" width="494" height="24" rx="4" fill="#f7fafc" stroke="#e2e8f0"/>
+<rect x="467" y="262" width="36"  height="20" rx="3" fill="#1a365d"/>
+<text x="485" y="276" text-anchor="middle" fill="white" font-size="9" font-weight="700">6-5</text>
+<text x="510" y="277" fill="#2d3748" font-size="11">비표준·특수 케이스 처리 라인 정의</text>
+
+<!-- B1: y=306,334,362,390 -->
+<rect x="465" y="306" width="494" height="24" rx="4" fill="#f7fafc" stroke="#e2e8f0"/>
+<rect x="467" y="308" width="36"  height="20" rx="3" fill="#1a365d"/>
+<text x="485" y="322" text-anchor="middle" fill="white" font-size="9" font-weight="700">4-1</text>
+<text x="510" y="323" fill="#2d3748" font-size="11">강사 시스템 정비 (등록·평가·등급·계약 관리)</text>
+
+<rect x="465" y="334" width="494" height="24" rx="4" fill="#f7fafc" stroke="#e2e8f0"/>
+<rect x="467" y="336" width="36"  height="20" rx="3" fill="#1a365d"/>
+<text x="485" y="350" text-anchor="middle" fill="white" font-size="9" font-weight="700">4-3</text>
+<text x="510" y="351" fill="#2d3748" font-size="11">연 1억 이상 강사 구간제 계약 장치</text>
+
+<rect x="465" y="362" width="494" height="24" rx="4" fill="#f7fafc" stroke="#e2e8f0"/>
+<rect x="467" y="364" width="36"  height="20" rx="3" fill="#1a365d"/>
+<text x="485" y="378" text-anchor="middle" fill="white" font-size="9" font-weight="700">4-4</text>
+<text x="510" y="379" fill="#2d3748" font-size="11">산업·유형별 커버리지 맵 작성 (제조·금융·코칭·AI·법정)</text>
+
+<rect x="465" y="390" width="494" height="24" rx="4" fill="#f7fafc" stroke="#e2e8f0"/>
+<rect x="467" y="392" width="36"  height="20" rx="3" fill="#1a365d"/>
+<text x="485" y="406" text-anchor="middle" fill="white" font-size="9" font-weight="700">4-5</text>
+<text x="510" y="407" fill="#2d3748" font-size="11">강사 등급체계 (프리미엄/스탠다드/효율형) + Backup 원칙</text>
+
+<!-- B2: y=426,454 -->
+<rect x="465" y="426" width="494" height="24" rx="4" fill="#f7fafc" stroke="#e2e8f0"/>
+<rect x="467" y="428" width="36"  height="20" rx="3" fill="#1a365d"/>
+<text x="485" y="442" text-anchor="middle" fill="white" font-size="9" font-weight="700">2-1</text>
+<text x="510" y="443" fill="#2d3748" font-size="11">전사 생태계 정립 및 확대 (하이브리드러닝 한정 아님)</text>
+
+<rect x="465" y="454" width="494" height="24" rx="4" fill="#f7fafc" stroke="#e2e8f0"/>
+<rect x="467" y="456" width="36"  height="20" rx="3" fill="#1a365d"/>
+<text x="485" y="470" text-anchor="middle" fill="white" font-size="9" font-weight="700">2-2</text>
+<text x="510" y="471" fill="#2d3748" font-size="11">부서별 관리 분담: 기획·전반=연구원 / 운영=운영 / 그 외=영업</text>
+
+<!-- B3: y=490,518,546 -->
+<rect x="465" y="490" width="494" height="24" rx="4" fill="#f7fafc" stroke="#e2e8f0"/>
+<rect x="467" y="492" width="36"  height="20" rx="3" fill="#1a365d"/>
+<text x="485" y="506" text-anchor="middle" fill="white" font-size="9" font-weight="700">3-1</text>
+<text x="510" y="507" fill="#2d3748" font-size="11">운영 매뉴얼·체크리스트·결과보고서 자산 루프 구축</text>
+
+<rect x="465" y="518" width="494" height="24" rx="4" fill="#f7fafc" stroke="#e2e8f0"/>
+<rect x="467" y="520" width="36"  height="20" rx="3" fill="#1a365d"/>
+<text x="485" y="534" text-anchor="middle" fill="white" font-size="9" font-weight="700">3-2</text>
+<text x="510" y="535" fill="#2d3748" font-size="11">운영 후 품질 프로세스 수립 (강사·과정·클레임·만족도)</text>
+
+<rect x="465" y="546" width="494" height="24" rx="4" fill="#f7fafc" stroke="#e2e8f0"/>
+<rect x="467" y="548" width="36"  height="20" rx="3" fill="#1a365d"/>
+<text x="485" y="562" text-anchor="middle" fill="white" font-size="9" font-weight="700">3-3</text>
+<text x="510" y="563" fill="#2d3748" font-size="11">PM(자산 고도화) ↔ 실행단(인턴 풀) 구조 분리</text>
+
+<!-- C1: y=592,620,648 -->
+<rect x="465" y="592" width="494" height="24" rx="4" fill="#fffbeb" stroke="#f6e05e"/>
+<rect x="467" y="594" width="36"  height="20" rx="3" fill="#d69e2e"/>
+<text x="485" y="608" text-anchor="middle" fill="white" font-size="9" font-weight="700">5-2</text>
+<text x="510" y="609" fill="#744210" font-size="11" font-weight="600">★ 사업유형 축: 오프라인→하이브리드 전환 가속 (최대 레버)</text>
+
+<rect x="465" y="620" width="494" height="24" rx="4" fill="#f7fafc" stroke="#e2e8f0"/>
+<rect x="467" y="622" width="36"  height="20" rx="3" fill="#1a365d"/>
+<text x="485" y="636" text-anchor="middle" fill="white" font-size="9" font-weight="700">5-3</text>
+<text x="510" y="637" fill="#2d3748" font-size="11">과정설계 축: 고비용 강사 단시간 + 퍼실리테이터 대체 구조</text>
+
+<rect x="465" y="648" width="494" height="24" rx="4" fill="#f7fafc" stroke="#e2e8f0"/>
+<rect x="467" y="650" width="36"  height="20" rx="3" fill="#1a365d"/>
+<text x="485" y="664" text-anchor="middle" fill="white" font-size="9" font-weight="700">5-4</text>
+<text x="510" y="665" fill="#2d3748" font-size="11">운영 축: 외부 턴키 아웃소싱 → 내부 인소싱 흡수</text>
+
+<!-- C2: y=684,712 -->
+<rect x="465" y="684" width="494" height="24" rx="4" fill="#f7fafc" stroke="#e2e8f0"/>
+<rect x="467" y="686" width="36"  height="20" rx="3" fill="#1a365d"/>
+<text x="485" y="700" text-anchor="middle" fill="white" font-size="9" font-weight="700">6-1~4</text>
+<text x="510" y="701" fill="#2d3748" font-size="11">표준 자산 4종 (제안서·뱅크·가격도구·모듈) 운영 정착</text>
+
+<rect x="465" y="712" width="494" height="24" rx="4" fill="#f7fafc" stroke="#e2e8f0"/>
+<rect x="467" y="714" width="36"  height="20" rx="3" fill="#1a365d"/>
+<text x="485" y="728" text-anchor="middle" fill="white" font-size="9" font-weight="700">6-6</text>
+<text x="510" y="729" fill="#2d3748" font-size="11">경쟁우위 제안서 반영 (임팩트·맞춤형·경쟁사 추격 불가)</text>
+
+<!-- C3: y=748,776,804 -->
+<rect x="465" y="748" width="494" height="24" rx="4" fill="#f7fafc" stroke="#e2e8f0"/>
+<rect x="467" y="750" width="36"  height="20" rx="3" fill="#1a365d"/>
+<text x="485" y="764" text-anchor="middle" fill="white" font-size="9" font-weight="700">7-1</text>
+<text x="510" y="765" fill="#2d3748" font-size="11">러닝메이커 침투 단계 정교화 (인지→시범→도입→확산)</text>
+
+<rect x="465" y="776" width="494" height="24" rx="4" fill="#f7fafc" stroke="#e2e8f0"/>
+<rect x="467" y="778" width="36"  height="20" rx="3" fill="#1a365d"/>
+<text x="485" y="792" text-anchor="middle" fill="white" font-size="9" font-weight="700">7-2</text>
+<text x="510" y="793" fill="#2d3748" font-size="11">오프라인 교육 기업 현황 파악 + 사전 영업 계획 (팀별)</text>
+
+<rect x="465" y="804" width="494" height="24" rx="4" fill="#f7fafc" stroke="#e2e8f0"/>
+<rect x="467" y="806" width="36"  height="20" rx="3" fill="#1a365d"/>
+<text x="485" y="820" text-anchor="middle" fill="white" font-size="9" font-weight="700">7-5</text>
+<text x="510" y="821" fill="#2d3748" font-size="11">고객 성공사례 자산화 + 전환 로드맵 템플릿</text>
+
+</svg>
+</div><!-- fast-wrap -->
+
+<!-- ══════════════════════════════════════
+     ACTION ITEM LIST
+══════════════════════════════════════ -->
+<div class="section-title">2. 액션 아이템 리스트</div>
+
+<div class="cat-block">
+  <div class="cat-header"><h3>[0] 선결 이슈</h3><span class="badge b-red">즉시 · 조직 개편</span></div>
+  <table><tr><th width="60">ID</th><th>액션</th><th width="180">비고</th></tr>
+  <tr><td class="tid r">0-1</td><td>영업 요청 시 연구원 판단 대응 지연 해소</td><td class="nc">조직 개편</td></tr>
+  <tr><td class="tid r">0-2</td><td>AI 진단·설계·대응 지연 해소</td><td class="nc">조직 개편</td></tr>
+  <tr><td class="tid r">0-3</td><td>유관 부서 R&amp;R 정의 미흡 해소</td><td class="nc">→ 카테고리 1 직결</td></tr>
+  </table>
+</div>
+
+<div class="cat-block">
+  <div class="cat-header"><h3>[1] R&amp;R 정의 및 프로토콜 정립</h3><span class="badge b-blue">상반기 내</span></div>
+  <table><tr><th width="60">ID</th><th>액션</th><th width="180">비고</th></tr>
+  <tr><td class="tid">1-1</td><td>사업 오너십 교육사업본부 이관 (의사결정·KPI·책임 귀속)</td><td class="nc">본 프로젝트 정체성</td></tr>
+  <tr><td class="tid">1-2</td><td>연구원 R&amp;R 재정의: 기업 맞춤형 컨설팅 / 교육과정 설계 / 신규 표준 교육과정 수립</td><td class="nc"></td></tr>
+  <tr><td class="tid">1-3</td><td>운영 R&amp;R 재정의: 운영 전문성 내재화 + 외부 이용 생태계의 내부 전환 구조</td><td class="nc"></td></tr>
+  <tr><td class="tid">1-4</td><td>영업(교육사업본부) R&amp;R 재정의: 표준제안서·레퍼런스 뱅크 기반 자기완결 제안 + 사업기회 발굴 유지</td><td class="nc"></td></tr>
+  <tr><td class="tid">1-5</td><td>부서간 협업 프로토콜 수립 (핸드오프·게이트·책임 매트릭스)</td><td class="nc"></td></tr>
+  <tr><td class="tid">1-6</td><td>지라 분배 권한 연구원 → 교육사업본부 이관 + 통합 대시보드 운영 수정</td><td class="nc">1-1과 동시성립</td></tr>
+  </table>
+</div>
+
+<div class="cat-block">
+  <div class="cat-header"><h3>[2] 생태계</h3><span class="badge b-blue">분담 정의 상반기</span><span class="badge b-gray">확장 상시</span></div>
+  <table><tr><th width="60">ID</th><th>액션</th><th width="180">비고</th></tr>
+  <tr><td class="tid">2-1</td><td>전사 생태계 정립 및 확대 (하이브리드러닝 한정 아님)</td><td class="nc"></td></tr>
+  <tr><td class="tid">2-2</td><td>생태계 관리 분담: 기획·전반=연구원 / 운영=운영 / 그 외=영업</td><td class="nc"></td></tr>
+  <tr><td class="tid">2-3</td><td>각 생태계별 소싱·관리·평가 책임자 명시</td><td class="nc"></td></tr>
+  </table>
+</div>
+
+<div class="cat-block">
+  <div class="cat-header"><h3>[3] 운영</h3><span class="badge b-blue">체계 수립 상반기</span><span class="badge b-gray">확장 상시</span></div>
+  <table><tr><th width="60">ID</th><th>액션</th><th width="180">비고</th></tr>
+  <tr><td class="tid">3-1</td><td>운영 노하우 내재화 + PM 조직화 — <strong>운영 매뉴얼·체크리스트·결과보고서 자산 루프</strong></td><td class="nc">본 카테고리 본체</td></tr>
+  <tr><td class="tid">3-2</td><td>운영 후 품질 프로세스 수립 (강사 평가·과정 품질·클레임·만족도)</td><td class="nc"></td></tr>
+  <tr><td class="tid">3-3</td><td>PM ↔ 실행단(인턴 풀) 구조 분리 — PM은 자산 고도화, 실행단은 작업</td><td class="nc">3-1과 단일 미션</td></tr>
+  <tr><td class="tid">3-4</td><td>운영인턴 제도 기획 (채용·교육·전환 경로)</td><td class="nc"></td></tr>
+  <tr><td class="tid">3-5</td><td>러닝메이커 학습자용 매뉴얼 개발</td><td class="nc"></td></tr>
+  <tr><td class="tid">3-6</td><td>AI 하이브리드러닝 차시 증가 대응 운영 전략 수립</td><td class="nc"></td></tr>
+  </table>
+</div>
+
+<div class="cat-block">
+  <div class="cat-header"><h3>[4] 강사</h3><span class="badge b-blue">시스템 상반기</span><span class="badge b-gray">풀 확장 상시</span></div>
+  <table><tr><th width="60">ID</th><th>액션</th><th width="180">비고</th></tr>
+  <tr><td class="tid">4-1</td><td>강사 시스템 정비 (등록·평가·등급·계약 관리)</td><td class="nc"></td></tr>
+  <tr><td class="tid">4-2</td><td>강사 자사 플랫폼·컨텐츠 활용 교육 및 내재화 체계</td><td class="nc"></td></tr>
+  <tr><td class="tid">4-3</td><td>강사 계약관리 구조화 — 연 1억 이상 구간제 할인 + 특수 과정 계약가 이하 진입 장치</td><td class="nc"></td></tr>
+  <tr><td class="tid">4-4</td><td>산업/유형별 커버리지 맵 작성 (제조·금융·코칭·AI·법정 등)</td><td class="nc"></td></tr>
+  <tr><td class="tid">4-5</td><td>강사 등급체계 (프리미엄/스탠다드/비용효율형) + Backup 운영 원칙</td><td class="nc"></td></tr>
+  <tr><td class="tid">4-6</td><td>온보딩 평가 루브릭 + Exit rule 명문화</td><td class="nc"></td></tr>
+  </table>
+</div>
+
+<div class="cat-block">
+  <div class="cat-header"><h3>[5] 수익성</h3><span class="badge b-green">4축 상시</span><span class="badge b-blue">1차 효과 상반기 측정</span></div>
+  <table><tr><th width="60">ID</th><th>액션</th><th width="180">비고</th></tr>
+  <tr><td class="tid">5-1</td><td><strong>강사 축</strong>: 강사비 절감 + 구간제 확대 (4-3 연계)</td><td class="nc"></td></tr>
+  <tr class="star-row"><td class="tid">5-2</td><td><strong>사업유형 축</strong>: 단순 오프라인 → 하이브리드러닝 과정 설계·전환 유도 ★ 단일 최대 레버</td><td class="nc">공헌이익률 10%→40%</td></tr>
+  <tr><td class="tid">5-3</td><td><strong>과정설계 축</strong>: 비싼 강사(교수) 단시간 투입 + 퍼실리테이터 대체 구조</td><td class="nc"></td></tr>
+  <tr><td class="tid">5-4</td><td><strong>운영 축</strong>: 외부 턴키 아웃소싱 → 내부 운영효율화로 흡수</td><td class="nc"></td></tr>
+  <tr><td class="tid">5-5</td><td>소모성 비용 절감·그룹화 + Price Band 기준 + 수익률 20% 이하 CEO 결재 내재화</td><td class="nc"></td></tr>
+  </table>
+</div>
+
+<div class="cat-block">
+  <div class="cat-header"><h3>[6] 제안 전략</h3><span class="badge b-blue">상반기 내 · 정착·운영</span></div>
+  <table><tr><th width="60">ID</th><th>액션</th><th width="180">비고</th></tr>
+  <tr><td class="tid">6-1</td><td>표준제안서 운영 체계 정착</td><td class="nc">자산 보유</td></tr>
+  <tr><td class="tid">6-2</td><td>레퍼런스/기존 제안서 뱅크 운영 체계 정착</td><td class="nc">자산 보유</td></tr>
+  <tr><td class="tid">6-3</td><td>표준 가격 산정 도구 운영 체계 정착</td><td class="nc">자산 보유</td></tr>
+  <tr><td class="tid">6-4</td><td>표준 컨텐츠 모듈 카탈로그 운영 체계 정착</td><td class="nc">자산 보유</td></tr>
+  <tr><td class="tid">6-5</td><td>영업 자기완결 제안 작성 가동 + 비표준/특수 케이스 처리 라인 정의</td><td class="nc"></td></tr>
+  <tr><td class="tid">6-6</td><td>하이브리드러닝 경쟁우위 제안서 반영 (임팩트·맞춤형·경쟁사 추격 불가)</td><td class="nc"></td></tr>
+  </table>
+</div>
+
+<div class="cat-block">
+  <div class="cat-header"><h3>[7] 고객 성장 전략</h3><span class="badge b-blue">상반기 내</span></div>
+  <table><tr><th width="60">ID</th><th>액션</th><th width="180">비고</th></tr>
+  <tr><td class="tid">7-1</td><td>러닝메이커 침투 단계 정교화 (인지 → 시범 → 도입 → 확산)</td><td class="nc"></td></tr>
+  <tr><td class="tid">7-2</td><td>오프라인 교육 진행 기업 현황 파악 (팀별)</td><td class="nc"></td></tr>
+  <tr><td class="tid">7-3</td><td>사전 영업 전략 계획 수립 — 침투/업셀링/전환 분류 + 액션 캘린더 (팀별)</td><td class="nc"></td></tr>
+  <tr><td class="tid">7-4</td><td>교담자 교육·관여 프로그램 (월간X 등 활용)</td><td class="nc"></td></tr>
+  <tr><td class="tid">7-5</td><td>고객 성공사례 자산화</td><td class="nc"></td></tr>
+  <tr><td class="tid">7-6</td><td>고객별 하이브리드러닝 전환 로드맵 템플릿</td><td class="nc"></td></tr>
+  </table>
+</div>
+
+<!-- ══════════════════════════════════════
+     NOTES
+══════════════════════════════════════ -->
+<div class="section-title">3. 주석</div>
+<div class="notes">
+  <div class="nc2"><div class="nt">N1. 본 프로젝트 정체성 — "오너십 이전"</div><p>300억은 결과 지표일 뿐, 본질은 사업 의사결정 권한을 연구원 분배 모델에서 교육사업본부 단일 오너십으로 옮기는 작업. 1-1과 1-6이 무너지면 나머지 카테고리는 모두 명목상 정리에 그친다.</p></div>
+  <div class="nc2"><div class="nt">N2. 카테고리 6은 "구축"이 아니라 "정착·운영"</div><p>표준제안서·뱅크·가격 도구·모듈 카탈로그는 모두 이미 존재. 안 쓰이는 이유는 분배 권한이 연구원에 있기 때문. 6번의 운명은 1-6(지라 분배 이관)과 같다.</p></div>
+  <div class="nc2"><div class="nt">N3. 운영(3)에서 만드는 것은 사람이 아니라 문서</div><p>운영 매뉴얼·체크리스트·결과보고서가 카테고리 3의 산출물 본체. 자산이 매 운영마다 갱신되어 다음 운영에 재투입되는 루프가 성패를 결정한다.</p></div>
+  <div class="nc2"><div class="nt">N4. 5-2(사업유형 축)이 단일 최대 레버</div><p>공헌이익률 10%(오프라인) → 40%(하이브리드). 영업 인센티브가 공헌이익률 × 초과매출액 구조이므로 인센티브가 이미 전환을 자동 견인. 본부는 장애물 제거에 집중.</p></div>
+  <div class="nc2"><div class="nt">N5. 카테고리 2(생태계)는 가장 조용하지만 가장 길다</div><p>분담 정의는 상반기, 풀 확장은 27년 1월까지 상시 트랙. 분담 정의 직후부터 확장 트랙을 가동해야 27년 진입 시 300억 캐파를 받친다.</p></div>
+  <div class="nc2"><div class="nt">N6. 강사 풀과 가격 통제의 시퀀스</div><p>풀 확장 선행 → 가격 통제 적용. 구간제(4-3)는 연 1억 이상 고액 강사에만 적용되므로 일반 풀에는 영향 없음. 두 트랙 충돌 없이 병렬 진행.</p></div>
+  <div class="nc2"><div class="nt">N7. 동시성 — 기획 main이 Master에 집중</div><p>8개 카테고리 동시 상반기 데드라인은 팀 캐파 문제가 아님. 기획 main은 Master 단독, 실행은 각 부서 분산. 신설 팀은 오너 역할, 직접 매출 없이 매출+이익 통합 책임.</p></div>
+  <div class="nc2"><div class="nt">N8. 27년 진입 시점 목표 그림</div><p>① 영업 표준 케이스 자기완결 ② 비표준은 게이트로 연구원 이관 ③ 운영 매뉴얼 자율 가동 ④ 강사·생태계 풀 매월 확장 ⑤ 5-2 인센티브 자동 견인 ⑥ 본부 매출+이익 통합 대시보드.</p></div>
+  <div class="nc2" style="grid-column:1/-1"><div class="nt">N9. 카테고리 0(선결 이슈)의 의미</div><p>0-1·0-2·0-3은 프로젝트가 시작될 수 있게 만드는 차단 해제 항목. 조직 개편이라는 전제가 무너지면 카테고리 1 이하 전체가 보류된다.</p></div>
+</div>
+
+</div>
+</body>
+</html>

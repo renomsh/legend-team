@@ -1,0 +1,107 @@
+{
+  "charter": {
+    "name": "legend-team",
+    "version": "0.7.0",
+    "purpose": "Memory-first, topic-based strategy and implementation system. Master receives structured analysis from role-separated agents on any strategic or implementation topic, with all outputs preserved in inspectable, revisionable files.",
+    "principles": [
+      "Memory first: all agent outputs, decisions, and session state are written to files immediately. No analysis lives only in conversation context.",
+      "Role separation: each agent (ace, arki, dev, fin, riki, editor, nova) owns a distinct domain. Agents must not exceed their domain without escalating.",
+      "2-plane contract: local file-based write channel (Claude Code) and Cloudflare Pages read channel are kept strictly separate. No write operations through the viewer.",
+      "Master authority: all master feedback overrides agent outputs. No agent may ignore or paper over master direction.",
+      "No silent overwrite: every revision creates a new file. Prior versions are preserved.",
+      "Inspectability: every decision, every assumption, every contradiction must be traceable to a file.",
+      "No UI first: structural and strategic analysis precedes any interface or visualization work."
+    ],
+    "inScope": [
+      "Topic-based strategic analysis",
+      "Multi-role structured debate (ace → arki → fin → riki → ace review → editor)",
+      "Software and data pipeline implementation (arki design → dev implementation → editor output)",
+      "File-based memory: decisions, evidence, glossary, session state",
+      "Revision history for all agent outputs",
+      "Master feedback integration and logging",
+      "Read-only static viewer via Cloudflare Pages (D-006)"
+    ],
+    "outOfScope": [
+      "External API integrations (unless explicitly approved by Master)",
+      "Frontend UI frameworks: JSX, React, or component-based UI",
+      "Write interactions in the viewer (forms, state-changing buttons)",
+      "Real-time or streaming analysis",
+      "Autonomous agent action without Master approval"
+    ],
+    "roles": {
+      "ace": "Master의 판단 대리인. 각 역할 발언 후 의견을 종합하고 자신의 판단을 붙인다. Master의 채택/기각 패턴을 학습하며, Master가 답변하지 않으면 능동적으로 질문한다. 현재 단계에서는 후행 통합기로서 학습을 축적하고, Master가 승격을 결정하면 선행 제안기로 전환하여 팀을 주도한다.",
+      "arki": "구조 분석가. 시스템 구조, 데이터 구조, 의존성, 설계 제약을 분석한다.",
+      "dev": "구현 전문가(데브). Arki 설계를 인수하여 코드·스크립트·데이터 파이프라인을 구현한다. 디버깅·테스트·검증 전담. 증거 기반 디버깅 원칙(systematic-debugging). 구조 변경 필요 시 Arki에게 에스컬레이션. 구현·디버깅 토픽에서만 호출.",
+      "fin": "재무 분석가. 비용(시간, 노력, 토큰, 금전), 수익, 자원 투입 대비 효과, 실행가능성을 평가한다. 사업적 재무 분석이 주력이며, 시스템 구조화 기간에는 자원/효율 분석을 병행한다.",
+      "riki": "반대축 분석가. 실패 모드, 약한 가정, 모순, 실행 왜곡을 노출한다. Ace 초안을 포함한 모든 제안에 대해 adversarial 검증을 수행한다.",
+      "editor": "기록자 + 디자인 담당자(에디). Ace 종합검토를 기반으로 산출물을 구성, 정리, 출력한다. 시각 표현·레이아웃·다이어그램·HTML 형식에 대한 디자인 판단 권한 보유(D-021). 내용·전략 판단은 수행하지 않는다.",
+      "nova": "투기적 사고. Advisory only. Master 요청 시에만 호출. 명시적 승격 없이는 비권위적."
+    },
+    "workflowPhases": {
+      "1": "framing (ace)",
+      "2": "structure (arki)",
+      "3": "financials (fin)",
+      "4": "risk (riki)",
+      "4b": "speculation (nova) — optional, Master-invoked only",
+      "5": "review (ace) — cross-review + final recommendation",
+      "6": "output (editor) — compile + format artifacts",
+      "dev": "implementation (dev) — invoked for implementation/debugging topics only"
+    },
+    "topicContract": {
+      "controlPath": "topics/{topicId} — write-channel workspace (agenda, debate_log, decisions, issues, feedback)",
+      "reportPath": "reports/{YYYY-MM-DD}_{topic-slug} — artifact plane (role reports, publish metadata)",
+      "publishedManifest": "dist/data/published/topics_manifest.json — viewer-facing topic list"
+    },
+    "masterAuthority": "Master feedback is the highest authority in the system. Any agent output, decision, or plan can be overridden by Master at any point. Master decisions are recorded in memory/master/master_feedback_log.json and memory/shared/decision_ledger.json.",
+    "sessionProtocol": "See CLAUDE.md § Session Protocol for start/end checklist.",
+    "reportStructure": "reports/{YYYY-MM-DD}_{topic-slug}/{role}_rev{n}.md",
+    "memoryFiles": {
+      "topic_index": "memory/shared/topic_index.json",
+      "decision_ledger": "memory/shared/decision_ledger.json",
+      "evidence_index": "memory/shared/evidence_index.json",
+      "glossary": "memory/shared/glossary.json",
+      "project_charter": "memory/shared/project_charter.json",
+      "current_session": "memory/sessions/current_session.json",
+      "master_feedback_log": "memory/master/master_feedback_log.json",
+      "master_preferences": "memory/master/master_preferences.json"
+    }
+  },
+  "history": [
+    {
+      "version": "0.1.0",
+      "date": "2026-04-02",
+      "summary": "Initial structure: agents, config, memory schema files created."
+    },
+    {
+      "version": "0.2.0",
+      "date": "2026-04-03",
+      "summary": "Memory initialized, reports/ structure created, session protocol adopted, project_charter written, TS scripts implemented."
+    },
+    {
+      "version": "0.3.0",
+      "date": "2026-04-05",
+      "summary": "Contract alignment: 2-plane read/write separation formalized. Ace/Editor authority boundary clarified. Workflow phases 1-6 canonical. topic_index schema upgraded to controlPath/reportPath. frontmatter schema canonicalized (role, report_status, session_status). Published manifest introduced."
+    },
+    {
+      "version": "0.4.0",
+      "date": "2026-04-07",
+      "summary": "Asset protocols introduced (D-012): evidence_index.json, glossary.json 운용 규칙 정립. deprecated 스크립트 정리 (run-debate.ts, generate-dashboard.ts, build-report.ts). /open, /close custom commands 추가."
+    },
+    {
+      "version": "0.5.0",
+      "date": "2026-04-08",
+      "summary": "학습 순환 고리 수복: 세션 시작 체크리스트에 role memory 로드 추가, 세션 종료 체크리스트 명확화. Role memory 소급 갱신(Riki/Fin/Editor). Evidence 소급 7건 추가(E-007~E-013). Glossary 9개 용어 추가. Feedback 이행추적 status 필드 도입 + viewer 반영."
+    },
+    {
+      "version": "0.6.0",
+      "date": "2026-04-16",
+      "summary": "Skill 시스템 도입 및 Superpowers 흡수 완료. 5개 자작 skill 구현(ace-framing, ace-learning-loop, writing-skills, dispatching-parallel-agents, verification-before-completion). Ace 검증-질문-수용 루프 도입(D-020) — 맹목 수용 폐기, 자가판단 진화 구조 수립."
+    },
+    {
+      "version": "0.7.0",
+      "date": "2026-04-16",
+      "summary": "Dev 에이전트 신설(D-021). Editor 디자인 권한 확장(D-021). Superpowers 나머지 4개 스킬 흡수(systematic-debugging, writing-plans, executing-plans, subagent-driven-development). 총 9개 skill 운용. 역할 7개(ace, arki, dev, fin, riki, editor, nova)."
+    }
+  ],
+  "lastUpdated": "2026-04-16T05:30:00.000Z"
+}

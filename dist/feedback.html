@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback — Legend Team</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <span class="nav-brand">LEGEND TEAM</span>
+    <a href="index.html" class="nav-link">Dashboard</a>
+    <a href="decisions.html" class="nav-link">Decisions</a>
+    <a href="session.html" class="nav-link">Session</a>
+    <a href="feedback.html" class="nav-link">Feedback</a>
+  </nav>
+
+  <div class="page">
+    <div class="page-header">
+      <div class="page-title">Master Feedback Log</div>
+      <div class="page-sub" id="fbCount">Loading...</div>
+    </div>
+
+    <div id="feedbackList"><div class="loading">Loading feedback</div></div>
+  </div>
+
+  <script src="js/data-loader.js"></script>
+  <script src="js/nav.js"></script>
+  <script>
+    async function init() {
+      const data = await DataLoader.getMasterFeedback();
+      const el = document.getElementById('feedbackList');
+      const countEl = document.getElementById('fbCount');
+
+      if (data && data.feedbackLog && data.feedbackLog.length > 0) {
+        countEl.textContent = `${data.feedbackLog.length} feedback entries`;
+        // Show newest first
+        const sorted = [...data.feedbackLog].reverse();
+        el.innerHTML = sorted.map(f => {
+          const decisionsHtml = f.decisions ? Object.entries(f.decisions).map(([k, v]) =>
+            `<div style="font-size: 11px; color: var(--text-secondary); padding: 2px 0;"><code style="background: var(--border); padding: 1px 5px; border-radius: 3px; font-size: 10px;">${k}</code> ${v}</div>`
+          ).join('') : '';
+
+          const statusColor = f.status === 'resolved' ? '#4caf50' : f.status === 'in-progress' ? '#ff9800' : '#f44336';
+          const statusLabel = f.status === 'resolved' ? 'RESOLVED' : f.status === 'in-progress' ? 'IN PROGRESS' : 'PENDING';
+
+          return `
+            <div class="feedback-item">
+              <div class="feedback-id">${f.id} · ${f.session} <span style="float:right; font-size:10px; font-weight:600; color:${statusColor}; border:1px solid ${statusColor}; padding:1px 6px; border-radius:3px;">${statusLabel}</span></div>
+              <div class="feedback-text">${f.feedback}</div>
+              ${f.statusNote ? `<div style="font-size: 11px; color: var(--text-secondary); margin-top: 4px;">↳ ${f.statusNote}</div>` : ''}
+              ${f.instruction ? `<div style="font-size: 11px; color: var(--accent-blue); margin-top: 6px; font-style: italic;">"${f.instruction}"</div>` : ''}
+              ${decisionsHtml ? `<div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border);">${decisionsHtml}</div>` : ''}
+              <div class="feedback-meta">${f.date} · ${f.topic} · ${f.effect || ''}</div>
+            </div>
+          `;
+        }).join('');
+      } else {
+        el.innerHTML = '<div class="empty-state">No feedback recorded</div>';
+        countEl.textContent = '0 entries';
+      }
+    }
+    init();
+  </script>
+</body>
+</html>

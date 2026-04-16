@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Session — Legend Team</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <span class="nav-brand">LEGEND TEAM</span>
+    <a href="index.html" class="nav-link">Dashboard</a>
+    <a href="decisions.html" class="nav-link">Decisions</a>
+    <a href="session.html" class="nav-link">Session</a>
+    <a href="feedback.html" class="nav-link">Feedback</a>
+  </nav>
+
+  <div class="page">
+    <div class="page-header">
+      <div class="page-title">Current Session</div>
+      <div class="page-sub" id="sessionSub">Loading...</div>
+    </div>
+
+    <!-- Session Info -->
+    <div class="session-grid" id="sessionGrid">
+      <div class="loading">Loading session</div>
+    </div>
+
+    <!-- Agents Completed -->
+    <div style="margin-top: 24px;">
+      <div class="section-title">Agent Progress</div>
+      <div id="agentProgress"></div>
+    </div>
+
+    <!-- Master Decisions in Session -->
+    <div style="margin-top: 24px;">
+      <div class="section-title">Session Decisions</div>
+      <div id="sessionDecisions"></div>
+    </div>
+
+    <!-- Project Charter -->
+    <div style="margin-top: 32px;">
+      <div class="section-title">Project Charter</div>
+      <div id="charterInfo"><div class="loading">Loading</div></div>
+    </div>
+  </div>
+
+  <script src="js/data-loader.js"></script>
+  <script src="js/nav.js"></script>
+  <script>
+    const AGENT_ORDER = ['ace', 'arki', 'fin', 'riki', 'nova', 'ace-review', 'editor'];
+    const AGENT_LABELS = {
+      'ace': 'Ace — Framing',
+      'arki': 'Arki — Architecture',
+      'fin': 'Fin — Finance',
+      'riki': 'Riki — Risk',
+      'nova': 'Nova — Speculation',
+      'ace-review': 'Ace — Review',
+      'editor': 'Editor — Output'
+    };
+
+    async function init() {
+      // Current session
+      const session = await DataLoader.getCurrentSession();
+      const grid = document.getElementById('sessionGrid');
+      const sub = document.getElementById('sessionSub');
+
+      if (session) {
+        sub.textContent = `${session.sessionId} · ${session.status}`;
+        grid.innerHTML = `
+          <div class="card">
+            <div class="session-label">Session ID</div>
+            <div class="session-value mono">${session.sessionId}</div>
+          </div>
+          <div class="card">
+            <div class="session-label">Topic</div>
+            <div class="session-value">${session.topic}</div>
+          </div>
+          <div class="card">
+            <div class="session-label">Status</div>
+            <div class="session-value">${statusBadge(session.status)}</div>
+          </div>
+          <div class="card">
+            <div class="session-label">Mode</div>
+            <div class="session-value">${session.mode || 'observation'}</div>
+          </div>
+          <div class="card">
+            <div class="session-label">Started</div>
+            <div class="session-value">${formatDate(session.startedAt)}</div>
+          </div>
+          <div class="card">
+            <div class="session-label">Nova Invoked</div>
+            <div class="session-value">${session.novaInvoked ? 'Yes' : 'No'}</div>
+          </div>
+        `;
+
+        // Agent progress
+        const completed = session.agentsCompleted || [];
+        const progressEl = document.getElementById('agentProgress');
+        progressEl.innerHTML = AGENT_ORDER.map(a => {
+          const done = completed.includes(a) || (a === 'ace-review' && completed.includes('ace'));
+          const isNova = a === 'nova';
+          const skipped = isNova && !session.novaInvoked;
+          let statusHtml = '';
+          if (skipped) statusHtml = '<span style="color: var(--accent-gold);">skipped</span>';
+          else if (done) statusHtml = '<span style="color: var(--accent-green);">done</span>';
+          else statusHtml = '<span style="color: var(--text-tertiary);">pending</span>';
+          return `
+            <div class="card" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; ${skipped ? 'opacity: 0.5;' : ''}">
+              <span style="font-size: 12px; color: var(--text);">${AGENT_LABELS[a] || a}</span>
+              ${statusHtml}
+            </div>
+          `;
+        }).join('');
+
+        // Session decisions
+        const decEl = document.getElementById('sessionDecisions');
+        if (session.masterDecisions && session.masterDecisions.length > 0) {
+          decEl.innerHTML = session.masterDecisions.map(d => `
+            <div class="decision-item">
+              <div class="decision-id">${d.id}</div>
+              <div class="decision-axis">${d.axis}</div>
+              <div class="decision-value">${d.value}</div>
+            </div>
+          `).join('');
+        } else {
+          decEl.innerHTML = '<div class="empty-state">No decisions in this session</div>';
+        }
+      } else {
+        grid.innerHTML = '<div class="empty-state">No session data</div>';
+      }
+
+      // Project charter
+      const charter = await DataLoader.getProjectCharter();
+      const charterEl = document.getElementById('charterInfo');
+      if (charter && charter.charter) {
+        const c = charter.charter;
+        const roles = Object.entries(c.roles || {}).map(([k, v]) =>
+          `<div class="card" style="padding: 10px 14px;"><strong style="color: var(--text);">${k}</strong><div style="font-size: 11px; color: var(--text-secondary); margin-top: 2px;">${v}</div></div>`
+        ).join('');
+
+        charterEl.innerHTML = `
+          <div class="card" style="margin-bottom: 16px;">
+            <div class="session-label">Version</div>
+            <div class="session-value">${c.version}</div>
+            <div style="font-size: 11px; color: var(--text-secondary); margin-top: 8px;">${c.purpose}</div>
+          </div>
+          <div class="section-title" style="margin-top: 16px;">Roles</div>
+          ${roles}
+          <div class="section-title" style="margin-top: 16px;">Principles</div>
+          ${(c.principles || []).map(p => `<div class="card" style="padding: 8px 14px; font-size: 11px; color: var(--text-secondary);">${p}</div>`).join('')}
+        `;
+      }
+    }
+    init();
+  </script>
+</body>
+</html>

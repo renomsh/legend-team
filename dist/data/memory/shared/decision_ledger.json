@@ -1,0 +1,231 @@
+{
+  "decisions": [
+    {
+      "id": "D-001",
+      "date": "2026-04-03",
+      "session": "session_002",
+      "topic": "legend-team-upgrade",
+      "axis": "v0.2.0 기준",
+      "decision": "A",
+      "value": "메모리 초기화 + reports/ 구조 생성만으로 v0.2.0 선언. TS 자동화는 v0.3.0으로 이연.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-002",
+      "date": "2026-04-03",
+      "session": "session_002",
+      "topic": "legend-team-upgrade",
+      "axis": "실행 방식",
+      "decision": "A",
+      "value": "Claude Code가 세션 중 직접 파일 기록하는 수동 프로토콜 채택.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-003",
+      "date": "2026-04-03",
+      "session": "session_002",
+      "topic": "legend-team-upgrade",
+      "axis": "dashboard.html 처우",
+      "decision": "B → revised 2026-04-04",
+      "value": "app/ 디렉토리를 읽기 전용 다중 페이지 정적 뷰어로 확장 허용. 읽기 인터랙션(네비게이션, 필터, 검색) 허용. 쓰기 인터랙션(폼, 입력, 상태 변경) 금지. 프레임워크 도입 금지 유지.",
+      "authority": "master",
+      "status": "confirmed",
+      "revisedAt": "2026-04-04",
+      "revisedIn": "session_003",
+      "priorValue": "app/internal-viewer.html로 이름 변경. CLAUDE.md에 내부 뷰어 예외 조항 추가."
+    },
+    {
+      "id": "D-004",
+      "date": "2026-04-03",
+      "session": "session_002",
+      "topic": "legend-team-upgrade",
+      "axis": "reports/ 구조",
+      "decision": "제안대로",
+      "value": "reports/{YYYY-MM-DD}_{topic-slug}/{role}_rev{n}.md",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-005",
+      "date": "2026-04-03",
+      "session": "session_002",
+      "topic": "legend-team-upgrade",
+      "axis": "Nova 승격 기준",
+      "decision": "유지",
+      "value": "Master가 명시적으로 요청할 때만 Nova 호출. 자동 트리거 조건 미정의.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-006",
+      "date": "2026-04-04",
+      "session": "session_003",
+      "topic": "local-vs-server",
+      "axis": "배포 방식",
+      "decision": "A",
+      "value": "정적 사이트 배포 (Cloudflare Pages + Cloudflare Access). 모바일/PC 브라우저로 접근.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-007",
+      "date": "2026-04-04",
+      "session": "session_003",
+      "topic": "local-vs-server",
+      "axis": "배포 대상 범위",
+      "decision": "A → revised",
+      "value": "전체 배포 (memory/master/ 포함). Master는 모든 것을 봐야 함. 보안은 Cloudflare Access 인증에 위임.",
+      "authority": "master",
+      "status": "confirmed",
+      "revisedAt": "2026-04-04",
+      "priorValue": "reports/ + memory/shared/ 일부만 배포. memory/master/는 완전 제외."
+    },
+    {
+      "id": "D-008",
+      "date": "2026-04-04",
+      "session": "session_003",
+      "topic": "local-vs-server",
+      "axis": "Push 자동화",
+      "decision": "B",
+      "value": "git hook 또는 스크립트로 세션 종료 시 자동 push.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-009",
+      "date": "2026-04-04",
+      "session": "session_003",
+      "topic": "role-definition",
+      "axis": "Ace/Editor 역할 재정의",
+      "decision": "Master 지시",
+      "value": "Ace가 종합검토 수행. Editor는 결과물 작성/정리/출력만 담당. Editor에서 synthesis 역할 완전 분리.",
+      "authority": "master",
+      "status": "confirmed"
+    }
+    ,
+    {
+      "id": "D-010",
+      "date": "2026-04-05",
+      "session": "session_007",
+      "topic": "legend-team-upgrade-review",
+      "axis": "v0.4.0 범위 전략",
+      "decision": "B",
+      "value": "자동화 + 자산 실질화. 세션 자동화 확장(H-01/H-02) + 자산 프로토콜 정의(N-01/N-03) + 스크립트 정리.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-011",
+      "date": "2026-04-05",
+      "session": "session_007",
+      "topic": "legend-team-upgrade-review",
+      "axis": "자동화 수준",
+      "decision": "A",
+      "value": "스크립트 보조. session-log.ts 확장 + validate-output.ts 연동. Claude Code가 호출하되 풀 오케스트레이션은 아님.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-012",
+      "date": "2026-04-05",
+      "session": "session_007",
+      "topic": "legend-team-upgrade-review",
+      "axis": "N-항목(자산 실질화) 처리",
+      "decision": "A",
+      "value": "v0.4.0에 포함. evidence_index 운용 프로토콜 + glossary 운용 기준 정의. 프로토콜 문서 수준.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-013",
+      "date": "2026-04-05",
+      "session": "session_007",
+      "topic": "legend-team-upgrade-review",
+      "axis": "v0.3.0 소급 확정",
+      "decision": "Master 지시",
+      "value": "session_003~006 성과(CF Pages 배포, 다중 페이지 뷰어, 역할 재정의, 운영 부채 폐쇄, main 브랜치 통일)를 v0.3.0으로 소급 확정. project.json 즉시 반영.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-014",
+      "date": "2026-04-09",
+      "session": "session_011",
+      "topic": "upgrade-delta-pack-review",
+      "axis": "2팀 델타팩 채택 범위",
+      "decision": "Master 지시",
+      "value": "FR-002(Ace 오케스트레이션 강화), FR-003(작업 정의 선행), FR-004(Master 피드백 확대 해석 금지), DX-003(세션 체크리스트 charter 버전 확인) 채택 적용. DX-004/DX-006/조건부 항목 미적용. 분류 체계 별도 토픽 이연.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-015",
+      "date": "2026-04-10",
+      "session": "session_012",
+      "topic": "role-redefinition",
+      "axis": "6개 역할 재정의",
+      "decision": "Master 지시",
+      "value": "Ace를 Master의 판단 대리인으로 재정의. 후행 통합기→선행 제안기 진화 경로 확정(승격 시점은 Master 결정). Ace는 종합+자기판단 필수, Master 미응답 시 능동 질문. Arki 데이터구조 포함. Fin Financial 유지(사업적 재무 주력). Riki 실행왜곡+Ace초안 포함 adversarial 명시. Editor 기록자(편집판단만, 내용판단/선행제안 불가). Nova 현행유지.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-016",
+      "date": "2026-04-15",
+      "session": "session_018",
+      "topic": "superpowers-absorption-plan",
+      "axis": "실행계획 역할 귀속",
+      "decision": "Arki 통합",
+      "value": "Arki 발언에 '구조적 실행계획' 4번째 섹션을 추가. 내용: Phase 분해, 의존 그래프, 입력/출력/검증 게이트, 임계경로·병목·롤백, 전제·중단 조건. 발동은 Ace가 executionPlanMode(plan/conditional/none)로 판정. Ace=실행계획, Arki=구조설계자 본업 연장, 역할 수 증가 없음.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-017",
+      "date": "2026-04-15",
+      "session": "session_018",
+      "topic": "superpowers-absorption-plan",
+      "axis": "일정 수립 원칙 (Schedule-on-Demand)",
+      "decision": "Master 요청 시에만 수행",
+      "value": "일정·공수·담당 추정은 Master가 명시적으로 요청한 경우에만 수행. 요청 없는 자동 일정 생성 금지. Arki 실행계획은 시간축 제외(구조적 선후만). Fin은 구조 단계에서 방향성만 평가. Editor는 평시 일정 섹션 생성 금지. 이유: 실측 근거 없는 일정은 현실성 결여 → 의사결정 왜곡.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-018",
+      "date": "2026-04-15",
+      "session": "session_018",
+      "topic": "superpowers-absorption-plan",
+      "axis": "Arki 실행계획 오염 금지어 v0",
+      "decision": "3카테고리 금지 + Fin 감사",
+      "value": "금지어 3카테고리: (1) 절대시간(D+N일, N주차, MM/DD, 구체 날짜) (2) 인력배정(담당자:, 특정 이름, PD, MM) (3) 공수 단위(N시간, N일 소요, 공수). 허용: 구조적 선후 표현(Phase 완료→다음, 게이트 통과 후, 전제조건 충족 시). Fin이 첫 실행계획 산출 후 1회 감사, 감사 기준은 Fin memory에 축적.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-019",
+      "date": "2026-04-15",
+      "session": "session_018",
+      "topic": "superpowers-absorption-plan",
+      "axis": "Ace 오케스트레이터 선언",
+      "decision": "Ace=Orchestrator",
+      "value": "역할 호출 순서·횟수·재호출 여부는 Ace의 판단. 1역할 1발언 순차 순환은 초기 스캐폴드이며 프로토콜의 본질이 아님. Ace는 토픽 특성에 맞춰 reorder/re-call/skip/extend 가능. 판단 근거는 ace_memory.masterSelectionPatterns에 누적(topic type → role call pattern). 초기=수동+기록, 성숙기=패턴 매칭 자동화. Editor가 백업 게이트 역할(누락 시 경고).",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-020",
+      "date": "2026-04-16",
+      "session": "session_019",
+      "topic": "superpowers-2",
+      "axis": "Ace 피드백 수용 방식",
+      "decision": "검증 후 수용",
+      "value": "Ace는 Master 피드백을 즉시 수용하지 않고 검증-질문-확인 루프를 거친다. 충돌 감지 시 능동 질문. Master는 '진행해'로 즉시 종료 가능. 판단 결과는 ace_memory learningLoop에 기록하여 자가판단 능력으로 진화. ace-learning-loop skill 신규 자작.",
+      "authority": "master",
+      "status": "confirmed"
+    }
+  ],
+  "lastUpdated": "2026-04-16T00:00:00.000Z"
+}

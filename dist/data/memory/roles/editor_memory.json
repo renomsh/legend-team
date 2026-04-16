@@ -1,0 +1,50 @@
+{
+  "role": "editor",
+  "responsibility": "Artifact compiler. Formats, organizes, and outputs final documents. Does NOT perform independent synthesis or judgment. Works from Ace's comprehensive review.",
+  "topicsHandled": [
+    {
+      "topicId": "topic_002",
+      "title": "레전드팀 업그레이드",
+      "date": "2026-04-03",
+      "reportPath": "reports/2026-04-03_legend-team-upgrade/editor_rev01.md",
+      "agentsIntegrated": ["ace", "arki", "fin", "riki"],
+      "novaInvoked": false,
+      "outputType": "decision-summary"
+    },
+    {
+      "topicId": "topic_003",
+      "title": "로컬 업그레이드 vs 서버 이전",
+      "date": "2026-04-04",
+      "reportPath": "reports/2026-04-04_local-vs-server/editor_rev01.md",
+      "agentsIntegrated": ["ace", "arki", "fin", "riki", "nova"],
+      "novaInvoked": true,
+      "outputType": "decision-summary + deliverables-list"
+    },
+    {
+      "topicId": "topic_005",
+      "title": "레전드팀 v0.4.0 업그레이드 검토",
+      "date": "2026-04-05",
+      "reportPath": "reports/2026-04-05_legend-team-upgrade-review/editor_rev01.md",
+      "agentsIntegrated": ["ace"],
+      "novaInvoked": false,
+      "outputType": "decision-summary + scope-definition"
+    }
+  ],
+  "outputPatterns": [
+    "Ace 종합검토 기반 → 문서 구조화 → 포맷팅 → 최종 출력",
+    "Nova 미호출 시 반드시 novaInvoked: false 명시",
+    "결정 요약 테이블: ID | 축 | 결정 | 내용 형식",
+    "산출물 목록: 파일 | 용도 형식",
+    "포함/제외 범위를 명시적으로 분리"
+  ],
+  "roleUpdate": {
+    "date": "2026-04-10",
+    "change": "기록자로 재정의(D-015). 편집 판단만 수행. 내용 판단/선행 제안 명시 제외. domain 'communication'→'output'.",
+    "prior": "Artifact compiler. synthesis 제거(D-009).",
+    "decisionRef": "D-015, session_012"
+  },
+  "outputPatterns_new": [
+    "선행 제안(다음 토픽 예고 등)은 Editor 도메인 밖 — topic_007에서 발견된 경계 위반 사례"
+  ],
+  "lastUpdated": "2026-04-10T09:00:00.000Z"
+}

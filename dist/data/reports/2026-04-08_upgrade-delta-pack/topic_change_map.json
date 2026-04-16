@@ -1,0 +1,147 @@
+{
+  "_meta": {
+    "description": "토픽별로 어떤 변화가 생성되었는지 연결",
+    "generated_at": "2026-04-08",
+    "total_topics": 7
+  },
+  "topics": [
+    {
+      "topic_id": "topic_001",
+      "topic_title": "레전드팀의 shared asset 조회 프로토콜 설계",
+      "status": "closed",
+      "session": null,
+      "generated_change_ids": [],
+      "affected_registries": [],
+      "key_decisions": [],
+      "key_feedback_rules": [],
+      "unresolved_items": [],
+      "note": "2팀 초기화 이전 1팀 session 기록 기반. 2팀 자체 변화 없음. baseline 검증 토픽으로 해석."
+    },
+    {
+      "topic_id": "topic_002",
+      "topic_title": "로컬 전용 운영 환경 구성",
+      "status": "closed",
+      "session": "session_001",
+      "generated_change_ids": ["DX-006"],
+      "affected_registries": ["decision_ledger.json (D-011)", "CLAUDE.md Viewer Policy", "package.json viewer 스크립트"],
+      "key_decisions": ["D-011: 로컬 전용 운영 (localhost:8090), CF Pages 제거"],
+      "key_feedback_rules": [],
+      "unresolved_items": ["OI-002 (CLAUDE.md Script Status CF Pages 참조 잔존)"],
+      "delta_refs": ["DX-006"],
+      "migration_to_team1": "reject — 1팀 CF Pages 운영 유지"
+    },
+    {
+      "topic_id": "topic_003",
+      "topic_title": "브라운백 회의록 작성 (반복 SOP)",
+      "status": "closed",
+      "session": "session_001",
+      "generated_change_ids": ["DX-007"],
+      "affected_registries": [
+        "decision_ledger.json (D-010)",
+        "master_feedback_log.json (FB-001~005)",
+        "ace_memory.json (SOP 패턴)",
+        "memory/sop/brownbag-minutes.md"
+      ],
+      "key_decisions": ["D-010: 브라운백 B방식 (신규 페이지)"],
+      "key_feedback_rules": ["FR-005 (SOP 토픽 최소 역할 구성 패턴 도출)"],
+      "unresolved_items": [],
+      "delta_refs": ["DX-007"],
+      "migration_to_team1": "adapt — SOP 패턴 원칙만 이식. brownbag 비즈니스 내용 제외."
+    },
+    {
+      "topic_id": "topic_004",
+      "topic_title": "레전드팀 logic 점검",
+      "status": "closed",
+      "session": "session_002",
+      "generated_change_ids": ["DX-005"],
+      "affected_registries": [
+        "decision_ledger.json (D-012, D-013)",
+        "master_feedback_log.json (FB-006, FB-007)",
+        ".gitignore (memory/ 추가)",
+        "worktree junction 설정"
+      ],
+      "key_decisions": [
+        "D-012: memory/ junction 공유 구조 적용",
+        "D-013: R-03 대응 보류 (토픽 30개 이상 후 재검토)"
+      ],
+      "key_feedback_rules": ["FR-006 (운영 정책 일관 수정 원칙 — inferred)"],
+      "unresolved_items": ["OI-007 (junction 재생성 절차 미문서화)"],
+      "delta_refs": ["DX-005"],
+      "migration_to_team1": "adopt — DX-005 이식. D-013은 2팀 특정 결정이므로 1팀 독자 판단."
+    },
+    {
+      "topic_id": "topic_005",
+      "topic_title": "AI팀원-오케스트레이션 ver. slack",
+      "status": "suspended",
+      "session": "session_003",
+      "generated_change_ids": ["DX-008", "DX-009"],
+      "affected_registries": [
+        "decision_ledger.json (D-014~D-020)",
+        "master_feedback_log.json (FB-008~011)",
+        "ace_memory.json (오케스트레이션 집중 패턴)"
+      ],
+      "key_decisions": [
+        "D-014: Slack 봇 1개 + 멀티채널",
+        "D-015: MVP 4개 업무",
+        "D-016: 고객사 조사 속도 최우선",
+        "D-017: 자료취합 2트랙",
+        "D-018: CRM DB 직접 접근",
+        "D-019: 저장소 분리 구조",
+        "D-020: GPTs 폐기"
+      ],
+      "key_feedback_rules": [
+        "FR-002 (Ace 오케스트레이션 집중)",
+        "FR-003 (업무 정의 선행)",
+        "FR-004 (과잉 해석 금지)"
+      ],
+      "unresolved_items": ["OI-005 (topic 미완, Phase 2 미진행)"],
+      "delta_refs": ["DX-008", "DX-009"],
+      "migration_to_team1": "D-014~D-020은 reject (2팀 비즈니스). DX-008/DX-009는 adopt (역할 원칙)"
+    },
+    {
+      "topic_id": "topic_006",
+      "topic_title": "행경대 List 정리",
+      "status": "closed",
+      "session": "session_004",
+      "generated_change_ids": ["DX-001"],
+      "affected_registries": [
+        "decision_ledger.json (D-021)",
+        "master_feedback_log.json (FB-012)",
+        "CLAUDE.md (v0.5.0 실행형 토픽 프로토콜 추가)",
+        "ace_memory.json (session_004 lesson)"
+      ],
+      "key_decisions": [
+        "D-021: CLAUDE.md v0.5.0 실행형 토픽 프로토콜 추가"
+      ],
+      "key_feedback_rules": ["FR-001 (실행형 토픽 Arki 필수 — FB-012 → D-021)"],
+      "unresolved_items": [],
+      "delta_refs": ["DX-001"],
+      "migration_to_team1": "adopt — 가장 중요한 단일 변화. MA-001 직접 적용."
+    },
+    {
+      "topic_id": "topic_007",
+      "topic_title": "레전드팀 현황판 점검 및 구조 수정",
+      "status": "closed",
+      "session": "session_005",
+      "generated_change_ids": ["DX-002", "DX-003", "DX-004"],
+      "affected_registries": [
+        "decision_ledger.json (D-022, D-023, D-024)",
+        "memory/shared/project_charter.json",
+        "CLAUDE.md (D-023 미반영 — OI-001)"
+      ],
+      "key_decisions": [
+        "D-022: project_charter.json canonical 소스 단일화",
+        "D-023: 세션 종료 체크리스트 charter 업데이트 항목 추가 (CLAUDE.md 미반영)",
+        "D-024: JSON 스크립트 전용 편집 강제"
+      ],
+      "key_feedback_rules": [],
+      "unresolved_items": [
+        "OI-001 (D-023 CLAUDE.md 미반영)",
+        "OI-003 (config/project.json 버전 스태일)",
+        "OI-004 (session_005 미종료)"
+      ],
+      "delta_refs": ["DX-002", "DX-003", "DX-004"],
+      "migration_to_team1": "adopt — DX-002/003/004 모두 이식 가능. OI-001 해소 후 완성."
+    }
+  ]
+}

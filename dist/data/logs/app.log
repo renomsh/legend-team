@@ -1,0 +1,99 @@
+[2026-04-03T06:10:09.623Z] [validate-output] Validated 2 files — 0 passed, 2 failed
+[2026-04-03T06:10:31.597Z] [validate-output] Validated 5 files — 5 passed, 0 failed
+[2026-04-03T06:10:35.697Z] [INFO] [session-log] END session_002 | topic: 2026-04-03_legend-team-upgrade | duration: 371m
+[2026-04-04T23:46:59.915Z] [validate-output] Validated 14 files — 14 passed, 0 failed, 14 legacy
+[2026-04-05T05:27:05.589Z] [INFO] [session-log] END session_005 | topic: 2026-04-05_v030-debt-close | duration: 327m
+[2026-04-05T05:27:05.594Z] [INFO] [session-log] OP-04 PASS: session_005 confirmed in session_index with closedAt
+[2026-04-05T12:27:02.660Z] [INFO] [checklist] reports: 2 report file(s) in reports/2026-04-05_legend-team-upgrade-review
+[2026-04-05T12:27:02.661Z] [INFO] [checklist] decision_ledger: 4 decision(s) recorded for session_007
+[2026-04-05T12:27:02.662Z] [INFO] [checklist] topic_index: topic found: topic_005 (in-progress)
+[2026-04-05T12:27:02.663Z] [INFO] [checklist] current_session: will be set to closed
+[2026-04-05T12:27:02.663Z] [INFO] [checklist] master_feedback: no feedback entries — OK if none given
+[2026-04-05T12:27:02.665Z] [INFO] [session-log] END session_007 | topic: legend-team-upgrade-review | duration: 27m
+[2026-04-05T12:27:02.666Z] [WARN] [session-log] OP-04 FAIL: session_007 not found or missing closedAt in session_index
+[2026-04-05T12:29:28.270Z] [INFO] [checklist] reports: 2 report file(s) in reports/2026-04-05_legend-team-upgrade-review
+[2026-04-05T12:29:28.272Z] [INFO] [checklist] decision_ledger: 4 decision(s) recorded for session_007
+[2026-04-05T12:29:28.274Z] [INFO] [checklist] topic_index: topic found: topic_005 (completed)
+[2026-04-05T12:29:28.277Z] [INFO] [checklist] current_session: will be set to closed
+[2026-04-05T12:29:28.279Z] [INFO] [checklist] master_feedback: no feedback entries — OK if none given
+[2026-04-05T12:29:28.285Z] [INFO] [session-log] END session_007 | topic: legend-team-upgrade-review | duration: 29m
+[2026-04-05T12:29:28.287Z] [INFO] [session-log] OP-04 PASS: session_007 confirmed in session_index with closedAt
+[2026-04-06T00:07:14.485Z] [INFO] [checklist] reports: 2 report file(s) in reports/2026-04-06_dailyjob-db-mapping
+[2026-04-06T00:07:14.486Z] [INFO] [checklist] decision_ledger: no decisions this session — skip
+[2026-04-06T00:07:14.486Z] [INFO] [checklist] topic_index: topic found: topic_006 (suspended)
+[2026-04-06T00:07:14.487Z] [INFO] [checklist] current_session: will be set to closed
+[2026-04-06T00:07:14.487Z] [INFO] [checklist] master_feedback: 1 feedback entry(ies) recorded
+[2026-04-06T00:07:14.489Z] [INFO] [session-log] END session_008 | topic: dailyjob-db-mapping | duration: -533m
+[2026-04-06T00:07:14.489Z] [INFO] [session-log] OP-04 PASS: session_008 confirmed in session_index with closedAt
+[2026-04-08T00:05:52.767Z] [INFO] [checklist] reports: 5 report file(s) in reports/2026-04-08_storage-quality-review
+[2026-04-08T00:05:52.768Z] [INFO] [checklist] decision_ledger: no decisions this session — skip
+[2026-04-08T00:05:52.768Z] [INFO] [checklist] topic_index: topic found: topic_007 (completed)
+[2026-04-08T00:05:52.769Z] [INFO] [checklist] current_session: will be set to closed
+[2026-04-08T00:05:52.771Z] [INFO] [checklist] master_feedback: no feedback entries — OK if none given
+[2026-04-08T00:05:52.774Z] [INFO] [session-log] END session_009 | topic: storage-quality-review | duration: -534m
+[2026-04-08T00:05:52.776Z] [INFO] [session-log] OP-04 PASS: session_009 confirmed in session_index with closedAt
+[2026-04-08T06:00:49.489Z] [INFO] [checklist] reports: all 5 registered file(s) present: ace_rev01.md, arki_rev01.md, fin_rev01.md, riki_rev01.md, editor_rev01.md
+[2026-04-08T06:00:49.490Z] [INFO] [checklist] decision_ledger: no decisions this session — skip
+[2026-04-08T06:00:49.490Z] [INFO] [checklist] topic_index: topic found: topic_007 (completed)
+[2026-04-08T06:00:49.491Z] [INFO] [checklist] current_session: will be set to closed
+[2026-04-08T06:00:49.491Z] [INFO] [checklist] master_feedback: no feedback entries — OK if none given
+[2026-04-08T06:00:49.493Z] [INFO] [session-log] END session_009 | topic: storage-quality-review | duration: -179m
+[2026-04-08T06:00:49.494Z] [INFO] [session-log] OP-04 PASS: session_009 confirmed in session_index with closedAt
+[2026-04-08T06:04:00.894Z] [WARN] [session-log] END topicSlug mismatch. expected: storage-quality-review, got: viewer-display-diagnosis
+[2026-04-08T06:04:00.896Z] [INFO] [checklist] reports: all 5 registered file(s) present: ace_rev01.md, arki_rev01.md, fin_rev01.md, riki_rev01.md, editor_rev01.md
+[2026-04-08T06:04:00.897Z] [INFO] [checklist] decision_ledger: no decisions this session — skip
+[2026-04-08T06:04:00.898Z] [INFO] [checklist] topic_index: topic found: topic_007 (completed)
+[2026-04-08T06:04:00.898Z] [INFO] [checklist] current_session: will be set to closed
+[2026-04-08T06:04:00.898Z] [INFO] [checklist] master_feedback: no feedback entries — OK if none given
+[2026-04-08T06:04:00.900Z] [INFO] [session-log] END session_009 | topic: viewer-display-diagnosis | duration: -176m
+[2026-04-08T06:04:00.900Z] [INFO] [session-log] OP-04 PASS: session_009 confirmed in session_index with closedAt
+[2026-04-08T06:04:30.088Z] [INFO] [checklist] reports: all 1 registered file(s) present: editor_rev01.md
+[2026-04-08T06:04:30.089Z] [INFO] [checklist] decision_ledger: no decisions this session — skip
+[2026-04-08T06:04:30.089Z] [INFO] [checklist] topic_index: topic found: topic_008 (completed)
+[2026-04-08T06:04:30.090Z] [INFO] [checklist] current_session: will be set to closed
+[2026-04-08T06:04:30.090Z] [INFO] [checklist] master_feedback: no feedback entries — OK if none given
+[2026-04-08T06:04:30.092Z] [INFO] [session-log] END session_010 | topic: viewer-display-diagnosis | duration: -235m
+[2026-04-08T06:04:30.092Z] [WARN] [session-log] OP-04 FAIL: session_010 not found or missing closedAt in session_index
+[2026-04-09T04:30:43.784Z] [INFO] [checklist] reports: all 4 registered file(s) present: arki_rev01.md, riki_rev01.md, ace_rev01.md, editor_rev01.md
+[2026-04-09T04:30:43.785Z] [INFO] [checklist] decision_ledger: 1 decision(s) recorded for session_011
+[2026-04-09T04:30:43.785Z] [INFO] [checklist] topic_index: topic found: topic_009 (completed)
+[2026-04-09T04:30:43.786Z] [INFO] [checklist] current_session: will be set to closed
+[2026-04-09T04:30:43.786Z] [INFO] [checklist] master_feedback: no feedback entries — OK if none given
+[2026-04-09T04:30:43.787Z] [INFO] [session-log] END session_011 | topic: upgrade-delta-pack-review | duration: -269m
+[2026-04-09T04:30:43.788Z] [INFO] [session-log] OP-04 PASS: session_011 confirmed in session_index with closedAt
+[2026-04-10T06:13:54.625Z] [checklist] [INFO] reports: all 5 registered file(s) present: ace_rev01.md, arki_rev01.md, fin_rev01.md, riki_rev01.md, editor_rev01.md
+[2026-04-10T06:13:54.626Z] [checklist] [INFO] decision_ledger: 1 decision(s) recorded for session_012
+[2026-04-10T06:13:54.627Z] [checklist] [INFO] topic_index: topic found: topic_010 (completed)
+[2026-04-10T06:13:54.628Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-10T06:13:54.628Z] [checklist] [INFO] master_feedback: 2 feedback entry(ies) recorded
+[2026-04-10T06:13:54.630Z] [session-log] [INFO] END session_012 | topic: role-redefinition | duration: -166m
+[2026-04-10T06:13:54.630Z] [session-log] [INFO] OP-04 PASS: session_012 confirmed in session_index with closedAt
+[2026-04-10T07:01:49.585Z] [checklist] [INFO] reports: all 1 registered file(s) present: editor_rev01.md
+[2026-04-10T07:01:49.585Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-10T07:01:49.586Z] [checklist] [INFO] topic_index: topic found: topic_010a (completed)
+[2026-04-10T07:01:49.586Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-10T07:01:49.587Z] [checklist] [INFO] master_feedback: 1 feedback entry(ies) recorded
+[2026-04-10T07:01:49.589Z] [session-log] [INFO] END session_013 | topic: ace-measurement-structure | duration: -298m
+[2026-04-10T07:01:49.589Z] [session-log] [INFO] OP-04 PASS: session_013 confirmed in session_index with closedAt
+[2026-04-11T11:56:37.039Z] [checklist] [INFO] reports: all 4 registered file(s) present: ace_rev01.md, editor_rev01.md, eduagent-architecture.png, EduAgent_Architecture_Report.docx
+[2026-04-11T11:56:37.040Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-11T11:56:37.041Z] [checklist] [INFO] topic_index: topic found: topic_011 (completed)
+[2026-04-11T11:56:37.042Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-11T11:56:37.043Z] [checklist] [INFO] master_feedback: 1 feedback entry(ies) recorded
+[2026-04-11T11:56:37.046Z] [session-log] [INFO] END session_014 | topic: deeptutor-review | duration: 177m
+[2026-04-11T11:56:37.047Z] [session-log] [INFO] OP-04 PASS: session_014 confirmed in session_index with closedAt
+[2026-04-13T12:19:23.526Z] [checklist] [INFO] reports: all 4 registered file(s) present: arki_rev01.md, editor_rev01.md, architecture_d2.svg, architecture_d2.png
+[2026-04-13T12:19:23.527Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-13T12:19:23.528Z] [checklist] [INFO] topic_index: topic found: topic_012 (suspended)
+[2026-04-13T12:19:23.528Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-13T12:19:23.528Z] [checklist] [INFO] master_feedback: 1 feedback entry(ies) recorded
+[2026-04-13T12:19:23.529Z] [session-log] [INFO] END session_015 | topic: databook-agent-design | duration: 199m
+[2026-04-13T12:19:23.530Z] [session-log] [INFO] OP-04 PASS: session_015 confirmed in session_index with closedAt
+[2026-04-15T23:00:35.472Z] [session-log] [WARN] END topicSlug mismatch. expected: superpowers-absorption-plan, got: ace-framing-skill-implementation
+[2026-04-16T04:37:46.109Z] [checklist] [INFO] reports: all 1 registered file(s) present: editor_rev1.md
+[2026-04-16T04:37:46.110Z] [checklist] [INFO] decision_ledger: 1 decision(s) recorded for session_019
+[2026-04-16T04:37:46.110Z] [checklist] [INFO] topic_index: topic found: topic_016 (completed)
+[2026-04-16T04:37:46.111Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-16T04:37:46.111Z] [checklist] [INFO] master_feedback: 1 feedback entry(ies) recorded
+[2026-04-16T04:37:46.114Z] [session-log] [INFO] END session_019 | topic: superpowers-2 | duration: 278m
+[2026-04-16T04:37:46.115Z] [session-log] [INFO] OP-04 PASS: session_019 confirmed in session_index with closedAt
