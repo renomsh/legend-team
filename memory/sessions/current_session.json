@@ -2,13 +2,31 @@
   "sessionId": "session_019",
   "topic": "Superpowers #2",
   "topicSlug": "superpowers-2",
-  "status": "open",
+  "status": "closed",
   "startedAt": "2026-04-16T00:00:00.000Z",
+  "closedAt": "2026-04-16T04:37:46.106Z",
   "mode": "observation",
-  "agentsCompleted": [],
+  "agentsCompleted": [
+    "ace",
+    "arki",
+    "fin",
+    "ace-synthesis",
+    "editor"
+  ],
   "novaInvoked": false,
-  "masterDecisions": [],
+  "masterDecisions": [
+    "D-020"
+  ],
   "reportPath": "reports/2026-04-16_superpowers-2",
-  "notes": [],
+  "notes": [
+    "ace-framing skill 첫 정상 작동 확인 (worktree .claude/skills/ 복사 + 재시작 필요)",
+    "Superpowers brainstorming 구조 확인 — Claude 단독↔사용자, 레전드팀 다역할 토론과 근본 다름",
+    "4개 skill 흡수 구현 완료 (writing-skills, verification-before-completion, dispatching-parallel-agents, ace-learning-loop)",
+    "ace-learning-loop 레전드팀 고유 창작 — Superpowers에 없는 개념",
+    "D-020: Ace 검증-질문-수용 루프 확정. 맹목 수용 폐기.",
+    "v0.6.0 선언. project_charter + config/project.json 갱신.",
+    "master_feedback_log.json 구조 오류(중복 statusValues 필드) 수복",
+    "Master 선언: 레전드팀은 이미 Superpowers를 넘어서기 시작했다"
+  ],
   "gaps": []
 }
