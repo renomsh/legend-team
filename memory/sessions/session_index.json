@@ -141,8 +141,14 @@
       "startedAt": "2026-04-16T05:00:00.000Z",
       "closedAt": "2026-04-16T06:54:38.135Z",
       "note": "skill 5개 테스트 정상. Superpowers 4개 흡수(systematic-debugging·writing-plans·executing-plans·subagent-driven-development). Dev(데브) 신설(D-021). Editor 디자인 권한 확장. v0.7.0. 총 9개 skill, 7개 역할."
+    },
+    {
+      "sessionId": "session_021",
+      "topicSlug": "dev-test",
+      "startedAt": "2026-04-16T07:00:00.000Z",
+      "closedAt": "2026-04-16T08:56:46.214Z"
     }
   ],
-  "lastUpdated": "2026-04-16T06:54:38.135Z",
+  "lastUpdated": "2026-04-16T08:56:46.214Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

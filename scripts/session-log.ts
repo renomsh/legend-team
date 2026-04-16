@@ -189,8 +189,8 @@ function endSession(topicSlug: string): void {
   }
 
   if (session.topicSlug !== topicSlug) {
-    log('WARN', 'session-log', `END topicSlug mismatch. expected: ${session.topicSlug}, got: ${topicSlug}`);
-    console.warn(`⚠ Topic slug mismatch. Current session: ${session.topicSlug}`);
+    log('WARN', 'session-log', `END topicSlug mismatch. expected: ${session.topicSlug}, got: ${topicSlug}. Using session value: ${session.topicSlug}`);
+    console.warn(`⚠ Topic slug mismatch (got: ${topicSlug}, using session value: ${session.topicSlug})`);
   }
 
   // H-01: Run end-of-session checklist before closing
@@ -219,15 +219,26 @@ function endSession(topicSlug: string): void {
 
   // Update session index
   const index = readJson<SessionIndex>(SESSION_INDEX_PATH, { sessions: [], lastUpdated: '' });
-  index.sessions = index.sessions.map(s =>
-    s.sessionId === session.sessionId ? { ...s, closedAt: now } : s
-  );
+  const existsInIndex = index.sessions.some(s => s.sessionId === session.sessionId);
+  if (existsInIndex) {
+    // B-02 fix: update existing entry
+    index.sessions = index.sessions.map(s =>
+      s.sessionId === session.sessionId ? { ...s, closedAt: now } : s
+    );
+  } else {
+    // B-02 fix: session was not started via session-log start — add entry now
+    index.sessions.push({ sessionId: session.sessionId, topicSlug: session.topicSlug, startedAt: session.startedAt, closedAt: now });
+    log('WARN', 'session-log', `session ${session.sessionId} was not in session_index — added retroactively`);
+  }
   index.lastUpdated = now;
   writeJson(SESSION_INDEX_PATH, index);
 
-  const duration = session.startedAt
-    ? `${Math.round((Date.now() - new Date(session.startedAt).getTime()) / 60000)}m`
-    : 'unknown';
+  // B-01 fix: guard against negative duration when startedAt was manually set to a future time
+  let duration = 'unknown';
+  if (session.startedAt) {
+    const ms = Date.now() - new Date(session.startedAt).getTime();
+    duration = ms >= 0 ? `${Math.round(ms / 60000)}m` : 'unknown (startedAt in future)';
+  }
 
   log('INFO', 'session-log', `END ${session.sessionId} | topic: ${topicSlug} | duration: ${duration}`);
   console.log(`\n✓ Session closed: ${session.sessionId}`);

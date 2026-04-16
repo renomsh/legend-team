@@ -266,8 +266,22 @@
       "outcome": "skill 실행 테스트 5/5 정상. Superpowers 나머지 4개 흡수. Dev(데브) 신설(D-021). Editor 디자인 권한 확장. v0.7.0 선언. 총 9개 skill, 7개 역할.",
       "masterDecisions": ["D-021"],
       "note": "session_020. skill·역할 구조 확장 완료. 다음: Dev 실행 테스트."
+    },
+    {
+      "id": "topic_018",
+      "title": "Dev Test",
+      "status": "completed",
+      "created": "2026-04-16",
+      "closedAt": "2026-04-16",
+      "controlPath": null,
+      "reportPath": "reports/2026-04-16_dev-test",
+      "reportFiles": ["editor_rev1.md"],
+      "published": false,
+      "masterDecisions": [],
+      "outcome": "session-log.ts 버그 3종 수정(B-01 음수 duration, B-02 OP-04 FAIL, B-03 mismatch 불명확). TopicIndexEntry 타입 실제화. tsc 오류 0.",
+      "note": "Dev 에이전트 첫 실전 투입. Arki 구조 분석 → Dev 구현 파이프라인 검증 완료."
     }
   ],
-  "lastUpdated": "2026-04-16T06:30:00.000Z"
+  "lastUpdated": "2026-04-16T07:00:00.000Z"
 }
 
