@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-17T13:29:30.250Z",
+  "generatedAt": "2026-04-17T15:21:04.393Z",
   "topics": [
     {
       "id": "topic_001",
@@ -451,6 +451,50 @@
       "outcome": "dist/ 배포 갭 해소 + nav 영어 통일 + status 통일 + Topics 개편",
       "note": "session_029",
       "masterDecisions": []
+    },
+    {
+      "id": "topic_027",
+      "title": "Dashboard Upgrade v1.0.0 (Vera Design System)",
+      "status": "completed",
+      "created": "2026-04-17",
+      "reportPath": "reports/2026-04-17_dashboard-upgrade-v3",
+      "reportFiles": [],
+      "published": false,
+      "outcome": "Vera 디자인 시스템 v1.0.0 전면 적용: 사이드바 레이아웃, 역할카드 컬러 그라데이션, Ops KPI 카드, topic.html 사이드바, 세션 카드 컬러코딩, Vera 역할 카드 추가, 한글→영어 통일, 중복 타이틀 제거",
+      "note": "session_030",
+      "masterDecisions": []
+    },
+    {
+      "id": "topic_028",
+      "title": "세션 히스토리 뷰 신설 (PD-008)",
+      "status": "completed",
+      "created": "2026-04-17",
+      "reportPath": "reports/2026-04-17_session-history-view",
+      "reportFiles": [
+        "ace_rev1.md",
+        "editor_rev1.md"
+      ],
+      "published": false,
+      "outcome": "PD-008 완전 이행: append-session.ts agentsCompleted 파라미터 추가, close.md step 8 명시화, backfill-agents.ts 신설(22개 소급), compute-dashboard.ts roleFrequency 집계 추가, session.html Current|History 탭 + ECharts 역할 빈도 차트 구현.",
+      "note": "session_031. Master: Ace 오케스트레이션 유효성 확인.",
+      "masterDecisions": []
+    },
+    {
+      "id": "topic_029",
+      "title": "agentsCompleted Hook 자동화",
+      "status": "completed",
+      "created": "2026-04-17",
+      "reportPath": "reports/2026-04-17_agents-completed-hook",
+      "reportFiles": [
+        "editor_rev1.md"
+      ],
+      "published": false,
+      "outcome": "Hook 체인 완성(tokens→finalize→compute→build). dashboard 6개 이슈 해결. PD-009 발동 검증 이연.",
+      "note": "session_032 완료. token_log 누산 정책 변경(D-030). hook-diagnostics.log로 다음 세션 종료 시 검증.",
+      "masterDecisions": [
+        "D-029",
+        "D-030"
+      ]
     }
   ]
 }

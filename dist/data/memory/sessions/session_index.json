@@ -49,125 +49,200 @@
       "sessionId": "session_007",
       "topicSlug": "legend-team-upgrade-review",
       "startedAt": "2026-04-05T12:00:00.000Z",
-      "closedAt": "2026-04-05T12:29:28.254Z"
+      "closedAt": "2026-04-05T12:29:28.254Z",
+      "agentsCompleted": [
+        "ace",
+        "editor"
+      ]
     },
     {
       "sessionId": "session_008",
       "topicSlug": "dailyjob-db-mapping",
       "startedAt": "2026-04-06T09:00:00.000Z",
       "closedAt": "2026-04-06T00:07:14.482Z",
-      "note": "데일리잡 4004건 ↔ HSM DB 매핑. 확정 479건(12%), 검수필요 1803건(45%), 미매칭 1722건(43%). 퍼지 매칭 복합검증 필요 — 토픽 suspended."
+      "note": "데일리잡 4004건 ↔ HSM DB 매핑. 확정 479건(12%), 검수필요 1803건(45%), 미매칭 1722건(43%). 퍼지 매칭 복합검증 필요 — 토픽 suspended.",
+      "agentsCompleted": [
+        "ace",
+        "arki"
+      ]
     },
     {
       "sessionId": "session_009",
       "topicSlug": "storage-quality-review",
       "startedAt": "2026-04-08T09:00:00.000Z",
       "closedAt": "2026-04-08T06:04:00.892Z",
-      "note": "학습 순환 고리 수복. 세션 프로토콜 보정, role memory 소급, evidence/glossary/feedback 수복. v0.5.0 선언."
+      "note": "학습 순환 고리 수복. 세션 프로토콜 보정, role memory 소급, evidence/glossary/feedback 수복. v0.5.0 선언.",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "editor"
+      ]
     },
     {
       "sessionId": "session_010",
       "topicSlug": "viewer-display-diagnosis",
       "startedAt": "2026-04-08T10:00:00.000Z",
       "closedAt": "2026-04-08T06:04:30.085Z",
-      "note": "현황판 표시 오류 root cause 확정 + 수복. 3단계 방어 게이트 수립. XSS 패치. session-log.ts 교차검증 추가."
+      "note": "현황판 표시 오류 root cause 확정 + 수복. 3단계 방어 게이트 수립. XSS 패치. session-log.ts 교차검증 추가.",
+      "agentsCompleted": [
+        "editor"
+      ]
     },
     {
       "sessionId": "session_011",
       "topicSlug": "upgrade-delta-pack-review",
       "startedAt": "2026-04-09T09:00:00.000Z",
       "closedAt": "2026-04-09T04:30:43.780Z",
-      "note": "2팀 델타팩 4건 채택 적용. CLAUDE.md 원칙 3건 추가/강화. config/project.json 버전 동기화. D-014 확정."
+      "note": "2팀 델타팩 4건 채택 적용. CLAUDE.md 원칙 3건 추가/강화. config/project.json 버전 동기화. D-014 확정.",
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "ace",
+        "editor"
+      ]
     },
     {
       "sessionId": "session_012",
       "topicSlug": "role-redefinition",
       "startedAt": "2026-04-10T09:00:00.000Z",
       "closedAt": "2026-04-10T06:13:54.621Z",
-      "note": "6개 역할 재정의. Ace=Master 판단 대리인. D-015 확정. 전원 발언. Nova 미호출."
+      "note": "6개 역할 재정의. Ace=Master 판단 대리인. D-015 확정. 전원 발언. Nova 미호출.",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "editor"
+      ]
     },
     {
       "sessionId": "session_013",
       "topicSlug": "ace-measurement-structure",
       "startedAt": "2026-04-10T12:00:00.000Z",
       "closedAt": "2026-04-10T07:01:49.581Z",
-      "note": "인프라 작업. Ace masterSelectionPatterns + lessonLog 구현. 추천 필수화. Arki 안 채택(observations 내장). Nova 호출."
+      "note": "인프라 작업. Ace masterSelectionPatterns + lessonLog 구현. 추천 필수화. Arki 안 채택(observations 내장). Nova 호출.",
+      "agentsCompleted": [
+        "editor"
+      ]
     },
     {
       "sessionId": "session_014",
       "topicSlug": "deeptutor-review",
       "startedAt": "2026-04-11T09:00:00.000Z",
       "closedAt": "2026-04-11T11:56:37.035Z",
-      "note": "EduAgent 4단계 아키텍처 확정. DeepTutor 레퍼런스만. 전원 발언+Nova. MF-008 역할 페르소나 업그레이드. Word 보고서 생성."
+      "note": "EduAgent 4단계 아키텍처 확정. DeepTutor 레퍼런스만. 전원 발언+Nova. MF-008 역할 페르소나 업그레이드. Word 보고서 생성.",
+      "agentsCompleted": [
+        "ace",
+        "editor"
+      ]
     },
     {
       "sessionId": "session_015",
       "topicSlug": "databook-agent-design",
       "startedAt": "2026-04-13T09:00:00.000Z",
       "closedAt": "2026-04-13T12:19:23.523Z",
-      "note": "데이터북 Agent 설계. 전원 참석+Nova. 5단계 파이프라인 확정. D2 아키텍처 다이어그램 생성. .xlsb 이슈 발견. 프로토타입 다음 세션."
+      "note": "데이터북 Agent 설계. 전원 참석+Nova. 5단계 파이프라인 확정. D2 아키텍처 다이어그램 생성. .xlsb 이슈 발견. 프로토타입 다음 세션.",
+      "agentsCompleted": [
+        "arki",
+        "editor"
+      ]
     },
     {
       "sessionId": "session_016",
       "topicSlug": "hybrid-scaleup300",
       "startedAt": "2026-04-14T09:00:00.000Z",
       "closedAt": "2026-04-14T14:00:00.000Z",
-      "note": "스케일업300 과제 구조 설계. 8대 카테고리·FAST 다이어그램·액션 리스트 확정. Riki 전부 기각. 레슨런 5건 memory 저장. HTML/Word 산출물 생성."
+      "note": "스케일업300 과제 구조 설계. 8대 카테고리·FAST 다이어그램·액션 리스트 확정. Riki 전부 기각. 레슨런 5건 memory 저장. HTML/Word 산출물 생성.",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "editor"
+      ]
     },
     {
       "sessionId": "session_017",
       "topicSlug": "superpowers-plugin-review",
       "startedAt": "2026-04-15T00:00:00.000Z",
       "closedAt": "2026-04-15T12:00:00.000Z",
-      "note": "Superpowers v5.0.7 검토 → 미설치 결정. 자립 경로 채택. `ace-framing` 자작 skill(brainstorming 3·7번 흡수)을 topic_015로 이연. 실행 계획 역할 공백도 이연. Master 3회 개입(3회차가 결정적). 레슨런 6건."
+      "note": "Superpowers v5.0.7 검토 → 미설치 결정. 자립 경로 채택. `ace-framing` 자작 skill(brainstorming 3·7번 흡수)을 topic_015로 이연. 실행 계획 역할 공백도 이연. Master 3회 개입(3회차가 결정적). 레슨런 6건.",
+      "agentsCompleted": [
+        "editor"
+      ]
     },
     {
       "sessionId": "session_018",
       "topicSlug": "superpowers-absorption-plan",
       "startedAt": "2026-04-15T13:00:00.000Z",
       "closedAt": "2026-04-15T14:30:00.000Z",
-      "note": "실행계획 역할 Arki 통합 확정(D-016). Ace 오케스트레이터 선언(D-019). Schedule-on-Demand 원칙(D-017). 금지어 v0(D-018). 전원 발언, Nova 미호출. Master 3회 개입. 레슨런 2건."
+      "note": "실행계획 역할 Arki 통합 확정(D-016). Ace 오케스트레이터 선언(D-019). Schedule-on-Demand 원칙(D-017). 금지어 v0(D-018). 전원 발언, Nova 미호출. Master 3회 개입. 레슨런 2건.",
+      "agentsCompleted": [
+        "editor"
+      ]
     },
     {
       "sessionId": "session_019",
       "topicSlug": "superpowers-2",
       "startedAt": "2026-04-16T00:00:00.000Z",
       "closedAt": "2026-04-16T04:37:46.106Z",
-      "note": "Superpowers 전수 평가 + 4개 skill 구현 + ace-learning-loop 창작. D-020(Ace 검증-수용 루프). v0.6.0. skill 시스템 첫 작동 확인. Master: 레전드팀은 Superpowers를 넘어서기 시작."
+      "note": "Superpowers 전수 평가 + 4개 skill 구현 + ace-learning-loop 창작. D-020(Ace 검증-수용 루프). v0.6.0. skill 시스템 첫 작동 확인. Master: 레전드팀은 Superpowers를 넘어서기 시작.",
+      "agentsCompleted": [
+        "editor"
+      ]
     },
     {
       "sessionId": "session_020",
       "topicSlug": "superpowers-3",
       "startedAt": "2026-04-16T05:00:00.000Z",
       "closedAt": "2026-04-16T06:54:38.135Z",
-      "note": "skill 5개 테스트 정상. Superpowers 4개 흡수(systematic-debugging·writing-plans·executing-plans·subagent-driven-development). Dev(데브) 신설(D-021). Editor 디자인 권한 확장. v0.7.0. 총 9개 skill, 7개 역할."
+      "note": "skill 5개 테스트 정상. Superpowers 4개 흡수(systematic-debugging·writing-plans·executing-plans·subagent-driven-development). Dev(데브) 신설(D-021). Editor 디자인 권한 확장. v0.7.0. 총 9개 skill, 7개 역할.",
+      "agentsCompleted": [
+        "editor"
+      ]
     },
     {
       "sessionId": "session_021",
       "topicSlug": "dev-test",
       "startedAt": "2026-04-16T07:00:00.000Z",
-      "closedAt": "2026-04-16T08:59:08.128Z"
+      "closedAt": "2026-04-16T08:59:08.128Z",
+      "agentsCompleted": [
+        "editor"
+      ]
     },
     {
       "sessionId": "session_022",
       "topicSlug": "dev-role-session-close",
       "startedAt": "2026-04-16T09:10:00.000Z",
       "closedAt": "2026-04-16T09:45:00.000Z",
-      "note": "/open 비용 최적화(A+B+C+D'). session-log.ts 감사관 전환. tsc 오류 0."
+      "note": "/open 비용 최적화(A+B+C+D'). session-log.ts 감사관 전환. tsc 오류 0.",
+      "agentsCompleted": [
+        "editor"
+      ]
     },
     {
       "sessionId": "session_023",
       "topicSlug": "legend-team-efficiency",
       "startedAt": "2026-04-16T10:00:00.000Z",
       "closedAt": "2026-04-16T10:45:00.000Z",
-      "note": "세션 I/O 효율화. system_state fast-path 신설. topic_load_manifest 선택적 로드. pendingDeferrals 이연 관리. v0.8.0. /open 로드 ~700줄→~50줄."
+      "note": "세션 I/O 효율화. system_state fast-path 신설. topic_load_manifest 선택적 로드. pendingDeferrals 이연 관리. v0.8.0. /open 로드 ~700줄→~50줄.",
+      "agentsCompleted": [
+        "editor"
+      ]
     },
     {
       "sessionId": "session_024",
       "topicSlug": "efficiency-test-and-deferrals",
       "startedAt": "2026-04-16T11:00:00.000Z",
       "closedAt": "2026-04-16T12:30:00.000Z",
-      "note": "fast-path 토큰 절감 실증(90%). PD-001 21개 타입 레이블링 완료. PD-002 자동 해소. D-022 수립. 소급 타입/명칭 정비 7건/2건. Ace 존댓말 피드백. Fin 세션 전환 타이밍 기준."
+      "note": "fast-path 토큰 절감 실증(90%). PD-001 21개 타입 레이블링 완료. PD-002 자동 해소. D-022 수립. 소급 타입/명칭 정비 7건/2건. Ace 존댓말 피드백. Fin 세션 전환 타이밍 기준.",
+      "agentsCompleted": [
+        "ace",
+        "fin",
+        "editor"
+      ]
     },
     {
       "sessionId": "session_025",
@@ -178,7 +253,10 @@
       "decisions": [
         "D-023"
       ],
-      "note": "3개 디자인 스타일 확정. 디자인 시스템 12개 파일 구현. design:design-critique 흡수. PD-003 삭제, PD-005 등록. v0.9.0 선언."
+      "note": "3개 디자인 스타일 확정. 디자인 시스템 12개 파일 구현. design:design-critique 흡수. PD-003 삭제, PD-005 등록. v0.9.0 선언.",
+      "agentsCompleted": [
+        "editor"
+      ]
     },
     {
       "sessionId": "session_026",
@@ -186,7 +264,11 @@
       "topic": "캔바 적용",
       "startedAt": "2026-04-16T15:00:00.000Z",
       "closedAt": "2026-04-16T16:00:00.000Z",
-      "note": "Canva MCP 3방식 테스트(AI생성·URL import·템플릿편집). AI 생성 품질 미달, 템플릿+편집은 기술 작동. 결론: Canva 채널 보류. 추가 발견: PPT 직접 생성 토큰 극소비 문제."
+      "note": "Canva MCP 3방식 테스트(AI생성·URL import·템플릿편집). AI 생성 품질 미달, 템플릿+편집은 기술 작동. 결론: Canva 채널 보류. 추가 발견: PPT 직접 생성 토큰 극소비 문제.",
+      "agentsCompleted": [
+        "ace",
+        "editor"
+      ]
     },
     {
       "sessionId": "session_027",
@@ -207,7 +289,10 @@
       "topic": "legend-team Dash board",
       "startedAt": "2026-04-17T04:00:00.000Z",
       "closedAt": "2026-04-17T06:00:00.000Z",
-      "note": "dist/ 배포 갭 해소 + Hook 체인 완성 (D-028 완전 이행)"
+      "note": "dist/ 배포 갭 해소 + Hook 체인 완성 (D-028 완전 이행)",
+      "agentsCompleted": [
+        "editor"
+      ]
     },
     {
       "sessionId": "session_029",
@@ -216,9 +301,56 @@
       "startedAt": "2026-04-17T07:00:00.000Z",
       "closedAt": "2026-04-17T09:00:00.000Z",
       "decisions": [],
-      "note": "dist/ 배포 + nav 영어 통일 + DEV 카드 + status 통일 + Topics 개편"
+      "note": "dist/ 배포 + nav 영어 통일 + DEV 카드 + status 통일 + Topics 개편",
+      "agentsCompleted": [
+        "editor"
+      ]
+    },
+    {
+      "sessionId": "session_030",
+      "topicSlug": "dashboard-upgrade-v3",
+      "startedAt": "2026-04-17T09:30:00.000Z",
+      "closedAt": "2026-04-17T13:35:47.265Z",
+      "agentsCompleted": [
+        "ace",
+        "vera",
+        "editor"
+      ],
+      "note": "Vera 디자인 시스템 v1.0.0 전면 적용"
+    },
+    {
+      "sessionId": "session_031",
+      "topicSlug": "session-history-view",
+      "topic": "세션 히스토리 뷰 신설 (PD-008)",
+      "startedAt": "2026-04-17T14:00:00.000Z",
+      "closedAt": "2026-04-17T16:00:00.000Z",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace-review",
+        "dev",
+        "editor"
+      ],
+      "note": "PD-008 완전 이행. backfill 22개, roleFrequency 집계, session.html History 탭 구현. Master: Ace 오케스트레이션 유효."
+    },
+    {
+      "sessionId": "session_032",
+      "topicSlug": "agents-completed-hook",
+      "topic": "agentsCompleted Hook 자동화",
+      "startedAt": "2026-04-17T17:00:00.000Z",
+      "closedAt": "2026-04-17T18:00:00.000Z",
+      "decisions": [
+        "D-029",
+        "D-030"
+      ],
+      "agentsCompleted": [
+        "Dev"
+      ],
+      "note": "세션 종료 자동화 종합 점검으로 범위 확장 | dashboard 6개 이슈 모두 해결 | token_log 누산 정책 변경 (D-030) | PD-009: 이번 세션 종료 시 hook 발동 여부 검증 예정"
     }
   ],
-  "lastUpdated": "2026-04-17T05:17:58.830Z",
+  "lastUpdated": "2026-04-17T15:21:00.332Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
