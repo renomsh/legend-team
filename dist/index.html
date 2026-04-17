@@ -86,7 +86,10 @@
     </div>
 
     <!-- Topic Index -->
-    <div class="section-title">Topics</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+      <div class="section-title" style="margin-bottom:0">Topics</div>
+      <button id="topicToggle" onclick="toggleTopics()" style="background:var(--surface-2);color:var(--text-secondary);border:1px solid var(--border);border-radius:4px;padding:4px 12px;font-size:11px;cursor:pointer;display:none">▼ Show all</button>
+    </div>
     <div id="topicList"><div class="loading">Loading topics</div></div>
 
     <!-- Recent Decisions -->
@@ -100,23 +103,19 @@
   <script src="js/nav.js"></script>
   <script>
     async function init() {
-      // Load topics
+      // Load topics — recent 10 first, expand/collapse for rest
       const topicData = await DataLoader.getTopicIndex();
       const topicEl = document.getElementById('topicList');
       if (topicData && topicData.topics && topicData.topics.length > 0) {
-        const rows = topicData.topics.map(t => `
-          <tr class="topic-row" onclick="location.href='topic.html?id=${t.id}'">
-            <td class="topic-id">${t.id}</td>
-            <td class="topic-title-cell">${t.title}</td>
-            <td>${statusBadge(t.status)}</td>
-            <td>${t.created || '—'}</td>
-          </tr>
-        `).join('');
-        topicEl.innerHTML = `
-          <table class="topic-table">
-            <thead><tr><th>ID</th><th>Title</th><th>Status</th><th>Created</th></tr></thead>
-            <tbody>${rows}</tbody>
-          </table>`;
+        const all = [...topicData.topics].reverse();
+        window._allTopics = all;
+        window._topicsExpanded = false;
+        renderTopics(false);
+        if (all.length > 10) {
+          const btn = document.getElementById('topicToggle');
+          btn.style.display = 'block';
+          btn.textContent = `▼ Show all (${all.length})`;
+        }
       } else {
         topicEl.innerHTML = '<div class="empty-state">No topics found</div>';
       }
@@ -149,6 +148,32 @@
           `v${charter.charter.version} · Memory-First · Topic-Based · Role-Separated`;
       }
     }
+    function renderTopics(expanded) {
+      const all = window._allTopics || [];
+      const visible = expanded ? all : all.slice(0, 10);
+      const rows = visible.map(t => `
+        <tr class="topic-row" onclick="location.href='topic.html?id=${t.id}'">
+          <td class="topic-id">${t.id}</td>
+          <td class="topic-title-cell">${t.title}</td>
+          <td>${statusBadge(t.status)}</td>
+          <td>${t.created || '—'}</td>
+        </tr>
+      `).join('');
+      document.getElementById('topicList').innerHTML = `
+        <table class="topic-table">
+          <thead><tr><th>ID</th><th>Title</th><th>Status</th><th>Created</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>`;
+    }
+
+    function toggleTopics() {
+      window._topicsExpanded = !window._topicsExpanded;
+      renderTopics(window._topicsExpanded);
+      const btn = document.getElementById('topicToggle');
+      const total = (window._allTopics || []).length;
+      btn.textContent = window._topicsExpanded ? '▲ Show less' : `▼ Show all (${total})`;
+    }
+
     init();
   </script>
 </body>

@@ -65,6 +65,7 @@ interface TokenEntry {
     cache_read_input_tokens: number;
     messageCount: number;
     total_billable: number;
+    masterTurns?: number;
   };
 }
 
@@ -240,7 +241,7 @@ function main() {
       rolesRecalled,
       sessionsSpanned,
       size,
-      masterTurns: s.masterTurns ?? 0,
+      masterTurns: token?.masterTurns ?? s.masterTurns ?? 0,
       dataQuality,
       ...(tokenUsage && { tokenUsage }),
       ...(adoptionRate !== undefined && { adoptionRate }),

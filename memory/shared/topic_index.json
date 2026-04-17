@@ -4,11 +4,14 @@
       "id": "topic_001",
       "type": "architecture",
       "title": "레전드팀의 shared asset 조회 프로토콜 설계",
-      "status": "closed",
+      "status": "completed",
       "created": "2026-04-02",
       "controlPath": "topics/topic_001",
       "reportPath": "reports/2026-04-02_shared-asset-protocol",
-      "reportFiles": ["ace_rev01.md", "editor_rev01.md"],
+      "reportFiles": [
+        "ace_rev01.md",
+        "editor_rev01.md"
+      ],
       "published": true,
       "note": "retroactive — individual role debate files not recovered. Ace + Editor reconstruction only.",
       "path": "topics/topic_001"
@@ -17,7 +20,7 @@
       "id": "topic_002",
       "type": "meta-review",
       "title": "레전드팀 업그레이드 (v0.1.0 → v0.2.0)",
-      "status": "closed",
+      "status": "completed",
       "created": "2026-04-03",
       "controlPath": null,
       "reportPath": "reports/2026-04-03_legend-team-upgrade",
@@ -30,14 +33,20 @@
       ],
       "published": true,
       "outcome": "v0.2.0 기준 확정 및 실행 완료",
-      "masterDecisions": ["D-001", "D-002", "D-003", "D-004", "D-005"],
+      "masterDecisions": [
+        "D-001",
+        "D-002",
+        "D-003",
+        "D-004",
+        "D-005"
+      ],
       "path": "reports/2026-04-03_legend-team-upgrade"
     },
     {
       "id": "topic_003",
       "type": "architecture",
       "title": "로컬 업그레이드 vs 서버 이전 → Cloudflare Pages 배포",
-      "status": "closed",
+      "status": "completed",
       "created": "2026-04-04",
       "controlPath": null,
       "reportPath": "reports/2026-04-04_local-vs-server",
@@ -51,18 +60,27 @@
       ],
       "published": true,
       "outcome": "Cloudflare Pages 배포 완료. 다중 페이지 뷰어 구현. Ace/Editor 역할 재정의.",
-      "masterDecisions": ["D-006", "D-007", "D-008", "D-009", "D-003 revised", "D-007 revised"],
+      "masterDecisions": [
+        "D-006",
+        "D-007",
+        "D-008",
+        "D-009",
+        "D-003 revised",
+        "D-007 revised"
+      ],
       "path": "reports/2026-04-04_local-vs-server"
     },
     {
       "id": "topic_004",
       "type": "meta-review",
       "title": "v0.3.0 업그레이드 항목 검토",
-      "status": "closed",
+      "status": "completed",
       "created": "2026-04-04",
       "controlPath": null,
       "reportPath": "reports/2026-04-04_v030-upgrade-review",
-      "reportFiles": ["ace_rev01.md"],
+      "reportFiles": [
+        "ace_rev01.md"
+      ],
       "published": false,
       "outcome": "Ace 프레이밍 완료 (축 4개 제안). 브랜치 분기 발견 → 일원화 실행. 의사결정 미완료 — 다음 세션 재개 필요.",
       "note": "session_004. Ace만 발언. master↔origin/main 머지 후 세션 종료.",
@@ -77,10 +95,18 @@
       "created": "2026-04-05",
       "controlPath": null,
       "reportPath": "reports/2026-04-05_legend-team-upgrade-review",
-      "reportFiles": ["ace_rev01.md", "editor_rev01.md"],
+      "reportFiles": [
+        "ace_rev01.md",
+        "editor_rev01.md"
+      ],
       "published": true,
       "outcome": "v0.4.0 확정. 세션 체크리스트 자동화(H-01), 스크립트 정리, 자산 프로토콜 정의 완료.",
-      "masterDecisions": ["D-010", "D-011", "D-012", "D-013"],
+      "masterDecisions": [
+        "D-010",
+        "D-011",
+        "D-012",
+        "D-013"
+      ],
       "note": "topic_004(suspended) 승계. v0.3.0은 session_003~006 성과로 소급 확정. 이번 토픽은 v0.4.0 범위.",
       "path": "reports/2026-04-05_legend-team-upgrade-review"
     },
@@ -93,7 +119,10 @@
       "closedAt": "2026-04-10",
       "controlPath": null,
       "reportPath": "reports/2026-04-06_dailyjob-db-mapping",
-      "reportFiles": ["ace_rev01.md", "arki_rev01.md"],
+      "reportFiles": [
+        "ace_rev01.md",
+        "arki_rev01.md"
+      ],
       "published": false,
       "outcome": "퍼지매칭 결과를 Master 수작업 비교 검증으로 완료 처리. Claude 퍼지 산출물 ↔ Master 수작업 결과 대조 완료. 복합검증 기준(적합도 80%+, 사업자번호 불일치 제외, 지역·전화번호 교차검증) 확정(MF-005).",
       "masterDecisions": [],
@@ -108,7 +137,13 @@
       "created": "2026-04-08",
       "controlPath": null,
       "reportPath": "reports/2026-04-08_storage-quality-review",
-      "reportFiles": ["ace_rev01.md", "arki_rev01.md", "fin_rev01.md", "riki_rev01.md", "editor_rev01.md"],
+      "reportFiles": [
+        "ace_rev01.md",
+        "arki_rev01.md",
+        "fin_rev01.md",
+        "riki_rev01.md",
+        "editor_rev01.md"
+      ],
       "published": true,
       "outcome": "학습 순환 고리 수복. 세션 프로토콜 보정, role memory 소급, evidence/glossary/feedback 수복. v0.5.0 선언.",
       "masterDecisions": [],
@@ -123,7 +158,9 @@
       "created": "2026-04-08",
       "controlPath": null,
       "reportPath": "reports/2026-04-08_viewer-display-diagnosis",
-      "reportFiles": ["editor_rev01.md"],
+      "reportFiles": [
+        "editor_rev01.md"
+      ],
       "published": true,
       "outcome": "root cause 확정(report 파일 미생성). 3단계 방어 게이트 수립. XSS 패치. session-log.ts 교차검증 추가.",
       "masterDecisions": [],
@@ -138,10 +175,17 @@
       "created": "2026-04-09",
       "controlPath": null,
       "reportPath": "reports/2026-04-09_upgrade-delta-pack-review",
-      "reportFiles": ["arki_rev01.md", "riki_rev01.md", "ace_rev01.md", "editor_rev01.md"],
+      "reportFiles": [
+        "arki_rev01.md",
+        "riki_rev01.md",
+        "ace_rev01.md",
+        "editor_rev01.md"
+      ],
       "published": true,
       "outcome": "2팀 델타팩 4건 채택 적용 완료. CLAUDE.md 3개 원칙 추가/강화. config/project.json 버전 동기화. 분류 체계는 별도 토픽 이연.",
-      "masterDecisions": ["D-014"],
+      "masterDecisions": [
+        "D-014"
+      ],
       "note": "Arki, Riki, Ace 발언. Nova 미호출. 변경 없이 점검 후 Master 지시로 즉시 적용.",
       "path": "reports/2026-04-09_upgrade-delta-pack-review"
     },
@@ -153,10 +197,18 @@
       "created": "2026-04-10",
       "controlPath": null,
       "reportPath": "reports/2026-04-10_role-redefinition",
-      "reportFiles": ["ace_rev01.md", "arki_rev01.md", "fin_rev01.md", "riki_rev01.md", "editor_rev01.md"],
+      "reportFiles": [
+        "ace_rev01.md",
+        "arki_rev01.md",
+        "fin_rev01.md",
+        "riki_rev01.md",
+        "editor_rev01.md"
+      ],
       "published": true,
       "outcome": "6개 역할 재정의 완료. Ace=Master 판단 대리인(후행→선행 진화). Fin Financial 유지. Editor 기록자 한정. Riki adversarial 강화.",
-      "masterDecisions": ["D-015"],
+      "masterDecisions": [
+        "D-015"
+      ],
       "note": "전원 발언. Nova 미호출. 이연: Ace memory 측정구조, 토픽 세그먼트.",
       "path": "reports/2026-04-10_role-redefinition"
     },
@@ -169,7 +221,9 @@
       "closedAt": "2026-04-10",
       "controlPath": null,
       "reportPath": "reports/2026-04-10_ace-measurement-structure",
-      "reportFiles": ["editor_rev01.md"],
+      "reportFiles": [
+        "editor_rev01.md"
+      ],
       "published": false,
       "outcome": "masterSelectionPatterns + lessonLog 구현. Ace 추천 필수화. observations를 Decision 레코드 내장으로 확정.",
       "masterDecisions": [],
@@ -184,7 +238,12 @@
       "closedAt": "2026-04-11",
       "controlPath": null,
       "reportPath": "reports/2026-04-11_deeptutor-review",
-      "reportFiles": ["ace_rev01.md", "editor_rev01.md", "eduagent-architecture.png", "EduAgent_Architecture_Report.docx"],
+      "reportFiles": [
+        "ace_rev01.md",
+        "editor_rev01.md",
+        "eduagent-architecture.png",
+        "EduAgent_Architecture_Report.docx"
+      ],
       "published": false,
       "outcome": "EduAgent 4단계 파이프라인 아키텍처 확정. DeepTutor는 레퍼런스만. 정보 축적이 핵심 비용. Ace/Nova/Arki 페르소나 업그레이드.",
       "masterDecisions": [],
@@ -199,7 +258,12 @@
       "closedAt": "2026-04-13",
       "controlPath": null,
       "reportPath": "reports/2026-04-13_databook-agent-design",
-      "reportFiles": ["arki_rev01.md", "editor_rev01.md", "architecture_d2.svg", "architecture_d2.png"],
+      "reportFiles": [
+        "arki_rev01.md",
+        "editor_rev01.md",
+        "architecture_d2.svg",
+        "architecture_d2.png"
+      ],
       "published": false,
       "outcome": "설계 완료. 5단계 파이프라인 + 폴더구조 + 검증 리포트 방식 확정. D2 아키텍처 다이어그램 생성. 다음 세션: 7개 팀 파일 전수 조사 → canonical 스키마 → 프로토타입 구현.",
       "masterDecisions": [],
@@ -214,7 +278,14 @@
       "closedAt": "2026-04-14",
       "controlPath": null,
       "reportPath": "reports/2026-04-14_hybrid-scaleup300",
-      "reportFiles": ["ace_rev1.md", "arki_rev1.md", "fin_rev1.md", "riki_rev1.md", "editor_rev1.html", "editor_rev1.doc"],
+      "reportFiles": [
+        "ace_rev1.md",
+        "arki_rev1.md",
+        "fin_rev1.md",
+        "riki_rev1.md",
+        "editor_rev1.html",
+        "editor_rev1.doc"
+      ],
       "published": false,
       "outcome": "스케일업300 8대 카테고리 + 전체 액션 아이템 리스트 + FAST 다이어그램 확정. 상반기 데드라인 기준 체계 수립 후 상시 확장 구조 정립.",
       "masterDecisions": [],
@@ -229,7 +300,9 @@
       "closedAt": "2026-04-15",
       "controlPath": null,
       "reportPath": "reports/2026-04-15_superpowers-plugin-review",
-      "reportFiles": ["editor_rev1.md"],
+      "reportFiles": [
+        "editor_rev1.md"
+      ],
       "published": false,
       "outcome": "Superpowers 미설치 결정. 자립 경로 채택. `ace-framing` 자작 skill 신설(brainstorming 3번·7번 해체·흡수)을 topic_015로 이연. 실행 계획 작성 역할 공백도 이연. clone은 참고서로 scratch/에 유지.",
       "masterDecisions": [],
@@ -244,10 +317,17 @@
       "closedAt": "2026-04-15",
       "controlPath": null,
       "reportPath": "reports/2026-04-15_superpowers-absorption-plan",
-      "reportFiles": ["editor_rev1.md"],
+      "reportFiles": [
+        "editor_rev1.md"
+      ],
       "published": false,
       "outcome": "실행계획 역할을 Arki에 통합. Ace 오케스트레이터 선언(D-019), Schedule-on-Demand 원칙(D-017), 실행계획 오염 금지어 v0(D-018) 확정. CLAUDE.md·decision_ledger 반영 완료.",
-      "masterDecisions": ["D-016", "D-017", "D-018", "D-019"],
+      "masterDecisions": [
+        "D-016",
+        "D-017",
+        "D-018",
+        "D-019"
+      ],
       "note": "topic_014에서 이연. 전원 발언(Ace·Arki·Fin·Riki·Ace종합·Editor). Nova 미호출. Master 3회 개입(3안 재명확화, 오케스트레이션 선언, 일정 원칙). 레슨런 2건. session_018."
     },
     {
@@ -259,10 +339,14 @@
       "closedAt": "2026-04-16",
       "controlPath": null,
       "reportPath": "reports/2026-04-16_superpowers-2",
-      "reportFiles": ["editor_rev1.md"],
+      "reportFiles": [
+        "editor_rev1.md"
+      ],
       "published": false,
       "outcome": "Superpowers 14개 skill 전수 평가. 4개 흡수(writing-skills, verification-before-completion, dispatching-parallel-agents, ace-framing 작동 확인) + ace-learning-loop 레전드팀 고유 창작. Ace 검증-질문-수용 루프 도입(D-020). v0.6.0 선언.",
-      "masterDecisions": ["D-020"],
+      "masterDecisions": [
+        "D-020"
+      ],
       "note": "session_019. skill 시스템 첫 정상 작동 확인. worktree 경로 이슈 해결(재시작 필요). Master 선언: 레전드팀은 Superpowers를 넘어서기 시작했다."
     },
     {
@@ -274,10 +358,14 @@
       "closedAt": "2026-04-16",
       "controlPath": null,
       "reportPath": "reports/2026-04-16_superpowers-3",
-      "reportFiles": ["editor_rev1.md"],
+      "reportFiles": [
+        "editor_rev1.md"
+      ],
       "published": false,
       "outcome": "skill 실행 테스트 5/5 정상. Superpowers 나머지 4개 흡수. Dev(데브) 신설(D-021). Editor 디자인 권한 확장. v0.7.0 선언. 총 9개 skill, 7개 역할.",
-      "masterDecisions": ["D-021"],
+      "masterDecisions": [
+        "D-021"
+      ],
       "note": "session_020. skill·역할 구조 확장 완료. 다음: Dev 실행 테스트."
     },
     {
@@ -289,7 +377,9 @@
       "closedAt": "2026-04-16",
       "controlPath": null,
       "reportPath": "reports/2026-04-16_dev-test",
-      "reportFiles": ["editor_rev1.md"],
+      "reportFiles": [
+        "editor_rev1.md"
+      ],
       "published": false,
       "masterDecisions": [],
       "outcome": "session-log.ts 버그 3종 수정(B-01 음수 duration, B-02 OP-04 FAIL, B-03 mismatch 불명확). TopicIndexEntry 타입 실제화. tsc 오류 0.",
@@ -304,7 +394,9 @@
       "closedAt": "2026-04-16",
       "controlPath": null,
       "reportPath": "reports/2026-04-16_dev-role-session-close",
-      "reportFiles": ["editor_rev1.md"],
+      "reportFiles": [
+        "editor_rev1.md"
+      ],
       "published": false,
       "masterDecisions": [],
       "outcome": "/open 비용 구조 최적화 완료(A+B+C+D'). open.md 2단계 로드+Ace 조건부 프레이밍. close.md closeVerified 마커. session-log.ts 읽기 전용 감사관 전환. TopicIndexEntry 선행 버그 수정. tsc 오류 0.",
@@ -314,12 +406,14 @@
       "id": "topic_020",
       "type": "meta-review",
       "title": "legend-team 효율화",
-      "status": "closed",
+      "status": "completed",
       "created": "2026-04-16",
       "closedAt": "2026-04-16",
       "controlPath": null,
       "reportPath": "reports/2026-04-16_legend-team-efficiency",
-      "reportFiles": ["editor_rev1.md"],
+      "reportFiles": [
+        "editor_rev1.md"
+      ],
       "published": false,
       "masterDecisions": [],
       "outcome": "system_state fast-path 신설, topic_load_manifest 선택적 로드, pendingDeferrals 이연 관리 체계 구축. v0.8.0 선언. /open 로드 ~700줄 → ~50줄.",
@@ -329,16 +423,20 @@
       "id": "topic_021",
       "type": "meta-review",
       "title": "효율화 테스트 및 이연 과제 진행",
-      "status": "in-progress",
+      "status": "completed",
       "created": "2026-04-16",
-      "closedAt": null,
+      "closedAt": "2026-04-16T12:30:00.000Z",
       "controlPath": null,
       "reportPath": "reports/2026-04-16_efficiency-test-and-deferrals",
-      "reportFiles": ["ace_rev1.md", "fin_rev1.md", "editor_rev1.md"],
+      "reportFiles": [
+        "ace_rev1.md",
+        "fin_rev1.md",
+        "editor_rev1.md"
+      ],
       "published": false,
-      "masterDecisions": ["D-022"],
-      "status": "closed",
-      "closedAt": "2026-04-16T12:30:00.000Z",
+      "masterDecisions": [
+        "D-022"
+      ],
       "outcome": "효율화 fast-path 토큰 절감 실증(90% 감소). PD-001 21개 토픽 타입 레이블링 완료. PD-002 자동 해소. D-022 수립(토픽명 사후 조정 원칙). 소급 타입/명칭 정비 7건/2건. Fin 세션 전환 타이밍 기준 정의.",
       "note": "session_024. compaction 1회 발생 후 세션 종료. 소급 정비는 이번 1회 한정(Master 지시)."
     },
@@ -351,9 +449,13 @@
       "closedAt": "2026-04-16T14:00:00.000Z",
       "controlPath": null,
       "reportPath": "reports/2026-04-16_v090-design-upgrade",
-      "reportFiles": ["editor_rev1.md"],
+      "reportFiles": [
+        "editor_rev1.md"
+      ],
       "published": false,
-      "masterDecisions": ["D-023"],
+      "masterDecisions": [
+        "D-023"
+      ],
       "outcome": "3개 디자인 스타일 체계 확정(Navy/Red/Gold) + HTML 보고서 디자인 시스템 구현 완료. design:design-critique 흡수 → CRITIQUE_CHECKLIST.md. PD-003 삭제. PD-005(Figma) 등록. v0.9.0 선언.",
       "note": "session_025. Ace·Arki·Dev·Editor 참여. Nova 미호출."
     },
@@ -361,12 +463,15 @@
       "id": "topic_023",
       "type": "strategy",
       "title": "캔바 적용",
-      "status": "closed",
+      "status": "completed",
       "created": "2026-04-16",
       "closedAt": "2026-04-16T16:00:00.000Z",
       "controlPath": null,
       "reportPath": "reports/2026-04-16_canva-integration",
-      "reportFiles": ["ace_rev1.md", "editor_rev1.md"],
+      "reportFiles": [
+        "ace_rev1.md",
+        "editor_rev1.md"
+      ],
       "published": false,
       "masterDecisions": [],
       "outcome": "Canva 채널 통합 보류. AI 생성 품질 미달, 템플릿+편집 방식은 기술 작동 확인이나 Master 기준 미충족. 추가 발견: Claude Code PPT 직접 생성 = 토큰 극소비 문제.",
@@ -376,7 +481,7 @@
       "id": "topic_024",
       "type": "meta-review",
       "title": "대시보드 업그레이드 — 성장 메인 / 효율 검증 구조",
-      "status": "in-progress",
+      "status": "completed",
       "created": "2026-04-17",
       "controlPath": null,
       "reportPath": "reports/2026-04-17_dashboard-upgrade",
@@ -390,14 +495,19 @@
       "id": "topic_025",
       "type": "meta-review",
       "title": "legend-team Dash board",
-      "status": "closed",
+      "status": "completed",
       "created": "2026-04-17",
       "closedAt": "2026-04-17T06:00:00.000Z",
       "controlPath": null,
       "reportPath": "reports/2026-04-17_legend-team-dashboard",
-      "reportFiles": ["editor_rev1.md"],
+      "reportFiles": [
+        "editor_rev1.md"
+      ],
       "published": false,
-      "masterDecisions": ["D-027", "D-028"],
+      "masterDecisions": [
+        "D-027",
+        "D-028"
+      ],
       "outcome": "대시보드 구조적 공백 해소(축A/B/C) + 2뷰 구현 완료. compute-dashboard.ts(28세션 Size 계산) + dashboard-upgrade.html + dashboard-ops.html + append-session.ts. Size 공식 masterTurns 제거(D-027). Hook 자동화(D-028). session_index JSON 구조 오염 원천 차단.",
       "note": "session_028. topic_024 후속 — 대시보드 설계 보완 및 구현."
     }
