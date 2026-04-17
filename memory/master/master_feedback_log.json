@@ -83,7 +83,9 @@
       "topic": "role-redefinition",
       "afterAgent": "ace (종합검토)",
       "feedback": "Ace = Master의 판단 대리인. 후행 통합기→선행 제안기 진화. 종합+자기판단 필수. Master 미응답 시 능동 질문. 채택/기각 사유 학습 필수.",
-      "decisions": { "D-015": "6개 역할 재정의 확정" },
+      "decisions": {
+        "D-015": "6개 역할 재정의 확정"
+      },
       "instruction": "project_charter.json, config/roles.json 반영",
       "effect": "역할 정의 전면 갱신. Ace 진화 경로 명시. Editor 기록자 한정.",
       "status": "resolved",
@@ -148,7 +150,9 @@
       "topic": "superpowers-2",
       "afterAgent": "ace (종합검토)",
       "feedback": "1) receiving-code-review 원칙 흡수 — 검증 후 수용. 검증 절차에서 더 깊은 학습 가능. Master 결정이 틀리면 바꿀 수 있다. 2) 자가판단 후 학습하는 형태로 진화. 단순 흡수가 아닌 발전. 3) 레전드팀은 이미 Superpowers를 넘어서기 시작했다.",
-      "decisions": { "D-020": "Ace 검증-질문-수용 루프 확정" },
+      "decisions": {
+        "D-020": "Ace 검증-질문-수용 루프 확정"
+      },
       "instruction": "ace-learning-loop skill 신규 자작, CLAUDE.md 개정, ace_memory 확장, v0.6.0 선언",
       "effect": "4개 skill 구현 + ace-learning-loop 창작. CLAUDE.md D-020 반영. v0.6.0.",
       "status": "resolved",
@@ -161,7 +165,9 @@
       "topic": "superpowers-3",
       "afterAgent": "ace-synthesis",
       "feedback": "소프트웨어 구현도 향후 진행 업무. Arki 설계 + 별도 Dev 에이전트 + Editor 디자인 강화. 에이전트 명칭 Dev(데브). 나머지 항목 모두 동의.",
-      "decisions": { "D-021": "Dev 신설 + Editor 디자인 권한 확장" },
+      "decisions": {
+        "D-021": "Dev 신설 + Editor 디자인 권한 확장"
+      },
       "instruction": "Dev 에이전트 신설, Editor 재정의, 4개 스킬 흡수(systematic-debugging·writing-plans·executing-plans·subagent-driven-development), v0.7.0 선언",
       "effect": "agents/dev.md 신설. agents/editor.md 개정. config/roles.json 7개 역할. 총 9개 skill. v0.7.0.",
       "status": "resolved",
@@ -239,7 +245,9 @@
       "topic": "dashboard-upgrade",
       "afterAgent": "ace",
       "feedback": "무응답 = 묵시적 채택. 개입 없이 다음 단계로 넘어간 것은 통과 신호.",
-      "decisions": { "D-024": "4-레이블 체계 확정" },
+      "decisions": {
+        "D-024": "4-레이블 체계 확정"
+      },
       "instruction": "채택 레이블 재정의 반영",
       "effect": "KPI 레이블링 룰 D-024 확정",
       "status": "resolved",
@@ -257,9 +265,23 @@
       "effect": "협력적 사고 모드 공식화",
       "status": "resolved",
       "statusNote": "ace_memory learningLoop에 반영 예정."
+    },
+    {
+      "id": "MF-020",
+      "date": "2026-04-17",
+      "session": "session_028",
+      "topic": "legend-team-dashboard",
+      "afterAgent": "ace",
+      "feedback": "Ace는 경로 선택 위임(\"어느 경로로 갈까요?\") 금지. 구체적인 안을 제시하고 Master가 수정하는 구조여야 한다. Ace는 단순 의견 보조자가 아니라 의견을 제시하는 역할.",
+      "status": "resolved",
+      "statusNote": "Ace 종합검토에서 안 제시 방식으로 즉시 전환 확인."
     }
   ],
-  "statusValues": ["pending", "in-progress", "resolved"],
+  "statusValues": [
+    "pending",
+    "in-progress",
+    "resolved"
+  ],
   "statusUpdatedBy": "Claude Code at session end — based on topic status and implementation evidence",
-  "lastUpdated": "2026-04-17T00:00:00.000Z"
+  "lastUpdated": "2026-04-17T06:00:00.000Z"
 }

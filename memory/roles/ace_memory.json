@@ -69,6 +69,16 @@
       "keyFraming": "6개 역할 재정의. 3개 축(범위조정/Nova처우/자산책임). Master가 Ace 진화 방향 직접 제시.",
       "decisionAxes": 3,
       "status": "completed"
+    },
+    {
+      "topicId": "topic_025",
+      "title": "legend-team Dash board",
+      "date": "2026-04-17",
+      "reportPath": "reports/2026-04-17_legend-team-dashboard/editor_rev1.md",
+      "keyFraming": "대시보드 설계 공백(축A탐지/B공식/C차트) 해소 → 2뷰 구현. Size 공식 masterTurns 제거(D-027).",
+      "decisionAxes": 3,
+      "status": "completed",
+      "lessonLearned": "Ace는 경로 위임 금지. 구체 안 제시 → Master 수정 구조. (MF-020)"
     }
   ],
   "framePatterns": [
@@ -101,8 +111,18 @@
       "어떤 리스크를 실제 리스크로 인정했는가"
     ],
     "decisionRecordSchema": {
-      "required": ["decisionRef", "topicId", "aceRecommendation", "masterDecision", "selectionReason", "reusable"],
-      "optional": ["modificationReason", "observations"]
+      "required": [
+        "decisionRef",
+        "topicId",
+        "aceRecommendation",
+        "masterDecision",
+        "selectionReason",
+        "reusable"
+      ],
+      "optional": [
+        "modificationReason",
+        "observations"
+      ]
     },
     "decisions": [],
     "rejectionPatterns": [],
@@ -232,6 +252,13 @@
     "masterStatement": "우린 이젠 같이 사고해야 해. 그 정도 수준까지 올라왔어. 내 말이 무조건 옳지 않아.",
     "aceCommitment": "Master 의견에 반대가 있으면 근거와 함께 명확히 표명. 수동적 수용 금지."
   },
-  "lastUpdated": "2026-04-17T00:00:00.000Z"
+  "lastUpdated": "2026-04-17T00:00:00.000Z",
+  "lessonLog": [
+    {
+      "id": "LL-010",
+      "date": "2026-04-17",
+      "topic": "legend-team-dashboard",
+      "lesson": "경로 선택 위임(\"어느 경로로?\") 금지. Ace는 안을 먼저 제시하고 Master가 수정하는 구조. 선택지 나열 = 보조자 모드."
+    }
+  ]
 }
-

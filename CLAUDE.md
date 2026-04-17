@@ -18,6 +18,7 @@ Rules:
 - Keep outputs revisionable and re-openable
 - Do not overwrite prior decisions or reports silently
 - Before designing structure or architecture, first confirm the scope and goal of the work. Work definition precedes structural design.
+- `session_index.json`은 `append-session.ts` 스크립트로만 수정. Edit 도구 직접 수정 금지. (D-028, 2026-04-17)
 
 ## Viewer Policy (updated 2026-04-04, Decision D-003 revised)
 - `app/` directory is a read-only multi-page static viewer for file-based outputs

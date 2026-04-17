@@ -1,0 +1,12 @@
+{
+  "_schema": "v1.0",
+  "_comment": "역할별 제안 + 채택 레이블 기록. session_028부터 신규 입력. 소급 없음.",
+  "_labels": {
+    "explicit": "decision_ledger D-번호 등재 (명시적 채택)",
+    "implicit": "Master 개입 없이 다음 역할 진행 (묵시적 채택)",
+    "rejected": "master_feedback_log 기각 표기",
+    "deferred": "pendingDeferrals PD-번호 등재"
+  },
+  "proposals": [],
+  "lastUpdated": "2026-04-17T04:30:00.000Z"
+}

@@ -291,7 +291,29 @@
       "value": "Claude Code transcript .jsonl 파싱으로 세션 토큰 직접 집계 가능 확인. .claude/hooks/session-end-tokens.js 신규. SessionEnd hook 등록(settings.json). memory/sessions/token_log.json 신규. current_session.tokenUsage 자동 삽입. Phase 3a 경로 (i) 채택. 이연: PD-006(Windows 경로 검증), PD-007(중복 제거), PD-008(masterTurns 분리 파싱).",
       "authority": "master",
       "status": "confirmed"
+    },
+    {
+      "id": "D-027",
+      "date": "2026-04-17",
+      "session": "session_028",
+      "topic": "legend-team-dashboard",
+      "axis": "Size 공식 masterTurns 제거",
+      "decision": "Master 승인",
+      "value": "Size = (decisionAxes × 2) + rolesCalled + (rolesRecalled × 2) + (sessionsSpanned × 3). masterTurns를 공식에서 제거하고 버블 색상 독립 변수로 유지. 복잡도(Size)와 자율성(masterTurns) 개념 분리.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-028",
+      "date": "2026-04-17",
+      "session": "session_028",
+      "topic": "legend-team-dashboard",
+      "axis": "compute-dashboard.ts 세션 종료 Hook 자동 실행",
+      "decision": "Master 승인",
+      "value": "세션 종료 시 compute-dashboard.ts를 auto-push.js 직전에 자동 실행. dashboard_data.json 항상 최신 상태 유지. 수동 트리거 경로 제거.",
+      "authority": "master",
+      "status": "confirmed"
     }
   ],
-  "lastUpdated": "2026-04-17T00:00:00.000Z"
+  "lastUpdated": "2026-04-17T04:30:00.000Z"
 }

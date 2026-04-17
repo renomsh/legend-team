@@ -1,30 +1,24 @@
 {
-  "sessionId": "session_027",
-  "topic": "대시보드 업그레이드 — 성장 메인 / 효율 검증 구조",
-  "topicSlug": "dashboard-upgrade",
+  "sessionId": "session_028",
+  "topic": "legend-team Dash board",
+  "topicSlug": "legend-team-dashboard",
   "status": "closed",
-  "startedAt": "2026-04-17T00:00:00.000Z",
-  "closedAt": "2026-04-17T03:00:00.000Z",
+  "startedAt": "2026-04-17T04:00:00.000Z",
+  "closedAt": "2026-04-17T06:00:00.000Z",
   "mode": "observation",
   "agentsCompleted": ["ace", "arki", "fin", "riki", "dev", "editor"],
   "novaInvoked": false,
-  "masterDecisions": ["D-024", "D-025", "D-026"],
-  "reportPath": "reports/2026-04-17_dashboard-upgrade",
+  "masterDecisions": ["D-027", "D-028"],
+  "reportPath": "reports/2026-04-17_legend-team-dashboard",
   "notes": [
-    "GPT 제안 논의 베이스 — 성장 메인 / 효율 검증 구조 논의",
-    "대시보드 2뷰 체계 + 5군 역할 평가 + Phase 0~3 설계 완료",
-    "SessionEnd Hook 구현 및 토큰 집계 테스트 완료",
-    "협력적 사고 선언 — Master '내 말이 무조건 옳지 않아'",
-    "이연: PD-006(경로 검증), PD-007(중복 제거), PD-008(masterTurns 분리)"
+    "session_027 dashboard-upgrade 후속.",
+    "Ace 프레이밍 → Arki 재설계 → Fin → Riki → Ace 종합 → Dev 구현 파이프라인 완료.",
+    "compute-dashboard.ts 28세션 Size 계산 완료 (캐시 히트율 94.47%).",
+    "2뷰 HTML 구현: dashboard-upgrade.html + dashboard-ops.html.",
+    "JSON 구조 오류 2건 수정 (session_index, decision_ledger).",
+    "append-session.ts로 session_index 수동 편집 경로 차단.",
+    "Master 피드백: Ace 경로 위임 금지 → 안 제시 후 Master 수정 구조로 전환."
   ],
   "gaps": [],
-  "closeVerified": true,
-  "tokenUsage": {
-    "input_tokens": 488,
-    "output_tokens": 104271,
-    "cache_creation_input_tokens": 386885,
-    "cache_read_input_tokens": 8394702,
-    "messageCount": 82,
-    "total_billable": 8886346
-  }
+  "closeVerified": true
 }

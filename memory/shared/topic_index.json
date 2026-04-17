@@ -385,7 +385,22 @@
       "masterDecisions": [],
       "outcome": null,
       "note": "session_027. GPT 제안(5페이지 + 성장/효율 위계 재정의) 기반 논의."
+    },
+    {
+      "id": "topic_025",
+      "type": "meta-review",
+      "title": "legend-team Dash board",
+      "status": "closed",
+      "created": "2026-04-17",
+      "closedAt": "2026-04-17T06:00:00.000Z",
+      "controlPath": null,
+      "reportPath": "reports/2026-04-17_legend-team-dashboard",
+      "reportFiles": ["editor_rev1.md"],
+      "published": false,
+      "masterDecisions": ["D-027", "D-028"],
+      "outcome": "대시보드 구조적 공백 해소(축A/B/C) + 2뷰 구현 완료. compute-dashboard.ts(28세션 Size 계산) + dashboard-upgrade.html + dashboard-ops.html + append-session.ts. Size 공식 masterTurns 제거(D-027). Hook 자동화(D-028). session_index JSON 구조 오염 원천 차단.",
+      "note": "session_028. topic_024 후속 — 대시보드 설계 보완 및 구현."
     }
   ],
-  "lastUpdated": "2026-04-17T00:00:00.000Z"
+  "lastUpdated": "2026-04-17T04:00:00.000Z"
 }
