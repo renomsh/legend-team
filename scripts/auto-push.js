@@ -68,8 +68,32 @@ function syncClaudeDir(mainRoot) {
   console.log('[auto-push] Synced .claude/ worktree → main repo');
 }
 
+function runHookChain() {
+  const steps = [
+    'node .claude/hooks/session-end-finalize.js',
+    'npx ts-node scripts/compute-dashboard.ts',
+    'node scripts/build.js',
+  ];
+  for (const cmd of steps) {
+    try {
+      execSync(cmd, { cwd: ROOT, stdio: 'inherit' });
+    } catch (e) {
+      console.error(`[auto-push] Hook chain step failed: ${cmd}`);
+      console.error(e.message);
+      return false;
+    }
+  }
+  return true;
+}
+
 function autoPush() {
   const message = process.argv[2] || `session update: ${new Date().toISOString().split('T')[0]}`;
+
+  console.log('[auto-push] Running hook chain (finalize → compute → build)...');
+  if (!runHookChain()) {
+    console.error('[auto-push] Aborting: hook chain failed.');
+    process.exit(1);
+  }
 
   console.log('[auto-push] Checking for changes...');
 
