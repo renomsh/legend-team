@@ -14,6 +14,12 @@
       "port": 8090
     }
     ,{
+      "name": "worktree-preview",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "C:/Projects/legend-team/.claude/worktrees/jovial-khayyam-976d53/dist", "-p", "8092", "-c-1"],
+      "port": 8092
+    }
+    ,{
       "name": "legend-docs",
       "runtimeExecutable": "npx",
       "runtimeArgs": ["http-server", "C:/Projects/legend-team/docs", "-p", "8091", "-c-1"],

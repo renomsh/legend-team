@@ -77,12 +77,23 @@ function appendLog(cwd, record) {
     }
   }
 
-  // PD-007: 동일 legendSessionId가 있으면 덮어쓰기, 없으면 append
+  // 동일 legendSessionId가 있으면 누산(compaction으로 분할된 경우), 없으면 append
   const existingIdx = record.legendSessionId
     ? log.entries.findIndex((e) => e.legendSessionId === record.legendSessionId)
     : -1;
   if (existingIdx >= 0) {
-    log.entries[existingIdx] = record;
+    const prev = log.entries[existingIdx].usage || {};
+    const cur = record.usage || {};
+    const merged = {
+      input_tokens: (prev.input_tokens||0) + (cur.input_tokens||0),
+      output_tokens: (prev.output_tokens||0) + (cur.output_tokens||0),
+      cache_creation_input_tokens: (prev.cache_creation_input_tokens||0) + (cur.cache_creation_input_tokens||0),
+      cache_read_input_tokens: (prev.cache_read_input_tokens||0) + (cur.cache_read_input_tokens||0),
+      messageCount: (prev.messageCount||0) + (cur.messageCount||0),
+      masterTurns: (prev.masterTurns||0) + (cur.masterTurns||0),
+    };
+    merged.total_billable = merged.input_tokens + merged.output_tokens + merged.cache_creation_input_tokens + merged.cache_read_input_tokens;
+    log.entries[existingIdx] = { ...log.entries[existingIdx], ...record, usage: merged, capturedAt: record.capturedAt };
   } else {
     log.entries.push(record);
   }
@@ -105,7 +116,16 @@ function updateCurrentSession(cwd, usage) {
   }
 }
 
+function logDiag(cwd, msg) {
+  try {
+    const p = path.join(cwd, 'logs', 'hook-diagnostics.log');
+    fs.mkdirSync(path.dirname(p), { recursive: true });
+    fs.appendFileSync(p, `[${new Date().toISOString()}] [session-end-tokens] ${msg}\n`);
+  } catch {}
+}
+
 (async () => {
+  const firedAt = new Date().toISOString();
   try {
     const raw = await readStdin();
     const input = raw ? JSON.parse(raw) : {};
@@ -113,9 +133,15 @@ function updateCurrentSession(cwd, usage) {
     const cwd = input.cwd || process.cwd();
     const cliSessionId = input.session_id || null;
 
+    logDiag(cwd, `FIRED transcript=${transcriptPath || 'MISSING'} cliSession=${cliSessionId || 'null'} cwd=${cwd}`);
+
     if (!transcriptPath) {
       console.error('[session-end-tokens] transcript_path missing');
+      logDiag(cwd, 'ABORT: transcript_path missing');
       process.exit(0);
+    }
+    if (!fs.existsSync(transcriptPath)) {
+      logDiag(cwd, `ABORT: transcript file not found at ${transcriptPath}`);
     }
 
     const usage = await aggregateTokens(transcriptPath);
@@ -132,9 +158,11 @@ function updateCurrentSession(cwd, usage) {
     console.error(
       `[session-end-tokens] ${legendSessionId || cliSessionId} total=${usage.total_billable} master=${usage.masterTurns} msg=${usage.messageCount}`
     );
+    logDiag(cwd, `OK legend=${legendSessionId || 'null'} total=${usage.total_billable} master=${usage.masterTurns} msg=${usage.messageCount}`);
     process.exit(0);
   } catch (err) {
     console.error('[session-end-tokens] error:', err.message);
+    try { logDiag(process.cwd(), `ERROR ${err.message}`); } catch {}
     process.exit(0);
   }
 })();

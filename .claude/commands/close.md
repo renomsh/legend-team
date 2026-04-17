@@ -16,9 +16,21 @@
    - 세션 중 발생한 notes, gaps 기록
 6. Master feedback이 있었으면 `memory/master/master_feedback_log.json`에 추가
 7. 역할별 학습사항이 있으면 `memory/roles/{role}_memory.json` 업데이트
-8. `memory/sessions/session_index.json`에 세션 기록 추가
-9. 세션 로그 기록: `ts-node scripts/session-log.ts end <topic-slug>` 실행
-10. GitHub push: `node scripts/auto-push.js "session end: <topic-slug>"` 실행 (D-008)
+8. **[자동]** `memory/sessions/session_index.json` 세션 기록 추가 — `session-end-finalize.js` hook이 `current_session.json` status=closed 확인 시 자동 append (agentsCompleted·decisions·note 포함). 수동 실행 불필요. (PD-009)
+9. **[자동]** `memory/shared/system_state.json` 재계산 — `sync-system-state.ts`가 hook 체인에서 자동 실행 (lastSessionId·nextSessionId·openTopics·recentDecisions 갱신). pendingDeferrals는 수동 관리.
+10. **[자동]** `memory/sessions/token_log.json` 토큰 집계 — `session-end-tokens.js` hook이 transcript 파싱하여 append.
+11. **[자동]** `memory/shared/dashboard_data.json` 재계산 — `compute-dashboard.ts`가 hook 체인에서 자동 실행.
+12. **[자동]** `dist/` 빌드 — `build.js`가 hook 체인에서 자동 실행 (Cloudflare Pages 반영).
+13. 세션 로그 기록: `ts-node scripts/session-log.ts end <topic-slug>` 실행
+14. GitHub push: `node scripts/auto-push.js "session end: <topic-slug>"` 실행 (D-008)
+
+## SessionEnd Hook 체인 (.claude/settings.json)
+```
+session-end-tokens.js → session-end-finalize.js → compute-dashboard.ts → build.js
+```
+Hook 발동 진단 로그: `logs/hook-diagnostics.log` 확인. 미발동 시 수동 실행:
+- `npx ts-node scripts/sync-system-state.ts`
+- `npx ts-node scripts/compute-dashboard.ts && node scripts/build.js`
 
 ## 규칙
 - 각 단계 완료 시 체크 표시하며 진행
