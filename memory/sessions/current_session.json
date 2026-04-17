@@ -1,30 +1,24 @@
 {
-  "sessionId": "session_027",
-  "topic": "대시보드 업그레이드 — 성장 메인 / 효율 검증 구조",
-  "topicSlug": "dashboard-upgrade",
+  "sessionId": "session_028",
+  "topic": "SessionEnd Hook 완성 — 토큰 집계 고도화 및 main 반영",
+  "topicSlug": "deferrals-apply",
   "status": "closed",
   "startedAt": "2026-04-17T00:00:00.000Z",
-  "closedAt": "2026-04-17T03:00:00.000Z",
+  "closedAt": "2026-04-17T00:00:00.000Z",
   "mode": "observation",
-  "agentsCompleted": ["ace", "arki", "fin", "riki", "dev", "editor"],
+  "agentsCompleted": ["ace", "arki", "dev"],
   "novaInvoked": false,
-  "masterDecisions": ["D-024", "D-025", "D-026"],
-  "reportPath": "reports/2026-04-17_dashboard-upgrade",
+  "masterDecisions": [],
+  "reportPath": "reports/2026-04-17_deferrals-apply",
   "notes": [
-    "GPT 제안 논의 베이스 — 성장 메인 / 효율 검증 구조 논의",
-    "대시보드 2뷰 체계 + 5군 역할 평가 + Phase 0~3 설계 완료",
-    "SessionEnd Hook 구현 및 토큰 집계 테스트 완료",
-    "협력적 사고 선언 — Master '내 말이 무조건 옳지 않아'",
-    "이연: PD-006(경로 검증), PD-007(중복 제거), PD-008(masterTurns 분리)"
+    "PD-006 실측 통과 확인 (session_027 hook 첫 발동 성공)",
+    "PD-007 token_log.json 중복 제거 구현 완료",
+    "PD-008 masterTurns 분리 파싱 구현 완료",
+    "hook 파일 + settings.json main 브랜치 미반영 발견 → 머지 완료",
+    "bypassPermissions 추가 — Claude 업데이트 후 승인 프롬프트 재발생 문제 해결",
+    "PD-004(데이터북) — Master 판단으로 한참 뒤 별도 토픽",
+    "다음 토픽: 대시보드(전략판) 진행"
   ],
   "gaps": [],
-  "closeVerified": true,
-  "tokenUsage": {
-    "input_tokens": 488,
-    "output_tokens": 104271,
-    "cache_creation_input_tokens": 386885,
-    "cache_read_input_tokens": 8394702,
-    "messageCount": 82,
-    "total_billable": 8886346
-  }
+  "closeVerified": true
 }

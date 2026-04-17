@@ -257,6 +257,32 @@
       "effect": "협력적 사고 모드 공식화",
       "status": "resolved",
       "statusNote": "ace_memory learningLoop에 반영 예정."
+    },
+    {
+      "id": "MF-020",
+      "date": "2026-04-17",
+      "session": "session_028",
+      "topic": "deferrals-apply",
+      "afterAgent": "arki",
+      "feedback": "로컬에서 확인하는 거면 네가 바로하면 되잖아.",
+      "decisions": {},
+      "instruction": "파일을 이미 읽어서 알고 있는 정보를 Master에게 확인 요청하지 말 것. 직접 확인 후 결과 보고.",
+      "effect": "Phase 0 확인을 Master에게 위임했다가 지적받음. 이미 읽은 파일 정보는 직접 판단.",
+      "status": "resolved",
+      "statusNote": "즉시 수정. 이후 직접 확인 진행."
+    },
+    {
+      "id": "MF-021",
+      "date": "2026-04-17",
+      "session": "session_028",
+      "topic": "deferrals-apply",
+      "afterAgent": "dev",
+      "feedback": "Claude 업데이트 되면서 전에 안그랬는데, 계속 이러고 있어. main에 머지해.",
+      "decisions": {},
+      "instruction": "bypassPermissions 설정은 worktree 로컬에만 있으면 안 됨 — main에 즉시 머지 필요.",
+      "effect": "main 머지 + push 완료 (37e9b3d)",
+      "status": "resolved",
+      "statusNote": "main 머지 완료. 이후 신규 워크트리에 자동 적용됨."
     }
   ],
   "statusValues": ["pending", "in-progress", "resolved"],
