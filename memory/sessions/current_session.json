@@ -2,17 +2,19 @@
   "sessionId": "session_029",
   "topic": "Legend Team Dashboard #2",
   "topicSlug": "legend-team-dashboard-2",
-  "status": "open",
+  "status": "closed",
   "startedAt": "2026-04-17T07:00:00.000Z",
-  "closedAt": null,
+  "closedAt": "2026-04-17T09:00:00.000Z",
   "mode": "observation",
-  "agentsCompleted": [],
+  "agentsCompleted": ["ace", "arki", "editor"],
   "novaInvoked": false,
   "masterDecisions": [],
   "reportPath": "reports/2026-04-17_legend-team-dashboard-2",
   "notes": [
-    "session_028 후속. 대시보드 구현 완료 여부 확인 및 추가 확정 사항 논의."
+    "session_028 후속. dist/ 배포 갭 해소 + D-028 완전 이행.",
+    "nav 영어 통일, DEV 카드 추가, status 통일(closed→completed 9건), Topics 최신순 개편.",
+    "masterTurns 0 표시는 기존 token_log 데이터 부재 — 다음 세션부터 자동 수집."
   ],
   "gaps": [],
-  "closeVerified": false
+  "closeVerified": true
 }

@@ -510,6 +510,21 @@
       ],
       "outcome": "대시보드 구조적 공백 해소(축A/B/C) + 2뷰 구현 완료. compute-dashboard.ts(28세션 Size 계산) + dashboard-upgrade.html + dashboard-ops.html + append-session.ts. Size 공식 masterTurns 제거(D-027). Hook 자동화(D-028). session_index JSON 구조 오염 원천 차단.",
       "note": "session_028. topic_024 후속 — 대시보드 설계 보완 및 구현."
+    },
+    {
+      "id": "topic_026",
+      "type": "meta-review",
+      "title": "Legend Team Dashboard #2",
+      "status": "completed",
+      "created": "2026-04-17",
+      "reportPath": "reports/2026-04-17_legend-team-dashboard-2",
+      "reportFiles": [
+        "editor_rev1.md"
+      ],
+      "published": false,
+      "outcome": "dist/ 배포 갭 해소 + nav 영어 통일 + status 통일 + Topics 개편",
+      "note": "session_029",
+      "masterDecisions": []
     }
   ],
   "lastUpdated": "2026-04-17T04:00:00.000Z"
