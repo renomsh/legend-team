@@ -27,6 +27,19 @@
     "TypeScript 타입과 실제 JSON 구조 불일치는 tsc --noEmit으로만 감지 가능 (런타임은 통과)"
   ],
   "escalationHistory": [],
+  "topicsHandled_session032": {
+    "topicId": "topic_029",
+    "title": "agentsCompleted Hook 자동화 + dashboard 종합 점검",
+    "date": "2026-04-17",
+    "implemented": [
+      "session-end-finalize.js: current_session→session_index 자동 append",
+      "sync-system-state.ts: system_state.json 재계산 스크립트",
+      "dashboard-upgrade.html: Cache Hit null 수정, Tokens KPI 카드, 슬라이더 동적화, avg/세션 표기",
+      "session-end-tokens.js: 덮어쓰기→누산, 진단 로그",
+      "compute-dashboard.ts: total_billable=0 방어, sessionDecisionIds Map"
+    ],
+    "outcome": "dashboard 6개 이슈 해결. Hook 체인 완성. PD-009 발동 검증 이연."
+  },
   "implementationPatterns_session022": [
     "역할 재정의 구현: 쓰기 제거 시 선행 조건 소멸 여부 먼저 확인 (B-02 retroactive push 제거 근거)",
     "exit code 1은 critical 항목(reports, topic_index)에만. advisory(master_feedback)는 제외."
@@ -47,6 +60,22 @@
       "reusable": true
     }
   ],
+  "lessonLog_session032": [
+    {
+      "id": "DEV-LL-003",
+      "date": "2026-04-17",
+      "topic": "agents-completed-hook",
+      "lesson": "token_log의 total_billable이 undefined인 항목은 JSON.stringify 시 null로 직렬화됨. compute-dashboard에서 null+number=NaN 전파. 각 집계 단계에서 null/undefined 방어 필수.",
+      "reusable": true
+    },
+    {
+      "id": "DEV-LL-004",
+      "date": "2026-04-17",
+      "topic": "agents-completed-hook",
+      "lesson": "compaction으로 동일 Legend 세션에 복수 Claude Code 세션이 생길 수 있음. legendSessionId 기준 token_log 항목은 덮어쓰기 대신 누산 처리 필요.",
+      "reusable": true
+    }
+  ],
   "notes": "session_020에서 신설(D-021). 구현·디버깅 토픽에서만 호출. 호출 조건: Arki 설계 완료 후 구현 단계 진입 시.",
-  "lastUpdated": "2026-04-16T08:56:46.000Z"
+  "lastUpdated": "2026-04-17T18:00:00.000Z"
 }

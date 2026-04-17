@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_028",
-  "nextSessionId": "session_029",
+  "lastSessionId": "session_032",
+  "nextSessionId": "session_033",
   "currentVersion": "v0.9.0",
   "openTopics": [
     {
@@ -9,39 +9,39 @@
       "title": "데이터북 Agent 설계",
       "status": "suspended",
       "reportPath": "reports/2026-04-13_databook-agent-design",
-      "note": "설계 완료. 다음: 7개 팀 파일 전수 조사 → canonical 스키마 확정 → 프로토타입 구현"
+      "note": "전원 참석(Nova 포함). 실제 데이터 7,797건/53열 확인. .xlsb 포맷 이슈 발견. 프로토타입은 다음 세션."
     }
   ],
   "recentDecisions": [
     {
+      "id": "D-031",
+      "date": "2026-04-18",
+      "axis": "auto-push.js .claude/ 워크트리 동기화 자동화",
+      "summary": "auto-push.js에 syncClaudeDir() 추가. 워크트리 감지 시 .claude/(worktrees/ 제외)를 main repo로 복사 후 commit → merge → push. 워크트리 .claude/ 수정사항이 매 세션 자동으로 main에 반영됨."
+    },
+    {
+      "id": "D-030",
+      "date": "2026-04-17",
+      "axis": "token_log 덮어쓰기 → 누산 정책 변경",
+      "summary": "컨텍스트 압축(compaction)으로 동일 Legend 세션에 복수 Claude Code 세션이 생길 경우, token_log.json의 동일 legendSessionId 항목을 덮어쓰기 대신 usage 누산으로 변경. 토큰 유실 방지."
+    },
+    {
+      "id": "D-029",
+      "date": "2026-04-17",
+      "axis": "SessionEnd Hook 체인 완성 — session-end-finalize.js + sync-system-state.ts 자동화",
+      "summary": "session-end-finalize.js 신설: current_session.json status=closed 시 session_index 자동 append(agentsCompleted·decisions·note 포함). sync-system-state.ts 신설: system_state.json openTopics·recentDecisions 자동 재계산. Hook 체인: tokens→finalize→compute-dashboard→build. PD-009 이행."
+    },
+    {
       "id": "D-028",
       "date": "2026-04-17",
       "axis": "compute-dashboard.ts 세션 종료 Hook 자동 실행",
-      "summary": "SessionEnd Hook에 compute-dashboard.ts 추가. token 집계 → 대시보드 재계산 순차 자동화."
+      "summary": "세션 종료 시 compute-dashboard.ts를 auto-push.js 직전에 자동 실행. dashboard_data.json 항상 최신 상태 유지. 수동 트리거 경로 제거."
     },
     {
       "id": "D-027",
       "date": "2026-04-17",
       "axis": "Size 공식 masterTurns 제거",
-      "summary": "Size = (decisionAxes×2) + rolesCalled + (rolesRecalled×2) + (sessionsSpanned×3). 복잡도·자율성 개념 분리."
-    },
-    {
-      "id": "D-026",
-      "date": "2026-04-17",
-      "axis": "SessionEnd Hook 구현 완료",
-      "summary": "transcript .jsonl 파싱으로 세션 토큰 직접 집계. token_log.json 신규. Phase 3a 경로 (i) 확정."
-    },
-    {
-      "id": "D-025",
-      "date": "2026-04-17",
-      "axis": "대시보드 재설계 확정",
-      "summary": "2뷰(업그레이드/과제운영), 5군 역할 평가, Phase 0~3, 자율성 카드, 효율성 그래프, Size 공식."
-    },
-    {
-      "id": "D-024",
-      "date": "2026-04-17",
-      "axis": "제안/채택 레이블링 룰",
-      "summary": "명시적 채택/묵시적 채택(무응답=통과)/기각/보류 4-레이블. 채택률 공식 확정."
+      "summary": "Size = (decisionAxes × 2) + rolesCalled + (rolesRecalled × 2) + (sessionsSpanned × 3). masterTurns를 공식에서 제거하고 버블 색상 독립 변수로 유지. 복잡도(Size)와 자율성(masterTurns) 개념 분리."
     }
   ],
   "pendingDeferrals": [
@@ -81,10 +81,19 @@
       "id": "PD-008",
       "fromSession": "session_030",
       "fromTopic": "dashboard-upgrade-v3",
-      "item": "데이터 구조 개선 — session_index 엔트리에 agentsCompleted 영구 저장: (1) append-session.ts에서 current_session.json의 agentsCompleted를 session_index에 기록, (2) compute-dashboard.ts에서 역할별 호출빈도 집계 필드 추가(roleFrequency), (3) dashboard_data.json에 roleFrequency 섹션 포함",
-      "status": "pending",
-      "note": "현재 agentsCompleted는 current_session.json에만 존재하고 세션 종료 시 소실됨 → 역할 호출빈도 집계 불가. session_001~026 소급은 note 파싱으로 부분 커버만 가능."
+      "item": "데이터 구조 개선 — session_index 엔트리에 agentsCompleted 영구 저장",
+      "status": "resolved",
+      "resolvedInSession": "session_031",
+      "note": "append-session.ts agentsCompleted 파라미터 추가. backfill-agents.ts로 22개 소급. compute-dashboard roleFrequency 집계 추가. session.html Current|History 탭 구현."
+    },
+    {
+      "id": "PD-009",
+      "fromSession": "session_032",
+      "fromTopic": "agents-completed-hook",
+      "item": "SessionEnd hook 체인에 session-end-finalize.js 추가 — current_session → session_index 자동 전파, sync-system-state 자동 재계산. hook 발동 진단 로그(logs/hook-diagnostics.log) 추가.",
+      "status": "in-progress",
+      "note": "session_032 종료 시 발동 여부 + transcript_path 정상 여부 검증."
     }
   ],
-  "lastUpdated": "2026-04-17T10:00:00.000Z"
+  "lastUpdated": "2026-04-17T15:20:39.009Z"
 }

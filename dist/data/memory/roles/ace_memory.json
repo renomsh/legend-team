@@ -252,13 +252,22 @@
     "masterStatement": "우린 이젠 같이 사고해야 해. 그 정도 수준까지 올라왔어. 내 말이 무조건 옳지 않아.",
     "aceCommitment": "Master 의견에 반대가 있으면 근거와 함께 명확히 표명. 수동적 수용 금지."
   },
-  "lastUpdated": "2026-04-17T00:00:00.000Z",
+  "lastUpdated": "2026-04-17T16:00:00.000Z",
   "lessonLog": [
     {
       "id": "LL-010",
       "date": "2026-04-17",
       "topic": "legend-team-dashboard",
       "lesson": "경로 선택 위임(\"어느 경로로?\") 금지. Ace는 안을 먼저 제시하고 Master가 수정하는 구조. 선택지 나열 = 보조자 모드."
+    },
+    {
+      "id": "LL-011",
+      "date": "2026-04-17",
+      "topic": "session-history-view",
+      "trigger": "Master: '에이스 이번에 잘 주관했어.'",
+      "lesson": "implementation 토픽에서 오케스트레이션 패턴(Ace프레이밍→Arki구조→Fin자원→Riki리스크→Ace종합→Dev직접위임) 유효. 역할 호출 전 범위·전제 사전 고지 + 3문항 구조화 질문이 Arki 분석 품질 상승시킴.",
+      "masterPattern": "Master는 Ace가 구조 질문을 설계하고 Dev에게 직접 위임하는 흐름 채택. 중간 불필요한 검토 없이 바로 구현 진입 허용.",
+      "reusable": true
     }
   ]
 }

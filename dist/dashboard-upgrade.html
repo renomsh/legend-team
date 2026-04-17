@@ -79,11 +79,11 @@ a{color:inherit;text-decoration:none}
 .btn-reset:hover{border-color:var(--line-2);color:var(--text)}
 
 /* ===== KPI Row ===== */
-.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+.kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:24px}
 .kpi{position:relative;padding:20px;border-radius:16px;background:var(--panel);border:1px solid var(--line);overflow:hidden;transition:all .2s}
 .kpi:hover{border-color:var(--line-2);transform:translateY(-2px)}
 .kpi::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent)}
-.kpi.a{--accent:var(--grad-violet)}.kpi.b{--accent:var(--grad-teal)}.kpi.c{--accent:var(--grad-amber)}.kpi.d{--accent:var(--grad-rose)}
+.kpi.a{--accent:var(--grad-violet)}.kpi.b{--accent:var(--grad-teal)}.kpi.c{--accent:var(--grad-amber)}.kpi.d{--accent:var(--grad-rose)}.kpi.e{--accent:linear-gradient(135deg,#3B82F6 0%,#8B5CF6 100%)}
 .kpi-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
 .kpi-label{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--text-3);font-weight:600}
 .kpi-icon{width:30px;height:30px;border-radius:8px;background:var(--panel-2);border:1px solid var(--line);display:grid;place-items:center;font-size:13px}
@@ -243,7 +243,7 @@ a{color:inherit;text-decoration:none}
     <!-- FILTER -->
     <div class="filter-bar">
       <span class="filter-label">최근</span>
-      <input type="range" id="sessionSlider" min="1" max="28" value="28" oninput="onSliderChange()">
+      <input type="range" id="sessionSlider" min="1" max="1" value="1" oninput="onSliderChange()">
       <span class="filter-label">부터</span>
       <input type="date" id="dateFrom" onchange="onDateChange()">
       <span class="filter-label">~</span>
@@ -271,6 +271,13 @@ a{color:inherit;text-decoration:none}
         <div class="kpi-val" id="kCache">—</div>
         <div class="kpi-sub">평균 캐시 적중률</div>
         <div class="kpi-spark" id="sparkCache"></div>
+      </div>
+      <div class="kpi e">
+        <div class="kpi-top"><div class="kpi-label">Tokens</div><div class="kpi-icon">⚡</div></div>
+        <div class="kpi-val" id="kTokens">—</div>
+        <div class="kpi-sub" id="kTokensSub">총 사용량 (필터)</div>
+        <div class="kpi-sub" id="kTokensAvg" style="font-size:0.72rem;opacity:0.6;margin-top:2px;">avg —/세션</div>
+        <div class="kpi-spark" id="sparkTokens"></div>
       </div>
       <div class="kpi d">
         <div class="kpi-top"><div class="kpi-label">Sessions</div><div class="kpi-icon">◎</div></div>
@@ -310,7 +317,7 @@ a{color:inherit;text-decoration:none}
           </div>
         </div>
         <div class="role-freq" id="roleFreq"></div>
-        <div class="rf-note">⚠︎ 추정치 — PD-008 구현 후 정확값으로 대체 예정<br>(agentsCompleted 영구 저장)</div>
+        <div class="rf-note">✓ 실집계 — session_index.agentsCompleted 기반 · 필터 구간 세션 내 1회 카운트</div>
       </div>
     </div>
 
@@ -363,28 +370,21 @@ a{color:inherit;text-decoration:none}
 
 <script src="js/data-loader.js"></script>
 <script>
-const ROLE_COLORS = {ace:'#8B5CF6',arki:'#06B6D4',fin:'#F59E0B',riki:'#EF4444',editor:'#10B981',nova:'#EC4899',dev:'#3B82F6',vera:'#F472B6'};
+const ROLE_COLORS = {ace:'#8B5CF6',arki:'#06B6D4',fin:'#F59E0B',riki:'#EF4444',editor:'#10B981',nova:'#EC4899',dev:'#3B82F6',vera:'#F472B6','ace-review':'#A78BFA'};
 const ROLE_ORDER = ['ace','arki','fin','riki','editor','dev','nova','vera'];
 
-// Inferred role calls per session (replaced once PD-008 lands)
-const SESSION_ROLES = {
-  session_023:['ace','arki','fin','riki','editor'],
-  session_024:['ace','arki','fin','riki','editor'],
-  session_025:['ace','arki','fin','riki','editor','dev'],
-  session_026:['ace','editor'],
-  session_027:['ace','arki','fin','riki','editor','dev'],
-  session_028:['ace','arki','fin','riki','editor','dev'],
-  session_029:['ace','arki','fin','riki','editor'],
-  session_030:['ace','arki','fin','riki','editor','dev','vera']
-};
-const SESSION_DECISIONS = {
-  session_025:['D-023','D-024','D-025'],
-  session_027:['D-026'],
-  session_028:['D-027','D-028'],
-  session_030:['D-029','D-030']
-};
+function fmtPct(v) {
+  if (v === null || v === undefined || isNaN(v)) return '—';
+  return (v * 100).toFixed(1) + '%';
+}
+function fmtTokens(n) {
+  if (!n || isNaN(n)) return '—';
+  if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + 'M';
+  if (n >= 1_000) return (n / 1_000).toFixed(1) + 'K';
+  return String(n);
+}
 
-let allSessions = [], globalMetrics = {}, globalAlarms = [], filteredSessions = [], globalDeferred = [];
+let allSessions = [], globalMetrics = {}, globalAlarms = [], globalRoleFreq = [], filteredSessions = [], globalDeferred = [];
 
 async function init() {
   const [data, state] = await Promise.all([
@@ -396,26 +396,26 @@ async function init() {
   allSessions = data.sessions ?? [];
   globalMetrics = data.metrics ?? {};
   globalAlarms = data.alarms ?? [];
+  globalRoleFreq = data.roleFrequency ?? [];
   globalDeferred = state?.pendingDeferrals ?? [];
 
   const total = allSessions.length;
-  const avgSize = (allSessions.reduce((a,s)=>a+(s.size||0),0)/Math.max(total,1)).toFixed(1);
+  const avgSize = total ? (allSessions.reduce((a,s)=>a+(s.size||0),0)/total).toFixed(1) : '—';
 
   document.getElementById('buildDate').textContent = new Date(data.generatedAt).toLocaleDateString('ko-KR');
   document.getElementById('buildTs').textContent = new Date(data.generatedAt).toLocaleString('ko-KR',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
   document.getElementById('heroNum').textContent = total;
   document.getElementById('heroLabel').textContent = `${total} sessions · v1.0.0 · Legend Team`;
-  document.getElementById('mDec').innerHTML = (globalMetrics.totalDecisions||total)+'<small style="font-size:11px;color:#6E6E78;margin-left:6px">건</small>';
-  document.getElementById('mCache').textContent = (globalMetrics.avgCacheHitRate*100).toFixed(1)+'%';
+  document.getElementById('mDec').innerHTML = (globalMetrics.totalDecisions ?? 0)+'<small style="font-size:11px;color:#6E6E78;margin-left:6px">건</small>';
+  document.getElementById('mCache').textContent = fmtPct(globalMetrics.avgCacheHitRate);
   document.getElementById('mSize').textContent = avgSize;
 
   const slider = document.getElementById('sessionSlider');
-  slider.max = total;
-  slider.value = Math.min(28, total);
+  slider.max = Math.max(total, 1);
+  slider.min = 1;
+  slider.value = total; // 기본 전체 표시
 
-  // Hero chart
   renderHeroChart(allSessions.slice(-14));
-  // Role frequency (full history)
   renderRoleFreq(allSessions);
 
   applyFilter();
@@ -448,7 +448,7 @@ function onSliderChange() {
 }
 function onDateChange() { applyFilter(); }
 function resetFilter() {
-  document.getElementById('sessionSlider').value = Math.min(28, allSessions.length);
+  document.getElementById('sessionSlider').value = allSessions.length;
   document.getElementById('dateFrom').value = '';
   document.getElementById('dateTo').value = '';
   applyFilter();
@@ -466,42 +466,74 @@ function renderAll() {
 
 function renderKPIs() {
   const t = filteredSessions.length;
-  const axes = filteredSessions.reduce((a,s)=>a+(s.decisionAxes||0),0);
   const avgSize = t ? (filteredSessions.reduce((a,s)=>a+(s.size||0),0)/t).toFixed(1) : '—';
-  document.getElementById('kDec').textContent = globalMetrics.totalDecisions ?? '—';
+
+  // 필터 구간 내 실제 캐시 적중률 (tokenUsage 있는 세션만 평균)
+  const withTok = filteredSessions.filter(s=>s.tokenUsage);
+  const avgCache = withTok.length
+    ? withTok.reduce((a,s)=>a+(s.tokenUsage.cacheHitRate||0),0)/withTok.length
+    : null;
+
+  // 토큰 총합
+  const totalTokens = withTok.reduce((a,s)=>a+(s.tokenUsage.totalBillable||0),0);
+
+  // 필터 구간 내 결정 수
+  const filteredDec = filteredSessions.reduce((a,s)=>a+(s.decisionCount||0),0);
+
+  document.getElementById('kDec').textContent = filteredDec || (globalMetrics.totalDecisions ?? 0);
   document.getElementById('kSize').textContent = avgSize;
-  document.getElementById('kCache').textContent = globalMetrics.avgCacheHitRate ? (globalMetrics.avgCacheHitRate*100).toFixed(1)+'%' : '—';
+  document.getElementById('kCache').textContent = fmtPct(avgCache);
+  document.getElementById('kTokens').textContent = fmtTokens(totalTokens);
+  document.getElementById('kTokensSub').textContent = withTok.length
+    ? `${withTok.length}/${t}개 세션 집계`
+    : '집계 데이터 없음';
+  const avgTok = withTok.length ? totalTokens / withTok.length : null;
+  document.getElementById('kTokensAvg').textContent = avgTok ? `avg ${fmtTokens(avgTok)}/세션` : 'avg —/세션';
   document.getElementById('kSessions').textContent = t;
   document.getElementById('sessionBadge').textContent = filteredSessions.at(-1)?.sessionId ?? '—';
-  spark('sparkDec', filteredSessions.map(s=>s.decisionAxes||0), '#A78BFA');
+
+  spark('sparkDec', filteredSessions.map(s=>s.decisionCount||0), '#A78BFA');
   spark('sparkSize', filteredSessions.map(s=>s.size||0), '#14B8A6');
-  spark('sparkCache', filteredSessions.map(()=>92+Math.random()*6), '#F59E0B');
+  spark('sparkCache', filteredSessions.map(s=>(s.tokenUsage?.cacheHitRate ?? 0)*100), '#F59E0B');
+  spark('sparkTokens', filteredSessions.map(s=>s.tokenUsage?.totalBillable || 0), '#3B82F6');
   spark('sparkSessions', filteredSessions.map((_,i)=>i+1), '#8B5CF6');
 }
 
 function renderAutonomy() {
-  const with_ = filteredSessions.filter(s=>s.masterTurns>0);
-  const avg = with_.length ? (with_.reduce((a,s)=>a+s.masterTurns,0)/with_.length).toFixed(1) : '—';
-  document.getElementById('autoVal').textContent = avg;
-  document.getElementById('autoSub').textContent = `${filteredSessions.length}개 세션 기준 (데이터 있는 ${with_.length}개)`;
-  const badge = avg==='—'?'데이터 수집 중':+avg>5?'🟢 높은 자율성':+avg>2?'🟡 중간':'🔴 Master 병목';
-  document.getElementById('autoBadge').textContent = badge;
+  // 1차 지표: masterTurns (token hook 집계 기반)
+  const withTurns = filteredSessions.filter(s=>s.masterTurns>0);
+  if (withTurns.length > 0) {
+    const avg = (withTurns.reduce((a,s)=>a+s.masterTurns,0)/withTurns.length).toFixed(1);
+    document.getElementById('autoVal').textContent = avg;
+    document.getElementById('autoSub').textContent = `${filteredSessions.length}개 세션 · 집계 ${withTurns.length}개 (Master 개입 횟수)`;
+    const v = +avg;
+    const badge = v<=3?'🟢 높은 자율성':v<=7?'🟡 중간':'🔴 Master 병목';
+    document.getElementById('autoBadge').textContent = badge;
+    return;
+  }
+  // 2차 대체: 역할 재호출 수 (rolesRecalled 기반 보조 신호)
+  const totalRecalls = filteredSessions.reduce((a,s)=>a+(s.rolesRecalled||0),0);
+  document.getElementById('autoVal').textContent = totalRecalls > 0 ? totalRecalls : '—';
+  document.getElementById('autoSub').textContent = `Token hook 데이터 수집 중 · 임시 지표: 역할 재호출 ${totalRecalls}회 (${filteredSessions.length}개 세션)`;
+  document.getElementById('autoBadge').textContent = '🟡 보조 지표';
 }
 
 function renderFlow() {
   const recent = filteredSessions.slice(-6).reverse();
   document.getElementById('flowList').innerHTML = recent.map(s => {
-    const roles = SESSION_ROLES[s.sessionId]||['ace','editor'];
-    const decs = SESSION_DECISIONS[s.sessionId]||[];
+    const roles = (s.agentsCompleted && s.agentsCompleted.length > 0) ? s.agentsCompleted : [];
+    const decs = s.decisions || [];
     const id = s.sessionId.replace('session_','');
-    const date = new Date(s.startedAt).toLocaleDateString('ko-KR',{month:'2-digit',day:'2-digit'});
-    const title = s.topic || s.topicSlug.replace(/^\d{4}-\d{2}-\d{2}_/,'').replace(/-/g,' ');
+    const date = s.startedAt ? new Date(s.startedAt).toLocaleDateString('ko-KR',{month:'2-digit',day:'2-digit'}) : '';
+    const title = s.topic || (s.topicSlug||'').replace(/^\d{4}-\d{2}-\d{2}_/,'').replace(/-/g,' ');
+    const quality = s.dataQuality || 'manual';
+    const qBadge = quality==='auto'?'🟢':quality==='backfill'?'🟡':'⚪';
     return `<div class="flow-row">
-      <div class="flow-id"><b>#${id}</b>${date}</div>
+      <div class="flow-id"><b>#${id}</b>${date} ${qBadge}</div>
       <div class="flow-body">
         <div class="flow-title" title="${title}">${title}</div>
         <div class="flow-chips">
-          ${roles.map(r=>`<span class="rchip ${r}">${r}</span>`).join('')}
+          ${roles.map(r=>`<span class="rchip ${r}">${r}</span>`).join('') || '<span style="font-size:10px;color:var(--text-3)">— 역할 정보 없음</span>'}
           ${decs.map(d=>`<span class="dtag">${d}</span>`).join('')}
         </div>
       </div>
@@ -511,18 +543,20 @@ function renderFlow() {
 }
 
 function renderRoleFreq(sessions) {
+  // dashboard_data.json의 roleFrequency 사용 — compute-dashboard.ts 실집계
+  const ids = new Set(sessions.map(s=>s.sessionId));
   const counts = {};
   ROLE_ORDER.forEach(r=>counts[r]=0);
+  // 필터 구간 내 세션만 집계 (roleFrequency는 전체라서 직접 계산)
   sessions.forEach(s => {
-    (SESSION_ROLES[s.sessionId]||['ace','editor']).forEach(r=>{if(counts[r]!==undefined)counts[r]++});
+    if (!s.agentsCompleted) return;
+    const seen = new Set();
+    s.agentsCompleted.forEach(r => {
+      if (seen.has(r)) return;
+      seen.add(r);
+      if (counts[r] !== undefined) counts[r]++;
+    });
   });
-  // Baseline estimate for sessions without role data
-  const unmapped = sessions.filter(s=>!SESSION_ROLES[s.sessionId]).length;
-  counts.ace += unmapped;
-  counts.editor += Math.floor(unmapped*0.9);
-  counts.arki += Math.floor(unmapped*0.7);
-  counts.fin += Math.floor(unmapped*0.65);
-  counts.riki += Math.floor(unmapped*0.65);
   const max = Math.max(...Object.values(counts),1);
   document.getElementById('roleFreq').innerHTML = ROLE_ORDER.map(r => {
     const c = counts[r];
@@ -564,12 +598,14 @@ function renderEfficiency() {
     xAxis:{type:'category',data:ids,axisLine:{lineStyle:{color:'#26262D'}},axisLabel:{color:'#6E6E78',fontSize:9,rotate:45}},
     yAxis:[
       {type:'value',name:'Size',nameTextStyle:{color:'#6E6E78',fontSize:9},axisLine:{show:false},splitLine:{lineStyle:{color:'#1C1C22'}},axisLabel:{color:'#6E6E78',fontSize:9}},
-      {type:'value',name:'Cache%',min:80,max:100,nameTextStyle:{color:'#6E6E78',fontSize:9},axisLine:{show:false},splitLine:{show:false},axisLabel:{color:'#6E6E78',fontSize:9}}
+      {type:'value',name:'Cache%',min:0,max:100,nameTextStyle:{color:'#6E6E78',fontSize:9},axisLine:{show:false},splitLine:{show:false},axisLabel:{color:'#6E6E78',fontSize:9,formatter:'{value}%'}}
     ],
     series:[
       {name:'Size',type:'bar',data:filteredSessions.map(s=>s.size||0),barWidth:'50%',
         itemStyle:{borderRadius:[3,3,0,0],color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#14B8A6'},{offset:1,color:'#0891B2'}])}},
-      {name:'Cache%',type:'line',yAxisIndex:1,smooth:true,data:filteredSessions.map(()=>(92+Math.random()*6).toFixed(1)),
+      {name:'Cache%',type:'line',yAxisIndex:1,smooth:true,
+        data:filteredSessions.map(s=>s.tokenUsage?((s.tokenUsage.cacheHitRate||0)*100).toFixed(1):null),
+        connectNulls:false,
         lineStyle:{color:'#F59E0B',width:2},itemStyle:{color:'#F59E0B'},symbolSize:4}
     ]
   });

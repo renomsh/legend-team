@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-17T13:29:30.255Z",
+  "generatedAt": "2026-04-17T15:20:41.210Z",
   "decisions": [
     {
       "id": "D-001",
@@ -311,6 +311,39 @@
       "axis": "compute-dashboard.ts 세션 종료 Hook 자동 실행",
       "decision": "Master 승인",
       "value": "세션 종료 시 compute-dashboard.ts를 auto-push.js 직전에 자동 실행. dashboard_data.json 항상 최신 상태 유지. 수동 트리거 경로 제거.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-029",
+      "date": "2026-04-17",
+      "session": "session_032",
+      "topic": "agents-completed-hook",
+      "axis": "SessionEnd Hook 체인 완성 — session-end-finalize.js + sync-system-state.ts 자동화",
+      "decision": "Master 승인 (묵시적)",
+      "value": "session-end-finalize.js 신설: current_session.json status=closed 시 session_index 자동 append(agentsCompleted·decisions·note 포함). sync-system-state.ts 신설: system_state.json openTopics·recentDecisions 자동 재계산. Hook 체인: tokens→finalize→compute-dashboard→build. PD-009 이행.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-030",
+      "date": "2026-04-17",
+      "session": "session_032",
+      "topic": "agents-completed-hook",
+      "axis": "token_log 덮어쓰기 → 누산 정책 변경",
+      "decision": "Master 승인 (묵시적)",
+      "value": "컨텍스트 압축(compaction)으로 동일 Legend 세션에 복수 Claude Code 세션이 생길 경우, token_log.json의 동일 legendSessionId 항목을 덮어쓰기 대신 usage 누산으로 변경. 토큰 유실 방지.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-031",
+      "date": "2026-04-18",
+      "session": "session_032",
+      "topic": "agents-completed-hook",
+      "axis": "auto-push.js .claude/ 워크트리 동기화 자동화",
+      "decision": "Master 지시 (\"구현해. 도대체 몇번째야.\")",
+      "value": "auto-push.js에 syncClaudeDir() 추가. 워크트리 감지 시 .claude/(worktrees/ 제외)를 main repo로 복사 후 commit → merge → push. 워크트리 .claude/ 수정사항이 매 세션 자동으로 main에 반영됨.",
       "authority": "master",
       "status": "confirmed"
     }

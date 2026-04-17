@@ -113,6 +113,10 @@ const DataLoader = {
     return this.fetchJSON('memory/shared/evidence_index.json');
   },
 
+  async getDashboardData() {
+    return this.fetchJSON('memory/shared/dashboard_data.json');
+  },
+
   // ── Report fetching ───────────────────────────────────────────────────────
 
   /**
