@@ -1,8 +1,9 @@
 {
   "workflow": {
     "mode": "topic-sequential",
-    "description": "Each topic is processed through a defined agent sequence. Outputs are revision-tracked and never silently overwritten.",
-    "topicLifecycle": ["open", "in-progress", "review", "closed"],
+    "description": "Each topic is processed through a defined role sequence. Ace frames and reviews; domain roles analyze in sequence; Editor compiles. Outputs are revision-tracked and never silently overwritten.",
+    "topicLifecycle": ["open", "in-progress", "review", "suspended", "closed"],
+    "reportLifecycle": ["draft", "reviewed", "approved", "superseded", "speculative"],
     "revisionPolicy": {
       "append": true,
       "silentOverwrite": false,
@@ -10,7 +11,7 @@
       "timestampRequired": true
     }
   },
-  "defaultSequence": ["ace", "arki", "fin", "riki", "editor"],
+  "defaultSequence": ["ace", "arki", "fin", "riki", "ace", "editor"],
   "phases": [
     {
       "phase": 1,
@@ -42,19 +43,27 @@
     },
     {
       "phase": 5,
-      "name": "synthesis",
+      "name": "review",
+      "lead": "ace",
+      "optional": false,
+      "description": "Ace performs comprehensive cross-review of all role outputs, resolves conflicts, and delivers the final recommendation to Master. This is the authoritative synthesis — subject only to Master override."
+    },
+    {
+      "phase": 6,
+      "name": "output",
       "lead": "editor",
       "optional": false,
-      "description": "Editor integrates all agent outputs into the final artifact. Owns synthesis, revision handling, version transitions, and report compilation."
+      "description": "Editor compiles, formats, and packages final artifacts based on Ace's comprehensive review. Editor does not perform independent synthesis or judgment."
     }
   ],
   "optionalExtensions": [
     {
       "name": "speculation",
       "lead": "nova",
-      "trigger": "explicit config flag or command — never invoked by default",
-      "description": "Nova contributes speculative or contrarian angles as a separate, labeled stretch output. Nova outputs are advisory only and must not be treated as authoritative.",
+      "trigger": "explicit Master request only — never invoked by default",
+      "description": "Nova contributes speculative or contrarian angles as a separate, labeled stretch output. Nova outputs are advisory only and must not be treated as authoritative unless explicitly promoted by Master.",
       "insertAfter": "risk",
+      "insertBefore": "review",
       "outputStatus": "speculative"
     }
   ],
