@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>D3.js Sample</title>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: sans-serif; background: #f0f2f5; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+    .card { background: white; border-radius: 14px; padding: 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+    h2 { margin-bottom: 6px; color: #222; font-size: 17px; font-weight: 600; }
+    p  { margin-bottom: 20px; color: #888; font-size: 13px; }
+    .bar:hover { opacity: 0.8; cursor: pointer; }
+    .tooltip {
+      position: absolute; display: none;
+      background: rgba(15,23,42,0.88); color: #f1f5f9;
+      border-radius: 8px; padding: 7px 13px; font-size: 13px;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>월별 매출 현황 (2026)</h2>
+    <p>D3.js v7 · 단위: 만원</p>
+    <svg id="chart"></svg>
+  </div>
+  <div class="tooltip" id="tooltip"></div>
+
+  <script>
+    const data = [
+      {month: "1월", sales: 320},
+      {month: "2월", sales: 410},
+      {month: "3월", sales: 380},
+      {month: "4월", sales: 520},
+      {month: "5월", sales: 490},
+      {month: "6월", sales: 610},
+    ];
+
+    const W = 520, H = 300;
+    const margin = {top: 24, right: 16, bottom: 36, left: 52};
+    const w = W - margin.left - margin.right;
+    const h = H - margin.top - margin.bottom;
+
+    const svg = d3.select("#chart")
+      .attr("width", W).attr("height", H);
+
+    const g = svg.append("g")
+      .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    const x = d3.scaleBand().domain(data.map(d => d.month)).range([0, w]).padding(0.3);
+    const y = d3.scaleLinear().domain([0, d3.max(data, d => d.sales) * 1.15]).range([h, 0]);
+
+    const color = d3.scaleSequential()
+      .domain([d3.min(data, d => d.sales), d3.max(data, d => d.sales)])
+      .interpolator(d3.interpolate("#a5b4fc", "#4f46e5"));
+
+    // Axes
+    g.append("g").attr("transform", `translate(0,${h})`)
+      .call(d3.axisBottom(x).tickSize(0))
+      .call(g => g.select(".domain").attr("stroke", "#e2e8f0"))
+      .call(g => g.selectAll("text").attr("fill", "#64748b").attr("dy", "1.2em"));
+
+    g.append("g")
+      .call(d3.axisLeft(y).ticks(5).tickFormat(d => d + "만").tickSize(-w))
+      .call(g => g.select(".domain").remove())
+      .call(g => g.selectAll(".tick line").attr("stroke", "#f1f5f9"))
+      .call(g => g.selectAll("text").attr("fill", "#94a3b8"));
+
+    // Tooltip
+    const tooltip = d3.select("#tooltip");
+
+    // Bars
+    g.selectAll(".bar")
+      .data(data)
+      .join("rect")
+      .attr("class", "bar")
+      .attr("x", d => x(d.month))
+      .attr("y", h)
+      .attr("width", x.bandwidth())
+      .attr("height", 0)
+      .attr("rx", 5)
+      .attr("fill", d => color(d.sales))
+      .on("mouseover", (event, d) => {
+        tooltip.style("display", "block")
+          .html(`<b>${d.month}</b> · ${d.sales.toLocaleString()}만원`);
+      })
+      .on("mousemove", event => {
+        tooltip.style("left", event.pageX + 12 + "px").style("top", event.pageY - 10 + "px");
+      })
+      .on("mouseleave", () => tooltip.style("display", "none"))
+      .transition().duration(700).ease(d3.easeCubicOut)
+      .attr("y", d => y(d.sales))
+      .attr("height", d => h - y(d.sales));
+
+    // Labels
+    g.selectAll(".label")
+      .data(data)
+      .join("text")
+      .attr("class", "label")
+      .attr("x", d => x(d.month) + x.bandwidth() / 2)
+      .attr("y", d => y(d.sales) - 6)
+      .attr("text-anchor", "middle")
+      .attr("font-size", 12)
+      .attr("fill", "#475569")
+      .text(d => d.sales + "만");
+  </script>
+</body>
+</html>

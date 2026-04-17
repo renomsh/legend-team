@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>3D Bar Chart — Three.js</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #080c14; overflow: hidden; }
+    canvas { display: block; }
+    #info {
+      position: absolute; top: 24px; left: 50%; transform: translateX(-50%);
+      color: #94a3b8; font-family: sans-serif; font-size: 13px; text-align: center;
+      pointer-events: none;
+    }
+    #info strong { color: #f1f5f9; font-size: 16px; display: block; margin-bottom: 4px; }
+    #tooltip {
+      position: absolute; display: none; background: rgba(15,23,42,0.9);
+      border: 1px solid #334155; border-radius: 8px; padding: 8px 14px;
+      color: #f1f5f9; font-family: sans-serif; font-size: 13px; pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="info">
+    <strong>분기별 매출 현황 (3D)</strong>
+    마우스로 드래그하여 회전 · 스크롤로 줌
+  </div>
+  <div id="tooltip"></div>
+
+  <script>
+    // Scene setup
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.Fog(0x080c14, 20, 60);
+
+    const camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 0.1, 100);
+    camera.position.set(6, 8, 14);
+    camera.lookAt(0, 0, 0);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(innerWidth, innerHeight);
+    renderer.setPixelRatio(devicePixelRatio);
+    renderer.shadowMap.enabled = true;
+    document.body.appendChild(renderer.domElement);
+
+    // Lights
+    const ambient = new THREE.AmbientLight(0xffffff, 0.4);
+    scene.add(ambient);
+
+    const dirLight = new THREE.DirectionalLight(0xffffff, 1.2);
+    dirLight.position.set(8, 16, 8);
+    dirLight.castShadow = true;
+    scene.add(dirLight);
+
+    const pointLight = new THREE.PointLight(0x6366f1, 2, 30);
+    pointLight.position.set(-4, 6, 4);
+    scene.add(pointLight);
+
+    // Grid floor
+    const grid = new THREE.GridHelper(20, 20, 0x1e3a5f, 0x1e293b);
+    scene.add(grid);
+
+    // Data
+    const data = [
+      { label: 'Q1', value: 320, color: 0x6366f1 },
+      { label: 'Q2', value: 510, color: 0x8b5cf6 },
+      { label: 'Q3', value: 430, color: 0x38bdf8 },
+      { label: 'Q4', value: 680, color: 0x10b981 },
+    ];
+
+    const maxVal = Math.max(...data.map(d => d.value));
+    const maxH = 6;
+    const bars = [];
+
+    data.forEach((d, i) => {
+      const h = (d.value / maxVal) * maxH;
+      const geo = new THREE.BoxGeometry(1.2, h, 1.2);
+      const mat = new THREE.MeshStandardMaterial({
+        color: d.color,
+        metalness: 0.3,
+        roughness: 0.4,
+        emissive: d.color,
+        emissiveIntensity: 0.15,
+      });
+      const mesh = new THREE.Mesh(geo, mat);
+      mesh.position.set((i - 1.5) * 2.2, h / 2, 0);
+      mesh.castShadow = true;
+      mesh.userData = { label: d.label, value: d.value };
+      scene.add(mesh);
+      bars.push(mesh);
+
+      // Top glow cap
+      const capGeo = new THREE.BoxGeometry(1.22, 0.06, 1.22);
+      const capMat = new THREE.MeshStandardMaterial({
+        color: d.color, emissive: d.color, emissiveIntensity: 1.2,
+        metalness: 0.1, roughness: 0.2
+      });
+      const cap = new THREE.Mesh(capGeo, capMat);
+      cap.position.set((i - 1.5) * 2.2, h + 0.03, 0);
+      scene.add(cap);
+    });
+
+    // Raycaster for hover
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+    const tooltip = document.getElementById('tooltip');
+
+    window.addEventListener('mousemove', e => {
+      mouse.x = (e.clientX / innerWidth) * 2 - 1;
+      mouse.y = -(e.clientY / innerHeight) * 2 + 1;
+      raycaster.setFromCamera(mouse, camera);
+      const hits = raycaster.intersectObjects(bars);
+      if (hits.length > 0) {
+        const { label, value } = hits[0].object.userData;
+        tooltip.style.display = 'block';
+        tooltip.style.left = e.clientX + 14 + 'px';
+        tooltip.style.top  = e.clientY - 10 + 'px';
+        tooltip.innerHTML = `<b>${label}</b> · ${value.toLocaleString()}만원`;
+      } else {
+        tooltip.style.display = 'none';
+      }
+    });
+
+    // Orbit controls (manual)
+    let isDragging = false, prevX = 0, prevY = 0;
+    let theta = 0.4, phi = 0.6, radius = 16;
+
+    renderer.domElement.addEventListener('mousedown', e => { isDragging = true; prevX = e.clientX; prevY = e.clientY; });
+    window.addEventListener('mouseup', () => isDragging = false);
+    window.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      theta -= (e.clientX - prevX) * 0.01;
+      phi   = Math.max(0.2, Math.min(1.4, phi - (e.clientY - prevY) * 0.01));
+      prevX = e.clientX; prevY = e.clientY;
+    });
+    window.addEventListener('wheel', e => {
+      radius = Math.max(6, Math.min(28, radius + e.deltaY * 0.02));
+    });
+
+    // Animate
+    let t = 0;
+    function animate() {
+      requestAnimationFrame(animate);
+      t += 0.012;
+
+      // Subtle bar pulse
+      bars.forEach((b, i) => {
+        b.material.emissiveIntensity = 0.1 + Math.sin(t + i * 1.2) * 0.08;
+      });
+
+      pointLight.position.x = Math.sin(t * 0.4) * 6;
+      pointLight.position.z = Math.cos(t * 0.4) * 6;
+
+      camera.position.x = radius * Math.sin(theta) * Math.cos(phi);
+      camera.position.y = radius * Math.sin(phi);
+      camera.position.z = radius * Math.cos(theta) * Math.cos(phi);
+      camera.lookAt(0, 2, 0);
+
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = innerWidth / innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(innerWidth, innerHeight);
+    });
+  </script>
+</body>
+</html>

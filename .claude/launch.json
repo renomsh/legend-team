@@ -6,6 +6,18 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["http-server", "C:/Users/문성훈/Downloads", "-p", "8080", "-c-1"],
       "port": 8080
+    },
+    {
+      "name": "legend-viewer",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "C:/Projects/legend-team/dist", "-p", "8090", "-c-1"],
+      "port": 8090
+    }
+    ,{
+      "name": "legend-docs",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "C:/Projects/legend-team/docs", "-p", "8091", "-c-1"],
+      "port": 8091
     }
   ]
 }

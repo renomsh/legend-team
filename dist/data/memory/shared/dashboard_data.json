@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-04-17T05:15:32.975Z",
-  "totalSessions": 28,
+  "generatedAt": "2026-04-17T11:16:43.128Z",
+  "totalSessions": 29,
   "autoDataFrom": "session_027",
   "metrics": {
     "avgMasterTurns": 0,
-    "avgCacheHitRate": 0.9447,
+    "avgCacheHitRate": null,
     "avgAdoptionRate": 0,
     "totalDecisions": 28
   },
@@ -400,7 +400,7 @@
       "topicSlug": "legend-team-dashboard",
       "topic": "legend-team Dash board",
       "startedAt": "2026-04-17T04:00:00.000Z",
-      "closedAt": null,
+      "closedAt": "2026-04-17T06:00:00.000Z",
       "decisionCount": 0,
       "decisionAxes": 2,
       "rolesCalled": 1,
@@ -409,6 +409,25 @@
       "size": 8,
       "masterTurns": 0,
       "dataQuality": "auto"
+    },
+    {
+      "sessionId": "session_029",
+      "topicSlug": "legend-team-dashboard-2",
+      "topic": "Legend Team Dashboard #2",
+      "startedAt": "2026-04-17T07:00:00.000Z",
+      "closedAt": "2026-04-17T09:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "masterTurns": 0,
+      "dataQuality": "auto",
+      "tokenUsage": {
+        "cacheHitRate": null,
+        "messageCount": 0
+      }
     }
   ],
   "alarms": [],

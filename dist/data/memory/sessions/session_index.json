@@ -206,10 +206,19 @@
       "topicSlug": "legend-team-dashboard",
       "topic": "legend-team Dash board",
       "startedAt": "2026-04-17T04:00:00.000Z",
-      "closedAt": null,
-      "note": "대시보드 구현 세션"
+      "closedAt": "2026-04-17T06:00:00.000Z",
+      "note": "dist/ 배포 갭 해소 + Hook 체인 완성 (D-028 완전 이행)"
+    },
+    {
+      "sessionId": "session_029",
+      "topicSlug": "legend-team-dashboard-2",
+      "topic": "Legend Team Dashboard #2",
+      "startedAt": "2026-04-17T07:00:00.000Z",
+      "closedAt": "2026-04-17T09:00:00.000Z",
+      "decisions": [],
+      "note": "dist/ 배포 + nav 영어 통일 + DEV 카드 + status 통일 + Topics 개편"
     }
   ],
-  "lastUpdated": "2026-04-17T04:34:59.038Z",
+  "lastUpdated": "2026-04-17T05:17:58.830Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

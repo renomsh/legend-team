@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Vega-Lite Sample</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <style>
+    body { font-family: sans-serif; background: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+    .card { background: white; border-radius: 14px; padding: 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+    h2 { margin: 0 0 20px; color: #222; font-size: 17px; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>월별 매출 현황 (2026)</h2>
+    <div id="chart"></div>
+  </div>
+  <script>
+    vegaEmbed('#chart', {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "width": 520,
+      "height": 300,
+      "data": {
+        "values": [
+          {"month": "1월", "sales": 320},
+          {"month": "2월", "sales": 410},
+          {"month": "3월", "sales": 380},
+          {"month": "4월", "sales": 520},
+          {"month": "5월", "sales": 490},
+          {"month": "6월", "sales": 610}
+        ]
+      },
+      "mark": {"type": "bar", "cornerRadiusTopLeft": 5, "cornerRadiusTopRight": 5, "tooltip": true},
+      "encoding": {
+        "x": {"field": "month", "type": "ordinal", "title": null, "axis": {"labelAngle": 0}},
+        "y": {"field": "sales", "type": "quantitative", "title": "매출 (만원)"},
+        "color": {
+          "field": "sales",
+          "type": "quantitative",
+          "scale": {"range": ["#a5b4fc", "#6366f1"]},
+          "legend": null
+        }
+      },
+      "config": {"view": {"stroke": null}, "axis": {"grid": false}}
+    }, {"actions": false});
+  </script>
+</body>
+</html>

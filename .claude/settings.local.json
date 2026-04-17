@@ -13,7 +13,10 @@
       "Bash(omnara --help)",
       "Bash(\"/c/Users/문성훈/AppData/Local/Omnara/bin/omnara.exe\" --help)",
       "Bash(\"/c/Users/문성훈/AppData/Local/Omnara/bin/omnara.exe\" workspace:*)",
-      "mcp__Claude_Preview__preview_start"
+      "mcp__Claude_Preview__preview_start",
+      "Bash(python3 -c \"import json,sys; data=json.load\\(sys.stdin\\); [print\\(json.dumps\\(t, ensure_ascii=False, indent=2\\)\\) for t in data if t.get\\('id'\\)=='topic_004']\")",
+      "Bash(node -e \"const d=require\\('./memory/shared/topic_index.json'\\); const t=d.find\\(x=>x.id==='topic_004'\\); console.log\\(JSON.stringify\\(t,null,2\\)\\)\")",
+      "Bash(node -e \"const d=require\\('./memory/shared/topic_index.json'\\); const topics=d.topics||d; const t=Object.values\\(topics\\).find?.\\(x=>x.id==='topic_004'\\)||topics['topic_004']; console.log\\(JSON.stringify\\(t,null,2\\)\\)\")"
     ]
   }
 }

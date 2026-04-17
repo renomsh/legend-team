@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Observable Plot Sample</title>
+  <style>
+    body { font-family: sans-serif; background: #f0f2f5; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+    .card { background: white; border-radius: 14px; padding: 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+    h2 { margin: 0 0 6px; color: #222; font-size: 17px; font-weight: 600; }
+    p  { margin: 0 0 20px; color: #888; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>월별 매출 추이 (2026)</h2>
+    <p>Observable Plot · 단위: 만원</p>
+    <div id="chart"></div>
+  </div>
+  <script type="module">
+    import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6.16/+esm";
+    window.Plot = Plot;
+    const data = [
+      {month: "1월", sales: 320},
+      {month: "2월", sales: 410},
+      {month: "3월", sales: 380},
+      {month: "4월", sales: 520},
+      {month: "5월", sales: 490},
+      {month: "6월", sales: 610},
+    ];
+
+    const chart = Plot.plot({
+      width: 540,
+      height: 300,
+      marginLeft: 50,
+      style: { fontSize: "13px" },
+      x: { label: null },
+      y: { label: "매출 (만원)", grid: true },
+      marks: [
+        Plot.barY(data, {
+          x: "month",
+          y: "sales",
+          fill: "sales",
+          tip: true,
+          rx: 5
+        }),
+        Plot.ruleY([0]),
+        Plot.text(data, {
+          x: "month",
+          y: "sales",
+          text: d => d.sales + "만",
+          dy: -8,
+          fontSize: 12,
+          fill: "#555"
+        })
+      ],
+      color: {
+        scheme: "blues",
+        legend: false
+      }
+    });
+
+    document.getElementById("chart").appendChild(chart);
+  </script>
+</body>
+</html>
