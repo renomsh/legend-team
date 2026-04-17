@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-04-17T13:53:35.529Z",
-  "totalSessions": 30,
+  "generatedAt": "2026-04-17T14:02:13.545Z",
+  "totalSessions": 31,
   "autoDataFrom": "session_027",
   "metrics": {
     "avgMasterTurns": 0,
@@ -535,12 +535,36 @@
         "vera",
         "editor"
       ]
+    },
+    {
+      "sessionId": "session_031",
+      "topicSlug": "session-history-view",
+      "topic": "세션 히스토리 뷰 신설 (PD-008)",
+      "startedAt": "2026-04-17T14:00:00.000Z",
+      "closedAt": "2026-04-17T16:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 7,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 10,
+      "masterTurns": 0,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace-review",
+        "dev",
+        "editor"
+      ]
     }
   ],
   "roleFrequency": [
     {
       "role": "editor",
-      "count": 22,
+      "count": 23,
       "sessions": [
         "session_007",
         "session_009",
@@ -563,12 +587,13 @@
         "session_026",
         "session_028",
         "session_029",
-        "session_030"
+        "session_030",
+        "session_031"
       ]
     },
     {
       "role": "ace",
-      "count": 10,
+      "count": 11,
       "sessions": [
         "session_007",
         "session_008",
@@ -579,39 +604,43 @@
         "session_016",
         "session_024",
         "session_026",
-        "session_030"
+        "session_030",
+        "session_031"
       ]
     },
     {
       "role": "arki",
-      "count": 6,
+      "count": 7,
       "sessions": [
         "session_008",
         "session_009",
         "session_011",
         "session_012",
         "session_015",
-        "session_016"
+        "session_016",
+        "session_031"
       ]
     },
     {
       "role": "fin",
-      "count": 4,
+      "count": 5,
       "sessions": [
         "session_009",
         "session_012",
         "session_016",
-        "session_024"
+        "session_024",
+        "session_031"
       ]
     },
     {
       "role": "riki",
-      "count": 4,
+      "count": 5,
       "sessions": [
         "session_009",
         "session_011",
         "session_012",
-        "session_016"
+        "session_016",
+        "session_031"
       ]
     },
     {
@@ -620,9 +649,29 @@
       "sessions": [
         "session_030"
       ]
+    },
+    {
+      "role": "ace-review",
+      "count": 1,
+      "sessions": [
+        "session_031"
+      ]
+    },
+    {
+      "role": "dev",
+      "count": 1,
+      "sessions": [
+        "session_031"
+      ]
     }
   ],
-  "alarms": [],
+  "alarms": [
+    {
+      "ruleId": "R5",
+      "severity": "red",
+      "description": "피드백 재발: \"Ace\" 3회"
+    }
+  ],
   "feedbackRecurrences": [
     {
       "keyword": "Master",
@@ -696,6 +745,11 @@
           "date": "2026-04-10",
           "feedbackId": "MF-007",
           "summary": "1) Ace=Master 동일화. 2) 학습 대상은 선택 흔적. 3) 정형/비정형 분리 리스크 → 내장으로."
+        },
+        {
+          "date": "2026-04-17",
+          "feedbackId": "MF-024",
+          "summary": "Ace 이번에 잘 주관했어."
         }
       ]
     },
@@ -711,6 +765,21 @@
           "date": "2026-04-16",
           "feedbackId": "MF-015",
           "summary": "이번에 한해서 소급 적용하라고 (토픽 타입/명칭 정비)"
+        }
+      ]
+    },
+    {
+      "keyword": "이번에",
+      "occurrences": [
+        {
+          "date": "2026-04-16",
+          "feedbackId": "MF-015",
+          "summary": "이번에 한해서 소급 적용하라고 (토픽 타입/명칭 정비)"
+        },
+        {
+          "date": "2026-04-17",
+          "feedbackId": "MF-024",
+          "summary": "Ace 이번에 잘 주관했어."
         }
       ]
     },
