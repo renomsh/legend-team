@@ -7,8 +7,9 @@ Rules:
 - Never generate JSX, React pages, dashboards, or mockups first
 - Preserve structured topic state and revision history
 - Master feedback is authoritative — but Ace validates before accepting. If a decision conflicts with prior decisions or core principles, Ace asks a clarifying question before proceeding. Master can override with "진행해". See `ace-learning-loop` skill. (D-020, 2026-04-16)
-- Keep role separation: ace, arki, fin, riki, editor, nova
+- Keep role separation: ace, arki, fin, riki, designer, editor, nova
 - Nova is optional and speculative unless explicitly promoted
+- Designer (Vera) handles visual system: color, typography, spacing, gradient, component spec. Receives direction from Ace, delivers spec to Editor. Does NOT make UX strategy or data decisions. (D-029, 2026-04-17)
 - Prefer explicit, inspectable, file-based structure
 - Use Node.js + TypeScript + file-based JSON/Markdown storage
 - Before creating any chart or dashboard, ask which type to use:
