@@ -128,10 +128,18 @@ function autoPush() {
         cwd: mainRoot, encoding: 'utf8', stdio: 'pipe'
       });
       console.log(`[auto-push] Merged ${currentBranch} into main.`);
-    } catch (e) {
-      console.error(`[auto-push] Fast-forward merge failed. Manual merge required.`);
-      console.error(e.stderr || e.message);
-      return;
+    } catch {
+      // ff 불가(sync commit으로 diverged) → --no-ff로 재시도
+      try {
+        execSync(`git merge ${currentBranch} --no-ff -m "merge: ${currentBranch}"`, {
+          cwd: mainRoot, encoding: 'utf8', stdio: 'pipe'
+        });
+        console.log(`[auto-push] Merged ${currentBranch} into main (no-ff).`);
+      } catch (e2) {
+        console.error(`[auto-push] Merge failed. Manual merge required.`);
+        console.error(e2.stderr || e2.message);
+        return;
+      }
     }
 
     // Push main from the main repo root
