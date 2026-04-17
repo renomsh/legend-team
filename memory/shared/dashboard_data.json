@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-04-17T14:33:47.233Z",
-  "totalSessions": 31,
+  "generatedAt": "2026-04-17T15:11:10.622Z",
+  "totalSessions": 32,
   "autoDataFrom": "session_027",
   "metrics": {
     "avgMasterTurns": 0,
     "avgCacheHitRate": 0.9447,
     "avgAdoptionRate": 0,
-    "totalDecisions": 28
+    "totalDecisions": 31
   },
   "sessions": [
     {
@@ -607,6 +607,29 @@
         "dev",
         "editor"
       ]
+    },
+    {
+      "sessionId": "session_032",
+      "topicSlug": "agents-completed-hook",
+      "topic": "agentsCompleted Hook 자동화",
+      "startedAt": "2026-04-17T17:00:00.000Z",
+      "closedAt": "2026-04-17T18:00:00.000Z",
+      "decisionCount": 3,
+      "decisionAxes": 3,
+      "decisions": [
+        "D-029",
+        "D-030",
+        "D-031"
+      ],
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 10,
+      "masterTurns": 0,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "Dev"
+      ]
     }
   ],
   "roleFrequency": [
@@ -711,6 +734,13 @@
       "sessions": [
         "session_031"
       ]
+    },
+    {
+      "role": "Dev",
+      "count": 1,
+      "sessions": [
+        "session_032"
+      ]
     }
   ],
   "alarms": [
@@ -718,6 +748,11 @@
       "ruleId": "R5",
       "severity": "red",
       "description": "피드백 재발: \"Ace\" 3회"
+    },
+    {
+      "ruleId": "R5",
+      "severity": "red",
+      "description": "피드백 재발: \"이번에\" 3회"
     }
   ],
   "feedbackRecurrences": [
@@ -828,6 +863,11 @@
           "date": "2026-04-17",
           "feedbackId": "MF-024",
           "summary": "Ace 이번에 잘 주관했어."
+        },
+        {
+          "date": "2026-04-17",
+          "feedbackId": "MF-026",
+          "summary": "8.9는 누적같아 보이네. 전거와 이번에 증가 수치 gap이 한 세션에 들어간 토큰 같은데?"
         }
       ]
     },
