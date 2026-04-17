@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-04-17T14:02:13.545Z",
+  "generatedAt": "2026-04-17T14:33:47.233Z",
   "totalSessions": 31,
   "autoDataFrom": "session_027",
   "metrics": {
     "avgMasterTurns": 0,
-    "avgCacheHitRate": null,
+    "avgCacheHitRate": 0.9447,
     "avgAdoptionRate": 0,
     "totalDecisions": 28
   },
@@ -28,8 +28,15 @@
       "topicSlug": "2026-04-03_legend-team-upgrade",
       "startedAt": "2026-04-03T00:00:00.000Z",
       "closedAt": "2026-04-03T23:59:00.000Z",
-      "decisionCount": 0,
+      "decisionCount": 5,
       "decisionAxes": 5,
+      "decisions": [
+        "D-001",
+        "D-002",
+        "D-003",
+        "D-004",
+        "D-005"
+      ],
       "rolesCalled": 1,
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
@@ -42,8 +49,14 @@
       "topicSlug": "2026-04-04_local-vs-server",
       "startedAt": "2026-04-04T00:00:00.000Z",
       "closedAt": "2026-04-04T20:00:00.000Z",
-      "decisionCount": 0,
+      "decisionCount": 4,
       "decisionAxes": 4,
+      "decisions": [
+        "D-006",
+        "D-007",
+        "D-008",
+        "D-009"
+      ],
       "rolesCalled": 1,
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
@@ -98,8 +111,14 @@
       "topicSlug": "legend-team-upgrade-review",
       "startedAt": "2026-04-05T12:00:00.000Z",
       "closedAt": "2026-04-05T12:29:28.254Z",
-      "decisionCount": 0,
+      "decisionCount": 4,
       "decisionAxes": 4,
+      "decisions": [
+        "D-010",
+        "D-011",
+        "D-012",
+        "D-013"
+      ],
       "rolesCalled": 2,
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
@@ -172,8 +191,11 @@
       "topicSlug": "upgrade-delta-pack-review",
       "startedAt": "2026-04-09T09:00:00.000Z",
       "closedAt": "2026-04-09T04:30:43.780Z",
-      "decisionCount": 0,
+      "decisionCount": 1,
       "decisionAxes": 1,
+      "decisions": [
+        "D-014"
+      ],
       "rolesCalled": 4,
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
@@ -192,8 +214,11 @@
       "topicSlug": "role-redefinition",
       "startedAt": "2026-04-10T09:00:00.000Z",
       "closedAt": "2026-04-10T06:13:54.621Z",
-      "decisionCount": 0,
+      "decisionCount": 1,
       "decisionAxes": 1,
+      "decisions": [
+        "D-015"
+      ],
       "rolesCalled": 5,
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
@@ -304,8 +329,14 @@
       "topicSlug": "superpowers-absorption-plan",
       "startedAt": "2026-04-15T13:00:00.000Z",
       "closedAt": "2026-04-15T14:30:00.000Z",
-      "decisionCount": 0,
+      "decisionCount": 4,
       "decisionAxes": 4,
+      "decisions": [
+        "D-016",
+        "D-017",
+        "D-018",
+        "D-019"
+      ],
       "rolesCalled": 1,
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
@@ -321,8 +352,11 @@
       "topicSlug": "superpowers-2",
       "startedAt": "2026-04-16T00:00:00.000Z",
       "closedAt": "2026-04-16T04:37:46.106Z",
-      "decisionCount": 0,
+      "decisionCount": 1,
       "decisionAxes": 1,
+      "decisions": [
+        "D-020"
+      ],
       "rolesCalled": 1,
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
@@ -338,8 +372,11 @@
       "topicSlug": "superpowers-3",
       "startedAt": "2026-04-16T05:00:00.000Z",
       "closedAt": "2026-04-16T06:54:38.135Z",
-      "decisionCount": 0,
+      "decisionCount": 1,
       "decisionAxes": 1,
+      "decisions": [
+        "D-021"
+      ],
       "rolesCalled": 1,
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
@@ -406,8 +443,11 @@
       "topicSlug": "efficiency-test-and-deferrals",
       "startedAt": "2026-04-16T11:00:00.000Z",
       "closedAt": "2026-04-16T12:30:00.000Z",
-      "decisionCount": 0,
+      "decisionCount": 1,
       "decisionAxes": 1,
+      "decisions": [
+        "D-022"
+      ],
       "rolesCalled": 3,
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
@@ -428,6 +468,9 @@
       "closedAt": "2026-04-16T14:00:00.000Z",
       "decisionCount": 1,
       "decisionAxes": 1,
+      "decisions": [
+        "D-023"
+      ],
       "rolesCalled": 1,
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
@@ -465,6 +508,11 @@
       "closedAt": "2026-04-17T03:00:00.000Z",
       "decisionCount": 3,
       "decisionAxes": 3,
+      "decisions": [
+        "D-024",
+        "D-025",
+        "D-026"
+      ],
       "rolesCalled": 1,
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
@@ -483,8 +531,12 @@
       "topic": "legend-team Dash board",
       "startedAt": "2026-04-17T04:00:00.000Z",
       "closedAt": "2026-04-17T06:00:00.000Z",
-      "decisionCount": 0,
+      "decisionCount": 2,
       "decisionAxes": 2,
+      "decisions": [
+        "D-027",
+        "D-028"
+      ],
       "rolesCalled": 1,
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
@@ -511,11 +563,7 @@
       "dataQuality": "auto",
       "agentsCompleted": [
         "editor"
-      ],
-      "tokenUsage": {
-        "cacheHitRate": null,
-        "messageCount": 0
-      }
+      ]
     },
     {
       "sessionId": "session_030",

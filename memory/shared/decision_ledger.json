@@ -313,7 +313,29 @@
       "value": "세션 종료 시 compute-dashboard.ts를 auto-push.js 직전에 자동 실행. dashboard_data.json 항상 최신 상태 유지. 수동 트리거 경로 제거.",
       "authority": "master",
       "status": "confirmed"
+    },
+    {
+      "id": "D-029",
+      "date": "2026-04-17",
+      "session": "session_032",
+      "topic": "agents-completed-hook",
+      "axis": "SessionEnd Hook 체인 완성 — session-end-finalize.js + sync-system-state.ts 자동화",
+      "decision": "Master 승인 (묵시적)",
+      "value": "session-end-finalize.js 신설: current_session.json status=closed 시 session_index 자동 append(agentsCompleted·decisions·note 포함). sync-system-state.ts 신설: system_state.json openTopics·recentDecisions 자동 재계산. Hook 체인: tokens→finalize→compute-dashboard→build. PD-009 이행.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-030",
+      "date": "2026-04-17",
+      "session": "session_032",
+      "topic": "agents-completed-hook",
+      "axis": "token_log 덮어쓰기 → 누산 정책 변경",
+      "decision": "Master 승인 (묵시적)",
+      "value": "컨텍스트 압축(compaction)으로 동일 Legend 세션에 복수 Claude Code 세션이 생길 경우, token_log.json의 동일 legendSessionId 항목을 덮어쓰기 대신 usage 누산으로 변경. 토큰 유실 방지.",
+      "authority": "master",
+      "status": "confirmed"
     }
   ],
-  "lastUpdated": "2026-04-17T04:30:00.000Z"
+  "lastUpdated": "2026-04-17T18:00:00.000Z"
 }

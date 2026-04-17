@@ -1,6 +1,6 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_030",
+  "lastSessionId": "session_031",
   "nextSessionId": "session_032",
   "currentVersion": "v0.9.0",
   "openTopics": [
@@ -9,7 +9,14 @@
       "title": "데이터북 Agent 설계",
       "status": "suspended",
       "reportPath": "reports/2026-04-13_databook-agent-design",
-      "note": "설계 완료. 다음: 7개 팀 파일 전수 조사 → canonical 스키마 확정 → 프로토타입 구현"
+      "note": "전원 참석(Nova 포함). 실제 데이터 7,797건/53열 확인. .xlsb 포맷 이슈 발견. 프로토타입은 다음 세션."
+    },
+    {
+      "id": "topic_029",
+      "title": "agentsCompleted Hook 자동화",
+      "status": "in-progress",
+      "reportPath": "reports/2026-04-17_agents-completed-hook",
+      "note": "session_032. session_031 gap 이월: close.md agentsCompleted Hook 자동화."
     }
   ],
   "recentDecisions": [
@@ -17,31 +24,31 @@
       "id": "D-028",
       "date": "2026-04-17",
       "axis": "compute-dashboard.ts 세션 종료 Hook 자동 실행",
-      "summary": "SessionEnd Hook에 compute-dashboard.ts 추가. token 집계 → 대시보드 재계산 순차 자동화."
+      "summary": "세션 종료 시 compute-dashboard.ts를 auto-push.js 직전에 자동 실행. dashboard_data.json 항상 최신 상태 유지. 수동 트리거 경로 제거."
     },
     {
       "id": "D-027",
       "date": "2026-04-17",
       "axis": "Size 공식 masterTurns 제거",
-      "summary": "Size = (decisionAxes×2) + rolesCalled + (rolesRecalled×2) + (sessionsSpanned×3). 복잡도·자율성 개념 분리."
+      "summary": "Size = (decisionAxes × 2) + rolesCalled + (rolesRecalled × 2) + (sessionsSpanned × 3). masterTurns를 공식에서 제거하고 버블 색상 독립 변수로 유지. 복잡도(Size)와 자율성(masterTurns) 개념 분리."
     },
     {
       "id": "D-026",
       "date": "2026-04-17",
-      "axis": "SessionEnd Hook 구현 완료",
-      "summary": "transcript .jsonl 파싱으로 세션 토큰 직접 집계. token_log.json 신규. Phase 3a 경로 (i) 확정."
+      "axis": "SessionEnd Hook 구현 완료 — 토큰 자동 수집 Phase 3a 경로 확정",
+      "summary": "Claude Code transcript .jsonl 파싱으로 세션 토큰 직접 집계 가능 확인. .claude/hooks/session-end-tokens.js 신규. SessionEnd hook 등록(settings.json). memory/sessions/token_log.json 신규. current_session.tokenUsage 자동 삽입. Phase 3a 경로 (i) 채택. 이연: PD-006(Windows 경로 검증), PD-007(중복 제거), PD-008(masterTurns 분리 파싱)."
     },
     {
       "id": "D-025",
       "date": "2026-04-17",
-      "axis": "대시보드 재설계 확정",
-      "summary": "2뷰(업그레이드/과제운영), 5군 역할 평가, Phase 0~3, 자율성 카드, 효율성 그래프, Size 공식."
+      "axis": "대시보드 재설계 — 성장 메인 / 효율 검증 구조 확정",
+      "summary": "대시보드 2뷰 체계(업그레이드 뷰/과제 운영 뷰), 5군 역할 평가 분리(프레이밍/구조/검증/자원/산출), Phase 0~3 측정 설계(bottom-up), 자율성 카드(masterTurns 최상단), 효율성 그래프(Size×채택률×사용량%×개입 버블차트), Size 공식(decisionAxes×2 + rolesCalled + rolesRecalled×2 + sessionsSpanned×3 + masterTurns×1). 허수 금지·배제 대신 정교화 원칙. 워밍업 플래그(군별 차등: Ace/산출 5, 구조/검증/자원 10). 경보: 섹션별 흡수 + 지휘판 상단 카운터."
     },
     {
       "id": "D-024",
       "date": "2026-04-17",
-      "axis": "제안/채택 레이블링 룰",
-      "summary": "명시적 채택/묵시적 채택(무응답=통과)/기각/보류 4-레이블. 채택률 공식 확정."
+      "axis": "제안/채택 레이블링 룰 (Phase 0)",
+      "summary": "대시보드 KPI 계산을 위한 4-레이블 체계 확정. 명시적 채택(decision_ledger D-번호 등재) / 묵시적 채택(Master 개입 없이 다음 단계 진행 = 통과·자율성 신호) / 기각(master_feedback_log 기각 표기) / 보류(pendingDeferrals PD-번호 등재). 채택률 = (명시적+묵시적 채택) / 전체 제안. 엣지: E1 수정후 등재 → 명시적 채택 + modifiedFromProposal:true, E2 부분 채택 → 축 단위 분리 레이블링, E3 무응답 → 묵시적 채택으로 재분류. Phase 0 통과, Phase 0.5(발언 태깅 룰) 진입 가능."
     }
   ],
   "pendingDeferrals": [
@@ -81,10 +88,19 @@
       "id": "PD-008",
       "fromSession": "session_030",
       "fromTopic": "dashboard-upgrade-v3",
-      "item": "데이터 구조 개선 — session_index 엔트리에 agentsCompleted 영구 저장: (1) append-session.ts에서 current_session.json의 agentsCompleted를 session_index에 기록, (2) compute-dashboard.ts에서 역할별 호출빈도 집계 필드 추가(roleFrequency), (3) dashboard_data.json에 roleFrequency 섹션 포함",
-      "status": "pending",
-      "note": "현재 agentsCompleted는 current_session.json에만 존재하고 세션 종료 시 소실됨 → 역할 호출빈도 집계 불가. session_001~026 소급은 note 파싱으로 부분 커버만 가능."
+      "item": "데이터 구조 개선 — session_index 엔트리에 agentsCompleted 영구 저장",
+      "status": "resolved",
+      "resolvedInSession": "session_031",
+      "note": "append-session.ts agentsCompleted 파라미터 추가. backfill-agents.ts로 22개 소급. compute-dashboard roleFrequency 집계 추가. session.html Current|History 탭 구현."
+    },
+    {
+      "id": "PD-009",
+      "fromSession": "session_032",
+      "fromTopic": "agents-completed-hook",
+      "item": "SessionEnd hook 체인에 session-end-finalize.js 추가 — current_session → session_index 자동 전파, sync-system-state 자동 재계산. hook 발동 진단 로그(logs/hook-diagnostics.log) 추가.",
+      "status": "in-progress",
+      "note": "session_032 종료 시 발동 여부 + transcript_path 정상 여부 검증."
     }
   ],
-  "lastUpdated": "2026-04-17T10:00:00.000Z"
+  "lastUpdated": "2026-04-17T14:30:12.858Z"
 }

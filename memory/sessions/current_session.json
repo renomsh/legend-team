@@ -1,25 +1,21 @@
 {
-  "sessionId": "session_031",
-  "topic": "세션 히스토리 뷰 신설 (PD-008)",
-  "topicSlug": "session-history-view",
+  "sessionId": "session_032",
+  "topic": "agentsCompleted Hook 자동화",
+  "topicSlug": "agents-completed-hook",
   "status": "closed",
-  "startedAt": "2026-04-17T14:00:00.000Z",
-  "closedAt": "2026-04-17T16:00:00.000Z",
+  "startedAt": "2026-04-17T17:00:00.000Z",
+  "closedAt": "2026-04-17T18:00:00.000Z",
   "mode": "observation",
-  "agentsCompleted": ["ace", "arki", "fin", "riki", "ace-review", "dev", "editor"],
+  "agentsCompleted": ["Dev"],
   "novaInvoked": false,
-  "masterDecisions": [],
-  "reportPath": "reports/2026-04-17_session-history-view",
+  "masterDecisions": ["D-029", "D-030"],
+  "reportPath": "reports/2026-04-17_agents-completed-hook",
   "notes": [
-    "PD-008 완전 이행. append-session.ts agentsCompleted 파라미터 추가.",
-    "backfill-agents.ts 신설: topic_index reportFiles 기반 소급 주입 22개 완료.",
-    "compute-dashboard.ts roleFrequency 집계 섹션 추가. dataQuality:'backfill' 분기 추가.",
-    "session.html Current|History 탭 + ECharts 역할 빈도 차트 구현. data-loader.js getDashboardData() 추가.",
-    "Master 피드백: Ace 오케스트레이션 유효성 확인."
+    "세션 종료 자동화 종합 점검으로 범위 확장",
+    "dashboard 6개 이슈 모두 해결",
+    "token_log 누산 정책 변경 (D-030)",
+    "PD-009: 이번 세션 종료 시 hook 발동 여부 검증 예정"
   ],
-  "gaps": [
-    "session_001~006, session_027 reportFiles 없음 → agentsCompleted backfill 불가 (8개 수동)",
-    "close.md agentsCompleted Hook 자동화는 미이행 — PD로 이월"
-  ],
-  "closeVerified": true
+  "gaps": [],
+  "closeVerified": false
 }

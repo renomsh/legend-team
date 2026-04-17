@@ -323,6 +323,28 @@
       "status": "resolved",
       "statusNote": "session_031 Ace 오케스트레이션 패턴(Ace→Arki→Fin→Riki→Ace종합→Dev) 정상 작동 확인",
       "effect": "Ace masterSelectionPatterns에 implementation 토픽 패턴 기록"
+    },
+    {
+      "id": "MF-025",
+      "date": "2026-04-17",
+      "session": "session_032",
+      "topic": "agents-completed-hook",
+      "afterAgent": "Dev",
+      "feedback": "토큰 8.9M이 이상한데. 누적 아래에 세션당 평균 토큰수도 표기해줘.",
+      "instruction": "Tokens KPI 카드: 누적 총합 메인 + avg/세션 보조 표기",
+      "status": "resolved",
+      "statusNote": "kTokensAvg 요소 추가. avg 8.9M/세션 표기 확인."
+    },
+    {
+      "id": "MF-026",
+      "date": "2026-04-17",
+      "session": "session_032",
+      "topic": "agents-completed-hook",
+      "afterAgent": "Dev",
+      "feedback": "8.9는 누적같아 보이네. 전거와 이번에 증가 수치 gap이 한 세션에 들어간 토큰 같은데?",
+      "instruction": "token_log 동일 legendSessionId 덮어쓰기 → 누산으로 변경 (compaction 대응)",
+      "status": "resolved",
+      "statusNote": "session-end-tokens.js appendLog 누산 로직으로 변경. D-030 등재."
     }
   ],
   "statusValues": [

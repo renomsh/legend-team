@@ -184,3 +184,12 @@
 [2026-04-17T14:02:04.703Z] [checklist] [INFO] master_feedback: 1 feedback entry(ies) recorded
 [2026-04-17T14:02:04.703Z] [session-log] [INFO] END session_031 | topic: session-history-view | duration: 2m
 [2026-04-17T14:02:13.547Z] [compute-dashboard] 완료 — 31개 세션, 1개 경보
+[2026-04-17T14:30:12.860Z] [sync-system-state] lastSession=session_031 openTopics=2 recentDecisions=5 deferrals=5
+[2026-04-17T14:32:11.902Z] [compute-dashboard] 완료 — 31개 세션, 1개 경보
+[2026-04-17T14:33:47.236Z] [compute-dashboard] 완료 — 31개 세션, 1개 경보
+[2026-04-17T14:54:30.117Z] [checklist] [INFO] reports: all 1 registered file(s) present: editor_rev1.md
+[2026-04-17T14:54:30.119Z] [checklist] [INFO] decision_ledger: 2 decision(s) recorded for session_032
+[2026-04-17T14:54:30.119Z] [checklist] [INFO] topic_index: topic found: topic_029 (completed)
+[2026-04-17T14:54:30.120Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-17T14:54:30.121Z] [checklist] [INFO] master_feedback: 2 feedback entry(ies) recorded
+[2026-04-17T14:54:30.121Z] [session-log] [INFO] END session_032 | topic: agents-completed-hook | duration: unknown (startedAt in future)

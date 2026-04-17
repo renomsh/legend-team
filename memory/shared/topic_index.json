@@ -553,7 +553,22 @@
       "masterDecisions": [],
       "outcome": "PD-008 완전 이행: append-session.ts agentsCompleted 파라미터 추가, close.md step 8 명시화, backfill-agents.ts 신설(22개 소급), compute-dashboard.ts roleFrequency 집계 추가, session.html Current|History 탭 + ECharts 역할 빈도 차트 구현.",
       "note": "session_031. Master: Ace 오케스트레이션 유효성 확인."
+    },
+    {
+      "id": "topic_029",
+      "type": "implementation",
+      "title": "agentsCompleted Hook 자동화",
+      "status": "completed",
+      "created": "2026-04-17",
+      "closedAt": "2026-04-17",
+      "controlPath": null,
+      "reportPath": "reports/2026-04-17_agents-completed-hook",
+      "reportFiles": ["editor_rev1.md"],
+      "published": false,
+      "masterDecisions": ["D-029", "D-030"],
+      "outcome": "Hook 체인 완성(tokens→finalize→compute→build). dashboard 6개 이슈 해결. PD-009 발동 검증 이연.",
+      "note": "session_032 완료. token_log 누산 정책 변경(D-030). hook-diagnostics.log로 다음 세션 종료 시 검증."
     }
   ],
-  "lastUpdated": "2026-04-17T14:00:00.000Z"
+  "lastUpdated": "2026-04-17T17:00:00.000Z"
 }

@@ -96,6 +96,7 @@ interface SessionData {
   closedAt?: string | null | undefined;
   decisionCount: number;
   decisionAxes: number;
+  decisions?: string[];
   rolesCalled: number;
   rolesRecalled: number;
   sessionsSpanned: number;
@@ -200,11 +201,15 @@ function main() {
     proposalMap.set(p.sessionId, list);
   }
 
-  // 세션 결정 수 (decision_ledger 기준)
+  // 세션 결정 수 + ID 배열 (decision_ledger 기준 — 권위 있는 원본)
   const sessionDecisionCount = new Map<string, number>();
+  const sessionDecisionIds = new Map<string, string[]>();
   for (const d of decisionLedger.decisions) {
     const count = sessionDecisionCount.get(d.session) ?? 0;
     sessionDecisionCount.set(d.session, count + 1);
+    const list = sessionDecisionIds.get(d.session) ?? [];
+    list.push(d.id);
+    sessionDecisionIds.set(d.session, list);
   }
 
   // ── 세션 데이터 계산 ────────────────────────────────────────────────────
@@ -227,10 +232,13 @@ function main() {
     const size = computeSize(decisionAxes, rolesCalled, rolesRecalled, sessionsSpanned);
 
     const token = tokenMap.get(s.sessionId);
-    const tokenUsage = token ? {
-      totalBillable: token.total_billable,
-      cacheHitRate: token.cache_read_input_tokens / Math.max(token.total_billable, 1),
-      messageCount: token.messageCount,
+    const totalBill = token
+      ? (token.total_billable ?? ((token.input_tokens||0)+(token.output_tokens||0)+(token.cache_creation_input_tokens||0)+(token.cache_read_input_tokens||0)))
+      : 0;
+    const tokenUsage = token && totalBill > 0 ? {
+      totalBillable: totalBill,
+      cacheHitRate: (token.cache_read_input_tokens || 0) / totalBill,
+      messageCount: token.messageCount || 0,
     } : undefined;
 
     const proposals = proposalMap.get(s.sessionId) ?? [];
@@ -238,14 +246,17 @@ function main() {
       ? proposals.filter(p => p.label === 'explicit' || p.label === 'implicit').length / proposals.length
       : undefined;
 
+    const decIds = sessionDecisionIds.get(s.sessionId) ?? s.decisions ?? [];
+
     return {
       sessionId: s.sessionId,
       topicSlug: s.topicSlug,
       topic: s.topic,
       startedAt: s.startedAt,
       closedAt: s.closedAt,
-      decisionCount: s.decisions?.length ?? 0,
+      decisionCount: decIds.length,
       decisionAxes,
+      ...(decIds.length > 0 && { decisions: decIds }),
       rolesCalled,
       rolesRecalled,
       sessionsSpanned,
