@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Session — Legend Team</title>
+  <title>Sessions — Legend Team</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 </head>
 <style>
 :root{--bg:#000000;--panel:#0B0B0D;--panel-2:#141418;--line:#26262D;--text:#F5F5F7;--text-2:#B8B8C0;--text-3:#6E6E78}
@@ -17,7 +18,55 @@
 .nav-item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;color:var(--text-2);font-size:13px;transition:all .15s;text-decoration:none}
 .nav-item:hover{background:var(--panel-2);color:var(--text)}.nav-item.active{background:linear-gradient(135deg,rgba(139,92,246,.18),rgba(6,182,212,.12));color:#fff;box-shadow:inset 0 0 0 1px rgba(139,92,246,.3)}
 .nav-dot{width:6px;height:6px;border-radius:2px;flex-shrink:0}.sidebar-foot{margin-top:auto;padding:12px 10px;border-top:1px solid var(--line);font-size:11px;color:var(--text-3)}.sidebar-foot b{color:var(--text-2)}
-.s-main{padding:28px 36px 64px;min-width:0}.s-crumb{font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:.14em}.s-h1{font-size:28px;font-weight:800;letter-spacing:-.6px;margin-top:4px;color:var(--text);margin-bottom:20px}
+.s-main{padding:28px 36px 64px;min-width:0}
+.s-crumb{font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:.14em}
+.s-h1{font-size:28px;font-weight:800;letter-spacing:-.6px;margin-top:4px;color:var(--text);margin-bottom:4px}
+
+/* Tabs */
+.tab-bar{display:flex;gap:4px;margin-bottom:28px;border-bottom:1px solid var(--line);padding-bottom:0}
+.tab-btn{padding:10px 20px;font-size:13px;font-weight:600;color:var(--text-3);background:none;border:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s}
+.tab-btn:hover{color:var(--text-2)}
+.tab-btn.active{color:#10B981;border-bottom-color:#10B981}
+.tab-pane{display:none}.tab-pane.active{display:block}
+
+/* Cards */
+.card{background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:8px}
+.session-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-bottom:8px}
+.session-label{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);margin-bottom:4px}
+.session-value{font-size:14px;font-weight:600;color:var(--text)}
+.section-title{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--text-3);margin:24px 0 8px}
+.empty-state{padding:24px;text-align:center;color:var(--text-3);font-size:13px;background:var(--panel-2);border:1px solid var(--line);border-radius:10px}
+.mono{font-family:monospace}
+
+/* History cards */
+.hist-card{background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin-bottom:10px;cursor:pointer;transition:border-color .15s}
+.hist-card:hover{border-color:rgba(16,185,129,.4)}
+.hist-card-header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.hist-sid{font-size:11px;font-family:monospace;color:#06B6D4;font-weight:700}
+.hist-topic{font-size:13px;color:var(--text);font-weight:600;flex:1;margin:0 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hist-date{font-size:11px;color:var(--text-3);white-space:nowrap}
+.hist-meta{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.hist-badge{font-size:10px;padding:2px 8px;border-radius:12px;font-weight:600}
+.hist-roles{display:flex;gap:4px;margin-top:6px;flex-wrap:wrap}
+.role-chip{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600;border:1px solid transparent}
+.dq-auto{color:#10B981;background:rgba(16,185,129,.12);border-color:rgba(16,185,129,.25)}
+.dq-backfill{color:#F59E0B;background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.2)}
+.dq-manual{color:#6E6E78;background:rgba(110,110,120,.1);border-color:rgba(110,110,120,.2)}
+
+/* Role freq chart */
+#roleFreqChart{height:260px;width:100%}
+
+/* Search */
+.search-row{display:flex;gap:8px;margin-bottom:16px}
+.search-input{flex:1;background:var(--panel-2);border:1px solid var(--line);border-radius:8px;padding:9px 14px;color:var(--text);font-size:13px;outline:none}
+.search-input:focus{border-color:rgba(16,185,129,.4)}
+.filter-select{background:var(--panel-2);border:1px solid var(--line);border-radius:8px;padding:9px 12px;color:var(--text-2);font-size:12px;outline:none;cursor:pointer}
+
+/* Decision item */
+.decision-item{background:var(--panel-2);border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin-bottom:6px}
+.decision-id{font-size:11px;font-family:monospace;color:#F59E0B;font-weight:700;margin-bottom:2px}
+.decision-axis{font-size:12px;color:var(--text);font-weight:600;margin-bottom:4px}
+.decision-value{font-size:11px;color:var(--text-2);line-height:1.5}
 </style>
 <body>
 <div class="app">
@@ -36,57 +85,107 @@
 </aside>
 <main class="s-main">
   <div class="s-crumb">Records / Sessions</div>
-  <div class="s-h1">Current Session</div>
-  <div class="page" style="padding:0;max-width:none;margin:0">
-    <div style="margin-bottom:16px;font-size:12px;color:var(--text-tertiary)" id="sessionSub">Loading...</div>
+  <div class="s-h1">Sessions</div>
+  <div style="margin-bottom:20px;font-size:12px;color:var(--text-3)" id="pageSub">Loading...</div>
 
-    <!-- Session Info -->
-    <div class="session-grid" id="sessionGrid">
-      <div class="loading">Loading session</div>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('current',this)">Current Session</button>
+    <button class="tab-btn" onclick="switchTab('history',this)">Session History</button>
+  </div>
+
+  <!-- ══ CURRENT SESSION ══ -->
+  <div class="tab-pane active" id="tab-current">
+    <div class="session-grid" id="sessionGrid"><div class="card" style="color:var(--text-3)">Loading...</div></div>
+
+    <div class="section-title">Agent Progress</div>
+    <div id="agentProgress"></div>
+
+    <div class="section-title">Session Decisions</div>
+    <div id="sessionDecisions"></div>
+
+    <div class="section-title">Project Charter</div>
+    <div id="charterInfo"><div style="color:var(--text-3);font-size:13px">Loading...</div></div>
+  </div>
+
+  <!-- ══ SESSION HISTORY ══ -->
+  <div class="tab-pane" id="tab-history">
+    <div style="font-size:11px;color:var(--text-3);margin-bottom:16px;padding:10px 14px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.15);border-radius:8px">
+      History reflects sessions closed before this session. Data quality: <span style="color:#10B981">auto</span> = Hook 집계, <span style="color:#F59E0B">backfill</span> = reportFiles 파싱, <span style="color:#6E6E78">manual</span> = 데이터 없음.
     </div>
 
-    <!-- Agents Completed -->
-    <div style="margin-top: 24px;">
-      <div class="section-title">Agent Progress</div>
-      <div id="agentProgress"></div>
+    <!-- Role Frequency Chart -->
+    <div class="section-title">Role Call Frequency</div>
+    <div class="card" style="padding:16px">
+      <div id="roleFreqChart"></div>
     </div>
 
-    <!-- Master Decisions in Session -->
-    <div style="margin-top: 24px;">
-      <div class="section-title">Session Decisions</div>
-      <div id="sessionDecisions"></div>
+    <!-- Session List -->
+    <div class="section-title" style="display:flex;align-items:center;justify-content:space-between">
+      <span>All Sessions</span>
+      <span id="histCount" style="color:var(--text-3);font-size:11px"></span>
     </div>
-
-    <!-- Project Charter -->
-    <div style="margin-top: 32px;">
-      <div class="section-title">Project Charter</div>
-      <div id="charterInfo"><div class="loading">Loading</div></div>
+    <div class="search-row">
+      <input class="search-input" id="histSearch" placeholder="Search session ID or topic..." oninput="renderHistory()">
+      <select class="filter-select" id="histFilter" onchange="renderHistory()">
+        <option value="">All quality</option>
+        <option value="auto">auto</option>
+        <option value="backfill">backfill</option>
+        <option value="manual">manual</option>
+      </select>
     </div>
+    <div id="histList"></div>
   </div>
 
   <script src="js/data-loader.js"></script>
   <script src="js/nav.js"></script>
   <script>
-    const AGENT_ORDER = ['ace', 'arki', 'fin', 'riki', 'nova', 'ace-review', 'editor'];
+    const AGENT_ORDER = ['ace', 'arki', 'fin', 'riki', 'nova', 'ace-review', 'vera', 'editor'];
     const AGENT_LABELS = {
-      'ace': 'Ace — Framing',
-      'arki': 'Arki — Architecture',
-      'fin': 'Fin — Finance',
-      'riki': 'Riki — Risk',
-      'nova': 'Nova — Speculation',
-      'ace-review': 'Ace — Review',
-      'editor': 'Editor — Output'
+      ace: 'Ace — Framing', arki: 'Arki — Architecture',
+      fin: 'Fin — Finance', riki: 'Riki — Risk',
+      nova: 'Nova — Speculation', 'ace-review': 'Ace — Review',
+      vera: 'Vera — Design', editor: 'Editor — Output'
+    };
+    const ROLE_COLORS = {
+      ace:'#06B6D4', arki:'#14B8A6', fin:'#10B981', riki:'#EF4444',
+      nova:'#F59E0B', 'ace-review':'#06B6D4', vera:'#EC4899', editor:'#8B5CF6', dev:'#F97316'
     };
 
-    async function init() {
-      // Current session
+    let allSessions = [];
+    let roleFrequency = [];
+
+    function switchTab(id, btn) {
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + id).classList.add('active');
+      btn.classList.add('active');
+      if (id === 'history' && roleFrequency.length) renderRoleChart();
+    }
+
+    function formatDate(iso) {
+      if (!iso) return '—';
+      const d = new Date(iso);
+      return d.toLocaleDateString('ko-KR', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+
+    function statusBadge(s) {
+      const cfg = {
+        open: ['#10B981','rgba(16,185,129,.12)'],
+        closed: ['#6E6E78','rgba(110,110,120,.1)'],
+        'in-progress': ['#06B6D4','rgba(6,182,212,.12)']
+      };
+      const [c, bg] = cfg[s] || ['#6E6E78','rgba(110,110,120,.1)'];
+      return `<span style="font-size:11px;padding:2px 10px;border-radius:20px;font-weight:600;color:${c};background:${bg};border:1px solid ${c}40">${s}</span>`;
+    }
+
+    async function initCurrent() {
       const session = await DataLoader.getCurrentSession();
       const grid = document.getElementById('sessionGrid');
-      const sub = document.getElementById('sessionSub');
+      const sub = document.getElementById('pageSub');
 
       if (session) {
-        sub.textContent = `${session.sessionId} · ${session.status}`;
-        const statusIsOpen = session.status === 'open' || session.status === 'in-progress';
+        sub.textContent = `${session.sessionId} · ${session.topicSlug || ''} · ${session.status}`;
+        const open = session.status === 'open' || session.status === 'in-progress';
         grid.innerHTML = `
           <div class="card" style="border-top:3px solid #06B6D4;background:linear-gradient(145deg,rgba(6,182,212,.1) 0%,#0B0B0D 100%)">
             <div class="session-label" style="color:#06B6D4">Session ID</div>
@@ -94,10 +193,10 @@
           </div>
           <div class="card" style="border-top:3px solid #8B5CF6;background:linear-gradient(145deg,rgba(139,92,246,.1) 0%,#0B0B0D 100%)">
             <div class="session-label" style="color:#8B5CF6">Topic</div>
-            <div class="session-value" style="font-size:13px;line-height:1.4">${session.topic}</div>
+            <div class="session-value" style="font-size:13px;line-height:1.4">${session.topic || '—'}</div>
           </div>
-          <div class="card" style="border-top:3px solid ${statusIsOpen ? '#10B981' : '#6E6E78'};background:linear-gradient(145deg,${statusIsOpen ? 'rgba(16,185,129,.1)' : 'rgba(110,110,120,.08)'} 0%,#0B0B0D 100%)">
-            <div class="session-label" style="color:${statusIsOpen ? '#10B981' : '#6E6E78'}">Status</div>
+          <div class="card" style="border-top:3px solid ${open ? '#10B981' : '#6E6E78'};background:linear-gradient(145deg,${open ? 'rgba(16,185,129,.1)' : 'rgba(110,110,120,.08)'} 0%,#0B0B0D 100%)">
+            <div class="session-label" style="color:${open ? '#10B981' : '#6E6E78'}">Status</div>
             <div class="session-value">${statusBadge(session.status)}</div>
           </div>
           <div class="card" style="border-top:3px solid #F59E0B;background:linear-gradient(145deg,rgba(245,158,11,.1) 0%,#0B0B0D 100%)">
@@ -114,71 +213,135 @@
           </div>
         `;
 
-        // Agent progress
         const completed = session.agentsCompleted || [];
-        const AGENT_COLORS = { ace:'#06B6D4', arki:'#14B8A6', fin:'#10B981', riki:'#EF4444', nova:'#F59E0B', 'ace-review':'#06B6D4', editor:'#8B5CF6' };
         const progressEl = document.getElementById('agentProgress');
         progressEl.innerHTML = AGENT_ORDER.map(a => {
           const done = completed.includes(a) || (a === 'ace-review' && completed.includes('ace'));
-          const isNova = a === 'nova';
-          const skipped = isNova && !session.novaInvoked;
-          const color = AGENT_COLORS[a] || '#6E6E78';
-          let statusHtml = '';
-          if (skipped) statusHtml = `<span style="font-size:10px;font-weight:600;color:#F59E0B;background:rgba(245,158,11,.12);padding:2px 10px;border-radius:20px;border:1px solid rgba(245,158,11,.25)">SKIPPED</span>`;
-          else if (done) statusHtml = `<span style="font-size:10px;font-weight:600;color:#34D399;background:rgba(16,185,129,.12);padding:2px 10px;border-radius:20px;border:1px solid rgba(16,185,129,.25)">DONE</span>`;
-          else statusHtml = `<span style="font-size:10px;font-weight:600;color:#6E6E78;background:rgba(110,110,120,.1);padding:2px 10px;border-radius:20px;border:1px solid rgba(110,110,120,.2)">PENDING</span>`;
-          return `
-            <div class="card" style="display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-left:3px solid ${done && !skipped ? color : '#26262D'};${skipped ? 'opacity:0.45;' : ''}background:linear-gradient(90deg,${done && !skipped ? `rgba(${color.match(/\d+/g)?.join(',')??'0,0,0'},.07)` : 'transparent'} 0%,transparent 100%)">
-              <div style="display:flex;align-items:center;gap:10px">
-                <span style="width:6px;height:6px;border-radius:50%;background:${done && !skipped ? color : '#333340'};${done && !skipped ? `box-shadow:0 0 6px ${color}` : ''}"></span>
-                <span style="font-size:12px;color:${done && !skipped ? '#F5F5F7' : '#6E6E78'}">${AGENT_LABELS[a] || a}</span>
-              </div>
-              ${statusHtml}
-            </div>
-          `;
+          const skipped = a === 'nova' && !session.novaInvoked;
+          const color = ROLE_COLORS[a] || '#6E6E78';
+          let badge = '';
+          if (skipped) badge = `<span style="font-size:10px;font-weight:600;color:#F59E0B;background:rgba(245,158,11,.12);padding:2px 10px;border-radius:20px;border:1px solid rgba(245,158,11,.25)">SKIPPED</span>`;
+          else if (done) badge = `<span style="font-size:10px;font-weight:600;color:#34D399;background:rgba(16,185,129,.12);padding:2px 10px;border-radius:20px;border:1px solid rgba(16,185,129,.25)">DONE</span>`;
+          else badge = `<span style="font-size:10px;font-weight:600;color:#6E6E78;background:rgba(110,110,120,.1);padding:2px 10px;border-radius:20px;border:1px solid rgba(110,110,120,.2)">PENDING</span>`;
+          return `<div class="card" style="display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-left:3px solid ${done&&!skipped?color:'#26262D'};${skipped?'opacity:0.45;':''}background:linear-gradient(90deg,${done&&!skipped?`rgba(${hexToRgb(color)},.07)`:'transparent'} 0%,transparent 100%)">
+            <div style="display:flex;align-items:center;gap:10px">
+              <span style="width:6px;height:6px;border-radius:50%;background:${done&&!skipped?color:'#333340'};${done&&!skipped?`box-shadow:0 0 6px ${color}`:''}"></span>
+              <span style="font-size:12px;color:${done&&!skipped?'#F5F5F7':'#6E6E78'}">${AGENT_LABELS[a]||a}</span>
+            </div>${badge}</div>`;
         }).join('');
 
-        // Session decisions
         const decEl = document.getElementById('sessionDecisions');
         if (session.masterDecisions && session.masterDecisions.length > 0) {
           decEl.innerHTML = session.masterDecisions.map(d => `
             <div class="decision-item">
-              <div class="decision-id">${d.id}</div>
-              <div class="decision-axis">${d.axis}</div>
-              <div class="decision-value">${d.value}</div>
-            </div>
-          `).join('');
+              <div class="decision-id">${d.id || ''}</div>
+              <div class="decision-axis">${d.axis || d}</div>
+              <div class="decision-value">${d.value || ''}</div>
+            </div>`).join('');
         } else {
-          decEl.innerHTML = '<div class="empty-state">No decisions in this session</div>';
+          decEl.innerHTML = '<div class="empty-state">No decisions in this session yet</div>';
         }
       } else {
         grid.innerHTML = '<div class="empty-state">No session data</div>';
+        sub.textContent = 'No active session';
       }
 
-      // Project charter
       const charter = await DataLoader.getProjectCharter();
       const charterEl = document.getElementById('charterInfo');
       if (charter && charter.charter) {
         const c = charter.charter;
         const roles = Object.entries(c.roles || {}).map(([k, v]) =>
-          `<div class="card" style="padding: 10px 14px;"><strong style="color: var(--text);">${k}</strong><div style="font-size: 11px; color: var(--text-secondary); margin-top: 2px;">${v}</div></div>`
+          `<div class="card" style="padding:10px 14px"><strong style="color:var(--text)">${k}</strong><div style="font-size:11px;color:var(--text-2);margin-top:2px">${v}</div></div>`
         ).join('');
-
         charterEl.innerHTML = `
-          <div class="card" style="margin-bottom: 16px;">
+          <div class="card" style="margin-bottom:16px">
             <div class="session-label">Version</div>
             <div class="session-value">${c.version}</div>
-            <div style="font-size: 11px; color: var(--text-secondary); margin-top: 8px;">${c.purpose}</div>
+            <div style="font-size:11px;color:var(--text-2);margin-top:8px">${c.purpose}</div>
           </div>
-          <div class="section-title" style="margin-top: 16px;">Roles</div>
-          ${roles}
-          <div class="section-title" style="margin-top: 16px;">Principles</div>
-          ${(c.principles || []).map(p => `<div class="card" style="padding: 8px 14px; font-size: 11px; color: var(--text-secondary);">${p}</div>`).join('')}
-        `;
+          <div class="section-title">Roles</div>${roles}
+          <div class="section-title" style="margin-top:16px">Principles</div>
+          ${(c.principles||[]).map(p=>`<div class="card" style="padding:8px 14px;font-size:11px;color:var(--text-2)">${p}</div>`).join('')}`;
       }
+    }
+
+    async function initHistory() {
+      const data = await DataLoader.getDashboardData();
+      if (!data) return;
+      allSessions = (data.sessions || []).slice().reverse(); // 최신순
+      roleFrequency = data.roleFrequency || [];
+      document.getElementById('histCount').textContent = `${allSessions.length}개 세션`;
+      renderHistory();
+    }
+
+    function renderHistory() {
+      const q = document.getElementById('histSearch').value.toLowerCase();
+      const qf = document.getElementById('histFilter').value;
+      const filtered = allSessions.filter(s => {
+        const matchQ = !q || s.sessionId.toLowerCase().includes(q) || (s.topic||'').toLowerCase().includes(q) || (s.topicSlug||'').toLowerCase().includes(q);
+        const matchF = !qf || s.dataQuality === qf;
+        return matchQ && matchF;
+      });
+      document.getElementById('histCount').textContent = `${filtered.length} / ${allSessions.length}개`;
+      const list = document.getElementById('histList');
+      if (!filtered.length) {
+        list.innerHTML = '<div class="empty-state">No sessions found</div>';
+        return;
+      }
+      list.innerHTML = filtered.map(s => {
+        const dqClass = `dq-${s.dataQuality || 'manual'}`;
+        const roles = (s.agentsCompleted || []).map(r =>
+          `<span class="role-chip" style="color:${ROLE_COLORS[r]||'#6E6E78'};background:${ROLE_COLORS[r]||'#6E6E78'}18;border-color:${ROLE_COLORS[r]||'#6E6E78'}30">${r}</span>`
+        ).join('');
+        return `<div class="hist-card" title="${s.topicSlug}">
+          <div class="hist-card-header">
+            <span class="hist-sid">${s.sessionId}</span>
+            <span class="hist-topic">${s.topic || s.topicSlug || '—'}</span>
+            <span class="hist-date">${formatDate(s.startedAt)}</span>
+          </div>
+          <div class="hist-meta">
+            <span class="hist-badge ${dqClass}">${s.dataQuality||'manual'}</span>
+            <span class="hist-badge" style="color:#8B5CF6;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.2)">Size ${s.size}</span>
+            ${s.decisionAxes > 0 ? `<span class="hist-badge" style="color:#F59E0B;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2)">${s.decisionAxes} decisions</span>` : ''}
+            ${s.masterTurns > 0 ? `<span class="hist-badge" style="color:#06B6D4;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.2)">${s.masterTurns} turns</span>` : ''}
+          </div>
+          ${roles ? `<div class="hist-roles">${roles}</div>` : ''}
+        </div>`;
+      }).join('');
+    }
+
+    function renderRoleChart() {
+      if (!roleFrequency.length) return;
+      const chart = echarts.init(document.getElementById('roleFreqChart'), 'dark');
+      const roles = roleFrequency.map(r => r.role);
+      const counts = roleFrequency.map(r => r.count);
+      const colors = roles.map(r => ROLE_COLORS[r] || '#8B5CF6');
+      chart.setOption({
+        backgroundColor: 'transparent',
+        grid: { top: 10, right: 20, bottom: 40, left: 70 },
+        xAxis: { type: 'value', axisLabel: { color: '#6E6E78', fontSize: 11 }, splitLine: { lineStyle: { color: '#1E1E24' } } },
+        yAxis: { type: 'category', data: roles.slice().reverse(), axisLabel: { color: '#B8B8C0', fontSize: 12 } },
+        series: [{
+          type: 'bar', data: counts.slice().reverse(),
+          itemStyle: { color: (p) => colors[roles.length - 1 - p.dataIndex], borderRadius: [0, 4, 4, 0] },
+          barMaxWidth: 28,
+          label: { show: true, position: 'right', color: '#B8B8C0', fontSize: 11, formatter: '{c}' }
+        }],
+        tooltip: { trigger: 'axis', backgroundColor: '#141418', borderColor: '#26262D', textStyle: { color: '#F5F5F7', fontSize: 12 } }
+      });
+      window.addEventListener('resize', () => chart.resize());
+    }
+
+    function hexToRgb(hex) {
+      const r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16);
+      return `${r},${g},${b}`;
+    }
+
+    async function init() {
+      await Promise.all([initCurrent(), initHistory()]);
     }
     init();
   </script>
-</div></main></div>
+</main></div>
 </body>
 </html>

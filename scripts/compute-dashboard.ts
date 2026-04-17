@@ -101,13 +101,20 @@ interface SessionData {
   sessionsSpanned: number;
   size: number;
   masterTurns: number;
-  dataQuality: 'auto' | 'manual';
+  dataQuality: 'auto' | 'manual' | 'backfill';
+  agentsCompleted?: string[];
   tokenUsage?: {
     totalBillable: number;
     cacheHitRate: number;
     messageCount: number;
   };
   adoptionRate?: number;
+}
+
+interface RoleFrequencyEntry {
+  role: string;
+  count: number;
+  sessions: string[];
 }
 
 interface AlarmEntry {
@@ -206,7 +213,9 @@ function main() {
 
   const sessions: SessionData[] = sessionIndex.sessions.map(s => {
     const sessionNum = parseInt(s.sessionId.replace('session_', ''), 10);
-    const dataQuality: 'auto' | 'manual' = sessionNum >= autoStartNum ? 'auto' : 'manual';
+    const hasBackfill = s.agentsCompleted && s.agentsCompleted.length > 0 && sessionNum < autoStartNum;
+    const dataQuality: 'auto' | 'manual' | 'backfill' =
+      sessionNum >= autoStartNum ? 'auto' : (hasBackfill ? 'backfill' : 'manual');
 
     const agents = s.agentsCompleted ?? [];
     const rolesCalled = agents.length > 0 ? agents.length : 1; // 최소 1 (Ace)
@@ -243,6 +252,7 @@ function main() {
       size,
       masterTurns: token?.masterTurns ?? s.masterTurns ?? 0,
       dataQuality,
+      ...(agents.length > 0 && { agentsCompleted: agents }),
       ...(tokenUsage && { tokenUsage }),
       ...(adoptionRate !== undefined && { adoptionRate }),
     };
@@ -303,6 +313,24 @@ function main() {
     }
   }
 
+  // ── 역할 호출 빈도 집계 ──────────────────────────────────────────────────
+  const roleFreqMap = new Map<string, { count: number; sessions: string[] }>();
+  for (const s of sessions) {
+    if (!s.agentsCompleted) continue;
+    const seen = new Set<string>();
+    for (const role of s.agentsCompleted) {
+      if (seen.has(role)) continue; // 세션당 1회만 카운트 (재호출 포함 원하면 제거)
+      seen.add(role);
+      const entry = roleFreqMap.get(role) ?? { count: 0, sessions: [] };
+      entry.count++;
+      entry.sessions.push(s.sessionId);
+      roleFreqMap.set(role, entry);
+    }
+  }
+  const roleFrequency: RoleFrequencyEntry[] = Array.from(roleFreqMap.entries())
+    .map(([role, data]) => ({ role, count: data.count, sessions: data.sessions }))
+    .sort((a, b) => b.count - a.count);
+
   // ── 출력 ─────────────────────────────────────────────────────────────────
   const output = {
     generatedAt: new Date().toISOString(),
@@ -315,6 +343,7 @@ function main() {
       totalDecisions: decisionLedger.decisions.length,
     },
     sessions,
+    roleFrequency,
     alarms,
     feedbackRecurrences,
   };

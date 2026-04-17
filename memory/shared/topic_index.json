@@ -539,6 +539,19 @@
       "note": "session_030",
       "masterDecisions": []
     }
+    ,{
+      "id": "topic_028",
+      "type": "implementation",
+      "title": "세션 히스토리 뷰 신설 (PD-008)",
+      "status": "in-progress",
+      "created": "2026-04-17",
+      "controlPath": null,
+      "reportPath": "reports/2026-04-17_session-history-view",
+      "reportFiles": [],
+      "published": false,
+      "masterDecisions": [],
+      "note": "session_031. PD-008 이행: agentsCompleted → session_index 영구저장 + roleFrequency 집계 + 세션 히스토리 뷰 구현."
+    }
   ],
-  "lastUpdated": "2026-04-17T04:00:00.000Z"
+  "lastUpdated": "2026-04-17T14:00:00.000Z"
 }

@@ -27,6 +27,7 @@ interface SessionEntry {
   startedAt: string;
   closedAt?: string | null;
   decisions?: string[];
+  agentsCompleted?: string[];
   note?: string;
 }
 
@@ -44,6 +45,7 @@ interface ParsedArgs {
   startedAt?: string;
   closedAt?: string | null;
   decisions?: string[];
+  agentsCompleted?: string[];
   note?: string;
 }
 
@@ -67,6 +69,7 @@ function parseArgs(): ParsedArgs {
   const startedAt = parsed.get('startedAt');
   const closedAt = parsed.get('closedAt');
   const decisions = parsed.get('decisions');
+  const agentsCompleted = parsed.get('agentsCompleted');
   const note = parsed.get('note');
 
   if (sessionId) result.sessionId = sessionId;
@@ -75,6 +78,7 @@ function parseArgs(): ParsedArgs {
   if (startedAt) result.startedAt = startedAt;
   result.closedAt = closedAt ?? null;
   if (decisions) result.decisions = decisions.split(',').map(d => d.trim());
+  if (agentsCompleted) result.agentsCompleted = agentsCompleted.split(',').map(a => a.trim());
   if (note) result.note = note;
 
   return result;
@@ -92,6 +96,7 @@ Usage: ts-node scripts/append-session.ts \\
   --startedAt <ISO8601> \\
   [--closedAt <ISO8601>] \\
   [--decisions "D-001,D-002"] \\
+  [--agentsCompleted "ace,arki,editor"] \\
   [--note <text>]
 `);
     process.exit(0);
@@ -120,6 +125,7 @@ Usage: ts-node scripts/append-session.ts \\
       startedAt: args.startedAt,
       closedAt: args.closedAt ?? existing.closedAt,
       ...(args.decisions && { decisions: args.decisions }),
+      ...(args.agentsCompleted && { agentsCompleted: args.agentsCompleted }),
       ...(args.note && { note: args.note }),
     });
   } else {
@@ -130,6 +136,7 @@ Usage: ts-node scripts/append-session.ts \\
       startedAt: args.startedAt!,
       closedAt: args.closedAt ?? null,
       ...(args.decisions && { decisions: args.decisions }),
+      ...(args.agentsCompleted && { agentsCompleted: args.agentsCompleted }),
       ...(args.note && { note: args.note }),
     };
     index.sessions.push(entry);

@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_028",
-  "nextSessionId": "session_029",
+  "lastSessionId": "session_030",
+  "nextSessionId": "session_032",
   "currentVersion": "v0.9.0",
   "openTopics": [
     {
