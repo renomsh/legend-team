@@ -7,6 +7,7 @@
  */
 
 const { execSync } = require('child_process');
+const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -37,6 +38,34 @@ function getMainRepoRoot() {
   }
   // Already in main repo (.git)
   return path.resolve(resolved, '..');
+}
+
+function syncClaudeDir(mainRoot) {
+  // 워크트리 안의 .claude/ → main repo .claude/ 동기화
+  // 워크트리가 아닌 경우(ROOT === mainRoot) 스킵
+  if (!mainRoot || path.resolve(mainRoot) === path.resolve(ROOT)) return;
+
+  const src = path.join(ROOT, '.claude');
+  const dst = path.join(mainRoot, '.claude');
+  if (!fs.existsSync(src)) return;
+
+  function copyDir(s, d) {
+    fs.mkdirSync(d, { recursive: true });
+    for (const entry of fs.readdirSync(s, { withFileTypes: true })) {
+      // worktrees/ 하위는 복사 금지 (무한 재귀 방지)
+      if (entry.name === 'worktrees') continue;
+      const sp = path.join(s, entry.name);
+      const dp = path.join(d, entry.name);
+      if (entry.isDirectory()) {
+        copyDir(sp, dp);
+      } else {
+        fs.copyFileSync(sp, dp);
+      }
+    }
+  }
+
+  copyDir(src, dst);
+  console.log('[auto-push] Synced .claude/ worktree → main repo');
 }
 
 function autoPush() {
@@ -79,6 +108,18 @@ function autoPush() {
     if (!mainRoot) {
       console.error('[auto-push] Could not resolve main repo root. Manual merge required.');
       return;
+    }
+
+    // .claude/ 동기화 후 main repo에서 add + commit (변경분 있을 때만)
+    syncClaudeDir(mainRoot);
+    try {
+      execSync('git add .claude/', { cwd: mainRoot, encoding: 'utf8', stdio: 'pipe' });
+      execSync(`git commit -m "sync: .claude from worktree ${currentBranch}"`, {
+        cwd: mainRoot, encoding: 'utf8', stdio: 'pipe'
+      });
+      console.log('[auto-push] Committed .claude/ sync to main.');
+    } catch {
+      // 변경 없으면 commit 실패 — 정상
     }
 
     // Merge from the main repo's working directory (where main is checked out)
