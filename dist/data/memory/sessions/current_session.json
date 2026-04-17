@@ -1,17 +1,19 @@
 {
-  "sessionId": "session_029",
-  "topic": "Legend Team Dashboard #2",
-  "topicSlug": "legend-team-dashboard-2",
+  "sessionId": "session_030",
+  "topic": "Dashboard Upgrade",
+  "topicSlug": "dashboard-upgrade-v3",
   "status": "open",
-  "startedAt": "2026-04-17T07:00:00.000Z",
+  "startedAt": "2026-04-17T09:30:00.000Z",
   "closedAt": null,
   "mode": "observation",
-  "agentsCompleted": [],
+  "agentsCompleted": ["ace"],
   "novaInvoked": false,
   "masterDecisions": [],
-  "reportPath": "reports/2026-04-17_legend-team-dashboard-2",
+  "reportPath": "reports/2026-04-17_dashboard-upgrade-v3",
   "notes": [
-    "session_028 후속. 대시보드 구현 완료 여부 확인 및 추가 확정 사항 논의."
+    "dashboard-v3-test.html 프로토타입 생성. 기존 파일 무수정.",
+    "갭 3개 진단: (1) 세션흐름 미구현, (2) 역할호출빈도 미구현, (3) 비주얼 수준 업그레이드.",
+    "프로토타입 포함: Session Flow 패널, Role Analytics, 새 dark admin 디자인, 개선된 차트."
   ],
   "gaps": [],
   "closeVerified": false

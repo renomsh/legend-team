@@ -13,7 +13,8 @@
       "Bash(omnara --help)",
       "Bash(\"/c/Users/문성훈/AppData/Local/Omnara/bin/omnara.exe\" --help)",
       "Bash(\"/c/Users/문성훈/AppData/Local/Omnara/bin/omnara.exe\" workspace:*)",
-      "mcp__Claude_Preview__preview_start"
+      "mcp__Claude_Preview__preview_start",
+      "Bash(python -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('keys:', list\\(d.keys\\(\\)\\)\\); print\\('last session:', d['sessions'][-1]\\)\")"
     ]
   }
 }

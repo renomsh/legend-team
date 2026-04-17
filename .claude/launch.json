@@ -4,7 +4,7 @@
     {
       "name": "resume-preview",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["http-server", "C:/Users/문성훈/Downloads", "-p", "8080", "-c-1"],
+      "runtimeArgs": ["http-server", "C:/Projects/legend-team/.claude/worktrees/competent-maxwell-5b04b0/dist", "-p", "8080", "-c-1"],
       "port": 8080
     }
   ]

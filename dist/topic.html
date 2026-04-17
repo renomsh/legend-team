@@ -6,176 +6,176 @@
   <title>Topic — Legend Team</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
+<style>
+:root{--bg:#000000;--panel:#0B0B0D;--panel-2:#141418;--line:#26262D;--text:#F5F5F7;--text-2:#B8B8C0;--text-3:#6E6E78}
+.app{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
+.sidebar{background:var(--panel);border-right:1px solid var(--line);padding:24px 16px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:4px;overflow-y:auto}
+.brand{display:flex;align-items:center;gap:10px;padding:4px 8px 20px 8px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.brand-mark{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#4F46E5,#9333EA);display:grid;place-items:center;font-weight:800;font-size:13px;color:#fff;flex-shrink:0}
+.brand-name{font-size:15px;font-weight:700;letter-spacing:-.2px}.brand-tag{font-size:9px;color:var(--text-3);text-transform:uppercase;letter-spacing:.14em;margin-top:2px}
+.nav-group{font-size:9px;color:var(--text-3);text-transform:uppercase;letter-spacing:.14em;padding:14px 10px 6px}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;color:var(--text-2);font-size:13px;transition:all .15s;text-decoration:none}
+.nav-item:hover{background:var(--panel-2);color:var(--text)}.nav-item.active{background:linear-gradient(135deg,rgba(139,92,246,.18),rgba(6,182,212,.12));color:#fff;box-shadow:inset 0 0 0 1px rgba(139,92,246,.3)}
+.nav-dot{width:6px;height:6px;border-radius:2px;flex-shrink:0}.sidebar-foot{margin-top:auto;padding:12px 10px;border-top:1px solid var(--line);font-size:11px;color:var(--text-3)}.sidebar-foot b{color:var(--text-2)}
+.s-main{padding:28px 36px 64px;min-width:0}.s-crumb{font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:.14em}.s-h1{font-size:28px;font-weight:800;letter-spacing:-.6px;margin-top:4px;color:var(--text);margin-bottom:6px}
+.s-meta{font-size:12px;color:var(--text-3);margin-bottom:24px;display:flex;align-items:center;gap:10px}
+
+/* Tab Bar */
+.tab-bar{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:24px}
+.tab-btn{background:none;border:none;padding:10px 18px;font-size:12px;font-weight:600;letter-spacing:.5px;color:var(--text-3);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .15s,border-color .15s;text-transform:uppercase}
+.tab-btn:hover{color:var(--text-2)}
+.tab-btn.active{color:#fff;border-bottom-color:#8B5CF6}
+</style>
 <body>
-  <nav class="nav">
-    <span class="nav-brand">LEGEND TEAM</span>
-    <a href="index.html" class="nav-link">Home</a>
-    <a href="dashboard-upgrade.html" class="nav-link">Upgrade</a>
-    <a href="dashboard-ops.html" class="nav-link">Ops</a>
-    <a href="decisions.html" class="nav-link">Decisions</a>
-    <a href="session.html" class="nav-link">Session</a>
-    <a href="feedback.html" class="nav-link">Feedback</a>
-  </nav>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="brand-mark">L</div><div><div class="brand-name">legend·team</div><div class="brand-tag">Strategy OS</div></div></div>
+  <div class="nav-group">Dashboard</div>
+  <a href="dashboard-upgrade.html" class="nav-item"><span class="nav-dot" style="background:#8B5CF6"></span>Upgrade</a>
+  <a href="dashboard-ops.html" class="nav-item"><span class="nav-dot" style="background:#06B6D4"></span>Ops</a>
+  <div class="nav-group">Records</div>
+  <a href="decisions.html" class="nav-item"><span class="nav-dot" style="background:#F59E0B"></span>Decisions</a>
+  <a href="session.html" class="nav-item"><span class="nav-dot" style="background:#10B981"></span>Sessions</a>
+  <a href="feedback.html" class="nav-item"><span class="nav-dot" style="background:#EF4444"></span>Feedback</a>
+  <div class="nav-group">System</div>
+  <a href="index.html" class="nav-item"><span class="nav-dot" style="background:#6E6E78"></span>Home</a>
+  <div class="sidebar-foot"><b>v1.0.0</b> · Legend Team</div>
+</aside>
+<main class="s-main">
+  <div class="s-crumb">Records / <a href="index.html" style="color:var(--text-3);text-decoration:none">Topics</a></div>
+  <div class="s-h1" id="topicTitle"><div class="loading">Loading</div></div>
+  <div class="s-meta" id="topicMeta"></div>
 
-  <div class="page">
-    <div class="page-header">
-      <div class="page-sub"><a href="index.html">&larr; Dashboard</a></div>
-      <div class="page-title" id="topicTitle"><div class="loading">Loading</div></div>
-      <div class="page-sub" id="topicMeta"></div>
-    </div>
-
-    <!-- Tab navigation -->
-    <div style="display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 24px;">
-      <button class="nav-link active" onclick="showTab('reports', this)">Reports</button>
-      <button class="nav-link" onclick="showTab('decisions', this)">Decisions</button>
-      <button class="nav-link" onclick="showTab('feedback', this)">Feedback</button>
-    </div>
-
-    <div id="tab-reports"></div>
-    <div id="tab-decisions" style="display:none"></div>
-    <div id="tab-feedback" style="display:none"></div>
+  <!-- Tab Bar -->
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="showTab('reports', this)">Reports</button>
+    <button class="tab-btn" onclick="showTab('decisions', this)">Decisions</button>
+    <button class="tab-btn" onclick="showTab('feedback', this)">Feedback</button>
   </div>
 
-  <script src="js/data-loader.js"></script>
-  <script src="js/md-renderer.js"></script>
-  <script src="js/nav.js"></script>
-  <script>
-    function showTab(name, btn) {
-      document.querySelectorAll('[id^="tab-"]').forEach(el => el.style.display = 'none');
-      document.getElementById('tab-' + name).style.display = 'block';
-      btn.parentElement.querySelectorAll('.nav-link').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+  <div id="tab-reports"></div>
+  <div id="tab-decisions" style="display:none"></div>
+  <div id="tab-feedback" style="display:none"></div>
+</main>
+</div>
+
+<script src="js/data-loader.js"></script>
+<script src="js/md-renderer.js"></script>
+<script src="js/nav.js"></script>
+<script>
+  function showTab(name, btn) {
+    document.querySelectorAll('[id^="tab-"]').forEach(el => el.style.display = 'none');
+    document.getElementById('tab-' + name).style.display = 'block';
+    btn.parentElement.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  async function init() {
+    const topicId = getParam('id');
+    if (!topicId) {
+      document.getElementById('topicTitle').textContent = 'No topic specified';
+      return;
     }
 
-    async function init() {
-      const topicId = getParam('id');
-      if (!topicId) {
-        document.getElementById('topicTitle').textContent = 'No topic specified';
-        return;
-      }
+    const topicData = await DataLoader.getTopicIndex();
+    const topic = topicData?.topics?.find(t => t.id === topicId);
+    if (!topic) {
+      document.getElementById('topicTitle').textContent = `Topic ${topicId} not found`;
+      return;
+    }
 
-      // Find topic in index
-      const topicData = await DataLoader.getTopicIndex();
-      const topic = topicData?.topics?.find(t => t.id === topicId);
-      if (!topic) {
-        document.getElementById('topicTitle').textContent = `Topic ${topicId} not found`;
-        return;
-      }
+    document.getElementById('topicTitle').textContent = topic.title;
+    document.getElementById('topicMeta').innerHTML =
+      `<span style="font-family:monospace;color:#06B6D4;font-size:11px">${topic.id}</span>${statusBadge(topic.status)}<span>${topic.created || ''}</span>`;
+    document.title = `${topic.title} — Legend Team`;
 
-      // Header
-      document.getElementById('topicTitle').textContent = topic.title;
-      document.getElementById('topicMeta').innerHTML =
-        `<span class="topic-id">${topic.id}</span> · ${statusBadge(topic.status)} · ${topic.created || ''}`;
-      document.title = `${topic.title} — Legend Team`;
-
-      // Reports tab
-      const reportsEl = document.getElementById('tab-reports');
-      if (topic.reportFiles && topic.reportFiles.length > 0) {
-        // Determine the folder path for reports — use reportPath (publish contract)
-        let folderBase = '';
-        if (topic.reportPath) {
-          folderBase = topic.reportPath.replace(/^reports\//, '').replace(/\/$/, '');
-        } else {
-          folderBase = `${topic.created}_${topicId}`;
-        }
-
-        const items = topic.reportFiles.map(f => `
-          <div class="report-item" id="report-${f}">
-            <div class="report-header" onclick="toggleReport('${folderBase}/${f}', '${f}')">
-              <span class="report-icon">&#x1F4C4;</span>
-              <span class="report-name">${f}</span>
-              <span class="report-toggle" id="toggle-${f}">&#x25B6;</span>
-            </div>
-            <div class="report-body" id="body-${f}"></div>
-          </div>
-        `).join('');
-        reportsEl.innerHTML = `<div class="report-list">${items}</div>`;
+    // Reports tab
+    const reportsEl = document.getElementById('tab-reports');
+    if (topic.reportFiles && topic.reportFiles.length > 0) {
+      let folderBase = '';
+      if (topic.reportPath) {
+        folderBase = topic.reportPath.replace(/^reports\//, '').replace(/\/$/, '');
       } else {
-        reportsEl.innerHTML = '<div class="empty-state">No reports available</div>';
+        folderBase = `${topic.created}_${topicId}`;
       }
-
-      // Decisions tab — filter by topic
-      const decData = await DataLoader.getDecisionLedger();
-      const decEl = document.getElementById('tab-decisions');
-      const mdSet = new Set(topic.masterDecisions || []);
-      let topicDecs = [];
-      if (decData && decData.decisions) {
-        topicDecs = decData.decisions.filter(d =>
-          mdSet.has(d.id) ||
-          d.topic === topicId ||
-          d.topic === topic.title
-        );
-        if (topicDecs.length > 0) {
-          decEl.innerHTML = topicDecs.map(d => `
-            <div class="decision-item">
-              <div class="decision-id">${escHtml(d.id)}</div>
-              <div class="decision-axis">${escHtml(d.axis)}</div>
-              <div class="decision-value">${escHtml(d.value)}</div>
-              <div class="decision-meta">
-                <span>${escHtml(d.date)}</span>
-                <span>${escHtml(d.decision)}</span>
-                <span>${escHtml(d.status)}</span>
-              </div>
-            </div>
-          `).join('');
-        } else {
-          decEl.innerHTML = '<div class="empty-state">No decisions for this topic</div>';
-        }
-      }
-
-      // Feedback tab
-      const fbData = await DataLoader.getMasterFeedback();
-      const fbEl = document.getElementById('tab-feedback');
-      if (fbData && fbData.feedbackLog) {
-        const topicSessionIds = new Set(
-          topicDecs.map(d => d.session).filter(Boolean)
-        );
-        const topicFb = fbData.feedbackLog.filter(f =>
-          topicSessionIds.has(f.session) ||
-          f.topic?.includes(topicId) ||
-          (topic.masterDecisions || []).some(did => f.decisions && did in f.decisions)
-        );
-        if (topicFb.length > 0) {
-          fbEl.innerHTML = topicFb.map(f => `
-            <div class="feedback-item">
-              <div class="feedback-id">${escHtml(f.id)}</div>
-              <div class="feedback-text">${escHtml(f.feedback)}</div>
-              <div class="feedback-meta">${escHtml(f.date)} · ${escHtml(f.session)} · ${escHtml(f.instruction || '')}</div>
-            </div>
-          `).join('');
-        } else {
-          fbEl.innerHTML = '<div class="empty-state">No feedback for this topic</div>';
-        }
-      }
+      const items = topic.reportFiles.map(f => `
+        <div class="report-item" id="report-${f}">
+          <div class="report-header" onclick="toggleReport('${folderBase}/${f}', '${f}')">
+            <span class="report-icon">&#x1F4C4;</span>
+            <span class="report-name">${f}</span>
+            <span class="report-toggle" id="toggle-${f}">&#x25B6;</span>
+          </div>
+          <div class="report-body" id="body-${f}"></div>
+        </div>
+      `).join('');
+      reportsEl.innerHTML = `<div class="report-list">${items}</div>`;
+    } else {
+      reportsEl.innerHTML = '<div class="empty-state">No reports available</div>';
     }
 
-    const _loadedReports = {};
-    async function toggleReport(path, filename) {
-      const body = document.getElementById('body-' + filename);
-      const toggle = document.getElementById('toggle-' + filename);
-      if (body.classList.contains('open')) {
-        body.classList.remove('open');
-        toggle.classList.remove('open');
-        return;
-      }
-      // Load if not cached
-      if (!_loadedReports[path]) {
-        body.innerHTML = '<div class="loading">Loading report</div>';
-        body.classList.add('open');
-        toggle.classList.add('open');
-        const md = await DataLoader.getReport(path);
-        if (md) {
-          _loadedReports[path] = mdToHtml(md);
-        } else {
-          _loadedReports[path] = '<div class="empty-state">Could not load report</div>';
-        }
-      }
-      body.innerHTML = `<div class="md-content">${_loadedReports[path]}</div>`;
-      body.classList.add('open');
-      toggle.classList.add('open');
+    // Decisions tab
+    const decData = await DataLoader.getDecisionLedger();
+    const decEl = document.getElementById('tab-decisions');
+    const mdSet = new Set(topic.masterDecisions || []);
+    let topicDecs = [];
+    if (decData && decData.decisions) {
+      topicDecs = decData.decisions.filter(d =>
+        mdSet.has(d.id) || d.topic === topicId || d.topic === topic.title
+      );
+      decEl.innerHTML = topicDecs.length > 0
+        ? topicDecs.map(d => `
+          <div class="decision-item">
+            <div class="decision-id">${escHtml(d.id)}</div>
+            <div class="decision-axis">${escHtml(d.axis)}</div>
+            <div class="decision-value">${escHtml(d.value)}</div>
+            <div class="decision-meta">
+              <span>${escHtml(d.date)}</span>
+              <span>${escHtml(d.decision)}</span>
+              <span>${escHtml(d.status)}</span>
+            </div>
+          </div>`).join('')
+        : '<div class="empty-state">No decisions for this topic</div>';
     }
 
-    init();
-  </script>
+    // Feedback tab
+    const fbData = await DataLoader.getMasterFeedback();
+    const fbEl = document.getElementById('tab-feedback');
+    if (fbData && fbData.feedbackLog) {
+      const topicSessionIds = new Set(topicDecs.map(d => d.session).filter(Boolean));
+      const topicFb = fbData.feedbackLog.filter(f =>
+        topicSessionIds.has(f.session) ||
+        f.topic?.includes(topicId) ||
+        (topic.masterDecisions || []).some(did => f.decisions && did in f.decisions)
+      );
+      fbEl.innerHTML = topicFb.length > 0
+        ? topicFb.map(f => `
+          <div class="feedback-item">
+            <div class="feedback-id">${escHtml(f.id)}</div>
+            <div class="feedback-text">${escHtml(f.feedback)}</div>
+            <div class="feedback-meta">${escHtml(f.date)} · ${escHtml(f.session)} · ${escHtml(f.instruction || '')}</div>
+          </div>`).join('')
+        : '<div class="empty-state">No feedback for this topic</div>';
+    }
+  }
+
+  const _loadedReports = {};
+  async function toggleReport(path, filename) {
+    const body = document.getElementById('body-' + filename);
+    const toggle = document.getElementById('toggle-' + filename);
+    if (body.classList.contains('open')) {
+      body.classList.remove('open'); toggle.classList.remove('open'); return;
+    }
+    if (!_loadedReports[path]) {
+      body.innerHTML = '<div class="loading">Loading report</div>';
+      body.classList.add('open'); toggle.classList.add('open');
+      const md = await DataLoader.getReport(path);
+      _loadedReports[path] = md ? `<div class="md-content">${mdToHtml(md)}</div>` : '<div class="empty-state">Could not load report</div>';
+    }
+    body.innerHTML = _loadedReports[path];
+    body.classList.add('open'); toggle.classList.add('open');
+  }
+
+  init();
+</script>
 </body>
 </html>

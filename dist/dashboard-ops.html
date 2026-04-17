@@ -6,22 +6,28 @@
   <title>과제 운영 뷰 — Legend Team</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
-    .command-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 24px; }
+    .command-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 28px; }
     .command-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 8px; padding: 14px 16px;
-      display: flex; flex-direction: column; gap: 4px;
+      border-radius: 12px; padding: 18px 20px 16px;
+      display: flex; flex-direction: column; gap: 6px;
+      border-top: 3px solid var(--cc-color, #333);
+      position: relative; overflow: hidden;
     }
-    .command-label { font-size: 11px; color: var(--text-secondary); }
-    .command-value { font-size: 22px; font-weight: 700; color: var(--text); }
+    .command-card::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(220px 100px at 50% -20%, var(--cc-glow, transparent), transparent 65%);
+      pointer-events: none;
+    }
+    .command-label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--cc-color, #888); font-weight: 600; }
+    .command-value { font-size: 48px; font-weight: 800; letter-spacing: -2px; color: var(--text); line-height: 1; margin: 4px 0; }
     .command-badge {
       display: inline-flex; align-items: center; gap: 4px;
-      font-size: 10px; padding: 2px 8px; border-radius: 10px; margin-top: 4px;
-      width: fit-content;
+      font-size: 10px; padding: 3px 10px; border-radius: 20px; margin-top: 2px;
+      width: fit-content; font-weight: 600; letter-spacing: .5px;
     }
-    .badge-alarm { background: #2a0a0a; color: var(--accent-red); border: 1px solid #5a1a1a; }
-    .badge-ok { background: #0a2a0a; color: var(--accent-green); border: 1px solid #1a5a1a; }
-    .badge-warn { background: #2a2000; color: var(--accent-gold); border: 1px solid #5a4000; }
+    .badge-alarm { background: rgba(239,68,68,.15); color: #F87171; border: 1px solid rgba(239,68,68,.3); }
+    .badge-ok { background: rgba(16,185,129,.12); color: #34D399; border: 1px solid rgba(16,185,129,.25); }
+    .badge-warn { background: rgba(245,158,11,.12); color: #FCD34D; border: 1px solid rgba(245,158,11,.25); }
 
     .pipeline-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
     .pipeline-item {
@@ -76,50 +82,77 @@
     .empty-state { color: var(--text-tertiary); font-style: italic; padding: 16px; font-size: 12px; }
   </style>
 </head>
+<style>
+:root{--bg:#000000;--panel:#0B0B0D;--panel-2:#141418;--panel-3:#1C1C22;--line:#26262D;--line-2:#333340;--text:#F5F5F7;--text-2:#B8B8C0;--text-3:#6E6E78}
+.app{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
+.sidebar{background:var(--panel);border-right:1px solid var(--line);padding:24px 16px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:4px;overflow-y:auto}
+.brand{display:flex;align-items:center;gap:10px;padding:4px 8px 20px 8px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.brand-mark{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#4F46E5,#9333EA);display:grid;place-items:center;font-weight:800;font-size:13px;color:#fff;flex-shrink:0}
+.brand-name{font-size:15px;font-weight:700;letter-spacing:-.2px}
+.brand-tag{font-size:9px;color:var(--text-3);text-transform:uppercase;letter-spacing:.14em;margin-top:2px}
+.nav-group{font-size:9px;color:var(--text-3);text-transform:uppercase;letter-spacing:.14em;padding:14px 10px 6px}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;color:var(--text-2);font-size:13px;transition:all .15s;text-decoration:none}
+.nav-item:hover{background:var(--panel-2);color:var(--text)}
+.nav-item.active{background:linear-gradient(135deg,rgba(139,92,246,.18),rgba(6,182,212,.12));color:#fff;box-shadow:inset 0 0 0 1px rgba(139,92,246,.3)}
+.nav-dot{width:6px;height:6px;border-radius:2px;flex-shrink:0}
+.sidebar-foot{margin-top:auto;padding:12px 10px;border-top:1px solid var(--line);font-size:11px;color:var(--text-3)}
+.sidebar-foot b{color:var(--text-2)}
+.s-main{padding:28px 36px 64px;min-width:0;overflow-x:hidden}
+.s-topbar{margin-bottom:24px}
+.s-crumb{font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:.14em}
+.s-h1{font-size:28px;font-weight:800;letter-spacing:-.6px;margin-top:4px;color:var(--text)}
+</style>
 <body>
-  <nav class="nav">
-    <span class="nav-brand">LEGEND TEAM</span>
-    <a href="index.html" class="nav-link">Home</a>
-    <a href="dashboard-upgrade.html" class="nav-link">Upgrade</a>
-    <a href="dashboard-ops.html" class="nav-link nav-link-active">Ops</a>
-    <a href="decisions.html" class="nav-link">Decisions</a>
-    <a href="session.html" class="nav-link">Session</a>
-    <a href="feedback.html" class="nav-link">Feedback</a>
-  </nav>
-
-  <div class="page">
-    <div class="page-header">
-      <div class="page-title">Ops</div>
-      <div class="page-sub">지금 뭐가 움직이나 — 파이프라인 · 세션 · 결정 · 이연</div>
-    </div>
-
-    <!-- O1: 지휘판 -->
-    <div class="section-title" style="margin-bottom:12px">O1 — 지휘판</div>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand">
+    <div class="brand-mark">L</div>
+    <div><div class="brand-name">legend·team</div><div class="brand-tag">Strategy OS</div></div>
+  </div>
+  <div class="nav-group">Dashboard</div>
+  <a href="dashboard-upgrade.html" class="nav-item"><span class="nav-dot" style="background:#8B5CF6"></span>Upgrade</a>
+  <a href="dashboard-ops.html" class="nav-item active"><span class="nav-dot" style="background:#06B6D4"></span>Ops</a>
+  <div class="nav-group">Records</div>
+  <a href="decisions.html" class="nav-item"><span class="nav-dot" style="background:#F59E0B"></span>Decisions</a>
+  <a href="session.html" class="nav-item"><span class="nav-dot" style="background:#10B981"></span>Sessions</a>
+  <a href="feedback.html" class="nav-item"><span class="nav-dot" style="background:#EF4444"></span>Feedback</a>
+  <div class="nav-group">System</div>
+  <a href="index.html" class="nav-item"><span class="nav-dot" style="background:#6E6E78"></span>Home</a>
+  <div class="sidebar-foot"><b>v1.0.0</b> · Legend Team</div>
+</aside>
+<main class="s-main">
+  <div class="s-topbar">
+    <div class="s-crumb">Dashboard / Ops</div>
+    <div class="s-h1">Ops Dashboard</div>
+  </div>
+  <div class="page" style="padding:0;max-width:none;margin:0">
+    <!-- O1: Command Center -->
+    <div class="section-title" style="margin-bottom:12px">O1 — Command Center</div>
     <div class="command-grid" id="commandGrid">
       <div class="command-card"><div class="command-label">로딩 중...</div></div>
     </div>
 
-    <!-- O2: 파이프라인 -->
-    <div class="section-title" style="margin-bottom:12px">O2 — 파이프라인</div>
+    <!-- O2: Pipeline -->
+    <div class="section-title" style="margin-bottom:12px">O2 — Pipeline</div>
     <div class="pipeline-list" id="pipelineList">
       <div class="empty-state">로딩 중...</div>
     </div>
 
-    <!-- O4: 이연 항목 -->
-    <div class="section-title" style="margin-bottom:12px">O4 — 이연 항목 (Pending Deferrals)</div>
+    <!-- O4: Pending Deferrals -->
+    <div class="section-title" style="margin-bottom:12px">O4 — Pending Deferrals</div>
     <div class="deferral-list" id="deferralList">
       <div class="empty-state">로딩 중...</div>
     </div>
 
-    <!-- O3: 최근 세션 -->
-    <div class="section-title" style="margin-bottom:12px">O3 — 최근 세션</div>
+    <!-- O3: Recent Sessions -->
+    <div class="section-title" style="margin-bottom:12px">O3 — Recent Sessions</div>
     <table class="session-table">
       <thead>
         <tr>
           <th>SESSION</th>
           <th>TOPIC</th>
-          <th>시작</th>
-          <th>결정</th>
+          <th>STARTED</th>
+          <th>DECISIONS</th>
           <th>SIZE</th>
           <th>QUALITY</th>
         </tr>
@@ -127,8 +160,8 @@
       <tbody id="sessionTable"></tbody>
     </table>
 
-    <!-- O4: 최근 결정 -->
-    <div class="section-title" style="margin-bottom:12px; margin-top:24px">O4 — 최근 결정</div>
+    <!-- O5: Recent Decisions -->
+    <div class="section-title" style="margin-bottom:12px; margin-top:24px">O5 — Recent Decisions</div>
     <table class="decision-table">
       <thead>
         <tr>
@@ -169,25 +202,37 @@
 
       const cards = [
         {
-          label: '경보', value: alarms.length,
-          badge: alarms.length > 0 ? { text: `${alarms.length}개 활성`, cls: 'badge-alarm' } : { text: '이상 없음', cls: 'badge-ok' }
+          label: 'Alarms', value: alarms.length,
+          color: '#EF4444', glow: 'rgba(239,68,68,.18)',
+          bg: 'linear-gradient(145deg,rgba(239,68,68,.12) 0%,rgba(239,68,68,.03) 50%,#0B0B0D 100%)',
+          border: 'rgba(239,68,68,.35)',
+          badge: alarms.length > 0 ? { text: `${alarms.length} active`, cls: 'badge-alarm' } : { text: 'All Clear', cls: 'badge-ok' }
         },
         {
-          label: '오픈 토픽', value: openTopics.length,
-          badge: openTopics.length > 0 ? { text: openTopics.map(t => t.id).join(', '), cls: 'badge-warn' } : { text: '없음', cls: 'badge-ok' }
+          label: 'Open Topics', value: openTopics.length,
+          color: '#F59E0B', glow: 'rgba(245,158,11,.18)',
+          bg: 'linear-gradient(145deg,rgba(245,158,11,.12) 0%,rgba(245,158,11,.03) 50%,#0B0B0D 100%)',
+          border: 'rgba(245,158,11,.35)',
+          badge: openTopics.length > 0 ? { text: openTopics.map(t => t.id).join(', '), cls: 'badge-warn' } : { text: 'None', cls: 'badge-ok' }
         },
         {
-          label: '이연 항목 (pending)', value: pendingDef.length,
-          badge: pendingDef.length > 0 ? { text: pendingDef.map(d => d.id).join(', '), cls: 'badge-warn' } : { text: '없음', cls: 'badge-ok' }
+          label: 'Pending Deferrals', value: pendingDef.length,
+          color: '#06B6D4', glow: 'rgba(6,182,212,.18)',
+          bg: 'linear-gradient(145deg,rgba(6,182,212,.12) 0%,rgba(6,182,212,.03) 50%,#0B0B0D 100%)',
+          border: 'rgba(6,182,212,.35)',
+          badge: pendingDef.length > 0 ? { text: pendingDef.map(d => d.id).join(', '), cls: 'badge-warn' } : { text: 'None', cls: 'badge-ok' }
         },
         {
-          label: '총 결정', value: totalDec,
+          label: 'Total Decisions', value: totalDec,
+          color: '#10B981', glow: 'rgba(16,185,129,.18)',
+          bg: 'linear-gradient(145deg,rgba(16,185,129,.12) 0%,rgba(16,185,129,.03) 50%,#0B0B0D 100%)',
+          border: 'rgba(16,185,129,.35)',
           badge: { text: `D-001 ~ D-${String(totalDec).padStart(3,'0')}`, cls: 'badge-ok' }
         },
       ];
 
       document.getElementById('commandGrid').innerHTML = cards.map(c =>
-        `<div class="command-card">
+        `<div class="command-card" style="--cc-color:${c.color};--cc-glow:${c.glow};background:${c.bg};border:1px solid ${c.border};border-top:3px solid ${c.color}">
           <div class="command-label">${c.label}</div>
           <div class="command-value">${c.value}</div>
           ${c.badge ? `<span class="command-badge ${c.badge.cls}">${c.badge.text}</span>` : ''}
@@ -213,7 +258,7 @@
 
       const items = [...active, ...recent].slice(0, 10);
       if (items.length === 0) {
-        document.getElementById('pipelineList').innerHTML = '<div class="empty-state">항목 없음</div>';
+        document.getElementById('pipelineList').innerHTML = '<div class="empty-state">No items</div>';
         return;
       }
 
@@ -230,7 +275,7 @@
     function renderDeferrals(sys) {
       const deferrals = sys?.pendingDeferrals ?? [];
       if (deferrals.length === 0) {
-        document.getElementById('deferralList').innerHTML = '<div class="empty-state">이연 항목 없음</div>';
+        document.getElementById('deferralList').innerHTML = '<div class="empty-state">No deferrals</div>';
         return;
       }
       document.getElementById('deferralList').innerHTML = deferrals.map(d =>
@@ -248,7 +293,7 @@
     function renderSessions(dash) {
       const sessions = (dash?.sessions ?? []).slice().reverse().slice(0, 15);
       const tbody = document.getElementById('sessionTable');
-      if (sessions.length === 0) { tbody.innerHTML = '<tr><td colspan="6" class="empty-state">데이터 없음</td></tr>'; return; }
+      if (sessions.length === 0) { tbody.innerHTML = '<tr><td colspan="6" class="empty-state">No data</td></tr>'; return; }
 
       tbody.innerHTML = sessions.map(s =>
         `<tr>
@@ -265,7 +310,7 @@
     function renderDecisions(ledger) {
       const decisions = (ledger?.decisions ?? []).slice().reverse().slice(0, 10);
       const tbody = document.getElementById('decisionTable');
-      if (decisions.length === 0) { tbody.innerHTML = '<tr><td colspan="4" class="empty-state">데이터 없음</td></tr>'; return; }
+      if (decisions.length === 0) { tbody.innerHTML = '<tr><td colspan="4" class="empty-state">No data</td></tr>'; return; }
 
       tbody.innerHTML = decisions.map(d =>
         `<tr>
@@ -279,5 +324,6 @@
 
     init();
   </script>
+</div></main></div>
 </body>
 </html>

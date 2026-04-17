@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-17T05:15:45.731Z",
+  "generatedAt": "2026-04-17T13:29:30.250Z",
   "topics": [
     {
       "id": "topic_001",
@@ -437,6 +437,20 @@
         "D-027",
         "D-028"
       ]
+    },
+    {
+      "id": "topic_026",
+      "title": "Legend Team Dashboard #2",
+      "status": "completed",
+      "created": "2026-04-17",
+      "reportPath": "reports/2026-04-17_legend-team-dashboard-2",
+      "reportFiles": [
+        "editor_rev1.md"
+      ],
+      "published": false,
+      "outcome": "dist/ 배포 갭 해소 + nav 영어 통일 + status 통일 + Topics 개편",
+      "note": "session_029",
+      "masterDecisions": []
     }
   ]
 }

@@ -6,22 +6,39 @@
   <title>Session — Legend Team</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
+<style>
+:root{--bg:#000000;--panel:#0B0B0D;--panel-2:#141418;--line:#26262D;--text:#F5F5F7;--text-2:#B8B8C0;--text-3:#6E6E78}
+.app{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
+.sidebar{background:var(--panel);border-right:1px solid var(--line);padding:24px 16px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:4px;overflow-y:auto}
+.brand{display:flex;align-items:center;gap:10px;padding:4px 8px 20px 8px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.brand-mark{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#4F46E5,#9333EA);display:grid;place-items:center;font-weight:800;font-size:13px;color:#fff;flex-shrink:0}
+.brand-name{font-size:15px;font-weight:700;letter-spacing:-.2px}.brand-tag{font-size:9px;color:var(--text-3);text-transform:uppercase;letter-spacing:.14em;margin-top:2px}
+.nav-group{font-size:9px;color:var(--text-3);text-transform:uppercase;letter-spacing:.14em;padding:14px 10px 6px}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;color:var(--text-2);font-size:13px;transition:all .15s;text-decoration:none}
+.nav-item:hover{background:var(--panel-2);color:var(--text)}.nav-item.active{background:linear-gradient(135deg,rgba(139,92,246,.18),rgba(6,182,212,.12));color:#fff;box-shadow:inset 0 0 0 1px rgba(139,92,246,.3)}
+.nav-dot{width:6px;height:6px;border-radius:2px;flex-shrink:0}.sidebar-foot{margin-top:auto;padding:12px 10px;border-top:1px solid var(--line);font-size:11px;color:var(--text-3)}.sidebar-foot b{color:var(--text-2)}
+.s-main{padding:28px 36px 64px;min-width:0}.s-crumb{font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:.14em}.s-h1{font-size:28px;font-weight:800;letter-spacing:-.6px;margin-top:4px;color:var(--text);margin-bottom:20px}
+</style>
 <body>
-  <nav class="nav">
-    <span class="nav-brand">LEGEND TEAM</span>
-    <a href="index.html" class="nav-link">Home</a>
-    <a href="dashboard-upgrade.html" class="nav-link">Upgrade</a>
-    <a href="dashboard-ops.html" class="nav-link">Ops</a>
-    <a href="decisions.html" class="nav-link">Decisions</a>
-    <a href="session.html" class="nav-link">Session</a>
-    <a href="feedback.html" class="nav-link">Feedback</a>
-  </nav>
-
-  <div class="page">
-    <div class="page-header">
-      <div class="page-title">Current Session</div>
-      <div class="page-sub" id="sessionSub">Loading...</div>
-    </div>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="brand-mark">L</div><div><div class="brand-name">legend·team</div><div class="brand-tag">Strategy OS</div></div></div>
+  <div class="nav-group">Dashboard</div>
+  <a href="dashboard-upgrade.html" class="nav-item"><span class="nav-dot" style="background:#8B5CF6"></span>Upgrade</a>
+  <a href="dashboard-ops.html" class="nav-item"><span class="nav-dot" style="background:#06B6D4"></span>Ops</a>
+  <div class="nav-group">Records</div>
+  <a href="decisions.html" class="nav-item"><span class="nav-dot" style="background:#F59E0B"></span>Decisions</a>
+  <a href="session.html" class="nav-item active"><span class="nav-dot" style="background:#10B981"></span>Sessions</a>
+  <a href="feedback.html" class="nav-item"><span class="nav-dot" style="background:#EF4444"></span>Feedback</a>
+  <div class="nav-group">System</div>
+  <a href="index.html" class="nav-item"><span class="nav-dot" style="background:#6E6E78"></span>Home</a>
+  <div class="sidebar-foot"><b>v1.0.0</b> · Legend Team</div>
+</aside>
+<main class="s-main">
+  <div class="s-crumb">Records / Sessions</div>
+  <div class="s-h1">Current Session</div>
+  <div class="page" style="padding:0;max-width:none;margin:0">
+    <div style="margin-bottom:16px;font-size:12px;color:var(--text-tertiary)" id="sessionSub">Loading...</div>
 
     <!-- Session Info -->
     <div class="session-grid" id="sessionGrid">
@@ -69,47 +86,53 @@
 
       if (session) {
         sub.textContent = `${session.sessionId} · ${session.status}`;
+        const statusIsOpen = session.status === 'open' || session.status === 'in-progress';
         grid.innerHTML = `
-          <div class="card">
-            <div class="session-label">Session ID</div>
-            <div class="session-value mono">${session.sessionId}</div>
+          <div class="card" style="border-top:3px solid #06B6D4;background:linear-gradient(145deg,rgba(6,182,212,.1) 0%,#0B0B0D 100%)">
+            <div class="session-label" style="color:#06B6D4">Session ID</div>
+            <div class="session-value mono" style="font-size:15px;color:#e2f8fc">${session.sessionId}</div>
           </div>
-          <div class="card">
-            <div class="session-label">Topic</div>
-            <div class="session-value">${session.topic}</div>
+          <div class="card" style="border-top:3px solid #8B5CF6;background:linear-gradient(145deg,rgba(139,92,246,.1) 0%,#0B0B0D 100%)">
+            <div class="session-label" style="color:#8B5CF6">Topic</div>
+            <div class="session-value" style="font-size:13px;line-height:1.4">${session.topic}</div>
           </div>
-          <div class="card">
-            <div class="session-label">Status</div>
+          <div class="card" style="border-top:3px solid ${statusIsOpen ? '#10B981' : '#6E6E78'};background:linear-gradient(145deg,${statusIsOpen ? 'rgba(16,185,129,.1)' : 'rgba(110,110,120,.08)'} 0%,#0B0B0D 100%)">
+            <div class="session-label" style="color:${statusIsOpen ? '#10B981' : '#6E6E78'}">Status</div>
             <div class="session-value">${statusBadge(session.status)}</div>
           </div>
-          <div class="card">
-            <div class="session-label">Mode</div>
+          <div class="card" style="border-top:3px solid #F59E0B;background:linear-gradient(145deg,rgba(245,158,11,.1) 0%,#0B0B0D 100%)">
+            <div class="session-label" style="color:#F59E0B">Mode</div>
             <div class="session-value">${session.mode || 'observation'}</div>
           </div>
-          <div class="card">
-            <div class="session-label">Started</div>
+          <div class="card" style="border-top:3px solid #EC4899;background:linear-gradient(145deg,rgba(236,72,153,.1) 0%,#0B0B0D 100%)">
+            <div class="session-label" style="color:#EC4899">Started</div>
             <div class="session-value">${formatDate(session.startedAt)}</div>
           </div>
-          <div class="card">
-            <div class="session-label">Nova Invoked</div>
-            <div class="session-value">${session.novaInvoked ? 'Yes' : 'No'}</div>
+          <div class="card" style="border-top:3px solid ${session.novaInvoked ? '#F59E0B' : '#26262D'};background:linear-gradient(145deg,${session.novaInvoked ? 'rgba(245,158,11,.1)' : 'rgba(26,26,30,.5)'} 0%,#0B0B0D 100%)">
+            <div class="session-label" style="color:${session.novaInvoked ? '#F59E0B' : '#6E6E78'}">Nova Invoked</div>
+            <div class="session-value" style="color:${session.novaInvoked ? '#FCD34D' : '#6E6E78'}">${session.novaInvoked ? 'Yes' : 'No'}</div>
           </div>
         `;
 
         // Agent progress
         const completed = session.agentsCompleted || [];
+        const AGENT_COLORS = { ace:'#06B6D4', arki:'#14B8A6', fin:'#10B981', riki:'#EF4444', nova:'#F59E0B', 'ace-review':'#06B6D4', editor:'#8B5CF6' };
         const progressEl = document.getElementById('agentProgress');
         progressEl.innerHTML = AGENT_ORDER.map(a => {
           const done = completed.includes(a) || (a === 'ace-review' && completed.includes('ace'));
           const isNova = a === 'nova';
           const skipped = isNova && !session.novaInvoked;
+          const color = AGENT_COLORS[a] || '#6E6E78';
           let statusHtml = '';
-          if (skipped) statusHtml = '<span style="color: var(--accent-gold);">skipped</span>';
-          else if (done) statusHtml = '<span style="color: var(--accent-green);">done</span>';
-          else statusHtml = '<span style="color: var(--text-tertiary);">pending</span>';
+          if (skipped) statusHtml = `<span style="font-size:10px;font-weight:600;color:#F59E0B;background:rgba(245,158,11,.12);padding:2px 10px;border-radius:20px;border:1px solid rgba(245,158,11,.25)">SKIPPED</span>`;
+          else if (done) statusHtml = `<span style="font-size:10px;font-weight:600;color:#34D399;background:rgba(16,185,129,.12);padding:2px 10px;border-radius:20px;border:1px solid rgba(16,185,129,.25)">DONE</span>`;
+          else statusHtml = `<span style="font-size:10px;font-weight:600;color:#6E6E78;background:rgba(110,110,120,.1);padding:2px 10px;border-radius:20px;border:1px solid rgba(110,110,120,.2)">PENDING</span>`;
           return `
-            <div class="card" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; ${skipped ? 'opacity: 0.5;' : ''}">
-              <span style="font-size: 12px; color: var(--text);">${AGENT_LABELS[a] || a}</span>
+            <div class="card" style="display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-left:3px solid ${done && !skipped ? color : '#26262D'};${skipped ? 'opacity:0.45;' : ''}background:linear-gradient(90deg,${done && !skipped ? `rgba(${color.match(/\d+/g)?.join(',')??'0,0,0'},.07)` : 'transparent'} 0%,transparent 100%)">
+              <div style="display:flex;align-items:center;gap:10px">
+                <span style="width:6px;height:6px;border-radius:50%;background:${done && !skipped ? color : '#333340'};${done && !skipped ? `box-shadow:0 0 6px ${color}` : ''}"></span>
+                <span style="font-size:12px;color:${done && !skipped ? '#F5F5F7' : '#6E6E78'}">${AGENT_LABELS[a] || a}</span>
+              </div>
               ${statusHtml}
             </div>
           `;
@@ -156,5 +179,6 @@
     }
     init();
   </script>
+</div></main></div>
 </body>
 </html>
