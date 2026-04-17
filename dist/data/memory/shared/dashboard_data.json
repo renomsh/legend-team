@@ -1,0 +1,522 @@
+{
+  "generatedAt": "2026-04-17T04:42:24.388Z",
+  "totalSessions": 28,
+  "autoDataFrom": "session_027",
+  "metrics": {
+    "avgMasterTurns": 0,
+    "avgCacheHitRate": 0.9447,
+    "avgAdoptionRate": 0,
+    "totalDecisions": 28
+  },
+  "sessions": [
+    {
+      "sessionId": "session_001",
+      "topicSlug": "2026-04-02_shared-asset-protocol",
+      "startedAt": "2026-04-02T00:00:00.000Z",
+      "closedAt": "2026-04-02T23:59:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_002",
+      "topicSlug": "2026-04-03_legend-team-upgrade",
+      "startedAt": "2026-04-03T00:00:00.000Z",
+      "closedAt": "2026-04-03T23:59:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 5,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 14,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_003",
+      "topicSlug": "2026-04-04_local-vs-server",
+      "startedAt": "2026-04-04T00:00:00.000Z",
+      "closedAt": "2026-04-04T20:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 4,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 12,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_004",
+      "topicSlug": "2026-04-04_v030-upgrade-review",
+      "startedAt": "2026-04-04T00:00:00.000Z",
+      "closedAt": "2026-04-04T21:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_005",
+      "topicSlug": "2026-04-05_v030-debt-close",
+      "startedAt": "2026-04-05T00:00:00.000Z",
+      "closedAt": "2026-04-05T05:27:05.580Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_006",
+      "topicSlug": "deploy-fix-branch-unify",
+      "startedAt": "2026-04-05T06:00:00.000Z",
+      "closedAt": "2026-04-05T06:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_007",
+      "topicSlug": "legend-team-upgrade-review",
+      "startedAt": "2026-04-05T12:00:00.000Z",
+      "closedAt": "2026-04-05T12:29:28.254Z",
+      "decisionCount": 0,
+      "decisionAxes": 4,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 12,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_008",
+      "topicSlug": "dailyjob-db-mapping",
+      "startedAt": "2026-04-06T09:00:00.000Z",
+      "closedAt": "2026-04-06T00:07:14.482Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_009",
+      "topicSlug": "storage-quality-review",
+      "startedAt": "2026-04-08T09:00:00.000Z",
+      "closedAt": "2026-04-08T06:04:00.892Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_010",
+      "topicSlug": "viewer-display-diagnosis",
+      "startedAt": "2026-04-08T10:00:00.000Z",
+      "closedAt": "2026-04-08T06:04:30.085Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_011",
+      "topicSlug": "upgrade-delta-pack-review",
+      "startedAt": "2026-04-09T09:00:00.000Z",
+      "closedAt": "2026-04-09T04:30:43.780Z",
+      "decisionCount": 0,
+      "decisionAxes": 1,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_012",
+      "topicSlug": "role-redefinition",
+      "startedAt": "2026-04-10T09:00:00.000Z",
+      "closedAt": "2026-04-10T06:13:54.621Z",
+      "decisionCount": 0,
+      "decisionAxes": 1,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_013",
+      "topicSlug": "ace-measurement-structure",
+      "startedAt": "2026-04-10T12:00:00.000Z",
+      "closedAt": "2026-04-10T07:01:49.581Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_014",
+      "topicSlug": "deeptutor-review",
+      "startedAt": "2026-04-11T09:00:00.000Z",
+      "closedAt": "2026-04-11T11:56:37.035Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_015",
+      "topicSlug": "databook-agent-design",
+      "startedAt": "2026-04-13T09:00:00.000Z",
+      "closedAt": "2026-04-13T12:19:23.523Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_016",
+      "topicSlug": "hybrid-scaleup300",
+      "startedAt": "2026-04-14T09:00:00.000Z",
+      "closedAt": "2026-04-14T14:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_017",
+      "topicSlug": "superpowers-plugin-review",
+      "startedAt": "2026-04-15T00:00:00.000Z",
+      "closedAt": "2026-04-15T12:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_018",
+      "topicSlug": "superpowers-absorption-plan",
+      "startedAt": "2026-04-15T13:00:00.000Z",
+      "closedAt": "2026-04-15T14:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 4,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 12,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_019",
+      "topicSlug": "superpowers-2",
+      "startedAt": "2026-04-16T00:00:00.000Z",
+      "closedAt": "2026-04-16T04:37:46.106Z",
+      "decisionCount": 0,
+      "decisionAxes": 1,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_020",
+      "topicSlug": "superpowers-3",
+      "startedAt": "2026-04-16T05:00:00.000Z",
+      "closedAt": "2026-04-16T06:54:38.135Z",
+      "decisionCount": 0,
+      "decisionAxes": 1,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_021",
+      "topicSlug": "dev-test",
+      "startedAt": "2026-04-16T07:00:00.000Z",
+      "closedAt": "2026-04-16T08:59:08.128Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_022",
+      "topicSlug": "dev-role-session-close",
+      "startedAt": "2026-04-16T09:10:00.000Z",
+      "closedAt": "2026-04-16T09:45:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_023",
+      "topicSlug": "legend-team-efficiency",
+      "startedAt": "2026-04-16T10:00:00.000Z",
+      "closedAt": "2026-04-16T10:45:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_024",
+      "topicSlug": "efficiency-test-and-deferrals",
+      "startedAt": "2026-04-16T11:00:00.000Z",
+      "closedAt": "2026-04-16T12:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 1,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_025",
+      "topicSlug": "v090-design-upgrade",
+      "topic": "v0.9.0 업그레이드 — 디자인 시각화 강화",
+      "startedAt": "2026-04-16T13:00:00.000Z",
+      "closedAt": "2026-04-16T14:00:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_026",
+      "topicSlug": "canva-integration",
+      "topic": "캔바 적용",
+      "startedAt": "2026-04-16T15:00:00.000Z",
+      "closedAt": "2026-04-16T16:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_027",
+      "topicSlug": "dashboard-upgrade",
+      "topic": "대시보드 업그레이드 — 성장 메인 / 효율 검증 구조",
+      "startedAt": "2026-04-17T00:00:00.000Z",
+      "closedAt": "2026-04-17T03:00:00.000Z",
+      "decisionCount": 3,
+      "decisionAxes": 3,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 10,
+      "masterTurns": 0,
+      "dataQuality": "auto",
+      "tokenUsage": {
+        "totalBillable": 8886346,
+        "cacheHitRate": 0.9446742226782526,
+        "messageCount": 82
+      }
+    },
+    {
+      "sessionId": "session_028",
+      "topicSlug": "legend-team-dashboard",
+      "topic": "legend-team Dash board",
+      "startedAt": "2026-04-17T04:00:00.000Z",
+      "closedAt": null,
+      "decisionCount": 0,
+      "decisionAxes": 2,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 8,
+      "masterTurns": 0,
+      "dataQuality": "auto"
+    }
+  ],
+  "alarms": [],
+  "feedbackRecurrences": [
+    {
+      "keyword": "Master",
+      "occurrences": [
+        {
+          "date": "2026-04-03",
+          "feedbackId": "MF-001",
+          "summary": "5개 결정 항목에 대한 Master 결정 확정"
+        },
+        {
+          "date": "2026-04-10",
+          "feedbackId": "MF-007",
+          "summary": "1) Ace=Master 동일화. 2) 학습 대상은 선택 흔적. 3) 정형/비정형 분리 리스크 → 내장으로."
+        }
+      ]
+    },
+    {
+      "keyword": "역할",
+      "occurrences": [
+        {
+          "date": "2026-04-04",
+          "feedbackId": "MF-002",
+          "summary": "역할 혼선 지적. Ace가 종합검토를 해야 하고, Editor는 결과물 작성/정리/출력만 해야 한다."
+        },
+        {
+          "date": "2026-04-11",
+          "feedbackId": "MF-008",
+          "summary": "3가지 역할 피드백: 1) Arki — 아키텍처 그리는 방법론 학습, Agent 설계가 팀 과업. 2) No"
+        }
+      ]
+    },
+    {
+      "keyword": "확인",
+      "occurrences": [
+        {
+          "date": "2026-04-04",
+          "feedbackId": "MF-003",
+          "summary": "모바일 호환 확인 요청 → origin/main 분기 발견. 브랜치 일원화 지시. 일원화 완료 후 세션 종료"
+        },
+        {
+          "date": "2026-04-16",
+          "feedbackId": "MF-014",
+          "summary": "에이스 왜 반말써? 효율화라면 토픽 확인. 타입 분류 진행. 이렇게 더 자르던가."
+        }
+      ]
+    },
+    {
+      "keyword": "3가지",
+      "occurrences": [
+        {
+          "date": "2026-04-10",
+          "feedbackId": "MF-005",
+          "summary": "퍼지매칭 복합검증 로직 구체화. 3가지 규칙: 1. 적합도 80%+ 2. 사업자번호 불일치=미매칭 3. 지역"
+        },
+        {
+          "date": "2026-04-11",
+          "feedbackId": "MF-008",
+          "summary": "3가지 역할 피드백: 1) Arki — 아키텍처 그리는 방법론 학습, Agent 설계가 팀 과업. 2) No"
+        }
+      ]
+    },
+    {
+      "keyword": "Ace",
+      "occurrences": [
+        {
+          "date": "2026-04-10",
+          "feedbackId": "MF-006",
+          "summary": "Ace = Master의 판단 대리인. 후행 통합기→선행 제안기 진화. 종합+자기판단 필수. Master 미"
+        },
+        {
+          "date": "2026-04-10",
+          "feedbackId": "MF-007",
+          "summary": "1) Ace=Master 동일화. 2) 학습 대상은 선택 흔적. 3) 정형/비정형 분리 리스크 → 내장으로."
+        }
+      ]
+    },
+    {
+      "keyword": "토픽",
+      "occurrences": [
+        {
+          "date": "2026-04-16",
+          "feedbackId": "MF-014",
+          "summary": "에이스 왜 반말써? 효율화라면 토픽 확인. 타입 분류 진행. 이렇게 더 자르던가."
+        },
+        {
+          "date": "2026-04-16",
+          "feedbackId": "MF-015",
+          "summary": "이번에 한해서 소급 적용하라고 (토픽 타입/명칭 정비)"
+        }
+      ]
+    },
+    {
+      "keyword": "정교화",
+      "occurrences": [
+        {
+          "date": "2026-04-17",
+          "feedbackId": "MF-017",
+          "summary": "배제 대신 정교화 — 정교화 경로가 있는 대리 지표는 배제 금지. 없는 것과 업그레이드해서 정교화해 가는 것"
+        },
+        {
+          "date": "2026-04-17",
+          "feedbackId": "MF-017",
+          "summary": "배제 대신 정교화 — 정교화 경로가 있는 대리 지표는 배제 금지. 없는 것과 업그레이드해서 정교화해 가는 것"
+        }
+      ]
+    }
+  ]
+}

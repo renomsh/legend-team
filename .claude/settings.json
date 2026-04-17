@@ -9,7 +9,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node .claude/hooks/session-end-tokens.js"
+            "command": "node .claude/hooks/session-end-tokens.js && npx ts-node scripts/compute-dashboard.ts && node scripts/build.js"
           }
         ]
       }

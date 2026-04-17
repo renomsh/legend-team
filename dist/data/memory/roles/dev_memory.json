@@ -1,10 +1,52 @@
 {
   "role": "dev",
   "responsibility": "구현 전문가(데브). Arki 설계 인수 → 코드·스크립트·데이터 파이프라인 구현 → 검증 완료. 증거 기반 디버깅(systematic-debugging) 핵심 역량. 구조 변경 필요 시 Arki 에스컬레이션.",
-  "topicsHandled": [],
-  "debuggingPatterns": [],
-  "implementationPatterns": [],
+  "topicsHandled": [
+    {
+      "topicId": "topic_018",
+      "title": "Dev Test",
+      "date": "2026-04-16",
+      "reportPath": "reports/2026-04-16_dev-test/editor_rev1.md",
+      "designSource": "Arki — session-log.ts 버그 3종 구조 분석",
+      "implemented": [
+        "B-01: duration 음수 방어 (ms >= 0 조건)",
+        "B-02: OP-04 FAIL 방어 (some() → push() 소급 추가)",
+        "B-03: topicSlug mismatch 메시지 명시화"
+      ],
+      "escalated": false,
+      "outcome": "tsc --noEmit 오류 0, session-log end 실행 검증 완료"
+    }
+  ],
+  "debuggingPatterns": [
+    "로그 기반 버그 분류: app.log에서 반복 패턴(FAIL, 음수 duration, mismatch) → 3종 독립 버그로 분류",
+    "코드 읽기 순서: endSession() 흐름 → 취약 지점 → 패치 → tsc --noEmit → 실행 검증"
+  ],
+  "implementationPatterns": [
+    "session_index 업데이트: map() 단독으로는 신규 항목 추가 불가 → some() 체크 후 push() fallback 패턴",
+    "duration 계산: 수동 입력 startedAt은 미래 시각 가능 → ms 부호 체크 필수",
+    "TypeScript 타입과 실제 JSON 구조 불일치는 tsc --noEmit으로만 감지 가능 (런타임은 통과)"
+  ],
   "escalationHistory": [],
-  "lessonLog": [],
-  "notes": "session_020에서 신설(D-021). 구현·디버깅 토픽에서만 호출. 호출 조건: Arki 설계 완료 후 구현 단계 진입 시."
+  "implementationPatterns_session022": [
+    "역할 재정의 구현: 쓰기 제거 시 선행 조건 소멸 여부 먼저 확인 (B-02 retroactive push 제거 근거)",
+    "exit code 1은 critical 항목(reports, topic_index)에만. advisory(master_feedback)는 제외."
+  ],
+  "lessonLog": [
+    {
+      "id": "DEV-LL-001",
+      "date": "2026-04-16",
+      "topic": "dev-test",
+      "lesson": "ts-node --transpile-only는 TS5011(rootDir) 오류로 실패, ts-node (기본)는 ts-node 블록에서 commonjs로 오버라이드되어 정상 실행. 플래그 없이 사용.",
+      "reusable": true
+    },
+    {
+      "id": "DEV-LL-002",
+      "date": "2026-04-16",
+      "topic": "dev-test",
+      "lesson": "Edit 도구로 JSON 배열 끝 부분에 삽입 시 기존 ] 뒤에 붙는 경우 배열 구조 오염 발생. 삽입 전 주변 컨텍스트(]와 } 위치) 반드시 확인.",
+      "reusable": true
+    }
+  ],
+  "notes": "session_020에서 신설(D-021). 구현·디버깅 토픽에서만 호출. 호출 조건: Arki 설계 완료 후 구현 단계 진입 시.",
+  "lastUpdated": "2026-04-16T08:56:46.000Z"
 }

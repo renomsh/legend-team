@@ -83,7 +83,9 @@
       "topic": "role-redefinition",
       "afterAgent": "ace (종합검토)",
       "feedback": "Ace = Master의 판단 대리인. 후행 통합기→선행 제안기 진화. 종합+자기판단 필수. Master 미응답 시 능동 질문. 채택/기각 사유 학습 필수.",
-      "decisions": { "D-015": "6개 역할 재정의 확정" },
+      "decisions": {
+        "D-015": "6개 역할 재정의 확정"
+      },
       "instruction": "project_charter.json, config/roles.json 반영",
       "effect": "역할 정의 전면 갱신. Ace 진화 경로 명시. Editor 기록자 한정.",
       "status": "resolved",
@@ -148,14 +150,138 @@
       "topic": "superpowers-2",
       "afterAgent": "ace (종합검토)",
       "feedback": "1) receiving-code-review 원칙 흡수 — 검증 후 수용. 검증 절차에서 더 깊은 학습 가능. Master 결정이 틀리면 바꿀 수 있다. 2) 자가판단 후 학습하는 형태로 진화. 단순 흡수가 아닌 발전. 3) 레전드팀은 이미 Superpowers를 넘어서기 시작했다.",
-      "decisions": { "D-020": "Ace 검증-질문-수용 루프 확정" },
+      "decisions": {
+        "D-020": "Ace 검증-질문-수용 루프 확정"
+      },
       "instruction": "ace-learning-loop skill 신규 자작, CLAUDE.md 개정, ace_memory 확장, v0.6.0 선언",
       "effect": "4개 skill 구현 + ace-learning-loop 창작. CLAUDE.md D-020 반영. v0.6.0.",
       "status": "resolved",
       "statusNote": "모든 산출물 구현 완료. GitHub push 완료."
+    },
+    {
+      "id": "MF-012",
+      "date": "2026-04-16",
+      "session": "session_020",
+      "topic": "superpowers-3",
+      "afterAgent": "ace-synthesis",
+      "feedback": "소프트웨어 구현도 향후 진행 업무. Arki 설계 + 별도 Dev 에이전트 + Editor 디자인 강화. 에이전트 명칭 Dev(데브). 나머지 항목 모두 동의.",
+      "decisions": {
+        "D-021": "Dev 신설 + Editor 디자인 권한 확장"
+      },
+      "instruction": "Dev 에이전트 신설, Editor 재정의, 4개 스킬 흡수(systematic-debugging·writing-plans·executing-plans·subagent-driven-development), v0.7.0 선언",
+      "effect": "agents/dev.md 신설. agents/editor.md 개정. config/roles.json 7개 역할. 총 9개 skill. v0.7.0.",
+      "status": "resolved",
+      "statusNote": "모든 산출물 구현 완료. GitHub push 완료. 현황판 빌드 완료."
+    },
+    {
+      "id": "MF-013",
+      "date": "2026-04-16",
+      "session": "session_023",
+      "topic": "legend-team-efficiency",
+      "afterAgent": "ace",
+      "feedback": "분류기준이 필요하단 의미는 무슨말이야? 자연어로 보여줘도 돼. 어느것이 더 효율적이야?",
+      "decisions": {},
+      "instruction": "자동 추출 선택. '분류기준'은 Ace 과잉설계 — editor 보고서의 이연 섹션을 그대로 읽으면 됨.",
+      "effect": "close.md 9단계 d항에 editor 보고서 이연 섹션 자동 추출 규칙 추가. Ace 학습: 이미 구조화된 것을 재분류하려는 과잉 판단 자제.",
+      "status": "resolved",
+      "statusNote": "구현 완료. pendingDeferrals 자동 추출 체계 확립."
+    },
+    {
+      "id": "MF-014",
+      "date": "2026-04-16",
+      "session": "session_024",
+      "topic": "efficiency-test-and-deferrals",
+      "afterAgent": "ace",
+      "feedback": "에이스 왜 반말써? 효율화라면 토픽 확인. 타입 분류 진행. 이렇게 더 자르던가.",
+      "decisions": {},
+      "instruction": "존댓말 사용. 문장 더 짧게 액션 중심으로.",
+      "effect": "feedback memory 저장(feedback_ace_speech_style.md). 이후 발언 스타일 교정.",
+      "status": "resolved",
+      "statusNote": "즉시 교정 완료. feedback memory 저장으로 세션 간 유지."
+    },
+    {
+      "id": "MF-015",
+      "date": "2026-04-16",
+      "session": "session_024",
+      "topic": "efficiency-test-and-deferrals",
+      "afterAgent": "ace",
+      "feedback": "이번에 한해서 소급 적용하라고 (토픽 타입/명칭 정비)",
+      "decisions": {},
+      "instruction": "과거 토픽 타입 7건 + 명칭 2건 소급 수정. D-022는 전진 규칙 유지.",
+      "effect": "topic_index.json 타입/명칭 소급 정비 완료. typeNote 전체 제거.",
+      "status": "resolved",
+      "statusNote": "소급 정비 완료. 이번 1회 한정 처리."
+    },
+    {
+      "id": "MF-016",
+      "date": "2026-04-16",
+      "session": "session_026",
+      "topic": "canva-integration",
+      "afterAgent": "editor",
+      "feedback": "캔바 적용은 보류. AI 생성 품질 미달(폰트/색상/이미지/템플릿 전부 부적합). 순위가 높던데 이유가 있을건데 별로네.",
+      "decisions": {},
+      "instruction": "Canva 채널 통합 보류. Claude Code PPT 직접 생성도 토큰 극소비(4장에 100% 소진) — 산출물 채널 문제 미해결.",
+      "effect": "topic_023 closed. Canva 채널 도입 보류. PPT 토큰 비용 문제는 별도 검토 필요.",
+      "status": "resolved",
+      "statusNote": "보류 결정 반영 완료."
+    },
+    {
+      "id": "MF-017",
+      "date": "2026-04-17",
+      "session": "session_027",
+      "topic": "dashboard-upgrade",
+      "afterAgent": "ace",
+      "feedback": "배제 대신 정교화 — 정교화 경로가 있는 대리 지표는 배제 금지. 없는 것과 업그레이드해서 정교화해 가는 것은 다른 축.",
+      "decisions": {},
+      "instruction": "ace_memory LL-006 기록. 배제 제안 전 정교화 경로 먼저 탐색.",
+      "effect": "Ace 판단 기준 업데이트",
+      "status": "resolved",
+      "statusNote": "ace_memory validationLog LL-006 기록 완료."
+    },
+    {
+      "id": "MF-018",
+      "date": "2026-04-17",
+      "session": "session_027",
+      "topic": "dashboard-upgrade",
+      "afterAgent": "ace",
+      "feedback": "무응답 = 묵시적 채택. 개입 없이 다음 단계로 넘어간 것은 통과 신호.",
+      "decisions": {
+        "D-024": "4-레이블 체계 확정"
+      },
+      "instruction": "채택 레이블 재정의 반영",
+      "effect": "KPI 레이블링 룰 D-024 확정",
+      "status": "resolved",
+      "statusNote": "D-024 등재 완료."
+    },
+    {
+      "id": "MF-019",
+      "date": "2026-04-17",
+      "session": "session_027",
+      "topic": "dashboard-upgrade",
+      "afterAgent": "ace",
+      "feedback": "우린 이젠 같이 사고해야 해. 그 정도 수준까지 올라왔어. 내 말이 무조건 옳지 않아. 다른 의견 있으면 이야기해.",
+      "decisions": {},
+      "instruction": "Ace는 Master 의견에 수동적 수용이 아닌 능동적 의견 제시. 반대 의견도 근거와 함께 명확히 표명.",
+      "effect": "협력적 사고 모드 공식화",
+      "status": "resolved",
+      "statusNote": "ace_memory learningLoop에 반영 예정."
+    },
+    {
+      "id": "MF-020",
+      "date": "2026-04-17",
+      "session": "session_028",
+      "topic": "legend-team-dashboard",
+      "afterAgent": "ace",
+      "feedback": "Ace는 경로 선택 위임(\"어느 경로로 갈까요?\") 금지. 구체적인 안을 제시하고 Master가 수정하는 구조여야 한다. Ace는 단순 의견 보조자가 아니라 의견을 제시하는 역할.",
+      "status": "resolved",
+      "statusNote": "Ace 종합검토에서 안 제시 방식으로 즉시 전환 확인."
     }
   ],
-  "statusValues": ["pending", "in-progress", "resolved"],
+  "statusValues": [
+    "pending",
+    "in-progress",
+    "resolved"
+  ],
   "statusUpdatedBy": "Claude Code at session end — based on topic status and implementation evidence",
-  "lastUpdated": "2026-04-16T00:00:00.000Z"
+  "lastUpdated": "2026-04-17T06:00:00.000Z"
 }

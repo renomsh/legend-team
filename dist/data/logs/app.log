@@ -97,3 +97,69 @@
 [2026-04-16T04:37:46.111Z] [checklist] [INFO] master_feedback: 1 feedback entry(ies) recorded
 [2026-04-16T04:37:46.114Z] [session-log] [INFO] END session_019 | topic: superpowers-2 | duration: 278m
 [2026-04-16T04:37:46.115Z] [session-log] [INFO] OP-04 PASS: session_019 confirmed in session_index with closedAt
+[2026-04-16T06:54:38.140Z] [checklist] [INFO] reports: all 1 registered file(s) present: editor_rev1.md
+[2026-04-16T06:54:38.141Z] [checklist] [INFO] decision_ledger: 1 decision(s) recorded for session_020
+[2026-04-16T06:54:38.143Z] [checklist] [INFO] topic_index: topic found: topic_017 (completed)
+[2026-04-16T06:54:38.144Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-16T06:54:38.145Z] [checklist] [INFO] master_feedback: 1 feedback entry(ies) recorded
+[2026-04-16T06:54:38.148Z] [session-log] [INFO] END session_020 | topic: superpowers-3 | duration: 115m
+[2026-04-16T06:54:38.149Z] [session-log] [INFO] OP-04 PASS: session_020 confirmed in session_index with closedAt
+[2026-04-16T08:56:46.218Z] [checklist] [WARN] reports: reportPath not found on disk: reports/2026-04-16_dev-test
+[2026-04-16T08:56:46.219Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-16T08:56:46.220Z] [checklist] [INFO] topic_index: topic found: topic_018 (in-progress)
+[2026-04-16T08:56:46.220Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-16T08:56:46.221Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-16T08:56:46.222Z] [session-log] [WARN] session session_021 was not in session_index — added retroactively
+[2026-04-16T08:56:46.223Z] [session-log] [INFO] END session_021 | topic: dev-test | duration: 117m
+[2026-04-16T08:56:46.223Z] [session-log] [INFO] OP-04 PASS: session_021 confirmed in session_index with closedAt
+[2026-04-16T08:59:08.131Z] [checklist] [INFO] reports: all 1 registered file(s) present: editor_rev1.md
+[2026-04-16T08:59:08.132Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-16T08:59:08.132Z] [checklist] [INFO] topic_index: topic found: topic_018 (completed)
+[2026-04-16T08:59:08.132Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-16T08:59:08.134Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-16T08:59:08.135Z] [session-log] [INFO] END session_021 | topic: dev-test | duration: 119m
+[2026-04-16T08:59:08.136Z] [session-log] [INFO] OP-04 PASS: session_021 confirmed in session_index with closedAt
+[2026-04-16T09:39:11.163Z] [checklist] [WARN] reports: reportPath not found on disk: reports/2026-04-16_dev-role-session-close
+[2026-04-16T09:39:11.165Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-16T09:39:11.165Z] [checklist] [INFO] topic_index: topic found: topic_019 (in-progress)
+[2026-04-16T09:39:11.165Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-16T09:39:11.166Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-16T09:39:11.166Z] [session-log] [INFO] END session_022 | topic: dev-role-session-close | duration: 29m
+[2026-04-16T09:41:12.043Z] [checklist] [INFO] reports: all 1 registered file(s) present: editor_rev1.md
+[2026-04-16T09:41:12.046Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-16T09:41:12.047Z] [checklist] [INFO] topic_index: topic found: topic_019 (completed)
+[2026-04-16T09:41:12.048Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-16T09:41:12.049Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-16T09:41:12.050Z] [session-log] [INFO] END session_022 | topic: dev-role-session-close | duration: 31m
+[2026-04-16T11:19:28.260Z] [checklist] [INFO] reports: all 1 registered file(s) present: editor_rev1.md
+[2026-04-16T11:19:28.263Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-16T11:19:28.264Z] [checklist] [INFO] topic_index: topic found: topic_020 (closed)
+[2026-04-16T11:19:28.264Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-16T11:19:28.265Z] [checklist] [INFO] master_feedback: 1 feedback entry(ies) recorded
+[2026-04-16T11:19:28.266Z] [session-log] [INFO] END session_023 | topic: legend-team-efficiency | duration: 79m
+[2026-04-16T11:56:49.327Z] [checklist] [INFO] reports: all 3 registered file(s) present: ace_rev1.md, fin_rev1.md, editor_rev1.md
+[2026-04-16T11:56:49.331Z] [checklist] [INFO] decision_ledger: 1 decision(s) recorded for session_024
+[2026-04-16T11:56:49.332Z] [checklist] [INFO] topic_index: topic found: topic_021 (closed)
+[2026-04-16T11:56:49.333Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-16T11:56:49.335Z] [checklist] [INFO] master_feedback: 2 feedback entry(ies) recorded
+[2026-04-16T11:56:49.335Z] [session-log] [INFO] END session_024 | topic: efficiency-test-and-deferrals | duration: 57m
+[2026-04-16T13:11:28.313Z] [checklist] [INFO] reports: all 1 registered file(s) present: editor_rev1.md
+[2026-04-16T13:11:28.316Z] [checklist] [INFO] decision_ledger: 1 decision(s) recorded for session_025
+[2026-04-16T13:11:28.316Z] [checklist] [INFO] topic_index: topic found: topic_022 (completed)
+[2026-04-16T13:11:28.317Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-16T13:11:28.318Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-16T13:11:28.319Z] [session-log] [INFO] END session_025 | topic: v090-design-upgrade | duration: 11m
+[2026-04-16T14:24:00.826Z] [checklist] [INFO] reports: all 2 registered file(s) present: ace_rev1.md, editor_rev1.md
+[2026-04-16T14:24:00.828Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-16T14:24:00.828Z] [checklist] [INFO] topic_index: topic found: topic_023 (closed)
+[2026-04-16T14:24:00.829Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-16T14:24:00.831Z] [checklist] [INFO] master_feedback: 1 feedback entry(ies) recorded
+[2026-04-16T14:24:00.832Z] [session-log] [INFO] END session_026 | topic: canva-integration | duration: unknown (startedAt in future)
+[2026-04-17T04:38:25.006Z] [compute-dashboard] 완료 — 28개 세션, 0개 경보
+[2026-04-17T04:42:24.390Z] [compute-dashboard] 완료 — 28개 세션, 0개 경보
+[2026-04-17T04:45:55.240Z] [checklist] [INFO] reports: all 1 registered file(s) present: editor_rev1.md
+[2026-04-17T04:45:55.243Z] [checklist] [INFO] decision_ledger: 2 decision(s) recorded for session_028
+[2026-04-17T04:45:55.244Z] [checklist] [INFO] topic_index: topic found: topic_025 (closed)
+[2026-04-17T04:45:55.244Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-17T04:45:55.245Z] [checklist] [INFO] master_feedback: 1 feedback entry(ies) recorded
+[2026-04-17T04:45:55.246Z] [session-log] [INFO] END session_028 | topic: legend-team-dashboard | duration: 46m

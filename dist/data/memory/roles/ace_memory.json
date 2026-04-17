@@ -69,6 +69,16 @@
       "keyFraming": "6개 역할 재정의. 3개 축(범위조정/Nova처우/자산책임). Master가 Ace 진화 방향 직접 제시.",
       "decisionAxes": 3,
       "status": "completed"
+    },
+    {
+      "topicId": "topic_025",
+      "title": "legend-team Dash board",
+      "date": "2026-04-17",
+      "reportPath": "reports/2026-04-17_legend-team-dashboard/editor_rev1.md",
+      "keyFraming": "대시보드 설계 공백(축A탐지/B공식/C차트) 해소 → 2뷰 구현. Size 공식 masterTurns 제거(D-027).",
+      "decisionAxes": 3,
+      "status": "completed",
+      "lessonLearned": "Ace는 경로 위임 금지. 구체 안 제시 → Master 수정 구조. (MF-020)"
     }
   ],
   "framePatterns": [
@@ -101,8 +111,18 @@
       "어떤 리스크를 실제 리스크로 인정했는가"
     ],
     "decisionRecordSchema": {
-      "required": ["decisionRef", "topicId", "aceRecommendation", "masterDecision", "selectionReason", "reusable"],
-      "optional": ["modificationReason", "observations"]
+      "required": [
+        "decisionRef",
+        "topicId",
+        "aceRecommendation",
+        "masterDecision",
+        "selectionReason",
+        "reusable"
+      ],
+      "optional": [
+        "modificationReason",
+        "observations"
+      ]
     },
     "decisions": [],
     "rejectionPatterns": [],
@@ -132,7 +152,113 @@
     "decisionRef": "session_019, Master 선언 2026-04-16",
     "currentStage": "초기 단계 — 모든 결정에 검증-질문-확인 루프 실행",
     "selfJudgmentHistory": [],
-    "validationLog": []
+    "validationLog": [
+      {
+        "id": "LL-005",
+        "date": "2026-04-16",
+        "topic": "efficiency-test-and-deferrals",
+        "trigger": "Master: '에이스 왜 반말써?' — 존댓말 미사용 지적",
+        "aceInitialPosition": "발언 스타일 제약 없이 진행",
+        "validationResult": "Ace오류",
+        "masterFinalDecision": "존댓말 필수. 문장 더 짧게, 액션 중심.",
+        "lesson": "역할 발언 시 항상 존댓말. 같은 내용도 짧게 자를 것. feedback_ace_speech_style.md로 세션 간 유지.",
+        "masterPattern": "Master는 간결한 액션 중심 발언 선호. 설명보다 액션.",
+        "selfJudgmentScore": 1,
+        "reusable": true
+      },
+      {
+        "id": "LL-004",
+        "date": "2026-04-16",
+        "topic": "legend-team-efficiency",
+        "trigger": "Master: '분류기준이 필요하단 의미는 무슨말이야?' — Ace가 editor 보고서 이연 섹션 추출에 분류기준이 필요하다고 언급",
+        "aceInitialPosition": "자연어 이연 항목 추출 시 '어떤 문장이 이연인지' 판단 기준 필요하다고 전제",
+        "validationResult": "Ace과잉설계",
+        "masterFinalDecision": "Editor 보고서에 이미 이연 섹션이 명확히 구분됨. 그걸 그대로 읽으면 됨.",
+        "lesson": "이미 구조화된 출력물(editor 보고서 섹션)을 재분류하려는 시도는 과잉 설계. 기존 구조 재활용이 먼저.",
+        "masterPattern": "Master는 단순한 해법 선호. 새 분류 체계 도입 전 기존 구조 재활용 가능성 먼저 확인.",
+        "selfJudgmentScore": 2,
+        "reusable": true
+      },
+      {
+        "id": "LL-003",
+        "date": "2026-04-16",
+        "topic": "superpowers-3",
+        "trigger": "Master: '소프트웨어 구현도 향후 진행 업무. Arki 설계 + Editor 작성 + 개발자 에이전트 추가 가능'",
+        "aceInitialPosition": "레전드팀 주 작업 = 전략·분석·기획. 소프트웨어 구현 파이프라인 아님을 전제",
+        "validationResult": "Ace누락",
+        "masterFinalDecision": "Dev 신설. 소프트웨어 구현도 레전드팀 범위에 포함.",
+        "lesson": "topic_012(데이터북 Agent), topic_011(EduAgent)에서 이미 구현이 범위에 들어왔음에도 프레이밍에서 전제 오류. 역할 재정의 후 토픽 열 때 '구현 범위 포함 여부'를 사전 체크해야 한다.",
+        "masterPattern": "Master는 전략 분석팀과 구현팀의 구분을 원하지 않음. 하나의 팀이 전략부터 구현까지 수행하는 모델.",
+        "selfJudgmentScore": 1,
+        "reusable": true
+      },
+      {
+        "id": "LL-006",
+        "date": "2026-04-17",
+        "topic": "dashboard-upgrade",
+        "trigger": "Master: '배제를 하면 개선을 할 수 없잖아. 없는 것과 정교화해 가는 방향은 아예 다른 축.'",
+        "aceInitialPosition": "토큰 대리 지표 허수 우려 → 배제 주장",
+        "validationResult": "Ace판단오류",
+        "masterFinalDecision": "정교화 경로가 있는 지표는 1차 포함 후 단계별 정교화. 배제는 최후 수단.",
+        "lesson": "허수 위험을 이유로 배제 제안 전, 정교화 경로 가능성 먼저 탐색. 있으면 포함하고 개선.",
+        "masterPattern": "Master는 점진적 정교화 모델 선호. 미완성 지표도 방향성 있으면 가치 있음.",
+        "selfJudgmentScore": 2,
+        "reusable": true
+      },
+      {
+        "id": "LL-007",
+        "date": "2026-04-17",
+        "topic": "dashboard-upgrade",
+        "trigger": "Master: '내가 몇번을 개입하나가 좋겠어. 채택률과 종합지표로 보면 효율성을 볼 수 있을 것 같아.'",
+        "aceInitialPosition": "자율성 KPI = Master 비개입 완결 세션 비율(binary)",
+        "validationResult": "Ace개선여지",
+        "masterFinalDecision": "masterTurns(개입 횟수) 연속 지표 + 채택률 교차 해석으로 효율성 도출",
+        "lesson": "binary 지표는 정보 손실. 연속값이 해석 여지 넓음. 자율성은 횟수로 측정.",
+        "masterPattern": "Master는 연속 지표 + 교차 해석 조합 선호.",
+        "selfJudgmentScore": 3,
+        "reusable": true
+      },
+      {
+        "id": "LL-008",
+        "date": "2026-04-17",
+        "topic": "dashboard-upgrade",
+        "trigger": "Ace 오케스트레이션 순서 제안 → Master: 'Fin 다음 Arki 재호출 이유는?'",
+        "aceInitialPosition": "Arki → Fin → Arki 재호출 → Riki 순차 제안",
+        "validationResult": "Ace오케스트레이션오류",
+        "masterFinalDecision": "Fin+Riki 병렬 → Arki 통합 재설계. 분리 검토 후 한 번에 반영이 효율적.",
+        "lesson": "Fin과 Riki는 독립 축. 병렬 가능. Arki 재호출은 둘 다 들은 후 1회로 통합.",
+        "masterPattern": "역할 간 직접 부딪힘 선호. Ace가 중간에서 완충 역할로 순서 조정 금지.",
+        "selfJudgmentScore": 2,
+        "reusable": true
+      },
+      {
+        "id": "LL-009",
+        "date": "2026-04-17",
+        "topic": "dashboard-upgrade",
+        "trigger": "Ace: '무응답 = 판단 보류' 분류 제안 → Master: '무응답 처리한 것은 채택해서 그런거 아냐?'",
+        "aceInitialPosition": "무응답을 판단 보류로 별도 분류",
+        "validationResult": "Ace판단오류",
+        "masterFinalDecision": "무응답 = 묵시적 채택. 비개입 = 통과·신뢰 신호.",
+        "lesson": "Master의 비개입은 '모름'이 아니라 '통과'. 자율성 KPI와 직결.",
+        "masterPattern": "Master 비개입 = 자율성 증거. 개입 최소화가 팀 성장 지표.",
+        "selfJudgmentScore": 2,
+        "reusable": true
+      }
+    ]
   },
-  "lastUpdated": "2026-04-16T00:00:00.000Z"
+  "collaborativeThinkingDeclaration": {
+    "date": "2026-04-17",
+    "session": "session_027",
+    "masterStatement": "우린 이젠 같이 사고해야 해. 그 정도 수준까지 올라왔어. 내 말이 무조건 옳지 않아.",
+    "aceCommitment": "Master 의견에 반대가 있으면 근거와 함께 명확히 표명. 수동적 수용 금지."
+  },
+  "lastUpdated": "2026-04-17T00:00:00.000Z",
+  "lessonLog": [
+    {
+      "id": "LL-010",
+      "date": "2026-04-17",
+      "topic": "legend-team-dashboard",
+      "lesson": "경로 선택 위임(\"어느 경로로?\") 금지. Ace는 안을 먼저 제시하고 Master가 수정하는 구조. 선택지 나열 = 보조자 모드."
+    }
+  ]
 }

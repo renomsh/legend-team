@@ -1,0 +1,51 @@
+{
+  "_comment": "토픽 타입별 role memory 선택적 로드 규칙. /open 시 토픽 제목 키워드 매칭 → 해당 타입의 loadMemory만 로드.",
+  "_matchRule": "typeRules를 순서대로 검사. 첫 번째 매칭된 타입 사용. 매칭 없으면 default 사용.",
+  "typeRules": [
+    {
+      "type": "implementation",
+      "description": "코딩·디버깅·스크립트 구현 토픽",
+      "keywords": ["구현", "개발", "버그", "수정", "코딩", "스크립트", "테스트", "test", "dev", "빌드", "배포"],
+      "loadMemory": ["ace_memory", "arki_memory", "dev_memory"]
+    },
+    {
+      "type": "architecture",
+      "description": "시스템·데이터 구조 설계 토픽",
+      "keywords": ["설계", "아키텍처", "구조", "agent", "에이전트", "파이프라인", "스키마"],
+      "loadMemory": ["ace_memory", "arki_memory"]
+    },
+    {
+      "type": "data-analysis",
+      "description": "데이터 분석·DB 매핑 토픽",
+      "keywords": ["데이터", "분석", "DB", "매핑", "통계", "크롤링", "수집"],
+      "loadMemory": ["ace_memory", "fin_memory"]
+    },
+    {
+      "type": "financial",
+      "description": "비용·수익·재무 평가 토픽",
+      "keywords": ["비용", "예산", "수익", "재무", "투자", "ROI", "과금"],
+      "loadMemory": ["ace_memory", "fin_memory"]
+    },
+    {
+      "type": "meta-review",
+      "description": "시스템 메타 점검·효율화·업그레이드 토픽",
+      "keywords": ["효율화", "업그레이드", "메타", "프로토콜", "역할", "세션", "점검", "저장", "기준"],
+      "loadMemory": ["ace_memory"]
+    },
+    {
+      "type": "strategy",
+      "description": "전략·기획·방향 설정 토픽",
+      "keywords": ["전략", "기획", "방향", "검토", "과제", "스케일", "플랜"],
+      "loadMemory": ["ace_memory"]
+    }
+  ],
+  "default": {
+    "type": "general",
+    "loadMemory": ["ace_memory"]
+  },
+  "_notes": [
+    "매칭 오류 가능성: Ace가 /open 프레이밍 후 추가 role memory가 필요하다고 판단하면 2차 로드 가능",
+    "implementation 타입은 dev_memory 포함 — Dev 에이전트 없던 시절 토픽은 무시해도 무방",
+    "복합 토픽(예: 설계+구현)은 첫 매칭 타입으로 결정 — Ace 판단으로 보정 가능"
+  ]
+}

@@ -1,24 +1,18 @@
 {
-  "sessionId": "session_028",
-  "topic": "legend-team Dash board",
-  "topicSlug": "legend-team-dashboard",
-  "status": "closed",
-  "startedAt": "2026-04-17T04:00:00.000Z",
-  "closedAt": "2026-04-17T06:00:00.000Z",
+  "sessionId": "session_029",
+  "topic": "Legend Team Dashboard #2",
+  "topicSlug": "legend-team-dashboard-2",
+  "status": "open",
+  "startedAt": "2026-04-17T07:00:00.000Z",
+  "closedAt": null,
   "mode": "observation",
-  "agentsCompleted": ["ace", "arki", "fin", "riki", "dev", "editor"],
+  "agentsCompleted": [],
   "novaInvoked": false,
-  "masterDecisions": ["D-027", "D-028"],
-  "reportPath": "reports/2026-04-17_legend-team-dashboard",
+  "masterDecisions": [],
+  "reportPath": "reports/2026-04-17_legend-team-dashboard-2",
   "notes": [
-    "session_027 dashboard-upgrade 후속.",
-    "Ace 프레이밍 → Arki 재설계 → Fin → Riki → Ace 종합 → Dev 구현 파이프라인 완료.",
-    "compute-dashboard.ts 28세션 Size 계산 완료 (캐시 히트율 94.47%).",
-    "2뷰 HTML 구현: dashboard-upgrade.html + dashboard-ops.html.",
-    "JSON 구조 오류 2건 수정 (session_index, decision_ledger).",
-    "append-session.ts로 session_index 수동 편집 경로 차단.",
-    "Master 피드백: Ace 경로 위임 금지 → 안 제시 후 Master 수정 구조로 전환."
+    "session_028 후속. 대시보드 구현 완료 여부 확인 및 추가 확정 사항 논의."
   ],
   "gaps": [],
-  "closeVerified": true
+  "closeVerified": false
 }

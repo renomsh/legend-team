@@ -1,0 +1,74 @@
+{
+  "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
+  "lastSessionId": "session_028",
+  "nextSessionId": "session_029",
+  "currentVersion": "v0.9.0",
+  "openTopics": [
+    {
+      "id": "topic_012",
+      "title": "데이터북 Agent 설계",
+      "status": "suspended",
+      "reportPath": "reports/2026-04-13_databook-agent-design",
+      "note": "설계 완료. 다음: 7개 팀 파일 전수 조사 → canonical 스키마 확정 → 프로토타입 구현"
+    }
+  ],
+  "recentDecisions": [
+    {
+      "id": "D-028",
+      "date": "2026-04-17",
+      "axis": "compute-dashboard.ts 세션 종료 Hook 자동 실행",
+      "summary": "SessionEnd Hook에 compute-dashboard.ts 추가. token 집계 → 대시보드 재계산 순차 자동화."
+    },
+    {
+      "id": "D-027",
+      "date": "2026-04-17",
+      "axis": "Size 공식 masterTurns 제거",
+      "summary": "Size = (decisionAxes×2) + rolesCalled + (rolesRecalled×2) + (sessionsSpanned×3). 복잡도·자율성 개념 분리."
+    },
+    {
+      "id": "D-026",
+      "date": "2026-04-17",
+      "axis": "SessionEnd Hook 구현 완료",
+      "summary": "transcript .jsonl 파싱으로 세션 토큰 직접 집계. token_log.json 신규. Phase 3a 경로 (i) 확정."
+    },
+    {
+      "id": "D-025",
+      "date": "2026-04-17",
+      "axis": "대시보드 재설계 확정",
+      "summary": "2뷰(업그레이드/과제운영), 5군 역할 평가, Phase 0~3, 자율성 카드, 효율성 그래프, Size 공식."
+    },
+    {
+      "id": "D-024",
+      "date": "2026-04-17",
+      "axis": "제안/채택 레이블링 룰",
+      "summary": "명시적 채택/묵시적 채택(무응답=통과)/기각/보류 4-레이블. 채택률 공식 확정."
+    }
+  ],
+  "pendingDeferrals": [
+    {
+      "id": "PD-004",
+      "fromSession": "session_015",
+      "fromTopic": "databook-agent-design",
+      "item": "데이터북 Agent 프로토타입 구현: 7개 팀 파일 전수 투입 → canonical 스키마 → normalize.py + merge.py + validate.py",
+      "status": "pending",
+      "note": "다음 주 진행 예정 (Master 확인 session_024)"
+    },
+    {
+      "id": "PD-005",
+      "fromSession": "session_025",
+      "fromTopic": "v090-design-upgrade",
+      "item": "Figma 연동 — 계정 생성 후 MCP 설정, design:design-critique 스킬 Figma 검수 항목 활성화, CRITIQUE_CHECKLIST.md Figma 섹션 구현",
+      "status": "pending",
+      "note": "현재 Figma 계정 미보유. 급하지 않음."
+    },
+    {
+      "id": "PD-006",
+      "fromSession": "session_027",
+      "fromTopic": "dashboard-upgrade",
+      "item": "SessionEnd Hook Windows 경로 이스케이프 검증 — 실제 세션 종료 시 hook 발동 확인 + transcript_path 형식 점검",
+      "status": "pending",
+      "note": "이번 세션(session_028) 종료 시 Hook 발동 여부로 검증 가능."
+    }
+  ],
+  "lastUpdated": "2026-04-17T06:00:00.000Z"
+}

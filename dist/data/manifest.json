@@ -10,13 +10,18 @@
     "roles/nova_memory.json",
     "roles/riki_memory.json",
     "sessions/current_session.json",
+    "sessions/proposal_log.json",
     "sessions/session_005_plan.md",
     "sessions/session_index.json",
+    "sessions/token_log.json",
+    "shared/dashboard_data.json",
     "shared/decision_ledger.json",
     "shared/evidence_index.json",
     "shared/glossary.json",
     "shared/project_charter.json",
-    "shared/topic_index.json"
+    "shared/system_state.json",
+    "shared/topic_index.json",
+    "shared/topic_load_manifest.json"
   ],
   "reports": [
     "2026-04-02_shared-asset-protocol/ace_rev01.md",
@@ -83,7 +88,19 @@
     "2026-04-14_hybrid-scaleup300/riki_rev1.md",
     "2026-04-15_superpowers-absorption-plan/editor_rev1.md",
     "2026-04-15_superpowers-plugin-review/editor_rev1.md",
-    "2026-04-16_superpowers-2/editor_rev1.md"
+    "2026-04-16_canva-integration/ace_rev1.md",
+    "2026-04-16_canva-integration/editor_rev1.md",
+    "2026-04-16_dev-role-session-close/editor_rev1.md",
+    "2026-04-16_dev-test/editor_rev1.md",
+    "2026-04-16_efficiency-test-and-deferrals/ace_rev1.md",
+    "2026-04-16_efficiency-test-and-deferrals/editor_rev1.md",
+    "2026-04-16_efficiency-test-and-deferrals/fin_rev1.md",
+    "2026-04-16_legend-team-efficiency/editor_rev1.md",
+    "2026-04-16_superpowers-2/editor_rev1.md",
+    "2026-04-16_superpowers-3/editor_rev1.md",
+    "2026-04-16_v090-design-upgrade/editor_rev1.md",
+    "2026-04-17_dashboard-upgrade/editor_rev1.md",
+    "2026-04-17_legend-team-dashboard/editor_rev1.md"
   ],
   "logs": [
     "app.log",
