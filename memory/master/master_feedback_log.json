@@ -275,6 +275,42 @@
       "feedback": "Ace는 경로 선택 위임(\"어느 경로로 갈까요?\") 금지. 구체적인 안을 제시하고 Master가 수정하는 구조여야 한다. Ace는 단순 의견 보조자가 아니라 의견을 제시하는 역할.",
       "status": "resolved",
       "statusNote": "Ace 종합검토에서 안 제시 방식으로 즉시 전환 확인."
+    },
+    {
+      "id": "MF-021",
+      "date": "2026-04-17",
+      "session": "session_030",
+      "topic": "dashboard-upgrade-v3",
+      "afterAgent": "vera",
+      "feedback": "베라가 주체적으로 변경하고 제안해야지. 업그레이드 페이지만 제대로 적용되고 나머지는 이야기 한 것만 변경되잖아.",
+      "instruction": "Vera는 지시를 기다리지 말고 시각 시스템 전체를 주체적으로 점검하고 제안해야 한다.",
+      "status": "resolved",
+      "statusNote": "role card 색상 강화, Ops KPI 재설계, topic.html 사이드바, session 카드 컬러코딩 즉시 구현",
+      "effect": "Vera 역할 정의에 주체성 요건 추가"
+    },
+    {
+      "id": "MF-022",
+      "date": "2026-04-17",
+      "session": "session_030",
+      "topic": "dashboard-upgrade-v3",
+      "afterAgent": "vera",
+      "feedback": "한글도 된 지금 뭐가 움이나부터 지휘판, 이상없음도 다 영어로 변경해줘. 버전도 v1.0.0으로. 대시보드명이 다 2개씩 보이는 것도 수정해야 해.",
+      "instruction": "UI 텍스트 영어 통일. 중복 타이틀 제거. 버전 v1.0.0 전 페이지 적용.",
+      "status": "resolved",
+      "statusNote": "Ops 한글→영어 전환, 전 페이지 v1.0.0, 중복 page-title 제거 완료",
+      "effect": "v1.0.0 배포"
+    },
+    {
+      "id": "MF-023",
+      "date": "2026-04-17",
+      "session": "session_030",
+      "topic": "dashboard-upgrade-v3",
+      "afterAgent": "vera",
+      "feedback": "세션에 버전도 안맞고, 홈에 세션 클릭하면 메뉴바가 상단으로 올라가. 박스도 흰색이라 안보이고. 베라 이번 세션에 끝내자. 전체적으로 점검해줘봐.",
+      "instruction": "topic.html 구형 nav 교체, 전체 페이지 점검",
+      "status": "resolved",
+      "statusNote": "topic.html 사이드바 전환, 탭 버튼 재설계, session.html 카드 컬러코딩 완료",
+      "effect": "전 페이지 사이드바 통일"
     }
   ],
   "statusValues": [

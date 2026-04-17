@@ -2,19 +2,28 @@
   "sessionId": "session_030",
   "topic": "Dashboard Upgrade",
   "topicSlug": "dashboard-upgrade-v3",
-  "status": "open",
+  "status": "closed",
   "startedAt": "2026-04-17T09:30:00.000Z",
-  "closedAt": null,
+  "closedAt": "2026-04-17T13:35:47.265Z",
   "mode": "observation",
-  "agentsCompleted": ["ace"],
+  "agentsCompleted": [
+    "ace",
+    "vera",
+    "editor"
+  ],
   "novaInvoked": false,
   "masterDecisions": [],
   "reportPath": "reports/2026-04-17_dashboard-upgrade-v3",
   "notes": [
     "dashboard-v3-test.html 프로토타입 생성. 기존 파일 무수정.",
     "갭 3개 진단: (1) 세션흐름 미구현, (2) 역할호출빈도 미구현, (3) 비주얼 수준 업그레이드.",
-    "프로토타입 포함: Session Flow 패널, Role Analytics, 새 dark admin 디자인, 개선된 차트."
+    "프로토타입 포함: Session Flow 패널, Role Analytics, 새 dark admin 디자인, 개선된 차트.",
+    "Vera 디자인 시스템 v1.0.0 전면 배포: 사이드바 레이아웃 전 페이지, 역할 카드 컬러 그라데이션, Vera 카드 신규, Ops KPI 카드 재설계, topic.html 구형 nav → 사이드바, 세션 카드 컬러코딩, 한글→영어, 중복 타이틀 제거."
   ],
-  "gaps": [],
-  "closeVerified": false
+  "gaps": [
+    "역할별 형식 리포트 미생성 (구현 전용 세션)",
+    "PD-008 미이행 — 역할 호출 빈도 실데이터 여전히 추정값",
+    "세션 히스토리 뷰 미구현"
+  ],
+  "closeVerified": true
 }

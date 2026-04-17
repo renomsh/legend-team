@@ -217,8 +217,14 @@
       "closedAt": "2026-04-17T09:00:00.000Z",
       "decisions": [],
       "note": "dist/ 배포 + nav 영어 통일 + DEV 카드 + status 통일 + Topics 개편"
+    },
+    {
+      "sessionId": "session_030",
+      "topicSlug": "dashboard-upgrade-v3",
+      "startedAt": "2026-04-17T09:30:00.000Z",
+      "closedAt": "2026-04-17T13:35:47.265Z"
     }
   ],
-  "lastUpdated": "2026-04-17T05:17:58.830Z",
+  "lastUpdated": "2026-04-17T13:36:38.908Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
