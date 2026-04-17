@@ -345,6 +345,17 @@
       "instruction": "token_log 동일 legendSessionId 덮어쓰기 → 누산으로 변경 (compaction 대응)",
       "status": "resolved",
       "statusNote": "session-end-tokens.js appendLog 누산 로직으로 변경. D-030 등재."
+    },
+    {
+      "id": "MF-027",
+      "date": "2026-04-18",
+      "session": "session_032",
+      "topic": "agents-completed-hook",
+      "afterAgent": "Dev",
+      "feedback": "구현해. 도대체 몇번째야.",
+      "instruction": "auto-push.js에 워크트리 .claude/ → main repo 동기화 로직 추가. 매 세션 반복되는 누락 패턴 근본 해결.",
+      "status": "resolved",
+      "statusNote": "syncClaudeDir() 구현 완료. D-031 등재. main repo push 후 적용."
     }
   ],
   "statusValues": [
