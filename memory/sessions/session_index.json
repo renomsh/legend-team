@@ -334,8 +334,23 @@
         "editor"
       ],
       "note": "PD-008 완전 이행. backfill 22개, roleFrequency 집계, session.html History 탭 구현. Master: Ace 오케스트레이션 유효."
+    },
+    {
+      "sessionId": "session_032",
+      "topicSlug": "agents-completed-hook",
+      "topic": "agentsCompleted Hook 자동화",
+      "startedAt": "2026-04-17T17:00:00.000Z",
+      "closedAt": "2026-04-17T18:00:00.000Z",
+      "decisions": [
+        "D-029",
+        "D-030"
+      ],
+      "agentsCompleted": [
+        "Dev"
+      ],
+      "note": "세션 종료 자동화 종합 점검으로 범위 확장 | dashboard 6개 이슈 모두 해결 | token_log 누산 정책 변경 (D-030) | PD-009: 이번 세션 종료 시 hook 발동 여부 검증 예정"
     }
   ],
-  "lastUpdated": "2026-04-17T14:01:58.485Z",
+  "lastUpdated": "2026-04-17T15:11:06.547Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
