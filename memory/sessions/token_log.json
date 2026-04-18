@@ -461,7 +461,86 @@
         "masterTurns": 15,
         "total_billable": 16441299
       }
+    },
+    {
+      "capturedAt": "2026-04-18T22:57:21.125Z",
+      "cliSessionId": "93893ef0-8bf7-4e4c-b2ce-0aa6014131e8",
+      "legendSessionId": "session_036",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-sad-dhawan-15d3e3\\93893ef0-8bf7-4e4c-b2ce-0aa6014131e8.jsonl",
+      "usage": {
+        "input_tokens": 31887,
+        "output_tokens": 109507,
+        "cache_creation_input_tokens": 943815,
+        "cache_read_input_tokens": 12955592,
+        "messageCount": 130,
+        "masterTurns": 12,
+        "total_billable": 14040801
+      },
+      "source": "append-missing-tokens.ts (PD-016 recovery)"
+    },
+    {
+      "capturedAt": "2026-04-18T22:57:21.163Z",
+      "cliSessionId": "c84c4d72-748e-4c47-a6b2-bb37ddbbc80f",
+      "legendSessionId": "session_037",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-exciting-mestorf-314aff\\c84c4d72-748e-4c47-a6b2-bb37ddbbc80f.jsonl",
+      "usage": {
+        "input_tokens": 214,
+        "output_tokens": 93368,
+        "cache_creation_input_tokens": 279775,
+        "cache_read_input_tokens": 9339310,
+        "messageCount": 89,
+        "masterTurns": 12,
+        "total_billable": 9712667
+      },
+      "source": "append-missing-tokens.ts (PD-016 recovery)"
+    },
+    {
+      "capturedAt": "2026-04-18T22:57:21.171Z",
+      "cliSessionId": "b6855bb2-f405-4092-a7a0-3890a392eb76",
+      "legendSessionId": "session_038",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-eloquent-haibt-cbb9f2\\b6855bb2-f405-4092-a7a0-3890a392eb76.jsonl",
+      "usage": {
+        "input_tokens": 5534,
+        "output_tokens": 87835,
+        "cache_creation_input_tokens": 416022,
+        "cache_read_input_tokens": 11485601,
+        "messageCount": 115,
+        "masterTurns": 8,
+        "total_billable": 11994992
+      },
+      "source": "append-missing-tokens.ts (PD-016 recovery)"
+    },
+    {
+      "capturedAt": "2026-04-18T22:57:21.183Z",
+      "cliSessionId": "564d7641-25e8-4de3-96da-fda9abbff431",
+      "legendSessionId": "session_039",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-laughing-hellman-a323b8\\564d7641-25e8-4de3-96da-fda9abbff431.jsonl",
+      "usage": {
+        "input_tokens": 121,
+        "output_tokens": 49416,
+        "cache_creation_input_tokens": 472990,
+        "cache_read_input_tokens": 5019615,
+        "messageCount": 81,
+        "masterTurns": 3,
+        "total_billable": 5542142
+      },
+      "source": "append-missing-tokens.ts (PD-016 recovery)"
+    },
+    {
+      "capturedAt": "2026-04-18T23:02:51.648Z",
+      "cliSessionId": null,
+      "legendSessionId": "session_040",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-youthful-williamson-264cfb\\f11d9409-f876-46fd-8c37-ea295f6ff41a.jsonl",
+      "usage": {
+        "input_tokens": 188,
+        "output_tokens": 101219,
+        "cache_creation_input_tokens": 603874,
+        "cache_read_input_tokens": 11071846,
+        "messageCount": 118,
+        "masterTurns": 7,
+        "total_billable": 11777127
+      }
     }
   ],
-  "lastUpdated": "2026-04-18T20:10:29.517Z"
+  "lastUpdated": "2026-04-18T23:02:51.650Z"
 }

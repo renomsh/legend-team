@@ -1,19 +1,31 @@
 {
-  "sessionId": "session_039",
-  "topic": "비용효율, 버전 버그 확인",
-  "topicSlug": "cost-efficiency-version-bug",
+  "sessionId": "session_040",
+  "topic": "대시보드 버그 — 설계축 재검토 여부 판단",
+  "topicSlug": "dashboard-bug-axis-review",
   "status": "open",
-  "startedAt": "2026-04-19T10:00:00.000Z",
+  "startedAt": "2026-04-19T11:00:00.000Z",
   "mode": "observation",
-  "grade": "C",
+  "grade": "B",
   "gradeActual": null,
   "gradeMismatch": false,
-  "framingLevel": 0,
-  "framingSkipped": true,
+  "framingLevel": 1,
+  "framingSkipped": false,
   "agentsCompleted": [],
-  "notes": [],
+  "notes": [
+    "Master 요청: 수정 전 Dev 의견 먼저",
+    "직전 session_039 current_session.json 스탤 상태로 발견 — auto-push는 closed, 상태파일만 open 잔존"
+  ],
   "gaps": [],
   "masterDecisions": [],
-  "reportPath": "reports/2026-04-19_cost-efficiency-version-bug",
-  "resolvedDeferrals": []
+  "reportPath": "reports/2026-04-19_dashboard-bug-axis-review",
+  "resolvedDeferrals": [],
+  "tokenUsage": {
+    "input_tokens": 188,
+    "output_tokens": 101219,
+    "cache_creation_input_tokens": 603874,
+    "cache_read_input_tokens": 11071846,
+    "messageCount": 118,
+    "masterTurns": 7,
+    "total_billable": 11777127
+  }
 }

@@ -33,3 +33,6 @@
 [2026-04-18T22:15:15.768Z] [session-end-tokens] ABORT: transcript_path missing and cliSessionId fallback found nothing
 [2026-04-18T22:35:07.140Z] [session-end-tokens] FIRED transcript=C:\Users\문성훈\.claude\projects\c--Projects-legend-team\1a38b274-7a62-43b6-a822-7ff89612d9d9.jsonl cliSession=1a38b274-7a62-43b6-a822-7ff89612d9d9 cwd=c:\Projects\legend-team
 [2026-04-18T22:35:07.150Z] [session-end-tokens] ABORT: transcript file not found at C:\Users\문성훈\.claude\projects\c--Projects-legend-team\1a38b274-7a62-43b6-a822-7ff89612d9d9.jsonl (fallback also failed)
+[2026-04-18T23:02:51.629Z] [session-end-tokens] FIRED transcript=MISSING cliSession=null cwd=C:\Projects\legend-team\.claude\worktrees\youthful-williamson-264cfb
+[2026-04-18T23:02:51.635Z] [session-end-tokens] PD-016 FALLBACK: transcript_path missing, found via cliSessionId at C:\Users\문성훈\.claude\projects\C--Projects-legend-team--claude-worktrees-youthful-williamson-264cfb\f11d9409-f876-46fd-8c37-ea295f6ff41a.jsonl
+[2026-04-18T23:02:51.654Z] [session-end-tokens] OK legend=session_040 total=11777127 master=7 msg=118
