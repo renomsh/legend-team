@@ -477,8 +477,28 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false
+    },
+    {
+      "sessionId": "session_033",
+      "topicSlug": "dashboard-bug-ace-framing",
+      "topic": "Dashboard Bug & ace-framing 조건화",
+      "startedAt": "2026-04-18T00:00:00.000Z",
+      "closedAt": "2026-04-18T09:00:00.000Z",
+      "decisions": [
+        "D-032",
+        "D-033"
+      ],
+      "agentsCompleted": [
+        "Ace",
+        "Nova",
+        "Arki",
+        "Fin",
+        "Riki",
+        "Editor"
+      ],
+      "note": "대시보드 과거 회귀 버그 — CF Pages stale data. 원인: e94543a 커밋이 worktree에만 존재, origin/main 미반영. 수동 push로 해결. | ace-framing L0/L1/L2 grade 조건화 설계 및 구현 (D-032) | 버전 관리 project_charter.json 단일 소스화, nav.js 자동 반영 (D-033) | Dashboard: Grade Distribution + Grade Mismatch 패널 추가 | Decisions: 최신순 정렬. OPS: 순서 1,2,3,4,5 정렬. | PD-010 등록: token hook 미캡처 진단 이연"
     }
   ],
-  "lastUpdated": "2026-04-17T15:21:00.332Z",
+  "lastUpdated": "2026-04-18T05:27:01.055Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

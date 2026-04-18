@@ -606,6 +606,25 @@
       "outcome": "Hook 체인 완성(tokens→finalize→compute→build). dashboard 6개 이슈 해결. PD-009 발동 검증 이연.",
       "note": "session_032 완료. token_log 누산 정책 변경(D-030). hook-diagnostics.log로 다음 세션 종료 시 검증.",
       "grade": "A"
+    },
+    {
+      "id": "topic_030",
+      "type": "meta-review",
+      "title": "Dashboard Bug & ace-framing 조건화",
+      "status": "completed",
+      "created": "2026-04-18",
+      "closedAt": "2026-04-18",
+      "grade": "A",
+      "controlPath": null,
+      "reportPath": "reports/2026-04-18_dashboard-bug-ace-framing",
+      "reportFiles": [],
+      "published": false,
+      "masterDecisions": [
+        "D-032",
+        "D-033"
+      ],
+      "outcome": "Dashboard 회귀(CF Pages 미push) 해결. Topic Grade System(Lv. S/A/B/C) 설계·구현. ace-framing L0/L1/L2 조건화. 버전 단일소스화(v1.01). Decisions 순서·OPS 순서 수정.",
+      "note": "session_033. Nova 제안(Layer0/1) 채택. PD-010 token_log 훅 진단 이연."
     }
   ],
   "lastUpdated": "2026-04-17T17:00:00.000Z"
