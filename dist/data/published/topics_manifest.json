@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-18T10:32:23.115Z",
+  "generatedAt": "2026-04-18T12:50:58.199Z",
   "topics": [
     {
       "id": "topic_001",
@@ -510,6 +510,24 @@
         "D-032",
         "D-033"
       ]
+    },
+    {
+      "id": "topic_013",
+      "title": "COPD project review (Track B 재설계)",
+      "status": "completed",
+      "created": "2026-04-18",
+      "reportPath": "reports/2026-04-18_copd-project-review",
+      "reportFiles": [
+        "ace_rev1.md",
+        "arki_rev1.md",
+        "riki_rev1.md",
+        "nova_rev1.md",
+        "editor_rev1.md"
+      ],
+      "published": true,
+      "outcome": null,
+      "note": "Track B SES→CMA 재설계. Pooled CMA with COPD+PRISm n=2,719. Thorax 1순위 투고. G2 FAIL로 moderated mediation 포기. Nova 궤도 2·3 채용.",
+      "masterDecisions": []
     }
   ]
 }

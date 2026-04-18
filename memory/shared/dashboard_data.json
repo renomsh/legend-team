@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-18T10:32:05.843Z",
-  "totalSessions": 33,
+  "generatedAt": "2026-04-18T12:50:57.630Z",
+  "totalSessions": 34,
   "autoDataFrom": "session_027",
   "metrics": {
     "avgMasterTurns": 0,
     "avgCacheHitRate": 0.9516,
     "cacheSampleSize": 2,
-    "cacheSampleTotal": 33,
+    "cacheSampleTotal": 34,
     "avgAdoptionRate": 0,
-    "totalDecisions": 33,
+    "totalDecisions": 39,
     "gradeDistribution": {
-      "S": 5,
+      "S": 6,
       "A": 9,
       "B": 9,
       "C": 10
@@ -815,12 +815,46 @@
         "cacheHitRate": 0.9586021724478551,
         "messageCount": 377
       }
+    },
+    {
+      "sessionId": "session_034",
+      "topicSlug": "copd-project-review",
+      "topic": "COPD project review (Track B)",
+      "startedAt": "2026-04-18T09:30:00.000Z",
+      "closedAt": "2026-04-18T13:00:00.000Z",
+      "decisionCount": 6,
+      "decisionAxes": 6,
+      "decisions": [
+        "D-034",
+        "D-035",
+        "D-036",
+        "D-037",
+        "D-038",
+        "D-039"
+      ],
+      "rolesCalled": 5,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 20,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 0,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "nova",
+        "editor"
+      ]
     }
   ],
   "roleFrequency": [
     {
       "role": "editor",
-      "count": 24,
+      "count": 25,
       "sessions": [
         "session_007",
         "session_009",
@@ -845,12 +879,13 @@
         "session_029",
         "session_030",
         "session_031",
-        "session_033"
+        "session_033",
+        "session_034"
       ]
     },
     {
       "role": "ace",
-      "count": 15,
+      "count": 16,
       "sessions": [
         "session_007",
         "session_008",
@@ -866,12 +901,13 @@
         "session_026",
         "session_030",
         "session_031",
-        "session_033"
+        "session_033",
+        "session_034"
       ]
     },
     {
       "role": "arki",
-      "count": 9,
+      "count": 10,
       "sessions": [
         "session_008",
         "session_009",
@@ -881,7 +917,21 @@
         "session_016",
         "session_018",
         "session_031",
-        "session_033"
+        "session_033",
+        "session_034"
+      ]
+    },
+    {
+      "role": "riki",
+      "count": 7,
+      "sessions": [
+        "session_009",
+        "session_011",
+        "session_012",
+        "session_016",
+        "session_031",
+        "session_033",
+        "session_034"
       ]
     },
     {
@@ -897,25 +947,14 @@
       ]
     },
     {
-      "role": "riki",
-      "count": 6,
-      "sessions": [
-        "session_009",
-        "session_011",
-        "session_012",
-        "session_016",
-        "session_031",
-        "session_033"
-      ]
-    },
-    {
       "role": "nova",
-      "count": 4,
+      "count": 5,
       "sessions": [
         "session_013",
         "session_014",
         "session_015",
-        "session_033"
+        "session_033",
+        "session_034"
       ]
     },
     {

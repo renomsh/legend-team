@@ -356,6 +356,26 @@
       "instruction": "auto-push.js에 워크트리 .claude/ → main repo 동기화 로직 추가. 매 세션 반복되는 누락 패턴 근본 해결.",
       "status": "resolved",
       "statusNote": "syncClaudeDir() 구현 완료. D-031 등재. main repo push 후 적용."
+    },
+    {
+      "id": "MF-S034-1",
+      "date": "2026-04-18",
+      "session": "session_034",
+      "topic": "copd-project-review",
+      "afterAgent": "ace",
+      "feedback": "어중간한 절충안 금지. 목표(고IF 최고점수) 기준 단일 최적해만 제시. 의견 조율은 Master 몫. Ace가 먼저 절충안 제안 금지.",
+      "status": "resolved",
+      "statusNote": "feedback_no_middle_ground.md 저장. 이후 Ace 발언 전체에 적용됨."
+    },
+    {
+      "id": "MF-S034-2",
+      "date": "2026-04-18",
+      "session": "session_034",
+      "topic": "copd-project-review",
+      "afterAgent": "ace",
+      "feedback": "데이터 분석 시 필요하면 skill 쓰라. Bash 단발 대신 data:* / bio-research:* skill 활용.",
+      "status": "resolved",
+      "statusNote": "feedback_use_skills_in_data_analysis.md 저장. G1·G2 실행에서 data:statistical-analysis 원칙 적용."
     }
   ],
   "statusValues": [

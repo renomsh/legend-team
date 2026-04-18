@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_033",
-  "nextSessionId": "session_034",
+  "lastSessionId": "session_034",
+  "nextSessionId": "session_035",
   "currentVersion": "v1.01",
   "openTopics": [
     {
@@ -14,35 +14,35 @@
   ],
   "recentDecisions": [
     {
-      "id": "D-033",
+      "id": "D-039",
       "date": "2026-04-18",
-      "axis": "버전 관리 규칙 — project_charter 단일 소스화 + 명명 규칙",
-      "summary": "project_charter.json이 버전 유일 소스. nav.js가 모든 페이지에 자동 반영. 큰 변화 +0.1, 작은 변화 +0.01. 현재 v1.01."
+      "axis": "G2 검정력 FAIL 대응",
+      "summary": "PRISm complete-case n=51/events=3으로 moderated mediation 식별 불가. Primary analysis를 Pooled CMA로 강등. Phenotype은 covariate로 투입, phenotype-stratified는 descriptive sensitivity만."
     },
     {
-      "id": "D-032",
+      "id": "D-038",
       "date": "2026-04-18",
-      "axis": "Topic Grade System (Lv. S/A/B/C) + ace-framing 조건화",
-      "summary": "Grade S/A→L2 스킬, B→L1 인라인, C→L0 생략. Size 역산으로 사후 검증(gradeMismatch). /open 시 단일 문자 B/A/S/C 입력. Lv. 표기."
+      "axis": "투고 cascade",
+      "summary": "Thorax → Int J Epidemiol → Chest → ERJ Open Res → Int J COPD. 기대 base band IF 5~10 (Chest 현실 target, Thorax stretch goal)."
     },
     {
-      "id": "D-031",
+      "id": "D-037",
       "date": "2026-04-18",
-      "axis": "auto-push.js .claude/ 워크트리 동기화 자동화",
-      "summary": "auto-push.js에 syncClaudeDir() 추가. 워크트리 감지 시 .claude/(worktrees/ 제외)를 main repo로 복사 후 commit → merge → push. 워크트리 .claude/ 수정사항이 매 세션 자동으로 main에 반영됨."
+      "axis": "Nova 궤도 채용/기각",
+      "summary": "궤도 2(modifiable mediator 서사)·궤도 3(near-universal coverage context) 채용. 궤도 4(effect modification) 기각. 궤도 1(PRISm outcome)은 PD-012로 이연(Paper B 씨앗)."
     },
     {
-      "id": "D-030",
-      "date": "2026-04-17",
-      "axis": "token_log 덮어쓰기 → 누산 정책 변경",
-      "summary": "컨텍스트 압축(compaction)으로 동일 Legend 세션에 복수 Claude Code 세션이 생길 경우, token_log.json의 동일 legendSessionId 항목을 덮어쓰기 대신 usage 누산으로 변경. 토큰 유실 방지."
+      "id": "D-036",
+      "date": "2026-04-18",
+      "axis": "매개변수 세트",
+      "summary": "Pack-years + SGRQ Symptoms + SGRQ Activity + SGRQ Impact (4개 병렬). CAT total 제거(SGRQ와 중복), SGRQ total 제거(subscale 분해로 대체)."
     },
     {
-      "id": "D-029",
-      "date": "2026-04-17",
-      "axis": "SessionEnd Hook 체인 완성 — session-end-finalize.js + sync-system-state.ts 자동화",
-      "summary": "session-end-finalize.js 신설: current_session.json status=closed 시 session_index 자동 append(agentsCompleted·decisions·note 포함). sync-system-state.ts 신설: system_state.json openTopics·recentDecisions 자동 재계산. Hook 체인: tokens→finalize→compute-dashboard→build. PD-009 이행."
-    },
+      "id": "D-035",
+      "date": "2026-04-18",
+      "axis": "주분석 공변량 세트",
+      "summary": "Age, Sex, Phenotype(PRISm binary), Previous exacerbation 1yr, Post-BDR FEV1%pred, Hospital(GEE cluster). Smoking status 제거(Pack-years 매개와 이중계상 회피). BMI/Comorbidity/WBC는 민감도로만."
+    }
   ],
   "pendingDeferrals": [
     {
@@ -111,7 +111,15 @@
       "item": "역할 재호출 측정 구조 신설 — agentsCompleted를 중복 허용 배열로 변경 + compute-dashboard의 seen.has(role) 제거. 현재 Set 의미로 저장돼 재호출 카운트 불가능.",
       "status": "pending",
       "note": "Arki 진단 결함 4. 두 곳 동시 변경 필요 (session_index 기록 + 집계 로직). 별도 토픽 권장."
+    },
+    {
+      "id": "PD-012",
+      "fromSession": "session_034",
+      "fromTopic": "copd-project-review",
+      "item": "Nova 궤도 1 — PRISm outcome trajectory analysis",
+      "status": "pending",
+      "note": "Paper A 투고 확정 후 재평가"
     }
   ],
-  "lastUpdated": "2026-04-18T09:00:00.000Z"
+  "lastUpdated": "2026-04-18T12:50:54.997Z"
 }

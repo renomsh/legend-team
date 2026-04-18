@@ -224,3 +224,13 @@
 [2026-04-18T10:09:32.836Z] [compute-dashboard] 완료 — 33개 세션, 2개 경보
 [2026-04-18T10:27:31.933Z] [compute-dashboard] 완료 — 33개 세션, 2개 경보
 [2026-04-18T10:32:05.846Z] [compute-dashboard] 완료 — 33개 세션, 2개 경보
+[2026-04-18T12:50:33.497Z] [session-log] [WARN] END topicSlug mismatch. expected: dashboard-bug-ace-framing, got: copd-project-review
+[2026-04-18T12:50:33.517Z] [checklist] [INFO] reports: 1 file(s) on disk, none registered in topic_index
+[2026-04-18T12:50:33.520Z] [checklist] [INFO] decision_ledger: 2 decision(s) recorded for session_033
+[2026-04-18T12:50:33.521Z] [checklist] [INFO] topic_index: topic found: topic_030 (completed)
+[2026-04-18T12:50:33.524Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-18T12:50:33.525Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-18T12:50:33.527Z] [session-log] [INFO] END session_033 | topic: copd-project-review | duration: 771m
+[2026-04-18T12:50:47.481Z] [sync-system-state] lastSession=session_034 openTopics=1 recentDecisions=5 deferrals=9
+[2026-04-18T12:50:54.998Z] [sync-system-state] lastSession=session_034 openTopics=1 recentDecisions=5 deferrals=9
+[2026-04-18T12:50:57.633Z] [compute-dashboard] 완료 — 34개 세션, 2개 경보

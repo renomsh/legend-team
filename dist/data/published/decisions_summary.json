@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-18T10:32:23.119Z",
+  "generatedAt": "2026-04-18T12:50:58.203Z",
   "decisions": [
     {
       "id": "D-001",
@@ -364,6 +364,72 @@
       "axis": "버전 관리 규칙 — project_charter 단일 소스화 + 명명 규칙",
       "decision": "A",
       "value": "project_charter.json이 버전 유일 소스. nav.js가 모든 페이지에 자동 반영. 규칙: 큰 변화 +0.1, 작은 변화 +0.01. 현재 v1.01."
+    },
+    {
+      "id": "D-034",
+      "date": "2026-04-18",
+      "session": "session_034",
+      "topic": "copd-project-review",
+      "axis": "Track B 코호트 재정의",
+      "decision": "B",
+      "value": "COPD+PRISm n=2,719 (Wan 2014 FEV1/FVC<0.70 또는 ≥0.70&FEV1%pred<80). Normal 폐기능군 337명 제외. Phenotype은 binary covariate로 투입 (moderator 아님).",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-035",
+      "date": "2026-04-18",
+      "session": "session_034",
+      "topic": "copd-project-review",
+      "axis": "주분석 공변량 세트",
+      "decision": "single",
+      "value": "Age, Sex, Phenotype(PRISm binary), Previous exacerbation 1yr, Post-BDR FEV1%pred, Hospital(GEE cluster). Smoking status 제거(Pack-years 매개와 이중계상 회피). BMI/Comorbidity/WBC는 민감도로만.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-036",
+      "date": "2026-04-18",
+      "session": "session_034",
+      "topic": "copd-project-review",
+      "axis": "매개변수 세트",
+      "decision": "parallel4",
+      "value": "Pack-years + SGRQ Symptoms + SGRQ Activity + SGRQ Impact (4개 병렬). CAT total 제거(SGRQ와 중복), SGRQ total 제거(subscale 분해로 대체).",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-037",
+      "date": "2026-04-18",
+      "session": "session_034",
+      "topic": "copd-project-review",
+      "axis": "Nova 궤도 채용/기각",
+      "decision": "2+3 only",
+      "value": "궤도 2(modifiable mediator 서사)·궤도 3(near-universal coverage context) 채용. 궤도 4(effect modification) 기각. 궤도 1(PRISm outcome)은 PD-012로 이연(Paper B 씨앗).",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-038",
+      "date": "2026-04-18",
+      "session": "session_034",
+      "topic": "copd-project-review",
+      "axis": "투고 cascade",
+      "decision": "Thorax-first",
+      "value": "Thorax → Int J Epidemiol → Chest → ERJ Open Res → Int J COPD. 기대 base band IF 5~10 (Chest 현실 target, Thorax stretch goal).",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-039",
+      "date": "2026-04-18",
+      "session": "session_034",
+      "topic": "copd-project-review",
+      "axis": "G2 검정력 FAIL 대응",
+      "decision": "pooled",
+      "value": "PRISm complete-case n=51/events=3으로 moderated mediation 식별 불가. Primary analysis를 Pooled CMA로 강등. Phenotype은 covariate로 투입, phenotype-stratified는 descriptive sensitivity만.",
+      "authority": "master",
+      "status": "confirmed"
     }
   ]
 }

@@ -625,6 +625,25 @@
       ],
       "outcome": "Dashboard 회귀(CF Pages 미push) 해결. Topic Grade System(Lv. S/A/B/C) 설계·구현. ace-framing L0/L1/L2 조건화. 버전 단일소스화(v1.01). Decisions 순서·OPS 순서 수정.",
       "note": "session_033. Nova 제안(Layer0/1) 채택. PD-010 token_log 훅 진단 이연."
+    },
+    {
+      "id": "topic_013",
+      "type": "research-design",
+      "title": "COPD project review (Track B 재설계)",
+      "status": "completed",
+      "created": "2026-04-18",
+      "controlPath": null,
+      "reportPath": "reports/2026-04-18_copd-project-review",
+      "reportFiles": [
+        "ace_rev1.md",
+        "arki_rev1.md",
+        "riki_rev1.md",
+        "nova_rev1.md",
+        "editor_rev1.md"
+      ],
+      "published": true,
+      "grade": "S",
+      "note": "Track B SES→CMA 재설계. Pooled CMA with COPD+PRISm n=2,719. Thorax 1순위 투고. G2 FAIL로 moderated mediation 포기. Nova 궤도 2·3 채용."
     }
   ],
   "lastUpdated": "2026-04-17T17:00:00.000Z"
