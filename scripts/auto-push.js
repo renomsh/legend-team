@@ -52,8 +52,8 @@ function syncClaudeDir(mainRoot) {
   function copyDir(s, d) {
     fs.mkdirSync(d, { recursive: true });
     for (const entry of fs.readdirSync(s, { withFileTypes: true })) {
-      // worktrees/ 하위는 복사 금지 (무한 재귀 방지)
-      if (entry.name === 'worktrees') continue;
+      // worktrees/, scratch/ 하위는 복사 금지
+      if (entry.name === 'worktrees' || entry.name === 'scratch') continue;
       const sp = path.join(s, entry.name);
       const dp = path.join(d, entry.name);
       if (entry.isDirectory()) {
