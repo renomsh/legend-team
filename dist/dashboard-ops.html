@@ -118,7 +118,7 @@
   <a href="feedback.html" class="nav-item"><span class="nav-dot" style="background:#EF4444"></span>Feedback</a>
   <div class="nav-group">System</div>
   <a href="index.html" class="nav-item"><span class="nav-dot" style="background:#6E6E78"></span>Home</a>
-  <div class="sidebar-foot"><b>v1.0.0</b> · Legend Team</div>
+  <div class="sidebar-foot"><span id="sidebarVersion">v1.01</span> · Legend Team</div>
 </aside>
 <main class="s-main">
   <div class="s-topbar">
@@ -138,12 +138,6 @@
       <div class="empty-state">로딩 중...</div>
     </div>
 
-    <!-- O4: Pending Deferrals -->
-    <div class="section-title" style="margin-bottom:12px">O4 — Pending Deferrals</div>
-    <div class="deferral-list" id="deferralList">
-      <div class="empty-state">로딩 중...</div>
-    </div>
-
     <!-- O3: Recent Sessions -->
     <div class="section-title" style="margin-bottom:12px">O3 — Recent Sessions</div>
     <table class="session-table">
@@ -159,6 +153,12 @@
       </thead>
       <tbody id="sessionTable"></tbody>
     </table>
+
+    <!-- O4: Pending Deferrals -->
+    <div class="section-title" style="margin-bottom:12px; margin-top:24px">O4 — Pending Deferrals</div>
+    <div class="deferral-list" id="deferralList">
+      <div class="empty-state">로딩 중...</div>
+    </div>
 
     <!-- O5: Recent Decisions -->
     <div class="section-title" style="margin-bottom:12px; margin-top:24px">O5 — Recent Decisions</div>

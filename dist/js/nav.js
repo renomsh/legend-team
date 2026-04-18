@@ -3,8 +3,8 @@
  * Legend Team — read-only viewer
  */
 
-// Highlight current page in nav
-document.addEventListener('DOMContentLoaded', () => {
+// Highlight current page in nav + load version from charter
+document.addEventListener('DOMContentLoaded', async () => {
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-link').forEach(link => {
     const href = link.getAttribute('href');
@@ -12,6 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
       link.classList.add('active');
     }
   });
+
+  // Version: project_charter.json이 단일 소스. 모든 페이지 sidebar 자동 반영.
+  try {
+    const charter = await fetch('memory/shared/project_charter.json').then(r => r.json());
+    const ver = charter?.charter?.version ?? charter?.version;
+    if (ver) {
+      document.querySelectorAll('#sidebarVersion').forEach(el => {
+        el.textContent = `v${ver}`;
+      });
+    }
+  } catch (_) {}
 });
 
 // Get URL parameters
