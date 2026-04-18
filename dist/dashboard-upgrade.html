@@ -193,7 +193,7 @@ a{color:inherit;text-decoration:none}
     </a>
 
     <div class="sidebar-foot" id="sidebarFoot">
-      <b>v1.0.0</b> · Legend Team<br>
+      <span id="sidebarVersion">v1.01</span> · Legend Team<br>
       <span id="buildTs">—</span>
     </div>
   </aside>
@@ -327,7 +327,7 @@ a{color:inherit;text-decoration:none}
         <div class="card-h">
           <div>
             <div class="card-title">효율성 추이 · Size vs Cache</div>
-            <div class="card-sub">세션 단위 복잡도 및 캐시 효율</div>
+            <div class="card-sub">세션 단위 복잡도 및 캐시 효율 <span id="cacheDataNote" style="color:#F59E0B;font-size:10px"></span></div>
           </div>
         </div>
         <div id="efficiencyChart"></div>
@@ -336,7 +336,7 @@ a{color:inherit;text-decoration:none}
         <div class="card-h">
           <div>
             <div class="card-title">자율성 추이 · Master Turns</div>
-            <div class="card-sub">수기(점선) vs 자동수집(실선)</div>
+            <div class="card-sub">수기(점선) vs 자동수집(실선) <span id="turnsDataNote" style="color:#F59E0B;font-size:10px"></span></div>
           </div>
         </div>
         <div id="lineChart"></div>
@@ -409,9 +409,10 @@ function fmtTokens(n) {
 let allSessions = [], globalMetrics = {}, globalAlarms = [], globalRoleFreq = [], filteredSessions = [], globalDeferred = [];
 
 async function init() {
-  const [data, state] = await Promise.all([
+  const [data, state, charter] = await Promise.all([
     DataLoader.fetchJSON('memory/shared/dashboard_data.json'),
-    DataLoader.fetchJSON('memory/shared/system_state.json')
+    DataLoader.fetchJSON('memory/shared/system_state.json'),
+    DataLoader.fetchJSON('memory/shared/project_charter.json')
   ]);
   if (!data) { document.body.innerHTML += '<p style="color:red;padding:20px">dashboard_data.json 로드 실패</p>'; return; }
 
@@ -427,7 +428,9 @@ async function init() {
   document.getElementById('buildDate').textContent = new Date(data.generatedAt).toLocaleDateString('ko-KR');
   document.getElementById('buildTs').textContent = new Date(data.generatedAt).toLocaleString('ko-KR',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
   document.getElementById('heroNum').textContent = total;
-  document.getElementById('heroLabel').textContent = `${total} sessions · v1.0.0 · Legend Team`;
+  const ver = charter?.charter?.version ?? '1.01';
+  document.getElementById('heroLabel').textContent = `${total} sessions · v${ver} · Legend Team`;
+  document.querySelectorAll('#sidebarVersion').forEach(el => el.textContent = `v${ver}`);
   document.getElementById('mDec').innerHTML = (globalMetrics.totalDecisions ?? 0)+'<small style="font-size:11px;color:#6E6E78;margin-left:6px">건</small>';
   document.getElementById('mCache').textContent = fmtPct(globalMetrics.avgCacheHitRate);
   document.getElementById('mSize').textContent = avgSize;
@@ -477,6 +480,14 @@ function resetFilter() {
 }
 
 function renderAll() {
+  // 데이터 수집 범위 안내
+  const cacheCount = filteredSessions.filter(s => s.tokenUsage?.cacheHitRate > 0).length;
+  const turnsCount = filteredSessions.filter(s => s.masterTurns > 0).length;
+  const cacheNote = document.getElementById('cacheDataNote');
+  const turnsNote = document.getElementById('turnsDataNote');
+  if (cacheNote) cacheNote.textContent = cacheCount < filteredSessions.length ? `· 캐시 데이터 ${cacheCount}/${filteredSessions.length}세션` : '';
+  if (turnsNote) turnsNote.textContent = turnsCount === 0 ? '· 수집 데이터 없음 (hook 진단 필요)' : '';
+
   renderKPIs();
   renderAutonomy();
   renderFlow();
@@ -661,7 +672,8 @@ function renderLine() {
 }
 
 const GRADE_COLORS = { S:'#8B5CF6', A:'#06B6D4', B:'#F59E0B', C:'#6E6E78' };
-const GRADE_LABELS = { S:'S — 최고 복잡도 (Size 12+)', A:'A — 고복잡도 (Size 8~11)', B:'B — 중복잡도 (Size 5~7)', C:'C — 단순 (Size 4)' };
+const GRADE_LABELS = { S:'Lv. S — 최고 복잡도 (Size 12+)', A:'Lv. A — 고복잡도 (Size 8~11)', B:'Lv. B — 중복잡도 (Size 5~7)', C:'Lv. C — 단순 (Size 4)' };
+function lvLabel(g) { return `Lv. ${g}`; }
 
 function renderGradeDist() {
   const el = document.getElementById('gradeDistPanel');
@@ -675,7 +687,7 @@ function renderGradeDist() {
     const bar = `<div style="flex:1;background:var(--panel-2);border-radius:4px;height:8px;overflow:hidden">
       <div style="width:${pct}%;height:100%;background:${GRADE_COLORS[g]};border-radius:4px;transition:width .4s"></div></div>`;
     return `<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-      <span style="font-size:11px;font-weight:700;color:${GRADE_COLORS[g]};width:14px">${g}</span>
+      <span style="font-size:11px;font-weight:700;color:${GRADE_COLORS[g]};width:40px">Lv. ${g}</span>
       ${bar}
       <span style="font-size:12px;color:var(--text-2);width:28px;text-align:right">${n}건</span>
       <span style="font-size:11px;color:var(--text-3);width:30px">${pct}%</span>
@@ -702,9 +714,9 @@ function renderGradeMismatch() {
     const arrow = ['S','A','B','C'].indexOf(s.gradeActual) < ['S','A','B','C'].indexOf(s.gradeDeclared) ? '⬆ 실제 더 복잡' : '⬇ 실제 더 단순';
     return `<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:12px">
       <span style="color:var(--text-3);width:78px">${s.sessionId}</span>
-      <span style="color:${dc};font-weight:700">${s.gradeDeclared}</span>
+      <span style="color:${dc};font-weight:700">Lv. ${s.gradeDeclared}</span>
       <span style="color:var(--text-3)">→</span>
-      <span style="color:${ac};font-weight:700">${s.gradeActual}</span>
+      <span style="color:${ac};font-weight:700">Lv. ${s.gradeActual}</span>
       <span style="color:var(--text-3);font-size:11px">(size ${s.size})</span>
       <span style="margin-left:auto;font-size:10px;color:var(--text-3)">${arrow}</span>
     </div>`;
