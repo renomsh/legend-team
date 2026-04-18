@@ -6,7 +6,11 @@
       "startedAt": "2026-04-02T00:00:00.000Z",
       "closedAt": "2026-04-02T23:59:00.000Z",
       "retroactive": true,
-      "gap": "session-log.ts가 존재하지 않던 시점에 진행된 세션. 기록 소급 불가. topic_index 및 reports/2026-04-02_shared-asset-protocol 기준으로 재구성."
+      "gap": "session-log.ts가 존재하지 않던 시점에 진행된 세션. 기록 소급 불가. topic_index 및 reports/2026-04-02_shared-asset-protocol 기준으로 재구성.",
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_002",
@@ -14,7 +18,11 @@
       "startedAt": "2026-04-03T00:00:00.000Z",
       "closedAt": "2026-04-03T23:59:00.000Z",
       "retroactive": true,
-      "gap": "session-log.ts end 미실행 — 수동 프로토콜 채택(D-002) 시점 세션. session_index 기록 없음. topic_index 및 reports/2026-04-03_legend-team-upgrade 기준으로 재구성."
+      "gap": "session-log.ts end 미실행 — 수동 프로토콜 채택(D-002) 시점 세션. session_index 기록 없음. topic_index 및 reports/2026-04-03_legend-team-upgrade 기준으로 재구성.",
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_003",
@@ -22,7 +30,11 @@
       "startedAt": "2026-04-04T00:00:00.000Z",
       "closedAt": "2026-04-04T20:00:00.000Z",
       "retroactive": true,
-      "gap": "session-log.ts end 미실행. reports/2026-04-04_local-vs-server 존재. D-006~009 확정. Cloudflare Pages 배포 완료."
+      "gap": "session-log.ts end 미실행. reports/2026-04-04_local-vs-server 존재. D-006~009 확정. Cloudflare Pages 배포 완료.",
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_004",
@@ -30,20 +42,32 @@
       "startedAt": "2026-04-04T00:00:00.000Z",
       "closedAt": "2026-04-04T21:00:00.000Z",
       "retroactive": true,
-      "gap": "session-log.ts end 미실행. Ace 발언 후 브랜치 일원화(master←origin/main) 실행 후 세션 종료. 4개 의사결정 축 미결정. topic_004 suspended."
+      "gap": "session-log.ts end 미실행. Ace 발언 후 브랜치 일원화(master←origin/main) 실행 후 세션 종료. 4개 의사결정 축 미결정. topic_004 suspended.",
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_005",
       "topicSlug": "2026-04-05_v030-debt-close",
       "startedAt": "2026-04-05T00:00:00.000Z",
-      "closedAt": "2026-04-05T05:27:05.580Z"
+      "closedAt": "2026-04-05T05:27:05.580Z",
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_006",
       "topicSlug": "deploy-fix-branch-unify",
       "startedAt": "2026-04-05T06:00:00.000Z",
       "closedAt": "2026-04-05T06:30:00.000Z",
-      "note": "Cloudflare 배포 미반영 원인: auto-push.js가 master로 push, CF는 main 감시. main 통일 완료."
+      "note": "Cloudflare 배포 미반영 원인: auto-push.js가 master로 push, CF는 main 감시. main 통일 완료.",
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_007",
@@ -53,7 +77,11 @@
       "agentsCompleted": [
         "ace",
         "editor"
-      ]
+      ],
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_008",
@@ -64,7 +92,11 @@
       "agentsCompleted": [
         "ace",
         "arki"
-      ]
+      ],
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_009",
@@ -78,7 +110,11 @@
         "fin",
         "riki",
         "editor"
-      ]
+      ],
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_010",
@@ -88,7 +124,11 @@
       "note": "현황판 표시 오류 root cause 확정 + 수복. 3단계 방어 게이트 수립. XSS 패치. session-log.ts 교차검증 추가.",
       "agentsCompleted": [
         "editor"
-      ]
+      ],
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_011",
@@ -101,7 +141,11 @@
         "riki",
         "ace",
         "editor"
-      ]
+      ],
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_012",
@@ -115,7 +159,11 @@
         "fin",
         "riki",
         "editor"
-      ]
+      ],
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_013",
@@ -125,7 +173,11 @@
       "note": "인프라 작업. Ace masterSelectionPatterns + lessonLog 구현. 추천 필수화. Arki 안 채택(observations 내장). Nova 호출.",
       "agentsCompleted": [
         "editor"
-      ]
+      ],
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_014",
@@ -136,7 +188,11 @@
       "agentsCompleted": [
         "ace",
         "editor"
-      ]
+      ],
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_015",
@@ -147,7 +203,11 @@
       "agentsCompleted": [
         "arki",
         "editor"
-      ]
+      ],
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_016",
@@ -161,7 +221,11 @@
         "fin",
         "riki",
         "editor"
-      ]
+      ],
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_017",
@@ -171,7 +235,11 @@
       "note": "Superpowers v5.0.7 검토 → 미설치 결정. 자립 경로 채택. `ace-framing` 자작 skill(brainstorming 3·7번 흡수)을 topic_015로 이연. 실행 계획 역할 공백도 이연. Master 3회 개입(3회차가 결정적). 레슨런 6건.",
       "agentsCompleted": [
         "editor"
-      ]
+      ],
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_018",
@@ -181,7 +249,11 @@
       "note": "실행계획 역할 Arki 통합 확정(D-016). Ace 오케스트레이터 선언(D-019). Schedule-on-Demand 원칙(D-017). 금지어 v0(D-018). 전원 발언, Nova 미호출. Master 3회 개입. 레슨런 2건.",
       "agentsCompleted": [
         "editor"
-      ]
+      ],
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_019",
@@ -191,7 +263,11 @@
       "note": "Superpowers 전수 평가 + 4개 skill 구현 + ace-learning-loop 창작. D-020(Ace 검증-수용 루프). v0.6.0. skill 시스템 첫 작동 확인. Master: 레전드팀은 Superpowers를 넘어서기 시작.",
       "agentsCompleted": [
         "editor"
-      ]
+      ],
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_020",
@@ -201,7 +277,11 @@
       "note": "skill 5개 테스트 정상. Superpowers 4개 흡수(systematic-debugging·writing-plans·executing-plans·subagent-driven-development). Dev(데브) 신설(D-021). Editor 디자인 권한 확장. v0.7.0. 총 9개 skill, 7개 역할.",
       "agentsCompleted": [
         "editor"
-      ]
+      ],
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_021",
@@ -210,7 +290,11 @@
       "closedAt": "2026-04-16T08:59:08.128Z",
       "agentsCompleted": [
         "editor"
-      ]
+      ],
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_022",
@@ -220,7 +304,11 @@
       "note": "/open 비용 최적화(A+B+C+D'). session-log.ts 감사관 전환. tsc 오류 0.",
       "agentsCompleted": [
         "editor"
-      ]
+      ],
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_023",
@@ -230,7 +318,11 @@
       "note": "세션 I/O 효율화. system_state fast-path 신설. topic_load_manifest 선택적 로드. pendingDeferrals 이연 관리. v0.8.0. /open 로드 ~700줄→~50줄.",
       "agentsCompleted": [
         "editor"
-      ]
+      ],
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_024",
@@ -242,7 +334,11 @@
         "ace",
         "fin",
         "editor"
-      ]
+      ],
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_025",
@@ -256,7 +352,11 @@
       "note": "3개 디자인 스타일 확정. 디자인 시스템 12개 파일 구현. design:design-critique 흡수. PD-003 삭제, PD-005 등록. v0.9.0 선언.",
       "agentsCompleted": [
         "editor"
-      ]
+      ],
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_026",
@@ -268,7 +368,11 @@
       "agentsCompleted": [
         "ace",
         "editor"
-      ]
+      ],
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_027",
@@ -281,7 +385,11 @@
         "D-025",
         "D-026"
       ],
-      "note": "대시보드 2뷰 체계 + 5군 역할 평가 + Phase 0~3 설계 완료. SessionEnd Hook 구현. 협력적 사고 선언."
+      "note": "대시보드 2뷰 체계 + 5군 역할 평가 + Phase 0~3 설계 완료. SessionEnd Hook 구현. 협력적 사고 선언.",
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_028",
@@ -292,7 +400,11 @@
       "note": "dist/ 배포 갭 해소 + Hook 체인 완성 (D-028 완전 이행)",
       "agentsCompleted": [
         "editor"
-      ]
+      ],
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_029",
@@ -304,7 +416,11 @@
       "note": "dist/ 배포 + nav 영어 통일 + DEV 카드 + status 통일 + Topics 개편",
       "agentsCompleted": [
         "editor"
-      ]
+      ],
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_030",
@@ -316,7 +432,11 @@
         "vera",
         "editor"
       ],
-      "note": "Vera 디자인 시스템 v1.0.0 전면 적용"
+      "note": "Vera 디자인 시스템 v1.0.0 전면 적용",
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_031",
@@ -333,7 +453,11 @@
         "dev",
         "editor"
       ],
-      "note": "PD-008 완전 이행. backfill 22개, roleFrequency 집계, session.html History 탭 구현. Master: Ace 오케스트레이션 유효."
+      "note": "PD-008 완전 이행. backfill 22개, roleFrequency 집계, session.html History 탭 구현. Master: Ace 오케스트레이션 유효.",
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false
     },
     {
       "sessionId": "session_032",
@@ -348,7 +472,11 @@
       "agentsCompleted": [
         "Dev"
       ],
-      "note": "세션 종료 자동화 종합 점검으로 범위 확장 | dashboard 6개 이슈 모두 해결 | token_log 누산 정책 변경 (D-030) | PD-009: 이번 세션 종료 시 hook 발동 여부 검증 예정"
+      "note": "세션 종료 자동화 종합 점검으로 범위 확장 | dashboard 6개 이슈 모두 해결 | token_log 누산 정책 변경 (D-030) | PD-009: 이번 세션 종료 시 hook 발동 여부 검증 예정",
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false
     }
   ],
   "lastUpdated": "2026-04-18T04:23:53.833Z",

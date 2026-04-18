@@ -35,6 +35,10 @@ interface SessionIndexEntry {
   retroactive?: boolean;
   agentsCompleted?: string[];
   masterTurns?: number;
+  gradeDeclared?: 'S' | 'A' | 'B' | 'C';
+  gradeActual?: 'S' | 'A' | 'B' | 'C';
+  gradeMismatch?: boolean;
+  framingSkipped?: boolean;
 }
 
 interface TopicEntry {
@@ -101,6 +105,10 @@ interface SessionData {
   rolesRecalled: number;
   sessionsSpanned: number;
   size: number;
+  gradeDeclared: 'S' | 'A' | 'B' | 'C';
+  gradeActual: 'S' | 'A' | 'B' | 'C';
+  gradeMismatch: boolean;
+  framingSkipped: boolean;
   masterTurns: number;
   dataQuality: 'auto' | 'manual' | 'backfill';
   agentsCompleted?: string[];
@@ -133,6 +141,13 @@ interface FeedbackRecurrence {
 // ── 헬퍼 ──────────────────────────────────────────────────────────────────
 function computeSize(decisionAxes: number, rolesCalled: number, rolesRecalled: number, sessionsSpanned: number): number {
   return (decisionAxes * 2) + rolesCalled + (rolesRecalled * 2) + (sessionsSpanned * 3);
+}
+
+function sizeToGrade(size: number): 'S' | 'A' | 'B' | 'C' {
+  if (size >= 12) return 'S';
+  if (size >= 8)  return 'A';
+  if (size >= 5)  return 'B';
+  return 'C';
 }
 
 function countRolesRecalled(agentsCompleted: string[]): number {
@@ -230,6 +245,10 @@ function main() {
       ?? (s.decisions?.length ?? 0);
 
     const size = computeSize(decisionAxes, rolesCalled, rolesRecalled, sessionsSpanned);
+    const gradeActual = sizeToGrade(size);
+    const gradeDeclared = (s.gradeDeclared ?? gradeActual) as 'S' | 'A' | 'B' | 'C';
+    const gradeMismatch = gradeDeclared !== gradeActual;
+    const framingSkipped = s.framingSkipped ?? false;
 
     const token = tokenMap.get(s.sessionId);
     const totalBill = token
@@ -261,6 +280,10 @@ function main() {
       rolesRecalled,
       sessionsSpanned,
       size,
+      gradeDeclared,
+      gradeActual,
+      gradeMismatch,
+      framingSkipped,
       masterTurns: token?.masterTurns ?? s.masterTurns ?? 0,
       dataQuality,
       ...(agents.length > 0 && { agentsCompleted: agents }),
@@ -268,6 +291,17 @@ function main() {
       ...(adoptionRate !== undefined && { adoptionRate }),
     };
   });
+
+  // ── grade 통계 ───────────────────────────────────────────────────────────
+  const gradeCount = { S: 0, A: 0, B: 0, C: 0 };
+  let gradeMismatchCount = 0;
+  let framingSkippedCount = 0;
+  const mismatchSessions: string[] = [];
+  for (const s of sessions) {
+    gradeCount[s.gradeActual]++;
+    if (s.gradeMismatch) { gradeMismatchCount++; mismatchSessions.push(s.sessionId); }
+    if (s.framingSkipped) framingSkippedCount++;
+  }
 
   // ── 전체 지표 ────────────────────────────────────────────────────────────
   const totalSessions = sessions.length;
@@ -352,6 +386,10 @@ function main() {
       avgCacheHitRate: parseFloat(avgCacheHitRate.toFixed(4)),
       avgAdoptionRate: parseFloat(avgAdoptionRate.toFixed(4)),
       totalDecisions: decisionLedger.decisions.length,
+      gradeDistribution: gradeCount,
+      gradeMismatchCount,
+      gradeMismatchSessions: mismatchSessions,
+      framingSkippedCount,
     },
     sessions,
     roleFrequency,
