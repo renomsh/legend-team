@@ -755,8 +755,9 @@ function renderAlarms() {
 }
 
 function renderDeferred() {
-  if (!globalDeferred.length) { document.getElementById('deferList').innerHTML='<div style="color:var(--text-3);font-size:12px;padding:4px 0">이연 과제 없음</div>'; return; }
-  document.getElementById('deferList').innerHTML = globalDeferred.map(d=>
+  const pending = globalDeferred.filter(d => d.status === 'pending');
+  if (!pending.length) { document.getElementById('deferList').innerHTML='<div style="color:var(--text-3);font-size:12px;padding:4px 0">이연 과제 없음</div>'; return; }
+  document.getElementById('deferList').innerHTML = pending.map(d=>
     `<div class="defer-row">
       <div class="defer-id">${d.id}</div>
       <div class="defer-text"><b>${d.item.split('—')[0].trim()}</b>${d.note||''}</div>
