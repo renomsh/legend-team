@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Version: project_charter.json이 단일 소스. 모든 페이지 sidebar 자동 반영.
   try {
-    const charter = await fetch('memory/shared/project_charter.json').then(r => r.json());
+    const charter = await fetch('./data/memory/shared/project_charter.json').then(r => r.json());
     const ver = charter?.charter?.version ?? charter?.version;
     if (ver) {
       document.querySelectorAll('#sidebarVersion').forEach(el => {
