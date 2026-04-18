@@ -653,7 +653,7 @@ function renderEfficiency() {
         itemStyle:{borderRadius:[3,3,0,0],color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#14B8A6'},{offset:1,color:'#0891B2'}])}},
       {name:'Cache%',type:'line',yAxisIndex:1,smooth:true,
         data:filteredSessions.map(s=>s.tokenUsage?((s.tokenUsage.cacheHitRate||0)*100).toFixed(1):null),
-        connectNulls:false,
+        connectNulls:true,
         lineStyle:{color:'#F59E0B',width:2},itemStyle:{color:'#F59E0B'},symbolSize:4}
     ]
   });
@@ -664,10 +664,11 @@ function renderLine() {
   const el = document.getElementById('lineChart');
   let chart = echarts.getInstanceByDom(el); if(chart)chart.dispose();
   chart = echarts.init(el,null,{renderer:'svg'});
-  const ids = filteredSessions.map(s=>s.sessionId.replace('session_','S'));
+  const activeSessions = filteredSessions.filter(s => (s.masterTurns ?? 0) > 0);
+  const ids = activeSessions.map(s=>s.sessionId.replace('session_','S'));
   const avg = globalMetrics.avgMasterTurns ?? 0;
-  const manualLine = filteredSessions.map(s=>s.dataQuality==='manual'?(s.masterTurns??null):null);
-  const autoLine = filteredSessions.map(s=>s.dataQuality==='auto'?(s.masterTurns??null):null);
+  const manualLine = activeSessions.map(s=>s.dataQuality==='manual'?(s.masterTurns??null):null);
+  const autoLine = activeSessions.map(s=>s.dataQuality==='auto'?(s.masterTurns??null):null);
   chart.setOption({
     backgroundColor:'transparent',
     grid:{top:20,left:40,right:20,bottom:40},
