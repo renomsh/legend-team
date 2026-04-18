@@ -172,7 +172,9 @@
       "closedAt": "2026-04-10T07:01:49.581Z",
       "note": "인프라 작업. Ace masterSelectionPatterns + lessonLog 구현. 추천 필수화. Arki 안 채택(observations 내장). Nova 호출.",
       "agentsCompleted": [
-        "editor"
+        "editor",
+        "ace",
+        "nova"
       ],
       "gradeDeclared": "C",
       "gradeActual": "C",
@@ -187,7 +189,8 @@
       "note": "EduAgent 4단계 아키텍처 확정. DeepTutor 레퍼런스만. 전원 발언+Nova. MF-008 역할 페르소나 업그레이드. Word 보고서 생성.",
       "agentsCompleted": [
         "ace",
-        "editor"
+        "editor",
+        "nova"
       ],
       "gradeDeclared": "B",
       "gradeActual": "B",
@@ -202,7 +205,8 @@
       "note": "데이터북 Agent 설계. 전원 참석+Nova. 5단계 파이프라인 확정. D2 아키텍처 다이어그램 생성. .xlsb 이슈 발견. 프로토타입 다음 세션.",
       "agentsCompleted": [
         "arki",
-        "editor"
+        "editor",
+        "nova"
       ],
       "gradeDeclared": "B",
       "gradeActual": "B",
@@ -248,7 +252,9 @@
       "closedAt": "2026-04-15T14:30:00.000Z",
       "note": "실행계획 역할 Arki 통합 확정(D-016). Ace 오케스트레이터 선언(D-019). Schedule-on-Demand 원칙(D-017). 금지어 v0(D-018). 전원 발언, Nova 미호출. Master 3회 개입. 레슨런 2건.",
       "agentsCompleted": [
-        "editor"
+        "editor",
+        "ace",
+        "arki"
       ],
       "gradeDeclared": "S",
       "gradeActual": "S",
@@ -262,7 +268,8 @@
       "closedAt": "2026-04-16T04:37:46.106Z",
       "note": "Superpowers 전수 평가 + 4개 skill 구현 + ace-learning-loop 창작. D-020(Ace 검증-수용 루프). v0.6.0. skill 시스템 첫 작동 확인. Master: 레전드팀은 Superpowers를 넘어서기 시작.",
       "agentsCompleted": [
-        "editor"
+        "editor",
+        "ace"
       ],
       "gradeDeclared": "B",
       "gradeActual": "B",
@@ -276,7 +283,8 @@
       "closedAt": "2026-04-16T06:54:38.135Z",
       "note": "skill 5개 테스트 정상. Superpowers 4개 흡수(systematic-debugging·writing-plans·executing-plans·subagent-driven-development). Dev(데브) 신설(D-021). Editor 디자인 권한 확장. v0.7.0. 총 9개 skill, 7개 역할.",
       "agentsCompleted": [
-        "editor"
+        "editor",
+        "dev"
       ],
       "gradeDeclared": "B",
       "gradeActual": "B",
@@ -499,6 +507,6 @@
       "note": "대시보드 과거 회귀 버그 — CF Pages stale data. 원인: e94543a 커밋이 worktree에만 존재, origin/main 미반영. 수동 push로 해결. | ace-framing L0/L1/L2 grade 조건화 설계 및 구현 (D-032) | 버전 관리 project_charter.json 단일 소스화, nav.js 자동 반영 (D-033) | Dashboard: Grade Distribution + Grade Mismatch 패널 추가 | Decisions: 최신순 정렬. OPS: 순서 1,2,3,4,5 정렬. | PD-010 등록: token hook 미캡처 진단 이연"
     }
   ],
-  "lastUpdated": "2026-04-18T10:09:28.325Z",
+  "lastUpdated": "2026-04-18T10:32:02.519Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

@@ -1,20 +1,24 @@
 {
-  "generatedAt": "2026-04-18T10:09:32.833Z",
+  "generatedAt": "2026-04-18T10:32:05.843Z",
   "totalSessions": 33,
   "autoDataFrom": "session_027",
   "metrics": {
     "avgMasterTurns": 0,
     "avgCacheHitRate": 0.9516,
+    "cacheSampleSize": 2,
+    "cacheSampleTotal": 33,
     "avgAdoptionRate": 0,
     "totalDecisions": 33,
     "gradeDistribution": {
       "S": 5,
       "A": 9,
-      "B": 8,
-      "C": 11
+      "B": 9,
+      "C": 10
     },
-    "gradeMismatchCount": 0,
-    "gradeMismatchSessions": [],
+    "gradeMismatchCount": 1,
+    "gradeMismatchSessions": [
+      "session_013"
+    ],
     "framingSkippedCount": 0
   },
   "sessions": [
@@ -297,18 +301,20 @@
       "closedAt": "2026-04-10T07:01:49.581Z",
       "decisionCount": 0,
       "decisionAxes": 0,
-      "rolesCalled": 1,
+      "rolesCalled": 3,
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
-      "size": 4,
+      "size": 6,
       "gradeDeclared": "C",
-      "gradeActual": "C",
-      "gradeMismatch": false,
+      "gradeActual": "B",
+      "gradeMismatch": true,
       "framingSkipped": false,
       "masterTurns": 0,
       "dataQuality": "backfill",
       "agentsCompleted": [
-        "editor"
+        "editor",
+        "ace",
+        "nova"
       ]
     },
     {
@@ -318,10 +324,10 @@
       "closedAt": "2026-04-11T11:56:37.035Z",
       "decisionCount": 0,
       "decisionAxes": 0,
-      "rolesCalled": 2,
+      "rolesCalled": 3,
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
-      "size": 5,
+      "size": 6,
       "gradeDeclared": "B",
       "gradeActual": "B",
       "gradeMismatch": false,
@@ -330,7 +336,8 @@
       "dataQuality": "backfill",
       "agentsCompleted": [
         "ace",
-        "editor"
+        "editor",
+        "nova"
       ]
     },
     {
@@ -340,10 +347,10 @@
       "closedAt": "2026-04-13T12:19:23.523Z",
       "decisionCount": 0,
       "decisionAxes": 0,
-      "rolesCalled": 2,
+      "rolesCalled": 3,
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
-      "size": 5,
+      "size": 6,
       "gradeDeclared": "B",
       "gradeActual": "B",
       "gradeMismatch": false,
@@ -352,7 +359,8 @@
       "dataQuality": "backfill",
       "agentsCompleted": [
         "arki",
-        "editor"
+        "editor",
+        "nova"
       ]
     },
     {
@@ -414,10 +422,10 @@
         "D-018",
         "D-019"
       ],
-      "rolesCalled": 1,
+      "rolesCalled": 3,
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
-      "size": 12,
+      "size": 14,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -425,7 +433,9 @@
       "masterTurns": 0,
       "dataQuality": "backfill",
       "agentsCompleted": [
-        "editor"
+        "editor",
+        "ace",
+        "arki"
       ]
     },
     {
@@ -438,10 +448,10 @@
       "decisions": [
         "D-020"
       ],
-      "rolesCalled": 1,
+      "rolesCalled": 2,
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
-      "size": 6,
+      "size": 7,
       "gradeDeclared": "B",
       "gradeActual": "B",
       "gradeMismatch": false,
@@ -449,7 +459,8 @@
       "masterTurns": 0,
       "dataQuality": "backfill",
       "agentsCompleted": [
-        "editor"
+        "editor",
+        "ace"
       ]
     },
     {
@@ -462,10 +473,10 @@
       "decisions": [
         "D-021"
       ],
-      "rolesCalled": 1,
+      "rolesCalled": 2,
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
-      "size": 6,
+      "size": 7,
       "gradeDeclared": "B",
       "gradeActual": "B",
       "gradeMismatch": false,
@@ -473,7 +484,8 @@
       "masterTurns": 0,
       "dataQuality": "backfill",
       "agentsCompleted": [
-        "editor"
+        "editor",
+        "dev"
       ]
     },
     {
@@ -808,7 +820,7 @@
   "roleFrequency": [
     {
       "role": "editor",
-      "count": 23,
+      "count": 24,
       "sessions": [
         "session_007",
         "session_009",
@@ -832,29 +844,34 @@
         "session_028",
         "session_029",
         "session_030",
-        "session_031"
+        "session_031",
+        "session_033"
       ]
     },
     {
       "role": "ace",
-      "count": 11,
+      "count": 15,
       "sessions": [
         "session_007",
         "session_008",
         "session_009",
         "session_011",
         "session_012",
+        "session_013",
         "session_014",
         "session_016",
+        "session_018",
+        "session_019",
         "session_024",
         "session_026",
         "session_030",
-        "session_031"
+        "session_031",
+        "session_033"
       ]
     },
     {
       "role": "arki",
-      "count": 7,
+      "count": 9,
       "sessions": [
         "session_008",
         "session_009",
@@ -862,29 +879,52 @@
         "session_012",
         "session_015",
         "session_016",
-        "session_031"
+        "session_018",
+        "session_031",
+        "session_033"
       ]
     },
     {
       "role": "fin",
-      "count": 5,
+      "count": 6,
       "sessions": [
         "session_009",
         "session_012",
         "session_016",
         "session_024",
-        "session_031"
+        "session_031",
+        "session_033"
       ]
     },
     {
       "role": "riki",
-      "count": 5,
+      "count": 6,
       "sessions": [
         "session_009",
         "session_011",
         "session_012",
         "session_016",
-        "session_031"
+        "session_031",
+        "session_033"
+      ]
+    },
+    {
+      "role": "nova",
+      "count": 4,
+      "sessions": [
+        "session_013",
+        "session_014",
+        "session_015",
+        "session_033"
+      ]
+    },
+    {
+      "role": "dev",
+      "count": 3,
+      "sessions": [
+        "session_020",
+        "session_031",
+        "session_032"
       ]
     },
     {
@@ -899,62 +939,6 @@
       "count": 1,
       "sessions": [
         "session_031"
-      ]
-    },
-    {
-      "role": "dev",
-      "count": 1,
-      "sessions": [
-        "session_031"
-      ]
-    },
-    {
-      "role": "Dev",
-      "count": 1,
-      "sessions": [
-        "session_032"
-      ]
-    },
-    {
-      "role": "Ace",
-      "count": 1,
-      "sessions": [
-        "session_033"
-      ]
-    },
-    {
-      "role": "Nova",
-      "count": 1,
-      "sessions": [
-        "session_033"
-      ]
-    },
-    {
-      "role": "Arki",
-      "count": 1,
-      "sessions": [
-        "session_033"
-      ]
-    },
-    {
-      "role": "Fin",
-      "count": 1,
-      "sessions": [
-        "session_033"
-      ]
-    },
-    {
-      "role": "Riki",
-      "count": 1,
-      "sessions": [
-        "session_033"
-      ]
-    },
-    {
-      "role": "Editor",
-      "count": 1,
-      "sessions": [
-        "session_033"
       ]
     }
   ],

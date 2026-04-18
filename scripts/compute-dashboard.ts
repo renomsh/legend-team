@@ -363,8 +363,9 @@ function main() {
   for (const s of sessions) {
     if (!s.agentsCompleted) continue;
     const seen = new Set<string>();
-    for (const role of s.agentsCompleted) {
-      if (seen.has(role)) continue; // 세션당 1회만 카운트 (재호출 포함 원하면 제거)
+    for (const rawRole of s.agentsCompleted) {
+      const role = rawRole.toLowerCase(); // case 정규화: "Nova"/"nova" 통합
+      if (seen.has(role)) continue; // 세션당 1회만 카운트 (재호출 측정은 PD-011 이연)
       seen.add(role);
       const entry = roleFreqMap.get(role) ?? { count: 0, sessions: [] };
       entry.count++;
@@ -384,6 +385,8 @@ function main() {
     metrics: {
       avgMasterTurns: parseFloat(avgMasterTurns.toFixed(2)),
       avgCacheHitRate: parseFloat(avgCacheHitRate.toFixed(4)),
+      cacheSampleSize: autoSessions.length,
+      cacheSampleTotal: totalSessions,
       avgAdoptionRate: parseFloat(avgAdoptionRate.toFixed(4)),
       totalDecisions: decisionLedger.decisions.length,
       gradeDistribution: gradeCount,

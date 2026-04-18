@@ -60,8 +60,14 @@ async function aggregateTokens(transcriptPath) {
       const obj = JSON.parse(line);
 
       // PD-008: Master 입력 턴 카운트
-      if (obj.type === 'human' || obj.role === 'user') {
-        sums.masterTurns += 1;
+      // Claude Code transcript는 type='user'를 사용하지만 tool_result도 같은 type을 씀.
+      // 진짜 master 입력은 content가 string이거나 첫 블록이 type='text'인 경우만.
+      if (obj.type === 'user') {
+        const c = obj?.message?.content;
+        const isMasterTurn =
+          typeof c === 'string' ||
+          (Array.isArray(c) && c[0]?.type === 'text');
+        if (isMasterTurn) sums.masterTurns += 1;
       }
 
       const usage = obj?.message?.usage || obj?.usage;

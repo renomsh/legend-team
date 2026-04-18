@@ -269,7 +269,8 @@ a{color:inherit;text-decoration:none}
       <div class="kpi c">
         <div class="kpi-top"><div class="kpi-label">Cache Hit</div><div class="kpi-icon">⟳</div></div>
         <div class="kpi-val" id="kCache">—</div>
-        <div class="kpi-sub">평균 캐시 적중률</div>
+        <div class="kpi-sub" id="kCacheSub">평균 캐시 적중률</div>
+        <div class="kpi-sub" id="kCacheWarn" style="font-size:0.72rem;opacity:0.6;margin-top:2px;"></div>
         <div class="kpi-spark" id="sparkCache"></div>
       </div>
       <div class="kpi e">
@@ -518,6 +519,18 @@ function renderKPIs() {
   document.getElementById('kDec').textContent = filteredDec || (globalMetrics.totalDecisions ?? 0);
   document.getElementById('kSize').textContent = avgSize;
   document.getElementById('kCache').textContent = fmtPct(avgCache);
+  const cacheSub = document.getElementById('kCacheSub');
+  const cacheWarn = document.getElementById('kCacheWarn');
+  if (cacheSub) cacheSub.textContent = withTok.length
+    ? `${withTok.length}/${t}개 세션 평균`
+    : '집계 데이터 없음';
+  if (cacheWarn) {
+    const ratio = t > 0 ? withTok.length / t : 0;
+    cacheWarn.textContent = withTok.length === 0 ? '' :
+      ratio < 0.2 ? '⚠ 표본 부족 — 신뢰도 낮음' :
+      ratio < 0.5 ? '⚠ 표본 제한적' : '';
+    cacheWarn.style.color = ratio < 0.2 ? 'var(--red-3, #f87171)' : 'var(--text-3)';
+  }
   document.getElementById('kTokens').textContent = fmtTokens(totalTokens);
   document.getElementById('kTokensSub').textContent = withTok.length
     ? `${withTok.length}/${t}개 세션 집계`
