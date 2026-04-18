@@ -25,5 +25,11 @@
       "runtimeArgs": ["http-server", "C:/Projects/legend-team/docs", "-p", "8091", "-c-1"],
       "port": 8091
     }
+    ,{
+      "name": "pensive-preview",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "C:/Projects/legend-team/.claude/worktrees/pensive-cartwright-5b731e/dist", "-p", "8093", "-c-1"],
+      "port": 8093
+    }
   ]
 }
