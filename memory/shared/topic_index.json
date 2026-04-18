@@ -644,6 +644,15 @@
       "published": true,
       "grade": "S",
       "note": "Track B SES→CMA 재설계. Pooled CMA with COPD+PRISm n=2,719. Thorax 1순위 투고. G2 FAIL로 moderated mediation 포기. Nova 궤도 2·3 채용."
+    },
+    {
+      "id": "topic_031",
+      "type": "ops",
+      "title": "token cost 표시 진단 / 자율성 바닥 원인",
+      "status": "completed",
+      "created": "2026-04-18",
+      "reportPath": "",
+      "outcome": "backfill-token-log.ts 신설로 Cache 2→17/34, masterTurns 파서 수정. 차트 2건(connectNulls, 자율성 필터) + 이연 과제 패널 pending 필터 적용. PD-006/007 resolved 처리."
     }
   ],
   "lastUpdated": "2026-04-17T17:00:00.000Z"

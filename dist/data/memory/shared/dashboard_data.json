@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-04-18T12:50:57.630Z",
-  "totalSessions": 34,
+  "generatedAt": "2026-04-18T13:40:56.544Z",
+  "totalSessions": 35,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 0,
-    "avgCacheHitRate": 0.9516,
-    "cacheSampleSize": 2,
-    "cacheSampleTotal": 34,
+    "avgMasterTurns": 26.35,
+    "avgCacheHitRate": 0.9388,
+    "cacheSampleSize": 6,
+    "cacheSampleTotal": 35,
     "avgAdoptionRate": 0,
     "totalDecisions": 39,
     "gradeDistribution": {
       "S": 6,
       "A": 9,
       "B": 9,
-      "C": 10
+      "C": 11
     },
     "gradeMismatchCount": 1,
     "gradeMismatchSessions": [
@@ -186,12 +186,17 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 8,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "ace",
         "arki"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 1718456,
+        "cacheHitRate": 0.8567917944945929,
+        "messageCount": 42
+      }
     },
     {
       "sessionId": "session_009",
@@ -208,7 +213,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 20,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "ace",
@@ -216,7 +221,12 @@
         "fin",
         "riki",
         "editor"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 16407855,
+        "cacheHitRate": 0.9566563088228168,
+        "messageCount": 203
+      }
     },
     {
       "sessionId": "session_010",
@@ -332,13 +342,18 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 18,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "ace",
         "editor",
         "nova"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 9332346,
+        "cacheHitRate": 0.9578236812051332,
+        "messageCount": 109
+      }
     },
     {
       "sessionId": "session_015",
@@ -355,13 +370,18 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 22,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "arki",
         "editor",
         "nova"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 21864665,
+        "cacheHitRate": 0.9650803705430657,
+        "messageCount": 216
+      }
     },
     {
       "sessionId": "session_016",
@@ -403,11 +423,16 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 26,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "editor"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 11321676,
+        "cacheHitRate": 0.834821098925636,
+        "messageCount": 116
+      }
     },
     {
       "sessionId": "session_018",
@@ -456,12 +481,17 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 21,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "editor",
         "ace"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 9499713,
+        "cacheHitRate": 0.8821722298347329,
+        "messageCount": 105
+      }
     },
     {
       "sessionId": "session_020",
@@ -481,12 +511,17 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 48,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "editor",
         "dev"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 28749668,
+        "cacheHitRate": 0.9398682447393827,
+        "messageCount": 340
+      }
     },
     {
       "sessionId": "session_021",
@@ -503,11 +538,16 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 6,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "editor"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 6497689,
+        "cacheHitRate": 0.8406639652959691,
+        "messageCount": 93
+      }
     },
     {
       "sessionId": "session_022",
@@ -524,11 +564,16 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 18,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "editor"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 7646816,
+        "cacheHitRate": 0.9054545055092211,
+        "messageCount": 97
+      }
     },
     {
       "sessionId": "session_023",
@@ -569,13 +614,18 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 43,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "ace",
         "fin",
         "editor"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 36066355,
+        "cacheHitRate": 0.9569162450710642,
+        "messageCount": 406
+      }
     },
     {
       "sessionId": "session_025",
@@ -596,11 +646,16 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 17,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "editor"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 7148400,
+        "cacheHitRate": 0.886044149739802,
+        "messageCount": 103
+      }
     },
     {
       "sessionId": "session_026",
@@ -646,12 +701,12 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 26,
       "dataQuality": "auto",
       "tokenUsage": {
-        "totalBillable": 8886346,
-        "cacheHitRate": 0.9446742226782526,
-        "messageCount": 82
+        "totalBillable": 12667688,
+        "cacheHitRate": 0.9384081767722728,
+        "messageCount": 111
       }
     },
     {
@@ -674,11 +729,16 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 42,
       "dataQuality": "auto",
       "agentsCompleted": [
         "editor"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 41400594,
+        "cacheHitRate": 0.9459156793740688,
+        "messageCount": 454
+      }
     },
     {
       "sessionId": "session_029",
@@ -717,13 +777,18 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 26,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "vera",
         "editor"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 35518851,
+        "cacheHitRate": 0.9124013330273549,
+        "messageCount": 397
+      }
     },
     {
       "sessionId": "session_031",
@@ -741,7 +806,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 45,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -751,7 +816,12 @@
         "ace-review",
         "dev",
         "editor"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 69003386,
+        "cacheHitRate": 0.9444993612342444,
+        "messageCount": 597
+      }
     },
     {
       "sessionId": "session_032",
@@ -800,7 +870,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 12,
       "dataQuality": "auto",
       "agentsCompleted": [
         "Ace",
@@ -811,9 +881,9 @@
         "Editor"
       ],
       "tokenUsage": {
-        "totalBillable": 28488693,
-        "cacheHitRate": 0.9586021724478551,
-        "messageCount": 377
+        "totalBillable": 27996556,
+        "cacheHitRate": 0.9455187273748957,
+        "messageCount": 302
       }
     },
     {
@@ -840,7 +910,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 50,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -848,6 +918,33 @@
         "riki",
         "nova",
         "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 64633476,
+        "cacheHitRate": 0.9461897887094917,
+        "messageCount": 509
+      }
+    },
+    {
+      "sessionId": "session_035",
+      "topicSlug": "token-cost-display-fix",
+      "topic": "token cost 표시 진단 / 자율성 바닥 원인",
+      "startedAt": "2026-04-18T13:00:00.000Z",
+      "closedAt": "2026-04-18T14:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 0,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "Dev"
       ]
     }
   ],
@@ -959,11 +1056,12 @@
     },
     {
       "role": "dev",
-      "count": 3,
+      "count": 4,
       "sessions": [
         "session_020",
         "session_031",
-        "session_032"
+        "session_032",
+        "session_035"
       ]
     },
     {
@@ -982,6 +1080,36 @@
     }
   ],
   "alarms": [
+    {
+      "ruleId": "R2",
+      "severity": "yellow",
+      "sessionId": "session_020",
+      "description": "Master 병목: masterTurns=48 (avg=26.4)"
+    },
+    {
+      "ruleId": "R2",
+      "severity": "yellow",
+      "sessionId": "session_024",
+      "description": "Master 병목: masterTurns=43 (avg=26.4)"
+    },
+    {
+      "ruleId": "R2",
+      "severity": "yellow",
+      "sessionId": "session_028",
+      "description": "Master 병목: masterTurns=42 (avg=26.4)"
+    },
+    {
+      "ruleId": "R2",
+      "severity": "yellow",
+      "sessionId": "session_031",
+      "description": "Master 병목: masterTurns=45 (avg=26.4)"
+    },
+    {
+      "ruleId": "R2",
+      "severity": "yellow",
+      "sessionId": "session_034",
+      "description": "Master 병목: masterTurns=50 (avg=26.4)"
+    },
     {
       "ruleId": "R5",
       "severity": "red",

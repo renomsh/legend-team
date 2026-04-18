@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-18T12:50:58.199Z",
+  "generatedAt": "2026-04-18T13:40:57.009Z",
   "topics": [
     {
       "id": "topic_001",
@@ -527,6 +527,18 @@
       "published": true,
       "outcome": null,
       "note": "Track B SES→CMA 재설계. Pooled CMA with COPD+PRISm n=2,719. Thorax 1순위 투고. G2 FAIL로 moderated mediation 포기. Nova 궤도 2·3 채용.",
+      "masterDecisions": []
+    },
+    {
+      "id": "topic_031",
+      "title": "token cost 표시 진단 / 자율성 바닥 원인",
+      "status": "completed",
+      "created": "2026-04-18",
+      "reportPath": "",
+      "reportFiles": [],
+      "published": false,
+      "outcome": "backfill-token-log.ts 신설로 Cache 2→17/34, masterTurns 파서 수정. 차트 2건(connectNulls, 자율성 필터) + 이연 과제 패널 pending 필터 적용. PD-006/007 resolved 처리.",
+      "note": null,
       "masterDecisions": []
     }
   ]

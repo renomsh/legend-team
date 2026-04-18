@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_034",
-  "nextSessionId": "session_035",
+  "lastSessionId": "session_035",
+  "nextSessionId": "session_036",
   "currentVersion": "v1.01",
   "openTopics": [
     {
@@ -66,16 +66,18 @@
       "fromSession": "session_027",
       "fromTopic": "dashboard-upgrade",
       "item": "SessionEnd Hook Windows 경로 이스케이프 검증 — 실제 세션 종료 시 hook 발동 확인 + transcript_path 형식 점검",
-      "status": "pending",
-      "note": "이번 세션(session_028) 종료 시 Hook 발동 여부로 검증 가능."
+      "status": "resolved",
+      "resolvedInSession": "session_035",
+      "note": "hook-diagnostics.log 분석으로 확인: 훅 정상 발동, transcript_path 형식 정상. masterTurns 파서 버그는 session_034에서 별도 수정 완료."
     },
     {
       "id": "PD-007",
       "fromSession": "session_030",
       "fromTopic": "dashboard-upgrade-v3",
       "item": "디자이너 역할 도입 검토 — 역할 정의(비주얼 시스템·색상·컴포넌트 스펙), 이름, 발언 스타일, Editor와 역할 경계 확정. PD-005(Figma MCP)와 병행 진행 권장.",
-      "status": "pending",
-      "note": "Master 확인 session_030. Ace 도입 권장. 반대 논리: Editor 디자인 권한 확장으로 커버 가능(이전 세션). 재논의 시 Figma 계정 상태 선확인."
+      "status": "resolved",
+      "resolvedInSession": "session_030",
+      "note": "Vera(Designer) session_030에서 도입 완료. Vera Design System v1.0.0 전면 적용. CLAUDE.md에 역할 정의 등재(D-029 참조)."
     },
     {
       "id": "PD-008",
@@ -121,5 +123,5 @@
       "note": "Paper A 투고 확정 후 재평가"
     }
   ],
-  "lastUpdated": "2026-04-18T12:50:54.997Z"
+  "lastUpdated": "2026-04-18T13:40:54.623Z"
 }
