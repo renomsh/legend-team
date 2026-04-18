@@ -1,21 +1,19 @@
 {
-  "sessionId": "session_032",
-  "topic": "agentsCompleted Hook 자동화",
-  "topicSlug": "agents-completed-hook",
-  "status": "closed",
-  "startedAt": "2026-04-17T17:00:00.000Z",
-  "closedAt": "2026-04-17T18:00:00.000Z",
+  "sessionId": "session_033",
+  "topic": "Dashboard Bug & ace-framing 조건화",
+  "topicSlug": "dashboard-bug-ace-framing",
+  "status": "open",
+  "startedAt": "2026-04-18T00:00:00.000Z",
+  "closedAt": null,
   "mode": "observation",
-  "agentsCompleted": ["Dev"],
+  "agentsCompleted": [],
   "novaInvoked": false,
-  "masterDecisions": ["D-029", "D-030"],
-  "reportPath": "reports/2026-04-17_agents-completed-hook",
+  "masterDecisions": [],
+  "reportPath": "reports/2026-04-18_dashboard-bug-ace-framing",
   "notes": [
-    "세션 종료 자동화 종합 점검으로 범위 확장",
-    "dashboard 6개 이슈 모두 해결",
-    "token_log 누산 정책 변경 (D-030)",
-    "PD-009: 이번 세션 종료 시 hook 발동 여부 검증 예정"
+    "대시보드 과거 회귀 버그 — Claude Code 직접 소통 이후 발생",
+    "배포 실패 이력 있음",
+    "ace-framing 스킬 무조건 발동 → 조건부 발동 검토"
   ],
-  "gaps": [],
-  "closeVerified": false
+  "gaps": []
 }

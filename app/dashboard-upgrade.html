@@ -343,6 +343,28 @@ a{color:inherit;text-decoration:none}
       </div>
     </div>
 
+    <!-- GRADE DISTRIBUTION + MISMATCH -->
+    <div class="wide-grid" style="margin-bottom:20px">
+      <div class="card">
+        <div class="card-h">
+          <div>
+            <div class="card-title">Grade 분포 · Topic Complexity</div>
+            <div class="card-sub">선언 등급 기준 · S/A/B/C</div>
+          </div>
+        </div>
+        <div id="gradeDistPanel"></div>
+      </div>
+      <div class="card">
+        <div class="card-h">
+          <div>
+            <div class="card-title">Grade 불일치 검증 · Mismatch</div>
+            <div class="card-sub">선언 vs 실측 Size 비교 — 프레이밍 효과 측정</div>
+          </div>
+        </div>
+        <div id="gradeMismatchPanel"></div>
+      </div>
+    </div>
+
     <!-- ALARMS + DEFERRED -->
     <div class="wide-grid">
       <div class="card">
@@ -460,6 +482,8 @@ function renderAll() {
   renderFlow();
   renderEfficiency();
   renderLine();
+  renderGradeDist();
+  renderGradeMismatch();
   renderAlarms();
   renderDeferred();
 }
@@ -634,6 +658,62 @@ function renderLine() {
     ]
   });
   window.addEventListener('resize',()=>chart.resize());
+}
+
+const GRADE_COLORS = { S:'#8B5CF6', A:'#06B6D4', B:'#F59E0B', C:'#6E6E78' };
+const GRADE_LABELS = { S:'S — 최고 복잡도 (Size 12+)', A:'A — 고복잡도 (Size 8~11)', B:'B — 중복잡도 (Size 5~7)', C:'C — 단순 (Size 4)' };
+
+function renderGradeDist() {
+  const el = document.getElementById('gradeDistPanel');
+  if (!el) return;
+  const count = {S:0,A:0,B:0,C:0};
+  for (const s of filteredSessions) count[s.gradeActual ?? s.gradeDeclared ?? 'C']++;
+  const total = filteredSessions.length || 1;
+  const rows = ['S','A','B','C'].map(g => {
+    const n = count[g];
+    const pct = (n/total*100).toFixed(0);
+    const bar = `<div style="flex:1;background:var(--panel-2);border-radius:4px;height:8px;overflow:hidden">
+      <div style="width:${pct}%;height:100%;background:${GRADE_COLORS[g]};border-radius:4px;transition:width .4s"></div></div>`;
+    return `<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+      <span style="font-size:11px;font-weight:700;color:${GRADE_COLORS[g]};width:14px">${g}</span>
+      ${bar}
+      <span style="font-size:12px;color:var(--text-2);width:28px;text-align:right">${n}건</span>
+      <span style="font-size:11px;color:var(--text-3);width:30px">${pct}%</span>
+    </div>`;
+  }).join('');
+  const skipped = filteredSessions.filter(s=>s.framingSkipped).length;
+  el.innerHTML = rows + `<div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--line);font-size:11px;color:var(--text-3)">
+    프레이밍 생략 세션: <strong style="color:var(--text-2)">${skipped}건</strong>
+    &nbsp;·&nbsp; ace-framing 발동: <strong style="color:var(--text-2)">${filteredSessions.length - skipped}건</strong>
+  </div>`;
+}
+
+function renderGradeMismatch() {
+  const el = document.getElementById('gradeMismatchPanel');
+  if (!el) return;
+  const mismatches = filteredSessions.filter(s => s.gradeMismatch);
+  if (!mismatches.length) {
+    el.innerHTML = '<div style="color:var(--text-3);font-size:12px;padding:8px 0">불일치 없음 ✅ — 선언 등급이 실측과 일치합니다</div>';
+    return;
+  }
+  const rows = mismatches.map(s => {
+    const dc = GRADE_COLORS[s.gradeDeclared] ?? '#6E6E78';
+    const ac = GRADE_COLORS[s.gradeActual] ?? '#6E6E78';
+    const arrow = ['S','A','B','C'].indexOf(s.gradeActual) < ['S','A','B','C'].indexOf(s.gradeDeclared) ? '⬆ 실제 더 복잡' : '⬇ 실제 더 단순';
+    return `<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:12px">
+      <span style="color:var(--text-3);width:78px">${s.sessionId}</span>
+      <span style="color:${dc};font-weight:700">${s.gradeDeclared}</span>
+      <span style="color:var(--text-3)">→</span>
+      <span style="color:${ac};font-weight:700">${s.gradeActual}</span>
+      <span style="color:var(--text-3);font-size:11px">(size ${s.size})</span>
+      <span style="margin-left:auto;font-size:10px;color:var(--text-3)">${arrow}</span>
+    </div>`;
+  }).join('');
+  const upCount = mismatches.filter(s => ['S','A','B','C'].indexOf(s.gradeActual) < ['S','A','B','C'].indexOf(s.gradeDeclared)).length;
+  el.innerHTML = rows + `<div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--line);font-size:11px;color:var(--text-3)">
+    총 ${mismatches.length}건 불일치 · 과소 선언(실제 더 복잡): <strong style="color:#F59E0B">${upCount}건</strong>
+    &nbsp;·&nbsp; 과대 선언: <strong style="color:var(--text-2)">${mismatches.length - upCount}건</strong>
+  </div>`;
 }
 
 function renderAlarms() {
