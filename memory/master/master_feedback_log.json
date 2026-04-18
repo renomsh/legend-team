@@ -376,6 +376,42 @@
       "feedback": "데이터 분석 시 필요하면 skill 쓰라. Bash 단발 대신 data:* / bio-research:* skill 활용.",
       "status": "resolved",
       "statusNote": "feedback_use_skills_in_data_analysis.md 저장. G1·G2 실행에서 data:statistical-analysis 원칙 적용."
+    },
+    {
+      "id": "MF-S036-1",
+      "date": "2026-04-19",
+      "session": "session_036",
+      "feedback": "자율성 추이는 측정된 26 이후 세션에서만 볼 수 있도록 세팅.",
+      "context": "자율성 지표 의미 확립 시점(D-024) 이전 세션은 해석 무효",
+      "status": "resolved",
+      "statusNote": "대시보드 session≥026 게이트 3곳 적용 완료"
+    },
+    {
+      "id": "MF-S036-2",
+      "date": "2026-04-19",
+      "session": "session_036",
+      "feedback": "학습 누적 → 적중률 → 자율성 인과체인. Grade 상향 근거.",
+      "context": "Grade 조정권 Ace에게 위임, 성장지표 정의 프레임 확립의 출발점",
+      "status": "in-progress",
+      "statusNote": "PD-013(페르소나), PD-015(성장지표 정의)로 이연"
+    },
+    {
+      "id": "MF-S036-3",
+      "date": "2026-04-19",
+      "session": "session_036",
+      "feedback": "Grade 조정권은 Ace가 가져. 선언 grade와 실제 gap 발생 시 Ace가 조정.",
+      "context": "D-040으로 확정. Ace 최초 행사(B→A 선언)",
+      "status": "resolved",
+      "statusNote": "D-040 decision_ledger 등재 완료"
+    },
+    {
+      "id": "MF-S036-4",
+      "date": "2026-04-19",
+      "session": "session_036",
+      "feedback": "페르소나 업데이트, 성장지표 측정 논의는 욕심이었나. 버그 이외는 이연과제로.",
+      "context": "세션 범위 축소 결정. 버그 수정 우선, 설계/정의는 다음 세션",
+      "status": "resolved",
+      "statusNote": "PD-013~016으로 이연 완료. 이번 세션은 복구·버그 완결"
     }
   ],
   "statusValues": [

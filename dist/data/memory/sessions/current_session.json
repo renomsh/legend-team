@@ -1,25 +1,32 @@
 {
-  "sessionId": "session_035",
-  "topic": "token cost 표시 진단 / 자율성 바닥 원인",
-  "topicSlug": "token-cost-display-fix",
+  "sessionId": "session_036",
+  "topic": "레전드팀 업그레이드 — Top 0.1% 페르소나 + 성장 패턴 Board",
+  "topicSlug": "legend-team-upgrade-v2",
   "status": "closed",
-  "startedAt": "2026-04-18T13:00:00.000Z",
-  "closedAt": "2026-04-18T14:30:00.000Z",
+  "startedAt": "2026-04-19T00:00:00.000Z",
+  "closedAt": "2026-04-19T05:00:00.000Z",
   "mode": "observation",
-  "grade": "C",
-  "framingLevel": 0,
-  "framingSkipped": true,
-  "agentsCompleted": ["Dev"],
+  "grade": "B",
+  "gradeActual": "B",
+  "gradeMismatch": false,
+  "framingLevel": 1,
+  "framingSkipped": false,
+  "agentsCompleted": ["Ace", "Dev"],
   "notes": [
-    "token_log 백필 완료: 2/34 → 17/34 세션 Cache 데이터 복원",
-    "masterTurns 파서 버그 소급 수정 (type=human→user+content체크) — avg 0→26.4",
-    "scripts/backfill-token-log.ts 신설",
-    "차트: Cache% connectNulls:true (끊김 연결)",
-    "차트: 자율성 masterTurns>0 세션만 표시",
-    "이연 과제 패널: status=pending 필터 적용",
-    "PD-006 resolved: hook 발동 정상 확인",
-    "PD-007 resolved: Vera session_030 도입 완료 소급"
+    "자율성 게이트 session≥026 적용 (dashboard-upgrade.html 3곳)",
+    "dashboard-ops 이연과제 status=pending 필터 버그 수정",
+    "token_log 수동 복구 +13건 (17→30/35 세션, 86%)",
+    "session_035 재백필 성공: Cache 94.15%, master=15",
+    "D-040 확정: Ace grade 조정권 행사 최초 선언",
+    "성장 인과체인 확정: 학습누적→적중률→자율성 (Master 명시)",
+    "PD-013~016 이연 등록"
   ],
-  "gaps": [],
-  "masterDecisions": []
+  "gaps": [
+    "페르소나 Top 0.1% 재정의 미진행 → PD-013",
+    "스킬·오픈소스 매핑 미진행 → PD-014",
+    "성장지표 정의 미진행 → PD-015",
+    "session_001~004, session_013 transcript 복구 불가 (5건)"
+  ],
+  "masterDecisions": ["D-040"],
+  "reportPath": "reports/2026-04-19_legend-team-upgrade-v2"
 }

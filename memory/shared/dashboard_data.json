@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-18T13:40:56.544Z",
-  "totalSessions": 35,
+  "generatedAt": "2026-04-18T20:16:02.593Z",
+  "totalSessions": 36,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 26.35,
-    "avgCacheHitRate": 0.9388,
-    "cacheSampleSize": 6,
-    "cacheSampleTotal": 35,
+    "avgMasterTurns": 21.8,
+    "avgCacheHitRate": 0.9397,
+    "cacheSampleSize": 9,
+    "cacheSampleTotal": 36,
     "avgAdoptionRate": 0,
-    "totalDecisions": 39,
+    "totalDecisions": 40,
     "gradeDistribution": {
       "S": 6,
       "A": 9,
-      "B": 9,
+      "B": 10,
       "C": 11
     },
     "gradeMismatchCount": 1,
@@ -122,8 +122,13 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
-      "dataQuality": "manual"
+      "masterTurns": 11,
+      "dataQuality": "manual",
+      "tokenUsage": {
+        "totalBillable": 5372893,
+        "cacheHitRate": 0.9535570501776232,
+        "messageCount": 91
+      }
     },
     {
       "sessionId": "session_006",
@@ -140,8 +145,13 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
-      "dataQuality": "manual"
+      "masterTurns": 12,
+      "dataQuality": "manual",
+      "tokenUsage": {
+        "totalBillable": 3180568,
+        "cacheHitRate": 0.9525043954413174,
+        "messageCount": 80
+      }
     },
     {
       "sessionId": "session_007",
@@ -164,12 +174,17 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 7,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "ace",
         "editor"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 8579025,
+        "cacheHitRate": 0.9617823703742558,
+        "messageCount": 139
+      }
     },
     {
       "sessionId": "session_008",
@@ -243,11 +258,16 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 20,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "editor"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 16407855,
+        "cacheHitRate": 0.9566563088228168,
+        "messageCount": 203
+      }
     },
     {
       "sessionId": "session_011",
@@ -267,14 +287,19 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 14,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "arki",
         "riki",
         "ace",
         "editor"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 3875975,
+        "cacheHitRate": 0.8894967072801038,
+        "messageCount": 82
+      }
     },
     {
       "sessionId": "session_012",
@@ -294,7 +319,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 22,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "ace",
@@ -302,7 +327,12 @@
         "fin",
         "riki",
         "editor"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 6598910,
+        "cacheHitRate": 0.9384816583344825,
+        "messageCount": 111
+      }
     },
     {
       "sessionId": "session_013",
@@ -398,7 +428,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 24,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "ace",
@@ -406,7 +436,12 @@
         "fin",
         "riki",
         "editor"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 14757847,
+        "cacheHitRate": 0.8751243999209369,
+        "messageCount": 120
+      }
     },
     {
       "sessionId": "session_017",
@@ -455,13 +490,18 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 10,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "editor",
         "ace",
         "arki"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 3687949,
+        "cacheHitRate": 0.8765807227811447,
+        "messageCount": 46
+      }
     },
     {
       "sessionId": "session_019",
@@ -590,11 +630,16 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 11,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "editor"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 10676683,
+        "cacheHitRate": 0.9687809406723044,
+        "messageCount": 121
+      }
     },
     {
       "sessionId": "session_024",
@@ -673,12 +718,17 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 17,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "ace",
         "editor"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 7148400,
+        "cacheHitRate": 0.886044149739802,
+        "messageCount": 103
+      }
     },
     {
       "sessionId": "session_027",
@@ -756,11 +806,16 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 5,
       "dataQuality": "auto",
       "agentsCompleted": [
         "editor"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 13407225,
+        "cacheHitRate": 0.9419616661911768,
+        "messageCount": 173
+      }
     },
     {
       "sessionId": "session_030",
@@ -844,11 +899,16 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 39,
       "dataQuality": "auto",
       "agentsCompleted": [
         "Dev"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 52416796,
+        "cacheHitRate": 0.9394905976321025,
+        "messageCount": 422
+      }
     },
     {
       "sessionId": "session_033",
@@ -910,7 +970,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 50,
+      "masterTurns": 49,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -920,9 +980,9 @@
         "editor"
       ],
       "tokenUsage": {
-        "totalBillable": 64633476,
-        "cacheHitRate": 0.9461897887094917,
-        "messageCount": 509
+        "totalBillable": 60893038,
+        "cacheHitRate": 0.9475287634688222,
+        "messageCount": 461
       }
     },
     {
@@ -941,9 +1001,40 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
+      "masterTurns": 15,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "Dev"
+      ],
+      "tokenUsage": {
+        "totalBillable": 16441299,
+        "cacheHitRate": 0.9415511511590416,
+        "messageCount": 155
+      }
+    },
+    {
+      "sessionId": "session_036",
+      "topicSlug": "legend-team-upgrade-v2",
+      "topic": "레전드팀 업그레이드 — Top 0.1% 페르소나 + 성장 패턴 Board",
+      "startedAt": "2026-04-19T00:00:00.000Z",
+      "closedAt": "2026-04-19T05:00:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-040"
+      ],
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 7,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
       "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
+        "Ace",
         "Dev"
       ]
     }
@@ -982,7 +1073,7 @@
     },
     {
       "role": "ace",
-      "count": 16,
+      "count": 17,
       "sessions": [
         "session_007",
         "session_008",
@@ -999,7 +1090,8 @@
         "session_030",
         "session_031",
         "session_033",
-        "session_034"
+        "session_034",
+        "session_036"
       ]
     },
     {
@@ -1056,12 +1148,13 @@
     },
     {
       "role": "dev",
-      "count": 4,
+      "count": 5,
       "sessions": [
         "session_020",
         "session_031",
         "session_032",
-        "session_035"
+        "session_035",
+        "session_036"
       ]
     },
     {
@@ -1084,31 +1177,37 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=26.4)"
+      "description": "Master 병목: masterTurns=48 (avg=21.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=26.4)"
+      "description": "Master 병목: masterTurns=43 (avg=21.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=26.4)"
+      "description": "Master 병목: masterTurns=42 (avg=21.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=26.4)"
+      "description": "Master 병목: masterTurns=45 (avg=21.8)"
+    },
+    {
+      "ruleId": "R2",
+      "severity": "yellow",
+      "sessionId": "session_032",
+      "description": "Master 병목: masterTurns=39 (avg=21.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=50 (avg=26.4)"
+      "description": "Master 병목: masterTurns=49 (avg=21.8)"
     },
     {
       "ruleId": "R5",
@@ -1149,6 +1248,21 @@
           "date": "2026-04-11",
           "feedbackId": "MF-008",
           "summary": "3가지 역할 피드백: 1) Arki — 아키텍처 그리는 방법론 학습, Agent 설계가 팀 과업. 2) No"
+        }
+      ]
+    },
+    {
+      "keyword": "Ace가",
+      "occurrences": [
+        {
+          "date": "2026-04-04",
+          "feedbackId": "MF-002",
+          "summary": "역할 혼선 지적. Ace가 종합검토를 해야 하고, Editor는 결과물 작성/정리/출력만 해야 한다."
+        },
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-S036-3",
+          "summary": "Grade 조정권은 Ace가 가져. 선언 grade와 실제 gap 발생 시 Ace가 조정."
         }
       ]
     },
@@ -1203,6 +1317,21 @@
       ]
     },
     {
+      "keyword": "학습",
+      "occurrences": [
+        {
+          "date": "2026-04-10",
+          "feedbackId": "MF-007",
+          "summary": "1) Ace=Master 동일화. 2) 학습 대상은 선택 흔적. 3) 정형/비정형 분리 리스크 → 내장으로."
+        },
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-S036-2",
+          "summary": "학습 누적 → 적중률 → 자율성 인과체인. Grade 상향 근거."
+        }
+      ]
+    },
+    {
       "keyword": "토픽",
       "occurrences": [
         {
@@ -1249,6 +1378,36 @@
           "date": "2026-04-17",
           "feedbackId": "MF-017",
           "summary": "배제 대신 정교화 — 정교화 경로가 있는 대리 지표는 배제 금지. 없는 것과 업그레이드해서 정교화해 가는 것"
+        }
+      ]
+    },
+    {
+      "keyword": "누적",
+      "occurrences": [
+        {
+          "date": "2026-04-17",
+          "feedbackId": "MF-025",
+          "summary": "토큰 8.9M이 이상한데. 누적 아래에 세션당 평균 토큰수도 표기해줘."
+        },
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-S036-2",
+          "summary": "학습 누적 → 적중률 → 자율성 인과체인. Grade 상향 근거."
+        }
+      ]
+    },
+    {
+      "keyword": "자율성",
+      "occurrences": [
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-S036-1",
+          "summary": "자율성 추이는 측정된 26 이후 세션에서만 볼 수 있도록 세팅."
+        },
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-S036-2",
+          "summary": "학습 누적 → 적중률 → 자율성 인과체인. Grade 상향 근거."
         }
       ]
     }

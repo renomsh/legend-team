@@ -1,7 +1,55 @@
 {
   "entries": [
     {
-      "capturedAt": "2026-04-18T13:04:06.776Z",
+      "capturedAt": "2026-04-18T20:10:29.494Z",
+      "cliSessionId": "3f14b2d9-ca73-44fb-ac8d-b0e1eecf06e2",
+      "legendSessionId": "session_005",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-nostalgic-leavitt\\3f14b2d9-ca73-44fb-ac8d-b0e1eecf06e2.jsonl",
+      "usage": {
+        "input_tokens": 2832,
+        "output_tokens": 43245,
+        "cache_creation_input_tokens": 203456,
+        "cache_read_input_tokens": 5123360,
+        "messageCount": 91,
+        "masterTurns": 11,
+        "total_billable": 5372893
+      },
+      "manualRecovery": true
+    },
+    {
+      "capturedAt": "2026-04-18T20:09:24.394Z",
+      "cliSessionId": "44137f56-63bb-4c6e-accf-26308f17f03c",
+      "legendSessionId": "session_006",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-happy-mestorf\\44137f56-63bb-4c6e-accf-26308f17f03c.jsonl",
+      "usage": {
+        "input_tokens": 124,
+        "output_tokens": 19431,
+        "cache_creation_input_tokens": 131508,
+        "cache_read_input_tokens": 3029505,
+        "messageCount": 80,
+        "masterTurns": 12,
+        "total_billable": 3180568
+      },
+      "manualRecovery": true
+    },
+    {
+      "capturedAt": "2026-04-18T20:10:29.507Z",
+      "cliSessionId": "8147b10c-fa1d-4dc4-aeff-6de937e4e574",
+      "legendSessionId": "session_007",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-elated-robinson\\8147b10c-fa1d-4dc4-aeff-6de937e4e574.jsonl",
+      "usage": {
+        "input_tokens": 5605,
+        "output_tokens": 39597,
+        "cache_creation_input_tokens": 282668,
+        "cache_read_input_tokens": 8251155,
+        "messageCount": 139,
+        "masterTurns": 7,
+        "total_billable": 8579025
+      },
+      "manualRecovery": true
+    },
+    {
+      "capturedAt": "2026-04-18T19:52:46.296Z",
       "cliSessionId": "a4beb61f-d26c-4491-a9fb-9c932cc23102",
       "legendSessionId": "session_008",
       "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-heuristic-sutherland\\a4beb61f-d26c-4491-a9fb-9c932cc23102.jsonl",
@@ -16,7 +64,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-18T13:04:06.778Z",
+      "capturedAt": "2026-04-18T19:52:46.298Z",
       "cliSessionId": "04d081a4-01d9-4cff-88ce-ebdf5abb0733",
       "legendSessionId": "session_009",
       "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-dreamy-chandrasekhar\\04d081a4-01d9-4cff-88ce-ebdf5abb0733.jsonl",
@@ -31,7 +79,55 @@
       }
     },
     {
-      "capturedAt": "2026-04-18T13:04:06.778Z",
+      "capturedAt": "2026-04-18T20:03:14.278Z",
+      "cliSessionId": "04d081a4-01d9-4cff-88ce-ebdf5abb0733",
+      "legendSessionId": "session_010",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-dreamy-chandrasekhar\\04d081a4-01d9-4cff-88ce-ebdf5abb0733.jsonl",
+      "usage": {
+        "input_tokens": 6562,
+        "output_tokens": 48557,
+        "cache_creation_input_tokens": 656058,
+        "cache_read_input_tokens": 15696678,
+        "messageCount": 203,
+        "masterTurns": 20,
+        "total_billable": 16407855
+      },
+      "manualRecovery": true
+    },
+    {
+      "capturedAt": "2026-04-18T20:03:14.300Z",
+      "cliSessionId": "7cb39d9a-8b01-44a3-b5f6-50de51b1fb92",
+      "legendSessionId": "session_011",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-interesting-germain\\7cb39d9a-8b01-44a3-b5f6-50de51b1fb92.jsonl",
+      "usage": {
+        "input_tokens": 121,
+        "output_tokens": 22507,
+        "cache_creation_input_tokens": 405680,
+        "cache_read_input_tokens": 3447667,
+        "messageCount": 82,
+        "masterTurns": 14,
+        "total_billable": 3875975
+      },
+      "manualRecovery": true
+    },
+    {
+      "capturedAt": "2026-04-18T20:03:14.314Z",
+      "cliSessionId": "3fa252a0-440b-4aae-b92e-8a0418bccd62",
+      "legendSessionId": "session_012",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-dreamy-taussig\\3fa252a0-440b-4aae-b92e-8a0418bccd62.jsonl",
+      "usage": {
+        "input_tokens": 8109,
+        "output_tokens": 27472,
+        "cache_creation_input_tokens": 370373,
+        "cache_read_input_tokens": 6192956,
+        "messageCount": 111,
+        "masterTurns": 22,
+        "total_billable": 6598910
+      },
+      "manualRecovery": true
+    },
+    {
+      "capturedAt": "2026-04-18T19:52:46.298Z",
       "cliSessionId": "02257b5e-e134-43a6-94fe-27b130169bd4",
       "legendSessionId": "session_014",
       "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-upbeat-austin\\02257b5e-e134-43a6-94fe-27b130169bd4.jsonl",
@@ -46,7 +142,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-18T13:04:06.778Z",
+      "capturedAt": "2026-04-18T19:52:46.298Z",
       "cliSessionId": "70229e1e-bc55-496d-9e87-315ea5bbd403",
       "legendSessionId": "session_015",
       "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--projects-legend-team\\70229e1e-bc55-496d-9e87-315ea5bbd403.jsonl",
@@ -61,7 +157,23 @@
       }
     },
     {
-      "capturedAt": "2026-04-18T13:04:06.778Z",
+      "capturedAt": "2026-04-18T20:09:24.416Z",
+      "cliSessionId": "58f9cb35-c066-4387-8963-a6763a52c8ca",
+      "legendSessionId": "session_016",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-recursing-nightingale\\58f9cb35-c066-4387-8963-a6763a52c8ca.jsonl",
+      "usage": {
+        "input_tokens": 7730,
+        "output_tokens": 203728,
+        "cache_creation_input_tokens": 1631437,
+        "cache_read_input_tokens": 12914952,
+        "messageCount": 120,
+        "masterTurns": 24,
+        "total_billable": 14757847
+      },
+      "manualRecovery": true
+    },
+    {
+      "capturedAt": "2026-04-18T19:52:46.298Z",
       "cliSessionId": "2f60ec09-8d33-4e01-99e4-92323b7bab2f",
       "legendSessionId": "session_017",
       "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-practical-napier\\2f60ec09-8d33-4e01-99e4-92323b7bab2f.jsonl",
@@ -76,7 +188,23 @@
       }
     },
     {
-      "capturedAt": "2026-04-18T13:04:06.778Z",
+      "capturedAt": "2026-04-18T20:03:14.327Z",
+      "cliSessionId": "12333c87-b8af-4046-af18-b9ad6c935f59",
+      "legendSessionId": "session_018",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-zealous-wiles\\12333c87-b8af-4046-af18-b9ad6c935f59.jsonl",
+      "usage": {
+        "input_tokens": 131,
+        "output_tokens": 43803,
+        "cache_creation_input_tokens": 411230,
+        "cache_read_input_tokens": 3232785,
+        "messageCount": 46,
+        "masterTurns": 10,
+        "total_billable": 3687949
+      },
+      "manualRecovery": true
+    },
+    {
+      "capturedAt": "2026-04-18T19:52:46.299Z",
       "cliSessionId": "25e2e864-754c-4c44-af01-6e168522317f",
       "legendSessionId": "session_019",
       "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-elegant-margulis\\25e2e864-754c-4c44-af01-6e168522317f.jsonl",
@@ -91,7 +219,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-18T13:04:06.778Z",
+      "capturedAt": "2026-04-18T19:52:46.299Z",
       "cliSessionId": "6336760a-4a40-4a7b-9d34-34790fd6966c",
       "legendSessionId": "session_020",
       "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-romantic-bartik\\6336760a-4a40-4a7b-9d34-34790fd6966c.jsonl",
@@ -106,7 +234,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-18T13:04:06.778Z",
+      "capturedAt": "2026-04-18T19:52:46.299Z",
       "cliSessionId": "4372d38b-bcfb-4dcb-917b-74a48af07534",
       "legendSessionId": "session_021",
       "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-angry-borg\\4372d38b-bcfb-4dcb-917b-74a48af07534.jsonl",
@@ -121,7 +249,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-18T13:04:06.778Z",
+      "capturedAt": "2026-04-18T19:52:46.299Z",
       "cliSessionId": "9726ac2c-35de-4f3b-a4e7-05adb3c8d47b",
       "legendSessionId": "session_022",
       "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-inspiring-shtern\\9726ac2c-35de-4f3b-a4e7-05adb3c8d47b.jsonl",
@@ -136,7 +264,23 @@
       }
     },
     {
-      "capturedAt": "2026-04-18T13:04:06.778Z",
+      "capturedAt": "2026-04-18T20:03:14.341Z",
+      "cliSessionId": "f1de831f-a6c5-45d7-965b-ef25b10594d3",
+      "legendSessionId": "session_023",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-dreamy-sanderson\\f1de831f-a6c5-45d7-965b-ef25b10594d3.jsonl",
+      "usage": {
+        "input_tokens": 170,
+        "output_tokens": 48511,
+        "cache_creation_input_tokens": 284635,
+        "cache_read_input_tokens": 10343367,
+        "messageCount": 121,
+        "masterTurns": 11,
+        "total_billable": 10676683
+      },
+      "manualRecovery": true
+    },
+    {
+      "capturedAt": "2026-04-18T19:52:46.299Z",
       "cliSessionId": "f1de831f-a6c5-45d7-965b-ef25b10594d3",
       "legendSessionId": "session_024",
       "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-dreamy-sanderson\\f1de831f-a6c5-45d7-965b-ef25b10594d3.jsonl",
@@ -151,7 +295,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-18T13:04:06.778Z",
+      "capturedAt": "2026-04-18T19:52:46.299Z",
       "cliSessionId": "7991341e-1a4a-49c4-9013-8ca865a0a5ab",
       "legendSessionId": "session_025",
       "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-lucid-antonelli\\7991341e-1a4a-49c4-9013-8ca865a0a5ab.jsonl",
@@ -166,7 +310,23 @@
       }
     },
     {
-      "capturedAt": "2026-04-18T13:04:06.778Z",
+      "capturedAt": "2026-04-18T20:03:14.352Z",
+      "cliSessionId": "7991341e-1a4a-49c4-9013-8ca865a0a5ab",
+      "legendSessionId": "session_026",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-lucid-antonelli\\7991341e-1a4a-49c4-9013-8ca865a0a5ab.jsonl",
+      "usage": {
+        "input_tokens": 201,
+        "output_tokens": 42000,
+        "cache_creation_input_tokens": 772401,
+        "cache_read_input_tokens": 6333798,
+        "messageCount": 103,
+        "masterTurns": 17,
+        "total_billable": 7148400
+      },
+      "manualRecovery": true
+    },
+    {
+      "capturedAt": "2026-04-18T19:52:46.299Z",
       "cliSessionId": "1d2f05d2-5d8a-47f2-9343-3ca72d3d1f3a",
       "legendSessionId": "session_027",
       "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-trusting-leakey-f3e898\\1d2f05d2-5d8a-47f2-9343-3ca72d3d1f3a.jsonl",
@@ -181,7 +341,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-18T13:04:06.778Z",
+      "capturedAt": "2026-04-18T19:52:46.299Z",
       "cliSessionId": "90144a4e-e639-424e-96e5-9f173a9cdc7f",
       "legendSessionId": "session_028",
       "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-beautiful-shirley-9e1cad\\90144a4e-e639-424e-96e5-9f173a9cdc7f.jsonl",
@@ -196,7 +356,23 @@
       }
     },
     {
-      "capturedAt": "2026-04-18T13:04:06.778Z",
+      "capturedAt": "2026-04-18T20:03:14.363Z",
+      "cliSessionId": "90144a4e-e639-424e-96e5-9f173a9cdc7f",
+      "legendSessionId": "session_029",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-beautiful-shirley-9e1cad\\90144a4e-e639-424e-96e5-9f173a9cdc7f.jsonl",
+      "usage": {
+        "input_tokens": 444,
+        "output_tokens": 72755,
+        "cache_creation_input_tokens": 704934,
+        "cache_read_input_tokens": 12629092,
+        "messageCount": 173,
+        "masterTurns": 5,
+        "total_billable": 13407225
+      },
+      "manualRecovery": true
+    },
+    {
+      "capturedAt": "2026-04-18T19:52:46.299Z",
       "cliSessionId": "5704e42c-5e92-4d4d-b342-354efbe32b23",
       "legendSessionId": "session_030",
       "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-competent-maxwell-5b04b0\\5704e42c-5e92-4d4d-b342-354efbe32b23.jsonl",
@@ -211,7 +387,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-18T13:04:06.778Z",
+      "capturedAt": "2026-04-18T19:52:46.299Z",
       "cliSessionId": "56c164d3-95f1-42c4-848c-4829c6d39f1f",
       "legendSessionId": "session_031",
       "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-jovial-khayyam-976d53\\56c164d3-95f1-42c4-848c-4829c6d39f1f.jsonl",
@@ -226,7 +402,23 @@
       }
     },
     {
-      "capturedAt": "2026-04-18T13:04:06.778Z",
+      "capturedAt": "2026-04-18T20:03:14.390Z",
+      "cliSessionId": "56c164d3-95f1-42c4-848c-4829c6d39f1f",
+      "legendSessionId": "session_032",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-jovial-khayyam-976d53\\56c164d3-95f1-42c4-848c-4829c6d39f1f.jsonl",
+      "usage": {
+        "input_tokens": 9203,
+        "output_tokens": 284662,
+        "cache_creation_input_tokens": 2877844,
+        "cache_read_input_tokens": 49245087,
+        "messageCount": 422,
+        "masterTurns": 39,
+        "total_billable": 52416796
+      },
+      "manualRecovery": true
+    },
+    {
+      "capturedAt": "2026-04-18T19:52:46.299Z",
       "cliSessionId": "480024b9-f73f-4b56-a640-9e64d13dd4ca",
       "legendSessionId": "session_033",
       "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-pensive-cartwright-5b731e\\480024b9-f73f-4b56-a640-9e64d13dd4ca.jsonl",
@@ -241,20 +433,35 @@
       }
     },
     {
-      "capturedAt": "2026-04-18T13:04:06.778Z",
+      "capturedAt": "2026-04-18T19:52:46.299Z",
       "cliSessionId": "fcc88f89-5248-4687-b35c-447c7ce41dbc",
       "legendSessionId": "session_034",
       "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-hopeful-lalande-e82b49\\fcc88f89-5248-4687-b35c-447c7ce41dbc.jsonl",
       "usage": {
-        "input_tokens": 3358,
-        "output_tokens": 515621,
-        "cache_creation_input_tokens": 2958962,
-        "cache_read_input_tokens": 61155535,
-        "messageCount": 509,
-        "masterTurns": 50,
-        "total_billable": 64633476
+        "input_tokens": 3285,
+        "output_tokens": 482242,
+        "cache_creation_input_tokens": 2709606,
+        "cache_read_input_tokens": 57697905,
+        "messageCount": 461,
+        "masterTurns": 49,
+        "total_billable": 60893038
+      }
+    },
+    {
+      "capturedAt": "2026-04-18T19:52:46.299Z",
+      "cliSessionId": "fc1f9584-e6a0-49d5-9f8d-99c6ebbcf33c",
+      "legendSessionId": "session_035",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-objective-mcclintock-7a6965\\fc1f9584-e6a0-49d5-9f8d-99c6ebbcf33c.jsonl",
+      "usage": {
+        "input_tokens": 225,
+        "output_tokens": 62283,
+        "cache_creation_input_tokens": 898467,
+        "cache_read_input_tokens": 15480324,
+        "messageCount": 155,
+        "masterTurns": 15,
+        "total_billable": 16441299
       }
     }
   ],
-  "lastUpdated": "2026-04-18T13:04:06.778Z"
+  "lastUpdated": "2026-04-18T20:10:29.517Z"
 }

@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_035",
-  "nextSessionId": "session_036",
+  "lastSessionId": "session_036",
+  "nextSessionId": "session_037",
   "currentVersion": "v1.01",
   "openTopics": [
     {
@@ -13,6 +13,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-040",
+      "date": "2026-04-19",
+      "axis": "Grade 조정권",
+      "summary": "Ace가 Grade 조정권 보유. Master 선언 grade와 실제 작업 gap 발생 시 Ace가 자율 상향/유지 조정. 이번 세션 첫 행사(B→A 상향 선언, 실제 진행은 B). gradeActual 불일치는 gradeMismatch 패널에 누적."
+    },
     {
       "id": "D-039",
       "date": "2026-04-18",
@@ -36,12 +42,6 @@
       "date": "2026-04-18",
       "axis": "매개변수 세트",
       "summary": "Pack-years + SGRQ Symptoms + SGRQ Activity + SGRQ Impact (4개 병렬). CAT total 제거(SGRQ와 중복), SGRQ total 제거(subscale 분해로 대체)."
-    },
-    {
-      "id": "D-035",
-      "date": "2026-04-18",
-      "axis": "주분석 공변량 세트",
-      "summary": "Age, Sex, Phenotype(PRISm binary), Previous exacerbation 1yr, Post-BDR FEV1%pred, Hospital(GEE cluster). Smoking status 제거(Pack-years 매개와 이중계상 회피). BMI/Comorbidity/WBC는 민감도로만."
     }
   ],
   "pendingDeferrals": [
@@ -121,7 +121,39 @@
       "item": "Nova 궤도 1 — PRISm outcome trajectory analysis",
       "status": "pending",
       "note": "Paper A 투고 확정 후 재평가"
+    },
+    {
+      "id": "PD-013",
+      "fromSession": "session_036",
+      "fromTopic": "legend-team-upgrade-v2",
+      "item": "페르소나 Top 0.1% 재정의 — 7개 역할(Ace/Arki/Fin/Riki/Nova/Dev/Vera) 각각 날카롭고 정밀한 전문가 페르소나로 업그레이드. memory/roles/*_memory.json responsibility 필드 갱신 포함.",
+      "status": "pending",
+      "note": "다음 세션 1순위. Grade A, L2 framing. 성장 인과체인(학습→적중→자율)과 연동."
+    },
+    {
+      "id": "PD-014",
+      "fromSession": "session_036",
+      "fromTopic": "legend-team-upgrade-v2",
+      "item": "역할별 필요 스킬·오픈소스 참조 매핑 — PD-013 완료 후 각 역할 페르소나 기준으로 보강 필요 역량 도출.",
+      "status": "pending",
+      "note": "PD-013 의존. 별도 토픽 또는 PD-013 2차 작업으로 처리."
+    },
+    {
+      "id": "PD-015",
+      "fromSession": "session_036",
+      "fromTopic": "legend-team-upgrade-v2",
+      "item": "성장지표 정의 프레임 확정 + Board 계측 구조 설계 — 학습누적→적중률→자율성 인과체인 기반. 역할별 성장 정의(Ace: 오케스트레이션 적중률, Riki: 리스크 리콜 등) + 현재 계측 가능 지표 구현.",
+      "status": "pending",
+      "note": "Grade A 권장. PD-013과 병행 또는 후속. 측정불가 지표 설계 포함."
+    },
+    {
+      "id": "PD-016",
+      "fromSession": "session_036",
+      "fromTopic": "legend-team-upgrade-v2",
+      "item": "Hook transcript_path=MISSING 방어 — cliSessionId 기반 ~/.claude/projects/*/ 역탐색 fallback 추가. session_029, 032 같은 손실 재발 방지.",
+      "status": "pending",
+      "note": "10~15분 작업. 다음 버그 세션에 묶음 처리 권장."
     }
   ],
-  "lastUpdated": "2026-04-18T13:40:54.623Z"
+  "lastUpdated": "2026-04-18T20:15:59.798Z"
 }

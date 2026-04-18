@@ -483,7 +483,8 @@ function resetFilter() {
 function renderAll() {
   // 데이터 수집 범위 안내
   const cacheCount = filteredSessions.filter(s => s.tokenUsage?.cacheHitRate > 0).length;
-  const turnsCount = filteredSessions.filter(s => s.masterTurns > 0).length;
+  const turnsCount = filteredSessions.filter(s => s.masterTurns > 0
+    && (parseInt((s.sessionId||'').replace('session_',''), 10) || 0) >= 26).length;
   const cacheNote = document.getElementById('cacheDataNote');
   const turnsNote = document.getElementById('turnsDataNote');
   if (cacheNote) cacheNote.textContent = cacheCount < filteredSessions.length ? `· 캐시 데이터 ${cacheCount}/${filteredSessions.length}세션` : '';
@@ -549,11 +550,15 @@ function renderKPIs() {
 
 function renderAutonomy() {
   // 1차 지표: masterTurns (token hook 집계 기반)
-  const withTurns = filteredSessions.filter(s=>s.masterTurns>0);
+  // session ≥ 026 게이트: 자율성 의미가 확립된(D-024, session_027) 이후만 유효.
+  // 이전 세션은 token_log에 값이 있어도 계측 의도 불일치로 해석 무효 → 제외.
+  const GATE = 26;
+  const sessionNum = s => parseInt((s.sessionId||'').replace('session_',''), 10) || 0;
+  const withTurns = filteredSessions.filter(s=>s.masterTurns>0 && sessionNum(s)>=GATE);
   if (withTurns.length > 0) {
     const avg = (withTurns.reduce((a,s)=>a+s.masterTurns,0)/withTurns.length).toFixed(1);
     document.getElementById('autoVal').textContent = avg;
-    document.getElementById('autoSub').textContent = `${filteredSessions.length}개 세션 · 집계 ${withTurns.length}개 (Master 개입 횟수)`;
+    document.getElementById('autoSub').textContent = `session ≥ ${String(GATE).padStart(3,'0')} · 집계 ${withTurns.length}개 (Master 개입 횟수)`;
     const v = +avg;
     const badge = v<=3?'🟢 높은 자율성':v<=7?'🟡 중간':'🔴 Master 병목';
     document.getElementById('autoBadge').textContent = badge;
@@ -664,7 +669,9 @@ function renderLine() {
   const el = document.getElementById('lineChart');
   let chart = echarts.getInstanceByDom(el); if(chart)chart.dispose();
   chart = echarts.init(el,null,{renderer:'svg'});
-  const activeSessions = filteredSessions.filter(s => (s.masterTurns ?? 0) > 0);
+  // session ≥ 026 게이트 (자율성 의미 확립 시점, D-024)
+  const activeSessions = filteredSessions.filter(s => (s.masterTurns ?? 0) > 0
+    && (parseInt((s.sessionId||'').replace('session_',''), 10) || 0) >= 26);
   const ids = activeSessions.map(s=>s.sessionId.replace('session_','S'));
   const avg = globalMetrics.avgMasterTurns ?? 0;
   const manualLine = activeSessions.map(s=>s.dataQuality==='manual'?(s.masterTurns??null):null);

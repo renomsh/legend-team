@@ -273,7 +273,7 @@
     }
 
     function renderDeferrals(sys) {
-      const deferrals = sys?.pendingDeferrals ?? [];
+      const deferrals = (sys?.pendingDeferrals ?? []).filter(d => d.status === 'pending');
       if (deferrals.length === 0) {
         document.getElementById('deferralList').innerHTML = '<div class="empty-state">No deferrals</div>';
         return;

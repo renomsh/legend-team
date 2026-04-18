@@ -79,6 +79,14 @@
       "decisionAxes": 3,
       "status": "completed",
       "lessonLearned": "Ace는 경로 위임 금지. 구체 안 제시 → Master 수정 구조. (MF-020)"
+    },
+    {
+      "topicId": "topic_032",
+      "title": "레전드팀 업그레이드 v2 — Board 계측 + 수동 복구",
+      "date": "2026-04-19",
+      "reportPath": "reports/2026-04-19_legend-team-upgrade-v2/ace_rev1.md",
+      "keyFraming": "Grade B→A 상향(첫 조정권 행사). 성장 인과체인 확정. 실제 진행은 버그 수정 범위.",
+      "decisionAxes": 1
     }
   ],
   "framePatterns": [
@@ -268,6 +276,20 @@
       "lesson": "implementation 토픽에서 오케스트레이션 패턴(Ace프레이밍→Arki구조→Fin자원→Riki리스크→Ace종합→Dev직접위임) 유효. 역할 호출 전 범위·전제 사전 고지 + 3문항 구조화 질문이 Arki 분석 품질 상승시킴.",
       "masterPattern": "Master는 Ace가 구조 질문을 설계하고 Dev에게 직접 위임하는 흐름 채택. 중간 불필요한 검토 없이 바로 구현 진입 허용.",
       "reusable": true
+    },
+    {
+      "id": "LL-003",
+      "date": "2026-04-19",
+      "session": "session_036",
+      "lesson": "Grade 조정권 첫 행사: B→A 선언했으나 Master 방향으로 B 수준 진행 확정. 상향 선언 = 범위 설계 의도 표명이고, 실제 진행 범위는 Master가 결정. 불일치는 gradeMismatch로 기록.",
+      "topic": "grade-adjustment"
+    },
+    {
+      "id": "LL-004",
+      "date": "2026-04-19",
+      "session": "session_036",
+      "lesson": "성장 지표 정의 선행 원칙 확립: 출현빈도 ≠ 성장. 학습누적→적중률→자율성 인과체인이 측정 설계의 공리. 정의 없는 계측 구현은 무의미.",
+      "topic": "growth-metrics"
     }
   ]
 }
