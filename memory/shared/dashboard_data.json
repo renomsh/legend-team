@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-18T20:16:02.593Z",
-  "totalSessions": 36,
+  "generatedAt": "2026-04-18T21:21:30.030Z",
+  "totalSessions": 37,
   "autoDataFrom": "session_027",
   "metrics": {
     "avgMasterTurns": 21.8,
     "avgCacheHitRate": 0.9397,
     "cacheSampleSize": 9,
-    "cacheSampleTotal": 36,
+    "cacheSampleTotal": 37,
     "avgAdoptionRate": 0,
-    "totalDecisions": 40,
+    "totalDecisions": 41,
     "gradeDistribution": {
-      "S": 6,
+      "S": 7,
       "A": 9,
       "B": 10,
       "C": 11
@@ -1037,12 +1037,44 @@
         "Ace",
         "Dev"
       ]
+    },
+    {
+      "sessionId": "session_037",
+      "topicSlug": "persona-top01-redefinition",
+      "topic": "페르소나 Top 0.1% 재정의",
+      "startedAt": "2026-04-19T06:00:00.000Z",
+      "closedAt": "2026-04-19T07:00:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-041"
+      ],
+      "rolesCalled": 8,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 0,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "Ace",
+        "Arki",
+        "Fin",
+        "Riki",
+        "Nova",
+        "Dev",
+        "Vera",
+        "Editor"
+      ]
     }
   ],
   "roleFrequency": [
     {
       "role": "editor",
-      "count": 25,
+      "count": 26,
       "sessions": [
         "session_007",
         "session_009",
@@ -1068,12 +1100,13 @@
         "session_030",
         "session_031",
         "session_033",
-        "session_034"
+        "session_034",
+        "session_037"
       ]
     },
     {
       "role": "ace",
-      "count": 17,
+      "count": 18,
       "sessions": [
         "session_007",
         "session_008",
@@ -1091,12 +1124,13 @@
         "session_031",
         "session_033",
         "session_034",
-        "session_036"
+        "session_036",
+        "session_037"
       ]
     },
     {
       "role": "arki",
-      "count": 10,
+      "count": 11,
       "sessions": [
         "session_008",
         "session_009",
@@ -1107,12 +1141,13 @@
         "session_018",
         "session_031",
         "session_033",
-        "session_034"
+        "session_034",
+        "session_037"
       ]
     },
     {
       "role": "riki",
-      "count": 7,
+      "count": 8,
       "sessions": [
         "session_009",
         "session_011",
@@ -1120,48 +1155,53 @@
         "session_016",
         "session_031",
         "session_033",
-        "session_034"
+        "session_034",
+        "session_037"
       ]
     },
     {
       "role": "fin",
-      "count": 6,
+      "count": 7,
       "sessions": [
         "session_009",
         "session_012",
         "session_016",
         "session_024",
         "session_031",
-        "session_033"
+        "session_033",
+        "session_037"
       ]
     },
     {
       "role": "nova",
-      "count": 5,
+      "count": 6,
       "sessions": [
         "session_013",
         "session_014",
         "session_015",
         "session_033",
-        "session_034"
+        "session_034",
+        "session_037"
       ]
     },
     {
       "role": "dev",
-      "count": 5,
+      "count": 6,
       "sessions": [
         "session_020",
         "session_031",
         "session_032",
         "session_035",
-        "session_036"
+        "session_036",
+        "session_037"
       ]
     },
     {
       "role": "vera",
-      "count": 1,
+      "count": 2,
       "sessions": [
-        "session_030"
+        "session_030",
+        "session_037"
       ]
     },
     {
@@ -1212,6 +1252,16 @@
     {
       "ruleId": "R5",
       "severity": "red",
+      "description": "피드백 재발: \"Master\" 4회"
+    },
+    {
+      "ruleId": "R5",
+      "severity": "red",
+      "description": "피드백 재발: \"역할\" 3회"
+    },
+    {
+      "ruleId": "R5",
+      "severity": "red",
       "description": "피드백 재발: \"Ace\" 3회"
     },
     {
@@ -1233,6 +1283,14 @@
           "date": "2026-04-10",
           "feedbackId": "MF-007",
           "summary": "1) Ace=Master 동일화. 2) 학습 대상은 선택 흔적. 3) 정형/비정형 분리 리스크 → 내장으로."
+        },
+        {
+          "date": "2026-04-19",
+          "summary": "Ace만 Master 복제. 나머지는 개별 역할 발전. Master는 이 팀의 구성원으로 각자 피드백·의견을"
+        },
+        {
+          "date": "2026-04-19",
+          "summary": "Riki R-02 기각 — Master 주관 판정 최우선. Master 동의 없이는 실행 불가. 레전드팀=M"
         }
       ]
     },
@@ -1248,6 +1306,10 @@
           "date": "2026-04-11",
           "feedbackId": "MF-008",
           "summary": "3가지 역할 피드백: 1) Arki — 아키텍처 그리는 방법론 학습, Agent 설계가 팀 과업. 2) No"
+        },
+        {
+          "date": "2026-04-19",
+          "summary": "각자 희망 캐릭터 벤치마킹했으니 역할 수행 시 '그 인물이라면 어떻게 했을까' 관점으로 접근할 것."
         }
       ]
     },
@@ -1328,6 +1390,20 @@
           "date": "2026-04-19",
           "feedbackId": "MF-S036-2",
           "summary": "학습 누적 → 적중률 → 자율성 인과체인. Grade 상향 근거."
+        }
+      ]
+    },
+    {
+      "keyword": "설계",
+      "occurrences": [
+        {
+          "date": "2026-04-13",
+          "feedbackId": "MF-009",
+          "summary": "1) 폴더 기반 설계 확정. 2) MCP 불필요. 3) 자율수정 초기엔 전건 확인. 4) 스키마부터 고정 후"
+        },
+        {
+          "date": "2026-04-19",
+          "summary": "Dev-Arki는 단방향 설계 인수가 아니라 양방향 의견 교환. Dev=0.1% 프로그래머 특별 정의."
         }
       ]
     },

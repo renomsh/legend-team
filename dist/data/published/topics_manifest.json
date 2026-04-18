@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-18T20:16:03.172Z",
+  "generatedAt": "2026-04-18T21:21:30.570Z",
   "topics": [
     {
       "id": "topic_001",
@@ -550,6 +550,18 @@
       "reportFiles": [],
       "published": false,
       "outcome": "자율성 게이트 session≥026 적용. dashboard-ops 이연필터 수정. token_log 수동복구 13건(17→30/35). D-040 확정.",
+      "note": null,
+      "masterDecisions": []
+    },
+    {
+      "id": "topic_033",
+      "title": "페르소나 Top 0.1% 재정의",
+      "status": "completed",
+      "created": "2026-04-19",
+      "reportPath": "reports/2026-04-19_persona-top01-redefinition",
+      "reportFiles": [],
+      "published": false,
+      "outcome": "8개 역할 페르소나 재정의. 3층 구조 + 실존 인물 레퍼런스 + referenceMode 원칙. D-041 확정. PD-013 resolved.",
       "note": null,
       "masterDecisions": []
     }

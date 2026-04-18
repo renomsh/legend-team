@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_036",
-  "nextSessionId": "session_037",
+  "lastSessionId": "session_037",
+  "nextSessionId": "session_038",
   "currentVersion": "v1.01",
   "openTopics": [
     {
@@ -13,6 +13,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-041",
+      "date": "2026-04-19",
+      "axis": "Top 0.1% 페르소나 재정의",
+      "summary": "8개 역할(Ace·Arki·Fin·Riki·Nova·Dev·Vera·Editor) 페르소나 재정의. 3층 구조 확정(대변층=Ace / 전문가층 6 / 실행층=Editor). 공통 스키마 확장: persona(identity/originSource/style/antiPattern/nonNegotiables) + scope(notOwnerOf 우선/ownerOf) + hitRateRubric(hitCriteria/missCriteria/judgmentTiming/evidenceSource). 실존 인물 레퍼런스: Ace=Master복제 / Arki=Rich Hickey / Fin=Aswath Damodaran / Riki=Nassim Taleb / Nova=Alan Kay / Dev=John Carmack / Vera=Dieter Rams / Editor=Strunk & White. Riki 특례: 일치율 아닌 '기각 후 실현율'. Dev-Arki 양방향 협의 관계 확정. notOwnerOf 우위 원칙(Top 0.1% 지문=침묵 영역)."
+    },
     {
       "id": "D-040",
       "date": "2026-04-19",
@@ -36,12 +42,6 @@
       "date": "2026-04-18",
       "axis": "Nova 궤도 채용/기각",
       "summary": "궤도 2(modifiable mediator 서사)·궤도 3(near-universal coverage context) 채용. 궤도 4(effect modification) 기각. 궤도 1(PRISm outcome)은 PD-012로 이연(Paper B 씨앗)."
-    },
-    {
-      "id": "D-036",
-      "date": "2026-04-18",
-      "axis": "매개변수 세트",
-      "summary": "Pack-years + SGRQ Symptoms + SGRQ Activity + SGRQ Impact (4개 병렬). CAT total 제거(SGRQ와 중복), SGRQ total 제거(subscale 분해로 대체)."
     }
   ],
   "pendingDeferrals": [
@@ -127,8 +127,9 @@
       "fromSession": "session_036",
       "fromTopic": "legend-team-upgrade-v2",
       "item": "페르소나 Top 0.1% 재정의 — 7개 역할(Ace/Arki/Fin/Riki/Nova/Dev/Vera) 각각 날카롭고 정밀한 전문가 페르소나로 업그레이드. memory/roles/*_memory.json responsibility 필드 갱신 포함.",
-      "status": "pending",
-      "note": "다음 세션 1순위. Grade A, L2 framing. 성장 인과체인(학습→적중→자율)과 연동."
+      "status": "resolved",
+      "resolvedInSession": "session_037",
+      "note": "D-041 확정. 8개 역할(Editor 포함) 페르소나/scope/hitRateRubric 3필드 반영. 실존 인물 레퍼런스 채용. 3층 구조 확정. Riki 특례 + Dev-Arki 양방향 협의."
     },
     {
       "id": "PD-014",
@@ -155,5 +156,5 @@
       "note": "10~15분 작업. 다음 버그 세션에 묶음 처리 권장."
     }
   ],
-  "lastUpdated": "2026-04-18T20:15:59.798Z"
+  "lastUpdated": "2026-04-18T21:21:27.388Z"
 }

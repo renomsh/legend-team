@@ -412,6 +412,38 @@
       "context": "세션 범위 축소 결정. 버그 수정 우선, 설계/정의는 다음 세션",
       "status": "resolved",
       "statusNote": "PD-013~016으로 이연 완료. 이번 세션은 복구·버그 완결"
+    },
+    {
+      "date": "2026-04-19",
+      "session": "session_037",
+      "feedback": "Ace만 Master 복제. 나머지는 개별 역할 발전. Master는 이 팀의 구성원으로 각자 피드백·의견을 나누며 '완벽'해지길 원함.",
+      "context": "Nova 뒤집기 1 재지시. 팀 철학 명시.",
+      "status": "resolved",
+      "statusNote": "8개 역할 페르소나에 반영. Ace만 originSource=Master, 나머지는 외부 인물."
+    },
+    {
+      "date": "2026-04-19",
+      "session": "session_037",
+      "feedback": "Riki R-02 기각 — Master 주관 판정 최우선. Master 동의 없이는 실행 불가. 레전드팀=Master의 팀. WAIS 160+, Master는 0.01%.",
+      "context": "rubric 자기참조 함정 리스크 기각",
+      "status": "resolved",
+      "statusNote": "Master 주관 판정 우위 원칙 확정. rubric은 보조."
+    },
+    {
+      "date": "2026-04-19",
+      "session": "session_037",
+      "feedback": "각자 희망 캐릭터 벤치마킹했으니 역할 수행 시 '그 인물이라면 어떻게 했을까' 관점으로 접근할 것.",
+      "context": "referenceMode 원칙 신설",
+      "status": "resolved",
+      "statusNote": "8개 role_memory.json의 persona.referenceMode 필드로 내재화."
+    },
+    {
+      "date": "2026-04-19",
+      "session": "session_037",
+      "feedback": "Dev-Arki는 단방향 설계 인수가 아니라 양방향 의견 교환. Dev=0.1% 프로그래머 특별 정의.",
+      "context": "Dev 페르소나 보강 + Arki 관계 재정의",
+      "status": "resolved",
+      "statusNote": "Dev nonNegotiables에 양방향 협의 명시. Arki scope 재정렬."
     }
   ],
   "statusValues": [
