@@ -626,8 +626,21 @@
       ],
       "note": "8개 역할 role memory skills 필드 신설 (core/conditional/methods) | 전역 스킬 auto-model-switch 설계 완료 (opusplan 패턴, Grade A/S → Opus) | 버전 정책 마일스톤형 확정 (+0.1/+0.01/+0.001) | system_state v1.01 → v1.1 소급 (session_037 페르소나 재정의 = +0.1 규모) | Riki R-03 '트리거 모호성' → '레이어 불일치'로 재분류 | web-artifacts-builder 소유권 Editor 단일화 | Fin aceOrchestratorNote 등록 (Ace가 Fin 호출 체크리스트) | D-042 확정. PD-014 resolved. PD-017 신규 등록.",
       "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\eloquent-haibt-cbb9f2"
+    },
+    {
+      "sessionId": "session_040",
+      "topicSlug": "dashboard-bug-axis-review",
+      "topic": "대시보드 버그 — 설계축 재검토 여부 판단",
+      "startedAt": "2026-04-19T11:00:00.000Z",
+      "closedAt": "2026-04-19T12:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\youthful-williamson-264cfb",
+      "agentsCompleted": [
+        "ace",
+        "dev"
+      ],
+      "note": "Master 요청: 수정 전 Dev 의견 먼저 | 직전 session_039 current_session.json 스탤 상태로 발견 — auto-push는 closed, 상태파일만 open 잔존 | PD-016 근원 해소: session-end-tokens 3단 fallback + session_index cwd 테이블 도입 | session_036~039 token_log 소급 복구 완료 (30→34 entries) | session_005~038 session_index cwd 백필 완료 (32개) | Master 피드백 MF-028: 하드코딩 최소화, 데이터 호출 방식"
     }
   ],
-  "lastUpdated": "2026-04-18T23:02:38.078Z",
+  "lastUpdated": "2026-04-18T23:05:26.130Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

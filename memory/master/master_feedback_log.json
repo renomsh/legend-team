@@ -444,6 +444,18 @@
       "context": "Dev 페르소나 보강 + Arki 관계 재정의",
       "status": "resolved",
       "statusNote": "Dev nonNegotiables에 양방향 협의 명시. Arki scope 재정렬."
+    },
+    {
+      "id": "MF-028",
+      "date": "2026-04-19",
+      "session": "session_040",
+      "topic": "dashboard-bug-axis-review",
+      "afterAgent": "dev",
+      "feedback": "하드코딩 최소화, 데이터를 호출하는 형태로. 구조설계·코딩 전반에 적용.",
+      "instruction": "코딩 시 하드코딩 지양, 데이터 테이블 참조 방식 사용",
+      "effect": "session_index.cwd 테이블 도입. token_log 기반 역산. append-missing-tokens 1회성 한정.",
+      "status": "resolved",
+      "statusNote": "session-end-tokens 3단 fallback + session_index cwd 테이블로 근원 해소. PD-016 closed."
     }
   ],
   "statusValues": [
