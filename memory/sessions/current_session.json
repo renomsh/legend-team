@@ -6,9 +6,14 @@
   "startedAt": "2026-04-17T17:00:00.000Z",
   "closedAt": "2026-04-17T18:00:00.000Z",
   "mode": "observation",
-  "agentsCompleted": ["Dev"],
+  "agentsCompleted": [
+    "Dev"
+  ],
   "novaInvoked": false,
-  "masterDecisions": ["D-029", "D-030"],
+  "masterDecisions": [
+    "D-029",
+    "D-030"
+  ],
   "reportPath": "reports/2026-04-17_agents-completed-hook",
   "notes": [
     "세션 종료 자동화 종합 점검으로 범위 확장",
@@ -17,5 +22,13 @@
     "PD-009: 이번 세션 종료 시 hook 발동 여부 검증 예정"
   ],
   "gaps": [],
-  "closeVerified": false
+  "closeVerified": false,
+  "tokenUsage": {
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "messageCount": 0,
+    "masterTurns": 0
+  }
 }
