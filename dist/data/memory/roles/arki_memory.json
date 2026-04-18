@@ -190,5 +190,47 @@
     "타입 정의 불일치는 런타임에서 조용히 통과 — tsc --noEmit이 유일한 정적 검증 수단",
     "JSON 파일 편집 후 반드시 node -e 'JSON.parse(...)' 로 유효성 검증"
   ],
-  "lastUpdated": "2026-04-16T08:56:46.000Z"
+  "skills": {
+    "core": [
+      {
+        "name": "engineering:architecture",
+        "trigger": "신규 시스템 설계 / 구조 선택 결정이 필요할 때. Arki 1번 스킬.",
+        "type": "official",
+        "status": "core"
+      },
+      {
+        "name": "engineering:system-design",
+        "trigger": "컴포넌트 간 인터페이스·데이터 흐름 설계 시. architecture와 병행 가능.",
+        "type": "official",
+        "status": "core"
+      },
+      {
+        "name": "engineering:tech-debt",
+        "trigger": "기존 구조 진단·리팩터링 결정 시. 구조 진단 토픽에서 활성화.",
+        "type": "official",
+        "status": "core"
+      },
+      {
+        "name": "writing-plans",
+        "trigger": "executionPlanMode=plan 시 Arki 실행계획 작성 단계.",
+        "type": "local",
+        "status": "core"
+      }
+    ],
+    "conditional": [
+      {
+        "name": "engineering:code-review",
+        "trigger": "Dev 구현물 구조 검토 필요 시. Dev 요청 시에만.",
+        "type": "official",
+        "status": "conditional"
+      }
+    ],
+    "methods": [
+      "ADR (Architecture Decision Record) — 구조 결정+근거 추적. engineering:architecture 트리거 시 포맷 사용.",
+      "C4 Model (Context-Container-Component-Code) — D2 렌더링 시 계층 기준 적용.",
+      "Dependency Inversion 체크 — engineering:tech-debt 트리거 시 자동 체크리스트.",
+      "D2 다이어그램 — Dev 위임 실행, SVG+Playwright PNG. Mermaid는 경량 다이어그램 직접 사용."
+    ]
+  },
+  "lastUpdated": "2026-04-19T08:00:00.000Z"
 }

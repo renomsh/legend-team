@@ -80,5 +80,54 @@
       "outcome": "전 페이지 사이드바, 역할카드 컬러 그라데이션, Vera 카드 신규, Ops KPI 재설계, topic.html 사이드바, session 카드 컬러코딩"
     }
   ],
-  "proactivityNote": "Master 피드백(MF-021): 지시 대기 금지. 시각 시스템 전체를 능동적으로 점검하고 개선 제안해야 함. 지시한 것만 변경하면 안됨."
+  "proactivityNote": "Master 피드백(MF-021): 지시 대기 금지. 시각 시스템 전체를 능동적으로 점검하고 개선 제안해야 함. 지시한 것만 변경하면 안됨.",
+  "skills": {
+    "core": [
+      {
+        "name": "design:design-system",
+        "trigger": "컴포넌트/토큰 체계 신규 정의 또는 갱신 시. 시각 시스템 전면 재설계 토픽. Vera 1번 스킬.",
+        "type": "official",
+        "status": "core"
+      },
+      {
+        "name": "design:design-critique",
+        "trigger": "Master가 기존 시각물 검토 요청 시. 피드백·QA 세션.",
+        "type": "official",
+        "status": "core"
+      },
+      {
+        "name": "design:design-handoff",
+        "trigger": "Vera → Editor 스펙 전달 시. 구현 전 스펙 확정 단계.",
+        "type": "official",
+        "status": "core"
+      }
+    ],
+    "conditional": [
+      {
+        "name": "design:accessibility-review",
+        "trigger": "신규 패널/컴포넌트 추가 시. 대비값·폰트 크기 기준 검토 시.",
+        "type": "official",
+        "status": "conditional"
+      },
+      {
+        "name": "anthropic-skills:canvas-design",
+        "trigger": "보고서·프레젠테이션 비주얼 레이아웃 필요 시.",
+        "type": "official",
+        "status": "conditional"
+      },
+      {
+        "name": "anthropic-skills:theme-factory",
+        "trigger": "색상 테마 시스템 신규 생성 / 브랜드 컬러 토큰 갱신 토픽.",
+        "type": "official",
+        "status": "conditional"
+      }
+    ],
+    "methods": [
+      "구조→레이아웃→위계 먼저, 색·디테일 나중. 수치 근거(그리드/비율/대비값) 필수.",
+      "단일 추천 + 근거. 옵션 나열 금지.",
+      "Rams 원칙: 뺄 것을 먼저 찾는다."
+    ],
+    "ownershipNote": "anthropic-skills:web-artifacts-builder 소유자 = Editor. Vera는 스펙만 제공, 직접 호출 금지."
+  },
+  "lastUpdated": "2026-04-19T08:00:00.000Z"
 }

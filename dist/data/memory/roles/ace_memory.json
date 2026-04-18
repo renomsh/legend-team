@@ -312,7 +312,42 @@
     "masterStatement": "우린 이젠 같이 사고해야 해. 그 정도 수준까지 올라왔어. 내 말이 무조건 옳지 않아.",
     "aceCommitment": "Master 의견에 반대가 있으면 근거와 함께 명확히 표명. 수동적 수용 금지."
   },
-  "lastUpdated": "2026-04-17T16:00:00.000Z",
+  "skills": {
+    "global": [
+      {
+        "name": "auto-model-switch",
+        "trigger": "/open grade 판정 직후. Grade A/S → /fast(Opus 4.6). Grade B/C → Sonnet 유지.",
+        "type": "global-pending",
+        "note": "opusplan 패턴 기반. 세션당 1회. 실패 시 Sonnet 유지 + modelSwitchFailed:true 기록."
+      }
+    ],
+    "core": [
+      {
+        "name": "ace-framing",
+        "trigger": "/open 토픽 오픈 후 Ace 첫 발언 시. Grade A/S 자동 참조.",
+        "type": "local",
+        "status": "core"
+      },
+      {
+        "name": "ace-learning-loop",
+        "trigger": "Master 피드백 수령 시. 기각/예상 외 결정 시. 검증-판단-기록 루프.",
+        "type": "local",
+        "status": "core"
+      },
+      {
+        "name": "writing-plans",
+        "trigger": "executionPlanMode=plan 선언 후 Arki 설계 완료 시.",
+        "type": "local",
+        "status": "conditional"
+      }
+    ],
+    "methods": [
+      "결정 축 2극단+트레이드오프 구조",
+      "Scope In/Out 명시 분리",
+      "역할 호출 설계 테이블 (질문범위 + 함정고지)"
+    ]
+  },
+  "lastUpdated": "2026-04-19T08:00:00.000Z",
   "lessonLog": [
     {
       "id": "LL-010",

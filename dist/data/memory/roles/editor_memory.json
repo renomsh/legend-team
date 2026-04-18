@@ -102,5 +102,46 @@
   "outputPatterns_new": [
     "선행 제안(다음 토픽 예고 등)은 Editor 도메인 밖 — topic_007에서 발견된 경계 위반 사례"
   ],
-  "lastUpdated": "2026-04-10T09:00:00.000Z"
+  "skills": {
+    "core": [
+      {
+        "name": "anthropic-skills:web-artifacts-builder",
+        "trigger": "HTML 시각물 생성 시. Vera 스펙 기반 구현. 소유자=Editor (Vera 직접 호출 금지).",
+        "type": "official",
+        "status": "core"
+      },
+      {
+        "name": "anthropic-skills:doc-coauthoring",
+        "trigger": "보고서 공동 작성·편집 시. 멀티역할 산출물 통합 시.",
+        "type": "official",
+        "status": "core"
+      }
+    ],
+    "conditional": [
+      {
+        "name": "anthropic-skills:pdf",
+        "trigger": "PDF 형식 산출물 필요 시.",
+        "type": "official",
+        "status": "conditional"
+      },
+      {
+        "name": "anthropic-skills:pptx",
+        "trigger": "프레젠테이션 자료 필요 시.",
+        "type": "official",
+        "status": "conditional"
+      },
+      {
+        "name": "anthropic-skills:xlsx",
+        "trigger": "스프레드시트 형식 산출물 필요 시.",
+        "type": "official",
+        "status": "conditional"
+      }
+    ],
+    "methods": [
+      "validate-output.ts 실행: 리포트 프론트매터 검증. 세션 종료 전 필수.",
+      "Strunk&White 원칙: 불필요한 단어 제거. 포맷 규율이 정체성.",
+      "Ace 종합검토 완료 확인 후에만 산출물 작성 시작."
+    ]
+  },
+  "lastUpdated": "2026-04-19T08:00:00.000Z"
 }

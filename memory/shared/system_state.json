@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_037",
-  "nextSessionId": "session_038",
-  "currentVersion": "v1.01",
+  "lastSessionId": "session_038",
+  "nextSessionId": "session_039",
+  "currentVersion": "v1.11",
   "openTopics": [
     {
       "id": "topic_012",
@@ -13,6 +13,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-042",
+      "date": "2026-04-19",
+      "axis": "역할별 스킬 매핑 + 전역 스킬 + 버전 정책",
+      "summary": "8개 역할 role memory에 skills 필드 신설(core/conditional/methods). 전역 스킬: auto-model-switch(Grade A/S → /fast Opus, opusplan 패턴 기반, 세션당 1회, 구현은 PD-017). 역할별 핵심: Ace(ace-framing·learning-loop·writing-plans) / Arki(engineering:architecture·system-design·tech-debt + ADR·C4 방법론) / Fin(finance:financial-statements·variance-analysis + EBITDA·DCF·Scenario 프레임) / Riki(operations:risk-assessment, R-03 레이어불일치로 재분류) / Nova(product-management:product-brainstorming, 침묵 원칙) / Dev(systematic-debugging·verification·subagent-driven) / Vera(design:design-system·critique·handoff, web-artifacts-builder 소유권=Editor) / Editor(web-artifacts-builder·doc-coauthoring). 버전 정책: 마일스톤형(역할·구조 변경=+0.1 / 역량 확장=+0.01 / 버그수정=+0.001). session_037 소급 v1.1, session_038 완료 시 v1.11."
+    },
     {
       "id": "D-041",
       "date": "2026-04-19",
@@ -36,12 +42,6 @@
       "date": "2026-04-18",
       "axis": "투고 cascade",
       "summary": "Thorax → Int J Epidemiol → Chest → ERJ Open Res → Int J COPD. 기대 base band IF 5~10 (Chest 현실 target, Thorax stretch goal)."
-    },
-    {
-      "id": "D-037",
-      "date": "2026-04-18",
-      "axis": "Nova 궤도 채용/기각",
-      "summary": "궤도 2(modifiable mediator 서사)·궤도 3(near-universal coverage context) 채용. 궤도 4(effect modification) 기각. 궤도 1(PRISm outcome)은 PD-012로 이연(Paper B 씨앗)."
     }
   ],
   "pendingDeferrals": [
@@ -136,8 +136,9 @@
       "fromSession": "session_036",
       "fromTopic": "legend-team-upgrade-v2",
       "item": "역할별 필요 스킬·오픈소스 참조 매핑 — PD-013 완료 후 각 역할 페르소나 기준으로 보강 필요 역량 도출.",
-      "status": "pending",
-      "note": "PD-013 의존. 별도 토픽 또는 PD-013 2차 작업으로 처리."
+      "status": "resolved",
+      "resolvedInSession": "session_038",
+      "note": "D-042 확정. 8개 역할 skills 필드 신설 완료."
     },
     {
       "id": "PD-015",
@@ -154,7 +155,15 @@
       "item": "Hook transcript_path=MISSING 방어 — cliSessionId 기반 ~/.claude/projects/*/ 역탐색 fallback 추가. session_029, 032 같은 손실 재발 방지.",
       "status": "pending",
       "note": "10~15분 작업. 다음 버그 세션에 묶음 처리 권장."
+    },
+    {
+      "id": "PD-017",
+      "fromSession": "session_038",
+      "fromTopic": "global-skill-role-mapping",
+      "item": "auto-model-switch 스킬 파일 생성 — Grade A/S 시 /fast(Opus) 자동 트리거. opusplan 패턴 기반. /open grade 판정 직후 1회 실행. writing-skills 스킬로 생성.",
+      "status": "pending",
+      "note": "D-042 설계 완료. Dev 구현 별도 토픽 또는 다음 세션 처리."
     }
   ],
-  "lastUpdated": "2026-04-18T21:21:27.388Z"
+  "lastUpdated": "2026-04-18T21:58:53.555Z"
 }

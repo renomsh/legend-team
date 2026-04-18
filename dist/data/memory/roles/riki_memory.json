@@ -115,5 +115,34 @@
   "riskPatterns_session012": [
     "역할 재정의 시: 정의 변경과 인프라 변경을 구분. 정의만 바꾸고 인프라가 안 따라오면 dead rule."
   ],
-  "lastUpdated": "2026-04-10T09:00:00.000Z"
+  "skills": {
+    "core": [
+      {
+        "name": "operations:risk-assessment",
+        "trigger": "Grade A/S 토픽 Riki 발언 시. 모든 구조 변경·시스템 도입 결정 시.",
+        "type": "official",
+        "status": "core"
+      }
+    ],
+    "conditional": [
+      {
+        "name": "legal:legal-risk-assessment",
+        "trigger": "법적·규제 리스크가 포함된 토픽 시. 데이터 처리·외부 서비스 연동 결정 시.",
+        "type": "official",
+        "status": "conditional"
+      },
+      {
+        "name": "security-review",
+        "trigger": "보안 관련 구조 변경·인프라 결정 시. 인증·권한·데이터 노출 관련 토픽.",
+        "type": "official",
+        "status": "conditional"
+      }
+    ],
+    "methods": [
+      "🔴/🟡 등급 + 실패모드 + 완화조건 3요소 구조. 확신 없으면 제외.",
+      "기각 리스크는 '의도적 제외' 명시 후 tripWire 등록.",
+      "R-03 수정: 레이어 불일치 리스크 (스킬 트리거 ≠ Grade 전환) — 설계 과제로 분류."
+    ]
+  },
+  "lastUpdated": "2026-04-19T08:00:00.000Z"
 }

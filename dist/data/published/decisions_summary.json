@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-18T21:21:30.575Z",
+  "generatedAt": "2026-04-18T21:58:56.754Z",
   "decisions": [
     {
       "id": "D-001",
@@ -450,6 +450,17 @@
       "axis": "Top 0.1% 페르소나 재정의",
       "decision": "8 roles × 3 fields (persona/scope/hitRateRubric)",
       "value": "8개 역할(Ace·Arki·Fin·Riki·Nova·Dev·Vera·Editor) 페르소나 재정의. 3층 구조 확정(대변층=Ace / 전문가층 6 / 실행층=Editor). 공통 스키마 확장: persona(identity/originSource/style/antiPattern/nonNegotiables) + scope(notOwnerOf 우선/ownerOf) + hitRateRubric(hitCriteria/missCriteria/judgmentTiming/evidenceSource). 실존 인물 레퍼런스: Ace=Master복제 / Arki=Rich Hickey / Fin=Aswath Damodaran / Riki=Nassim Taleb / Nova=Alan Kay / Dev=John Carmack / Vera=Dieter Rams / Editor=Strunk & White. Riki 특례: 일치율 아닌 '기각 후 실현율'. Dev-Arki 양방향 협의 관계 확정. notOwnerOf 우위 원칙(Top 0.1% 지문=침묵 영역).",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-042",
+      "date": "2026-04-19",
+      "session": "session_038",
+      "topic": "global-skill-role-mapping",
+      "axis": "역할별 스킬 매핑 + 전역 스킬 + 버전 정책",
+      "decision": "confirmed",
+      "value": "8개 역할 role memory에 skills 필드 신설(core/conditional/methods). 전역 스킬: auto-model-switch(Grade A/S → /fast Opus, opusplan 패턴 기반, 세션당 1회, 구현은 PD-017). 역할별 핵심: Ace(ace-framing·learning-loop·writing-plans) / Arki(engineering:architecture·system-design·tech-debt + ADR·C4 방법론) / Fin(finance:financial-statements·variance-analysis + EBITDA·DCF·Scenario 프레임) / Riki(operations:risk-assessment, R-03 레이어불일치로 재분류) / Nova(product-management:product-brainstorming, 침묵 원칙) / Dev(systematic-debugging·verification·subagent-driven) / Vera(design:design-system·critique·handoff, web-artifacts-builder 소유권=Editor) / Editor(web-artifacts-builder·doc-coauthoring). 버전 정책: 마일스톤형(역할·구조 변경=+0.1 / 역량 확장=+0.01 / 버그수정=+0.001). session_037 소급 v1.1, session_038 완료 시 v1.11.",
       "authority": "master",
       "status": "confirmed"
     }

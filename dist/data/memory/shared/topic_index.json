@@ -678,7 +678,26 @@
       "gradeMismatch": false,
       "grade": "A",
       "outcome": "8개 역할 페르소나 재정의. 3층 구조 + 실존 인물 레퍼런스 + referenceMode 원칙. D-041 확정. PD-013 resolved."
+    },
+    {
+      "id": "topic_034",
+      "type": "meta-review",
+      "title": "전역스킬, 역할별 스킬 매핑",
+      "status": "completed",
+      "created": "2026-04-19",
+      "closedAt": "2026-04-19T09:00:00.000Z",
+      "controlPath": null,
+      "reportPath": "reports/2026-04-19_global-skill-role-mapping",
+      "reportFiles": [],
+      "published": false,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "grade": "A",
+      "masterDecisions": ["D-042"],
+      "outcome": "8개 역할 skills 필드 신설(core/conditional/methods). 전역 스킬 auto-model-switch 설계(Grade A/S→Opus, opusplan 패턴). 버전 정책 마일스톤형 확정. system_state v1.01→v1.1 소급. PD-014 resolved.",
+      "note": "session_038. Ace·Arki·Fin·Vera·Riki 발언. auto-model-switch 구현은 PD-017 별도. Riki R-03 레이어불일치로 재분류."
     }
   ],
-  "lastUpdated": "2026-04-19T07:00:00.000Z"
+  "lastUpdated": "2026-04-19T09:00:00.000Z"
 }

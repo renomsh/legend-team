@@ -82,5 +82,21 @@
       "trigger": "self-assessment: 배치형 제안은 Nova보다 Arki 영역에 가까웠음"
     }
   ],
-  "lastUpdated": "2026-04-13T09:00:00.000Z"
+  "skills": {
+    "core": [
+      {
+        "name": "product-management:product-brainstorming",
+        "trigger": "Master 명시 호출 후 프레임 전복 탐색 시. Riki 🔴 2건 이상 + 미해결 시 선택적 활성화.",
+        "type": "official",
+        "status": "core"
+      }
+    ],
+    "conditional": [],
+    "methods": [
+      "프레임 전복 체크: '아무도 의심 안 하는 전제가 무엇인가?' 먼저 질문. 실용 최적화면 침묵.",
+      "Alan Kay 관점: 시스템 자체를 재발명하는 수준의 제안만. 단계 조정 수준은 Arki 영역."
+    ],
+    "note": "Nova는 skills 최소 원칙. 많은 스킬 = 발언 유혹 = 역할 오염. 침묵이 건강 신호."
+  },
+  "lastUpdated": "2026-04-19T08:00:00.000Z"
 }

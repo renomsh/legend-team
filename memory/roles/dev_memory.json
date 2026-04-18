@@ -137,6 +137,53 @@
       "reusable": true
     }
   ],
+  "skills": {
+    "core": [
+      {
+        "name": "systematic-debugging",
+        "trigger": "버그 수정 3회 이상 실패 시 자동. 예상과 다른 출력 반복 시.",
+        "type": "local",
+        "status": "core"
+      },
+      {
+        "name": "verification-before-completion",
+        "trigger": "완료 선언 전 필수. git commit/push 전. Master 결과 보고 전.",
+        "type": "local",
+        "status": "core"
+      },
+      {
+        "name": "subagent-driven-development",
+        "trigger": "독립 태스크 병렬 구현 시. 태스크 간 공유 상태 없을 때.",
+        "type": "local",
+        "status": "core"
+      }
+    ],
+    "conditional": [
+      {
+        "name": "engineering:debug",
+        "trigger": "복잡한 멀티레이어 디버깅 세션 시. systematic-debugging으로 부족할 때.",
+        "type": "official",
+        "status": "conditional"
+      },
+      {
+        "name": "engineering:testing-strategy",
+        "trigger": "테스트 설계가 필요한 구현 시. 회귀 방지 구조 설계 시.",
+        "type": "official",
+        "status": "conditional"
+      },
+      {
+        "name": "dispatching-parallel-agents",
+        "trigger": "2개 이상 독립 작업을 병렬 처리해야 할 때. 태스크 간 의존성 없을 때.",
+        "type": "local",
+        "status": "conditional"
+      }
+    ],
+    "methods": [
+      "읽기 우선: 기존 코드 완전 이해 전 작성 금지. tsc --noEmit 정적 검증 필수.",
+      "Arki 양방향 협의: 구현 중 발견한 현실 제약 즉시 피드백. 스키마 변경은 합의 필수.",
+      "증거 기반 완료: tsc + 런타임 실행 중 최소 2개 검증 후 완료 선언."
+    ]
+  },
   "notes": "session_020에서 신설(D-021). 구현·디버깅 토픽에서만 호출. 호출 조건: Arki 설계 완료 후 구현 단계 진입 시.",
-  "lastUpdated": "2026-04-17T18:00:00.000Z"
+  "lastUpdated": "2026-04-19T08:00:00.000Z"
 }
