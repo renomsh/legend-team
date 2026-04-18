@@ -193,7 +193,7 @@ a{color:inherit;text-decoration:none}
     </a>
 
     <div class="sidebar-foot" id="sidebarFoot">
-      <span id="sidebarVersion">v1.01</span> · Legend Team<br>
+      <span id="sidebarVersion">v1.11</span> · Legend Team<br>
       <span id="buildTs">—</span>
     </div>
   </aside>
@@ -429,7 +429,7 @@ async function init() {
   document.getElementById('buildDate').textContent = new Date(data.generatedAt).toLocaleDateString('ko-KR');
   document.getElementById('buildTs').textContent = new Date(data.generatedAt).toLocaleString('ko-KR',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
   document.getElementById('heroNum').textContent = total;
-  const ver = charter?.charter?.version ?? '1.01';
+  const ver = charter?.charter?.version ?? '1.11';
   document.getElementById('heroLabel').textContent = `${total} sessions · v${ver} · Legend Team`;
   document.querySelectorAll('#sidebarVersion').forEach(el => el.textContent = `v${ver}`);
   document.getElementById('mDec').innerHTML = (globalMetrics.totalDecisions ?? 0)+'<small style="font-size:11px;color:#6E6E78;margin-left:6px">건</small>';

@@ -163,6 +163,14 @@
       "item": "auto-model-switch 스킬 파일 생성 — Grade A/S 시 /fast(Opus) 자동 트리거. opusplan 패턴 기반. /open grade 판정 직후 1회 실행. writing-skills 스킬로 생성.",
       "status": "pending",
       "note": "D-042 설계 완료. Dev 구현 별도 토픽 또는 다음 세션 처리."
+    },
+    {
+      "id": "PD-018",
+      "fromSession": "session_039",
+      "fromTopic": "cost-efficiency-version-bug",
+      "item": "실 비용($) 계산 패널 신설 — token_log.json의 input/output/cache_creation/cache_read 분류 기반으로 Sonnet 4.6 단가 적용($3/$15/$3.75/$0.30 per MTok). 세션별 $ 비용 + 누적 합계 + 평균 표시. dashboard-upgrade.html KPI 영역 또는 별도 패널.",
+      "status": "pending",
+      "note": "session_039 비용효율 확인 중 도출. session_036~038 토큰 누락 해소(PD-016) 후 진행 권장."
     }
   ],
   "lastUpdated": "2026-04-18T21:58:53.555Z"
