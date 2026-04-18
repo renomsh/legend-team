@@ -24,17 +24,22 @@ function readStdin() {
 }
 
 // Bug 1 fix: worktree sessions store transcripts in worktree-specific project dirs.
-// When the provided path doesn't exist, search ~/.claude/projects/C--*-{worktreeSlug}/ for the UUID.
-function resolveTranscriptPath(transcriptPath) {
-  if (fs.existsSync(transcriptPath)) return transcriptPath;
-  const uuid = path.basename(transcriptPath);
+// When the provided path doesn't exist, search ~/.claude/projects/ for the UUID.
+// PD-016: when transcript_path is entirely missing, use cliSessionId as the UUID.
+function resolveTranscriptPath(transcriptPath, cliSessionId) {
+  if (transcriptPath && fs.existsSync(transcriptPath)) return transcriptPath;
+  const uuid = transcriptPath ? path.basename(transcriptPath) : cliSessionId;
+  if (!uuid) return transcriptPath || null;
   const projectsDir = path.join(os.homedir(), '.claude', 'projects');
-  if (!fs.existsSync(projectsDir)) return transcriptPath;
+  if (!fs.existsSync(projectsDir)) return transcriptPath || null;
   for (const dir of fs.readdirSync(projectsDir)) {
     const candidate = path.join(projectsDir, dir, uuid);
     if (fs.existsSync(candidate)) return candidate;
+    // also check with .jsonl extension
+    const candidateJsonl = path.join(projectsDir, dir, `${uuid}.jsonl`);
+    if (fs.existsSync(candidateJsonl)) return candidateJsonl;
   }
-  return transcriptPath; // not found anywhere — return original for logging
+  return transcriptPath || null; // not found anywhere — return original for logging
 }
 
 async function aggregateTokens(transcriptPath) {
@@ -157,21 +162,20 @@ function logDiag(cwd, msg) {
 
     logDiag(cwd, `FIRED transcript=${transcriptPath || 'MISSING'} cliSession=${cliSessionId || 'null'} cwd=${cwd}`);
 
-    if (!transcriptPath) {
-      console.error('[session-end-tokens] transcript_path missing');
-      logDiag(cwd, 'ABORT: transcript_path missing');
-      process.exit(0);
-    }
-
-    // Bug 1 fix: resolve worktree fallback before checking existence
-    const resolvedPath = resolveTranscriptPath(transcriptPath);
-    if (resolvedPath !== transcriptPath) {
+    // PD-016: if transcript_path missing, attempt cliSessionId-based reverse lookup
+    const resolvedPath = resolveTranscriptPath(transcriptPath, cliSessionId);
+    if (!transcriptPath && resolvedPath) {
+      logDiag(cwd, `PD-016 FALLBACK: transcript_path missing, found via cliSessionId at ${resolvedPath}`);
+    } else if (resolvedPath && resolvedPath !== transcriptPath) {
       logDiag(cwd, `FALLBACK: found transcript at ${resolvedPath}`);
     }
 
-    // Bug 2 fix: exit when file truly not found (after fallback)
-    if (!fs.existsSync(resolvedPath)) {
-      logDiag(cwd, `ABORT: transcript file not found at ${transcriptPath} (fallback also failed)`);
+    // Abort only when no path could be resolved at all
+    if (!resolvedPath || !fs.existsSync(resolvedPath)) {
+      const reason = !resolvedPath
+        ? 'transcript_path missing and cliSessionId fallback found nothing'
+        : `transcript file not found at ${transcriptPath} (fallback also failed)`;
+      logDiag(cwd, `ABORT: ${reason}`);
       process.exit(0);
     }
 
