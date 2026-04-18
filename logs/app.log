@@ -234,3 +234,12 @@
 [2026-04-18T12:50:47.481Z] [sync-system-state] lastSession=session_034 openTopics=1 recentDecisions=5 deferrals=9
 [2026-04-18T12:50:54.998Z] [sync-system-state] lastSession=session_034 openTopics=1 recentDecisions=5 deferrals=9
 [2026-04-18T12:50:57.633Z] [compute-dashboard] 완료 — 34개 세션, 2개 경보
+[2026-04-18T13:04:22.063Z] [compute-dashboard] 완료 — 34개 세션, 7개 경보
+[2026-04-18T13:40:22.831Z] [checklist] [WARN] reports: no reportPath in current_session.json
+[2026-04-18T13:40:22.834Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-18T13:40:22.834Z] [checklist] [INFO] topic_index: topic found: topic_010a (completed)
+[2026-04-18T13:40:22.835Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-18T13:40:22.835Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-18T13:40:22.835Z] [session-log] [INFO] END session_035 | topic: token-cost-display-fix | duration: 40m
+[2026-04-18T13:40:54.624Z] [sync-system-state] lastSession=session_035 openTopics=1 recentDecisions=5 deferrals=9
+[2026-04-18T13:40:56.546Z] [compute-dashboard] 완료 — 35개 세션, 7개 경보

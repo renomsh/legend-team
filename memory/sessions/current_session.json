@@ -1,46 +1,25 @@
 {
-  "sessionId": "session_033",
-  "topic": "Dashboard Bug & ace-framing 조건화",
-  "topicSlug": "dashboard-bug-ace-framing",
+  "sessionId": "session_035",
+  "topic": "token cost 표시 진단 / 자율성 바닥 원인",
+  "topicSlug": "token-cost-display-fix",
   "status": "closed",
-  "startedAt": "2026-04-18T00:00:00.000Z",
-  "closedAt": "2026-04-18T09:00:00.000Z",
+  "startedAt": "2026-04-18T13:00:00.000Z",
+  "closedAt": "2026-04-18T14:30:00.000Z",
   "mode": "observation",
-  "agentsCompleted": [
-    "Ace",
-    "Nova",
-    "Arki",
-    "Fin",
-    "Riki",
-    "Editor"
-  ],
-  "novaInvoked": true,
-  "masterDecisions": [
-    "D-032",
-    "D-033"
-  ],
-  "grade": "A",
-  "framingLevel": 2,
-  "framingSkipped": false,
-  "reportPath": "reports/2026-04-18_dashboard-bug-ace-framing",
+  "grade": "C",
+  "framingLevel": 0,
+  "framingSkipped": true,
+  "agentsCompleted": ["Dev"],
   "notes": [
-    "대시보드 과거 회귀 버그 — CF Pages stale data. 원인: e94543a 커밋이 worktree에만 존재, origin/main 미반영. 수동 push로 해결.",
-    "ace-framing L0/L1/L2 grade 조건화 설계 및 구현 (D-032)",
-    "버전 관리 project_charter.json 단일 소스화, nav.js 자동 반영 (D-033)",
-    "Dashboard: Grade Distribution + Grade Mismatch 패널 추가",
-    "Decisions: 최신순 정렬. OPS: 순서 1,2,3,4,5 정렬.",
-    "PD-010 등록: token hook 미캡처 진단 이연"
+    "token_log 백필 완료: 2/34 → 17/34 세션 Cache 데이터 복원",
+    "masterTurns 파서 버그 소급 수정 (type=human→user+content체크) — avg 0→26.4",
+    "scripts/backfill-token-log.ts 신설",
+    "차트: Cache% connectNulls:true (끊김 연결)",
+    "차트: 자율성 masterTurns>0 세션만 표시",
+    "이연 과제 패널: status=pending 필터 적용",
+    "PD-006 resolved: hook 발동 정상 확인",
+    "PD-007 resolved: Vera session_030 도입 완료 소급"
   ],
-  "gaps": [
-    "token_log session_028~032 캡처 실패 — PD-010으로 이연"
-  ],
-  "tokenUsage": {
-    "input_tokens": 3800,
-    "output_tokens": 58165,
-    "cache_creation_input_tokens": 701541,
-    "cache_read_input_tokens": 21101159,
-    "messageCount": 216,
-    "masterTurns": 0,
-    "total_billable": 21864665
-  }
+  "gaps": [],
+  "masterDecisions": []
 }

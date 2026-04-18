@@ -528,8 +528,19 @@
         "editor"
       ],
       "note": "Track B SES upstream CMA 재설계. G1 PASS, G2 FAIL→Pooled 재수렴. Thorax 1순위."
+    },
+    {
+      "sessionId": "session_035",
+      "topicSlug": "token-cost-display-fix",
+      "topic": "token cost 표시 진단 / 자율성 바닥 원인",
+      "startedAt": "2026-04-18T13:00:00.000Z",
+      "closedAt": "2026-04-18T14:30:00.000Z",
+      "agentsCompleted": [
+        "Dev"
+      ],
+      "note": "token_log 백필 완료: 2/34 → 17/34 세션 Cache 데이터 복원 | masterTurns 파서 버그 소급 수정 (type=human→user+content체크) — avg 0→26.4 | scripts/backfill-token-log.ts 신설 | 차트: Cache% connectNulls:true (끊김 연결) | 차트: 자율성 masterTurns>0 세션만 표시 | 이연 과제 패널: status=pending 필터 적용 | PD-006 resolved: hook 발동 정상 확인 | PD-007 resolved: Vera session_030 도입 완료 소급"
     }
   ],
-  "lastUpdated": "2026-04-18T12:50:52.861Z",
+  "lastUpdated": "2026-04-18T13:40:52.771Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

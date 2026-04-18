@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-04-18T13:04:22.059Z",
-  "totalSessions": 34,
+  "generatedAt": "2026-04-18T13:40:56.544Z",
+  "totalSessions": 35,
   "autoDataFrom": "session_027",
   "metrics": {
     "avgMasterTurns": 26.35,
     "avgCacheHitRate": 0.9388,
     "cacheSampleSize": 6,
-    "cacheSampleTotal": 34,
+    "cacheSampleTotal": 35,
     "avgAdoptionRate": 0,
     "totalDecisions": 39,
     "gradeDistribution": {
       "S": 6,
       "A": 9,
       "B": 9,
-      "C": 10
+      "C": 11
     },
     "gradeMismatchCount": 1,
     "gradeMismatchSessions": [
@@ -924,6 +924,28 @@
         "cacheHitRate": 0.9461897887094917,
         "messageCount": 509
       }
+    },
+    {
+      "sessionId": "session_035",
+      "topicSlug": "token-cost-display-fix",
+      "topic": "token cost 표시 진단 / 자율성 바닥 원인",
+      "startedAt": "2026-04-18T13:00:00.000Z",
+      "closedAt": "2026-04-18T14:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 0,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "Dev"
+      ]
     }
   ],
   "roleFrequency": [
@@ -1034,11 +1056,12 @@
     },
     {
       "role": "dev",
-      "count": 3,
+      "count": 4,
       "sessions": [
         "session_020",
         "session_031",
-        "session_032"
+        "session_032",
+        "session_035"
       ]
     },
     {

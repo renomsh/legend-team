@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_034",
-  "nextSessionId": "session_035",
+  "lastSessionId": "session_035",
+  "nextSessionId": "session_036",
   "currentVersion": "v1.01",
   "openTopics": [
     {
@@ -123,5 +123,5 @@
       "note": "Paper A 투고 확정 후 재평가"
     }
   ],
-  "lastUpdated": "2026-04-18T12:50:54.997Z"
+  "lastUpdated": "2026-04-18T13:40:54.623Z"
 }
