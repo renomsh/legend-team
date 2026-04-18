@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-04-18T05:27:06.310Z",
+  "generatedAt": "2026-04-18T10:07:47.049Z",
   "totalSessions": 33,
   "autoDataFrom": "session_027",
   "metrics": {
     "avgMasterTurns": 0,
-    "avgCacheHitRate": 0.9447,
+    "avgCacheHitRate": 0.9395,
     "avgAdoptionRate": 0,
     "totalDecisions": 33,
     "gradeDistribution": {
@@ -797,7 +797,12 @@
         "Fin",
         "Riki",
         "Editor"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 4038118,
+        "cacheHitRate": 0.9342676464630305,
+        "messageCount": 75
+      }
     }
   ],
   "roleFrequency": [

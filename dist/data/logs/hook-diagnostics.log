@@ -1,3 +1,13 @@
 [2026-04-18T04:23:53.692Z] [session-end-tokens] FIRED transcript=C:\Users\문성훈\.claude\projects\C--Projects-legend-team\eab5ca17-96e4-4a7a-8ec7-224b2d0a26b6.jsonl cliSession=eab5ca17-96e4-4a7a-8ec7-224b2d0a26b6 cwd=C:\Projects\legend-team
 [2026-04-18T04:23:53.693Z] [session-end-tokens] ABORT: transcript file not found at C:\Users\문성훈\.claude\projects\C--Projects-legend-team\eab5ca17-96e4-4a7a-8ec7-224b2d0a26b6.jsonl
 [2026-04-18T04:23:53.700Z] [session-end-tokens] OK legend=session_032 total=undefined master=0 msg=0
+[2026-04-18T09:40:00.303Z] [session-end-tokens] FIRED transcript=C:\Users\문성훈\.claude\projects\C--Projects-legend-team\9f184ef2-6719-4f7f-bc53-f9fbdaea6502.jsonl cliSession=9f184ef2-6719-4f7f-bc53-f9fbdaea6502 cwd=C:\Projects\legend-team
+[2026-04-18T09:40:00.304Z] [session-end-tokens] ABORT: transcript file not found at C:\Users\문성훈\.claude\projects\C--Projects-legend-team\9f184ef2-6719-4f7f-bc53-f9fbdaea6502.jsonl
+[2026-04-18T09:40:00.308Z] [session-end-tokens] OK legend=session_033 total=undefined master=0 msg=0
+[2026-04-18T09:48:50.299Z] [session-end-tokens] FIRED transcript=C:/Users/문성훈/.claude/projects/C--Projects-legend-team/nonexistent-uuid.jsonl cliSession=test-001 cwd=C:/Projects/legend-team
+[2026-04-18T09:48:50.307Z] [session-end-tokens] ABORT: transcript file not found at C:/Users/문성훈/.claude/projects/C--Projects-legend-team/nonexistent-uuid.jsonl (fallback also failed)
+[2026-04-18T09:49:14.086Z] [session-end-tokens] FIRED transcript=C:/Users/문성훈/.claude/projects/C--Projects-legend-team/fcc88f89-5248-4687-b35c-447c7ce41dbc.jsonl cliSession=fcc88f89-5248-4687-b35c-447c7ce41dbc cwd=C:/Projects/legend-team
+[2026-04-18T09:49:14.091Z] [session-end-tokens] FALLBACK: found transcript at C:\Users\문성훈\.claude\projects\C--Projects-legend-team--claude-worktrees-hopeful-lalande-e82b49\fcc88f89-5248-4687-b35c-447c7ce41dbc.jsonl
+[2026-04-18T09:49:14.111Z] [session-end-tokens] OK legend=session_033 total=4038118 master=0 msg=75
+[2026-04-18T10:07:38.376Z] [session-end-tokens] FIRED transcript=C:\Users\문성훈\.claude\projects\c--Projects-legend-team\452aadfa-8295-45ad-8751-69fb4833fecf.jsonl cliSession=452aadfa-8295-45ad-8751-69fb4833fecf cwd=c:\Projects\legend-team
+[2026-04-18T10:07:38.382Z] [session-end-tokens] ABORT: transcript file not found at C:\Users\문성훈\.claude\projects\c--Projects-legend-team\452aadfa-8295-45ad-8751-69fb4833fecf.jsonl (fallback also failed)

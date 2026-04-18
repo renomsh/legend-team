@@ -12,6 +12,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 const readline = require('readline');
 
 function readStdin() {
@@ -22,6 +23,20 @@ function readStdin() {
   });
 }
 
+// Bug 1 fix: worktree sessions store transcripts in worktree-specific project dirs.
+// When the provided path doesn't exist, search ~/.claude/projects/C--*-{worktreeSlug}/ for the UUID.
+function resolveTranscriptPath(transcriptPath) {
+  if (fs.existsSync(transcriptPath)) return transcriptPath;
+  const uuid = path.basename(transcriptPath);
+  const projectsDir = path.join(os.homedir(), '.claude', 'projects');
+  if (!fs.existsSync(projectsDir)) return transcriptPath;
+  for (const dir of fs.readdirSync(projectsDir)) {
+    const candidate = path.join(projectsDir, dir, uuid);
+    if (fs.existsSync(candidate)) return candidate;
+  }
+  return transcriptPath; // not found anywhere — return original for logging
+}
+
 async function aggregateTokens(transcriptPath) {
   const sums = {
     input_tokens: 0,
@@ -30,6 +45,7 @@ async function aggregateTokens(transcriptPath) {
     cache_read_input_tokens: 0,
     messageCount: 0,
     masterTurns: 0,
+    total_billable: 0, // Bug 3 fix: initialize here so early return is safe
   };
   if (!fs.existsSync(transcriptPath)) return sums;
 
@@ -140,18 +156,27 @@ function logDiag(cwd, msg) {
       logDiag(cwd, 'ABORT: transcript_path missing');
       process.exit(0);
     }
-    if (!fs.existsSync(transcriptPath)) {
-      logDiag(cwd, `ABORT: transcript file not found at ${transcriptPath}`);
+
+    // Bug 1 fix: resolve worktree fallback before checking existence
+    const resolvedPath = resolveTranscriptPath(transcriptPath);
+    if (resolvedPath !== transcriptPath) {
+      logDiag(cwd, `FALLBACK: found transcript at ${resolvedPath}`);
     }
 
-    const usage = await aggregateTokens(transcriptPath);
+    // Bug 2 fix: exit when file truly not found (after fallback)
+    if (!fs.existsSync(resolvedPath)) {
+      logDiag(cwd, `ABORT: transcript file not found at ${transcriptPath} (fallback also failed)`);
+      process.exit(0);
+    }
+
+    const usage = await aggregateTokens(resolvedPath);
     const legendSessionId = updateCurrentSession(cwd, usage);
 
     appendLog(cwd, {
       capturedAt: new Date().toISOString(),
       cliSessionId,
       legendSessionId,
-      transcriptPath,
+      transcriptPath: resolvedPath,
       usage,
     });
 

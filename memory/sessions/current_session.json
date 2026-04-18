@@ -6,9 +6,19 @@
   "startedAt": "2026-04-18T00:00:00.000Z",
   "closedAt": "2026-04-18T09:00:00.000Z",
   "mode": "observation",
-  "agentsCompleted": ["Ace", "Nova", "Arki", "Fin", "Riki", "Editor"],
+  "agentsCompleted": [
+    "Ace",
+    "Nova",
+    "Arki",
+    "Fin",
+    "Riki",
+    "Editor"
+  ],
   "novaInvoked": true,
-  "masterDecisions": ["D-032", "D-033"],
+  "masterDecisions": [
+    "D-032",
+    "D-033"
+  ],
   "grade": "A",
   "framingLevel": 2,
   "framingSkipped": false,
@@ -21,5 +31,16 @@
     "Decisions: 최신순 정렬. OPS: 순서 1,2,3,4,5 정렬.",
     "PD-010 등록: token hook 미캡처 진단 이연"
   ],
-  "gaps": ["token_log session_028~032 캡처 실패 — PD-010으로 이연"]
+  "gaps": [
+    "token_log session_028~032 캡처 실패 — PD-010으로 이연"
+  ],
+  "tokenUsage": {
+    "input_tokens": 103,
+    "output_tokens": 35933,
+    "cache_creation_input_tokens": 229399,
+    "cache_read_input_tokens": 3772683,
+    "messageCount": 75,
+    "masterTurns": 0,
+    "total_billable": 4038118
+  }
 }

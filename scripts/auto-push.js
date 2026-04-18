@@ -70,6 +70,7 @@ function syncClaudeDir(mainRoot) {
 
 function runHookChain() {
   const steps = [
+    'node .claude/hooks/session-end-tokens.js',
     'node .claude/hooks/session-end-finalize.js',
     'npx ts-node scripts/compute-dashboard.ts',
     'node scripts/build.js',
