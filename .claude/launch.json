@@ -31,5 +31,11 @@
       "runtimeArgs": ["http-server", "C:/Projects/legend-team/.claude/worktrees/pensive-cartwright-5b731e/dist", "-p", "8093", "-c-1"],
       "port": 8093
     }
+    ,{
+      "name": "objective-preview",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "C:/Projects/legend-team/.claude/worktrees/objective-mcclintock-7a6965/dist", "-p", "8094", "-c-1"],
+      "port": 8094
+    }
   ]
 }
