@@ -185,5 +185,15 @@
     ]
   },
   "notes": "session_020에서 신설(D-021). 구현·디버깅 토픽에서만 호출. 호출 조건: Arki 설계 완료 후 구현 단계 진입 시.",
-  "lastUpdated": "2026-04-19T08:00:00.000Z"
+  "lastUpdated": "2026-04-18T23:05:00.172Z",
+  "observations": [
+    {
+      "date": "2026-04-19",
+      "session": "session_040",
+      "type": "structural-pattern",
+      "finding": "hook fallback은 데이터 조회 계층으로 설계해야 함 — heuristic(시간순 1:1 매칭) 대신 session_index.cwd 테이블 조회. 데이터 먼저, 로직 최소화.",
+      "appliedTo": "session-end-tokens.js 3단 fallback + session_index cwd 테이블",
+      "masterFeedback": "하드코딩 최소화, 데이터를 호출하는 형태 (MF-028)"
+    }
+  ]
 }

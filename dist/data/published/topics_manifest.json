@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-18T23:02:54.880Z",
+  "generatedAt": "2026-04-18T23:05:31.682Z",
   "topics": [
     {
       "id": "topic_001",
@@ -578,6 +578,18 @@
       "masterDecisions": [
         "D-042"
       ]
+    },
+    {
+      "id": "topic_035",
+      "title": "대시보드 버그 — 설계축 재검토 여부 판단 (PD-016 근원 해소)",
+      "status": "closed",
+      "created": "2026-04-19",
+      "reportPath": "reports/2026-04-19_dashboard-bug-axis-review",
+      "reportFiles": [],
+      "published": false,
+      "outcome": "PD-016 영구 해소. session-end-tokens 3단 fallback + session_index cwd 테이블 도입. 036~039 token_log 소급 복구.",
+      "note": null,
+      "masterDecisions": []
     }
   ]
 }
