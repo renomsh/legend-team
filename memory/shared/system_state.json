@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_032",
-  "nextSessionId": "session_033",
-  "currentVersion": "v0.9.0",
+  "lastSessionId": "session_033",
+  "nextSessionId": "session_034",
+  "currentVersion": "v1.01",
   "openTopics": [
     {
       "id": "topic_012",
@@ -13,6 +13,18 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-033",
+      "date": "2026-04-18",
+      "axis": "버전 관리 규칙 — project_charter 단일 소스화 + 명명 규칙",
+      "summary": "project_charter.json이 버전 유일 소스. nav.js가 모든 페이지에 자동 반영. 큰 변화 +0.1, 작은 변화 +0.01. 현재 v1.01."
+    },
+    {
+      "id": "D-032",
+      "date": "2026-04-18",
+      "axis": "Topic Grade System (Lv. S/A/B/C) + ace-framing 조건화",
+      "summary": "Grade S/A→L2 스킬, B→L1 인라인, C→L0 생략. Size 역산으로 사후 검증(gradeMismatch). /open 시 단일 문자 B/A/S/C 입력. Lv. 표기."
+    },
     {
       "id": "D-031",
       "date": "2026-04-18",
@@ -31,18 +43,6 @@
       "axis": "SessionEnd Hook 체인 완성 — session-end-finalize.js + sync-system-state.ts 자동화",
       "summary": "session-end-finalize.js 신설: current_session.json status=closed 시 session_index 자동 append(agentsCompleted·decisions·note 포함). sync-system-state.ts 신설: system_state.json openTopics·recentDecisions 자동 재계산. Hook 체인: tokens→finalize→compute-dashboard→build. PD-009 이행."
     },
-    {
-      "id": "D-028",
-      "date": "2026-04-17",
-      "axis": "compute-dashboard.ts 세션 종료 Hook 자동 실행",
-      "summary": "세션 종료 시 compute-dashboard.ts를 auto-push.js 직전에 자동 실행. dashboard_data.json 항상 최신 상태 유지. 수동 트리거 경로 제거."
-    },
-    {
-      "id": "D-027",
-      "date": "2026-04-17",
-      "axis": "Size 공식 masterTurns 제거",
-      "summary": "Size = (decisionAxes × 2) + rolesCalled + (rolesRecalled × 2) + (sessionsSpanned × 3). masterTurns를 공식에서 제거하고 버블 색상 독립 변수로 유지. 복잡도(Size)와 자율성(masterTurns) 개념 분리."
-    }
   ],
   "pendingDeferrals": [
     {
@@ -91,9 +91,18 @@
       "fromSession": "session_032",
       "fromTopic": "agents-completed-hook",
       "item": "SessionEnd hook 체인에 session-end-finalize.js 추가 — current_session → session_index 자동 전파, sync-system-state 자동 재계산. hook 발동 진단 로그(logs/hook-diagnostics.log) 추가.",
-      "status": "in-progress",
-      "note": "session_032 종료 시 발동 여부 + transcript_path 정상 여부 검증."
+      "status": "resolved",
+      "resolvedInSession": "session_032",
+      "note": "session-end-finalize.js + sync-system-state.ts 구현 완료. hook 발동 진단 로그 추가."
+    },
+    {
+      "id": "PD-010",
+      "fromSession": "session_033",
+      "fromTopic": "dashboard-bug-ace-framing",
+      "item": "SessionEnd token hook 미캡처 진단 — session_028~032 token_log 누락. hook-diagnostics.log 공백. session-end-tokens.js 발동 여부 + transcript_path 형식 검증 필요.",
+      "status": "pending",
+      "note": "token_log.json에 session_027만 유효. session_029 포함 모든 이후 세션 미캡처. hook 발동 자체가 되는지 확인 필요."
     }
   ],
-  "lastUpdated": "2026-04-18T04:23:56.880Z"
+  "lastUpdated": "2026-04-18T09:00:00.000Z"
 }

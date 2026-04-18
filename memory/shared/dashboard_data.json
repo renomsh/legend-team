@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-04-18T05:21:09.154Z",
-  "totalSessions": 32,
+  "generatedAt": "2026-04-18T05:27:06.310Z",
+  "totalSessions": 33,
   "autoDataFrom": "session_027",
   "metrics": {
     "avgMasterTurns": 0,
     "avgCacheHitRate": 0.9447,
     "avgAdoptionRate": 0,
-    "totalDecisions": 31,
+    "totalDecisions": 33,
     "gradeDistribution": {
-      "S": 4,
+      "S": 5,
       "A": 9,
       "B": 8,
       "C": 11
@@ -767,6 +767,37 @@
       "agentsCompleted": [
         "Dev"
       ]
+    },
+    {
+      "sessionId": "session_033",
+      "topicSlug": "dashboard-bug-ace-framing",
+      "topic": "Dashboard Bug & ace-framing 조건화",
+      "startedAt": "2026-04-18T00:00:00.000Z",
+      "closedAt": "2026-04-18T09:00:00.000Z",
+      "decisionCount": 2,
+      "decisionAxes": 2,
+      "decisions": [
+        "D-032",
+        "D-033"
+      ],
+      "rolesCalled": 6,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 0,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "Ace",
+        "Nova",
+        "Arki",
+        "Fin",
+        "Riki",
+        "Editor"
+      ]
     }
   ],
   "roleFrequency": [
@@ -877,6 +908,48 @@
       "count": 1,
       "sessions": [
         "session_032"
+      ]
+    },
+    {
+      "role": "Ace",
+      "count": 1,
+      "sessions": [
+        "session_033"
+      ]
+    },
+    {
+      "role": "Nova",
+      "count": 1,
+      "sessions": [
+        "session_033"
+      ]
+    },
+    {
+      "role": "Arki",
+      "count": 1,
+      "sessions": [
+        "session_033"
+      ]
+    },
+    {
+      "role": "Fin",
+      "count": 1,
+      "sessions": [
+        "session_033"
+      ]
+    },
+    {
+      "role": "Riki",
+      "count": 1,
+      "sessions": [
+        "session_033"
+      ]
+    },
+    {
+      "role": "Editor",
+      "count": 1,
+      "sessions": [
+        "session_033"
       ]
     }
   ],

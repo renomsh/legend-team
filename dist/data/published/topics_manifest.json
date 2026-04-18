@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-18T05:21:09.650Z",
+  "generatedAt": "2026-04-18T05:27:06.799Z",
   "topics": [
     {
       "id": "topic_001",
@@ -494,6 +494,21 @@
       "masterDecisions": [
         "D-029",
         "D-030"
+      ]
+    },
+    {
+      "id": "topic_030",
+      "title": "Dashboard Bug & ace-framing 조건화",
+      "status": "completed",
+      "created": "2026-04-18",
+      "reportPath": "reports/2026-04-18_dashboard-bug-ace-framing",
+      "reportFiles": [],
+      "published": false,
+      "outcome": "Dashboard 회귀(CF Pages 미push) 해결. Topic Grade System(Lv. S/A/B/C) 설계·구현. ace-framing L0/L1/L2 조건화. 버전 단일소스화(v1.01). Decisions 순서·OPS 순서 수정.",
+      "note": "session_033. Nova 제안(Layer0/1) 채택. PD-010 token_log 훅 진단 이연.",
+      "masterDecisions": [
+        "D-032",
+        "D-033"
       ]
     }
   ]

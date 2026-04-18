@@ -103,8 +103,7 @@
       "value": "Ace가 종합검토 수행. Editor는 결과물 작성/정리/출력만 담당. Editor에서 synthesis 역할 완전 분리.",
       "authority": "master",
       "status": "confirmed"
-    }
-    ,
+    },
     {
       "id": "D-010",
       "date": "2026-04-05",
@@ -346,6 +345,24 @@
       "value": "auto-push.js에 syncClaudeDir() 추가. 워크트리 감지 시 .claude/(worktrees/ 제외)를 main repo로 복사 후 commit → merge → push. 워크트리 .claude/ 수정사항이 매 세션 자동으로 main에 반영됨.",
       "authority": "master",
       "status": "confirmed"
+    },
+    {
+      "id": "D-032",
+      "date": "2026-04-18",
+      "session": "session_033",
+      "topic": "dashboard-bug-ace-framing",
+      "axis": "Topic Grade System (Lv. S/A/B/C) + ace-framing 조건화",
+      "decision": "A",
+      "value": "Grade S/A→L2 스킬, B→L1 인라인, C→L0 생략. Size 역산으로 사후 검증(gradeMismatch). /open 시 단일 문자 B/A/S/C로 선언. 대시보드 Lv. 표기."
+    },
+    {
+      "id": "D-033",
+      "date": "2026-04-18",
+      "session": "session_033",
+      "topic": "dashboard-bug-ace-framing",
+      "axis": "버전 관리 규칙 — project_charter 단일 소스화 + 명명 규칙",
+      "decision": "A",
+      "value": "project_charter.json이 버전 유일 소스. nav.js가 모든 페이지에 자동 반영. 규칙: 큰 변화 +0.1, 작은 변화 +0.01. 현재 v1.01."
     }
   ],
   "lastUpdated": "2026-04-18T00:00:00.000Z"

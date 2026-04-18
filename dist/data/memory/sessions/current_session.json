@@ -2,18 +2,24 @@
   "sessionId": "session_033",
   "topic": "Dashboard Bug & ace-framing 조건화",
   "topicSlug": "dashboard-bug-ace-framing",
-  "status": "open",
+  "status": "closed",
   "startedAt": "2026-04-18T00:00:00.000Z",
-  "closedAt": null,
+  "closedAt": "2026-04-18T09:00:00.000Z",
   "mode": "observation",
-  "agentsCompleted": [],
-  "novaInvoked": false,
-  "masterDecisions": [],
+  "agentsCompleted": ["Ace", "Nova", "Arki", "Fin", "Riki", "Editor"],
+  "novaInvoked": true,
+  "masterDecisions": ["D-032", "D-033"],
+  "grade": "A",
+  "framingLevel": 2,
+  "framingSkipped": false,
   "reportPath": "reports/2026-04-18_dashboard-bug-ace-framing",
   "notes": [
-    "대시보드 과거 회귀 버그 — Claude Code 직접 소통 이후 발생",
-    "배포 실패 이력 있음",
-    "ace-framing 스킬 무조건 발동 → 조건부 발동 검토"
+    "대시보드 과거 회귀 버그 — CF Pages stale data. 원인: e94543a 커밋이 worktree에만 존재, origin/main 미반영. 수동 push로 해결.",
+    "ace-framing L0/L1/L2 grade 조건화 설계 및 구현 (D-032)",
+    "버전 관리 project_charter.json 단일 소스화, nav.js 자동 반영 (D-033)",
+    "Dashboard: Grade Distribution + Grade Mismatch 패널 추가",
+    "Decisions: 최신순 정렬. OPS: 순서 1,2,3,4,5 정렬.",
+    "PD-010 등록: token hook 미캡처 진단 이연"
   ],
-  "gaps": []
+  "gaps": ["token_log session_028~032 캡처 실패 — PD-010으로 이연"]
 }
