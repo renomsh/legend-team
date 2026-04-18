@@ -43,12 +43,16 @@ function appendOrUpdateSessionIndex(sess) {
   if (!Array.isArray(index.sessions)) index.sessions = [];
 
   const existing = index.sessions.find(s => s.sessionId === sess.sessionId);
+  // cwd: hook이 발동된 디렉토리 = 세션이 실행된 worktree 경로.
+  // session-end-tokens.js의 tier 3 fallback이 이 값을 조회해 transcript를 역탐색한다.
+  const sessionCwd = sess.cwd || CWD;
   const entry = {
     sessionId: sess.sessionId,
     topicSlug: sess.topicSlug,
     ...(sess.topic && { topic: sess.topic }),
     startedAt: sess.startedAt,
     closedAt: sess.closedAt || null,
+    cwd: sessionCwd,
     ...(Array.isArray(sess.masterDecisions) && sess.masterDecisions.length > 0 && { decisions: sess.masterDecisions }),
     ...(Array.isArray(sess.agentsCompleted) && sess.agentsCompleted.length > 0 && { agentsCompleted: sess.agentsCompleted }),
     ...(Array.isArray(sess.notes) && sess.notes.length > 0 && { note: sess.notes.join(' | ') }),
