@@ -1,6 +1,39 @@
 {
   "decisions": [
     {
+      "id": "D-046",
+      "date": "2026-04-19",
+      "session": "session_043",
+      "topic": "copd-paper-ver34-finalization",
+      "axis": "Statistical Anchor Registry — data provenance gate",
+      "decision": "adopt",
+      "value": "향후 정량 원고 세션은 /open 시 current_session.json에 canonical_data 필드(경로+md5)를 기록. 본문 모든 정량 주장은 canonical 앵커 인용. 출처 없는 숫자는 [pending: source] 플래그 필수. Editor 숫자 기입 시 출처 주석 의무. Riki 공격영역에 'data provenance' 신설. 근거: session_041 ver3.0_E 작성 시 canonical Xlsx 미확인하고 save04.md 캐시 숫자·LLM 합성 CI로 7차 검토 루프가 오염 동결(E-xxx 등록).",
+      "authority": "master-implied",
+      "status": "protocol-adopted"
+    },
+    {
+      "id": "D-045",
+      "date": "2026-04-19",
+      "session": "session_043",
+      "topic": "copd-paper-ver34-finalization",
+      "axis": "COPD 논문 primary outcome 프레임 — Y1 vs Y1-Y3 기로에서의 절충",
+      "decision": "(e)",
+      "value": "Y1 primary (mediation novelty 유지) + Y1-Y3 강력 pre-specified sensitivity (TE significance 확보). Riki의 HARKing·sister paper·mediation 윈도우 비정합 3대 반대점 모두 해소. Y1-Y3를 primary로 전환하지 않음. 대신 Results §Sensitivity에 3-year TE OR 1.72 (1.07-2.76, p=0.025) 및 p-for-trend 0.013을 핵심 sensitivity로 승격 강조. Nova N1이 계기(5-window sweep 촉발), Ace 합성(Riki 반대 통합). 소유권: Ace 제안, Master 승인.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-044",
+      "date": "2026-04-19",
+      "session": "session_043",
+      "topic": "copd-paper-ver34-finalization",
+      "axis": "COPD 논문 canonical cohort 재확정 및 전체 통계 재분석",
+      "decision": "ver1.0 raw 기반 재분석",
+      "value": "Master 확정 필터: Enroll_COPDNOTCOPD ∈ {1,3,4} (PRISm은 stratifier로 유지, non-COPD 제외), age≥40, exclude military(27)/housewife(28), 학생(30)은 age≥40 필터로 자동 제외. Canonical cohort n=2,779. 기존 Xlsx (ver2.0 폴더, n=2,932)는 cohort 필터 불일치로 폐기. prev_exac 공변량은 self-reported KO1_P_EX_YN(HIRA 불필요)으로 확보. canonical 폴더: C:/Projects/COPD/canonical_ver3.5/. 새 숫자: Y1 primary NIE OR 1.12 (1.02-1.25), TE OR 1.55 (0.76-3.14); Y1-Y3 sensitivity TE OR 1.72 (1.07-2.76), p-trend 0.013; NB rate crude IRR 1.44 (1.12-1.86).",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
       "id": "D-001",
       "date": "2026-04-03",
       "session": "session_002",

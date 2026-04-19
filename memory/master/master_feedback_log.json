@@ -1,6 +1,90 @@
 {
   "feedbackLog": [
     {
+      "id": "MF-035",
+      "date": "2026-04-19",
+      "session": "session_043",
+      "topic": "copd-paper-ver34-finalization",
+      "afterAgent": "ace",
+      "feedback": "'학생 제외되었나? 직업군에 따른 유의미로 볼 수 있어. 직업군 List-up해봐' — 직업군 분석 확인 요청",
+      "instruction": "KO1_Job 30개 코드 분포 제시 + 추후 '직업군 배제하고 현재 자료 내 최선' 지시로 확장",
+      "effect": "직업군 30개 list-up + 학생 auto-excluded(age≥40) 확인. 이후 Extended FU 방향으로 전환.",
+      "status": "resolved",
+      "statusNote": "직업군은 Education primary 유지하는 원래 프레임 지속. save04 sensitivity occ_wage_v4 이미 존재하는 점도 확인."
+    },
+    {
+      "id": "MF-034",
+      "date": "2026-04-19",
+      "session": "session_043",
+      "topic": "copd-paper-ver34-finalization",
+      "afterAgent": "ace",
+      "feedback": "'그런데 왜 갑자기 노바의 e를 들고 온거야. 에이스 너의 의견을 받아들인건데' — (e) 프레임 소유권 혼동 지적",
+      "instruction": "(e)는 Ace 제안임을 명확히. Nova N1 계기·N2 기각과 구분",
+      "effect": "Ace가 (e) 소유권 정정. Nova N1(계기) / N2(empirical 기각) / Ace (e)(채택) 3개 구분 명시",
+      "status": "resolved",
+      "statusNote": "향후 역할 제안 인용 시 소유권 명확화 필요. Ace 자체 학습 포인트."
+    },
+    {
+      "id": "MF-033",
+      "date": "2026-04-19",
+      "session": "session_043",
+      "topic": "copd-paper-ver34-finalization",
+      "afterAgent": "riki",
+      "feedback": "'기존 논문에서 확장해서 3년으로 늘려서 추가 논문내는건데, 뭐가 문제지?' — Y1-Y3 프레이밍 정당화",
+      "instruction": "extension paper 프레임을 받아들이고 Riki 입장 재조정",
+      "effect": "Riki HARKing·sister paper 공격점 해소, mediation 윈도우 정합성·attrition 2건만 잔존. Ace (e) 제안으로 연결",
+      "status": "resolved",
+      "statusNote": "프레이밍 재구성으로 방법론 공격 대부분 해소. Riki 수정 입장 반영."
+    },
+    {
+      "id": "MF-032",
+      "date": "2026-04-19",
+      "session": "session_043",
+      "topic": "copd-paper-ver34-finalization",
+      "afterAgent": "ace",
+      "feedback": "'ERJ 모수가 작은데 되겠어?' — ERJ 권고 철회 요구",
+      "instruction": "ERJ의 실제 수락확률 재평가 + 저널 순위 솔직 재배치",
+      "effect": "ERJ 수락률 5-10%로 솔직 재평가, 철회. Thorax/Chest/Respirology 3저널 중심 현실 순위.",
+      "status": "resolved",
+      "statusNote": "향후 저널 추천 시 모수·검정력 기준 냉정 판단 강화. Ace 학습."
+    },
+    {
+      "id": "MF-031",
+      "date": "2026-04-19",
+      "session": "session_043",
+      "topic": "copd-paper-ver34-finalization",
+      "afterAgent": "ace",
+      "feedback": "'데이터 미스가 왜 발생한거야. 아키 데이터 정확하게 검증해봐' — 구조적 원인 분석 요구",
+      "instruction": "Arki 호출, forensic trail 재구성 + 재발방지 프로토콜",
+      "effect": "Arki 4건 구조 결함 도출 (데이터-서술 분리 게이트 부재, 세션 경계 데이터 ID 고정 실패, Editor 역할 경계 혼동, Riki 공격점 provenance 맹점). P-1~5 프로토콜 권고. D-046 채택.",
+      "status": "resolved",
+      "statusNote": "Statistical Anchor Registry 도입 확정. 향후 정량 세션 프로토콜 변경."
+    },
+    {
+      "id": "MF-030",
+      "date": "2026-04-19",
+      "session": "session_043",
+      "topic": "copd-paper-ver34-finalization",
+      "afterAgent": "ace",
+      "feedback": "'자가 인용이 문제가 되나? 그럼 억지로 안 넣어도 돼' — 와이프(권은진 박사) 논문 자가인용 수용 확인",
+      "instruction": "자가인용의 ICMJE 투명성 원칙 확인 후 진행",
+      "effect": "Kwon 2025 Respir Res(같은 코호트 sister paper) 인용 적격 확인. Methods + Discussion Limitations에 인용 권고.",
+      "status": "resolved",
+      "statusNote": "자가인용은 동일 코호트·데이터 사용 시 ICMJE 필수. 본문 인용 정당화됨."
+    },
+    {
+      "id": "MF-029",
+      "date": "2026-04-19",
+      "session": "session_043",
+      "topic": "copd-paper-ver34-finalization",
+      "afterAgent": "ace",
+      "feedback": "Master 지적 3건 복합: (1) 'codp ver1.0 원본데이터 기반으로 재점검' (2) 'ver2.0 자료는 무시해. 1.0자료 기준으로 보자' (3) '40세이하 제외, 군인/주부 제외'",
+      "instruction": "ver1.0 raw로 cohort 재구축, Xlsx 폐기, 정확한 필터 재적용",
+      "effect": "canonical_ver3.5 폴더 생성, 전체 Python 재분석 (9 scripts). canonical N=2,779 확정. D-044 기록.",
+      "status": "resolved",
+      "statusNote": "데이터 정확성 회복. 본 세션 최대 작업 분량."
+    },
+    {
       "id": "MF-001",
       "date": "2026-04-03",
       "session": "session_002",

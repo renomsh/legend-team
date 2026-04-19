@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-19T04:12:33.943Z",
-  "totalSessions": 41,
+  "generatedAt": "2026-04-19T07:01:44.410Z",
+  "totalSessions": 42,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 20.69,
-    "avgCacheHitRate": 0.9399,
-    "cacheSampleSize": 15,
-    "cacheSampleTotal": 41,
+    "avgMasterTurns": 21.03,
+    "avgCacheHitRate": 0.942,
+    "cacheSampleSize": 16,
+    "cacheSampleTotal": 42,
     "avgAdoptionRate": 0,
-    "totalDecisions": 43,
+    "totalDecisions": 46,
     "gradeDistribution": {
-      "S": 8,
+      "S": 9,
       "A": 11,
       "B": 11,
       "C": 11
@@ -1211,12 +1211,51 @@
         "cacheHitRate": 0.9544980883073033,
         "messageCount": 141
       }
+    },
+    {
+      "sessionId": "session_043",
+      "topicSlug": "copd-paper-ver34-finalization",
+      "topic": "COPD 논문 ver3.4 최종화 — canonical 재분석 + (e) 프레임 확정",
+      "startedAt": "2026-04-19T18:00:00.000Z",
+      "closedAt": "2026-04-19T22:30:00.000Z",
+      "decisionCount": 3,
+      "decisionAxes": 3,
+      "decisions": [
+        "D-046",
+        "D-045",
+        "D-044"
+      ],
+      "rolesCalled": 8,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 17,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 33,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "nova",
+        "dev",
+        "ace-review",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 54693287,
+        "cacheHitRate": 0.973843334740514,
+        "messageCount": 239
+      }
     }
   ],
   "roleFrequency": [
     {
       "role": "editor",
-      "count": 29,
+      "count": 30,
       "sessions": [
         "session_007",
         "session_009",
@@ -1246,12 +1285,13 @@
         "session_037",
         "session_038",
         "session_041",
-        "session_042"
+        "session_042",
+        "session_043"
       ]
     },
     {
       "role": "ace",
-      "count": 22,
+      "count": 23,
       "sessions": [
         "session_007",
         "session_008",
@@ -1274,12 +1314,13 @@
         "session_038",
         "session_040",
         "session_041",
-        "session_042"
+        "session_042",
+        "session_043"
       ]
     },
     {
       "role": "arki",
-      "count": 14,
+      "count": 15,
       "sessions": [
         "session_008",
         "session_009",
@@ -1294,12 +1335,13 @@
         "session_037",
         "session_038",
         "session_041",
-        "session_042"
+        "session_042",
+        "session_043"
       ]
     },
     {
       "role": "riki",
-      "count": 11,
+      "count": 12,
       "sessions": [
         "session_009",
         "session_011",
@@ -1311,12 +1353,13 @@
         "session_037",
         "session_038",
         "session_041",
-        "session_042"
+        "session_042",
+        "session_043"
       ]
     },
     {
       "role": "fin",
-      "count": 10,
+      "count": 11,
       "sessions": [
         "session_009",
         "session_012",
@@ -1327,12 +1370,13 @@
         "session_037",
         "session_038",
         "session_041",
-        "session_042"
+        "session_042",
+        "session_043"
       ]
     },
     {
       "role": "dev",
-      "count": 7,
+      "count": 8,
       "sessions": [
         "session_020",
         "session_031",
@@ -1340,19 +1384,31 @@
         "session_035",
         "session_036",
         "session_037",
-        "session_040"
+        "session_040",
+        "session_043"
       ]
     },
     {
       "role": "nova",
-      "count": 6,
+      "count": 7,
       "sessions": [
         "session_013",
         "session_014",
         "session_015",
         "session_033",
         "session_034",
-        "session_037"
+        "session_037",
+        "session_043"
+      ]
+    },
+    {
+      "role": "ace-review",
+      "count": 4,
+      "sessions": [
+        "session_031",
+        "session_041",
+        "session_042",
+        "session_043"
       ]
     },
     {
@@ -1362,15 +1418,6 @@
         "session_030",
         "session_037",
         "session_038"
-      ]
-    },
-    {
-      "role": "ace-review",
-      "count": 3,
-      "sessions": [
-        "session_031",
-        "session_041",
-        "session_042"
       ]
     },
     {
@@ -1393,42 +1440,53 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=20.7)"
+      "description": "Master 병목: masterTurns=48 (avg=21.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=20.7)"
+      "description": "Master 병목: masterTurns=43 (avg=21.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=20.7)"
+      "description": "Master 병목: masterTurns=42 (avg=21.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=20.7)"
+      "description": "Master 병목: masterTurns=45 (avg=21.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=20.7)"
+      "description": "Master 병목: masterTurns=39 (avg=21.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=20.7)"
+      "description": "Master 병목: masterTurns=49 (avg=21.0)"
+    },
+    {
+      "ruleId": "R2",
+      "severity": "yellow",
+      "sessionId": "session_043",
+      "description": "Master 병목: masterTurns=33 (avg=21.0)"
     },
     {
       "ruleId": "R5",
       "severity": "red",
-      "description": "피드백 재발: \"Master\" 4회"
+      "description": "피드백 재발: \"데이터\" 3회"
+    },
+    {
+      "ruleId": "R5",
+      "severity": "red",
+      "description": "피드백 재발: \"Master\" 5회"
     },
     {
       "ruleId": "R5",
@@ -1448,8 +1506,48 @@
   ],
   "feedbackRecurrences": [
     {
+      "keyword": "ERJ",
+      "occurrences": [
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-032",
+          "summary": "'ERJ 모수가 작은데 되겠어?' — ERJ 권고 철회 요구"
+        },
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-032",
+          "summary": "'ERJ 모수가 작은데 되겠어?' — ERJ 권고 철회 요구"
+        }
+      ]
+    },
+    {
+      "keyword": "데이터",
+      "occurrences": [
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-031",
+          "summary": "'데이터 미스가 왜 발생한거야. 아키 데이터 정확하게 검증해봐' — 구조적 원인 분석 요구"
+        },
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-031",
+          "summary": "'데이터 미스가 왜 발생한거야. 아키 데이터 정확하게 검증해봐' — 구조적 원인 분석 요구"
+        },
+        {
+          "date": "2026-04-18",
+          "feedbackId": "MF-S034-2",
+          "summary": "데이터 분석 시 필요하면 skill 쓰라. Bash 단발 대신 data:* / bio-research:* s"
+        }
+      ]
+    },
+    {
       "keyword": "Master",
       "occurrences": [
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-029",
+          "summary": "Master 지적 3건 복합: (1) 'codp ver1.0 원본데이터 기반으로 재점검' (2) 'ver2."
+        },
         {
           "date": "2026-04-03",
           "feedbackId": "MF-001",
@@ -1467,6 +1565,21 @@
         {
           "date": "2026-04-19",
           "summary": "Riki R-02 기각 — Master 주관 판정 최우선. Master 동의 없이는 실행 불가. 레전드팀=M"
+        }
+      ]
+    },
+    {
+      "keyword": "지적",
+      "occurrences": [
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-029",
+          "summary": "Master 지적 3건 복합: (1) 'codp ver1.0 원본데이터 기반으로 재점검' (2) 'ver2."
+        },
+        {
+          "date": "2026-04-04",
+          "feedbackId": "MF-002",
+          "summary": "역할 혼선 지적. Ace가 종합검토를 해야 하고, Editor는 결과물 작성/정리/출력만 해야 한다."
         }
       ]
     },

@@ -350,6 +350,43 @@
   "lastUpdated": "2026-04-19T08:00:00.000Z",
   "lessonLog": [
     {
+      "id": "LL-012",
+      "date": "2026-04-19",
+      "session": "session_043",
+      "topic": "copd-paper-ver34-finalization",
+      "trigger": "Master P0 발견: ver3.4_E 본문 Table 1 n값·Table 2 CI 조작 — 7차 검토 루프 수렴 상태에서도 외부 원본 대조 없이 내부 텍스트 일관성만 점검한 결과 오염 동결",
+      "lesson": "정량 원고 세션은 /open 시점에 canonical_data 필드(경로+md5)를 current_session에 기록 의무화. 본문 모든 정량 주장은 canonical 앵커 인용. LLM-driven 작성에서 외부 원본 재조회 게이트 부재 = 오염 증폭·고착. 7차 검토 = '수렴' 아닌 '오염 동결'. 향후 원고 작업 시작 전 1차 과제: canonical 데이터 파일 목록화 + md5 기록.",
+      "reusable": true,
+      "protocolChange": "D-046 Statistical Anchor Registry"
+    },
+    {
+      "id": "LL-013",
+      "date": "2026-04-19",
+      "session": "session_043",
+      "topic": "copd-paper-ver34-finalization",
+      "trigger": "Master '왜 갑자기 노바의 e를 들고 온거야. 네 의견을 받아들인건데' — (e) 소유권 혼동 지적",
+      "lesson": "역할 제안 인용 시 소유권 명확화 의무. Nova(N1 계기)·Ace(합성)·Riki(반대점 제거)를 병렬 언급할 때 누구의 제안이 최종 채택됐는지를 명시. '노바의 e'처럼 혼동 표현 금지. 제안 소유권 = 학습 귀속 주체.",
+      "reusable": true
+    },
+    {
+      "id": "LL-014",
+      "date": "2026-04-19",
+      "session": "session_043",
+      "topic": "journal-targeting",
+      "trigger": "Master 'ERJ 모수가 작은데 되겠어?' — 낙관적 저널 추천 철회 요구",
+      "lesson": "저널 수락확률 추정은 모수·검정력·저자 이력·유사 논문 전례 기준으로 냉정 판단. '10-20%'로 답한 뒤 Master 지적받고 '5-10%로 솔직 재평가' 패턴은 이미 신뢰 손실. 첫 추천 시점부터 보수 추정. 기대값 = 확률 × IF 계산으로 비교.",
+      "reusable": true
+    },
+    {
+      "id": "LL-015",
+      "date": "2026-04-19",
+      "session": "session_043",
+      "topic": "copd-paper-ver34-finalization",
+      "trigger": "Master '기존 논문에서 확장해서 3년으로 늘려서 추가 논문내는건데, 뭐가 문제지?' — Riki의 HARKing 공격을 프레이밍 재정의로 해소",
+      "lesson": "Riki의 방법론 공격이 날카로울 때, 공격을 '원 프레임 내 방어'로 맞서기보다 '프레임 자체 재정의' 가능성 탐색. '3-year extension paper'로 논문 정체성을 재정의하면 HARKing·sister paper 공격이 prior-specification으로 전환. Ace 역할 = 프레이밍 재설계권 적극 행사.",
+      "reusable": true
+    },
+    {
       "id": "LL-010",
       "date": "2026-04-17",
       "topic": "legend-team-dashboard",

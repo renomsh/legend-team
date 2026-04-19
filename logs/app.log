@@ -312,3 +312,11 @@
 [2026-04-19T04:12:16.581Z] [session-log] [INFO] END session_042 | topic: copd-discussion-review | duration: unknown (startedAt in future)
 [2026-04-19T04:12:31.887Z] [sync-system-state] lastSession=session_042 openTopics=1 recentDecisions=5 deferrals=15
 [2026-04-19T04:12:33.946Z] [compute-dashboard] 완료 — 41개 세션, 10개 경보
+[2026-04-19T07:01:33.545Z] [checklist] [INFO] reports: 1 file(s) on disk, none registered in topic_index
+[2026-04-19T07:01:33.548Z] [checklist] [INFO] decision_ledger: 3 decision(s) recorded for session_043
+[2026-04-19T07:01:33.548Z] [checklist] [INFO] topic_index: topic found: topic_044 (in-progress)
+[2026-04-19T07:01:33.549Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-19T07:01:33.549Z] [checklist] [INFO] master_feedback: 7 feedback entry(ies) recorded
+[2026-04-19T07:01:33.550Z] [session-log] [INFO] END session_043 | topic: copd-paper-ver34-finalization | duration: unknown (startedAt in future)
+[2026-04-19T07:01:42.411Z] [sync-system-state] lastSession=session_043 openTopics=2 recentDecisions=5 deferrals=15
+[2026-04-19T07:01:44.413Z] [compute-dashboard] 완료 — 42개 세션, 12개 경보
