@@ -456,6 +456,30 @@
       "effect": "session_index.cwd 테이블 도입. token_log 기반 역산. append-missing-tokens 1회성 한정.",
       "status": "resolved",
       "statusNote": "session-end-tokens 3단 fallback + session_index cwd 테이블로 근원 해소. PD-016 closed."
+    },
+    {
+      "id": "MF-029",
+      "date": "2026-04-19",
+      "session": "session_041",
+      "topic": "copd-paper-phase6-discussion",
+      "afterAgent": "ace",
+      "feedback": "정책 서사에 CDM·호흡재활 바우처 저교육군 우선배정을 포함. 주장 금지 영역은 배제. Thorax 정조준.",
+      "instruction": "Thorax 선호 단어·문장톤 사용, 필요 시 선행논문 실물 조사",
+      "effect": "Pépin 2025 Thorax 풀텍스트 voice calibration → British English·Summary Box·numbered Limitations 반영. 정책 P3 Lamberton 2024 + Cox 2022 Thorax + Gloeckl 2025 Thorax 3중 인용.",
+      "status": "resolved",
+      "statusNote": "ver3.0_E/K 전체 원고에 전면 반영."
+    },
+    {
+      "id": "MF-030",
+      "date": "2026-04-19",
+      "session": "session_041",
+      "topic": "copd-paper-phase6-discussion",
+      "afterAgent": "editor",
+      "feedback": "한글 버전도 만들고, K/E로 논문 구분. 논문형태로 작성, 표·그래프 추가(구조 이해 쉽도록).",
+      "instruction": "Arki가 표·그림 검토, 독자 인지부담 최소화 배치",
+      "effect": "ver2.1_E/K(Discussion) + ver3.0_E/K(전체 원고) 4개 파일. Arki 설계 반영: Fig1 DAG, Fig2 Cohort flow, Fig3 NIE Forest(신규), Table 1-4 + Supp Fig S1·Table S1.",
+      "status": "resolved",
+      "statusNote": "이중 언어 전체 원고 산출. Master 잔여 작업은 데이터 populate와 figure 실작도."
     }
   ],
   "statusValues": [

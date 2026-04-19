@@ -540,7 +540,22 @@
         "masterTurns": 25,
         "total_billable": 39843153
       }
+    },
+    {
+      "capturedAt": "2026-04-19T03:13:35.024Z",
+      "cliSessionId": null,
+      "legendSessionId": "session_041",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-frosty-ardinghelli-ec2baf\\9de0bf92-70a2-4ca4-a68d-2414e198e6fa.jsonl",
+      "usage": {
+        "input_tokens": 30190,
+        "output_tokens": 180911,
+        "cache_creation_input_tokens": 1221853,
+        "cache_read_input_tokens": 14293542,
+        "messageCount": 89,
+        "masterTurns": 17,
+        "total_billable": 15726496
+      }
     }
   ],
-  "lastUpdated": "2026-04-19T00:46:31.574Z"
+  "lastUpdated": "2026-04-19T03:13:35.024Z"
 }

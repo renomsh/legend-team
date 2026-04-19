@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-19T00:46:37.357Z",
-  "totalSessions": 39,
+  "generatedAt": "2026-04-19T03:13:38.994Z",
+  "totalSessions": 40,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 20.91,
-    "avgCacheHitRate": 0.9412,
-    "cacheSampleSize": 13,
-    "cacheSampleTotal": 39,
+    "avgMasterTurns": 20.8,
+    "avgCacheHitRate": 0.9389,
+    "cacheSampleSize": 14,
+    "cacheSampleTotal": 40,
     "avgAdoptionRate": 0,
-    "totalDecisions": 42,
+    "totalDecisions": 43,
     "gradeDistribution": {
-      "S": 7,
+      "S": 8,
       "A": 10,
       "B": 11,
       "C": 11
@@ -1142,12 +1142,49 @@
         "cacheHitRate": 0.9359657354426745,
         "messageCount": 391
       }
+    },
+    {
+      "sessionId": "session_041",
+      "topicSlug": "copd-paper-phase6-discussion",
+      "topic": "COPD 논문 Phase 6 — Discussion 초고 작성",
+      "startedAt": "2026-04-19T13:00:00.000Z",
+      "closedAt": "2026-04-19T14:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-043"
+      ],
+      "rolesCalled": 8,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 17,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "fin",
+        "ace-review",
+        "editor",
+        "arki-review",
+        "editor-full"
+      ],
+      "tokenUsage": {
+        "totalBillable": 15726496,
+        "cacheHitRate": 0.9088828178889945,
+        "messageCount": 89
+      }
     }
   ],
   "roleFrequency": [
     {
       "role": "editor",
-      "count": 27,
+      "count": 28,
       "sessions": [
         "session_007",
         "session_009",
@@ -1175,12 +1212,13 @@
         "session_033",
         "session_034",
         "session_037",
-        "session_038"
+        "session_038",
+        "session_041"
       ]
     },
     {
       "role": "ace",
-      "count": 20,
+      "count": 21,
       "sessions": [
         "session_007",
         "session_008",
@@ -1201,12 +1239,13 @@
         "session_036",
         "session_037",
         "session_038",
-        "session_040"
+        "session_040",
+        "session_041"
       ]
     },
     {
       "role": "arki",
-      "count": 12,
+      "count": 13,
       "sessions": [
         "session_008",
         "session_009",
@@ -1219,12 +1258,13 @@
         "session_033",
         "session_034",
         "session_037",
-        "session_038"
+        "session_038",
+        "session_041"
       ]
     },
     {
       "role": "riki",
-      "count": 9,
+      "count": 10,
       "sessions": [
         "session_009",
         "session_011",
@@ -1234,12 +1274,13 @@
         "session_033",
         "session_034",
         "session_037",
-        "session_038"
+        "session_038",
+        "session_041"
       ]
     },
     {
       "role": "fin",
-      "count": 8,
+      "count": 9,
       "sessions": [
         "session_009",
         "session_012",
@@ -1248,7 +1289,8 @@
         "session_031",
         "session_033",
         "session_037",
-        "session_038"
+        "session_038",
+        "session_041"
       ]
     },
     {
@@ -1287,9 +1329,24 @@
     },
     {
       "role": "ace-review",
+      "count": 2,
+      "sessions": [
+        "session_031",
+        "session_041"
+      ]
+    },
+    {
+      "role": "arki-review",
       "count": 1,
       "sessions": [
-        "session_031"
+        "session_041"
+      ]
+    },
+    {
+      "role": "editor-full",
+      "count": 1,
+      "sessions": [
+        "session_041"
       ]
     }
   ],
@@ -1298,37 +1355,37 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=20.9)"
+      "description": "Master 병목: masterTurns=48 (avg=20.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=20.9)"
+      "description": "Master 병목: masterTurns=43 (avg=20.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=20.9)"
+      "description": "Master 병목: masterTurns=42 (avg=20.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=20.9)"
+      "description": "Master 병목: masterTurns=45 (avg=20.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=20.9)"
+      "description": "Master 병목: masterTurns=39 (avg=20.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=20.9)"
+      "description": "Master 병목: masterTurns=49 (avg=20.8)"
     },
     {
       "ruleId": "R5",
@@ -1535,6 +1592,21 @@
           "date": "2026-04-17",
           "feedbackId": "MF-017",
           "summary": "배제 대신 정교화 — 정교화 경로가 있는 대리 지표는 배제 금지. 없는 것과 업그레이드해서 정교화해 가는 것"
+        }
+      ]
+    },
+    {
+      "keyword": "버전도",
+      "occurrences": [
+        {
+          "date": "2026-04-17",
+          "feedbackId": "MF-023",
+          "summary": "세션에 버전도 안맞고, 홈에 세션 클릭하면 메뉴바가 상단으로 올라가. 박스도 흰색이라 안보이고. 베라 이번 "
+        },
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-030",
+          "summary": "한글 버전도 만들고, K/E로 논문 구분. 논문형태로 작성, 표·그래프 추가(구조 이해 쉽도록)."
         }
       ]
     },

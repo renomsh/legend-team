@@ -1,6 +1,24 @@
 {
   "topics": [
     {
+      "id": "topic_042",
+      "type": "research-writing",
+      "title": "COPD 논문 Phase 6 — Discussion 초고 및 전체 원고 작성 (Thorax 정조준)",
+      "status": "completed",
+      "created": "2026-04-19",
+      "sessionId": "session_041",
+      "reportPath": "reports/2026-04-19_copd-paper-phase6-discussion",
+      "grade": "A",
+      "outcome": "Thorax 정조준 영문 전체 원고(ver3.0_E) + 한글 대응판(ver3.0_K) 완성. 요약박스·Abstract·Introduction·Methods·Results(Figure 1-3, Table 1-4)·Discussion·Supplement·References 12편. Riki 5 공격점 선제방어 내장(asymmetry argument, PM 선제비판, construct overlap/prodromal/OOP 3줄). 정책 P1+P2(완화)+P3 강화. Cover letter 1문단 포함. Master 잔여 작업: Table 1 값 populate, Figure 1-3 작도, 저자·소속 확정.",
+      "reportFiles": [
+        "phase6_discussion_ver2.1_E.md",
+        "phase6_discussion_ver2.1_K.md",
+        "full_manuscript_ver3.0_E.md",
+        "full_manuscript_ver3.0_K.md"
+      ],
+      "note": "전원 참석: Ace(framing·종합검토) → Arki(Discussion 뼈대·표그림 설계) → Riki(reviewer 공격점 5) → Fin(투고 cost/return) → Ace 재검토(Riki 판정+asymmetry 반격) → Editor(양판 작성). PubMed 4스트림 검증: SES×SGRQ mediation zero match → novelty 확정. Thorax voice calibration Pépin 2025 풀텍스트. Post-hoc SGRQ sub-score 분석 deferral(R&R 시 예비)."
+    },
+    {
       "id": "topic_036",
       "type": "implementation",
       "title": "auto-model-switch 스킬 파일 생성",
