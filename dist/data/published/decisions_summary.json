@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-19T00:22:04.812Z",
+  "generatedAt": "2026-04-19T00:45:14.496Z",
   "decisions": [
     {
       "id": "D-001",
@@ -461,6 +461,17 @@
       "axis": "역할별 스킬 매핑 + 전역 스킬 + 버전 정책",
       "decision": "confirmed",
       "value": "8개 역할 role memory에 skills 필드 신설(core/conditional/methods). 전역 스킬: auto-model-switch(Grade A/S → /fast Opus, opusplan 패턴 기반, 세션당 1회, 구현은 PD-017). 역할별 핵심: Ace(ace-framing·learning-loop·writing-plans) / Arki(engineering:architecture·system-design·tech-debt + ADR·C4 방법론) / Fin(finance:financial-statements·variance-analysis + EBITDA·DCF·Scenario 프레임) / Riki(operations:risk-assessment, R-03 레이어불일치로 재분류) / Nova(product-management:product-brainstorming, 침묵 원칙) / Dev(systematic-debugging·verification·subagent-driven) / Vera(design:design-system·critique·handoff, web-artifacts-builder 소유권=Editor) / Editor(web-artifacts-builder·doc-coauthoring). 버전 정책: 마일스톤형(역할·구조 변경=+0.1 / 역량 확장=+0.01 / 버그수정=+0.001). session_037 소급 v1.1, session_038 완료 시 v1.11.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
+      "id": "D-043",
+      "date": "2026-04-19",
+      "session": "session_041",
+      "topic": "auto-model-switch-skill",
+      "axis": "auto-model-switch 스킬 발동 규칙 확정",
+      "decision": "confirmed",
+      "value": "D-042 구체화. 발동 범위: Grade S/A/B (C만 제외). 커맨드: /model claude-opus-4-7 (기존 /fast Opus 4.6 → Opus 4.7로 수정). 이미 Opus 4.7 계열(1M 포함) 상태면 안내 생략·유지. 세션당 1회, /open 보고 말미. 스킬 파일: .claude/skills/auto-model-switch/SKILL.md",
       "authority": "master",
       "status": "confirmed"
     }

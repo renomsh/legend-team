@@ -296,3 +296,18 @@
 [2026-04-18T23:05:31.089Z] [compute-dashboard] 완료 — 39개 세션, 10개 경보
 [2026-04-19T00:22:02.753Z] [sync-system-state] lastSession=session_040 openTopics=1 recentDecisions=5 deferrals=15
 [2026-04-19T00:22:04.420Z] [compute-dashboard] 완료 — 39개 세션, 10개 경보
+[2026-04-19T00:44:45.858Z] [session-log] [WARN] END topicSlug mismatch. expected: dashboard-bug-axis-review, got: auto-model-switch-skill
+[2026-04-19T00:44:45.867Z] [checklist] [INFO] reports: 1 file(s) on disk, none registered in topic_index
+[2026-04-19T00:44:45.868Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-19T00:44:45.869Z] [checklist] [INFO] topic_index: topic found: topic_035 (closed)
+[2026-04-19T00:44:45.870Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-19T00:44:45.870Z] [checklist] [INFO] master_feedback: 1 feedback entry(ies) recorded
+[2026-04-19T00:44:45.871Z] [session-log] [INFO] END session_040 | topic: auto-model-switch-skill | duration: unknown (startedAt in future)
+[2026-04-19T00:45:04.160Z] [checklist] [INFO] reports: 1 file(s) on disk, none registered in topic_index
+[2026-04-19T00:45:04.162Z] [checklist] [INFO] decision_ledger: 1 decision(s) recorded for session_041
+[2026-04-19T00:45:04.163Z] [checklist] [INFO] topic_index: topic found: topic_036 (completed)
+[2026-04-19T00:45:04.164Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-19T00:45:04.164Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-19T00:45:04.165Z] [session-log] [INFO] END session_041 | topic: auto-model-switch-skill | duration: unknown (startedAt in future)
+[2026-04-19T00:45:12.066Z] [sync-system-state] lastSession=session_041 openTopics=1 recentDecisions=5 deferrals=15
+[2026-04-19T00:45:14.098Z] [compute-dashboard] 완료 — 40개 세션, 10개 경보

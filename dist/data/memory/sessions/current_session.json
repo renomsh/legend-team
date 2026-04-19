@@ -1,11 +1,11 @@
 {
-  "sessionId": "session_040",
-  "topic": "대시보드 버그 — 설계축 재검토 여부 판단",
-  "topicSlug": "dashboard-bug-axis-review",
+  "sessionId": "session_041",
+  "topic": "auto-model-switch 스킬 파일 생성",
+  "topicSlug": "auto-model-switch-skill",
   "status": "closed",
-  "startedAt": "2026-04-19T11:00:00.000Z",
-  "closedAt": "2026-04-19T12:30:00.000Z",
-  "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\youthful-williamson-264cfb",
+  "startedAt": "2026-04-19T13:00:00.000Z",
+  "closedAt": "2026-04-19T13:30:00.000Z",
+  "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\elastic-shannon-6e96ce",
   "mode": "observation",
   "grade": "B",
   "gradeActual": "B",
@@ -13,24 +13,21 @@
   "framingLevel": 1,
   "framingSkipped": false,
   "agentsCompleted": [
-    "ace",
-    "dev"
+    "ace"
   ],
   "notes": [
-    "Master 요청: 수정 전 Dev 의견 먼저",
-    "직전 session_039 current_session.json 스탤 상태로 발견 — auto-push는 closed, 상태파일만 open 잔존",
-    "PD-016 근원 해소: session-end-tokens 3단 fallback + session_index cwd 테이블 도입",
-    "session_036~039 token_log 소급 복구 완료 (30→34 entries)",
-    "session_005~038 session_index cwd 백필 완료 (32개)",
-    "Master 피드백 MF-028: 하드코딩 최소화, 데이터 호출 방식"
+    "PD-017 해소. D-042 설계 기반 writing-skills 규격으로 스킬 파일 생성.",
+    "Master 피드백: /fast → /model claude-opus-4-7 수정, Grade B도 발동 범위 포함, 이미 Opus 4.7이면 생략.",
+    "PD-016 system_state 오기 수정 (resolved로 갱신).",
+    "스킬 명령 트리 반영은 Claude Code 재시작 필요."
   ],
-  "gaps": [
-    "session_039 session_index 미등록 — session-end-finalize hook 미발동으로 추정, 수동 append 필요"
+  "gaps": [],
+  "masterDecisions": [
+    "D-043"
   ],
-  "masterDecisions": [],
-  "reportPath": "reports/2026-04-19_dashboard-bug-axis-review",
+  "reportPath": "reports/2026-04-19_auto-model-switch-skill",
   "resolvedDeferrals": [
-    "PD-016"
+    "PD-017"
   ],
   "tokenUsage": {
     "input_tokens": 13,

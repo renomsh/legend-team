@@ -1,6 +1,20 @@
 {
-  "generatedAt": "2026-04-19T00:22:04.810Z",
+  "generatedAt": "2026-04-19T00:45:14.492Z",
   "topics": [
+    {
+      "id": "topic_036",
+      "title": "auto-model-switch 스킬 파일 생성",
+      "status": "completed",
+      "created": "2026-04-19",
+      "reportPath": "reports/2026-04-19_auto-model-switch-skill",
+      "reportFiles": [],
+      "published": false,
+      "outcome": ".claude/skills/auto-model-switch/SKILL.md 생성. Grade S/A/B → /model claude-opus-4-7 안내, 이미 Opus 4.7이면 생략. PD-017 resolved. D-043 확정.",
+      "note": "PD-017 해소. D-042 구체화 → D-043 확정. /fast → /model claude-opus-4-7 수정. Grade B 포함.",
+      "masterDecisions": [
+        "D-043"
+      ]
+    },
     {
       "id": "topic_001",
       "title": "레전드팀의 shared asset 조회 프로토콜 설계",

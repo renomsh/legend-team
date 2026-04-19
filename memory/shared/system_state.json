@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_040",
-  "nextSessionId": "session_041",
+  "lastSessionId": "session_041",
+  "nextSessionId": "session_042",
   "currentVersion": "v1.11",
   "openTopics": [
     {
@@ -13,6 +13,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-043",
+      "date": "2026-04-19",
+      "axis": "auto-model-switch 스킬 발동 규칙 확정",
+      "summary": "D-042 구체화. 발동 범위: Grade S/A/B (C만 제외). 커맨드: /model claude-opus-4-7 (기존 /fast Opus 4.6 → Opus 4.7로 수정). 이미 Opus 4.7 계열(1M 포함) 상태면 안내 생략·유지. 세션당 1회, /open 보고 말미. 스킬 파일: .claude/skills/auto-model-switch/SKILL.md"
+    },
     {
       "id": "D-042",
       "date": "2026-04-19",
@@ -36,12 +42,6 @@
       "date": "2026-04-18",
       "axis": "G2 검정력 FAIL 대응",
       "summary": "PRISm complete-case n=51/events=3으로 moderated mediation 식별 불가. Primary analysis를 Pooled CMA로 강등. Phenotype은 covariate로 투입, phenotype-stratified는 descriptive sensitivity만."
-    },
-    {
-      "id": "D-038",
-      "date": "2026-04-18",
-      "axis": "투고 cascade",
-      "summary": "Thorax → Int J Epidemiol → Chest → ERJ Open Res → Int J COPD. 기대 base band IF 5~10 (Chest 현실 target, Thorax stretch goal)."
     }
   ],
   "pendingDeferrals": [
@@ -173,5 +173,5 @@
       "note": "session_039 비용효율 확인 중 도출. session_036~038 토큰 누락 해소(PD-016) 후 진행 권장."
     }
   ],
-  "lastUpdated": "2026-04-19T00:22:02.752Z"
+  "lastUpdated": "2026-04-19T00:45:12.065Z"
 }
