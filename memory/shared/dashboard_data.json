@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-19T03:13:38.994Z",
-  "totalSessions": 40,
+  "generatedAt": "2026-04-19T04:12:33.943Z",
+  "totalSessions": 41,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 20.8,
-    "avgCacheHitRate": 0.9389,
-    "cacheSampleSize": 14,
-    "cacheSampleTotal": 40,
+    "avgMasterTurns": 20.69,
+    "avgCacheHitRate": 0.9399,
+    "cacheSampleSize": 15,
+    "cacheSampleTotal": 41,
     "avgAdoptionRate": 0,
     "totalDecisions": 43,
     "gradeDistribution": {
       "S": 8,
-      "A": 10,
+      "A": 11,
       "B": 11,
       "C": 11
     },
@@ -1179,12 +1179,44 @@
         "cacheHitRate": 0.9088828178889945,
         "messageCount": 89
       }
+    },
+    {
+      "sessionId": "session_042",
+      "topicSlug": "copd-discussion-review",
+      "topic": "COPD Discussion 논문 초고 리뷰",
+      "startedAt": "2026-04-19T15:00:00.000Z",
+      "closedAt": "2026-04-19T17:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 6,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 9,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 17,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "fin",
+        "ace-review",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 29761321,
+        "cacheHitRate": 0.9544980883073033,
+        "messageCount": 141
+      }
     }
   ],
   "roleFrequency": [
     {
       "role": "editor",
-      "count": 28,
+      "count": 29,
       "sessions": [
         "session_007",
         "session_009",
@@ -1213,12 +1245,13 @@
         "session_034",
         "session_037",
         "session_038",
-        "session_041"
+        "session_041",
+        "session_042"
       ]
     },
     {
       "role": "ace",
-      "count": 21,
+      "count": 22,
       "sessions": [
         "session_007",
         "session_008",
@@ -1240,12 +1273,13 @@
         "session_037",
         "session_038",
         "session_040",
-        "session_041"
+        "session_041",
+        "session_042"
       ]
     },
     {
       "role": "arki",
-      "count": 13,
+      "count": 14,
       "sessions": [
         "session_008",
         "session_009",
@@ -1259,12 +1293,13 @@
         "session_034",
         "session_037",
         "session_038",
-        "session_041"
+        "session_041",
+        "session_042"
       ]
     },
     {
       "role": "riki",
-      "count": 10,
+      "count": 11,
       "sessions": [
         "session_009",
         "session_011",
@@ -1275,12 +1310,13 @@
         "session_034",
         "session_037",
         "session_038",
-        "session_041"
+        "session_041",
+        "session_042"
       ]
     },
     {
       "role": "fin",
-      "count": 9,
+      "count": 10,
       "sessions": [
         "session_009",
         "session_012",
@@ -1290,7 +1326,8 @@
         "session_033",
         "session_037",
         "session_038",
-        "session_041"
+        "session_041",
+        "session_042"
       ]
     },
     {
@@ -1329,10 +1366,11 @@
     },
     {
       "role": "ace-review",
-      "count": 2,
+      "count": 3,
       "sessions": [
         "session_031",
-        "session_041"
+        "session_041",
+        "session_042"
       ]
     },
     {
@@ -1355,37 +1393,37 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=20.8)"
+      "description": "Master 병목: masterTurns=48 (avg=20.7)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=20.8)"
+      "description": "Master 병목: masterTurns=43 (avg=20.7)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=20.8)"
+      "description": "Master 병목: masterTurns=42 (avg=20.7)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=20.8)"
+      "description": "Master 병목: masterTurns=45 (avg=20.7)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=20.8)"
+      "description": "Master 병목: masterTurns=39 (avg=20.7)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=20.8)"
+      "description": "Master 병목: masterTurns=49 (avg=20.7)"
     },
     {
       "ruleId": "R5",
