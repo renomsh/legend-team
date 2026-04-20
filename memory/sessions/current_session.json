@@ -1,92 +1,52 @@
 {
-  "sessionId": "session_049",
-  "topicId": "topic_052",
-  "topic": "Phase 4 — UI",
-  "topicSlug": "phase4-ui",
+  "sessionId": "session_050",
+  "topicId": "topic_053",
+  "topic": "에디 누락 재발 방지 — session-end-finalize.js editor push 자동화",
+  "topicSlug": "editor-missing-fix",
   "status": "closed",
-  "closedAt": "2026-04-20T17:30:00.000Z",
-  "startedAt": "2026-04-20T16:00:00.000Z",
-  "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\crazy-moser-a0436c",
+  "startedAt": "2026-04-20T18:00:00.000Z",
+  "closedAt": "2026-04-20T18:30:00.000Z",
+  "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\tender-lovelace-e55375",
   "mode": "observation",
-  "grade": "A",
-  "gradeDeclared": "A",
-  "framingLevel": 2,
-  "framingSkipped": false,
+  "grade": "C",
+  "gradeDeclared": "C",
+  "framingLevel": 0,
+  "framingSkipped": true,
   "agentsCompleted": [
-    "ace",
-    "vera",
-    "riki",
-    "ace",
-    "vera",
-    "ace",
-    "arki"
+    "dev",
+    "editor"
   ],
   "turns": [
     {
-      "role": "ace",
+      "role": "dev",
       "turnIdx": 0,
-      "phase": "framing"
+      "phase": "implementation"
     },
     {
-      "role": "vera",
+      "role": "editor",
       "turnIdx": 1,
-      "phase": "analysis",
-      "recallReason": "post-master"
-    },
-    {
-      "role": "riki",
-      "turnIdx": 2,
-      "phase": "analysis"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 3,
-      "phase": "synthesis",
-      "recallReason": "post-intervention"
-    },
-    {
-      "role": "vera",
-      "turnIdx": 4,
-      "phase": "design-spec",
-      "recallReason": "post-master"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 5,
-      "phase": "review",
-      "recallReason": "post-intervention"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 6,
-      "phase": "execution-plan",
-      "recallReason": "post-master"
+      "phase": "output"
     }
   ],
   "plannedSequence": [
-    "ace",
-    "vera"
+    "dev"
   ],
-  "decisions": [
-    "D-049"
-  ],
+  "decisions": [],
   "notes": [
-    "Master 지시: Ace 프레이밍 + Vera 재호출. Vera는 Claude Code 신규 design 스킬 상시 사용하도록 업그레이드 + 현재 적용 중 UI 재검토.",
-    "연계: Phase 3(session_048) turnSequences 데이터 → D3 sequence 패널 UI 구현이 gaps로 이월됨.",
-    "PD-019(토픽 중심 아키텍처) 관련성 점검 필요.",
-    "Claude Design(claude.ai/design) = 웹 제품, design:* 플러그인 스킬과 별개. PD-020으로 분리(별도 토픽). 본 세션은 플러그인 스킬 기반으로 Phase 4 진행.",
-    "feedback 메모리 신설: feedback_claude_design_vs_plugin_skills.md (session_045 허세성 기재 패턴의 변형 재발)."
+    "토픽: /close 체크리스트 2단계(reports 저장) 직후 agentsCompleted에 'editor' 자동 push 누락 재발 방지.",
+    "session-end-finalize.js에 ensureEditorInAgents() 함수 추가 완료.",
+    "closed + reportPath 있는 세션에서 editor 자동 push + turns 자동 기록. 중복 방지 포함."
   ],
   "gaps": [],
   "masterDecisions": [],
-  "reportPath": "reports/2026-04-20_phase4-ui",
+  "reportPath": "reports/2026-04-20_editor-missing-fix",
   "tokenUsage": {
-    "input_tokens": 382,
-    "output_tokens": 153971,
-    "cache_creation_input_tokens": 1046834,
-    "cache_read_input_tokens": 13257836,
-    "messageCount": 121,
-    "masterTurns": 16,
-    "total_billable": 14459023
+    "input_tokens": 64,
+    "output_tokens": 20579,
+    "cache_creation_input_tokens": 219504,
+    "cache_read_input_tokens": 2230016,
+    "messageCount": 47,
+    "masterTurns": 4,
+    "total_billable": 2470163
   }
 }

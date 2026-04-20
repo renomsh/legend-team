@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-20T12:19:36.612Z",
-  "totalSessions": 48,
+  "generatedAt": "2026-04-20T12:34:48.473Z",
+  "totalSessions": 49,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 19.88,
-    "avgCacheHitRate": 0.9397,
-    "cacheSampleSize": 22,
-    "cacheSampleTotal": 48,
+    "avgMasterTurns": 19.52,
+    "avgCacheHitRate": 0.9381,
+    "cacheSampleSize": 23,
+    "cacheSampleTotal": 49,
     "avgAdoptionRate": 0,
     "totalDecisions": 49,
     "gradeDistribution": {
       "S": 11,
       "A": 12,
-      "B": 14,
+      "B": 15,
       "C": 11
     },
     "gradeMismatchCount": 1,
@@ -20,7 +20,7 @@
       "session_013"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 3
+    "turnBasedSessions": 4
   },
   "sessions": [
     {
@@ -1444,6 +1444,34 @@
         "cacheHitRate": 0.9169247465752008,
         "messageCount": 121
       }
+    },
+    {
+      "sessionId": "session_050",
+      "topicSlug": "editor-missing-fix",
+      "topic": "에디 누락 재발 방지 — session-end-finalize.js editor push 자동화",
+      "startedAt": "2026-04-20T18:00:00.000Z",
+      "closedAt": "2026-04-20T18:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 4,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 2470163,
+        "cacheHitRate": 0.9027809095998928,
+        "messageCount": 47
+      }
     }
   ],
   "roleFrequency": [
@@ -1458,10 +1486,11 @@
     },
     {
       "role": "dev",
-      "count": 3,
+      "count": 4,
       "sessions": [
         "session_047",
-        "session_048"
+        "session_048",
+        "session_050"
       ]
     },
     {
@@ -1484,6 +1513,13 @@
       "count": 1,
       "sessions": [
         "session_049"
+      ]
+    },
+    {
+      "role": "editor",
+      "count": 1,
+      "sessions": [
+        "session_050"
       ]
     }
   ],
@@ -1583,6 +1619,24 @@
           "recallReason": "post-master"
         }
       ]
+    },
+    {
+      "sessionId": "session_050",
+      "topic": "에디 누락 재발 방지 — session-end-finalize.js editor push 자동화",
+      "sequence": [
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "output",
+          "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -1590,43 +1644,43 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=19.9)"
+      "description": "Master 병목: masterTurns=48 (avg=19.5)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=19.9)"
+      "description": "Master 병목: masterTurns=43 (avg=19.5)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=19.9)"
+      "description": "Master 병목: masterTurns=42 (avg=19.5)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=19.9)"
+      "description": "Master 병목: masterTurns=45 (avg=19.5)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=19.9)"
+      "description": "Master 병목: masterTurns=39 (avg=19.5)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=19.9)"
+      "description": "Master 병목: masterTurns=49 (avg=19.5)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=19.9)"
+      "description": "Master 병목: masterTurns=35 (avg=19.5)"
     },
     {
       "ruleId": "R1",
