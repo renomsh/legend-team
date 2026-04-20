@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-20T00:09:33.409Z",
-  "totalSessions": 43,
+  "generatedAt": "2026-04-20T10:06:47.187Z",
+  "totalSessions": 44,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 21.03,
-    "avgCacheHitRate": 0.9414,
-    "cacheSampleSize": 17,
-    "cacheSampleTotal": 43,
+    "avgMasterTurns": 20.95,
+    "avgCacheHitRate": 0.9421,
+    "cacheSampleSize": 18,
+    "cacheSampleTotal": 44,
     "avgAdoptionRate": 0,
-    "totalDecisions": 47,
+    "totalDecisions": 48,
     "gradeDistribution": {
-      "S": 9,
+      "S": 10,
       "A": 11,
       "B": 12,
       "C": 11
@@ -1280,12 +1280,53 @@
         "cacheHitRate": 0.9319545044600799,
         "messageCount": 181
       }
+    },
+    {
+      "sessionId": "session_045",
+      "topicSlug": "role-recall-measurement-structure",
+      "topic": "역할 재호출 측정 구조 신설",
+      "startedAt": "2026-04-20T08:41:05.271Z",
+      "closedAt": "2026-04-20T09:10:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-048"
+      ],
+      "rolesCalled": 12,
+      "rolesRecalled": 5,
+      "sessionsSpanned": 1,
+      "size": 27,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 18,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "nova",
+        "arki",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "arki",
+        "editor",
+        "arki",
+        "vera",
+        "ace"
+      ],
+      "tokenUsage": {
+        "totalBillable": 10165334,
+        "cacheHitRate": 0.954244887575755,
+        "messageCount": 96
+      }
     }
   ],
   "roleFrequency": [
     {
       "role": "editor",
-      "count": 30,
+      "count": 31,
       "sessions": [
         "session_007",
         "session_009",
@@ -1316,12 +1357,13 @@
         "session_038",
         "session_041",
         "session_042",
-        "session_043"
+        "session_043",
+        "session_045"
       ]
     },
     {
       "role": "ace",
-      "count": 23,
+      "count": 24,
       "sessions": [
         "session_007",
         "session_008",
@@ -1345,12 +1387,13 @@
         "session_040",
         "session_041",
         "session_042",
-        "session_043"
+        "session_043",
+        "session_045"
       ]
     },
     {
       "role": "arki",
-      "count": 15,
+      "count": 16,
       "sessions": [
         "session_008",
         "session_009",
@@ -1366,12 +1409,13 @@
         "session_038",
         "session_041",
         "session_042",
-        "session_043"
+        "session_043",
+        "session_045"
       ]
     },
     {
       "role": "riki",
-      "count": 12,
+      "count": 13,
       "sessions": [
         "session_009",
         "session_011",
@@ -1384,12 +1428,13 @@
         "session_038",
         "session_041",
         "session_042",
-        "session_043"
+        "session_043",
+        "session_045"
       ]
     },
     {
       "role": "fin",
-      "count": 11,
+      "count": 12,
       "sessions": [
         "session_009",
         "session_012",
@@ -1401,7 +1446,8 @@
         "session_038",
         "session_041",
         "session_042",
-        "session_043"
+        "session_043",
+        "session_045"
       ]
     },
     {
@@ -1421,7 +1467,7 @@
     },
     {
       "role": "nova",
-      "count": 7,
+      "count": 8,
       "sessions": [
         "session_013",
         "session_014",
@@ -1429,7 +1475,18 @@
         "session_033",
         "session_034",
         "session_037",
-        "session_043"
+        "session_043",
+        "session_045"
+      ]
+    },
+    {
+      "role": "vera",
+      "count": 4,
+      "sessions": [
+        "session_030",
+        "session_037",
+        "session_038",
+        "session_045"
       ]
     },
     {
@@ -1440,15 +1497,6 @@
         "session_041",
         "session_042",
         "session_043"
-      ]
-    },
-    {
-      "role": "vera",
-      "count": 3,
-      "sessions": [
-        "session_030",
-        "session_037",
-        "session_038"
       ]
     },
     {
@@ -1471,43 +1519,49 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=21.0)"
+      "description": "Master 병목: masterTurns=48 (avg=20.9)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=21.0)"
+      "description": "Master 병목: masterTurns=43 (avg=20.9)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=21.0)"
+      "description": "Master 병목: masterTurns=42 (avg=20.9)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=21.0)"
+      "description": "Master 병목: masterTurns=45 (avg=20.9)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=21.0)"
+      "description": "Master 병목: masterTurns=39 (avg=20.9)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=21.0)"
+      "description": "Master 병목: masterTurns=49 (avg=20.9)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=21.0)"
+      "description": "Master 병목: masterTurns=35 (avg=20.9)"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_045",
+      "description": "Ace/역할 과호출: rolesRecalled=5"
     },
     {
       "ruleId": "R5",
@@ -1536,6 +1590,36 @@
     }
   ],
   "feedbackRecurrences": [
+    {
+      "keyword": "노바의",
+      "occurrences": [
+        {
+          "date": "2026-04-20",
+          "feedbackId": "MF-038",
+          "summary": "노바의 뒤집기 제안은 역으로 나는 세션이 문제가 아니라 토픽 중심으로 전체가 개편되어야 한다고 생각해. 해당"
+        },
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-034",
+          "summary": "'그런데 왜 갑자기 노바의 e를 들고 온거야. 에이스 너의 의견을 받아들인건데' — (e) 프레임 소유권 혼"
+        }
+      ]
+    },
+    {
+      "keyword": "아키",
+      "occurrences": [
+        {
+          "date": "2026-04-20",
+          "feedbackId": "MF-039",
+          "summary": "아키, 베라 저 UI가 최적이야? 그리고 꼭 100세션 뒤에나 유효할까?"
+        },
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-031",
+          "summary": "'데이터 미스가 왜 발생한거야. 아키 데이터 정확하게 검증해봐' — 구조적 원인 분석 요구"
+        }
+      ]
+    },
     {
       "keyword": "ERJ",
       "occurrences": [

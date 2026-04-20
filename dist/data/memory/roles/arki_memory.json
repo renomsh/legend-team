@@ -232,5 +232,23 @@
       "D2 다이어그램 — Dev 위임 실행, SVG+Playwright PNG. Mermaid는 경량 다이어그램 직접 사용."
     ]
   },
-  "lastUpdated": "2026-04-19T08:00:00.000Z"
+  "sessionLearnings": [
+    {
+      "sessionId": "session_045",
+      "date": "2026-04-20",
+      "topic": "role-recall-measurement-structure",
+      "finding": "UI 신규 패널 3개 제안 → Master가 과적층 지적. 같은 데이터 원천(turnLog)에서 파생되는 정보를 분할 패널화했다가 '1 primary + 1 aggregate'로 압축.",
+      "lesson": "UI 제안 시 데이터 원천 정합성 체크가 정보 계층 설계보다 선행해야 함. 같은 원천이면 overlay/통합 우선.",
+      "actionRule": "UI 구조 제안 before 체크리스트: (1) 각 패널의 데이터 원천 명시 (2) 2개 이상이 같은 원천이면 overlay 설계 우선 시도 (3) 통합 불가 시에만 분할."
+    },
+    {
+      "sessionId": "session_045",
+      "date": "2026-04-20",
+      "topic": "role-recall-measurement-structure",
+      "finding": "B축(재호출 정의) 첫 제안이 '연속=1턴 병합' 단순화 → Nova deepening motif 소실 발견 후 opt2+4조건 Turn/Segment 2층 구조로 재설계.",
+      "lesson": "데이터 수명 보존 원칙: 단순 규칙으로 합치기 전에 복원 가능한 구조(segment 등)를 먼저 확보. 나중에 쪼개기는 가능, 합친 후 쪼개기는 불가.",
+      "actionRule": "스키마 설계 시 '이 규칙으로 정보 손실이 발생하면 어디서 복원 가능한가'를 반드시 검토. 복원 포인트 없으면 구조 보강."
+    }
+  ],
+  "lastUpdated": "2026-04-20T09:00:00.000Z"
 }

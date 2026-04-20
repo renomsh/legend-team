@@ -129,5 +129,16 @@
     ],
     "ownershipNote": "anthropic-skills:web-artifacts-builder 소유자 = Editor. Vera는 스펙만 제공, 직접 호출 금지."
   },
-  "lastUpdated": "2026-04-19T08:00:00.000Z"
+  "sessionLearnings": [
+    {
+      "sessionId": "session_045",
+      "date": "2026-04-20",
+      "topic": "role-recall-measurement-structure",
+      "finding": "skillsApplied 필드에 스킬명 적은 것이 실제 Skill() 호출을 의미하지 않음. Master가 '스킬 모두 인식했어?' 질문으로 드러냄.",
+      "lesson": "스펙 산출 시 (a) 실제 Skill() 호출로 증거 남기거나 (b) 명시적으로 '패턴 차용, Skill() 미호출' 표기. skillsApplied 필드 용법을 구분.",
+      "actionRule": "디자인 산출물에 skillsApplied 적을 때는 invocationMode: 'skill-call' | 'pattern-reference' 병기. 허세성 기재 금지.",
+      "artifacts": ["reports/2026-04-20_role-recall-measurement-structure/vera_rev1.md", "memory/shared/role_palette.json"]
+    }
+  ],
+  "lastUpdated": "2026-04-20T09:00:00.000Z"
 }

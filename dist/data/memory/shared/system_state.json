@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_044",
-  "nextSessionId": "session_045",
+  "lastSessionId": "session_045",
+  "nextSessionId": "session_046",
   "currentVersion": "v1.11",
   "openTopics": [
     {
@@ -20,6 +20,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-048",
+      "date": "2026-04-20",
+      "axis": "역할 재호출을 수량·순서·phase·gap 4개 차원에서 1급 데이터로 승격",
+      "summary": "(A) 스키마: agentsCompleted를 Turn[]으로 재정의 {role,turnIdx,phase?,recallReason?,splitReason?,chars?,segments?}. plannedSequence 및 plannedSequenceRevisions 신설. 기존 필드는 legacy alias로 병행. (B) 재호출 정의: Claude Code 실시간 판정 + 4조건 프로토콜 — ①다른 역할 개입 후 복귀 자동분리 ②Master 개입 후 재발언 자동분리 ③phase 전환 시 phase_catalog.json enum 참조하여 분리 ④같은 phase 내 연속 병합. 조건1·2·3 적용 시 recallReason/splitReason 기록 필수. (C) 기록 시점: C1(역할 발언 직후 current_session push) + C2(session-end-finalize.js 검증) 병행. (D) 집계: compute-dashboard.ts seen.has 제거, D3 sequence 1급, turn 타임라인+gap 뷰. 부대 조치: phase_catalog.json 신설(R-2), B/C도 plannedSequence 1줄 강제(R-4), Size 임계 유지하되 10세션 gradeMismatch 경보 억제(R-5), 과거 44세션 legacy:true 플래그로 집계 배제(R-6). 비채택: 자기판정 감사 패널(R-1, R-2로 자동 소멸), plan immutable Goodhart 방어(R-3, 시스템 인센티브 모델 부적합). motif 자동 분석은 100세션 축적 후 별도 토픽. PD-011 해소, PD-019(토픽 중심 아키텍처) 파생."
+    },
     {
       "id": "D-047",
       "date": "2026-04-20",
@@ -43,12 +49,6 @@
       "date": "2026-04-19",
       "axis": "COPD 논문 canonical cohort 재확정 및 전체 통계 재분석",
       "summary": "Master 확정 필터: Enroll_COPDNOTCOPD ∈ {1,3,4} (PRISm은 stratifier로 유지, non-COPD 제외), age≥40, exclude military(27)/housewife(28), 학생(30)은 age≥40 필터로 자동 제외. Canonical cohort n=2,779. 기존 Xlsx (ver2.0 폴더, n=2,932)는 cohort 필터 불일치로 폐기. prev_exac 공변량은 self-reported KO1_P_EX_YN(HIRA 불필요)으로 확보. canonical 폴더: C:/Projects/COPD/canonical_ver3.5/. 새 숫자: Y1 primary NIE OR 1.12 (1.02-1.25), TE OR 1.55 (0.76-3.14); Y1-Y3 sensitivity TE OR 1.72 (1.07-2.76), p-trend 0.013; NB rate crude IRR 1.44 (1.12-1.86)."
-    },
-    {
-      "id": "D-043",
-      "date": "2026-04-19",
-      "axis": "auto-model-switch 스킬 발동 규칙 확정",
-      "summary": "D-042 구체화. 발동 범위: Grade S/A/B (C만 제외). 커맨드: /model claude-opus-4-7 (기존 /fast Opus 4.6 → Opus 4.7로 수정). 이미 Opus 4.7 계열(1M 포함) 상태면 안내 생략·유지. 세션당 1회, /open 보고 말미. 스킬 파일: .claude/skills/auto-model-switch/SKILL.md"
     }
   ],
   "pendingDeferrals": [
@@ -118,8 +118,9 @@
       "fromSession": "session_034",
       "fromTopic": "bug",
       "item": "역할 재호출 측정 구조 신설 — agentsCompleted를 중복 허용 배열로 변경 + compute-dashboard의 seen.has(role) 제거. 현재 Set 의미로 저장돼 재호출 카운트 불가능.",
-      "status": "pending",
-      "note": "Arki 진단 결함 4. 두 곳 동시 변경 필요 (session_index 기록 + 집계 로직). 별도 토픽 권장."
+      "status": "resolved",
+      "resolvedInSession": "session_045",
+      "note": "D-048 확정. 단순 '중복 허용 배열' 넘어 Turn[] 구조화 + plannedSequence + 4조건 판정 프로토콜 + phase_catalog + legacy 플래그 + Size 경보 억제까지 포함된 종합안으로 해소. 실구현은 session_046+ Phase 1부터."
     },
     {
       "id": "PD-012",
@@ -180,7 +181,15 @@
       "item": "실 비용($) 계산 패널 신설 — token_log.json의 input/output/cache_creation/cache_read 분류 기반으로 Sonnet 4.6 단가 적용($3/$15/$3.75/$0.30 per MTok). 세션별 $ 비용 + 누적 합계 + 평균 표시. dashboard-upgrade.html KPI 영역 또는 별도 패널.",
       "status": "pending",
       "note": "session_039 비용효율 확인 중 도출. session_036~038 토큰 누락 해소(PD-016) 후 진행 권장."
+    },
+    {
+      "id": "PD-019",
+      "fromSession": "session_045",
+      "fromTopic": "role-recall-measurement-structure",
+      "item": "토픽 중심 전체 개편 — 현재 세션 중심 아키텍처에서 토픽 중심으로 전환. 세션은 토픽 진행의 하위 단위로 재정의. session_index·current_session·agentsCompleted·대시보드 KPI 모두 토픽 축으로 재설계.",
+      "status": "pending",
+      "note": "session_045 Nova 뒤집기 제안에 대한 Master 역제안. Grade S 토픽 예상. 본 토픽(PD-011 해소)과 연계되나 범위 외로 분리."
     }
   ],
-  "lastUpdated": "2026-04-20T00:09:30.799Z"
+  "lastUpdated": "2026-04-20T10:06:44.798Z"
 }

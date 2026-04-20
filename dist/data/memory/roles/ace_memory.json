@@ -184,8 +184,43 @@
         "observations"
       ]
     },
-    "decisions": [],
-    "rejectionPatterns": [],
+    "decisions": [
+      {
+        "decisionRef": "D-048",
+        "topicId": "topic_048",
+        "sessionId": "session_045",
+        "aceRecommendation": "A2 + B-opt2 4조건 + C1+C2 + D3. Riki R-2/R-4/R-5/R-6 채택, R-1/R-3 기각.",
+        "masterDecision": "승인. 단 UI 3패널 과적층 의심 → 1 primary + 1 aggregate 재설계 지시. Motif 100세션 threshold 과대 → 15/30/100 3단계 재조정 지시.",
+        "selectionReason": "D3 선결정으로 Ace 학습 루프 실현 전제. 판정 주체는 Claude Code 실시간(Master 인센티브 정렬됨).",
+        "reusable": "구조 토픽에서 Master가 하나의 축을 선결정하고 나머지 축은 그 중심으로 잡게 하는 패턴. 남은 축에 대해선 bias 피하려 의견 보류함 — 이 신호는 '역할들의 자유 판단 요구'로 해석.",
+        "modificationReason": "UI 범위는 Ace가 initially over-panelized → Arki 재호출로 압축. 데이터 분석 threshold는 Ace가 '100세션 후'로 과도하게 잡음 → Master 질문으로 교정.",
+        "observations": [
+          "Master는 'A/B/C 의견 보류'라고 했지만 실제로는 다른 역할 발언 후 적극 개입(UI/threshold). → 보류는 '첫 제안은 역할들이 자율로' 의미이지 '끝까지 침묵' 의미가 아님.",
+          "Master가 Riki 리스크를 직접 기각 요구한 것은 이례적. feedback_riki_risk_filter 원칙(Master가 모를 수 있는 실제 리스크)에 Riki가 맞지 않았기 때문. Ace가 사전 필터링 했어야 함.",
+          "Master가 Nova 뒤집기 제안에 '역방향 개편'으로 응답한 패턴 — Nova 제안은 촉매로만 사용하고 자기 프레임으로 재생성. Nova promote 판단 기준."
+        ]
+      }
+    ],
+    "rejectionPatterns": [
+      {
+        "sessionId": "session_045",
+        "pattern": "Riki의 일반 MLOps Goodhart 프레임을 시스템 인센티브 모델 검증 없이 적용",
+        "reason": "이 시스템 Claude Code는 학습 평가로 보상·손실 얻지 않음. Goodhart 전제(행위자 인센티브) 불성립.",
+        "howToAvoid": "Riki 리스크 수용 전 '이 리스크가 전제하는 행위자 인센티브가 이 시스템에 실재하는가' 1차 검증."
+      },
+      {
+        "sessionId": "session_045",
+        "pattern": "Ace가 UI 신규 패널을 3개로 분할 제안 → Master가 과적층 지적",
+        "reason": "같은 데이터(turnLog)에서 파생되는 정보를 패널 3개로 펼침. 정보 밀도 희석 + 사용자 왕복 동선 증가.",
+        "howToAvoid": "UI 제안 시 '데이터 원천이 같은가' 체크 → 같으면 overlay/통합 우선 검토. 세션_040 dashboard-v3d 통합 선호 패턴과 동형."
+      },
+      {
+        "sessionId": "session_045",
+        "pattern": "Ace가 motif 분석 threshold를 '100세션 후'로 근거 없이 단정",
+        "reason": "통계적 유의성과 패턴 재현성을 혼동. 실제 threshold는 재현 빈도(≥3회 in ≥2 topic type)이며 15~25 세션에 도달 가능.",
+        "howToAvoid": "정량 threshold 제시 시 '이 수치의 근거는 무엇인가' 자가 점검. 근거 없으면 정성 기준(재현성/일관성)으로 재진술."
+      }
+    ],
     "lessonLog": [
       {
         "id": "LL-002",

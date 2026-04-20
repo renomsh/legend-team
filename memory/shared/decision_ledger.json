@@ -1,6 +1,17 @@
 {
   "decisions": [
     {
+      "id": "D-048",
+      "date": "2026-04-20",
+      "session": "session_045",
+      "topic": "role-recall-measurement-structure",
+      "axis": "역할 재호출을 수량·순서·phase·gap 4개 차원에서 1급 데이터로 승격",
+      "decision": "restructure agentsCompleted from Set-semantics string[] to structured Turn[] + plannedSequence + Claude Code realtime split judgment",
+      "value": "(A) 스키마: agentsCompleted를 Turn[]으로 재정의 {role,turnIdx,phase?,recallReason?,splitReason?,chars?,segments?}. plannedSequence 및 plannedSequenceRevisions 신설. 기존 필드는 legacy alias로 병행. (B) 재호출 정의: Claude Code 실시간 판정 + 4조건 프로토콜 — ①다른 역할 개입 후 복귀 자동분리 ②Master 개입 후 재발언 자동분리 ③phase 전환 시 phase_catalog.json enum 참조하여 분리 ④같은 phase 내 연속 병합. 조건1·2·3 적용 시 recallReason/splitReason 기록 필수. (C) 기록 시점: C1(역할 발언 직후 current_session push) + C2(session-end-finalize.js 검증) 병행. (D) 집계: compute-dashboard.ts seen.has 제거, D3 sequence 1급, turn 타임라인+gap 뷰. 부대 조치: phase_catalog.json 신설(R-2), B/C도 plannedSequence 1줄 강제(R-4), Size 임계 유지하되 10세션 gradeMismatch 경보 억제(R-5), 과거 44세션 legacy:true 플래그로 집계 배제(R-6). 비채택: 자기판정 감사 패널(R-1, R-2로 자동 소멸), plan immutable Goodhart 방어(R-3, 시스템 인센티브 모델 부적합). motif 자동 분석은 100세션 축적 후 별도 토픽. PD-011 해소, PD-019(토픽 중심 아키텍처) 파생.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
       "id": "D-047",
       "date": "2026-04-20",
       "session": "session_044",

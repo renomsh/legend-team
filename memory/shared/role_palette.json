@@ -1,0 +1,39 @@
+{
+  "_comment": "역할별 색상 단일 원천. status_catalog 패턴 동형. UI 하드코딩 금지.",
+  "version": "1.0",
+  "roles": {
+    "ace":    { "base": "#5B8DEF", "hue": "blue",     "role": "오케스트레이션" },
+    "arki":   { "base": "#7B61FF", "hue": "violet",   "role": "구조" },
+    "fin":    { "base": "#2BB673", "hue": "green",    "role": "수치" },
+    "riki":   { "base": "#E0543F", "hue": "red",      "role": "적대" },
+    "nova":   { "base": "#D066DB", "hue": "magenta",  "role": "투기" },
+    "vera":   { "base": "#FFB547", "hue": "amber",    "role": "시각" },
+    "dev":    { "base": "#6B7280", "hue": "slate",    "role": "실행" },
+    "editor": { "base": "#94A3B8", "hue": "neutral",  "role": "컴파일" }
+  },
+  "phaseEncoding": {
+    "_note": "role.base 위에 phase 변조. saturation/border/pattern로 인식 분리.",
+    "framing":         { "saturation": 1.00, "note": "시작 강조" },
+    "analysis":        { "saturation": 0.85 },
+    "synthesis":       { "saturation": 1.10, "border": "1.2px solid" },
+    "reframe":         { "pattern": "diagonal-stripe-white", "note": "재진입 신호" },
+    "speculative":     { "border": "1px dashed", "note": "Nova 전용 투기 표식" },
+    "execution-plan":  { "fill": "none", "border": "1px solid" },
+    "compile":         { "gradient": "linear 135deg 10%-lighter" }
+  },
+  "gapOverlay": {
+    "plannedShadow": "1px dashed {roleBase} @ 40% alpha, no fill",
+    "actualSolid":   "filled block",
+    "mismatchBorder": "#F59E0B"
+  },
+  "legacy": {
+    "desaturation": 0.50,
+    "stripePattern": "45deg stripes",
+    "badge": "🟨 legacy"
+  },
+  "motifHighlight": {
+    "borderRadius": "6px",
+    "shadow": "0 0 0 2px rgba(roleBase, 0.3)",
+    "minCells": 3
+  }
+}
