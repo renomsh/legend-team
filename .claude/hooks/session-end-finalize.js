@@ -39,13 +39,13 @@ function writeJson(p, obj) {
 }
 
 /**
- * /close 체크리스트 2단계(reports 저장) 직후 editor가 agentsCompleted에 없으면 자동 push.
- * reportPath가 설정된 closed 세션 = reports 저장 완료로 간주.
+ * 세션 종료 시 editor가 agentsCompleted에 없으면 무조건 자동 push.
+ * Dev 작업 포함 모든 세션의 기록 주체는 editor. reportPath 유무와 무관.
  * current_session.json도 함께 갱신하여 session_index 전파 전 일관성 유지.
  */
 function ensureEditorInAgents(sess) {
   const agents = Array.isArray(sess.agentsCompleted) ? sess.agentsCompleted : [];
-  if (!agents.includes('editor') && sess.reportPath) {
+  if (!agents.includes('editor')) {
     agents.push('editor');
     sess.agentsCompleted = agents;
     // turns에도 반영 (마지막 turn으로 추가)
