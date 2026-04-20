@@ -19,6 +19,10 @@ export type RecallReason =
   | 'phase-transition'   // phase 전환으로 분리 (조건 3)
   | 'manual';            // 수동 판정
 
+export const VALID_RECALL_REASONS: RecallReason[] = [
+  'post-intervention', 'post-master', 'phase-transition', 'manual',
+];
+
 export interface Turn {
   role: string;
   turnIdx: number;

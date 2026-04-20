@@ -1,6 +1,19 @@
 {
   "topics": [
     {
+      "id": "topic_050",
+      "title": "Phase 2 — CLAUDE.md turn push 규칙 추가 + session-end-finalize.js 검증 + validate-session-turns.ts 신설",
+      "status": "completed",
+      "created": "2026-04-20",
+      "grade": "B",
+      "outcome": "3개 산출물 완성: CLAUDE.md Turn Push Protocol 추가, session-end-finalize.js Turn[] 전파 검증, validate-session-turns.ts 신설(callable export + phase_catalog 런타임 로드). Master 피드백 보완 완료.",
+      "controlPath": "topics/topic_050",
+      "reportPath": "reports/2026-04-20_phase2-turn-push-validate",
+      "reportFiles": ["editor_rev1.md"],
+      "published": false,
+      "path": "topics/topic_050"
+    },
+    {
       "id": "topic_049",
       "title": "Phase 1 실구현: phase_catalog · turn-types · 필드 확장 · G1 게이트",
       "status": "completed",
@@ -841,5 +854,5 @@
       "grade": "C"
     }
   ],
-  "lastUpdated": "2026-04-20T10:08:59.754Z"
+  "lastUpdated": "2026-04-20T10:25:56.284Z"
 }

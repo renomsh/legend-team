@@ -128,6 +128,30 @@ Master may switch modes at any time by stating the mode name.
 - Replace Riki's adversarial analysis
 - Speak unless Master says so — even if the above signals are present
 
+### Turn Push Protocol (C1) (D-048, 2026-04-20)
+
+역할 발언이 완료될 때마다 `current_session.json.turns`에 Turn 항목을 **즉시** 기록한다. 세션 종료를 기다리지 않는다.
+
+**기록 주체:** Claude Code (역할 발언 직후 자동)
+
+**필수 필드:**
+- `role` — 발언 역할 (ace, arki, fin, riki, nova, dev, editor 등)
+- `turnIdx` — 현재 turns 배열 길이 기준 0-based 자동 부여
+
+**선택 필드 (해당 시 기록):**
+- `phase` — `memory/shared/phase_catalog.json` enum 참조
+- `recallReason` — `turn-types.ts` RecallReason 참조 (재호출인 경우)
+- `splitReason` — 분리 사유 (조건 3 phase 전환 시)
+- `chars` / `segments` — 출력 크기 (선택)
+
+**분리/병합 4조건:**
+1. 다른 역할 개입 후 복귀 → 자동 분리, `recallReason: "post-intervention"`
+2. Master 개입 후 재발언 → 자동 분리, `recallReason: "post-master"`
+3. phase 전환 → 자동 분리, `recallReason: "phase-transition"`, `splitReason` 기록
+4. 같은 phase 내 연속 발언 → 병합 (단일 Turn)
+
+**C2 검증:** 세션 종료 시 `session-end-finalize.js`가 turns를 session_index로 전파. `validate-session-turns.ts`가 구조 검증.
+
 ### Session Protocol
 
 **Session Start checklist:** (→ `/open` 명령이 이 체크리스트를 실행. 직접 실행 시 아래 순서 따름)
@@ -174,16 +198,24 @@ Master may switch modes at any time by stating the mode name.
 - statusNote: 이행 상태에 대한 간단한 설명
 - 삭제 금지: status를 변경하되 엔트리를 삭제하지 않음
 
-### Script Status (v0.4.0)
+### Script Status (v0.5.0)
 
 **Active:**
 - `session-log.ts` — 세션 시작/종료 + 체크리스트 검증 (H-01)
 - `validate-output.ts` — 리포트 frontmatter 검증
-- `auto-push.js` — 세션 종료 시 git push (D-008)
+- `auto-push.js` — 세션 종료 시 hook chain 실행 (tokens→finalize→compute→build→push) (D-008)
 - `build.js` — CF Pages 빌드 (canonical)
+- `validate-session-turns.ts` — Turn[] 구조 검증. `npx ts-node scripts/validate-session-turns.ts [sessionId|--all]` (D-048, session_047)
+
+**Hook Chain (auto-push.js 내부):**
+1. `.claude/hooks/session-end-tokens.js` — transcript 파싱, token_log.json 집계
+2. `.claude/hooks/session-end-finalize.js` — turns/plannedSequence/grade를 session_index로 전파 (D-048)
+3. `scripts/compute-dashboard.ts` — dashboard_data.json 재계산
+4. `scripts/build.js` — CF Pages dist/ 빌드
 
 **Utility:**
 - `create-topic.ts`, `apply-feedback.ts`, `log-evidence.ts` — 사용 가능
+- `scripts/lib/turn-types.ts` — Turn[] 타입 정의 (D-048)
 
 **Deprecated:**
 - `run-debate.ts` — debate_log.json 기반, 사용 중지 (session_005)

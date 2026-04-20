@@ -824,8 +824,38 @@
         "dev"
       ],
       "decisions": []
+    },
+    {
+      "sessionId": "session_047",
+      "topicSlug": "phase2-turn-push-validate",
+      "topic": "Phase 2 — CLAUDE.md turn push 규칙 추가 + session-end-finalize.js 검증 + validate-session-turns.ts 신설",
+      "startedAt": "2026-04-20T11:00:00.000Z",
+      "closedAt": "2026-04-20T13:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\friendly-ishizaka-666add",
+      "agentsCompleted": [
+        "ace",
+        "dev"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 1,
+          "phase": "execution-plan"
+        }
+      ],
+      "plannedSequence": [
+        "ace",
+        "dev"
+      ],
+      "grade": "B",
+      "note": "D-048 Phase 2 구현. Grade B. L1 인라인 프레이밍. | 3개 산출물: (1) CLAUDE.md Turn Push Protocol 추가 + Script Status v0.5.0, (2) session-end-finalize.js turns/grade/plannedSequence 전파 + 환경변수 오버라이드, (3) validate-session-turns.ts 신설(callable export, phase_catalog 런타임 로드). | Master 피드백 보완: VALID_RECALL_REASONS export, require.main 가드, 검증 3케이스 실행."
     }
   ],
-  "lastUpdated": "2026-04-20T10:20:01.237Z",
+  "lastUpdated": "2026-04-20T10:53:01.418Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

@@ -1,6 +1,14 @@
 {
   "feedbackLog": [
     {
+      "id": "MF-037",
+      "date": "2026-04-20",
+      "session": "session_047",
+      "feedback": "Dev 검증 기본값 + 하드코딩 금지: (1) 구현 후 런타임 검증 필수 — tsc 통과만으론 부족, 실 데이터로 동작 확인 필수. (2) config 원천(JSON)이 있으면 런타임 로드, 하드코딩 금지. (3) 검증 로직은 export 함수로 callable 구조. Arki 설계 시에도 원천 지정 포함.",
+      "status": "resolved",
+      "statusNote": "세션 내 즉시 보완 완료: phase_catalog.json 런타임 로드, VALID_RECALL_REASONS export, validateTurns() export, require.main 가드, finalize 환경변수 오버라이드 + 픽스처 검증."
+    },
+    {
       "id": "MF-036",
       "date": "2026-04-20",
       "session": "session_045",
