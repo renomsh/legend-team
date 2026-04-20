@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-04-20T12:34:48.473Z",
+  "generatedAt": "2026-04-20T23:17:49.295Z",
   "totalSessions": 49,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 19.52,
-    "avgCacheHitRate": 0.9381,
+    "avgMasterTurns": 19.57,
+    "avgCacheHitRate": 0.9377,
     "cacheSampleSize": 23,
     "cacheSampleTotal": 49,
     "avgAdoptionRate": 0,
@@ -1461,16 +1461,16 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 4,
+      "masterTurns": 6,
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
         "editor"
       ],
       "tokenUsage": {
-        "totalBillable": 2470163,
-        "cacheHitRate": 0.9027809095998928,
-        "messageCount": 47
+        "totalBillable": 2630496,
+        "cacheHitRate": 0.8946362206975415,
+        "messageCount": 52
       }
     }
   ],
@@ -1644,43 +1644,43 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=19.5)"
+      "description": "Master 병목: masterTurns=48 (avg=19.6)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=19.5)"
+      "description": "Master 병목: masterTurns=43 (avg=19.6)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=19.5)"
+      "description": "Master 병목: masterTurns=42 (avg=19.6)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=19.5)"
+      "description": "Master 병목: masterTurns=45 (avg=19.6)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=19.5)"
+      "description": "Master 병목: masterTurns=39 (avg=19.6)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=19.5)"
+      "description": "Master 병목: masterTurns=49 (avg=19.6)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=19.5)"
+      "description": "Master 병목: masterTurns=35 (avg=19.6)"
     },
     {
       "ruleId": "R1",

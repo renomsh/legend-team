@@ -994,6 +994,6 @@
       "note": "토픽: /close 체크리스트 2단계(reports 저장) 직후 agentsCompleted에 'editor' 자동 push 누락 재발 방지. | session-end-finalize.js에 ensureEditorInAgents() 함수 추가 완료. | closed + reportPath 있는 세션에서 editor 자동 push + turns 자동 기록. 중복 방지 포함."
     }
   ],
-  "lastUpdated": "2026-04-20T12:34:44.443Z",
+  "lastUpdated": "2026-04-20T23:17:43.909Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
