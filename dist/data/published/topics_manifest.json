@@ -1,6 +1,24 @@
 {
-  "generatedAt": "2026-04-20T11:10:49.578Z",
+  "generatedAt": "2026-04-20T12:19:37.103Z",
   "topics": [
+    {
+      "id": "topic_052",
+      "title": "Phase 4 — UI",
+      "status": "completed",
+      "created": "2026-04-20",
+      "reportPath": "reports/2026-04-20_phase4-ui",
+      "reportFiles": [
+        "ace_rev1.md",
+        "vera_rev1.md",
+        "riki_rev1.md",
+        "arki_rev1.md",
+        "editor_rev1.md"
+      ],
+      "published": false,
+      "outcome": "D-049 확정. D3 sequence 패널 프로토타입 구현(Vera 직접)·vera_memory skills 조건부 매트릭스·design_rules.json(R-D01·R-D02)·sequence-panel.js 모듈 분리 완료. 이월: 색 대비 전역·PD-018·PD-019.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_051",
       "title": "Phase 3 — 집계 전환 + 실측 데이터 검증",

@@ -1,0 +1,24 @@
+{
+  "_comment": "Vera 관장 디자인 시스템 규칙. 토큰은 아니지만 시스템 차원에서 의미가 할당된 패턴 조합. 신규 컴포넌트 설계 시 참조 의무.",
+  "version": "1.0.0",
+  "rules": [
+    {
+      "id": "R-D01",
+      "name": "dashed-border = recall marker",
+      "rule": "재호출된 역할 노드는 2px dashed --text(#F5F5F7) border로 구분한다. 색 변경 금지. 색 추가 금지.",
+      "applies": ["sequence-panel", "향후 재호출·재방문 개념 컴포넌트"],
+      "antiPattern": "장식용 dashed border 사용 금지 — dashed는 recall 의미 전용",
+      "introducedInSession": "session_049",
+      "owner": "vera"
+    },
+    {
+      "id": "R-D02",
+      "name": "brand-purple-tint = connector",
+      "rule": "rgba(139,92,246, α) 계열은 연결·흐름 표현 전용. α 값은 0.12(accent)·0.18(active bg)·0.25(line) 3단만 허용.",
+      "applies": ["sequence-panel connector line", "nav-item.active bg", "향후 시각적 연결·흐름 표현"],
+      "antiPattern": "다른 α 값 사용 금지. 색 자체 변경 금지.",
+      "introducedInSession": "session_049",
+      "owner": "vera"
+    }
+  ]
+}

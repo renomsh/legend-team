@@ -1,22 +1,25 @@
 {
-  "sessionId": "session_048",
-  "topicId": "topic_051",
-  "topic": "Phase 3 — 집계 전환 + 실측 데이터 검증",
-  "topicSlug": "phase3-aggregation-validation",
+  "sessionId": "session_049",
+  "topicId": "topic_052",
+  "topic": "Phase 4 — UI",
+  "topicSlug": "phase4-ui",
   "status": "closed",
-  "startedAt": "2026-04-20T14:00:00.000Z",
-  "closedAt": "2026-04-20T15:30:00.000Z",
-  "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\competent-kalam-2bb1c4",
+  "closedAt": "2026-04-20T17:30:00.000Z",
+  "startedAt": "2026-04-20T16:00:00.000Z",
+  "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\crazy-moser-a0436c",
   "mode": "observation",
-  "grade": "B",
-  "gradeDeclared": "B",
-  "framingLevel": 1,
+  "grade": "A",
+  "gradeDeclared": "A",
+  "framingLevel": 2,
   "framingSkipped": false,
   "agentsCompleted": [
     "ace",
-    "dev",
-    "arki",
-    "dev"
+    "vera",
+    "riki",
+    "ace",
+    "vera",
+    "ace",
+    "arki"
   ],
   "turns": [
     {
@@ -25,46 +28,65 @@
       "phase": "framing"
     },
     {
-      "role": "dev",
+      "role": "vera",
       "turnIdx": 1,
-      "phase": "execution-plan"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 2,
       "phase": "analysis",
       "recallReason": "post-master"
     },
     {
-      "role": "dev",
+      "role": "riki",
+      "turnIdx": 2,
+      "phase": "analysis"
+    },
+    {
+      "role": "ace",
       "turnIdx": 3,
-      "phase": "execution-plan",
+      "phase": "synthesis",
       "recallReason": "post-intervention"
+    },
+    {
+      "role": "vera",
+      "turnIdx": 4,
+      "phase": "design-spec",
+      "recallReason": "post-master"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 5,
+      "phase": "review",
+      "recallReason": "post-intervention"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 6,
+      "phase": "execution-plan",
+      "recallReason": "post-master"
     }
   ],
   "plannedSequence": [
     "ace",
-    "dev"
+    "vera"
   ],
-  "decisions": [],
+  "decisions": [
+    "D-049"
+  ],
   "notes": [
-    "D-048 Phase 3 구현. Grade B. L1 인라인 프레이밍.",
-    "compute-dashboard.ts: seen.has() 제거 → Turn[] 기반 roleFrequency 전환. turnSequences(D3용) 신설. metrics.turnBasedSessions 추가.",
-    "환경변수 경로 오버라이드(COMPUTE_*) 추가 — Arki 보완(Phase 2 FINALIZE_* 패턴 일관성).",
-    "G3 게이트: tsc --noEmit 통과, validate --all 46개 OK, compute 정상 실행, COMPUTE_OUTPUT_PATH 오버라이드 검증."
+    "Master 지시: Ace 프레이밍 + Vera 재호출. Vera는 Claude Code 신규 design 스킬 상시 사용하도록 업그레이드 + 현재 적용 중 UI 재검토.",
+    "연계: Phase 3(session_048) turnSequences 데이터 → D3 sequence 패널 UI 구현이 gaps로 이월됨.",
+    "PD-019(토픽 중심 아키텍처) 관련성 점검 필요.",
+    "Claude Design(claude.ai/design) = 웹 제품, design:* 플러그인 스킬과 별개. PD-020으로 분리(별도 토픽). 본 세션은 플러그인 스킬 기반으로 Phase 4 진행.",
+    "feedback 메모리 신설: feedback_claude_design_vs_plugin_skills.md (session_045 허세성 기재 패턴의 변형 재발)."
   ],
-  "gaps": [
-    "D3 sequence 패널 UI (app/ HTML) 미구현 — turnSequences 데이터 준비 완료, UI는 별도 토픽"
-  ],
+  "gaps": [],
   "masterDecisions": [],
-  "reportPath": "reports/2026-04-20_phase3-aggregation-validation",
+  "reportPath": "reports/2026-04-20_phase4-ui",
   "tokenUsage": {
-    "input_tokens": 147,
-    "output_tokens": 44293,
-    "cache_creation_input_tokens": 341868,
-    "cache_read_input_tokens": 6448442,
-    "messageCount": 101,
-    "masterTurns": 9,
-    "total_billable": 6834750
+    "input_tokens": 382,
+    "output_tokens": 153971,
+    "cache_creation_input_tokens": 1046834,
+    "cache_read_input_tokens": 13257836,
+    "messageCount": 121,
+    "masterTurns": 16,
+    "total_billable": 14459023
   }
 }

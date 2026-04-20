@@ -1,6 +1,17 @@
 {
   "decisions": [
     {
+      "id": "D-049",
+      "date": "2026-04-20",
+      "session": "session_049",
+      "topic": "phase4-ui",
+      "axis": "Vera design 스킬 발동 룰 + UI 시각화 구현 주체 분담",
+      "decision": "adopt conditional self-invocation matrix for design:* plugin skills; Vera directly prototypes new visualization grammars (one-shot), Editor handles existing-grammar compositions",
+      "value": "(A) Vera skills 조건부 매트릭스 — design-critique/system/handoff/a11y/theme-factory 각 트리거·skipWhen·invocationMode(skill-call|pattern-reference|external) 필드 강제. design-system 발동 우선 판정자는 '토큰 신규 추가 여부' (Riki #3). (B) 구현 주체 경계: 신규 시각화 문법(D3 sequence처럼 기존 템플릿 없음) 최초 1회 Vera 직접 프로토타입 / 기존 문법 조합(카드·탭·그리드) Editor 위임. Editor 판단 영역 제로 체크리스트 6항목 Vera 스펙 의무 포함. (C) design_rules.json 신설 — R-D01(dashed-border=recall marker), R-D02(brand-purple-tint α∈{.12,.18,.25}=connector). (D) sequence 패널 v1.0 confirmed — D3 SVG 96px label+16px node+28px gap+280px height, ROLE_COLORS 재사용 신규 토큰 0개. (E) Claude Design(claude.ai/design 웹) ≠ design:* 플러그인 명시 — vera_memory.skills.external 필드 분리 + feedback 메모리 신설. 이월: 색 대비 전역(--text-3)·PD-018 $ 패널·PD-019 토픽 중심 아키텍처는 별도 토픽.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
       "id": "D-048",
       "date": "2026-04-20",
       "session": "session_045",
