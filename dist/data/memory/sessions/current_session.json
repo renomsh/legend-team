@@ -24,16 +24,18 @@
     "D-048 실구현 Phase 1. Master 명시 grade B. L1 인라인 프레이밍.",
     "4개 산출물: phase_catalog.json · turn-types.ts · current_session/session_index 필드 확장 · G1 게이트."
   ],
-  "gaps": [],
+  "gaps": [
+    "/close 스킬 미호출 — 수동 강제 종료. step7(role_memory) + session_index agentsCompleted/grade 필드 누락을 사후 보완."
+  ],
   "masterDecisions": [],
   "reportPath": "reports/2026-04-20_phase1-implementation-turn-types",
   "tokenUsage": {
-    "input_tokens": 1618,
-    "output_tokens": 28305,
-    "cache_creation_input_tokens": 338574,
-    "cache_read_input_tokens": 3476187,
-    "messageCount": 71,
-    "masterTurns": 3,
-    "total_billable": 3844684
+    "input_tokens": 1648,
+    "output_tokens": 36803,
+    "cache_creation_input_tokens": 363304,
+    "cache_read_input_tokens": 4955663,
+    "messageCount": 91,
+    "masterTurns": 5,
+    "total_billable": 5357418
   }
 }

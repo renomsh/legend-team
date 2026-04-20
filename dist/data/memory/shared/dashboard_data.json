@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-04-20T10:17:20.793Z",
+  "generatedAt": "2026-04-20T10:20:05.047Z",
   "totalSessions": 45,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 20.5,
-    "avgCacheHitRate": 0.9401,
+    "avgMasterTurns": 20.63,
+    "avgCacheHitRate": 0.9407,
     "cacheSampleSize": 19,
     "cacheSampleTotal": 45,
     "avgAdoptionRate": 0,
@@ -12,8 +12,8 @@
     "gradeDistribution": {
       "S": 10,
       "A": 11,
-      "B": 12,
-      "C": 12
+      "B": 13,
+      "C": 11
     },
     "gradeMismatchCount": 1,
     "gradeMismatchSessions": [
@@ -1330,20 +1330,24 @@
       "closedAt": "2026-04-20T10:20:00.000Z",
       "decisionCount": 0,
       "decisionAxes": 0,
-      "rolesCalled": 1,
+      "rolesCalled": 2,
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
-      "size": 4,
-      "gradeDeclared": "C",
-      "gradeActual": "C",
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 3,
+      "masterTurns": 8,
       "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev"
+      ],
       "tokenUsage": {
-        "totalBillable": 3844684,
-        "cacheHitRate": 0.9041541515505566,
-        "messageCount": 71
+        "totalBillable": 9202102,
+        "cacheHitRate": 0.9162960810475693,
+        "messageCount": 162
       }
     }
   ],
@@ -1387,7 +1391,7 @@
     },
     {
       "role": "ace",
-      "count": 24,
+      "count": 25,
       "sessions": [
         "session_007",
         "session_008",
@@ -1412,7 +1416,8 @@
         "session_041",
         "session_042",
         "session_043",
-        "session_045"
+        "session_045",
+        "session_046"
       ]
     },
     {
@@ -1476,7 +1481,7 @@
     },
     {
       "role": "dev",
-      "count": 9,
+      "count": 10,
       "sessions": [
         "session_020",
         "session_031",
@@ -1486,7 +1491,8 @@
         "session_037",
         "session_040",
         "session_043",
-        "session_044"
+        "session_044",
+        "session_046"
       ]
     },
     {
@@ -1543,43 +1549,43 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=20.5)"
+      "description": "Master 병목: masterTurns=48 (avg=20.6)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=20.5)"
+      "description": "Master 병목: masterTurns=43 (avg=20.6)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=20.5)"
+      "description": "Master 병목: masterTurns=42 (avg=20.6)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=20.5)"
+      "description": "Master 병목: masterTurns=45 (avg=20.6)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=20.5)"
+      "description": "Master 병목: masterTurns=39 (avg=20.6)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=20.5)"
+      "description": "Master 병목: masterTurns=49 (avg=20.6)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=20.5)"
+      "description": "Master 병목: masterTurns=35 (avg=20.6)"
     },
     {
       "ruleId": "R1",

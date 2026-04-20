@@ -185,7 +185,29 @@
     ]
   },
   "notes": "session_020에서 신설(D-021). 구현·디버깅 토픽에서만 호출. 호출 조건: Arki 설계 완료 후 구현 단계 진입 시.",
-  "lastUpdated": "2026-04-18T23:05:00.172Z",
+  "topicsHandled_session046": {
+    "topicId": "topic_049",
+    "title": "Phase 1 실구현: phase_catalog · turn-types · 필드 확장 · G1 게이트",
+    "date": "2026-04-20",
+    "implemented": [
+      "memory/shared/phase_catalog.json: 7 phase enum (framing/speculative/analysis/synthesis/reframe/execution-plan/compile)",
+      "scripts/lib/turn-types.ts: Turn[], PhaseId, RecallReason, PlannedSequenceRevision 타입 정의",
+      "current_session.json turns: [] 필드 추가",
+      "session_index.json session_001~045 legacy:true 백필 (45개)"
+    ],
+    "escalated": false,
+    "outcome": "tsc --noEmit 오류 0. G1 게이트 통과. session_046은 구현 세션이므로 turns=[] legacy=true 처리."
+  },
+  "lessonLog_session046": [
+    {
+      "id": "DEV-LL-005",
+      "date": "2026-04-20",
+      "topic": "phase1-implementation-turn-types",
+      "lesson": "session_index 대량 백필은 node inline (-e) 스크립트 패턴이 효율적. 수동 append-session.ts 먼저 실행 후 auto-push.js 실행 시 session-end-finalize.js 가 중복 실행 → session_index 중복 체크 필요.",
+      "reusable": true
+    }
+  ],
+  "lastUpdated": "2026-04-20T10:20:00.000Z",
   "observations": [
     {
       "date": "2026-04-19",

@@ -816,9 +816,16 @@
       "startedAt": "2026-04-20T10:15:00.000Z",
       "closedAt": "2026-04-20T10:20:00.000Z",
       "note": "D-048 실구현 Phase 1. Master 명시 grade B. L1 인라인 프레이밍. | 4개 산출물: phase_catalog.json · turn-types.ts · current_session/session_index 필드 확장 · G1 게이트.",
-      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\practical-stonebraker-87e215"
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\practical-stonebraker-87e215",
+      "grade": "B",
+      "legacy": true,
+      "agentsCompleted": [
+        "ace",
+        "dev"
+      ],
+      "decisions": []
     }
   ],
-  "lastUpdated": "2026-04-20T10:17:16.826Z",
+  "lastUpdated": "2026-04-20T10:20:01.237Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
