@@ -1,6 +1,19 @@
 {
   "topics": [
     {
+      "id": "topic_049",
+      "title": "Phase 1 실구현: phase_catalog · turn-types · 필드 확장 · G1 게이트",
+      "status": "completed",
+      "created": "2026-04-20",
+      "grade": "B",
+      "controlPath": "topics/topic_049",
+      "reportPath": "reports/2026-04-20_phase1-implementation-turn-types",
+      "reportFiles": [],
+      "published": false,
+      "path": "topics/topic_049",
+      "sessionId": "session_046"
+    },
+    {
       "id": "topic_048",
       "title": "역할 재호출 측정 구조 신설",
       "status": "completed",
@@ -9,7 +22,10 @@
       "grade": "A",
       "controlPath": "topics/topic_048",
       "reportPath": "reports/2026-04-20_role-recall-measurement-structure",
-      "reportFiles": ["editor_rev1.md", "vera_rev1.md"],
+      "reportFiles": [
+        "editor_rev1.md",
+        "vera_rev1.md"
+      ],
       "published": false,
       "path": "topics/topic_048",
       "note": "D-048 확정. agentsCompleted → Turn[] 구조화 + plannedSequence + 4조건 판정 프로토콜 + phase_catalog + role_palette. PD-011 resolved, PD-019 spawned(토픽 중심 아키텍처). 실구현은 session_046+ Phase 1부터 Grade B로 분할 진행."
@@ -825,5 +841,5 @@
       "grade": "C"
     }
   ],
-  "lastUpdated": "2026-04-20T08:40:34.671Z"
+  "lastUpdated": "2026-04-20T10:08:59.754Z"
 }

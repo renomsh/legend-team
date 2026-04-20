@@ -348,3 +348,19 @@
 [2026-04-20T10:06:35.568Z] [compute-dashboard] 완료 — 44개 세션, 12개 경보
 [2026-04-20T10:06:44.799Z] [sync-system-state] lastSession=session_045 openTopics=2 recentDecisions=5 deferrals=16
 [2026-04-20T10:06:47.190Z] [compute-dashboard] 완료 — 44개 세션, 13개 경보
+[2026-04-20T10:15:17.539Z] [checklist] [WARN] reports: reportPath not found on disk: reports/2026-04-20_phase1-implementation-turn-types
+[2026-04-20T10:15:17.541Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-20T10:15:17.542Z] [checklist] [INFO] topic_index: topic found: topic_049 (open)
+[2026-04-20T10:15:17.544Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-20T10:15:17.545Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-20T10:15:17.546Z] [session-log] [INFO] END session_046 | topic: phase1-implementation-turn-types | duration: 0m
+[2026-04-20T10:15:42.856Z] [checklist] [INFO] reports: 1 file(s) on disk, none registered in topic_index
+[2026-04-20T10:15:42.858Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-20T10:15:42.859Z] [checklist] [INFO] topic_index: topic found: topic_049 (open)
+[2026-04-20T10:15:42.859Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-20T10:15:42.860Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-20T10:15:42.861Z] [session-log] [INFO] END session_046 | topic: phase1-implementation-turn-types | duration: 1m
+[2026-04-20T10:16:43.486Z] [sync-system-state] lastSession=session_045 openTopics=2 recentDecisions=5 deferrals=16
+[2026-04-20T10:17:05.280Z] [sync-system-state] lastSession=session_046 openTopics=2 recentDecisions=5 deferrals=16
+[2026-04-20T10:17:18.832Z] [sync-system-state] lastSession=session_046 openTopics=2 recentDecisions=5 deferrals=16
+[2026-04-20T10:17:20.795Z] [compute-dashboard] 완료 — 45개 세션, 13개 경보

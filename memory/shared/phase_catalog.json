@@ -1,0 +1,56 @@
+{
+  "_comment": "세션 내 역할 발언 phase enum. Turn.phase 필드 참조 원천. session_045 D-048 R-2 확정. (2026-04-20)",
+  "version": "1.0",
+  "lastUpdated": "2026-04-20",
+  "phases": [
+    {
+      "id": "framing",
+      "label": "Framing",
+      "description": "Ace 초기 프레이밍 — 토픽 범위·가정·의사결정 축 설정",
+      "color": "#7ab8ff",
+      "order": 1
+    },
+    {
+      "id": "speculative",
+      "label": "Speculative",
+      "description": "Nova 또는 사변적 발언 — 확정 전 가설·뒤집기·비선형 탐색",
+      "color": "#c9b8ff",
+      "order": 2
+    },
+    {
+      "id": "analysis",
+      "label": "Analysis",
+      "description": "Arki·Fin·Riki 심층 분석 — 구조 진단·비용·리스크",
+      "color": "#ffb347",
+      "order": 3
+    },
+    {
+      "id": "synthesis",
+      "label": "Synthesis",
+      "description": "Ace 종합검토 — 역할 간 교차검토·충돌 해소·최종 권고",
+      "color": "#7ad1a8",
+      "order": 4
+    },
+    {
+      "id": "reframe",
+      "label": "Reframe",
+      "description": "Master 개입 또는 새 정보로 인한 프레임 재설정",
+      "color": "#ffd166",
+      "order": 5
+    },
+    {
+      "id": "execution-plan",
+      "label": "Execution Plan",
+      "description": "Arki 실행계획 — Phase 분해·의존 그래프·게이트·롤백 조건",
+      "color": "#06d6a0",
+      "order": 6
+    },
+    {
+      "id": "compile",
+      "label": "Compile",
+      "description": "Editor 산출물 편집·포맷·최종 아티팩트 생성",
+      "color": "#a8dadc",
+      "order": 7
+    }
+  ]
+}

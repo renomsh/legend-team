@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-04-20T10:06:47.187Z",
-  "totalSessions": 44,
+  "generatedAt": "2026-04-20T10:17:20.793Z",
+  "totalSessions": 45,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 20.95,
-    "avgCacheHitRate": 0.9421,
-    "cacheSampleSize": 18,
-    "cacheSampleTotal": 44,
+    "avgMasterTurns": 20.5,
+    "avgCacheHitRate": 0.9401,
+    "cacheSampleSize": 19,
+    "cacheSampleTotal": 45,
     "avgAdoptionRate": 0,
     "totalDecisions": 48,
     "gradeDistribution": {
       "S": 10,
       "A": 11,
       "B": 12,
-      "C": 11
+      "C": 12
     },
     "gradeMismatchCount": 1,
     "gradeMismatchSessions": [
@@ -1321,6 +1321,30 @@
         "cacheHitRate": 0.954244887575755,
         "messageCount": 96
       }
+    },
+    {
+      "sessionId": "session_046",
+      "topicSlug": "phase1-implementation-turn-types",
+      "topic": "Phase 1 실구현: phase_catalog · turn-types · 필드 확장 · G1 게이트",
+      "startedAt": "2026-04-20T10:15:00.000Z",
+      "closedAt": "2026-04-20T10:20:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 3,
+      "dataQuality": "auto",
+      "tokenUsage": {
+        "totalBillable": 3844684,
+        "cacheHitRate": 0.9041541515505566,
+        "messageCount": 71
+      }
     }
   ],
   "roleFrequency": [
@@ -1519,43 +1543,43 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=20.9)"
+      "description": "Master 병목: masterTurns=48 (avg=20.5)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=20.9)"
+      "description": "Master 병목: masterTurns=43 (avg=20.5)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=20.9)"
+      "description": "Master 병목: masterTurns=42 (avg=20.5)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=20.9)"
+      "description": "Master 병목: masterTurns=45 (avg=20.5)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=20.9)"
+      "description": "Master 병목: masterTurns=39 (avg=20.5)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=20.9)"
+      "description": "Master 병목: masterTurns=49 (avg=20.5)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=20.9)"
+      "description": "Master 병목: masterTurns=35 (avg=20.5)"
     },
     {
       "ruleId": "R1",

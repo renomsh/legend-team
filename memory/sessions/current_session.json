@@ -1,69 +1,39 @@
 {
-  "sessionId": "session_045",
-  "topicId": "topic_048",
-  "topic": "역할 재호출 측정 구조 신설",
-  "topicSlug": "role-recall-measurement-structure",
+  "sessionId": "session_046",
+  "topicId": "topic_049",
+  "topic": "Phase 1 실구현: phase_catalog · turn-types · 필드 확장 · G1 게이트",
+  "topicSlug": "phase1-implementation-turn-types",
   "status": "closed",
-  "closedAt": "2026-04-20T09:10:00.000Z",
-  "startedAt": "2026-04-20T08:41:05.271Z",
-  "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\agitated-burnell-a0a3fe",
+  "startedAt": "2026-04-20T10:15:00.000Z",
+  "closedAt": "2026-04-20T10:20:00.000Z",
+  "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\practical-stonebraker-87e215",
   "mode": "observation",
-  "grade": "A",
-  "gradeDeclared": "A",
-  "framingLevel": 2,
+  "grade": "B",
+  "gradeDeclared": "B",
+  "framingLevel": 1,
   "framingSkipped": false,
-  "agentsCompleted": [
-    "ace",
-    "nova",
-    "arki",
-    "arki",
-    "fin",
-    "riki",
-    "ace",
-    "arki",
-    "editor",
-    "arki",
-    "vera",
-    "ace"
-  ],
+  "agentsCompleted": [],
+  "turns": [],
   "plannedSequence": [
     "ace",
-    "nova",
-    "arki",
-    "fin",
-    "riki",
-    "ace",
-    "arki",
-    "editor"
+    "dev",
+    "riki"
   ],
-  "decisions": [
-    "D-048"
-  ],
+  "decisions": [],
   "notes": [
-    "PD-011 해소 목표. Master 명시 grade A. L2 ace-framing 전체 적용.",
-    "Master 지시: Ace 프레이밍 → Nova 의견 우선 (변칙 순서).",
-    "4축 단일 최적해 확정: A2(구조화 Turn[]), B opt2+4조건, C1+C2 병행, D3 sequence 1급.",
-    "Riki 6리스크 중 R-2/R-4/R-5/R-6 채택, R-1/R-3 기각.",
-    "Arki 2회 재호출(B축 재검토 + 실행계획), Ace 2회(프레이밍·종합검토·기각 재평가).",
-    "본 세션 자체가 측정 대상 패턴의 살아있는 사례 — 대표 재호출 2회.",
-    "PD-011 resolved, PD-019 spawned (토픽 중심 아키텍처 개편)."
+    "D-048 실구현 Phase 1. Master 명시 grade B. L1 인라인 프레이밍.",
+    "4개 산출물: phase_catalog.json · turn-types.ts · current_session/session_index 필드 확장 · G1 게이트."
   ],
   "gaps": [],
-  "masterDecisions": [
-    "D3(sequence 대시보드) 선결정 — Ace 자율 학습 실현 전제",
-    "연속된 대답 = Claude Code 실시간 판정으로 분리. 원 계획 1회여도 Riki·Nova 발언 날카로우면 Ace·Arki 재호출 자연스러움",
-    "Riki R-1(자기판정 편향) 경미 판단, R-3(프레이밍 되돌아가기 전제) 프레임 부적합 판단 — Ace 재평가 지시",
-    "토픽 중심 전체 개편(Nova 뒤집기 제안의 역방향)을 PD-019로 이연",
-    "최종 4축 확정안 + Arki 실행계획 승인"
-  ],
-  "reportPath": "reports/2026-04-20_role-recall-measurement-structure",
+  "masterDecisions": [],
+  "reportPath": "reports/2026-04-20_phase1-implementation-turn-types",
   "tokenUsage": {
-    "input_tokens": 279,
-    "output_tokens": 106616,
-    "cache_creation_input_tokens": 358221,
-    "cache_read_input_tokens": 9700218,
-    "messageCount": 96,
-    "masterTurns": 18,
-    "total_billable": 10165334
+    "input_tokens": 1618,
+    "output_tokens": 28305,
+    "cache_creation_input_tokens": 338574,
+    "cache_read_input_tokens": 3476187,
+    "messageCount": 71,
+    "masterTurns": 3,
+    "total_billable": 3844684
   }
 }
