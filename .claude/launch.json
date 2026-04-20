@@ -37,5 +37,11 @@
       "runtimeArgs": ["http-server", "C:/Projects/legend-team/.claude/worktrees/objective-mcclintock-7a6965/dist", "-p", "8094", "-c-1"],
       "port": 8094
     }
+    ,{
+      "name": "musing-preview",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "C:/Projects/legend-team/.claude/worktrees/musing-banzai-6aed31/dist", "-p", "8095", "-c-1"],
+      "port": 8095
+    }
   ]
 }

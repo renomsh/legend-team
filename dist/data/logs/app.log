@@ -322,3 +322,18 @@
 [2026-04-19T07:01:44.413Z] [compute-dashboard] 완료 — 42개 세션, 12개 경보
 [2026-04-19T23:15:54.236Z] [sync-system-state] lastSession=session_043 openTopics=2 recentDecisions=5 deferrals=15
 [2026-04-19T23:15:56.504Z] [compute-dashboard] 완료 — 42개 세션, 12개 경보
+[2026-04-19T23:37:24.508Z] [sync-system-state] lastSession=session_043 openTopics=2 recentDecisions=5 deferrals=15
+[2026-04-20T00:08:52.289Z] [checklist] [WARN] reports: reportPath not found on disk: reports/2026-04-20_board-sort-status-catalog
+[2026-04-20T00:08:52.292Z] [checklist] [INFO] decision_ledger: 1 decision(s) recorded for session_044
+[2026-04-20T00:08:52.293Z] [checklist] [INFO] topic_index: topic found: topic_047 (completed)
+[2026-04-20T00:08:52.293Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-20T00:08:52.294Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-20T00:08:52.295Z] [session-log] [INFO] END session_044 | topic: board-sort-status-catalog | duration: 9m
+[2026-04-20T00:09:27.872Z] [checklist] [INFO] reports: 1 file(s) on disk, none registered in topic_index
+[2026-04-20T00:09:27.874Z] [checklist] [INFO] decision_ledger: 1 decision(s) recorded for session_044
+[2026-04-20T00:09:27.875Z] [checklist] [INFO] topic_index: topic found: topic_047 (completed)
+[2026-04-20T00:09:27.875Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-20T00:09:27.876Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-20T00:09:27.876Z] [session-log] [INFO] END session_044 | topic: board-sort-status-catalog | duration: 9m
+[2026-04-20T00:09:30.800Z] [sync-system-state] lastSession=session_044 openTopics=2 recentDecisions=5 deferrals=15
+[2026-04-20T00:09:33.411Z] [compute-dashboard] 완료 — 43개 세션, 12개 경보

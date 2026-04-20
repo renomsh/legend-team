@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-team",
-    "version": "1.11",
+    "version": "1.12",
     "purpose": "Memory-first, topic-based strategy and implementation system. Master receives structured analysis from role-separated agents on any strategic or implementation topic, with all outputs preserved in inspectable, revisionable files.",
     "principles": [
       "Memory first: all agent outputs, decisions, and session state are written to files immediately. No analysis lives only in conversation context.",
@@ -101,7 +101,12 @@
       "version": "0.7.0",
       "date": "2026-04-16",
       "summary": "Dev 에이전트 신설(D-021). Editor 디자인 권한 확장(D-021). Superpowers 나머지 4개 스킬 흡수(systematic-debugging, writing-plans, executing-plans, subagent-driven-development). 총 9개 skill 운용. 역할 7개(ace, arki, dev, fin, riki, editor, nova)."
+    },
+    {
+      "version": "1.12",
+      "date": "2026-04-20",
+      "summary": "Board 정렬 구조화 + 상태값 카탈로그 단일 원천(status_catalog.json) 도입. closed→completed alias 통일. topic_index.json 파일 자체 desc 정렬 저장 + 앱 자연정렬 + create-topic.ts 정렬 삽입. /open에 create-topic.ts 자동 호출 강제(재발 방지). 중복 topic_013 분리(→045), 고아 리포트 upgrade-delta-pack 등록(→046). PD-016·017 resolved. D-047 확정."
     }
   ],
-  "lastUpdated": "2026-04-16T05:30:00.000Z"
+  "lastUpdated": "2026-04-20T00:00:00.000Z"
 }

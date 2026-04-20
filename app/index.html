@@ -131,7 +131,7 @@
       const topicData = await DataLoader.getTopicIndex();
       const topicEl = document.getElementById('topicList');
       if (topicData && topicData.topics && topicData.topics.length > 0) {
-        const all = [...topicData.topics].reverse();
+        const all = sortTopicsDesc(topicData.topics);
         window._allTopics = all;
         window._topicsExpanded = false;
         renderTopics(false);

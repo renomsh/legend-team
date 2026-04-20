@@ -1,6 +1,17 @@
 {
   "decisions": [
     {
+      "id": "D-047",
+      "date": "2026-04-20",
+      "session": "session_044",
+      "topic": "board-sort-status-catalog",
+      "axis": "토픽 status 단일 원천 + topic_index 재발 방지 구조",
+      "decision": "adopt status_catalog.json as single source + enforce create-topic.ts auto-call in /open",
+      "value": "(1) status_catalog.json 신설 (open/in-progress/completed/suspended + closed→completed alias). UI·커맨드·타입 모두 카탈로그 참조, 하드코딩 금지. (2) topic_index.json 파일 자체를 topic_id desc 자연정렬로 저장 + app/js/nav.js sortTopicsDesc + create-topic.ts 자동 정렬 삽입 (3중 방어). (3) /open 체크리스트 step 7에 create-topic.ts 자동 호출 강제 — session_036~041 topic_index 등록 누락 재발 방지. (4) 중간지점 정비: 중복 topic_013 분리(→045), 고아 upgrade-delta-pack 등록(→046), 현 세션 등록(→047). 01-41 전체 재번호는 참조 무결성 훼손 리스크로 채택 안함.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
       "id": "D-046",
       "date": "2026-04-19",
       "session": "session_043",
