@@ -1,41 +1,53 @@
 {
-  "sessionId": "session_046",
-  "topicId": "topic_049",
-  "topic": "Phase 1 실구현: phase_catalog · turn-types · 필드 확장 · G1 게이트",
-  "topicSlug": "phase1-implementation-turn-types",
+  "sessionId": "session_047",
+  "topicId": "topic_050",
+  "topic": "Phase 2 — CLAUDE.md turn push 규칙 추가 + session-end-finalize.js 검증 + validate-session-turns.ts 신설",
+  "topicSlug": "phase2-turn-push-validate",
   "status": "closed",
-  "startedAt": "2026-04-20T10:15:00.000Z",
-  "closedAt": "2026-04-20T10:20:00.000Z",
-  "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\practical-stonebraker-87e215",
+  "startedAt": "2026-04-20T11:00:00.000Z",
+  "closedAt": "2026-04-20T13:00:00.000Z",
+  "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\friendly-ishizaka-666add",
   "mode": "observation",
   "grade": "B",
   "gradeDeclared": "B",
   "framingLevel": 1,
   "framingSkipped": false,
-  "agentsCompleted": [],
-  "turns": [],
+  "agentsCompleted": [
+    "ace",
+    "dev"
+  ],
+  "turns": [
+    {
+      "role": "ace",
+      "turnIdx": 0,
+      "phase": "framing"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 1,
+      "phase": "execution-plan"
+    }
+  ],
   "plannedSequence": [
     "ace",
-    "dev",
-    "riki"
+    "dev"
   ],
   "decisions": [],
   "notes": [
-    "D-048 실구현 Phase 1. Master 명시 grade B. L1 인라인 프레이밍.",
-    "4개 산출물: phase_catalog.json · turn-types.ts · current_session/session_index 필드 확장 · G1 게이트."
+    "D-048 Phase 2 구현. Grade B. L1 인라인 프레이밍.",
+    "3개 산출물: (1) CLAUDE.md Turn Push Protocol 추가 + Script Status v0.5.0, (2) session-end-finalize.js turns/grade/plannedSequence 전파 + 환경변수 오버라이드, (3) validate-session-turns.ts 신설(callable export, phase_catalog 런타임 로드).",
+    "Master 피드백 보완: VALID_RECALL_REASONS export, require.main 가드, 검증 3케이스 실행."
   ],
-  "gaps": [
-    "/close 스킬 미호출 — 수동 강제 종료. step7(role_memory) + session_index agentsCompleted/grade 필드 누락을 사후 보완."
-  ],
+  "gaps": [],
   "masterDecisions": [],
-  "reportPath": "reports/2026-04-20_phase1-implementation-turn-types",
+  "reportPath": "reports/2026-04-20_phase2-turn-push-validate",
   "tokenUsage": {
-    "input_tokens": 1648,
-    "output_tokens": 36803,
-    "cache_creation_input_tokens": 363304,
-    "cache_read_input_tokens": 4955663,
-    "messageCount": 91,
+    "input_tokens": 220,
+    "output_tokens": 80659,
+    "cache_creation_input_tokens": 792093,
+    "cache_read_input_tokens": 13281536,
+    "messageCount": 189,
     "masterTurns": 5,
-    "total_billable": 5357418
+    "total_billable": 14154508
   }
 }

@@ -17,9 +17,9 @@ const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
 
-const CWD = process.cwd();
-const CURRENT_SESSION_PATH = path.join(CWD, 'memory', 'sessions', 'current_session.json');
-const SESSION_INDEX_PATH = path.join(CWD, 'memory', 'sessions', 'session_index.json');
+const CWD = process.env.FINALIZE_CWD || process.cwd();
+const CURRENT_SESSION_PATH = process.env.FINALIZE_CURRENT_SESSION || path.join(CWD, 'memory', 'sessions', 'current_session.json');
+const SESSION_INDEX_PATH = process.env.FINALIZE_SESSION_INDEX || path.join(CWD, 'memory', 'sessions', 'session_index.json');
 
 function log(msg) {
   console.error(`[session-end-finalize] ${msg}`);
@@ -55,6 +55,11 @@ function appendOrUpdateSessionIndex(sess) {
     cwd: sessionCwd,
     ...(Array.isArray(sess.masterDecisions) && sess.masterDecisions.length > 0 && { decisions: sess.masterDecisions }),
     ...(Array.isArray(sess.agentsCompleted) && sess.agentsCompleted.length > 0 && { agentsCompleted: sess.agentsCompleted }),
+    // D-048: Turn[] 전파
+    ...(Array.isArray(sess.turns) && sess.turns.length > 0 && { turns: sess.turns }),
+    ...(Array.isArray(sess.plannedSequence) && sess.plannedSequence.length > 0 && { plannedSequence: sess.plannedSequence }),
+    ...(sess.grade && { grade: sess.grade }),
+    ...(sess.legacy === true && { legacy: true }),
     ...(Array.isArray(sess.notes) && sess.notes.length > 0 && { note: sess.notes.join(' | ') }),
   };
 
@@ -123,7 +128,7 @@ function runSyncSystemState() {
     appendOrUpdateSessionIndex(sess);
     runSyncSystemState();
 
-    log(`완료 — ${sess.sessionId} (agents=${(sess.agentsCompleted || []).length}, decisions=${(sess.masterDecisions || []).length})`);
+    log(`완료 — ${sess.sessionId} (turns=${(sess.turns || []).length}, agents=${(sess.agentsCompleted || []).length}, decisions=${(sess.masterDecisions || []).length})`);
     process.exit(0);
   } catch (err) {
     log(`error: ${err.message}`);

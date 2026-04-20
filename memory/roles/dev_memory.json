@@ -217,5 +217,18 @@
       "appliedTo": "session-end-tokens.js 3단 fallback + session_index cwd 테이블",
       "masterFeedback": "하드코딩 최소화, 데이터를 호출하는 형태 (MF-028)"
     }
+  ],
+  "sessionLearnings": [
+    {
+      "session": "session_047",
+      "date": "2026-04-20",
+      "topic": "phase2-turn-push-validate",
+      "findings": [
+        "검증 기본값: 구현 후 런타임 검증 필수. tsc 통과만으론 부족. require.main === module 가드로 CLI/import 분리.",
+        "config 원천 분리: VALID_PHASES를 phase_catalog.json에서 런타임 로드. TypeScript union → export const 배열.",
+        "callable 모듈 설계: validateTurns() export + 환경변수 오버라이드로 프로그래밍 방식 테스트 가능.",
+        "finalize 검증 방법: FINALIZE_* 환경변수 + 픽스처 JSON으로 실 데이터 전파 검증."
+      ]
+    }
   ]
 }
