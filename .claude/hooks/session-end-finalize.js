@@ -38,6 +38,27 @@ function writeJson(p, obj) {
   fs.writeFileSync(p, JSON.stringify(obj, null, 2) + '\n', 'utf8');
 }
 
+/**
+ * /close 체크리스트 2단계(reports 저장) 직후 editor가 agentsCompleted에 없으면 자동 push.
+ * reportPath가 설정된 closed 세션 = reports 저장 완료로 간주.
+ * current_session.json도 함께 갱신하여 session_index 전파 전 일관성 유지.
+ */
+function ensureEditorInAgents(sess) {
+  const agents = Array.isArray(sess.agentsCompleted) ? sess.agentsCompleted : [];
+  if (!agents.includes('editor') && sess.reportPath) {
+    agents.push('editor');
+    sess.agentsCompleted = agents;
+    // turns에도 반영 (마지막 turn으로 추가)
+    const turns = Array.isArray(sess.turns) ? sess.turns : [];
+    turns.push({ role: 'editor', turnIdx: turns.length, phase: 'output' });
+    sess.turns = turns;
+    writeJson(CURRENT_SESSION_PATH, sess);
+    log('editor → agentsCompleted + turns 자동 push (reports 저장 확인)');
+    return true;
+  }
+  return false;
+}
+
 function appendOrUpdateSessionIndex(sess) {
   const index = readJson(SESSION_INDEX_PATH, { sessions: [] });
   if (!Array.isArray(index.sessions)) index.sessions = [];
@@ -125,6 +146,7 @@ function runSyncSystemState() {
       process.exit(0);
     }
 
+    ensureEditorInAgents(sess);
     appendOrUpdateSessionIndex(sess);
     runSyncSystemState();
 
