@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-19T23:15:56.501Z",
-  "totalSessions": 42,
+  "generatedAt": "2026-04-20T00:09:33.409Z",
+  "totalSessions": 43,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 21.08,
-    "avgCacheHitRate": 0.942,
-    "cacheSampleSize": 16,
-    "cacheSampleTotal": 42,
+    "avgMasterTurns": 21.03,
+    "avgCacheHitRate": 0.9414,
+    "cacheSampleSize": 17,
+    "cacheSampleTotal": 43,
     "avgAdoptionRate": 0,
-    "totalDecisions": 46,
+    "totalDecisions": 47,
     "gradeDistribution": {
       "S": 9,
       "A": 11,
-      "B": 11,
+      "B": 12,
       "C": 11
     },
     "gradeMismatchCount": 1,
@@ -1250,6 +1250,36 @@
         "cacheHitRate": 0.9732450474553913,
         "messageCount": 244
       }
+    },
+    {
+      "sessionId": "session_044",
+      "topicSlug": "board-sort-status-catalog",
+      "topic": "board 정렬 버그 + 상태값 카탈로그 + PD-16/17 정리",
+      "startedAt": "2026-04-20T00:00:00.000Z",
+      "closedAt": "2026-04-20T12:00:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-047"
+      ],
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 19,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "dev"
+      ],
+      "tokenUsage": {
+        "totalBillable": 19336313,
+        "cacheHitRate": 0.9319545044600799,
+        "messageCount": 181
+      }
     }
   ],
   "roleFrequency": [
@@ -1376,7 +1406,7 @@
     },
     {
       "role": "dev",
-      "count": 8,
+      "count": 9,
       "sessions": [
         "session_020",
         "session_031",
@@ -1385,7 +1415,8 @@
         "session_036",
         "session_037",
         "session_040",
-        "session_043"
+        "session_043",
+        "session_044"
       ]
     },
     {
@@ -1440,43 +1471,43 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=21.1)"
+      "description": "Master 병목: masterTurns=48 (avg=21.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=21.1)"
+      "description": "Master 병목: masterTurns=43 (avg=21.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=21.1)"
+      "description": "Master 병목: masterTurns=42 (avg=21.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=21.1)"
+      "description": "Master 병목: masterTurns=45 (avg=21.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=21.1)"
+      "description": "Master 병목: masterTurns=39 (avg=21.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=21.1)"
+      "description": "Master 병목: masterTurns=49 (avg=21.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=21.1)"
+      "description": "Master 병목: masterTurns=35 (avg=21.0)"
     },
     {
       "ruleId": "R5",

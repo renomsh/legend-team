@@ -1,0 +1,39 @@
+{
+  "_comment": "토픽 status 단일 원천. UI·스크립트·커맨드 모두 이 파일을 참조. 하드코딩 금지. (session_044, 2026-04-20)",
+  "version": "1.0",
+  "lastUpdated": "2026-04-20",
+  "statuses": [
+    {
+      "id": "open",
+      "label": "Open",
+      "description": "세션 개시됨, 진행 전",
+      "color": "#7ab8ff",
+      "terminal": false
+    },
+    {
+      "id": "in-progress",
+      "label": "In Progress",
+      "description": "작업 진행 중 (세션 경계 초과 가능)",
+      "color": "#ffb347",
+      "terminal": false
+    },
+    {
+      "id": "completed",
+      "label": "Completed",
+      "description": "토픽 종결. 목표 달성 또는 의사결정 확정.",
+      "color": "#7ad1a8",
+      "terminal": true
+    },
+    {
+      "id": "suspended",
+      "label": "Suspended",
+      "description": "외부 조건 대기 또는 우선순위 변경으로 중단",
+      "color": "#b592d6",
+      "terminal": false
+    }
+  ],
+  "aliases": {
+    "closed": "completed"
+  },
+  "defaultStatus": "open"
+}

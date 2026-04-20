@@ -15,6 +15,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import type { TopicIndex, TopicIndexEntry } from '../src/types/index';
 import { ROOT, readJson, writeJson, nextId } from './lib/utils';
+import { compareTopicDesc } from './migrate-topic-index';
 
 const TOPIC_INDEX_PATH = path.join(ROOT, 'memory/shared/topic_index.json');
 
@@ -130,6 +131,8 @@ function createTopic(title: string, explicitSlug?: string): void {
     path: `topics/${id}`,
   };
   index.topics.push(entry);
+  // Keep topic_index sorted by id desc so the board never goes out of order.
+  index.topics.sort((a, b) => compareTopicDesc(a.id, b.id));
   index.lastUpdated = now;
   writeJson(TOPIC_INDEX_PATH, index);
 
