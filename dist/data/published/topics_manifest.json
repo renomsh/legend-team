@@ -1,6 +1,21 @@
 {
-  "generatedAt": "2026-04-20T10:53:05.512Z",
+  "generatedAt": "2026-04-20T11:10:49.578Z",
   "topics": [
+    {
+      "id": "topic_051",
+      "title": "Phase 3 — 집계 전환 + 실측 데이터 검증",
+      "status": "completed",
+      "created": "2026-04-20",
+      "reportPath": "reports/2026-04-20_phase3-aggregation-validation",
+      "reportFiles": [
+        "dev_rev1.md",
+        "dev_rev2.md"
+      ],
+      "published": false,
+      "outcome": "compute-dashboard.ts: seen.has() 제거 → Turn[] 기반 roleFrequency 전환. turnSequences(D3용) 신설. 환경변수 경로 오버라이드(COMPUTE_*) 추가(Arki 보완). G3 게이트 통과.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_050",
       "title": "Phase 2 — CLAUDE.md turn push 규칙 추가 + session-end-finalize.js 검증 + validate-session-turns.ts 신설",

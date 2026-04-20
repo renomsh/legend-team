@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-20T10:53:05.133Z",
-  "totalSessions": 46,
+  "generatedAt": "2026-04-20T11:10:49.166Z",
+  "totalSessions": 47,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 20.24,
-    "avgCacheHitRate": 0.9406,
-    "cacheSampleSize": 20,
-    "cacheSampleTotal": 46,
+    "avgMasterTurns": 19.98,
+    "avgCacheHitRate": 0.9408,
+    "cacheSampleSize": 21,
+    "cacheSampleTotal": 47,
     "avgAdoptionRate": 0,
     "totalDecisions": 48,
     "gradeDistribution": {
       "S": 10,
-      "A": 11,
+      "A": 12,
       "B": 14,
       "C": 11
     },
@@ -19,7 +19,8 @@
     "gradeMismatchSessions": [
       "session_013"
     ],
-    "framingSkippedCount": 0
+    "framingSkippedCount": 0,
+    "turnBasedSessions": 2
   },
   "sessions": [
     {
@@ -1377,200 +1378,110 @@
         "cacheHitRate": 0.9383255143873599,
         "messageCount": 189
       }
+    },
+    {
+      "sessionId": "session_048",
+      "topicSlug": "phase3-aggregation-validation",
+      "topic": "Phase 3 — 집계 전환 + 실측 데이터 검증",
+      "startedAt": "2026-04-20T14:00:00.000Z",
+      "closedAt": "2026-04-20T15:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 4,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 9,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 9,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "arki",
+        "dev"
+      ],
+      "tokenUsage": {
+        "totalBillable": 6834750,
+        "cacheHitRate": 0.9434788397527342,
+        "messageCount": 101
+      }
     }
   ],
   "roleFrequency": [
     {
-      "role": "editor",
-      "count": 31,
+      "role": "dev",
+      "count": 3,
       "sessions": [
-        "session_007",
-        "session_009",
-        "session_010",
-        "session_011",
-        "session_012",
-        "session_013",
-        "session_014",
-        "session_015",
-        "session_016",
-        "session_017",
-        "session_018",
-        "session_019",
-        "session_020",
-        "session_021",
-        "session_022",
-        "session_023",
-        "session_024",
-        "session_025",
-        "session_026",
-        "session_028",
-        "session_029",
-        "session_030",
-        "session_031",
-        "session_033",
-        "session_034",
-        "session_037",
-        "session_038",
-        "session_041",
-        "session_042",
-        "session_043",
-        "session_045"
+        "session_047",
+        "session_048"
       ]
     },
     {
       "role": "ace",
-      "count": 26,
+      "count": 2,
       "sessions": [
-        "session_007",
-        "session_008",
-        "session_009",
-        "session_011",
-        "session_012",
-        "session_013",
-        "session_014",
-        "session_016",
-        "session_018",
-        "session_019",
-        "session_024",
-        "session_026",
-        "session_030",
-        "session_031",
-        "session_033",
-        "session_034",
-        "session_036",
-        "session_037",
-        "session_038",
-        "session_040",
-        "session_041",
-        "session_042",
-        "session_043",
-        "session_045",
-        "session_046",
-        "session_047"
+        "session_047",
+        "session_048"
       ]
     },
     {
       "role": "arki",
-      "count": 16,
-      "sessions": [
-        "session_008",
-        "session_009",
-        "session_011",
-        "session_012",
-        "session_015",
-        "session_016",
-        "session_018",
-        "session_031",
-        "session_033",
-        "session_034",
-        "session_037",
-        "session_038",
-        "session_041",
-        "session_042",
-        "session_043",
-        "session_045"
-      ]
-    },
-    {
-      "role": "riki",
-      "count": 13,
-      "sessions": [
-        "session_009",
-        "session_011",
-        "session_012",
-        "session_016",
-        "session_031",
-        "session_033",
-        "session_034",
-        "session_037",
-        "session_038",
-        "session_041",
-        "session_042",
-        "session_043",
-        "session_045"
-      ]
-    },
-    {
-      "role": "fin",
-      "count": 12,
-      "sessions": [
-        "session_009",
-        "session_012",
-        "session_016",
-        "session_024",
-        "session_031",
-        "session_033",
-        "session_037",
-        "session_038",
-        "session_041",
-        "session_042",
-        "session_043",
-        "session_045"
-      ]
-    },
-    {
-      "role": "dev",
-      "count": 11,
-      "sessions": [
-        "session_020",
-        "session_031",
-        "session_032",
-        "session_035",
-        "session_036",
-        "session_037",
-        "session_040",
-        "session_043",
-        "session_044",
-        "session_046",
-        "session_047"
-      ]
-    },
-    {
-      "role": "nova",
-      "count": 8,
-      "sessions": [
-        "session_013",
-        "session_014",
-        "session_015",
-        "session_033",
-        "session_034",
-        "session_037",
-        "session_043",
-        "session_045"
-      ]
-    },
-    {
-      "role": "vera",
-      "count": 4,
-      "sessions": [
-        "session_030",
-        "session_037",
-        "session_038",
-        "session_045"
-      ]
-    },
-    {
-      "role": "ace-review",
-      "count": 4,
-      "sessions": [
-        "session_031",
-        "session_041",
-        "session_042",
-        "session_043"
-      ]
-    },
-    {
-      "role": "arki-review",
       "count": 1,
       "sessions": [
-        "session_041"
+        "session_048"
+      ]
+    }
+  ],
+  "turnSequences": [
+    {
+      "sessionId": "session_047",
+      "topic": "Phase 2 — CLAUDE.md turn push 규칙 추가 + session-end-finalize.js 검증 + validate-session-turns.ts 신설",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "execution-plan",
+          "turnIdx": 1,
+          "recallReason": null
+        }
       ]
     },
     {
-      "role": "editor-full",
-      "count": 1,
-      "sessions": [
-        "session_041"
+      "sessionId": "session_048",
+      "topic": "Phase 3 — 집계 전환 + 실측 데이터 검증",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "execution-plan",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "analysis",
+          "turnIdx": 2,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "dev",
+          "phase": "execution-plan",
+          "turnIdx": 3,
+          "recallReason": "post-intervention"
+        }
       ]
     }
   ],
@@ -1579,43 +1490,43 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=20.2)"
+      "description": "Master 병목: masterTurns=48 (avg=20.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=20.2)"
+      "description": "Master 병목: masterTurns=43 (avg=20.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=20.2)"
+      "description": "Master 병목: masterTurns=42 (avg=20.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=20.2)"
+      "description": "Master 병목: masterTurns=45 (avg=20.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=20.2)"
+      "description": "Master 병목: masterTurns=39 (avg=20.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=20.2)"
+      "description": "Master 병목: masterTurns=49 (avg=20.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=20.2)"
+      "description": "Master 병목: masterTurns=35 (avg=20.0)"
     },
     {
       "ruleId": "R1",

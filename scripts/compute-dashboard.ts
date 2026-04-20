@@ -13,15 +13,16 @@
 
 import * as path from 'path';
 import { ROOT, readJson, writeJson, appendLog } from './lib/utils';
+import { Turn } from './lib/turn-types';
 
-// ── 경로 ──────────────────────────────────────────────────────────────────
-const SESSION_INDEX_PATH  = path.join(ROOT, 'memory', 'sessions', 'session_index.json');
-const TOPIC_INDEX_PATH    = path.join(ROOT, 'memory', 'shared', 'topic_index.json');
-const DECISION_LEDGER_PATH = path.join(ROOT, 'memory', 'shared', 'decision_ledger.json');
-const TOKEN_LOG_PATH      = path.join(ROOT, 'memory', 'sessions', 'token_log.json');
-const FEEDBACK_LOG_PATH   = path.join(ROOT, 'memory', 'master', 'master_feedback_log.json');
-const PROPOSAL_LOG_PATH   = path.join(ROOT, 'memory', 'sessions', 'proposal_log.json');
-const OUTPUT_PATH         = path.join(ROOT, 'memory', 'shared', 'dashboard_data.json');
+// ── 경로 (환경변수 오버라이드 지원 — 테스트 픽스처 주입용) ──────────────────
+const SESSION_INDEX_PATH  = process.env.COMPUTE_SESSION_INDEX   ?? path.join(ROOT, 'memory', 'sessions', 'session_index.json');
+const TOPIC_INDEX_PATH    = process.env.COMPUTE_TOPIC_INDEX     ?? path.join(ROOT, 'memory', 'shared', 'topic_index.json');
+const DECISION_LEDGER_PATH = process.env.COMPUTE_DECISION_LEDGER ?? path.join(ROOT, 'memory', 'shared', 'decision_ledger.json');
+const TOKEN_LOG_PATH      = process.env.COMPUTE_TOKEN_LOG       ?? path.join(ROOT, 'memory', 'sessions', 'token_log.json');
+const FEEDBACK_LOG_PATH   = process.env.COMPUTE_FEEDBACK_LOG    ?? path.join(ROOT, 'memory', 'master', 'master_feedback_log.json');
+const PROPOSAL_LOG_PATH   = process.env.COMPUTE_PROPOSAL_LOG    ?? path.join(ROOT, 'memory', 'sessions', 'proposal_log.json');
+const OUTPUT_PATH         = process.env.COMPUTE_OUTPUT_PATH     ?? path.join(ROOT, 'memory', 'shared', 'dashboard_data.json');
 
 // ── 타입 ──────────────────────────────────────────────────────────────────
 interface SessionIndexEntry {
@@ -39,6 +40,9 @@ interface SessionIndexEntry {
   gradeActual?: 'S' | 'A' | 'B' | 'C';
   gradeMismatch?: boolean;
   framingSkipped?: boolean;
+  turns?: Turn[];
+  plannedSequence?: string[];
+  legacy?: boolean;
 }
 
 interface TopicEntry {
@@ -358,24 +362,38 @@ function main() {
     }
   }
 
-  // ── 역할 호출 빈도 집계 ──────────────────────────────────────────────────
-  const roleFreqMap = new Map<string, { count: number; sessions: string[] }>();
-  for (const s of sessions) {
-    if (!s.agentsCompleted) continue;
-    const seen = new Set<string>();
-    for (const rawRole of s.agentsCompleted) {
-      const role = rawRole.toLowerCase(); // case 정규화: "Nova"/"nova" 통합
-      if (seen.has(role)) continue; // 세션당 1회만 카운트 (재호출 측정은 PD-011 이연)
-      seen.add(role);
-      const entry = roleFreqMap.get(role) ?? { count: 0, sessions: [] };
+  // ── 역할 호출 빈도 집계 (Turn[] 기반, non-legacy 전용) ───────────────────
+  // D-048: seen.has() 제거 — Turn[] 기반으로 재호출 포함 전체 카운트.
+  // legacy:true 세션은 집계 배제 (R-6).
+  const turnRoleFreqMap = new Map<string, { count: number; sessions: string[] }>();
+  for (const s of sessionIndex.sessions) {
+    if (s.legacy) continue;
+    if (!s.turns || s.turns.length === 0) continue;
+    for (const turn of s.turns) {
+      const role = turn.role.toLowerCase();
+      const entry = turnRoleFreqMap.get(role) ?? { count: 0, sessions: [] };
       entry.count++;
-      entry.sessions.push(s.sessionId);
-      roleFreqMap.set(role, entry);
+      if (!entry.sessions.includes(s.sessionId)) entry.sessions.push(s.sessionId);
+      turnRoleFreqMap.set(role, entry);
     }
   }
-  const roleFrequency: RoleFrequencyEntry[] = Array.from(roleFreqMap.entries())
+  const roleFrequency: RoleFrequencyEntry[] = Array.from(turnRoleFreqMap.entries())
     .map(([role, data]) => ({ role, count: data.count, sessions: data.sessions }))
     .sort((a, b) => b.count - a.count);
+
+  // ── Turn 시퀀스 (D3 sequence 대시보드용) ─────────────────────────────────
+  const turnSequences = sessionIndex.sessions
+    .filter(s => !s.legacy && s.turns && s.turns.length > 0)
+    .map(s => ({
+      sessionId: s.sessionId,
+      topic: s.topic ?? s.topicSlug,
+      sequence: s.turns!.map(t => ({
+        role: t.role,
+        phase: t.phase ?? null,
+        turnIdx: t.turnIdx,
+        recallReason: t.recallReason ?? null,
+      })),
+    }));
 
   // ── 출력 ─────────────────────────────────────────────────────────────────
   const output = {
@@ -393,9 +411,11 @@ function main() {
       gradeMismatchCount,
       gradeMismatchSessions: mismatchSessions,
       framingSkippedCount,
+      turnBasedSessions: turnSequences.length,
     },
     sessions,
     roleFrequency,
+    turnSequences,
     alarms,
     feedbackRecurrences,
   };

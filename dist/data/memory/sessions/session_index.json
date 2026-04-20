@@ -854,8 +854,52 @@
       ],
       "grade": "B",
       "note": "D-048 Phase 2 구현. Grade B. L1 인라인 프레이밍. | 3개 산출물: (1) CLAUDE.md Turn Push Protocol 추가 + Script Status v0.5.0, (2) session-end-finalize.js turns/grade/plannedSequence 전파 + 환경변수 오버라이드, (3) validate-session-turns.ts 신설(callable export, phase_catalog 런타임 로드). | Master 피드백 보완: VALID_RECALL_REASONS export, require.main 가드, 검증 3케이스 실행."
+    },
+    {
+      "sessionId": "session_048",
+      "topicSlug": "phase3-aggregation-validation",
+      "topic": "Phase 3 — 집계 전환 + 실측 데이터 검증",
+      "startedAt": "2026-04-20T14:00:00.000Z",
+      "closedAt": "2026-04-20T15:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\competent-kalam-2bb1c4",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "arki",
+        "dev"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 1,
+          "phase": "execution-plan"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 2,
+          "phase": "analysis",
+          "recallReason": "post-master"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 3,
+          "phase": "execution-plan",
+          "recallReason": "post-intervention"
+        }
+      ],
+      "plannedSequence": [
+        "ace",
+        "dev"
+      ],
+      "grade": "B",
+      "note": "D-048 Phase 3 구현. Grade B. L1 인라인 프레이밍. | compute-dashboard.ts: seen.has() 제거 → Turn[] 기반 roleFrequency 전환. turnSequences(D3용) 신설. metrics.turnBasedSessions 추가. | 환경변수 경로 오버라이드(COMPUTE_*) 추가 — Arki 보완(Phase 2 FINALIZE_* 패턴 일관성). | G3 게이트: tsc --noEmit 통과, validate --all 46개 OK, compute 정상 실행, COMPUTE_OUTPUT_PATH 오버라이드 검증."
     }
   ],
-  "lastUpdated": "2026-04-20T10:53:01.418Z",
+  "lastUpdated": "2026-04-20T11:10:45.383Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

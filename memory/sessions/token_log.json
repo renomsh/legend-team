@@ -645,7 +645,22 @@
         "masterTurns": 5,
         "total_billable": 14154508
       }
+    },
+    {
+      "capturedAt": "2026-04-20T11:10:45.290Z",
+      "cliSessionId": null,
+      "legendSessionId": "session_048",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-competent-kalam-2bb1c4\\1dabde09-f192-429a-807e-9f7c5ecf4600.jsonl",
+      "usage": {
+        "input_tokens": 147,
+        "output_tokens": 44293,
+        "cache_creation_input_tokens": 341868,
+        "cache_read_input_tokens": 6448442,
+        "messageCount": 101,
+        "masterTurns": 9,
+        "total_billable": 6834750
+      }
     }
   ],
-  "lastUpdated": "2026-04-20T10:53:01.322Z"
+  "lastUpdated": "2026-04-20T11:10:45.290Z"
 }
