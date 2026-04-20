@@ -9,7 +9,7 @@
    - 세션 중 생성된 역할별 출력을 `reports/{YYYY-MM-DD}_{topic-slug}/{role}_rev{n}.md`에 저장
    - 이미 저장된 것은 건너뜀
 3. `memory/shared/decision_ledger.json` — 세션 중 내려진 새 의사결정 추가
-4. `memory/shared/topic_index.json` — 토픽 status 변경 (closed/suspended), outcome 기록
+4. `memory/shared/topic_index.json` — 토픽 status 변경. **허용 값은 `memory/shared/status_catalog.json`의 statuses[].id만** (현재: open / in-progress / completed / suspended). `closed`는 legacy alias → 반드시 `completed`로 기록. outcome 기록.
 5. `memory/sessions/current_session.json` 업데이트:
    - status: "closed"
    - closedAt: 현재 시각 (ISO 8601)

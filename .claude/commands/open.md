@@ -18,7 +18,10 @@
    - grade: 판정된 grade (S/A/B/C)
    - framingLevel: 0/1/2
    - framingSkipped: true/false
-7. `topic_index.json`에 새 토픽 추가 시 `grade` 필드 포함
+7. **[필수·자동]** `npx ts-node scripts/create-topic.ts "<topic title>" <topicSlug>` 실행 — topic_index.json에 새 엔트리 자동 등록. Edit 도구로 수동 추가 금지. (D-047, 재발 방지 — session_036~041의 topic_index 등록 누락 사고 원인 해소)
+   - 실행 후 출력된 topic_id를 `current_session.json.topicId`에 기록
+   - grade 필드는 create-topic.ts가 topic_index 기록 후, 별도 Edit으로 해당 엔트리에 `grade: "<S|A|B|C>"` 추가
+   - topic_index.json은 `compareTopicDesc` 기준 desc 정렬 상태로 유지됨 (create-topic.ts가 자동 정렬)
 8. 세션 오픈 완료 보고 후, **Framing Level에 따라 첫 주자 결정**
 
 ---
