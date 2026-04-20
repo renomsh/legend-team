@@ -405,3 +405,11 @@
 [2026-04-20T12:34:48.475Z] [compute-dashboard] 완료 — 49개 세션, 14개 경보
 [2026-04-20T23:17:46.765Z] [sync-system-state] lastSession=session_050 openTopics=2 recentDecisions=5 deferrals=16
 [2026-04-20T23:17:49.298Z] [compute-dashboard] 완료 — 49개 세션, 14개 경보
+[2026-04-20T23:35:38.355Z] [checklist] [INFO] reports: all 1 registered file(s) present: dev_rev01.md
+[2026-04-20T23:35:38.358Z] [checklist] [WARN] decision_ledger: masterDecisions noted but none found in ledger for session_051
+[2026-04-20T23:35:38.359Z] [checklist] [INFO] topic_index: topic found: topic_054 (completed)
+[2026-04-20T23:35:38.360Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-20T23:35:38.360Z] [checklist] [INFO] master_feedback: 1 feedback entry(ies) recorded
+[2026-04-20T23:35:38.361Z] [session-log] [INFO] END session_051 | topic: edi-name-apply | duration: unknown (startedAt in future)
+[2026-04-20T23:36:01.545Z] [sync-system-state] lastSession=session_051 openTopics=2 recentDecisions=5 deferrals=16
+[2026-04-20T23:36:04.273Z] [compute-dashboard] 완료 — 50개 세션, 14개 경보

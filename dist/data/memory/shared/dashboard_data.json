@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-20T23:17:49.295Z",
-  "totalSessions": 49,
+  "generatedAt": "2026-04-20T23:36:04.270Z",
+  "totalSessions": 50,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 19.57,
-    "avgCacheHitRate": 0.9377,
-    "cacheSampleSize": 23,
-    "cacheSampleTotal": 49,
+    "avgMasterTurns": 19.29,
+    "avgCacheHitRate": 0.9384,
+    "cacheSampleSize": 24,
+    "cacheSampleTotal": 50,
     "avgAdoptionRate": 0,
     "totalDecisions": 49,
     "gradeDistribution": {
       "S": 11,
       "A": 12,
-      "B": 15,
+      "B": 16,
       "C": 11
     },
     "gradeMismatchCount": 1,
@@ -20,7 +20,7 @@
       "session_013"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 4
+    "turnBasedSessions": 5
   },
   "sessions": [
     {
@@ -939,7 +939,7 @@
         "Arki",
         "Fin",
         "Riki",
-        "Editor"
+        "Edi"
       ],
       "tokenUsage": {
         "totalBillable": 27996556,
@@ -1073,7 +1073,7 @@
         "Nova",
         "Dev",
         "Vera",
-        "Editor"
+        "Edi"
       ],
       "tokenUsage": {
         "totalBillable": 9712667,
@@ -1108,7 +1108,7 @@
         "Fin",
         "Vera",
         "Riki",
-        "Editor"
+        "Edi"
       ],
       "tokenUsage": {
         "totalBillable": 11994992,
@@ -1472,25 +1472,56 @@
         "cacheHitRate": 0.8946362206975415,
         "messageCount": 52
       }
+    },
+    {
+      "sessionId": "session_051",
+      "topicSlug": "edi-name-apply",
+      "topic": "에디 이름 적용",
+      "startedAt": "2026-04-21T00:00:00.000Z",
+      "closedAt": "2026-04-21T01:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 7,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 6683452,
+        "cacheHitRate": 0.9535255134622048,
+        "messageCount": 108
+      }
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 5,
+      "count": 6,
       "sessions": [
         "session_047",
         "session_048",
-        "session_049"
+        "session_049",
+        "session_051"
       ]
     },
     {
       "role": "dev",
-      "count": 4,
+      "count": 5,
       "sessions": [
         "session_047",
         "session_048",
-        "session_050"
+        "session_050",
+        "session_051"
       ]
     },
     {
@@ -1509,17 +1540,18 @@
       ]
     },
     {
+      "role": "editor",
+      "count": 2,
+      "sessions": [
+        "session_050",
+        "session_051"
+      ]
+    },
+    {
       "role": "riki",
       "count": 1,
       "sessions": [
         "session_049"
-      ]
-    },
-    {
-      "role": "editor",
-      "count": 1,
-      "sessions": [
-        "session_050"
       ]
     }
   ],
@@ -1637,6 +1669,30 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_051",
+      "topic": "에디 이름 적용",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "output",
+          "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -1644,43 +1700,43 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=19.6)"
+      "description": "Master 병목: masterTurns=48 (avg=19.3)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=19.6)"
+      "description": "Master 병목: masterTurns=43 (avg=19.3)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=19.6)"
+      "description": "Master 병목: masterTurns=42 (avg=19.3)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=19.6)"
+      "description": "Master 병목: masterTurns=45 (avg=19.3)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=19.6)"
+      "description": "Master 병목: masterTurns=39 (avg=19.3)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=19.6)"
+      "description": "Master 병목: masterTurns=49 (avg=19.3)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=19.6)"
+      "description": "Master 병목: masterTurns=35 (avg=19.3)"
     },
     {
       "ruleId": "R1",
