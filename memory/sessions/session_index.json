@@ -560,7 +560,7 @@
         "Arki",
         "Fin",
         "Riki",
-        "Editor"
+        "Edi"
       ],
       "note": "대시보드 과거 회귀 버그 — CF Pages stale data. 원인: e94543a 커밋이 worktree에만 존재, origin/main 미반영. 수동 push로 해결. | ace-framing L0/L1/L2 grade 조건화 설계 및 구현 (D-032) | 버전 관리 project_charter.json 단일 소스화, nav.js 자동 반영 (D-033) | Dashboard: Grade Distribution + Grade Mismatch 패널 추가 | Decisions: 최신순 정렬. OPS: 순서 1,2,3,4,5 정렬. | PD-010 등록: token hook 미캡처 진단 이연",
       "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\pensive-cartwright-5b731e",
@@ -638,7 +638,7 @@
         "Nova",
         "Dev",
         "Vera",
-        "Editor"
+        "Edi"
       ],
       "note": "8개 역할 페르소나 재정의 (3층 구조: 대변층 Ace / 전문가층 6 / 실행층 Editor) | 실존 인물 레퍼런스 8명 채용 (Hickey·Damodaran·Taleb·Kay·Carmack·Rams·Strunk&White + Master) | 공통 스키마 3필드 신설: persona/scope/hitRateRubric | referenceMode 원칙 내재화 — '그 인물이라면 어떻게 했을까' 관점으로 작동 | Riki 특례: 기각 후 실현율 (일치율 아님, Nova 뒤집기 2) | Dev-Arki 양방향 협의 관계 확정 | notOwnerOf 우위 원칙 (Top 0.1% 지문 = 침묵 영역, Nova 뒤집기 4) | D-041 확정, PD-013 resolved",
       "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\exciting-mestorf-314aff",
@@ -659,7 +659,7 @@
         "Fin",
         "Vera",
         "Riki",
-        "Editor"
+        "Edi"
       ],
       "note": "8개 역할 role memory skills 필드 신설 (core/conditional/methods) | 전역 스킬 auto-model-switch 설계 완료 (opusplan 패턴, Grade A/S → Opus) | 버전 정책 마일스톤형 확정 (+0.1/+0.01/+0.001) | system_state v1.01 → v1.1 소급 (session_037 페르소나 재정의 = +0.1 규모) | Riki R-03 '트리거 모호성' → '레이어 불일치'로 재분류 | web-artifacts-builder 소유권 Editor 단일화 | Fin aceOrchestratorNote 등록 (Ace가 Fin 호출 체크리스트) | D-042 확정. PD-014 resolved. PD-017 신규 등록.",
       "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\eloquent-haibt-cbb9f2",
@@ -992,8 +992,44 @@
       ],
       "grade": "C",
       "note": "토픽: /close 체크리스트 2단계(reports 저장) 직후 agentsCompleted에 'editor' 자동 push 누락 재발 방지. | session-end-finalize.js에 ensureEditorInAgents() 함수 추가 완료. | closed + reportPath 있는 세션에서 editor 자동 push + turns 자동 기록. 중복 방지 포함."
+    },
+    {
+      "sessionId": "session_051",
+      "topicSlug": "edi-name-apply",
+      "topic": "에디 이름 적용",
+      "startedAt": "2026-04-21T00:00:00.000Z",
+      "closedAt": "2026-04-21T01:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\recursing-varahamihira-b13111",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 1,
+          "phase": "implementation"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 2,
+          "phase": "output"
+        }
+      ],
+      "plannedSequence": [
+        "ace",
+        "dev"
+      ],
+      "grade": "B",
+      "note": "roles.json name:Editor → Edi. description (에디) 제거. | session.html 'Editor — Output' → 'Edi — Output'. | dashboard_data.json + session_index.json 역사 데이터 Editor → Edi (각 3건). | ensureEditorInAgents() reportPath 조건 제거 — session_051부터 모든 세션 무조건 push. | 누락 세션 17개 소급 없음 — Master 결정. 앞으로 발전해 나가면 된다. | 에디 이름 적용 범위: 표시명만 변경. 역할 설명 컨텍스트(Editor Protocol 등)는 유지."
     }
   ],
-  "lastUpdated": "2026-04-20T23:17:43.909Z",
+  "lastUpdated": "2026-04-20T23:35:59.136Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

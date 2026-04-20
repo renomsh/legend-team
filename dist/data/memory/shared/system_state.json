@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_050",
-  "nextSessionId": "session_051",
+  "lastSessionId": "session_051",
+  "nextSessionId": "session_052",
   "currentVersion": "v1.11",
   "openTopics": [
     {
@@ -191,5 +191,5 @@
       "note": "session_045 Nova 뒤집기 제안에 대한 Master 역제안. Grade S 토픽 예상. 본 토픽(PD-011 해소)과 연계되나 범위 외로 분리."
     }
   ],
-  "lastUpdated": "2026-04-20T23:17:46.764Z"
+  "lastUpdated": "2026-04-20T23:36:01.545Z"
 }

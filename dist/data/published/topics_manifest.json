@@ -1,6 +1,20 @@
 {
-  "generatedAt": "2026-04-20T23:17:49.956Z",
+  "generatedAt": "2026-04-20T23:36:04.913Z",
   "topics": [
+    {
+      "id": "topic_054",
+      "title": "에디 이름 적용",
+      "status": "completed",
+      "created": "2026-04-21",
+      "reportPath": "reports/2026-04-21_edi-name-apply",
+      "reportFiles": [
+        "dev_rev01.md"
+      ],
+      "published": false,
+      "outcome": "roles.json name:Edi 적용, session.html 레이블 수정, 역사 데이터 Editor→Edi 교체. ensureEditorInAgents 조건 reportPath 제거 — session_051부터 모든 세션 무조건 push.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_053",
       "title": "에디 누락 재발 방지 — session-end-finalize.js editor push 자동화",

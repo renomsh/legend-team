@@ -1,52 +1,61 @@
 {
-  "sessionId": "session_050",
-  "topicId": "topic_053",
-  "topic": "에디 누락 재발 방지 — session-end-finalize.js editor push 자동화",
-  "topicSlug": "editor-missing-fix",
+  "sessionId": "session_051",
+  "topicId": "topic_054",
+  "topic": "에디 이름 적용",
+  "topicSlug": "edi-name-apply",
   "status": "closed",
-  "startedAt": "2026-04-20T18:00:00.000Z",
-  "closedAt": "2026-04-20T18:30:00.000Z",
-  "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\tender-lovelace-e55375",
+  "startedAt": "2026-04-21T00:00:00.000Z",
+  "closedAt": "2026-04-21T01:00:00.000Z",
   "mode": "observation",
-  "grade": "C",
-  "gradeDeclared": "C",
-  "framingLevel": 0,
-  "framingSkipped": true,
+  "grade": "B",
+  "gradeDeclared": "B",
+  "framingLevel": 1,
+  "framingSkipped": false,
   "agentsCompleted": [
+    "ace",
     "dev",
     "editor"
   ],
   "turns": [
     {
-      "role": "dev",
+      "role": "ace",
       "turnIdx": 0,
+      "phase": "framing"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 1,
       "phase": "implementation"
     },
     {
       "role": "editor",
-      "turnIdx": 1,
+      "turnIdx": 2,
       "phase": "output"
     }
   ],
   "plannedSequence": [
+    "ace",
     "dev"
   ],
   "decisions": [],
   "notes": [
-    "토픽: /close 체크리스트 2단계(reports 저장) 직후 agentsCompleted에 'editor' 자동 push 누락 재발 방지.",
-    "session-end-finalize.js에 ensureEditorInAgents() 함수 추가 완료.",
-    "closed + reportPath 있는 세션에서 editor 자동 push + turns 자동 기록. 중복 방지 포함."
+    "roles.json name:Editor → Edi. description (에디) 제거.",
+    "session.html 'Editor — Output' → 'Edi — Output'.",
+    "dashboard_data.json + session_index.json 역사 데이터 Editor → Edi (각 3건).",
+    "ensureEditorInAgents() reportPath 조건 제거 — session_051부터 모든 세션 무조건 push.",
+    "누락 세션 17개 소급 없음 — Master 결정. 앞으로 발전해 나가면 된다.",
+    "에디 이름 적용 범위: 표시명만 변경. 역할 설명 컨텍스트(Editor Protocol 등)는 유지."
   ],
   "gaps": [],
   "masterDecisions": [],
-  "reportPath": "reports/2026-04-20_editor-missing-fix",
+  "reportPath": "reports/2026-04-21_edi-name-apply",
   "tokenUsage": {
-    "input_tokens": 13,
-    "output_tokens": 1813,
-    "cache_creation_input_tokens": 35186,
-    "cache_read_input_tokens": 123321,
-    "messageCount": 5,
-    "masterTurns": 2,
-    "total_billable": 160333
+    "input_tokens": 156,
+    "output_tokens": 44537,
+    "cache_creation_input_tokens": 265917,
+    "cache_read_input_tokens": 6372842,
+    "messageCount": 108,
+    "masterTurns": 7,
+    "total_billable": 6683452
   }
 }

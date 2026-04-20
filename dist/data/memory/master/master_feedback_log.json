@@ -1,6 +1,15 @@
 {
   "feedbackLog": [
     {
+      "id": "MF-038",
+      "date": "2026-04-21",
+      "session": "session_051",
+      "topic": "edi-name-apply",
+      "feedback": "에디터는 역할명이지 이름이 아니다. 에디(Edi)가 이름. Dev 작업도 에디가 기록해야 한다 — reportPath 조건은 설계 오류. 누락 17개 세션 소급은 불필요, 앞으로 발전해 나가면 된다.",
+      "status": "resolved",
+      "statusNote": "roles.json name:Edi 적용, session.html 레이블 수정, 역사 데이터 교체, ensureEditorInAgents reportPath 조건 제거 완료."
+    },
+    {
       "id": "MF-037",
       "date": "2026-04-20",
       "session": "session_047",
