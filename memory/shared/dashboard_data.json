@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-20T11:10:49.166Z",
-  "totalSessions": 47,
+  "generatedAt": "2026-04-20T12:19:36.612Z",
+  "totalSessions": 48,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 19.98,
-    "avgCacheHitRate": 0.9408,
-    "cacheSampleSize": 21,
-    "cacheSampleTotal": 47,
+    "avgMasterTurns": 19.88,
+    "avgCacheHitRate": 0.9397,
+    "cacheSampleSize": 22,
+    "cacheSampleTotal": 48,
     "avgAdoptionRate": 0,
-    "totalDecisions": 48,
+    "totalDecisions": 49,
     "gradeDistribution": {
-      "S": 10,
+      "S": 11,
       "A": 12,
       "B": 14,
       "C": 11
@@ -20,7 +20,7 @@
       "session_013"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 2
+    "turnBasedSessions": 3
   },
   "sessions": [
     {
@@ -1408,9 +1408,54 @@
         "cacheHitRate": 0.9434788397527342,
         "messageCount": 101
       }
+    },
+    {
+      "sessionId": "session_049",
+      "topicSlug": "phase4-ui",
+      "topic": "Phase 4 — UI",
+      "startedAt": "2026-04-20T16:00:00.000Z",
+      "closedAt": "2026-04-20T17:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-049"
+      ],
+      "rolesCalled": 7,
+      "rolesRecalled": 3,
+      "sessionsSpanned": 1,
+      "size": 18,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 16,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "vera",
+        "riki",
+        "ace",
+        "vera",
+        "ace",
+        "arki"
+      ],
+      "tokenUsage": {
+        "totalBillable": 14459023,
+        "cacheHitRate": 0.9169247465752008,
+        "messageCount": 121
+      }
     }
   ],
   "roleFrequency": [
+    {
+      "role": "ace",
+      "count": 5,
+      "sessions": [
+        "session_047",
+        "session_048",
+        "session_049"
+      ]
+    },
     {
       "role": "dev",
       "count": 3,
@@ -1420,18 +1465,25 @@
       ]
     },
     {
-      "role": "ace",
+      "role": "arki",
       "count": 2,
       "sessions": [
-        "session_047",
-        "session_048"
+        "session_048",
+        "session_049"
       ]
     },
     {
-      "role": "arki",
+      "role": "vera",
+      "count": 2,
+      "sessions": [
+        "session_049"
+      ]
+    },
+    {
+      "role": "riki",
       "count": 1,
       "sessions": [
-        "session_048"
+        "session_049"
       ]
     }
   ],
@@ -1483,6 +1535,54 @@
           "recallReason": "post-intervention"
         }
       ]
+    },
+    {
+      "sessionId": "session_049",
+      "topic": "Phase 4 — UI",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "vera",
+          "phase": "analysis",
+          "turnIdx": 1,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "phase": "analysis",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 3,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "vera",
+          "phase": "design-spec",
+          "turnIdx": 4,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "phase": "review",
+          "turnIdx": 5,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "arki",
+          "phase": "execution-plan",
+          "turnIdx": 6,
+          "recallReason": "post-master"
+        }
+      ]
     }
   ],
   "alarms": [
@@ -1490,49 +1590,55 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=20.0)"
+      "description": "Master 병목: masterTurns=48 (avg=19.9)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=20.0)"
+      "description": "Master 병목: masterTurns=43 (avg=19.9)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=20.0)"
+      "description": "Master 병목: masterTurns=42 (avg=19.9)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=20.0)"
+      "description": "Master 병목: masterTurns=45 (avg=19.9)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=20.0)"
+      "description": "Master 병목: masterTurns=39 (avg=19.9)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=20.0)"
+      "description": "Master 병목: masterTurns=49 (avg=19.9)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=20.0)"
+      "description": "Master 병목: masterTurns=35 (avg=19.9)"
     },
     {
       "ruleId": "R1",
       "severity": "yellow",
       "sessionId": "session_045",
       "description": "Ace/역할 과호출: rolesRecalled=5"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_049",
+      "description": "Ace/역할 과호출: rolesRecalled=3"
     },
     {
       "ruleId": "R5",

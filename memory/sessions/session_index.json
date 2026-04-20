@@ -898,8 +898,73 @@
       ],
       "grade": "B",
       "note": "D-048 Phase 3 구현. Grade B. L1 인라인 프레이밍. | compute-dashboard.ts: seen.has() 제거 → Turn[] 기반 roleFrequency 전환. turnSequences(D3용) 신설. metrics.turnBasedSessions 추가. | 환경변수 경로 오버라이드(COMPUTE_*) 추가 — Arki 보완(Phase 2 FINALIZE_* 패턴 일관성). | G3 게이트: tsc --noEmit 통과, validate --all 46개 OK, compute 정상 실행, COMPUTE_OUTPUT_PATH 오버라이드 검증."
+    },
+    {
+      "sessionId": "session_049",
+      "topicSlug": "phase4-ui",
+      "topic": "Phase 4 — UI",
+      "startedAt": "2026-04-20T16:00:00.000Z",
+      "closedAt": "2026-04-20T17:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\crazy-moser-a0436c",
+      "agentsCompleted": [
+        "ace",
+        "vera",
+        "riki",
+        "ace",
+        "vera",
+        "ace",
+        "arki"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "vera",
+          "turnIdx": 1,
+          "phase": "analysis",
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 2,
+          "phase": "analysis"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 3,
+          "phase": "synthesis",
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "vera",
+          "turnIdx": 4,
+          "phase": "design-spec",
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 5,
+          "phase": "review",
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 6,
+          "phase": "execution-plan",
+          "recallReason": "post-master"
+        }
+      ],
+      "plannedSequence": [
+        "ace",
+        "vera"
+      ],
+      "grade": "A",
+      "note": "Master 지시: Ace 프레이밍 + Vera 재호출. Vera는 Claude Code 신규 design 스킬 상시 사용하도록 업그레이드 + 현재 적용 중 UI 재검토. | 연계: Phase 3(session_048) turnSequences 데이터 → D3 sequence 패널 UI 구현이 gaps로 이월됨. | PD-019(토픽 중심 아키텍처) 관련성 점검 필요. | Claude Design(claude.ai/design) = 웹 제품, design:* 플러그인 스킬과 별개. PD-020으로 분리(별도 토픽). 본 세션은 플러그인 스킬 기반으로 Phase 4 진행. | feedback 메모리 신설: feedback_claude_design_vs_plugin_skills.md (session_045 허세성 기재 패턴의 변형 재발)."
     }
   ],
-  "lastUpdated": "2026-04-20T11:10:45.383Z",
+  "lastUpdated": "2026-04-20T12:19:32.607Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

@@ -43,5 +43,11 @@
       "runtimeArgs": ["http-server", "C:/Projects/legend-team/.claude/worktrees/musing-banzai-6aed31/dist", "-p", "8095", "-c-1"],
       "port": 8095
     }
+    ,{
+      "name": "crazy-moser-preview",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "C:/Projects/legend-team/.claude/worktrees/crazy-moser-a0436c/dist", "-p", "8096", "-c-1"],
+      "port": 8096
+    }
   ]
 }

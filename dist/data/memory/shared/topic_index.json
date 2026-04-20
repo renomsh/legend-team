@@ -1,6 +1,20 @@
 {
   "topics": [
     {
+      "id": "topic_052",
+      "grade": "A",
+      "title": "Phase 4 — UI",
+      "status": "completed",
+      "created": "2026-04-20",
+      "closedAt": "2026-04-20",
+      "controlPath": "topics/topic_052",
+      "reportPath": "reports/2026-04-20_phase4-ui",
+      "reportFiles": ["ace_rev1.md", "vera_rev1.md", "riki_rev1.md", "arki_rev1.md", "editor_rev1.md"],
+      "published": false,
+      "path": "topics/topic_052",
+      "outcome": "D-049 확정. D3 sequence 패널 프로토타입 구현(Vera 직접)·vera_memory skills 조건부 매트릭스·design_rules.json(R-D01·R-D02)·sequence-panel.js 모듈 분리 완료. 이월: 색 대비 전역·PD-018·PD-019."
+    },
+    {
       "id": "topic_051",
       "title": "Phase 3 — 집계 전환 + 실측 데이터 검증",
       "status": "completed",
@@ -9,7 +23,10 @@
       "outcome": "compute-dashboard.ts: seen.has() 제거 → Turn[] 기반 roleFrequency 전환. turnSequences(D3용) 신설. 환경변수 경로 오버라이드(COMPUTE_*) 추가(Arki 보완). G3 게이트 통과.",
       "controlPath": "topics/topic_051",
       "reportPath": "reports/2026-04-20_phase3-aggregation-validation",
-      "reportFiles": ["dev_rev1.md", "dev_rev2.md"],
+      "reportFiles": [
+        "dev_rev1.md",
+        "dev_rev2.md"
+      ],
       "published": false,
       "path": "topics/topic_051"
     },
@@ -869,5 +886,5 @@
       "grade": "C"
     }
   ],
-  "lastUpdated": "2026-04-20T10:56:16.882Z"
+  "lastUpdated": "2026-04-20T11:15:47.444Z"
 }

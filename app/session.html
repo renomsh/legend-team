@@ -6,6 +6,7 @@
   <title>Sessions — Legend Team</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 </head>
 <style>
 :root{--bg:#000000;--panel:#0B0B0D;--panel-2:#141418;--line:#26262D;--text:#F5F5F7;--text-2:#B8B8C0;--text-3:#6E6E78}
@@ -109,8 +110,20 @@
 
   <!-- ══ SESSION HISTORY ══ -->
   <div class="tab-pane" id="tab-history">
-    <div style="font-size:11px;color:var(--text-3);margin-bottom:16px;padding:10px 14px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.15);border-radius:8px">
-      History reflects sessions closed before this session. Data quality: <span style="color:#10B981">auto</span> = Hook 집계, <span style="color:#F59E0B">backfill</span> = reportFiles 파싱, <span style="color:#6E6E78">manual</span> = 데이터 없음.
+    <details style="margin-bottom:16px">
+      <summary style="font-size:11px;color:var(--text-3);padding:10px 14px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.15);border-radius:8px;cursor:pointer;list-style:none">데이터 품질 안내 ▾</summary>
+      <div style="font-size:11px;color:var(--text-3);margin-top:6px;padding:10px 14px;background:rgba(245,158,11,.03);border:1px solid rgba(245,158,11,.08);border-radius:8px">
+        History reflects sessions closed before this session. Data quality: <span style="color:#10B981">auto</span> = Hook 집계, <span style="color:#F59E0B">backfill</span> = reportFiles 파싱, <span style="color:#6E6E78">manual</span> = 데이터 없음.
+      </div>
+    </details>
+
+    <!-- ═══ TURN SEQUENCE (Vera template v1.0 — R-D01 dashed=recall, R-D02 purple-tint=connector) ═══ -->
+    <div class="section-title">Turn Sequence</div>
+    <div class="card" style="padding:16px">
+      <div id="sequencePanelCard" style="position:relative;width:100%;height:280px">
+        <svg id="seqSvg" width="100%" height="100%" role="img" aria-label="Turn sequence timeline"></svg>
+        <div id="seqEmpty" class="empty-state" style="display:none;position:absolute;inset:0;margin:0;border:none">No turn sequences yet</div>
+      </div>
     </div>
 
     <!-- Role Frequency Chart -->
@@ -138,11 +151,14 @@
 
   <script src="js/data-loader.js"></script>
   <script src="js/nav.js"></script>
+  <script src="js/sequence-panel.js"></script>
   <script>
-    const AGENT_ORDER = ['ace', 'arki', 'fin', 'riki', 'nova', 'ace-review', 'vera', 'editor'];
+    // Current 탭 agentProgress 전용. Turn Sequence 패널은 turnSequences 원천을 독립 렌더(이 배열 미사용).
+    const AGENT_ORDER = ['ace', 'arki', 'fin', 'riki', 'dev', 'nova', 'ace-review', 'vera', 'editor'];
     const AGENT_LABELS = {
       ace: 'Ace — Framing', arki: 'Arki — Architecture',
       fin: 'Fin — Finance', riki: 'Riki — Risk',
+      dev: 'Dev — Implementation',
       nova: 'Nova — Speculation', 'ace-review': 'Ace — Review',
       vera: 'Vera — Design', editor: 'Editor — Output'
     };
@@ -265,13 +281,22 @@
       }
     }
 
+    let turnSequences = [];
+
     async function initHistory() {
       const data = await DataLoader.getDashboardData();
       if (!data) return;
       allSessions = (data.sessions || []).slice().reverse(); // 최신순
       roleFrequency = data.roleFrequency || [];
+      turnSequences = data.turnSequences || [];
       document.getElementById('histCount').textContent = `${allSessions.length}개 세션`;
       renderHistory();
+      renderSequencePanel(turnSequences);
+    }
+
+    // sequence panel은 app/js/sequence-panel.js 모듈 사용 (Phase D 템플릿화)
+    function renderSequencePanel(sequences) {
+      if (window.SequencePanel) window.SequencePanel.render({ sequences });
     }
 
     function renderHistory() {
@@ -293,7 +318,7 @@
         const roles = (s.agentsCompleted || []).map(r =>
           `<span class="role-chip" style="color:${ROLE_COLORS[r]||'#6E6E78'};background:${ROLE_COLORS[r]||'#6E6E78'}18;border-color:${ROLE_COLORS[r]||'#6E6E78'}30">${r}</span>`
         ).join('');
-        return `<div class="hist-card" title="${s.topicSlug}">
+        return `<div class="hist-card" title="${s.topicSlug}" data-sid="${s.sessionId}">
           <div class="hist-card-header">
             <span class="hist-sid">${s.sessionId}</span>
             <span class="hist-topic">${s.topic || s.topicSlug || '—'}</span>

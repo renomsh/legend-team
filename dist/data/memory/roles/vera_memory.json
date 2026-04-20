@@ -64,9 +64,17 @@
     "kpiCard": "confirmed — 48px number, color-coded top border + bg gradient + radial glow per type",
     "roleCard": "confirmed — 145deg linear-gradient(color 16%→4%→dark), radial glow ::before 20%",
     "statCard": "confirmed — border-top:3px solid accent + gradient bg per semantic color",
-    "tabBar": "confirmed — tab-btn uppercase, active=border-bottom purple + white text"
+    "tabBar": "confirmed — tab-btn uppercase, active=border-bottom purple + white text",
+    "sequencePanel": "confirmed — D3 SVG, 96px label + 16px node(r=8) + 28px gap, 280px height, ROLE_COLORS 재사용, R-D01(dashed=recall) + R-D02(purple-tint=connector) 적용, invocationMode: skill-call, session_049 Vera 직접 프로토타입 (신규 시각화 문법)"
   },
+  "patterns": ["R-D01", "R-D02"],
   "topicsHandled": [
+    {
+      "topicId": "topic_052",
+      "title": "Phase 4 — UI (sequence 패널 + 스킬 매트릭스)",
+      "date": "2026-04-20",
+      "outcome": "D3 sequence 패널 프로토타입 직접 작성, skills 조건부 매트릭스 확정 + invocationMode 필드 강제, design_rules.json 신설(R-D01·R-D02), Claude Design(웹)과 플러그인 스킬 구분 학습"
+    },
     {
       "topicId": "topic_current",
       "title": "Dashboard v3 재설계 (v3c → v3d)",
@@ -82,22 +90,29 @@
   ],
   "proactivityNote": "Master 피드백(MF-021): 지시 대기 금지. 시각 시스템 전체를 능동적으로 점검하고 개선 제안해야 함. 지시한 것만 변경하면 안됨.",
   "skills": {
+    "_note": "Claude Design(claude.ai/design 웹) ≠ design:* 플러그인 스킬. 두 대상 엄격 구분. session_049 학습.",
     "core": [
       {
-        "name": "design:design-system",
-        "trigger": "컴포넌트/토큰 체계 신규 정의 또는 갱신 시. 시각 시스템 전면 재설계 토픽. Vera 1번 스킬.",
+        "name": "design:design-critique",
+        "trigger": "다음 중 하나 충족 시 Skill() 필수 호출: ① Master가 '재검토/검토/비판/critique' 단어 사용 ② 기존 UI 변경 토픽 ③ Vera 재호출 직후 현 상태 점검 필요",
+        "skipWhen": "신규 컴포넌트 최초 설계 시",
+        "invocationMode": "skill-call",
         "type": "official",
         "status": "core"
       },
       {
-        "name": "design:design-critique",
-        "trigger": "Master가 기존 시각물 검토 요청 시. 피드백·QA 세션.",
+        "name": "design:design-system",
+        "trigger": "다음 중 하나 충족 시 Skill() 필수 호출: ① 토큰/컴포넌트 신규 정의 ② 기존 토큰 위배 의심 ③ 3개 이상 페이지 영향 — 단 '토큰 신규 추가 여부'가 우선 판정자 (Riki #3 반영, session_049)",
+        "skipWhen": "단일 패널 내부 미세 조정, 신규 토큰 무발생",
+        "invocationMode": "skill-call",
         "type": "official",
         "status": "core"
       },
       {
         "name": "design:design-handoff",
-        "trigger": "Vera → Editor 스펙 전달 시. 구현 전 스펙 확정 단계.",
+        "trigger": "다음 모두 충족 시 Skill() 필수 호출: ① Editor에게 스펙 전달 직전 ② 구조·토큰·반응형 3종이 모두 관련",
+        "skipWhen": "토큰 1개 수정 같은 경량 변경",
+        "invocationMode": "skill-call",
         "type": "official",
         "status": "core"
       }
@@ -105,21 +120,36 @@
     "conditional": [
       {
         "name": "design:accessibility-review",
-        "trigger": "신규 패널/컴포넌트 추가 시. 대비값·폰트 크기 기준 검토 시.",
-        "type": "official",
-        "status": "conditional"
-      },
-      {
-        "name": "anthropic-skills:canvas-design",
-        "trigger": "보고서·프레젠테이션 비주얼 레이아웃 필요 시.",
+        "trigger": "다음 중 하나 충족 시 Skill() 호출: ① 색 대비 변경 ② 신규 인터랙션 패턴 ③ 폰트 크기 체계 수정",
+        "skipWhen": "구조·레이아웃만 변경",
+        "invocationMode": "skill-call",
         "type": "official",
         "status": "conditional"
       },
       {
         "name": "anthropic-skills:theme-factory",
-        "trigger": "색상 테마 시스템 신규 생성 / 브랜드 컬러 토큰 갱신 토픽.",
+        "trigger": "브랜드 컬러 토큰 전면 재정의",
+        "skipWhen": "기존 테마 내 조정",
+        "invocationMode": "skill-call",
         "type": "official",
         "status": "conditional"
+      },
+      {
+        "name": "anthropic-skills:canvas-design",
+        "trigger": "보고서·프레젠테이션 비주얼 레이아웃 필요 시",
+        "invocationMode": "skill-call",
+        "type": "official",
+        "status": "conditional"
+      }
+    ],
+    "external": [
+      {
+        "name": "Claude Design",
+        "tool": "claude.ai/design (web only)",
+        "invocation": "Master-operated",
+        "veraRole": "spec provider + result reviewer",
+        "note": "Claude Code에서 직접 호출 불가. Vera는 스펙 납품 → Master가 웹에서 시안 생성 → Vera 검토 핑퐁. PD-020 보류(session_049).",
+        "invocationMode": "external"
       }
     ],
     "methods": [
