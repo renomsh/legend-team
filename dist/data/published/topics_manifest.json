@@ -1,6 +1,20 @@
 {
-  "generatedAt": "2026-04-20T12:19:37.103Z",
+  "generatedAt": "2026-04-20T12:34:48.878Z",
   "topics": [
+    {
+      "id": "topic_053",
+      "title": "에디 누락 재발 방지 — session-end-finalize.js editor push 자동화",
+      "status": "completed",
+      "created": "2026-04-20",
+      "reportPath": "reports/2026-04-20_editor-missing-fix",
+      "reportFiles": [
+        "dev_rev1.md"
+      ],
+      "published": false,
+      "outcome": "session-end-finalize.js에 ensureEditorInAgents() 추가 — closed 세션 reports 저장 확인 시 agentsCompleted+turns에 editor 자동 push",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_052",
       "title": "Phase 4 — UI",

@@ -1,6 +1,20 @@
 {
   "topics": [
     {
+      "id": "topic_053",
+      "grade": "C",
+      "title": "에디 누락 재발 방지 — session-end-finalize.js editor push 자동화",
+      "status": "completed",
+      "created": "2026-04-20",
+      "closedAt": "2026-04-20",
+      "outcome": "session-end-finalize.js에 ensureEditorInAgents() 추가 — closed 세션 reports 저장 확인 시 agentsCompleted+turns에 editor 자동 push",
+      "controlPath": "topics/topic_053",
+      "reportPath": "reports/2026-04-20_editor-missing-fix",
+      "reportFiles": ["dev_rev1.md"],
+      "published": false,
+      "path": "topics/topic_053"
+    },
+    {
       "id": "topic_052",
       "grade": "A",
       "title": "Phase 4 — UI",
@@ -9,7 +23,13 @@
       "closedAt": "2026-04-20",
       "controlPath": "topics/topic_052",
       "reportPath": "reports/2026-04-20_phase4-ui",
-      "reportFiles": ["ace_rev1.md", "vera_rev1.md", "riki_rev1.md", "arki_rev1.md", "editor_rev1.md"],
+      "reportFiles": [
+        "ace_rev1.md",
+        "vera_rev1.md",
+        "riki_rev1.md",
+        "arki_rev1.md",
+        "editor_rev1.md"
+      ],
       "published": false,
       "path": "topics/topic_052",
       "outcome": "D-049 확정. D3 sequence 패널 프로토타입 구현(Vera 직접)·vera_memory skills 조건부 매트릭스·design_rules.json(R-D01·R-D02)·sequence-panel.js 모듈 분리 완료. 이월: 색 대비 전역·PD-018·PD-019."
@@ -886,5 +906,5 @@
       "grade": "C"
     }
   ],
-  "lastUpdated": "2026-04-20T11:15:47.444Z"
+  "lastUpdated": "2026-04-20T12:30:48.588Z"
 }
