@@ -3,8 +3,9 @@
   "topicId": "topic_060",
   "topic": "PD-020a P4 — 기존 56개 topic_meta.json phase/hold/legacy 추가 + 52개 세션 topicId 백필",
   "topicSlug": "pd-020a-p4-migration",
-  "status": "open",
+  "status": "closed",
   "startedAt": "2026-04-21T09:20:00.000Z",
+  "closedAt": "2026-04-21T09:50:00.000Z",
   "mode": "observation",
   "grade": "C",
   "gradeDeclared": "C",
@@ -12,8 +13,22 @@
   "gradeMismatch": false,
   "framingLevel": 0,
   "framingSkipped": true,
-  "agentsCompleted": [],
-  "turns": [],
+  "agentsCompleted": [
+    "dev",
+    "editor"
+  ],
+  "turns": [
+    {
+      "role": "dev",
+      "turnIdx": 0,
+      "phase": "execution-plan"
+    },
+    {
+      "role": "editor",
+      "turnIdx": 1,
+      "phase": "output"
+    }
+  ],
   "plannedSequence": [
     "dev"
   ],
@@ -27,12 +42,12 @@
   "masterDecisions": [],
   "reportPath": "reports/2026-04-21_pd-020a-p4-migration",
   "tokenUsage": {
-    "input_tokens": 82,
-    "output_tokens": 41284,
-    "cache_creation_input_tokens": 212545,
-    "cache_read_input_tokens": 4395975,
-    "messageCount": 70,
+    "input_tokens": 88,
+    "output_tokens": 43018,
+    "cache_creation_input_tokens": 219486,
+    "cache_read_input_tokens": 4888753,
+    "messageCount": 76,
     "masterTurns": 8,
-    "total_billable": 4649886
+    "total_billable": 5151345
   }
 }

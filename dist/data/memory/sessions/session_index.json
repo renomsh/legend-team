@@ -1383,7 +1383,7 @@
       "topicSlug": "pd-020a-p4-migration",
       "topic": "PD-020a P4 — 기존 56개 topic_meta.json phase/hold/legacy 추가 + 52개 세션 topicId 백필",
       "startedAt": "2026-04-21T09:20:00.000Z",
-      "closedAt": "2026-04-21T09:40:00.000Z",
+      "closedAt": "2026-04-21T09:50:00.000Z",
       "grade": "C",
       "gradeDeclared": "C",
       "gradeActual": "C",
@@ -1396,11 +1396,21 @@
           "role": "dev",
           "turnIdx": 0,
           "phase": "execution-plan"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 1,
+          "phase": "output"
         }
       ],
-      "note": "P4 마이그레이션 완료: topic_index 55개 phase/hold/legacy 추가, session_index 53개 topicId 백필 (2개 소급불가)"
+      "note": "Grade C 명시 → L0, Dev 직행 | 선행 타입 수정: TopicIndexEntry에 phase/hold/heldAtPhase/holdReason/legacy/grade 필드 추가 | create-topic.ts TS 컴파일 오류 해소 후 topic_060 생성 완료",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\strange-shamir-e493a4",
+      "agentsCompleted": [
+        "dev",
+        "editor"
+      ]
     }
   ],
-  "lastUpdated": "2026-04-21T04:55:04.025Z",
+  "lastUpdated": "2026-04-21T04:56:10.811Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
