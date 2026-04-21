@@ -1,21 +1,20 @@
 {
-  "sessionId": "session_054",
-  "topicId": "topic_057",
-  "topic": "PD-020a 스키마 + phase×hold 기반 구현",
-  "topicSlug": "pd-020a-schema-phase-hold",
+  "sessionId": "session_055",
+  "topicId": "topic_058",
+  "topic": "D-052 ledger 등재 + P1 catalog 2개 신설",
+  "topicSlug": "d052-ledger-p1-catalog",
   "status": "closed",
-  "startedAt": "2026-04-21T05:45:00.000Z",
-  "closedAt": "2026-04-21T07:00:00.000Z",
+  "startedAt": "2026-04-21T07:15:00.000Z",
+  "closedAt": "2026-04-21T08:30:00.000Z",
   "mode": "observation",
   "grade": "A",
   "gradeDeclared": "A",
+  "gradeActual": "C",
   "framingLevel": 2,
   "framingSkipped": false,
   "agentsCompleted": [
     "ace",
-    "arki",
-    "fin",
-    "riki",
+    "dev",
     "editor"
   ],
   "turns": [
@@ -25,80 +24,38 @@
       "phase": "framing"
     },
     {
-      "role": "arki",
+      "role": "dev",
       "turnIdx": 1,
-      "phase": "structural-analysis"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 2,
-      "phase": "structural-refinement",
-      "recallReason": "post-master",
-      "splitReason": "phase-transition"
-    },
-    {
-      "role": "fin",
-      "turnIdx": 3,
-      "phase": "resource-evaluation"
-    },
-    {
-      "role": "riki",
-      "turnIdx": 4,
-      "phase": "risk-audit"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 5,
-      "phase": "synthesis",
-      "recallReason": "post-intervention"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 6,
-      "phase": "decision-refinement",
-      "recallReason": "post-master"
+      "phase": "execution-plan"
     },
     {
       "role": "editor",
-      "turnIdx": 7,
+      "turnIdx": 2,
       "phase": "output"
     }
   ],
   "plannedSequence": [
     "ace",
-    "arki",
-    "fin",
-    "riki",
-    "ace",
-    "editor"
+    "dev"
   ],
-  "decisions": [
-    "D-052"
-  ],
+  "decisions": [],
   "notes": [
-    "Arki 원안 자가비판 강제 → R1~R6 재설계 (단일원천·확장성 우선)",
-    "Fin·Riki 모두 '확장성·호환성' 렌즈로 평가 (Master 지시: 1회성 비용 < 디버깅·확장성)",
-    "Ace 종합검토에서 R5(phase_events.jsonl 분리)·RK-3(antiPatterns ledger 필드) 2건 뒤집음",
-    "Nova 미호출 (Riki 데드락 없음, 결정축 6개 합의 도달)",
-    "본 세션 스코프 = 설계+명세+계획. P1~P5 실제 구현은 별도 실행 세션",
-    "executionPlanMode: plan — 5 Phase 실행계획 산출 (migration_plan_rev1.md)"
+    "PD-020a 후속 실행 세션 — P1(catalog 2개)+P2(validator) 완료",
+    "phase_catalog.json 파일명 충돌 발견 → topic_phase_catalog.json으로 분리",
+    "D-052 ledger session_054에서 이미 등재됨 확인 — 중복 등재 없음",
+    "Master feedback: grade 선언 의도 확인 원칙 — grade 불일치 시 관성 따르지 말고 의도를 묻거나 C 충분 의견 제시 (memory에 기록)",
+    "gradeDeclared=A vs gradeActual=C — 순수 실행 세션. Ace 관성적 L2 스캐폴드 실행 후 Master 지적으로 Dev 직행 전환"
   ],
   "gaps": [],
-  "masterDecisions": [
-    {
-      "id": "D-052",
-      "axis": "토픽 중심 스키마 v1 — phase×hold 직교화 + 단일원천 강제",
-      "value": "5축 + catalog 2개 + antiPatterns 3건 + 5 Phase 마이그레이션 계획. PD-020b/c 토대."
-    }
-  ],
-  "reportPath": "reports/2026-04-21_pd-020a-schema-phase-hold",
+  "masterDecisions": [],
+  "reportPath": "reports/2026-04-21_d052-ledger-p1-catalog",
   "tokenUsage": {
-    "input_tokens": 202,
-    "output_tokens": 88855,
-    "cache_creation_input_tokens": 498051,
-    "cache_read_input_tokens": 4551451,
-    "messageCount": 55,
-    "masterTurns": 13,
-    "total_billable": 5138559
+    "input_tokens": 171,
+    "output_tokens": 49954,
+    "cache_creation_input_tokens": 445190,
+    "cache_read_input_tokens": 6825552,
+    "messageCount": 92,
+    "masterTurns": 16,
+    "total_billable": 7320867
   }
 }

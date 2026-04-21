@@ -1,6 +1,15 @@
 {
   "feedbackLog": [
     {
+      "id": "MF-042",
+      "date": "2026-04-21",
+      "session": "session_055",
+      "topic": "d052-ledger-p1-catalog",
+      "feedback": "grade 선언 의도 확인 원칙: Master가 grade를 명시해도 Ace가 실제 토픽을 분석해서 더 낮은 grade가 적합하다고 판단하면 관성적으로 따라가지 말 것. 의도를 묻거나 'C로 충분합니다'는 의견을 먼저 제시해야 함. 실행 세션에서 A를 받고 L2 스캐폴드를 반사적으로 실행한 것이 문제.",
+      "status": "resolved",
+      "statusNote": "memory에 feedback_ace_grade_intent_check.md로 즉시 기록. ace_memory.json에도 반영 예정."
+    },
+    {
       "id": "MF-041",
       "date": "2026-04-21",
       "session": "session_054",

@@ -1252,8 +1252,44 @@
       ],
       "grade": "A",
       "note": "Arki 원안 자가비판 강제 → R1~R6 재설계 (단일원천·확장성 우선) | Fin·Riki 모두 '확장성·호환성' 렌즈로 평가 (Master 지시: 1회성 비용 < 디버깅·확장성) | Ace 종합검토에서 R5(phase_events.jsonl 분리)·RK-3(antiPatterns ledger 필드) 2건 뒤집음 | Nova 미호출 (Riki 데드락 없음, 결정축 6개 합의 도달) | 본 세션 스코프 = 설계+명세+계획. P1~P5 실제 구현은 별도 실행 세션 | executionPlanMode: plan — 5 Phase 실행계획 산출 (migration_plan_rev1.md)"
+    },
+    {
+      "sessionId": "session_055",
+      "topicSlug": "d052-ledger-p1-catalog",
+      "topic": "D-052 ledger 등재 + P1 catalog 2개 신설",
+      "startedAt": "2026-04-21T07:15:00.000Z",
+      "closedAt": "2026-04-21T08:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\relaxed-varahamihira-7b1e42",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 1,
+          "phase": "execution-plan"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 2,
+          "phase": "output"
+        }
+      ],
+      "plannedSequence": [
+        "ace",
+        "dev"
+      ],
+      "grade": "A",
+      "note": "PD-020a 후속 실행 세션 — P1(catalog 2개)+P2(validator) 완료 | phase_catalog.json 파일명 충돌 발견 → topic_phase_catalog.json으로 분리 | D-052 ledger session_054에서 이미 등재됨 확인 — 중복 등재 없음 | Master feedback: grade 선언 의도 확인 원칙 — grade 불일치 시 관성 따르지 말고 의도를 묻거나 C 충분 의견 제시 (memory에 기록) | gradeDeclared=A vs gradeActual=C — 순수 실행 세션. Ace 관성적 L2 스캐폴드 실행 후 Master 지적으로 Dev 직행 전환"
     }
   ],
-  "lastUpdated": "2026-04-21T04:07:26.425Z",
+  "lastUpdated": "2026-04-21T04:35:51.297Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "v1",
+  "reasons": [
+    "waiting-decision",
+    "upstream-block",
+    "deprioritized",
+    "external-dependency",
+    "resource-constraint"
+  ],
+  "displayLabels": {
+    "waiting-decision": "결정 대기",
+    "upstream-block": "상위 차단",
+    "deprioritized": "우선순위 낮춤",
+    "external-dependency": "외부 의존",
+    "resource-constraint": "자원 제약"
+  },
+  "aliases": {},
+  "deprecated": [],
+  "_notes": [
+    "토픽 hold.reason 필드 enum. topic_meta.json hold.reason 참조 원천. D-052 확정 (2026-04-21).",
+    "자유 텍스트 사유는 hold.note 필드에",
+    "신규 reason 추가는 catalog 갱신 → schemaVersion bump",
+    "RK-1 대응: aliases/deprecated 빈 배열 사전 정의"
+  ]
+}

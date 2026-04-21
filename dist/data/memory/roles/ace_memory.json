@@ -233,6 +233,15 @@
     ],
     "lessonLog": [
       {
+        "id": "LL-003",
+        "date": "2026-04-21",
+        "topic": "d052-ledger-p1-catalog",
+        "trigger": "Master 피드백: A를 줬을 때 관성적으로 L2 스캐폴드 실행. 실행 세션임을 보고 C 충분 의견 먼저 제시했어야 함.",
+        "lesson": "grade 선언 ≠ 스캐폴드 자동 실행. Ace가 실제 토픽 복잡도를 분석해서 grade와 불일치 시 '의도 확인 질문' 또는 'C 충분' 의견 선제 제시. Master grade는 신호일 수 있음 — 재검토 요청, Ace 반박 기대, 관성 등 다양.",
+        "masterPattern": "실행 세션(설계 확정 후 구현)에서 A를 줘도 Ace가 C로 충분하다고 판단하면 그렇게 말할 것을 기대. 오케스트레이터로서 grade 자체도 질문 대상.",
+        "reusable": true
+      },
+      {
         "id": "LL-002",
         "date": "2026-04-11",
         "topic": "deeptutor-review",

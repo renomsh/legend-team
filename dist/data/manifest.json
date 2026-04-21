@@ -21,13 +21,15 @@
     "shared/design_rules.json",
     "shared/evidence_index.json",
     "shared/glossary.json",
+    "shared/hold_reasons_catalog.json",
     "shared/phase_catalog.json",
     "shared/project_charter.json",
     "shared/role_palette.json",
     "shared/status_catalog.json",
     "shared/system_state.json",
     "shared/topic_index.json",
-    "shared/topic_load_manifest.json"
+    "shared/topic_load_manifest.json",
+    "shared/topic_phase_catalog.json"
   ],
   "reports": [
     "2026-04-02_shared-asset-protocol/ace_rev01.md",
@@ -151,6 +153,7 @@
     "2026-04-20_phase4-ui/vera_rev1.md",
     "2026-04-20_role-recall-measurement-structure/editor_rev1.md",
     "2026-04-20_role-recall-measurement-structure/vera_rev1.md",
+    "2026-04-21_d052-ledger-p1-catalog/dev_rev1.md",
     "2026-04-21_edi-name-apply/dev_rev01.md",
     "2026-04-21_pd-020a-schema-phase-hold/catalog_spec_rev1.md",
     "2026-04-21_pd-020a-schema-phase-hold/decision_summary_rev1.md",

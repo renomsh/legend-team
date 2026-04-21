@@ -1,6 +1,19 @@
 {
   "topics": [
     {
+      "id": "topic_058",
+      "grade": "A",
+      "title": "D-052 ledger 등재 + P1 catalog 2개 신설",
+      "status": "completed",
+      "created": "2026-04-21",
+      "outcome": "P1+P2 완료. D-052 ledger 기등재 확인. topic_phase_catalog.json + hold_reasons_catalog.json 신설 (파일명 충돌 해소: phase_catalog→topic_phase_catalog). validate-topic-schema.ts assertPhase/assertHold export. P3(writer 강제)는 다음 세션 이월.",
+      "controlPath": "topics/topic_058",
+      "reportPath": "reports/2026-04-21_d052-ledger-p1-catalog",
+      "reportFiles": ["dev_rev1.md"],
+      "published": false,
+      "path": "topics/topic_058"
+    },
+    {
       "id": "topic_057",
       "grade": "A",
       "title": "PD-020a 스키마 + phase×hold 기반 구현",
@@ -972,5 +985,5 @@
       "grade": "C"
     }
   ],
-  "lastUpdated": "2026-04-21T02:04:54.961Z"
+  "lastUpdated": "2026-04-21T04:09:27.516Z"
 }

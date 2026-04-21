@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "v1",
+  "phases": ["framing", "design", "implementation", "validated"],
+  "displayLabels": {
+    "framing": "프레이밍",
+    "design": "설계",
+    "implementation": "구현",
+    "validated": "검증완료"
+  },
+  "aliases": {},
+  "deprecated": [],
+  "transitions": null,
+  "_notes": [
+    "토픽 생명주기 phase enum. topic_meta.json phase 필드 참조 원천. D-052 확정 (2026-04-21).",
+    "RK-1 대응: aliases/deprecated 빈 배열로 사전 정의 — 향후 변경 시 breaking 회피",
+    "validator는 phase ∈ phases ∪ aliases.keys() ∪ deprecated 모두 허용",
+    "신규 토픽 부여는 phases \\ deprecated 만",
+    "Turn.phase (세션 내 역할 발언 흐름)는 phase_catalog.json 참조 — 별개 차원"
+  ]
+}

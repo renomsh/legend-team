@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-21T04:07:30.410Z",
-  "totalSessions": 53,
+  "generatedAt": "2026-04-21T04:35:55.167Z",
+  "totalSessions": 54,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 18.6,
-    "avgCacheHitRate": 0.9286,
-    "cacheSampleSize": 27,
-    "cacheSampleTotal": 53,
+    "avgMasterTurns": 18.55,
+    "avgCacheHitRate": 0.9288,
+    "cacheSampleSize": 28,
+    "cacheSampleTotal": 54,
     "avgAdoptionRate": 0,
     "totalDecisions": 52,
     "gradeDistribution": {
       "S": 11,
       "A": 15,
-      "B": 16,
+      "B": 17,
       "C": 11
     },
     "gradeMismatchCount": 1,
@@ -20,7 +20,7 @@
       "session_013"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 8
+    "turnBasedSessions": 9
   },
   "sessions": [
     {
@@ -1602,12 +1602,41 @@
         "cacheHitRate": 0.8857446221790973,
         "messageCount": 55
       }
+    },
+    {
+      "sessionId": "session_055",
+      "topicSlug": "d052-ledger-p1-catalog",
+      "topic": "D-052 ledger 등재 + P1 catalog 2개 신설",
+      "startedAt": "2026-04-21T07:15:00.000Z",
+      "closedAt": "2026-04-21T08:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 16,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 7320867,
+        "cacheHitRate": 0.9323420299808752,
+        "messageCount": 92
+      }
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 13,
+      "count": 14,
       "sessions": [
         "session_047",
         "session_048",
@@ -1615,7 +1644,20 @@
         "session_051",
         "session_052",
         "session_053",
-        "session_054"
+        "session_054",
+        "session_055"
+      ]
+    },
+    {
+      "role": "dev",
+      "count": 7,
+      "sessions": [
+        "session_047",
+        "session_048",
+        "session_050",
+        "session_051",
+        "session_052",
+        "session_055"
       ]
     },
     {
@@ -1629,14 +1671,15 @@
       ]
     },
     {
-      "role": "dev",
+      "role": "editor",
       "count": 6,
       "sessions": [
-        "session_047",
-        "session_048",
         "session_050",
         "session_051",
-        "session_052"
+        "session_052",
+        "session_053",
+        "session_054",
+        "session_055"
       ]
     },
     {
@@ -1645,17 +1688,6 @@
       "sessions": [
         "session_049",
         "session_052"
-      ]
-    },
-    {
-      "role": "editor",
-      "count": 5,
-      "sessions": [
-        "session_050",
-        "session_051",
-        "session_052",
-        "session_053",
-        "session_054"
       ]
     },
     {
@@ -1970,6 +2002,30 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_055",
+      "topic": "D-052 ledger 등재 + P1 catalog 2개 신설",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "execution-plan",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "output",
+          "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -2030,6 +2086,11 @@
     {
       "ruleId": "R5",
       "severity": "red",
+      "description": "피드백 재발: \"확인\" 3회"
+    },
+    {
+      "ruleId": "R5",
+      "severity": "red",
       "description": "피드백 재발: \"하드코딩\" 3회"
     },
     {
@@ -2064,6 +2125,56 @@
     }
   ],
   "feedbackRecurrences": [
+    {
+      "keyword": "선언",
+      "occurrences": [
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-042",
+          "summary": "grade 선언 의도 확인 원칙: Master가 grade를 명시해도 Ace가 실제 토픽을 분석해서 더 낮은"
+        },
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-S036-3",
+          "summary": "Grade 조정권은 Ace가 가져. 선언 grade와 실제 gap 발생 시 Ace가 조정."
+        }
+      ]
+    },
+    {
+      "keyword": "확인",
+      "occurrences": [
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-042",
+          "summary": "grade 선언 의도 확인 원칙: Master가 grade를 명시해도 Ace가 실제 토픽을 분석해서 더 낮은"
+        },
+        {
+          "date": "2026-04-04",
+          "feedbackId": "MF-003",
+          "summary": "모바일 호환 확인 요청 → origin/main 분기 발견. 브랜치 일원화 지시. 일원화 완료 후 세션 종료"
+        },
+        {
+          "date": "2026-04-16",
+          "feedbackId": "MF-014",
+          "summary": "에이스 왜 반말써? 효율화라면 토픽 확인. 타입 분류 진행. 이렇게 더 자르던가."
+        }
+      ]
+    },
+    {
+      "keyword": "원칙",
+      "occurrences": [
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-042",
+          "summary": "grade 선언 의도 확인 원칙: Master가 grade를 명시해도 Ace가 실제 토픽을 분석해서 더 낮은"
+        },
+        {
+          "date": "2026-04-16",
+          "feedbackId": "MF-011",
+          "summary": "1) receiving-code-review 원칙 흡수 — 검증 후 수용. 검증 절차에서 더 깊은 학습 가능"
+        }
+      ]
+    },
     {
       "keyword": "Arki",
       "occurrences": [
@@ -2317,21 +2428,6 @@
           "date": "2026-04-19",
           "feedbackId": "MF-S036-3",
           "summary": "Grade 조정권은 Ace가 가져. 선언 grade와 실제 gap 발생 시 Ace가 조정."
-        }
-      ]
-    },
-    {
-      "keyword": "확인",
-      "occurrences": [
-        {
-          "date": "2026-04-04",
-          "feedbackId": "MF-003",
-          "summary": "모바일 호환 확인 요청 → origin/main 분기 발견. 브랜치 일원화 지시. 일원화 완료 후 세션 종료"
-        },
-        {
-          "date": "2026-04-16",
-          "feedbackId": "MF-014",
-          "summary": "에이스 왜 반말써? 효율화라면 토픽 확인. 타입 분류 진행. 이렇게 더 자르던가."
         }
       ]
     },
