@@ -1,14 +1,14 @@
 {
-  "sessionId": "session_053",
-  "topicId": "topic_056",
-  "topic": "S 토픽 중심 전체 개편",
-  "topicSlug": "topic-centric-architecture",
+  "sessionId": "session_054",
+  "topicId": "topic_057",
+  "topic": "PD-020a 스키마 + phase×hold 기반 구현",
+  "topicSlug": "pd-020a-schema-phase-hold",
   "status": "closed",
-  "startedAt": "2026-04-21T04:00:00.000Z",
-  "closedAt": "2026-04-21T05:30:00.000Z",
+  "startedAt": "2026-04-21T05:45:00.000Z",
+  "closedAt": "2026-04-21T07:00:00.000Z",
   "mode": "observation",
-  "grade": "S",
-  "gradeDeclared": "S",
+  "grade": "A",
+  "gradeDeclared": "A",
   "framingLevel": 2,
   "framingSkipped": false,
   "agentsCompleted": [
@@ -37,36 +37,30 @@
       "splitReason": "phase-transition"
     },
     {
-      "role": "arki",
-      "turnIdx": 3,
-      "phase": "structural-refinement",
-      "recallReason": "post-master"
-    },
-    {
       "role": "fin",
-      "turnIdx": 4,
+      "turnIdx": 3,
       "phase": "resource-evaluation"
     },
     {
       "role": "riki",
-      "turnIdx": 5,
+      "turnIdx": 4,
       "phase": "risk-audit"
     },
     {
       "role": "ace",
-      "turnIdx": 6,
+      "turnIdx": 5,
       "phase": "synthesis",
       "recallReason": "post-intervention"
     },
     {
       "role": "ace",
-      "turnIdx": 7,
+      "turnIdx": 6,
       "phase": "decision-refinement",
       "recallReason": "post-master"
     },
     {
       "role": "editor",
-      "turnIdx": 8,
+      "turnIdx": 7,
       "phase": "output"
     }
   ],
@@ -79,33 +73,32 @@
     "editor"
   ],
   "decisions": [
-    "D-051"
+    "D-052"
   ],
   "notes": [
-    "N:1 단방향 확정 — Arki 원안 양방향 배열 기각, Master 제안 채택",
-    "phase × hold 2차원 직교화 — 1차원 enum 조합 폭발 회피, Master 최종 정제",
-    "hold 토픽은 자동 context 로드 제외 + lifecycle 경보 제외 → RK-1·RK-2 상당 부분 해소",
-    "A8 3층 context(turn_log/contributions/brief) — Master 수동 save01~05 관행 시스템 흡수",
-    "실제 구현은 PD-020a/b/c 3개 Grade A로 분해 이연 (본 세션 스코프 밖 Master 명시)",
-    "Nova 소집 없음 (Riki 데드락 판정 없음)",
-    "executionPlanMode: none — Arki 실행계획 미생성"
+    "Arki 원안 자가비판 강제 → R1~R6 재설계 (단일원천·확장성 우선)",
+    "Fin·Riki 모두 '확장성·호환성' 렌즈로 평가 (Master 지시: 1회성 비용 < 디버깅·확장성)",
+    "Ace 종합검토에서 R5(phase_events.jsonl 분리)·RK-3(antiPatterns ledger 필드) 2건 뒤집음",
+    "Nova 미호출 (Riki 데드락 없음, 결정축 6개 합의 도달)",
+    "본 세션 스코프 = 설계+명세+계획. P1~P5 실제 구현은 별도 실행 세션",
+    "executionPlanMode: plan — 5 Phase 실행계획 산출 (migration_plan_rev1.md)"
   ],
   "gaps": [],
   "masterDecisions": [
     {
-      "id": "D-051",
-      "axis": "토픽 중심 아키텍처 N:1 단방향 + phase×hold 직교화 + 3층 context",
-      "value": "A1~A8 확정, RK-1~4 운영규칙 흡수, 구현은 PD-020a/b/c 분해 이연"
+      "id": "D-052",
+      "axis": "토픽 중심 스키마 v1 — phase×hold 직교화 + 단일원천 강제",
+      "value": "5축 + catalog 2개 + antiPatterns 3건 + 5 Phase 마이그레이션 계획. PD-020b/c 토대."
     }
   ],
-  "reportPath": "reports/2026-04-21_topic-centric-architecture",
+  "reportPath": "reports/2026-04-21_pd-020a-schema-phase-hold",
   "tokenUsage": {
-    "input_tokens": 130,
-    "output_tokens": 77663,
-    "cache_creation_input_tokens": 364691,
-    "cache_read_input_tokens": 3869770,
-    "messageCount": 48,
-    "masterTurns": 10,
-    "total_billable": 4312254
+    "input_tokens": 202,
+    "output_tokens": 88855,
+    "cache_creation_input_tokens": 498051,
+    "cache_read_input_tokens": 4551451,
+    "messageCount": 55,
+    "masterTurns": 13,
+    "total_billable": 5138559
   }
 }

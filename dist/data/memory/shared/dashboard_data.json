@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-21T02:03:15.735Z",
-  "totalSessions": 52,
+  "generatedAt": "2026-04-21T04:07:30.410Z",
+  "totalSessions": 53,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 18.72,
-    "avgCacheHitRate": 0.9303,
-    "cacheSampleSize": 26,
-    "cacheSampleTotal": 52,
+    "avgMasterTurns": 18.6,
+    "avgCacheHitRate": 0.9286,
+    "cacheSampleSize": 27,
+    "cacheSampleTotal": 53,
     "avgAdoptionRate": 0,
-    "totalDecisions": 51,
+    "totalDecisions": 52,
     "gradeDistribution": {
       "S": 11,
-      "A": 14,
+      "A": 15,
       "B": 16,
       "C": 11
     },
@@ -20,7 +20,7 @@
       "session_013"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 7
+    "turnBasedSessions": 8
   },
   "sessions": [
     {
@@ -1568,19 +1568,64 @@
         "cacheHitRate": 0.897389161213602,
         "messageCount": 48
       }
+    },
+    {
+      "sessionId": "session_054",
+      "topicSlug": "pd-020a-schema-phase-hold",
+      "topic": "PD-020a 스키마 + phase×hold 기반 구현",
+      "startedAt": "2026-04-21T05:45:00.000Z",
+      "closedAt": "2026-04-21T07:00:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-052"
+      ],
+      "rolesCalled": 5,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 10,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 13,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 5138559,
+        "cacheHitRate": 0.8857446221790973,
+        "messageCount": 55
+      }
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 10,
+      "count": 13,
       "sessions": [
         "session_047",
         "session_048",
         "session_049",
         "session_051",
         "session_052",
-        "session_053"
+        "session_053",
+        "session_054"
+      ]
+    },
+    {
+      "role": "arki",
+      "count": 7,
+      "sessions": [
+        "session_048",
+        "session_049",
+        "session_053",
+        "session_054"
       ]
     },
     {
@@ -1595,15 +1640,6 @@
       ]
     },
     {
-      "role": "arki",
-      "count": 5,
-      "sessions": [
-        "session_048",
-        "session_049",
-        "session_053"
-      ]
-    },
-    {
       "role": "vera",
       "count": 5,
       "sessions": [
@@ -1613,27 +1649,30 @@
     },
     {
       "role": "editor",
-      "count": 4,
+      "count": 5,
       "sessions": [
         "session_050",
         "session_051",
         "session_052",
-        "session_053"
+        "session_053",
+        "session_054"
       ]
     },
     {
       "role": "riki",
-      "count": 2,
+      "count": 3,
       "sessions": [
         "session_049",
-        "session_053"
+        "session_053",
+        "session_054"
       ]
     },
     {
       "role": "fin",
-      "count": 1,
+      "count": 2,
       "sessions": [
-        "session_053"
+        "session_053",
+        "session_054"
       ]
     }
   ],
@@ -1877,6 +1916,60 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_054",
+      "topic": "PD-020a 스키마 + phase×hold 기반 구현",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "structural-analysis",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "structural-refinement",
+          "turnIdx": 2,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "fin",
+          "phase": "resource-evaluation",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "risk-audit",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 5,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "ace",
+          "phase": "decision-refinement",
+          "turnIdx": 6,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "editor",
+          "phase": "output",
+          "turnIdx": 7,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -1884,43 +1977,43 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=18.7)"
+      "description": "Master 병목: masterTurns=48 (avg=18.6)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=18.7)"
+      "description": "Master 병목: masterTurns=43 (avg=18.6)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=18.7)"
+      "description": "Master 병목: masterTurns=42 (avg=18.6)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=18.7)"
+      "description": "Master 병목: masterTurns=45 (avg=18.6)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=18.7)"
+      "description": "Master 병목: masterTurns=39 (avg=18.6)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=18.7)"
+      "description": "Master 병목: masterTurns=49 (avg=18.6)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=18.7)"
+      "description": "Master 병목: masterTurns=35 (avg=18.6)"
     },
     {
       "ruleId": "R1",
@@ -1933,6 +2026,11 @@
       "severity": "yellow",
       "sessionId": "session_049",
       "description": "Ace/역할 과호출: rolesRecalled=3"
+    },
+    {
+      "ruleId": "R5",
+      "severity": "red",
+      "description": "피드백 재발: \"하드코딩\" 3회"
     },
     {
       "ruleId": "R5",
@@ -1966,6 +2064,56 @@
     }
   ],
   "feedbackRecurrences": [
+    {
+      "keyword": "Arki",
+      "occurrences": [
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-041",
+          "summary": "1) Arki 원안에 대해 '하드코딩 최소화·확장성 최선·쉬운 길 아닌가' 자가검토 강제 → Arki 6개 "
+        },
+        {
+          "date": "2026-04-11",
+          "feedbackId": "MF-008",
+          "summary": "3가지 역할 피드백: 1) Arki — 아키텍처 그리는 방법론 학습, Agent 설계가 팀 과업. 2) No"
+        }
+      ]
+    },
+    {
+      "keyword": "하드코딩",
+      "occurrences": [
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-041",
+          "summary": "1) Arki 원안에 대해 '하드코딩 최소화·확장성 최선·쉬운 길 아닌가' 자가검토 강제 → Arki 6개 "
+        },
+        {
+          "date": "2026-04-20",
+          "feedbackId": "MF-037",
+          "summary": "Dev 검증 기본값 + 하드코딩 금지: (1) 구현 후 런타임 검증 필수 — tsc 통과만으론 부족, 실 데"
+        },
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-028",
+          "summary": "하드코딩 최소화, 데이터를 호출하는 형태로. 구조설계·코딩 전반에 적용."
+        }
+      ]
+    },
+    {
+      "keyword": "최소화",
+      "occurrences": [
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-041",
+          "summary": "1) Arki 원안에 대해 '하드코딩 최소화·확장성 최선·쉬운 길 아닌가' 자가검토 강제 → Arki 6개 "
+        },
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-028",
+          "summary": "하드코딩 최소화, 데이터를 호출하는 형태로. 구조설계·코딩 전반에 적용."
+        }
+      ]
+    },
     {
       "keyword": "세션",
       "occurrences": [
@@ -2012,21 +2160,6 @@
         {
           "date": "2026-04-19",
           "summary": "Dev-Arki는 단방향 설계 인수가 아니라 양방향 의견 교환. Dev=0.1% 프로그래머 특별 정의."
-        }
-      ]
-    },
-    {
-      "keyword": "하드코딩",
-      "occurrences": [
-        {
-          "date": "2026-04-20",
-          "feedbackId": "MF-037",
-          "summary": "Dev 검증 기본값 + 하드코딩 금지: (1) 구현 후 런타임 검증 필수 — tsc 통과만으론 부족, 실 데"
-        },
-        {
-          "date": "2026-04-19",
-          "feedbackId": "MF-028",
-          "summary": "하드코딩 최소화, 데이터를 호출하는 형태로. 구조설계·코딩 전반에 적용."
         }
       ]
     },

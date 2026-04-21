@@ -1,6 +1,17 @@
 {
   "decisions": [
     {
+      "id": "D-052",
+      "date": "2026-04-21",
+      "session": "session_054",
+      "topic": "pd-020a-schema-phase-hold",
+      "axis": "토픽 중심 스키마 v1 — phase×hold 직교화 + 단일원천 강제 (D-051 구현 토대)",
+      "decision": "5축 확정: (1) topic_meta.sessions[] 삭제 — 단일원천 = session_index.topicId. (2) topic_index 미러(phase, hold) 삭제 — 단일원천 = topic_meta. (3) hold = HoldState|null 객체 표현, hold===null ⇔ active, hold.reason은 catalog enum. (4) phase_catalog.json + hold_reasons_catalog.json 신설 — aliases·deprecated·schemaVersion 필수 필드 (RK-1 대응). (5) 마이그레이션 = phase:null, hold:null, legacy:true — 추측 백필 금지. 부속: phaseHistory 인라인 유지(JSONL 분리 거부 — 토픽당 4건 빈도에 부적합), validate-topic-schema.ts에 assertPhase/assertHold type guards export 강제(RK-2), legacy:true ⇒ phase·hold 항상 null 보장 명문화. antiPatterns 3건 본문 명시: (a) topic_meta.sessions[] 부활 금지 (b) topic_index 미러 부활 금지 (c) topic→sessions 캐시 파일 금지. 5 Phase 실행계획(P1 catalog+spec / P2 validator+guards / P3 writer / P4 migration with git tag / P5 verify) 산출. 비채택: phase_events.jsonl 분리(과잉 추상화), decision_ledger antiPatterns 필드 신설(PD-020c 영역), 절충안. 본 세션 스코프 = 설계+명세+계획. 실제 P1~P5 구현은 별도 실행 세션.",
+      "value": "D-051 토대 구체화. 단일원천·확장성·디버깅 가능성을 1회성 구현비용보다 우선(Master 평가기준). 미러·중복·추측백필 전면 금지로 PD-020b/c가 깨끗한 토대 위에 진행 가능. catalog 패턴(D-047 status_catalog 확장)으로 enum 변경 호환성 사전 확보.",
+      "authority": "master",
+      "status": "confirmed"
+    },
+    {
       "id": "D-051",
       "date": "2026-04-21",
       "session": "session_053",

@@ -1,6 +1,24 @@
 {
   "topics": [
     {
+      "id": "topic_057",
+      "grade": "A",
+      "title": "PD-020a 스키마 + phase×hold 기반 구현",
+      "status": "in-progress",
+      "outcome": "D-052 확정 — 5축 스키마 + 2개 catalog + 5 Phase 마이그레이션 계획 산출. 단일원천·확장성·디버깅성 우선. antiPatterns 3건 본문 명시. 실제 P1~P5 구현은 별도 실행 세션. 본 세션 스코프(설계+명세+계획) 완료, PD-020a 자체는 구현 완료 시 resolved.",
+      "created": "2026-04-21",
+      "controlPath": "topics/topic_057",
+      "reportPath": "reports/2026-04-21_pd-020a-schema-phase-hold",
+      "reportFiles": [
+        "decision_summary_rev1.md",
+        "schema_spec_rev1.md",
+        "catalog_spec_rev1.md",
+        "migration_plan_rev1.md"
+      ],
+      "published": false,
+      "path": "topics/topic_057"
+    },
+    {
       "id": "topic_056",
       "grade": "S",
       "title": "S 토픽 중심 전체 개편",
@@ -954,5 +972,5 @@
       "grade": "C"
     }
   ],
-  "lastUpdated": "2026-04-21T00:47:26.510Z"
+  "lastUpdated": "2026-04-21T02:04:54.961Z"
 }

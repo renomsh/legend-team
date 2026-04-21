@@ -1,6 +1,15 @@
 {
   "feedbackLog": [
     {
+      "id": "MF-041",
+      "date": "2026-04-21",
+      "session": "session_054",
+      "topic": "pd-020a-schema-phase-hold",
+      "feedback": "1) Arki 원안에 대해 '하드코딩 최소화·확장성 최선·쉬운 길 아닌가' 자가검토 강제 → Arki 6개 부채 식별 후 R1~R6 재설계. 2) Fin·Riki도 '향후 확장성 + 호환성 높은 축' 렌즈로 평가 강제 — 1회성 비용 무시, 디버깅·확장 불가가 더 큰 문제. 3) Ace 종합검토 시 '그냥 다 받아들이는 거냐' 지적 — 강한 의견 요구. Ace가 R5(phase_events.jsonl 분리)와 RK-3(antiPatterns ledger 필드) 2건 뒤집음. 4) 본 세션 스코프 외 추가 안건 없음 확인 후 /close.",
+      "status": "resolved",
+      "statusNote": "D-052 확정. 본 토픽 평가기준이 '확장성·단일원천·디버깅성 > 1회성 비용'으로 시스템에 명시 학습됨. Ace 강한 의견 원칙 재강화 (그냥 종합 금지)."
+    },
+    {
       "id": "MF-040",
       "date": "2026-04-21",
       "session": "session_053",
