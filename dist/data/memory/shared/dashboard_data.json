@@ -1,26 +1,26 @@
 {
-  "generatedAt": "2026-04-21T04:47:55.707Z",
-  "totalSessions": 55,
+  "generatedAt": "2026-04-21T04:55:42.842Z",
+  "totalSessions": 56,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 18.36,
-    "avgCacheHitRate": 0.9278,
-    "cacheSampleSize": 29,
-    "cacheSampleTotal": 55,
+    "avgMasterTurns": 18.16,
+    "avgCacheHitRate": 0.9284,
+    "cacheSampleSize": 30,
+    "cacheSampleTotal": 56,
     "avgAdoptionRate": 0,
     "totalDecisions": 52,
     "gradeDistribution": {
       "S": 11,
       "A": 15,
       "B": 18,
-      "C": 11
+      "C": 12
     },
     "gradeMismatchCount": 1,
     "gradeMismatchSessions": [
       "session_013"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 10
+    "turnBasedSessions": 11
   },
   "sessions": [
     {
@@ -1660,6 +1660,30 @@
         "cacheHitRate": 0.9006403280844365,
         "messageCount": 90
       }
+    },
+    {
+      "sessionId": "session_057",
+      "topicSlug": "pd-020a-p4-migration",
+      "topic": "PD-020a P4 — 기존 56개 topic_meta.json phase/hold/legacy 추가 + 52개 세션 topicId 백필",
+      "startedAt": "2026-04-21T09:20:00.000Z",
+      "closedAt": "2026-04-21T09:40:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 8,
+      "dataQuality": "auto",
+      "tokenUsage": {
+        "totalBillable": 4649886,
+        "cacheHitRate": 0.9453941451467842,
+        "messageCount": 70
+      }
     }
   ],
   "roleFrequency": [
@@ -1680,7 +1704,7 @@
     },
     {
       "role": "dev",
-      "count": 8,
+      "count": 9,
       "sessions": [
         "session_047",
         "session_048",
@@ -1688,7 +1712,8 @@
         "session_051",
         "session_052",
         "session_055",
-        "session_056"
+        "session_056",
+        "session_057"
       ]
     },
     {
@@ -2082,6 +2107,18 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_057",
+      "topic": "PD-020a P4 — 기존 56개 topic_meta.json phase/hold/legacy 추가 + 52개 세션 topicId 백필",
+      "sequence": [
+        {
+          "role": "dev",
+          "phase": "execution-plan",
+          "turnIdx": 0,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -2089,43 +2126,43 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=18.4)"
+      "description": "Master 병목: masterTurns=48 (avg=18.2)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=18.4)"
+      "description": "Master 병목: masterTurns=43 (avg=18.2)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=18.4)"
+      "description": "Master 병목: masterTurns=42 (avg=18.2)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=18.4)"
+      "description": "Master 병목: masterTurns=45 (avg=18.2)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=18.4)"
+      "description": "Master 병목: masterTurns=39 (avg=18.2)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=18.4)"
+      "description": "Master 병목: masterTurns=49 (avg=18.2)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=18.4)"
+      "description": "Master 병목: masterTurns=35 (avg=18.2)"
     },
     {
       "ruleId": "R1",

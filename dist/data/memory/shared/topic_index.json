@@ -1,6 +1,20 @@
 {
   "topics": [
     {
+      "id": "topic_060",
+      "title": "PD-020a P4 — 기존 56개 topic_meta.json phase/hold/legacy 추가 + 52개 세션 topicId 백필",
+      "status": "open",
+      "phase": "framing",
+      "hold": null,
+      "created": "2026-04-21",
+      "controlPath": "topics/topic_060",
+      "reportPath": "reports/2026-04-21_pd-020a-p4-migration",
+      "reportFiles": [],
+      "published": false,
+      "path": "topics/topic_060",
+      "grade": "C"
+    },
+    {
       "id": "topic_059",
       "grade": "C",
       "title": "PD-020a P3 — create-topic.ts·append-session.ts writer 강제",
@@ -9,9 +23,14 @@
       "outcome": "create-topic.ts: topic_meta.json+topic_index 엔트리에 phase:'framing'+hold:null 강제 기록, grade 3번째 arg 수용. append-session.ts: topicId(N:1), grade/gradeDeclared/gradeActual/gradeMismatch(자동계산), turns(Turn[]), plannedSequence 파라미터 추가. src/types/index.ts: TopicHoldState 신설 + TopicIndexEntry phase/hold/grade 필드 추가. TS 컴파일 통과, 런타임 검증 완료. P4(migration)/P5(verify) 잔여.",
       "controlPath": "topics/topic_059",
       "reportPath": "reports/2026-04-21_pd-020a-p3-writer-enforce",
-      "reportFiles": ["dev_rev1.md"],
+      "reportFiles": [
+        "dev_rev1.md"
+      ],
       "published": false,
-      "path": "topics/topic_059"
+      "path": "topics/topic_059",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_058",
@@ -26,7 +45,10 @@
         "dev_rev1.md"
       ],
       "published": false,
-      "path": "topics/topic_058"
+      "path": "topics/topic_058",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_057",
@@ -44,7 +66,10 @@
         "migration_plan_rev1.md"
       ],
       "published": false,
-      "path": "topics/topic_057"
+      "path": "topics/topic_057",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_056",
@@ -57,7 +82,10 @@
       "reportPath": "reports/2026-04-21_topic-centric-architecture",
       "reportFiles": [],
       "published": false,
-      "path": "topics/topic_056"
+      "path": "topics/topic_056",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_055",
@@ -74,7 +102,10 @@
         "dev_rev1.md"
       ],
       "published": false,
-      "path": "topics/topic_055"
+      "path": "topics/topic_055",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_054",
@@ -90,7 +121,10 @@
       ],
       "published": false,
       "path": "topics/topic_054",
-      "outcome": "roles.json name:Edi 적용, session.html 레이블 수정, 역사 데이터 Editor→Edi 교체. ensureEditorInAgents 조건 reportPath 제거 — session_051부터 모든 세션 무조건 push."
+      "outcome": "roles.json name:Edi 적용, session.html 레이블 수정, 역사 데이터 Editor→Edi 교체. ensureEditorInAgents 조건 reportPath 제거 — session_051부터 모든 세션 무조건 push.",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_053",
@@ -106,7 +140,10 @@
         "dev_rev1.md"
       ],
       "published": false,
-      "path": "topics/topic_053"
+      "path": "topics/topic_053",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_052",
@@ -126,7 +163,10 @@
       ],
       "published": false,
       "path": "topics/topic_052",
-      "outcome": "D-049 확정. D3 sequence 패널 프로토타입 구현(Vera 직접)·vera_memory skills 조건부 매트릭스·design_rules.json(R-D01·R-D02)·sequence-panel.js 모듈 분리 완료. 이월: 색 대비 전역·PD-018·PD-019."
+      "outcome": "D-049 확정. D3 sequence 패널 프로토타입 구현(Vera 직접)·vera_memory skills 조건부 매트릭스·design_rules.json(R-D01·R-D02)·sequence-panel.js 모듈 분리 완료. 이월: 색 대비 전역·PD-018·PD-019.",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_051",
@@ -142,7 +182,10 @@
         "dev_rev2.md"
       ],
       "published": false,
-      "path": "topics/topic_051"
+      "path": "topics/topic_051",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_050",
@@ -157,7 +200,10 @@
         "editor_rev1.md"
       ],
       "published": false,
-      "path": "topics/topic_050"
+      "path": "topics/topic_050",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_049",
@@ -170,7 +216,10 @@
       "reportFiles": [],
       "published": false,
       "path": "topics/topic_049",
-      "sessionId": "session_046"
+      "sessionId": "session_046",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_048",
@@ -187,7 +236,10 @@
       ],
       "published": false,
       "path": "topics/topic_048",
-      "note": "D-048 확정. agentsCompleted → Turn[] 구조화 + plannedSequence + 4조건 판정 프로토콜 + phase_catalog + role_palette. PD-011 resolved, PD-019 spawned(토픽 중심 아키텍처). 실구현은 session_046+ Phase 1부터 Grade B로 분할 진행."
+      "note": "D-048 확정. agentsCompleted → Turn[] 구조화 + plannedSequence + 4조건 판정 프로토콜 + phase_catalog + role_palette. PD-011 resolved, PD-019 spawned(토픽 중심 아키텍처). 실구현은 session_046+ Phase 1부터 Grade B로 분할 진행.",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_047",
@@ -198,7 +250,10 @@
       "sessionId": "session_044",
       "reportPath": "reports/2026-04-20_board-sort-status-catalog",
       "grade": "B",
-      "note": "정렬 구조적 수정(파일 자체 desc 정렬 + 앱 자연정렬), status_catalog.json 단일 원천 도입(closed→completed alias), 중복 topic_013 분리(→045), 고아 리포트 등록(→046), /open auto-create 강제. D-047."
+      "note": "정렬 구조적 수정(파일 자체 desc 정렬 + 앱 자연정렬), status_catalog.json 단일 원천 도입(closed→completed alias), 중복 topic_013 분리(→045), 고아 리포트 등록(→046), /open auto-create 강제. D-047.",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_046",
@@ -215,7 +270,10 @@
       ],
       "published": true,
       "note": "session_044에서 소급 등록. 2팀 델타팩 흡수 준비 단계 산출물 (topic_009 예비 작업). 고아 리포트 해소.",
-      "grade": "A"
+      "grade": "A",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_045",
@@ -235,7 +293,10 @@
       ],
       "published": true,
       "grade": "S",
-      "note": "Track B SES→CMA 재설계. Pooled CMA with COPD+PRISm n=2,719. Thorax 1순위 투고. G2 FAIL로 moderated mediation 포기. Nova 궤도 2·3 채용."
+      "note": "Track B SES→CMA 재설계. Pooled CMA with COPD+PRISm n=2,719. Thorax 1순위 투고. G2 FAIL로 moderated mediation 포기. Nova 궤도 2·3 채용.",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_044",
@@ -248,7 +309,10 @@
       "grade": "A",
       "gradeDeclared": "S",
       "outcome": "세션 목표 '투고 이관'에서 '데이터 canonical 확정 + 원고 patch 완성'으로 재프레이밍됨. Master 잔여 1% 제거 대신 ver3.4_E의 P0 결함(Table 1 n값 오류·Table 2 1.42 (1.05-1.92) p=0.022 조작 CI·PM 35.8% 과대) 발견 → ver1.0 raw 기반 전체 재분석 수행. Canonical cohort n=2,779 확정. Y1 primary NIE 1.12 (1.02-1.25) ★ 재현, Y1-Y3 sensitivity TE 1.72 (1.07-2.76) p=0.025 발견. (e) 프레임 채택(D-045). Nova N2 상호작용 p=0.67 기각. 산출물: canonical_ver3.5 폴더 + ver3.5_E_patch.md(8섹션). ver3.5_E 실제 파일·한국판·figures·refs 정리·투고 메타는 다음 세션 이연.",
-      "note": "세션 범위 의도치 않게 초과 — P0 데이터 미스 발견이 주원인. Arki 구조 진단(D-046): Statistical Anchor Registry 필요성 도출. Dev 역할 Python 실집행(9개 스크립트). Ace (e) 프레임 합성. Riki 데이터 오류 원인 분석 + Y1-Y3 HARKing 방어. Nova N1 계기만(5-window sweep), N2 기각. Master 피드백: 자가인용 수용/ERJ 철회 요구/Thorax 해제/3년 확장 프레임 정당화/(e) 소유권 지적."
+      "note": "세션 범위 의도치 않게 초과 — P0 데이터 미스 발견이 주원인. Arki 구조 진단(D-046): Statistical Anchor Registry 필요성 도출. Dev 역할 Python 실집행(9개 스크립트). Ace (e) 프레임 합성. Riki 데이터 오류 원인 분석 + Y1-Y3 HARKing 방어. Nova N1 계기만(5-window sweep), N2 기각. Master 피드백: 자가인용 수용/ERJ 철회 요구/Thorax 해제/3년 확장 프레임 정당화/(e) 소유권 지적.",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_043",
@@ -272,7 +336,10 @@
         "phase6_discussion_ver2.4_E.md",
         "phase6_discussion_ver2.5_E.md"
       ],
-      "note": "Grade S(Master 선언). Ace 오케스트레이션: Arki 4회·Riki 4회 재호출 — 매 수정 후 회귀 검증 패턴 확립. Fin은 1회만 호출(시나리오 확정 후 재호출 불요 판단). Master 강한 의견 2건: '옵션 B 선택' + '세션 계속 늘린다고 뭐 바뀌겠어(단일 세션 완결 선호)'. 와이프 의견으로 reference 개수 확장(12→36). 시뮬레이션 루프(4·5차)를 실집행 전에 돌려 F-목록 선제 확장."
+      "note": "Grade S(Master 선언). Ace 오케스트레이션: Arki 4회·Riki 4회 재호출 — 매 수정 후 회귀 검증 패턴 확립. Fin은 1회만 호출(시나리오 확정 후 재호출 불요 판단). Master 강한 의견 2건: '옵션 B 선택' + '세션 계속 늘린다고 뭐 바뀌겠어(단일 세션 완결 선호)'. 와이프 의견으로 reference 개수 확장(12→36). 시뮬레이션 루프(4·5차)를 실집행 전에 돌려 F-목록 선제 확장.",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_042",
@@ -290,7 +357,10 @@
         "full_manuscript_ver3.0_E.md",
         "full_manuscript_ver3.0_K.md"
       ],
-      "note": "전원 참석: Ace(framing·종합검토) → Arki(Discussion 뼈대·표그림 설계) → Riki(reviewer 공격점 5) → Fin(투고 cost/return) → Ace 재검토(Riki 판정+asymmetry 반격) → Editor(양판 작성). PubMed 4스트림 검증: SES×SGRQ mediation zero match → novelty 확정. Thorax voice calibration Pépin 2025 풀텍스트. Post-hoc SGRQ sub-score 분석 deferral(R&R 시 예비)."
+      "note": "전원 참석: Ace(framing·종합검토) → Arki(Discussion 뼈대·표그림 설계) → Riki(reviewer 공격점 5) → Fin(투고 cost/return) → Ace 재검토(Riki 판정+asymmetry 반격) → Editor(양판 작성). PubMed 4스트림 검증: SES×SGRQ mediation zero match → novelty 확정. Thorax voice calibration Pépin 2025 풀텍스트. Post-hoc SGRQ sub-score 분석 deferral(R&R 시 예비).",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_036",
@@ -305,7 +375,10 @@
       "masterDecisions": [
         "D-043"
       ],
-      "note": "PD-017 해소. D-042 구체화 → D-043 확정. /fast → /model claude-opus-4-7 수정. Grade B 포함."
+      "note": "PD-017 해소. D-042 구체화 → D-043 확정. /fast → /model claude-opus-4-7 수정. Grade B 포함.",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_035",
@@ -316,7 +389,10 @@
       "reportPath": "reports/2026-04-19_dashboard-bug-axis-review",
       "outcome": "PD-016 영구 해소. session-end-tokens 3단 fallback + session_index cwd 테이블 도입. 036~039 token_log 소급 복구.",
       "gradeDeclared": "B",
-      "sessionId": "session_040"
+      "sessionId": "session_040",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_034",
@@ -337,7 +413,10 @@
         "D-042"
       ],
       "outcome": "8개 역할 skills 필드 신설(core/conditional/methods). 전역 스킬 auto-model-switch 설계(Grade A/S→Opus, opusplan 패턴). 버전 정책 마일스톤형 확정. system_state v1.01→v1.1 소급. PD-014 resolved.",
-      "note": "session_038. Ace·Arki·Fin·Vera·Riki 발언. auto-model-switch 구현은 PD-017 별도. Riki R-03 레이어불일치로 재분류."
+      "note": "session_038. Ace·Arki·Fin·Vera·Riki 발언. auto-model-switch 구현은 PD-017 별도. Riki R-03 레이어불일치로 재분류.",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_033",
@@ -350,7 +429,10 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "grade": "A",
-      "outcome": "8개 역할 페르소나 재정의. 3층 구조 + 실존 인물 레퍼런스 + referenceMode 원칙. D-041 확정. PD-013 resolved."
+      "outcome": "8개 역할 페르소나 재정의. 3층 구조 + 실존 인물 레퍼런스 + referenceMode 원칙. D-041 확정. PD-013 resolved.",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_032",
@@ -362,7 +444,10 @@
       "gradeDeclared": "B",
       "gradeActual": "B",
       "gradeMismatch": false,
-      "outcome": "자율성 게이트 session≥026 적용. dashboard-ops 이연필터 수정. token_log 수동복구 13건(17→30/35). D-040 확정."
+      "outcome": "자율성 게이트 session≥026 적용. dashboard-ops 이연필터 수정. token_log 수동복구 13건(17→30/35). D-040 확정.",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_031",
@@ -371,7 +456,10 @@
       "status": "completed",
       "created": "2026-04-18",
       "reportPath": "",
-      "outcome": "backfill-token-log.ts 신설로 Cache 2→17/34, masterTurns 파서 수정. 차트 2건(connectNulls, 자율성 필터) + 이연 과제 패널 pending 필터 적용. PD-006/007 resolved 처리."
+      "outcome": "backfill-token-log.ts 신설로 Cache 2→17/34, masterTurns 파서 수정. 차트 2건(connectNulls, 자율성 필터) + 이연 과제 패널 pending 필터 적용. PD-006/007 resolved 처리.",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_030",
@@ -390,7 +478,10 @@
         "D-033"
       ],
       "outcome": "Dashboard 회귀(CF Pages 미push) 해결. Topic Grade System(Lv. S/A/B/C) 설계·구현. ace-framing L0/L1/L2 조건화. 버전 단일소스화(v1.01). Decisions 순서·OPS 순서 수정.",
-      "note": "session_033. Nova 제안(Layer0/1) 채택. PD-010 token_log 훅 진단 이연."
+      "note": "session_033. Nova 제안(Layer0/1) 채택. PD-010 token_log 훅 진단 이연.",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_029",
@@ -411,7 +502,10 @@
       ],
       "outcome": "Hook 체인 완성(tokens→finalize→compute→build). dashboard 6개 이슈 해결. PD-009 발동 검증 이연.",
       "note": "session_032 완료. token_log 누산 정책 변경(D-030). hook-diagnostics.log로 다음 세션 종료 시 검증.",
-      "grade": "A"
+      "grade": "A",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_028",
@@ -430,7 +524,10 @@
       "masterDecisions": [],
       "outcome": "PD-008 완전 이행: append-session.ts agentsCompleted 파라미터 추가, close.md step 8 명시화, backfill-agents.ts 신설(22개 소급), compute-dashboard.ts roleFrequency 집계 추가, session.html Current|History 탭 + ECharts 역할 빈도 차트 구현.",
       "note": "session_031. Master: Ace 오케스트레이션 유효성 확인.",
-      "grade": "A"
+      "grade": "A",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_027",
@@ -444,7 +541,10 @@
       "outcome": "Vera 디자인 시스템 v1.0.0 전면 적용: 사이드바 레이아웃, 역할카드 컬러 그라데이션, Ops KPI 카드, topic.html 사이드바, 세션 카드 컬러코딩, Vera 역할 카드 추가, 한글→영어 통일, 중복 타이틀 제거",
       "note": "session_030",
       "masterDecisions": [],
-      "grade": "A"
+      "grade": "A",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_026",
@@ -460,7 +560,10 @@
       "outcome": "dist/ 배포 갭 해소 + nav 영어 통일 + status 통일 + Topics 개편",
       "note": "session_029",
       "masterDecisions": [],
-      "grade": "A"
+      "grade": "A",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_025",
@@ -481,7 +584,10 @@
       ],
       "outcome": "대시보드 구조적 공백 해소(축A/B/C) + 2뷰 구현 완료. compute-dashboard.ts(28세션 Size 계산) + dashboard-upgrade.html + dashboard-ops.html + append-session.ts. Size 공식 masterTurns 제거(D-027). Hook 자동화(D-028). session_index JSON 구조 오염 원천 차단.",
       "note": "session_028. topic_024 후속 — 대시보드 설계 보완 및 구현.",
-      "grade": "A"
+      "grade": "A",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_024",
@@ -496,7 +602,10 @@
       "masterDecisions": [],
       "outcome": null,
       "note": "session_027. GPT 제안(5페이지 + 성장/효율 위계 재정의) 기반 논의.",
-      "grade": "A"
+      "grade": "A",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_023",
@@ -515,7 +624,10 @@
       "masterDecisions": [],
       "outcome": "Canva 채널 통합 보류. AI 생성 품질 미달, 템플릿+편집 방식은 기술 작동 확인이나 Master 기준 미충족. 추가 발견: Claude Code PPT 직접 생성 = 토큰 극소비 문제.",
       "note": "session_026. 캔바(Canva) 활용 전략 검토.",
-      "grade": "B"
+      "grade": "B",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_022",
@@ -535,7 +647,10 @@
       ],
       "outcome": "3개 디자인 스타일 체계 확정(Navy/Red/Gold) + HTML 보고서 디자인 시스템 구현 완료. design:design-critique 흡수 → CRITIQUE_CHECKLIST.md. PD-003 삭제. PD-005(Figma) 등록. v0.9.0 선언.",
       "note": "session_025. Ace·Arki·Dev·Editor 참여. Nova 미호출.",
-      "grade": "B"
+      "grade": "B",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_021",
@@ -557,7 +672,10 @@
       ],
       "outcome": "효율화 fast-path 토큰 절감 실증(90% 감소). PD-001 21개 토픽 타입 레이블링 완료. PD-002 자동 해소. D-022 수립(토픽명 사후 조정 원칙). 소급 타입/명칭 정비 7건/2건. Fin 세션 전환 타이밍 기준 정의.",
       "note": "session_024. compaction 1회 발생 후 세션 종료. 소급 정비는 이번 1회 한정(Master 지시).",
-      "grade": "A"
+      "grade": "A",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_020",
@@ -575,7 +693,10 @@
       "masterDecisions": [],
       "outcome": "system_state fast-path 신설, topic_load_manifest 선택적 로드, pendingDeferrals 이연 관리 체계 구축. v0.8.0 선언. /open 로드 ~700줄 → ~50줄.",
       "note": "session_023. 다음: 토픽 타입 레이블링 19개 (PD-001).",
-      "grade": "C"
+      "grade": "C",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_019",
@@ -593,7 +714,10 @@
       "masterDecisions": [],
       "outcome": "/open 비용 구조 최적화 완료(A+B+C+D'). open.md 2단계 로드+Ace 조건부 프레이밍. close.md closeVerified 마커. session-log.ts 읽기 전용 감사관 전환. TopicIndexEntry 선행 버그 수정. tsc 오류 0.",
       "note": "session_022. Arki+Fin+Riki+Ace+Dev 전원 참여. E안(counters.json) 폐기. F안 A안에 흡수.",
-      "grade": "C"
+      "grade": "C",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_018",
@@ -611,7 +735,10 @@
       "masterDecisions": [],
       "outcome": "session-log.ts 버그 3종 수정(B-01 음수 duration, B-02 OP-04 FAIL, B-03 mismatch 불명확). TopicIndexEntry 타입 실제화. tsc 오류 0.",
       "note": "Dev 에이전트 첫 실전 투입. Arki 구조 분석 → Dev 구현 파이프라인 검증 완료.",
-      "grade": "C"
+      "grade": "C",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_017",
@@ -631,7 +758,10 @@
         "D-021"
       ],
       "note": "session_020. skill·역할 구조 확장 완료. 다음: Dev 실행 테스트.",
-      "grade": "B"
+      "grade": "B",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_016",
@@ -651,7 +781,10 @@
         "D-020"
       ],
       "note": "session_019. skill 시스템 첫 정상 작동 확인. worktree 경로 이슈 해결(재시작 필요). Master 선언: 레전드팀은 Superpowers를 넘어서기 시작했다.",
-      "grade": "B"
+      "grade": "B",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_015",
@@ -674,7 +807,10 @@
         "D-019"
       ],
       "note": "topic_014에서 이연. 전원 발언(Ace·Arki·Fin·Riki·Ace종합·Editor). Nova 미호출. Master 3회 개입(3안 재명확화, 오케스트레이션 선언, 일정 원칙). 레슨런 2건. session_018.",
-      "grade": "S"
+      "grade": "S",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_014",
@@ -692,7 +828,10 @@
       "outcome": "Superpowers 미설치 결정. 자립 경로 채택. `ace-framing` 자작 skill 신설(brainstorming 3번·7번 해체·흡수)을 topic_015로 이연. 실행 계획 작성 역할 공백도 이연. clone은 참고서로 scratch/에 유지.",
       "masterDecisions": [],
       "note": "Ace·Arki·Fin·Riki·Ace종합·Editor 발언. Nova 미호출. Master 3회 개입(전략 세션 의미 질문, brainstorming 로직 설명 요청, 분해·흡수 제안 — 결정적 전환). 레슨런 6건. session_017.",
-      "grade": "C"
+      "grade": "C",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_013",
@@ -715,7 +854,10 @@
       "outcome": "스케일업300 8대 카테고리 + 전체 액션 아이템 리스트 + FAST 다이어그램 확정. 상반기 데드라인 기준 체계 수립 후 상시 확장 구조 정립.",
       "masterDecisions": [],
       "note": "Ace·Arki·Fin·Riki·Editor 발언. Nova 미호출. Riki 리스크 3건 전부 기각. HTML/Word 산출물 생성. 레슨런 5건 memory 저장.",
-      "grade": "A"
+      "grade": "A",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_012",
@@ -736,7 +878,10 @@
       "outcome": "설계 완료. 5단계 파이프라인 + 폴더구조 + 검증 리포트 방식 확정. D2 아키텍처 다이어그램 생성. 다음 세션: 7개 팀 파일 전수 조사 → canonical 스키마 → 프로토타입 구현.",
       "masterDecisions": [],
       "note": "전원 참석(Nova 포함). 실제 데이터 7,797건/53열 확인. .xlsb 포맷 이슈 발견. 프로토타입은 다음 세션.",
-      "grade": "B"
+      "grade": "B",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_011",
@@ -757,7 +902,10 @@
       "outcome": "EduAgent 4단계 파이프라인 아키텍처 확정. DeepTutor는 레퍼런스만. 정보 축적이 핵심 비용. Ace/Nova/Arki 페르소나 업그레이드.",
       "masterDecisions": [],
       "note": "전원 발언(Nova 포함). MF-008 역할 피드백 3건. Word 보고서 생성.",
-      "grade": "B"
+      "grade": "B",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_010a",
@@ -775,7 +923,10 @@
       "outcome": "masterSelectionPatterns + lessonLog 구현. Ace 추천 필수화. observations를 Decision 레코드 내장으로 확정.",
       "masterDecisions": [],
       "note": "인프라 작업. 정식 토픽 아닌 topic_010 후속 구조 정비. 전원 의견 → Arki 안 채택.",
-      "grade": "C"
+      "grade": "C",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_010",
@@ -799,7 +950,10 @@
       ],
       "note": "전원 발언. Nova 미호출. 이연: Ace memory 측정구조, 토픽 세그먼트.",
       "path": "reports/2026-04-10_role-redefinition",
-      "grade": "A"
+      "grade": "A",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_009",
@@ -822,7 +976,10 @@
       ],
       "note": "Arki, Riki, Ace 발언. Nova 미호출. 변경 없이 점검 후 Master 지시로 즉시 적용.",
       "path": "reports/2026-04-09_upgrade-delta-pack-review",
-      "grade": "A"
+      "grade": "A",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_008",
@@ -840,7 +997,10 @@
       "masterDecisions": [],
       "note": "Ace+Arki+Riki 발언. Editor 기록. Nova 미호출.",
       "path": "reports/2026-04-08_viewer-display-diagnosis",
-      "grade": "C"
+      "grade": "C",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_007",
@@ -862,7 +1022,10 @@
       "masterDecisions": [],
       "note": "전원 발언. Nova 미호출. 다음 토픽: 토픽 유형별 호출 오케스트레이션.",
       "path": "reports/2026-04-08_storage-quality-review",
-      "grade": "A"
+      "grade": "A",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_006",
@@ -882,7 +1045,10 @@
       "masterDecisions": [],
       "note": "데일리잡 4004건 ↔ HSM 29K+건 매핑. 사업자번호+기업명정규화 확정 395건, 퍼지 84건. 퍼지 검수구간은 Master 수작업 비교 검증으로 종결.",
       "path": "reports/2026-04-06_dailyjob-db-mapping",
-      "grade": "B"
+      "grade": "B",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_005",
@@ -906,7 +1072,10 @@
       ],
       "note": "topic_004(suspended) 승계. v0.3.0은 session_003~006 성과로 소급 확정. 이번 토픽은 v0.4.0 범위.",
       "path": "reports/2026-04-05_legend-team-upgrade-review",
-      "grade": "S"
+      "grade": "S",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_004",
@@ -924,7 +1093,10 @@
       "note": "session_004. Ace만 발언. master↔origin/main 머지 후 세션 종료.",
       "masterDecisions": [],
       "path": "reports/2026-04-04_v030-upgrade-review",
-      "grade": "C"
+      "grade": "C",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_003",
@@ -953,7 +1125,10 @@
         "D-007 revised"
       ],
       "path": "reports/2026-04-04_local-vs-server",
-      "grade": "S"
+      "grade": "S",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_002",
@@ -980,7 +1155,10 @@
         "D-005"
       ],
       "path": "reports/2026-04-03_legend-team-upgrade",
-      "grade": "S"
+      "grade": "S",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     },
     {
       "id": "topic_001",
@@ -997,8 +1175,11 @@
       "published": true,
       "note": "retroactive — individual role debate files not recovered. Ace + Editor reconstruction only.",
       "path": "topics/topic_001",
-      "grade": "C"
+      "grade": "C",
+      "phase": null,
+      "hold": null,
+      "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-21T04:41:52.624Z"
+  "lastUpdated": "2026-04-21T04:53:32.299Z"
 }

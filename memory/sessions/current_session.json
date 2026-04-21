@@ -1,11 +1,10 @@
 {
-  "sessionId": "session_056",
-  "topicId": "topic_059",
-  "topic": "PD-020a P3 — create-topic.ts·append-session.ts writer 강제",
-  "topicSlug": "pd-020a-p3-writer-enforce",
-  "status": "closed",
-  "startedAt": "2026-04-21T08:40:00.000Z",
-  "closedAt": "2026-04-21T09:10:00.000Z",
+  "sessionId": "session_057",
+  "topicId": "topic_060",
+  "topic": "PD-020a P4 — 기존 56개 topic_meta.json phase/hold/legacy 추가 + 52개 세션 topicId 백필",
+  "topicSlug": "pd-020a-p4-migration",
+  "status": "open",
+  "startedAt": "2026-04-21T09:20:00.000Z",
   "mode": "observation",
   "grade": "C",
   "gradeDeclared": "C",
@@ -13,51 +12,27 @@
   "gradeMismatch": false,
   "framingLevel": 0,
   "framingSkipped": true,
-  "agentsCompleted": [
-    "ace",
-    "dev",
-    "editor"
-  ],
-  "turns": [
-    {
-      "role": "ace",
-      "turnIdx": 0,
-      "phase": "framing"
-    },
-    {
-      "role": "dev",
-      "turnIdx": 1,
-      "phase": "execution-plan"
-    },
-    {
-      "role": "editor",
-      "turnIdx": 2,
-      "phase": "output"
-    }
-  ],
+  "agentsCompleted": [],
+  "turns": [],
   "plannedSequence": [
     "dev"
   ],
   "decisions": [],
   "notes": [
-    "PD-020a P3 실행 — writer 강제 (create-topic.ts·append-session.ts)",
     "Grade C 명시 → L0, Dev 직행",
-    "Ace 진단: Grade C /open 후 '진행 지시 주세요' 대기는 L0 프로토콜 위반 — 원인 확인 및 피드백 기록",
-    "create-topic.ts: phase:'framing'+hold:null 강제 + grade arg 수용",
-    "append-session.ts: topicId/grade/gradeDeclared/gradeActual/gradeMismatch/turns/plannedSequence 추가",
-    "src/types/index.ts: TopicHoldState 신설 + TopicIndexEntry 필드 확장",
-    "잔여: P4(migration 실행) + P5(verify)"
+    "선행 타입 수정: TopicIndexEntry에 phase/hold/heldAtPhase/holdReason/legacy/grade 필드 추가",
+    "create-topic.ts TS 컴파일 오류 해소 후 topic_060 생성 완료"
   ],
   "gaps": [],
   "masterDecisions": [],
-  "reportPath": "reports/2026-04-21_pd-020a-p3-writer-enforce",
+  "reportPath": "reports/2026-04-21_pd-020a-p4-migration",
   "tokenUsage": {
-    "input_tokens": 130,
-    "output_tokens": 39926,
-    "cache_creation_input_tokens": 648402,
-    "cache_read_input_tokens": 6240490,
-    "messageCount": 90,
-    "masterTurns": 9,
-    "total_billable": 6928948
+    "input_tokens": 82,
+    "output_tokens": 41284,
+    "cache_creation_input_tokens": 212545,
+    "cache_read_input_tokens": 4395975,
+    "messageCount": 70,
+    "masterTurns": 8,
+    "total_billable": 4649886
   }
 }

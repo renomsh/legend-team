@@ -1,6 +1,18 @@
 {
-  "generatedAt": "2026-04-21T04:47:56.178Z",
+  "generatedAt": "2026-04-21T04:55:43.370Z",
   "topics": [
+    {
+      "id": "topic_060",
+      "title": "PD-020a P4 — 기존 56개 topic_meta.json phase/hold/legacy 추가 + 52개 세션 topicId 백필",
+      "status": "open",
+      "created": "2026-04-21",
+      "reportPath": "reports/2026-04-21_pd-020a-p4-migration",
+      "reportFiles": [],
+      "published": false,
+      "outcome": null,
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_059",
       "title": "PD-020a P3 — create-topic.ts·append-session.ts writer 강제",
