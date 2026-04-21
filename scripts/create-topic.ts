@@ -131,7 +131,7 @@ function createTopic(title: string, explicitSlug?: string, grade?: string): void
     status: 'open',
     phase: 'framing',
     hold: null,
-    ...(grade && VALID_GRADES.has(grade) ? { grade } : {}),
+    ...(grade && VALID_GRADES.has(grade) ? { grade: grade as 'S' | 'A' | 'B' | 'C' } : {}),
     created: date,
     controlPath: `topics/${id}`,
     reportPath,

@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-21T04:56:15.089Z",
-  "totalSessions": 56,
+  "generatedAt": "2026-04-21T05:48:39.624Z",
+  "totalSessions": 57,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 18.31,
-    "avgCacheHitRate": 0.9285,
-    "cacheSampleSize": 30,
-    "cacheSampleTotal": 56,
+    "avgMasterTurns": 18.13,
+    "avgCacheHitRate": 0.9283,
+    "cacheSampleSize": 31,
+    "cacheSampleTotal": 57,
     "avgAdoptionRate": 0,
     "totalDecisions": 52,
     "gradeDistribution": {
       "S": 11,
       "A": 15,
-      "B": 19,
+      "B": 20,
       "C": 11
     },
     "gradeMismatchCount": 2,
@@ -21,7 +21,7 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 11
+    "turnBasedSessions": 12
   },
   "sessions": [
     {
@@ -1689,6 +1689,34 @@
         "cacheHitRate": 0.9473022317298715,
         "messageCount": 146
       }
+    },
+    {
+      "sessionId": "session_058",
+      "topicSlug": "pd-020a-p5-migration-verify",
+      "topic": "P5 — 마이그레이션 검증",
+      "startedAt": "2026-04-21T10:00:00.000Z",
+      "closedAt": "2026-04-21T10:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 9,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 4424362,
+        "cacheHitRate": 0.9233087166013992,
+        "messageCount": 77
+      }
     }
   ],
   "roleFrequency": [
@@ -1709,7 +1737,7 @@
     },
     {
       "role": "dev",
-      "count": 9,
+      "count": 10,
       "sessions": [
         "session_047",
         "session_048",
@@ -1718,12 +1746,13 @@
         "session_052",
         "session_055",
         "session_056",
-        "session_057"
+        "session_057",
+        "session_058"
       ]
     },
     {
       "role": "editor",
-      "count": 8,
+      "count": 9,
       "sessions": [
         "session_050",
         "session_051",
@@ -1732,7 +1761,8 @@
         "session_054",
         "session_055",
         "session_056",
-        "session_057"
+        "session_057",
+        "session_058"
       ]
     },
     {
@@ -2131,6 +2161,24 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_058",
+      "topic": "P5 — 마이그레이션 검증",
+      "sequence": [
+        {
+          "role": "dev",
+          "phase": "execution-plan",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "output",
+          "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -2138,43 +2186,43 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=18.3)"
+      "description": "Master 병목: masterTurns=48 (avg=18.1)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=18.3)"
+      "description": "Master 병목: masterTurns=43 (avg=18.1)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=18.3)"
+      "description": "Master 병목: masterTurns=42 (avg=18.1)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=18.3)"
+      "description": "Master 병목: masterTurns=45 (avg=18.1)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=18.3)"
+      "description": "Master 병목: masterTurns=39 (avg=18.1)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=18.3)"
+      "description": "Master 병목: masterTurns=49 (avg=18.1)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=18.3)"
+      "description": "Master 병목: masterTurns=35 (avg=18.1)"
     },
     {
       "ruleId": "R1",

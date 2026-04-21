@@ -1,15 +1,9 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_057",
-  "nextSessionId": "session_058",
+  "lastSessionId": "session_058",
+  "nextSessionId": "session_059",
   "currentVersion": "v1.11",
   "openTopics": [
-    {
-      "id": "topic_057",
-      "title": "PD-020a 스키마 + phase×hold 기반 구현",
-      "status": "in-progress",
-      "reportPath": "reports/2026-04-21_pd-020a-schema-phase-hold"
-    },
     {
       "id": "topic_044",
       "title": "COPD 논문 ver3.4 최종화 — canonical 재분석 + (e) 프레임 확정",
@@ -202,8 +196,9 @@
       "fromSession": "session_053",
       "fromTopic": "topic-centric-architecture",
       "item": "스키마 + phase×hold 기반 구현 — topic_index/current_session/session_index/decision_ledger 스키마 개편. topic.sessions[] N:1 단방향, phase(framing/design/implementation/validated) × hold(active/heldAt/heldAtPhase/reason) 2차원. append-session.ts·create-topic.ts 갱신. legacy:true 52세션 소급 마이그레이션.",
-      "status": "pending",
-      "note": "Grade A. D-051 A1+A2+A4+A5 구현. PD-020b/c의 기반."
+      "status": "resolved",
+      "note": "Grade A. D-051 A1+A2+A4+A5 구현. PD-020b/c의 기반. P1~P5 전 단계 완료(session_054~058). PD-020b/c 진행 가능.",
+      "resolvedInSession": "session_058"
     },
     {
       "id": "PD-020b",
@@ -222,5 +217,5 @@
       "note": "Grade A. D-051 A6 + RK-1~4 대응 구현. PD-020a/b 이후."
     }
   ],
-  "lastUpdated": "2026-04-21T04:56:12.802Z"
+  "lastUpdated": "2026-04-21T05:48:37.564Z"
 }

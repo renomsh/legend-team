@@ -1,15 +1,27 @@
 {
-  "generatedAt": "2026-04-21T04:56:15.739Z",
+  "generatedAt": "2026-04-21T05:48:40.120Z",
   "topics": [
+    {
+      "id": "topic_061",
+      "title": "P5 — 마이그레이션 검증",
+      "status": "completed",
+      "created": "2026-04-21",
+      "reportPath": "reports/2026-04-21_pd-020a-p5-migration-verify",
+      "reportFiles": [],
+      "published": false,
+      "outcome": "PD-020a P5 검증 완료. topic_index 57개 phase/hold 전원 완비, legacy:true 55개. session_005/006 topicId 소급 불가(의도적 예외). compute-dashboard·build 오류 없음. topic_001 물리 파일 갭 해소. PD-020a 전 단계(P1~P5) 완료.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_060",
       "title": "PD-020a P4 — 기존 56개 topic_meta.json phase/hold/legacy 추가 + 52개 세션 topicId 백필",
-      "status": "open",
+      "status": "completed",
       "created": "2026-04-21",
       "reportPath": "reports/2026-04-21_pd-020a-p4-migration",
       "reportFiles": [],
       "published": false,
-      "outcome": null,
+      "outcome": "PD-020a P4 완료. topic_index 55개 엔트리 phase/hold/legacy 마이그레이션. session_index 54개 topicId 백필(session_005/006 소급 불가). src/types/index.ts TopicIndexEntry 필드 보강.",
       "note": null,
       "masterDecisions": []
     },
@@ -44,7 +56,7 @@
     {
       "id": "topic_057",
       "title": "PD-020a 스키마 + phase×hold 기반 구현",
-      "status": "in-progress",
+      "status": "completed",
       "created": "2026-04-21",
       "reportPath": "reports/2026-04-21_pd-020a-schema-phase-hold",
       "reportFiles": [

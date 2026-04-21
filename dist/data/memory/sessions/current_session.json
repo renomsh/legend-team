@@ -1,11 +1,11 @@
 {
-  "sessionId": "session_057",
-  "topicId": "topic_060",
-  "topic": "PD-020a P4 — 기존 56개 topic_meta.json phase/hold/legacy 추가 + 52개 세션 topicId 백필",
-  "topicSlug": "pd-020a-p4-migration",
+  "sessionId": "session_058",
+  "topicId": "topic_061",
+  "topic": "P5 — 마이그레이션 검증",
+  "topicSlug": "pd-020a-p5-migration-verify",
   "status": "closed",
-  "startedAt": "2026-04-21T09:20:00.000Z",
-  "closedAt": "2026-04-21T09:50:00.000Z",
+  "startedAt": "2026-04-21T10:00:00.000Z",
+  "closedAt": "2026-04-21T10:30:00.000Z",
   "mode": "observation",
   "grade": "C",
   "gradeDeclared": "C",
@@ -35,19 +35,25 @@
   "decisions": [],
   "notes": [
     "Grade C 명시 → L0, Dev 직행",
-    "선행 타입 수정: TopicIndexEntry에 phase/hold/heldAtPhase/holdReason/legacy/grade 필드 추가",
-    "create-topic.ts TS 컴파일 오류 해소 후 topic_060 생성 완료"
+    "PD-020a P5: P4 마이그레이션(56개 topic_meta + 52개 세션 topicId 백필) 결과 검증",
+    "topic_index 57개 phase/hold 전원 완비, legacy:true 55개",
+    "topic_001 물리 파일 갭 해소 (phase/hold/legacy 추가)",
+    "session_005/006 topicId 소급 불가 — 의도적 예외 확인",
+    "compute-dashboard·build 오류 없음",
+    "PD-020a 전 단계(P1~P5) 완료 → resolved",
+    "src/types/index.ts TopicIndexEntry에 phase/hold/grade 필드 추가 (TS 컴파일 오류 해소)",
+    "create-topic.ts grade 캐스팅 수정"
   ],
   "gaps": [],
   "masterDecisions": [],
-  "reportPath": "reports/2026-04-21_pd-020a-p4-migration",
+  "reportPath": "reports/2026-04-21_pd-020a-p5-migration-verify",
   "tokenUsage": {
-    "input_tokens": 88,
-    "output_tokens": 43018,
-    "cache_creation_input_tokens": 219486,
-    "cache_read_input_tokens": 4888753,
-    "messageCount": 76,
-    "masterTurns": 8,
-    "total_billable": 5151345
+    "input_tokens": 113,
+    "output_tokens": 34088,
+    "cache_creation_input_tokens": 305109,
+    "cache_read_input_tokens": 4085052,
+    "messageCount": 77,
+    "masterTurns": 9,
+    "total_billable": 4424362
   }
 }
