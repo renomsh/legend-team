@@ -11,7 +11,8 @@ export type PhaseId =
   | 'synthesis'
   | 'reframe'
   | 'execution-plan'
-  | 'compile';
+  | 'compile'
+  | 'implementation';
 
 export type RecallReason =
   | 'post-intervention'  // 다른 역할 개입 후 복귀 (조건 1)

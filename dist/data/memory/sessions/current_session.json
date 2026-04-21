@@ -1,11 +1,11 @@
 {
-  "sessionId": "session_059",
-  "topicId": "topic_062",
-  "topic": "PD-020b — Context 3층 누적 구현",
-  "topicSlug": "pd-020b-context-3layer",
+  "sessionId": "session_060",
+  "topicId": "topic_063",
+  "topic": "PD-020b P0+P1 — turns[] 무결성 검증 + 스키마 정의",
+  "topicSlug": "pd-020b-p0p1-turns-schema",
   "status": "closed",
-  "startedAt": "2026-04-21T11:00:00.000Z",
-  "closedAt": "2026-04-21T13:00:00.000Z",
+  "startedAt": "2026-04-21T13:30:00.000Z",
+  "closedAt": "2026-04-21T15:30:00.000Z",
   "mode": "observation",
   "grade": "A",
   "gradeDeclared": "A",
@@ -18,6 +18,9 @@
     "arki",
     "fin",
     "riki",
+    "ace",
+    "arki",
+    "ace",
     "editor"
   ],
   "turns": [
@@ -29,34 +32,40 @@
     {
       "role": "arki",
       "turnIdx": 1,
-      "phase": "structural-analysis"
+      "phase": "analysis"
     },
     {
       "role": "fin",
       "turnIdx": 2,
-      "phase": "cost-evaluation"
+      "phase": "analysis"
     },
     {
       "role": "riki",
       "turnIdx": 3,
-      "phase": "risk-audit"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 4,
-      "phase": "structural-analysis",
-      "recallReason": "post-intervention"
+      "phase": "analysis"
     },
     {
       "role": "ace",
+      "turnIdx": 4,
+      "phase": "synthesis"
+    },
+    {
+      "role": "arki",
       "turnIdx": 5,
+      "phase": "analysis",
+      "recallReason": "post-intervention",
+      "splitReason": "P0 FAIL 11건 → 원인 분류 + 백필"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 6,
       "phase": "synthesis",
       "recallReason": "post-intervention"
     },
     {
       "role": "editor",
-      "turnIdx": 6,
-      "phase": "output"
+      "turnIdx": 7,
+      "phase": "compile"
     }
   ],
   "plannedSequence": [
@@ -67,35 +76,36 @@
     "ace",
     "editor"
   ],
-  "decisions": [],
+  "decisions": [
+    "D-054"
+  ],
   "notes": [
     "Grade A 명시 → L2, ace-framing 스킬 전체",
-    "PD-020b: Context 3층 누적 구현 (D-051 A7+A8)",
-    "PD-020a 완료 후 진행 가능 상태",
-    "turn_log.jsonl + session_contributions/*.md + context_brief.md 신설",
-    "/close 훅 체인에 session-contribution-writer + regenerate-context-brief 추가",
-    "modelSwitchFailed: true — Master 의도적 Sonnet 유지",
-    "topic_044 hold 설정 (2026-04-21) — COPD 논문 이월 보류",
-    "D-053 제안: Context 3층 아키텍처 v1 + 7 Phase 실행계획 v2",
-    "PD-021 신규: auto-model-switch 재구현 (Sonnet→Opus Agent 호출 패턴)",
-    "실집행은 session_060+ 분할 (Master 결정)"
+    "PD-020b 분할 실집행 1/3: P0(turns 무결성) + P1(스키마 정의)",
+    "P0 전수 13/13 OK (사후). 초기 FAIL 11건 → C1 phase drift 30건 + C2 agentsCompleted Set-dedup 4건 → 백필 + 루트 수정",
+    "P1 산출: context-layers.ts 타입 + validate-context-layers.ts + context-layers-spec.md + validate-schema-vs-data.ts",
+    "부수 수정: TopicIndexEntry phase/hold/grade 추가, phase_catalog v1.1(implementation), session-end-finalize.js agentsCompleted 파생 구조",
+    "Master 피드백: Editor → 에디(Edi) 호칭 확정 (memory 기록)",
+    "session_061 P2~P5, session_062 P6 이월"
   ],
-  "gaps": [],
+  "gaps": [
+    "TopicIndexEntry 인터페이스에 gradeDeclared/gradeActual/gradeMismatch/masterDecisions 정식 반영 필요 (validate-schema-vs-data.ts TODO)"
+  ],
   "masterDecisions": [
     {
-      "id": "D-053-proposed",
-      "summary": "Context 3층 누적 아키텍처 v1 + 7 Phase 실행계획 v2 채택. 실집행은 session_060+ 분할.",
-      "status": "proposed"
+      "id": "D-054",
+      "summary": "turns[] 단일원천 + agentsCompleted 파생 + phase_catalog v1.1 + Context 3층 스키마 v1.0 확정",
+      "status": "confirmed"
     }
   ],
-  "reportPath": "reports/2026-04-21_pd-020b-context-3layer",
+  "reportPath": "reports/2026-04-21_pd-020b-p0p1-turns-schema",
   "tokenUsage": {
-    "input_tokens": 203,
-    "output_tokens": 63200,
-    "cache_creation_input_tokens": 875618,
-    "cache_read_input_tokens": 6522003,
-    "messageCount": 96,
-    "masterTurns": 16,
-    "total_billable": 7461024
+    "input_tokens": 235,
+    "output_tokens": 104570,
+    "cache_creation_input_tokens": 593416,
+    "cache_read_input_tokens": 12582666,
+    "messageCount": 113,
+    "masterTurns": 11,
+    "total_billable": 13280887
   }
 }

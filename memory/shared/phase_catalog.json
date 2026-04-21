@@ -1,7 +1,7 @@
 {
   "_comment": "세션 내 역할 발언 phase enum. Turn.phase 필드 참조 원천. session_045 D-048 R-2 확정. (2026-04-20)",
-  "version": "1.0",
-  "lastUpdated": "2026-04-20",
+  "version": "1.1",
+  "lastUpdated": "2026-04-21",
   "phases": [
     {
       "id": "framing",
@@ -51,6 +51,13 @@
       "description": "Editor 산출물 편집·포맷·최종 아티팩트 생성",
       "color": "#a8dadc",
       "order": 7
+    },
+    {
+      "id": "implementation",
+      "label": "Implementation",
+      "description": "Dev 실집행 — 코드 작성·스크립트 실행·런타임 검증 (session_060 신설, D-048 v1.1)",
+      "color": "#3B82F6",
+      "order": 8
     }
   ]
 }

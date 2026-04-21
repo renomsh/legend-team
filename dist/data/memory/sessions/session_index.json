@@ -986,13 +986,13 @@
         {
           "role": "vera",
           "turnIdx": 4,
-          "phase": "design-spec",
+          "phase": "analysis",
           "recallReason": "post-master"
         },
         {
           "role": "ace",
           "turnIdx": 5,
-          "phase": "review",
+          "phase": "synthesis",
           "recallReason": "post-intervention"
         },
         {
@@ -1030,7 +1030,7 @@
         {
           "role": "editor",
           "turnIdx": 1,
-          "phase": "output"
+          "phase": "compile"
         }
       ],
       "plannedSequence": [
@@ -1066,7 +1066,7 @@
         {
           "role": "editor",
           "turnIdx": 2,
-          "phase": "output"
+          "phase": "compile"
         }
       ],
       "plannedSequence": [
@@ -1094,6 +1094,8 @@
       "agentsCompleted": [
         "ace",
         "vera",
+        "vera",
+        "vera",
         "dev",
         "editor"
       ],
@@ -1106,18 +1108,18 @@
         {
           "role": "vera",
           "turnIdx": 1,
-          "phase": "design-spec"
+          "phase": "analysis"
         },
         {
           "role": "vera",
           "turnIdx": 2,
-          "phase": "design-spec",
+          "phase": "analysis",
           "recallReason": "post-master"
         },
         {
           "role": "vera",
           "turnIdx": 3,
-          "phase": "design-critique",
+          "phase": "analysis",
           "recallReason": "post-master"
         },
         {
@@ -1128,7 +1130,7 @@
         {
           "role": "editor",
           "turnIdx": 5,
-          "phase": "output"
+          "phase": "compile"
         }
       ],
       "plannedSequence": [
@@ -1157,8 +1159,12 @@
       "agentsCompleted": [
         "ace",
         "arki",
+        "arki",
+        "arki",
         "fin",
         "riki",
+        "ace",
+        "ace",
         "editor"
       ],
       "turns": [
@@ -1170,30 +1176,30 @@
         {
           "role": "arki",
           "turnIdx": 1,
-          "phase": "structural-analysis"
+          "phase": "analysis"
         },
         {
           "role": "arki",
           "turnIdx": 2,
-          "phase": "structural-refinement",
+          "phase": "analysis",
           "recallReason": "post-master",
           "splitReason": "phase-transition"
         },
         {
           "role": "arki",
           "turnIdx": 3,
-          "phase": "structural-refinement",
+          "phase": "analysis",
           "recallReason": "post-master"
         },
         {
           "role": "fin",
           "turnIdx": 4,
-          "phase": "resource-evaluation"
+          "phase": "analysis"
         },
         {
           "role": "riki",
           "turnIdx": 5,
-          "phase": "risk-audit"
+          "phase": "analysis"
         },
         {
           "role": "ace",
@@ -1204,13 +1210,13 @@
         {
           "role": "ace",
           "turnIdx": 7,
-          "phase": "decision-refinement",
+          "phase": "synthesis",
           "recallReason": "post-master"
         },
         {
           "role": "editor",
           "turnIdx": 8,
-          "phase": "output"
+          "phase": "compile"
         }
       ],
       "plannedSequence": [
@@ -1242,8 +1248,11 @@
       "agentsCompleted": [
         "ace",
         "arki",
+        "arki",
         "fin",
         "riki",
+        "ace",
+        "ace",
         "editor"
       ],
       "turns": [
@@ -1255,24 +1264,24 @@
         {
           "role": "arki",
           "turnIdx": 1,
-          "phase": "structural-analysis"
+          "phase": "analysis"
         },
         {
           "role": "arki",
           "turnIdx": 2,
-          "phase": "structural-refinement",
+          "phase": "analysis",
           "recallReason": "post-master",
           "splitReason": "phase-transition"
         },
         {
           "role": "fin",
           "turnIdx": 3,
-          "phase": "resource-evaluation"
+          "phase": "analysis"
         },
         {
           "role": "riki",
           "turnIdx": 4,
-          "phase": "risk-audit"
+          "phase": "analysis"
         },
         {
           "role": "ace",
@@ -1283,13 +1292,13 @@
         {
           "role": "ace",
           "turnIdx": 6,
-          "phase": "decision-refinement",
+          "phase": "synthesis",
           "recallReason": "post-master"
         },
         {
           "role": "editor",
           "turnIdx": 7,
-          "phase": "output"
+          "phase": "compile"
         }
       ],
       "plannedSequence": [
@@ -1330,7 +1339,7 @@
         {
           "role": "editor",
           "turnIdx": 2,
-          "phase": "output"
+          "phase": "compile"
         }
       ],
       "plannedSequence": [
@@ -1367,7 +1376,7 @@
         {
           "role": "editor",
           "turnIdx": 2,
-          "phase": "output"
+          "phase": "compile"
         }
       ],
       "plannedSequence": [
@@ -1400,7 +1409,7 @@
         {
           "role": "editor",
           "turnIdx": 1,
-          "phase": "output"
+          "phase": "compile"
         }
       ],
       "note": "Grade C 명시 → L0, Dev 직행 | 선행 타입 수정: TopicIndexEntry에 phase/hold/heldAtPhase/holdReason/legacy/grade 필드 추가 | create-topic.ts TS 컴파일 오류 해소 후 topic_060 생성 완료",
@@ -1430,7 +1439,7 @@
         {
           "role": "editor",
           "turnIdx": 1,
-          "phase": "output"
+          "phase": "compile"
         }
       ],
       "plannedSequence": [
@@ -1458,6 +1467,8 @@
         "arki",
         "fin",
         "riki",
+        "arki",
+        "ace",
         "editor"
       ],
       "turns": [
@@ -1469,22 +1480,22 @@
         {
           "role": "arki",
           "turnIdx": 1,
-          "phase": "structural-analysis"
+          "phase": "analysis"
         },
         {
           "role": "fin",
           "turnIdx": 2,
-          "phase": "cost-evaluation"
+          "phase": "analysis"
         },
         {
           "role": "riki",
           "turnIdx": 3,
-          "phase": "risk-audit"
+          "phase": "analysis"
         },
         {
           "role": "arki",
           "turnIdx": 4,
-          "phase": "structural-analysis",
+          "phase": "analysis",
           "recallReason": "post-intervention"
         },
         {
@@ -1496,7 +1507,7 @@
         {
           "role": "editor",
           "turnIdx": 6,
-          "phase": "output"
+          "phase": "compile"
         }
       ],
       "plannedSequence": [
@@ -1509,8 +1520,88 @@
       ],
       "grade": "A",
       "note": "Grade A 명시 → L2, ace-framing 스킬 전체 | PD-020b: Context 3층 누적 구현 (D-051 A7+A8) | PD-020a 완료 후 진행 가능 상태 | turn_log.jsonl + session_contributions/*.md + context_brief.md 신설 | /close 훅 체인에 session-contribution-writer + regenerate-context-brief 추가 | modelSwitchFailed: true — Master 의도적 Sonnet 유지 | topic_044 hold 설정 (2026-04-21) — COPD 논문 이월 보류 | D-053 제안: Context 3층 아키텍처 v1 + 7 Phase 실행계획 v2 | PD-021 신규: auto-model-switch 재구현 (Sonnet→Opus Agent 호출 패턴) | 실집행은 session_060+ 분할 (Master 결정)"
+    },
+    {
+      "sessionId": "session_060",
+      "topicSlug": "pd-020b-p0p1-turns-schema",
+      "topic": "PD-020b P0+P1 — turns[] 무결성 검증 + 스키마 정의",
+      "startedAt": "2026-04-21T13:30:00.000Z",
+      "closedAt": "2026-04-21T15:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\fervent-dijkstra-117282",
+      "decisions": [
+        {
+          "id": "D-054",
+          "summary": "turns[] 단일원천 + agentsCompleted 파생 + phase_catalog v1.1 + Context 3층 스키마 v1.0 확정",
+          "status": "confirmed"
+        }
+      ],
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "arki",
+        "ace",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "phase": "analysis"
+        },
+        {
+          "role": "fin",
+          "turnIdx": 2,
+          "phase": "analysis"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 3,
+          "phase": "analysis"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 4,
+          "phase": "synthesis"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 5,
+          "phase": "analysis",
+          "recallReason": "post-intervention",
+          "splitReason": "P0 FAIL 11건 → 원인 분류 + 백필"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 6,
+          "phase": "synthesis",
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 7,
+          "phase": "compile"
+        }
+      ],
+      "plannedSequence": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "grade": "A",
+      "note": "Grade A 명시 → L2, ace-framing 스킬 전체 | PD-020b 분할 실집행 1/3: P0(turns 무결성) + P1(스키마 정의) | P0 전수 13/13 OK (사후). 초기 FAIL 11건 → C1 phase drift 30건 + C2 agentsCompleted Set-dedup 4건 → 백필 + 루트 수정 | P1 산출: context-layers.ts 타입 + validate-context-layers.ts + context-layers-spec.md + validate-schema-vs-data.ts | 부수 수정: TopicIndexEntry phase/hold/grade 추가, phase_catalog v1.1(implementation), session-end-finalize.js agentsCompleted 파생 구조 | Master 피드백: Editor → 에디(Edi) 호칭 확정 (memory 기록) | session_061 P2~P5, session_062 P6 이월"
     }
   ],
-  "lastUpdated": "2026-04-21T07:57:20.516Z",
+  "lastUpdated": "2026-04-21T09:26:57.076Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

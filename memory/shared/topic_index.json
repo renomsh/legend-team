@@ -1,6 +1,29 @@
 {
   "topics": [
     {
+      "id": "topic_063",
+      "title": "PD-020b P0+P1 — turns[] 무결성 검증 + 스키마 정의",
+      "status": "completed",
+      "phase": "validated",
+      "hold": null,
+      "grade": "A",
+      "created": "2026-04-21",
+      "closedAt": "2026-04-21",
+      "controlPath": "topics/topic_063",
+      "reportPath": "reports/2026-04-21_pd-020b-p0p1-turns-schema",
+      "reportFiles": [
+        "ace_rev1.md",
+        "arki_rev1.md",
+        "fin_rev1.md",
+        "riki_rev1.md",
+        "editor_rev1.md",
+        "turns-integrity-report.md"
+      ],
+      "published": false,
+      "outcome": "D-054 확정. P0 13/13 OK (C1 phase drift 30건 + C2 agentsCompleted Set-dedup 4건 해소). P1 3층 스키마 v1.0 + 검증함수 + 스펙 문서 + drift 감시 도구 완료. session_061 P2~P5 진행 가능.",
+      "path": "topics/topic_063"
+    },
+    {
       "id": "topic_062",
       "title": "PD-020b — Context 3층 누적 구현",
       "status": "in-progress",
@@ -1219,5 +1242,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-21T05:51:07.578Z"
+  "lastUpdated": "2026-04-21T08:04:41.876Z"
 }
