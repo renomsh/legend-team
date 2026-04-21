@@ -469,5 +469,11 @@
       "lesson": "성장 지표 정의 선행 원칙 확립: 출현빈도 ≠ 성장. 학습누적→적중률→자율성 인과체인이 측정 설계의 공리. 정의 없는 계측 구현은 무의미.",
       "topic": "growth-metrics"
     }
-  ]
+  ],
+  "gradeCProtocol": {
+    "rule": "Grade C /open 완료 후 Ace 추가 발화 금지",
+    "detail": "/open 체크리스트(current_session.json 업데이트 + create-topic.ts 실행) 완료 후 즉시 Dev 진입. 세션 오픈 완료 보고 후 대기 신호 금지. MF-043 (session_056) — Grade C에서 Ace가 진행 지시 대기 후 Master 지적.",
+    "antiPattern": "\"진행 지시 주세요\" / \"Dev 직행 준비됐습니다\"로 멈추기",
+    "correctBehavior": "Grade C → /open 완료 직후 Dev 역할 즉시 진입, 추가 발화 없음"
+  }
 }

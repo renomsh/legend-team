@@ -1,6 +1,15 @@
 {
   "feedbackLog": [
     {
+      "id": "MF-043",
+      "date": "2026-04-21",
+      "session": "session_056",
+      "topic": "pd-020a-p3-writer-enforce",
+      "feedback": "Grade C /open 완료 후 Ace가 \"진행 지시 주세요\"로 Master 입력 대기 — L0 프로토콜 위반. Grade C는 프레이밍 없이 Dev 즉시 진행. Ace가 추가 발화로 멈추면 안 됨. 원인 지적: 이런 상황에서 Dev가 진행을 안하던데. 에이스, Dev 뭐가 문제지?",
+      "status": "resolved",
+      "statusNote": "ace_memory에 Grade C 발동 후 추가 발화 금지 패턴 기록. 다음 Grade C 세션부터 적용."
+    },
+    {
       "id": "MF-042",
       "date": "2026-04-21",
       "session": "session_055",

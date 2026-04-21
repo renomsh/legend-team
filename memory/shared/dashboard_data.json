@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-21T04:35:55.167Z",
-  "totalSessions": 54,
+  "generatedAt": "2026-04-21T04:47:55.707Z",
+  "totalSessions": 55,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 18.55,
-    "avgCacheHitRate": 0.9288,
-    "cacheSampleSize": 28,
-    "cacheSampleTotal": 54,
+    "avgMasterTurns": 18.36,
+    "avgCacheHitRate": 0.9278,
+    "cacheSampleSize": 29,
+    "cacheSampleTotal": 55,
     "avgAdoptionRate": 0,
     "totalDecisions": 52,
     "gradeDistribution": {
       "S": 11,
       "A": 15,
-      "B": 17,
+      "B": 18,
       "C": 11
     },
     "gradeMismatchCount": 1,
@@ -20,7 +20,7 @@
       "session_013"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 9
+    "turnBasedSessions": 10
   },
   "sessions": [
     {
@@ -1631,12 +1631,41 @@
         "cacheHitRate": 0.9323420299808752,
         "messageCount": 92
       }
+    },
+    {
+      "sessionId": "session_056",
+      "topicSlug": "pd-020a-p3-writer-enforce",
+      "topic": "PD-020a P3 — create-topic.ts·append-session.ts writer 강제",
+      "startedAt": "2026-04-21T08:40:00.000Z",
+      "closedAt": "2026-04-21T09:10:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 9,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 6928948,
+        "cacheHitRate": 0.9006403280844365,
+        "messageCount": 90
+      }
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 14,
+      "count": 15,
       "sessions": [
         "session_047",
         "session_048",
@@ -1645,19 +1674,21 @@
         "session_052",
         "session_053",
         "session_054",
-        "session_055"
+        "session_055",
+        "session_056"
       ]
     },
     {
       "role": "dev",
-      "count": 7,
+      "count": 8,
       "sessions": [
         "session_047",
         "session_048",
         "session_050",
         "session_051",
         "session_052",
-        "session_055"
+        "session_055",
+        "session_056"
       ]
     },
     {
@@ -1672,14 +1703,15 @@
     },
     {
       "role": "editor",
-      "count": 6,
+      "count": 7,
       "sessions": [
         "session_050",
         "session_051",
         "session_052",
         "session_053",
         "session_054",
-        "session_055"
+        "session_055",
+        "session_056"
       ]
     },
     {
@@ -2026,6 +2058,30 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_056",
+      "topic": "PD-020a P3 — create-topic.ts·append-session.ts writer 강제",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "execution-plan",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "output",
+          "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -2033,43 +2089,43 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=18.6)"
+      "description": "Master 병목: masterTurns=48 (avg=18.4)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=18.6)"
+      "description": "Master 병목: masterTurns=43 (avg=18.4)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=18.6)"
+      "description": "Master 병목: masterTurns=42 (avg=18.4)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=18.6)"
+      "description": "Master 병목: masterTurns=45 (avg=18.4)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=18.6)"
+      "description": "Master 병목: masterTurns=39 (avg=18.4)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=18.6)"
+      "description": "Master 병목: masterTurns=49 (avg=18.4)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=18.6)"
+      "description": "Master 병목: masterTurns=35 (avg=18.4)"
     },
     {
       "ruleId": "R1",
@@ -2082,6 +2138,11 @@
       "severity": "yellow",
       "sessionId": "session_049",
       "description": "Ace/역할 과호출: rolesRecalled=3"
+    },
+    {
+      "ruleId": "R5",
+      "severity": "red",
+      "description": "피드백 재발: \"Ace가\" 3회"
     },
     {
       "ruleId": "R5",
@@ -2125,6 +2186,56 @@
     }
   ],
   "feedbackRecurrences": [
+    {
+      "keyword": "Grade",
+      "occurrences": [
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-043",
+          "summary": "Grade C /open 완료 후 Ace가 \"진행 지시 주세요\"로 Master 입력 대기 — L0 프로토콜 "
+        },
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-S036-3",
+          "summary": "Grade 조정권은 Ace가 가져. 선언 grade와 실제 gap 발생 시 Ace가 조정."
+        }
+      ]
+    },
+    {
+      "keyword": "Ace가",
+      "occurrences": [
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-043",
+          "summary": "Grade C /open 완료 후 Ace가 \"진행 지시 주세요\"로 Master 입력 대기 — L0 프로토콜 "
+        },
+        {
+          "date": "2026-04-04",
+          "feedbackId": "MF-002",
+          "summary": "역할 혼선 지적. Ace가 종합검토를 해야 하고, Editor는 결과물 작성/정리/출력만 해야 한다."
+        },
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-S036-3",
+          "summary": "Grade 조정권은 Ace가 가져. 선언 grade와 실제 gap 발생 시 Ace가 조정."
+        }
+      ]
+    },
+    {
+      "keyword": "진행",
+      "occurrences": [
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-043",
+          "summary": "Grade C /open 완료 후 Ace가 \"진행 지시 주세요\"로 Master 입력 대기 — L0 프로토콜 "
+        },
+        {
+          "date": "2026-04-16",
+          "feedbackId": "MF-012",
+          "summary": "소프트웨어 구현도 향후 진행 업무. Arki 설계 + 별도 Dev 에이전트 + Editor 디자인 강화. 에"
+        }
+      ]
+    },
     {
       "keyword": "선언",
       "occurrences": [
@@ -2413,21 +2524,6 @@
         {
           "date": "2026-04-19",
           "summary": "각자 희망 캐릭터 벤치마킹했으니 역할 수행 시 '그 인물이라면 어떻게 했을까' 관점으로 접근할 것."
-        }
-      ]
-    },
-    {
-      "keyword": "Ace가",
-      "occurrences": [
-        {
-          "date": "2026-04-04",
-          "feedbackId": "MF-002",
-          "summary": "역할 혼선 지적. Ace가 종합검토를 해야 하고, Editor는 결과물 작성/정리/출력만 해야 한다."
-        },
-        {
-          "date": "2026-04-19",
-          "feedbackId": "MF-S036-3",
-          "summary": "Grade 조정권은 Ace가 가져. 선언 grade와 실제 gap 발생 시 Ace가 조정."
         }
       ]
     },

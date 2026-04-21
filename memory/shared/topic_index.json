@@ -1,6 +1,19 @@
 {
   "topics": [
     {
+      "id": "topic_059",
+      "grade": "C",
+      "title": "PD-020a P3 — create-topic.ts·append-session.ts writer 강제",
+      "status": "completed",
+      "created": "2026-04-21",
+      "outcome": "create-topic.ts: topic_meta.json+topic_index 엔트리에 phase:'framing'+hold:null 강제 기록, grade 3번째 arg 수용. append-session.ts: topicId(N:1), grade/gradeDeclared/gradeActual/gradeMismatch(자동계산), turns(Turn[]), plannedSequence 파라미터 추가. src/types/index.ts: TopicHoldState 신설 + TopicIndexEntry phase/hold/grade 필드 추가. TS 컴파일 통과, 런타임 검증 완료. P4(migration)/P5(verify) 잔여.",
+      "controlPath": "topics/topic_059",
+      "reportPath": "reports/2026-04-21_pd-020a-p3-writer-enforce",
+      "reportFiles": ["dev_rev1.md"],
+      "published": false,
+      "path": "topics/topic_059"
+    },
+    {
       "id": "topic_058",
       "grade": "A",
       "title": "D-052 ledger 등재 + P1 catalog 2개 신설",
@@ -9,7 +22,9 @@
       "outcome": "P1+P2 완료. D-052 ledger 기등재 확인. topic_phase_catalog.json + hold_reasons_catalog.json 신설 (파일명 충돌 해소: phase_catalog→topic_phase_catalog). validate-topic-schema.ts assertPhase/assertHold export. P3(writer 강제)는 다음 세션 이월.",
       "controlPath": "topics/topic_058",
       "reportPath": "reports/2026-04-21_d052-ledger-p1-catalog",
-      "reportFiles": ["dev_rev1.md"],
+      "reportFiles": [
+        "dev_rev1.md"
+      ],
       "published": false,
       "path": "topics/topic_058"
     },
@@ -985,5 +1000,5 @@
       "grade": "C"
     }
   ],
-  "lastUpdated": "2026-04-21T04:09:27.516Z"
+  "lastUpdated": "2026-04-21T04:41:52.624Z"
 }

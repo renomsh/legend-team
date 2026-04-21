@@ -6,9 +6,12 @@
  * Usage:
  *   ts-node scripts/create-topic.ts "<topic title>"
  *   ts-node scripts/create-topic.ts "<topic title>" <slug>
+ *   ts-node scripts/create-topic.ts "<topic title>" <slug> <grade>
  *
  * Example:
- *   ts-node scripts/create-topic.ts "팀 운영 구조 재설계" team-restructure
+ *   ts-node scripts/create-topic.ts "팀 운영 구조 재설계" team-restructure A
+ *
+ * D-052: phase:"framing" + hold:null 강제 기록. grade 선택 파라미터.
  */
 
 import * as fs from 'fs';
@@ -73,7 +76,9 @@ function slugify(title: string): string {
     .slice(0, 50);
 }
 
-function createTopic(title: string, explicitSlug?: string): void {
+const VALID_GRADES = new Set(['S', 'A', 'B', 'C']);
+
+function createTopic(title: string, explicitSlug?: string, grade?: string): void {
   const index = readTopicIndex();
   const id = nextTopicId(index);
   const topicDir = path.join(ROOT, 'topics', id);
@@ -91,11 +96,13 @@ function createTopic(title: string, explicitSlug?: string): void {
   // Create control-plane folder structure
   fs.mkdirSync(topicDir, { recursive: true });
 
-  // topic_meta.json
+  // topic_meta.json — D-052: phase×hold 강제 기록
   writeJson(path.join(topicDir, 'topic_meta.json'), {
     id,
     title,
     status: 'open',
+    phase: 'framing',
+    hold: null,
     created: date,
     lastUpdated: date,
     description: '',
@@ -117,11 +124,14 @@ function createTopic(title: string, explicitSlug?: string): void {
   writeJson(path.join(topicDir, 'revision_history.json'), { topicId: id, revisions: [] });
   writeJson(path.join(topicDir, 'speculative_options.json'), { topicId: id, options: [] });
 
-  // Register in topic_index.json with 2-plane paths
+  // Register in topic_index.json with 2-plane paths + D-052 fields
   const entry: TopicIndexEntry = {
     id,
     title,
     status: 'open',
+    phase: 'framing',
+    hold: null,
+    ...(grade && VALID_GRADES.has(grade) ? { grade } : {}),
     created: date,
     controlPath: `topics/${id}`,
     reportPath,
@@ -146,15 +156,21 @@ function createTopic(title: string, explicitSlug?: string): void {
   console.log(`\nRegistered in memory/shared/topic_index.json`);
   console.log(`  controlPath: topics/${id}`);
   console.log(`  reportPath:  ${reportPath}`);
+  console.log(`  phase: framing | hold: null${grade && VALID_GRADES.has(grade) ? ` | grade: ${grade}` : ''}`);
 }
 
 const args = process.argv.slice(2);
 const title = args[0];
 const slug = args[1];
+const grade = args[2]?.toUpperCase();
 
 if (!title || title.trim().length === 0) {
-  console.error('Usage: ts-node scripts/create-topic.ts "<topic title>" [slug]');
+  console.error('Usage: ts-node scripts/create-topic.ts "<topic title>" [slug] [grade:S|A|B|C]');
   process.exit(1);
 }
 
-createTopic(title.trim(), slug?.trim());
+if (grade && !VALID_GRADES.has(grade)) {
+  console.error(`⚠️  grade "${grade}" 무시됨 — 유효값: S, A, B, C`);
+}
+
+createTopic(title.trim(), slug?.trim(), grade);

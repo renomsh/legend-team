@@ -1,17 +1,18 @@
 {
-  "sessionId": "session_055",
-  "topicId": "topic_058",
-  "topic": "D-052 ledger 등재 + P1 catalog 2개 신설",
-  "topicSlug": "d052-ledger-p1-catalog",
+  "sessionId": "session_056",
+  "topicId": "topic_059",
+  "topic": "PD-020a P3 — create-topic.ts·append-session.ts writer 강제",
+  "topicSlug": "pd-020a-p3-writer-enforce",
   "status": "closed",
-  "startedAt": "2026-04-21T07:15:00.000Z",
-  "closedAt": "2026-04-21T08:30:00.000Z",
+  "startedAt": "2026-04-21T08:40:00.000Z",
+  "closedAt": "2026-04-21T09:10:00.000Z",
   "mode": "observation",
-  "grade": "A",
-  "gradeDeclared": "A",
+  "grade": "C",
+  "gradeDeclared": "C",
   "gradeActual": "C",
-  "framingLevel": 2,
-  "framingSkipped": false,
+  "gradeMismatch": false,
+  "framingLevel": 0,
+  "framingSkipped": true,
   "agentsCompleted": [
     "ace",
     "dev",
@@ -35,27 +36,28 @@
     }
   ],
   "plannedSequence": [
-    "ace",
     "dev"
   ],
   "decisions": [],
   "notes": [
-    "PD-020a 후속 실행 세션 — P1(catalog 2개)+P2(validator) 완료",
-    "phase_catalog.json 파일명 충돌 발견 → topic_phase_catalog.json으로 분리",
-    "D-052 ledger session_054에서 이미 등재됨 확인 — 중복 등재 없음",
-    "Master feedback: grade 선언 의도 확인 원칙 — grade 불일치 시 관성 따르지 말고 의도를 묻거나 C 충분 의견 제시 (memory에 기록)",
-    "gradeDeclared=A vs gradeActual=C — 순수 실행 세션. Ace 관성적 L2 스캐폴드 실행 후 Master 지적으로 Dev 직행 전환"
+    "PD-020a P3 실행 — writer 강제 (create-topic.ts·append-session.ts)",
+    "Grade C 명시 → L0, Dev 직행",
+    "Ace 진단: Grade C /open 후 '진행 지시 주세요' 대기는 L0 프로토콜 위반 — 원인 확인 및 피드백 기록",
+    "create-topic.ts: phase:'framing'+hold:null 강제 + grade arg 수용",
+    "append-session.ts: topicId/grade/gradeDeclared/gradeActual/gradeMismatch/turns/plannedSequence 추가",
+    "src/types/index.ts: TopicHoldState 신설 + TopicIndexEntry 필드 확장",
+    "잔여: P4(migration 실행) + P5(verify)"
   ],
   "gaps": [],
   "masterDecisions": [],
-  "reportPath": "reports/2026-04-21_d052-ledger-p1-catalog",
+  "reportPath": "reports/2026-04-21_pd-020a-p3-writer-enforce",
   "tokenUsage": {
-    "input_tokens": 171,
-    "output_tokens": 49954,
-    "cache_creation_input_tokens": 445190,
-    "cache_read_input_tokens": 6825552,
-    "messageCount": 92,
-    "masterTurns": 16,
-    "total_billable": 7320867
+    "input_tokens": 130,
+    "output_tokens": 39926,
+    "cache_creation_input_tokens": 648402,
+    "cache_read_input_tokens": 6240490,
+    "messageCount": 90,
+    "masterTurns": 9,
+    "total_billable": 6928948
   }
 }
