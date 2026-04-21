@@ -1,6 +1,19 @@
 {
   "topics": [
     {
+      "id": "topic_056",
+      "grade": "S",
+      "title": "S 토픽 중심 전체 개편",
+      "status": "completed",
+      "outcome": "A1~A8 결정축 확정. N:1 단방향 + phase×hold 직교화 + 3층 context 누적. Riki 공격 4개 운영규칙 흡수. 실제 구현은 PD-020a/b/c로 분해 이연. D-051 확정. PD-019 resolved.",
+      "created": "2026-04-21",
+      "controlPath": "topics/topic_056",
+      "reportPath": "reports/2026-04-21_topic-centric-architecture",
+      "reportFiles": [],
+      "published": false,
+      "path": "topics/topic_056"
+    },
+    {
       "id": "topic_055",
       "title": "Session History Design Change",
       "status": "completed",
@@ -9,7 +22,11 @@
       "outcome": "ROLE_COLORS 단일 원천(role-colors.js) 신설. Turn Sequence dot 개선. Role Frequency 트랙 바 교체. 전 페이지 색상 통일. v1.13.",
       "controlPath": "topics/topic_055",
       "reportPath": "reports/2026-04-21_session-history-design-change",
-      "reportFiles": ["ace_rev1.md", "vera_rev1.md", "dev_rev1.md"],
+      "reportFiles": [
+        "ace_rev1.md",
+        "vera_rev1.md",
+        "dev_rev1.md"
+      ],
       "published": false,
       "path": "topics/topic_055"
     },
@@ -937,5 +954,5 @@
       "grade": "C"
     }
   ],
-  "lastUpdated": "2026-04-20T23:40:05.469Z"
+  "lastUpdated": "2026-04-21T00:47:26.510Z"
 }

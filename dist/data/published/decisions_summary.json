@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-04-21T00:39:56.211Z",
+  "generatedAt": "2026-04-21T02:03:16.446Z",
   "decisions": [
+    {
+      "id": "D-051",
+      "date": "2026-04-21",
+      "session": "session_053",
+      "topic": "topic-centric-architecture",
+      "axis": "토픽 중심 아키텍처 — N:1 단방향 + phase×hold 직교화 + 3층 context 누적",
+      "decision": "A1 토픽 1급 승격. A2 N:1 단방향 topic.sessions[]. A3 이중 성장축(세션=실행/토픽=누적). A4 점진 이행 legacy:true 52세션 소급. A5 phase(framing/design/implementation/validated)×hold(active/heldAt/heldAtPhase/reason) 2차원. A6 decision owningTopicId + agenda.md 충돌 검사 기계화. A7 /open 자동 context 로드 hold=false 토픽만. A8 3층 context(turn_log.jsonl / session_contributions/*.md / context_brief.md) hold 토픽 brief 동결. Riki 공격 4개(RK-1 수명폭증 / RK-2 brief신뢰성 / RK-3 Ace과부하 / RK-4 이연부재) 모두 운영규칙으로 흡수. 실제 구현은 PD-020a/b/c 3개 Grade A로 분해 이연.",
+      "value": "Master 수동 save01~05 관행을 시스템이 흡수 — 성장 루프 병목을 Master 인지부하에서 시스템 자동화로 이전. 양방향 훅 제거(N:1 단방향) + phase×hold 직교화로 운영 복잡도 억제. PD-019 resolved.",
+      "authority": "master",
+      "status": "confirmed"
+    },
     {
       "id": "D-050",
       "date": "2026-04-21",

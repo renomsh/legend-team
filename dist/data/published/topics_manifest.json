@@ -1,6 +1,18 @@
 {
-  "generatedAt": "2026-04-21T00:39:56.204Z",
+  "generatedAt": "2026-04-21T02:03:16.439Z",
   "topics": [
+    {
+      "id": "topic_056",
+      "title": "S 토픽 중심 전체 개편",
+      "status": "completed",
+      "created": "2026-04-21",
+      "reportPath": "reports/2026-04-21_topic-centric-architecture",
+      "reportFiles": [],
+      "published": false,
+      "outcome": "A1~A8 결정축 확정. N:1 단방향 + phase×hold 직교화 + 3층 context 누적. Riki 공격 4개 운영규칙 흡수. 실제 구현은 PD-020a/b/c로 분해 이연. D-051 확정. PD-019 resolved.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_055",
       "title": "Session History Design Change",

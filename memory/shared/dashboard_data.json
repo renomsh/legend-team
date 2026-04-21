@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-21T00:39:55.468Z",
-  "totalSessions": 51,
+  "generatedAt": "2026-04-21T02:03:15.735Z",
+  "totalSessions": 52,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 18.91,
-    "avgCacheHitRate": 0.9316,
-    "cacheSampleSize": 25,
-    "cacheSampleTotal": 51,
+    "avgMasterTurns": 18.72,
+    "avgCacheHitRate": 0.9303,
+    "cacheSampleSize": 26,
+    "cacheSampleTotal": 52,
     "avgAdoptionRate": 0,
-    "totalDecisions": 50,
+    "totalDecisions": 51,
     "gradeDistribution": {
       "S": 11,
-      "A": 13,
+      "A": 14,
       "B": 16,
       "C": 11
     },
@@ -20,7 +20,7 @@
       "session_013"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 6
+    "turnBasedSessions": 7
   },
   "sessions": [
     {
@@ -1534,18 +1534,53 @@
         "cacheHitRate": 0.7691554452296159,
         "messageCount": 5
       }
+    },
+    {
+      "sessionId": "session_053",
+      "topicSlug": "topic-centric-architecture",
+      "topic": "S 토픽 중심 전체 개편",
+      "startedAt": "2026-04-21T04:00:00.000Z",
+      "closedAt": "2026-04-21T05:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-051"
+      ],
+      "rolesCalled": 5,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 10,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 10,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 4312254,
+        "cacheHitRate": 0.897389161213602,
+        "messageCount": 48
+      }
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 7,
+      "count": 10,
       "sessions": [
         "session_047",
         "session_048",
         "session_049",
         "session_051",
-        "session_052"
+        "session_052",
+        "session_053"
       ]
     },
     {
@@ -1560,6 +1595,15 @@
       ]
     },
     {
+      "role": "arki",
+      "count": 5,
+      "sessions": [
+        "session_048",
+        "session_049",
+        "session_053"
+      ]
+    },
+    {
       "role": "vera",
       "count": 5,
       "sessions": [
@@ -1569,26 +1613,27 @@
     },
     {
       "role": "editor",
-      "count": 3,
+      "count": 4,
       "sessions": [
         "session_050",
         "session_051",
-        "session_052"
-      ]
-    },
-    {
-      "role": "arki",
-      "count": 2,
-      "sessions": [
-        "session_048",
-        "session_049"
+        "session_052",
+        "session_053"
       ]
     },
     {
       "role": "riki",
+      "count": 2,
+      "sessions": [
+        "session_049",
+        "session_053"
+      ]
+    },
+    {
+      "role": "fin",
       "count": 1,
       "sessions": [
-        "session_049"
+        "session_053"
       ]
     }
   ],
@@ -1772,6 +1817,66 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_053",
+      "topic": "S 토픽 중심 전체 개편",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "structural-analysis",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "structural-refinement",
+          "turnIdx": 2,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "structural-refinement",
+          "turnIdx": 3,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "fin",
+          "phase": "resource-evaluation",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "risk-audit",
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 6,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "ace",
+          "phase": "decision-refinement",
+          "turnIdx": 7,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "editor",
+          "phase": "output",
+          "turnIdx": 8,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -1779,43 +1884,43 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=18.9)"
+      "description": "Master 병목: masterTurns=48 (avg=18.7)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=18.9)"
+      "description": "Master 병목: masterTurns=43 (avg=18.7)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=18.9)"
+      "description": "Master 병목: masterTurns=42 (avg=18.7)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=18.9)"
+      "description": "Master 병목: masterTurns=45 (avg=18.7)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=18.9)"
+      "description": "Master 병목: masterTurns=39 (avg=18.7)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=18.9)"
+      "description": "Master 병목: masterTurns=49 (avg=18.7)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=18.9)"
+      "description": "Master 병목: masterTurns=35 (avg=18.7)"
     },
     {
       "ruleId": "R1",
@@ -1828,6 +1933,11 @@
       "severity": "yellow",
       "sessionId": "session_049",
       "description": "Ace/역할 과호출: rolesRecalled=3"
+    },
+    {
+      "ruleId": "R5",
+      "severity": "red",
+      "description": "피드백 재발: \"토픽\" 3회"
     },
     {
       "ruleId": "R5",
@@ -1856,6 +1966,41 @@
     }
   ],
   "feedbackRecurrences": [
+    {
+      "keyword": "세션",
+      "occurrences": [
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-040",
+          "summary": "1) 세션-토픽 다대다는 운영 복잡도 대비 비효율 — N:1 단방향(토픽 하나에 여러 세션)으로 단순화. 여"
+        },
+        {
+          "date": "2026-04-17",
+          "feedbackId": "MF-023",
+          "summary": "세션에 버전도 안맞고, 홈에 세션 클릭하면 메뉴바가 상단으로 올라가. 박스도 흰색이라 안보이고. 베라 이번 "
+        }
+      ]
+    },
+    {
+      "keyword": "토픽",
+      "occurrences": [
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-040",
+          "summary": "1) 세션-토픽 다대다는 운영 복잡도 대비 비효율 — N:1 단방향(토픽 하나에 여러 세션)으로 단순화. 여"
+        },
+        {
+          "date": "2026-04-16",
+          "feedbackId": "MF-014",
+          "summary": "에이스 왜 반말써? 효율화라면 토픽 확인. 타입 분류 진행. 이렇게 더 자르던가."
+        },
+        {
+          "date": "2026-04-16",
+          "feedbackId": "MF-015",
+          "summary": "이번에 한해서 소급 적용하라고 (토픽 타입/명칭 정비)"
+        }
+      ]
+    },
     {
       "keyword": "Dev",
       "occurrences": [
@@ -2118,21 +2263,6 @@
         {
           "date": "2026-04-19",
           "summary": "Dev-Arki는 단방향 설계 인수가 아니라 양방향 의견 교환. Dev=0.1% 프로그래머 특별 정의."
-        }
-      ]
-    },
-    {
-      "keyword": "토픽",
-      "occurrences": [
-        {
-          "date": "2026-04-16",
-          "feedbackId": "MF-014",
-          "summary": "에이스 왜 반말써? 효율화라면 토픽 확인. 타입 분류 진행. 이렇게 더 자르던가."
-        },
-        {
-          "date": "2026-04-16",
-          "feedbackId": "MF-015",
-          "summary": "이번에 한해서 소급 적용하라고 (토픽 타입/명칭 정비)"
         }
       ]
     },

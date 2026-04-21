@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_052",
-  "nextSessionId": "session_053",
+  "lastSessionId": "session_053",
+  "nextSessionId": "session_054",
   "currentVersion": "v1.11",
   "openTopics": [
     {
@@ -20,6 +20,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-051",
+      "date": "2026-04-21",
+      "axis": "토픽 중심 아키텍처 — N:1 단방향 + phase×hold 직교화 + 3층 context 누적",
+      "summary": "Master 수동 save01~05 관행을 시스템이 흡수 — 성장 루프 병목을 Master 인지부하에서 시스템 자동화로 이전. 양방향 훅 제거(N:1 단방향) + phase×hold 직교화로 운영 복잡도 억제. PD-019 resolved."
+    },
     {
       "id": "D-050",
       "date": "2026-04-21",
@@ -43,12 +49,6 @@
       "date": "2026-04-20",
       "axis": "토픽 status 단일 원천 + topic_index 재발 방지 구조",
       "summary": "(1) status_catalog.json 신설 (open/in-progress/completed/suspended + closed→completed alias). UI·커맨드·타입 모두 카탈로그 참조, 하드코딩 금지. (2) topic_index.json 파일 자체를 topic_id desc 자연정렬로 저장 + app/js/nav.js sortTopicsDesc + create-topic.ts 자동 정렬 삽입 (3중 방어). (3) /open 체크리스트 step 7에 create-topic.ts 자동 호출 강제 — session_036~041 topic_index 등록 누락 재발 방지. (4) 중간지점 정비: 중복 topic_013 분리(→045), 고아 upgrade-delta-pack 등록(→046), 현 세션 등록(→047). 01-41 전체 재번호는 참조 무결성 훼손 리스크로 채택 안함."
-    },
-    {
-      "id": "D-046",
-      "date": "2026-04-19",
-      "axis": "Statistical Anchor Registry — data provenance gate",
-      "summary": "향후 정량 원고 세션은 /open 시 current_session.json에 canonical_data 필드(경로+md5)를 기록. 본문 모든 정량 주장은 canonical 앵커 인용. 출처 없는 숫자는 [pending: source] 플래그 필수. Editor 숫자 기입 시 출처 주석 의무. Riki 공격영역에 'data provenance' 신설. 근거: session_041 ver3.0_E 작성 시 canonical Xlsx 미확인하고 save04.md 캐시 숫자·LLM 합성 CI로 7차 검토 루프가 오염 동결(E-xxx 등록)."
     }
   ],
   "pendingDeferrals": [
@@ -187,9 +187,34 @@
       "fromSession": "session_045",
       "fromTopic": "role-recall-measurement-structure",
       "item": "토픽 중심 전체 개편 — 현재 세션 중심 아키텍처에서 토픽 중심으로 전환. 세션은 토픽 진행의 하위 단위로 재정의. session_index·current_session·agentsCompleted·대시보드 KPI 모두 토픽 축으로 재설계.",
+      "status": "resolved",
+      "resolvedInSession": "session_053",
+      "note": "D-051 확정. A1~A8 결정축 완성 (N:1 단방향 + phase×hold 직교화 + 3층 context 누적). Riki 공격 4개 운영규칙 흡수. 실제 구현은 PD-020a/b/c 3개 Grade A 토픽으로 분해."
+    },
+    {
+      "id": "PD-020a",
+      "fromSession": "session_053",
+      "fromTopic": "topic-centric-architecture",
+      "item": "스키마 + phase×hold 기반 구현 — topic_index/current_session/session_index/decision_ledger 스키마 개편. topic.sessions[] N:1 단방향, phase(framing/design/implementation/validated) × hold(active/heldAt/heldAtPhase/reason) 2차원. append-session.ts·create-topic.ts 갱신. legacy:true 52세션 소급 마이그레이션.",
       "status": "pending",
-      "note": "session_045 Nova 뒤집기 제안에 대한 Master 역제안. Grade S 토픽 예상. 본 토픽(PD-011 해소)과 연계되나 범위 외로 분리."
+      "note": "Grade A. D-051 A1+A2+A4+A5 구현. PD-020b/c의 기반."
+    },
+    {
+      "id": "PD-020b",
+      "fromSession": "session_053",
+      "fromTopic": "topic-centric-architecture",
+      "item": "Context 3층 누적 구현 — topics/{id}/turn_log.jsonl + session_contributions/*.md + context_brief.md 신설. /close 훅 체인에 session-contribution-writer + regenerate-context-brief 추가. /open step 3.5에 context_brief 자동 로드 추가 (hold=false 토픽만).",
+      "status": "pending",
+      "note": "Grade A. D-051 A7+A8 구현. Master save01~05 수동 관행 시스템 흡수. PD-020a 선행 필요."
+    },
+    {
+      "id": "PD-020c",
+      "fromSession": "session_053",
+      "fromTopic": "topic-centric-architecture",
+      "item": "결정 소유권 + 운영규칙 구현 — decision_ledger에 owningTopicId + scopeCheck 필드. topic_lifecycle_rules.json 신설 (maxSessions 5·lastActivity 30일, hold 제외). context_brief 출처 앵커 규칙. Ace 실시간 PD append 프로토콜.",
+      "status": "pending",
+      "note": "Grade A. D-051 A6 + RK-1~4 대응 구현. PD-020a/b 이후."
     }
   ],
-  "lastUpdated": "2026-04-21T00:39:52.557Z"
+  "lastUpdated": "2026-04-21T02:03:13.036Z"
 }

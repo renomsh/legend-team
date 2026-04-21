@@ -1,6 +1,15 @@
 {
   "feedbackLog": [
     {
+      "id": "MF-040",
+      "date": "2026-04-21",
+      "session": "session_053",
+      "topic": "topic-centric-architecture",
+      "feedback": "1) 세션-토픽 다대다는 운영 복잡도 대비 비효율 — N:1 단방향(토픽 하나에 여러 세션)으로 단순화. 여러 토픽 발생 시 Ace가 이연 중재. 2) 연계 토픽 context 자동 로드 요구 — save01~05 수동 관행 해소 목적. 3) 진행중 토픽은 turn log 정리본 저장 → 다음 세션 재설명 불필요. 4) phase × hold 직교화 — framing/hold, design/hold 등 조합. 홀딩 토픽은 자동 로드 제외로 리소스 절약, 이연과제 등록으로 가시성 유지.",
+      "status": "resolved",
+      "statusNote": "D-051 확정. A1~A8 결정축 모두 반영. N:1 단방향 + phase×hold 직교화 + 3층 context 누적. Riki 공격 4개 운영규칙 흡수. 구현은 PD-020a/b/c로 분해 이연."
+    },
+    {
       "id": "MF-039",
       "date": "2026-04-21",
       "session": "session_052",
