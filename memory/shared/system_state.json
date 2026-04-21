@@ -226,8 +226,10 @@
       "fromSession": "session_053",
       "fromTopic": "topic-centric-architecture",
       "item": "결정 소유권 + 운영규칙 구현 — decision_ledger에 owningTopicId + scopeCheck 필드. topic_lifecycle_rules.json 신설 (maxSessions 5·lastActivity 30일, hold 제외). context_brief 출처 앵커 규칙. Ace 실시간 PD append 프로토콜.",
-      "status": "pending",
-      "note": "Grade A. D-051 A6 + RK-1~4 대응 구현. PD-020a/b 이후."
+      "status": "resolved",
+      "note": "Grade A. D-051 A6 + RK-1~4 대응 구현. PD-020a/b 이후.",
+      "resolvedInSession": "session_064",
+      "resolvedNote": "P1(스키마+백필+검증) + P2(lifecycle/anchor 경고) + P3(실시간 PD append + Editor 역검사) 전 완료."
     },
     {
       "id": "PD-021",
@@ -238,5 +240,5 @@
       "note": "Grade A 권장. 원래 스킬 의도와 현 구현 불일치 발견(session_059). Master 의도: Sonnet 메인 + Opus 서브 호출."
     }
   ],
-  "lastUpdated": "2026-04-21T11:25:20.200Z"
+  "lastUpdated": "2026-04-21T11:26:09.184Z"
 }
