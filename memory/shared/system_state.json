@@ -1,9 +1,16 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_058",
-  "nextSessionId": "session_059",
+  "lastSessionId": "session_059",
+  "nextSessionId": "session_060",
   "currentVersion": "v1.11",
   "openTopics": [
+    {
+      "id": "topic_062",
+      "title": "PD-020b — Context 3층 누적 구현",
+      "status": "in-progress",
+      "reportPath": "reports/2026-04-21_pd-020b-context-3layer",
+      "note": "Grade A. PD-020a 완료 직후 진행. 본 세션 = framing+실행계획. Dev 세션 분리 결정(Master)."
+    },
     {
       "id": "topic_044",
       "title": "COPD 논문 ver3.4 최종화 — canonical 재분석 + (e) 프레임 확정",
@@ -20,6 +27,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-053",
+      "date": "2026-04-21",
+      "axis": "Context 3층 누적 아키텍처 v1 — turn_log(L1) × session_contributions(L2) × context_brief(L3) + C1 강제화 선결",
+      "summary": "Master save01~05 수동 관행을 시스템이 흡수 — 성장 루프 병목을 인지부하에서 자동화로 이전. C1 강제화 선결로 L1 무효화 전제 위반 차단. quality 플래그로 Editor 우회 silent failure 방지. PD-020c 전 임시 fallback으로 토큰 폭발 갭 방어. PD-020b 프레이밍 단계 resolved."
+    },
     {
       "id": "D-052",
       "date": "2026-04-21",
@@ -43,12 +56,6 @@
       "date": "2026-04-20",
       "axis": "Vera design 스킬 발동 룰 + UI 시각화 구현 주체 분담",
       "summary": "(A) Vera skills 조건부 매트릭스 — design-critique/system/handoff/a11y/theme-factory 각 트리거·skipWhen·invocationMode(skill-call|pattern-reference|external) 필드 강제. design-system 발동 우선 판정자는 '토큰 신규 추가 여부' (Riki #3). (B) 구현 주체 경계: 신규 시각화 문법(D3 sequence처럼 기존 템플릿 없음) 최초 1회 Vera 직접 프로토타입 / 기존 문법 조합(카드·탭·그리드) Editor 위임. Editor 판단 영역 제로 체크리스트 6항목 Vera 스펙 의무 포함. (C) design_rules.json 신설 — R-D01(dashed-border=recall marker), R-D02(brand-purple-tint α∈{.12,.18,.25}=connector). (D) sequence 패널 v1.0 confirmed — D3 SVG 96px label+16px node+28px gap+280px height, ROLE_COLORS 재사용 신규 토큰 0개. (E) Claude Design(claude.ai/design 웹) ≠ design:* 플러그인 명시 — vera_memory.skills.external 필드 분리 + feedback 메모리 신설. 이월: 색 대비 전역(--text-3)·PD-018 $ 패널·PD-019 토픽 중심 아키텍처는 별도 토픽."
-    },
-    {
-      "id": "D-048",
-      "date": "2026-04-20",
-      "axis": "역할 재호출을 수량·순서·phase·gap 4개 차원에서 1급 데이터로 승격",
-      "summary": "(A) 스키마: agentsCompleted를 Turn[]으로 재정의 {role,turnIdx,phase?,recallReason?,splitReason?,chars?,segments?}. plannedSequence 및 plannedSequenceRevisions 신설. 기존 필드는 legacy alias로 병행. (B) 재호출 정의: Claude Code 실시간 판정 + 4조건 프로토콜 — ①다른 역할 개입 후 복귀 자동분리 ②Master 개입 후 재발언 자동분리 ③phase 전환 시 phase_catalog.json enum 참조하여 분리 ④같은 phase 내 연속 병합. 조건1·2·3 적용 시 recallReason/splitReason 기록 필수. (C) 기록 시점: C1(역할 발언 직후 current_session push) + C2(session-end-finalize.js 검증) 병행. (D) 집계: compute-dashboard.ts seen.has 제거, D3 sequence 1급, turn 타임라인+gap 뷰. 부대 조치: phase_catalog.json 신설(R-2), B/C도 plannedSequence 1줄 강제(R-4), Size 임계 유지하되 10세션 gradeMismatch 경보 억제(R-5), 과거 44세션 legacy:true 플래그로 집계 배제(R-6). 비채택: 자기판정 감사 패널(R-1, R-2로 자동 소멸), plan immutable Goodhart 방어(R-3, 시스템 인센티브 모델 부적합). motif 자동 분석은 100세션 축적 후 별도 토픽. PD-011 해소, PD-019(토픽 중심 아키텍처) 파생."
     }
   ],
   "pendingDeferrals": [
@@ -215,7 +222,15 @@
       "item": "결정 소유권 + 운영규칙 구현 — decision_ledger에 owningTopicId + scopeCheck 필드. topic_lifecycle_rules.json 신설 (maxSessions 5·lastActivity 30일, hold 제외). context_brief 출처 앵커 규칙. Ace 실시간 PD append 프로토콜.",
       "status": "pending",
       "note": "Grade A. D-051 A6 + RK-1~4 대응 구현. PD-020a/b 이후."
+    },
+    {
+      "id": "PD-021",
+      "fromSession": "session_059",
+      "fromTopic": "pd-020b-context-3layer",
+      "item": "auto-model-switch 스킬 재구현 — 현재 단순 /model 타이핑 안내 방식을 폐기하고, Grade A/S 시 Sonnet이 오케스트레이터로 유지되면서 역할 발언(Ace·Arki·Fin·Riki·Nova)을 Agent(model: opus) 서브에이전트로 호출하는 구조로 재설계. dispatching-parallel-agents 패턴 참조.",
+      "status": "pending",
+      "note": "Grade A 권장. 원래 스킬 의도와 현 구현 불일치 발견(session_059). Master 의도: Sonnet 메인 + Opus 서브 호출."
     }
   ],
-  "lastUpdated": "2026-04-21T05:48:37.564Z"
+  "lastUpdated": "2026-04-21T07:57:22.307Z"
 }

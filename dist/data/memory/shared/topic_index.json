@@ -1,6 +1,28 @@
 {
   "topics": [
     {
+      "id": "topic_062",
+      "title": "PD-020b — Context 3층 누적 구현",
+      "status": "in-progress",
+      "phase": "framing",
+      "hold": null,
+      "grade": "A",
+      "created": "2026-04-21",
+      "controlPath": "topics/topic_062",
+      "reportPath": "reports/2026-04-21_pd-020b-context-3layer",
+      "reportFiles": [
+        "ace_rev1.md",
+        "arki_rev1.md",
+        "fin_rev1.md",
+        "riki_rev1.md",
+        "editor_rev1.md"
+      ],
+      "published": false,
+      "path": "topics/topic_062",
+      "outcome": "Framing-complete. D-053 제안 (Context 3층 아키텍처 v1: L1 turn_log + L2 session_contributions + L3 context_brief). 7 Phase 실행계획 v2 (P0 turns[] 무결성 + C1 강제화 선결, P1~P6 구현). Riki 3개 리스크 전원 흡수(P0 신규, quality 플래그, N>7 fallback). 실집행은 session_060+ 분할. PD-021 신규(auto-model-switch 재구현) 발생.",
+      "note": "Grade A. PD-020a 완료 직후 진행. 본 세션 = framing+실행계획. Dev 세션 분리 결정(Master)."
+    },
+    {
       "id": "topic_061",
       "title": "P5 — 마이그레이션 검증",
       "status": "completed",
@@ -327,7 +349,7 @@
       "outcome": "세션 목표 '투고 이관'에서 '데이터 canonical 확정 + 원고 patch 완성'으로 재프레이밍됨. Master 잔여 1% 제거 대신 ver3.4_E의 P0 결함(Table 1 n값 오류·Table 2 1.42 (1.05-1.92) p=0.022 조작 CI·PM 35.8% 과대) 발견 → ver1.0 raw 기반 전체 재분석 수행. Canonical cohort n=2,779 확정. Y1 primary NIE 1.12 (1.02-1.25) ★ 재현, Y1-Y3 sensitivity TE 1.72 (1.07-2.76) p=0.025 발견. (e) 프레임 채택(D-045). Nova N2 상호작용 p=0.67 기각. 산출물: canonical_ver3.5 폴더 + ver3.5_E_patch.md(8섹션). ver3.5_E 실제 파일·한국판·figures·refs 정리·투고 메타는 다음 세션 이연.",
       "note": "세션 범위 의도치 않게 초과 — P0 데이터 미스 발견이 주원인. Arki 구조 진단(D-046): Statistical Anchor Registry 필요성 도출. Dev 역할 Python 실집행(9개 스크립트). Ace (e) 프레임 합성. Riki 데이터 오류 원인 분석 + Y1-Y3 HARKing 방어. Nova N1 계기만(5-window sweep), N2 기각. Master 피드백: 자가인용 수용/ERJ 철회 요구/Thorax 해제/3년 확장 프레임 정당화/(e) 소유권 지적.",
       "phase": null,
-      "hold": null,
+      "hold": "2026-04-21",
       "legacy": true
     },
     {
@@ -1197,5 +1219,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-21T05:48:03.353Z"
+  "lastUpdated": "2026-04-21T05:51:07.578Z"
 }

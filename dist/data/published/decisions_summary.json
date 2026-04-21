@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-04-21T05:48:40.124Z",
+  "generatedAt": "2026-04-21T07:57:24.631Z",
   "decisions": [
+    {
+      "id": "D-053",
+      "date": "2026-04-21",
+      "session": "session_059",
+      "topic": "pd-020b-context-3layer",
+      "axis": "Context 3층 누적 아키텍처 v1 — turn_log(L1) × session_contributions(L2) × context_brief(L3) + C1 강제화 선결",
+      "decision": "3층 책임 분리 확정: L1 topics/{id}/turn_log.jsonl(append-only, hook 자동, sessionId 중복검사) / L2 topics/{id}/session_contributions/session_NNN.md(hook 골격 + Editor 본문 혼합, quality 플래그 editor-written|hook-fallback) / L3 topics/{id}/context_brief.md(매 /close 전체 재생성, ~500토큰 상한). /open 자동 로드는 hold=false 토픽 한정, 활성 토픽 N>7 시 현재 토픽만 로드 fallback(PD-020c 완료 시 제거). 7 Phase 실행계획(v2): P0 turns[] 무결성 검증 + C1 강제화 선결 / P1 스키마 정의+디렉토리 부트스트랩 / P2 L1 turn-log-writer.js / P3 L2 session-contribution-writer.js (quality 플래그) / P4 L3 regenerate-context-brief.js (degraded 분리) / P5 auto-push.js 훅 체인 통합 / P6 /open 로더 + N>7 fallback. 게이트 G0~G6 순차 통과. Riki 3개 리스크 전원 흡수: RK-1(turns[] 미기록 전제 위반)→P0 신규, RK-2(Editor 우회 침묵 실패)→quality 플래그+degraded 분리, RK-3(토큰 폭발 갭)→N>7 fallback. 본 세션 스코프 = 프레이밍+실행계획. 실집행은 session_060+ 분할 진행.",
+      "value": "Master save01~05 수동 관행을 시스템이 흡수 — 성장 루프 병목을 인지부하에서 자동화로 이전. C1 강제화 선결로 L1 무효화 전제 위반 차단. quality 플래그로 Editor 우회 silent failure 방지. PD-020c 전 임시 fallback으로 토큰 폭발 갭 방어. PD-020b 프레이밍 단계 resolved.",
+      "authority": "master",
+      "status": "proposed"
+    },
     {
       "id": "D-052",
       "date": "2026-04-21",

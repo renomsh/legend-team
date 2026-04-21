@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-21T05:48:39.624Z",
-  "totalSessions": 57,
+  "generatedAt": "2026-04-21T07:57:24.185Z",
+  "totalSessions": 58,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 18.13,
-    "avgCacheHitRate": 0.9283,
-    "cacheSampleSize": 31,
-    "cacheSampleTotal": 57,
+    "avgMasterTurns": 18.09,
+    "avgCacheHitRate": 0.9266,
+    "cacheSampleSize": 32,
+    "cacheSampleTotal": 58,
     "avgAdoptionRate": 0,
-    "totalDecisions": 52,
+    "totalDecisions": 53,
     "gradeDistribution": {
       "S": 11,
-      "A": 15,
+      "A": 16,
       "B": 20,
       "C": 11
     },
@@ -21,7 +21,7 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 12
+    "turnBasedSessions": 13
   },
   "sessions": [
     {
@@ -1717,12 +1717,46 @@
         "cacheHitRate": 0.9233087166013992,
         "messageCount": 77
       }
+    },
+    {
+      "sessionId": "session_059",
+      "topicSlug": "pd-020b-context-3layer",
+      "topic": "PD-020b — Context 3층 누적 구현",
+      "startedAt": "2026-04-21T11:00:00.000Z",
+      "closedAt": "2026-04-21T13:00:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-053"
+      ],
+      "rolesCalled": 5,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 10,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 16,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 7461024,
+        "cacheHitRate": 0.874143147106885,
+        "messageCount": 96
+      }
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 15,
+      "count": 17,
       "sessions": [
         "session_047",
         "session_048",
@@ -1732,7 +1766,8 @@
         "session_053",
         "session_054",
         "session_055",
-        "session_056"
+        "session_056",
+        "session_059"
       ]
     },
     {
@@ -1752,7 +1787,7 @@
     },
     {
       "role": "editor",
-      "count": 9,
+      "count": 10,
       "sessions": [
         "session_050",
         "session_051",
@@ -1762,17 +1797,19 @@
         "session_055",
         "session_056",
         "session_057",
-        "session_058"
+        "session_058",
+        "session_059"
       ]
     },
     {
       "role": "arki",
-      "count": 7,
+      "count": 9,
       "sessions": [
         "session_048",
         "session_049",
         "session_053",
-        "session_054"
+        "session_054",
+        "session_059"
       ]
     },
     {
@@ -1785,19 +1822,21 @@
     },
     {
       "role": "riki",
-      "count": 3,
+      "count": 4,
       "sessions": [
         "session_049",
         "session_053",
-        "session_054"
+        "session_054",
+        "session_059"
       ]
     },
     {
       "role": "fin",
-      "count": 2,
+      "count": 3,
       "sessions": [
         "session_053",
-        "session_054"
+        "session_054",
+        "session_059"
       ]
     }
   ],
@@ -2179,6 +2218,54 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_059",
+      "topic": "PD-020b — Context 3층 누적 구현",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "structural-analysis",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": "cost-evaluation",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "risk-audit",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "structural-analysis",
+          "turnIdx": 4,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 5,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "editor",
+          "phase": "output",
+          "turnIdx": 6,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -2283,6 +2370,21 @@
     }
   ],
   "feedbackRecurrences": [
+    {
+      "keyword": "논문",
+      "occurrences": [
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-045",
+          "summary": "topic_044(COPD 논문 ver3.4)를 hold로 변경. PD-020b 진행 중 활성 토픽 정리."
+        },
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-030",
+          "summary": "한글 버전도 만들고, K/E로 논문 구분. 논문형태로 작성, 표·그래프 추가(구조 이해 쉽도록)."
+        }
+      ]
+    },
     {
       "keyword": "Grade",
       "occurrences": [

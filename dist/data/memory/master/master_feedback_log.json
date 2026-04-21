@@ -1,6 +1,33 @@
 {
   "feedbackLog": [
     {
+      "id": "MF-044",
+      "date": "2026-04-21",
+      "session": "session_059",
+      "topic": "pd-020b-context-3layer",
+      "feedback": "auto-model-switch 스킬이 단순히 /model 타이핑 안내만 하면 의미 없음. 원래 의도는 Sonnet이 메인으로 유지되면서 필요 시 Opus를 자동 호출(Agent 도구로 model: opus 서브에이전트)하는 구조였음. 현 구현은 의도와 불일치. 재구현은 다음 이연과제로.",
+      "status": "resolved",
+      "statusNote": "PD-021 신규 등록. 재구현 시 dispatching-parallel-agents 패턴 참조 필요."
+    },
+    {
+      "id": "MF-045",
+      "date": "2026-04-21",
+      "session": "session_059",
+      "topic": "pd-020b-context-3layer",
+      "feedback": "topic_044(COPD 논문 ver3.4)를 hold로 변경. PD-020b 진행 중 활성 토픽 정리.",
+      "status": "resolved",
+      "statusNote": "topic_index.json topic_044.hold = '2026-04-21' 설정 완료."
+    },
+    {
+      "id": "MF-046",
+      "date": "2026-04-21",
+      "session": "session_059",
+      "topic": "pd-020b-context-3layer",
+      "feedback": "PD-020b 실집행은 새 세션으로 분할 진행. 본 세션은 framing+실행계획만.",
+      "status": "resolved",
+      "statusNote": "session_060+ 3분할 권장 (P0+P1, P2~P5, P6)."
+    },
+    {
       "id": "MF-043",
       "date": "2026-04-21",
       "session": "session_056",

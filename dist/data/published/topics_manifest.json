@@ -1,6 +1,24 @@
 {
-  "generatedAt": "2026-04-21T05:48:40.120Z",
+  "generatedAt": "2026-04-21T07:57:24.627Z",
   "topics": [
+    {
+      "id": "topic_062",
+      "title": "PD-020b — Context 3층 누적 구현",
+      "status": "in-progress",
+      "created": "2026-04-21",
+      "reportPath": "reports/2026-04-21_pd-020b-context-3layer",
+      "reportFiles": [
+        "ace_rev1.md",
+        "arki_rev1.md",
+        "fin_rev1.md",
+        "riki_rev1.md",
+        "editor_rev1.md"
+      ],
+      "published": false,
+      "outcome": "Framing-complete. D-053 제안 (Context 3층 아키텍처 v1: L1 turn_log + L2 session_contributions + L3 context_brief). 7 Phase 실행계획 v2 (P0 turns[] 무결성 + C1 강제화 선결, P1~P6 구현). Riki 3개 리스크 전원 흡수(P0 신규, quality 플래그, N>7 fallback). 실집행은 session_060+ 분할. PD-021 신규(auto-model-switch 재구현) 발생.",
+      "note": "Grade A. PD-020a 완료 직후 진행. 본 세션 = framing+실행계획. Dev 세션 분리 결정(Master).",
+      "masterDecisions": []
+    },
     {
       "id": "topic_061",
       "title": "P5 — 마이그레이션 검증",
