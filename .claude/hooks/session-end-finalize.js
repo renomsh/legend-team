@@ -106,6 +106,86 @@ function appendOrUpdateSessionIndex(sess) {
   return index.sessions.length;
 }
 
+/**
+ * P5 (session_061): L2 session_contributions writer 호출.
+ * topicId 없거나 legacy 세션이면 skip.
+ * 실패해도 hook 체인 중단하지 않음.
+ */
+function runL2Writer(sess) {
+  const topicId = sess.topicId;
+  const sessionId = sess.sessionId;
+  if (!topicId) {
+    log('L2-writer skip: topicId 없음');
+    return;
+  }
+  if (sess.legacy) {
+    log(`L2-writer skip: legacy 세션 (${sessionId})`);
+    return;
+  }
+
+  const scriptPath = path.join(CWD, 'scripts', 'write-session-contribution.ts');
+  if (!fs.existsSync(scriptPath)) {
+    log('L2-writer skip: write-session-contribution.ts 없음');
+    return;
+  }
+
+  // nextAction 추출: sess.nextAction 필드 우선, 없으면 sess.notes[0]
+  const nextAction = sess.nextAction
+    || (Array.isArray(sess.notes) && sess.notes.length > 0 ? sess.notes[0] : undefined);
+
+  const args = ['ts-node', scriptPath, topicId, sessionId];
+  if (nextAction) args.push(`--next-action=${nextAction}`);
+
+  const isWin = process.platform === 'win32';
+  const cmd = isWin ? 'npx.cmd' : 'npx';
+  const result = require('child_process').spawnSync(cmd, args, {
+    cwd: CWD,
+    encoding: 'utf8',
+    shell: isWin,
+  });
+  if (result.status !== 0) {
+    log(`L2-writer 실패 (code ${result.status}): ${result.stderr || result.stdout || ''}`);
+  } else {
+    log(`L2-writer 완료 — ${topicId}/${sessionId}`);
+  }
+}
+
+/**
+ * P5 (session_061): L3 context_brief regenerator 호출.
+ * topicId 없거나 legacy 세션이면 skip.
+ * 실패해도 hook 체인 중단하지 않음.
+ */
+function runL3Regenerator(sess) {
+  const topicId = sess.topicId;
+  if (!topicId) {
+    log('L3-regenerator skip: topicId 없음');
+    return;
+  }
+  if (sess.legacy) {
+    log(`L3-regenerator skip: legacy 세션 (${sess.sessionId})`);
+    return;
+  }
+
+  const scriptPath = path.join(CWD, 'scripts', 'regenerate-context-brief.ts');
+  if (!fs.existsSync(scriptPath)) {
+    log('L3-regenerator skip: regenerate-context-brief.ts 없음');
+    return;
+  }
+
+  const isWin = process.platform === 'win32';
+  const cmd = isWin ? 'npx.cmd' : 'npx';
+  const result = require('child_process').spawnSync(cmd, ['ts-node', scriptPath, topicId], {
+    cwd: CWD,
+    encoding: 'utf8',
+    shell: isWin,
+  });
+  if (result.status !== 0) {
+    log(`L3-regenerator 실패 (code ${result.status}): ${result.stderr || result.stdout || ''}`);
+  } else {
+    log(`L3-regenerator 완료 — ${topicId}`);
+  }
+}
+
 function runSyncSystemState() {
   const tsPath = path.join(CWD, 'scripts', 'sync-system-state.ts');
   if (!fs.existsSync(tsPath)) {
@@ -157,6 +237,8 @@ function runSyncSystemState() {
 
     ensureEditorInAgents(sess);
     appendOrUpdateSessionIndex(sess);
+    runL2Writer(sess);
+    runL3Regenerator(sess);
     runSyncSystemState();
 
     log(`완료 — ${sess.sessionId} (turns=${(sess.turns || []).length}, agents=${(sess.agentsCompleted || []).length}, decisions=${(sess.masterDecisions || []).length})`);

@@ -1600,8 +1600,52 @@
       ],
       "grade": "A",
       "note": "Grade A 명시 → L2, ace-framing 스킬 전체 | PD-020b 분할 실집행 1/3: P0(turns 무결성) + P1(스키마 정의) | P0 전수 13/13 OK (사후). 초기 FAIL 11건 → C1 phase drift 30건 + C2 agentsCompleted Set-dedup 4건 → 백필 + 루트 수정 | P1 산출: context-layers.ts 타입 + validate-context-layers.ts + context-layers-spec.md + validate-schema-vs-data.ts | 부수 수정: TopicIndexEntry phase/hold/grade 추가, phase_catalog v1.1(implementation), session-end-finalize.js agentsCompleted 파생 구조 | Master 피드백: Editor → 에디(Edi) 호칭 확정 (memory 기록) | session_061 P2~P5, session_062 P6 이월"
+    },
+    {
+      "sessionId": "session_061",
+      "topicSlug": "pd-020b-p2p5-writers-hooks",
+      "topic": "PD-020b P2~P5 — L1/L2/L3 writer + 훅 편입 + L1 backfill",
+      "startedAt": "2026-04-21T15:35:00.000Z",
+      "closedAt": "2026-04-21T16:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "dev",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "phase": "analysis"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 2,
+          "phase": "implementation"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 3,
+          "phase": "compile"
+        }
+      ],
+      "plannedSequence": [
+        "ace",
+        "arki",
+        "dev",
+        "editor"
+      ],
+      "grade": "B",
+      "note": "Grade B → L1 (Ace 인라인 2~3줄), 경량 프레이밍 | P2 write-turn-log.ts: L1 append writer + readTurnLog export (callable) | P2b backfill-turn-log.ts: session_060 8 turns 소급 완료 (topic_063, 멱등) | P3 write-session-contribution.ts: L2 writer, FM + 5섹션 검증 통과 | P4 regenerate-context-brief.ts: L3 regenerator, 멱등, hold 무관 실행 | P5 session-end-finalize.js 훅 체인 편입: runL2Writer + runL3Regenerator 삽입 | 부수: src/types/context-layers.ts 복원 (worktree→main 누락), TopicIndexEntry gap 해소 | 검증: L1 8/8 · L2 1/1 · L3 1/1 · P0 turns 14/14 전 게이트 OK | session_062로 P6 (/open 로더 통합) 이월"
     }
   ],
-  "lastUpdated": "2026-04-21T09:26:57.076Z",
+  "lastUpdated": "2026-04-21T10:26:13.836Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

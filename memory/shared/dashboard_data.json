@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-21T09:27:01.155Z",
-  "totalSessions": 59,
+  "generatedAt": "2026-04-21T10:26:22.131Z",
+  "totalSessions": 60,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.96,
-    "avgCacheHitRate": 0.9272,
-    "cacheSampleSize": 33,
-    "cacheSampleTotal": 59,
+    "avgMasterTurns": 17.8,
+    "avgCacheHitRate": 0.9278,
+    "cacheSampleSize": 34,
+    "cacheSampleTotal": 60,
     "avgAdoptionRate": 0,
     "totalDecisions": 54,
     "gradeDistribution": {
       "S": 16,
       "A": 12,
-      "B": 20,
+      "B": 21,
       "C": 11
     },
     "gradeMismatchCount": 2,
@@ -21,7 +21,7 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 14
+    "turnBasedSessions": 15
   },
   "sessions": [
     {
@@ -1799,12 +1799,42 @@
         "cacheHitRate": 0.9474266289593458,
         "messageCount": 113
       }
+    },
+    {
+      "sessionId": "session_061",
+      "topicSlug": "pd-020b-p2p5-writers-hooks",
+      "topic": "PD-020b P2~P5 — L1/L2/L3 writer + 훅 편입 + L1 backfill",
+      "startedAt": "2026-04-21T15:35:00.000Z",
+      "closedAt": "2026-04-21T16:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 4,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 7,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 9,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 13515571,
+        "cacheHitRate": 0.9468853369199126,
+        "messageCount": 146
+      }
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 20,
+      "count": 21,
       "sessions": [
         "session_047",
         "session_048",
@@ -1816,24 +1846,26 @@
         "session_055",
         "session_056",
         "session_059",
-        "session_060"
+        "session_060",
+        "session_061"
       ]
     },
     {
       "role": "arki",
-      "count": 11,
+      "count": 12,
       "sessions": [
         "session_048",
         "session_049",
         "session_053",
         "session_054",
         "session_059",
-        "session_060"
+        "session_060",
+        "session_061"
       ]
     },
     {
       "role": "editor",
-      "count": 11,
+      "count": 12,
       "sessions": [
         "session_050",
         "session_051",
@@ -1845,12 +1877,13 @@
         "session_057",
         "session_058",
         "session_059",
-        "session_060"
+        "session_060",
+        "session_061"
       ]
     },
     {
       "role": "dev",
-      "count": 10,
+      "count": 11,
       "sessions": [
         "session_047",
         "session_048",
@@ -1860,7 +1893,8 @@
         "session_055",
         "session_056",
         "session_057",
-        "session_058"
+        "session_058",
+        "session_061"
       ]
     },
     {
@@ -2373,6 +2407,36 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_061",
+      "topic": "PD-020b P2~P5 — L1/L2/L3 writer + 훅 편입 + L1 backfill",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "analysis",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 3,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -2380,43 +2444,43 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=18.0)"
+      "description": "Master 병목: masterTurns=48 (avg=17.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=18.0)"
+      "description": "Master 병목: masterTurns=43 (avg=17.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=18.0)"
+      "description": "Master 병목: masterTurns=42 (avg=17.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=18.0)"
+      "description": "Master 병목: masterTurns=45 (avg=17.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=18.0)"
+      "description": "Master 병목: masterTurns=39 (avg=17.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=18.0)"
+      "description": "Master 병목: masterTurns=49 (avg=17.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=18.0)"
+      "description": "Master 병목: masterTurns=35 (avg=17.8)"
     },
     {
       "ruleId": "R1",

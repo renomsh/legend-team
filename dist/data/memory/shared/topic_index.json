@@ -1,6 +1,26 @@
 {
   "topics": [
     {
+      "id": "topic_064",
+      "title": "PD-020b P2~P5 — L1/L2/L3 writer + 훅 편입 + L1 backfill",
+      "status": "completed",
+      "phase": "validated",
+      "hold": null,
+      "grade": "B",
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "masterDecisions": [],
+      "created": "2026-04-21",
+      "closedAt": "2026-04-21",
+      "outcome": "P2 L1 writer + P2b backfill + P3 L2 writer + P4 L3 regenerator + P5 훅 체인 편입 완료. TopicIndexEntry gap 해소. 전 게이트 통과.",
+      "controlPath": "topics/topic_064",
+      "reportPath": "reports/2026-04-21_pd-020b-p2p5-writers-hooks",
+      "reportFiles": ["ace_rev1.md", "arki_rev1.md", "dev_rev1.md", "editor_rev1.md"],
+      "published": false,
+      "path": "topics/topic_064"
+    },
+    {
       "id": "topic_063",
       "title": "PD-020b P0+P1 — turns[] 무결성 검증 + 스키마 정의",
       "status": "completed",
@@ -1242,5 +1262,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-21T08:04:41.876Z"
+  "lastUpdated": "2026-04-21T09:46:14.968Z"
 }
