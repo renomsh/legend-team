@@ -11,6 +11,11 @@
    - hold=null인 openTopics의 context_brief.md를 자동 로드해 Master에게 요약 브리핑
    - 파일 없는 토픽은 조용히 스킵 (오류 아님) — 신규 토픽도 context_brief 미생성 상태이므로 자동 스킵
    - 출력이 비어있으면 "활성 context_brief 없음"으로 보고 후 진행
+3.6. **[자동 종결 dry-run 배치]** (D-057, session_067)
+   - `npx ts-node scripts/auto-close-topics.ts` — framing 토픽 중 모든 children이 completed면 종결 제안 출력 (무변경)
+   - `npx ts-node scripts/resolve-pending-deferrals.ts` — resolveCondition 매칭 PD 전이 제안 + stale 리포트
+   - 제안이 있으면 Master에게 리스트업. 저마찰 원칙: 무응답=보류 (적용하려면 --apply 재호출)
+   - 제안 0건이면 조용히 스킵
 4. `memory/sessions/session_index.json` 읽기 — 마지막 session ID 확인하여 다음 ID 생성
 5. **Grade 판정** (아래 Grade 판정 규칙 참조) — `grade` 결정 후 Framing Level 선택
 6. `current_session.json`을 새 세션 정보로 업데이트:

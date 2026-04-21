@@ -77,8 +77,15 @@ function slugify(title: string): string {
 }
 
 const VALID_GRADES = new Set(['S', 'A', 'B', 'C']);
+const VALID_TOPIC_TYPES = new Set(['framing', 'implementation', 'standalone']);
 
-function createTopic(title: string, explicitSlug?: string, grade?: string): void {
+function createTopic(
+  title: string,
+  explicitSlug?: string,
+  grade?: string,
+  topicType?: string,
+  parentTopicId?: string
+): void {
   const index = readTopicIndex();
   const id = nextTopicId(index);
   const topicDir = path.join(ROOT, 'topics', id);
@@ -132,6 +139,13 @@ function createTopic(title: string, explicitSlug?: string, grade?: string): void
     phase: 'framing',
     hold: null,
     ...(grade && VALID_GRADES.has(grade) ? { grade: grade as 'S' | 'A' | 'B' | 'C' } : {}),
+    ...(topicType && VALID_TOPIC_TYPES.has(topicType)
+      ? {
+          topicType: topicType as 'framing' | 'implementation' | 'standalone',
+          parentTopicId: parentTopicId ?? null,
+          childTopicIds: [] as string[],
+        }
+      : {}),
     created: date,
     controlPath: `topics/${id}`,
     reportPath,
@@ -141,6 +155,18 @@ function createTopic(title: string, explicitSlug?: string, grade?: string): void
     path: `topics/${id}`,
   };
   index.topics.push(entry);
+
+  // D-057: parentTopicId 지정 시 parent의 childTopicIds에 자동 추가
+  if (topicType && VALID_TOPIC_TYPES.has(topicType) && parentTopicId) {
+    const parent = index.topics.find((t: any) => t.id === parentTopicId);
+    if (parent) {
+      (parent as any).childTopicIds = (parent as any).childTopicIds ?? [];
+      if (!(parent as any).childTopicIds.includes(id)) {
+        (parent as any).childTopicIds.push(id);
+      }
+    }
+  }
+
   // Keep topic_index sorted by id desc so the board never goes out of order.
   index.topics.sort((a, b) => compareTopicDesc(a.id, b.id));
   index.lastUpdated = now;
@@ -159,13 +185,23 @@ function createTopic(title: string, explicitSlug?: string, grade?: string): void
   console.log(`  phase: framing | hold: null${grade && VALID_GRADES.has(grade) ? ` | grade: ${grade}` : ''}`);
 }
 
-const args = process.argv.slice(2);
-const title = args[0];
-const slug = args[1];
-const grade = args[2]?.toUpperCase();
+// 위치 인자와 플래그 분리 파싱
+const rawArgs = process.argv.slice(2);
+const positionals: string[] = [];
+let topicType: string | undefined;
+let parentTopicId: string | undefined;
+for (let i = 0; i < rawArgs.length; i++) {
+  const a = rawArgs[i];
+  if (a === '--topicType') { topicType = rawArgs[++i]; }
+  else if (a === '--parentTopicId') { parentTopicId = rawArgs[++i]; }
+  else if (a !== undefined) { positionals.push(a); }
+}
+const title = positionals[0];
+const slug = positionals[1];
+const grade = positionals[2]?.toUpperCase();
 
 if (!title || title.trim().length === 0) {
-  console.error('Usage: ts-node scripts/create-topic.ts "<topic title>" [slug] [grade:S|A|B|C]');
+  console.error('Usage: ts-node scripts/create-topic.ts "<topic title>" [slug] [grade:S|A|B|C] [--topicType framing|implementation|standalone] [--parentTopicId topic_NNN]');
   process.exit(1);
 }
 
@@ -173,4 +209,9 @@ if (grade && !VALID_GRADES.has(grade)) {
   console.error(`⚠️  grade "${grade}" 무시됨 — 유효값: S, A, B, C`);
 }
 
-createTopic(title.trim(), slug?.trim(), grade);
+if (topicType && !VALID_TOPIC_TYPES.has(topicType)) {
+  console.error(`⚠️  topicType "${topicType}" 무시됨 — 유효값: framing, implementation, standalone`);
+  topicType = undefined;
+}
+
+createTopic(title.trim(), slug?.trim(), grade, topicType, parentTopicId);

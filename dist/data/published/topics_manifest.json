@@ -1,6 +1,18 @@
 {
-  "generatedAt": "2026-04-21T12:37:45.756Z",
+  "generatedAt": "2026-04-21T13:13:42.147Z",
   "topics": [
+    {
+      "id": "topic_070",
+      "title": "PD-022 토픽 생명주기 시스템 구현",
+      "status": "completed",
+      "created": "2026-04-21",
+      "reportPath": "reports/2026-04-21_topic-lifecycle-system-impl",
+      "reportFiles": [],
+      "published": false,
+      "outcome": "D-057 확정. topicType/parentTopicId/childTopicIds/resolveCondition 스키마 4종 구현. auto-close + PD 전이 dry-run 2단. Ace Step 0 신설. 소급 2건(topic_062/066) 한정 — 레거시 68개 undefined 유지. G1/G2/G3 전 게이트 통과. PD-022 resolved.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_069",
       "title": "토픽 종료 선언 — 프레이밍 종결 + PD resolved 구조화",

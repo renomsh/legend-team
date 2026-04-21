@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-21T12:37:45.152Z",
-  "totalSessions": 65,
+  "generatedAt": "2026-04-21T13:13:41.548Z",
+  "totalSessions": 66,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.18,
-    "avgCacheHitRate": 0.9284,
-    "cacheSampleSize": 39,
-    "cacheSampleTotal": 65,
+    "avgMasterTurns": 17.08,
+    "avgCacheHitRate": 0.9289,
+    "cacheSampleSize": 40,
+    "cacheSampleTotal": 66,
     "avgAdoptionRate": 0,
-    "totalDecisions": 56,
+    "totalDecisions": 57,
     "gradeDistribution": {
-      "S": 19,
+      "S": 20,
       "A": 12,
       "B": 23,
       "C": 11
@@ -21,7 +21,7 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 20
+    "turnBasedSessions": 21
   },
   "sessions": [
     {
@@ -1988,12 +1988,49 @@
         "cacheHitRate": 0.9489421778489232,
         "messageCount": 48
       }
+    },
+    {
+      "sessionId": "session_067",
+      "topicSlug": "topic-lifecycle-system-impl",
+      "topic": "PD-022 토픽 생명주기 시스템 구현",
+      "startedAt": "2026-04-21T12:44:25.649Z",
+      "closedAt": "2026-04-21T13:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-057"
+      ],
+      "rolesCalled": 8,
+      "rolesRecalled": 3,
+      "sessionsSpanned": 1,
+      "size": 19,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 11,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "arki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 18550709,
+        "cacheHitRate": 0.9478526130726325,
+        "messageCount": 145
+      }
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 27,
+      "count": 30,
       "sessions": [
         "session_047",
         "session_048",
@@ -2010,12 +2047,13 @@
         "session_062",
         "session_063",
         "session_064",
-        "session_066"
+        "session_066",
+        "session_067"
       ]
     },
     {
       "role": "editor",
-      "count": 17,
+      "count": 18,
       "sessions": [
         "session_050",
         "session_051",
@@ -2033,7 +2071,8 @@
         "session_063",
         "session_064",
         "session_065",
-        "session_066"
+        "session_066",
+        "session_067"
       ]
     },
     {
@@ -2057,7 +2096,7 @@
     },
     {
       "role": "arki",
-      "count": 14,
+      "count": 16,
       "sessions": [
         "session_048",
         "session_049",
@@ -2067,12 +2106,13 @@
         "session_060",
         "session_061",
         "session_063",
-        "session_066"
+        "session_066",
+        "session_067"
       ]
     },
     {
       "role": "riki",
-      "count": 7,
+      "count": 8,
       "sessions": [
         "session_049",
         "session_053",
@@ -2080,19 +2120,21 @@
         "session_059",
         "session_060",
         "session_063",
-        "session_066"
+        "session_066",
+        "session_067"
       ]
     },
     {
       "role": "fin",
-      "count": 6,
+      "count": 7,
       "sessions": [
         "session_053",
         "session_054",
         "session_059",
         "session_060",
         "session_063",
-        "session_066"
+        "session_066",
+        "session_067"
       ]
     },
     {
@@ -2789,6 +2831,60 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_067",
+      "topic": "PD-022 토픽 생명주기 시스템 구현",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "analysis",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": "analysis",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "analysis",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "reframe",
+          "turnIdx": 4,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "execution-plan",
+          "turnIdx": 5,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 6,
+          "recallReason": "post-roles"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 7,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -2796,61 +2892,61 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_017",
-      "description": "Master 병목: masterTurns=26 (avg=17.2)"
+      "description": "Master 병목: masterTurns=26 (avg=17.1)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=17.2)"
+      "description": "Master 병목: masterTurns=48 (avg=17.1)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=17.2)"
+      "description": "Master 병목: masterTurns=43 (avg=17.1)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_027",
-      "description": "Master 병목: masterTurns=26 (avg=17.2)"
+      "description": "Master 병목: masterTurns=26 (avg=17.1)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=17.2)"
+      "description": "Master 병목: masterTurns=42 (avg=17.1)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_030",
-      "description": "Master 병목: masterTurns=26 (avg=17.2)"
+      "description": "Master 병목: masterTurns=26 (avg=17.1)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=17.2)"
+      "description": "Master 병목: masterTurns=45 (avg=17.1)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=17.2)"
+      "description": "Master 병목: masterTurns=39 (avg=17.1)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=17.2)"
+      "description": "Master 병목: masterTurns=49 (avg=17.1)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=17.2)"
+      "description": "Master 병목: masterTurns=35 (avg=17.1)"
     },
     {
       "ruleId": "R1",
@@ -2899,6 +2995,12 @@
       "severity": "yellow",
       "sessionId": "session_064",
       "description": "Ace/역할 과호출: rolesRecalled=2"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_067",
+      "description": "Ace/역할 과호출: rolesRecalled=3"
     },
     {
       "ruleId": "R5",

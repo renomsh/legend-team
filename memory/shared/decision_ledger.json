@@ -1,6 +1,24 @@
 {
   "decisions": [
     {
+      "id": "D-057",
+      "date": "2026-04-21",
+      "session": "session_067",
+      "topic": "topic-lifecycle-system-impl",
+      "axis": "PD-022 토픽 생명주기 시스템 구현 — D-056 스키마·규칙을 실시스템에 박음 + 소급 범위 축소(테스트 케이스 2건)",
+      "decision": "(A) 스키마 구현: topicType(framing|implementation|standalone, undefined 허용) + parentTopicId + childTopicIds를 topic_index에, resolveCondition(자연어 string)을 PD에. scripts/lib/topic-lifecycle.ts 단일원천. (B) 소급 범위 축소: topic_062/066 2건 한정 테스트 케이스. 나머지 68개 레거시는 topicType undefined 유지·무변경 — Master 지침 '과거 소급 이유 없음, 2건은 회로 검증 목적'. (C) 자동 종결 dry-run 2단: auto-close-topics.ts + resolve-pending-deferrals.ts, /close 훅 체인 + /open step 3.6 배치, 저마찰 원칙(무응답=보류, --apply 재호출로 적용). (D) Ace Step 0: ace-framing SKILL.md 최상단에 topicType/parentTopicId 판정 블록(Grade A/S 전체, B/C 1줄 인라인). create-topic.ts --topicType/--parentTopicId 플래그로 전달. (E) 강제 레이어: reclassify-topic.ts(revision_history 자동 기록, R-4 방어) + validate-topic-closure.ts(Editor 역검사) + validate-schema-lifecycle.ts(drift 감시). (F) Riki 리스크 흡수: R-2(stale PD 리포트 별도 출력) + R-3(B/C 1줄 인라인) + R-4(revision_history append) 전원 내장. (G) executionPlanMode=conditional 완결. 전 Phase·게이트 G1/G2/G3 통과. (H) Ace 학습: '소급=관성' 경계 — feedback_ace_grade_intent_check 연장선 피드백 기록.",
+      "value": "D-056에서 확정된 토픽 생명주기 모델을 실제 시스템에 안전하게 착륙. Master 지침으로 소급 범위 2건 한정 → R-1(숨은 쌍 오분류) 리스크 원천 차단. 자동 종결 dry-run 2단으로 저마찰 원칙 박제. 신규 토픽부터 Ace Step 0로 topicType 판정 자동화 — '나 없이도 사고하는 팀'(Nova N4) 로드맵 진전.",
+      "authority": "master",
+      "status": "confirmed",
+      "owningTopicId": "topic_070",
+      "scopeCheck": "cross-topic",
+      "relatedTopics": [
+        "topic_069",
+        "topic_062",
+        "topic_066"
+      ]
+    },
+    {
       "id": "D-056",
       "date": "2026-04-21",
       "session": "session_066",

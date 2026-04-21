@@ -37,6 +37,35 @@ Rules:
 - C/B 진행 중 구조적 문제 발견 시 → Ace 재소집, L2 전환 필수
 - 사후 검증: `gradeDeclared` vs `gradeActual` 불일치는 대시보드 gradeMismatch 패널에 누적
 
+## Topic Lifecycle System (D-056 / D-057, 2026-04-21)
+
+토픽 간 프레이밍↔구현 관계 + PD 자동 전이 + 저마찰 자동 종결.
+
+### 스키마 (topic_index.json)
+- `topicType`: `framing` | `implementation` | `standalone` | undefined(legacy)
+- `parentTopicId`: string | null — implementation 토픽이 속한 framing 토픽
+- `childTopicIds`: string[] — framing 토픽이 낳은 implementation 토픽 목록
+- `resolveCondition` (PD에만): 자연어 string — 매칭되는 토픽 종결 시 PD 자동 resolved
+
+### 자동 동작 (dry-run 2단)
+- 세션 종료 시(`session-end-finalize.js`): auto-close + PD 전이 **dry-run만** 실행, 제안 로그 출력
+- `/open` step 3.6: 동일 dry-run 배치 실행, Master에게 제안 브리핑
+- 저마찰 원칙: 무응답=보류. 적용하려면 `--apply` 재호출.
+
+### Ace Step 0 (ace-framing)
+프레이밍 첫 발언 최상단에서 topicType 판정 + parentTopicId 후보 제안. Grade A/S는 전체 블록, Grade B/C는 1줄 인라인.
+
+### 레거시 호환
+기존 토픽 중 topic_062/066 2건만 소급(테스트 케이스). 나머지 68개는 topicType undefined 유지 — 자동 종결 로직의 영향권 밖.
+
+### 관련 스크립트
+- `scripts/lib/topic-lifecycle.ts` — 타입·검증·매칭 유틸
+- `scripts/auto-close-topics.ts` — framing 토픽 자동 종결 (dry-run / --apply)
+- `scripts/resolve-pending-deferrals.ts` — PD 자동 전이 + stale 리포트
+- `scripts/reclassify-topic.ts` — 수동 재분류 (revision_history 자동 기록)
+- `scripts/validate-schema-lifecycle.ts` — drift 감시
+- `scripts/validate-topic-closure.ts` — Editor 역검사용
+
 ## Viewer Policy (updated 2026-04-04, Decision D-003 revised)
 - `app/` directory is a read-only multi-page static viewer for file-based outputs
 - Read interactions (navigation, filtering, search, expand/collapse) are permitted

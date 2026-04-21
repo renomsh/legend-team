@@ -1,6 +1,25 @@
 {
   "topics": [
     {
+      "id": "topic_070",
+      "title": "PD-022 토픽 생명주기 시스템 구현",
+      "status": "completed",
+      "phase": "validated",
+      "hold": null,
+      "grade": "A",
+      "topicType": "implementation",
+      "parentTopicId": "topic_069",
+      "childTopicIds": [],
+      "created": "2026-04-21",
+      "closedAt": "2026-04-21",
+      "outcome": "D-057 확정. topicType/parentTopicId/childTopicIds/resolveCondition 스키마 4종 구현. auto-close + PD 전이 dry-run 2단. Ace Step 0 신설. 소급 2건(topic_062/066) 한정 — 레거시 68개 undefined 유지. G1/G2/G3 전 게이트 통과. PD-022 resolved.",
+      "controlPath": "topics/topic_070",
+      "reportPath": "reports/2026-04-21_topic-lifecycle-system-impl",
+      "reportFiles": [],
+      "published": false,
+      "path": "topics/topic_070"
+    },
+    {
       "id": "topic_069",
       "title": "토픽 종료 선언 — 프레이밍 종결 + PD resolved 구조화",
       "status": "completed",
@@ -9,11 +28,13 @@
       "grade": "A",
       "topicType": "framing",
       "parentTopicId": null,
-      "childTopicIds": [],
+      "childTopicIds": ["topic_070"],
       "created": "2026-04-21",
       "controlPath": "topics/topic_069",
       "reportPath": "reports/2026-04-21_topic-closure-declaration",
-      "reportFiles": ["editor_rev1.md"],
+      "reportFiles": [
+        "editor_rev1.md"
+      ],
       "published": false,
       "path": "topics/topic_069",
       "outcome": "D-056 확정. PD-022 분기. 저마찰 원칙 박제."
@@ -40,6 +61,9 @@
       "title": "PD-020c 구현 P1: decision_ledger 스키마 확장 + 백필",
       "status": "completed",
       "phase": "implementation",
+      "topicType": "implementation",
+      "parentTopicId": "topic_066",
+      "childTopicIds": [],
       "grade": "B",
       "hold": null,
       "created": "2026-04-21",
@@ -60,6 +84,9 @@
       "phase": "validated",
       "hold": null,
       "grade": "A",
+      "topicType": "framing",
+      "parentTopicId": null,
+      "childTopicIds": ["topic_067"],
       "created": "2026-04-21",
       "controlPath": "topics/topic_066",
       "reportPath": "reports/2026-04-21_pd-020c-decision-ownership",
@@ -81,6 +108,9 @@
       "phase": "validated",
       "hold": null,
       "grade": "B",
+      "topicType": "implementation",
+      "parentTopicId": "topic_062",
+      "childTopicIds": [],
       "created": "2026-04-21",
       "outcome": "scripts/load-context-briefs.ts 신설 + .claude/commands/open.md step 3.5 추가. PD-020b 전 구간 완료.",
       "controlPath": "topics/topic_065",
@@ -100,6 +130,9 @@
       "phase": "validated",
       "hold": null,
       "grade": "B",
+      "topicType": "implementation",
+      "parentTopicId": "topic_062",
+      "childTopicIds": [],
       "gradeDeclared": "B",
       "gradeActual": "B",
       "gradeMismatch": false,
@@ -125,6 +158,9 @@
       "phase": "validated",
       "hold": null,
       "grade": "A",
+      "topicType": "implementation",
+      "parentTopicId": "topic_062",
+      "childTopicIds": [],
       "created": "2026-04-21",
       "closedAt": "2026-04-21",
       "controlPath": "topics/topic_063",
@@ -148,6 +184,9 @@
       "phase": "validated",
       "hold": null,
       "grade": "A",
+      "topicType": "framing",
+      "parentTopicId": null,
+      "childTopicIds": ["topic_063", "topic_064", "topic_065"],
       "created": "2026-04-21",
       "controlPath": "topics/topic_062",
       "reportPath": "reports/2026-04-21_pd-020b-context-3layer",
@@ -1360,5 +1399,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-21T11:51:43.950Z"
+  "lastUpdated": "2026-04-21T12:44:02.147Z"
 }

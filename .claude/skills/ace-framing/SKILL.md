@@ -15,6 +15,22 @@ user_invocable: true
 
 ## Ace 프레이밍 발언 구조
 
+### Step 0. 토픽 생명주기 판정 (D-057, session_067)
+
+첫 발언 **최상단**에 다음 판정을 포함한다:
+
+- **topicType 판정** (Grade A/S: 전체 블록 / Grade B/C: 1줄 인라인)
+  - `framing`: 의사결정·구조·프레이밍 단계. 구현은 child 토픽으로 분기 예정.
+  - `implementation`: 이미 확정된 framing 결정을 코드·문서·자산으로 박는 단계.
+  - `standalone`: 단발 bug-fix·ops·점검 등 부모 없이 독립 완결.
+- **parentTopicId 후보 제안** (있으면)
+  - pendingDeferrals에 `fromSession`·`fromTopic` 있는 PD 기반 구현 토픽 → parent 강하게 후보
+  - 직전 세션에서 결정된 framing 토픽 → parent 후보
+  - Grade B/C도 "parentTopicId 후보 있는가?" 1줄 prompt 최소 수행 (Riki R-3 방어)
+- **마스터 확인**: 판정이 애매하면 1줄 질문. 명확하면 선언만.
+
+이 판정 결과는 `create-topic.ts --topicType ... --parentTopicId ...` 인자로 전달된다.
+
 ### 1. 토픽 정의 (What)
 - 이 토픽이 다루는 **핵심 질문** 1문장
 - 배경: 왜 이 토픽이 지금 열리는가

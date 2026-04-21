@@ -211,6 +211,49 @@ function runCheckPendingDeferrals(sess) {
   }
 }
 
+/**
+ * D-057 — framing 토픽 자동 종결 dry-run + PD 자동 전이 dry-run.
+ * 저마찰 원칙: 훅 체인에서는 dry-run만 실행하여 로그로 제안 출력.
+ * 실제 적용은 마스터가 --apply로 재호출 (무응답=해당 제안 보류).
+ */
+function runAutoCloseDryRun() {
+  const scriptPath = path.join(CWD, 'scripts', 'auto-close-topics.ts');
+  if (!fs.existsSync(scriptPath)) {
+    log('auto-close-topics skip: 스크립트 없음');
+    return;
+  }
+  const isWin = process.platform === 'win32';
+  const cmd = isWin ? 'npx.cmd' : 'npx';
+  const result = spawnSync(cmd, ['ts-node', scriptPath], {
+    cwd: CWD, encoding: 'utf8', shell: isWin,
+  });
+  const out = (result.stdout || '').trim();
+  if (out.includes('proposals: 0')) {
+    log('auto-close dry-run — 제안 없음');
+  } else if (out) {
+    log(`[auto-close dry-run 제안]\n${out}`);
+  }
+}
+
+function runResolvePDDryRun() {
+  const scriptPath = path.join(CWD, 'scripts', 'resolve-pending-deferrals.ts');
+  if (!fs.existsSync(scriptPath)) {
+    log('resolve-pending-deferrals skip: 스크립트 없음');
+    return;
+  }
+  const isWin = process.platform === 'win32';
+  const cmd = isWin ? 'npx.cmd' : 'npx';
+  const result = spawnSync(cmd, ['ts-node', scriptPath], {
+    cwd: CWD, encoding: 'utf8', shell: isWin,
+  });
+  const out = (result.stdout || '').trim();
+  if (out.includes('matches: 0') && !out.includes('⚠')) {
+    log('resolve-PD dry-run — 전이 제안 없음');
+  } else if (out) {
+    log(`[resolve-PD dry-run]\n${out}`);
+  }
+}
+
 function runSyncSystemState() {
   const tsPath = path.join(CWD, 'scripts', 'sync-system-state.ts');
   if (!fs.existsSync(tsPath)) {
@@ -265,6 +308,8 @@ function runSyncSystemState() {
     runL2Writer(sess);
     runL3Regenerator(sess);
     runCheckPendingDeferrals(sess);
+    runAutoCloseDryRun();
+    runResolvePDDryRun();
     runSyncSystemState();
 
     log(`완료 — ${sess.sessionId} (turns=${(sess.turns || []).length}, agents=${(sess.agentsCompleted || []).length}, decisions=${(sess.masterDecisions || []).length})`);

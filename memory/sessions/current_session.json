@@ -1,11 +1,11 @@
 {
-  "sessionId": "session_066",
-  "topicId": "topic_069",
-  "topic": "토픽 종료 선언 — 프레이밍 종결 + PD resolved 구조화",
-  "topicSlug": "topic-closure-declaration",
+  "sessionId": "session_067",
+  "topicId": "topic_070",
+  "topic": "PD-022 토픽 생명주기 시스템 구현",
+  "topicSlug": "topic-lifecycle-system-impl",
   "status": "closed",
-  "startedAt": "2026-04-21T20:00:00.000Z",
-  "closedAt": "2026-04-21T20:45:00.000Z",
+  "startedAt": "2026-04-21T12:44:25.649Z",
+  "closedAt": "2026-04-21T13:30:00.000Z",
   "mode": "observation",
   "grade": "A",
   "gradeDeclared": "A",
@@ -13,12 +13,14 @@
   "gradeMismatch": false,
   "framingLevel": 2,
   "framingSkipped": false,
+  "executionPlanMode": "conditional",
   "agentsCompleted": [
     "ace",
-    "nova",
     "arki",
     "fin",
     "riki",
+    "ace",
+    "arki",
     "ace",
     "editor"
   ],
@@ -29,35 +31,42 @@
       "phase": "framing"
     },
     {
-      "role": "nova",
-      "turnIdx": 1,
-      "phase": "framing",
-      "recallReason": "master-request"
-    },
-    {
       "role": "arki",
-      "turnIdx": 2,
-      "phase": "design"
+      "turnIdx": 1,
+      "phase": "analysis"
     },
     {
       "role": "fin",
-      "turnIdx": 3,
-      "phase": "design"
+      "turnIdx": 2,
+      "phase": "analysis"
     },
     {
       "role": "riki",
-      "turnIdx": 4,
-      "phase": "design"
+      "turnIdx": 3,
+      "phase": "analysis"
     },
     {
       "role": "ace",
+      "turnIdx": 4,
+      "phase": "reframe",
+      "recallReason": "post-master",
+      "splitReason": "master-corrected-retro-scope"
+    },
+    {
+      "role": "arki",
       "turnIdx": 5,
+      "phase": "execution-plan",
+      "recallReason": "post-master"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 6,
       "phase": "synthesis",
       "recallReason": "post-roles"
     },
     {
       "role": "editor",
-      "turnIdx": 6,
+      "turnIdx": 7,
       "phase": "compile"
     }
   ],
@@ -67,38 +76,36 @@
     "fin",
     "riki",
     "ace",
+    "arki",
     "editor"
   ],
   "decisions": [
-    "D-056"
+    "D-057"
   ],
   "masterDecisions": [
-    "Nova N3 채택, N1/N2/N4 기각",
-    "Master 무응답=승인 기본값 박제",
-    "장기 목표 Nova N4(Zero-/open) 명문화 — ~1000세션 후"
+    "소급 범위 축소: topic_062/066 2건 한정(테스트 케이스), 레거시 68개 undefined 유지",
+    "과거 소급은 실질 가치 없으면 생략 — 저마찰 원칙 연장"
   ],
   "masterFeedback": [
-    "저마찰 자율성 원칙 — 요구량 증가 절대 금지, 무응답=승인 (feedback_low_friction_autonomy.md)"
+    "레거시 소급은 관성으로 포함하지 말 것. 실질 가치 증명 후에만 (feedback_no_retro_without_value.md)",
+    "Master의 제한 범위 언급은 테스트 범위 선언으로 인식 — 전체 vs 없음 이분법 회피"
   ],
   "notes": [
-    "Nova 먼저 호출은 Master 요청(오랜만에). 기본 스캐폴드에서 벗어남 — Ace 오케스트레이션 적응성 확인.",
-    "D-056은 Nova N3 + Arki 스키마 3종 + Fin 전면채택 + Riki 🔴 방어책 통합 단일안.",
-    "기존 PD 5건(004·005·012·015·018·021) backfill 미실시 — 수동 유지.",
-    "PD-022 등록, Arki 재소집으로 Phase별 상세 설계 예정.",
-    "장기 로드맵 Nova N4: /open 제거, Ace 자율 판정 — 1000세션 학습 궤도 진입 후 검토."
+    "D-056 구현 토픽. Arki 4-Phase로 진행.",
+    "Ace 관성 오류: 전면 소급→전면 폐기 양극단 진동. Master 교정으로 2건 한정 착륙.",
+    "R-1 숨은 쌍 리스크는 소급 범위 축소로 원천 무효화.",
+    "전 Phase(P1~P4) + 전 게이트(G1/G2/G3) 통과.",
+    "PD-022 resolved."
   ],
   "gaps": [],
-  "reportPath": "reports/2026-04-21_topic-closure-declaration",
-  "pendingDeferralsAdded": [
-    "PD-022"
-  ],
+  "reportPath": "reports/2026-04-21_topic-lifecycle-system-impl",
   "tokenUsage": {
-    "input_tokens": 169,
-    "output_tokens": 47967,
-    "cache_creation_input_tokens": 168819,
-    "cache_read_input_tokens": 4032247,
-    "messageCount": 48,
-    "masterTurns": 15,
-    "total_billable": 4249202
+    "input_tokens": 253,
+    "output_tokens": 105651,
+    "cache_creation_input_tokens": 861467,
+    "cache_read_input_tokens": 17583338,
+    "messageCount": 145,
+    "masterTurns": 11,
+    "total_billable": 18550709
   }
 }

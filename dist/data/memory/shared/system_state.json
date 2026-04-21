@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_066",
-  "nextSessionId": "session_067",
+  "lastSessionId": "session_067",
+  "nextSessionId": "session_068",
   "currentVersion": "v1.11",
   "openTopics": [
     {
@@ -20,6 +20,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-057",
+      "date": "2026-04-21",
+      "axis": "PD-022 토픽 생명주기 시스템 구현 — D-056 스키마·규칙을 실시스템에 박음 + 소급 범위 축소(테스트 케이스 2건)",
+      "summary": "D-056에서 확정된 토픽 생명주기 모델을 실제 시스템에 안전하게 착륙. Master 지침으로 소급 범위 2건 한정 → R-1(숨은 쌍 오분류) 리스크 원천 차단. 자동 종결 dry-run 2단으로 저마찰 원칙 박제. 신규 토픽부터 Ace Step 0로 topicType 판정 자동화 — '나 없이도 사고하는 팀'(Nova N4) 로드맵 진전."
+    },
     {
       "id": "D-056",
       "date": "2026-04-21",
@@ -43,12 +49,6 @@
       "date": "2026-04-21",
       "axis": "Context 3층 누적 아키텍처 v1 — turn_log(L1) × session_contributions(L2) × context_brief(L3) + C1 강제화 선결",
       "summary": "Master save01~05 수동 관행을 시스템이 흡수 — 성장 루프 병목을 인지부하에서 자동화로 이전. C1 강제화 선결로 L1 무효화 전제 위반 차단. quality 플래그로 Editor 우회 silent failure 방지. PD-020c 전 임시 fallback으로 토큰 폭발 갭 방어. PD-020b 프레이밍 단계 resolved."
-    },
-    {
-      "id": "D-052",
-      "date": "2026-04-21",
-      "axis": "토픽 중심 스키마 v1 — phase×hold 직교화 + 단일원천 강제 (D-051 구현 토대)",
-      "summary": "D-051 토대 구체화. 단일원천·확장성·디버깅 가능성을 1회성 구현비용보다 우선(Master 평가기준). 미러·중복·추측백필 전면 금지로 PD-020b/c가 깨끗한 토대 위에 진행 가능. catalog 패턴(D-047 status_catalog 확장)으로 enum 변경 호환성 사전 확보."
     }
   ],
   "pendingDeferrals": [
@@ -225,8 +225,9 @@
       "fromSession": "session_066",
       "fromTopic": "topic-closure-declaration",
       "item": "토픽 생명주기 시스템 구현 — D-056 스키마 3종(topicType·parentTopicId·resolveCondition) + auto-close dry-run 2단 + PD 자동 전이 + /reclassify-topic + validate-topic-closure + Ace Step 0 스킬 확장 + 레거시 백필.",
-      "status": "pending",
-      "note": "Grade A. D-056 구현 분기. Arki 4-Phase(스키마→자동종결→강제레이어→문서화) 재소집 필요. executionPlanMode=conditional."
+      "status": "resolved",
+      "resolvedInSession": "session_067",
+      "note": "Grade A. D-057 확정. Master 지침으로 소급 범위 2건(topic_062/066) 한정, 레거시 68개 undefined 유지. 전 Phase·게이트 통과."
     },
     {
       "id": "PD-021",
@@ -237,5 +238,5 @@
       "note": "Grade A 권장. 원래 스킬 의도와 현 구현 불일치 발견(session_059). Master 의도: Sonnet 메인 + Opus 서브 호출."
     }
   ],
-  "lastUpdated": "2026-04-21T12:37:43.003Z"
+  "lastUpdated": "2026-04-21T13:13:39.427Z"
 }
