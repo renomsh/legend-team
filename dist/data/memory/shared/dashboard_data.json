@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-21T10:36:37.126Z",
-  "totalSessions": 61,
+  "generatedAt": "2026-04-21T11:01:09.584Z",
+  "totalSessions": 62,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.59,
-    "avgCacheHitRate": 0.9275,
-    "cacheSampleSize": 35,
-    "cacheSampleTotal": 61,
+    "avgMasterTurns": 17.44,
+    "avgCacheHitRate": 0.9271,
+    "cacheSampleSize": 36,
+    "cacheSampleTotal": 62,
     "avgAdoptionRate": 0,
-    "totalDecisions": 54,
+    "totalDecisions": 55,
     "gradeDistribution": {
-      "S": 16,
+      "S": 17,
       "A": 12,
       "B": 22,
       "C": 11
@@ -21,7 +21,7 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 16
+    "turnBasedSessions": 17
   },
   "sessions": [
     {
@@ -1858,12 +1858,47 @@
         "cacheHitRate": 0.9170823283745153,
         "messageCount": 76
       }
+    },
+    {
+      "sessionId": "session_063",
+      "topicSlug": "pd-020c-decision-ownership",
+      "topic": "PD-020c — 결정 소유권 + 운영규칙 구현",
+      "startedAt": "2026-04-21T17:45:00.000Z",
+      "closedAt": "2026-04-21T18:15:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-055"
+      ],
+      "rolesCalled": 6,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 9,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 2889497,
+        "cacheHitRate": 0.9122459722228471,
+        "messageCount": 37
+      }
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 22,
+      "count": 24,
       "sessions": [
         "session_047",
         "session_048",
@@ -1877,12 +1912,13 @@
         "session_059",
         "session_060",
         "session_061",
-        "session_062"
+        "session_062",
+        "session_063"
       ]
     },
     {
       "role": "editor",
-      "count": 13,
+      "count": 14,
       "sessions": [
         "session_050",
         "session_051",
@@ -1896,7 +1932,22 @@
         "session_059",
         "session_060",
         "session_061",
-        "session_062"
+        "session_062",
+        "session_063"
+      ]
+    },
+    {
+      "role": "arki",
+      "count": 13,
+      "sessions": [
+        "session_048",
+        "session_049",
+        "session_053",
+        "session_054",
+        "session_059",
+        "session_060",
+        "session_061",
+        "session_063"
       ]
     },
     {
@@ -1917,16 +1968,15 @@
       ]
     },
     {
-      "role": "arki",
-      "count": 12,
+      "role": "riki",
+      "count": 6,
       "sessions": [
-        "session_048",
         "session_049",
         "session_053",
         "session_054",
         "session_059",
         "session_060",
-        "session_061"
+        "session_063"
       ]
     },
     {
@@ -1938,24 +1988,14 @@
       ]
     },
     {
-      "role": "riki",
+      "role": "fin",
       "count": 5,
       "sessions": [
-        "session_049",
         "session_053",
         "session_054",
         "session_059",
-        "session_060"
-      ]
-    },
-    {
-      "role": "fin",
-      "count": 4,
-      "sessions": [
-        "session_053",
-        "session_054",
-        "session_059",
-        "session_060"
+        "session_060",
+        "session_063"
       ]
     }
   ],
@@ -2493,6 +2533,48 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_063",
+      "topic": "PD-020c — 결정 소유권 + 운영규칙 구현",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "framing",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": "framing",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "framing",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 4,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -2500,43 +2582,43 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=17.6)"
+      "description": "Master 병목: masterTurns=48 (avg=17.4)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=17.6)"
+      "description": "Master 병목: masterTurns=43 (avg=17.4)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=17.6)"
+      "description": "Master 병목: masterTurns=42 (avg=17.4)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=17.6)"
+      "description": "Master 병목: masterTurns=45 (avg=17.4)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=17.6)"
+      "description": "Master 병목: masterTurns=39 (avg=17.4)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=17.6)"
+      "description": "Master 병목: masterTurns=49 (avg=17.4)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=17.6)"
+      "description": "Master 병목: masterTurns=35 (avg=17.4)"
     },
     {
       "ruleId": "R1",
@@ -2583,7 +2665,7 @@
     {
       "ruleId": "R5",
       "severity": "red",
-      "description": "피드백 재발: \"Ace가\" 3회"
+      "description": "피드백 재발: \"Ace가\" 4회"
     },
     {
       "ruleId": "R5",
@@ -2627,6 +2709,46 @@
     }
   ],
   "feedbackRecurrences": [
+    {
+      "keyword": "제안은",
+      "occurrences": [
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-049",
+          "summary": "기본적인 제안은 Ace가 하고 Master가 조정 — 지금까지 해온 방식 유지. 세부 결정(enum 구성 등"
+        },
+        {
+          "date": "2026-04-20",
+          "feedbackId": "MF-038",
+          "summary": "노바의 뒤집기 제안은 역으로 나는 세션이 문제가 아니라 토픽 중심으로 전체가 개편되어야 한다고 생각해. 해당"
+        }
+      ]
+    },
+    {
+      "keyword": "Ace가",
+      "occurrences": [
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-049",
+          "summary": "기본적인 제안은 Ace가 하고 Master가 조정 — 지금까지 해온 방식 유지. 세부 결정(enum 구성 등"
+        },
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-043",
+          "summary": "Grade C /open 완료 후 Ace가 \"진행 지시 주세요\"로 Master 입력 대기 — L0 프로토콜 "
+        },
+        {
+          "date": "2026-04-04",
+          "feedbackId": "MF-002",
+          "summary": "역할 혼선 지적. Ace가 종합검토를 해야 하고, Editor는 결과물 작성/정리/출력만 해야 한다."
+        },
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-S036-3",
+          "summary": "Grade 조정권은 Ace가 가져. 선언 grade와 실제 gap 발생 시 Ace가 조정."
+        }
+      ]
+    },
     {
       "keyword": "에디",
       "occurrences": [
@@ -2679,26 +2801,6 @@
           "date": "2026-04-21",
           "feedbackId": "MF-043",
           "summary": "Grade C /open 완료 후 Ace가 \"진행 지시 주세요\"로 Master 입력 대기 — L0 프로토콜 "
-        },
-        {
-          "date": "2026-04-19",
-          "feedbackId": "MF-S036-3",
-          "summary": "Grade 조정권은 Ace가 가져. 선언 grade와 실제 gap 발생 시 Ace가 조정."
-        }
-      ]
-    },
-    {
-      "keyword": "Ace가",
-      "occurrences": [
-        {
-          "date": "2026-04-21",
-          "feedbackId": "MF-043",
-          "summary": "Grade C /open 완료 후 Ace가 \"진행 지시 주세요\"로 Master 입력 대기 — L0 프로토콜 "
-        },
-        {
-          "date": "2026-04-04",
-          "feedbackId": "MF-002",
-          "summary": "역할 혼선 지적. Ace가 종합검토를 해야 하고, Editor는 결과물 작성/정리/출력만 해야 한다."
         },
         {
           "date": "2026-04-19",

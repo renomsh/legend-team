@@ -1,6 +1,24 @@
 {
   "feedbackLog": [
     {
+      "id": "MF-048",
+      "date": "2026-04-21",
+      "session": "session_063",
+      "topic": "pd-020c-decision-ownership",
+      "feedback": "자동화함에 따라 과부화가 생길 것 같으면 경고만 주는 것도 방법 — grade 같은 건이 그런 예. 별것 아닌 건까지 하드 강제 말 것.",
+      "status": "resolved",
+      "statusNote": "PD-020c 4요소 중 A6-2 lifecycle + A6-3 앵커 규칙을 🟡 경고만으로 하향. D-055에 반영."
+    },
+    {
+      "id": "MF-049",
+      "date": "2026-04-21",
+      "session": "session_063",
+      "topic": "pd-020c-decision-ownership",
+      "feedback": "기본적인 제안은 Ace가 하고 Master가 조정 — 지금까지 해온 방식 유지. 세부 결정(enum 구성 등)까지 Master에게 묻지 말 것.",
+      "status": "resolved",
+      "statusNote": "D1 scopeCheck 4값 enum Ace 단독 확정 후 Editor 진행. 운영 원칙 재확인."
+    },
+    {
       "id": "MF-046",
       "date": "2026-04-21",
       "session": "session_060",

@@ -1,9 +1,15 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_062",
-  "nextSessionId": "session_063",
+  "lastSessionId": "session_063",
+  "nextSessionId": "session_064",
   "currentVersion": "v1.11",
   "openTopics": [
+    {
+      "id": "topic_066",
+      "title": "PD-020c — 결정 소유권 + 운영규칙 구현",
+      "status": "in-progress",
+      "reportPath": "reports/2026-04-21_pd-020c-decision-ownership"
+    },
     {
       "id": "topic_062",
       "title": "PD-020b — Context 3층 누적 구현",
@@ -28,6 +34,12 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-055",
+      "date": "2026-04-21",
+      "axis": "PD-020c 프레이밍 확정 — 결정 소유권 + 운영규칙 강제 강도 재분류 (하드 2 + 경고 2)",
+      "summary": "Ace 기본제안 → Master 조정 원칙 재확인(session_063). 과부화 회피 선택으로 신규 자동화의 운영비용 절감. 결정 소유권 강제(owningTopicId+scopeCheck)로 토픽 간 오염 차단 근거 확보. PD-020 3부작 프레이밍 단계 완결 — 구현 단계로 이행 가능."
+    },
+    {
       "id": "D-054",
       "date": "2026-04-21",
       "axis": "turns[] 단일원천 + agentsCompleted 파생 + phase_catalog v1.1 + Context 3층 스키마 v1.0",
@@ -50,12 +62,6 @@
       "date": "2026-04-21",
       "axis": "토픽 중심 아키텍처 — N:1 단방향 + phase×hold 직교화 + 3층 context 누적",
       "summary": "Master 수동 save01~05 관행을 시스템이 흡수 — 성장 루프 병목을 Master 인지부하에서 시스템 자동화로 이전. 양방향 훅 제거(N:1 단방향) + phase×hold 직교화로 운영 복잡도 억제. PD-019 resolved."
-    },
-    {
-      "id": "D-050",
-      "date": "2026-04-21",
-      "axis": "ROLE_COLORS 단일 원천 + Session History 시각 시스템 v1.13",
-      "summary": "canonical palette v1.13: ace=#8B5CF6, arki=#06B6D4, fin=#F59E0B, riki=#EF4444, nova=#10B981, edi=#9CA3AF, dev=#3B82F6, vera=#F472B6. cool cluster(ace/arki/dev) 수용 — 수치보다 역할 성격 우선. ROLE_LABELS: editor→edi 표시명. v1.12→v1.13."
     }
   ],
   "pendingDeferrals": [
@@ -232,5 +238,5 @@
       "note": "Grade A 권장. 원래 스킬 의도와 현 구현 불일치 발견(session_059). Master 의도: Sonnet 메인 + Opus 서브 호출."
     }
   ],
-  "lastUpdated": "2026-04-21T10:36:35.278Z"
+  "lastUpdated": "2026-04-21T11:01:07.415Z"
 }

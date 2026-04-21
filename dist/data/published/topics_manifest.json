@@ -1,6 +1,24 @@
 {
-  "generatedAt": "2026-04-21T10:36:37.568Z",
+  "generatedAt": "2026-04-21T11:01:10.191Z",
   "topics": [
+    {
+      "id": "topic_066",
+      "title": "PD-020c — 결정 소유권 + 운영규칙 구현",
+      "status": "in-progress",
+      "created": "2026-04-21",
+      "reportPath": "reports/2026-04-21_pd-020c-decision-ownership",
+      "reportFiles": [
+        "ace_rev1.md",
+        "arki_rev1.md",
+        "fin_rev1.md",
+        "riki_rev1.md",
+        "editor_rev1.md"
+      ],
+      "published": false,
+      "outcome": "프레이밍+실행계획 확정(D-055). 강제강도 재분류: 하드 2(A6-1·A6-4) + 경고 2(A6-2·A6-3). 구현은 별도 세션(P1부터).",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_065",
       "title": "PD-020b P6 — /open 로더 통합",

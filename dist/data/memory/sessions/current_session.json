@@ -1,21 +1,24 @@
 {
-  "sessionId": "session_062",
-  "topicId": "topic_065",
-  "topic": "PD-020b P6 — /open 로더 통합",
-  "topicSlug": "pd-020b-p6-open-loader",
+  "sessionId": "session_063",
+  "topicId": "topic_066",
+  "topic": "PD-020c — 결정 소유권 + 운영규칙 구현",
+  "topicSlug": "pd-020c-decision-ownership",
   "status": "closed",
-  "startedAt": "2026-04-21T17:00:00.000Z",
-  "closedAt": "2026-04-21T17:30:00.000Z",
+  "startedAt": "2026-04-21T17:45:00.000Z",
+  "closedAt": "2026-04-21T18:15:00.000Z",
   "mode": "observation",
-  "grade": "B",
-  "gradeDeclared": "B",
-  "gradeActual": "B",
+  "grade": "A",
+  "gradeDeclared": "A",
+  "gradeActual": "A",
   "gradeMismatch": false,
-  "framingLevel": 1,
+  "framingLevel": 2,
   "framingSkipped": false,
   "agentsCompleted": [
     "ace",
-    "dev",
+    "arki",
+    "fin",
+    "riki",
+    "ace",
     "editor"
   ],
   "turns": [
@@ -25,39 +28,67 @@
       "phase": "framing"
     },
     {
-      "role": "dev",
+      "role": "arki",
       "turnIdx": 1,
-      "phase": "implementation"
+      "phase": "framing"
+    },
+    {
+      "role": "fin",
+      "turnIdx": 2,
+      "phase": "framing"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 3,
+      "phase": "framing"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 4,
+      "phase": "framing",
+      "recallReason": "post-master",
+      "splitReason": "종합검토"
     },
     {
       "role": "editor",
-      "turnIdx": 2,
+      "turnIdx": 5,
       "phase": "compile"
     }
   ],
   "plannedSequence": [
     "ace",
-    "dev",
+    "arki",
+    "fin",
+    "riki",
+    "ace",
     "editor"
   ],
-  "decisions": [],
+  "decisions": [
+    "D-055"
+  ],
   "notes": [
-    "Grade B → L1 (Ace 인라인 2~3줄), 경량 프레이밍",
-    "P6 구현: scripts/load-context-briefs.ts 신설 (hold=null openTopics context_brief.md 로드)",
-    ".claude/commands/open.md step 3.5 추가 (context_brief 자동 로드 지시)",
-    "검증: npx ts-node scripts/load-context-briefs.ts 정상 실행 확인 (활성 context_brief 없음 = 정상 스킵)",
-    "PD-020b 전 구간(P0~P6) 완료. 다음: PD-020c"
+    "PD-020 3부작 마지막 편 프레이밍 세션.",
+    "Master 피드백 수용: '별것 아닌 자동화는 경고만, 과부화 회피' → A6-2/A6-3 soft warning으로 하향.",
+    "강제강도 최종: 🔴 하드 2(A6-1 owningTopicId, A6-4 실시간 PD append) + 🟡 경고 2(A6-2 lifecycle, A6-3 anchor lint).",
+    "D1 scopeCheck 4값 enum 확정 (topic-local|cross-topic|global|legacy-ambiguous).",
+    "구현은 별도 세션 분할 진행 (PD-020a/b 전례). 다음 세션: PD-020c P1(decision_ledger 스키마 확장+백필)."
   ],
   "gaps": [],
-  "masterDecisions": [],
-  "reportPath": "reports/2026-04-21_pd-020b-p6-open-loader",
+  "masterDecisions": [
+    "Ace 기본제안 → Master 조정 원칙 재확인"
+  ],
+  "masterFeedback": [
+    "별것 아닌 자동화는 과부화 회피 — grade처럼 경고만 주는 방식도 선택지로 고려",
+    "기본적인 제안은 Ace가 하고 Master가 조정 — 지금까지 해온 방식 유지"
+  ],
+  "reportPath": "reports/2026-04-21_pd-020c-decision-ownership",
   "tokenUsage": {
-    "input_tokens": 101,
-    "output_tokens": 36545,
-    "cache_creation_input_tokens": 346778,
-    "cache_read_input_tokens": 4240729,
-    "messageCount": 76,
-    "masterTurns": 6,
-    "total_billable": 4624153
+    "input_tokens": 104,
+    "output_tokens": 40048,
+    "cache_creation_input_tokens": 213413,
+    "cache_read_input_tokens": 2635932,
+    "messageCount": 37,
+    "masterTurns": 9,
+    "total_billable": 2889497
   }
 }

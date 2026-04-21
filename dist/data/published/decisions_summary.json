@@ -1,6 +1,24 @@
 {
-  "generatedAt": "2026-04-21T10:36:37.571Z",
+  "generatedAt": "2026-04-21T11:01:10.196Z",
   "decisions": [
+    {
+      "id": "D-055",
+      "date": "2026-04-21",
+      "session": "session_063",
+      "topic": "pd-020c-decision-ownership",
+      "axis": "PD-020c 프레이밍 확정 — 결정 소유권 + 운영규칙 강제 강도 재분류 (하드 2 + 경고 2)",
+      "decision": "PD-020c 4요소(A6-1 owningTopicId / A6-2 lifecycle / A6-3 앵커 / A6-4 실시간 PD append)를 강제 강도로 재분류 — Master '별것 아닌 자동화는 경고만, 과부화 회피' 지침 수용. 🔴 하드 강제 2건: A6-1(데이터 정합성, 회복 불가) + A6-4(휘발 방지, Editor 역검사 백업). 🟡 경고만 2건: A6-2 lifecycle(/open 시 stale 브리핑만, 자동 status 변경 없음, expectedDuration 예외) + A6-3 앵커 lint(Editor 차단 없음, legacy 면제). 결정축 확정: D1 scopeCheck 4값 enum(topic-local|cross-topic|global|legacy-ambiguous), 의심 시 기본값 cross-topic+relatedTopics, global은 CLAUDE.md 등재 동반. D2 경고만. D3 경고만+legacy 면제. D4 발언 직후 즉시+Editor 백업. executionPlanMode=plan. Arki 실행계획: P1(하드·데이터정합성: 스키마 확장+백필+validate) → P2(경고계층)∥P3(실시간 append). 게이트 A/B/C. Riki R1(legacy-ambiguous 예외) R2(expectedDuration 예외) R3(legacy brief 면제) R4(Editor 역검사) 전원 흡수. Fin 금지어 감사 통과. 구현은 별도 세션 분할(PD-020a/b 전례).",
+      "value": "Ace 기본제안 → Master 조정 원칙 재확인(session_063). 과부화 회피 선택으로 신규 자동화의 운영비용 절감. 결정 소유권 강제(owningTopicId+scopeCheck)로 토픽 간 오염 차단 근거 확보. PD-020 3부작 프레이밍 단계 완결 — 구현 단계로 이행 가능.",
+      "authority": "master",
+      "status": "confirmed",
+      "owningTopicId": "topic_066",
+      "scopeCheck": "cross-topic",
+      "relatedTopics": [
+        "topic_053",
+        "topic_062",
+        "topic_066"
+      ]
+    },
     {
       "id": "D-054",
       "date": "2026-04-21",

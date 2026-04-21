@@ -1681,8 +1681,71 @@
       ],
       "grade": "B",
       "note": "Grade B → L1 (Ace 인라인 2~3줄), 경량 프레이밍 | P6 구현: scripts/load-context-briefs.ts 신설 (hold=null openTopics context_brief.md 로드) | .claude/commands/open.md step 3.5 추가 (context_brief 자동 로드 지시) | 검증: npx ts-node scripts/load-context-briefs.ts 정상 실행 확인 (활성 context_brief 없음 = 정상 스킵) | PD-020b 전 구간(P0~P6) 완료. 다음: PD-020c"
+    },
+    {
+      "sessionId": "session_063",
+      "topicSlug": "pd-020c-decision-ownership",
+      "topic": "PD-020c — 결정 소유권 + 운영규칙 구현",
+      "startedAt": "2026-04-21T17:45:00.000Z",
+      "closedAt": "2026-04-21T18:15:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "decisions": [
+        "Ace 기본제안 → Master 조정 원칙 재확인"
+      ],
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "phase": "framing"
+        },
+        {
+          "role": "fin",
+          "turnIdx": 2,
+          "phase": "framing"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 3,
+          "phase": "framing"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 4,
+          "phase": "framing",
+          "recallReason": "post-master",
+          "splitReason": "종합검토"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 5,
+          "phase": "compile"
+        }
+      ],
+      "plannedSequence": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "grade": "A",
+      "note": "PD-020 3부작 마지막 편 프레이밍 세션. | Master 피드백 수용: '별것 아닌 자동화는 경고만, 과부화 회피' → A6-2/A6-3 soft warning으로 하향. | 강제강도 최종: 🔴 하드 2(A6-1 owningTopicId, A6-4 실시간 PD append) + 🟡 경고 2(A6-2 lifecycle, A6-3 anchor lint). | D1 scopeCheck 4값 enum 확정 (topic-local|cross-topic|global|legacy-ambiguous). | 구현은 별도 세션 분할 진행 (PD-020a/b 전례). 다음 세션: PD-020c P1(decision_ledger 스키마 확장+백필)."
     }
   ],
-  "lastUpdated": "2026-04-21T10:36:28.801Z",
+  "lastUpdated": "2026-04-21T11:01:01.295Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
