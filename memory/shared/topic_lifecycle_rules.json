@@ -1,0 +1,20 @@
+{
+  "_comment": "A6-2 lifecycle 경고 규칙 (D-055). 경고만 — 자동 status 변경 없음.",
+  "version": "1.0",
+  "rules": {
+    "maxSessions": {
+      "threshold": 5,
+      "description": "토픽당 세션 횟수 초과 시 경고 (마무리 또는 분할 검토 권고)"
+    },
+    "lastActivityDays": {
+      "threshold": 30,
+      "description": "마지막 활동(lastUpdated) 기준 N일 초과 시 stale 경고"
+    }
+  },
+  "exemptions": {
+    "holdTopics": true,
+    "comment": "hold!=null 토픽은 lifecycle 경고 대상 제외. expectedDuration 필드 있는 토픽도 제외."
+  },
+  "legacyCutoff": "2026-04-21",
+  "legacyCutoffComment": "이 날짜 이전 생성 토픽은 anchor lint 면제 (A6-3)"
+}

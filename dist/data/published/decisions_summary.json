@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-21T11:01:10.196Z",
+  "generatedAt": "2026-04-21T11:25:22.984Z",
   "decisions": [
     {
       "id": "D-055",
@@ -28,7 +28,9 @@
       "decision": "(A) turns[]가 세션 역할 발언의 단일 원천. agentsCompleted는 session-end-finalize.js에서 turns.role 순서·중복 허용으로 자동 파생 — D-048 '중복 허용 배열' 원칙 실질 보장, Set-dedup 버그 근절. (B) phase_catalog v1.1: 'implementation' phase 신설(Dev 실집행). PhaseId 타입 동기화. (C) Context 3층 스키마 v1.0 확정: L1 TurnLogEntry(topics/{id}/turn_log.jsonl 단일원천, append-only, topicId 경계 검증 필수), L2 SessionContributionFrontmatter(nextAction 필수, 5 섹션 강제), L3 ContextBriefFrontmatter(고정 5섹션, 5KB 상한). 전용 검증함수 throws-on-invalid 패턴. (D) L1 실패 격리 정책: 단건 무시+로그, 누적 3건 경보+quality 플래그. (E) session_060 자체 L1은 session_061에서 소급 기록(RK-4 옵션 B). (F) validate-schema-vs-data.ts 신설 — TS 타입↔JSON 데이터 drift 감시 (session_060 오픈 차단 재발 방지, GA-1). (G) P0 전수 13 세션 검증 결과: 초기 FAIL 11건 → C1 phase drift 30건 + C2 agentsCompleted Set-dedup 4건 → 루트 수정 + 백필 → 재검증 13/13 OK.",
       "value": "PD-020b 구현의 토대 정비 완료. turns[] 단일원천 구조로 agentsCompleted 왜곡 근절. 3층 스키마 TS+검증함수 단일원천으로 확정 → session_061 L1/L2/L3 writer 구현이 깨끗한 인터페이스 위에 진행 가능. drift 감시 도구로 type↔data 동기화 실패 재발 차단.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_063",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-053",
@@ -39,7 +41,9 @@
       "decision": "3층 책임 분리 확정: L1 topics/{id}/turn_log.jsonl(append-only, hook 자동, sessionId 중복검사) / L2 topics/{id}/session_contributions/session_NNN.md(hook 골격 + Editor 본문 혼합, quality 플래그 editor-written|hook-fallback) / L3 topics/{id}/context_brief.md(매 /close 전체 재생성, ~500토큰 상한). /open 자동 로드는 hold=false 토픽 한정, 활성 토픽 N>7 시 현재 토픽만 로드 fallback(PD-020c 완료 시 제거). 7 Phase 실행계획(v2): P0 turns[] 무결성 검증 + C1 강제화 선결 / P1 스키마 정의+디렉토리 부트스트랩 / P2 L1 turn-log-writer.js / P3 L2 session-contribution-writer.js (quality 플래그) / P4 L3 regenerate-context-brief.js (degraded 분리) / P5 auto-push.js 훅 체인 통합 / P6 /open 로더 + N>7 fallback. 게이트 G0~G6 순차 통과. Riki 3개 리스크 전원 흡수: RK-1(turns[] 미기록 전제 위반)→P0 신규, RK-2(Editor 우회 침묵 실패)→quality 플래그+degraded 분리, RK-3(토큰 폭발 갭)→N>7 fallback. 본 세션 스코프 = 프레이밍+실행계획. 실집행은 session_060+ 분할 진행.",
       "value": "Master save01~05 수동 관행을 시스템이 흡수 — 성장 루프 병목을 인지부하에서 자동화로 이전. C1 강제화 선결로 L1 무효화 전제 위반 차단. quality 플래그로 Editor 우회 silent failure 방지. PD-020c 전 임시 fallback으로 토큰 폭발 갭 방어. PD-020b 프레이밍 단계 resolved.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_062",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-052",
@@ -50,7 +54,9 @@
       "decision": "5축 확정: (1) topic_meta.sessions[] 삭제 — 단일원천 = session_index.topicId. (2) topic_index 미러(phase, hold) 삭제 — 단일원천 = topic_meta. (3) hold = HoldState|null 객체 표현, hold===null ⇔ active, hold.reason은 catalog enum. (4) phase_catalog.json + hold_reasons_catalog.json 신설 — aliases·deprecated·schemaVersion 필수 필드 (RK-1 대응). (5) 마이그레이션 = phase:null, hold:null, legacy:true — 추측 백필 금지. 부속: phaseHistory 인라인 유지(JSONL 분리 거부 — 토픽당 4건 빈도에 부적합), validate-topic-schema.ts에 assertPhase/assertHold type guards export 강제(RK-2), legacy:true ⇒ phase·hold 항상 null 보장 명문화. antiPatterns 3건 본문 명시: (a) topic_meta.sessions[] 부활 금지 (b) topic_index 미러 부활 금지 (c) topic→sessions 캐시 파일 금지. 5 Phase 실행계획(P1 catalog+spec / P2 validator+guards / P3 writer / P4 migration with git tag / P5 verify) 산출. 비채택: phase_events.jsonl 분리(과잉 추상화), decision_ledger antiPatterns 필드 신설(PD-020c 영역), 절충안. 본 세션 스코프 = 설계+명세+계획. 실제 P1~P5 구현은 별도 실행 세션.",
       "value": "D-051 토대 구체화. 단일원천·확장성·디버깅 가능성을 1회성 구현비용보다 우선(Master 평가기준). 미러·중복·추측백필 전면 금지로 PD-020b/c가 깨끗한 토대 위에 진행 가능. catalog 패턴(D-047 status_catalog 확장)으로 enum 변경 호환성 사전 확보.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_057",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-051",
@@ -61,7 +67,9 @@
       "decision": "A1 토픽 1급 승격. A2 N:1 단방향 topic.sessions[]. A3 이중 성장축(세션=실행/토픽=누적). A4 점진 이행 legacy:true 52세션 소급. A5 phase(framing/design/implementation/validated)×hold(active/heldAt/heldAtPhase/reason) 2차원. A6 decision owningTopicId + agenda.md 충돌 검사 기계화. A7 /open 자동 context 로드 hold=false 토픽만. A8 3층 context(turn_log.jsonl / session_contributions/*.md / context_brief.md) hold 토픽 brief 동결. Riki 공격 4개(RK-1 수명폭증 / RK-2 brief신뢰성 / RK-3 Ace과부하 / RK-4 이연부재) 모두 운영규칙으로 흡수. 실제 구현은 PD-020a/b/c 3개 Grade A로 분해 이연.",
       "value": "Master 수동 save01~05 관행을 시스템이 흡수 — 성장 루프 병목을 Master 인지부하에서 시스템 자동화로 이전. 양방향 훅 제거(N:1 단방향) + phase×hold 직교화로 운영 복잡도 억제. PD-019 resolved.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_056",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-050",
@@ -72,7 +80,9 @@
       "decision": "app/js/role-colors.js 신설 — window.ROLE_COLORS + window.ROLE_LABELS 단일 원천. Turn Sequence dot 크기 확대(r8→10), Role Frequency ECharts→HTML 트랙 바 교체. dev=blue cool 계열 의도적 유지(Master: 코딩은 차가워야 함). nova↔edi 색상 교체(nova=#10B981, edi=#9CA3AF). 전 페이지 캐릭터 카드 색상 통일.",
       "value": "canonical palette v1.13: ace=#8B5CF6, arki=#06B6D4, fin=#F59E0B, riki=#EF4444, nova=#10B981, edi=#9CA3AF, dev=#3B82F6, vera=#F472B6. cool cluster(ace/arki/dev) 수용 — 수치보다 역할 성격 우선. ROLE_LABELS: editor→edi 표시명. v1.12→v1.13.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_055",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-049",
@@ -83,7 +93,9 @@
       "decision": "adopt conditional self-invocation matrix for design:* plugin skills; Vera directly prototypes new visualization grammars (one-shot), Editor handles existing-grammar compositions",
       "value": "(A) Vera skills 조건부 매트릭스 — design-critique/system/handoff/a11y/theme-factory 각 트리거·skipWhen·invocationMode(skill-call|pattern-reference|external) 필드 강제. design-system 발동 우선 판정자는 '토큰 신규 추가 여부' (Riki #3). (B) 구현 주체 경계: 신규 시각화 문법(D3 sequence처럼 기존 템플릿 없음) 최초 1회 Vera 직접 프로토타입 / 기존 문법 조합(카드·탭·그리드) Editor 위임. Editor 판단 영역 제로 체크리스트 6항목 Vera 스펙 의무 포함. (C) design_rules.json 신설 — R-D01(dashed-border=recall marker), R-D02(brand-purple-tint α∈{.12,.18,.25}=connector). (D) sequence 패널 v1.0 confirmed — D3 SVG 96px label+16px node+28px gap+280px height, ROLE_COLORS 재사용 신규 토큰 0개. (E) Claude Design(claude.ai/design 웹) ≠ design:* 플러그인 명시 — vera_memory.skills.external 필드 분리 + feedback 메모리 신설. 이월: 색 대비 전역(--text-3)·PD-018 $ 패널·PD-019 토픽 중심 아키텍처는 별도 토픽.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_052",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-048",
@@ -94,7 +106,9 @@
       "decision": "restructure agentsCompleted from Set-semantics string[] to structured Turn[] + plannedSequence + Claude Code realtime split judgment",
       "value": "(A) 스키마: agentsCompleted를 Turn[]으로 재정의 {role,turnIdx,phase?,recallReason?,splitReason?,chars?,segments?}. plannedSequence 및 plannedSequenceRevisions 신설. 기존 필드는 legacy alias로 병행. (B) 재호출 정의: Claude Code 실시간 판정 + 4조건 프로토콜 — ①다른 역할 개입 후 복귀 자동분리 ②Master 개입 후 재발언 자동분리 ③phase 전환 시 phase_catalog.json enum 참조하여 분리 ④같은 phase 내 연속 병합. 조건1·2·3 적용 시 recallReason/splitReason 기록 필수. (C) 기록 시점: C1(역할 발언 직후 current_session push) + C2(session-end-finalize.js 검증) 병행. (D) 집계: compute-dashboard.ts seen.has 제거, D3 sequence 1급, turn 타임라인+gap 뷰. 부대 조치: phase_catalog.json 신설(R-2), B/C도 plannedSequence 1줄 강제(R-4), Size 임계 유지하되 10세션 gradeMismatch 경보 억제(R-5), 과거 44세션 legacy:true 플래그로 집계 배제(R-6). 비채택: 자기판정 감사 패널(R-1, R-2로 자동 소멸), plan immutable Goodhart 방어(R-3, 시스템 인센티브 모델 부적합). motif 자동 분석은 100세션 축적 후 별도 토픽. PD-011 해소, PD-019(토픽 중심 아키텍처) 파생.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_048",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-047",
@@ -105,7 +119,9 @@
       "decision": "adopt status_catalog.json as single source + enforce create-topic.ts auto-call in /open",
       "value": "(1) status_catalog.json 신설 (open/in-progress/completed/suspended + closed→completed alias). UI·커맨드·타입 모두 카탈로그 참조, 하드코딩 금지. (2) topic_index.json 파일 자체를 topic_id desc 자연정렬로 저장 + app/js/nav.js sortTopicsDesc + create-topic.ts 자동 정렬 삽입 (3중 방어). (3) /open 체크리스트 step 7에 create-topic.ts 자동 호출 강제 — session_036~041 topic_index 등록 누락 재발 방지. (4) 중간지점 정비: 중복 topic_013 분리(→045), 고아 upgrade-delta-pack 등록(→046), 현 세션 등록(→047). 01-41 전체 재번호는 참조 무결성 훼손 리스크로 채택 안함.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_047",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-046",
@@ -116,7 +132,9 @@
       "decision": "adopt",
       "value": "향후 정량 원고 세션은 /open 시 current_session.json에 canonical_data 필드(경로+md5)를 기록. 본문 모든 정량 주장은 canonical 앵커 인용. 출처 없는 숫자는 [pending: source] 플래그 필수. Editor 숫자 기입 시 출처 주석 의무. Riki 공격영역에 'data provenance' 신설. 근거: session_041 ver3.0_E 작성 시 canonical Xlsx 미확인하고 save04.md 캐시 숫자·LLM 합성 CI로 7차 검토 루프가 오염 동결(E-xxx 등록).",
       "authority": "master-implied",
-      "status": "protocol-adopted"
+      "status": "protocol-adopted",
+      "owningTopicId": "topic_044",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-045",
@@ -127,7 +145,9 @@
       "decision": "(e)",
       "value": "Y1 primary (mediation novelty 유지) + Y1-Y3 강력 pre-specified sensitivity (TE significance 확보). Riki의 HARKing·sister paper·mediation 윈도우 비정합 3대 반대점 모두 해소. Y1-Y3를 primary로 전환하지 않음. 대신 Results §Sensitivity에 3-year TE OR 1.72 (1.07-2.76, p=0.025) 및 p-for-trend 0.013을 핵심 sensitivity로 승격 강조. Nova N1이 계기(5-window sweep 촉발), Ace 합성(Riki 반대 통합). 소유권: Ace 제안, Master 승인.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_044",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-044",
@@ -138,7 +158,9 @@
       "decision": "ver1.0 raw 기반 재분석",
       "value": "Master 확정 필터: Enroll_COPDNOTCOPD ∈ {1,3,4} (PRISm은 stratifier로 유지, non-COPD 제외), age≥40, exclude military(27)/housewife(28), 학생(30)은 age≥40 필터로 자동 제외. Canonical cohort n=2,779. 기존 Xlsx (ver2.0 폴더, n=2,932)는 cohort 필터 불일치로 폐기. prev_exac 공변량은 self-reported KO1_P_EX_YN(HIRA 불필요)으로 확보. canonical 폴더: C:/Projects/COPD/canonical_ver3.5/. 새 숫자: Y1 primary NIE OR 1.12 (1.02-1.25), TE OR 1.55 (0.76-3.14); Y1-Y3 sensitivity TE OR 1.72 (1.07-2.76), p-trend 0.013; NB rate crude IRR 1.44 (1.12-1.86).",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_044",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-001",
@@ -149,7 +171,9 @@
       "decision": "A",
       "value": "메모리 초기화 + reports/ 구조 생성만으로 v0.2.0 선언. TS 자동화는 v0.3.0으로 이연.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_002",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-002",
@@ -160,7 +184,9 @@
       "decision": "A",
       "value": "Claude Code가 세션 중 직접 파일 기록하는 수동 프로토콜 채택.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_002",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-003",
@@ -174,7 +200,9 @@
       "status": "confirmed",
       "revisedAt": "2026-04-04",
       "revisedIn": "session_003",
-      "priorValue": "app/internal-viewer.html로 이름 변경. CLAUDE.md에 내부 뷰어 예외 조항 추가."
+      "priorValue": "app/internal-viewer.html로 이름 변경. CLAUDE.md에 내부 뷰어 예외 조항 추가.",
+      "owningTopicId": "topic_002",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-004",
@@ -185,7 +213,9 @@
       "decision": "제안대로",
       "value": "reports/{YYYY-MM-DD}_{topic-slug}/{role}_rev{n}.md",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_002",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-005",
@@ -196,7 +226,9 @@
       "decision": "유지",
       "value": "Master가 명시적으로 요청할 때만 Nova 호출. 자동 트리거 조건 미정의.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_002",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-006",
@@ -207,7 +239,9 @@
       "decision": "A",
       "value": "정적 사이트 배포 (Cloudflare Pages + Cloudflare Access). 모바일/PC 브라우저로 접근.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_003",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-007",
@@ -220,7 +254,9 @@
       "authority": "master",
       "status": "confirmed",
       "revisedAt": "2026-04-04",
-      "priorValue": "reports/ + memory/shared/ 일부만 배포. memory/master/는 완전 제외."
+      "priorValue": "reports/ + memory/shared/ 일부만 배포. memory/master/는 완전 제외.",
+      "owningTopicId": "topic_003",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-008",
@@ -231,7 +267,9 @@
       "decision": "B",
       "value": "git hook 또는 스크립트로 세션 종료 시 자동 push.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_003",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-009",
@@ -242,7 +280,9 @@
       "decision": "Master 지시",
       "value": "Ace가 종합검토 수행. Editor는 결과물 작성/정리/출력만 담당. Editor에서 synthesis 역할 완전 분리.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_003",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-010",
@@ -253,7 +293,9 @@
       "decision": "B",
       "value": "자동화 + 자산 실질화. 세션 자동화 확장(H-01/H-02) + 자산 프로토콜 정의(N-01/N-03) + 스크립트 정리.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_005",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-011",
@@ -264,7 +306,9 @@
       "decision": "A",
       "value": "스크립트 보조. session-log.ts 확장 + validate-output.ts 연동. Claude Code가 호출하되 풀 오케스트레이션은 아님.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_005",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-012",
@@ -275,7 +319,9 @@
       "decision": "A",
       "value": "v0.4.0에 포함. evidence_index 운용 프로토콜 + glossary 운용 기준 정의. 프로토콜 문서 수준.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_005",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-013",
@@ -286,7 +332,9 @@
       "decision": "Master 지시",
       "value": "session_003~006 성과(CF Pages 배포, 다중 페이지 뷰어, 역할 재정의, 운영 부채 폐쇄, main 브랜치 통일)를 v0.3.0으로 소급 확정. project.json 즉시 반영.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_005",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-014",
@@ -297,7 +345,9 @@
       "decision": "Master 지시",
       "value": "FR-002(Ace 오케스트레이션 강화), FR-003(작업 정의 선행), FR-004(Master 피드백 확대 해석 금지), DX-003(세션 체크리스트 charter 버전 확인) 채택 적용. DX-004/DX-006/조건부 항목 미적용. 분류 체계 별도 토픽 이연.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_009",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-015",
@@ -308,7 +358,9 @@
       "decision": "Master 지시",
       "value": "Ace를 Master의 판단 대리인으로 재정의. 후행 통합기→선행 제안기 진화 경로 확정(승격 시점은 Master 결정). Ace는 종합+자기판단 필수, Master 미응답 시 능동 질문. Arki 데이터구조 포함. Fin Financial 유지(사업적 재무 주력). Riki 실행왜곡+Ace초안 포함 adversarial 명시. Editor 기록자(편집판단만, 내용판단/선행제안 불가). Nova 현행유지.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_010",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-016",
@@ -319,7 +371,9 @@
       "decision": "Arki 통합",
       "value": "Arki 발언에 '구조적 실행계획' 4번째 섹션을 추가. 내용: Phase 분해, 의존 그래프, 입력/출력/검증 게이트, 임계경로·병목·롤백, 전제·중단 조건. 발동은 Ace가 executionPlanMode(plan/conditional/none)로 판정. Ace=실행계획, Arki=구조설계자 본업 연장, 역할 수 증가 없음.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_015",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-017",
@@ -330,7 +384,9 @@
       "decision": "Master 요청 시에만 수행",
       "value": "일정·공수·담당 추정은 Master가 명시적으로 요청한 경우에만 수행. 요청 없는 자동 일정 생성 금지. Arki 실행계획은 시간축 제외(구조적 선후만). Fin은 구조 단계에서 방향성만 평가. Editor는 평시 일정 섹션 생성 금지. 이유: 실측 근거 없는 일정은 현실성 결여 → 의사결정 왜곡.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_015",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-018",
@@ -341,7 +397,9 @@
       "decision": "3카테고리 금지 + Fin 감사",
       "value": "금지어 3카테고리: (1) 절대시간(D+N일, N주차, MM/DD, 구체 날짜) (2) 인력배정(담당자:, 특정 이름, PD, MM) (3) 공수 단위(N시간, N일 소요, 공수). 허용: 구조적 선후 표현(Phase 완료→다음, 게이트 통과 후, 전제조건 충족 시). Fin이 첫 실행계획 산출 후 1회 감사, 감사 기준은 Fin memory에 축적.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_015",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-019",
@@ -352,7 +410,9 @@
       "decision": "Ace=Orchestrator",
       "value": "역할 호출 순서·횟수·재호출 여부는 Ace의 판단. 1역할 1발언 순차 순환은 초기 스캐폴드이며 프로토콜의 본질이 아님. Ace는 토픽 특성에 맞춰 reorder/re-call/skip/extend 가능. 판단 근거는 ace_memory.masterSelectionPatterns에 누적(topic type → role call pattern). 초기=수동+기록, 성숙기=패턴 매칭 자동화. Editor가 백업 게이트 역할(누락 시 경고).",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_015",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-020",
@@ -363,7 +423,9 @@
       "decision": "검증 후 수용",
       "value": "Ace는 Master 피드백을 즉시 수용하지 않고 검증-질문-확인 루프를 거친다. 충돌 감지 시 능동 질문. Master는 '진행해'로 즉시 종료 가능. 판단 결과는 ace_memory learningLoop에 기록하여 자가판단 능력으로 진화. ace-learning-loop skill 신규 자작.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_016",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-021",
@@ -374,7 +436,9 @@
       "decision": "Master 동의",
       "value": "Dev(데브) 에이전트 신설. 구현·디버깅·테스트 전담. Arki 설계 인수 → Dev 구현 → Editor 산출물 파이프라인 확립. 호출 조건: 구현·디버깅 토픽에서만. Arki↔Dev 경계: 인터페이스·구조까지 Arki, 이후 Dev. Editor 디자인 권한 확장: 시각 표현·레이아웃·다이어그램·HTML 형식 판단 허용, 내용·전략 판단 불가. v0.7.0 선언.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_017",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-022",
@@ -385,7 +449,9 @@
       "decision": "Master 선언",
       "value": "세션 종료 시 Ace가 실제 수행 내용과 명명된 토픽명을 대조. 불일치 시 수정 토픽명을 제안하고 Master 확인 후 확정. topic_index.json title·topicSlug·reportPath 일괄 반영. /close 체크리스트 1a에 명문화.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_021",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-023",
@@ -396,7 +462,9 @@
       "decision": "3개 스타일 + HTML 기준",
       "value": "HTML 보고서 기준 3개 스타일 체계 확정. Style 1(Navy/Blue, 기존 레전드팀 스타일 정형화), Style 2(Black/Red, 임팩트 강조), Style 3(Gold/Editorial, 서사형). Word/PPT는 색상 토큰 참조 수준. 신규 보고서부터 적용. 디자인 시스템 구현: 토큰 JSON 3개 + base.css + style*.css 3개 + echarts 테마 3개 + report-base.html 템플릿 + CRITIQUE_CHECKLIST.md. v0.9.0 선언.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_022",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-024",
@@ -407,7 +475,9 @@
       "decision": "Master 승인",
       "value": "대시보드 KPI 계산을 위한 4-레이블 체계 확정. 명시적 채택(decision_ledger D-번호 등재) / 묵시적 채택(Master 개입 없이 다음 단계 진행 = 통과·자율성 신호) / 기각(master_feedback_log 기각 표기) / 보류(pendingDeferrals PD-번호 등재). 채택률 = (명시적+묵시적 채택) / 전체 제안. 엣지: E1 수정후 등재 → 명시적 채택 + modifiedFromProposal:true, E2 부분 채택 → 축 단위 분리 레이블링, E3 무응답 → 묵시적 채택으로 재분류. Phase 0 통과, Phase 0.5(발언 태깅 룰) 진입 가능.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_024",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-025",
@@ -418,7 +488,9 @@
       "decision": "Master 승인",
       "value": "대시보드 2뷰 체계(업그레이드 뷰/과제 운영 뷰), 5군 역할 평가 분리(프레이밍/구조/검증/자원/산출), Phase 0~3 측정 설계(bottom-up), 자율성 카드(masterTurns 최상단), 효율성 그래프(Size×채택률×사용량%×개입 버블차트), Size 공식(decisionAxes×2 + rolesCalled + rolesRecalled×2 + sessionsSpanned×3 + masterTurns×1). 허수 금지·배제 대신 정교화 원칙. 워밍업 플래그(군별 차등: Ace/산출 5, 구조/검증/자원 10). 경보: 섹션별 흡수 + 지휘판 상단 카운터.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_024",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-026",
@@ -429,7 +501,9 @@
       "decision": "Master 승인",
       "value": "Claude Code transcript .jsonl 파싱으로 세션 토큰 직접 집계 가능 확인. .claude/hooks/session-end-tokens.js 신규. SessionEnd hook 등록(settings.json). memory/sessions/token_log.json 신규. current_session.tokenUsage 자동 삽입. Phase 3a 경로 (i) 채택. 이연: PD-006(Windows 경로 검증), PD-007(중복 제거), PD-008(masterTurns 분리 파싱).",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_024",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-027",
@@ -440,7 +514,9 @@
       "decision": "Master 승인",
       "value": "Size = (decisionAxes × 2) + rolesCalled + (rolesRecalled × 2) + (sessionsSpanned × 3). masterTurns를 공식에서 제거하고 버블 색상 독립 변수로 유지. 복잡도(Size)와 자율성(masterTurns) 개념 분리.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_025",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-028",
@@ -451,7 +527,9 @@
       "decision": "Master 승인",
       "value": "세션 종료 시 compute-dashboard.ts를 auto-push.js 직전에 자동 실행. dashboard_data.json 항상 최신 상태 유지. 수동 트리거 경로 제거.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_025",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-029",
@@ -462,7 +540,9 @@
       "decision": "Master 승인 (묵시적)",
       "value": "session-end-finalize.js 신설: current_session.json status=closed 시 session_index 자동 append(agentsCompleted·decisions·note 포함). sync-system-state.ts 신설: system_state.json openTopics·recentDecisions 자동 재계산. Hook 체인: tokens→finalize→compute-dashboard→build. PD-009 이행.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_029",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-030",
@@ -473,7 +553,9 @@
       "decision": "Master 승인 (묵시적)",
       "value": "컨텍스트 압축(compaction)으로 동일 Legend 세션에 복수 Claude Code 세션이 생길 경우, token_log.json의 동일 legendSessionId 항목을 덮어쓰기 대신 usage 누산으로 변경. 토큰 유실 방지.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_029",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-031",
@@ -484,7 +566,9 @@
       "decision": "Master 지시 (\"구현해. 도대체 몇번째야.\")",
       "value": "auto-push.js에 syncClaudeDir() 추가. 워크트리 감지 시 .claude/(worktrees/ 제외)를 main repo로 복사 후 commit → merge → push. 워크트리 .claude/ 수정사항이 매 세션 자동으로 main에 반영됨.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_029",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-032",
@@ -493,7 +577,9 @@
       "topic": "dashboard-bug-ace-framing",
       "axis": "Topic Grade System (Lv. S/A/B/C) + ace-framing 조건화",
       "decision": "A",
-      "value": "Grade S/A→L2 스킬, B→L1 인라인, C→L0 생략. Size 역산으로 사후 검증(gradeMismatch). /open 시 단일 문자 B/A/S/C로 선언. 대시보드 Lv. 표기."
+      "value": "Grade S/A→L2 스킬, B→L1 인라인, C→L0 생략. Size 역산으로 사후 검증(gradeMismatch). /open 시 단일 문자 B/A/S/C로 선언. 대시보드 Lv. 표기.",
+      "owningTopicId": "topic_030",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-033",
@@ -502,7 +588,9 @@
       "topic": "dashboard-bug-ace-framing",
       "axis": "버전 관리 규칙 — project_charter 단일 소스화 + 명명 규칙",
       "decision": "A",
-      "value": "project_charter.json이 버전 유일 소스. nav.js가 모든 페이지에 자동 반영. 규칙: 큰 변화 +0.1, 작은 변화 +0.01. 현재 v1.01."
+      "value": "project_charter.json이 버전 유일 소스. nav.js가 모든 페이지에 자동 반영. 규칙: 큰 변화 +0.1, 작은 변화 +0.01. 현재 v1.01.",
+      "owningTopicId": "topic_030",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-034",
@@ -513,7 +601,9 @@
       "decision": "B",
       "value": "COPD+PRISm n=2,719 (Wan 2014 FEV1/FVC<0.70 또는 ≥0.70&FEV1%pred<80). Normal 폐기능군 337명 제외. Phenotype은 binary covariate로 투입 (moderator 아님).",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_045",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-035",
@@ -524,7 +614,9 @@
       "decision": "single",
       "value": "Age, Sex, Phenotype(PRISm binary), Previous exacerbation 1yr, Post-BDR FEV1%pred, Hospital(GEE cluster). Smoking status 제거(Pack-years 매개와 이중계상 회피). BMI/Comorbidity/WBC는 민감도로만.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_045",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-036",
@@ -535,7 +627,9 @@
       "decision": "parallel4",
       "value": "Pack-years + SGRQ Symptoms + SGRQ Activity + SGRQ Impact (4개 병렬). CAT total 제거(SGRQ와 중복), SGRQ total 제거(subscale 분해로 대체).",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_045",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-037",
@@ -546,7 +640,9 @@
       "decision": "2+3 only",
       "value": "궤도 2(modifiable mediator 서사)·궤도 3(near-universal coverage context) 채용. 궤도 4(effect modification) 기각. 궤도 1(PRISm outcome)은 PD-012로 이연(Paper B 씨앗).",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_045",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-038",
@@ -557,7 +653,9 @@
       "decision": "Thorax-first",
       "value": "Thorax → Int J Epidemiol → Chest → ERJ Open Res → Int J COPD. 기대 base band IF 5~10 (Chest 현실 target, Thorax stretch goal).",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_045",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-039",
@@ -568,7 +666,9 @@
       "decision": "pooled",
       "value": "PRISm complete-case n=51/events=3으로 moderated mediation 식별 불가. Primary analysis를 Pooled CMA로 강등. Phenotype은 covariate로 투입, phenotype-stratified는 descriptive sensitivity만.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_045",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-040",
@@ -579,7 +679,9 @@
       "decision": "A",
       "value": "Ace가 Grade 조정권 보유. Master 선언 grade와 실제 작업 gap 발생 시 Ace가 자율 상향/유지 조정. 이번 세션 첫 행사(B→A 상향 선언, 실제 진행은 B). gradeActual 불일치는 gradeMismatch 패널에 누적.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_032",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-041",
@@ -590,7 +692,9 @@
       "decision": "8 roles × 3 fields (persona/scope/hitRateRubric)",
       "value": "8개 역할(Ace·Arki·Fin·Riki·Nova·Dev·Vera·Editor) 페르소나 재정의. 3층 구조 확정(대변층=Ace / 전문가층 6 / 실행층=Editor). 공통 스키마 확장: persona(identity/originSource/style/antiPattern/nonNegotiables) + scope(notOwnerOf 우선/ownerOf) + hitRateRubric(hitCriteria/missCriteria/judgmentTiming/evidenceSource). 실존 인물 레퍼런스: Ace=Master복제 / Arki=Rich Hickey / Fin=Aswath Damodaran / Riki=Nassim Taleb / Nova=Alan Kay / Dev=John Carmack / Vera=Dieter Rams / Editor=Strunk & White. Riki 특례: 일치율 아닌 '기각 후 실현율'. Dev-Arki 양방향 협의 관계 확정. notOwnerOf 우위 원칙(Top 0.1% 지문=침묵 영역).",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_033",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-042",
@@ -601,7 +705,9 @@
       "decision": "confirmed",
       "value": "8개 역할 role memory에 skills 필드 신설(core/conditional/methods). 전역 스킬: auto-model-switch(Grade A/S → /fast Opus, opusplan 패턴 기반, 세션당 1회, 구현은 PD-017). 역할별 핵심: Ace(ace-framing·learning-loop·writing-plans) / Arki(engineering:architecture·system-design·tech-debt + ADR·C4 방법론) / Fin(finance:financial-statements·variance-analysis + EBITDA·DCF·Scenario 프레임) / Riki(operations:risk-assessment, R-03 레이어불일치로 재분류) / Nova(product-management:product-brainstorming, 침묵 원칙) / Dev(systematic-debugging·verification·subagent-driven) / Vera(design:design-system·critique·handoff, web-artifacts-builder 소유권=Editor) / Editor(web-artifacts-builder·doc-coauthoring). 버전 정책: 마일스톤형(역할·구조 변경=+0.1 / 역량 확장=+0.01 / 버그수정=+0.001). session_037 소급 v1.1, session_038 완료 시 v1.11.",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_034",
+      "scopeCheck": "legacy-ambiguous"
     },
     {
       "id": "D-043",
@@ -612,7 +718,9 @@
       "decision": "confirmed",
       "value": "D-042 구체화. 발동 범위: Grade S/A/B (C만 제외). 커맨드: /model claude-opus-4-7 (기존 /fast Opus 4.6 → Opus 4.7로 수정). 이미 Opus 4.7 계열(1M 포함) 상태면 안내 생략·유지. 세션당 1회, /open 보고 말미. 스킬 파일: .claude/skills/auto-model-switch/SKILL.md",
       "authority": "master",
-      "status": "confirmed"
+      "status": "confirmed",
+      "owningTopicId": "topic_042",
+      "scopeCheck": "legacy-ambiguous"
     }
   ]
 }

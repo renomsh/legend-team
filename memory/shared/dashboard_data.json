@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-21T11:01:09.584Z",
-  "totalSessions": 62,
+  "generatedAt": "2026-04-21T11:25:22.414Z",
+  "totalSessions": 63,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.44,
-    "avgCacheHitRate": 0.9271,
-    "cacheSampleSize": 36,
-    "cacheSampleTotal": 62,
+    "avgMasterTurns": 17.26,
+    "avgCacheHitRate": 0.9268,
+    "cacheSampleSize": 37,
+    "cacheSampleTotal": 63,
     "avgAdoptionRate": 0,
     "totalDecisions": 55,
     "gradeDistribution": {
-      "S": 17,
+      "S": 18,
       "A": 12,
       "B": 22,
       "C": 11
@@ -21,7 +21,7 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 17
+    "turnBasedSessions": 18
   },
   "sessions": [
     {
@@ -1893,12 +1893,43 @@
         "cacheHitRate": 0.9122459722228471,
         "messageCount": 37
       }
+    },
+    {
+      "sessionId": "session_064",
+      "topicSlug": "pd-020c-p1-decision-ledger",
+      "topic": "PD-020c 구현 P1: decision_ledger 스키마 확장 + 백필",
+      "startedAt": "2026-04-21T18:20:00.000Z",
+      "closedAt": "2026-04-21T19:10:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 5,
+      "rolesRecalled": 2,
+      "sessionsSpanned": 1,
+      "size": 12,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 7,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "dev",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 11786683,
+        "cacheHitRate": 0.9155104960403194,
+        "messageCount": 148
+      }
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 24,
+      "count": 25,
       "sessions": [
         "session_047",
         "session_048",
@@ -1913,12 +1944,31 @@
         "session_060",
         "session_061",
         "session_062",
-        "session_063"
+        "session_063",
+        "session_064"
+      ]
+    },
+    {
+      "role": "dev",
+      "count": 15,
+      "sessions": [
+        "session_047",
+        "session_048",
+        "session_050",
+        "session_051",
+        "session_052",
+        "session_055",
+        "session_056",
+        "session_057",
+        "session_058",
+        "session_061",
+        "session_062",
+        "session_064"
       ]
     },
     {
       "role": "editor",
-      "count": 14,
+      "count": 15,
       "sessions": [
         "session_050",
         "session_051",
@@ -1933,7 +1983,8 @@
         "session_060",
         "session_061",
         "session_062",
-        "session_063"
+        "session_063",
+        "session_064"
       ]
     },
     {
@@ -1948,23 +1999,6 @@
         "session_060",
         "session_061",
         "session_063"
-      ]
-    },
-    {
-      "role": "dev",
-      "count": 12,
-      "sessions": [
-        "session_047",
-        "session_048",
-        "session_050",
-        "session_051",
-        "session_052",
-        "session_055",
-        "session_056",
-        "session_057",
-        "session_058",
-        "session_061",
-        "session_062"
       ]
     },
     {
@@ -2575,50 +2609,104 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_064",
+      "topic": "PD-020c 구현 P1: decision_ledger 스키마 확장 + 백필",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 2,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 3,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 4,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
     {
       "ruleId": "R2",
       "severity": "yellow",
+      "sessionId": "session_017",
+      "description": "Master 병목: masterTurns=26 (avg=17.3)"
+    },
+    {
+      "ruleId": "R2",
+      "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=17.4)"
+      "description": "Master 병목: masterTurns=48 (avg=17.3)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=17.4)"
+      "description": "Master 병목: masterTurns=43 (avg=17.3)"
+    },
+    {
+      "ruleId": "R2",
+      "severity": "yellow",
+      "sessionId": "session_027",
+      "description": "Master 병목: masterTurns=26 (avg=17.3)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=17.4)"
+      "description": "Master 병목: masterTurns=42 (avg=17.3)"
+    },
+    {
+      "ruleId": "R2",
+      "severity": "yellow",
+      "sessionId": "session_030",
+      "description": "Master 병목: masterTurns=26 (avg=17.3)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=17.4)"
+      "description": "Master 병목: masterTurns=45 (avg=17.3)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=17.4)"
+      "description": "Master 병목: masterTurns=39 (avg=17.3)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=17.4)"
+      "description": "Master 병목: masterTurns=49 (avg=17.3)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=17.4)"
+      "description": "Master 병목: masterTurns=35 (avg=17.3)"
     },
     {
       "ruleId": "R1",
@@ -2661,6 +2749,12 @@
       "severity": "yellow",
       "sessionId": "session_060",
       "description": "Ace/역할 과호출: rolesRecalled=3"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_064",
+      "description": "Ace/역할 과호출: rolesRecalled=2"
     },
     {
       "ruleId": "R5",

@@ -186,6 +186,31 @@ function runL3Regenerator(sess) {
   }
 }
 
+/**
+ * A6-4 Editor 역검사 (D-055): PD 누락 여부 경고.
+ * 실패해도 hook 체인 중단하지 않음.
+ */
+function runCheckPendingDeferrals(sess) {
+  const scriptPath = path.join(CWD, 'scripts', 'check-pending-deferrals.ts');
+  if (!fs.existsSync(scriptPath)) {
+    log('check-pending-deferrals skip: 스크립트 없음');
+    return;
+  }
+  const isWin = process.platform === 'win32';
+  const cmd = isWin ? 'npx.cmd' : 'npx';
+  const result = spawnSync(cmd, ['ts-node', scriptPath], {
+    cwd: CWD,
+    encoding: 'utf8',
+    shell: isWin,
+  });
+  const output = (result.stdout || '') + (result.stderr || '');
+  if (output.includes('⚠️')) {
+    log(`[PD 역검사 경고]\n${output.trim()}`);
+  } else {
+    log('PD 역검사 완료 — 이상 없음');
+  }
+}
+
 function runSyncSystemState() {
   const tsPath = path.join(CWD, 'scripts', 'sync-system-state.ts');
   if (!fs.existsSync(tsPath)) {
@@ -239,6 +264,7 @@ function runSyncSystemState() {
     appendOrUpdateSessionIndex(sess);
     runL2Writer(sess);
     runL3Regenerator(sess);
+    runCheckPendingDeferrals(sess);
     runSyncSystemState();
 
     log(`완료 — ${sess.sessionId} (turns=${(sess.turns || []).length}, agents=${(sess.agentsCompleted || []).length}, decisions=${(sess.masterDecisions || []).length})`);

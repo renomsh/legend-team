@@ -542,3 +542,13 @@
 [2026-04-21T11:01:05.432Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_066\context_brief.md | sessions=1 size=333B
 [2026-04-21T11:01:07.416Z] [sync-system-state] lastSession=session_063 openTopics=4 recentDecisions=5 deferrals=20
 [2026-04-21T11:01:09.587Z] [compute-dashboard] 완료 — 62개 세션, 23개 경보
+[2026-04-21T11:25:00.774Z] [checklist] [INFO] reports: all 2 registered file(s) present: ace_rev1.md, dev_rev1.md
+[2026-04-21T11:25:00.777Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-21T11:25:00.778Z] [checklist] [INFO] topic_index: topic found: topic_067 (completed)
+[2026-04-21T11:25:00.779Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-21T11:25:00.780Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-21T11:25:00.780Z] [session-log] [INFO] END session_064 | topic: pd-020c-p1-decision-ledger | duration: unknown (startedAt in future)
+[2026-04-21T11:25:13.858Z] [L2-writer] wrote C:\Projects\legend-team\topics\topic_067\session_contributions\session_064.md | turns=0 decisions=0
+[2026-04-21T11:25:16.091Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_067\context_brief.md | sessions=1 size=353B
+[2026-04-21T11:25:20.201Z] [sync-system-state] lastSession=session_064 openTopics=4 recentDecisions=5 deferrals=20
+[2026-04-21T11:25:22.417Z] [compute-dashboard] 완료 — 63개 세션, 27개 경보

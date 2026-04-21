@@ -1,6 +1,21 @@
 {
-  "generatedAt": "2026-04-21T11:01:10.191Z",
+  "generatedAt": "2026-04-21T11:25:22.981Z",
   "topics": [
+    {
+      "id": "topic_067",
+      "title": "PD-020c 구현 P1: decision_ledger 스키마 확장 + 백필",
+      "status": "completed",
+      "created": "2026-04-21",
+      "reportPath": "reports/2026-04-21_pd-020c-p1-decision-ledger",
+      "reportFiles": [
+        "ace_rev1.md",
+        "dev_rev1.md"
+      ],
+      "published": false,
+      "outcome": "PD-020c P1+P2+P3 구현 완료. decision_ledger 54개 백필(owningTopicId+scopeCheck). lifecycle/anchor lint 경고 체계(A6-2/A6-3) 신설. 실시간 PD append + Editor 역검사(A6-4) 구현. session-end-finalize.js 통합.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_066",
       "title": "PD-020c — 결정 소유권 + 운영규칙 구현",

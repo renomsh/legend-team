@@ -21,6 +21,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { ROOT, readJson } from './lib/utils';
+import { checkTopicLifecycle, formatLifecycleWarnings } from './check-topic-lifecycle';
+import { checkContextBriefAnchors, formatAnchorWarnings } from './check-context-brief-anchors';
 
 const TOPICS_DIR        = path.join(ROOT, 'topics');
 const SYSTEM_STATE_PATH = path.join(ROOT, 'memory', 'shared', 'system_state.json');
@@ -122,4 +124,14 @@ if (require.main === module) {
 
   const entries = loadContextBriefs({ excludeId });
   console.log(formatOutput(entries));
+
+  // A6-2 lifecycle 경고
+  const lifecycleWarnings = checkTopicLifecycle();
+  const lifecycleOut = formatLifecycleWarnings(lifecycleWarnings);
+  if (lifecycleOut) process.stderr.write(lifecycleOut + '\n');
+
+  // A6-3 anchor lint 경고
+  const anchorWarnings = checkContextBriefAnchors();
+  const anchorOut = formatAnchorWarnings(anchorWarnings);
+  if (anchorOut) process.stderr.write(anchorOut + '\n');
 }
