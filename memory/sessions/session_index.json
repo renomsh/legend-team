@@ -1644,8 +1644,45 @@
       ],
       "grade": "B",
       "note": "Grade B → L1 (Ace 인라인 2~3줄), 경량 프레이밍 | P2 write-turn-log.ts: L1 append writer + readTurnLog export (callable) | P2b backfill-turn-log.ts: session_060 8 turns 소급 완료 (topic_063, 멱등) | P3 write-session-contribution.ts: L2 writer, FM + 5섹션 검증 통과 | P4 regenerate-context-brief.ts: L3 regenerator, 멱등, hold 무관 실행 | P5 session-end-finalize.js 훅 체인 편입: runL2Writer + runL3Regenerator 삽입 | 부수: src/types/context-layers.ts 복원 (worktree→main 누락), TopicIndexEntry gap 해소 | 검증: L1 8/8 · L2 1/1 · L3 1/1 · P0 turns 14/14 전 게이트 OK | session_062로 P6 (/open 로더 통합) 이월"
+    },
+    {
+      "sessionId": "session_062",
+      "topicSlug": "pd-020b-p6-open-loader",
+      "topic": "PD-020b P6 — /open 로더 통합",
+      "startedAt": "2026-04-21T17:00:00.000Z",
+      "closedAt": "2026-04-21T17:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 1,
+          "phase": "implementation"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 2,
+          "phase": "compile"
+        }
+      ],
+      "plannedSequence": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "grade": "B",
+      "note": "Grade B → L1 (Ace 인라인 2~3줄), 경량 프레이밍 | P6 구현: scripts/load-context-briefs.ts 신설 (hold=null openTopics context_brief.md 로드) | .claude/commands/open.md step 3.5 추가 (context_brief 자동 로드 지시) | 검증: npx ts-node scripts/load-context-briefs.ts 정상 실행 확인 (활성 context_brief 없음 = 정상 스킵) | PD-020b 전 구간(P0~P6) 완료. 다음: PD-020c"
     }
   ],
-  "lastUpdated": "2026-04-21T10:26:13.836Z",
+  "lastUpdated": "2026-04-21T10:36:28.801Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

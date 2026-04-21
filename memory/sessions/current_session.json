@@ -1,11 +1,11 @@
 {
-  "sessionId": "session_061",
-  "topicId": "topic_064",
-  "topic": "PD-020b P2~P5 — L1/L2/L3 writer + 훅 편입 + L1 backfill",
-  "topicSlug": "pd-020b-p2p5-writers-hooks",
+  "sessionId": "session_062",
+  "topicId": "topic_065",
+  "topic": "PD-020b P6 — /open 로더 통합",
+  "topicSlug": "pd-020b-p6-open-loader",
   "status": "closed",
-  "startedAt": "2026-04-21T15:35:00.000Z",
-  "closedAt": "2026-04-21T16:30:00.000Z",
+  "startedAt": "2026-04-21T17:00:00.000Z",
+  "closedAt": "2026-04-21T17:30:00.000Z",
   "mode": "observation",
   "grade": "B",
   "gradeDeclared": "B",
@@ -15,7 +15,6 @@
   "framingSkipped": false,
   "agentsCompleted": [
     "ace",
-    "arki",
     "dev",
     "editor"
   ],
@@ -26,49 +25,39 @@
       "phase": "framing"
     },
     {
-      "role": "arki",
-      "turnIdx": 1,
-      "phase": "analysis"
-    },
-    {
       "role": "dev",
-      "turnIdx": 2,
+      "turnIdx": 1,
       "phase": "implementation"
     },
     {
       "role": "editor",
-      "turnIdx": 3,
+      "turnIdx": 2,
       "phase": "compile"
     }
   ],
   "plannedSequence": [
     "ace",
-    "arki",
     "dev",
     "editor"
   ],
   "decisions": [],
   "notes": [
     "Grade B → L1 (Ace 인라인 2~3줄), 경량 프레이밍",
-    "P2 write-turn-log.ts: L1 append writer + readTurnLog export (callable)",
-    "P2b backfill-turn-log.ts: session_060 8 turns 소급 완료 (topic_063, 멱등)",
-    "P3 write-session-contribution.ts: L2 writer, FM + 5섹션 검증 통과",
-    "P4 regenerate-context-brief.ts: L3 regenerator, 멱등, hold 무관 실행",
-    "P5 session-end-finalize.js 훅 체인 편입: runL2Writer + runL3Regenerator 삽입",
-    "부수: src/types/context-layers.ts 복원 (worktree→main 누락), TopicIndexEntry gap 해소",
-    "검증: L1 8/8 · L2 1/1 · L3 1/1 · P0 turns 14/14 전 게이트 OK",
-    "session_062로 P6 (/open 로더 통합) 이월"
+    "P6 구현: scripts/load-context-briefs.ts 신설 (hold=null openTopics context_brief.md 로드)",
+    ".claude/commands/open.md step 3.5 추가 (context_brief 자동 로드 지시)",
+    "검증: npx ts-node scripts/load-context-briefs.ts 정상 실행 확인 (활성 context_brief 없음 = 정상 스킵)",
+    "PD-020b 전 구간(P0~P6) 완료. 다음: PD-020c"
   ],
   "gaps": [],
   "masterDecisions": [],
-  "reportPath": "reports/2026-04-21_pd-020b-p2p5-writers-hooks",
+  "reportPath": "reports/2026-04-21_pd-020b-p6-open-loader",
   "tokenUsage": {
-    "input_tokens": 198,
-    "output_tokens": 73137,
-    "cache_creation_input_tokens": 644540,
-    "cache_read_input_tokens": 12797696,
-    "messageCount": 146,
-    "masterTurns": 9,
-    "total_billable": 13515571
+    "input_tokens": 101,
+    "output_tokens": 36545,
+    "cache_creation_input_tokens": 346778,
+    "cache_read_input_tokens": 4240729,
+    "messageCount": 76,
+    "masterTurns": 6,
+    "total_billable": 4624153
   }
 }

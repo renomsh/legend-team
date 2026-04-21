@@ -7,6 +7,10 @@
 1. `memory/sessions/current_session.json` 읽기 — 이전 세션이 열려있는지 확인. 열려있으면 먼저 닫아야 한다고 Master에게 알림.
 2. `memory/shared/system_state.json` 읽기 (fast-path) — nextSessionId, openTopics, recentDecisions, pendingDeferrals 추출
 3. **이연 항목 List-up** — openTopics + pendingDeferrals를 Master에게 브리핑
+3.5. **[context_brief 자동 로드]** `npx ts-node scripts/load-context-briefs.ts` 실행.
+   - hold=null인 openTopics의 context_brief.md를 자동 로드해 Master에게 요약 브리핑
+   - 파일 없는 토픽은 조용히 스킵 (오류 아님) — 신규 토픽도 context_brief 미생성 상태이므로 자동 스킵
+   - 출력이 비어있으면 "활성 context_brief 없음"으로 보고 후 진행
 4. `memory/sessions/session_index.json` 읽기 — 마지막 session ID 확인하여 다음 ID 생성
 5. **Grade 판정** (아래 Grade 판정 규칙 참조) — `grade` 결정 후 Framing Level 선택
 6. `current_session.json`을 새 세션 정보로 업데이트:

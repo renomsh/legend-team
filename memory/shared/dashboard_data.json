@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-21T10:26:22.131Z",
-  "totalSessions": 60,
+  "generatedAt": "2026-04-21T10:36:37.126Z",
+  "totalSessions": 61,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.8,
-    "avgCacheHitRate": 0.9278,
-    "cacheSampleSize": 34,
-    "cacheSampleTotal": 60,
+    "avgMasterTurns": 17.59,
+    "avgCacheHitRate": 0.9275,
+    "cacheSampleSize": 35,
+    "cacheSampleTotal": 61,
     "avgAdoptionRate": 0,
     "totalDecisions": 54,
     "gradeDistribution": {
       "S": 16,
       "A": 12,
-      "B": 21,
+      "B": 22,
       "C": 11
     },
     "gradeMismatchCount": 2,
@@ -21,7 +21,7 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 15
+    "turnBasedSessions": 16
   },
   "sessions": [
     {
@@ -1829,12 +1829,41 @@
         "cacheHitRate": 0.9468853369199126,
         "messageCount": 146
       }
+    },
+    {
+      "sessionId": "session_062",
+      "topicSlug": "pd-020b-p6-open-loader",
+      "topic": "PD-020b P6 — /open 로더 통합",
+      "startedAt": "2026-04-21T17:00:00.000Z",
+      "closedAt": "2026-04-21T17:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 6,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 4624153,
+        "cacheHitRate": 0.9170823283745153,
+        "messageCount": 76
+      }
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 21,
+      "count": 22,
       "sessions": [
         "session_047",
         "session_048",
@@ -1847,7 +1876,44 @@
         "session_056",
         "session_059",
         "session_060",
-        "session_061"
+        "session_061",
+        "session_062"
+      ]
+    },
+    {
+      "role": "editor",
+      "count": 13,
+      "sessions": [
+        "session_050",
+        "session_051",
+        "session_052",
+        "session_053",
+        "session_054",
+        "session_055",
+        "session_056",
+        "session_057",
+        "session_058",
+        "session_059",
+        "session_060",
+        "session_061",
+        "session_062"
+      ]
+    },
+    {
+      "role": "dev",
+      "count": 12,
+      "sessions": [
+        "session_047",
+        "session_048",
+        "session_050",
+        "session_051",
+        "session_052",
+        "session_055",
+        "session_056",
+        "session_057",
+        "session_058",
+        "session_061",
+        "session_062"
       ]
     },
     {
@@ -1860,40 +1926,6 @@
         "session_054",
         "session_059",
         "session_060",
-        "session_061"
-      ]
-    },
-    {
-      "role": "editor",
-      "count": 12,
-      "sessions": [
-        "session_050",
-        "session_051",
-        "session_052",
-        "session_053",
-        "session_054",
-        "session_055",
-        "session_056",
-        "session_057",
-        "session_058",
-        "session_059",
-        "session_060",
-        "session_061"
-      ]
-    },
-    {
-      "role": "dev",
-      "count": 11,
-      "sessions": [
-        "session_047",
-        "session_048",
-        "session_050",
-        "session_051",
-        "session_052",
-        "session_055",
-        "session_056",
-        "session_057",
-        "session_058",
         "session_061"
       ]
     },
@@ -2437,6 +2469,30 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_062",
+      "topic": "PD-020b P6 — /open 로더 통합",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -2444,43 +2500,43 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=17.8)"
+      "description": "Master 병목: masterTurns=48 (avg=17.6)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=17.8)"
+      "description": "Master 병목: masterTurns=43 (avg=17.6)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=17.8)"
+      "description": "Master 병목: masterTurns=42 (avg=17.6)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=17.8)"
+      "description": "Master 병목: masterTurns=45 (avg=17.6)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=17.8)"
+      "description": "Master 병목: masterTurns=39 (avg=17.6)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=17.8)"
+      "description": "Master 병목: masterTurns=49 (avg=17.6)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=17.8)"
+      "description": "Master 병목: masterTurns=35 (avg=17.6)"
     },
     {
       "ruleId": "R1",

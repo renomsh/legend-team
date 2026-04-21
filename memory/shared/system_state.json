@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_061",
-  "nextSessionId": "session_062",
+  "lastSessionId": "session_062",
+  "nextSessionId": "session_063",
   "currentVersion": "v1.11",
   "openTopics": [
     {
@@ -232,5 +232,5 @@
       "note": "Grade A 권장. 원래 스킬 의도와 현 구현 불일치 발견(session_059). Master 의도: Sonnet 메인 + Opus 서브 호출."
     }
   ],
-  "lastUpdated": "2026-04-21T10:26:19.939Z"
+  "lastUpdated": "2026-04-21T10:36:35.278Z"
 }
