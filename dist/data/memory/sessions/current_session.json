@@ -1,18 +1,20 @@
 {
-  "sessionId": "session_051",
-  "topicId": "topic_054",
-  "topic": "에디 이름 적용",
-  "topicSlug": "edi-name-apply",
+  "sessionId": "session_052",
+  "topicId": "topic_055",
+  "topic": "Session History Design Change",
+  "topicSlug": "session-history-design-change",
   "status": "closed",
-  "startedAt": "2026-04-21T00:00:00.000Z",
-  "closedAt": "2026-04-21T01:00:00.000Z",
+  "startedAt": "2026-04-21T02:00:00.000Z",
+  "closedAt": "2026-04-21T03:30:00.000Z",
   "mode": "observation",
-  "grade": "B",
-  "gradeDeclared": "B",
-  "framingLevel": 1,
+  "grade": "A",
+  "gradeDeclared": "A",
+  "gradeActual": "B",
+  "framingLevel": 2,
   "framingSkipped": false,
   "agentsCompleted": [
     "ace",
+    "vera",
     "dev",
     "editor"
   ],
@@ -23,39 +25,68 @@
       "phase": "framing"
     },
     {
-      "role": "dev",
+      "role": "vera",
       "turnIdx": 1,
+      "phase": "design-spec"
+    },
+    {
+      "role": "vera",
+      "turnIdx": 2,
+      "phase": "design-spec",
+      "recallReason": "post-master"
+    },
+    {
+      "role": "vera",
+      "turnIdx": 3,
+      "phase": "design-critique",
+      "recallReason": "post-master"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 4,
       "phase": "implementation"
     },
     {
       "role": "editor",
-      "turnIdx": 2,
+      "turnIdx": 5,
       "phase": "output"
     }
   ],
   "plannedSequence": [
     "ace",
+    "vera",
     "dev"
   ],
-  "decisions": [],
+  "decisions": [
+    "D-050"
+  ],
   "notes": [
-    "roles.json name:Editor → Edi. description (에디) 제거.",
-    "session.html 'Editor — Output' → 'Edi — Output'.",
-    "dashboard_data.json + session_index.json 역사 데이터 Editor → Edi (각 3건).",
-    "ensureEditorInAgents() reportPath 조건 제거 — session_051부터 모든 세션 무조건 push.",
-    "누락 세션 17개 소급 없음 — Master 결정. 앞으로 발전해 나가면 된다.",
-    "에디 이름 적용 범위: 표시명만 변경. 역할 설명 컨텍스트(Editor Protocol 등)는 유지."
+    "app/js/role-colors.js 신설 — window.ROLE_COLORS + window.ROLE_LABELS 단일 원천",
+    "Turn Sequence dot: nodeR 8→10, gap 28→36, rowH 24→28, dark ring stroke 추가",
+    "Role Frequency: ECharts horizontal bar → HTML/CSS 트랙 바 교체",
+    "Canonical palette v1.13: ace=#8B5CF6, arki=#06B6D4, fin=#F59E0B, riki=#EF4444, nova=#10B981, edi=#9CA3AF, dev=#3B82F6, vera=#F472B6",
+    "nova↔edi 색상 교체 (nova=green, edi=gray)",
+    "index.html 캐릭터 카드 8개 고유색 통일, EDITOR→EDI 이름 수정",
+    "dashboard-upgrade.html rchip 팔레트 업데이트, editor→edi 레이블",
+    "project_charter.json v1.12→v1.13",
+    "Vera 수치 기반 제안(dev #60A5FA, riki #F87171) 두 건 Master 기각 — cool cluster 수용, 역할 성격 우선"
   ],
   "gaps": [],
-  "masterDecisions": [],
-  "reportPath": "reports/2026-04-21_edi-name-apply",
+  "masterDecisions": [
+    {
+      "id": "D-050",
+      "axis": "ROLE_COLORS 단일 원천 + canonical palette v1.13",
+      "value": "role-colors.js 신설. dev=blue 의도적 유지(코딩은 차가움). cool cluster 수용."
+    }
+  ],
+  "reportPath": "reports/2026-04-21_session-history-design-change",
   "tokenUsage": {
-    "input_tokens": 156,
-    "output_tokens": 44537,
-    "cache_creation_input_tokens": 265917,
-    "cache_read_input_tokens": 6372842,
-    "messageCount": 108,
-    "masterTurns": 7,
-    "total_billable": 6683452
+    "input_tokens": 13,
+    "output_tokens": 1813,
+    "cache_creation_input_tokens": 35186,
+    "cache_read_input_tokens": 123321,
+    "messageCount": 5,
+    "masterTurns": 2,
+    "total_billable": 160333
   }
 }

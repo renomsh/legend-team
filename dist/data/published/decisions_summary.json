@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-04-20T23:36:04.920Z",
+  "generatedAt": "2026-04-21T00:39:56.211Z",
   "decisions": [
+    {
+      "id": "D-050",
+      "date": "2026-04-21",
+      "session": "session_052",
+      "topic": "session-history-design-change",
+      "axis": "ROLE_COLORS 단일 원천 + Session History 시각 시스템 v1.13",
+      "decision": "app/js/role-colors.js 신설 — window.ROLE_COLORS + window.ROLE_LABELS 단일 원천. Turn Sequence dot 크기 확대(r8→10), Role Frequency ECharts→HTML 트랙 바 교체. dev=blue cool 계열 의도적 유지(Master: 코딩은 차가워야 함). nova↔edi 색상 교체(nova=#10B981, edi=#9CA3AF). 전 페이지 캐릭터 카드 색상 통일.",
+      "value": "canonical palette v1.13: ace=#8B5CF6, arki=#06B6D4, fin=#F59E0B, riki=#EF4444, nova=#10B981, edi=#9CA3AF, dev=#3B82F6, vera=#F472B6. cool cluster(ace/arki/dev) 수용 — 수치보다 역할 성격 우선. ROLE_LABELS: editor→edi 표시명. v1.12→v1.13.",
+      "authority": "master",
+      "status": "confirmed"
+    },
     {
       "id": "D-049",
       "date": "2026-04-20",

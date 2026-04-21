@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_051",
-  "nextSessionId": "session_052",
+  "lastSessionId": "session_052",
+  "nextSessionId": "session_053",
   "currentVersion": "v1.11",
   "openTopics": [
     {
@@ -20,6 +20,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-050",
+      "date": "2026-04-21",
+      "axis": "ROLE_COLORS 단일 원천 + Session History 시각 시스템 v1.13",
+      "summary": "canonical palette v1.13: ace=#8B5CF6, arki=#06B6D4, fin=#F59E0B, riki=#EF4444, nova=#10B981, edi=#9CA3AF, dev=#3B82F6, vera=#F472B6. cool cluster(ace/arki/dev) 수용 — 수치보다 역할 성격 우선. ROLE_LABELS: editor→edi 표시명. v1.12→v1.13."
+    },
     {
       "id": "D-049",
       "date": "2026-04-20",
@@ -43,12 +49,6 @@
       "date": "2026-04-19",
       "axis": "Statistical Anchor Registry — data provenance gate",
       "summary": "향후 정량 원고 세션은 /open 시 current_session.json에 canonical_data 필드(경로+md5)를 기록. 본문 모든 정량 주장은 canonical 앵커 인용. 출처 없는 숫자는 [pending: source] 플래그 필수. Editor 숫자 기입 시 출처 주석 의무. Riki 공격영역에 'data provenance' 신설. 근거: session_041 ver3.0_E 작성 시 canonical Xlsx 미확인하고 save04.md 캐시 숫자·LLM 합성 CI로 7차 검토 루프가 오염 동결(E-xxx 등록)."
-    },
-    {
-      "id": "D-045",
-      "date": "2026-04-19",
-      "axis": "COPD 논문 primary outcome 프레임 — Y1 vs Y1-Y3 기로에서의 절충",
-      "summary": "Y1 primary (mediation novelty 유지) + Y1-Y3 강력 pre-specified sensitivity (TE significance 확보). Riki의 HARKing·sister paper·mediation 윈도우 비정합 3대 반대점 모두 해소. Y1-Y3를 primary로 전환하지 않음. 대신 Results §Sensitivity에 3-year TE OR 1.72 (1.07-2.76, p=0.025) 및 p-for-trend 0.013을 핵심 sensitivity로 승격 강조. Nova N1이 계기(5-window sweep 촉발), Ace 합성(Riki 반대 통합). 소유권: Ace 제안, Master 승인."
     }
   ],
   "pendingDeferrals": [
@@ -191,5 +191,5 @@
       "note": "session_045 Nova 뒤집기 제안에 대한 Master 역제안. Grade S 토픽 예상. 본 토픽(PD-011 해소)과 연계되나 범위 외로 분리."
     }
   ],
-  "lastUpdated": "2026-04-20T23:36:01.545Z"
+  "lastUpdated": "2026-04-21T00:39:52.557Z"
 }

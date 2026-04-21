@@ -65,7 +65,9 @@
     "roleCard": "confirmed — 145deg linear-gradient(color 16%→4%→dark), radial glow ::before 20%",
     "statCard": "confirmed — border-top:3px solid accent + gradient bg per semantic color",
     "tabBar": "confirmed — tab-btn uppercase, active=border-bottom purple + white text",
-    "sequencePanel": "confirmed — D3 SVG, 96px label + 16px node(r=8) + 28px gap, 280px height, ROLE_COLORS 재사용, R-D01(dashed=recall) + R-D02(purple-tint=connector) 적용, invocationMode: skill-call, session_049 Vera 직접 프로토타입 (신규 시각화 문법)"
+    "sequencePanel": "confirmed v1.1 — D3 SVG, 96px label + 20px node(r=10) + 36px gap, rowH=28, stroke=#0B0B0D 1.5px, recall dashed 4,3, R-D02 connector α=0.18. (session_052: r8→10, gap28→36 수정)",
+    "roleFrequencyChart": "confirmed — ECharts bar 대체. HTML/CSS 트랙 바: dot(8px) + 역할명(52px min) + 트랙(h:6px, bg:#26262D) + 숫자. fill=rgba(ROLE_COLOR,.65)",
+    "roleCard": "confirmed v1.1 — 145deg linear-gradient(color 16%→4%→dark). session_052: 8역할 canonical ROLE_COLORS 적용 완료"
   },
   "patterns": ["R-D01", "R-D02"],
   "topicsHandled": [
@@ -74,6 +76,12 @@
       "title": "Phase 4 — UI (sequence 패널 + 스킬 매트릭스)",
       "date": "2026-04-20",
       "outcome": "D3 sequence 패널 프로토타입 직접 작성, skills 조건부 매트릭스 확정 + invocationMode 필드 강제, design_rules.json 신설(R-D01·R-D02), Claude Design(웹)과 플러그인 스킬 구분 학습"
+    },
+    {
+      "topicId": "topic_055",
+      "title": "Session History Design Change",
+      "date": "2026-04-21",
+      "outcome": "ROLE_COLORS 단일 원천(role-colors.js) 구조 확립. 팔레트 크리틱(design:design-critique). cool cluster(ace/arki/dev) Master 결정으로 수용 — 역할 성격 우선. dev=blue(차가움), riki=#EF4444 유지. Vera 초기 수치 기반 제안 두 건 Master에 의해 기각. 팔레트 변경은 수치보다 역할 성격 인과 먼저 확인할 것."
     },
     {
       "topicId": "topic_current",

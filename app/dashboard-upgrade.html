@@ -21,7 +21,7 @@
   --grad-amber:linear-gradient(135deg,#D97706 0%,#F59E0B 100%);
   --grad-rose:linear-gradient(135deg,#BE185D 0%,#F43F5E 100%);
   --c-ace:#8B5CF6;--c-arki:#06B6D4;--c-fin:#F59E0B;--c-riki:#EF4444;
-  --c-editor:#10B981;--c-nova:#EC4899;--c-dev:#3B82F6;--c-vera:#F472B6;
+  --c-editor:#9CA3AF;--c-nova:#10B981;--c-dev:#3B82F6;--c-vera:#F472B6;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--bg);color:var(--text);font-family:-apple-system,'SF Pro Display','Inter','Pretendard',sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh}
@@ -112,8 +112,8 @@ a{color:inherit;text-decoration:none}
 .rchip.arki{background:rgba(6,182,212,.15);color:#67E8F9}
 .rchip.fin{background:rgba(245,158,11,.15);color:#FCD34D}
 .rchip.riki{background:rgba(239,68,68,.15);color:#FCA5A5}
-.rchip.editor{background:rgba(16,185,129,.15);color:#6EE7B7}
-.rchip.nova{background:rgba(236,72,153,.15);color:#F9A8D4}
+.rchip.editor{background:rgba(156,163,175,.15);color:#D1D5DB}
+.rchip.nova{background:rgba(16,185,129,.15);color:#6EE7B7}
 .rchip.dev{background:rgba(59,130,246,.15);color:#93C5FD}
 .rchip.vera{background:rgba(244,114,182,.15);color:#FBCFE8}
 .dtag{padding:2px 6px;border-radius:4px;background:var(--panel-2);border:1px solid var(--line);color:#A78BFA;font-family:'SF Mono',monospace;font-weight:600;font-size:9px}
@@ -391,9 +391,10 @@ a{color:inherit;text-decoration:none}
   </main>
 </div>
 
+<script src="js/role-colors.js"></script>
 <script src="js/data-loader.js"></script>
 <script>
-const ROLE_COLORS = {ace:'#8B5CF6',arki:'#06B6D4',fin:'#F59E0B',riki:'#EF4444',editor:'#10B981',nova:'#EC4899',dev:'#3B82F6',vera:'#F472B6','ace-review':'#A78BFA'};
+const ROLE_COLORS = window.ROLE_COLORS;
 const ROLE_ORDER = ['ace','arki','fin','riki','editor','dev','nova','vera'];
 
 function fmtPct(v) {
@@ -586,7 +587,7 @@ function renderFlow() {
       <div class="flow-body">
         <div class="flow-title" title="${title}">${title}</div>
         <div class="flow-chips">
-          ${roles.map(r=>`<span class="rchip ${r}">${r}</span>`).join('') || '<span style="font-size:10px;color:var(--text-3)">— 역할 정보 없음</span>'}
+          ${roles.map(r=>`<span class="rchip ${r}">${(window.ROLE_LABELS||{})[r]||r}</span>`).join('') || '<span style="font-size:10px;color:var(--text-3)">— 역할 정보 없음</span>'}
           ${decs.map(d=>`<span class="dtag">${d}</span>`).join('')}
         </div>
       </div>
@@ -615,7 +616,7 @@ function renderRoleFreq(sessions) {
     const c = counts[r];
     const pct = (c/max*100).toFixed(0);
     return `<div class="rf-row">
-      <div class="rf-name"><span class="dot" style="background:${ROLE_COLORS[r]}"></span>${r}</div>
+      <div class="rf-name"><span class="dot" style="background:${ROLE_COLORS[r]}"></span>${(window.ROLE_LABELS||{})[r]||r}</div>
       <div class="rf-bar"><div class="rf-fill" style="width:${pct}%;background:linear-gradient(90deg,${ROLE_COLORS[r]}88,${ROLE_COLORS[r]})"></div></div>
       <div class="rf-cnt">${c}</div>
     </div>`;

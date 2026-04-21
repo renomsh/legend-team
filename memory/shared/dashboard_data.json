@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-20T23:36:04.270Z",
-  "totalSessions": 50,
+  "generatedAt": "2026-04-21T00:39:55.468Z",
+  "totalSessions": 51,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 19.29,
-    "avgCacheHitRate": 0.9384,
-    "cacheSampleSize": 24,
-    "cacheSampleTotal": 50,
+    "avgMasterTurns": 18.91,
+    "avgCacheHitRate": 0.9316,
+    "cacheSampleSize": 25,
+    "cacheSampleTotal": 51,
     "avgAdoptionRate": 0,
-    "totalDecisions": 49,
+    "totalDecisions": 50,
     "gradeDistribution": {
       "S": 11,
-      "A": 12,
+      "A": 13,
       "B": 16,
       "C": 11
     },
@@ -20,7 +20,7 @@
       "session_013"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 5
+    "turnBasedSessions": 6
   },
   "sessions": [
     {
@@ -1501,27 +1501,79 @@
         "cacheHitRate": 0.9535255134622048,
         "messageCount": 108
       }
+    },
+    {
+      "sessionId": "session_052",
+      "topicSlug": "session-history-design-change",
+      "topic": "Session History Design Change",
+      "startedAt": "2026-04-21T02:00:00.000Z",
+      "closedAt": "2026-04-21T03:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-050"
+      ],
+      "rolesCalled": 4,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 9,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 2,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "vera",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 160333,
+        "cacheHitRate": 0.7691554452296159,
+        "messageCount": 5
+      }
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 6,
+      "count": 7,
       "sessions": [
         "session_047",
         "session_048",
         "session_049",
-        "session_051"
+        "session_051",
+        "session_052"
       ]
     },
     {
       "role": "dev",
-      "count": 5,
+      "count": 6,
       "sessions": [
         "session_047",
         "session_048",
         "session_050",
-        "session_051"
+        "session_051",
+        "session_052"
+      ]
+    },
+    {
+      "role": "vera",
+      "count": 5,
+      "sessions": [
+        "session_049",
+        "session_052"
+      ]
+    },
+    {
+      "role": "editor",
+      "count": 3,
+      "sessions": [
+        "session_050",
+        "session_051",
+        "session_052"
       ]
     },
     {
@@ -1530,21 +1582,6 @@
       "sessions": [
         "session_048",
         "session_049"
-      ]
-    },
-    {
-      "role": "vera",
-      "count": 2,
-      "sessions": [
-        "session_049"
-      ]
-    },
-    {
-      "role": "editor",
-      "count": 2,
-      "sessions": [
-        "session_050",
-        "session_051"
       ]
     },
     {
@@ -1693,6 +1730,48 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_052",
+      "topic": "Session History Design Change",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "vera",
+          "phase": "design-spec",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "vera",
+          "phase": "design-spec",
+          "turnIdx": 2,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "vera",
+          "phase": "design-critique",
+          "turnIdx": 3,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "output",
+          "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -1700,43 +1779,43 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=19.3)"
+      "description": "Master 병목: masterTurns=48 (avg=18.9)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=19.3)"
+      "description": "Master 병목: masterTurns=43 (avg=18.9)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=19.3)"
+      "description": "Master 병목: masterTurns=42 (avg=18.9)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=19.3)"
+      "description": "Master 병목: masterTurns=45 (avg=18.9)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=19.3)"
+      "description": "Master 병목: masterTurns=39 (avg=18.9)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=19.3)"
+      "description": "Master 병목: masterTurns=49 (avg=18.9)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=19.3)"
+      "description": "Master 병목: masterTurns=35 (avg=18.9)"
     },
     {
       "ruleId": "R1",

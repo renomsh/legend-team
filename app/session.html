@@ -55,7 +55,7 @@
 .dq-manual{color:#6E6E78;background:rgba(110,110,120,.1);border-color:rgba(110,110,120,.2)}
 
 /* Role freq chart */
-#roleFreqChart{height:260px;width:100%}
+#roleFreqChart{width:100%;max-width:400px}
 
 /* Search */
 .search-row{display:flex;gap:8px;margin-bottom:16px}
@@ -149,6 +149,7 @@
     <div id="histList"></div>
   </div>
 
+  <script src="js/role-colors.js"></script>
   <script src="js/data-loader.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/sequence-panel.js"></script>
@@ -162,10 +163,7 @@
       nova: 'Nova — Speculation', 'ace-review': 'Ace — Review',
       vera: 'Vera — Design', editor: 'Edi — Output'
     };
-    const ROLE_COLORS = {
-      ace:'#06B6D4', arki:'#14B8A6', fin:'#10B981', riki:'#EF4444',
-      nova:'#F59E0B', 'ace-review':'#06B6D4', vera:'#EC4899', editor:'#8B5CF6', dev:'#F97316'
-    };
+    const ROLE_COLORS = window.ROLE_COLORS;
 
     let allSessions = [];
     let roleFrequency = [];
@@ -337,24 +335,21 @@
 
     function renderRoleChart() {
       if (!roleFrequency.length) return;
-      const chart = echarts.init(document.getElementById('roleFreqChart'), 'dark');
-      const roles = roleFrequency.map(r => r.role);
-      const counts = roleFrequency.map(r => r.count);
-      const colors = roles.map(r => ROLE_COLORS[r] || '#8B5CF6');
-      chart.setOption({
-        backgroundColor: 'transparent',
-        grid: { top: 10, right: 20, bottom: 40, left: 70 },
-        xAxis: { type: 'value', axisLabel: { color: '#6E6E78', fontSize: 11 }, splitLine: { lineStyle: { color: '#1E1E24' } } },
-        yAxis: { type: 'category', data: roles.slice().reverse(), axisLabel: { color: '#B8B8C0', fontSize: 12 } },
-        series: [{
-          type: 'bar', data: counts.slice().reverse(),
-          itemStyle: { color: (p) => colors[roles.length - 1 - p.dataIndex], borderRadius: [0, 4, 4, 0] },
-          barMaxWidth: 28,
-          label: { show: true, position: 'right', color: '#B8B8C0', fontSize: 11, formatter: '{c}' }
-        }],
-        tooltip: { trigger: 'axis', backgroundColor: '#141418', borderColor: '#26262D', textStyle: { color: '#F5F5F7', fontSize: 12 } }
-      });
-      window.addEventListener('resize', () => chart.resize());
+      const el = document.getElementById('roleFreqChart');
+      const maxCount = Math.max(...roleFrequency.map(r => r.count));
+      el.innerHTML = roleFrequency.map(r => {
+        const color = ROLE_COLORS[r.role] || '#6E6E78';
+        const pct = maxCount > 0 ? (r.count / maxCount * 100).toFixed(1) : 0;
+        const rgb = hexToRgb(color);
+        return `<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <span style="width:8px;height:8px;border-radius:50%;background:${color};flex-shrink:0"></span>
+          <span style="font-size:12px;font-weight:600;color:#E5E5EA;min-width:52px">${(window.ROLE_LABELS||{})[r.role]||r.role}</span>
+          <div style="flex:1;height:6px;background:#26262D;border-radius:3px;overflow:hidden">
+            <div style="width:${pct}%;height:100%;background:rgba(${rgb},.65);border-radius:3px;transition:width .4s ease"></div>
+          </div>
+          <span style="font-size:13px;font-weight:700;color:${color};min-width:24px;text-align:right">${r.count}</span>
+        </div>`;
+      }).join('');
     }
 
     function hexToRgb(hex) {

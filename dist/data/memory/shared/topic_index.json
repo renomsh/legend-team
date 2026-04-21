@@ -1,6 +1,19 @@
 {
   "topics": [
     {
+      "id": "topic_055",
+      "title": "Session History Design Change",
+      "status": "completed",
+      "created": "2026-04-21",
+      "grade": "A",
+      "outcome": "ROLE_COLORS 단일 원천(role-colors.js) 신설. Turn Sequence dot 개선. Role Frequency 트랙 바 교체. 전 페이지 색상 통일. v1.13.",
+      "controlPath": "topics/topic_055",
+      "reportPath": "reports/2026-04-21_session-history-design-change",
+      "reportFiles": ["ace_rev1.md", "vera_rev1.md", "dev_rev1.md"],
+      "published": false,
+      "path": "topics/topic_055"
+    },
+    {
       "id": "topic_054",
       "grade": "B",
       "title": "에디 이름 적용",
@@ -9,7 +22,9 @@
       "closedAt": "2026-04-21",
       "controlPath": "topics/topic_054",
       "reportPath": "reports/2026-04-21_edi-name-apply",
-      "reportFiles": ["dev_rev01.md"],
+      "reportFiles": [
+        "dev_rev01.md"
+      ],
       "published": false,
       "path": "topics/topic_054",
       "outcome": "roles.json name:Edi 적용, session.html 레이블 수정, 역사 데이터 Editor→Edi 교체. ensureEditorInAgents 조건 reportPath 제거 — session_051부터 모든 세션 무조건 push."
@@ -922,5 +937,5 @@
       "grade": "C"
     }
   ],
-  "lastUpdated": "2026-04-20T23:19:05.755Z"
+  "lastUpdated": "2026-04-20T23:40:05.469Z"
 }

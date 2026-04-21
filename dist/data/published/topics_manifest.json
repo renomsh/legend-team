@@ -1,6 +1,22 @@
 {
-  "generatedAt": "2026-04-20T23:36:04.913Z",
+  "generatedAt": "2026-04-21T00:39:56.204Z",
   "topics": [
+    {
+      "id": "topic_055",
+      "title": "Session History Design Change",
+      "status": "completed",
+      "created": "2026-04-21",
+      "reportPath": "reports/2026-04-21_session-history-design-change",
+      "reportFiles": [
+        "ace_rev1.md",
+        "vera_rev1.md",
+        "dev_rev1.md"
+      ],
+      "published": false,
+      "outcome": "ROLE_COLORS 단일 원천(role-colors.js) 신설. Turn Sequence dot 개선. Role Frequency 트랙 바 교체. 전 페이지 색상 통일. v1.13.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_054",
       "title": "에디 이름 적용",

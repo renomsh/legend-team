@@ -1,6 +1,15 @@
 {
   "feedbackLog": [
     {
+      "id": "MF-039",
+      "date": "2026-04-21",
+      "session": "session_052",
+      "topic": "session-history-design-change",
+      "feedback": "1) dev=blue cool 계열 유지 — 코딩은 차가워야 함. 2) Vera의 riki 밝기 조정 제안 거부 — riki(red)와 vera(pink) 구분 충분. 3) Vera의 dev #60A5FA 제안 거부 — arki와 더 혼동됨. 4) 버전 변경사항은 ver 올리기로 했음을 상기시킴.",
+      "status": "resolved",
+      "statusNote": "dev=#3B82F6 유지. riki=#EF4444 유지. cool cluster 수용. v1.13 반영. 팔레트 피드백 메모리 저장."
+    },
+    {
       "id": "MF-038",
       "date": "2026-04-21",
       "session": "session_051",

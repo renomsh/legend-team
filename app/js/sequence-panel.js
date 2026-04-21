@@ -36,7 +36,7 @@
     if (empty) empty.style.display = 'none';
 
     const rows = sequences.slice(-10).reverse();
-    const labelW = 96, nodeR = 8, gap = 28, rowH = 24, topPad = 20;
+    const labelW = 96, nodeR = 10, gap = 36, rowH = 28, topPad = 20;
     const colors = global.ROLE_COLORS || {};
     const g = svg.append('g');
 
@@ -72,9 +72,10 @@
         const color = colors[t.role] || '#6E6E78';
         const node = g.append('circle')
           .attr('cx', cx).attr('cy', cy).attr('r', nodeR)
-          .attr('fill', color);
+          .attr('fill', color)
+          .attr('stroke', '#0B0B0D').attr('stroke-width', 1.5);
         if (t.recallReason) {
-          node.attr('stroke', '#F5F5F7').attr('stroke-width', 2).attr('stroke-dasharray', '3,2');
+          node.attr('stroke', '#F5F5F7').attr('stroke-width', 2).attr('stroke-dasharray', '4,3');
         }
         const label = `${t.role} · turn#${t.turnIdx} · ${t.phase || '—'}${t.recallReason ? ' · recall:' + t.recallReason : ''}`;
         node.append('title').text(label);
