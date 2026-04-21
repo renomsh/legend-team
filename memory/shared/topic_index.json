@@ -1,6 +1,21 @@
 {
   "topics": [
     {
+      "id": "topic_068",
+      "title": "PD-020b 완결 검증",
+      "status": "completed",
+      "phase": "validated",
+      "hold": null,
+      "grade": "C",
+      "created": "2026-04-21",
+      "controlPath": "topics/topic_068",
+      "reportPath": "reports/2026-04-21_pd-020b-completion-verify",
+      "reportFiles": ["dev_rev1.md"],
+      "published": false,
+      "path": "topics/topic_068",
+      "outcome": "topic_062/066 종결 처리. regex 버그(regenerate-context-brief) + 근원 버그(write-session-contribution decision 조회) 수정. PD-020b resolved. 구조적 미해소: 프레이밍 토픽 자동 종결 + PD resolved 절차 미명문화."
+    },
+    {
       "id": "topic_067",
       "title": "PD-020c 구현 P1: decision_ledger 스키마 확장 + 백필",
       "status": "completed",
@@ -10,7 +25,10 @@
       "created": "2026-04-21",
       "controlPath": "topics/topic_067",
       "reportPath": "reports/2026-04-21_pd-020c-p1-decision-ledger",
-      "reportFiles": ["ace_rev1.md", "dev_rev1.md"],
+      "reportFiles": [
+        "ace_rev1.md",
+        "dev_rev1.md"
+      ],
       "published": false,
       "path": "topics/topic_067",
       "outcome": "PD-020c P1+P2+P3 구현 완료. decision_ledger 54개 백필(owningTopicId+scopeCheck). lifecycle/anchor lint 경고 체계(A6-2/A6-3) 신설. 실시간 PD append + Editor 역검사(A6-4) 구현. session-end-finalize.js 통합."
@@ -18,8 +36,8 @@
     {
       "id": "topic_066",
       "title": "PD-020c — 결정 소유권 + 운영규칙 구현",
-      "status": "in-progress",
-      "phase": "framing",
+      "status": "completed",
+      "phase": "validated",
       "hold": null,
       "grade": "A",
       "created": "2026-04-21",
@@ -106,8 +124,8 @@
     {
       "id": "topic_062",
       "title": "PD-020b — Context 3층 누적 구현",
-      "status": "in-progress",
-      "phase": "framing",
+      "status": "completed",
+      "phase": "validated",
       "hold": null,
       "grade": "A",
       "created": "2026-04-21",
@@ -122,8 +140,8 @@
       ],
       "published": false,
       "path": "topics/topic_062",
-      "outcome": "Framing-complete. D-053 제안 (Context 3층 아키텍처 v1: L1 turn_log + L2 session_contributions + L3 context_brief). 7 Phase 실행계획 v2 (P0 turns[] 무결성 + C1 강제화 선결, P1~P6 구현). Riki 3개 리스크 전원 흡수(P0 신규, quality 플래그, N>7 fallback). 실집행은 session_060+ 분할. PD-021 신규(auto-model-switch 재구현) 발생.",
-      "note": "Grade A. PD-020a 완료 직후 진행. 본 세션 = framing+실행계획. Dev 세션 분리 결정(Master)."
+      "outcome": "PD-020b 전 구간 완료. 프레이밍(D-053: Context 3층 아키텍처 v1) → 구현 분할(topic_063 P0+P1 / topic_064 P2~P5 / topic_065 P6) → 검증. session_060~062 실집행 완료. PD-021 신규(auto-model-switch 재구현) 이연.",
+      "note": "Grade A. 본 토픽 = framing+실행계획(session_059). 구현은 topic_063~065로 분할 완료."
     },
     {
       "id": "topic_061",
@@ -1322,5 +1340,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-21T11:08:04.987Z"
+  "lastUpdated": "2026-04-21T11:33:29.460Z"
 }

@@ -142,7 +142,7 @@ function buildL3Body(opts: {
   // Key Anchors — collect D-NNN refs from all decisions sections
   const dRefs = new Set<string>();
   for (const c of contributions) {
-    const matches = c.decisions.matchAll(/\*\*(D-\d+)\*\*/g);
+    const matches = c.decisions.matchAll(/\*\*\(?(D-\d+)\)?\*\*/g);
     for (const m of matches) { if (m[1]) dRefs.add(m[1]); }
   }
   if (dRefs.size > 0) {

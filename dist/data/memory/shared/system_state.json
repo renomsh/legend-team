@@ -1,22 +1,9 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_064",
-  "nextSessionId": "session_065",
+  "lastSessionId": "session_065",
+  "nextSessionId": "session_066",
   "currentVersion": "v1.11",
   "openTopics": [
-    {
-      "id": "topic_066",
-      "title": "PD-020c — 결정 소유권 + 운영규칙 구현",
-      "status": "in-progress",
-      "reportPath": "reports/2026-04-21_pd-020c-decision-ownership"
-    },
-    {
-      "id": "topic_062",
-      "title": "PD-020b — Context 3층 누적 구현",
-      "status": "in-progress",
-      "reportPath": "reports/2026-04-21_pd-020b-context-3layer",
-      "note": "Grade A. PD-020a 완료 직후 진행. 본 세션 = framing+실행계획. Dev 세션 분리 결정(Master)."
-    },
     {
       "id": "topic_044",
       "title": "COPD 논문 ver3.4 최종화 — canonical 재분석 + (e) 프레임 확정",
@@ -218,8 +205,10 @@
       "fromSession": "session_053",
       "fromTopic": "topic-centric-architecture",
       "item": "Context 3층 누적 구현 — topics/{id}/turn_log.jsonl + session_contributions/*.md + context_brief.md 신설. /close 훅 체인에 session-contribution-writer + regenerate-context-brief 추가. /open step 3.5에 context_brief 자동 로드 추가 (hold=false 토픽만).",
-      "status": "pending",
-      "note": "Grade A. D-051 A7+A8 구현. Master save01~05 수동 관행 시스템 흡수. PD-020a 선행 필요."
+      "status": "resolved",
+      "note": "Grade A. D-051 A7+A8 구현. Master save01~05 수동 관행 시스템 흡수. PD-020a 선행 필요.",
+      "resolvedInSession": "session_062",
+      "resolvedNote": "topic_063(P0+P1) + topic_064(P2~P5) + topic_065(P6) 전 구간 완료. session_065에서 topic_062 공식 종결 처리."
     },
     {
       "id": "PD-020c",
@@ -240,5 +229,5 @@
       "note": "Grade A 권장. 원래 스킬 의도와 현 구현 불일치 발견(session_059). Master 의도: Sonnet 메인 + Opus 서브 호출."
     }
   ],
-  "lastUpdated": "2026-04-21T11:26:09.184Z"
+  "lastUpdated": "2026-04-21T11:48:32.847Z"
 }

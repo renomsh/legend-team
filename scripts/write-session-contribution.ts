@@ -165,11 +165,11 @@ export function writeSessionContribution(
   const turnsCount = turns.length;
 
   // ── 결정 목록 ────────────────────────────────────────────────
+  // decision_ledger.session 필드를 단일 원천으로 사용.
+  // session.decisions는 문자열·객체 혼재 가능성이 있어 신뢰하지 않음.
   const ledger = readJson<DecisionLedger>(DECISION_LEDGER_PATH, { decisions: [] });
-  const sessionDecisionIds: string[] = (session.decisions ?? []).map(
-    (d: { id: string }) => d.id
-  );
-  const sessionDecisions = ledger.decisions.filter(d => sessionDecisionIds.includes(d.id));
+  const sessionDecisions = ledger.decisions.filter(d => (d as any).session === sessionId);
+  const sessionDecisionIds: string[] = sessionDecisions.map(d => d.id);
 
   // ── grade 확정 ────────────────────────────────────────────────
   const grade = (session.grade ?? session.gradeDeclared ?? 'A') as 'S' | 'A' | 'B' | 'C';

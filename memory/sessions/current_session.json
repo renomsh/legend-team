@@ -1,85 +1,61 @@
 {
-  "sessionId": "session_064",
-  "topicId": "topic_067",
-  "topic": "PD-020c 구현 P1: decision_ledger 스키마 확장 + 백필",
-  "topicSlug": "pd-020c-p1-decision-ledger",
+  "sessionId": "session_065",
+  "topicId": "topic_068",
+  "topic": "PD-020b 완결 검증",
+  "topicSlug": "pd-020b-completion-verify",
   "status": "closed",
-  "startedAt": "2026-04-21T18:20:00.000Z",
-  "closedAt": "2026-04-21T19:10:00.000Z",
+  "startedAt": "2026-04-21T19:30:00.000Z",
+  "closedAt": "2026-04-21T19:55:00.000Z",
   "mode": "observation",
-  "grade": "B",
-  "gradeDeclared": "B",
-  "gradeActual": "B",
+  "grade": "C",
+  "gradeDeclared": "C",
+  "gradeActual": "C",
   "gradeMismatch": false,
-  "framingLevel": 1,
-  "framingSkipped": false,
+  "framingLevel": 0,
+  "framingSkipped": true,
   "agentsCompleted": [
-    "ace",
-    "dev",
-    "dev",
     "dev",
     "editor"
   ],
   "turns": [
     {
-      "role": "ace",
-      "turnIdx": 0,
-      "phase": "framing"
-    },
-    {
       "role": "dev",
-      "turnIdx": 1,
+      "turnIdx": 0,
       "phase": "implementation"
     },
     {
-      "role": "dev",
-      "turnIdx": 2,
-      "phase": "implementation",
-      "recallReason": "post-master",
-      "splitReason": "P2 구현"
-    },
-    {
-      "role": "dev",
-      "turnIdx": 3,
-      "phase": "implementation",
-      "recallReason": "post-master",
-      "splitReason": "P3 구현"
-    },
-    {
       "role": "editor",
-      "turnIdx": 4,
+      "turnIdx": 1,
       "phase": "compile"
     }
   ],
   "plannedSequence": [
-    "ace",
     "dev"
   ],
   "decisions": [],
-  "notes": [
-    "P1 구현 완료: src/types/index.ts에 DecisionLedgerEntry/DecisionLedger/ScopeCheck 타입 추가.",
-    "scripts/backfill-decision-ownership.ts 실행 — 54개 엔트리 백필(owningTopicId + scopeCheck=legacy-ambiguous). D-055 스킵(이미 완료).",
-    "scripts/validate-decision-ownership.ts 게이트 A 통과 — 55개 엔트리 전 검증 OK.",
-    "P2 구현 완료: memory/shared/topic_lifecycle_rules.json 신설(maxSessions=5, lastActivityDays=30).",
-    "scripts/check-topic-lifecycle.ts (A6-2) + scripts/check-context-brief-anchors.ts (A6-3) 신설.",
-    "load-context-briefs.ts에 두 경고 통합 — /open 실행 시 자동 출력.",
-    "anchor lint 검증: topic_066 Key Anchors 비어있음 경고 정상 출력 (regenerate-context-brief 미실행 상태).",
-    "P3 구현 완료: scripts/append-pending-deferral.ts (실시간 append + current_session.pendingDeferralsAdded 추적).",
-    "scripts/check-pending-deferrals.ts (Editor 역검사) — 누락 감지/이연 키워드 탐지 검증 완료.",
-    "session-end-finalize.js에 runCheckPendingDeferrals() 통합 — /close 시 자동 역검사."
-  ],
-  "gaps": [],
   "masterDecisions": [],
   "masterFeedback": [],
-  "reportPath": "reports/2026-04-21_pd-020c-p1-decision-ledger",
+  "notes": [
+    "topic_062 status in-progress → completed/validated 처리. 구현은 topic_063~065 분할 완료.",
+    "topic_066 session_063.md Decisions 섹션에 D-055 소급 기록 (decisionIds=['undefined'] 버그 수정).",
+    "regenerate-context-brief.ts regex 버그 수정: 괄호 포함 형식 지원 (근원 수정).",
+    "write-session-contribution.ts: session.decisions 대신 decision_ledger.session 단일원천 조회 (근원 수정).",
+    "topic_066 completed/validated 처리 + PD-020b deferral resolved 처리.",
+    "구조적 미해소: 프레이밍 토픽 자동 종결 로직 없음 + PD resolved 절차 미명문화 → 재발 위험 존재."
+  ],
+  "gaps": [
+    "프레이밍 토픽 자동 종결 로직 미구현 — 분할 패턴 재발 시 수동 처리 필요",
+    "PD resolved 처리 절차 Session End 체크리스트 미명문화"
+  ],
+  "reportPath": "reports/2026-04-21_pd-020b-completion-verify",
+  "pendingDeferralsAdded": [],
   "tokenUsage": {
-    "input_tokens": 200,
-    "output_tokens": 87056,
-    "cache_creation_input_tokens": 919937,
-    "cache_read_input_tokens": 11352822,
-    "messageCount": 153,
-    "masterTurns": 7,
-    "total_billable": 12360015
-  },
-  "pendingDeferralsAdded": []
+    "input_tokens": 181,
+    "output_tokens": 68533,
+    "cache_creation_input_tokens": 277620,
+    "cache_read_input_tokens": 9850577,
+    "messageCount": 140,
+    "masterTurns": 8,
+    "total_billable": 10196911
+  }
 }
