@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-04-21T07:57:24.631Z",
+  "generatedAt": "2026-04-21T09:27:01.677Z",
   "decisions": [
+    {
+      "id": "D-054",
+      "date": "2026-04-21",
+      "session": "session_060",
+      "topic": "pd-020b-p0p1-turns-schema",
+      "axis": "turns[] 단일원천 + agentsCompleted 파생 + phase_catalog v1.1 + Context 3층 스키마 v1.0",
+      "decision": "(A) turns[]가 세션 역할 발언의 단일 원천. agentsCompleted는 session-end-finalize.js에서 turns.role 순서·중복 허용으로 자동 파생 — D-048 '중복 허용 배열' 원칙 실질 보장, Set-dedup 버그 근절. (B) phase_catalog v1.1: 'implementation' phase 신설(Dev 실집행). PhaseId 타입 동기화. (C) Context 3층 스키마 v1.0 확정: L1 TurnLogEntry(topics/{id}/turn_log.jsonl 단일원천, append-only, topicId 경계 검증 필수), L2 SessionContributionFrontmatter(nextAction 필수, 5 섹션 강제), L3 ContextBriefFrontmatter(고정 5섹션, 5KB 상한). 전용 검증함수 throws-on-invalid 패턴. (D) L1 실패 격리 정책: 단건 무시+로그, 누적 3건 경보+quality 플래그. (E) session_060 자체 L1은 session_061에서 소급 기록(RK-4 옵션 B). (F) validate-schema-vs-data.ts 신설 — TS 타입↔JSON 데이터 drift 감시 (session_060 오픈 차단 재발 방지, GA-1). (G) P0 전수 13 세션 검증 결과: 초기 FAIL 11건 → C1 phase drift 30건 + C2 agentsCompleted Set-dedup 4건 → 루트 수정 + 백필 → 재검증 13/13 OK.",
+      "value": "PD-020b 구현의 토대 정비 완료. turns[] 단일원천 구조로 agentsCompleted 왜곡 근절. 3층 스키마 TS+검증함수 단일원천으로 확정 → session_061 L1/L2/L3 writer 구현이 깨끗한 인터페이스 위에 진행 가능. drift 감시 도구로 type↔data 동기화 실패 재발 차단.",
+      "authority": "master",
+      "status": "confirmed"
+    },
     {
       "id": "D-053",
       "date": "2026-04-21",
@@ -10,7 +21,7 @@
       "decision": "3층 책임 분리 확정: L1 topics/{id}/turn_log.jsonl(append-only, hook 자동, sessionId 중복검사) / L2 topics/{id}/session_contributions/session_NNN.md(hook 골격 + Editor 본문 혼합, quality 플래그 editor-written|hook-fallback) / L3 topics/{id}/context_brief.md(매 /close 전체 재생성, ~500토큰 상한). /open 자동 로드는 hold=false 토픽 한정, 활성 토픽 N>7 시 현재 토픽만 로드 fallback(PD-020c 완료 시 제거). 7 Phase 실행계획(v2): P0 turns[] 무결성 검증 + C1 강제화 선결 / P1 스키마 정의+디렉토리 부트스트랩 / P2 L1 turn-log-writer.js / P3 L2 session-contribution-writer.js (quality 플래그) / P4 L3 regenerate-context-brief.js (degraded 분리) / P5 auto-push.js 훅 체인 통합 / P6 /open 로더 + N>7 fallback. 게이트 G0~G6 순차 통과. Riki 3개 리스크 전원 흡수: RK-1(turns[] 미기록 전제 위반)→P0 신규, RK-2(Editor 우회 침묵 실패)→quality 플래그+degraded 분리, RK-3(토큰 폭발 갭)→N>7 fallback. 본 세션 스코프 = 프레이밍+실행계획. 실집행은 session_060+ 분할 진행.",
       "value": "Master save01~05 수동 관행을 시스템이 흡수 — 성장 루프 병목을 인지부하에서 자동화로 이전. C1 강제화 선결로 L1 무효화 전제 위반 차단. quality 플래그로 Editor 우회 silent failure 방지. PD-020c 전 임시 fallback으로 토큰 폭발 갭 방어. PD-020b 프레이밍 단계 resolved.",
       "authority": "master",
-      "status": "proposed"
+      "status": "confirmed"
     },
     {
       "id": "D-052",

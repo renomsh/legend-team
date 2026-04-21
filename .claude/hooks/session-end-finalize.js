@@ -39,23 +39,32 @@ function writeJson(p, obj) {
 }
 
 /**
- * 세션 종료 시 editor가 agentsCompleted에 없으면 무조건 자동 push.
+ * 세션 종료 시 editor가 turns에 없으면 무조건 자동 push.
  * Dev 작업 포함 모든 세션의 기록 주체는 editor. reportPath 유무와 무관.
  * current_session.json도 함께 갱신하여 session_index 전파 전 일관성 유지.
+ *
+ * PD-020b P0.3c (session_060): turns[] = 단일 원천. agentsCompleted는 turns에서 파생.
+ * 기존 Set-의미 중복제거 버그 근절 (RK-1, D-048 "중복 허용 배열" 위반).
  */
 function ensureEditorInAgents(sess) {
-  const agents = Array.isArray(sess.agentsCompleted) ? sess.agentsCompleted : [];
-  if (!agents.includes('editor')) {
-    agents.push('editor');
-    sess.agentsCompleted = agents;
-    // turns에도 반영 (마지막 turn으로 추가)
-    const turns = Array.isArray(sess.turns) ? sess.turns : [];
-    turns.push({ role: 'editor', turnIdx: turns.length, phase: 'output' });
+  const turns = Array.isArray(sess.turns) ? sess.turns : [];
+  const turnRoles = turns.map(t => t && t.role).filter(r => typeof r === 'string');
+  const hasEditor = turnRoles.includes('editor');
+
+  if (!hasEditor) {
+    turns.push({ role: 'editor', turnIdx: turns.length, phase: 'compile' });
     sess.turns = turns;
-    writeJson(CURRENT_SESSION_PATH, sess);
-    log('editor → agentsCompleted + turns 자동 push (reports 저장 확인)');
+    turnRoles.push('editor');
+  }
+  // agentsCompleted는 turns.role 순서대로·중복 허용 배열로 재생성
+  sess.agentsCompleted = turnRoles;
+
+  writeJson(CURRENT_SESSION_PATH, sess);
+  if (!hasEditor) {
+    log('editor turn 자동 push + agentsCompleted를 turns에서 재생성');
     return true;
   }
+  log('agentsCompleted를 turns에서 재생성 (중복 허용, 순서 보존)');
   return false;
 }
 

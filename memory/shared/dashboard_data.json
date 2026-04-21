@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-21T07:57:24.185Z",
-  "totalSessions": 58,
+  "generatedAt": "2026-04-21T09:27:01.155Z",
+  "totalSessions": 59,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 18.09,
-    "avgCacheHitRate": 0.9266,
-    "cacheSampleSize": 32,
-    "cacheSampleTotal": 58,
+    "avgMasterTurns": 17.96,
+    "avgCacheHitRate": 0.9272,
+    "cacheSampleSize": 33,
+    "cacheSampleTotal": 59,
     "avgAdoptionRate": 0,
-    "totalDecisions": 53,
+    "totalDecisions": 54,
     "gradeDistribution": {
-      "S": 11,
-      "A": 16,
+      "S": 16,
+      "A": 12,
       "B": 20,
       "C": 11
     },
@@ -21,7 +21,7 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 13
+    "turnBasedSessions": 14
   },
   "sessions": [
     {
@@ -1514,18 +1514,20 @@
       "decisions": [
         "D-050"
       ],
-      "rolesCalled": 4,
-      "rolesRecalled": 0,
+      "rolesCalled": 6,
+      "rolesRecalled": 2,
       "sessionsSpanned": 1,
-      "size": 9,
-      "gradeDeclared": "A",
-      "gradeActual": "A",
+      "size": 15,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 2,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
+        "vera",
+        "vera",
         "vera",
         "dev",
         "editor"
@@ -1547,12 +1549,12 @@
       "decisions": [
         "D-051"
       ],
-      "rolesCalled": 5,
-      "rolesRecalled": 0,
+      "rolesCalled": 9,
+      "rolesRecalled": 4,
       "sessionsSpanned": 1,
-      "size": 10,
-      "gradeDeclared": "A",
-      "gradeActual": "A",
+      "size": 22,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 10,
@@ -1560,8 +1562,12 @@
       "agentsCompleted": [
         "ace",
         "arki",
+        "arki",
+        "arki",
         "fin",
         "riki",
+        "ace",
+        "ace",
         "editor"
       ],
       "tokenUsage": {
@@ -1581,12 +1587,12 @@
       "decisions": [
         "D-052"
       ],
-      "rolesCalled": 5,
-      "rolesRecalled": 0,
+      "rolesCalled": 8,
+      "rolesRecalled": 3,
       "sessionsSpanned": 1,
-      "size": 10,
-      "gradeDeclared": "A",
-      "gradeActual": "A",
+      "size": 19,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 13,
@@ -1594,8 +1600,11 @@
       "agentsCompleted": [
         "ace",
         "arki",
+        "arki",
         "fin",
         "riki",
+        "ace",
+        "ace",
         "editor"
       ],
       "tokenUsage": {
@@ -1729,12 +1738,12 @@
       "decisions": [
         "D-053"
       ],
-      "rolesCalled": 5,
-      "rolesRecalled": 0,
+      "rolesCalled": 7,
+      "rolesRecalled": 2,
       "sessionsSpanned": 1,
-      "size": 10,
-      "gradeDeclared": "A",
-      "gradeActual": "A",
+      "size": 16,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 16,
@@ -1744,6 +1753,8 @@
         "arki",
         "fin",
         "riki",
+        "arki",
+        "ace",
         "editor"
       ],
       "tokenUsage": {
@@ -1751,12 +1762,49 @@
         "cacheHitRate": 0.874143147106885,
         "messageCount": 96
       }
+    },
+    {
+      "sessionId": "session_060",
+      "topicSlug": "pd-020b-p0p1-turns-schema",
+      "topic": "PD-020b P0+P1 — turns[] 무결성 검증 + 스키마 정의",
+      "startedAt": "2026-04-21T13:30:00.000Z",
+      "closedAt": "2026-04-21T15:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-054"
+      ],
+      "rolesCalled": 8,
+      "rolesRecalled": 3,
+      "sessionsSpanned": 1,
+      "size": 19,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 11,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "arki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 13280887,
+        "cacheHitRate": 0.9474266289593458,
+        "messageCount": 113
+      }
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 17,
+      "count": 20,
       "sessions": [
         "session_047",
         "session_048",
@@ -1767,7 +1815,37 @@
         "session_054",
         "session_055",
         "session_056",
-        "session_059"
+        "session_059",
+        "session_060"
+      ]
+    },
+    {
+      "role": "arki",
+      "count": 11,
+      "sessions": [
+        "session_048",
+        "session_049",
+        "session_053",
+        "session_054",
+        "session_059",
+        "session_060"
+      ]
+    },
+    {
+      "role": "editor",
+      "count": 11,
+      "sessions": [
+        "session_050",
+        "session_051",
+        "session_052",
+        "session_053",
+        "session_054",
+        "session_055",
+        "session_056",
+        "session_057",
+        "session_058",
+        "session_059",
+        "session_060"
       ]
     },
     {
@@ -1786,33 +1864,6 @@
       ]
     },
     {
-      "role": "editor",
-      "count": 10,
-      "sessions": [
-        "session_050",
-        "session_051",
-        "session_052",
-        "session_053",
-        "session_054",
-        "session_055",
-        "session_056",
-        "session_057",
-        "session_058",
-        "session_059"
-      ]
-    },
-    {
-      "role": "arki",
-      "count": 9,
-      "sessions": [
-        "session_048",
-        "session_049",
-        "session_053",
-        "session_054",
-        "session_059"
-      ]
-    },
-    {
       "role": "vera",
       "count": 5,
       "sessions": [
@@ -1822,21 +1873,23 @@
     },
     {
       "role": "riki",
-      "count": 4,
+      "count": 5,
       "sessions": [
         "session_049",
         "session_053",
         "session_054",
-        "session_059"
+        "session_059",
+        "session_060"
       ]
     },
     {
       "role": "fin",
-      "count": 3,
+      "count": 4,
       "sessions": [
         "session_053",
         "session_054",
-        "session_059"
+        "session_059",
+        "session_060"
       ]
     }
   ],
@@ -1919,13 +1972,13 @@
         },
         {
           "role": "vera",
-          "phase": "design-spec",
+          "phase": "analysis",
           "turnIdx": 4,
           "recallReason": "post-master"
         },
         {
           "role": "ace",
-          "phase": "review",
+          "phase": "synthesis",
           "turnIdx": 5,
           "recallReason": "post-intervention"
         },
@@ -1949,7 +2002,7 @@
         },
         {
           "role": "editor",
-          "phase": "output",
+          "phase": "compile",
           "turnIdx": 1,
           "recallReason": null
         }
@@ -1973,7 +2026,7 @@
         },
         {
           "role": "editor",
-          "phase": "output",
+          "phase": "compile",
           "turnIdx": 2,
           "recallReason": null
         }
@@ -1991,19 +2044,19 @@
         },
         {
           "role": "vera",
-          "phase": "design-spec",
+          "phase": "analysis",
           "turnIdx": 1,
           "recallReason": null
         },
         {
           "role": "vera",
-          "phase": "design-spec",
+          "phase": "analysis",
           "turnIdx": 2,
           "recallReason": "post-master"
         },
         {
           "role": "vera",
-          "phase": "design-critique",
+          "phase": "analysis",
           "turnIdx": 3,
           "recallReason": "post-master"
         },
@@ -2015,7 +2068,7 @@
         },
         {
           "role": "editor",
-          "phase": "output",
+          "phase": "compile",
           "turnIdx": 5,
           "recallReason": null
         }
@@ -2033,31 +2086,31 @@
         },
         {
           "role": "arki",
-          "phase": "structural-analysis",
+          "phase": "analysis",
           "turnIdx": 1,
           "recallReason": null
         },
         {
           "role": "arki",
-          "phase": "structural-refinement",
+          "phase": "analysis",
           "turnIdx": 2,
           "recallReason": "post-master"
         },
         {
           "role": "arki",
-          "phase": "structural-refinement",
+          "phase": "analysis",
           "turnIdx": 3,
           "recallReason": "post-master"
         },
         {
           "role": "fin",
-          "phase": "resource-evaluation",
+          "phase": "analysis",
           "turnIdx": 4,
           "recallReason": null
         },
         {
           "role": "riki",
-          "phase": "risk-audit",
+          "phase": "analysis",
           "turnIdx": 5,
           "recallReason": null
         },
@@ -2069,13 +2122,13 @@
         },
         {
           "role": "ace",
-          "phase": "decision-refinement",
+          "phase": "synthesis",
           "turnIdx": 7,
           "recallReason": "post-master"
         },
         {
           "role": "editor",
-          "phase": "output",
+          "phase": "compile",
           "turnIdx": 8,
           "recallReason": null
         }
@@ -2093,25 +2146,25 @@
         },
         {
           "role": "arki",
-          "phase": "structural-analysis",
+          "phase": "analysis",
           "turnIdx": 1,
           "recallReason": null
         },
         {
           "role": "arki",
-          "phase": "structural-refinement",
+          "phase": "analysis",
           "turnIdx": 2,
           "recallReason": "post-master"
         },
         {
           "role": "fin",
-          "phase": "resource-evaluation",
+          "phase": "analysis",
           "turnIdx": 3,
           "recallReason": null
         },
         {
           "role": "riki",
-          "phase": "risk-audit",
+          "phase": "analysis",
           "turnIdx": 4,
           "recallReason": null
         },
@@ -2123,13 +2176,13 @@
         },
         {
           "role": "ace",
-          "phase": "decision-refinement",
+          "phase": "synthesis",
           "turnIdx": 6,
           "recallReason": "post-master"
         },
         {
           "role": "editor",
-          "phase": "output",
+          "phase": "compile",
           "turnIdx": 7,
           "recallReason": null
         }
@@ -2153,7 +2206,7 @@
         },
         {
           "role": "editor",
-          "phase": "output",
+          "phase": "compile",
           "turnIdx": 2,
           "recallReason": null
         }
@@ -2177,7 +2230,7 @@
         },
         {
           "role": "editor",
-          "phase": "output",
+          "phase": "compile",
           "turnIdx": 2,
           "recallReason": null
         }
@@ -2195,7 +2248,7 @@
         },
         {
           "role": "editor",
-          "phase": "output",
+          "phase": "compile",
           "turnIdx": 1,
           "recallReason": null
         }
@@ -2213,7 +2266,7 @@
         },
         {
           "role": "editor",
-          "phase": "output",
+          "phase": "compile",
           "turnIdx": 1,
           "recallReason": null
         }
@@ -2231,25 +2284,25 @@
         },
         {
           "role": "arki",
-          "phase": "structural-analysis",
+          "phase": "analysis",
           "turnIdx": 1,
           "recallReason": null
         },
         {
           "role": "fin",
-          "phase": "cost-evaluation",
+          "phase": "analysis",
           "turnIdx": 2,
           "recallReason": null
         },
         {
           "role": "riki",
-          "phase": "risk-audit",
+          "phase": "analysis",
           "turnIdx": 3,
           "recallReason": null
         },
         {
           "role": "arki",
-          "phase": "structural-analysis",
+          "phase": "analysis",
           "turnIdx": 4,
           "recallReason": "post-intervention"
         },
@@ -2261,8 +2314,62 @@
         },
         {
           "role": "editor",
-          "phase": "output",
+          "phase": "compile",
           "turnIdx": 6,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_060",
+      "topic": "PD-020b P0+P1 — turns[] 무결성 검증 + 스키마 정의",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "analysis",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": "analysis",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "analysis",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "analysis",
+          "turnIdx": 5,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 6,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 7,
           "recallReason": null
         }
       ]
@@ -2273,43 +2380,43 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=18.1)"
+      "description": "Master 병목: masterTurns=48 (avg=18.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=18.1)"
+      "description": "Master 병목: masterTurns=43 (avg=18.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=18.1)"
+      "description": "Master 병목: masterTurns=42 (avg=18.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=18.1)"
+      "description": "Master 병목: masterTurns=45 (avg=18.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=18.1)"
+      "description": "Master 병목: masterTurns=39 (avg=18.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=18.1)"
+      "description": "Master 병목: masterTurns=49 (avg=18.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=18.1)"
+      "description": "Master 병목: masterTurns=35 (avg=18.0)"
     },
     {
       "ruleId": "R1",
@@ -2321,6 +2428,36 @@
       "ruleId": "R1",
       "severity": "yellow",
       "sessionId": "session_049",
+      "description": "Ace/역할 과호출: rolesRecalled=3"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_052",
+      "description": "Ace/역할 과호출: rolesRecalled=2"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_053",
+      "description": "Ace/역할 과호출: rolesRecalled=4"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_054",
+      "description": "Ace/역할 과호출: rolesRecalled=3"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_059",
+      "description": "Ace/역할 과호출: rolesRecalled=2"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_060",
       "description": "Ace/역할 과호출: rolesRecalled=3"
     },
     {
@@ -2370,6 +2507,36 @@
     }
   ],
   "feedbackRecurrences": [
+    {
+      "keyword": "에디",
+      "occurrences": [
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-046",
+          "summary": "Editor를 '에디'(Edi)로 호칭하라. 발언 맥락에선 에디/Edi, 스키마·코드 식별자에만 editor"
+        },
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-038",
+          "summary": "에디터는 역할명이지 이름이 아니다. 에디(Edi)가 이름. Dev 작업도 에디가 기록해야 한다 — repor"
+        }
+      ]
+    },
+    {
+      "keyword": "검증",
+      "occurrences": [
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-047",
+          "summary": "P0 검증 범위 전수 13개. P0 불일치 발견 시 Arki 재검토 후 수정. 축③④⑤는 역할 의견 수렴하되"
+        },
+        {
+          "date": "2026-04-20",
+          "feedbackId": "MF-037",
+          "summary": "Dev 검증 기본값 + 하드코딩 금지: (1) 구현 후 런타임 검증 필수 — tsc 통과만으론 부족, 실 데"
+        }
+      ]
+    },
     {
       "keyword": "논문",
       "occurrences": [
