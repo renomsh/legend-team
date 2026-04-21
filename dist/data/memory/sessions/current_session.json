@@ -1,61 +1,104 @@
 {
-  "sessionId": "session_065",
-  "topicId": "topic_068",
-  "topic": "PD-020b 완결 검증",
-  "topicSlug": "pd-020b-completion-verify",
+  "sessionId": "session_066",
+  "topicId": "topic_069",
+  "topic": "토픽 종료 선언 — 프레이밍 종결 + PD resolved 구조화",
+  "topicSlug": "topic-closure-declaration",
   "status": "closed",
-  "startedAt": "2026-04-21T19:30:00.000Z",
-  "closedAt": "2026-04-21T19:55:00.000Z",
+  "startedAt": "2026-04-21T20:00:00.000Z",
+  "closedAt": "2026-04-21T20:45:00.000Z",
   "mode": "observation",
-  "grade": "C",
-  "gradeDeclared": "C",
-  "gradeActual": "C",
+  "grade": "A",
+  "gradeDeclared": "A",
+  "gradeActual": "A",
   "gradeMismatch": false,
-  "framingLevel": 0,
-  "framingSkipped": true,
+  "framingLevel": 2,
+  "framingSkipped": false,
   "agentsCompleted": [
-    "dev",
+    "ace",
+    "nova",
+    "arki",
+    "fin",
+    "riki",
+    "ace",
     "editor"
   ],
   "turns": [
     {
-      "role": "dev",
+      "role": "ace",
       "turnIdx": 0,
-      "phase": "implementation"
+      "phase": "framing"
+    },
+    {
+      "role": "nova",
+      "turnIdx": 1,
+      "phase": "framing",
+      "recallReason": "master-request"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 2,
+      "phase": "design"
+    },
+    {
+      "role": "fin",
+      "turnIdx": 3,
+      "phase": "design"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 4,
+      "phase": "design"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 5,
+      "phase": "synthesis",
+      "recallReason": "post-roles"
     },
     {
       "role": "editor",
-      "turnIdx": 1,
+      "turnIdx": 6,
       "phase": "compile"
     }
   ],
   "plannedSequence": [
-    "dev"
+    "ace",
+    "arki",
+    "fin",
+    "riki",
+    "ace",
+    "editor"
   ],
-  "decisions": [],
-  "masterDecisions": [],
-  "masterFeedback": [],
+  "decisions": [
+    "D-056"
+  ],
+  "masterDecisions": [
+    "Nova N3 채택, N1/N2/N4 기각",
+    "Master 무응답=승인 기본값 박제",
+    "장기 목표 Nova N4(Zero-/open) 명문화 — ~1000세션 후"
+  ],
+  "masterFeedback": [
+    "저마찰 자율성 원칙 — 요구량 증가 절대 금지, 무응답=승인 (feedback_low_friction_autonomy.md)"
+  ],
   "notes": [
-    "topic_062 status in-progress → completed/validated 처리. 구현은 topic_063~065 분할 완료.",
-    "topic_066 session_063.md Decisions 섹션에 D-055 소급 기록 (decisionIds=['undefined'] 버그 수정).",
-    "regenerate-context-brief.ts regex 버그 수정: 괄호 포함 형식 지원 (근원 수정).",
-    "write-session-contribution.ts: session.decisions 대신 decision_ledger.session 단일원천 조회 (근원 수정).",
-    "topic_066 completed/validated 처리 + PD-020b deferral resolved 처리.",
-    "구조적 미해소: 프레이밍 토픽 자동 종결 로직 없음 + PD resolved 절차 미명문화 → 재발 위험 존재."
+    "Nova 먼저 호출은 Master 요청(오랜만에). 기본 스캐폴드에서 벗어남 — Ace 오케스트레이션 적응성 확인.",
+    "D-056은 Nova N3 + Arki 스키마 3종 + Fin 전면채택 + Riki 🔴 방어책 통합 단일안.",
+    "기존 PD 5건(004·005·012·015·018·021) backfill 미실시 — 수동 유지.",
+    "PD-022 등록, Arki 재소집으로 Phase별 상세 설계 예정.",
+    "장기 로드맵 Nova N4: /open 제거, Ace 자율 판정 — 1000세션 학습 궤도 진입 후 검토."
   ],
-  "gaps": [
-    "프레이밍 토픽 자동 종결 로직 미구현 — 분할 패턴 재발 시 수동 처리 필요",
-    "PD resolved 처리 절차 Session End 체크리스트 미명문화"
+  "gaps": [],
+  "reportPath": "reports/2026-04-21_topic-closure-declaration",
+  "pendingDeferralsAdded": [
+    "PD-022"
   ],
-  "reportPath": "reports/2026-04-21_pd-020b-completion-verify",
-  "pendingDeferralsAdded": [],
   "tokenUsage": {
-    "input_tokens": 181,
-    "output_tokens": 68533,
-    "cache_creation_input_tokens": 277620,
-    "cache_read_input_tokens": 9850577,
-    "messageCount": 140,
-    "masterTurns": 8,
-    "total_billable": 10196911
+    "input_tokens": 169,
+    "output_tokens": 47967,
+    "cache_creation_input_tokens": 168819,
+    "cache_read_input_tokens": 4032247,
+    "messageCount": 48,
+    "masterTurns": 15,
+    "total_billable": 4249202
   }
 }

@@ -1,6 +1,24 @@
 {
   "topics": [
     {
+      "id": "topic_069",
+      "title": "토픽 종료 선언 — 프레이밍 종결 + PD resolved 구조화",
+      "status": "completed",
+      "phase": "validated",
+      "hold": null,
+      "grade": "A",
+      "topicType": "framing",
+      "parentTopicId": null,
+      "childTopicIds": [],
+      "created": "2026-04-21",
+      "controlPath": "topics/topic_069",
+      "reportPath": "reports/2026-04-21_topic-closure-declaration",
+      "reportFiles": ["editor_rev1.md"],
+      "published": false,
+      "path": "topics/topic_069",
+      "outcome": "D-056 확정. PD-022 분기. 저마찰 원칙 박제."
+    },
+    {
       "id": "topic_068",
       "title": "PD-020b 완결 검증",
       "status": "completed",
@@ -10,7 +28,9 @@
       "created": "2026-04-21",
       "controlPath": "topics/topic_068",
       "reportPath": "reports/2026-04-21_pd-020b-completion-verify",
-      "reportFiles": ["dev_rev1.md"],
+      "reportFiles": [
+        "dev_rev1.md"
+      ],
       "published": false,
       "path": "topics/topic_068",
       "outcome": "topic_062/066 종결 처리. regex 버그(regenerate-context-brief) + 근원 버그(write-session-contribution decision 조회) 수정. PD-020b resolved. 구조적 미해소: 프레이밍 토픽 자동 종결 + PD resolved 절차 미명문화."
@@ -1340,5 +1360,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-21T11:33:29.460Z"
+  "lastUpdated": "2026-04-21T11:51:43.950Z"
 }

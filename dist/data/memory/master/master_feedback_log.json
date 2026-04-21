@@ -1,6 +1,24 @@
 {
   "feedbackLog": [
     {
+      "id": "MF-050",
+      "date": "2026-04-21",
+      "session": "session_066",
+      "topic": "topic-closure-declaration",
+      "feedback": "Ace 프레이밍 Step 0에 Master 대답 없으면 그냥 진행. Close도 동일하게 별말 없으면 승인. '나 없이도 사고하고 최상의 결과물을 산출하는 팀'이 목표 — 요구 많아지는 건 사절. 학습 궤도 오르면 Nova N4처럼 /open 자체 제거로 전환. ~1000세션 후 목표.",
+      "status": "resolved",
+      "statusNote": "D-056에 '무응답=승인' 기본값 박제 + Nova N4 장기 로드맵 명문화. feedback_low_friction_autonomy.md 저장."
+    },
+    {
+      "id": "MF-049-b",
+      "date": "2026-04-21",
+      "session": "session_066",
+      "topic": "topic-closure-declaration",
+      "feedback": "최대 깊이 2 + dry-run 출력 강제 — Ace 제안대로.",
+      "status": "resolved",
+      "statusNote": "D-056 (C) auto-close dry-run 2단 + 최대 깊이 2 확정."
+    },
+    {
       "id": "MF-048",
       "date": "2026-04-21",
       "session": "session_063",

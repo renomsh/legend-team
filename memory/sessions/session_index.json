@@ -1825,8 +1825,79 @@
       ],
       "grade": "C",
       "note": "topic_062 status in-progress → completed/validated 처리. 구현은 topic_063~065 분할 완료. | topic_066 session_063.md Decisions 섹션에 D-055 소급 기록 (decisionIds=['undefined'] 버그 수정). | regenerate-context-brief.ts regex 버그 수정: 괄호 포함 형식 지원 (근원 수정). | write-session-contribution.ts: session.decisions 대신 decision_ledger.session 단일원천 조회 (근원 수정). | topic_066 completed/validated 처리 + PD-020b deferral resolved 처리. | 구조적 미해소: 프레이밍 토픽 자동 종결 로직 없음 + PD resolved 절차 미명문화 → 재발 위험 존재."
+    },
+    {
+      "sessionId": "session_066",
+      "topicSlug": "topic-closure-declaration",
+      "topic": "토픽 종료 선언 — 프레이밍 종결 + PD resolved 구조화",
+      "startedAt": "2026-04-21T20:00:00.000Z",
+      "closedAt": "2026-04-21T20:45:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "decisions": [
+        "Nova N3 채택, N1/N2/N4 기각",
+        "Master 무응답=승인 기본값 박제",
+        "장기 목표 Nova N4(Zero-/open) 명문화 — ~1000세션 후"
+      ],
+      "agentsCompleted": [
+        "ace",
+        "nova",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "nova",
+          "turnIdx": 1,
+          "phase": "framing",
+          "recallReason": "master-request"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 2,
+          "phase": "design"
+        },
+        {
+          "role": "fin",
+          "turnIdx": 3,
+          "phase": "design"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 4,
+          "phase": "design"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 5,
+          "phase": "synthesis",
+          "recallReason": "post-roles"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 6,
+          "phase": "compile"
+        }
+      ],
+      "plannedSequence": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "grade": "A",
+      "note": "Nova 먼저 호출은 Master 요청(오랜만에). 기본 스캐폴드에서 벗어남 — Ace 오케스트레이션 적응성 확인. | D-056은 Nova N3 + Arki 스키마 3종 + Fin 전면채택 + Riki 🔴 방어책 통합 단일안. | 기존 PD 5건(004·005·012·015·018·021) backfill 미실시 — 수동 유지. | PD-022 등록, Arki 재소집으로 Phase별 상세 설계 예정. | 장기 로드맵 Nova N4: /open 제거, Ace 자율 판정 — 1000세션 학습 궤도 진입 후 검토."
     }
   ],
-  "lastUpdated": "2026-04-21T11:48:24.231Z",
+  "lastUpdated": "2026-04-21T12:37:34.878Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

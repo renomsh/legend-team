@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-21T11:48:35.174Z",
-  "totalSessions": 64,
+  "generatedAt": "2026-04-21T12:37:45.152Z",
+  "totalSessions": 65,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.22,
-    "avgCacheHitRate": 0.9278,
-    "cacheSampleSize": 38,
-    "cacheSampleTotal": 64,
+    "avgMasterTurns": 17.18,
+    "avgCacheHitRate": 0.9284,
+    "cacheSampleSize": 39,
+    "cacheSampleTotal": 65,
     "avgAdoptionRate": 0,
-    "totalDecisions": 55,
+    "totalDecisions": 56,
     "gradeDistribution": {
-      "S": 18,
+      "S": 19,
       "A": 12,
       "B": 23,
       "C": 11
@@ -21,7 +21,7 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 19
+    "turnBasedSessions": 20
   },
   "sessions": [
     {
@@ -1952,12 +1952,48 @@
         "cacheHitRate": 0.9660354003285897,
         "messageCount": 140
       }
+    },
+    {
+      "sessionId": "session_066",
+      "topicSlug": "topic-closure-declaration",
+      "topic": "토픽 종료 선언 — 프레이밍 종결 + PD resolved 구조화",
+      "startedAt": "2026-04-21T20:00:00.000Z",
+      "closedAt": "2026-04-21T20:45:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-056"
+      ],
+      "rolesCalled": 7,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 14,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 15,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "nova",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 4249202,
+        "cacheHitRate": 0.9489421778489232,
+        "messageCount": 48
+      }
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 25,
+      "count": 27,
       "sessions": [
         "session_047",
         "session_048",
@@ -1973,7 +2009,31 @@
         "session_061",
         "session_062",
         "session_063",
-        "session_064"
+        "session_064",
+        "session_066"
+      ]
+    },
+    {
+      "role": "editor",
+      "count": 17,
+      "sessions": [
+        "session_050",
+        "session_051",
+        "session_052",
+        "session_053",
+        "session_054",
+        "session_055",
+        "session_056",
+        "session_057",
+        "session_058",
+        "session_059",
+        "session_060",
+        "session_061",
+        "session_062",
+        "session_063",
+        "session_064",
+        "session_065",
+        "session_066"
       ]
     },
     {
@@ -1996,30 +2056,8 @@
       ]
     },
     {
-      "role": "editor",
-      "count": 16,
-      "sessions": [
-        "session_050",
-        "session_051",
-        "session_052",
-        "session_053",
-        "session_054",
-        "session_055",
-        "session_056",
-        "session_057",
-        "session_058",
-        "session_059",
-        "session_060",
-        "session_061",
-        "session_062",
-        "session_063",
-        "session_064",
-        "session_065"
-      ]
-    },
-    {
       "role": "arki",
-      "count": 13,
+      "count": 14,
       "sessions": [
         "session_048",
         "session_049",
@@ -2028,19 +2066,33 @@
         "session_059",
         "session_060",
         "session_061",
-        "session_063"
+        "session_063",
+        "session_066"
       ]
     },
     {
       "role": "riki",
-      "count": 6,
+      "count": 7,
       "sessions": [
         "session_049",
         "session_053",
         "session_054",
         "session_059",
         "session_060",
-        "session_063"
+        "session_063",
+        "session_066"
+      ]
+    },
+    {
+      "role": "fin",
+      "count": 6,
+      "sessions": [
+        "session_053",
+        "session_054",
+        "session_059",
+        "session_060",
+        "session_063",
+        "session_066"
       ]
     },
     {
@@ -2052,14 +2104,10 @@
       ]
     },
     {
-      "role": "fin",
-      "count": 5,
+      "role": "nova",
+      "count": 1,
       "sessions": [
-        "session_053",
-        "session_054",
-        "session_059",
-        "session_060",
-        "session_063"
+        "session_066"
       ]
     }
   ],
@@ -2693,6 +2741,54 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_066",
+      "topic": "토픽 종료 선언 — 프레이밍 종결 + PD resolved 구조화",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "nova",
+          "phase": "framing",
+          "turnIdx": 1,
+          "recallReason": "master-request"
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": "design",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "design",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 5,
+          "recallReason": "post-roles"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 6,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -2807,6 +2903,16 @@
     {
       "ruleId": "R5",
       "severity": "red",
+      "description": "피드백 재발: \"Ace\" 4회"
+    },
+    {
+      "ruleId": "R5",
+      "severity": "red",
+      "description": "피드백 재발: \"Master\" 6회"
+    },
+    {
+      "ruleId": "R5",
+      "severity": "red",
       "description": "피드백 재발: \"Ace가\" 4회"
     },
     {
@@ -2832,17 +2938,7 @@
     {
       "ruleId": "R5",
       "severity": "red",
-      "description": "피드백 재발: \"Master\" 5회"
-    },
-    {
-      "ruleId": "R5",
-      "severity": "red",
       "description": "피드백 재발: \"역할\" 3회"
-    },
-    {
-      "ruleId": "R5",
-      "severity": "red",
-      "description": "피드백 재발: \"Ace\" 3회"
     },
     {
       "ruleId": "R5",
@@ -2851,6 +2947,79 @@
     }
   ],
   "feedbackRecurrences": [
+    {
+      "keyword": "Ace",
+      "occurrences": [
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-050",
+          "summary": "Ace 프레이밍 Step 0에 Master 대답 없으면 그냥 진행. Close도 동일하게 별말 없으면 승인."
+        },
+        {
+          "date": "2026-04-10",
+          "feedbackId": "MF-006",
+          "summary": "Ace = Master의 판단 대리인. 후행 통합기→선행 제안기 진화. 종합+자기판단 필수. Master 미"
+        },
+        {
+          "date": "2026-04-10",
+          "feedbackId": "MF-007",
+          "summary": "1) Ace=Master 동일화. 2) 학습 대상은 선택 흔적. 3) 정형/비정형 분리 리스크 → 내장으로."
+        },
+        {
+          "date": "2026-04-17",
+          "feedbackId": "MF-024",
+          "summary": "Ace 이번에 잘 주관했어."
+        }
+      ]
+    },
+    {
+      "keyword": "프레이밍",
+      "occurrences": [
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-050",
+          "summary": "Ace 프레이밍 Step 0에 Master 대답 없으면 그냥 진행. Close도 동일하게 별말 없으면 승인."
+        },
+        {
+          "date": "2026-04-20",
+          "feedbackId": "MF-037",
+          "summary": "r2,4,5,6은 이해되는데 3은 프레이밍 말미로 돌아갈 일이 있나? r1도 그 정도 판정은 상관없지 않나?"
+        }
+      ]
+    },
+    {
+      "keyword": "Master",
+      "occurrences": [
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-050",
+          "summary": "Ace 프레이밍 Step 0에 Master 대답 없으면 그냥 진행. Close도 동일하게 별말 없으면 승인."
+        },
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-029",
+          "summary": "Master 지적 3건 복합: (1) 'codp ver1.0 원본데이터 기반으로 재점검' (2) 'ver2."
+        },
+        {
+          "date": "2026-04-03",
+          "feedbackId": "MF-001",
+          "summary": "5개 결정 항목에 대한 Master 결정 확정"
+        },
+        {
+          "date": "2026-04-10",
+          "feedbackId": "MF-007",
+          "summary": "1) Ace=Master 동일화. 2) 학습 대상은 선택 흔적. 3) 정형/비정형 분리 리스크 → 내장으로."
+        },
+        {
+          "date": "2026-04-19",
+          "summary": "Ace만 Master 복제. 나머지는 개별 역할 발전. Master는 이 팀의 구성원으로 각자 피드백·의견을"
+        },
+        {
+          "date": "2026-04-19",
+          "summary": "Riki R-02 기각 — Master 주관 판정 최우선. Master 동의 없이는 실행 불가. 레전드팀=M"
+        }
+      ]
+    },
     {
       "keyword": "제안은",
       "occurrences": [
@@ -3196,34 +3365,6 @@
       ]
     },
     {
-      "keyword": "Master",
-      "occurrences": [
-        {
-          "date": "2026-04-19",
-          "feedbackId": "MF-029",
-          "summary": "Master 지적 3건 복합: (1) 'codp ver1.0 원본데이터 기반으로 재점검' (2) 'ver2."
-        },
-        {
-          "date": "2026-04-03",
-          "feedbackId": "MF-001",
-          "summary": "5개 결정 항목에 대한 Master 결정 확정"
-        },
-        {
-          "date": "2026-04-10",
-          "feedbackId": "MF-007",
-          "summary": "1) Ace=Master 동일화. 2) 학습 대상은 선택 흔적. 3) 정형/비정형 분리 리스크 → 내장으로."
-        },
-        {
-          "date": "2026-04-19",
-          "summary": "Ace만 Master 복제. 나머지는 개별 역할 발전. Master는 이 팀의 구성원으로 각자 피드백·의견을"
-        },
-        {
-          "date": "2026-04-19",
-          "summary": "Riki R-02 기각 — Master 주관 판정 최우선. Master 동의 없이는 실행 불가. 레전드팀=M"
-        }
-      ]
-    },
-    {
       "keyword": "지적",
       "occurrences": [
         {
@@ -3269,26 +3410,6 @@
           "date": "2026-04-11",
           "feedbackId": "MF-008",
           "summary": "3가지 역할 피드백: 1) Arki — 아키텍처 그리는 방법론 학습, Agent 설계가 팀 과업. 2) No"
-        }
-      ]
-    },
-    {
-      "keyword": "Ace",
-      "occurrences": [
-        {
-          "date": "2026-04-10",
-          "feedbackId": "MF-006",
-          "summary": "Ace = Master의 판단 대리인. 후행 통합기→선행 제안기 진화. 종합+자기판단 필수. Master 미"
-        },
-        {
-          "date": "2026-04-10",
-          "feedbackId": "MF-007",
-          "summary": "1) Ace=Master 동일화. 2) 학습 대상은 선택 흔적. 3) 정형/비정형 분리 리스크 → 내장으로."
-        },
-        {
-          "date": "2026-04-17",
-          "feedbackId": "MF-024",
-          "summary": "Ace 이번에 잘 주관했어."
         }
       ]
     },

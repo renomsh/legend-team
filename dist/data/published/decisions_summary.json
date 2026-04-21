@@ -1,6 +1,24 @@
 {
-  "generatedAt": "2026-04-21T11:48:35.777Z",
+  "generatedAt": "2026-04-21T12:37:45.760Z",
   "decisions": [
+    {
+      "id": "D-056",
+      "date": "2026-04-21",
+      "session": "session_066",
+      "topic": "topic-closure-declaration",
+      "axis": "토픽 생명주기 자동화 — 프레이밍↔구현 부모-자식 모델 + PD resolveCondition + 저마찰 원칙(무응답=승인)",
+      "decision": "(A) 스키마 확장: topic_index에 topicType(framing|implementation|standalone|abandoned|pending-classification) + parentTopicId(nullable) + childTopicIds(파생). pendingDeferrals에 resolveCondition({type:'topic-completed', topicId}) 선택 필드. (B) Ace 프레이밍 Step 0: /open 직후 openTopics·최근 세션 스캔 → parentTopicId·topicType 추론 제시 → Master 무응답=승인. Nova N3 채택. (C) /close auto-close: dry-run 리포트 출력 → Master 무응답=승인 → apply. 최대 깊이 2. Silent 전이 금지. (D) PD 자동 전이: resolveCondition.topicId 존재 검증 → 미존재 시 error 로그 + skip. create-topic.ts 참조 카운터로 삭제 차단. (E) 재분류 경로: /reclassify-topic <id> <type> [parent] 신설. pending-classification → 확정 type 승격 정식 경로. (F) 강제 레이어: validate-topic-closure.ts (/close 차단) + Session End 체크리스트 'PD resolved 판정' 명문화. (G) 기존 PD 5건 backfill 미실시 — 수동 운영 유지, 신규 PD부터 적용. (H) 원칙 박제: 'Master 무응답=승인' 기본값. 필수 응답은 🔴 데이터 손상급에만(최대 깊이 2 초과 auto-close 1건). 이 원칙을 깨는 향후 설계는 자동 기각. (I) 장기 로드맵: ~1000세션 학습 후 Nova N4(Zero-/open) 자율 판정 전환 목표. (J) 소급 정리: topic_062·066 topicType=framing 백필, 레거시 전 토픽 standalone 일괄 마이그레이션 — PD-022 P1에서 수행. (K) executionPlanMode=conditional → PD-022로 구현 분기(Arki 4-Phase 재소집 필요). Riki 🔴 R1(dry-run 2단) R2(참조 무결성) + 🟡 R3(pending-classification) R4(abandoned) 전원 내장.",
+      "value": "session_062~065에서 드러난 프레이밍↔구현 토픽 생명주기 누수 + PD resolved 누락의 구조적 해소. Master save 수동 관행 → 시스템 자동화 흐름(D-051·D-053) 연장. 저마찰 원칙 박제로 향후 설계의 요구량 증가 차단. '나 없이도 사고하는 팀' 비전 로드맵(Nova N4) 장기 목표 명문화.",
+      "authority": "master",
+      "status": "confirmed",
+      "owningTopicId": "topic_069",
+      "scopeCheck": "cross-topic",
+      "relatedTopics": [
+        "topic_062",
+        "topic_066",
+        "topic_068"
+      ]
+    },
     {
       "id": "D-055",
       "date": "2026-04-21",
