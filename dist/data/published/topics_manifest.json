@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-22T04:40:06.033Z",
+  "generatedAt": "2026-04-22T04:45:01.272Z",
   "topics": [
     {
       "id": "topic_078",
@@ -66,13 +66,13 @@
     {
       "id": "topic_073",
       "title": "PD-018 실행 — 실 비용($) 계산 패널 신설",
-      "status": "open",
+      "status": "completed",
       "created": "2026-04-22",
       "reportPath": "reports/2026-04-22_pd-018-cost-panel",
       "reportFiles": [],
       "published": false,
       "outcome": null,
-      "note": null,
+      "note": "cost-row 구현 session_071, KPI I/O 전환+Secondary 강등+raw 접기 session_072. PD-018 resolved.",
       "masterDecisions": []
     },
     {

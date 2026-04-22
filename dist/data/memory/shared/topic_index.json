@@ -83,8 +83,8 @@
     {
       "id": "topic_073",
       "title": "PD-018 실행 — 실 비용($) 계산 패널 신설",
-      "status": "open",
-      "phase": "framing",
+      "status": "completed",
+      "phase": "validated",
       "hold": null,
       "created": "2026-04-22",
       "grade": "B",
@@ -92,7 +92,8 @@
       "reportPath": "reports/2026-04-22_pd-018-cost-panel",
       "reportFiles": [],
       "published": false,
-      "path": "topics/topic_073"
+      "path": "topics/topic_073",
+      "note": "cost-row 구현 session_071, KPI I/O 전환+Secondary 강등+raw 접기 session_072. PD-018 resolved."
     },
     {
       "id": "topic_072",
