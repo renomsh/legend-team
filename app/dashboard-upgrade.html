@@ -294,23 +294,23 @@ a{color:inherit;text-decoration:none}
     <div style="font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--text-3);opacity:0.6;margin-bottom:8px;margin-top:-8px">비용 (Secondary)</div>
     <div class="cost-row">
       <div class="kpi g">
-        <div class="kpi-top"><div class="kpi-label">Total Cost</div><div class="kpi-icon">$</div></div>
+        <div class="kpi-top"><div class="kpi-label">I/O Cost</div><div class="kpi-icon">$</div></div>
         <div class="kpi-val" id="kCostTotal">—</div>
-        <div class="kpi-sub" id="kCostTotalSub">누적 실 비용</div>
+        <div class="kpi-sub" id="kCostTotalSub">input+output 누적</div>
       </div>
       <div class="kpi g">
-        <div class="kpi-top"><div class="kpi-label">Avg / Session</div><div class="kpi-icon">$</div></div>
+        <div class="kpi-top"><div class="kpi-label">Avg I/O / Session</div><div class="kpi-icon">$</div></div>
         <div class="kpi-val" id="kCostAvg">—</div>
-        <div class="kpi-sub" id="kCostAvgSub">세션 평균 비용</div>
+        <div class="kpi-sub" id="kCostAvgSub">세션 평균 I/O 비용</div>
       </div>
       <div class="kpi g">
-        <div class="kpi-top"><div class="kpi-label">Max Session</div><div class="kpi-icon">$</div></div>
+        <div class="kpi-top"><div class="kpi-label">Max I/O Session</div><div class="kpi-icon">$</div></div>
         <div class="kpi-val" id="kCostMax">—</div>
-        <div class="kpi-sub" id="kCostMaxSub">최고 비용 세션</div>
+        <div class="kpi-sub" id="kCostMaxSub">최고 I/O 세션</div>
       </div>
       <div class="kpi g" style="grid-column:span 1">
-        <div class="kpi-top"><div class="kpi-label">Cost / Session (최근 20)</div><div class="kpi-icon">📈</div></div>
-        <div class="kpi-sub" style="margin-bottom:6px;font-size:10px">Sonnet 4.6 기준 · input $3 / output $15 / cache_create $3.75 / cache_read $0.30 per MTok</div>
+        <div class="kpi-top"><div class="kpi-label">I/O Cost / Session (최근 20)</div><div class="kpi-icon" style="font-size:13px">📈</div></div>
+        <div class="kpi-sub" style="margin-bottom:6px;font-size:10px">input $3 / output $15 per MTok</div>
         <div class="kpi-spark" id="sparkCost" style="height:44px"></div>
       </div>
     </div>
@@ -337,13 +337,6 @@ a{color:inherit;text-decoration:none}
           <div style="font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);margin-bottom:4px">Total (raw 4필드)</div>
           <div id="rawTotal" style="font-size:20px;font-weight:700;letter-spacing:-.5px;color:var(--text-3)">—</div>
         </div>
-      </div>
-      <!-- Row 2: $ cost per category (항상 visible) -->
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:5px">
-        <div style="text-align:center"><div id="rawInputCost" style="font-size:13px;font-weight:600;color:#10B981;letter-spacing:-.3px">—</div></div>
-        <div style="text-align:center"><div id="rawCCCost" style="font-size:13px;font-weight:600;color:#10B981;letter-spacing:-.3px">—</div></div>
-        <div style="text-align:center"><div id="rawCRCost" style="font-size:13px;font-weight:600;color:#10B981;letter-spacing:-.3px">—</div></div>
-        <div style="text-align:center;padding-left:12px"><div id="rawTotalCost" style="font-size:13px;font-weight:700;color:#10B981;letter-spacing:-.3px">—</div></div>
       </div>
       <!-- Hidden detail expand -->
       <details id="rawTokenDetails" style="margin-top:12px">
@@ -629,27 +622,31 @@ function renderKPIs() {
   spark('sparkTokens', filteredSessions.map(s=>s.tokenUsage?.ioTokens || 0), '#3B82F6');
   spark('sparkSessions', filteredSessions.map((_,i)=>i+1), '#8B5CF6');
 
-  // ── 비용 패널 ──────────────────────────────────────────────────────────────
-  const withCost = filteredSessions.filter(s => s.sessionCostUSD != null);
-  const totalCost = withCost.reduce((a, s) => a + (s.sessionCostUSD || 0), 0);
-  const avgCost = withCost.length ? totalCost / withCost.length : 0;
-  const maxCostSession = withCost.length
-    ? withCost.reduce((a, s) => (s.sessionCostUSD || 0) > (a.sessionCostUSD || 0) ? s : a, withCost[0])
+  // ── 비용 패널 (I/O cost 기준: input+output only) ──────────────────────────
+  const COST_RATES = { input: 3.0, output: 15.0 };
+  const ioCostSessions = withTok.map(s => ({
+    sessionId: s.sessionId,
+    ioCostUSD: ((s.tokenUsage.inputTokens||0) * COST_RATES.input + (s.tokenUsage.outputTokens||0) * COST_RATES.output) / 1e6
+  }));
+  const totalIOCost = ioCostSessions.reduce((a, s) => a + s.ioCostUSD, 0);
+  const avgIOCost = ioCostSessions.length ? totalIOCost / ioCostSessions.length : 0;
+  const maxIOSession = ioCostSessions.length
+    ? ioCostSessions.reduce((a, s) => s.ioCostUSD > a.ioCostUSD ? s : a, ioCostSessions[0])
     : null;
 
   const fmtUSD = v => v >= 100 ? `$${v.toFixed(0)}` : v >= 1 ? `$${v.toFixed(2)}` : `$${v.toFixed(3)}`;
 
-  document.getElementById('kCostTotal').textContent = withCost.length ? fmtUSD(totalCost) : '—';
-  document.getElementById('kCostTotalSub').textContent = withCost.length
-    ? `${withCost.length}/${t}개 세션 집계`
+  document.getElementById('kCostTotal').textContent = ioCostSessions.length ? fmtUSD(totalIOCost) : '—';
+  document.getElementById('kCostTotalSub').textContent = ioCostSessions.length
+    ? `${ioCostSessions.length}/${t}개 세션 집계`
     : '집계 데이터 없음';
-  document.getElementById('kCostAvg').textContent = withCost.length ? fmtUSD(avgCost) : '—';
-  document.getElementById('kCostAvgSub').textContent = withCost.length ? `세션 평균 비용` : '집계 데이터 없음';
-  document.getElementById('kCostMax').textContent = maxCostSession ? fmtUSD(maxCostSession.sessionCostUSD) : '—';
-  document.getElementById('kCostMaxSub').textContent = maxCostSession ? maxCostSession.sessionId : '—';
+  document.getElementById('kCostAvg').textContent = ioCostSessions.length ? fmtUSD(avgIOCost) : '—';
+  document.getElementById('kCostAvgSub').textContent = ioCostSessions.length ? `세션 평균 I/O 비용` : '집계 데이터 없음';
+  document.getElementById('kCostMax').textContent = maxIOSession ? fmtUSD(maxIOSession.ioCostUSD) : '—';
+  document.getElementById('kCostMaxSub').textContent = maxIOSession ? maxIOSession.sessionId : '—';
 
-  const recent20 = withCost.slice(-20);
-  spark('sparkCost', recent20.map(s => s.sessionCostUSD || 0), '#10B981');
+  const recent20 = ioCostSessions.slice(-20);
+  spark('sparkCost', recent20.map(s => s.ioCostUSD || 0), '#10B981');
 
   // ── raw 토큰 2-row + 상세 패널 ────────────────────────────────────────────
   const COST_PER_MTOK = { input: 3.0, output: 15.0, cacheCreate: 3.75, cacheRead: 0.30 };
@@ -672,12 +669,6 @@ function renderKPIs() {
   document.getElementById('rawCacheCreate').textContent = withTok.length ? fmtTokens(rawCacheCreate) : '—';
   document.getElementById('rawCacheRead').textContent   = withTok.length ? fmtTokens(rawCacheRead) : '—';
   document.getElementById('rawTotal').textContent       = withTok.length ? fmtTokens(rawTotal) : '—';
-
-  // Row 2: $ costs
-  document.getElementById('rawInputCost').textContent = withTok.length ? fmtCostRow(costIO)    : '—';
-  document.getElementById('rawCCCost').textContent    = withTok.length ? fmtCostRow(costCC)    : '—';
-  document.getElementById('rawCRCost').textContent    = withTok.length ? fmtCostRow(costCR)    : '—';
-  document.getElementById('rawTotalCost').textContent = withTok.length ? fmtCostRow(costTotal) : '—';
 
   // 상세 테이블 (hidden)
   if (withTok.length) {

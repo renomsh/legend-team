@@ -1,6 +1,19 @@
 {
   "topics": [
     {
+      "id": "topic_080",
+      "title": "효율 대시보드 토큰·비용 패널 수정",
+      "status": "open",
+      "phase": "framing",
+      "hold": null,
+      "created": "2026-04-22",
+      "controlPath": "topics/topic_080",
+      "reportPath": "reports/2026-04-22_efficiency-dashboard-token-cost-fix",
+      "reportFiles": [],
+      "published": false,
+      "path": "topics/topic_080"
+    },
+    {
       "id": "topic_079",
       "title": "효율 대시보드 변경",
       "status": "completed",
@@ -12,7 +25,9 @@
       "outcome": "RAW 토큰 패널 2-row 재설계 완료 (Row1=token counts visible, Row2=$ visible, hidden expand=5행 상세표). compute-dashboard.ts inputTokens/outputTokens 필드 추가.",
       "controlPath": "topics/topic_079",
       "reportPath": "reports/2026-04-22_efficiency-dashboard-change",
-      "reportFiles": ["dev_rev1.md"],
+      "reportFiles": [
+        "dev_rev1.md"
+      ],
       "published": false,
       "path": "topics/topic_079"
     },
@@ -1564,5 +1579,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-22T04:53:17.824Z"
+  "lastUpdated": "2026-04-22T05:40:55.468Z"
 }

@@ -1,55 +1,30 @@
 {
-  "sessionId": "session_073",
-  "topicId": "topic_079",
-  "topic": "효율 대시보드 변경",
-  "topicSlug": "efficiency-dashboard-change",
-  "status": "closed",
-  "startedAt": "2026-04-22T06:00:00.000Z",
-  "closedAt": "2026-04-22T07:00:00.000Z",
+  "sessionId": "session_074",
+  "topicId": "topic_080",
+  "topic": "효율 대시보드 토큰·비용 패널 수정",
+  "topicSlug": "efficiency-dashboard-token-cost-fix",
+  "status": "open",
+  "startedAt": "2026-04-22T07:30:00.000Z",
   "mode": "observation",
-  "grade": "A",
-  "gradeDeclared": "A",
-  "framingLevel": 2,
+  "grade": "B",
+  "gradeDeclared": "B",
+  "framingLevel": 1,
   "framingSkipped": false,
-  "agentsCompleted": [
-    "ace",
-    "dev",
-    "editor"
-  ],
-  "turns": [
-    {
-      "role": "ace",
-      "turnIdx": 0,
-      "phase": "framing"
-    },
-    {
-      "role": "dev",
-      "turnIdx": 1,
-      "phase": "implementation"
-    },
-    {
-      "role": "editor",
-      "turnIdx": 2,
-      "phase": "compile"
-    }
-  ],
+  "agentsCompleted": [],
+  "turns": [],
   "decisions": [],
   "masterDecisions": [],
   "masterFeedback": [],
-  "notes": [
-    "RAW 토큰 패널 2-row 재설계: Row1=token counts(항상visible), Row2=$(항상visible), hidden expand=5행 상세표",
-    "compute-dashboard.ts: tokenUsage에 inputTokens/outputTokens 필드 추가 → 상세 테이블 input/output 분리 표시 가능",
-    "session_072 PD-NEW-B 설계 역전 원인 규명: <details> 전체 접기 = 수치 hidden 처리 → 이번 세션에서 복원"
-  ],
-  "reportPath": "reports/2026-04-22_efficiency-dashboard-change",
+  "notes": [],
+  "reportPath": "reports/2026-04-22_efficiency-dashboard-token-cost-fix",
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 130,
-    "output_tokens": 57360,
-    "cache_creation_input_tokens": 458228,
-    "cache_read_input_tokens": 5713014,
-    "messageCount": 87,
+    "input_tokens": 89,
+    "output_tokens": 37450,
+    "cache_creation_input_tokens": 216016,
+    "cache_read_input_tokens": 3695463,
+    "messageCount": 61,
     "masterTurns": 6,
-    "total_billable": 6228732
+    "total_billable": 3949018
   }
 }
