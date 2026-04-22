@@ -1,6 +1,15 @@
 {
   "feedbackLog": [
     {
+      "id": "MF-053",
+      "date": "2026-04-22",
+      "session": "session_078",
+      "topic": "growth-metrics-phase0-scaffold",
+      "feedback": "Dev 자가검증 실행했어? — 1차 CLI 스모크만으로 완료 선언했을 때 제동. 실제 요구 깊이: export 함수 callable 호출, 경계값(transitionZone 진입/이탈), 실패경로(duplicate id·음수 lag), 크로스참조(registry rubricRef ↔ rubric 파일 정합). 단발 통과가 아닌 회귀 재사용 가능한 verification 스크립트로 박음.",
+      "status": "resolved",
+      "statusNote": "scripts/verify-growth-phase0.ts 신설 (36 asserts, 6 그룹). feedback_dev_verify_and_callable 심화 사례 추가됨 — Dev 자가검증의 기본 깊이를 '스모크'에서 'export 전부 callable + 경계값 + 실패경로 + 크로스참조'로 끌어올려야 함."
+    },
+    {
       "id": "MF-052",
       "date": "2026-04-22",
       "session": "session_077",

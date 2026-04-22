@@ -1,30 +1,23 @@
 {
-  "sessionId": "session_077",
-  "topicId": "topic_083",
-  "topic": "성장지표 정의 프레임 확정 + Board 계측 구조 설계",
-  "topicSlug": "growth-metrics-board-design",
+  "sessionId": "session_078",
+  "topicId": "topic_084",
+  "topic": "D-060 Phase 0 구현 — metrics registry 스키마 + compute-growth 초설계",
+  "topicSlug": "growth-metrics-phase0-scaffold",
   "status": "closed",
-  "startedAt": "2026-04-22T07:14:34.527Z",
-  "closedAt": "2026-04-22T10:30:00.000Z",
+  "startedAt": "2026-04-22T10:50:00.000Z",
+  "closedAt": "2026-04-22T11:20:00.000Z",
   "mode": "observation",
-  "grade": "A",
-  "gradeDeclared": "A",
-  "framingLevel": 2,
+  "grade": "B",
+  "gradeDeclared": "B",
+  "framingLevel": 1,
   "framingSkipped": false,
+  "topicType": "implementation",
+  "parentTopicId": "topic_083",
   "agentsCompleted": [
     "ace",
-    "ace",
-    "nova",
     "arki",
-    "fin",
-    "riki",
-    "ace",
-    "arki",
-    "ace",
-    "arki",
-    "arki",
-    "arki",
-    "ace",
+    "dev",
+    "dev",
     "edi",
     "editor"
   ],
@@ -35,119 +28,55 @@
       "phase": "framing"
     },
     {
-      "role": "ace",
-      "turnIdx": 1,
-      "phase": "framing",
-      "recallReason": "post-master",
-      "splitReason": "Master decisions on axes"
-    },
-    {
-      "role": "nova",
-      "turnIdx": 2,
-      "phase": "speculative"
-    },
-    {
       "role": "arki",
-      "turnIdx": 3,
+      "turnIdx": 1,
       "phase": "structural-design"
     },
     {
-      "role": "fin",
-      "turnIdx": 4,
-      "phase": "cost-audit"
+      "role": "dev",
+      "turnIdx": 2,
+      "phase": "implementation"
     },
     {
-      "role": "riki",
-      "turnIdx": 5,
-      "phase": "adversarial-audit"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 6,
-      "phase": "synthesis-1"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 7,
-      "phase": "structural-design",
-      "recallReason": "post-synthesis",
-      "splitReason": "재호출 1/2 - L3/교차채점/레짐마커/태깅분리"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 8,
-      "phase": "synthesis-final"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 9,
-      "phase": "execution-plan",
-      "recallReason": "conditional→plan 전환"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 10,
-      "phase": "self-audit",
-      "recallReason": "master-challenge",
-      "splitReason": "Master '최선 맞아?' - 역할확장성 축"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 11,
-      "phase": "self-audit",
-      "recallReason": "master-challenge",
-      "splitReason": "Master '더 없어?' - 시간축"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 12,
-      "phase": "synthesis-final"
+      "role": "dev",
+      "turnIdx": 3,
+      "phase": "verification",
+      "recallReason": "post-master",
+      "splitReason": "Master 자가검증 요구"
     },
     {
       "role": "edi",
-      "turnIdx": 13,
+      "turnIdx": 4,
       "phase": "compile"
     },
     {
       "role": "editor",
-      "turnIdx": 14,
+      "turnIdx": 5,
       "phase": "compile"
     }
   ],
-  "decisions": [
-    "D-060"
-  ],
-  "masterDecisions": [
-    "PD-005 삭제",
-    "에디터 → 에디 활성 문서 일괄 변경",
-    "Nova 자동 추천 (확장가능성 논의)",
-    "Nova 위치 = Ace 프레이밍 직후 + 오픈 스코프",
-    "Ace가 루프 조율, 상한 2회, 1줄 요약",
-    "N-9, N-10 기각",
-    "parentTopicId = null (standalone)",
-    "완료 기준 = 구조설계까지",
-    "A1=C hybrid / A2=option 3 / A5=C / A6=안 β"
-  ],
+  "decisions": [],
+  "masterDecisions": [],
   "masterFeedback": [
-    "'Arki 이 설계가 최선 맞아?' 2회 반복 - 매회 시간축·확장성 축 결함 발견 유도",
-    "'잘했어' 최종 승인"
+    "'Dev 자가검증 실행했어?' — 1차 CLI 스모크만으론 부족, 경계값·실패경로·크로스참조까지 요구"
   ],
   "notes": [
-    "PD-015 해소. D-060 확정.",
-    "오케스트레이션 루프 실전 첫 적용 - Ace가 Arki 재호출 직접 조율, Master 1줄 요약 알림 프로토콜.",
-    "Nova 제안 10개 중 5 수용 / 2 Phase2 / 1 기각(session_100 연기) / 2 Master 기각.",
-    "Arki 자기감사 2회 - 개선사항 총 12건 Phase 0에 내재화.",
-    "에디터→에디 rename: CLAUDE.md, AGENTS.md, CONTEXT.md, agents/*.md (스키마·파일명·리포트 불변)."
+    "D-060 Phase 0 scaffold. topic_083 child. Grade B L1. 새 D-xxx 결정 없음(구현 세션).",
+    "Master micro-수용: Opus 4.7 1M 메인 지정 + Arki 추천 3축 전체 수용(memory/derived, signature scoringLag 8종, regime marker 3건).",
+    "5 schema files + compute-growth.ts skeleton + verify-growth-phase0.ts 추가.",
+    "자가검증 36 PASS/0 FAIL.",
+    "TypeScript 2건 수정(exactOptionalPropertyTypes, MetricDef cast).",
+    "다음 세션 권장: D-060 Phase 1 — automatic 스코어러 + 훅 체인 통합 MVP."
   ],
-  "reportPath": "reports/2026-04-22_growth-metrics-board-design",
+  "reportPath": "reports/2026-04-22_growth-metrics-phase0-scaffold",
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 236,
-    "output_tokens": 133319,
-    "cache_creation_input_tokens": 543650,
-    "cache_read_input_tokens": 9732991,
-    "messageCount": 96,
-    "masterTurns": 13,
-    "total_billable": 10410196
+    "input_tokens": 193,
+    "output_tokens": 95059,
+    "cache_creation_input_tokens": 552775,
+    "cache_read_input_tokens": 7463313,
+    "messageCount": 80,
+    "masterTurns": 8,
+    "total_billable": 8111340
   }
 }

@@ -1,0 +1,34 @@
+{
+  "_comment": "D-060 Phase 0. 레짐 이벤트 + transition zone. compute-growth가 datapoint에 regimeId·inTransitionZone 태깅.",
+  "schemaVersion": "0.1.0",
+  "types": ["model_upgrade", "master_calibration", "protocol_change", "system_refactor"],
+  "markers": [
+    {
+      "id": "R-001",
+      "type": "system_refactor",
+      "startDate": "2026-04-14",
+      "sessionStart": "session_053",
+      "transitionZone": 3,
+      "label": "토픽 중심 아키텍처 전환 (N:1 + phase×hold)",
+      "decisionRef": "D-051"
+    },
+    {
+      "id": "R-002",
+      "type": "protocol_change",
+      "startDate": "2026-04-21",
+      "sessionStart": "session_067",
+      "transitionZone": 3,
+      "label": "토픽 생명주기 자동화 (parent-child + PD resolveCondition)",
+      "decisionRef": "D-056"
+    },
+    {
+      "id": "R-003",
+      "type": "model_upgrade",
+      "startDate": "2026-04-22",
+      "sessionStart": "session_068",
+      "transitionZone": 3,
+      "label": "Dispatcher-Worker 오케스트레이션 도입 (Opus 서브에이전트)",
+      "decisionRef": "D-058"
+    }
+  ]
+}

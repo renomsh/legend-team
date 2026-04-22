@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-22T10:46:13.574Z",
-  "totalSessions": 76,
+  "generatedAt": "2026-04-22T11:19:27.479Z",
+  "totalSessions": 77,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.44,
-    "avgCacheHitRate": 0.9286,
-    "cacheSampleSize": 50,
-    "cacheSampleTotal": 76,
+    "avgMasterTurns": 16.32,
+    "avgCacheHitRate": 0.9284,
+    "cacheSampleSize": 51,
+    "cacheSampleTotal": 77,
     "avgAdoptionRate": 0,
     "totalDecisions": 60,
     "gradeDistribution": {
       "S": 24,
-      "A": 14,
+      "A": 15,
       "B": 27,
       "C": 11
     },
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 31,
-    "totalCostUSD": 636.9638,
-    "avgCostPerSession": 8.9713,
-    "costSampleSize": 71
+    "turnBasedSessions": 32,
+    "totalCostUSD": 642.7022,
+    "avgCostPerSession": 8.9264,
+    "costSampleSize": 72
   },
   "sessions": [
     {
@@ -2781,12 +2781,50 @@
         "messageCount": 96
       },
       "sessionCostUSD": 6.9591
+    },
+    {
+      "sessionId": "session_078",
+      "topicSlug": "growth-metrics-phase0-scaffold",
+      "topic": "D-060 Phase 0 구현 — metrics registry 스키마 + compute-growth 초설계",
+      "startedAt": "2026-04-22T10:50:00.000Z",
+      "closedAt": "2026-04-22T11:20:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 6,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 11,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 8,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "dev",
+        "dev",
+        "edi",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 8111340,
+        "ioTokens": 95252,
+        "inputTokens": 193,
+        "outputTokens": 95059,
+        "cacheCreate": 552775,
+        "cacheRead": 7463313,
+        "cacheHitRate": 0.9201085147460223,
+        "messageCount": 80
+      },
+      "sessionCostUSD": 5.7384
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 47,
+      "count": 48,
       "sessions": [
         "session_047",
         "session_048",
@@ -2814,12 +2852,13 @@
         "session_074",
         "session_075",
         "session_076",
-        "session_077"
+        "session_077",
+        "session_078"
       ]
     },
     {
       "role": "editor",
-      "count": 28,
+      "count": 29,
       "sessions": [
         "session_050",
         "session_051",
@@ -2848,12 +2887,13 @@
         "session_074",
         "session_075",
         "session_076",
-        "session_077"
+        "session_077",
+        "session_078"
       ]
     },
     {
       "role": "arki",
-      "count": 25,
+      "count": 26,
       "sessions": [
         "session_048",
         "session_049",
@@ -2869,12 +2909,13 @@
         "session_069",
         "session_071",
         "session_075",
-        "session_077"
+        "session_077",
+        "session_078"
       ]
     },
     {
       "role": "dev",
-      "count": 21,
+      "count": 23,
       "sessions": [
         "session_047",
         "session_048",
@@ -2893,7 +2934,8 @@
         "session_072",
         "session_073",
         "session_074",
-        "session_075"
+        "session_075",
+        "session_078"
       ]
     },
     {
@@ -2950,9 +2992,10 @@
     },
     {
       "role": "edi",
-      "count": 1,
+      "count": 2,
       "sessions": [
-        "session_077"
+        "session_077",
+        "session_078"
       ]
     }
   ],
@@ -4060,6 +4103,48 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_078",
+      "topic": "D-060 Phase 0 구현 — metrics registry 스키마 + compute-growth 초설계",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "structural-design",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "verification",
+          "turnIdx": 3,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -4077,6 +4162,25 @@
     }
   ],
   "feedbackRecurrences": [
+    {
+      "keyword": "Dev",
+      "occurrences": [
+        {
+          "date": "2026-04-22",
+          "feedbackId": "MF-053",
+          "summary": "Dev 자가검증 실행했어? — 1차 CLI 스모크만으로 완료 선언했을 때 제동. 실제 요구 깊이: expor"
+        },
+        {
+          "date": "2026-04-20",
+          "feedbackId": "MF-037",
+          "summary": "Dev 검증 기본값 + 하드코딩 금지: (1) 구현 후 런타임 검증 필수 — tsc 통과만으론 부족, 실 데"
+        },
+        {
+          "date": "2026-04-19",
+          "summary": "Dev-Arki는 단방향 설계 인수가 아니라 양방향 의견 교환. Dev=0.1% 프로그래머 특별 정의."
+        }
+      ]
+    },
     {
       "keyword": "PD",
       "occurrences": [
@@ -4442,20 +4546,6 @@
           "date": "2026-04-16",
           "feedbackId": "MF-015",
           "summary": "이번에 한해서 소급 적용하라고 (토픽 타입/명칭 정비)"
-        }
-      ]
-    },
-    {
-      "keyword": "Dev",
-      "occurrences": [
-        {
-          "date": "2026-04-20",
-          "feedbackId": "MF-037",
-          "summary": "Dev 검증 기본값 + 하드코딩 금지: (1) 구현 후 런타임 검증 필수 — tsc 통과만으론 부족, 실 데"
-        },
-        {
-          "date": "2026-04-19",
-          "summary": "Dev-Arki는 단방향 설계 인수가 아니라 양방향 의견 교환. Dev=0.1% 프로그래머 특별 정의."
         }
       ]
     },

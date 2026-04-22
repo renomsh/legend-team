@@ -1,0 +1,24 @@
+{
+  "_comment": "D-060 Phase 0. QA 레이어 스텁. Phase 2 QA 루프에서 값 채움. N=10 세션마다 classifier·rubric 샘플 감사.",
+  "schemaVersion": "0.1.0",
+  "generatedAt": null,
+  "auditCadence": {
+    "everyNSessions": 10,
+    "lastAuditSession": null,
+    "nextAuditDueAtSession": null
+  },
+  "classifiers": [
+    {
+      "classifier": "intervention_classifier",
+      "version": "v1",
+      "sampleSize": 0,
+      "agreementRate": null,
+      "status": "pending"
+    }
+  ],
+  "rubrics": [
+    { "rubric": "ace.orchestrationHitRate", "version": "v1", "interRaterAgreement": null, "sampleSize": 0, "status": "pending" },
+    { "rubric": "riki.riskF1",              "version": "v1", "interRaterAgreement": null, "sampleSize": 0, "status": "pending" },
+    { "rubric": "edi.gapFlagAccuracy",      "version": "v1", "interRaterAgreement": null, "sampleSize": 0, "status": "pending" }
+  ]
+}

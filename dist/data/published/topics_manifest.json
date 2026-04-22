@@ -1,6 +1,20 @@
 {
-  "generatedAt": "2026-04-22T10:46:14.183Z",
+  "generatedAt": "2026-04-22T11:19:28.162Z",
   "topics": [
+    {
+      "id": "topic_084",
+      "title": "D-060 Phase 0 구현 — metrics registry 스키마 + compute-growth 초설계",
+      "status": "completed",
+      "created": "2026-04-22",
+      "reportPath": "reports/2026-04-22_growth-metrics-phase0-scaffold",
+      "reportFiles": [
+        "editor_rev1.md"
+      ],
+      "published": false,
+      "outcome": "D-060 Phase 0 scaffold 완료. 스키마 5종(metrics_registry/hit_rate_rubric[versioned]/intervention_classifier/regime_markers/metric_health) + compute-growth.ts registry-driven skeleton(append-only, pendingLag, incremental, provenance 필드). scoringLag 8종 확정(ace=3/arki=10/fin=0/riki=3/dev=0/vera=0/edi=1/nova=5). regime marker 3건 백필(R-001 D-051 / R-002 D-056 / R-003 D-058). 자가검증 36 PASS/0 FAIL. Phase 1(automatic 스코어러 + 훅 체인 통합 MVP) 선행 완료.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_083",
       "title": "성장지표 정의 프레임 확정 + Board 계측 구조 설계",

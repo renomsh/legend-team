@@ -708,3 +708,22 @@
 [2026-04-22T10:46:03.181Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_083\context_brief.md | sessions=1 size=413B
 [2026-04-22T10:46:11.406Z] [sync-system-state] lastSession=session_077 openTopics=3 recentDecisions=5 deferrals=19
 [2026-04-22T10:46:13.577Z] [compute-dashboard] 완료 — 76개 세션, 2개 경보
+[2026-04-22T11:13:34.466Z] [compute-growth] Phase 0 load ok: 11 active metrics, 3 regimes
+[2026-04-22T11:13:44.825Z] [compute-dashboard] 완료 — 76개 세션, 2개 경보
+[2026-04-22T11:15:09.317Z] [compute-growth] Phase 0 load ok: 11 active metrics, 3 regimes
+[2026-04-22T11:18:42.060Z] [checklist] [INFO] reports: all 1 registered file(s) present: editor_rev1.md
+[2026-04-22T11:18:42.063Z] [checklist] [WARN] decision_ledger: masterDecisions noted but none found in ledger for session_078
+[2026-04-22T11:18:42.063Z] [checklist] [INFO] topic_index: topic found: topic_084 (completed)
+[2026-04-22T11:18:42.063Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-22T11:18:42.064Z] [checklist] [INFO] master_feedback: 1 feedback entry(ies) recorded
+[2026-04-22T11:18:42.064Z] [session-log] [INFO] END session_078 | topic: growth-metrics-phase0-scaffold | duration: 29m
+[2026-04-22T11:19:05.545Z] [checklist] [INFO] reports: all 1 registered file(s) present: editor_rev1.md
+[2026-04-22T11:19:05.546Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-22T11:19:05.547Z] [checklist] [INFO] topic_index: topic found: topic_084 (completed)
+[2026-04-22T11:19:05.547Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-22T11:19:05.548Z] [checklist] [INFO] master_feedback: 1 feedback entry(ies) recorded
+[2026-04-22T11:19:05.548Z] [session-log] [INFO] END session_078 | topic: growth-metrics-phase0-scaffold | duration: 29m
+[2026-04-22T11:19:14.297Z] [L2-writer] wrote C:\Projects\legend-team\topics\topic_084\session_contributions\session_078.md | turns=0 decisions=0
+[2026-04-22T11:19:16.432Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_084\context_brief.md | sessions=1 size=374B
+[2026-04-22T11:19:25.290Z] [sync-system-state] lastSession=session_078 openTopics=3 recentDecisions=5 deferrals=19
+[2026-04-22T11:19:27.483Z] [compute-dashboard] 완료 — 77개 세션, 2개 경보

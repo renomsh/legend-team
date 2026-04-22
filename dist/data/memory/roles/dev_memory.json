@@ -119,6 +119,20 @@
       "topic": "dev-test",
       "lesson": "Edit 도구로 JSON 배열 끝 부분에 삽입 시 기존 ] 뒤에 붙는 경우 배열 구조 오염 발생. 삽입 전 주변 컨텍스트(]와 } 위치) 반드시 확인.",
       "reusable": true
+    },
+    {
+      "id": "DEV-LL-006",
+      "date": "2026-04-22",
+      "topic": "growth-metrics-phase0-scaffold",
+      "lesson": "자가검증 기본 깊이: CLI 스모크 1회 + JSON valid 확인만으론 부족. 추가로 (1) export 함수 전부 호출, (2) 경계값(zone 진입/이탈 세션 index), (3) 실패경로(duplicate id·음수 lag 등 invalid input이 validateX에서 잡히는지), (4) 크로스참조 정합(registry rubricRef ↔ rubric 파일 key 존재). Master 'Dev 자가검증 실행했어?' 질문은 이 4축 요구로 해석할 것.",
+      "reusable": true
+    },
+    {
+      "id": "DEV-LL-007",
+      "date": "2026-04-22",
+      "topic": "growth-metrics-phase0-scaffold",
+      "lesson": "tsconfig에 exactOptionalPropertyTypes: true가 켜져있으면 { sinceSession: string | undefined } 할당이 { sinceSession?: string } 타입으로 안 들어감. 해결: 객체 리터럴 시점에 undefined 키를 포함하지 말고, 값이 확정된 후 optional property로 set(if (v) opts.x = v).",
+      "reusable": true
     }
   ],
   "lessonLog_session032": [

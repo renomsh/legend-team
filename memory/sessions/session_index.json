@@ -2462,8 +2462,60 @@
       ],
       "grade": "A",
       "note": "PD-015 해소. D-060 확정. | 오케스트레이션 루프 실전 첫 적용 - Ace가 Arki 재호출 직접 조율, Master 1줄 요약 알림 프로토콜. | Nova 제안 10개 중 5 수용 / 2 Phase2 / 1 기각(session_100 연기) / 2 Master 기각. | Arki 자기감사 2회 - 개선사항 총 12건 Phase 0에 내재화. | 에디터→에디 rename: CLAUDE.md, AGENTS.md, CONTEXT.md, agents/*.md (스키마·파일명·리포트 불변)."
+    },
+    {
+      "sessionId": "session_078",
+      "topicSlug": "growth-metrics-phase0-scaffold",
+      "topic": "D-060 Phase 0 구현 — metrics registry 스키마 + compute-growth 초설계",
+      "startedAt": "2026-04-22T10:50:00.000Z",
+      "closedAt": "2026-04-22T11:20:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "dev",
+        "dev",
+        "edi",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "phase": "structural-design"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 2,
+          "phase": "implementation"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 3,
+          "phase": "verification",
+          "recallReason": "post-master",
+          "splitReason": "Master 자가검증 요구"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 4,
+          "phase": "compile"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 5,
+          "phase": "compile"
+        }
+      ],
+      "grade": "B",
+      "note": "D-060 Phase 0 scaffold. topic_083 child. Grade B L1. 새 D-xxx 결정 없음(구현 세션). | Master micro-수용: Opus 4.7 1M 메인 지정 + Arki 추천 3축 전체 수용(memory/derived, signature scoringLag 8종, regime marker 3건). | 5 schema files + compute-growth.ts skeleton + verify-growth-phase0.ts 추가. | 자가검증 36 PASS/0 FAIL. | TypeScript 2건 수정(exactOptionalPropertyTypes, MetricDef cast). | 다음 세션 권장: D-060 Phase 1 — automatic 스코어러 + 훅 체인 통합 MVP."
     }
   ],
-  "lastUpdated": "2026-04-22T10:45:59.110Z",
+  "lastUpdated": "2026-04-22T11:19:12.306Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

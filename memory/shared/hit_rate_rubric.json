@@ -1,0 +1,88 @@
+{
+  "_comment": "D-060 Phase 0. 적중률 채점 루브릭. version은 불변(provenance 보존). 새 version 추가 시 이전 effectiveTo 갱신. compute-growth는 datapoint.rubricVersion으로 조회.",
+  "schemaVersion": "0.1.0",
+  "currentVersion": "v1",
+  "versions": [
+    {
+      "version": "v1",
+      "effectiveFrom": "2026-04-22",
+      "effectiveTo": null,
+      "rubrics": {
+        "ace.orchestrationHitRate": {
+          "scale": [0, 1, 2, 3],
+          "anchors": {
+            "0": "역할 호출 순서·재호출 판단이 Master 재지시 유발",
+            "1": "부분 누락 1건 (재호출 타이밍 어긋남 또는 1개 역할 스킵)",
+            "2": "Master 지시 없이 완결",
+            "3": "Master가 명시적으로 긍정 피드백"
+          },
+          "raters": ["arki", "fin", "riki"],
+          "aggregation": "median"
+        },
+        "arki.structuralLifespan": {
+          "scale": "integer_sessions",
+          "anchors": {
+            "interpretation": "재설계(D-xxx redesign 태그 또는 schemaVersion bump)까지의 세션 수. 높을수록 좋음."
+          },
+          "raters": [],
+          "aggregation": "raw"
+        },
+        "fin.costForecastAccuracy": {
+          "scale": "ratio_0_1",
+          "anchors": {
+            "formula": "1 - |forecast - actual| / actual",
+            "clamp": [0, 1]
+          },
+          "raters": [],
+          "aggregation": "raw"
+        },
+        "riki.riskF1": {
+          "scale": "ratio_0_1",
+          "anchors": {
+            "precision": "Riki가 제기한 리스크 중 사후 실현된 비율",
+            "recall": "사후 실현된 이슈 중 Riki가 예측한 비율",
+            "formula": "2 * P * R / (P + R)"
+          },
+          "raters": ["ace", "arki"],
+          "aggregation": "consensus"
+        },
+        "dev.firstPassRate": {
+          "scale": "ratio_0_1",
+          "anchors": {
+            "formula": "1 - (revision_cycles / total_implementations)"
+          },
+          "raters": [],
+          "aggregation": "raw"
+        },
+        "vera.masterRevisionInv": {
+          "scale": "ratio_0_1",
+          "anchors": {
+            "formula": "1 / (1 + master_revision_requests)"
+          },
+          "raters": [],
+          "aggregation": "raw"
+        },
+        "edi.gapFlagAccuracy": {
+          "scale": [0, 1, 2, 3],
+          "anchors": {
+            "0": "gap 누락 또는 오탐 다수",
+            "1": "중요 gap 1건 누락",
+            "2": "대부분 정확",
+            "3": "완전 정확 + 체크리스트 외 누락 발견"
+          },
+          "raters": ["ace"],
+          "aggregation": "single"
+        },
+        "nova.promotionRate": {
+          "scale": "ratio_0_1",
+          "anchors": {
+            "formula": "promoted_options / total_speculative_options",
+            "note": "promoted = Master가 수용 태그를 부여한 Nova 제안"
+          },
+          "raters": [],
+          "aggregation": "raw"
+        }
+      }
+    }
+  ]
+}

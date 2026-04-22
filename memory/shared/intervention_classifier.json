@@ -1,0 +1,45 @@
+{
+  "_comment": "D-060 Phase 0. Master 개입 분류. 태깅은 Ace가 세션 종료 직전 명시 기록 (Fin 수정 요구 #1·#2: 자동 분류 금지, Master 부담 없음).",
+  "schemaVersion": "0.1.0",
+  "version": "v1",
+  "effectiveFrom": "2026-04-22",
+  "effectiveTo": null,
+  "classes": [
+    {
+      "id": "silent_approval",
+      "description": "Master 무응답 후 다음 역할 진입 허용 (저마찰 승인)",
+      "tagger": "ace",
+      "autonomyContribution": "positive"
+    },
+    {
+      "id": "directive",
+      "description": "Master가 구체적 지시·결정·선택지 확정",
+      "tagger": "ace",
+      "autonomyContribution": "negative"
+    },
+    {
+      "id": "corrective",
+      "description": "Master가 역할 출력을 되돌리거나 수정 요구",
+      "tagger": "ace",
+      "autonomyContribution": "negative"
+    },
+    {
+      "id": "exploratory",
+      "description": "Master 질문·탐색성 발언 (지시 아님)",
+      "tagger": "ace",
+      "autonomyContribution": "neutral"
+    },
+    {
+      "id": "override",
+      "description": "Master가 프레이밍/결정을 뒤집음",
+      "tagger": "ace",
+      "autonomyContribution": "negative"
+    }
+  ],
+  "autonomyFormula": "1 - (directive + corrective + override) / masterTurns",
+  "notes": [
+    "silent_approval·exploratory는 autonomy 분자에 포함하지 않음",
+    "masterTurns가 0이면 autonomy는 null (미정의)",
+    "override는 directive/corrective보다 가중치를 더 줄 수 있으나 v1은 동일 가중"
+  ]
+}

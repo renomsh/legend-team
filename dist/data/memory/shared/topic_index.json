@@ -1,22 +1,45 @@
 {
   "topics": [
     {
+      "id": "topic_084",
+      "title": "D-060 Phase 0 구현 — metrics registry 스키마 + compute-growth 초설계",
+      "status": "completed",
+      "phase": "implementation",
+      "topicType": "implementation",
+      "parentTopicId": "topic_083",
+      "hold": null,
+      "grade": "B",
+      "created": "2026-04-22",
+      "closedAt": "2026-04-22",
+      "controlPath": "topics/topic_084",
+      "reportPath": "reports/2026-04-22_growth-metrics-phase0-scaffold",
+      "reportFiles": ["editor_rev1.md"],
+      "published": false,
+      "path": "topics/topic_084",
+      "outcome": "D-060 Phase 0 scaffold 완료. 스키마 5종(metrics_registry/hit_rate_rubric[versioned]/intervention_classifier/regime_markers/metric_health) + compute-growth.ts registry-driven skeleton(append-only, pendingLag, incremental, provenance 필드). scoringLag 8종 확정(ace=3/arki=10/fin=0/riki=3/dev=0/vera=0/edi=1/nova=5). regime marker 3건 백필(R-001 D-051 / R-002 D-056 / R-003 D-058). 자가검증 36 PASS/0 FAIL. Phase 1(automatic 스코어러 + 훅 체인 통합 MVP) 선행 완료."
+    },
+    {
       "id": "topic_083",
       "title": "성장지표 정의 프레임 확정 + Board 계측 구조 설계",
       "status": "completed",
       "phase": "design",
       "topicType": "framing",
       "parentTopicId": null,
+      "childTopicIds": ["topic_084"],
       "hold": null,
       "grade": "A",
       "created": "2026-04-22",
       "closedAt": "2026-04-22",
       "controlPath": "topics/topic_083",
       "reportPath": "reports/2026-04-22_growth-metrics-board-design",
-      "reportFiles": ["editor_rev1.md"],
+      "reportFiles": [
+        "editor_rev1.md"
+      ],
       "published": false,
       "path": "topics/topic_083",
-      "decisions": ["D-060"],
+      "decisions": [
+        "D-060"
+      ],
       "outcome": "D-060 확정. 공통 3층(학습누적·적중률·자율성) + 역할별 signature 8종 + 교차채점 + Registry/Rubric versioning + 지연채점 + Provenance chain + Metric QA + Multi-scale + Percentile + Regime marker/transition zone + Incremental aggregation. Growth Board 메인 페이지(안 β). PD-015 해소. 구현은 child 토픽(topic_082 재개 시 병합)."
     },
     {
@@ -1644,5 +1667,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-22T07:14:05.562Z"
+  "lastUpdated": "2026-04-22T10:54:41.625Z"
 }
