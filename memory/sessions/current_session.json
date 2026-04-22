@@ -3,27 +3,56 @@
   "topicId": "topic_073",
   "topic": "PD-018 실행 — 실 비용($) 계산 패널 신설",
   "topicSlug": "pd-018-cost-panel",
-  "status": "open",
+  "status": "closed",
+  "closedAt": "2026-04-22T03:00:00.000Z",
   "startedAt": "2026-04-22T02:10:00.000Z",
   "mode": "observation",
   "grade": "B",
   "gradeDeclared": "B",
   "framingLevel": 1,
   "framingSkipped": false,
-  "agentsCompleted": [],
-  "turns": [],
+  "agentsCompleted": [
+    "ace",
+    "dev",
+    "editor"
+  ],
+  "turns": [
+    {
+      "role": "ace",
+      "turnIdx": 0,
+      "phase": "framing"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 1,
+      "phase": "implementation"
+    },
+    {
+      "role": "editor",
+      "turnIdx": 2,
+      "phase": "compile"
+    }
+  ],
   "decisions": [],
   "masterDecisions": [],
   "masterFeedback": [],
-  "notes": [],
+  "notes": [
+    "실 비용($) 계산 패널 신설 — compute-dashboard.ts calcCostUSD() + sessionCostUSD 필드",
+    "실측값 재현 검증: $2.56 / $10.09 / $14.10 (session_066/067/068) 완벽 일치",
+    "버전 동기화: v1.13 → v1.54 (project_charter history 5건 소급 추가)",
+    "PD-012 삭제 (Master 결정 — 진행 안함)",
+    "CLAUDE.md Ace 종합검토에 버전 트리거 룰 추가 (결정 있는 세션만)",
+    "system_state.json currentVersion v1.11 → v1.54, HTML fallback 6곳 동기화"
+  ],
+  "reportPath": "reports/2026-04-22_pd-018-cost-panel",
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 217,
-    "output_tokens": 49439,
-    "cache_creation_input_tokens": 560549,
-    "cache_read_input_tokens": 9294639,
-    "messageCount": 139,
+    "input_tokens": 227,
+    "output_tokens": 52127,
+    "cache_creation_input_tokens": 566595,
+    "cache_read_input_tokens": 10327003,
+    "messageCount": 149,
     "masterTurns": 8,
-    "total_billable": 9904844
+    "total_billable": 10945952
   }
 }

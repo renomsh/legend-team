@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-22T02:05:10.549Z",
-  "totalSessions": 68,
+  "generatedAt": "2026-04-22T02:06:20.854Z",
+  "totalSessions": 69,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.19,
-    "avgCacheHitRate": 0.9284,
-    "cacheSampleSize": 42,
-    "cacheSampleTotal": 68,
+    "avgMasterTurns": 17.17,
+    "avgCacheHitRate": 0.9287,
+    "cacheSampleSize": 43,
+    "cacheSampleTotal": 69,
     "avgAdoptionRate": 0,
     "totalDecisions": 58,
     "gradeDistribution": {
       "S": 21,
       "A": 13,
-      "B": 23,
+      "B": 24,
       "C": 11
     },
     "gradeMismatchCount": 2,
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 23,
-    "totalCostUSD": 586.6716,
-    "avgCostPerSession": 9.3122,
-    "costSampleSize": 63
+    "turnBasedSessions": 24,
+    "totalCostUSD": 598.3097,
+    "avgCostPerSession": 9.3486,
+    "costSampleSize": 64
   },
   "sessions": [
     {
@@ -2158,12 +2158,42 @@
         "messageCount": 55
       },
       "sessionCostUSD": 2.4281
+    },
+    {
+      "sessionId": "session_070",
+      "topicSlug": "pd-018-cost-panel",
+      "topic": "PD-018 실행 — 실 비용($) 계산 패널 신설",
+      "startedAt": "2026-04-22T02:10:00.000Z",
+      "closedAt": "2026-04-22T03:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 16,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 20850796,
+        "cacheHitRate": 0.941050020344547,
+        "messageCount": 288
+      },
+      "sessionCostUSD": 11.6381
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 34,
+      "count": 35,
       "sessions": [
         "session_047",
         "session_048",
@@ -2183,12 +2213,13 @@
         "session_066",
         "session_067",
         "session_068",
-        "session_069"
+        "session_069",
+        "session_070"
       ]
     },
     {
       "role": "editor",
-      "count": 20,
+      "count": 21,
       "sessions": [
         "session_050",
         "session_051",
@@ -2209,7 +2240,8 @@
         "session_066",
         "session_067",
         "session_068",
-        "session_069"
+        "session_069",
+        "session_070"
       ]
     },
     {
@@ -2232,7 +2264,7 @@
     },
     {
       "role": "dev",
-      "count": 16,
+      "count": 17,
       "sessions": [
         "session_047",
         "session_048",
@@ -2246,7 +2278,8 @@
         "session_061",
         "session_062",
         "session_064",
-        "session_065"
+        "session_065",
+        "session_070"
       ]
     },
     {
@@ -3109,6 +3142,30 @@
           "role": "editor",
           "phase": "compile",
           "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_070",
+      "topic": "PD-018 실행 — 실 비용($) 계산 패널 신설",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 2,
           "recallReason": null
         }
       ]
