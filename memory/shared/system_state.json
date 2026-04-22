@@ -234,9 +234,10 @@
       "fromSession": "session_059",
       "fromTopic": "pd-020b-context-3layer",
       "item": "auto-model-switch 스킬 재구현 — 현재 단순 /model 타이핑 안내 방식을 폐기하고, Grade A/S 시 Sonnet이 오케스트레이터로 유지되면서 역할 발언(Ace·Arki·Fin·Riki·Nova)을 Agent(model: opus) 서브에이전트로 호출하는 구조로 재설계. dispatching-parallel-agents 패턴 참조.",
-      "status": "pending",
-      "note": "Grade A 권장. 원래 스킬 의도와 현 구현 불일치 발견(session_059). Master 의도: Sonnet 메인 + Opus 서브 호출."
+      "status": "resolved",
+      "resolvedInSession": "session_068",
+      "note": "D-058 확정. opus-dispatcher 스킬 + dispatch_config.json + 에이전트 정의 4종(role-ace/arki/fin/riki.md) 구현. G1(write 계약)·G3(RED→GREEN) 통과. auto-model-switch 스킬 폐기."
     }
   ],
-  "lastUpdated": "2026-04-21T13:13:39.427Z"
+  "lastUpdated": "2026-04-22T00:00:00.000Z"
 }

@@ -1,6 +1,25 @@
 {
-  "generatedAt": "2026-04-21T13:13:42.151Z",
+  "generatedAt": "2026-04-22T00:12:32.098Z",
   "decisions": [
+    {
+      "id": "D-058",
+      "date": "2026-04-22",
+      "session": "session_068",
+      "topic": "pd-021-auto-model-switch-reimpl",
+      "axis": "Dispatcher-Worker 오케스트레이션 — Sonnet 메인 + Opus 서브에이전트 구조 확정 (Grade A)",
+      "decision": "(A) Grade A: 메인 Sonnet + 역할 서브 Opus. Grade S: 메인 Opus 유지(보수적). Grade B/C: Sonnet 단일. (B) 서브 대상: Ace·Arki·Fin·Riki 4역할. Nova·Dev·Vera·Editor 제외(1차). (C) 서브 계약: 역할 서브가 reports/{slug}/{role}_rev{n}.md 직접 write. {ROLE}_WRITE_DONE 신호로 확인. (D) 컨텍스트 빌더: fixed(CLAUDE.md 발췌 3k) + framing + previous_roles(file-path-list) + role_memory(file-path-ref) + write_contract. 총 예산 30k 토큰. (E) 단일 원천: memory/shared/dispatch_config.json — 모델명·Grade 매핑·역할 목록·경로 패턴·가드레일 전부. 스킬·에이전트 파일 하드코딩 금지. (F) 롤백 플래그: dispatchMode=monolithic 1줄로 전환. (G) 실측 검증 P4: 3세션 — 비용 절감률·Master 신호 감지·재호출 분포 측정. (H) auto-model-switch 스킬 폐기. opus-dispatcher 스킬로 교체.",
+      "value": "Grade A 세션 비용 ~75% 절감(directional). 역할 발언은 Opus 품질 유지. Probe 3건(라우팅·품질·스킬 상속) 실측 통과. G1(write 계약)·G3(RED→GREEN) 검증 완료. 메인 Sonnet의 빠른 응답성으로 세션 wall-time 단축. 저마찰·N4 비전 로드맵과 정합.",
+      "authority": "master",
+      "status": "confirmed",
+      "owningTopicId": "topic_071",
+      "scopeCheck": "standalone",
+      "relatedTopics": [
+        "topic_071"
+      ],
+      "relatedDecisions": [
+        "D-043"
+      ]
+    },
     {
       "id": "D-057",
       "date": "2026-04-21",

@@ -1,28 +1,21 @@
 {
-  "sessionId": "session_067",
-  "topicId": "topic_070",
-  "topic": "PD-022 토픽 생명주기 시스템 구현",
-  "topicSlug": "topic-lifecycle-system-impl",
-  "status": "closed",
-  "startedAt": "2026-04-21T12:44:25.649Z",
-  "closedAt": "2026-04-21T13:30:00.000Z",
+  "sessionId": "session_068",
+  "topicId": "topic_071",
+  "topic": "PD-021 auto-model-switch 재구현 — Sonnet 메인 + Opus 서브에이전트",
+  "topicSlug": "pd-021-auto-model-switch-reimpl",
+  "status": "open",
+  "startedAt": "2026-04-21T14:00:00.000Z",
   "mode": "observation",
   "grade": "A",
   "gradeDeclared": "A",
-  "gradeActual": "A",
-  "gradeMismatch": false,
   "framingLevel": 2,
   "framingSkipped": false,
-  "executionPlanMode": "conditional",
   "agentsCompleted": [
     "ace",
     "arki",
     "fin",
     "riki",
-    "ace",
-    "arki",
-    "ace",
-    "editor"
+    "ace"
   ],
   "turns": [
     {
@@ -48,64 +41,35 @@
     {
       "role": "ace",
       "turnIdx": 4,
-      "phase": "reframe",
-      "recallReason": "post-master",
-      "splitReason": "master-corrected-retro-scope"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 5,
-      "phase": "execution-plan",
-      "recallReason": "post-master"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 6,
       "phase": "synthesis",
       "recallReason": "post-roles"
-    },
-    {
-      "role": "editor",
-      "turnIdx": 7,
-      "phase": "compile"
     }
   ],
-  "plannedSequence": [
-    "ace",
-    "arki",
-    "fin",
-    "riki",
-    "ace",
-    "arki",
-    "editor"
-  ],
   "decisions": [
-    "D-057"
+    "D-058"
   ],
   "masterDecisions": [
-    "소급 범위 축소: topic_062/066 2건 한정(테스트 케이스), 레거시 68개 undefined 유지",
-    "과거 소급은 실질 가치 없으면 생략 — 저마찰 원칙 연장"
+    "Dispatcher-Worker 채택 — Grade A: Sonnet 메인 + Opus 서브",
+    "Grade S: Opus 메인 유지(보수적)",
+    "auto-model-switch 스킬 폐기",
+    "dispatch_config.json 단일 원천 구조"
   ],
-  "masterFeedback": [
-    "레거시 소급은 관성으로 포함하지 말 것. 실질 가치 증명 후에만 (feedback_no_retro_without_value.md)",
-    "Master의 제한 범위 언급은 테스트 범위 선언으로 인식 — 전체 vs 없음 이분법 회피"
-  ],
+  "masterFeedback": [],
   "notes": [
-    "D-056 구현 토픽. Arki 4-Phase로 진행.",
-    "Ace 관성 오류: 전면 소급→전면 폐기 양극단 진동. Master 교정으로 2건 한정 착륙.",
-    "R-1 숨은 쌍 리스크는 소급 범위 축소로 원천 무효화.",
-    "전 Phase(P1~P4) + 전 게이트(G1/G2/G3) 통과.",
-    "PD-022 resolved."
+    "Probe 3건 실측: E1(라우팅) + 품질 스모크 + 스킬 상속 — 전부 통과",
+    "Riki R-1 기각, R-2 경감 (Opus 4.7 내재화 강함)",
+    "G1(서브 write 계약) + G3(RED→GREEN) 검증 완료",
+    "P4 실측 검증(3세션) 미완 — 다음 세션부터 진행"
   ],
   "gaps": [],
-  "reportPath": "reports/2026-04-21_topic-lifecycle-system-impl",
+  "reportPath": "reports/2026-04-21_pd-021-auto-model-switch-reimpl",
   "tokenUsage": {
-    "input_tokens": 253,
-    "output_tokens": 105651,
-    "cache_creation_input_tokens": 861467,
-    "cache_read_input_tokens": 17583338,
-    "messageCount": 145,
-    "masterTurns": 11,
-    "total_billable": 18550709
+    "input_tokens": 230,
+    "output_tokens": 87286,
+    "cache_creation_input_tokens": 723952,
+    "cache_read_input_tokens": 8219650,
+    "messageCount": 102,
+    "masterTurns": 16,
+    "total_billable": 9031118
   }
 }

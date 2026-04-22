@@ -1,6 +1,20 @@
 {
   "topics": [
     {
+      "id": "topic_071",
+      "title": "PD-021 auto-model-switch 재구현 — Sonnet 메인 + Opus 서브에이전트",
+      "status": "open",
+      "phase": "framing",
+      "hold": null,
+      "grade": "A",
+      "created": "2026-04-21",
+      "controlPath": "topics/topic_071",
+      "reportPath": "reports/2026-04-21_pd-021-auto-model-switch-reimpl",
+      "reportFiles": [],
+      "published": false,
+      "path": "topics/topic_071"
+    },
+    {
       "id": "topic_070",
       "title": "PD-022 토픽 생명주기 시스템 구현",
       "status": "completed",
@@ -28,7 +42,9 @@
       "grade": "A",
       "topicType": "framing",
       "parentTopicId": null,
-      "childTopicIds": ["topic_070"],
+      "childTopicIds": [
+        "topic_070"
+      ],
       "created": "2026-04-21",
       "controlPath": "topics/topic_069",
       "reportPath": "reports/2026-04-21_topic-closure-declaration",
@@ -86,7 +102,9 @@
       "grade": "A",
       "topicType": "framing",
       "parentTopicId": null,
-      "childTopicIds": ["topic_067"],
+      "childTopicIds": [
+        "topic_067"
+      ],
       "created": "2026-04-21",
       "controlPath": "topics/topic_066",
       "reportPath": "reports/2026-04-21_pd-020c-decision-ownership",
@@ -186,7 +204,11 @@
       "grade": "A",
       "topicType": "framing",
       "parentTopicId": null,
-      "childTopicIds": ["topic_063", "topic_064", "topic_065"],
+      "childTopicIds": [
+        "topic_063",
+        "topic_064",
+        "topic_065"
+      ],
       "created": "2026-04-21",
       "controlPath": "topics/topic_062",
       "reportPath": "reports/2026-04-21_pd-020b-context-3layer",
@@ -1399,5 +1421,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-21T12:44:02.147Z"
+  "lastUpdated": "2026-04-21T13:18:12.382Z"
 }

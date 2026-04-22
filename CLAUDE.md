@@ -21,21 +21,22 @@ Rules:
 - Before designing structure or architecture, first confirm the scope and goal of the work. Work definition precedes structural design.
 - `session_index.json`은 `append-session.ts` 스크립트로만 수정. Edit 도구 직접 수정 금지. (D-028, 2026-04-17)
 
-## Topic Grade System (2026-04-18)
+## Topic Grade System (2026-04-18, updated D-058 2026-04-22)
 
 토픽 난이도 등급. `/open` 시 선언, `compute-dashboard.ts`가 실측 Size로 사후 검증.
 
-| Grade | Size 기준 | ace-framing | 첫 주자 |
-|---|---|---|---|
-| S | 12+ | L2 스킬 전체 | Ace |
-| A | 8~11 | L2 스킬 전체 | Ace |
-| B | 5~7 | L1 인라인 2~3줄 | Ace (경량) |
-| C | 4 | L0 없음 | Dev 직행 |
+| Grade | Size 기준 | ace-framing | 첫 주자 | 메인 모델 | 역할 서브 모델 |
+|---|---|---|---|---|---|
+| S | 12+ | L2 스킬 전체 | Ace | **Opus** | Opus |
+| A | 8~11 | L2 스킬 전체 | Ace | **Sonnet** | **Opus** |
+| B | 5~7 | L1 인라인 2~3줄 | Ace (경량) | Sonnet | Sonnet |
+| C | 4 | L0 없음 | Dev 직행 | Sonnet | — |
 
 - 기본값: A (키워드 미명시 시)
 - Master가 `/open grade:X` 로 명시하면 우선 적용
 - C/B 진행 중 구조적 문제 발견 시 → Ace 재소집, L2 전환 필수
 - 사후 검증: `gradeDeclared` vs `gradeActual` 불일치는 대시보드 gradeMismatch 패널에 누적
+- **Grade A/S 오케스트레이션**: `opus-dispatcher` 스킬 참조. 역할 발언은 Opus 서브에이전트로 위임. 설정값은 `memory/shared/dispatch_config.json` 단일 원천.
 
 ## Topic Lifecycle System (D-056 / D-057, 2026-04-21)
 
