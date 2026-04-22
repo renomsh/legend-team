@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_067",
-  "nextSessionId": "session_068",
+  "lastSessionId": "session_068",
+  "nextSessionId": "session_069",
   "currentVersion": "v1.11",
   "openTopics": [
     {
@@ -20,6 +20,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-058",
+      "date": "2026-04-22",
+      "axis": "Dispatcher-Worker 오케스트레이션 — Sonnet 메인 + Opus 서브에이전트 구조 확정 (Grade A)",
+      "summary": "Grade A 세션 비용 ~75% 절감(directional). 역할 발언은 Opus 품질 유지. Probe 3건(라우팅·품질·스킬 상속) 실측 통과. G1(write 계약)·G3(RED→GREEN) 검증 완료. 메인 Sonnet의 빠른 응답성으로 세션 wall-time 단축. 저마찰·N4 비전 로드맵과 정합."
+    },
     {
       "id": "D-057",
       "date": "2026-04-21",
@@ -43,12 +49,6 @@
       "date": "2026-04-21",
       "axis": "turns[] 단일원천 + agentsCompleted 파생 + phase_catalog v1.1 + Context 3층 스키마 v1.0",
       "summary": "PD-020b 구현의 토대 정비 완료. turns[] 단일원천 구조로 agentsCompleted 왜곡 근절. 3층 스키마 TS+검증함수 단일원천으로 확정 → session_061 L1/L2/L3 writer 구현이 깨끗한 인터페이스 위에 진행 가능. drift 감시 도구로 type↔data 동기화 실패 재발 차단."
-    },
-    {
-      "id": "D-053",
-      "date": "2026-04-21",
-      "axis": "Context 3층 누적 아키텍처 v1 — turn_log(L1) × session_contributions(L2) × context_brief(L3) + C1 강제화 선결",
-      "summary": "Master save01~05 수동 관행을 시스템이 흡수 — 성장 루프 병목을 인지부하에서 자동화로 이전. C1 강제화 선결로 L1 무효화 전제 위반 차단. quality 플래그로 Editor 우회 silent failure 방지. PD-020c 전 임시 fallback으로 토큰 폭발 갭 방어. PD-020b 프레이밍 단계 resolved."
     }
   ],
   "pendingDeferrals": [
@@ -239,5 +239,5 @@
       "note": "D-058 확정. opus-dispatcher 스킬 + dispatch_config.json + 에이전트 정의 4종(role-ace/arki/fin/riki.md) 구현. G1(write 계약)·G3(RED→GREEN) 통과. auto-model-switch 스킬 폐기."
     }
   ],
-  "lastUpdated": "2026-04-22T00:00:00.000Z"
+  "lastUpdated": "2026-04-22T00:25:57.349Z"
 }

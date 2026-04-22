@@ -1975,8 +1975,65 @@
       ],
       "grade": "A",
       "note": "D-056 구현 토픽. Arki 4-Phase로 진행. | Ace 관성 오류: 전면 소급→전면 폐기 양극단 진동. Master 교정으로 2건 한정 착륙. | R-1 숨은 쌍 리스크는 소급 범위 축소로 원천 무효화. | 전 Phase(P1~P4) + 전 게이트(G1/G2/G3) 통과. | PD-022 resolved."
+    },
+    {
+      "sessionId": "session_068",
+      "topicSlug": "pd-021-auto-model-switch-reimpl",
+      "topic": "PD-021 auto-model-switch 재구현 — Sonnet 메인 + Opus 서브에이전트",
+      "startedAt": "2026-04-21T14:00:00.000Z",
+      "closedAt": "2026-04-22T00:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "decisions": [
+        "Dispatcher-Worker 채택 — Grade A: Sonnet 메인 + Opus 서브",
+        "Grade S: Opus 메인 유지(보수적)",
+        "auto-model-switch 스킬 폐기",
+        "dispatch_config.json 단일 원천 구조"
+      ],
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "phase": "analysis"
+        },
+        {
+          "role": "fin",
+          "turnIdx": 2,
+          "phase": "analysis"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 3,
+          "phase": "analysis"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 4,
+          "phase": "synthesis",
+          "recallReason": "post-roles"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 5,
+          "phase": "compile"
+        }
+      ],
+      "grade": "A",
+      "note": "Probe 3건 실측: E1(라우팅) + 품질 스모크 + 스킬 상속 — 전부 통과 | Riki R-1 기각, R-2 경감 (Opus 4.7 내재화 강함) | G1(서브 write 계약) + G3(RED→GREEN) 검증 완료 | P4 실측 검증(3세션) 미완 — 다음 세션부터 진행"
     }
   ],
-  "lastUpdated": "2026-04-21T13:13:27.226Z",
+  "lastUpdated": "2026-04-22T00:25:45.716Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

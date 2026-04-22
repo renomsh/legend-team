@@ -53,7 +53,33 @@
     "judgmentTiming": "session-end + next-session",
     "evidenceSource": "Master 피드백, master_feedback_log, decision 채택 이력, gradeMismatch 누적"
   },
+  "dispatcherPattern": {
+    "addedAt": "2026-04-22",
+    "session": "session_068",
+    "decision": "D-058",
+    "model": "Sonnet 메인 + Opus 서브 (Grade A). Grade S는 Opus 메인 유지.",
+    "configSource": "memory/shared/dispatch_config.json",
+    "agentFiles": [".claude/agents/role-ace.md", ".claude/agents/role-arki.md", ".claude/agents/role-fin.md", ".claude/agents/role-riki.md"],
+    "skill": ".claude/skills/opus-dispatcher/SKILL.md",
+    "probeResults": {
+      "E1_routing": "pass — Sonnet 4.6 메인에서 opus 서브 → Opus 4.7 실동작 확인",
+      "qualitySmoke": "pass — Opus 급 정밀 응답",
+      "skillInheritance": "pass (경감) — Opus 4.7 내재화로 ace-framing Step 0 수행"
+    },
+    "pendingValidation": "P4 — 3세션 실측 (비용 절감률·Master 신호 감지·재호출 분포)",
+    "rollback": "current_session.json dispatchMode=monolithic 1줄로 복귀"
+  },
   "topicsHandled": [
+    {
+      "topicId": "topic_071",
+      "title": "PD-021 auto-model-switch 재구현 — Sonnet 메인 + Opus 서브에이전트",
+      "date": "2026-04-22",
+      "reportPath": "reports/2026-04-21_pd-021-auto-model-switch-reimpl/ace_rev1.md",
+      "keyFraming": "Dispatcher-Worker 구조 성립 여부 검증 + Grade A Sonnet 메인 가능성 판단. Probe 3건 실측으로 기술·품질·스킬 상속 확인. D-058 확정.",
+      "decisionAxes": 4,
+      "status": "completed",
+      "pattern": "불확실성은 이론 논쟁이 아니라 실측 프로브로 해소. Riki가 막은 R-1을 실측이 기각 — 구현 착수 가속."
+    },
     {
       "topicId": "topic_056",
       "title": "S 토픽 중심 전체 개편",

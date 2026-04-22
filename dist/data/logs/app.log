@@ -593,3 +593,13 @@
 [2026-04-21T13:13:39.428Z] [sync-system-state] lastSession=session_067 openTopics=2 recentDecisions=5 deferrals=21
 [2026-04-21T13:13:41.551Z] [compute-dashboard] 완료 — 66개 세션, 28개 경보
 [2026-04-22T00:12:31.550Z] [compute-dashboard] 완료 — 66개 세션, 28개 경보
+[2026-04-22T00:25:39.700Z] [checklist] [INFO] reports: all 5 registered file(s) present: ace_rev1.md, arki_rev1.md, fin_rev1.md, riki_rev1.md, ace_rev2.md
+[2026-04-22T00:25:39.702Z] [checklist] [INFO] decision_ledger: 1 decision(s) recorded for session_068
+[2026-04-22T00:25:39.703Z] [checklist] [INFO] topic_index: topic found: topic_071 (completed)
+[2026-04-22T00:25:39.703Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-22T00:25:39.703Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-22T00:25:39.704Z] [session-log] [INFO] END session_068 | topic: pd-021-auto-model-switch-reimpl | duration: 626m
+[2026-04-22T00:25:47.574Z] [L2-writer] wrote C:\Projects\legend-team\topics\topic_071\session_contributions\session_068.md | turns=0 decisions=1
+[2026-04-22T00:25:49.522Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_071\context_brief.md | sessions=1 size=471B
+[2026-04-22T00:25:57.350Z] [sync-system-state] lastSession=session_068 openTopics=2 recentDecisions=5 deferrals=21
+[2026-04-22T00:25:59.407Z] [compute-dashboard] 완료 — 67개 세션, 26개 경보

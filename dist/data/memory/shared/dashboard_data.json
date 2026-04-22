@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-22T00:12:31.547Z",
-  "totalSessions": 66,
+  "generatedAt": "2026-04-22T00:25:59.404Z",
+  "totalSessions": 67,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.08,
-    "avgCacheHitRate": 0.9289,
-    "cacheSampleSize": 40,
-    "cacheSampleTotal": 66,
+    "avgMasterTurns": 17.35,
+    "avgCacheHitRate": 0.9286,
+    "cacheSampleSize": 41,
+    "cacheSampleTotal": 67,
     "avgAdoptionRate": 0,
     "totalDecisions": 58,
     "gradeDistribution": {
-      "S": 20,
+      "S": 21,
       "A": 12,
       "B": 23,
       "C": 11
@@ -21,7 +21,7 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 21
+    "turnBasedSessions": 22
   },
   "sessions": [
     {
@@ -2025,12 +2025,47 @@
         "cacheHitRate": 0.9478526130726325,
         "messageCount": 145
       }
+    },
+    {
+      "sessionId": "session_068",
+      "topicSlug": "pd-021-auto-model-switch-reimpl",
+      "topic": "PD-021 auto-model-switch 재구현 — Sonnet 메인 + Opus 서브에이전트",
+      "startedAt": "2026-04-21T14:00:00.000Z",
+      "closedAt": "2026-04-22T00:00:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-058"
+      ],
+      "rolesCalled": 6,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 34,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 20649590,
+        "cacheHitRate": 0.9192821261826506,
+        "messageCount": 225
+      }
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 30,
+      "count": 32,
       "sessions": [
         "session_047",
         "session_048",
@@ -2048,12 +2083,13 @@
         "session_063",
         "session_064",
         "session_066",
-        "session_067"
+        "session_067",
+        "session_068"
       ]
     },
     {
       "role": "editor",
-      "count": 18,
+      "count": 19,
       "sessions": [
         "session_050",
         "session_051",
@@ -2072,7 +2108,25 @@
         "session_064",
         "session_065",
         "session_066",
-        "session_067"
+        "session_067",
+        "session_068"
+      ]
+    },
+    {
+      "role": "arki",
+      "count": 17,
+      "sessions": [
+        "session_048",
+        "session_049",
+        "session_053",
+        "session_054",
+        "session_059",
+        "session_060",
+        "session_061",
+        "session_063",
+        "session_066",
+        "session_067",
+        "session_068"
       ]
     },
     {
@@ -2095,24 +2149,8 @@
       ]
     },
     {
-      "role": "arki",
-      "count": 16,
-      "sessions": [
-        "session_048",
-        "session_049",
-        "session_053",
-        "session_054",
-        "session_059",
-        "session_060",
-        "session_061",
-        "session_063",
-        "session_066",
-        "session_067"
-      ]
-    },
-    {
       "role": "riki",
-      "count": 8,
+      "count": 9,
       "sessions": [
         "session_049",
         "session_053",
@@ -2121,12 +2159,13 @@
         "session_060",
         "session_063",
         "session_066",
-        "session_067"
+        "session_067",
+        "session_068"
       ]
     },
     {
       "role": "fin",
-      "count": 7,
+      "count": 8,
       "sessions": [
         "session_053",
         "session_054",
@@ -2134,7 +2173,8 @@
         "session_060",
         "session_063",
         "session_066",
-        "session_067"
+        "session_067",
+        "session_068"
       ]
     },
     {
@@ -2885,68 +2925,92 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_068",
+      "topic": "PD-021 auto-model-switch 재구현 — Sonnet 메인 + Opus 서브에이전트",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "analysis",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": "analysis",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "analysis",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 4,
+          "recallReason": "post-roles"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
     {
       "ruleId": "R2",
       "severity": "yellow",
-      "sessionId": "session_017",
-      "description": "Master 병목: masterTurns=26 (avg=17.1)"
-    },
-    {
-      "ruleId": "R2",
-      "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=17.1)"
+      "description": "Master 병목: masterTurns=48 (avg=17.4)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=17.1)"
-    },
-    {
-      "ruleId": "R2",
-      "severity": "yellow",
-      "sessionId": "session_027",
-      "description": "Master 병목: masterTurns=26 (avg=17.1)"
+      "description": "Master 병목: masterTurns=43 (avg=17.4)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=17.1)"
-    },
-    {
-      "ruleId": "R2",
-      "severity": "yellow",
-      "sessionId": "session_030",
-      "description": "Master 병목: masterTurns=26 (avg=17.1)"
+      "description": "Master 병목: masterTurns=42 (avg=17.4)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=17.1)"
+      "description": "Master 병목: masterTurns=45 (avg=17.4)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=17.1)"
+      "description": "Master 병목: masterTurns=39 (avg=17.4)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=17.1)"
+      "description": "Master 병목: masterTurns=49 (avg=17.4)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=17.1)"
+      "description": "Master 병목: masterTurns=35 (avg=17.4)"
     },
     {
       "ruleId": "R1",
@@ -3001,6 +3065,12 @@
       "severity": "yellow",
       "sessionId": "session_067",
       "description": "Ace/역할 과호출: rolesRecalled=3"
+    },
+    {
+      "ruleId": "R2",
+      "severity": "yellow",
+      "sessionId": "session_068",
+      "description": "Master 병목: masterTurns=34 (avg=17.4)"
     },
     {
       "ruleId": "R5",
