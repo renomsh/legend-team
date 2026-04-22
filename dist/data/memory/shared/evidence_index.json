@@ -116,7 +116,20 @@
       "source": "session_009/arki",
       "finding": "Riki/Fin/Editor role memory가 session_002 이후 갱신되지 않음 (5개 세션분 학습 미축적). 세션 종료 체크리스트 항목 6이 Ace 외 미실행",
       "status": "resolved-session_009-backfill"
+    },
+    {
+      "id": "E-014",
+      "topicId": "token-revalidation-discrepancy",
+      "topic": "token-revalidation-discrepancy",
+      "date": "2026-04-22",
+      "description": "CC 대시보드 '총 토큰 7.9M'과 레전드팀 input+output 합 7.09M이 정합(차이 9.3%는 session_071 미반영분). 레전드팀 total_billable 1,013M은 cache_creation+cache_read 포함 raw 합으로 CC 대시보드 정의와 다른 지표임을 확인. 128배 괴리는 정의 불일치 — 오류 아님.",
+      "source": "master",
+      "type": "data",
+      "usedBy": [
+        "master"
+      ],
+      "status": "open"
     }
   ],
-  "lastUpdated": "2026-04-08T09:00:00.000Z"
+  "lastUpdated": "2026-04-22T04:22:39.441Z"
 }

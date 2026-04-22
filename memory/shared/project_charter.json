@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-team",
-    "version": "1.54",
+    "version": "1.55",
     "purpose": "Memory-first, topic-based strategy and implementation system. Master receives structured analysis from role-separated agents on any strategic or implementation topic, with all outputs preserved in inspectable, revisionable files.",
     "principles": [
       "Memory first: all agent outputs, decisions, and session state are written to files immediately. No analysis lives only in conversation context.",
@@ -136,6 +136,11 @@
       "version": "1.54",
       "date": "2026-04-22",
       "summary": "실 비용($) 계산 패널 신설(PD-018): compute-dashboard.ts calcCostUSD() + sessionCostUSD 필드 + 집계 메트릭(totalCostUSD/avgCostPerSession). dashboard-upgrade.html 비용 KPI 3종 + sparkline. Sonnet 4.6 단가 적용."
+    },
+    {
+      "version": "1.55",
+      "date": "2026-04-22",
+      "summary": "토큰 측정 정본 재정의 + 외부 앵커 cross-check 의무 원칙(D-059). 128배 괴리(CC 7.9M vs 레전드팀 1,013M)는 정의 불일치로 규명 — CC='input+output', 레전드팀='4필드 전합'. KPI Primary를 사용량(I/O 토큰)+효율(캐시 히트율)로 재배치. Master 정액제 구조 반영. child 토픽 3건 분기 예정(KPI 개편/캐시 패널 분리/evidence 등록). feedback_external_anchor_mandatory 원칙 박제."
     }
   ],
   "lastUpdated": "2026-04-22T02:30:00.000Z"

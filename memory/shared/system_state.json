@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_070",
-  "nextSessionId": "session_071",
+  "lastSessionId": "session_071",
+  "nextSessionId": "session_072",
   "currentVersion": "v1.54",
   "openTopics": [
     {
@@ -20,6 +20,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-059",
+      "date": "2026-04-22",
+      "axis": "토큰 측정 정본 지표 재정의 + 외부 앵커 cross-check 의무 원칙 신설",
+      "summary": "session_066/067/068 폐쇄루프 허위검증 사고 방지 원칙 박제. 128배 괴리가 오류가 아닌 정의 불일치임을 규명해 Master 신뢰 회복. Max 구독 실결제 기준 대시보드로 전환해 Master 실제 경험과 정합. cache 히트율 93.7%라는 구조적 특성을 제거하지 않고 보조 지표로 보존해 효율성 트래킹 유지."
+    },
     {
       "id": "D-058",
       "date": "2026-04-22",
@@ -43,12 +49,6 @@
       "date": "2026-04-21",
       "axis": "PD-020c 프레이밍 확정 — 결정 소유권 + 운영규칙 강제 강도 재분류 (하드 2 + 경고 2)",
       "summary": "Ace 기본제안 → Master 조정 원칙 재확인(session_063). 과부화 회피 선택으로 신규 자동화의 운영비용 절감. 결정 소유권 강제(owningTopicId+scopeCheck)로 토픽 간 오염 차단 근거 확보. PD-020 3부작 프레이밍 단계 완결 — 구현 단계로 이행 가능."
-    },
-    {
-      "id": "D-054",
-      "date": "2026-04-21",
-      "axis": "turns[] 단일원천 + agentsCompleted 파생 + phase_catalog v1.1 + Context 3층 스키마 v1.0",
-      "summary": "PD-020b 구현의 토대 정비 완료. turns[] 단일원천 구조로 agentsCompleted 왜곡 근절. 3층 스키마 TS+검증함수 단일원천으로 확정 → session_061 L1/L2/L3 writer 구현이 깨끗한 인터페이스 위에 진행 가능. drift 감시 도구로 type↔data 동기화 실패 재발 차단."
     }
   ],
   "pendingDeferrals": [
@@ -231,5 +231,5 @@
       "note": "D-058 확정. opus-dispatcher 스킬 + dispatch_config.json + 에이전트 정의 4종(role-ace/arki/fin/riki.md) 구현. G1(write 계약)·G3(RED→GREEN) 통과. auto-model-switch 스킬 폐기."
     }
   ],
-  "lastUpdated": "2026-04-22T02:06:18.193Z"
+  "lastUpdated": "2026-04-22T04:26:15.999Z"
 }

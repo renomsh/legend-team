@@ -625,3 +625,15 @@
 [2026-04-22T02:06:08.008Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_073\context_brief.md | sessions=1 size=332B
 [2026-04-22T02:06:18.194Z] [sync-system-state] lastSession=session_070 openTopics=2 recentDecisions=5 deferrals=20
 [2026-04-22T02:06:20.859Z] [compute-dashboard] 완료 — 69개 세션, 29개 경보
+[2026-04-22T02:12:52.833Z] [session-log] [INFO] START session_071 | topic: token-revalidation-discrepancy | mode: observation
+[2026-04-22T04:22:39.442Z] [log-evidence] Logged evidence E-014: [data] CC 대시보드 '총 토큰 7.9M'과 레전드팀 input+output 합 7.09M이 정합(차이 9.3%는 
+[2026-04-22T04:25:57.618Z] [checklist] [INFO] reports: 1 file(s) on disk, none registered in topic_index
+[2026-04-22T04:25:57.619Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-22T04:25:57.620Z] [checklist] [INFO] topic_index: topic found: topic_074 (completed)
+[2026-04-22T04:25:57.620Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-22T04:25:57.620Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-22T04:25:57.621Z] [session-log] [INFO] END session_071 | topic: token-revalidation-discrepancy | duration: 133m
+[2026-04-22T04:26:05.747Z] [L2-writer] wrote C:\Projects\legend-team\topics\topic_074\session_contributions\session_071.md | turns=0 decisions=1
+[2026-04-22T04:26:07.664Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_074\context_brief.md | sessions=1 size=451B
+[2026-04-22T04:26:16.000Z] [sync-system-state] lastSession=session_071 openTopics=2 recentDecisions=5 deferrals=20
+[2026-04-22T04:26:18.202Z] [compute-dashboard] 완료 — 70개 세션, 29개 경보

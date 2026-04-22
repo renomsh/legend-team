@@ -1,19 +1,22 @@
 {
-  "sessionId": "session_070",
-  "topicId": "topic_073",
-  "topic": "PD-018 실행 — 실 비용($) 계산 패널 신설",
-  "topicSlug": "pd-018-cost-panel",
+  "sessionId": "session_071",
+  "topicId": "topic_074",
+  "topic": "토큰 재검증 — CC 측정 vs 레전드팀 산출 간 괴리 원인 분석",
+  "topicSlug": "token-revalidation-discrepancy",
   "status": "closed",
+  "startedAt": "2026-04-22T02:12:52.830Z",
   "closedAt": "2026-04-22T03:00:00.000Z",
-  "startedAt": "2026-04-22T02:10:00.000Z",
   "mode": "observation",
-  "grade": "B",
-  "gradeDeclared": "B",
-  "framingLevel": 1,
+  "grade": "S",
+  "gradeDeclared": "S",
+  "framingLevel": 2,
   "framingSkipped": false,
   "agentsCompleted": [
     "ace",
-    "dev",
+    "arki",
+    "fin",
+    "riki",
+    "ace",
     "editor"
   ],
   "turns": [
@@ -23,36 +26,62 @@
       "phase": "framing"
     },
     {
-      "role": "dev",
+      "role": "arki",
       "turnIdx": 1,
-      "phase": "implementation"
+      "phase": "design"
+    },
+    {
+      "role": "fin",
+      "turnIdx": 2,
+      "phase": "design"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 3,
+      "phase": "design"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 4,
+      "phase": "synthesis",
+      "recallReason": "post-intervention"
     },
     {
       "role": "editor",
-      "turnIdx": 2,
+      "turnIdx": 5,
       "phase": "compile"
     }
   ],
-  "decisions": [],
-  "masterDecisions": [],
-  "masterFeedback": [],
-  "notes": [
-    "실 비용($) 계산 패널 신설 — compute-dashboard.ts calcCostUSD() + sessionCostUSD 필드",
-    "실측값 재현 검증: $2.56 / $10.09 / $14.10 (session_066/067/068) 완벽 일치",
-    "버전 동기화: v1.13 → v1.54 (project_charter history 5건 소급 추가)",
-    "PD-012 삭제 (Master 결정 — 진행 안함)",
-    "CLAUDE.md Ace 종합검토에 버전 트리거 룰 추가 (결정 있는 세션만)",
-    "system_state.json currentVersion v1.11 → v1.54, HTML fallback 6곳 동기화"
+  "decisions": [
+    "D-059"
   ],
-  "reportPath": "reports/2026-04-22_pd-018-cost-panel",
+  "masterDecisions": [],
+  "masterFeedback": [
+    "세 지표 동시 노출 아닌 canonical+접기 (간접)",
+    "CC 대조 배지 제거 요청",
+    "Max 실결제 $104.28 기준 표기",
+    "세션당 비용 배분 I/O 비중 → 최종 API 환산 비중(3번)으로 재조정",
+    "$104.28 누적 성질 + 입력 필드 개념 교정",
+    "핵심 목적은 사용량·효율 트래킹이지 결제액 트래킹이 아님 — KPI Primary 사용량+효율로 재배치",
+    "정액제($100 + 버퍼 $120) 구조로 결제 $는 Secondary로 강등"
+  ],
+  "notes": [
+    "128배 괴리 = 정의 불일치. CC='input+output', 레전드팀='4필드 전합'",
+    "레전드팀 I/O 합 7.09M ≈ CC 대시보드 7.9M 정합 (E-014 등록)",
+    "D-059 외부 앵커 cross-check 의무 원칙 신설",
+    "이전 session_066/067/068 '재현 맞다' 결론 = 폐쇄루프 허위검증이었음을 규명",
+    "PD-018/topic_073(비용 패널) 유지, KPI 레이블·raw 노출 재작업 필요",
+    "project_charter v1.54 → v1.55"
+  ],
+  "reportPath": "reports/2026-04-22_token-revalidation-discrepancy",
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 227,
-    "output_tokens": 52127,
-    "cache_creation_input_tokens": 566595,
-    "cache_read_input_tokens": 10327003,
-    "messageCount": 149,
+    "input_tokens": 175,
+    "output_tokens": 73453,
+    "cache_creation_input_tokens": 526667,
+    "cache_read_input_tokens": 7585660,
+    "messageCount": 82,
     "masterTurns": 8,
-    "total_billable": 10945952
+    "total_billable": 8185955
   }
 }

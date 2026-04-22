@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-22T02:06:20.854Z",
-  "totalSessions": 69,
+  "generatedAt": "2026-04-22T04:26:18.199Z",
+  "totalSessions": 70,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.17,
-    "avgCacheHitRate": 0.9287,
-    "cacheSampleSize": 43,
-    "cacheSampleTotal": 69,
+    "avgMasterTurns": 17.03,
+    "avgCacheHitRate": 0.9286,
+    "cacheSampleSize": 44,
+    "cacheSampleTotal": 70,
     "avgAdoptionRate": 0,
-    "totalDecisions": 58,
+    "totalDecisions": 59,
     "gradeDistribution": {
-      "S": 21,
+      "S": 22,
       "A": 13,
       "B": 24,
       "C": 11
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 24,
-    "totalCostUSD": 598.3097,
-    "avgCostPerSession": 9.3486,
-    "costSampleSize": 64
+    "turnBasedSessions": 25,
+    "totalCostUSD": 603.6627,
+    "avgCostPerSession": 9.2871,
+    "costSampleSize": 65
   },
   "sessions": [
     {
@@ -2188,12 +2188,48 @@
         "messageCount": 288
       },
       "sessionCostUSD": 11.6381
+    },
+    {
+      "sessionId": "session_071",
+      "topicSlug": "token-revalidation-discrepancy",
+      "topic": "토큰 재검증 — CC 측정 vs 레전드팀 산출 간 괴리 원인 분석",
+      "startedAt": "2026-04-22T02:12:52.830Z",
+      "closedAt": "2026-04-22T03:00:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-059"
+      ],
+      "rolesCalled": 6,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 8,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 8185955,
+        "cacheHitRate": 0.9266676887424864,
+        "messageCount": 82
+      },
+      "sessionCostUSD": 5.353
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 35,
+      "count": 37,
       "sessions": [
         "session_047",
         "session_048",
@@ -2214,12 +2250,13 @@
         "session_067",
         "session_068",
         "session_069",
-        "session_070"
+        "session_070",
+        "session_071"
       ]
     },
     {
       "role": "editor",
-      "count": 21,
+      "count": 22,
       "sessions": [
         "session_050",
         "session_051",
@@ -2241,12 +2278,13 @@
         "session_067",
         "session_068",
         "session_069",
-        "session_070"
+        "session_070",
+        "session_071"
       ]
     },
     {
       "role": "arki",
-      "count": 18,
+      "count": 19,
       "sessions": [
         "session_048",
         "session_049",
@@ -2259,7 +2297,8 @@
         "session_066",
         "session_067",
         "session_068",
-        "session_069"
+        "session_069",
+        "session_071"
       ]
     },
     {
@@ -2284,7 +2323,7 @@
     },
     {
       "role": "riki",
-      "count": 10,
+      "count": 11,
       "sessions": [
         "session_049",
         "session_053",
@@ -2295,12 +2334,13 @@
         "session_066",
         "session_067",
         "session_068",
-        "session_069"
+        "session_069",
+        "session_071"
       ]
     },
     {
       "role": "fin",
-      "count": 9,
+      "count": 10,
       "sessions": [
         "session_053",
         "session_054",
@@ -2310,7 +2350,8 @@
         "session_066",
         "session_067",
         "session_068",
-        "session_069"
+        "session_069",
+        "session_071"
       ]
     },
     {
@@ -3169,6 +3210,48 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_071",
+      "topic": "토큰 재검증 — CC 측정 vs 레전드팀 산출 간 괴리 원인 분석",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": "design",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "design",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 4,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -3176,61 +3259,61 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_017",
-      "description": "Master 병목: masterTurns=26 (avg=17.2)"
+      "description": "Master 병목: masterTurns=26 (avg=17.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=17.2)"
+      "description": "Master 병목: masterTurns=48 (avg=17.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=17.2)"
+      "description": "Master 병목: masterTurns=43 (avg=17.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_027",
-      "description": "Master 병목: masterTurns=26 (avg=17.2)"
+      "description": "Master 병목: masterTurns=26 (avg=17.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=17.2)"
+      "description": "Master 병목: masterTurns=42 (avg=17.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_030",
-      "description": "Master 병목: masterTurns=26 (avg=17.2)"
+      "description": "Master 병목: masterTurns=26 (avg=17.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=17.2)"
+      "description": "Master 병목: masterTurns=45 (avg=17.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=17.2)"
+      "description": "Master 병목: masterTurns=39 (avg=17.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=17.2)"
+      "description": "Master 병목: masterTurns=49 (avg=17.0)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=17.2)"
+      "description": "Master 병목: masterTurns=35 (avg=17.0)"
     },
     {
       "ruleId": "R1",
@@ -3290,7 +3373,7 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_068",
-      "description": "Master 병목: masterTurns=34 (avg=17.2)"
+      "description": "Master 병목: masterTurns=34 (avg=17.0)"
     },
     {
       "ruleId": "R5",

@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-04-22T02:06:21.617Z",
+  "generatedAt": "2026-04-22T04:26:18.836Z",
   "decisions": [
+    {
+      "id": "D-059",
+      "date": "2026-04-22",
+      "session": "session_071",
+      "topic": "token-revalidation-discrepancy",
+      "axis": "토큰 측정 정본 지표 재정의 + 외부 앵커 cross-check 의무 원칙 신설",
+      "decision": "(A) 128배 괴리 원인 규명: CC 대시보드 '총 토큰' = input + output (cache 제외), 레전드팀 total_billable = 4필드 전합. 정의 불일치, 양쪽 모두 내부 정본. (B) KPI 재정의 v2 (Master 재조정): Primary = 사용량(I/O 토큰 누적) + 효율(캐시 히트율). Master는 정액제(Max $100 + 버퍼 $120) — 결제액 트래킹이 목적이 아닌 '얼마나 쓰고 얼마나 효율적인지'가 목적. 결제 $는 Secondary로 강등(구독 가치 증명용). raw total_billable은 상세 접기 패널. (C) 세션당 $ 배분 규칙 (최종): 실결제 $104.28 × I/O 토큰 비중 (1번) — session_N $ = cumulativeBilled × (sessionN_IO / ΣallIO). $104.28은 Master 청구 페이지 참조 누적 증가값. API 환산 $ ($602)는 상세 패널 참고용. (D) 외부 앵커 cross-check 의무 원칙 신설: 측정 지표 '맞음' 선언 시 외부 앵커(제3자 시스템·공식 문서·청구서) 최소 1개 cross-check 증거를 evidence_index E-NNN에 필수 등록. 내부 재현만으로는 불충분. (E) 이전 'session_066/067/068 재현 맞다' 결론 부분 기각: 비용 계산 로직(PD-018)은 유지, 대시보드 레이블·raw 노출은 재작업 대상. (F) child 토픽 3건 분기 예정: KPI 개편(사용량·효율 Primary) / 캐시 패널 분리 / 외부 앵커 원칙 evidence 등록.",
+      "value": "session_066/067/068 폐쇄루프 허위검증 사고 방지 원칙 박제. 128배 괴리가 오류가 아닌 정의 불일치임을 규명해 Master 신뢰 회복. Max 구독 실결제 기준 대시보드로 전환해 Master 실제 경험과 정합. cache 히트율 93.7%라는 구조적 특성을 제거하지 않고 보조 지표로 보존해 효율성 트래킹 유지.",
+      "authority": "master",
+      "status": "confirmed",
+      "owningTopicId": "topic_074",
+      "scopeCheck": "standalone",
+      "relatedTopics": [
+        "topic_074",
+        "topic_073"
+      ],
+      "relatedDecisions": [
+        "D-048"
+      ]
+    },
     {
       "id": "D-058",
       "date": "2026-04-22",
