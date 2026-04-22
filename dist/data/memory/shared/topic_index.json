@@ -1,6 +1,22 @@
 {
   "topics": [
     {
+      "id": "topic_079",
+      "title": "효율 대시보드 변경",
+      "status": "completed",
+      "phase": "implementation",
+      "hold": null,
+      "created": "2026-04-22",
+      "completedAt": "2026-04-22",
+      "grade": "A",
+      "outcome": "RAW 토큰 패널 2-row 재설계 완료 (Row1=token counts visible, Row2=$ visible, hidden expand=5행 상세표). compute-dashboard.ts inputTokens/outputTokens 필드 추가.",
+      "controlPath": "topics/topic_079",
+      "reportPath": "reports/2026-04-22_efficiency-dashboard-change",
+      "reportFiles": ["dev_rev1.md"],
+      "published": false,
+      "path": "topics/topic_079"
+    },
+    {
       "id": "topic_078",
       "title": "--help",
       "status": "cancelled",
@@ -60,7 +76,9 @@
       "created": "2026-04-22",
       "controlPath": "topics/topic_075",
       "reportPath": "reports/2026-04-22_dashboard-kpi-redesign",
-      "reportFiles": ["dev_rev1.md"],
+      "reportFiles": [
+        "dev_rev1.md"
+      ],
       "published": false,
       "path": "topics/topic_075",
       "note": "I/O Tokens KPI 전환, 비용 Secondary 레이블, canonical D-059 기준 적용"
@@ -1546,5 +1564,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-22T04:31:57.949Z"
+  "lastUpdated": "2026-04-22T04:53:17.824Z"
 }

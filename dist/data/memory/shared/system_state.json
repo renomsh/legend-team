@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_072",
-  "nextSessionId": "session_073",
+  "lastSessionId": "session_073",
+  "nextSessionId": "session_074",
   "currentVersion": "v1.54",
   "openTopics": [
     {
@@ -232,5 +232,5 @@
       "note": "D-058 확정. opus-dispatcher 스킬 + dispatch_config.json + 에이전트 정의 4종(role-ace/arki/fin/riki.md) 구현. G1(write 계약)·G3(RED→GREEN) 통과. auto-model-switch 스킬 폐기."
     }
   ],
-  "lastUpdated": "2026-04-22T04:44:58.502Z"
+  "lastUpdated": "2026-04-22T05:26:18.172Z"
 }

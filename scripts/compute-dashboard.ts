@@ -275,6 +275,8 @@ function main() {
     const tokenUsage = token && totalBill > 0 ? {
       totalBillable: totalBill,
       ioTokens,
+      inputTokens: token.input_tokens || 0,
+      outputTokens: token.output_tokens || 0,
       cacheCreate: token.cache_creation_input_tokens || 0,
       cacheRead: token.cache_read_input_tokens || 0,
       cacheHitRate: (token.cache_read_input_tokens || 0) / totalBill,

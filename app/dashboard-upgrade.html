@@ -315,32 +315,59 @@ a{color:inherit;text-decoration:none}
       </div>
     </div>
 
-    <!-- RAW TOKEN BREAKDOWN (접기) -->
-    <details id="rawTokenDetails" style="margin-bottom:20px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 16px">
-      <summary style="cursor:pointer;font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--text-3);font-weight:600;list-style:none;display:flex;align-items:center;gap:6px">
-        <span id="rawSummaryToggle">▶</span> Raw 토큰 분해 (4필드 전합)
-        <span style="font-size:9px;opacity:0.5;margin-left:4px">· 비과금 지표 · 접기 기본값</span>
-      </summary>
-      <div id="rawTokenGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px">
+    <!-- RAW TOKEN + COST 2-ROW PANEL -->
+    <div style="margin-bottom:20px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 18px">
+      <div style="font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--text-3);font-weight:600;margin-bottom:10px">토큰 분해 · API 환산</div>
+      <!-- Row 1: token counts (항상 visible) -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
         <div style="text-align:center">
           <div style="font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);margin-bottom:4px">I/O (Input+Output)</div>
-          <div id="rawInput" style="font-size:18px;font-weight:700;letter-spacing:-.5px">—</div>
+          <div id="rawInput" style="font-size:20px;font-weight:700;letter-spacing:-.5px">—</div>
           <div style="font-size:9px;color:var(--text-3);margin-top:2px">= canonical KPI</div>
         </div>
         <div style="text-align:center">
           <div style="font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);margin-bottom:4px">Cache Create</div>
-          <div id="rawCacheCreate" style="font-size:18px;font-weight:700;letter-spacing:-.5px">—</div>
+          <div id="rawCacheCreate" style="font-size:20px;font-weight:700;letter-spacing:-.5px">—</div>
         </div>
         <div style="text-align:center">
           <div style="font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);margin-bottom:4px">Cache Read</div>
-          <div id="rawCacheRead" style="font-size:18px;font-weight:700;letter-spacing:-.5px">—</div>
+          <div id="rawCacheRead" style="font-size:20px;font-weight:700;letter-spacing:-.5px">—</div>
         </div>
         <div style="text-align:center;border-left:1px solid var(--line);padding-left:12px">
           <div style="font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);margin-bottom:4px">Total (raw 4필드)</div>
-          <div id="rawTotal" style="font-size:18px;font-weight:700;letter-spacing:-.5px;color:var(--text-3)">—</div>
+          <div id="rawTotal" style="font-size:20px;font-weight:700;letter-spacing:-.5px;color:var(--text-3)">—</div>
         </div>
       </div>
-    </details>
+      <!-- Row 2: $ cost per category (항상 visible) -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:5px">
+        <div style="text-align:center"><div id="rawInputCost" style="font-size:13px;font-weight:600;color:#10B981;letter-spacing:-.3px">—</div></div>
+        <div style="text-align:center"><div id="rawCCCost" style="font-size:13px;font-weight:600;color:#10B981;letter-spacing:-.3px">—</div></div>
+        <div style="text-align:center"><div id="rawCRCost" style="font-size:13px;font-weight:600;color:#10B981;letter-spacing:-.3px">—</div></div>
+        <div style="text-align:center;padding-left:12px"><div id="rawTotalCost" style="font-size:13px;font-weight:700;color:#10B981;letter-spacing:-.3px">—</div></div>
+      </div>
+      <!-- Hidden detail expand -->
+      <details id="rawTokenDetails" style="margin-top:12px">
+        <summary style="cursor:pointer;font-size:10px;color:var(--text-3);list-style:none;display:flex;align-items:center;gap:4px;user-select:none;width:fit-content">
+          <span id="rawSummaryToggle">▸</span> 토큰·API환산 상세
+        </summary>
+        <table style="width:100%;border-collapse:collapse;font-size:11px;margin-top:10px">
+          <thead>
+            <tr style="color:var(--text-3);font-size:9px;text-transform:uppercase;letter-spacing:.08em">
+              <th style="text-align:left;padding:4px 8px;border-bottom:1px solid var(--line);font-weight:500">항목</th>
+              <th style="text-align:right;padding:4px 8px;border-bottom:1px solid var(--line);font-weight:500">토큰 수</th>
+              <th style="text-align:right;padding:4px 8px;border-bottom:1px solid var(--line);font-weight:500">환산 ($)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:5px 8px;color:var(--text-2)">input_tokens</td><td id="detInput" style="text-align:right;padding:5px 8px;font-variant-numeric:tabular-nums">—</td><td id="detInputCost" style="text-align:right;padding:5px 8px;color:#10B981">—</td></tr>
+            <tr><td style="padding:5px 8px;color:var(--text-2)">output_tokens</td><td id="detOutput" style="text-align:right;padding:5px 8px;font-variant-numeric:tabular-nums">—</td><td id="detOutputCost" style="text-align:right;padding:5px 8px;color:#10B981">—</td></tr>
+            <tr><td style="padding:5px 8px;color:var(--text-2)">cache_creation</td><td id="detCC" style="text-align:right;padding:5px 8px;font-variant-numeric:tabular-nums">—</td><td id="detCCCost" style="text-align:right;padding:5px 8px;color:#10B981">—</td></tr>
+            <tr><td style="padding:5px 8px;color:var(--text-2)">cache_read</td><td id="detCR" style="text-align:right;padding:5px 8px;font-variant-numeric:tabular-nums">—</td><td id="detCRCost" style="text-align:right;padding:5px 8px;color:#10B981">—</td></tr>
+            <tr style="border-top:1px solid var(--line);font-weight:600"><td style="padding:6px 8px">raw 합계</td><td id="detTotal" style="text-align:right;padding:6px 8px;font-variant-numeric:tabular-nums">—</td><td id="detTotalCost" style="text-align:right;padding:6px 8px;color:#10B981">—</td></tr>
+          </tbody>
+        </table>
+      </details>
+    </div>
 
     <!-- AUTONOMY -->
     <div class="autonomy-banner">
@@ -624,20 +651,56 @@ function renderKPIs() {
   const recent20 = withCost.slice(-20);
   spark('sparkCost', recent20.map(s => s.sessionCostUSD || 0), '#10B981');
 
-  // ── raw 토큰 4필드 접기 패널 ───────────────────────────────────────────────
+  // ── raw 토큰 2-row + 상세 패널 ────────────────────────────────────────────
+  const COST_PER_MTOK = { input: 3.0, output: 15.0, cacheCreate: 3.75, cacheRead: 0.30 };
+  const rawInputTok  = withTok.reduce((a,s)=>a+(s.tokenUsage.inputTokens||0),0);
+  const rawOutputTok = withTok.reduce((a,s)=>a+(s.tokenUsage.outputTokens||0),0);
   const rawCacheCreate = withTok.reduce((a,s)=>a+(s.tokenUsage.cacheCreate||0),0);
-  const rawCacheRead = withTok.reduce((a,s)=>a+(s.tokenUsage.cacheRead||0),0);
-  const rawTotal = withTok.reduce((a,s)=>a+(s.tokenUsage.totalBillable||0),0);
-  document.getElementById('rawInput').textContent = withTok.length ? fmtTokens(totalTokens) : '—';
+  const rawCacheRead   = withTok.reduce((a,s)=>a+(s.tokenUsage.cacheRead||0),0);
+  const rawTotal       = withTok.reduce((a,s)=>a+(s.tokenUsage.totalBillable||0),0);
+
+  const costIO    = (rawInputTok * COST_PER_MTOK.input + rawOutputTok * COST_PER_MTOK.output) / 1e6;
+  const costCC    = rawCacheCreate * COST_PER_MTOK.cacheCreate / 1e6;
+  const costCR    = rawCacheRead   * COST_PER_MTOK.cacheRead   / 1e6;
+  const costTotal = costIO + costCC + costCR;
+
+  const fmtCostRow = v => v >= 100 ? `$${v.toFixed(0)}` : v >= 1 ? `$${v.toFixed(2)}` : `$${v.toFixed(3)}`;
+  const fmtExact = n => n.toLocaleString();
+
+  // Row 1: token counts
+  document.getElementById('rawInput').textContent      = withTok.length ? fmtTokens(totalTokens) : '—';
   document.getElementById('rawCacheCreate').textContent = withTok.length ? fmtTokens(rawCacheCreate) : '—';
-  document.getElementById('rawCacheRead').textContent = withTok.length ? fmtTokens(rawCacheRead) : '—';
-  document.getElementById('rawTotal').textContent = withTok.length ? fmtTokens(rawTotal) : '—';
+  document.getElementById('rawCacheRead').textContent   = withTok.length ? fmtTokens(rawCacheRead) : '—';
+  document.getElementById('rawTotal').textContent       = withTok.length ? fmtTokens(rawTotal) : '—';
+
+  // Row 2: $ costs
+  document.getElementById('rawInputCost').textContent = withTok.length ? fmtCostRow(costIO)    : '—';
+  document.getElementById('rawCCCost').textContent    = withTok.length ? fmtCostRow(costCC)    : '—';
+  document.getElementById('rawCRCost').textContent    = withTok.length ? fmtCostRow(costCR)    : '—';
+  document.getElementById('rawTotalCost').textContent = withTok.length ? fmtCostRow(costTotal) : '—';
+
+  // 상세 테이블 (hidden)
+  if (withTok.length) {
+    const costIn  = rawInputTok  * COST_PER_MTOK.input   / 1e6;
+    const costOut = rawOutputTok * COST_PER_MTOK.output  / 1e6;
+    document.getElementById('detInput').textContent     = fmtExact(rawInputTok);
+    document.getElementById('detInputCost').textContent = fmtCostRow(costIn);
+    document.getElementById('detOutput').textContent    = fmtExact(rawOutputTok);
+    document.getElementById('detOutputCost').textContent = fmtCostRow(costOut);
+    document.getElementById('detCC').textContent        = fmtExact(rawCacheCreate);
+    document.getElementById('detCCCost').textContent    = fmtCostRow(costCC);
+    document.getElementById('detCR').textContent        = fmtExact(rawCacheRead);
+    document.getElementById('detCRCost').textContent    = fmtCostRow(costCR);
+    document.getElementById('detTotal').textContent     = fmtExact(rawTotal);
+    document.getElementById('detTotalCost').textContent = fmtCostRow(costTotal);
+  }
+
   const det = document.getElementById('rawTokenDetails');
   if (det && !det.dataset.listenerAdded) {
     det.dataset.listenerAdded = '1';
     det.addEventListener('toggle', function() {
       const tog = document.getElementById('rawSummaryToggle');
-      if (tog) tog.textContent = det.open ? '▼' : '▶';
+      if (tog) tog.textContent = det.open ? '▾' : '▸';
     });
   }
 }

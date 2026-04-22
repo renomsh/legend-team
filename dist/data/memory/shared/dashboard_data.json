@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-22T04:45:00.624Z",
-  "totalSessions": 71,
+  "generatedAt": "2026-04-22T05:26:20.361Z",
+  "totalSessions": 72,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.95,
-    "avgCacheHitRate": 0.929,
-    "cacheSampleSize": 45,
-    "cacheSampleTotal": 71,
+    "avgMasterTurns": 16.79,
+    "avgCacheHitRate": 0.9288,
+    "cacheSampleSize": 46,
+    "cacheSampleTotal": 72,
     "avgAdoptionRate": 0,
     "totalDecisions": 59,
     "gradeDistribution": {
       "S": 22,
       "A": 13,
-      "B": 25,
+      "B": 26,
       "C": 11
     },
     "gradeMismatchCount": 2,
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 26,
-    "totalCostUSD": 613.3812,
-    "avgCostPerSession": 9.2937,
-    "costSampleSize": 66
+    "turnBasedSessions": 27,
+    "totalCostUSD": 617.6742,
+    "avgCostPerSession": 9.219,
+    "costSampleSize": 67
   },
   "sessions": [
     {
@@ -132,6 +132,8 @@
       "tokenUsage": {
         "totalBillable": 5372893,
         "ioTokens": 46077,
+        "inputTokens": 2832,
+        "outputTokens": 43245,
         "cacheCreate": 203456,
         "cacheRead": 5123360,
         "cacheHitRate": 0.9535570501776232,
@@ -159,6 +161,8 @@
       "tokenUsage": {
         "totalBillable": 3180568,
         "ioTokens": 19555,
+        "inputTokens": 124,
+        "outputTokens": 19431,
         "cacheCreate": 131508,
         "cacheRead": 3029505,
         "cacheHitRate": 0.9525043954413174,
@@ -196,6 +200,8 @@
       "tokenUsage": {
         "totalBillable": 8579025,
         "ioTokens": 45202,
+        "inputTokens": 5605,
+        "outputTokens": 39597,
         "cacheCreate": 282668,
         "cacheRead": 8251155,
         "cacheHitRate": 0.9617823703742558,
@@ -227,6 +233,8 @@
       "tokenUsage": {
         "totalBillable": 1718456,
         "ioTokens": 13213,
+        "inputTokens": 88,
+        "outputTokens": 13125,
         "cacheCreate": 232884,
         "cacheRead": 1472359,
         "cacheHitRate": 0.8567917944945929,
@@ -261,6 +269,8 @@
       "tokenUsage": {
         "totalBillable": 16407855,
         "ioTokens": 55119,
+        "inputTokens": 6562,
+        "outputTokens": 48557,
         "cacheCreate": 656058,
         "cacheRead": 15696678,
         "cacheHitRate": 0.9566563088228168,
@@ -291,6 +301,8 @@
       "tokenUsage": {
         "totalBillable": 16407855,
         "ioTokens": 55119,
+        "inputTokens": 6562,
+        "outputTokens": 48557,
         "cacheCreate": 656058,
         "cacheRead": 15696678,
         "cacheHitRate": 0.9566563088228168,
@@ -327,6 +339,8 @@
       "tokenUsage": {
         "totalBillable": 3875975,
         "ioTokens": 22628,
+        "inputTokens": 121,
+        "outputTokens": 22507,
         "cacheCreate": 405680,
         "cacheRead": 3447667,
         "cacheHitRate": 0.8894967072801038,
@@ -364,6 +378,8 @@
       "tokenUsage": {
         "totalBillable": 6598910,
         "ioTokens": 35581,
+        "inputTokens": 8109,
+        "outputTokens": 27472,
         "cacheCreate": 370373,
         "cacheRead": 6192956,
         "cacheHitRate": 0.9384816583344825,
@@ -419,6 +435,8 @@
       "tokenUsage": {
         "totalBillable": 9332346,
         "ioTokens": 60715,
+        "inputTokens": 6607,
+        "outputTokens": 54108,
         "cacheCreate": 332889,
         "cacheRead": 8938742,
         "cacheHitRate": 0.9578236812051332,
@@ -451,6 +469,8 @@
       "tokenUsage": {
         "totalBillable": 21864665,
         "ioTokens": 61965,
+        "inputTokens": 3800,
+        "outputTokens": 58165,
         "cacheCreate": 701541,
         "cacheRead": 21101159,
         "cacheHitRate": 0.9650803705430657,
@@ -485,6 +505,8 @@
       "tokenUsage": {
         "totalBillable": 14757847,
         "ioTokens": 211458,
+        "inputTokens": 7730,
+        "outputTokens": 203728,
         "cacheCreate": 1631437,
         "cacheRead": 12914952,
         "cacheHitRate": 0.8751243999209369,
@@ -515,6 +537,8 @@
       "tokenUsage": {
         "totalBillable": 11321676,
         "ioTokens": 149453,
+        "inputTokens": 335,
+        "outputTokens": 149118,
         "cacheCreate": 1720649,
         "cacheRead": 9451574,
         "cacheHitRate": 0.834821098925636,
@@ -553,6 +577,8 @@
       "tokenUsage": {
         "totalBillable": 3687949,
         "ioTokens": 43934,
+        "inputTokens": 131,
+        "outputTokens": 43803,
         "cacheCreate": 411230,
         "cacheRead": 3232785,
         "cacheHitRate": 0.8765807227811447,
@@ -587,6 +613,8 @@
       "tokenUsage": {
         "totalBillable": 9499713,
         "ioTokens": 25447,
+        "inputTokens": 166,
+        "outputTokens": 25281,
         "cacheCreate": 1093883,
         "cacheRead": 8380383,
         "cacheHitRate": 0.8821722298347329,
@@ -621,6 +649,8 @@
       "tokenUsage": {
         "totalBillable": 28749668,
         "ioTokens": 81248,
+        "inputTokens": 3181,
+        "outputTokens": 78067,
         "cacheCreate": 1647520,
         "cacheRead": 27020900,
         "cacheHitRate": 0.9398682447393827,
@@ -651,6 +681,8 @@
       "tokenUsage": {
         "totalBillable": 6497689,
         "ioTokens": 18549,
+        "inputTokens": 129,
+        "outputTokens": 18420,
         "cacheCreate": 1016767,
         "cacheRead": 5462373,
         "cacheHitRate": 0.8406639652959691,
@@ -681,6 +713,8 @@
       "tokenUsage": {
         "totalBillable": 7646816,
         "ioTokens": 34977,
+        "inputTokens": 155,
+        "outputTokens": 34822,
         "cacheCreate": 687995,
         "cacheRead": 6923844,
         "cacheHitRate": 0.9054545055092211,
@@ -711,6 +745,8 @@
       "tokenUsage": {
         "totalBillable": 10676683,
         "ioTokens": 48681,
+        "inputTokens": 170,
+        "outputTokens": 48511,
         "cacheCreate": 284635,
         "cacheRead": 10343367,
         "cacheHitRate": 0.9687809406723044,
@@ -746,6 +782,8 @@
       "tokenUsage": {
         "totalBillable": 36066355,
         "ioTokens": 173177,
+        "inputTokens": 643,
+        "outputTokens": 172534,
         "cacheCreate": 1380697,
         "cacheRead": 34512481,
         "cacheHitRate": 0.9569162450710642,
@@ -780,6 +818,8 @@
       "tokenUsage": {
         "totalBillable": 7148400,
         "ioTokens": 42201,
+        "inputTokens": 201,
+        "outputTokens": 42000,
         "cacheCreate": 772401,
         "cacheRead": 6333798,
         "cacheHitRate": 0.886044149739802,
@@ -812,6 +852,8 @@
       "tokenUsage": {
         "totalBillable": 7148400,
         "ioTokens": 42201,
+        "inputTokens": 201,
+        "outputTokens": 42000,
         "cacheCreate": 772401,
         "cacheRead": 6333798,
         "cacheHitRate": 0.886044149739802,
@@ -845,6 +887,8 @@
       "tokenUsage": {
         "totalBillable": 12667688,
         "ioTokens": 123301,
+        "inputTokens": 529,
+        "outputTokens": 122772,
         "cacheCreate": 656925,
         "cacheRead": 11887462,
         "cacheHitRate": 0.9384081767722728,
@@ -880,6 +924,8 @@
       "tokenUsage": {
         "totalBillable": 41400594,
         "ioTokens": 226513,
+        "inputTokens": 885,
+        "outputTokens": 225628,
         "cacheCreate": 2012610,
         "cacheRead": 39161471,
         "cacheHitRate": 0.9459156793740688,
@@ -911,6 +957,8 @@
       "tokenUsage": {
         "totalBillable": 13407225,
         "ioTokens": 73199,
+        "inputTokens": 444,
+        "outputTokens": 72755,
         "cacheCreate": 704934,
         "cacheRead": 12629092,
         "cacheHitRate": 0.9419616661911768,
@@ -943,6 +991,8 @@
       "tokenUsage": {
         "totalBillable": 35518851,
         "ioTokens": 368450,
+        "inputTokens": 635,
+        "outputTokens": 367815,
         "cacheCreate": 2742954,
         "cacheRead": 32407447,
         "cacheHitRate": 0.9124013330273549,
@@ -980,6 +1030,8 @@
       "tokenUsage": {
         "totalBillable": 69003386,
         "ioTokens": 384514,
+        "inputTokens": 20011,
+        "outputTokens": 364503,
         "cacheCreate": 3445218,
         "cacheRead": 65173654,
         "cacheHitRate": 0.9444993612342444,
@@ -1016,6 +1068,8 @@
       "tokenUsage": {
         "totalBillable": 52416796,
         "ioTokens": 293865,
+        "inputTokens": 9203,
+        "outputTokens": 284662,
         "cacheCreate": 2877844,
         "cacheRead": 49245087,
         "cacheHitRate": 0.9394905976321025,
@@ -1056,6 +1110,8 @@
       "tokenUsage": {
         "totalBillable": 27996556,
         "ioTokens": 121254,
+        "inputTokens": 781,
+        "outputTokens": 120473,
         "cacheCreate": 1404034,
         "cacheRead": 26471268,
         "cacheHitRate": 0.9455187273748957,
@@ -1099,6 +1155,8 @@
       "tokenUsage": {
         "totalBillable": 60893038,
         "ioTokens": 485527,
+        "inputTokens": 3285,
+        "outputTokens": 482242,
         "cacheCreate": 2709606,
         "cacheRead": 57697905,
         "cacheHitRate": 0.9475287634688222,
@@ -1130,6 +1188,8 @@
       "tokenUsage": {
         "totalBillable": 16441299,
         "ioTokens": 62508,
+        "inputTokens": 225,
+        "outputTokens": 62283,
         "cacheCreate": 898467,
         "cacheRead": 15480324,
         "cacheHitRate": 0.9415511511590416,
@@ -1165,6 +1225,8 @@
       "tokenUsage": {
         "totalBillable": 14040801,
         "ioTokens": 141394,
+        "inputTokens": 31887,
+        "outputTokens": 109507,
         "cacheCreate": 943815,
         "cacheRead": 12955592,
         "cacheHitRate": 0.922710321156179,
@@ -1206,6 +1268,8 @@
       "tokenUsage": {
         "totalBillable": 9712667,
         "ioTokens": 93582,
+        "inputTokens": 214,
+        "outputTokens": 93368,
         "cacheCreate": 279775,
         "cacheRead": 9339310,
         "cacheHitRate": 0.9615597857931297,
@@ -1245,6 +1309,8 @@
       "tokenUsage": {
         "totalBillable": 11994992,
         "ioTokens": 93369,
+        "inputTokens": 5534,
+        "outputTokens": 87835,
         "cacheCreate": 416022,
         "cacheRead": 11485601,
         "cacheHitRate": 0.95753302711665,
@@ -1277,6 +1343,8 @@
       "tokenUsage": {
         "totalBillable": 39843153,
         "ioTokens": 317359,
+        "inputTokens": 605,
+        "outputTokens": 316754,
         "cacheCreate": 2233968,
         "cacheRead": 37291826,
         "cacheHitRate": 0.9359657354426745,
@@ -1318,6 +1386,8 @@
       "tokenUsage": {
         "totalBillable": 15726496,
         "ioTokens": 211101,
+        "inputTokens": 30190,
+        "outputTokens": 180911,
         "cacheCreate": 1221853,
         "cacheRead": 14293542,
         "cacheHitRate": 0.9088828178889945,
@@ -1354,6 +1424,8 @@
       "tokenUsage": {
         "totalBillable": 29761321,
         "ioTokens": 290234,
+        "inputTokens": 338,
+        "outputTokens": 289896,
         "cacheCreate": 1063963,
         "cacheRead": 28407124,
         "cacheHitRate": 0.9544980883073033,
@@ -1397,6 +1469,8 @@
       "tokenUsage": {
         "totalBillable": 54853620,
         "ioTokens": 420146,
+        "inputTokens": 754,
+        "outputTokens": 419392,
         "cacheCreate": 1047460,
         "cacheRead": 53386014,
         "cacheHitRate": 0.9732450474553913,
@@ -1431,6 +1505,8 @@
       "tokenUsage": {
         "totalBillable": 19336313,
         "ioTokens": 95793,
+        "inputTokens": 723,
+        "outputTokens": 95070,
         "cacheCreate": 1219956,
         "cacheRead": 18020564,
         "cacheHitRate": 0.9319545044600799,
@@ -1476,6 +1552,8 @@
       "tokenUsage": {
         "totalBillable": 10165334,
         "ioTokens": 106895,
+        "inputTokens": 279,
+        "outputTokens": 106616,
         "cacheCreate": 358221,
         "cacheRead": 9700218,
         "cacheHitRate": 0.954244887575755,
@@ -1508,6 +1586,8 @@
       "tokenUsage": {
         "totalBillable": 9202102,
         "ioTokens": 68374,
+        "inputTokens": 3266,
+        "outputTokens": 65108,
         "cacheCreate": 701878,
         "cacheRead": 8431850,
         "cacheHitRate": 0.9162960810475693,
@@ -1540,6 +1620,8 @@
       "tokenUsage": {
         "totalBillable": 14154508,
         "ioTokens": 80879,
+        "inputTokens": 220,
+        "outputTokens": 80659,
         "cacheCreate": 792093,
         "cacheRead": 13281536,
         "cacheHitRate": 0.9383255143873599,
@@ -1574,6 +1656,8 @@
       "tokenUsage": {
         "totalBillable": 6834750,
         "ioTokens": 44440,
+        "inputTokens": 147,
+        "outputTokens": 44293,
         "cacheCreate": 341868,
         "cacheRead": 6448442,
         "cacheHitRate": 0.9434788397527342,
@@ -1614,6 +1698,8 @@
       "tokenUsage": {
         "totalBillable": 14459023,
         "ioTokens": 154353,
+        "inputTokens": 382,
+        "outputTokens": 153971,
         "cacheCreate": 1046834,
         "cacheRead": 13257836,
         "cacheHitRate": 0.9169247465752008,
@@ -1646,6 +1732,8 @@
       "tokenUsage": {
         "totalBillable": 2630496,
         "ioTokens": 22469,
+        "inputTokens": 77,
+        "outputTokens": 22392,
         "cacheCreate": 254690,
         "cacheRead": 2353337,
         "cacheHitRate": 0.8946362206975415,
@@ -1679,6 +1767,8 @@
       "tokenUsage": {
         "totalBillable": 6683452,
         "ioTokens": 44693,
+        "inputTokens": 156,
+        "outputTokens": 44537,
         "cacheCreate": 265917,
         "cacheRead": 6372842,
         "cacheHitRate": 0.9535255134622048,
@@ -1718,6 +1808,8 @@
       "tokenUsage": {
         "totalBillable": 160333,
         "ioTokens": 1826,
+        "inputTokens": 13,
+        "outputTokens": 1813,
         "cacheCreate": 35186,
         "cacheRead": 123321,
         "cacheHitRate": 0.7691554452296159,
@@ -1760,6 +1852,8 @@
       "tokenUsage": {
         "totalBillable": 4312254,
         "ioTokens": 77793,
+        "inputTokens": 130,
+        "outputTokens": 77663,
         "cacheCreate": 364691,
         "cacheRead": 3869770,
         "cacheHitRate": 0.897389161213602,
@@ -1801,6 +1895,8 @@
       "tokenUsage": {
         "totalBillable": 5138559,
         "ioTokens": 89057,
+        "inputTokens": 202,
+        "outputTokens": 88855,
         "cacheCreate": 498051,
         "cacheRead": 4551451,
         "cacheHitRate": 0.8857446221790973,
@@ -1834,6 +1930,8 @@
       "tokenUsage": {
         "totalBillable": 7320867,
         "ioTokens": 50125,
+        "inputTokens": 171,
+        "outputTokens": 49954,
         "cacheCreate": 445190,
         "cacheRead": 6825552,
         "cacheHitRate": 0.9323420299808752,
@@ -1867,6 +1965,8 @@
       "tokenUsage": {
         "totalBillable": 6928948,
         "ioTokens": 40056,
+        "inputTokens": 130,
+        "outputTokens": 39926,
         "cacheCreate": 648402,
         "cacheRead": 6240490,
         "cacheHitRate": 0.9006403280844365,
@@ -1899,6 +1999,8 @@
       "tokenUsage": {
         "totalBillable": 9801231,
         "ioTokens": 84472,
+        "inputTokens": 170,
+        "outputTokens": 84302,
         "cacheCreate": 432031,
         "cacheRead": 9284728,
         "cacheHitRate": 0.9473022317298715,
@@ -1931,6 +2033,8 @@
       "tokenUsage": {
         "totalBillable": 4424362,
         "ioTokens": 34201,
+        "inputTokens": 113,
+        "outputTokens": 34088,
         "cacheCreate": 305109,
         "cacheRead": 4085052,
         "cacheHitRate": 0.9233087166013992,
@@ -1971,6 +2075,8 @@
       "tokenUsage": {
         "totalBillable": 7461024,
         "ioTokens": 63403,
+        "inputTokens": 203,
+        "outputTokens": 63200,
         "cacheCreate": 875618,
         "cacheRead": 6522003,
         "cacheHitRate": 0.874143147106885,
@@ -2012,6 +2118,8 @@
       "tokenUsage": {
         "totalBillable": 13280887,
         "ioTokens": 104805,
+        "inputTokens": 235,
+        "outputTokens": 104570,
         "cacheCreate": 593416,
         "cacheRead": 12582666,
         "cacheHitRate": 0.9474266289593458,
@@ -2046,6 +2154,8 @@
       "tokenUsage": {
         "totalBillable": 13515571,
         "ioTokens": 73335,
+        "inputTokens": 198,
+        "outputTokens": 73137,
         "cacheCreate": 644540,
         "cacheRead": 12797696,
         "cacheHitRate": 0.9468853369199126,
@@ -2079,6 +2189,8 @@
       "tokenUsage": {
         "totalBillable": 4624153,
         "ioTokens": 36646,
+        "inputTokens": 101,
+        "outputTokens": 36545,
         "cacheCreate": 346778,
         "cacheRead": 4240729,
         "cacheHitRate": 0.9170823283745153,
@@ -2118,6 +2230,8 @@
       "tokenUsage": {
         "totalBillable": 2889497,
         "ioTokens": 40152,
+        "inputTokens": 104,
+        "outputTokens": 40048,
         "cacheCreate": 213413,
         "cacheRead": 2635932,
         "cacheHitRate": 0.9122459722228471,
@@ -2153,6 +2267,8 @@
       "tokenUsage": {
         "totalBillable": 24146698,
         "ioTokens": 172162,
+        "inputTokens": 395,
+        "outputTokens": 171767,
         "cacheCreate": 1830882,
         "cacheRead": 22143654,
         "cacheHitRate": 0.9170468773825722,
@@ -2185,6 +2301,8 @@
       "tokenUsage": {
         "totalBillable": 10196911,
         "ioTokens": 68714,
+        "inputTokens": 181,
+        "outputTokens": 68533,
         "cacheCreate": 277620,
         "cacheRead": 9850577,
         "cacheHitRate": 0.9660354003285897,
@@ -2225,6 +2343,8 @@
       "tokenUsage": {
         "totalBillable": 4249202,
         "ioTokens": 48136,
+        "inputTokens": 169,
+        "outputTokens": 47967,
         "cacheCreate": 168819,
         "cacheRead": 4032247,
         "cacheHitRate": 0.9489421778489232,
@@ -2266,6 +2386,8 @@
       "tokenUsage": {
         "totalBillable": 18550709,
         "ioTokens": 105904,
+        "inputTokens": 253,
+        "outputTokens": 105651,
         "cacheCreate": 861467,
         "cacheRead": 17583338,
         "cacheHitRate": 0.9478526130726325,
@@ -2305,6 +2427,8 @@
       "tokenUsage": {
         "totalBillable": 20649590,
         "ioTokens": 191710,
+        "inputTokens": 484,
+        "outputTokens": 191226,
         "cacheCreate": 1475081,
         "cacheRead": 18982799,
         "cacheHitRate": 0.9192821261826506,
@@ -2341,6 +2465,8 @@
       "tokenUsage": {
         "totalBillable": 3359405,
         "ioTokens": 42228,
+        "inputTokens": 81,
+        "outputTokens": 42147,
         "cacheCreate": 232027,
         "cacheRead": 3085150,
         "cacheHitRate": 0.9183620313716269,
@@ -2374,6 +2500,8 @@
       "tokenUsage": {
         "totalBillable": 20850796,
         "ioTokens": 102010,
+        "inputTokens": 444,
+        "outputTokens": 101566,
         "cacheCreate": 1127144,
         "cacheRead": 19621642,
         "cacheHitRate": 0.941050020344547,
@@ -2413,6 +2541,8 @@
       "tokenUsage": {
         "totalBillable": 8185955,
         "ioTokens": 73628,
+        "inputTokens": 175,
+        "outputTokens": 73453,
         "cacheCreate": 526667,
         "cacheRead": 7585660,
         "cacheHitRate": 0.9266676887424864,
@@ -2446,18 +2576,55 @@
       "tokenUsage": {
         "totalBillable": 17440440,
         "ioTokens": 114638,
+        "inputTokens": 306,
+        "outputTokens": 114332,
         "cacheCreate": 813002,
         "cacheRead": 16512800,
         "cacheHitRate": 0.9468109749524668,
         "messageCount": 228
       },
       "sessionCostUSD": 9.7185
+    },
+    {
+      "sessionId": "session_073",
+      "topicSlug": "efficiency-dashboard-change",
+      "topic": "효율 대시보드 변경",
+      "startedAt": "2026-04-22T06:00:00.000Z",
+      "closedAt": "2026-04-22T07:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 6,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 6228732,
+        "ioTokens": 57490,
+        "inputTokens": 130,
+        "outputTokens": 57360,
+        "cacheCreate": 458228,
+        "cacheRead": 5713014,
+        "cacheHitRate": 0.9172033730139617,
+        "messageCount": 87
+      },
+      "sessionCostUSD": 4.293
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 38,
+      "count": 39,
       "sessions": [
         "session_047",
         "session_048",
@@ -2480,12 +2647,13 @@
         "session_069",
         "session_070",
         "session_071",
-        "session_072"
+        "session_072",
+        "session_073"
       ]
     },
     {
       "role": "editor",
-      "count": 23,
+      "count": 24,
       "sessions": [
         "session_050",
         "session_051",
@@ -2509,7 +2677,30 @@
         "session_069",
         "session_070",
         "session_071",
-        "session_072"
+        "session_072",
+        "session_073"
+      ]
+    },
+    {
+      "role": "dev",
+      "count": 19,
+      "sessions": [
+        "session_047",
+        "session_048",
+        "session_050",
+        "session_051",
+        "session_052",
+        "session_055",
+        "session_056",
+        "session_057",
+        "session_058",
+        "session_061",
+        "session_062",
+        "session_064",
+        "session_065",
+        "session_070",
+        "session_072",
+        "session_073"
       ]
     },
     {
@@ -2529,27 +2720,6 @@
         "session_068",
         "session_069",
         "session_071"
-      ]
-    },
-    {
-      "role": "dev",
-      "count": 18,
-      "sessions": [
-        "session_047",
-        "session_048",
-        "session_050",
-        "session_051",
-        "session_052",
-        "session_055",
-        "session_056",
-        "session_057",
-        "session_058",
-        "session_061",
-        "session_062",
-        "session_064",
-        "session_065",
-        "session_070",
-        "session_072"
       ]
     },
     {
@@ -3507,6 +3677,30 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_073",
+      "topic": "효율 대시보드 변경",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -3514,61 +3708,61 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_017",
-      "description": "Master 병목: masterTurns=26 (avg=17.0)"
+      "description": "Master 병목: masterTurns=26 (avg=16.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=17.0)"
+      "description": "Master 병목: masterTurns=48 (avg=16.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=17.0)"
+      "description": "Master 병목: masterTurns=43 (avg=16.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_027",
-      "description": "Master 병목: masterTurns=26 (avg=17.0)"
+      "description": "Master 병목: masterTurns=26 (avg=16.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=17.0)"
+      "description": "Master 병목: masterTurns=42 (avg=16.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_030",
-      "description": "Master 병목: masterTurns=26 (avg=17.0)"
+      "description": "Master 병목: masterTurns=26 (avg=16.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=17.0)"
+      "description": "Master 병목: masterTurns=45 (avg=16.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=17.0)"
+      "description": "Master 병목: masterTurns=39 (avg=16.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=17.0)"
+      "description": "Master 병목: masterTurns=49 (avg=16.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=17.0)"
+      "description": "Master 병목: masterTurns=35 (avg=16.8)"
     },
     {
       "ruleId": "R1",
@@ -3628,7 +3822,7 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_068",
-      "description": "Master 병목: masterTurns=34 (avg=17.0)"
+      "description": "Master 병목: masterTurns=34 (avg=16.8)"
     },
     {
       "ruleId": "R5",
