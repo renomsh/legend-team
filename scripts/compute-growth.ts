@@ -131,6 +131,7 @@ interface ScorerContext {
   regimes: RegimeMarker[];
   registryVersion: string;
   existingDatapoints: GrowthDatapoint[];
+  masterTurnsMap: Record<string, { masterTurns: number; messageCount: number }>;
 }
 
 // ── 헬퍼 ──────────────────────────────────────────────────────────────────
@@ -180,6 +181,29 @@ export function loadExistingOutput(): GrowthMetricsOutput {
 function loadSessions(): SessionEntry[] {
   const idx = readJson<{ sessions: SessionEntry[] }>(SESSION_INDEX_PATH, { sessions: [] });
   return idx.sessions ?? [];
+}
+
+interface TokenEntry {
+  legendSessionId?: string;
+  usage?: { masterTurns?: number; messageCount?: number };
+}
+
+/** token_log.json에서 세션별 masterTurns/messageCount 맵 로드 */
+export function loadMasterTurnsMap(): Record<string, { masterTurns: number; messageCount: number }> {
+  const TOKEN_LOG = path.join(ROOT, 'memory', 'sessions', 'token_log.json');
+  const log = readJson<{ entries?: TokenEntry[] }>(TOKEN_LOG, { entries: [] });
+  const map: Record<string, { masterTurns: number; messageCount: number }> = {};
+  for (const entry of log.entries ?? []) {
+    const sid = entry.legendSessionId;
+    if (!sid) continue;
+    const mt = entry.usage?.masterTurns ?? 0;
+    const mc = entry.usage?.messageCount ?? 0;
+    // 동일 세션 중복 시 최신(더 큰 messageCount) 우선
+    if (!map[sid] || mc > map[sid]!.messageCount) {
+      map[sid] = { masterTurns: mt, messageCount: mc };
+    }
+  }
+  return map;
 }
 
 // ── Registry 검증 ──────────────────────────────────────────────────────────
@@ -261,40 +285,32 @@ function scoreL1CumulativeLearning(ctx: ScorerContext): number | null {
 
 /**
  * L3.autonomy — 1 - (directive + corrective + override) / masterTurns
- * source: session note 파싱 (포맷: "Master 개입: directive N, corrective M, ...")
- * 파싱 불가 시 null 반환
+ *
+ * Phase 1 proxy: intervention_classifier 태깅 미구현이므로 token_log의
+ * masterTurns/messageCount를 fallback으로 사용.
+ * proxy formula: 1 - masterTurns / (messageCount - masterTurns)
+ *   → master turns as fraction of agent turns. 전체를 directive로 간주 (보수적 추정).
+ * Phase 2에서 intervention_classifier 태깅 구현 후 정식 공식으로 교체.
  */
 function scoreL3Autonomy(ctx: ScorerContext): number | null {
   const wins = windowSessions(ctx.allSessions, ctx.sessionId, ctx.window);
   let totalMasterTurns = 0;
-  let totalNegative = 0;
-  let parsedCount = 0;
+  let totalAgentTurns = 0;
+  let usableCount = 0;
 
   for (const s of wins) {
-    const note = s.note ?? '';
-    // "Master 개입: directive N, corrective M, exploratory K" 패턴 파싱
-    const directiveMatch = note.match(/directive\s+(\d+)/i);
-    const correctiveMatch = note.match(/corrective\s+(\d+)/i);
-    const overrideMatch = note.match(/override\s+(\d+)/i);
-    const exploratoryMatch = note.match(/exploratory\s+(\d+)/i);
-
-    if (directiveMatch || correctiveMatch || overrideMatch || exploratoryMatch) {
-      const directive = parseInt(directiveMatch?.[1] ?? '0', 10);
-      const corrective = parseInt(correctiveMatch?.[1] ?? '0', 10);
-      const override = parseInt(overrideMatch?.[1] ?? '0', 10);
-      const exploratory = parseInt(exploratoryMatch?.[1] ?? '0', 10);
-      const masterTurns = directive + corrective + override + exploratory;
-      if (masterTurns > 0) {
-        totalMasterTurns += masterTurns;
-        totalNegative += directive + corrective + override;
-        parsedCount++;
-      }
-    }
+    const tokenData = ctx.masterTurnsMap[s.sessionId];
+    if (!tokenData || tokenData.messageCount === 0) continue;
+    const agentTurns = tokenData.messageCount - tokenData.masterTurns;
+    if (agentTurns <= 0) continue;
+    totalMasterTurns += tokenData.masterTurns;
+    totalAgentTurns += agentTurns;
+    usableCount++;
   }
 
-  if (parsedCount === 0) return null; // 파싱 가능한 세션 없음
-  if (totalMasterTurns === 0) return null;
-  return parseFloat((1 - totalNegative / totalMasterTurns).toFixed(4));
+  if (usableCount === 0 || totalAgentTurns === 0) return null;
+  const ratio = totalMasterTurns / totalAgentTurns;
+  return parseFloat(Math.max(0, 1 - ratio).toFixed(4));
 }
 
 /**
@@ -381,7 +397,7 @@ export function scoreMetricForWindow(
 
       case 'common.L3.autonomy':
         value = scoreL3Autonomy(ctx);
-        rawInputs = { window: ctx.window, formula: def.formula, source: 'session_note_parse' };
+        rawInputs = { window: ctx.window, source: 'token_log.masterTurns (proxy, Phase2에서 intervention_classifier로 교체 예정)' };
         break;
 
       case 'signature.dev.firstPassRate':
@@ -442,10 +458,11 @@ export function scoreMetric(
   allSessions: SessionEntry[],
   regimes: RegimeMarker[],
   registryVersion: string,
-  existingDatapoints: GrowthDatapoint[]
+  existingDatapoints: GrowthDatapoint[],
+  masterTurnsMap: Record<string, { masterTurns: number; messageCount: number }> = {}
 ): GrowthDatapoint[] {
   return def.windows.map(w =>
-    scoreMetricForWindow(def, { sessionId, window: w, allSessions, regimes, registryVersion, existingDatapoints })
+    scoreMetricForWindow(def, { sessionId, window: w, allSessions, regimes, registryVersion, existingDatapoints, masterTurnsMap })
   );
 }
 
@@ -455,7 +472,8 @@ export function resolvePendingLag(
   currentSession: string,
   registry: MetricsRegistry,
   allSessions: SessionEntry[],
-  regimes: RegimeMarker[]
+  regimes: RegimeMarker[],
+  masterTurnsMap: Record<string, { masterTurns: number; messageCount: number }> = {}
 ): { resolved: GrowthDatapoint[]; remaining: PendingLagEntry[] } {
   const resolved: GrowthDatapoint[] = [];
   const remaining: PendingLagEntry[] = [];
@@ -465,10 +483,10 @@ export function resolvePendingLag(
     const dueN = sessionNum(entry.dueAtSession);
     if (currentN >= dueN) {
       // 만기 도달 — 재채점
-      const def = registry.metrics.find(m => m.id === entry.metricId);
+      const def = registry.metrics.find(m => m.id === entry.metricId && m.status === 'active');
       if (def) {
         const datapoints = scoreMetric(
-          def, entry.triggerSession, allSessions, regimes, registry.registryVersion, output.datapoints
+          def, entry.triggerSession, allSessions, regimes, registry.registryVersion, output.datapoints, masterTurnsMap
         );
         for (const dp of datapoints) {
           resolved.push({
@@ -545,6 +563,7 @@ export async function computeGrowth(opts: ComputeOpts = {}): Promise<GrowthMetri
   const regimes = loadRegimes();
   const allSessions = loadSessions();
   const existing = loadExistingOutput();
+  const masterTurnsMap = loadMasterTurnsMap();
 
   const activeMetrics = registry.metrics.filter(m => m.status === 'active');
 
@@ -588,7 +607,8 @@ export async function computeGrowth(opts: ComputeOpts = {}): Promise<GrowthMetri
       session.sessionId,
       registry,
       allSessions,
-      regimes
+      regimes,
+      masterTurnsMap
     );
     existing.pendingLag = remaining;
     for (const dp of resolved) {
@@ -602,7 +622,7 @@ export async function computeGrowth(opts: ComputeOpts = {}): Promise<GrowthMetri
     // 각 metric 스코어링
     for (const def of activeMetrics) {
       const dps = scoreMetric(
-        def, session.sessionId, allSessions, regimes, registry.registryVersion, existing.datapoints
+        def, session.sessionId, allSessions, regimes, registry.registryVersion, existing.datapoints, masterTurnsMap
       );
 
       for (const dp of dps) {

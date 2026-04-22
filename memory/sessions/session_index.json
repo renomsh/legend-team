@@ -2546,8 +2546,54 @@
       ],
       "grade": "B",
       "note": "D-060 Phase 1 MVP. topic_083 child. Grade B L1. 새 D-xxx 결정 없음 (구현 세션). | automatic 스코어러 4종 구현: L1.cumulativeLearning / L3.autonomy / dev.firstPassRate / nova.promotionRate. | resolvePendingLag 구현 + --backfill-sessions CLI + 멱등성 보장. | auto-push.js 훅 체인에 compute-growth.ts 삽입 (finalize → compute-growth → compute-dashboard → build). | G1 게이트: 19 PASS / 0 FAIL. nonNull=584, pendingLag=15. | TypeScript 오류 3건 자가수정: non-null assertion / PendingLagEntry 타입 / CLI args undefined 방어. | Phase 2 위임: arki.structuralLifespan(lag=10+redesign) / fin.costForecastAccuracy / vera.masterRevisionInv / consensus·single 모드. | 다음 권장: Fin 측정 오버헤드 재감사(D-060 운영규칙) + Growth Board UI(topic_082) + consensus 채점 프로토콜."
+    },
+    {
+      "sessionId": "session_080",
+      "topicSlug": "fin-overhead-reaudit-d060",
+      "topic": "Fin 측정 오버헤드 재감사 (D-060 운영규칙 gate)",
+      "startedAt": "2026-04-22T11:44:38.866Z",
+      "closedAt": "2026-04-22T12:13:23.405Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "fin",
+        "dev",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "fin",
+          "turnIdx": 1,
+          "phase": "audit"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 2,
+          "phase": "implementation",
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 3,
+          "phase": "risk-review"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 4,
+          "phase": "synthesis",
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 5,
+          "phase": "compile"
+        }
+      ],
+      "grade": "A",
+      "note": "D-060 G1 Gate 감사. Phase 2 Go 판정. | Fin 감사: Phase 1 성공률 3/4 → 수정 후 4/4. active 11→4개. | L3.autonomy 버그 수정: session_note 파싱 → token_log proxy. nonNull 0%→95%. | Registry v2: L2.hitRate / ace.orchestrationHitRate / arki.structuralLifespan / fin.costForecastAccuracy / riki.riskF1 / vera.masterRevisionInv / edi.gapFlagAccuracy → draft. | R-2 수정: resolvePendingLag status=active 필터 추가. | compute-growth.ts 실행 메트릭 64% 감소 → hook 오버헤드 개선. | /open·/close 속도 개선 기대 (compute-growth 4개 지표만 실행)."
     }
   ],
-  "lastUpdated": "2026-04-22T11:32:16.261Z",
+  "lastUpdated": "2026-04-22T12:13:49.033Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

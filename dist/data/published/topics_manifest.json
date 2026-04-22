@@ -1,6 +1,18 @@
 {
-  "generatedAt": "2026-04-22T11:32:34.474Z",
+  "generatedAt": "2026-04-22T12:14:18.978Z",
   "topics": [
+    {
+      "id": "topic_086",
+      "title": "Fin 측정 오버헤드 재감사 (D-060 운영규칙 gate)",
+      "status": "completed",
+      "created": "2026-04-22",
+      "reportPath": "reports/2026-04-22_fin-overhead-reaudit-d060",
+      "reportFiles": [],
+      "published": false,
+      "outcome": "D-061 확정. registry v2: Phase 2 지표 7개 draft. L3.autonomy proxy 수정. Phase 2 Gate Go.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_085",
       "title": "D-060 Phase 1 구현 — automatic 스코어러 + 훅 체인 통합 MVP",

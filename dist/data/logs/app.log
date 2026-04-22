@@ -741,3 +741,17 @@
 [2026-04-22T11:32:29.106Z] [sync-system-state] lastSession=session_079 openTopics=3 recentDecisions=5 deferrals=19
 [2026-04-22T11:32:31.549Z] [compute-growth] Phase 1 ok. sessions=1 newDatapoints=21 totalDatapoints=1593 pendingLag=15
 [2026-04-22T11:32:33.766Z] [compute-dashboard] 완료 — 78개 세션, 2개 경보
+[2026-04-22T12:05:46.258Z] [compute-growth] Phase 1 ok. sessions=78 newDatapoints=0 totalDatapoints=1593 pendingLag=15
+[2026-04-22T12:06:14.280Z] [compute-growth] Phase 1 ok. sessions=78 newDatapoints=234 totalDatapoints=1593 pendingLag=15
+[2026-04-22T12:11:38.483Z] [compute-growth] Phase 1 ok. sessions=1 newDatapoints=0 totalDatapoints=1593 pendingLag=15
+[2026-04-22T12:13:43.007Z] [checklist] [INFO] reports: 4 file(s) on disk, none registered in topic_index
+[2026-04-22T12:13:43.009Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-22T12:13:43.009Z] [checklist] [INFO] topic_index: topic found: topic_086 (completed)
+[2026-04-22T12:13:43.010Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-22T12:13:43.010Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-22T12:13:43.011Z] [session-log] [INFO] END session_080 | topic: fin-overhead-reaudit-d060 | duration: 29m
+[2026-04-22T12:13:51.145Z] [L2-writer] wrote C:\Projects\legend-team\topics\topic_086\session_contributions\session_080.md | turns=0 decisions=1
+[2026-04-22T12:13:53.298Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_086\context_brief.md | sessions=1 size=420B
+[2026-04-22T12:14:12.460Z] [sync-system-state] lastSession=session_080 openTopics=3 recentDecisions=5 deferrals=19
+[2026-04-22T12:14:15.574Z] [compute-growth] Phase 1 ok. sessions=1 newDatapoints=12 totalDatapoints=1605 pendingLag=14
+[2026-04-22T12:14:18.267Z] [compute-dashboard] 완료 — 79개 세션, 2개 경보

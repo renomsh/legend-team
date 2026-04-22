@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-22T11:32:33.762Z",
-  "totalSessions": 78,
+  "generatedAt": "2026-04-22T12:14:18.262Z",
+  "totalSessions": 79,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.14,
-    "avgCacheHitRate": 0.9288,
-    "cacheSampleSize": 52,
-    "cacheSampleTotal": 78,
+    "avgMasterTurns": 16.04,
+    "avgCacheHitRate": 0.9291,
+    "cacheSampleSize": 53,
+    "cacheSampleTotal": 79,
     "avgAdoptionRate": 0,
-    "totalDecisions": 60,
+    "totalDecisions": 61,
     "gradeDistribution": {
       "S": 24,
-      "A": 15,
+      "A": 16,
       "B": 28,
       "C": 11
     },
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 33,
-    "totalCostUSD": 647.1627,
-    "avgCostPerSession": 8.8652,
-    "costSampleSize": 73
+    "turnBasedSessions": 34,
+    "totalCostUSD": 654.9309,
+    "avgCostPerSession": 8.8504,
+    "costSampleSize": 74
   },
   "sessions": [
     {
@@ -2854,12 +2854,52 @@
         "messageCount": 103
       },
       "sessionCostUSD": 4.4605
+    },
+    {
+      "sessionId": "session_080",
+      "topicSlug": "fin-overhead-reaudit-d060",
+      "topic": "Fin 측정 오버헤드 재감사 (D-060 운영규칙 gate)",
+      "startedAt": "2026-04-22T11:44:38.866Z",
+      "closedAt": "2026-04-22T12:13:23.405Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-061"
+      ],
+      "rolesCalled": 5,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 10,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 9,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "fin",
+        "dev",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 13204776,
+        "ioTokens": 115360,
+        "inputTokens": 214,
+        "outputTokens": 115146,
+        "cacheCreate": 612623,
+        "cacheRead": 12476793,
+        "cacheHitRate": 0.9448697198649944,
+        "messageCount": 148
+      },
+      "sessionCostUSD": 7.7682
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 49,
+      "count": 50,
       "sessions": [
         "session_047",
         "session_048",
@@ -2889,12 +2929,13 @@
         "session_076",
         "session_077",
         "session_078",
-        "session_079"
+        "session_079",
+        "session_080"
       ]
     },
     {
       "role": "editor",
-      "count": 30,
+      "count": 31,
       "sessions": [
         "session_050",
         "session_051",
@@ -2925,7 +2966,8 @@
         "session_076",
         "session_077",
         "session_078",
-        "session_079"
+        "session_079",
+        "session_080"
       ]
     },
     {
@@ -2952,7 +2994,7 @@
     },
     {
       "role": "dev",
-      "count": 24,
+      "count": 25,
       "sessions": [
         "session_047",
         "session_048",
@@ -2973,12 +3015,13 @@
         "session_074",
         "session_075",
         "session_078",
-        "session_079"
+        "session_079",
+        "session_080"
       ]
     },
     {
       "role": "riki",
-      "count": 13,
+      "count": 14,
       "sessions": [
         "session_049",
         "session_053",
@@ -2992,12 +3035,13 @@
         "session_069",
         "session_071",
         "session_075",
-        "session_077"
+        "session_077",
+        "session_080"
       ]
     },
     {
       "role": "fin",
-      "count": 11,
+      "count": 12,
       "sessions": [
         "session_053",
         "session_054",
@@ -3009,7 +3053,8 @@
         "session_068",
         "session_069",
         "session_071",
-        "session_077"
+        "session_077",
+        "session_080"
       ]
     },
     {
@@ -4204,6 +4249,42 @@
           "role": "editor",
           "phase": "compile",
           "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_080",
+      "topic": "Fin 측정 오버헤드 재감사 (D-060 운영규칙 gate)",
+      "sequence": [
+        {
+          "role": "fin",
+          "phase": "audit",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 2,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "phase": "risk-review",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 4,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 5,
           "recallReason": null
         }
       ]

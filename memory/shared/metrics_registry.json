@@ -1,7 +1,7 @@
 {
   "_comment": "D-060 Phase 0. Plugin-style metric registry. compute-growth.ts가 이 파일을 루프 돌려 메트릭을 계산한다. status=active만 집계.",
   "schemaVersion": "0.1.0",
-  "registryVersion": "v1",
+  "registryVersion": "v2",
   "effectiveFrom": "2026-04-22",
   "metrics": [
     {
@@ -27,7 +27,8 @@
       "scoringLag": 3,
       "windows": [20, 100, 500],
       "normalization": "percentile",
-      "status": "active",
+      "status": "draft",
+      "draftReason": "Phase 2 — consensus 채점 인프라 미구현",
       "description": "역할별 적중률 — signature 지표 집계로 대체될 수 있음"
     },
     {
@@ -53,7 +54,8 @@
       "scoringLag": 3,
       "windows": [20, 100, 500],
       "normalization": "percentile",
-      "status": "active",
+      "status": "draft",
+      "draftReason": "Phase 2 — consensus 채점 인프라 미구현",
       "description": "Ace 오케스트레이션 판단의 사후 적중 (역할 호출/재호출/순서)"
     },
     {
@@ -65,7 +67,8 @@
       "scoringLag": 10,
       "windows": [20, 100, 500],
       "normalization": "percentile",
-      "status": "active",
+      "status": "draft",
+      "draftReason": "Phase 2 — redesign detection 로직 미구현",
       "description": "Arki 구조 설계의 수명 (재설계 트리거까지의 세션 수)"
     },
     {
@@ -77,7 +80,8 @@
       "scoringLag": 0,
       "windows": [20, 100, 500],
       "normalization": "percentile",
-      "status": "active",
+      "status": "draft",
+      "draftReason": "Phase 2 — Fin 수치 예측 기록 구조 미구현 + 운영규칙 충돌",
       "description": "Fin 비용 예측의 실측 대비 정확도"
     },
     {
@@ -89,7 +93,8 @@
       "scoringLag": 3,
       "windows": [20, 100, 500],
       "normalization": "percentile",
-      "status": "active",
+      "status": "draft",
+      "draftReason": "Phase 2 — consensus 채점 + post_hoc_incidents 소스 미구현",
       "description": "Riki 리스크 리콜+정밀도 F1 (사후 실현 vs 예측)"
     },
     {
@@ -113,7 +118,8 @@
       "scoringLag": 0,
       "windows": [20, 100, 500],
       "normalization": "percentile",
-      "status": "active",
+      "status": "draft",
+      "draftReason": "Phase 2 — Vera 발언 빈도 부족, 소스 데이터 미충분",
       "description": "Vera 디자인에 대한 Master 수정 요구 역수"
     },
     {
@@ -125,7 +131,8 @@
       "scoringLag": 1,
       "windows": [20, 100, 500],
       "normalization": "percentile",
-      "status": "active",
+      "status": "draft",
+      "draftReason": "Phase 2 — single-rater 채점 인프라 미구현",
       "description": "Edi gap flag의 실제 누락 탐지 정확도"
     },
     {

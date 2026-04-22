@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_079",
-  "nextSessionId": "session_080",
+  "lastSessionId": "session_080",
+  "nextSessionId": "session_081",
   "currentVersion": "v1.54",
   "openTopics": [
     {
@@ -27,6 +27,12 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-061",
+      "date": "2026-04-22",
+      "axis": "D-060 G1 Gate — 성장지표 registry v2 + L3.autonomy proxy + Phase 2 Go",
+      "summary": "compute-growth.ts 실행 메트릭 11→4 (64% 감소). nonNull rate 37%→51%. L3.autonomy 0%→95% 복구. 매 세션 hook 오버헤드 대폭 감소 — 느린 /open·/close 개선 기여."
+    },
+    {
       "id": "D-060",
       "date": "2026-04-22",
       "axis": "성장지표 정의 프레임 + Board 계측 구조 확정 (PD-015)",
@@ -49,12 +55,6 @@
       "date": "2026-04-21",
       "axis": "PD-022 토픽 생명주기 시스템 구현 — D-056 스키마·규칙을 실시스템에 박음 + 소급 범위 축소(테스트 케이스 2건)",
       "summary": "D-056에서 확정된 토픽 생명주기 모델을 실제 시스템에 안전하게 착륙. Master 지침으로 소급 범위 2건 한정 → R-1(숨은 쌍 오분류) 리스크 원천 차단. 자동 종결 dry-run 2단으로 저마찰 원칙 박제. 신규 토픽부터 Ace Step 0로 topicType 판정 자동화 — '나 없이도 사고하는 팀'(Nova N4) 로드맵 진전."
-    },
-    {
-      "id": "D-056",
-      "date": "2026-04-21",
-      "axis": "토픽 생명주기 자동화 — 프레이밍↔구현 부모-자식 모델 + PD resolveCondition + 저마찰 원칙(무응답=승인)",
-      "summary": "session_062~065에서 드러난 프레이밍↔구현 토픽 생명주기 누수 + PD resolved 누락의 구조적 해소. Master save 수동 관행 → 시스템 자동화 흐름(D-051·D-053) 연장. 저마찰 원칙 박제로 향후 설계의 요구량 증가 차단. '나 없이도 사고하는 팀' 비전 로드맵(Nova N4) 장기 목표 명문화."
     }
   ],
   "pendingDeferrals": [
@@ -231,5 +231,5 @@
       "note": "D-058 확정. opus-dispatcher 스킬 + dispatch_config.json + 에이전트 정의 4종(role-ace/arki/fin/riki.md) 구현. G1(write 계약)·G3(RED→GREEN) 통과. auto-model-switch 스킬 폐기."
     }
   ],
-  "lastUpdated": "2026-04-22T11:32:29.105Z"
+  "lastUpdated": "2026-04-22T12:14:12.459Z"
 }
