@@ -180,6 +180,22 @@ export interface TopicIndexEntry {
   title: string;
   status: TopicSessionStatus;
   created: string;
+  /** D-052: lifecycle phase, orthogonal to hold */
+  phase?: 'framing' | 'design' | 'implementation' | 'validated' | string;
+  /** D-052: hold state — null = active, object = held */
+  hold?: null | {
+    heldAt?: string;
+    heldAtPhase?: string;
+    reason?: string;
+  };
+  /** Declared grade at /open */
+  grade?: 'S' | 'A' | 'B' | 'C';
+  /** Declared vs actual grade tracking (D-054 gap) */
+  gradeDeclared?: 'S' | 'A' | 'B' | 'C' | null;
+  gradeActual?: 'S' | 'A' | 'B' | 'C' | null;
+  gradeMismatch?: boolean;
+  /** Master decisions attributed to this topic */
+  masterDecisions?: Array<{ id: string; summary?: string; status?: string }>;
   /** Control plane: local workspace for agenda, debate_log, decisions, issues */
   controlPath?: string;       // e.g. "topics/topic_001"
   /** Artifact plane: published report directory */
@@ -199,6 +215,39 @@ export interface TopicIndexEntry {
 export interface TopicIndex {
   topics: TopicIndexEntry[];
   lastUpdated: string;
+}
+
+// ── Decision Ledger (D-055: owningTopicId + scopeCheck) ─────────────────────
+
+/** D-055: scopeCheck enum — 결정의 토픽 범위 분류 */
+export type ScopeCheck =
+  | 'topic-local'       // 단일 토픽에 국한
+  | 'cross-topic'       // 복수 토픽에 걸침 (relatedTopics 필수)
+  | 'global'            // 시스템 전역 (CLAUDE.md 등재 동반)
+  | 'legacy-ambiguous'; // 백필 기본값 — 사후 분류 대상
+
+/** decision_ledger.json 엔트리 타입 (v1.0, D-055) */
+export interface DecisionLedgerEntry {
+  id: string;
+  date: string;
+  session: string;
+  topic: string;
+  axis: string;
+  decision: string;
+  value?: string;
+  authority: 'master' | 'team';
+  status: 'confirmed' | 'superseded' | 'rejected';
+  /** D-055: 이 결정을 소유하는 토픽 ID (🔴 하드 필수) */
+  owningTopicId: string | null;
+  /** D-055: 결정의 범위 분류 (🔴 하드 필수) */
+  scopeCheck: ScopeCheck;
+  /** cross-topic 시 관련 토픽 ID 목록 */
+  relatedTopics?: string[];
+}
+
+export interface DecisionLedger {
+  decisions: DecisionLedgerEntry[];
+  lastUpdated?: string;
 }
 
 // ── Frontmatter schema (canonical v0.3.0) ───────────────────────────────────
