@@ -1,9 +1,15 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_075",
-  "nextSessionId": "session_076",
+  "lastSessionId": "session_076",
+  "nextSessionId": "session_077",
   "currentVersion": "v1.54",
   "openTopics": [
+    {
+      "id": "topic_082",
+      "title": "Dashboard 개편 — 인터페이스 UX + 반응형 프레임",
+      "status": "suspended",
+      "reportPath": "reports/2026-04-22_dashboard-redesign-ux-responsive"
+    },
     {
       "id": "topic_044",
       "title": "COPD 논문 ver3.4 최종화 — canonical 재분석 + (e) 프레임 확정",
@@ -232,5 +238,5 @@
       "note": "D-058 확정. opus-dispatcher 스킬 + dispatch_config.json + 에이전트 정의 4종(role-ace/arki/fin/riki.md) 구현. G1(write 계약)·G3(RED→GREEN) 통과. auto-model-switch 스킬 폐기."
     }
   ],
-  "lastUpdated": "2026-04-22T06:32:59.189Z"
+  "lastUpdated": "2026-04-22T07:05:18.094Z"
 }

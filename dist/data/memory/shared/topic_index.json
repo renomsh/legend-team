@@ -1,6 +1,26 @@
 {
   "topics": [
     {
+      "id": "topic_082",
+      "title": "Dashboard 개편 — 인터페이스 UX + 반응형 프레임",
+      "status": "suspended",
+      "phase": "framing",
+      "hold": {
+        "active": true,
+        "heldAt": "2026-04-22T09:50:00.000Z",
+        "heldAtPhase": "framing",
+        "reason": "PD-015(성장지표 정의 + Board 계측) 선행 완료 후 Master 재호출까지 보류. IA 확장 리스크로 Option A 채택."
+      },
+      "created": "2026-04-22",
+      "controlPath": "topics/topic_082",
+      "reportPath": "reports/2026-04-22_dashboard-redesign-ux-responsive",
+      "reportFiles": ["ace_rev1.md"],
+      "published": false,
+      "path": "topics/topic_082",
+      "grade": "S",
+      "outcome": "framing held — Option A: defer until PD-015 completes"
+    },
+    {
       "id": "topic_081",
       "title": "알람 원인 분석 및 해결",
       "status": "completed",
@@ -10,7 +30,12 @@
       "grade": "A",
       "controlPath": "topics/topic_081",
       "reportPath": "reports/2026-04-22_alarm-analysis-resolution",
-      "reportFiles": ["ace_rev1.md", "arki_rev1.md", "riki_rev1.md", "dev_rev1.md"],
+      "reportFiles": [
+        "ace_rev1.md",
+        "arki_rev1.md",
+        "riki_rev1.md",
+        "dev_rev1.md"
+      ],
       "published": false,
       "path": "topics/topic_081",
       "outcome": "compute-dashboard 경보 29건→1건. R2 삭제(병목/논의 구분불가), R5 alarms 제거(feedbackRecurrences 보존), R1 Grade 조건부 임계값(A/S:≥5, B/C:≥3). 잔여 1건(session_045 Grade S rolesRecalled=5)은 실제 이상 신호."
@@ -1598,5 +1623,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-22T06:07:26.520Z"
+  "lastUpdated": "2026-04-22T06:49:19.779Z"
 }

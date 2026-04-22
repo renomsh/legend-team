@@ -3,6 +3,7 @@
 This project is a memory-first, topic-based strategy system.
 
 Rules:
+- Auto-close sessions: 구현 검증 완료(빌드 통과·경보 없음·Master 미결 질문 없음) 시 `/close` 명령 없이 자동으로 close 스킬을 호출한다. Master가 명시적으로 닫으면 중복 호출은 무시. (2026-04-22)
 - Never start from UI
 - Never generate JSX, React pages, dashboards, or mockups first
 - Preserve structured topic state and revision history
