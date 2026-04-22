@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-22T04:26:18.199Z",
-  "totalSessions": 70,
+  "generatedAt": "2026-04-22T04:40:05.417Z",
+  "totalSessions": 71,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.03,
-    "avgCacheHitRate": 0.9286,
-    "cacheSampleSize": 44,
-    "cacheSampleTotal": 70,
+    "avgMasterTurns": 16.82,
+    "avgCacheHitRate": 0.9291,
+    "cacheSampleSize": 45,
+    "cacheSampleTotal": 71,
     "avgAdoptionRate": 0,
     "totalDecisions": 59,
     "gradeDistribution": {
       "S": 22,
       "A": 13,
-      "B": 24,
+      "B": 25,
       "C": 11
     },
     "gradeMismatchCount": 2,
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 25,
-    "totalCostUSD": 603.6627,
-    "avgCostPerSession": 9.2871,
-    "costSampleSize": 65
+    "turnBasedSessions": 26,
+    "totalCostUSD": 607.7515,
+    "avgCostPerSession": 9.2084,
+    "costSampleSize": 66
   },
   "sessions": [
     {
@@ -131,6 +131,9 @@
       "dataQuality": "manual",
       "tokenUsage": {
         "totalBillable": 5372893,
+        "ioTokens": 46077,
+        "cacheCreate": 203456,
+        "cacheRead": 5123360,
         "cacheHitRate": 0.9535570501776232,
         "messageCount": 91
       },
@@ -155,6 +158,9 @@
       "dataQuality": "manual",
       "tokenUsage": {
         "totalBillable": 3180568,
+        "ioTokens": 19555,
+        "cacheCreate": 131508,
+        "cacheRead": 3029505,
         "cacheHitRate": 0.9525043954413174,
         "messageCount": 80
       },
@@ -189,6 +195,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 8579025,
+        "ioTokens": 45202,
+        "cacheCreate": 282668,
+        "cacheRead": 8251155,
         "cacheHitRate": 0.9617823703742558,
         "messageCount": 139
       },
@@ -217,6 +226,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 1718456,
+        "ioTokens": 13213,
+        "cacheCreate": 232884,
+        "cacheRead": 1472359,
         "cacheHitRate": 0.8567917944945929,
         "messageCount": 42
       },
@@ -248,6 +260,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 16407855,
+        "ioTokens": 55119,
+        "cacheCreate": 656058,
+        "cacheRead": 15696678,
         "cacheHitRate": 0.9566563088228168,
         "messageCount": 203
       },
@@ -275,6 +290,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 16407855,
+        "ioTokens": 55119,
+        "cacheCreate": 656058,
+        "cacheRead": 15696678,
         "cacheHitRate": 0.9566563088228168,
         "messageCount": 203
       },
@@ -308,6 +326,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 3875975,
+        "ioTokens": 22628,
+        "cacheCreate": 405680,
+        "cacheRead": 3447667,
         "cacheHitRate": 0.8894967072801038,
         "messageCount": 82
       },
@@ -342,6 +363,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 6598910,
+        "ioTokens": 35581,
+        "cacheCreate": 370373,
+        "cacheRead": 6192956,
         "cacheHitRate": 0.9384816583344825,
         "messageCount": 111
       },
@@ -394,6 +418,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 9332346,
+        "ioTokens": 60715,
+        "cacheCreate": 332889,
+        "cacheRead": 8938742,
         "cacheHitRate": 0.9578236812051332,
         "messageCount": 109
       },
@@ -423,6 +450,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 21864665,
+        "ioTokens": 61965,
+        "cacheCreate": 701541,
+        "cacheRead": 21101159,
         "cacheHitRate": 0.9650803705430657,
         "messageCount": 216
       },
@@ -454,6 +484,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 14757847,
+        "ioTokens": 211458,
+        "cacheCreate": 1631437,
+        "cacheRead": 12914952,
         "cacheHitRate": 0.8751243999209369,
         "messageCount": 120
       },
@@ -481,6 +514,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 11321676,
+        "ioTokens": 149453,
+        "cacheCreate": 1720649,
+        "cacheRead": 9451574,
         "cacheHitRate": 0.834821098925636,
         "messageCount": 116
       },
@@ -516,6 +552,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 3687949,
+        "ioTokens": 43934,
+        "cacheCreate": 411230,
+        "cacheRead": 3232785,
         "cacheHitRate": 0.8765807227811447,
         "messageCount": 46
       },
@@ -547,6 +586,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 9499713,
+        "ioTokens": 25447,
+        "cacheCreate": 1093883,
+        "cacheRead": 8380383,
         "cacheHitRate": 0.8821722298347329,
         "messageCount": 105
       },
@@ -578,6 +620,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 28749668,
+        "ioTokens": 81248,
+        "cacheCreate": 1647520,
+        "cacheRead": 27020900,
         "cacheHitRate": 0.9398682447393827,
         "messageCount": 340
       },
@@ -605,6 +650,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 6497689,
+        "ioTokens": 18549,
+        "cacheCreate": 1016767,
+        "cacheRead": 5462373,
         "cacheHitRate": 0.8406639652959691,
         "messageCount": 93
       },
@@ -632,6 +680,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 7646816,
+        "ioTokens": 34977,
+        "cacheCreate": 687995,
+        "cacheRead": 6923844,
         "cacheHitRate": 0.9054545055092211,
         "messageCount": 97
       },
@@ -659,6 +710,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 10676683,
+        "ioTokens": 48681,
+        "cacheCreate": 284635,
+        "cacheRead": 10343367,
         "cacheHitRate": 0.9687809406723044,
         "messageCount": 121
       },
@@ -691,6 +745,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 36066355,
+        "ioTokens": 173177,
+        "cacheCreate": 1380697,
+        "cacheRead": 34512481,
         "cacheHitRate": 0.9569162450710642,
         "messageCount": 406
       },
@@ -722,6 +779,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 7148400,
+        "ioTokens": 42201,
+        "cacheCreate": 772401,
+        "cacheRead": 6333798,
         "cacheHitRate": 0.886044149739802,
         "messageCount": 103
       },
@@ -751,6 +811,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 7148400,
+        "ioTokens": 42201,
+        "cacheCreate": 772401,
+        "cacheRead": 6333798,
         "cacheHitRate": 0.886044149739802,
         "messageCount": 103
       },
@@ -781,6 +844,9 @@
       "dataQuality": "auto",
       "tokenUsage": {
         "totalBillable": 12667688,
+        "ioTokens": 123301,
+        "cacheCreate": 656925,
+        "cacheRead": 11887462,
         "cacheHitRate": 0.9384081767722728,
         "messageCount": 111
       },
@@ -813,6 +879,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 41400594,
+        "ioTokens": 226513,
+        "cacheCreate": 2012610,
+        "cacheRead": 39161471,
         "cacheHitRate": 0.9459156793740688,
         "messageCount": 454
       },
@@ -841,6 +910,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 13407225,
+        "ioTokens": 73199,
+        "cacheCreate": 704934,
+        "cacheRead": 12629092,
         "cacheHitRate": 0.9419616661911768,
         "messageCount": 173
       },
@@ -870,6 +942,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 35518851,
+        "ioTokens": 368450,
+        "cacheCreate": 2742954,
+        "cacheRead": 32407447,
         "cacheHitRate": 0.9124013330273549,
         "messageCount": 397
       },
@@ -904,6 +979,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 69003386,
+        "ioTokens": 384514,
+        "cacheCreate": 3445218,
+        "cacheRead": 65173654,
         "cacheHitRate": 0.9444993612342444,
         "messageCount": 597
       },
@@ -937,6 +1015,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 52416796,
+        "ioTokens": 293865,
+        "cacheCreate": 2877844,
+        "cacheRead": 49245087,
         "cacheHitRate": 0.9394905976321025,
         "messageCount": 422
       },
@@ -974,6 +1055,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 27996556,
+        "ioTokens": 121254,
+        "cacheCreate": 1404034,
+        "cacheRead": 26471268,
         "cacheHitRate": 0.9455187273748957,
         "messageCount": 302
       },
@@ -1014,6 +1098,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 60893038,
+        "ioTokens": 485527,
+        "cacheCreate": 2709606,
+        "cacheRead": 57697905,
         "cacheHitRate": 0.9475287634688222,
         "messageCount": 461
       },
@@ -1042,6 +1129,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 16441299,
+        "ioTokens": 62508,
+        "cacheCreate": 898467,
+        "cacheRead": 15480324,
         "cacheHitRate": 0.9415511511590416,
         "messageCount": 155
       },
@@ -1074,6 +1164,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 14040801,
+        "ioTokens": 141394,
+        "cacheCreate": 943815,
+        "cacheRead": 12955592,
         "cacheHitRate": 0.922710321156179,
         "messageCount": 130
       },
@@ -1112,6 +1205,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 9712667,
+        "ioTokens": 93582,
+        "cacheCreate": 279775,
+        "cacheRead": 9339310,
         "cacheHitRate": 0.9615597857931297,
         "messageCount": 89
       },
@@ -1148,6 +1244,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 11994992,
+        "ioTokens": 93369,
+        "cacheCreate": 416022,
+        "cacheRead": 11485601,
         "cacheHitRate": 0.95753302711665,
         "messageCount": 115
       },
@@ -1177,6 +1276,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 39843153,
+        "ioTokens": 317359,
+        "cacheCreate": 2233968,
+        "cacheRead": 37291826,
         "cacheHitRate": 0.9359657354426745,
         "messageCount": 391
       },
@@ -1215,6 +1317,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 15726496,
+        "ioTokens": 211101,
+        "cacheCreate": 1221853,
+        "cacheRead": 14293542,
         "cacheHitRate": 0.9088828178889945,
         "messageCount": 89
       },
@@ -1248,6 +1353,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 29761321,
+        "ioTokens": 290234,
+        "cacheCreate": 1063963,
+        "cacheRead": 28407124,
         "cacheHitRate": 0.9544980883073033,
         "messageCount": 141
       },
@@ -1288,6 +1396,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 54853620,
+        "ioTokens": 420146,
+        "cacheCreate": 1047460,
+        "cacheRead": 53386014,
         "cacheHitRate": 0.9732450474553913,
         "messageCount": 244
       },
@@ -1319,6 +1430,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 19336313,
+        "ioTokens": 95793,
+        "cacheCreate": 1219956,
+        "cacheRead": 18020564,
         "cacheHitRate": 0.9319545044600799,
         "messageCount": 181
       },
@@ -1361,6 +1475,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 10165334,
+        "ioTokens": 106895,
+        "cacheCreate": 358221,
+        "cacheRead": 9700218,
         "cacheHitRate": 0.954244887575755,
         "messageCount": 96
       },
@@ -1390,6 +1507,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 9202102,
+        "ioTokens": 68374,
+        "cacheCreate": 701878,
+        "cacheRead": 8431850,
         "cacheHitRate": 0.9162960810475693,
         "messageCount": 162
       },
@@ -1419,6 +1539,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 14154508,
+        "ioTokens": 80879,
+        "cacheCreate": 792093,
+        "cacheRead": 13281536,
         "cacheHitRate": 0.9383255143873599,
         "messageCount": 189
       },
@@ -1450,6 +1573,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 6834750,
+        "ioTokens": 44440,
+        "cacheCreate": 341868,
+        "cacheRead": 6448442,
         "cacheHitRate": 0.9434788397527342,
         "messageCount": 101
       },
@@ -1487,6 +1613,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 14459023,
+        "ioTokens": 154353,
+        "cacheCreate": 1046834,
+        "cacheRead": 13257836,
         "cacheHitRate": 0.9169247465752008,
         "messageCount": 121
       },
@@ -1516,6 +1645,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 2630496,
+        "ioTokens": 22469,
+        "cacheCreate": 254690,
+        "cacheRead": 2353337,
         "cacheHitRate": 0.8946362206975415,
         "messageCount": 52
       },
@@ -1546,6 +1678,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 6683452,
+        "ioTokens": 44693,
+        "cacheCreate": 265917,
+        "cacheRead": 6372842,
         "cacheHitRate": 0.9535255134622048,
         "messageCount": 108
       },
@@ -1582,6 +1717,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 160333,
+        "ioTokens": 1826,
+        "cacheCreate": 35186,
+        "cacheRead": 123321,
         "cacheHitRate": 0.7691554452296159,
         "messageCount": 5
       },
@@ -1621,6 +1759,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 4312254,
+        "ioTokens": 77793,
+        "cacheCreate": 364691,
+        "cacheRead": 3869770,
         "cacheHitRate": 0.897389161213602,
         "messageCount": 48
       },
@@ -1659,6 +1800,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 5138559,
+        "ioTokens": 89057,
+        "cacheCreate": 498051,
+        "cacheRead": 4551451,
         "cacheHitRate": 0.8857446221790973,
         "messageCount": 55
       },
@@ -1689,6 +1833,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 7320867,
+        "ioTokens": 50125,
+        "cacheCreate": 445190,
+        "cacheRead": 6825552,
         "cacheHitRate": 0.9323420299808752,
         "messageCount": 92
       },
@@ -1719,6 +1866,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 6928948,
+        "ioTokens": 40056,
+        "cacheCreate": 648402,
+        "cacheRead": 6240490,
         "cacheHitRate": 0.9006403280844365,
         "messageCount": 90
       },
@@ -1748,6 +1898,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 9801231,
+        "ioTokens": 84472,
+        "cacheCreate": 432031,
+        "cacheRead": 9284728,
         "cacheHitRate": 0.9473022317298715,
         "messageCount": 146
       },
@@ -1777,6 +1930,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 4424362,
+        "ioTokens": 34201,
+        "cacheCreate": 305109,
+        "cacheRead": 4085052,
         "cacheHitRate": 0.9233087166013992,
         "messageCount": 77
       },
@@ -1814,6 +1970,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 7461024,
+        "ioTokens": 63403,
+        "cacheCreate": 875618,
+        "cacheRead": 6522003,
         "cacheHitRate": 0.874143147106885,
         "messageCount": 96
       },
@@ -1852,6 +2011,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 13280887,
+        "ioTokens": 104805,
+        "cacheCreate": 593416,
+        "cacheRead": 12582666,
         "cacheHitRate": 0.9474266289593458,
         "messageCount": 113
       },
@@ -1883,6 +2045,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 13515571,
+        "ioTokens": 73335,
+        "cacheCreate": 644540,
+        "cacheRead": 12797696,
         "cacheHitRate": 0.9468853369199126,
         "messageCount": 146
       },
@@ -1913,6 +2078,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 4624153,
+        "ioTokens": 36646,
+        "cacheCreate": 346778,
+        "cacheRead": 4240729,
         "cacheHitRate": 0.9170823283745153,
         "messageCount": 76
       },
@@ -1949,6 +2117,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 2889497,
+        "ioTokens": 40152,
+        "cacheCreate": 213413,
+        "cacheRead": 2635932,
         "cacheHitRate": 0.9122459722228471,
         "messageCount": 37
       },
@@ -1981,6 +2152,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 24146698,
+        "ioTokens": 172162,
+        "cacheCreate": 1830882,
+        "cacheRead": 22143654,
         "cacheHitRate": 0.9170468773825722,
         "messageCount": 301
       },
@@ -2010,6 +2184,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 10196911,
+        "ioTokens": 68714,
+        "cacheCreate": 277620,
+        "cacheRead": 9850577,
         "cacheHitRate": 0.9660354003285897,
         "messageCount": 140
       },
@@ -2047,6 +2224,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 4249202,
+        "ioTokens": 48136,
+        "cacheCreate": 168819,
+        "cacheRead": 4032247,
         "cacheHitRate": 0.9489421778489232,
         "messageCount": 48
       },
@@ -2085,6 +2265,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 18550709,
+        "ioTokens": 105904,
+        "cacheCreate": 861467,
+        "cacheRead": 17583338,
         "cacheHitRate": 0.9478526130726325,
         "messageCount": 145
       },
@@ -2121,6 +2304,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 20649590,
+        "ioTokens": 191710,
+        "cacheCreate": 1475081,
+        "cacheRead": 18982799,
         "cacheHitRate": 0.9192821261826506,
         "messageCount": 225
       },
@@ -2154,6 +2340,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 3359405,
+        "ioTokens": 42228,
+        "cacheCreate": 232027,
+        "cacheRead": 3085150,
         "cacheHitRate": 0.9183620313716269,
         "messageCount": 55
       },
@@ -2184,6 +2373,9 @@
       ],
       "tokenUsage": {
         "totalBillable": 20850796,
+        "ioTokens": 102010,
+        "cacheCreate": 1127144,
+        "cacheRead": 19621642,
         "cacheHitRate": 0.941050020344547,
         "messageCount": 288
       },
@@ -2220,16 +2412,52 @@
       ],
       "tokenUsage": {
         "totalBillable": 8185955,
+        "ioTokens": 73628,
+        "cacheCreate": 526667,
+        "cacheRead": 7585660,
         "cacheHitRate": 0.9266676887424864,
         "messageCount": 82
       },
       "sessionCostUSD": 5.353
+    },
+    {
+      "sessionId": "session_072",
+      "topicSlug": "dashboard-kpi-redesign",
+      "topic": "PD-NEW-A/B/C: 대시보드 KPI 개편 + 캐시 효율 보조 패널 + D-059 evidence 앵커",
+      "startedAt": "2026-04-22T04:30:00.000Z",
+      "closedAt": "2026-04-22T05:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 3,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 7447260,
+        "ioTokens": 52317,
+        "cacheCreate": 315107,
+        "cacheRead": 7079836,
+        "cacheHitRate": 0.9506631969341744,
+        "messageCount": 102
+      },
+      "sessionCostUSD": 4.0888
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 37,
+      "count": 38,
       "sessions": [
         "session_047",
         "session_048",
@@ -2251,12 +2479,13 @@
         "session_068",
         "session_069",
         "session_070",
-        "session_071"
+        "session_071",
+        "session_072"
       ]
     },
     {
       "role": "editor",
-      "count": 22,
+      "count": 23,
       "sessions": [
         "session_050",
         "session_051",
@@ -2279,7 +2508,8 @@
         "session_068",
         "session_069",
         "session_070",
-        "session_071"
+        "session_071",
+        "session_072"
       ]
     },
     {
@@ -2303,7 +2533,7 @@
     },
     {
       "role": "dev",
-      "count": 17,
+      "count": 18,
       "sessions": [
         "session_047",
         "session_048",
@@ -2318,7 +2548,8 @@
         "session_062",
         "session_064",
         "session_065",
-        "session_070"
+        "session_070",
+        "session_072"
       ]
     },
     {
@@ -3252,6 +3483,30 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_072",
+      "topic": "PD-NEW-A/B/C: 대시보드 KPI 개편 + 캐시 효율 보조 패널 + D-059 evidence 앵커",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -3259,61 +3514,61 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_017",
-      "description": "Master 병목: masterTurns=26 (avg=17.0)"
+      "description": "Master 병목: masterTurns=26 (avg=16.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=17.0)"
+      "description": "Master 병목: masterTurns=48 (avg=16.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=17.0)"
+      "description": "Master 병목: masterTurns=43 (avg=16.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_027",
-      "description": "Master 병목: masterTurns=26 (avg=17.0)"
+      "description": "Master 병목: masterTurns=26 (avg=16.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=17.0)"
+      "description": "Master 병목: masterTurns=42 (avg=16.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_030",
-      "description": "Master 병목: masterTurns=26 (avg=17.0)"
+      "description": "Master 병목: masterTurns=26 (avg=16.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=17.0)"
+      "description": "Master 병목: masterTurns=45 (avg=16.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=17.0)"
+      "description": "Master 병목: masterTurns=39 (avg=16.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=17.0)"
+      "description": "Master 병목: masterTurns=49 (avg=16.8)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=17.0)"
+      "description": "Master 병목: masterTurns=35 (avg=16.8)"
     },
     {
       "ruleId": "R1",
@@ -3373,7 +3628,7 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_068",
-      "description": "Master 병목: masterTurns=34 (avg=17.0)"
+      "description": "Master 병목: masterTurns=34 (avg=16.8)"
     },
     {
       "ruleId": "R5",
@@ -3422,6 +3677,36 @@
     }
   ],
   "feedbackRecurrences": [
+    {
+      "keyword": "토큰",
+      "occurrences": [
+        {
+          "date": "2026-04-22",
+          "feedbackId": "MF-051",
+          "summary": "토큰 측정 체계 재검증 지시 — 이전 '맞다' 결론 의심, 가설 3+ 수립. 대시보드 표시안 반복 재조정: "
+        },
+        {
+          "date": "2026-04-17",
+          "feedbackId": "MF-025",
+          "summary": "토큰 8.9M이 이상한데. 누적 아래에 세션당 평균 토큰수도 표기해줘."
+        }
+      ]
+    },
+    {
+      "keyword": "측정",
+      "occurrences": [
+        {
+          "date": "2026-04-22",
+          "feedbackId": "MF-051",
+          "summary": "토큰 측정 체계 재검증 지시 — 이전 '맞다' 결론 의심, 가설 3+ 수립. 대시보드 표시안 반복 재조정: "
+        },
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-S036-4",
+          "summary": "페르소나 업데이트, 성장지표 측정 논의는 욕심이었나. 버그 이외는 이연과제로."
+        }
+      ]
+    },
     {
       "keyword": "Ace",
       "occurrences": [

@@ -1,6 +1,56 @@
 {
-  "generatedAt": "2026-04-22T04:26:18.832Z",
+  "generatedAt": "2026-04-22T04:40:06.033Z",
   "topics": [
+    {
+      "id": "topic_078",
+      "title": "--help",
+      "status": "cancelled",
+      "created": "2026-04-22",
+      "reportPath": "reports/2026-04-22_--help",
+      "reportFiles": [],
+      "published": false,
+      "outcome": null,
+      "note": "오작동으로 생성된 더미 토픽. 무시.",
+      "masterDecisions": []
+    },
+    {
+      "id": "topic_077",
+      "title": "D-059 evidence 등록 + Anthropic 공식 문서 앵커",
+      "status": "completed",
+      "created": "2026-04-22",
+      "reportPath": "reports/2026-04-22_d059-evidence-anchor",
+      "reportFiles": [],
+      "published": false,
+      "outcome": null,
+      "note": "E-014 resolved-D-059, E-015 신규 등록, Anthropic 공식 docs 앵커 2건",
+      "masterDecisions": []
+    },
+    {
+      "id": "topic_076",
+      "title": "캐시 효율 보조 패널 + raw 합 접기",
+      "status": "completed",
+      "created": "2026-04-22",
+      "reportPath": "reports/2026-04-22_cache-efficiency-panel",
+      "reportFiles": [],
+      "published": false,
+      "outcome": null,
+      "note": "compute-dashboard ioTokens/cacheCreate/cacheRead 필드 추가 + 접기 패널 구현",
+      "masterDecisions": []
+    },
+    {
+      "id": "topic_075",
+      "title": "대시보드 KPI 개편",
+      "status": "completed",
+      "created": "2026-04-22",
+      "reportPath": "reports/2026-04-22_dashboard-kpi-redesign",
+      "reportFiles": [
+        "dev_rev1.md"
+      ],
+      "published": false,
+      "outcome": null,
+      "note": "I/O Tokens KPI 전환, 비용 Secondary 레이블, canonical D-059 기준 적용",
+      "masterDecisions": []
+    },
     {
       "id": "topic_074",
       "title": "토큰 재검증 — CC 측정 vs 레전드팀 산출 간 괴리 원인 분석",

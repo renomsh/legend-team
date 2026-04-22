@@ -271,8 +271,12 @@ function main() {
     const totalBill = token
       ? (token.total_billable ?? ((token.input_tokens||0)+(token.output_tokens||0)+(token.cache_creation_input_tokens||0)+(token.cache_read_input_tokens||0)))
       : 0;
+    const ioTokens = token ? (token.input_tokens || 0) + (token.output_tokens || 0) : 0;
     const tokenUsage = token && totalBill > 0 ? {
       totalBillable: totalBill,
+      ioTokens,
+      cacheCreate: token.cache_creation_input_tokens || 0,
+      cacheRead: token.cache_read_input_tokens || 0,
       cacheHitRate: (token.cache_read_input_tokens || 0) / totalBill,
       messageCount: token.messageCount || 0,
     } : undefined;

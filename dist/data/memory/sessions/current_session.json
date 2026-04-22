@@ -1,22 +1,24 @@
 {
-  "sessionId": "session_071",
-  "topicId": "topic_074",
-  "topic": "토큰 재검증 — CC 측정 vs 레전드팀 산출 간 괴리 원인 분석",
-  "topicSlug": "token-revalidation-discrepancy",
+  "sessionId": "session_072",
+  "topicId": "topic_075",
+  "topicIds": [
+    "topic_075",
+    "topic_076",
+    "topic_077"
+  ],
+  "topic": "PD-NEW-A/B/C: 대시보드 KPI 개편 + 캐시 효율 보조 패널 + D-059 evidence 앵커",
+  "topicSlug": "dashboard-kpi-redesign",
   "status": "closed",
-  "startedAt": "2026-04-22T02:12:52.830Z",
-  "closedAt": "2026-04-22T03:00:00.000Z",
+  "startedAt": "2026-04-22T04:30:00.000Z",
+  "closedAt": "2026-04-22T05:00:00.000Z",
   "mode": "observation",
-  "grade": "S",
-  "gradeDeclared": "S",
-  "framingLevel": 2,
+  "grade": "B",
+  "gradeDeclared": "B",
+  "framingLevel": 1,
   "framingSkipped": false,
   "agentsCompleted": [
     "ace",
-    "arki",
-    "fin",
-    "riki",
-    "ace",
+    "dev",
     "editor"
   ],
   "turns": [
@@ -26,62 +28,35 @@
       "phase": "framing"
     },
     {
-      "role": "arki",
+      "role": "dev",
       "turnIdx": 1,
-      "phase": "design"
-    },
-    {
-      "role": "fin",
-      "turnIdx": 2,
-      "phase": "design"
-    },
-    {
-      "role": "riki",
-      "turnIdx": 3,
-      "phase": "design"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 4,
-      "phase": "synthesis",
-      "recallReason": "post-intervention"
+      "phase": "implementation"
     },
     {
       "role": "editor",
-      "turnIdx": 5,
+      "turnIdx": 2,
       "phase": "compile"
     }
   ],
-  "decisions": [
-    "D-059"
-  ],
+  "decisions": [],
   "masterDecisions": [],
-  "masterFeedback": [
-    "세 지표 동시 노출 아닌 canonical+접기 (간접)",
-    "CC 대조 배지 제거 요청",
-    "Max 실결제 $104.28 기준 표기",
-    "세션당 비용 배분 I/O 비중 → 최종 API 환산 비중(3번)으로 재조정",
-    "$104.28 누적 성질 + 입력 필드 개념 교정",
-    "핵심 목적은 사용량·효율 트래킹이지 결제액 트래킹이 아님 — KPI Primary 사용량+효율로 재배치",
-    "정액제($100 + 버퍼 $120) 구조로 결제 $는 Secondary로 강등"
-  ],
+  "masterFeedback": [],
   "notes": [
-    "128배 괴리 = 정의 불일치. CC='input+output', 레전드팀='4필드 전합'",
-    "레전드팀 I/O 합 7.09M ≈ CC 대시보드 7.9M 정합 (E-014 등록)",
-    "D-059 외부 앵커 cross-check 의무 원칙 신설",
-    "이전 session_066/067/068 '재현 맞다' 결론 = 폐쇄루프 허위검증이었음을 규명",
-    "PD-018/topic_073(비용 패널) 유지, KPI 레이블·raw 노출 재작업 필요",
-    "project_charter v1.54 → v1.55"
+    "I/O Tokens KPI 7.1M = session_071 확인값 7.09M 정합 (E-014 문서화)",
+    "비용 Secondary 레이블 추가, cost-row 시각적 강등",
+    "raw 4필드 접기 패널 추가 (cacheCreate/cacheRead 개별 집계)",
+    "E-014 resolved-D-059, E-015 신규: Anthropic 공식 docs 앵커 2건",
+    "PD-018 topic_073 후속으로 topic_075/076/077 완료"
   ],
-  "reportPath": "reports/2026-04-22_token-revalidation-discrepancy",
+  "reportPath": "reports/2026-04-22_dashboard-kpi-redesign",
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 175,
-    "output_tokens": 73453,
-    "cache_creation_input_tokens": 526667,
-    "cache_read_input_tokens": 7585660,
-    "messageCount": 82,
-    "masterTurns": 8,
-    "total_billable": 8185955
+    "input_tokens": 132,
+    "output_tokens": 52185,
+    "cache_creation_input_tokens": 315107,
+    "cache_read_input_tokens": 7079836,
+    "messageCount": 102,
+    "masterTurns": 3,
+    "total_billable": 7447260
   }
 }

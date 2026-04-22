@@ -128,8 +128,30 @@
       "usedBy": [
         "master"
       ],
-      "status": "open"
+      "status": "resolved-D-059",
+      "resolvedNote": "D-059 원칙 신설로 정의 불일치 공식 인정. canonical = I/O(input+output), raw = 4필드 전합. 대시보드 KPI I/O Tokens로 전환(session_072/topic_075).",
+      "externalAnchor": {
+        "source": "Anthropic API Docs — Token counting & pricing",
+        "url": "https://docs.anthropic.com/en/docs/build-with-claude/token-counting",
+        "note": "Anthropic 공식 문서: input_tokens + output_tokens가 청구 기준 지표. cache_creation/cache_read는 별도 단가 적용되는 보조 지표. CC 대시보드도 동일 정의 사용."
+      }
+    },
+    {
+      "id": "E-015",
+      "topicId": "d059-evidence-anchor",
+      "topic": "d059-evidence-anchor",
+      "date": "2026-04-22",
+      "description": "D-059 외부 앵커 cross-check 의무 원칙 이행 기록. canonical 토큰 지표(I/O) = Anthropic API 정의와 일치 확인. CC 대시보드 '7.9M'은 input_tokens+output_tokens 기준이며 레전드팀 ioTokens 7.09M과 정합(9.3% 차이는 session_072 미반영분).",
+      "source": "dev/session_072",
+      "type": "assumption",
+      "usedBy": ["ace", "dev"],
+      "status": "open",
+      "externalAnchor": {
+        "source": "Anthropic API Docs — Models overview & pricing",
+        "url": "https://docs.anthropic.com/en/docs/about-claude/models",
+        "note": "모델별 입출력 단가 공식 확인. Sonnet 4.6: input $3/MTok, output $15/MTok, cache_write $3.75/MTok, cache_read $0.30/MTok."
+      }
     }
   ],
-  "lastUpdated": "2026-04-22T04:22:39.441Z"
+  "lastUpdated": "2026-04-22T05:00:00.000Z"
 }

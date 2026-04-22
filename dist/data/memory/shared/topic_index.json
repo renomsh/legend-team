@@ -1,6 +1,71 @@
 {
   "topics": [
     {
+      "id": "topic_078",
+      "title": "--help",
+      "status": "cancelled",
+      "phase": "framing",
+      "hold": null,
+      "created": "2026-04-22",
+      "controlPath": "topics/topic_078",
+      "reportPath": "reports/2026-04-22_--help",
+      "reportFiles": [],
+      "published": false,
+      "path": "topics/topic_078",
+      "note": "오작동으로 생성된 더미 토픽. 무시."
+    },
+    {
+      "id": "topic_077",
+      "title": "D-059 evidence 등록 + Anthropic 공식 문서 앵커",
+      "status": "completed",
+      "grade": "C",
+      "topicType": "implementation",
+      "parentTopicId": "topic_074",
+      "phase": "validated",
+      "hold": null,
+      "created": "2026-04-22",
+      "controlPath": "topics/topic_077",
+      "reportPath": "reports/2026-04-22_d059-evidence-anchor",
+      "reportFiles": [],
+      "published": false,
+      "path": "topics/topic_077",
+      "note": "E-014 resolved-D-059, E-015 신규 등록, Anthropic 공식 docs 앵커 2건"
+    },
+    {
+      "id": "topic_076",
+      "title": "캐시 효율 보조 패널 + raw 합 접기",
+      "status": "completed",
+      "grade": "B",
+      "topicType": "implementation",
+      "parentTopicId": "topic_073",
+      "phase": "validated",
+      "hold": null,
+      "created": "2026-04-22",
+      "controlPath": "topics/topic_076",
+      "reportPath": "reports/2026-04-22_cache-efficiency-panel",
+      "reportFiles": [],
+      "published": false,
+      "path": "topics/topic_076",
+      "note": "compute-dashboard ioTokens/cacheCreate/cacheRead 필드 추가 + 접기 패널 구현"
+    },
+    {
+      "id": "topic_075",
+      "title": "대시보드 KPI 개편",
+      "status": "completed",
+      "grade": "B",
+      "topicType": "implementation",
+      "parentTopicId": "topic_073",
+      "phase": "validated",
+      "hold": null,
+      "created": "2026-04-22",
+      "controlPath": "topics/topic_075",
+      "reportPath": "reports/2026-04-22_dashboard-kpi-redesign",
+      "reportFiles": ["dev_rev1.md"],
+      "published": false,
+      "path": "topics/topic_075",
+      "note": "I/O Tokens KPI 전환, 비용 Secondary 레이블, canonical D-059 기준 적용"
+    },
+    {
       "id": "topic_074",
       "grade": "S",
       "topicType": "framing",
@@ -1480,5 +1545,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-22T02:12:29.176Z"
+  "lastUpdated": "2026-04-22T04:31:57.949Z"
 }

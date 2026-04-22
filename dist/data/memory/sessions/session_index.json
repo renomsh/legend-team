@@ -2166,8 +2166,40 @@
       ],
       "grade": "S",
       "note": "128배 괴리 = 정의 불일치. CC='input+output', 레전드팀='4필드 전합' | 레전드팀 I/O 합 7.09M ≈ CC 대시보드 7.9M 정합 (E-014 등록) | D-059 외부 앵커 cross-check 의무 원칙 신설 | 이전 session_066/067/068 '재현 맞다' 결론 = 폐쇄루프 허위검증이었음을 규명 | PD-018/topic_073(비용 패널) 유지, KPI 레이블·raw 노출 재작업 필요 | project_charter v1.54 → v1.55"
+    },
+    {
+      "sessionId": "session_072",
+      "topicSlug": "dashboard-kpi-redesign",
+      "topic": "PD-NEW-A/B/C: 대시보드 KPI 개편 + 캐시 효율 보조 패널 + D-059 evidence 앵커",
+      "startedAt": "2026-04-22T04:30:00.000Z",
+      "closedAt": "2026-04-22T05:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 1,
+          "phase": "implementation"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 2,
+          "phase": "compile"
+        }
+      ],
+      "grade": "B",
+      "note": "I/O Tokens KPI 7.1M = session_071 확인값 7.09M 정합 (E-014 문서화) | 비용 Secondary 레이블 추가, cost-row 시각적 강등 | raw 4필드 접기 패널 추가 (cacheCreate/cacheRead 개별 집계) | E-014 resolved-D-059, E-015 신규: Anthropic 공식 docs 앵커 2건 | PD-018 topic_073 후속으로 topic_075/076/077 완료"
     }
   ],
-  "lastUpdated": "2026-04-22T04:26:03.880Z",
+  "lastUpdated": "2026-04-22T04:39:50.799Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

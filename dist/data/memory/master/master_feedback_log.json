@@ -1,6 +1,15 @@
 {
   "feedbackLog": [
     {
+      "id": "MF-051",
+      "date": "2026-04-22",
+      "session": "session_071",
+      "topic": "token-revalidation-discrepancy",
+      "feedback": "토큰 측정 체계 재검증 지시 — 이전 '맞다' 결론 의심, 가설 3+ 수립. 대시보드 표시안 반복 재조정: (1) $104.28 실결제 Primary (2) 세션당 $는 I/O 비중 배분 (3) 보조 스트립 정액 문구 제거 — Pro→Max 전환 이력 있어 월 정액 표기 무의미. 핵심은 '얼마나 쓰고 얼마나 효율적인지' 트래킹이지 결제액 자체가 아님.",
+      "status": "resolved",
+      "statusNote": "D-059 확정 + editor_rev1.md 최종 확정안 (KPI Primary=$104.28, 보조 스트립 I/O·캐시 효율만). child 토픽 3건(KPI 개편/캐시 패널/evidence 등록) 분기 예정."
+    },
+    {
       "id": "MF-050",
       "date": "2026-04-21",
       "session": "session_066",
