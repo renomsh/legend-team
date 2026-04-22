@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-22T11:19:27.479Z",
-  "totalSessions": 77,
+  "generatedAt": "2026-04-22T11:32:33.762Z",
+  "totalSessions": 78,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.32,
-    "avgCacheHitRate": 0.9284,
-    "cacheSampleSize": 51,
-    "cacheSampleTotal": 77,
+    "avgMasterTurns": 16.14,
+    "avgCacheHitRate": 0.9288,
+    "cacheSampleSize": 52,
+    "cacheSampleTotal": 78,
     "avgAdoptionRate": 0,
     "totalDecisions": 60,
     "gradeDistribution": {
       "S": 24,
       "A": 15,
-      "B": 27,
+      "B": 28,
       "C": 11
     },
     "gradeMismatchCount": 2,
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 32,
-    "totalCostUSD": 642.7022,
-    "avgCostPerSession": 8.9264,
-    "costSampleSize": 72
+    "turnBasedSessions": 33,
+    "totalCostUSD": 647.1627,
+    "avgCostPerSession": 8.8652,
+    "costSampleSize": 73
   },
   "sessions": [
     {
@@ -2819,12 +2819,47 @@
         "messageCount": 80
       },
       "sessionCostUSD": 5.7384
+    },
+    {
+      "sessionId": "session_079",
+      "topicSlug": "growth-metrics-phase1-automatic-mvp",
+      "topic": "D-060 Phase 1 구현 — automatic 스코어러 + 훅 체인 통합 MVP",
+      "startedAt": "2026-04-22T11:30:00.000Z",
+      "closedAt": "2026-04-22T12:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 3,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 7551257,
+        "ioTokens": 73203,
+        "inputTokens": 120,
+        "outputTokens": 73083,
+        "cacheCreate": 324790,
+        "cacheRead": 7153264,
+        "cacheHitRate": 0.9472944703113667,
+        "messageCount": 103
+      },
+      "sessionCostUSD": 4.4605
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 48,
+      "count": 49,
       "sessions": [
         "session_047",
         "session_048",
@@ -2853,12 +2888,13 @@
         "session_075",
         "session_076",
         "session_077",
-        "session_078"
+        "session_078",
+        "session_079"
       ]
     },
     {
       "role": "editor",
-      "count": 29,
+      "count": 30,
       "sessions": [
         "session_050",
         "session_051",
@@ -2888,7 +2924,8 @@
         "session_075",
         "session_076",
         "session_077",
-        "session_078"
+        "session_078",
+        "session_079"
       ]
     },
     {
@@ -2915,7 +2952,7 @@
     },
     {
       "role": "dev",
-      "count": 23,
+      "count": 24,
       "sessions": [
         "session_047",
         "session_048",
@@ -2935,7 +2972,8 @@
         "session_073",
         "session_074",
         "session_075",
-        "session_078"
+        "session_078",
+        "session_079"
       ]
     },
     {
@@ -4142,6 +4180,30 @@
           "role": "editor",
           "phase": "compile",
           "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_079",
+      "topic": "D-060 Phase 1 구현 — automatic 스코어러 + 훅 체인 통합 MVP",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 2,
           "recallReason": null
         }
       ]

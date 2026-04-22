@@ -1,6 +1,24 @@
 {
   "topics": [
     {
+      "id": "topic_085",
+      "title": "D-060 Phase 1 구현 — automatic 스코어러 + 훅 체인 통합 MVP",
+      "status": "completed",
+      "phase": "implementation",
+      "topicType": "implementation",
+      "parentTopicId": "topic_083",
+      "hold": null,
+      "grade": "B",
+      "created": "2026-04-22",
+      "closedAt": "2026-04-22",
+      "outcome": "G1 게이트 통과. automatic 스코어러 4종 + resolvePendingLag + 훅 체인 삽입. nonNull datapoints=584, pendingLag=15. 19 PASS / 0 FAIL.",
+      "controlPath": "topics/topic_085",
+      "reportPath": "reports/2026-04-22_growth-metrics-phase1-automatic-mvp",
+      "reportFiles": ["editor_rev1.md"],
+      "published": false,
+      "path": "topics/topic_085"
+    },
+    {
       "id": "topic_084",
       "title": "D-060 Phase 0 구현 — metrics registry 스키마 + compute-growth 초설계",
       "status": "completed",
@@ -13,7 +31,9 @@
       "closedAt": "2026-04-22",
       "controlPath": "topics/topic_084",
       "reportPath": "reports/2026-04-22_growth-metrics-phase0-scaffold",
-      "reportFiles": ["editor_rev1.md"],
+      "reportFiles": [
+        "editor_rev1.md"
+      ],
       "published": false,
       "path": "topics/topic_084",
       "outcome": "D-060 Phase 0 scaffold 완료. 스키마 5종(metrics_registry/hit_rate_rubric[versioned]/intervention_classifier/regime_markers/metric_health) + compute-growth.ts registry-driven skeleton(append-only, pendingLag, incremental, provenance 필드). scoringLag 8종 확정(ace=3/arki=10/fin=0/riki=3/dev=0/vera=0/edi=1/nova=5). regime marker 3건 백필(R-001 D-051 / R-002 D-056 / R-003 D-058). 자가검증 36 PASS/0 FAIL. Phase 1(automatic 스코어러 + 훅 체인 통합 MVP) 선행 완료."
@@ -25,7 +45,9 @@
       "phase": "design",
       "topicType": "framing",
       "parentTopicId": null,
-      "childTopicIds": ["topic_084"],
+      "childTopicIds": [
+        "topic_084"
+      ],
       "hold": null,
       "grade": "A",
       "created": "2026-04-22",
@@ -1667,5 +1689,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-22T10:54:41.625Z"
+  "lastUpdated": "2026-04-22T11:21:30.474Z"
 }

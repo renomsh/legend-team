@@ -1,6 +1,20 @@
 {
-  "generatedAt": "2026-04-22T11:19:28.162Z",
+  "generatedAt": "2026-04-22T11:32:34.474Z",
   "topics": [
+    {
+      "id": "topic_085",
+      "title": "D-060 Phase 1 구현 — automatic 스코어러 + 훅 체인 통합 MVP",
+      "status": "completed",
+      "created": "2026-04-22",
+      "reportPath": "reports/2026-04-22_growth-metrics-phase1-automatic-mvp",
+      "reportFiles": [
+        "editor_rev1.md"
+      ],
+      "published": false,
+      "outcome": "G1 게이트 통과. automatic 스코어러 4종 + resolvePendingLag + 훅 체인 삽입. nonNull datapoints=584, pendingLag=15. 19 PASS / 0 FAIL.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_084",
       "title": "D-060 Phase 0 구현 — metrics registry 스키마 + compute-growth 초설계",

@@ -1,11 +1,11 @@
 {
-  "sessionId": "session_078",
-  "topicId": "topic_084",
-  "topic": "D-060 Phase 0 구현 — metrics registry 스키마 + compute-growth 초설계",
-  "topicSlug": "growth-metrics-phase0-scaffold",
+  "sessionId": "session_079",
+  "topicId": "topic_085",
+  "topic": "D-060 Phase 1 구현 — automatic 스코어러 + 훅 체인 통합 MVP",
+  "topicSlug": "growth-metrics-phase1-automatic-mvp",
   "status": "closed",
-  "startedAt": "2026-04-22T10:50:00.000Z",
-  "closedAt": "2026-04-22T11:20:00.000Z",
+  "startedAt": "2026-04-22T11:30:00.000Z",
+  "closedAt": "2026-04-22T12:00:00.000Z",
   "mode": "observation",
   "grade": "B",
   "gradeDeclared": "B",
@@ -15,10 +15,7 @@
   "parentTopicId": "topic_083",
   "agentsCompleted": [
     "ace",
-    "arki",
     "dev",
-    "dev",
-    "edi",
     "editor"
   ],
   "turns": [
@@ -28,55 +25,38 @@
       "phase": "framing"
     },
     {
-      "role": "arki",
-      "turnIdx": 1,
-      "phase": "structural-design"
-    },
-    {
       "role": "dev",
-      "turnIdx": 2,
+      "turnIdx": 1,
       "phase": "implementation"
     },
     {
-      "role": "dev",
-      "turnIdx": 3,
-      "phase": "verification",
-      "recallReason": "post-master",
-      "splitReason": "Master 자가검증 요구"
-    },
-    {
-      "role": "edi",
-      "turnIdx": 4,
-      "phase": "compile"
-    },
-    {
       "role": "editor",
-      "turnIdx": 5,
+      "turnIdx": 2,
       "phase": "compile"
     }
   ],
   "decisions": [],
   "masterDecisions": [],
-  "masterFeedback": [
-    "'Dev 자가검증 실행했어?' — 1차 CLI 스모크만으론 부족, 경계값·실패경로·크로스참조까지 요구"
-  ],
+  "masterFeedback": [],
   "notes": [
-    "D-060 Phase 0 scaffold. topic_083 child. Grade B L1. 새 D-xxx 결정 없음(구현 세션).",
-    "Master micro-수용: Opus 4.7 1M 메인 지정 + Arki 추천 3축 전체 수용(memory/derived, signature scoringLag 8종, regime marker 3건).",
-    "5 schema files + compute-growth.ts skeleton + verify-growth-phase0.ts 추가.",
-    "자가검증 36 PASS/0 FAIL.",
-    "TypeScript 2건 수정(exactOptionalPropertyTypes, MetricDef cast).",
-    "다음 세션 권장: D-060 Phase 1 — automatic 스코어러 + 훅 체인 통합 MVP."
+    "D-060 Phase 1 MVP. topic_083 child. Grade B L1. 새 D-xxx 결정 없음 (구현 세션).",
+    "automatic 스코어러 4종 구현: L1.cumulativeLearning / L3.autonomy / dev.firstPassRate / nova.promotionRate.",
+    "resolvePendingLag 구현 + --backfill-sessions CLI + 멱등성 보장.",
+    "auto-push.js 훅 체인에 compute-growth.ts 삽입 (finalize → compute-growth → compute-dashboard → build).",
+    "G1 게이트: 19 PASS / 0 FAIL. nonNull=584, pendingLag=15.",
+    "TypeScript 오류 3건 자가수정: non-null assertion / PendingLagEntry 타입 / CLI args undefined 방어.",
+    "Phase 2 위임: arki.structuralLifespan(lag=10+redesign) / fin.costForecastAccuracy / vera.masterRevisionInv / consensus·single 모드.",
+    "다음 권장: Fin 측정 오버헤드 재감사(D-060 운영규칙) + Growth Board UI(topic_082) + consensus 채점 프로토콜."
   ],
-  "reportPath": "reports/2026-04-22_growth-metrics-phase0-scaffold",
+  "reportPath": "reports/2026-04-22_growth-metrics-phase1-automatic-mvp",
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 193,
-    "output_tokens": 95059,
-    "cache_creation_input_tokens": 552775,
-    "cache_read_input_tokens": 7463313,
-    "messageCount": 80,
-    "masterTurns": 8,
-    "total_billable": 8111340
+    "input_tokens": 120,
+    "output_tokens": 73083,
+    "cache_creation_input_tokens": 324790,
+    "cache_read_input_tokens": 7153264,
+    "messageCount": 103,
+    "masterTurns": 3,
+    "total_billable": 7551257
   }
 }
