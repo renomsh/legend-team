@@ -24,6 +24,18 @@ const FEEDBACK_LOG_PATH   = process.env.COMPUTE_FEEDBACK_LOG    ?? path.join(ROO
 const PROPOSAL_LOG_PATH   = process.env.COMPUTE_PROPOSAL_LOG    ?? path.join(ROOT, 'memory', 'sessions', 'proposal_log.json');
 const OUTPUT_PATH         = process.env.COMPUTE_OUTPUT_PATH     ?? path.join(ROOT, 'memory', 'shared', 'dashboard_data.json');
 
+// Sonnet 4.6 단가 ($ per 1M tokens)
+const COST_PER_MTOK = { input: 3.0, output: 15.0, cache_creation: 3.75, cache_read: 0.30 };
+
+function calcCostUSD(usage: { input_tokens: number; output_tokens: number; cache_creation_input_tokens: number; cache_read_input_tokens: number }): number {
+  return (
+    (usage.input_tokens * COST_PER_MTOK.input +
+     usage.output_tokens * COST_PER_MTOK.output +
+     usage.cache_creation_input_tokens * COST_PER_MTOK.cache_creation +
+     usage.cache_read_input_tokens * COST_PER_MTOK.cache_read) / 1_000_000
+  );
+}
+
 // ── 타입 ──────────────────────────────────────────────────────────────────
 interface SessionIndexEntry {
   sessionId: string;
@@ -122,6 +134,7 @@ interface SessionData {
     messageCount: number;
   };
   adoptionRate?: number;
+  sessionCostUSD?: number;
 }
 
 interface RoleFrequencyEntry {
@@ -263,6 +276,9 @@ function main() {
       cacheHitRate: (token.cache_read_input_tokens || 0) / totalBill,
       messageCount: token.messageCount || 0,
     } : undefined;
+    const sessionCostUSD = token && totalBill > 0
+      ? parseFloat(calcCostUSD(token).toFixed(4))
+      : undefined;
 
     const proposals = proposalMap.get(s.sessionId) ?? [];
     const adoptionRate = proposals.length > 0
@@ -293,6 +309,7 @@ function main() {
       ...(agents.length > 0 && { agentsCompleted: agents }),
       ...(tokenUsage && { tokenUsage }),
       ...(adoptionRate !== undefined && { adoptionRate }),
+      ...(sessionCostUSD !== undefined && { sessionCostUSD }),
     };
   });
 
@@ -315,6 +332,11 @@ function main() {
     : 0;
 
   const autoSessions = sessions.filter(s => s.dataQuality === 'auto' && s.tokenUsage);
+  const costSessions = sessions.filter(s => s.sessionCostUSD !== undefined);
+  const totalCostUSD = parseFloat(costSessions.reduce((sum, s) => sum + (s.sessionCostUSD ?? 0), 0).toFixed(4));
+  const avgCostPerSession = costSessions.length > 0
+    ? parseFloat((totalCostUSD / costSessions.length).toFixed(4))
+    : 0;
   const avgCacheHitRate = autoSessions.length > 0
     ? autoSessions.reduce((sum, s) => sum + (s.tokenUsage?.cacheHitRate ?? 0), 0) / autoSessions.length
     : 0;
@@ -412,6 +434,9 @@ function main() {
       gradeMismatchSessions: mismatchSessions,
       framingSkippedCount,
       turnBasedSessions: turnSequences.length,
+      totalCostUSD,
+      avgCostPerSession,
+      costSampleSize: costSessions.length,
     },
     sessions,
     roleFrequency,

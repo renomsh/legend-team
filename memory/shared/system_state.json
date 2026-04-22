@@ -2,7 +2,7 @@
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
   "lastSessionId": "session_069",
   "nextSessionId": "session_070",
-  "currentVersion": "v1.11",
+  "currentVersion": "v1.54",
   "openTopics": [
     {
       "id": "topic_044",
@@ -121,14 +121,6 @@
       "status": "resolved",
       "resolvedInSession": "session_045",
       "note": "D-048 확정. 단순 '중복 허용 배열' 넘어 Turn[] 구조화 + plannedSequence + 4조건 판정 프로토콜 + phase_catalog + legacy 플래그 + Size 경보 억제까지 포함된 종합안으로 해소. 실구현은 session_046+ Phase 1부터."
-    },
-    {
-      "id": "PD-012",
-      "fromSession": "session_034",
-      "fromTopic": "copd-project-review",
-      "item": "Nova 궤도 1 — PRISm outcome trajectory analysis",
-      "status": "pending",
-      "note": "Paper A 투고 확정 후 재평가"
     },
     {
       "id": "PD-013",

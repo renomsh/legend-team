@@ -1,77 +1,29 @@
 {
-  "sessionId": "session_069",
-  "topicId": "topic_072",
-  "topic": "3세션 Grade A 토픽에서 비용 절감률·Master 신호 감지·재호출 분포 실측",
-  "topicSlug": "grade-a-3session-measurement",
-  "status": "closed",
-  "startedAt": "2026-04-22T01:00:00.000Z",
-  "closedAt": "2026-04-22T02:00:00.000Z",
+  "sessionId": "session_070",
+  "topicId": "topic_073",
+  "topic": "PD-018 실행 — 실 비용($) 계산 패널 신설",
+  "topicSlug": "pd-018-cost-panel",
+  "status": "open",
+  "startedAt": "2026-04-22T02:10:00.000Z",
   "mode": "observation",
-  "grade": "A",
-  "gradeDeclared": "A",
-  "framingLevel": 2,
+  "grade": "B",
+  "gradeDeclared": "B",
+  "framingLevel": 1,
   "framingSkipped": false,
-  "agentsCompleted": [
-    "ace",
-    "arki",
-    "fin",
-    "riki",
-    "ace",
-    "editor"
-  ],
-  "turns": [
-    {
-      "role": "ace",
-      "turnIdx": 0,
-      "phase": "framing"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 1,
-      "phase": "execution-plan"
-    },
-    {
-      "role": "fin",
-      "turnIdx": 2,
-      "phase": "analysis"
-    },
-    {
-      "role": "riki",
-      "turnIdx": 3,
-      "phase": "analysis"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 4,
-      "phase": "synthesis",
-      "recallReason": "post-roles"
-    },
-    {
-      "role": "editor",
-      "turnIdx": 5,
-      "phase": "compile"
-    }
-  ],
+  "agentsCompleted": [],
+  "turns": [],
   "decisions": [],
   "masterDecisions": [],
   "masterFeedback": [],
-  "notes": [
-    "P4 실측 검증(3세션) — session_068 D-058 결정 후 후속 실측 첫 세션",
-    "비용 절감률: session_066 80.8% / session_067 82.3% / session_068 78.1% → 평균 80.4%",
-    "캐시 히트율: 96.0% → 95.3% → 92.8% (session_068 Dispatcher 도입 1회성 하락)",
-    "재호출 분포 (Grade A 10세션): post-master 47.6% / post-intervention 33.3% / post-roles(Ace자율) 14.3% / master-request 4.8%",
-    "Master 신호 감지율 원정의(masterTurns 분모) 기각 → 재호출 분포 기반으로 재정의",
-    "다음 세션(070, 071)에서 캐시 히트율 회복 트렌드 추적 필요"
-  ],
+  "notes": [],
   "gaps": [],
-  "reportPath": "reports/2026-04-22_grade-a-3session-measurement",
   "tokenUsage": {
-    "input_tokens": 81,
-    "output_tokens": 42147,
-    "cache_creation_input_tokens": 232027,
-    "cache_read_input_tokens": 3085150,
-    "messageCount": 55,
-    "masterTurns": 7,
-    "total_billable": 3359405
+    "input_tokens": 217,
+    "output_tokens": 49439,
+    "cache_creation_input_tokens": 560549,
+    "cache_read_input_tokens": 9294639,
+    "messageCount": 139,
+    "masterTurns": 8,
+    "total_billable": 9904844
   }
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-22T00:53:20.606Z",
+  "generatedAt": "2026-04-22T02:05:10.549Z",
   "totalSessions": 68,
   "autoDataFrom": "session_027",
   "metrics": {
@@ -21,7 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 23
+    "turnBasedSessions": 23,
+    "totalCostUSD": 586.6716,
+    "avgCostPerSession": 9.3122,
+    "costSampleSize": 63
   },
   "sessions": [
     {
@@ -130,7 +133,8 @@
         "totalBillable": 5372893,
         "cacheHitRate": 0.9535570501776232,
         "messageCount": 91
-      }
+      },
+      "sessionCostUSD": 2.9571
     },
     {
       "sessionId": "session_006",
@@ -153,7 +157,8 @@
         "totalBillable": 3180568,
         "cacheHitRate": 0.9525043954413174,
         "messageCount": 80
-      }
+      },
+      "sessionCostUSD": 1.6938
     },
     {
       "sessionId": "session_007",
@@ -186,7 +191,8 @@
         "totalBillable": 8579025,
         "cacheHitRate": 0.9617823703742558,
         "messageCount": 139
-      }
+      },
+      "sessionCostUSD": 4.1461
     },
     {
       "sessionId": "session_008",
@@ -213,7 +219,8 @@
         "totalBillable": 1718456,
         "cacheHitRate": 0.8567917944945929,
         "messageCount": 42
-      }
+      },
+      "sessionCostUSD": 1.5122
     },
     {
       "sessionId": "session_009",
@@ -243,7 +250,8 @@
         "totalBillable": 16407855,
         "cacheHitRate": 0.9566563088228168,
         "messageCount": 203
-      }
+      },
+      "sessionCostUSD": 7.9173
     },
     {
       "sessionId": "session_010",
@@ -269,7 +277,8 @@
         "totalBillable": 16407855,
         "cacheHitRate": 0.9566563088228168,
         "messageCount": 203
-      }
+      },
+      "sessionCostUSD": 7.9173
     },
     {
       "sessionId": "session_011",
@@ -301,7 +310,8 @@
         "totalBillable": 3875975,
         "cacheHitRate": 0.8894967072801038,
         "messageCount": 82
-      }
+      },
+      "sessionCostUSD": 2.8936
     },
     {
       "sessionId": "session_012",
@@ -334,7 +344,8 @@
         "totalBillable": 6598910,
         "cacheHitRate": 0.9384816583344825,
         "messageCount": 111
-      }
+      },
+      "sessionCostUSD": 3.6832
     },
     {
       "sessionId": "session_013",
@@ -385,7 +396,8 @@
         "totalBillable": 9332346,
         "cacheHitRate": 0.9578236812051332,
         "messageCount": 109
-      }
+      },
+      "sessionCostUSD": 4.7614
     },
     {
       "sessionId": "session_015",
@@ -413,7 +425,8 @@
         "totalBillable": 21864665,
         "cacheHitRate": 0.9650803705430657,
         "messageCount": 216
-      }
+      },
+      "sessionCostUSD": 9.845
     },
     {
       "sessionId": "session_016",
@@ -443,7 +456,8 @@
         "totalBillable": 14757847,
         "cacheHitRate": 0.8751243999209369,
         "messageCount": 120
-      }
+      },
+      "sessionCostUSD": 13.0715
     },
     {
       "sessionId": "session_017",
@@ -469,7 +483,8 @@
         "totalBillable": 11321676,
         "cacheHitRate": 0.834821098925636,
         "messageCount": 116
-      }
+      },
+      "sessionCostUSD": 11.5257
     },
     {
       "sessionId": "session_018",
@@ -503,7 +518,8 @@
         "totalBillable": 3687949,
         "cacheHitRate": 0.8765807227811447,
         "messageCount": 46
-      }
+      },
+      "sessionCostUSD": 3.1694
     },
     {
       "sessionId": "session_019",
@@ -533,7 +549,8 @@
         "totalBillable": 9499713,
         "cacheHitRate": 0.8821722298347329,
         "messageCount": 105
-      }
+      },
+      "sessionCostUSD": 6.9959
     },
     {
       "sessionId": "session_020",
@@ -563,7 +580,8 @@
         "totalBillable": 28749668,
         "cacheHitRate": 0.9398682447393827,
         "messageCount": 340
-      }
+      },
+      "sessionCostUSD": 15.465
     },
     {
       "sessionId": "session_021",
@@ -589,7 +607,8 @@
         "totalBillable": 6497689,
         "cacheHitRate": 0.8406639652959691,
         "messageCount": 93
-      }
+      },
+      "sessionCostUSD": 5.7283
     },
     {
       "sessionId": "session_022",
@@ -615,7 +634,8 @@
         "totalBillable": 7646816,
         "cacheHitRate": 0.9054545055092211,
         "messageCount": 97
-      }
+      },
+      "sessionCostUSD": 5.1799
     },
     {
       "sessionId": "session_023",
@@ -641,7 +661,8 @@
         "totalBillable": 10676683,
         "cacheHitRate": 0.9687809406723044,
         "messageCount": 121
-      }
+      },
+      "sessionCostUSD": 4.8986
     },
     {
       "sessionId": "session_024",
@@ -672,7 +693,8 @@
         "totalBillable": 36066355,
         "cacheHitRate": 0.9569162450710642,
         "messageCount": 406
-      }
+      },
+      "sessionCostUSD": 18.1213
     },
     {
       "sessionId": "session_025",
@@ -702,7 +724,8 @@
         "totalBillable": 7148400,
         "cacheHitRate": 0.886044149739802,
         "messageCount": 103
-      }
+      },
+      "sessionCostUSD": 5.4272
     },
     {
       "sessionId": "session_026",
@@ -730,7 +753,8 @@
         "totalBillable": 7148400,
         "cacheHitRate": 0.886044149739802,
         "messageCount": 103
-      }
+      },
+      "sessionCostUSD": 5.4272
     },
     {
       "sessionId": "session_027",
@@ -759,7 +783,8 @@
         "totalBillable": 12667688,
         "cacheHitRate": 0.9384081767722728,
         "messageCount": 111
-      }
+      },
+      "sessionCostUSD": 7.8729
     },
     {
       "sessionId": "session_028",
@@ -790,7 +815,8 @@
         "totalBillable": 41400594,
         "cacheHitRate": 0.9459156793740688,
         "messageCount": 454
-      }
+      },
+      "sessionCostUSD": 22.6828
     },
     {
       "sessionId": "session_029",
@@ -817,7 +843,8 @@
         "totalBillable": 13407225,
         "cacheHitRate": 0.9419616661911768,
         "messageCount": 173
-      }
+      },
+      "sessionCostUSD": 7.5249
     },
     {
       "sessionId": "session_030",
@@ -845,7 +872,8 @@
         "totalBillable": 35518851,
         "cacheHitRate": 0.9124013330273549,
         "messageCount": 397
-      }
+      },
+      "sessionCostUSD": 25.5274
     },
     {
       "sessionId": "session_031",
@@ -878,7 +906,8 @@
         "totalBillable": 69003386,
         "cacheHitRate": 0.9444993612342444,
         "messageCount": 597
-      }
+      },
+      "sessionCostUSD": 37.9992
     },
     {
       "sessionId": "session_032",
@@ -910,7 +939,8 @@
         "totalBillable": 52416796,
         "cacheHitRate": 0.9394905976321025,
         "messageCount": 422
-      }
+      },
+      "sessionCostUSD": 29.863
     },
     {
       "sessionId": "session_033",
@@ -946,7 +976,8 @@
         "totalBillable": 27996556,
         "cacheHitRate": 0.9455187273748957,
         "messageCount": 302
-      }
+      },
+      "sessionCostUSD": 15.0159
     },
     {
       "sessionId": "session_034",
@@ -985,7 +1016,8 @@
         "totalBillable": 60893038,
         "cacheHitRate": 0.9475287634688222,
         "messageCount": 461
-      }
+      },
+      "sessionCostUSD": 34.7139
     },
     {
       "sessionId": "session_035",
@@ -1012,7 +1044,8 @@
         "totalBillable": 16441299,
         "cacheHitRate": 0.9415511511590416,
         "messageCount": 155
-      }
+      },
+      "sessionCostUSD": 8.9483
     },
     {
       "sessionId": "session_036",
@@ -1043,7 +1076,8 @@
         "totalBillable": 14040801,
         "cacheHitRate": 0.922710321156179,
         "messageCount": 130
-      }
+      },
+      "sessionCostUSD": 9.1642
     },
     {
       "sessionId": "session_037",
@@ -1080,7 +1114,8 @@
         "totalBillable": 9712667,
         "cacheHitRate": 0.9615597857931297,
         "messageCount": 89
-      }
+      },
+      "sessionCostUSD": 5.2521
     },
     {
       "sessionId": "session_038",
@@ -1115,7 +1150,8 @@
         "totalBillable": 11994992,
         "cacheHitRate": 0.95753302711665,
         "messageCount": 115
-      }
+      },
+      "sessionCostUSD": 6.3399
     },
     {
       "sessionId": "session_040",
@@ -1143,7 +1179,8 @@
         "totalBillable": 39843153,
         "cacheHitRate": 0.9359657354426745,
         "messageCount": 391
-      }
+      },
+      "sessionCostUSD": 24.3181
     },
     {
       "sessionId": "session_041",
@@ -1180,7 +1217,8 @@
         "totalBillable": 15726496,
         "cacheHitRate": 0.9088828178889945,
         "messageCount": 89
-      }
+      },
+      "sessionCostUSD": 11.6742
     },
     {
       "sessionId": "session_042",
@@ -1212,7 +1250,8 @@
         "totalBillable": 29761321,
         "cacheHitRate": 0.9544980883073033,
         "messageCount": 141
-      }
+      },
+      "sessionCostUSD": 16.8615
     },
     {
       "sessionId": "session_043",
@@ -1251,7 +1290,8 @@
         "totalBillable": 54853620,
         "cacheHitRate": 0.9732450474553913,
         "messageCount": 244
-      }
+      },
+      "sessionCostUSD": 26.2369
     },
     {
       "sessionId": "session_044",
@@ -1281,7 +1321,8 @@
         "totalBillable": 19336313,
         "cacheHitRate": 0.9319545044600799,
         "messageCount": 181
-      }
+      },
+      "sessionCostUSD": 11.4092
     },
     {
       "sessionId": "session_045",
@@ -1322,7 +1363,8 @@
         "totalBillable": 10165334,
         "cacheHitRate": 0.954244887575755,
         "messageCount": 96
-      }
+      },
+      "sessionCostUSD": 5.8535
     },
     {
       "sessionId": "session_046",
@@ -1350,7 +1392,8 @@
         "totalBillable": 9202102,
         "cacheHitRate": 0.9162960810475693,
         "messageCount": 162
-      }
+      },
+      "sessionCostUSD": 6.148
     },
     {
       "sessionId": "session_047",
@@ -1378,7 +1421,8 @@
         "totalBillable": 14154508,
         "cacheHitRate": 0.9383255143873599,
         "messageCount": 189
-      }
+      },
+      "sessionCostUSD": 8.1654
     },
     {
       "sessionId": "session_048",
@@ -1408,7 +1452,8 @@
         "totalBillable": 6834750,
         "cacheHitRate": 0.9434788397527342,
         "messageCount": 101
-      }
+      },
+      "sessionCostUSD": 3.8814
     },
     {
       "sessionId": "session_049",
@@ -1444,7 +1489,8 @@
         "totalBillable": 14459023,
         "cacheHitRate": 0.9169247465752008,
         "messageCount": 121
-      }
+      },
+      "sessionCostUSD": 10.2137
     },
     {
       "sessionId": "session_050",
@@ -1472,7 +1518,8 @@
         "totalBillable": 2630496,
         "cacheHitRate": 0.8946362206975415,
         "messageCount": 52
-      }
+      },
+      "sessionCostUSD": 1.9972
     },
     {
       "sessionId": "session_051",
@@ -1501,7 +1548,8 @@
         "totalBillable": 6683452,
         "cacheHitRate": 0.9535255134622048,
         "messageCount": 108
-      }
+      },
+      "sessionCostUSD": 3.5776
     },
     {
       "sessionId": "session_052",
@@ -1536,7 +1584,8 @@
         "totalBillable": 160333,
         "cacheHitRate": 0.7691554452296159,
         "messageCount": 5
-      }
+      },
+      "sessionCostUSD": 0.1962
     },
     {
       "sessionId": "session_053",
@@ -1574,7 +1623,8 @@
         "totalBillable": 4312254,
         "cacheHitRate": 0.897389161213602,
         "messageCount": 48
-      }
+      },
+      "sessionCostUSD": 3.6939
     },
     {
       "sessionId": "session_054",
@@ -1611,7 +1661,8 @@
         "totalBillable": 5138559,
         "cacheHitRate": 0.8857446221790973,
         "messageCount": 55
-      }
+      },
+      "sessionCostUSD": 4.5666
     },
     {
       "sessionId": "session_055",
@@ -1640,7 +1691,8 @@
         "totalBillable": 7320867,
         "cacheHitRate": 0.9323420299808752,
         "messageCount": 92
-      }
+      },
+      "sessionCostUSD": 4.467
     },
     {
       "sessionId": "session_056",
@@ -1669,7 +1721,8 @@
         "totalBillable": 6928948,
         "cacheHitRate": 0.9006403280844365,
         "messageCount": 90
-      }
+      },
+      "sessionCostUSD": 4.9029
     },
     {
       "sessionId": "session_057",
@@ -1697,7 +1750,8 @@
         "totalBillable": 9801231,
         "cacheHitRate": 0.9473022317298715,
         "messageCount": 146
-      }
+      },
+      "sessionCostUSD": 5.6706
     },
     {
       "sessionId": "session_058",
@@ -1725,7 +1779,8 @@
         "totalBillable": 4424362,
         "cacheHitRate": 0.9233087166013992,
         "messageCount": 77
-      }
+      },
+      "sessionCostUSD": 2.8813
     },
     {
       "sessionId": "session_059",
@@ -1761,7 +1816,8 @@
         "totalBillable": 7461024,
         "cacheHitRate": 0.874143147106885,
         "messageCount": 96
-      }
+      },
+      "sessionCostUSD": 6.1888
     },
     {
       "sessionId": "session_060",
@@ -1798,7 +1854,8 @@
         "totalBillable": 13280887,
         "cacheHitRate": 0.9474266289593458,
         "messageCount": 113
-      }
+      },
+      "sessionCostUSD": 7.5694
     },
     {
       "sessionId": "session_061",
@@ -1828,7 +1885,8 @@
         "totalBillable": 13515571,
         "cacheHitRate": 0.9468853369199126,
         "messageCount": 146
-      }
+      },
+      "sessionCostUSD": 7.354
     },
     {
       "sessionId": "session_062",
@@ -1857,7 +1915,8 @@
         "totalBillable": 4624153,
         "cacheHitRate": 0.9170823283745153,
         "messageCount": 76
-      }
+      },
+      "sessionCostUSD": 3.1211
     },
     {
       "sessionId": "session_063",
@@ -1892,7 +1951,8 @@
         "totalBillable": 2889497,
         "cacheHitRate": 0.9122459722228471,
         "messageCount": 37
-      }
+      },
+      "sessionCostUSD": 2.1921
     },
     {
       "sessionId": "session_064",
@@ -1923,7 +1983,8 @@
         "totalBillable": 24146698,
         "cacheHitRate": 0.9170468773825722,
         "messageCount": 301
-      }
+      },
+      "sessionCostUSD": 16.0866
     },
     {
       "sessionId": "session_065",
@@ -1951,7 +2012,8 @@
         "totalBillable": 10196911,
         "cacheHitRate": 0.9660354003285897,
         "messageCount": 140
-      }
+      },
+      "sessionCostUSD": 5.0248
     },
     {
       "sessionId": "session_066",
@@ -1987,7 +2049,8 @@
         "totalBillable": 4249202,
         "cacheHitRate": 0.9489421778489232,
         "messageCount": 48
-      }
+      },
+      "sessionCostUSD": 2.5628
     },
     {
       "sessionId": "session_067",
@@ -2024,7 +2087,8 @@
         "totalBillable": 18550709,
         "cacheHitRate": 0.9478526130726325,
         "messageCount": 145
-      }
+      },
+      "sessionCostUSD": 10.091
     },
     {
       "sessionId": "session_068",
@@ -2059,7 +2123,8 @@
         "totalBillable": 20649590,
         "cacheHitRate": 0.9192821261826506,
         "messageCount": 225
-      }
+      },
+      "sessionCostUSD": 14.0962
     },
     {
       "sessionId": "session_069",
@@ -2091,7 +2156,8 @@
         "totalBillable": 3359405,
         "cacheHitRate": 0.9183620313716269,
         "messageCount": 55
-      }
+      },
+      "sessionCostUSD": 2.4281
     }
   ],
   "roleFrequency": [

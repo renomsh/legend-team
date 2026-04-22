@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-team",
-    "version": "1.13",
+    "version": "1.54",
     "purpose": "Memory-first, topic-based strategy and implementation system. Master receives structured analysis from role-separated agents on any strategic or implementation topic, with all outputs preserved in inspectable, revisionable files.",
     "principles": [
       "Memory first: all agent outputs, decisions, and session state are written to files immediately. No analysis lives only in conversation context.",
@@ -106,7 +106,37 @@
       "version": "1.12",
       "date": "2026-04-20",
       "summary": "Board 정렬 구조화 + 상태값 카탈로그 단일 원천(status_catalog.json) 도입. closed→completed alias 통일. topic_index.json 파일 자체 desc 정렬 저장 + 앱 자연정렬 + create-topic.ts 정렬 삽입. /open에 create-topic.ts 자동 호출 강제(재발 방지). 중복 topic_013 분리(→045), 고아 리포트 upgrade-delta-pack 등록(→046). PD-016·017 resolved. D-047 확정."
+    },
+    {
+      "version": "1.13",
+      "date": "2026-04-20",
+      "summary": "ROLE_COLORS 단일 원천(app/js/role-colors.js) + canonical palette 확정(ace/arki/dev/fin/riki/nova/edi/vera 8역할). Turn Sequence dot 개선. Role Frequency 트랙 바 교체. 전 페이지 색상 통일. D-052 확정."
+    },
+    {
+      "version": "1.23",
+      "date": "2026-04-21",
+      "summary": "Topic-centric 전면 개편(D-051/PD-020a): topic_index·current_session·session_index·decision_ledger 스키마 재설계. topic.sessions[] N:1 단방향, phase×hold 2차원. append-session.ts·create-topic.ts 갱신. 52세션 legacy 소급 마이그레이션."
+    },
+    {
+      "version": "1.33",
+      "date": "2026-04-21",
+      "summary": "Context 3층 누적 시스템(PD-020b): topics/{id}/turn_log.jsonl + session_contributions/*.md + context_brief.md. /close 훅 체인에 session-contribution-writer + regenerate-context-brief 추가. /open step 3.5 context_brief 자동 로드. D-054 확정."
+    },
+    {
+      "version": "1.43",
+      "date": "2026-04-21",
+      "summary": "토픽 생명주기 자동화(D-056/D-057/PD-020c): topicType·parentTopicId·resolveCondition 스키마 3종. auto-close dry-run 2단 + PD 자동 전이 + /reclassify-topic + validate-topic-closure + Ace Step 0 스킬 확장. 결정 소유권(owningTopicId+scopeCheck) + 운영규칙 구현. D-055/056/057 확정."
+    },
+    {
+      "version": "1.53",
+      "date": "2026-04-22",
+      "summary": "Dispatcher-Worker 오케스트레이션(D-058/PD-021): Sonnet 메인 + Opus 서브에이전트 구조. opus-dispatcher 스킬 + dispatch_config.json + 에이전트 정의 4종(role-ace/arki/fin/riki.md). Grade A/S 세션 비용 ~75% 절감. auto-model-switch 스킬 폐기."
+    },
+    {
+      "version": "1.54",
+      "date": "2026-04-22",
+      "summary": "실 비용($) 계산 패널 신설(PD-018): compute-dashboard.ts calcCostUSD() + sessionCostUSD 필드 + 집계 메트릭(totalCostUSD/avgCostPerSession). dashboard-upgrade.html 비용 KPI 3종 + sparkline. Sonnet 4.6 단가 적용."
     }
   ],
-  "lastUpdated": "2026-04-20T00:00:00.000Z"
+  "lastUpdated": "2026-04-22T02:30:00.000Z"
 }

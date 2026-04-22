@@ -84,6 +84,8 @@ a{color:inherit;text-decoration:none}
 .kpi:hover{border-color:var(--line-2);transform:translateY(-2px)}
 .kpi::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent)}
 .kpi.a{--accent:var(--grad-violet)}.kpi.b{--accent:var(--grad-teal)}.kpi.c{--accent:var(--grad-amber)}.kpi.d{--accent:var(--grad-rose)}.kpi.e{--accent:linear-gradient(135deg,#3B82F6 0%,#8B5CF6 100%)}
+.cost-row{display:grid;grid-template-columns:repeat(3,1fr) 2fr;gap:14px;margin-bottom:24px}
+.cost-row .kpi.g{--accent:linear-gradient(135deg,#10B981 0%,#34D399 100%)}
 .kpi-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
 .kpi-label{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--text-3);font-weight:600}
 .kpi-icon{width:30px;height:30px;border-radius:8px;background:var(--panel-2);border:1px solid var(--line);display:grid;place-items:center;font-size:13px}
@@ -193,7 +195,7 @@ a{color:inherit;text-decoration:none}
     </a>
 
     <div class="sidebar-foot" id="sidebarFoot">
-      <span id="sidebarVersion">v1.11</span> · Legend Team<br>
+      <span id="sidebarVersion">v1.54</span> · Legend Team<br>
       <span id="buildTs">—</span>
     </div>
   </aside>
@@ -285,6 +287,30 @@ a{color:inherit;text-decoration:none}
         <div class="kpi-val" id="kSessions">—</div>
         <div class="kpi-sub">현재 필터 기준</div>
         <div class="kpi-spark" id="sparkSessions"></div>
+      </div>
+    </div>
+
+    <!-- COST PANEL -->
+    <div class="cost-row">
+      <div class="kpi g">
+        <div class="kpi-top"><div class="kpi-label">Total Cost</div><div class="kpi-icon">$</div></div>
+        <div class="kpi-val" id="kCostTotal">—</div>
+        <div class="kpi-sub" id="kCostTotalSub">누적 실 비용</div>
+      </div>
+      <div class="kpi g">
+        <div class="kpi-top"><div class="kpi-label">Avg / Session</div><div class="kpi-icon">$</div></div>
+        <div class="kpi-val" id="kCostAvg">—</div>
+        <div class="kpi-sub" id="kCostAvgSub">세션 평균 비용</div>
+      </div>
+      <div class="kpi g">
+        <div class="kpi-top"><div class="kpi-label">Max Session</div><div class="kpi-icon">$</div></div>
+        <div class="kpi-val" id="kCostMax">—</div>
+        <div class="kpi-sub" id="kCostMaxSub">최고 비용 세션</div>
+      </div>
+      <div class="kpi g" style="grid-column:span 1">
+        <div class="kpi-top"><div class="kpi-label">Cost / Session (최근 20)</div><div class="kpi-icon">📈</div></div>
+        <div class="kpi-sub" style="margin-bottom:6px;font-size:10px">Sonnet 4.6 기준 · input $3 / output $15 / cache_create $3.75 / cache_read $0.30 per MTok</div>
+        <div class="kpi-spark" id="sparkCost" style="height:44px"></div>
       </div>
     </div>
 
@@ -547,6 +573,28 @@ function renderKPIs() {
   spark('sparkCache', filteredSessions.map(s=>(s.tokenUsage?.cacheHitRate ?? 0)*100), '#F59E0B');
   spark('sparkTokens', filteredSessions.map(s=>s.tokenUsage?.totalBillable || 0), '#3B82F6');
   spark('sparkSessions', filteredSessions.map((_,i)=>i+1), '#8B5CF6');
+
+  // ── 비용 패널 ──────────────────────────────────────────────────────────────
+  const withCost = filteredSessions.filter(s => s.sessionCostUSD != null);
+  const totalCost = withCost.reduce((a, s) => a + (s.sessionCostUSD || 0), 0);
+  const avgCost = withCost.length ? totalCost / withCost.length : 0;
+  const maxCostSession = withCost.length
+    ? withCost.reduce((a, s) => (s.sessionCostUSD || 0) > (a.sessionCostUSD || 0) ? s : a, withCost[0])
+    : null;
+
+  const fmtUSD = v => v >= 100 ? `$${v.toFixed(0)}` : v >= 1 ? `$${v.toFixed(2)}` : `$${v.toFixed(3)}`;
+
+  document.getElementById('kCostTotal').textContent = withCost.length ? fmtUSD(totalCost) : '—';
+  document.getElementById('kCostTotalSub').textContent = withCost.length
+    ? `${withCost.length}/${t}개 세션 집계`
+    : '집계 데이터 없음';
+  document.getElementById('kCostAvg').textContent = withCost.length ? fmtUSD(avgCost) : '—';
+  document.getElementById('kCostAvgSub').textContent = withCost.length ? `세션 평균 비용` : '집계 데이터 없음';
+  document.getElementById('kCostMax').textContent = maxCostSession ? fmtUSD(maxCostSession.sessionCostUSD) : '—';
+  document.getElementById('kCostMaxSub').textContent = maxCostSession ? maxCostSession.sessionId : '—';
+
+  const recent20 = withCost.slice(-20);
+  spark('sparkCost', recent20.map(s => s.sessionCostUSD || 0), '#10B981');
 }
 
 function renderAutonomy() {
