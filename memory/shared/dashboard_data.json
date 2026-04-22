@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-22T06:02:57.636Z",
-  "totalSessions": 73,
+  "generatedAt": "2026-04-22T06:33:01.513Z",
+  "totalSessions": 74,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.75,
-    "avgCacheHitRate": 0.9286,
-    "cacheSampleSize": 47,
-    "cacheSampleTotal": 73,
+    "avgMasterTurns": 16.61,
+    "avgCacheHitRate": 0.9291,
+    "cacheSampleSize": 48,
+    "cacheSampleTotal": 74,
     "avgAdoptionRate": 0,
     "totalDecisions": 59,
     "gradeDistribution": {
       "S": 22,
-      "A": 13,
+      "A": 14,
       "B": 27,
       "C": 11
     },
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 28,
-    "totalCostUSD": 623.6604,
-    "avgCostPerSession": 9.1715,
-    "costSampleSize": 68
+    "turnBasedSessions": 29,
+    "totalCostUSD": 627.8543,
+    "avgCostPerSession": 9.0993,
+    "costSampleSize": 69
   },
   "sessions": [
     {
@@ -2654,12 +2654,49 @@
         "messageCount": 133
       },
       "sessionCostUSD": 5.9862
+    },
+    {
+      "sessionId": "session_075",
+      "topicSlug": "alarm-analysis-resolution",
+      "topic": "알람 원인 분석 및 해결",
+      "startedAt": "2026-04-22T08:30:00.000Z",
+      "closedAt": "2026-04-22T09:10:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 5,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 8,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 7,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 7656904,
+        "ioTokens": 62118,
+        "inputTokens": 394,
+        "outputTokens": 61724,
+        "cacheCreate": 286498,
+        "cacheRead": 7308288,
+        "cacheHitRate": 0.9544703707921636,
+        "messageCount": 105
+      },
+      "sessionCostUSD": 4.1939
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 40,
+      "count": 41,
       "sessions": [
         "session_047",
         "session_048",
@@ -2684,12 +2721,13 @@
         "session_071",
         "session_072",
         "session_073",
-        "session_074"
+        "session_074",
+        "session_075"
       ]
     },
     {
       "role": "editor",
-      "count": 25,
+      "count": 26,
       "sessions": [
         "session_050",
         "session_051",
@@ -2715,12 +2753,13 @@
         "session_071",
         "session_072",
         "session_073",
-        "session_074"
+        "session_074",
+        "session_075"
       ]
     },
     {
       "role": "dev",
-      "count": 20,
+      "count": 21,
       "sessions": [
         "session_047",
         "session_048",
@@ -2738,12 +2777,13 @@
         "session_070",
         "session_072",
         "session_073",
-        "session_074"
+        "session_074",
+        "session_075"
       ]
     },
     {
       "role": "arki",
-      "count": 19,
+      "count": 20,
       "sessions": [
         "session_048",
         "session_049",
@@ -2757,12 +2797,13 @@
         "session_067",
         "session_068",
         "session_069",
-        "session_071"
+        "session_071",
+        "session_075"
       ]
     },
     {
       "role": "riki",
-      "count": 11,
+      "count": 12,
       "sessions": [
         "session_049",
         "session_053",
@@ -2774,7 +2815,8 @@
         "session_067",
         "session_068",
         "session_069",
-        "session_071"
+        "session_071",
+        "session_075"
       ]
     },
     {
@@ -3763,173 +3805,50 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_075",
+      "topic": "알람 원인 분석 및 해결",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "design",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 4,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
     {
-      "ruleId": "R2",
-      "severity": "yellow",
-      "sessionId": "session_017",
-      "description": "Master 병목: masterTurns=26 (avg=16.8)"
-    },
-    {
-      "ruleId": "R2",
-      "severity": "yellow",
-      "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=16.8)"
-    },
-    {
-      "ruleId": "R2",
-      "severity": "yellow",
-      "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=16.8)"
-    },
-    {
-      "ruleId": "R2",
-      "severity": "yellow",
-      "sessionId": "session_027",
-      "description": "Master 병목: masterTurns=26 (avg=16.8)"
-    },
-    {
-      "ruleId": "R2",
-      "severity": "yellow",
-      "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=16.8)"
-    },
-    {
-      "ruleId": "R2",
-      "severity": "yellow",
-      "sessionId": "session_030",
-      "description": "Master 병목: masterTurns=26 (avg=16.8)"
-    },
-    {
-      "ruleId": "R2",
-      "severity": "yellow",
-      "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=16.8)"
-    },
-    {
-      "ruleId": "R2",
-      "severity": "yellow",
-      "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=16.8)"
-    },
-    {
-      "ruleId": "R2",
-      "severity": "yellow",
-      "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=16.8)"
-    },
-    {
-      "ruleId": "R2",
-      "severity": "yellow",
-      "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=16.8)"
-    },
-    {
       "ruleId": "R1",
       "severity": "yellow",
       "sessionId": "session_045",
-      "description": "Ace/역할 과호출: rolesRecalled=5"
-    },
-    {
-      "ruleId": "R1",
-      "severity": "yellow",
-      "sessionId": "session_049",
-      "description": "Ace/역할 과호출: rolesRecalled=3"
-    },
-    {
-      "ruleId": "R1",
-      "severity": "yellow",
-      "sessionId": "session_052",
-      "description": "Ace/역할 과호출: rolesRecalled=2"
-    },
-    {
-      "ruleId": "R1",
-      "severity": "yellow",
-      "sessionId": "session_053",
-      "description": "Ace/역할 과호출: rolesRecalled=4"
-    },
-    {
-      "ruleId": "R1",
-      "severity": "yellow",
-      "sessionId": "session_054",
-      "description": "Ace/역할 과호출: rolesRecalled=3"
-    },
-    {
-      "ruleId": "R1",
-      "severity": "yellow",
-      "sessionId": "session_059",
-      "description": "Ace/역할 과호출: rolesRecalled=2"
-    },
-    {
-      "ruleId": "R1",
-      "severity": "yellow",
-      "sessionId": "session_060",
-      "description": "Ace/역할 과호출: rolesRecalled=3"
-    },
-    {
-      "ruleId": "R1",
-      "severity": "yellow",
-      "sessionId": "session_064",
-      "description": "Ace/역할 과호출: rolesRecalled=2"
-    },
-    {
-      "ruleId": "R1",
-      "severity": "yellow",
-      "sessionId": "session_067",
-      "description": "Ace/역할 과호출: rolesRecalled=3"
-    },
-    {
-      "ruleId": "R2",
-      "severity": "yellow",
-      "sessionId": "session_068",
-      "description": "Master 병목: masterTurns=34 (avg=16.8)"
-    },
-    {
-      "ruleId": "R5",
-      "severity": "red",
-      "description": "피드백 재발: \"Ace\" 4회"
-    },
-    {
-      "ruleId": "R5",
-      "severity": "red",
-      "description": "피드백 재발: \"Master\" 6회"
-    },
-    {
-      "ruleId": "R5",
-      "severity": "red",
-      "description": "피드백 재발: \"Ace가\" 4회"
-    },
-    {
-      "ruleId": "R5",
-      "severity": "red",
-      "description": "피드백 재발: \"확인\" 3회"
-    },
-    {
-      "ruleId": "R5",
-      "severity": "red",
-      "description": "피드백 재발: \"하드코딩\" 3회"
-    },
-    {
-      "ruleId": "R5",
-      "severity": "red",
-      "description": "피드백 재발: \"토픽\" 3회"
-    },
-    {
-      "ruleId": "R5",
-      "severity": "red",
-      "description": "피드백 재발: \"데이터\" 3회"
-    },
-    {
-      "ruleId": "R5",
-      "severity": "red",
-      "description": "피드백 재발: \"역할\" 3회"
-    },
-    {
-      "ruleId": "R5",
-      "severity": "red",
-      "description": "피드백 재발: \"이번에\" 3회"
+      "description": "역할 과호출: rolesRecalled=5 (임계값 5, grade=S)"
     }
   ],
   "feedbackRecurrences": [

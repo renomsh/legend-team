@@ -352,17 +352,20 @@ function main() {
     ? withAdoption.reduce((sum, s) => sum + (s.adoptionRate ?? 0), 0) / withAdoption.length
     : 0;
 
-  // ── 경보 (R1~R7) ─────────────────────────────────────────────────────────
+  // ── 경보 (R1, R3) ────────────────────────────────────────────────────────
+  // R2(Master 병목) 삭제: masterTurns 단독으로 병목/깊은논의 구분 불가 (session_075)
+  // R5(피드백 재발) alarms 제거: 키워드 기반 구현이 도메인 메타어 노이즈 유발 (session_075)
+  //   → feedbackRecurrences 배열은 대시보드 별도 시각화용으로 보존
   const alarms: AlarmEntry[] = [];
 
+  // R1 임계값: Grade A/S → ≥5, Grade B/C → ≥3 (Grade-blind 임계값 2가 정상 오케스트레이션 포함 문제 해소)
+  const r1Threshold = (grade: string) => (grade === 'A' || grade === 'S') ? 5 : 3;
+
   for (const s of sessions) {
-    // R1: Ace 과호출 (재호출 2회+)
-    if (s.rolesRecalled >= 2) {
-      alarms.push({ ruleId: 'R1', severity: 'yellow', sessionId: s.sessionId, description: `Ace/역할 과호출: rolesRecalled=${s.rolesRecalled}` });
-    }
-    // R2: Master 병목 (masterTurns > 평균 × 1.5)
-    if (avgMasterTurns > 0 && s.masterTurns > avgMasterTurns * 1.5) {
-      alarms.push({ ruleId: 'R2', severity: 'yellow', sessionId: s.sessionId, description: `Master 병목: masterTurns=${s.masterTurns} (avg=${avgMasterTurns.toFixed(1)})` });
+    // R1: 역할 과호출 (Grade 조건부 임계값)
+    const threshold = r1Threshold(s.gradeDeclared);
+    if (s.rolesRecalled >= threshold) {
+      alarms.push({ ruleId: 'R1', severity: 'yellow', sessionId: s.sessionId, description: `역할 과호출: rolesRecalled=${s.rolesRecalled} (임계값 ${threshold}, grade=${s.gradeDeclared})` });
     }
     // R3: 고토큰 저재활용 (캐시 히트율 50% 미만, auto 세션만)
     if (s.dataQuality === 'auto' && s.tokenUsage && s.tokenUsage.cacheHitRate < 0.5) {
@@ -370,7 +373,7 @@ function main() {
     }
   }
 
-  // R5: 피드백 재발 (60일 내 키워드 중복)
+  // feedbackRecurrences: 경보 분리 보존 (alarms에 포함하지 않음)
   const feedbackRecurrences: FeedbackRecurrence[] = [];
   const keywordMap = new Map<string, Array<{ date: string; feedbackId: string; summary: string }>>();
   for (const f of feedbackLog.entries) {
@@ -384,9 +387,6 @@ function main() {
   for (const [kw, occurrences] of keywordMap.entries()) {
     if (occurrences.length >= 2) {
       feedbackRecurrences.push({ keyword: kw, occurrences });
-      if (occurrences.length >= 3) {
-        alarms.push({ ruleId: 'R5', severity: 'red', description: `피드백 재발: "${kw}" ${occurrences.length}회` });
-      }
     }
   }
 

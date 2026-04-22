@@ -1,6 +1,21 @@
 {
   "topics": [
     {
+      "id": "topic_081",
+      "title": "알람 원인 분석 및 해결",
+      "status": "completed",
+      "phase": "implementation",
+      "hold": null,
+      "created": "2026-04-22",
+      "grade": "A",
+      "controlPath": "topics/topic_081",
+      "reportPath": "reports/2026-04-22_alarm-analysis-resolution",
+      "reportFiles": ["ace_rev1.md", "arki_rev1.md", "riki_rev1.md", "dev_rev1.md"],
+      "published": false,
+      "path": "topics/topic_081",
+      "outcome": "compute-dashboard 경보 29건→1건. R2 삭제(병목/논의 구분불가), R5 alarms 제거(feedbackRecurrences 보존), R1 Grade 조건부 임계값(A/S:≥5, B/C:≥3). 잔여 1건(session_045 Grade S rolesRecalled=5)은 실제 이상 신호."
+    },
+    {
       "id": "topic_080",
       "title": "효율 대시보드 토큰·비용 패널 수정",
       "status": "completed",
@@ -11,7 +26,9 @@
       "outcome": "비용 KPI 3개 I/O cost 기준 전환($618→$107), 녹색 Row2 라인 제거. dashboard-upgrade.html 수정 + 빌드 완료.",
       "controlPath": "topics/topic_080",
       "reportPath": "reports/2026-04-22_efficiency-dashboard-token-cost-fix",
-      "reportFiles": ["dev_rev1.md"],
+      "reportFiles": [
+        "dev_rev1.md"
+      ],
       "published": false,
       "path": "topics/topic_080"
     },
@@ -1581,5 +1598,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-22T05:40:55.468Z"
+  "lastUpdated": "2026-04-22T06:07:26.520Z"
 }

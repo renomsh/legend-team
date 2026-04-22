@@ -1,6 +1,23 @@
 {
-  "generatedAt": "2026-04-22T06:02:58.242Z",
+  "generatedAt": "2026-04-22T06:33:02.192Z",
   "topics": [
+    {
+      "id": "topic_081",
+      "title": "알람 원인 분석 및 해결",
+      "status": "completed",
+      "created": "2026-04-22",
+      "reportPath": "reports/2026-04-22_alarm-analysis-resolution",
+      "reportFiles": [
+        "ace_rev1.md",
+        "arki_rev1.md",
+        "riki_rev1.md",
+        "dev_rev1.md"
+      ],
+      "published": false,
+      "outcome": "compute-dashboard 경보 29건→1건. R2 삭제(병목/논의 구분불가), R5 alarms 제거(feedbackRecurrences 보존), R1 Grade 조건부 임계값(A/S:≥5, B/C:≥3). 잔여 1건(session_045 Grade S rolesRecalled=5)은 실제 이상 신호.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_080",
       "title": "효율 대시보드 토큰·비용 패널 수정",
