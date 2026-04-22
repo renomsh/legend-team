@@ -755,3 +755,8 @@
 [2026-04-22T12:14:12.460Z] [sync-system-state] lastSession=session_080 openTopics=3 recentDecisions=5 deferrals=19
 [2026-04-22T12:14:15.574Z] [compute-growth] Phase 1 ok. sessions=1 newDatapoints=12 totalDatapoints=1605 pendingLag=14
 [2026-04-22T12:14:18.267Z] [compute-dashboard] 완료 — 79개 세션, 2개 경보
+[2026-04-22T22:30:30.269Z] [L2-writer] skip (already exists): C:\Projects\legend-team\topics\topic_086\session_contributions\session_080.md
+[2026-04-22T22:30:32.960Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_086\context_brief.md | sessions=1 size=420B
+[2026-04-22T22:30:42.893Z] [sync-system-state] lastSession=session_080 openTopics=3 recentDecisions=5 deferrals=19
+[2026-04-22T22:30:45.203Z] [compute-growth] Phase 1 ok. sessions=1 newDatapoints=0 totalDatapoints=1605 pendingLag=14
+[2026-04-22T22:30:47.377Z] [compute-dashboard] 완료 — 79개 세션, 2개 경보

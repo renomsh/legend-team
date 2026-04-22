@@ -828,7 +828,7 @@
       "id": "topic_044",
       "type": "research-writing",
       "title": "COPD 논문 ver3.4 최종화 — canonical 재분석 + (e) 프레임 확정",
-      "status": "in-progress",
+      "status": "suspended",
       "created": "2026-04-19",
       "sessionId": "session_043",
       "reportPath": "reports/2026-04-19_copd-paper-ver34-finalization",
@@ -837,7 +837,10 @@
       "outcome": "세션 목표 '투고 이관'에서 '데이터 canonical 확정 + 원고 patch 완성'으로 재프레이밍됨. Master 잔여 1% 제거 대신 ver3.4_E의 P0 결함(Table 1 n값 오류·Table 2 1.42 (1.05-1.92) p=0.022 조작 CI·PM 35.8% 과대) 발견 → ver1.0 raw 기반 전체 재분석 수행. Canonical cohort n=2,779 확정. Y1 primary NIE 1.12 (1.02-1.25) ★ 재현, Y1-Y3 sensitivity TE 1.72 (1.07-2.76) p=0.025 발견. (e) 프레임 채택(D-045). Nova N2 상호작용 p=0.67 기각. 산출물: canonical_ver3.5 폴더 + ver3.5_E_patch.md(8섹션). ver3.5_E 실제 파일·한국판·figures·refs 정리·투고 메타는 다음 세션 이연.",
       "note": "세션 범위 의도치 않게 초과 — P0 데이터 미스 발견이 주원인. Arki 구조 진단(D-046): Statistical Anchor Registry 필요성 도출. Dev 역할 Python 실집행(9개 스크립트). Ace (e) 프레임 합성. Riki 데이터 오류 원인 분석 + Y1-Y3 HARKing 방어. Nova N1 계기만(5-window sweep), N2 기각. Master 피드백: 자가인용 수용/ERJ 철회 요구/Thorax 해제/3년 확장 프레임 정당화/(e) 소유권 지적.",
       "phase": null,
-      "hold": "2026-04-21",
+      "hold": {
+        "heldAt": "2026-04-22T12:17:22.472Z",
+        "reason": "Master 지시 — 급하지 않음, 홀딩"
+      },
       "legacy": true
     },
     {

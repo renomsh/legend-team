@@ -2594,6 +2594,6 @@
       "note": "D-060 G1 Gate 감사. Phase 2 Go 판정. | Fin 감사: Phase 1 성공률 3/4 → 수정 후 4/4. active 11→4개. | L3.autonomy 버그 수정: session_note 파싱 → token_log proxy. nonNull 0%→95%. | Registry v2: L2.hitRate / ace.orchestrationHitRate / arki.structuralLifespan / fin.costForecastAccuracy / riki.riskF1 / vera.masterRevisionInv / edi.gapFlagAccuracy → draft. | R-2 수정: resolvePendingLag status=active 필터 추가. | compute-growth.ts 실행 메트릭 64% 감소 → hook 오버헤드 개선. | /open·/close 속도 개선 기대 (compute-growth 4개 지표만 실행)."
     }
   ],
-  "lastUpdated": "2026-04-22T12:13:49.033Z",
+  "lastUpdated": "2026-04-22T22:30:27.857Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
