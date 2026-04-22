@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-22T06:01:05.250Z",
-  "totalSessions": 72,
+  "generatedAt": "2026-04-22T06:02:57.636Z",
+  "totalSessions": 73,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.79,
-    "avgCacheHitRate": 0.9288,
-    "cacheSampleSize": 46,
-    "cacheSampleTotal": 72,
+    "avgMasterTurns": 16.75,
+    "avgCacheHitRate": 0.9286,
+    "cacheSampleSize": 47,
+    "cacheSampleTotal": 73,
     "avgAdoptionRate": 0,
     "totalDecisions": 59,
     "gradeDistribution": {
       "S": 22,
       "A": 13,
-      "B": 26,
+      "B": 27,
       "C": 11
     },
     "gradeMismatchCount": 2,
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 27,
-    "totalCostUSD": 617.6742,
-    "avgCostPerSession": 9.219,
-    "costSampleSize": 67
+    "turnBasedSessions": 28,
+    "totalCostUSD": 623.6604,
+    "avgCostPerSession": 9.1715,
+    "costSampleSize": 68
   },
   "sessions": [
     {
@@ -2619,12 +2619,47 @@
         "messageCount": 87
       },
       "sessionCostUSD": 4.293
+    },
+    {
+      "sessionId": "session_074",
+      "topicSlug": "efficiency-dashboard-token-cost-fix",
+      "topic": "효율 대시보드 토큰·비용 패널 수정",
+      "startedAt": "2026-04-22T07:30:00.000Z",
+      "closedAt": "2026-04-22T08:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 14,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 8849828,
+        "ioTokens": 77759,
+        "inputTokens": 192,
+        "outputTokens": 77567,
+        "cacheCreate": 634919,
+        "cacheRead": 8137150,
+        "cacheHitRate": 0.9194698473235864,
+        "messageCount": 133
+      },
+      "sessionCostUSD": 5.9862
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 39,
+      "count": 40,
       "sessions": [
         "session_047",
         "session_048",
@@ -2648,12 +2683,13 @@
         "session_070",
         "session_071",
         "session_072",
-        "session_073"
+        "session_073",
+        "session_074"
       ]
     },
     {
       "role": "editor",
-      "count": 24,
+      "count": 25,
       "sessions": [
         "session_050",
         "session_051",
@@ -2678,12 +2714,13 @@
         "session_070",
         "session_071",
         "session_072",
-        "session_073"
+        "session_073",
+        "session_074"
       ]
     },
     {
       "role": "dev",
-      "count": 19,
+      "count": 20,
       "sessions": [
         "session_047",
         "session_048",
@@ -2700,7 +2737,8 @@
         "session_065",
         "session_070",
         "session_072",
-        "session_073"
+        "session_073",
+        "session_074"
       ]
     },
     {
@@ -3681,6 +3719,30 @@
     {
       "sessionId": "session_073",
       "topic": "효율 대시보드 변경",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_074",
+      "topic": "효율 대시보드 토큰·비용 패널 수정",
       "sequence": [
         {
           "role": "ace",

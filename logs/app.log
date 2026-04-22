@@ -671,3 +671,13 @@
 [2026-04-22T05:26:18.173Z] [sync-system-state] lastSession=session_073 openTopics=2 recentDecisions=5 deferrals=20
 [2026-04-22T05:26:20.365Z] [compute-dashboard] 완료 — 72개 세션, 29개 경보
 [2026-04-22T06:01:05.254Z] [compute-dashboard] 완료 — 72개 세션, 29개 경보
+[2026-04-22T06:02:35.706Z] [checklist] [INFO] reports: all 1 registered file(s) present: dev_rev1.md
+[2026-04-22T06:02:35.709Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-22T06:02:35.710Z] [checklist] [INFO] topic_index: topic found: topic_080 (completed)
+[2026-04-22T06:02:35.710Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-22T06:02:35.711Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-22T06:02:35.711Z] [session-log] [INFO] END session_074 | topic: efficiency-dashboard-token-cost-fix | duration: unknown (startedAt in future)
+[2026-04-22T06:02:44.903Z] [L2-writer] wrote C:\Projects\legend-team\topics\topic_080\session_contributions\session_074.md | turns=0 decisions=0
+[2026-04-22T06:02:47.029Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_080\context_brief.md | sessions=1 size=345B
+[2026-04-22T06:02:55.370Z] [sync-system-state] lastSession=session_074 openTopics=2 recentDecisions=5 deferrals=20
+[2026-04-22T06:02:57.640Z] [compute-dashboard] 완료 — 73개 세션, 29개 경보

@@ -2230,8 +2230,40 @@
       ],
       "grade": "A",
       "note": "RAW 토큰 패널 2-row 재설계: Row1=token counts(항상visible), Row2=$(항상visible), hidden expand=5행 상세표 | compute-dashboard.ts: tokenUsage에 inputTokens/outputTokens 필드 추가 → 상세 테이블 input/output 분리 표시 가능 | session_072 PD-NEW-B 설계 역전 원인 규명: <details> 전체 접기 = 수치 hidden 처리 → 이번 세션에서 복원"
+    },
+    {
+      "sessionId": "session_074",
+      "topicSlug": "efficiency-dashboard-token-cost-fix",
+      "topic": "효율 대시보드 토큰·비용 패널 수정",
+      "startedAt": "2026-04-22T07:30:00.000Z",
+      "closedAt": "2026-04-22T08:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 1,
+          "phase": "implementation"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 2,
+          "phase": "compile"
+        }
+      ],
+      "grade": "B",
+      "note": "비용 KPI 3개 I/O cost 기준 전환: $618→$107, avg/max도 동일 기준 | 녹색 Row2 (rawInputCost/rawCCCost/rawCRCost/rawTotalCost) 제거 — 상세 expand에서 확인 가능 | JS: sessionCostUSD → ioCostSessions 계산으로 교체 (input*3 + output*15)/1e6"
     }
   ],
-  "lastUpdated": "2026-04-22T05:26:06.097Z",
+  "lastUpdated": "2026-04-22T06:02:42.958Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

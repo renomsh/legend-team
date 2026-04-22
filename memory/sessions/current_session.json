@@ -3,28 +3,53 @@
   "topicId": "topic_080",
   "topic": "효율 대시보드 토큰·비용 패널 수정",
   "topicSlug": "efficiency-dashboard-token-cost-fix",
-  "status": "open",
+  "status": "closed",
   "startedAt": "2026-04-22T07:30:00.000Z",
+  "closedAt": "2026-04-22T08:00:00.000Z",
   "mode": "observation",
   "grade": "B",
   "gradeDeclared": "B",
   "framingLevel": 1,
   "framingSkipped": false,
-  "agentsCompleted": [],
-  "turns": [],
+  "agentsCompleted": [
+    "ace",
+    "dev",
+    "editor"
+  ],
+  "turns": [
+    {
+      "role": "ace",
+      "turnIdx": 0,
+      "phase": "framing"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 1,
+      "phase": "implementation"
+    },
+    {
+      "role": "editor",
+      "turnIdx": 2,
+      "phase": "compile"
+    }
+  ],
   "decisions": [],
   "masterDecisions": [],
   "masterFeedback": [],
-  "notes": [],
+  "notes": [
+    "비용 KPI 3개 I/O cost 기준 전환: $618→$107, avg/max도 동일 기준",
+    "녹색 Row2 (rawInputCost/rawCCCost/rawCRCost/rawTotalCost) 제거 — 상세 expand에서 확인 가능",
+    "JS: sessionCostUSD → ioCostSessions 계산으로 교체 (input*3 + output*15)/1e6"
+  ],
   "reportPath": "reports/2026-04-22_efficiency-dashboard-token-cost-fix",
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 89,
-    "output_tokens": 37450,
-    "cache_creation_input_tokens": 216016,
-    "cache_read_input_tokens": 3695463,
-    "messageCount": 61,
-    "masterTurns": 6,
-    "total_billable": 3949018
+    "input_tokens": 103,
+    "output_tokens": 40117,
+    "cache_creation_input_tokens": 418903,
+    "cache_read_input_tokens": 4441687,
+    "messageCount": 72,
+    "masterTurns": 8,
+    "total_billable": 4900810
   }
 }

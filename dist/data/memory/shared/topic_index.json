@@ -3,13 +3,15 @@
     {
       "id": "topic_080",
       "title": "효율 대시보드 토큰·비용 패널 수정",
-      "status": "open",
-      "phase": "framing",
+      "status": "completed",
+      "phase": "implementation",
       "hold": null,
       "created": "2026-04-22",
+      "completedAt": "2026-04-22",
+      "outcome": "비용 KPI 3개 I/O cost 기준 전환($618→$107), 녹색 Row2 라인 제거. dashboard-upgrade.html 수정 + 빌드 완료.",
       "controlPath": "topics/topic_080",
       "reportPath": "reports/2026-04-22_efficiency-dashboard-token-cost-fix",
-      "reportFiles": [],
+      "reportFiles": ["dev_rev1.md"],
       "published": false,
       "path": "topics/topic_080"
     },
