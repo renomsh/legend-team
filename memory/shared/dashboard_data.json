@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-22T07:05:20.287Z",
-  "totalSessions": 75,
+  "generatedAt": "2026-04-22T10:46:13.574Z",
+  "totalSessions": 76,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.49,
-    "avgCacheHitRate": 0.9285,
-    "cacheSampleSize": 49,
-    "cacheSampleTotal": 75,
+    "avgMasterTurns": 16.44,
+    "avgCacheHitRate": 0.9286,
+    "cacheSampleSize": 50,
+    "cacheSampleTotal": 76,
     "avgAdoptionRate": 0,
-    "totalDecisions": 59,
+    "totalDecisions": 60,
     "gradeDistribution": {
-      "S": 23,
+      "S": 24,
       "A": 14,
       "B": 27,
       "C": 11
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 30,
-    "totalCostUSD": 630.0047,
-    "avgCostPerSession": 9.0001,
-    "costSampleSize": 70
+    "turnBasedSessions": 31,
+    "totalCostUSD": 636.9638,
+    "avgCostPerSession": 8.9713,
+    "costSampleSize": 71
   },
   "sessions": [
     {
@@ -2731,12 +2731,62 @@
         "messageCount": 35
       },
       "sessionCostUSD": 2.1504
+    },
+    {
+      "sessionId": "session_077",
+      "topicSlug": "growth-metrics-board-design",
+      "topic": "성장지표 정의 프레임 확정 + Board 계측 구조 설계",
+      "startedAt": "2026-04-22T07:14:34.527Z",
+      "closedAt": "2026-04-22T10:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-060"
+      ],
+      "rolesCalled": 15,
+      "rolesRecalled": 8,
+      "sessionsSpanned": 1,
+      "size": 36,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 13,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "ace",
+        "nova",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "arki",
+        "ace",
+        "arki",
+        "arki",
+        "arki",
+        "ace",
+        "edi",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 10410196,
+        "ioTokens": 133555,
+        "inputTokens": 236,
+        "outputTokens": 133319,
+        "cacheCreate": 543650,
+        "cacheRead": 9732991,
+        "cacheHitRate": 0.9349479106829497,
+        "messageCount": 96
+      },
+      "sessionCostUSD": 6.9591
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 42,
+      "count": 47,
       "sessions": [
         "session_047",
         "session_048",
@@ -2763,12 +2813,13 @@
         "session_073",
         "session_074",
         "session_075",
-        "session_076"
+        "session_076",
+        "session_077"
       ]
     },
     {
       "role": "editor",
-      "count": 27,
+      "count": 28,
       "sessions": [
         "session_050",
         "session_051",
@@ -2796,7 +2847,29 @@
         "session_073",
         "session_074",
         "session_075",
-        "session_076"
+        "session_076",
+        "session_077"
+      ]
+    },
+    {
+      "role": "arki",
+      "count": 25,
+      "sessions": [
+        "session_048",
+        "session_049",
+        "session_053",
+        "session_054",
+        "session_059",
+        "session_060",
+        "session_061",
+        "session_063",
+        "session_066",
+        "session_067",
+        "session_068",
+        "session_069",
+        "session_071",
+        "session_075",
+        "session_077"
       ]
     },
     {
@@ -2824,28 +2897,8 @@
       ]
     },
     {
-      "role": "arki",
-      "count": 20,
-      "sessions": [
-        "session_048",
-        "session_049",
-        "session_053",
-        "session_054",
-        "session_059",
-        "session_060",
-        "session_061",
-        "session_063",
-        "session_066",
-        "session_067",
-        "session_068",
-        "session_069",
-        "session_071",
-        "session_075"
-      ]
-    },
-    {
       "role": "riki",
-      "count": 12,
+      "count": 13,
       "sessions": [
         "session_049",
         "session_053",
@@ -2858,12 +2911,13 @@
         "session_068",
         "session_069",
         "session_071",
-        "session_075"
+        "session_075",
+        "session_077"
       ]
     },
     {
       "role": "fin",
-      "count": 10,
+      "count": 11,
       "sessions": [
         "session_053",
         "session_054",
@@ -2874,7 +2928,8 @@
         "session_067",
         "session_068",
         "session_069",
-        "session_071"
+        "session_071",
+        "session_077"
       ]
     },
     {
@@ -2887,9 +2942,17 @@
     },
     {
       "role": "nova",
+      "count": 2,
+      "sessions": [
+        "session_066",
+        "session_077"
+      ]
+    },
+    {
+      "role": "edi",
       "count": 1,
       "sessions": [
-        "session_066"
+        "session_077"
       ]
     }
   ],
@@ -3901,6 +3964,102 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_077",
+      "topic": "성장지표 정의 프레임 확정 + Board 계측 구조 설계",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 1,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "nova",
+          "phase": "speculative",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "structural-design",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": "cost-audit",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "adversarial-audit",
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis-1",
+          "turnIdx": 6,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "structural-design",
+          "turnIdx": 7,
+          "recallReason": "post-synthesis"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis-final",
+          "turnIdx": 8,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "execution-plan",
+          "turnIdx": 9,
+          "recallReason": "conditional→plan 전환"
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 10,
+          "recallReason": "master-challenge"
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 11,
+          "recallReason": "master-challenge"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis-final",
+          "turnIdx": 12,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 13,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 14,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -3909,9 +4068,30 @@
       "severity": "yellow",
       "sessionId": "session_045",
       "description": "역할 과호출: rolesRecalled=5 (임계값 5, grade=S)"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_077",
+      "description": "역할 과호출: rolesRecalled=8 (임계값 5, grade=S)"
     }
   ],
   "feedbackRecurrences": [
+    {
+      "keyword": "PD",
+      "occurrences": [
+        {
+          "date": "2026-04-22",
+          "feedbackId": "MF-052",
+          "summary": "(1) PD-005 삭제 — Claude Design 웹 지원 생김, Arki/Vera가 필요 시 재도입. "
+        },
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-046",
+          "summary": "PD-020b 실집행은 새 세션으로 분할 진행. 본 세션은 framing+실행계획만."
+        }
+      ]
+    },
     {
       "keyword": "토큰",
       "occurrences": [

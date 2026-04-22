@@ -59,7 +59,12 @@
     "decision": "D-058",
     "model": "Sonnet 메인 + Opus 서브 (Grade A). Grade S는 Opus 메인 유지.",
     "configSource": "memory/shared/dispatch_config.json",
-    "agentFiles": [".claude/agents/role-ace.md", ".claude/agents/role-arki.md", ".claude/agents/role-fin.md", ".claude/agents/role-riki.md"],
+    "agentFiles": [
+      ".claude/agents/role-ace.md",
+      ".claude/agents/role-arki.md",
+      ".claude/agents/role-fin.md",
+      ".claude/agents/role-riki.md"
+    ],
     "skill": ".claude/skills/opus-dispatcher/SKILL.md",
     "probeResults": {
       "E1_routing": "pass — Sonnet 4.6 메인에서 opus 서브 → Opus 4.7 실동작 확인",
@@ -427,7 +432,7 @@
       "역할 호출 설계 테이블 (질문범위 + 함정고지)"
     ]
   },
-  "lastUpdated": "2026-04-19T08:00:00.000Z",
+  "lastUpdated": "2026-04-22",
   "lessonLog": [
     {
       "id": "LL-012",
@@ -494,6 +499,12 @@
       "session": "session_036",
       "lesson": "성장 지표 정의 선행 원칙 확립: 출현빈도 ≠ 성장. 학습누적→적중률→자율성 인과체인이 측정 설계의 공리. 정의 없는 계측 구현은 무의미.",
       "topic": "growth-metrics"
+    },
+    {
+      "date": "2026-04-22",
+      "session": "session_077",
+      "topic": "growth-metrics-board-design",
+      "lesson": "오케스트레이션 루프 실제 실행 성공. Master '한번 더' 압박 시 Arki에 축 전환 재감사 질문 던지는 패턴 효과적. Nova 배치 재조정 지시(Ace 뒤 → 프레이밍 직후) 수용 — 3자 감사 가능 구조로 개선. 루프 상한 2회 + 1줄 요약 알림 프로토콜 session_077에서 첫 실전 적용."
     }
   ],
   "gradeCProtocol": {

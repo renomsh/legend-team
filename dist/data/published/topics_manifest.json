@@ -1,6 +1,20 @@
 {
-  "generatedAt": "2026-04-22T07:05:20.879Z",
+  "generatedAt": "2026-04-22T10:46:14.183Z",
   "topics": [
+    {
+      "id": "topic_083",
+      "title": "성장지표 정의 프레임 확정 + Board 계측 구조 설계",
+      "status": "completed",
+      "created": "2026-04-22",
+      "reportPath": "reports/2026-04-22_growth-metrics-board-design",
+      "reportFiles": [
+        "editor_rev1.md"
+      ],
+      "published": false,
+      "outcome": "D-060 확정. 공통 3층(학습누적·적중률·자율성) + 역할별 signature 8종 + 교차채점 + Registry/Rubric versioning + 지연채점 + Provenance chain + Metric QA + Multi-scale + Percentile + Regime marker/transition zone + Incremental aggregation. Growth Board 메인 페이지(안 β). PD-015 해소. 구현은 child 토픽(topic_082 재개 시 병합).",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_082",
       "title": "Dashboard 개편 — 인터페이스 UX + 반응형 프레임",

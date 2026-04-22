@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_076",
-  "nextSessionId": "session_077",
+  "lastSessionId": "session_077",
+  "nextSessionId": "session_078",
   "currentVersion": "v1.54",
   "openTopics": [
     {
@@ -27,6 +27,12 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-060",
+      "date": "2026-04-22",
+      "axis": "성장지표 정의 프레임 + Board 계측 구조 확정 (PD-015)",
+      "summary": "Nova N4 비전('나 없이도 사고하는 팀') 진척도 최초 가시화. 시간축·확장성 축 2회 자기감사로 plug-in registry·지연채점·provenance·QA 레이어까지 Phase 0에 선 내재화 — 설계 수명 장기화. Master '한번 더' 압박 패턴이 시간축 공백 발견, 향후 자기감사 프로토콜 학습으로 박제(feedback_arki_self_audit_on_pressure). Board IA 메인 페이지 재정의로 topic_082(대시보드 개편) 기반 선결."
+    },
+    {
       "id": "D-059",
       "date": "2026-04-22",
       "axis": "토큰 측정 정본 지표 재정의 + 외부 앵커 cross-check 의무 원칙 신설",
@@ -49,12 +55,6 @@
       "date": "2026-04-21",
       "axis": "토픽 생명주기 자동화 — 프레이밍↔구현 부모-자식 모델 + PD resolveCondition + 저마찰 원칙(무응답=승인)",
       "summary": "session_062~065에서 드러난 프레이밍↔구현 토픽 생명주기 누수 + PD resolved 누락의 구조적 해소. Master save 수동 관행 → 시스템 자동화 흐름(D-051·D-053) 연장. 저마찰 원칙 박제로 향후 설계의 요구량 증가 차단. '나 없이도 사고하는 팀' 비전 로드맵(Nova N4) 장기 목표 명문화."
-    },
-    {
-      "id": "D-055",
-      "date": "2026-04-21",
-      "axis": "PD-020c 프레이밍 확정 — 결정 소유권 + 운영규칙 강제 강도 재분류 (하드 2 + 경고 2)",
-      "summary": "Ace 기본제안 → Master 조정 원칙 재확인(session_063). 과부화 회피 선택으로 신규 자동화의 운영비용 절감. 결정 소유권 강제(owningTopicId+scopeCheck)로 토픽 간 오염 차단 근거 확보. PD-020 3부작 프레이밍 단계 완결 — 구현 단계로 이행 가능."
     }
   ],
   "pendingDeferrals": [
@@ -65,14 +65,6 @@
       "item": "데이터북 Agent 프로토타입 구현: 7개 팀 파일 전수 투입 → canonical 스키마 → normalize.py + merge.py + validate.py",
       "status": "pending",
       "note": "다음 주 진행 예정 (Master 확인 session_024)"
-    },
-    {
-      "id": "PD-005",
-      "fromSession": "session_025",
-      "fromTopic": "v090-design-upgrade",
-      "item": "Figma 연동 — 계정 생성 후 MCP 설정, design:design-critique 스킬 Figma 검수 항목 활성화, CRITIQUE_CHECKLIST.md Figma 섹션 구현",
-      "status": "pending",
-      "note": "현재 Figma 계정 미보유. 급하지 않음."
     },
     {
       "id": "PD-006",
@@ -151,8 +143,9 @@
       "fromSession": "session_036",
       "fromTopic": "legend-team-upgrade-v2",
       "item": "성장지표 정의 프레임 확정 + Board 계측 구조 설계 — 학습누적→적중률→자율성 인과체인 기반. 역할별 성장 정의(Ace: 오케스트레이션 적중률, Riki: 리스크 리콜 등) + 현재 계측 가능 지표 구현.",
-      "status": "pending",
-      "note": "Grade A 권장. PD-013과 병행 또는 후속. 측정불가 지표 설계 포함."
+      "status": "resolved",
+      "resolvedInSession": "session_077",
+      "note": "D-060 확정. 공통 3층 + signature 8 + 교차채점 + Registry/Versioning + 지연채점 + Provenance + QA + Multi-scale + Percentile + Regime marker/transition zone. Growth Board 메인(안 β). 구현은 child 토픽(topic_082 재개 시 병합)."
     },
     {
       "id": "PD-016",
@@ -238,5 +231,5 @@
       "note": "D-058 확정. opus-dispatcher 스킬 + dispatch_config.json + 에이전트 정의 4종(role-ace/arki/fin/riki.md) 구현. G1(write 계약)·G3(RED→GREEN) 통과. auto-model-switch 스킬 폐기."
     }
   ],
-  "lastUpdated": "2026-04-22T07:05:18.094Z"
+  "lastUpdated": "2026-04-22T10:46:11.405Z"
 }

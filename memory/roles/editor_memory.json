@@ -63,7 +63,12 @@
       "title": "레전드팀 업그레이드",
       "date": "2026-04-03",
       "reportPath": "reports/2026-04-03_legend-team-upgrade/editor_rev01.md",
-      "agentsIntegrated": ["ace", "arki", "fin", "riki"],
+      "agentsIntegrated": [
+        "ace",
+        "arki",
+        "fin",
+        "riki"
+      ],
       "novaInvoked": false,
       "outputType": "decision-summary"
     },
@@ -72,7 +77,13 @@
       "title": "로컬 업그레이드 vs 서버 이전",
       "date": "2026-04-04",
       "reportPath": "reports/2026-04-04_local-vs-server/editor_rev01.md",
-      "agentsIntegrated": ["ace", "arki", "fin", "riki", "nova"],
+      "agentsIntegrated": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "nova"
+      ],
       "novaInvoked": true,
       "outputType": "decision-summary + deliverables-list"
     },
@@ -81,7 +92,9 @@
       "title": "레전드팀 v0.4.0 업그레이드 검토",
       "date": "2026-04-05",
       "reportPath": "reports/2026-04-05_legend-team-upgrade-review/editor_rev01.md",
-      "agentsIntegrated": ["ace"],
+      "agentsIntegrated": [
+        "ace"
+      ],
       "novaInvoked": false,
       "outputType": "decision-summary + scope-definition"
     }
@@ -143,5 +156,13 @@
       "Ace 종합검토 완료 확인 후에만 산출물 작성 시작."
     ]
   },
-  "lastUpdated": "2026-04-19T08:00:00.000Z"
+  "lastUpdated": "2026-04-22",
+  "lessonLog": [
+    {
+      "date": "2026-04-22",
+      "session": "session_077",
+      "topic": "growth-metrics-board-design",
+      "lesson": "세션 077에서 발언 맥락 호칭 '에디' 활성 문서 일괄 반영 완료(CLAUDE.md/AGENTS.md/CONTEXT.md/agents/*.md). 스키마·파일명은 'editor' 유지. 리포트 77개는 역사 기록으로 불변."
+    }
+  ]
 }

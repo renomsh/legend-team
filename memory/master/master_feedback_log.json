@@ -1,6 +1,15 @@
 {
   "feedbackLog": [
     {
+      "id": "MF-052",
+      "date": "2026-04-22",
+      "session": "session_077",
+      "topic": "growth-metrics-board-design",
+      "feedback": "(1) PD-005 삭제 — Claude Design 웹 지원 생김, Arki/Vera가 필요 시 재도입. (2) 에디터 이름 → 에디로 확실히 일괄 변경(활성 문서 CLAUDE.md/AGENTS.md/CONTEXT.md/agents/*.md). (3) 확장가능성 있는 논의에서는 Nova 자동 추천 — 불필요하면 Master가 제거. (4) Nova 위치 = Ace 프레이밍 직후, Arki/Fin/Riki 앞 (dangler 구조 방지, 3자 감사 가능). Nova 질문 범위 = 오픈(제약 금지). (5) 오케스트레이션 루프 = Ace가 재호출 조율, 루프 상한 2회, Master 1줄 요약 알림. (6) 토픽별로 Nova/Fin/Arki 생략 가능 — Ace 재량. (7) 'Arki 이 설계가 최선 맞아? 확장 구조에서도?' 2회 반복 압박 — 매회 시간축·확장성 축 결함 발견하게 만듦 (구조적 자기감사 패턴 박제).",
+      "status": "resolved",
+      "statusNote": "D-060 확정. 피드백 4건 memory 박제(feedback_nova_auto_recommend_on_expansion 갱신 + feedback_arki_self_audit_on_pressure 신설). PD-005 삭제 완료. 에디터 rename 완료."
+    },
+    {
       "id": "MF-051",
       "date": "2026-04-22",
       "session": "session_071",

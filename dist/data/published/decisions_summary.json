@@ -1,6 +1,47 @@
 {
-  "generatedAt": "2026-04-22T07:05:20.884Z",
+  "generatedAt": "2026-04-22T10:46:14.186Z",
   "decisions": [
+    {
+      "id": "D-060",
+      "date": "2026-04-22",
+      "session": "session_077",
+      "topic": "growth-metrics-board-design",
+      "owningTopicId": "topic_083",
+      "scopeCheck": "구조·스키마·데이터 계약까지만. 구현(UI·렌더·파이프라인)은 child 토픽 분기.",
+      "axis": "성장지표 정의 프레임 + Board 계측 구조 확정 (PD-015)",
+      "decision": "(A1) 인과체인 = C 하이브리드: 학습누적 → 적중률 → 자율성. L3 자율성 = 1 - (directive+corrective)/masterTurns, silent_approval은 저해로 보지 않음. (A2) 지표 구조 = 옵션 3: 공통 3층 + 역할별 signature 1개. (A5) hitRateRubric(D-041) 활성화 + 교차 채점 매트릭스 (발언 주체 ≠ 채점자). (A6) Board IA = 안 β: Growth Board가 메인 페이지, Topic/Session은 별도. (시간축) 지연 채점 scoringLag 필드, Data Provenance Chain(rubricVersion·classifierVersion·regimeId per datapoint), Metric QA Layer(N=10 샘플 감사). (확장성) Plugin-style metrics_registry.json, multi-scale windows(20/100/500), rubric versioning, percentile 정규화. (레짐) discrete marker + transition zone(3세션), 자동감지는 Phase 4. (Anti-Portfolio) decision_ledger.rejectedAlternatives[] 태깅자 ≠ 기각자. Phase 분해: Phase 0(Registry·Versioning·Multi-scale·Provenance·QA 스키마) → G0 → Phase 1(자동집계 MVP) → G1 → Phase 2(교차채점·Dissensus·AntiPortfolio·Golden·Coverage) → G2 → Phase 3(Growth Board UI, child 토픽, Vera+Dev, topic_082 재개 시 병합) → Phase 4(Fin 오버헤드 재감사, 10세션 후). Nova 제안 처리: N-1(축소수용)·N-2(수용)·N-3/N-5(Phase2)·N-4(수용, 태깅자 분리)·N-6(기각, session_100 재검토)·N-7(옵션)·N-8(수용)·N-9/N-10(Master 기각). 오케스트레이션: 루프 상한 2회, 재호출 시 Master 1줄 요약, Nova 배치=Ace 프레이밍 직후 Arki/Fin/Riki 앞(오픈 스코프). 에디터 이름 → 에디로 활성 문서 일괄 변경.",
+      "value": "Nova N4 비전('나 없이도 사고하는 팀') 진척도 최초 가시화. 시간축·확장성 축 2회 자기감사로 plug-in registry·지연채점·provenance·QA 레이어까지 Phase 0에 선 내재화 — 설계 수명 장기화. Master '한번 더' 압박 패턴이 시간축 공백 발견, 향후 자기감사 프로토콜 학습으로 박제(feedback_arki_self_audit_on_pressure). Board IA 메인 페이지 재정의로 topic_082(대시보드 개편) 기반 선결.",
+      "rejectedAlternatives": [
+        {
+          "option": "A1=A (순수 학습누적→적중률→자율성, 하이브리드 아님)",
+          "rejectedBy": "master",
+          "reason": "효율성 검토 후 C 하이브리드가 조작화 경계 더 명확",
+          "tagger": "riki",
+          "validatedOutcome": null
+        },
+        {
+          "option": "A2=옵션 2 (전부 역할 고유 지표)",
+          "rejectedBy": "ace",
+          "reason": "cross-role 비교 불가로 Nova N4 진척 관찰 어려움",
+          "tagger": "riki",
+          "validatedOutcome": null
+        },
+        {
+          "option": "Nova N-6 (B 메타인지 인과체인 즉시 재검토)",
+          "rejectedBy": "ace",
+          "reason": "Master A1=C 확정 - session_100 트리거로 연기",
+          "tagger": "riki",
+          "validatedOutcome": null
+        },
+        {
+          "option": "Nova를 Ace 종합 뒤에 배치",
+          "rejectedBy": "master",
+          "reason": "Arki/Fin/Riki가 Nova 제안을 감사할 수 없는 dangler 구조",
+          "tagger": "ace",
+          "validatedOutcome": null
+        }
+      ]
+    },
     {
       "id": "D-059",
       "date": "2026-04-22",

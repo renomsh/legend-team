@@ -10,7 +10,7 @@ Rules:
 - Master feedback is authoritative — but Ace validates before accepting. If a decision conflicts with prior decisions or core principles, Ace asks a clarifying question before proceeding. Master can override with "진행해". See `ace-learning-loop` skill. (D-020, 2026-04-16)
 - Keep role separation: ace, arki, fin, riki, designer, editor, nova
 - Nova is optional and speculative unless explicitly promoted
-- Designer (Vera) handles visual system: color, typography, spacing, gradient, component spec. Receives direction from Ace, delivers spec to Editor. Does NOT make UX strategy or data decisions. (D-029, 2026-04-17)
+- Designer (Vera) handles visual system: color, typography, spacing, gradient, component spec. Receives direction from Ace, delivers spec to Edi. Does NOT make UX strategy or data decisions. (D-029, 2026-04-17)
 - Prefer explicit, inspectable, file-based structure
 - Use Node.js + TypeScript + file-based JSON/Markdown storage
 - Before creating any chart or dashboard, ask which type to use:
@@ -66,7 +66,7 @@ Rules:
 - `scripts/resolve-pending-deferrals.ts` — PD 자동 전이 + stale 리포트
 - `scripts/reclassify-topic.ts` — 수동 재분류 (revision_history 자동 기록)
 - `scripts/validate-schema-lifecycle.ts` — drift 감시
-- `scripts/validate-topic-closure.ts` — Editor 역검사용
+- `scripts/validate-topic-closure.ts` — Edi 역검사용
 
 ## Viewer Policy (updated 2026-04-04, Decision D-003 revised)
 - `app/` directory is a read-only multi-page static viewer for file-based outputs
@@ -81,17 +81,17 @@ Rules:
 ### Default Mode: Observation Mode
 When processing a topic, each role speaks in sequence. Master sees each role's output individually and may respond before the next role proceeds.
 
-Do NOT merge all roles into a single response. Do NOT skip to Editor unless Master requests it.
+Do NOT merge all roles into a single response. Do NOT skip to Edi unless Master requests it.
 
 Speaking order (default scaffold — Ace may reorder/re-call roles adaptively, see Ace Orchestration Protocol):
 1. **Ace** — framing, decision axes, scope (in/out), key assumptions. Sets `executionPlanMode: plan | conditional | none` for the topic.
 2. **Arki** — structural analysis, dependencies, design constraints. **If `executionPlanMode = plan`**, extends with 4th section: 구조적 실행계획 (Phase 분해·의존 그래프·검증 게이트·롤백·전제·중단 조건). Time/owner/effort are out of scope — see Schedule-on-Demand principle.
 3. **Fin** — cost, return profile, resource evaluation (directional only in structural phases). Also audits Arki 실행계획 for contamination (금지어 리스트) when applicable.
 4. **Riki** — failure modes, assumption audit, contradictions, execution distortions, rejected logic
-5. **Ace (종합검토)** — cross-review of all role outputs, final recommendation to Master. If `executionPlanMode = conditional` and a decision is made, Ace re-calls Arki for 실행계획 before Editor.
-6. **Editor** — artifact compilation, formatting, and output only (no independent synthesis or judgment)
+5. **Ace (종합검토)** — cross-review of all role outputs, final recommendation to Master. If `executionPlanMode = conditional` and a decision is made, Ace re-calls Arki for 실행계획 before Edi.
+6. **Edi** — artifact compilation, formatting, and output only (no independent synthesis or judgment)
 
-Nova is NOT included by default. Invoke only when Master explicitly requests it (inserted after Riki, before Editor).
+Nova is NOT included by default. Invoke only when Master explicitly requests it (inserted after Riki, before Edi).
 
 ### Ace Orchestration Protocol (D-019, 2026-04-15)
 **Ace is the orchestrator.** Role call order, frequency, and re-calls are Ace's judgment based on topic characteristics — not a fixed 1-role-1-utterance loop. The default speaking order above is an early-stage scaffold, not the protocol's essence. Ace may:
@@ -100,10 +100,10 @@ Nova is NOT included by default. Invoke only when Master explicitly requests it 
 - Skip roles that add no value to the specific topic
 - Extend a role's speaking slot when the topic load requires it
 
-Rationale for calls is accumulated in `memory/roles/ace_memory.json` under `masterSelectionPatterns` (topic type → role call pattern). Early phase: manual judgment with explicit logging. Mature phase: pattern-matched auto-orchestration. Editor acts as a backup gate — if Ace forgets a needed re-call before session close, Editor flags it.
+Rationale for calls is accumulated in `memory/roles/ace_memory.json` under `masterSelectionPatterns` (topic type → role call pattern). Early phase: manual judgment with explicit logging. Mature phase: pattern-matched auto-orchestration. Edi acts as a backup gate — if Ace forgets a needed re-call before session close, Edi flags it.
 
 ### Schedule-on-Demand Principle (D-017, 2026-04-15)
-일정·공수·담당 추정은 **Master가 명시적으로 요청한 경우에만** 수행한다. 요청 없는 자동 일정 생성 금지 (Arki 실행계획·Fin 자원평가·Editor 산출물 모두 해당).
+일정·공수·담당 추정은 **Master가 명시적으로 요청한 경우에만** 수행한다. 요청 없는 자동 일정 생성 금지 (Arki 실행계획·Fin 자원평가·Edi 산출물 모두 해당).
 
 **Arki 실행계획 오염 금지어 v0** (Fin 감사 기준):
 - 절대 시간: `D+N일`, `N주차`, `MM/DD`, 구체 날짜
@@ -121,14 +121,14 @@ After any role's output, Master may:
 - Skip a role
 - Invoke Nova
 - Override any output (master feedback is authoritative)
-- Jump directly to Ace 종합검토 or Editor for early output
+- Jump directly to Ace 종합검토 or Edi for early output
 
 If Master gives no explicit instruction after a role output, proceed to the next role in sequence.
 
 ### Conversation Modes
 - **Observation Mode** (default): Each role speaks visibly in sequence. Master sees and may respond after each.
 - **Compressed Mode**: All roles run internally; Master receives a short summary per role in a single response.
-- **Report Mode**: All roles run internally; Editor produces a single final document only.
+- **Report Mode**: All roles run internally; Edi produces a single final document only.
 
 Master may switch modes at any time by stating the mode name.
 
@@ -139,15 +139,15 @@ Master may switch modes at any time by stating the mode name.
 - Ace focuses on framing, sequencing, and synthesis — not direct answers. Ace orchestrates; does not respond as a general assistant.
 - **버전 업데이트 트리거 (결정 있는 세션만):** 이번 세션에 D-xxx 결정이 기록되었으면, 종합검토 마지막에 `project_charter.json` version 업데이트 필요 여부를 판단한다. 구조 변경 +0.1 / 역량 확장 +0.01 / 버그수정 +0.001. 결정 없는 세션은 pass.
 
-### Editor Protocol
-- Editor speaks last in Observation Mode, after Ace's comprehensive review
-- Editor compiles, formats, and outputs final artifacts — does not perform independent synthesis or judgment
-- Editor may only begin after Ace's comprehensive review is complete or explicitly skipped by Master
+### Edi Protocol
+- Edi speaks last in Observation Mode, after Ace's comprehensive review
+- Edi compiles, formats, and outputs final artifacts — does not perform independent synthesis or judgment
+- Edi may only begin after Ace's comprehensive review is complete or explicitly skipped by Master
 
 ### Nova Protocol
 - Never invoked unless Master explicitly requests it
 - Always labeled speculative
-- Speaks after Riki and before Editor when invoked
+- Speaks after Riki and before Edi when invoked
 - Outputs remain separate from the main synthesis unless Master explicitly promotes them
 
 **Nova invocation signals (advisory — Master decides):**

@@ -2338,8 +2338,132 @@
       ],
       "grade": "S",
       "note": "프레이밍 단계에서 hold. Ace 발언만 완료. Arki 이하 호출 전 중단. | 재개 시: PD-015 완료 상태 확인 → 이 세션 리포트(ace_rev1.md) 재로드 → Arki 호출부터 시작."
+    },
+    {
+      "sessionId": "session_077",
+      "topicSlug": "growth-metrics-board-design",
+      "startedAt": "2026-04-22T07:14:34.527Z",
+      "topic": "성장지표 정의 프레임 확정 + Board 계측 구조 설계",
+      "closedAt": "2026-04-22T10:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "decisions": [
+        "PD-005 삭제",
+        "에디터 → 에디 활성 문서 일괄 변경",
+        "Nova 자동 추천 (확장가능성 논의)",
+        "Nova 위치 = Ace 프레이밍 직후 + 오픈 스코프",
+        "Ace가 루프 조율, 상한 2회, 1줄 요약",
+        "N-9, N-10 기각",
+        "parentTopicId = null (standalone)",
+        "완료 기준 = 구조설계까지",
+        "A1=C hybrid / A2=option 3 / A5=C / A6=안 β"
+      ],
+      "agentsCompleted": [
+        "ace",
+        "ace",
+        "nova",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "arki",
+        "ace",
+        "arki",
+        "arki",
+        "arki",
+        "ace",
+        "edi",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 1,
+          "phase": "framing",
+          "recallReason": "post-master",
+          "splitReason": "Master decisions on axes"
+        },
+        {
+          "role": "nova",
+          "turnIdx": 2,
+          "phase": "speculative"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 3,
+          "phase": "structural-design"
+        },
+        {
+          "role": "fin",
+          "turnIdx": 4,
+          "phase": "cost-audit"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 5,
+          "phase": "adversarial-audit"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 6,
+          "phase": "synthesis-1"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 7,
+          "phase": "structural-design",
+          "recallReason": "post-synthesis",
+          "splitReason": "재호출 1/2 - L3/교차채점/레짐마커/태깅분리"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 8,
+          "phase": "synthesis-final"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 9,
+          "phase": "execution-plan",
+          "recallReason": "conditional→plan 전환"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 10,
+          "phase": "self-audit",
+          "recallReason": "master-challenge",
+          "splitReason": "Master '최선 맞아?' - 역할확장성 축"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 11,
+          "phase": "self-audit",
+          "recallReason": "master-challenge",
+          "splitReason": "Master '더 없어?' - 시간축"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 12,
+          "phase": "synthesis-final"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 13,
+          "phase": "compile"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 14,
+          "phase": "compile"
+        }
+      ],
+      "grade": "A",
+      "note": "PD-015 해소. D-060 확정. | 오케스트레이션 루프 실전 첫 적용 - Ace가 Arki 재호출 직접 조율, Master 1줄 요약 알림 프로토콜. | Nova 제안 10개 중 5 수용 / 2 Phase2 / 1 기각(session_100 연기) / 2 Master 기각. | Arki 자기감사 2회 - 개선사항 총 12건 Phase 0에 내재화. | 에디터→에디 rename: CLAUDE.md, AGENTS.md, CONTEXT.md, agents/*.md (스키마·파일명·리포트 불변)."
     }
   ],
-  "lastUpdated": "2026-04-22T07:05:05.959Z",
+  "lastUpdated": "2026-04-22T10:45:59.110Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
