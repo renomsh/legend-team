@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-22T00:25:59.404Z",
-  "totalSessions": 67,
+  "generatedAt": "2026-04-22T00:53:20.606Z",
+  "totalSessions": 68,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.35,
-    "avgCacheHitRate": 0.9286,
-    "cacheSampleSize": 41,
-    "cacheSampleTotal": 67,
+    "avgMasterTurns": 17.19,
+    "avgCacheHitRate": 0.9284,
+    "cacheSampleSize": 42,
+    "cacheSampleTotal": 68,
     "avgAdoptionRate": 0,
     "totalDecisions": 58,
     "gradeDistribution": {
       "S": 21,
-      "A": 12,
+      "A": 13,
       "B": 23,
       "C": 11
     },
@@ -21,7 +21,7 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 22
+    "turnBasedSessions": 23
   },
   "sessions": [
     {
@@ -2060,12 +2060,44 @@
         "cacheHitRate": 0.9192821261826506,
         "messageCount": 225
       }
+    },
+    {
+      "sessionId": "session_069",
+      "topicSlug": "grade-a-3session-measurement",
+      "topic": "3세션 Grade A 토픽에서 비용 절감률·Master 신호 감지·재호출 분포 실측",
+      "startedAt": "2026-04-22T01:00:00.000Z",
+      "closedAt": "2026-04-22T02:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 6,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 11,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 7,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 3359405,
+        "cacheHitRate": 0.9183620313716269,
+        "messageCount": 55
+      }
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 32,
+      "count": 34,
       "sessions": [
         "session_047",
         "session_048",
@@ -2084,12 +2116,13 @@
         "session_064",
         "session_066",
         "session_067",
-        "session_068"
+        "session_068",
+        "session_069"
       ]
     },
     {
       "role": "editor",
-      "count": 19,
+      "count": 20,
       "sessions": [
         "session_050",
         "session_051",
@@ -2109,12 +2142,13 @@
         "session_065",
         "session_066",
         "session_067",
-        "session_068"
+        "session_068",
+        "session_069"
       ]
     },
     {
       "role": "arki",
-      "count": 17,
+      "count": 18,
       "sessions": [
         "session_048",
         "session_049",
@@ -2126,7 +2160,8 @@
         "session_063",
         "session_066",
         "session_067",
-        "session_068"
+        "session_068",
+        "session_069"
       ]
     },
     {
@@ -2150,7 +2185,7 @@
     },
     {
       "role": "riki",
-      "count": 9,
+      "count": 10,
       "sessions": [
         "session_049",
         "session_053",
@@ -2160,12 +2195,13 @@
         "session_063",
         "session_066",
         "session_067",
-        "session_068"
+        "session_068",
+        "session_069"
       ]
     },
     {
       "role": "fin",
-      "count": 8,
+      "count": 9,
       "sessions": [
         "session_053",
         "session_054",
@@ -2174,7 +2210,8 @@
         "session_063",
         "session_066",
         "session_067",
-        "session_068"
+        "session_068",
+        "session_069"
       ]
     },
     {
@@ -2967,50 +3004,110 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_069",
+      "topic": "3세션 Grade A 토픽에서 비용 절감률·Master 신호 감지·재호출 분포 실측",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "execution-plan",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": "analysis",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "analysis",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 4,
+          "recallReason": "post-roles"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
     {
       "ruleId": "R2",
       "severity": "yellow",
+      "sessionId": "session_017",
+      "description": "Master 병목: masterTurns=26 (avg=17.2)"
+    },
+    {
+      "ruleId": "R2",
+      "severity": "yellow",
       "sessionId": "session_020",
-      "description": "Master 병목: masterTurns=48 (avg=17.4)"
+      "description": "Master 병목: masterTurns=48 (avg=17.2)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_024",
-      "description": "Master 병목: masterTurns=43 (avg=17.4)"
+      "description": "Master 병목: masterTurns=43 (avg=17.2)"
+    },
+    {
+      "ruleId": "R2",
+      "severity": "yellow",
+      "sessionId": "session_027",
+      "description": "Master 병목: masterTurns=26 (avg=17.2)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_028",
-      "description": "Master 병목: masterTurns=42 (avg=17.4)"
+      "description": "Master 병목: masterTurns=42 (avg=17.2)"
+    },
+    {
+      "ruleId": "R2",
+      "severity": "yellow",
+      "sessionId": "session_030",
+      "description": "Master 병목: masterTurns=26 (avg=17.2)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_031",
-      "description": "Master 병목: masterTurns=45 (avg=17.4)"
+      "description": "Master 병목: masterTurns=45 (avg=17.2)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_032",
-      "description": "Master 병목: masterTurns=39 (avg=17.4)"
+      "description": "Master 병목: masterTurns=39 (avg=17.2)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_034",
-      "description": "Master 병목: masterTurns=49 (avg=17.4)"
+      "description": "Master 병목: masterTurns=49 (avg=17.2)"
     },
     {
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_043",
-      "description": "Master 병목: masterTurns=35 (avg=17.4)"
+      "description": "Master 병목: masterTurns=35 (avg=17.2)"
     },
     {
       "ruleId": "R1",
@@ -3070,7 +3167,7 @@
       "ruleId": "R2",
       "severity": "yellow",
       "sessionId": "session_068",
-      "description": "Master 병목: masterTurns=34 (avg=17.4)"
+      "description": "Master 병목: masterTurns=34 (avg=17.2)"
     },
     {
       "ruleId": "R5",

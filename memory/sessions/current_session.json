@@ -1,11 +1,11 @@
 {
-  "sessionId": "session_068",
-  "topicId": "topic_071",
-  "topic": "PD-021 auto-model-switch 재구현 — Sonnet 메인 + Opus 서브에이전트",
-  "topicSlug": "pd-021-auto-model-switch-reimpl",
+  "sessionId": "session_069",
+  "topicId": "topic_072",
+  "topic": "3세션 Grade A 토픽에서 비용 절감률·Master 신호 감지·재호출 분포 실측",
+  "topicSlug": "grade-a-3session-measurement",
   "status": "closed",
-  "closedAt": "2026-04-22T00:00:00.000Z",
-  "startedAt": "2026-04-21T14:00:00.000Z",
+  "startedAt": "2026-04-22T01:00:00.000Z",
+  "closedAt": "2026-04-22T02:00:00.000Z",
   "mode": "observation",
   "grade": "A",
   "gradeDeclared": "A",
@@ -28,7 +28,7 @@
     {
       "role": "arki",
       "turnIdx": 1,
-      "phase": "analysis"
+      "phase": "execution-plan"
     },
     {
       "role": "fin",
@@ -52,31 +52,26 @@
       "phase": "compile"
     }
   ],
-  "decisions": [
-    "D-058"
-  ],
-  "masterDecisions": [
-    "Dispatcher-Worker 채택 — Grade A: Sonnet 메인 + Opus 서브",
-    "Grade S: Opus 메인 유지(보수적)",
-    "auto-model-switch 스킬 폐기",
-    "dispatch_config.json 단일 원천 구조"
-  ],
+  "decisions": [],
+  "masterDecisions": [],
   "masterFeedback": [],
   "notes": [
-    "Probe 3건 실측: E1(라우팅) + 품질 스모크 + 스킬 상속 — 전부 통과",
-    "Riki R-1 기각, R-2 경감 (Opus 4.7 내재화 강함)",
-    "G1(서브 write 계약) + G3(RED→GREEN) 검증 완료",
-    "P4 실측 검증(3세션) 미완 — 다음 세션부터 진행"
+    "P4 실측 검증(3세션) — session_068 D-058 결정 후 후속 실측 첫 세션",
+    "비용 절감률: session_066 80.8% / session_067 82.3% / session_068 78.1% → 평균 80.4%",
+    "캐시 히트율: 96.0% → 95.3% → 92.8% (session_068 Dispatcher 도입 1회성 하락)",
+    "재호출 분포 (Grade A 10세션): post-master 47.6% / post-intervention 33.3% / post-roles(Ace자율) 14.3% / master-request 4.8%",
+    "Master 신호 감지율 원정의(masterTurns 분모) 기각 → 재호출 분포 기반으로 재정의",
+    "다음 세션(070, 071)에서 캐시 히트율 회복 트렌드 추적 필요"
   ],
   "gaps": [],
-  "reportPath": "reports/2026-04-21_pd-021-auto-model-switch-reimpl",
+  "reportPath": "reports/2026-04-22_grade-a-3session-measurement",
   "tokenUsage": {
-    "input_tokens": 254,
-    "output_tokens": 103940,
-    "cache_creation_input_tokens": 751129,
-    "cache_read_input_tokens": 10763149,
-    "messageCount": 123,
-    "masterTurns": 18,
-    "total_billable": 11618472
+    "input_tokens": 81,
+    "output_tokens": 42147,
+    "cache_creation_input_tokens": 232027,
+    "cache_read_input_tokens": 3085150,
+    "messageCount": 55,
+    "masterTurns": 7,
+    "total_billable": 3359405
   }
 }

@@ -1,6 +1,20 @@
 {
-  "generatedAt": "2026-04-22T00:25:59.936Z",
+  "generatedAt": "2026-04-22T00:53:21.123Z",
   "topics": [
+    {
+      "id": "topic_072",
+      "title": "3세션 Grade A 토픽에서 비용 절감률·Master 신호 감지·재호출 분포 실측",
+      "status": "completed",
+      "created": "2026-04-22",
+      "reportPath": "reports/2026-04-22_grade-a-3session-measurement",
+      "reportFiles": [
+        "ace_rev1.md"
+      ],
+      "published": false,
+      "outcome": "P4 실측 완료. 비용 절감률 평균 80.4%, 캐시 히트율 92.8~96.0%, Ace 자율 재호출 14%(Grade A 10세션 기준). Master 신호 감지율 원래 정의 기각 → 재호출 분포 기반 재정의. 다음 2세션 트렌드 추적 필요.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_071",
       "title": "PD-021 auto-model-switch 재구현 — Sonnet 메인 + Opus 서브에이전트",

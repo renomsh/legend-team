@@ -1,6 +1,23 @@
 {
   "topics": [
     {
+      "id": "topic_072",
+      "title": "3세션 Grade A 토픽에서 비용 절감률·Master 신호 감지·재호출 분포 실측",
+      "status": "completed",
+      "phase": "validated",
+      "hold": null,
+      "created": "2026-04-22",
+      "grade": "A",
+      "topicType": "standalone",
+      "parentTopicId": null,
+      "controlPath": "topics/topic_072",
+      "reportPath": "reports/2026-04-22_grade-a-3session-measurement",
+      "reportFiles": ["ace_rev1.md"],
+      "published": false,
+      "path": "topics/topic_072",
+      "outcome": "P4 실측 완료. 비용 절감률 평균 80.4%, 캐시 히트율 92.8~96.0%, Ace 자율 재호출 14%(Grade A 10세션 기준). Master 신호 감지율 원래 정의 기각 → 재호출 분포 기반 재정의. 다음 2세션 트렌드 추적 필요."
+    },
+    {
       "id": "topic_071",
       "title": "PD-021 auto-model-switch 재구현 — Sonnet 메인 + Opus 서브에이전트",
       "status": "completed",
@@ -15,7 +32,13 @@
       "outcome": "D-058 확정. Dispatcher-Worker 구조 채택. Grade A→Sonnet 메인+Opus 서브. dispatch_config.json 단일 원천. opus-dispatcher 스킬 + 에이전트 정의 4종 구현. G1·G3 검증 통과. PD-021 resolved.",
       "controlPath": "topics/topic_071",
       "reportPath": "reports/2026-04-21_pd-021-auto-model-switch-reimpl",
-      "reportFiles": ["ace_rev1.md", "arki_rev1.md", "fin_rev1.md", "riki_rev1.md", "ace_rev2.md"],
+      "reportFiles": [
+        "ace_rev1.md",
+        "arki_rev1.md",
+        "fin_rev1.md",
+        "riki_rev1.md",
+        "ace_rev2.md"
+      ],
       "published": false,
       "path": "topics/topic_071"
     },
@@ -1426,5 +1449,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-21T13:18:12.382Z"
+  "lastUpdated": "2026-04-22T00:27:41.127Z"
 }
