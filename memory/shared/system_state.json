@@ -1,15 +1,9 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_087",
-  "nextSessionId": "session_088",
+  "lastSessionId": "session_088",
+  "nextSessionId": "session_089",
   "currentVersion": "v1.54",
   "openTopics": [
-    {
-      "id": "topic_091",
-      "title": "Vera Claude Design AI 웹 호출 활용 방법",
-      "status": "suspended",
-      "reportPath": "reports/2026-04-23_vera-claude-design-ai-integration"
-    },
     {
       "id": "topic_082",
       "title": "Dashboard 개편 — 인터페이스 UX + 반응형 프레임",
@@ -33,6 +27,12 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-064",
+      "date": "2026-04-23",
+      "axis": "Vera/Arki Claude Design 통합 — 테스트 도입 + 11개 결정 박제",
+      "summary": "Hi-fi 모드 1차 실패(Nova=Execution hallucination + 임의 Strategic/Execution/Output 분류) → Wireframe 2차 성공(5축 + compare cheat-sheet, 결함 5종 전부 해소) 실측으로 모드 선택이 근본 원인임을 규명. 프롬프트 protocol(결정 8)이 future Vera/Arki Claude Design 호출의 hallucination 방어 자산. 다각도 병렬 원칙(결정 9)이 canonical 토폴로지의 단일 그림 경직화 방지. 패턴 흡수 원칙(결정 10)이 장기 외부 의존 감소 경로 확보. 저마찰 원칙 적용으로 SKILL.md·template 파일화는 PD-029로 지연 — over-engineering 방지."
+    },
+    {
       "id": "D-063",
       "date": "2026-04-23",
       "axis": "PD-023 학습축 자가평가 MVP — 얇은 구현 spec 확정 (12차 자가감사 + Fin/Riki/Ace 통합)",
@@ -55,15 +55,18 @@
       "date": "2026-04-22",
       "axis": "성장지표 정의 프레임 + Board 계측 구조 확정 (PD-015)",
       "summary": "Nova N4 비전('나 없이도 사고하는 팀') 진척도 최초 가시화. 시간축·확장성 축 2회 자기감사로 plug-in registry·지연채점·provenance·QA 레이어까지 Phase 0에 선 내재화 — 설계 수명 장기화. Master '한번 더' 압박 패턴이 시간축 공백 발견, 향후 자기감사 프로토콜 학습으로 박제(feedback_arki_self_audit_on_pressure). Board IA 메인 페이지 재정의로 topic_082(대시보드 개편) 기반 선결."
-    },
-    {
-      "id": "D-059",
-      "date": "2026-04-22",
-      "axis": "토큰 측정 정본 지표 재정의 + 외부 앵커 cross-check 의무 원칙 신설",
-      "summary": "session_066/067/068 폐쇄루프 허위검증 사고 방지 원칙 박제. 128배 괴리가 오류가 아닌 정의 불일치임을 규명해 Master 신뢰 회복. Max 구독 실결제 기준 대시보드로 전환해 Master 실제 경험과 정합. cache 히트율 93.7%라는 구조적 특성을 제거하지 않고 보조 지표로 보존해 효율성 트래킹 유지."
     }
   ],
   "pendingDeferrals": [
+    {
+      "id": "PD-029",
+      "fromSession": "session_088",
+      "fromTopic": "vera-claude-design-ai-integration",
+      "item": "Claude Design 실사용 3~5 토픽 누적 후 Vera/Arki SKILL.md 통합 + 프롬프트 template 파일화(design/prompts/wireframe-exploration.md) + Vera Design System 패턴 흡수 리뷰",
+      "status": "pending",
+      "resolveCondition": "Vera 또는 Arki의 Claude Design 호출 실사례 3건 이상 누적 + Master 리뷰 요청",
+      "dependsOn": []
+    },
     {
       "id": "PD-028",
       "fromSession": "session_087",
@@ -289,5 +292,5 @@
       "note": "D-058 확정. opus-dispatcher 스킬 + dispatch_config.json + 에이전트 정의 4종(role-ace/arki/fin/riki.md) 구현. G1(write 계약)·G3(RED→GREEN) 통과. auto-model-switch 스킬 폐기."
     }
   ],
-  "lastUpdated": "2026-04-23T06:00:49.805Z"
+  "lastUpdated": "2026-04-23T07:50:54.134Z"
 }

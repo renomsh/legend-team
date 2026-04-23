@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-23T06:01:05.693Z",
+  "generatedAt": "2026-04-23T07:51:26.662Z",
   "topics": [
     {
       "id": "topic_093",
@@ -35,12 +35,16 @@
     {
       "id": "topic_091",
       "title": "Vera Claude Design AI 웹 호출 활용 방법",
-      "status": "suspended",
+      "status": "completed",
       "created": "2026-04-23",
       "reportPath": "reports/2026-04-23_vera-claude-design-ai-integration",
-      "reportFiles": [],
+      "reportFiles": [
+        "arki_rev1.md",
+        "riki_rev1.md",
+        "ace_rev1.md"
+      ],
       "published": false,
-      "outcome": null,
+      "outcome": "T1+T2 실측 완료. T2 Hi-fi 1차 기각 → Wireframe 2차 도입 확정 (5축 병렬 시안 + compare cheat-sheet). D-064 박제 (framing 11개 결정, 테스트 도입 격). Vera 패턴 흡수 원칙·Arki 다각도 병렬 원칙 확정. PD-029 신설 (실사용 3~5회 누적 후 SKILL.md 통합 + 프롬프트 template 파일화).",
       "note": null,
       "masterDecisions": []
     },

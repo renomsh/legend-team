@@ -1,6 +1,35 @@
 {
-  "generatedAt": "2026-04-23T06:01:05.698Z",
+  "generatedAt": "2026-04-23T07:51:26.684Z",
   "decisions": [
+    {
+      "id": "D-064",
+      "date": "2026-04-23",
+      "session": "session_088",
+      "topic": "vera-claude-design-ai-integration",
+      "owningTopicId": "topic_091",
+      "scopeCheck": "Vera/Arki × Claude Design 통합 framing 확정 (테스트 도입 격) — T1+T2 실측 결과 반영",
+      "axis": "Vera/Arki Claude Design 통합 — 테스트 도입 + 11개 결정 박제",
+      "decision": "(1) A 경로: handoff bundle 단독 (claude.ai/design → Send to Claude Code). (2) B 호출 주체: Vera(시각 spec) + Arki(토폴로지·phase flow). T3/T4는 D2 유지. (3) C 통합 수준: SKILL.md에 호출 프로토콜 내장 — 실사용 누적 후 박제. (4) D 페르소나: spec precedes generation 락. (5) E 메타 자산: 레지스트리 만들지 않음. (6) F handoff 위치: design/handoffs/{date}_{topic}/source|spec|integrated/ 3단. (7) G PD-005 변경 없음. (8) 프롬프트 protocol: Wireframe 모드 강제 + 역할 본질 1줄 주입 + 3~5 분류축 병렬 + 단일 확정 금지. (9) 다각도 병렬 원칙: Arki 산출물 단일 귀결 금지. 용도별 5축 병렬 유지. (10) Vera 패턴 흡수 원칙: Claude Design 산출 시각 패턴을 Vera Design System에 주기적 흡수 — 외부 의존도 점진 감소. (11) Figma 연결 보류: PD-005 유지. 필요 시 후속 토픽. 운영 격: 테스트 도입 — 본격 박제 아님. 실사용 누적 후 재평가.",
+      "value": "Hi-fi 모드 1차 실패(Nova=Execution hallucination + 임의 Strategic/Execution/Output 분류) → Wireframe 2차 성공(5축 + compare cheat-sheet, 결함 5종 전부 해소) 실측으로 모드 선택이 근본 원인임을 규명. 프롬프트 protocol(결정 8)이 future Vera/Arki Claude Design 호출의 hallucination 방어 자산. 다각도 병렬 원칙(결정 9)이 canonical 토폴로지의 단일 그림 경직화 방지. 패턴 흡수 원칙(결정 10)이 장기 외부 의존 감소 경로 확보. 저마찰 원칙 적용으로 SKILL.md·template 파일화는 PD-029로 지연 — over-engineering 방지.",
+      "rejectedAlternatives": [
+        {
+          "option": "T2 기각 (이전 Hi-fi 1차 결과 기준)",
+          "reason": "Master 지적으로 Wireframe 재시도 실행 → 결함 주원인이 모드 선택임 규명됨. 기각은 과잉 결론."
+        },
+        {
+          "option": "단일 분류축 선택 (A/B/C/D/E 중 1개)",
+          "reason": "Claude Design compare 카드 자체가 축별 적합 용도 다름을 증명. 단일 귀결은 용도 손실."
+        },
+        {
+          "option": "즉시 SKILL.md 박제 + 프롬프트 template 파일 생성",
+          "reason": "Master: 테스트성으로 일단 써보자. 저마찰 원칙. 실사용 누적 후 PD-029로 지연."
+        },
+        {
+          "option": "Figma 연결 즉시 추진",
+          "reason": "Master: 필요하면 나중에. PD-005 유지."
+        }
+      ]
+    },
     {
       "id": "D-063",
       "date": "2026-04-23",

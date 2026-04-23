@@ -1,11 +1,11 @@
 {
-  "sessionId": "session_087",
-  "topicId": "topic_093",
-  "topic": "2025 매출/비용 재분석 — 이러닝 통합 공헌이익율",
-  "topicSlug": "cost-report-2025-reanalysis",
+  "sessionId": "session_088",
+  "topicId": "topic_091",
+  "topic": "Vera Claude Design AI 웹 호출 활용 방법 — T2 아키텍처 실측 + framing 박제",
+  "topicSlug": "vera-claude-design-ai-integration",
   "status": "closed",
-  "startedAt": "2026-04-23T05:24:22.373Z",
-  "closedAt": "2026-04-23T08:00:00.000Z",
+  "startedAt": "2026-04-23T09:00:00.000Z",
+  "closedAt": "2026-04-23T10:30:00.000Z",
   "mode": "observation",
   "grade": "A",
   "gradeDeclared": "A",
@@ -13,11 +13,6 @@
   "framingSkipped": false,
   "agentsCompleted": [
     "ace",
-    "arki",
-    "arki",
-    "arki",
-    "fin",
-    "riki",
     "ace",
     "ace",
     "editor"
@@ -26,82 +21,54 @@
     {
       "role": "ace",
       "turnIdx": 0,
-      "phase": "framing"
+      "phase": "framing",
+      "splitReason": "Wireframe 모드 프롬프트 추천"
     },
     {
-      "role": "arki",
+      "role": "ace",
       "turnIdx": 1,
-      "phase": "framing"
+      "phase": "framing",
+      "recallReason": "post-master",
+      "splitReason": "T2 Hi-fi 판정 → Master 지적 → Wireframe 재시도 프롬프트 작성"
     },
     {
-      "role": "arki",
+      "role": "ace",
       "turnIdx": 2,
       "phase": "framing",
-      "recallReason": "post-master",
-      "splitReason": "강사+생태계 100% 하이브리드 귀속 v2"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 3,
-      "phase": "framing",
-      "recallReason": "post-master",
-      "splitReason": "강사 100% 하이브리드 v3"
-    },
-    {
-      "role": "fin",
-      "turnIdx": 4,
-      "phase": "framing"
-    },
-    {
-      "role": "riki",
-      "turnIdx": 5,
-      "phase": "framing"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 6,
-      "phase": "framing",
       "recallReason": "synthesis",
-      "splitReason": "v3 종합검토 (저작권료 정정 전)"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 7,
-      "phase": "framing",
-      "recallReason": "post-master",
-      "splitReason": "v4 최종 종합검토 (라이브외주 40% 귀속)"
+      "splitReason": "T2 Wireframe 2차 결과 판정 + D-064 박제 + PD-029 신설"
     },
     {
       "role": "editor",
-      "turnIdx": 8,
-      "phase": "implementation"
+      "turnIdx": 3,
+      "phase": "compile"
     }
   ],
-  "decisions": [],
-  "masterDecisions": [],
-  "masterFeedback": [
-    "MF-079",
-    "MF-080",
-    "MF-081",
-    "MF-082"
+  "decisions": [
+    "D-064"
   ],
+  "masterDecisions": [
+    "T2 도입 확정 + 다각도 병렬 유지",
+    "Vera 패턴 흡수 + Figma 보류",
+    "테스트성 운영 — SKILL.md 박제 지연"
+  ],
+  "masterFeedback": [],
   "notes": [
-    "Master 운영결정 (D-code 아님): ① 구독(FLEX/CEO)→이러닝 흡수 ② 강사=저작권료→이러닝 100% ③ 라이브외주 40% 하이브리드 귀속 ④ 분석 리포트에서 액션 제거",
-    "session_086(cost-report-2025-html) 후속. Master: 회사 claude code 분석 불만족 → 재분석",
-    "재귀속 4단계(v1 안분 → v2 강사+생태계 100% → v3 강사 100% → v4 저작권료=이러닝+라이브외주 40% 하이브리드) 거쳐 최종 매트릭스 산출",
-    "이러닝군 62.0% / 하이브리드 25.7% / 컨텐츠개발 13.6% / 운영 44.8% / 솔루션 29.7%",
-    "PD-028 신설: 회사 claude code 환경 cross-check",
-    "산출물: cost-report-2025-reanalysis.html (8 슬라이드, 액션 제외, 진단 전용)"
+    "topic_091 재개 세션. T1 실측은 이전 세션(session_085)에서 완료, 본 세션은 T2 실측 + framing 박제",
+    "T2 1차(Hi-fi) 기각 → Master 지적으로 Wireframe 재시도 → 2차 도입 확정",
+    "결함 주원인 = Hi-fi 모드 선택 (단일 확정 편향). Wireframe + 역할 본질 주입 조합이 hallucination 방어 성공",
+    "handoff bundle 보존: design/handoffs/2026-04-23_vera-claude-design-ai-integration/source/ (gzip tar + 전개 파일)",
+    "저마찰 원칙: SKILL.md·프롬프트 template 파일화는 PD-029로 지연 (실사용 3~5회 누적 후)"
   ],
   "gaps": [],
-  "reportPath": "reports/2026-04-23_cost-report-2025-reanalysis",
+  "reportPath": "reports/2026-04-23_vera-claude-design-ai-integration",
   "tokenUsage": {
-    "input_tokens": 433,
-    "output_tokens": 158679,
-    "cache_creation_input_tokens": 732152,
-    "cache_read_input_tokens": 13511359,
-    "messageCount": 115,
-    "masterTurns": 16,
-    "total_billable": 14402623
+    "input_tokens": 188,
+    "output_tokens": 47157,
+    "cache_creation_input_tokens": 518811,
+    "cache_read_input_tokens": 6392047,
+    "messageCount": 66,
+    "masterTurns": 8,
+    "total_billable": 6958203
   }
 }

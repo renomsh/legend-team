@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-23T06:01:04.656Z",
-  "totalSessions": 85,
+  "generatedAt": "2026-04-23T07:51:23.455Z",
+  "totalSessions": 86,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16,
-    "avgCacheHitRate": 0.9289,
-    "cacheSampleSize": 59,
-    "cacheSampleTotal": 85,
+    "avgMasterTurns": 15.9,
+    "avgCacheHitRate": 0.9288,
+    "cacheSampleSize": 60,
+    "cacheSampleTotal": 86,
     "avgAdoptionRate": 0,
-    "totalDecisions": 63,
+    "totalDecisions": 64,
     "gradeDistribution": {
-      "S": 27,
+      "S": 28,
       "A": 17,
       "B": 30,
       "C": 11
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 40,
-    "totalCostUSD": 718.642,
-    "avgCostPerSession": 8.983,
-    "costSampleSize": 80
+    "turnBasedSessions": 41,
+    "totalCostUSD": 723.2131,
+    "avgCostPerSession": 8.9286,
+    "costSampleSize": 81
   },
   "sessions": [
     {
@@ -3148,12 +3148,51 @@
         "messageCount": 115
       },
       "sessionCostUSD": 9.1805
+    },
+    {
+      "sessionId": "session_088",
+      "topicSlug": "vera-claude-design-ai-integration",
+      "topic": "Vera Claude Design AI 웹 호출 활용 방법 — T2 아키텍처 실측 + framing 박제",
+      "startedAt": "2026-04-23T09:00:00.000Z",
+      "closedAt": "2026-04-23T10:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-064"
+      ],
+      "rolesCalled": 4,
+      "rolesRecalled": 2,
+      "sessionsSpanned": 1,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 8,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "ace",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 6958203,
+        "ioTokens": 47345,
+        "inputTokens": 188,
+        "outputTokens": 47157,
+        "cacheCreate": 518811,
+        "cacheRead": 6392047,
+        "cacheHitRate": 0.9186347394578744,
+        "messageCount": 66
+      },
+      "sessionCostUSD": 4.5711
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 63,
+      "count": 66,
       "sessions": [
         "session_047",
         "session_048",
@@ -3188,7 +3227,8 @@
         "session_081",
         "session_082",
         "session_086",
-        "session_087"
+        "session_087",
+        "session_088"
       ]
     },
     {
@@ -3219,7 +3259,7 @@
     },
     {
       "role": "editor",
-      "count": 37,
+      "count": 38,
       "sessions": [
         "session_050",
         "session_051",
@@ -3257,7 +3297,8 @@
         "session_083",
         "session_084",
         "session_086",
-        "session_087"
+        "session_087",
+        "session_088"
       ]
     },
     {
@@ -4937,6 +4978,36 @@
           "role": "editor",
           "phase": "implementation",
           "turnIdx": 8,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_088",
+      "topic": "Vera Claude Design AI 웹 호출 활용 방법 — T2 아키텍처 실측 + framing 박제",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 1,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 2,
+          "recallReason": "synthesis"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 3,
           "recallReason": null
         }
       ]

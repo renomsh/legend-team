@@ -227,6 +227,21 @@
     },
     "decisions": [
       {
+        "decisionRef": "D-064",
+        "topicId": "topic_091",
+        "sessionId": "session_088",
+        "aceRecommendation": "T2 기각 (Hi-fi 1차 결과 기준 — Nova=Execution hallucination + 임의 3분류). 제안: B축 전면 재검토, T2 phase flow 축소/삭제.",
+        "masterDecision": "기각 판정 성급함. 모드 선택(Hi-fi vs Wireframe)이 결함 주원인일 수 있음 지적. Wireframe 재시도 지시 → 2차 결과 기반 도입 확정 + 다각도 병렬 유지 + Vera 패턴 흡수 + 테스트성 운영(SKILL.md 박제 지연).",
+        "selectionReason": "외부 AI 도구 평가 시 '모드 선택'이 결과 품질의 근본 변수임을 Master는 1차 결과만으로도 직감. Ace는 결함을 도구 한계로 단정 → Master는 설정 변수를 먼저 의심. 도구 평가 = 도구 × 사용법 분리 필수.",
+        "reusable": "외부 AI/도구 실측 판정 시 Ace는 다음 3단을 기본 실행: (1) 도구 모드·옵션 전수 식별, (2) 최소 2가지 모드에서 병렬 실측, (3) 판정 전에 '모드 탓인가 도구 탓인가' 분리 검증. 단일 모드 실측 기반 기각은 Master가 지적할 가능성 높음.",
+        "modificationReason": "Ace 1차 T2 판정은 Hi-fi 모드 단일 실측 기반이라 '도구 역량'과 '모드 편향'을 혼동. Master가 모드 변수 분리 요청 → Wireframe 재시도로 모드가 주원인임 규명.",
+        "observations": [
+          "Master는 '테스트성으로 써보자' 표현으로 본격 박제를 지연시킴 — 저마찰 원칙 + 실사용 누적 선행 신호. Ace가 즉시 SKILL.md 수정·프롬프트 template 파일화 제안하려는 경향을 교정.",
+          "Vera 관련 우려(시각 근육 위축)에 Master는 '패턴 흡수'로 응답 — 외부 도구를 장기 의존 대상이 아닌 '패턴 추출기'로 활용하는 관점 재확인.",
+          "Figma는 '필요하면 나중에' — 도구 확장은 실수요 기반이지 선제 도입 아님."
+        ]
+      },
+      {
         "decisionRef": "D-048",
         "topicId": "topic_048",
         "sessionId": "session_045",
