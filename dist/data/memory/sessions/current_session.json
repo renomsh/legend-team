@@ -1,63 +1,33 @@
 {
-  "sessionId": "session_084",
-  "topicId": "topic_090",
-  "topic": "PD-023 P4/P5 — compute-signature-metrics + dashboard 3-tier + finalize hook 등록",
-  "topicSlug": "pd023-p4-p5-dashboard-hook",
-  "status": "closed",
-  "startedAt": "2026-04-23T03:35:00.000Z",
-  "closedAt": "2026-04-23T03:55:00.000Z",
+  "sessionId": "session_086",
+  "topicId": "topic_092",
+  "topic": "2025 비용분석 HTML 슬라이드 보고서",
+  "topicSlug": "cost-report-2025-html",
+  "status": "open",
+  "startedAt": "2026-04-23T06:00:00.000Z",
   "mode": "observation",
-  "grade": "B",
-  "gradeDeclared": "B",
-  "framingLevel": 1,
+  "grade": "A",
+  "gradeDeclared": "A",
+  "framingLevel": 2,
   "framingSkipped": false,
-  "topicType": "implementation",
-  "parentTopicId": "topic_088",
-  "agentsCompleted": [
-    "dev",
-    "editor"
-  ],
-  "turns": [
-    {
-      "role": "dev",
-      "turnIdx": 0,
-      "phase": "implementation",
-      "selfScores": {
-        "gt_pas": 1,
-        "spc_drf": 0,
-        "reg_zr": "Y"
-      }
-    },
-    {
-      "role": "editor",
-      "turnIdx": 1,
-      "phase": "compile"
-    }
-  ],
+  "agentsCompleted": [],
+  "turns": [],
   "decisions": [],
   "masterDecisions": [],
   "masterFeedback": [],
   "notes": [
-    "P4 compute-signature-metrics: 3뷰 집계 + stratified-by-grade + alerts + derived weighted-mean. baseline-10 mean=78.0 spec 일치. full-30 fixture 840 records → 3ms (SLA 3000ms ✓)",
-    "P4 resolve-deferred-scores: dry-run / --apply 모드, queue 비어있을 때 정상 동작",
-    "P5 app/signature.html: Tier1 overview(8 role cards, role_registry에서 동적 렌더 — 하드코딩 X) / Tier2 per-role / Tier3 drill, view selector, integrity 배지, baseline state UI",
-    "P5 app/role-signature-card.html: 단일 카드 임베드 템플릿(?role=&view=)",
-    "Hook chain 등록 — auto-push.js: tokens → finalize → finalize-self-scores → resolve-deferred(--apply) → compute-signature → compute-growth → compute-dashboard → build",
-    "회귀 통과: P0b smoke 29/29 + P2 roundtrip 11/11 + finalize audit 100% + build 246 files",
-    "Master 검수: '단순해서 판단 여지 없음' → 자동 종료 승인",
-    "PD-023 G6 Tier A trigger 5토픽 누적 카운트 시작 (이번이 1토픽)"
+    "session_085 (vera-claude-design-ai-integration) held 유지, 병행 신규 토픽 오픈",
+    "데이터 소스: Data/Cost/시사점_2025.md (12개 섹션) + 분석_2025_step2.xlsx (12시트)"
   ],
-  "gaps": [
-    "PD-023 G6 정량 6항목 본격 측정은 5토픽 누적 후 (현재 1토픽)"
-  ],
-  "reportPath": "reports/2026-04-23_pd023-p4-p5-dashboard-hook",
+  "gaps": [],
+  "reportPath": "reports/2026-04-23_cost-report-2025-html",
   "tokenUsage": {
-    "input_tokens": 206,
-    "output_tokens": 58148,
-    "cache_creation_input_tokens": 835440,
-    "cache_read_input_tokens": 12542835,
-    "messageCount": 113,
-    "masterTurns": 5,
-    "total_billable": 13436629
+    "input_tokens": 122,
+    "output_tokens": 48446,
+    "cache_creation_input_tokens": 403756,
+    "cache_read_input_tokens": 5566100,
+    "messageCount": 57,
+    "masterTurns": 3,
+    "total_billable": 6018424
   }
 }

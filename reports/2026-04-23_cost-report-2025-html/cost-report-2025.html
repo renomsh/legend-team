@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>2025 비용분석 보고서</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<style>
+:root{
+  --bg:#0B0E14; --panel:#131822; --panel2:#1A2130; --line:#263043;
+  --ink:#E8ECF4; --ink2:#A8B0C2; --ink3:#6C7689;
+  --accent:#5B8DEF; --ok:#4ECDC4; --warn:#F5A623; --bad:#E74C3C; --gold:#F4C542;
+  --team1:#5B8DEF; --team2:#9B7EDE; --team3:#4ECDC4; --team4:#F4C542; --teamfs:#FF8A5B;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);color:var(--ink);font-family:"Pretendard","Segoe UI",-apple-system,sans-serif;overflow:hidden}
+body{font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.app{display:flex;flex-direction:column;height:100vh;width:100vw}
+
+/* Top nav */
+.topnav{display:flex;align-items:center;gap:24px;padding:10px 24px;background:var(--panel);border-bottom:1px solid var(--line);flex-shrink:0}
+.brand{font-weight:700;font-size:15px;letter-spacing:0.02em;color:var(--ink)}
+.brand .year{color:var(--accent);margin-right:6px}
+.acts{display:flex;gap:4px;flex:1;justify-content:center}
+.act{padding:6px 14px;border-radius:999px;font-size:12px;color:var(--ink3);cursor:pointer;transition:all .2s;border:1px solid transparent}
+.act.on{color:var(--ink);background:var(--panel2);border-color:var(--line)}
+.act:hover{color:var(--ink)}
+.meta{font-size:11px;color:var(--ink3);letter-spacing:0.04em}
+
+/* Slide stage */
+.stage{flex:1;position:relative;overflow:hidden}
+.slide{position:absolute;inset:0;padding:32px 48px 24px;opacity:0;pointer-events:none;transform:translateX(20px);transition:opacity .3s ease, transform .3s ease;display:flex;flex-direction:column}
+.slide.active{opacity:1;pointer-events:auto;transform:translateX(0)}
+.slide h1{font-size:26px;font-weight:700;margin-bottom:4px;letter-spacing:-0.01em}
+.slide h1 .no{color:var(--ink3);font-size:14px;font-weight:500;margin-right:10px;letter-spacing:0}
+.slide .sub{color:var(--ink2);font-size:13px;margin-bottom:20px}
+.slide .body{flex:1;display:flex;flex-direction:column;gap:16px;min-height:0}
+
+/* Bottom nav */
+.btmnav{display:flex;align-items:center;justify-content:space-between;padding:10px 24px;background:var(--panel);border-top:1px solid var(--line);flex-shrink:0}
+.dots{display:flex;gap:6px;flex-wrap:wrap}
+.dot{width:22px;height:4px;border-radius:2px;background:var(--line);cursor:pointer;transition:all .2s}
+.dot:hover{background:var(--ink3)}
+.dot.on{background:var(--accent);width:28px}
+.pager{display:flex;align-items:center;gap:12px}
+.btn{padding:6px 14px;background:var(--panel2);border:1px solid var(--line);border-radius:6px;color:var(--ink2);cursor:pointer;font-size:12px;font-family:inherit}
+.btn:hover{color:var(--ink);border-color:var(--accent)}
+.idx{font-size:12px;color:var(--ink3);min-width:48px;text-align:center}
+
+/* Cover */
+.cover{justify-content:center;align-items:center;text-align:center}
+.cover .big{font-size:72px;font-weight:800;letter-spacing:-0.03em;background:linear-gradient(135deg,#5B8DEF,#9B7EDE 60%,#4ECDC4);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:16px}
+.cover .tag{color:var(--ink2);font-size:16px;margin-bottom:48px}
+.cover .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;width:100%;max-width:1000px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px;text-align:left}
+.kpi .l{font-size:11px;color:var(--ink3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.kpi .v{font-size:28px;font-weight:700;color:var(--ink)}
+.kpi .u{font-size:14px;color:var(--ink2);margin-left:4px;font-weight:500}
+.kpi .d{font-size:11px;color:var(--ink3);margin-top:4px}
+.kpi.acc .v{color:var(--accent)}
+.kpi.ok .v{color:var(--ok)}
+.kpi.warn .v{color:var(--warn)}
+
+/* Grids */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1;min-height:0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;flex:1;min-height:0}
+.grid-2x2{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;flex:1;min-height:0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;min-height:0;overflow:hidden}
+.card .h{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px;display:flex;justify-content:space-between;align-items:center}
+.card .hsub{font-size:11px;color:var(--ink3);margin-bottom:10px}
+.card .chart{flex:1;min-height:0}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600;letter-spacing:0.04em}
+.badge.bad{background:rgba(231,76,60,0.15);color:var(--bad)}
+.badge.ok{background:rgba(78,205,196,0.15);color:var(--ok)}
+.badge.warn{background:rgba(245,166,35,0.15);color:var(--warn)}
+
+/* Tables */
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;padding:8px 10px;color:var(--ink3);font-weight:500;font-size:11px;letter-spacing:0.04em;border-bottom:1px solid var(--line);text-transform:uppercase;background:var(--panel2)}
+td{padding:7px 10px;border-bottom:1px solid rgba(38,48,67,0.6);color:var(--ink)}
+tr:hover td{background:rgba(91,141,239,0.05)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.pbar{display:inline-block;width:80px;height:6px;background:var(--panel2);border-radius:3px;vertical-align:middle;margin-left:8px;overflow:hidden}
+.pbar>span{display:block;height:100%;background:var(--accent);border-radius:3px}
+.scroll{overflow-y:auto;max-height:100%}
+.scroll::-webkit-scrollbar{width:6px}
+.scroll::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+
+/* Insight boxes */
+.insights{background:var(--panel2);border-left:3px solid var(--accent);border-radius:4px;padding:12px 16px;font-size:12.5px;line-height:1.7;color:var(--ink2)}
+.insights strong{color:var(--ink)}
+.insights ul{margin:0;padding-left:18px}
+.insights li{margin-bottom:4px}
+.insights.warn{border-left-color:var(--warn)}
+.insights.bad{border-left-color:var(--bad)}
+
+/* Action cards */
+.actgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;flex:1;min-height:0}
+.actcard{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.actcard .rank{position:absolute;top:10px;right:14px;font-size:48px;font-weight:800;color:var(--line);line-height:1}
+.actcard .tt{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;z-index:1;position:relative}
+.actcard .eff{font-size:22px;color:var(--ok);font-weight:700;margin:8px 0;z-index:1;position:relative}
+.actcard .desc{font-size:11.5px;color:var(--ink2);line-height:1.6;z-index:1;position:relative;flex:1}
+.actcard .tag{display:inline-flex;gap:6px;margin-top:10px;z-index:1;position:relative}
+.actcard .tag span{font-size:10px;padding:2px 8px;background:var(--panel2);border-radius:4px;color:var(--ink3)}
+
+/* Footer note */
+.note{position:absolute;bottom:8px;right:48px;font-size:10px;color:var(--ink3);font-style:italic}
+.warning-banner{background:rgba(245,166,35,0.1);border:1px solid rgba(245,166,35,0.3);color:var(--warn);padding:8px 14px;border-radius:6px;font-size:11.5px;margin-bottom:12px}
+
+/* Section jump labels */
+.act-act { font-size: 10px; color: var(--ink3); margin-right: 4px; }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topnav">
+    <div class="brand"><span class="year">2025</span>비용분석 보고서</div>
+    <div class="acts" id="acts"></div>
+    <div class="meta">기준: 분석_2025_step2.xlsx · 2026-04-23</div>
+  </div>
+  <div class="stage" id="stage"></div>
+  <div class="btmnav">
+    <div class="dots" id="dots"></div>
+    <div class="pager">
+      <button class="btn" id="prev">◀ 이전</button>
+      <div class="idx" id="idx">1 / 14</div>
+      <button class="btn" id="next">다음 ▶</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============ DATA (from 시사점_2025.md) ============ */
+const DATA = {
+  totals: { rev: 816.51, cost: 413.85, cm: 402.67, cmr: 49.3, common: 64.48, companies: 4791 },
+  teams: [
+    { name: "기업교육1팀", n: 307,  rev: 255.9, cost: 131.0, cm: 124.9, cmr: 48.8, color: "--team1" },
+    { name: "기업교육2팀", n: 281,  rev: 225.3, cost: 127.7, cm: 97.5,  cmr: 43.3, color: "--team2" },
+    { name: "기업교육3팀", n: 218,  rev: 197.2, cost: 98.5,  cm: 98.6,  cmr: 50.0, color: "--team3" },
+    { name: "기업교육4팀", n: 2746, rev: 130.4, cost: 35.6,  cm: 94.8,  cmr: 72.7, color: "--team4" },
+    { name: "FS팀",       n: 120,  rev: 7.8,   cost: 1.1,   cm: 6.7,   cmr: 86.1, color: "--teamfs" }
+  ],
+  repsTop: [
+    {r:1,team:"1팀",name:"이재성",n:42,rev:52.92,cost:30.78,cm:22.14,cmr:41.8},
+    {r:2,team:"1팀",name:"박정규",n:45,rev:47.19,cost:23.32,cm:23.87,cmr:50.6},
+    {r:3,team:"2팀",name:"신우섭",n:35,rev:45.14,cost:26.86,cm:18.28,cmr:40.5},
+    {r:4,team:"1팀",name:"황동현",n:38,rev:42.33,cost:9.00,cm:33.33,cmr:78.7,mark:"good"},
+    {r:5,team:"3팀",name:"김묘정",n:38,rev:41.95,cost:28.86,cm:13.09,cmr:31.2},
+    {r:6,team:"3팀",name:"서정용",n:33,rev:39.54,cost:28.85,cm:10.69,cmr:27.0,mark:"bad"},
+    {r:7,team:"2팀",name:"서동윤",n:18,rev:38.87,cost:21.57,cm:17.29,cmr:44.5},
+    {r:8,team:"2팀",name:"이종혁",n:46,rev:29.55,cost:12.37,cm:17.19,cmr:58.2},
+    {r:9,team:"2팀",name:"안혜연",n:59,rev:27.11,cost:8.03,cm:19.08,cmr:70.4},
+    {r:10,team:"3팀",name:"이지송",n:38,rev:26.87,cost:9.73,cm:17.14,cmr:63.8},
+    {r:11,team:"3팀",name:"김지훈",n:40,rev:24.32,cost:11.30,cm:13.02,cmr:53.5},
+    {r:12,team:"1팀",name:"이태원",n:37,rev:23.67,cost:11.69,cm:11.98,cmr:50.6},
+    {r:13,team:"3팀",name:"김지선",n:38,rev:23.16,cost:7.08,cm:16.08,cmr:69.4},
+    {r:14,team:"2팀",name:"박혜원",n:57,rev:22.79,cost:13.48,cm:9.31,cmr:40.8},
+    {r:15,team:"2팀",name:"박민우",n:14,rev:22.65,cost:10.34,cm:12.31,cmr:54.4}
+  ],
+  repsLow: [
+    {name:"김신정",team:"1팀",n:28,rev:20.58,cmr:12.3,note:"광주정보문화산업진흥원 BPO 적자 -2.4억"},
+    {name:"양은희",team:"4팀",n:3, rev:15.71,cmr:-1.8,note:"한국병원약사회 단일거래 -0.56억"},
+    {name:"서정용",team:"3팀",n:33,rev:39.54,cmr:27.0,note:"매출 규모 대표 중 최저"},
+    {name:"송민지",team:"3팀",n:31,rev:17.58,cmr:35.6,note:"—"}
+  ],
+  repsHigh: [
+    {name:"하예진",team:"4팀",n:361,rev:14.35,cmr:94.7},
+    {name:"김성경",team:"4팀",n:423,rev:15.73,cmr:90.9},
+    {name:"이나래",team:"4팀",n:210,rev:17.86,cmr:86.1},
+    {name:"김두희",team:"4팀",n:249,rev:21.72,cmr:85.2},
+    {name:"황동현",team:"1팀",n:38, rev:42.33,cmr:78.7},
+    {name:"장지웅",team:"1팀",n:56, rev:21.94,cmr:77.1},
+    {name:"최재희",team:"4팀",n:311,rev:16.78,cmr:74.9},
+    {name:"안혜연",team:"2팀",n:59, rev:27.11,cmr:70.4}
+  ],
+  bizLow: [
+    {name:"14. 컨텐츠 - 컨텐츠 개발",rev:56.87,cmr:8.4,cm:4.80},
+    {name:"15. 솔루션 - LABS",rev:24.58,cmr:24.5,cm:6.03},
+    {name:"18. 운영 - BPO",rev:33.09,cmr:36.1,cm:11.93},
+    {name:"09. 하이브리드러닝 - 순수 오프라인",rev:59.17,cmr:37.1,cm:21.95},
+    {name:"19. 운영 - 운영매출",rev:21.00,cmr:45.5,cm:9.55}
+  ],
+  bizHigh: [
+    {name:"28. 구독 - 휴넷FLEX",rev:6.57,cmr:98.5},
+    {name:"26. 이러닝 - 정부지원사업",rev:16.16,cmr:96.9},
+    {name:"03. 이러닝 - 법정",rev:38.25,cmr:86.7},
+    {name:"10. 구독 - 휴넷CEO멤버십",rev:1.10,cmr:80.1},
+    {name:"07. 이러닝 - 컨텐츠 임대/판매",rev:26.83,cmr:72.6}
+  ],
+  bizCore: [
+    {name:"01. 이러닝 - 통합위탁",rev:317.33,cmr:50.2,note:"최대 매출·표준 수익"},
+    {name:"02. 이러닝 - 단과",rev:133.69,cmr:65.2,note:"안정적"},
+    {name:"08. 하이브리드러닝 - 하이브리드형",rev:55.87,cmr:50.6,note:"평균 수준"}
+  ],
+  cmrDist: [
+    {seg:"적자",n:86,rev:74.7,cm:-29.1,share:9.1},
+    {seg:"0~20%",n:56,rev:87.2,cm:9.5,share:10.7},
+    {seg:"20~40%",n:108,rev:134.8,cm:43.9,share:16.5},
+    {seg:"40~60%",n:163,rev:129.4,cm:63.5,share:15.8},
+    {seg:"60~80%",n:241,rev:141.9,cm:98.2,share:17.4},
+    {seg:"80%+",n:3018,rev:248.7,cm:236.7,share:30.5}
+  ],
+  costDist: [
+    {seg:"10억 이상",n:7,rev:99.6,cost:91.2,cmr:8.4},
+    {seg:"5~10억",n:9,rev:94.3,cost:66.9,cmr:29.0},
+    {seg:"3~5억",n:11,rev:56.2,cost:41.4,cmr:26.4},
+    {seg:"1~3억",n:61,rev:156.6,cost:100.7,cmr:35.7},
+    {seg:"0.5~1억",n:56,rev:84.1,cost:40.1,cmr:52.3},
+    {seg:"0.1~0.5억",n:165,rev:108.2,cost:39.0,cmr:63.9},
+    {seg:"0.1억 미만",n:628,rev:86.5,cost:14.6,cmr:83.2}
+  ],
+  top30: [
+    {r:1,co:"한국병원약사회",team:"4팀",rep:"양은희",rev:15.42,cost:15.98,cm:-0.56,cmr:-3.6},
+    {r:2,co:"한전KDN",team:"1팀",rep:"이재성",rev:20.83,cost:13.78,cm:7.05,cmr:33.8},
+    {r:3,co:"광주정보문화산업진흥원",team:"1팀",rep:"김신정",rev:10.75,cost:13.11,cm:-2.37,cmr:-22.0},
+    {r:4,co:"금호석유화학",team:"2팀",rep:"황재연",rev:9.16,cost:13.10,cm:-3.94,cmr:-43.0},
+    {r:5,co:"케이티앤지",team:"2팀",rep:"신우섭",rev:12.80,cost:12.10,cm:0.71,cmr:5.5},
+    {r:6,co:"한국청소년활동진흥원",team:"3팀",rep:"서정용",rev:12.82,cost:11.77,cm:1.05,cmr:8.2},
+    {r:7,co:"KB금융지주 (9개 통합)",team:"3팀",rep:"김묘정",rev:17.84,cost:11.40,cm:6.44,cmr:36.1},
+    {r:8,co:"한국기술교육대학교 (2개)",team:"2팀",rep:"박민우",rev:9.21,cost:9.71,cm:-0.50,cmr:-5.4},
+    {r:9,co:"경기도청",team:"1팀",rep:"황동현",rev:16.43,cost:8.99,cm:7.44,cmr:45.3},
+    {r:10,co:"한국건설엔지니어링협회",team:"1팀",rep:"박정규",rev:8.13,cost:8.49,cm:-0.36,cmr:-4.4},
+    {r:11,co:"동원그룹 (2개)",team:"3팀",rep:"김묘정",rev:16.63,cost:8.43,cm:8.20,cmr:49.3},
+    {r:12,co:"카카오창작재단",team:"1팀",rep:"이태원",rev:9.33,cost:7.66,cm:1.67,cmr:17.9},
+    {r:13,co:"경기도인재개발원",team:"1팀",rep:"박정규",rev:11.12,cost:6.77,cm:4.35,cmr:39.1},
+    {r:14,co:"지에스건설",team:"1팀",rep:"이재성",rev:7.04,cost:6.38,cm:0.65,cmr:9.3},
+    {r:15,co:"코오롱베니트 (2개)",team:"2팀",rep:"서동윤",rev:10.65,cost:5.27,cm:5.38,cmr:50.5},
+    {r:16,co:"미래에셋증권",team:"3팀",rep:"서정용",rev:5.80,cost:5.25,cm:0.55,cmr:9.5},
+    {r:17,co:"여신금융협회 (3개)",team:"2팀",rep:"이종혁",rev:13.65,cost:4.99,cm:8.66,cmr:63.5},
+    {r:18,co:"아주대 경영대학원",team:"2팀",rep:"신우섭",rev:6.55,cost:4.95,cm:1.60,cmr:24.4},
+    {r:19,co:"국민연금공단",team:"2팀",rep:"서동윤",rev:5.85,cost:4.14,cm:1.72,cmr:29.3},
+    {r:20,co:"엠얼라이언스 ⚠",team:"4팀",rep:"방유진",rev:0.01,cost:3.87,cm:-3.86,cmr:-99,note:"매출누락"},
+    {r:21,co:"LS그룹 (14개)",team:"1팀",rep:"박정규",rev:7.42,cost:3.84,cm:3.59,cmr:48.3},
+    {r:22,co:"SGI서울보증",team:"2팀",rep:"박민우",rev:5.17,cost:3.47,cm:1.70,cmr:32.9},
+    {r:23,co:"현대자동차 (7개)",team:"1팀",rep:"김도엽",rev:2.06,cost:3.32,cm:-1.26,cmr:-61.0},
+    {r:24,co:"국민체육진흥공단",team:"3팀",rep:"서정용",rev:5.31,cost:3.29,cm:2.01,cmr:38.0},
+    {r:25,co:"건강보험심사평가원",team:"3팀",rep:"방인혜",rev:3.89,cost:3.25,cm:0.64,cmr:16.3},
+    {r:26,co:"대우건설",team:"3팀",rep:"서정용",rev:4.14,cost:3.13,cm:1.01,cmr:24.4},
+    {r:27,co:"HDC현대산업개발",team:"3팀",rep:"김지훈",rev:2.17,cost:3.12,cm:-0.95,cmr:-43.6},
+    {r:28,co:"한국도로공사서비스",team:"2팀",rep:"최다경",rev:0.90,cost:3.00,cm:-2.09,cmr:-231},
+    {r:29,co:"LH중앙공동주택관리지원센터",team:"1팀",rep:"이재성",rev:5.28,cost:2.82,cm:2.46,cmr:46.6},
+    {r:30,co:"국가보훈부 (4개)",team:"2팀",rep:"장윤오",rev:4.74,cost:2.76,cm:1.98,cmr:41.8}
+  ],
+  vendorCat: [
+    {name:"CP사 (이러닝콘텐츠)",n:56,amt:188.2,share:35.2},
+    {name:"내부계열사 (이지런 등)",n:6,amt:106.4,share:19.9},
+    {name:"기타",n:880,amt:102.6,share:19.2},
+    {name:"라이브/하이브리드",n:628,amt:88.1,share:16.5},
+    {name:"강사(개인)",n:116,amt:15.5,share:2.9},
+    {name:"BPO 인건비",n:1,amt:15.4,share:2.9},
+    {name:"운영위탁",n:5,amt:6.2,share:1.2},
+    {name:"IT/시스템/라이선스",n:13,amt:4.5,share:0.8},
+    {name:"강사료풀(위탁사)",n:4,amt:4.0,share:0.7},
+    {name:"콘텐츠외주(제작)",n:25,amt:2.4,share:0.4}
+  ],
+  vendorTop: [
+    {name:"휴넷이지런",cat:"내부계열사",amt:53.0},
+    {name:"이지런",cat:"내부계열사",amt:49.4},
+    {name:"가람디엠씨",cat:"CP사",amt:43.2},
+    {name:"알엠피",cat:"CP사",amt:43.1},
+    {name:"BPO인건비",cat:"BPO",amt:15.4},
+    {name:"(주)캐럿솔루션즈",cat:"CP사",amt:14.8},
+    {name:"티와이컴퍼니",cat:"라이브",amt:12.1},
+    {name:"교보문고",cat:"CP사",amt:7.8},
+    {name:"스코프랩스",cat:"라이브",amt:7.6},
+    {name:"어나더컨셉트레이닝",cat:"라이브",amt:6.8}
+  ],
+  acctDirect: [
+    {name:"이러닝원가",amt:244.3,share:52.0,note:"CP 수수료"},
+    {name:"컨텐츠개발원가",amt:115.4,share:24.6,note:"이지런 50억 + 외부 16억 + 내부계열사 48억"},
+    {name:"하이브리드러닝",amt:63.9,share:13.6,note:"라이브 강사"},
+    {name:"기타원가",amt:30.4,share:6.5,note:"—"},
+    {name:"BPO인건비",amt:15.4,share:3.3,note:"광주정보 등"}
+  ],
+  acctCommon: [
+    {name:"하이브리드러닝",amt:24.6,share:38.2},
+    {name:"이러닝원가",amt:17.1,share:26.5},
+    {name:"광고판촉비",amt:7.0,share:10.9},
+    {name:"구독원가",amt:5.5,share:8.6},
+    {name:"여비교통비",amt:2.1,share:3.2},
+    {name:"차량유지비",amt:1.9,share:3.0},
+    {name:"기타",amt:6.3,share:9.6}
+  ],
+  monthly: [
+    {m:"1월",rev:40.5,cost:42.1,cmr:-3.8},
+    {m:"2월",rev:42.6,cost:30.4,cmr:28.7},
+    {m:"3~11월(월평균)",rev:63,cost:38,cmr:40},
+    {m:"12월",rev:165.9,cost:54.1,cmr:67.4}
+  ],
+  actions: [
+    {r:1,title:"CP사 Top 5 재협상",eff:"+5~10억",diff:"중",desc:"상위 5개 CP사 115억 점유. 수수료 5%p 인하 협상 시 연 5.7억 절감. 볼륨 리베이트 구조 도입.",scope:"188억"},
+    {r:2,title:"컨텐츠개발 단가 재산정",eff:"+5~10억",diff:"중",desc:"매출 57억 / 비용 52억 / 이익 4.8억(8.4%). 이지런 단가 재산정 + 고객사별 이익 시뮬레이션. 목표 이익율 25%.",scope:"57억"},
+    {r:3,title:"진성 적자 6개사 재검토",eff:"+3~5억",diff:"고",desc:"-11.6억. 광주정보문화(-2.4억)·현대차 컨텐츠(-1.3억) 등 가격 재협상 or 사업 축소.",scope:"6개사"},
+    {r:4,title:"라이브 강사 정액제 전환",eff:"+3~5억",diff:"중",desc:"상위 20% 강사 연간 정액제 전환 시 건당 단가 10~15% 인하. 하이브리드 오프라인(37%) 이익율 직접 개선.",scope:"88억"},
+    {r:5,title:"공통비 미귀속 로직 개선",eff:"투명성",diff:"저",desc:"하이브리드 24.6억 + 이러닝 17.1억이 구조적 미귀속. 귀속 정확도 제고로 가격결정 근거 강화.",scope:"42억"},
+    {r:6,title:"BPO 인건비 배분 검증",eff:"조정",diff:"저",desc:"16개 프로젝트 12개월 균등 배분 → 실제 공수 반영 시 일부 기업 이익 재조정 가능.",scope:"15.4억"}
+  ]
+};
+
+/* ============ Team colors lookup ============ */
+const teamColor = {
+  "기업교육1팀":"#5B8DEF","기업교육2팀":"#9B7EDE","기업교육3팀":"#4ECDC4","기업교육4팀":"#F4C542","FS팀":"#FF8A5B",
+  "1팀":"#5B8DEF","2팀":"#9B7EDE","3팀":"#4ECDC4","4팀":"#F4C542","FS":"#FF8A5B"
+};
+function cmrColor(v){ if(v<0) return "#E74C3C"; if(v<20) return "#F5A623"; if(v<50) return "#9B7EDE"; if(v<70) return "#5B8DEF"; return "#4ECDC4"; }
+function fmt(v, d=2){ return Number(v).toFixed(d); }
+function eok(id){ return echarts.init(document.getElementById(id), null, {renderer:"canvas"}); }
+const axisBase = {
+  axisLine:{lineStyle:{color:"#263043"}},
+  axisTick:{lineStyle:{color:"#263043"}},
+  axisLabel:{color:"#A8B0C2",fontSize:11},
+  splitLine:{lineStyle:{color:"rgba(38,48,67,0.5)",type:"dashed"}}
+};
+const baseOpts = {
+  textStyle:{fontFamily:"Pretendard, sans-serif",color:"#E8ECF4"},
+  tooltip:{backgroundColor:"rgba(19,24,34,0.95)",borderColor:"#263043",textStyle:{color:"#E8ECF4"}},
+  grid:{top:30,right:20,bottom:30,left:60,containLabel:true}
+};
+
+/* ============ Slides ============ */
+const sections = [
+  {act:"현황", slides:[0,1,2]},
+  {act:"팀·대표 진단", slides:[3,4,5]},
+  {act:"사업·고객 원인", slides:[6,7,8,9]},
+  {act:"구조 & 액션", slides:[10,11,12,13]}
+];
+
+const slides = [
+  { // 0 Cover
+    id:"cover",
+    render: el => {
+      el.className = "slide cover";
+      el.innerHTML = `
+        <div class="big">₩816.51억</div>
+        <div class="tag">2025 비용분석 · 공헌이익 402.67억 (49.3%) · 4,791개사</div>
+        <div class="kpis">
+          <div class="kpi acc"><div class="l">Revenue</div><div class="v">816.51<span class="u">억</span></div><div class="d">확정 매출</div></div>
+          <div class="kpi"><div class="l">Direct Cost</div><div class="v">413.85<span class="u">억</span></div><div class="d">ERP+콘텐츠+BPO</div></div>
+          <div class="kpi ok"><div class="l">Contribution Margin</div><div class="v">402.67<span class="u">억</span></div><div class="d">공헌이익율 49.3%</div></div>
+          <div class="kpi warn"><div class="l">Common Cost</div><div class="v">64.48<span class="u">억</span></div><div class="d">미배분 (별도)</div></div>
+        </div>`;
+    }
+  },
+  { // 1 Overview
+    id:"ov",
+    title:"전체 현황 요약",
+    sub:"매출·비용·공헌이익 구조",
+    render: el => {
+      el.querySelector(".body").innerHTML = `
+        <div class="grid2">
+          <div class="card"><div class="h">구조 Waterfall</div><div class="hsub">매출 → 직접비 → 공헌이익 → 공통비 (억원)</div><div class="chart" id="c_ov_wf"></div></div>
+          <div class="card">
+            <div class="h">핵심 지표</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px">
+              <div class="kpi" style="padding:14px"><div class="l">공헌이익율</div><div class="v" style="color:var(--ok);font-size:32px">49.3<span class="u">%</span></div></div>
+              <div class="kpi" style="padding:14px"><div class="l">분석 기업 수</div><div class="v" style="font-size:32px">4,791<span class="u">개사</span></div></div>
+              <div class="kpi" style="padding:14px"><div class="l">직접비율</div><div class="v" style="font-size:32px;color:var(--warn)">50.7<span class="u">%</span></div></div>
+              <div class="kpi" style="padding:14px"><div class="l">공통비/매출</div><div class="v" style="font-size:32px;color:var(--ink2)">7.9<span class="u">%</span></div></div>
+            </div>
+            <div class="insights" style="margin-top:14px">
+              <strong>한 줄:</strong> 공헌이익 <strong>402.67억(49.3%)</strong>. 공통비 배분 시 영업이익 추정 <strong>338억</strong> 수준.
+            </div>
+          </div>
+        </div>`;
+      const d = DATA.totals;
+      eok("c_ov_wf").setOption({ ...baseOpts,
+        xAxis:{ ...axisBase, type:"category", data:["매출","직접비","공헌이익","공통비","세전이익(추정)"] },
+        yAxis:{ ...axisBase, type:"value", axisLabel:{...axisBase.axisLabel, formatter:"{value}억"} },
+        series:[{ type:"bar", barWidth:"45%",
+          data:[
+            {value:d.rev, itemStyle:{color:"#5B8DEF"}},
+            {value:-d.cost, itemStyle:{color:"#E74C3C"}},
+            {value:d.cm, itemStyle:{color:"#4ECDC4"}},
+            {value:-d.common, itemStyle:{color:"#F5A623"}},
+            {value:d.cm-d.common, itemStyle:{color:"#9B7EDE"}}
+          ],
+          label:{show:true,position:"top",color:"#E8ECF4",formatter:p=>p.value.toFixed(1)+"억"}
+        }],
+        tooltip:{...baseOpts.tooltip, formatter:p=>p[0].name+": "+p[0].value.toFixed(2)+"억"}
+      });
+    }
+  },
+  { // 2 Team performance
+    id:"teams",
+    title:"팀별 실적",
+    sub:"매출·공헌이익·이익율",
+    render: el => {
+      el.querySelector(".body").innerHTML = `
+        <div class="grid2">
+          <div class="card"><div class="h">팀별 매출 vs 공헌이익 (억)</div><div class="chart" id="c_team_bar"></div></div>
+          <div class="card"><div class="h">팀별 공헌이익율 (%)</div><div class="chart" id="c_team_cmr"></div></div>
+        </div>
+        <div class="insights">
+          <ul>
+            <li><strong>2팀 이익율 43.3%로 최저</strong> — 통합위탁·하이브리드·솔루션 비중 높은 영향 추정</li>
+            <li><strong>4팀·FS팀 70~86%로 건강</strong> — 단과·컨텐츠임대 등 경량 상품</li>
+            <li>1~3팀은 매출 200~260억 수준이나 이익 100~125억으로 차이 뚜렷</li>
+          </ul>
+        </div>`;
+      eok("c_team_bar").setOption({ ...baseOpts,
+        legend:{top:0,right:0,textStyle:{color:"#A8B0C2"}},
+        xAxis:{ ...axisBase, type:"category", data:DATA.teams.map(t=>t.name) },
+        yAxis:{ ...axisBase, type:"value", axisLabel:{...axisBase.axisLabel, formatter:"{value}억"} },
+        tooltip:{...baseOpts.tooltip, trigger:"axis"},
+        series:[
+          {name:"매출",type:"bar",data:DATA.teams.map(t=>t.rev), itemStyle:{color:"#5B8DEF"}},
+          {name:"공헌이익",type:"bar",data:DATA.teams.map(t=>t.cm), itemStyle:{color:"#4ECDC4"}}
+        ]
+      });
+      eok("c_team_cmr").setOption({ ...baseOpts,
+        xAxis:{ ...axisBase, type:"category", data:DATA.teams.map(t=>t.name) },
+        yAxis:{ ...axisBase, type:"value", axisLabel:{...axisBase.axisLabel, formatter:"{value}%"}, max:100 },
+        tooltip:{...baseOpts.tooltip, trigger:"axis", formatter:p=>p[0].name+": "+p[0].value.toFixed(1)+"%"},
+        series:[{ type:"bar", data:DATA.teams.map(t=>({value:t.cmr, itemStyle:{color:cmrColor(t.cmr)}})),
+          label:{show:true,position:"top",color:"#E8ECF4",formatter:p=>p.value.toFixed(1)+"%"} }]
+      });
+    }
+  },
+  { // 3 Rep Top15
+    id:"repsTop",
+    title:"영업대표 매출 Top 15",
+    sub:"매출·이익율 동시 조망",
+    render: el => {
+      el.querySelector(".body").innerHTML = `
+        <div class="grid2">
+          <div class="card"><div class="h">매출 Top 15 (억)</div><div class="chart" id="c_rep_rev"></div></div>
+          <div class="card"><div class="h">동일 대표 이익율 (%)</div><div class="chart" id="c_rep_cmr"></div></div>
+        </div>
+        <div class="insights">
+          <strong>주목:</strong> 황동현(1팀) 매출 42억·이익율 78.7% 최우수. 서정용(3팀) 매출 39.5억·이익율 27% 최저. 매출 규모와 이익율이 정비례하지 않음 — 단가 정책 편차가 원인.
+        </div>`;
+      const names = DATA.repsTop.map(r=>r.name+"("+r.team+")");
+      eok("c_rep_rev").setOption({ ...baseOpts, grid:{...baseOpts.grid,left:80},
+        xAxis:{ ...axisBase, type:"value", axisLabel:{...axisBase.axisLabel, formatter:"{value}억"} },
+        yAxis:{ ...axisBase, type:"category", data:names.slice().reverse(), axisLabel:{...axisBase.axisLabel,fontSize:10} },
+        tooltip:{...baseOpts.tooltip, trigger:"axis"},
+        series:[{type:"bar", data:DATA.repsTop.slice().reverse().map(r=>({value:r.rev, itemStyle:{color:teamColor[r.team]}}))}]
+      });
+      eok("c_rep_cmr").setOption({ ...baseOpts, grid:{...baseOpts.grid,left:80},
+        xAxis:{ ...axisBase, type:"value", axisLabel:{...axisBase.axisLabel, formatter:"{value}%"}, max:100 },
+        yAxis:{ ...axisBase, type:"category", data:names.slice().reverse(), axisLabel:{...axisBase.axisLabel,fontSize:10} },
+        tooltip:{...baseOpts.tooltip, trigger:"axis", formatter:p=>p[0].name+": "+p[0].value.toFixed(1)+"%"},
+        series:[{type:"bar", data:DATA.repsTop.slice().reverse().map(r=>({value:r.cmr, itemStyle:{color:cmrColor(r.cmr)}}))}]
+      });
+    }
+  },
+  { // 4 Rep high/low
+    id:"repsHL",
+    title:"이익율 주목 대표",
+    sub:"매출 10억+ 기준 · 저이익 🔴 / 고이익 ✅",
+    render: el => {
+      el.querySelector(".body").innerHTML = `
+        <div class="grid2">
+          <div class="card">
+            <div class="h"><span class="badge bad">저이익 🔴</span> 매출 10억+ · 이익율 30% 미만</div>
+            <div class="scroll" style="margin-top:8px">
+              <table>
+                <thead><tr><th>대표</th><th>팀</th><th class="num">기업</th><th class="num">매출(억)</th><th class="num">이익율</th><th>비고</th></tr></thead>
+                <tbody>${DATA.repsLow.map(r=>`
+                  <tr><td><strong>${r.name}</strong></td><td>${r.team}</td><td class="num">${r.n}</td><td class="num">${fmt(r.rev)}</td>
+                  <td class="num" style="color:${cmrColor(r.cmr)};font-weight:700">${fmt(r.cmr,1)}%</td><td style="font-size:11px;color:var(--ink3)">${r.note}</td></tr>`).join("")}</tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card">
+            <div class="h"><span class="badge ok">고이익 ✅</span> 매출 10억+ · 이익율 70%+</div>
+            <div class="scroll" style="margin-top:8px">
+              <table>
+                <thead><tr><th>대표</th><th>팀</th><th class="num">기업</th><th class="num">매출(억)</th><th class="num">이익율</th></tr></thead>
+                <tbody>${DATA.repsHigh.map(r=>`
+                  <tr><td><strong>${r.name}</strong></td><td>${r.team}</td><td class="num">${r.n}</td><td class="num">${fmt(r.rev)}</td>
+                  <td class="num" style="color:${cmrColor(r.cmr)};font-weight:700">${fmt(r.cmr,1)}%</td></tr>`).join("")}</tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="insights warn">
+          <strong>시사점:</strong> 4팀 대표(하예진·김성경 등)는 <strong>소규모 고객 다수</strong> 관리로 고이익. 황동현(1팀)은 <strong>대형 고객+고이익</strong> 예외. 김신정(1팀)은 광주정보 BPO 손실, 서정용(3팀)은 대형 저이익 계약 다수 — 가격 재협상 시급.
+        </div>`;
+    }
+  },
+  { // 5 Rep scatter
+    id:"repsSc",
+    title:"대표별 매출 × 이익율 분포",
+    sub:"Top 15 기준 — 버블 크기 = 공헌이익",
+    render: el => {
+      el.querySelector(".body").innerHTML = `
+        <div class="card"><div class="chart" id="c_rep_scatter"></div></div>
+        <div class="insights">
+          <strong>읽는 법:</strong> 우상단(고매출·고이익) = 최우수. 우하단(고매출·저이익) = 단가 재협상 대상. X축 매출·Y축 이익율.
+        </div>`;
+      eok("c_rep_scatter").setOption({ ...baseOpts,
+        xAxis:{ ...axisBase, type:"value", name:"매출(억)", nameTextStyle:{color:"#A8B0C2"}, axisLabel:{...axisBase.axisLabel, formatter:"{value}억"} },
+        yAxis:{ ...axisBase, type:"value", name:"이익율(%)", nameTextStyle:{color:"#A8B0C2"}, axisLabel:{...axisBase.axisLabel, formatter:"{value}%"}, max:100 },
+        tooltip:{...baseOpts.tooltip, formatter:p=>{const d=p.data; return `<strong>${d[3]}</strong> (${d[4]})<br/>매출 ${d[0]}억 / 이익율 ${d[1]}% / 공헌이익 ${d[2]}억`;}},
+        series:[{
+          type:"scatter",
+          symbolSize: d => Math.max(12, Math.sqrt(Math.abs(d[2]))*6),
+          data: DATA.repsTop.map(r=>[r.rev, r.cmr, r.cm, r.name, r.team]),
+          itemStyle:{color: p=>teamColor[p.data[4]], opacity:0.85, borderColor:"#fff",borderWidth:1},
+          label:{show:true, formatter:p=>p.data[3], position:"right", color:"#E8ECF4",fontSize:11}
+        }],
+        markLine:{silent:true, symbol:"none", lineStyle:{color:"#263043",type:"dashed"}, data:[{yAxis:50,label:{formatter:"CMR 50%",color:"#6C7689"}}]}
+      });
+    }
+  },
+  { // 6 Biz low
+    id:"bizLow",
+    title:"저이익 사업 (주의)",
+    sub:"매출비율 기준 직접비 안분",
+    render: el => {
+      el.querySelector(".body").innerHTML = `
+        <div class="grid2">
+          <div class="card"><div class="h">저이익 5개 사업 이익율</div><div class="chart" id="c_biz_low"></div></div>
+          <div class="card">
+            <div class="h">사업별 상세</div>
+            <div class="scroll" style="margin-top:6px">
+              <table>
+                <thead><tr><th>사업유형</th><th class="num">매출</th><th class="num">이익율</th><th class="num">공헌이익</th></tr></thead>
+                <tbody>${DATA.bizLow.map(b=>`
+                  <tr><td>${b.name}</td><td class="num">${fmt(b.rev)}억</td>
+                  <td class="num" style="color:${cmrColor(b.cmr)};font-weight:700">${fmt(b.cmr,1)}%</td>
+                  <td class="num">${fmt(b.cm)}억</td></tr>`).join("")}</tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="insights bad">
+          <ul>
+            <li><strong>14. 컨텐츠개발 이익율 8.4% — 사실상 BEP.</strong> 매출 57억 중 52억이 이지런 원가로 소진. 매출가 재산정 필요.</li>
+            <li><strong>15. LABS 24.5%</strong> — 상품 원가 구조 재검토 필요</li>
+            <li><strong>09. 하이브리드 순수 오프라인 37.1%</strong> — 강사료 비중 높음 (§계정과목 참조)</li>
+            <li>저이익 4개 사업 총 매출 <strong>173.71억, 평균 이익율 25.7%</strong> (전사 대비 -24%p)</li>
+          </ul>
+        </div>`;
+      eok("c_biz_low").setOption({ ...baseOpts, grid:{...baseOpts.grid,left:220},
+        xAxis:{ ...axisBase, type:"value", axisLabel:{...axisBase.axisLabel, formatter:"{value}%"}, max:60 },
+        yAxis:{ ...axisBase, type:"category", data:DATA.bizLow.map(b=>b.name).reverse(), axisLabel:{...axisBase.axisLabel,fontSize:11} },
+        tooltip:{...baseOpts.tooltip, trigger:"axis", formatter:p=>p[0].name+": "+p[0].value.toFixed(1)+"%"},
+        series:[{type:"bar", data:DATA.bizLow.slice().reverse().map(b=>({value:b.cmr, itemStyle:{color:cmrColor(b.cmr)}})),
+          label:{show:true,position:"right",color:"#E8ECF4",formatter:p=>p.value.toFixed(1)+"%"}}]
+      });
+    }
+  },
+  { // 7 Biz high + core
+    id:"bizHC",
+    title:"고이익 사업 & Core 상품",
+    sub:"규모 대비 수익 구조",
+    render: el => {
+      el.querySelector(".body").innerHTML = `
+        <div class="grid2">
+          <div class="card">
+            <div class="h"><span class="badge ok">고이익 ✅</span> 구독·법정·임대</div>
+            <div class="chart" id="c_biz_high" style="min-height:240px"></div>
+          </div>
+          <div class="card">
+            <div class="h"><span class="badge warn">🟡 Core</span> 주력 3개 상품</div>
+            <table style="margin-top:10px">
+              <thead><tr><th>사업</th><th class="num">매출</th><th class="num">이익율</th><th>비고</th></tr></thead>
+              <tbody>${DATA.bizCore.map(b=>`<tr><td>${b.name}</td><td class="num">${fmt(b.rev)}억</td>
+                <td class="num" style="color:${cmrColor(b.cmr)};font-weight:700">${fmt(b.cmr,1)}%</td>
+                <td style="font-size:11px;color:var(--ink3)">${b.note}</td></tr>`).join("")}</tbody>
+            </table>
+            <div class="insights" style="margin-top:12px">
+              <strong>01. 통합위탁 317억(50.2%)</strong> — 전체 매출의 39% · 표준 수익원. 이익율 유지·감시 최우선.
+            </div>
+          </div>
+        </div>`;
+      eok("c_biz_high").setOption({ ...baseOpts, grid:{...baseOpts.grid,left:200},
+        xAxis:{ ...axisBase, type:"value", axisLabel:{...axisBase.axisLabel, formatter:"{value}%"}, max:100 },
+        yAxis:{ ...axisBase, type:"category", data:DATA.bizHigh.map(b=>b.name).reverse(), axisLabel:{...axisBase.axisLabel,fontSize:11} },
+        tooltip:{...baseOpts.tooltip, trigger:"axis", formatter:p=>p[0].name+": "+p[0].value.toFixed(1)+"%"},
+        series:[{type:"bar", data:DATA.bizHigh.slice().reverse().map(b=>({value:b.cmr, itemStyle:{color:"#4ECDC4"}})),
+          label:{show:true,position:"right",color:"#E8ECF4",formatter:p=>p.value.toFixed(1)+"%"}}]
+      });
+    }
+  },
+  { // 8 CMR distribution
+    id:"cmrDist",
+    title:"이익율 구간별 분포",
+    sub:"3,672개사 ÷ 6구간",
+    render: el => {
+      el.querySelector(".body").innerHTML = `
+        <div class="grid2">
+          <div class="card"><div class="h">구간별 매출·공헌이익 (억)</div><div class="chart" id="c_cmr_dist"></div></div>
+          <div class="card"><div class="h">구간별 기업 수 분포</div><div class="chart" id="c_cmr_n"></div></div>
+        </div>
+        <div class="insights">
+          <ul>
+            <li><strong>매출 9.1%(74.7억)가 적자 영역</strong> — 회수 시 공헌이익 +29.1억 (이익율 8%p 개선)</li>
+            <li><strong>상위 30%(80%+) 구간은 3,018개사에 분산</strong> — 소규모 단과/구독 고객. 관리비용 대비 고수익</li>
+            <li>적자+저이익(0~20%) 142개 기업, 매출 162억 — <strong>집중 개선 대상</strong></li>
+          </ul>
+        </div>`;
+      eok("c_cmr_dist").setOption({ ...baseOpts,
+        legend:{top:0,right:0,textStyle:{color:"#A8B0C2"}},
+        xAxis:{ ...axisBase, type:"category", data:DATA.cmrDist.map(d=>d.seg) },
+        yAxis:{ ...axisBase, type:"value", axisLabel:{...axisBase.axisLabel, formatter:"{value}억"} },
+        tooltip:{...baseOpts.tooltip, trigger:"axis"},
+        series:[
+          {name:"매출",type:"bar",data:DATA.cmrDist.map(d=>d.rev),itemStyle:{color:"#5B8DEF"}},
+          {name:"공헌이익",type:"bar",data:DATA.cmrDist.map(d=>({value:d.cm, itemStyle:{color:d.cm<0?"#E74C3C":"#4ECDC4"}}))}
+        ]
+      });
+      eok("c_cmr_n").setOption({ ...baseOpts,
+        xAxis:{ ...axisBase, type:"category", data:DATA.cmrDist.map(d=>d.seg) },
+        yAxis:{ ...axisBase, type:"value", axisLabel:{...axisBase.axisLabel, formatter:"{value}개"}, type:"log" },
+        tooltip:{...baseOpts.tooltip, trigger:"axis"},
+        series:[{type:"bar",data:DATA.cmrDist.map(d=>({value:d.n, itemStyle:{color:cmrColor(d.seg==="적자"?-5:d.seg==="80%+"?85:45)}})),
+          label:{show:true,position:"top",color:"#E8ECF4"}}]
+      });
+    }
+  },
+  { // 9 Cost dist + top30
+    id:"costDist",
+    title:"비용 투입 구간별 이익율",
+    sub:"역-누진 구조 (비용 작은 기업이 이익율 높음)",
+    render: el => {
+      el.querySelector(".body").innerHTML = `
+        <div class="grid2">
+          <div class="card"><div class="h">비용 구간별 이익율 (%)</div><div class="chart" id="c_cost_cmr"></div></div>
+          <div class="card"><div class="h">구간별 매출·비용·기업수</div>
+            <table style="margin-top:10px">
+              <thead><tr><th>비용 구간</th><th class="num">기업</th><th class="num">매출</th><th class="num">비용</th><th class="num">이익율</th></tr></thead>
+              <tbody>${DATA.costDist.map(d=>`<tr><td>${d.seg}</td><td class="num">${d.n}</td>
+                <td class="num">${fmt(d.rev)}</td><td class="num">${fmt(d.cost)}</td>
+                <td class="num" style="color:${cmrColor(d.cmr)};font-weight:700">${fmt(d.cmr,1)}%</td></tr>`).join("")}</tbody>
+            </table>
+          </div>
+        </div>
+        <div class="insights bad">
+          <strong>핵심:</strong> 비용 10억+ 7개사 이익율 <strong>8.4%</strong> (전사평균의 1/6). 비용 3억+ 27개사가 전체 직접비의 48% 점유, 평균 이익율 15~26%. 소규모 고객(비용 0.1억 미만) 628개사 이익율 83% — 관리비용 대비 알짜. <strong>집중관리 대상: 비용 1억+ 88개사.</strong>
+        </div>`;
+      eok("c_cost_cmr").setOption({ ...baseOpts,
+        xAxis:{ ...axisBase, type:"category", data:DATA.costDist.map(d=>d.seg), axisLabel:{...axisBase.axisLabel,rotate:-20,fontSize:10} },
+        yAxis:{ ...axisBase, type:"value", axisLabel:{...axisBase.axisLabel, formatter:"{value}%"}, max:100 },
+        tooltip:{...baseOpts.tooltip, trigger:"axis", formatter:p=>p[0].name+": "+p[0].value.toFixed(1)+"%"},
+        series:[{type:"bar", data:DATA.costDist.map(d=>({value:d.cmr, itemStyle:{color:cmrColor(d.cmr)}})),
+          label:{show:true,position:"top",color:"#E8ECF4",formatter:p=>p.value.toFixed(1)+"%"}}]
+      });
+    }
+  },
+  { // 10 Top 30 companies
+    id:"top30",
+    title:"비용 투입 Top 30 기업",
+    sub:"집중 관리 대상 전수",
+    render: el => {
+      el.querySelector(".body").innerHTML = `
+        <div class="warning-banner">⚠ 영업대표·기업 실명 노출 — 내부 의사결정용. 외부 공유 금지.</div>
+        <div class="card" style="flex:1;padding:0;overflow:hidden">
+          <div class="scroll" style="height:100%;padding:10px 16px">
+            <table>
+              <thead><tr><th>#</th><th>고객사</th><th>팀</th><th>대표</th><th class="num">매출(억)</th><th class="num">비용(억)</th><th class="num">공헌이익</th><th class="num">이익율</th></tr></thead>
+              <tbody>${DATA.top30.map(r=>`
+                <tr style="${r.cmr<0?'background:rgba(231,76,60,0.06)':r.cmr<20?'background:rgba(245,166,35,0.04)':''}">
+                  <td style="color:var(--ink3)">${r.r}</td>
+                  <td><strong>${r.co}</strong>${r.note?` <span style="color:var(--warn);font-size:10px">${r.note}</span>`:''}</td>
+                  <td><span style="color:${teamColor[r.team]}">${r.team}</span></td>
+                  <td>${r.rep}</td>
+                  <td class="num">${fmt(r.rev)}</td>
+                  <td class="num">${fmt(r.cost)}</td>
+                  <td class="num" style="color:${r.cm<0?'#E74C3C':'#4ECDC4'}">${fmt(r.cm)}</td>
+                  <td class="num" style="color:${cmrColor(r.cmr)};font-weight:700">${r.cmr<-100?'<-100%':fmt(r.cmr,1)+'%'}</td>
+                </tr>`).join("")}</tbody>
+            </table>
+          </div>
+        </div>
+        <div class="insights" style="margin-top:10px">
+          <strong>분포:</strong> 이익율 40%+ 11개사 / 10~40% 10개사 / 10%미만·적자 <strong>9개사 (비용 72억·매출 61억)</strong>. 서정용 담당(대우건설24%·한국청소년8%·미래에셋10%) 단가 정책 편차 뚜렷.
+        </div>`;
+    }
+  },
+  { // 11 Vendors
+    id:"vendors",
+    title:"거래처 카테고리별 지출",
+    sub:"총 474억 · Top 10 ₩316억(67%)",
+    render: el => {
+      el.querySelector(".body").innerHTML = `
+        <div class="grid2">
+          <div class="card"><div class="h">카테고리별 (억)</div><div class="chart" id="c_v_cat"></div></div>
+          <div class="card"><div class="h">거래처 Top 10 (억)</div><div class="chart" id="c_v_top"></div></div>
+        </div>
+        <div class="insights">
+          <ul>
+            <li><strong>CP사 188억(35%)</strong> — 상위 5개(가람디엠씨·알엠피·캐럿·교보·에듀윌)가 114억. <strong>재협상 레버리지 최대</strong></li>
+            <li><strong>내부계열사 106억(20%)</strong> — 이지런 콘텐츠 특화. 원가 투명화 필요</li>
+            <li>라이브 강사 88억 — 상위 3사(티와이·스코프·어나더) 27억. 프리랜서→정액 계약 전환 검토</li>
+          </ul>
+        </div>`;
+      eok("c_v_cat").setOption({ ...baseOpts,
+        tooltip:{...baseOpts.tooltip, trigger:"item", formatter:p=>p.name+": "+p.value.toFixed(1)+"억 ("+p.percent+"%)"},
+        series:[{type:"pie", radius:["45%","75%"], center:["50%","50%"],
+          data:DATA.vendorCat.map((v,i)=>({value:v.amt, name:v.name,
+            itemStyle:{color:["#5B8DEF","#9B7EDE","#4ECDC4","#F4C542","#FF8A5B","#E74C3C","#6C7689","#A8B0C2","#263043","#131822"][i]}})),
+          label:{color:"#E8ECF4",fontSize:11, formatter:"{b}\n{d}%"},
+          labelLine:{lineStyle:{color:"#263043"}}
+        }]
+      });
+      eok("c_v_top").setOption({ ...baseOpts, grid:{...baseOpts.grid,left:130},
+        xAxis:{ ...axisBase, type:"value", axisLabel:{...axisBase.axisLabel, formatter:"{value}억"} },
+        yAxis:{ ...axisBase, type:"category", data:DATA.vendorTop.map(v=>v.name).reverse(), axisLabel:{...axisBase.axisLabel,fontSize:11} },
+        tooltip:{...baseOpts.tooltip, trigger:"axis", formatter:p=>p[0].name+": "+p[0].value.toFixed(1)+"억"},
+        series:[{type:"bar",
+          data:DATA.vendorTop.slice().reverse().map(v=>({value:v.amt,
+            itemStyle:{color: v.cat==="CP사"?"#5B8DEF": v.cat==="내부계열사"?"#9B7EDE": v.cat==="라이브"?"#F4C542": "#6C7689"}})),
+          label:{show:true,position:"right",color:"#E8ECF4",formatter:p=>p.value.toFixed(1)+"억"}
+        }]
+      });
+    }
+  },
+  { // 12 Accounts
+    id:"accts",
+    title:"계정과목별 비용 구조",
+    sub:"직접비 469억 + 공통비 64.5억",
+    render: el => {
+      el.querySelector(".body").innerHTML = `
+        <div class="grid2">
+          <div class="card"><div class="h">직접비 469억 (RAW)</div><div class="chart" id="c_a_direct"></div></div>
+          <div class="card"><div class="h">공통비 64.5억 (미배분)</div><div class="chart" id="c_a_common"></div></div>
+        </div>
+        <div class="insights warn">
+          <ul>
+            <li><strong>공통비 하이브리드러닝 24.6억</strong> = 고객사 귀속 실패한 라이브 강사료 추정. 집행·매출 매칭 룰 재검토 필요</li>
+            <li><strong>공통비 이러닝원가 17.1억</strong> = 강사풀·위탁사 등 구조적 미귀속. 일부는 부서운영비 재분류 가능</li>
+            <li>광고판촉비 7억·구독원가 5.5억 = 영업 투자 → <strong>성과 측정 필수</strong></li>
+          </ul>
+        </div>`;
+      eok("c_a_direct").setOption({ ...baseOpts,
+        tooltip:{...baseOpts.tooltip, trigger:"item", formatter:p=>p.name+": "+p.value.toFixed(1)+"억 ("+p.percent+"%)"},
+        series:[{type:"pie",radius:["0%","65%"],
+          data:DATA.acctDirect.map((a,i)=>({value:a.amt, name:a.name,
+            itemStyle:{color:["#5B8DEF","#9B7EDE","#4ECDC4","#F4C542","#E74C3C"][i]}})),
+          label:{color:"#E8ECF4",fontSize:11, formatter:"{b}\n{c}억 ({d}%)"}
+        }]
+      });
+      eok("c_a_common").setOption({ ...baseOpts, grid:{...baseOpts.grid,left:120},
+        xAxis:{ ...axisBase, type:"value", axisLabel:{...axisBase.axisLabel, formatter:"{value}억"} },
+        yAxis:{ ...axisBase, type:"category", data:DATA.acctCommon.map(a=>a.name).reverse(), axisLabel:{...axisBase.axisLabel,fontSize:11} },
+        tooltip:{...baseOpts.tooltip, trigger:"axis"},
+        series:[{type:"bar", data:DATA.acctCommon.slice().reverse().map(a=>({value:a.amt,
+          itemStyle:{color:a.amt>20?"#E74C3C":a.amt>10?"#F5A623":"#6C7689"}})),
+          label:{show:true,position:"right",color:"#E8ECF4",formatter:p=>p.value.toFixed(1)+"억"}}]
+      });
+    }
+  },
+  { // 13 Actions (6 cards)
+    id:"actions",
+    title:"비용 절감 실행 권고",
+    sub:"우선순위별 6개 액션 · 합산 잠재 +16~30억",
+    render: el => {
+      el.querySelector(".body").innerHTML = `
+        <div class="actgrid">${DATA.actions.map(a=>`
+          <div class="actcard">
+            <div class="rank">${a.r}</div>
+            <div class="tt">${a.title}</div>
+            <div class="eff">${a.eff}</div>
+            <div class="desc">${a.desc}</div>
+            <div class="tag"><span>범위 ${a.scope}</span><span>난이도 ${a.diff}</span></div>
+          </div>`).join("")}</div>
+        <div class="insights ok" style="border-left-color:var(--gold)">
+          <strong>합산 잠재 효과: 연 16~30억 공헌이익 개선</strong> · 현재 402억 대비 <strong>+4~7%p</strong> 가능.
+          1순위 CP 재협상 + 2순위 컨텐츠개발 단가 재산정 → <strong>연 10~20억</strong> 즉시 확보 가능.
+        </div>`;
+    }
+  }
+];
+
+/* ============ Render & Navigation ============ */
+const stage = document.getElementById("stage");
+const dotsWrap = document.getElementById("dots");
+const actsWrap = document.getElementById("acts");
+const idxEl = document.getElementById("idx");
+let cur = 0;
+
+// Build slide DOM
+slides.forEach((s,i)=>{
+  const el = document.createElement("div");
+  el.className = "slide";
+  el.id = "slide_"+i;
+  if(s.id!=="cover"){
+    el.innerHTML = `<h1><span class="no">${String(i+1).padStart(2,"0")}</span>${s.title}</h1><div class="sub">${s.sub||""}</div><div class="body"></div>`;
+  }
+  stage.appendChild(el);
+  const dot = document.createElement("div");
+  dot.className="dot"; dot.title = s.title||s.id;
+  dot.onclick = ()=>go(i);
+  dotsWrap.appendChild(dot);
+});
+
+// Build section acts
+sections.forEach((sec, si)=>{
+  const a = document.createElement("div");
+  a.className = "act";
+  a.innerHTML = `<span class="act-act">${String(si+1).padStart(2,"0")}</span>${sec.act}`;
+  a.onclick = ()=>go(sec.slides[0]);
+  a.dataset.slides = sec.slides.join(",");
+  actsWrap.appendChild(a);
+});
+
+const renderedSet = new Set();
+function go(i){
+  if(i<0||i>=slides.length) return;
+  cur = i;
+  document.querySelectorAll(".slide").forEach((el,idx)=>el.classList.toggle("active", idx===i));
+  document.querySelectorAll(".dot").forEach((el,idx)=>el.classList.toggle("on", idx===i));
+  document.querySelectorAll(".act").forEach(a=>{
+    const ss = a.dataset.slides.split(",").map(Number);
+    a.classList.toggle("on", ss.includes(i));
+  });
+  idxEl.textContent = (i+1)+" / "+slides.length;
+  if(!renderedSet.has(i)){
+    slides[i].render(document.getElementById("slide_"+i));
+    renderedSet.add(i);
+  }
+  // resize all charts in active slide (fixes 0-width init)
+  setTimeout(()=>{
+    document.querySelectorAll("#slide_"+i+" .chart").forEach(c=>{
+      const inst = echarts.getInstanceByDom(c);
+      if(inst) inst.resize();
+    });
+  }, 50);
+}
+document.getElementById("prev").onclick = ()=>go(cur-1);
+document.getElementById("next").onclick = ()=>go(cur+1);
+document.addEventListener("keydown", e=>{
+  if(e.key==="ArrowRight"||e.key===" "||e.key==="PageDown") { e.preventDefault(); go(cur+1); }
+  else if(e.key==="ArrowLeft"||e.key==="PageUp") { e.preventDefault(); go(cur-1); }
+  else if(e.key==="Home") go(0);
+  else if(e.key==="End") go(slides.length-1);
+  else if(/^[0-9]$/.test(e.key)) {
+    const n = parseInt(e.key);
+    const sec = sections[n-1]; if(sec) go(sec.slides[0]);
+  }
+});
+window.addEventListener("resize", ()=>{
+  document.querySelectorAll("#slide_"+cur+" .chart").forEach(c=>{
+    const inst = echarts.getInstanceByDom(c);
+    if(inst) inst.resize();
+  });
+});
+go(0);
+</script>
+</body>
+</html>

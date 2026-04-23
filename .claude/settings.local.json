@@ -17,7 +17,9 @@
       "Bash(python -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('keys:', list\\(d.keys\\(\\)\\)\\); print\\('last session:', d['sessions'][-1]\\)\")",
       "Bash(python -c \"import json,sys; r=json.load\\(sys.stdin\\); [print\\(f\\\\\"{m['id']:50s} | tier={m['tier']:9s} | scorer={m['scorer']['mode']:16s} | status={m['status']}\\\\\"\\) for m in r['metrics']]\")",
       "Bash(npx tsc *)",
-      "Bash(node -e \"const a=require\\('/tmp/agg-baseline.json'\\); const r=a.aggregates.filter\\(x=>x.metricId==='ace.angle_novelty' && !x.stratum\\); console.log\\(JSON.stringify\\(r,null,2\\)\\);\")"
+      "Bash(node -e \"const a=require\\('/tmp/agg-baseline.json'\\); const r=a.aggregates.filter\\(x=>x.metricId==='ace.angle_novelty' && !x.stratum\\); console.log\\(JSON.stringify\\(r,null,2\\)\\);\")",
+      "WebSearch",
+      "WebFetch(domain:claude.ai)"
     ]
   }
 }

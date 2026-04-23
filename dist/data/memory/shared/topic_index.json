@@ -1,6 +1,38 @@
 {
   "topics": [
     {
+      "id": "topic_092",
+      "title": "2025 비용분석 HTML 슬라이드 보고서",
+      "grade": "A",
+      "status": "open",
+      "phase": "framing",
+      "hold": null,
+      "created": "2026-04-23",
+      "controlPath": "topics/topic_092",
+      "reportPath": "reports/2026-04-23_cost-report-2025-html",
+      "reportFiles": [],
+      "published": false,
+      "path": "topics/topic_092"
+    },
+    {
+      "id": "topic_091",
+      "title": "Vera Claude Design AI 웹 호출 활용 방법",
+      "status": "suspended",
+      "grade": "A",
+      "phase": "framing",
+      "hold": {
+        "heldAt": "2026-04-23T05:30:00.000Z",
+        "heldAtPhase": "framing",
+        "reason": "T1(Vera 영역) 실측 완료 — 채택 방향 합의(1회성 시각 템플릿 생성기로 한정). T2(Arki 아키텍처 영역) 실측 + framing 박제 + child 토픽 분기는 다음 세션에서 재개. Master 급한 일 우선."
+      },
+      "created": "2026-04-23",
+      "controlPath": "topics/topic_091",
+      "reportPath": "reports/2026-04-23_vera-claude-design-ai-integration",
+      "reportFiles": [],
+      "published": false,
+      "path": "topics/topic_091"
+    },
+    {
       "id": "topic_090",
       "title": "PD-023 P4/P5 — compute-signature-metrics + dashboard 3-tier + finalize hook 등록",
       "status": "completed",
@@ -11,7 +43,9 @@
       "created": "2026-04-23",
       "controlPath": "topics/topic_090",
       "reportPath": "reports/2026-04-23_pd023-p4-p5-dashboard-hook",
-      "reportFiles": ["dev_rev1.md"],
+      "reportFiles": [
+        "dev_rev1.md"
+      ],
       "published": false,
       "path": "topics/topic_090"
     },
@@ -1776,5 +1810,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-23T03:26:33.889Z"
+  "lastUpdated": "2026-04-23T04:51:58.067Z"
 }
