@@ -1,6 +1,42 @@
 {
   "feedbackLog": [
     {
+      "id": "MF-075",
+      "date": "2026-04-23",
+      "session": "session_082",
+      "topic": "pd023-self-scores-thin-impl",
+      "feedback": "Arki — 설계 시 구조화·하드코딩·효율성·확장성 4축 자가점검 루틴 박음. 1차 후 자가검토 수정이 기본 로직.",
+      "status": "resolved",
+      "statusNote": "D-063 + arki_memory.selfAuditProtocol 박음. ROI/시간축 라벨 의무화. 12차까지 운영, 38 발견."
+    },
+    {
+      "id": "MF-076",
+      "date": "2026-04-23",
+      "session": "session_082",
+      "topic": "pd023-self-scores-thin-impl",
+      "feedback": "Riki 의존 금지 — Arki가 100% 완벽한 산출물 구조화. 설계 재검토는 회수비용 대비 무시 가능.",
+      "status": "resolved",
+      "statusNote": "Arki 자가감사 12라운드 운영. 단 Riki cross-review에서 추가 3건 보강 — Arki 자가감사+Riki 검토 병행 원칙 박제."
+    },
+    {
+      "id": "MF-077",
+      "date": "2026-04-23",
+      "session": "session_082",
+      "topic": "pd023-self-scores-thin-impl",
+      "feedback": "Fin 페르소나 동의 — 자가채점은 발언 종료 시 간략히. 본업은 발언 자체.",
+      "status": "resolved",
+      "statusNote": "Spec 1.(a)에 박음. 발언 끝 3-6줄 YAML, core 1-2개 의무, default=직전 값. 별도 phase 없음."
+    },
+    {
+      "id": "MF-078",
+      "date": "2026-04-23",
+      "session": "session_082",
+      "topic": "pd023-self-scores-thin-impl",
+      "feedback": "G6 Grade 분포 의무 — 토픽 기준 우선, 안 되면 모든 등급 점검. 구현 세션은 Dev/Ace만.",
+      "status": "resolved",
+      "statusNote": "G6 Tier A(5토픽 grade≥2종) → B(30세션 모든 grade ≥1) → C(60세션 부분평가) 순차 trigger 채택. registry.metric.applicableTopicTypes/participationExpectedTopicTypes 신설로 implementation 토픽 발언 비대칭 정식 처리."
+    },
+    {
       "id": "MF-053",
       "date": "2026-04-22",
       "session": "session_078",

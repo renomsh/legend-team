@@ -771,3 +771,14 @@
 [2026-04-23T00:44:42.050Z] [sync-system-state] lastSession=session_081 openTopics=3 recentDecisions=5 deferrals=19
 [2026-04-23T00:44:44.290Z] [compute-growth] Phase 1 ok. sessions=1 newDatapoints=12 totalDatapoints=1617 pendingLag=13
 [2026-04-23T00:44:46.362Z] [compute-dashboard] 완료 — 80개 세션, 3개 경보
+[2026-04-23T03:03:50.768Z] [checklist] [INFO] reports: 1 file(s) on disk, none registered in topic_index
+[2026-04-23T03:03:50.770Z] [checklist] [INFO] decision_ledger: 1 decision(s) recorded for session_082
+[2026-04-23T03:03:50.771Z] [checklist] [INFO] topic_index: topic found: topic_088 (design-complete)
+[2026-04-23T03:03:50.772Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-23T03:03:50.773Z] [checklist] [INFO] master_feedback: 4 feedback entry(ies) recorded
+[2026-04-23T03:03:50.773Z] [session-log] [INFO] END session_082 | topic: pd023-self-scores-thin-impl | duration: 119m
+[2026-04-23T03:03:53.109Z] [L2-writer] wrote C:\Projects\legend-team\topics\topic_088\session_contributions\session_082.md | turns=0 decisions=1
+[2026-04-23T03:03:55.256Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_088\context_brief.md | sessions=1 size=656B
+[2026-04-23T03:04:03.648Z] [sync-system-state] lastSession=session_082 openTopics=3 recentDecisions=5 deferrals=23
+[2026-04-23T03:04:06.062Z] [compute-growth] Phase 1 ok. sessions=1 newDatapoints=12 totalDatapoints=1629 pendingLag=12
+[2026-04-23T03:04:08.271Z] [compute-dashboard] 완료 — 81개 세션, 4개 경보

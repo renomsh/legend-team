@@ -1,6 +1,18 @@
 {
-  "generatedAt": "2026-04-23T00:44:46.993Z",
+  "generatedAt": "2026-04-23T03:04:08.952Z",
   "topics": [
+    {
+      "id": "topic_088",
+      "title": "PD-023 Dev 얇은 구현 (self_scores.jsonl + 훅 + 대시보드 카드)",
+      "status": "design-complete",
+      "created": "2026-04-23",
+      "reportPath": "reports/2026-04-23_pd023-self-scores-thin-impl",
+      "reportFiles": [],
+      "published": false,
+      "outcome": null,
+      "note": "PD-023 canonical spec locked at arki_rev1.md — Dev 인계 대기. 12라운드 자가감사 + Fin/Riki cross-review.",
+      "masterDecisions": []
+    },
     {
       "id": "topic_087",
       "title": "nD-060 Phase 2 — consensus 채점 인프라",

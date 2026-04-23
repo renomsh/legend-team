@@ -2738,8 +2738,179 @@
       ],
       "grade": "A",
       "note": "D-062 확정: 자가평가-외부평가 공존 원칙 + 학습축 자가평가 MVP (28지표, 3뷰 추이) | 28 signature 지표: Ace 4 / Arki 3 / Fin 3 / Riki 4 / Dev 4 / Vera 4 / Edi 3 / Nova 3 (즉시 21 / 지연 7) | 집계 3뷰: 전체 평균 / 최근 10개 평균 / 최근 3개 평균 (추이 가시화) | Nova 집계 특례: 호출 세션 기반 | Riki 자기 부정 감사 — 정교화 7/8층 자가 철회 (담합 3축·3단 경보·2-track UI·동적 calibration·pair 프로브·rater_bias·post_hoc_incidents) | 외부 평가자 agent (d) Fin 감사로 기각 — 같은 베이스 모델 외부성 구조적 허상 | PD-023 신규: 학습축 자가평가 MVP 구현 (self_scores.jsonl · self-score-collect 훅 · compute-growth 분기 · 대시보드 역할 카드 8개) | PD-024 신규: Phase 2 consensus 교차채점 본체 재개 (resolveCondition: 결과품질축·판단일치축 붙은 후 편향이 체계적으로 드러나면) | 4축 프레임 공식 등록: 결과품질 / 판단일치 / 실행전환 / 학습축"
+    },
+    {
+      "sessionId": "session_082",
+      "topicSlug": "pd023-self-scores-thin-impl",
+      "topic": "PD-023 Dev 얇은 구현 (self_scores.jsonl + 훅 + 대시보드 카드)",
+      "startedAt": "2026-04-23T01:05:00.000Z",
+      "closedAt": "2026-04-23T02:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "decisions": [
+        "10차 spec 전체 박음 기각 — PD-023/025/026/027 4-PD 분할 채택",
+        "Arki 자가감사 4차원 루틴 + ROI/시간축 라벨 의무화",
+        "자가채점은 발언 종료 시 3-6줄 YAML, 본업은 발언 자체",
+        "G6 Acceptance Tier A(5토픽 grade≥2종) → B(30세션 모든 grade ≥1) → C(60세션 부분평가) 순차",
+        "implementation 토픽 발언 비대칭 정식 처리 (applicableTopicTypes/participationExpectedTopicTypes)"
+      ],
+      "agentsCompleted": [
+        "ace",
+        "nova",
+        "ace",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "nova",
+          "turnIdx": 1,
+          "phase": "speculative-input",
+          "recallReason": "post-master",
+          "splitReason": "nova-axis-redesign"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 2,
+          "phase": "synthesis",
+          "recallReason": "post-nova"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 3,
+          "phase": "structural-analysis"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 4,
+          "phase": "self-audit",
+          "recallReason": "post-master",
+          "splitReason": "audit-round-2"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 5,
+          "phase": "self-audit",
+          "recallReason": "post-master",
+          "splitReason": "audit-round-3"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 6,
+          "phase": "self-audit",
+          "recallReason": "post-master",
+          "splitReason": "audit-round-4-hardcoding"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 7,
+          "phase": "self-audit",
+          "recallReason": "post-master",
+          "splitReason": "audit-round-5-extensibility"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 8,
+          "phase": "self-audit",
+          "recallReason": "post-master",
+          "splitReason": "audit-round-6-protocol-formalization"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 9,
+          "phase": "self-audit",
+          "recallReason": "post-master",
+          "splitReason": "audit-round-7-completeness"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 10,
+          "phase": "self-audit",
+          "recallReason": "post-master",
+          "splitReason": "audit-round-8-ux-uncertainty"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 11,
+          "phase": "self-audit",
+          "recallReason": "post-master",
+          "splitReason": "audit-round-9-anchoring-shadow-diff"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 12,
+          "phase": "self-audit",
+          "recallReason": "post-master",
+          "splitReason": "audit-round-10-context-goodhart"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 13,
+          "phase": "self-audit",
+          "recallReason": "post-master",
+          "splitReason": "audit-round-11-forward-compat-g6-rollback"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 14,
+          "phase": "synthesis",
+          "recallReason": "post-master",
+          "splitReason": "roi-classification-pd-split"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 15,
+          "phase": "self-audit",
+          "recallReason": "post-master",
+          "splitReason": "audit-round-12-pd-integration"
+        },
+        {
+          "role": "fin",
+          "turnIdx": 16,
+          "phase": "audit",
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 17,
+          "phase": "risk-review",
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 18,
+          "phase": "synthesis",
+          "recallReason": "post-master"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 19,
+          "phase": "compile"
+        }
+      ],
+      "grade": "A",
+      "note": "Arki 자가감사 12라운드 운영 — 38 발견 (MUST_NOW 18 / MUST_BY_N=10 8 / MUST_BY_N=30 4 / SHOULD 5 / NICE 3 / DEFER 0) | Riki cross-review에서 Arki 미발견 3건 보강 (default 인플레 / forward-compat nothing-burger / P0 type race) — Riki 무용화 X 박제 | Nova 평가축 본인 수용 + 100점 환산 통일 (29지표) | PD-023 canonical spec arki_rev1.md 고정 (12 sections, 11 TS interfaces, 22 error codes) | Phase 분할: P0a single-dev → P0b parallel(5) → P1 → P2 parallel(2) → P3 → P4 parallel(3) → P5 | PD-027 신규 (compute incremental — Fin 권고)"
     }
   ],
-  "lastUpdated": "2026-04-23T00:44:30.415Z",
+  "lastUpdated": "2026-04-23T03:03:51.174Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

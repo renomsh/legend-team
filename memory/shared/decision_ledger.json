@@ -1,6 +1,40 @@
 {
   "decisions": [
     {
+      "id": "D-063",
+      "date": "2026-04-23",
+      "session": "session_082",
+      "topic": "pd023-self-scores-thin-impl",
+      "owningTopicId": "topic_088",
+      "scopeCheck": "PD-023 MUST_NOW spec 고정 + Arki 자가감사 루틴 박음 + PD-025/026/027 분할 등록",
+      "axis": "PD-023 학습축 자가평가 MVP — 얇은 구현 spec 확정 (12차 자가감사 + Fin/Riki/Ace 통합)",
+      "decision": "(1) PD-023 canonical spec arki_rev1.md 고정 — 29지표×100점×3뷰×8역할 카드 + Tier1/2/3 dashboard + forward-compat 슬롯. (2) Arki 자가감사 루틴 공식화 — 4차원(구조화·하드코딩·효율성·확장성) × min 3 라운드 × ROI/시간축 라벨(MUST_NOW/MUST_BY_N=10/MUST_BY_N=30/SHOULD/NICE/DEFER). 종결선언 금지어. Riki 검토 필수 유지. (3) PD-023/025/026/027 4-PD 분할 + dependsOn + resolveCondition 명시. (4) registry.metric에 applicableTopicTypes/participationExpectedTopicTypes 신설 — implementation 토픽 특수 처리. (5) G6 Acceptance Tier A(5토픽 grade≥2종) → B(30세션 grade A/B/C 각 ≥1) → C(60세션 부분평가) 순차 trigger. (6) 자가채점은 발언 종료 시 3-6줄 YAML, core 1-2개 의무, default=직전 세션 값, 본업은 발언 자체.",
+      "value": "Master 박은 ROI 우선 원칙(feedback_pragmatic_weapon_not_art) 보존하며 12차 누적 spec을 PD 4분할로 over-engineering 차단. Arki 자가감사 루틴이 미래 모든 Grade A/S 토픽에서 사전 spec drift 방지 자산화. Riki cross-review 가치 박제 — Arki 12차 자가감사도 못 잡은 3건(default 인플레/forward-compat nothing-burger/P0 type race) 보강. implementation 토픽 발언 비대칭 정식 처리. 자가채점 페르소나 본업 보호.",
+      "rejectedAlternatives": [
+        {
+          "option": "10차 spec 전체를 PD-023에 박음",
+          "rejectedBy": "master",
+          "reason": "얇은 구현 정의 위반, ROI 원칙 미달, Dev 1세션 불가능",
+          "tagger": "ace",
+          "validatedOutcome": null
+        },
+        {
+          "option": "G6 5세션 단일 Grade 평가",
+          "rejectedBy": "master",
+          "reason": "sample bias 위험. 토픽 기준 + fallback 다층 trigger 채택",
+          "tagger": "riki",
+          "validatedOutcome": null
+        },
+        {
+          "option": "자가채점을 별도 phase로 분리",
+          "rejectedBy": "master",
+          "reason": "역할 페르소나 본업 훼손. 발언 종료 시 부산물로 처리",
+          "tagger": "fin",
+          "validatedOutcome": null
+        }
+      ]
+    },
+    {
       "id": "D-060",
       "date": "2026-04-22",
       "session": "session_077",

@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_081",
-  "nextSessionId": "session_082",
+  "lastSessionId": "session_082",
+  "nextSessionId": "session_083",
   "currentVersion": "v1.54",
   "openTopics": [
     {
@@ -27,6 +27,12 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-063",
+      "date": "2026-04-23",
+      "axis": "PD-023 학습축 자가평가 MVP — 얇은 구현 spec 확정 (12차 자가감사 + Fin/Riki/Ace 통합)",
+      "summary": "Master 박은 ROI 우선 원칙(feedback_pragmatic_weapon_not_art) 보존하며 12차 누적 spec을 PD 4분할로 over-engineering 차단. Arki 자가감사 루틴이 미래 모든 Grade A/S 토픽에서 사전 spec drift 방지 자산화. Riki cross-review 가치 박제 — Arki 12차 자가감사도 못 잡은 3건(default 인플레/forward-compat nothing-burger/P0 type race) 보강. implementation 토픽 발언 비대칭 정식 처리. 자가채점 페르소나 본업 보호."
+    },
+    {
       "id": "D-062",
       "date": "2026-04-23",
       "axis": "자기평가-외부평가 공존 원칙 + 학습축 자가평가 MVP 착지 (Phase 2 consensus 본체 보류)",
@@ -49,15 +55,52 @@
       "date": "2026-04-22",
       "axis": "토큰 측정 정본 지표 재정의 + 외부 앵커 cross-check 의무 원칙 신설",
       "summary": "session_066/067/068 폐쇄루프 허위검증 사고 방지 원칙 박제. 128배 괴리가 오류가 아닌 정의 불일치임을 규명해 Master 신뢰 회복. Max 구독 실결제 기준 대시보드로 전환해 Master 실제 경험과 정합. cache 히트율 93.7%라는 구조적 특성을 제거하지 않고 보조 지표로 보존해 효율성 트래킹 유지."
-    },
-    {
-      "id": "D-058",
-      "date": "2026-04-22",
-      "axis": "Dispatcher-Worker 오케스트레이션 — Sonnet 메인 + Opus 서브에이전트 구조 확정 (Grade A)",
-      "summary": "Grade A 세션 비용 ~75% 절감(directional). 역할 발언은 Opus 품질 유지. Probe 3건(라우팅·품질·스킬 상속) 실측 통과. G1(write 계약)·G3(RED→GREEN) 검증 완료. 메인 Sonnet의 빠른 응답성으로 세션 wall-time 단축. 저마찰·N4 비전 로드맵과 정합."
     }
   ],
   "pendingDeferrals": [
+    {
+      "id": "PD-023",
+      "fromSession": "session_082",
+      "fromTopic": "pd023-self-scores-thin-impl",
+      "item": "Dev 얇은 구현 — 학습축 자가평가 MVP 본체 (29지표×100점×3뷰×8역할 카드 + Tier1/2/3 dashboard + forward-compat 슬롯). canonical spec: reports/2026-04-23_pd023-self-scores-thin-impl/arki_rev1.md",
+      "status": "pending",
+      "resolveCondition": "topic_088 closed + arki_rev1.md Phase P0a~P5 게이트 G0~G5 전 통과",
+      "dependsOn": []
+    },
+    {
+      "id": "PD-025",
+      "fromSession": "session_082",
+      "fromTopic": "pd023-self-scores-thin-impl",
+      "item": "Self-rating 품질 + Goodhart 방어 (quarantine enforcement / inflation·anchoring·Goodhart detector / retroactive cascade / causal DAG / registry diff viewer)",
+      "status": "pending",
+      "resolveCondition": "PD-023 G6 통과 + 10세션 누적 self_scores.jsonl + Master inflation/anchoring 신호 1건 이상 감지",
+      "dependsOn": [
+        "PD-023"
+      ]
+    },
+    {
+      "id": "PD-026",
+      "fromSession": "session_082",
+      "fromTopic": "pd023-self-scores-thin-impl",
+      "item": "운영 hygiene + Validity (validity matrix / retirement suggestor / rater reliability / axis balance enforcement)",
+      "status": "pending",
+      "resolveCondition": "PD-025 통과 + 30세션 누적 + (4축 중 추가 축 지표 도입 토픽 발생 OR Master가 retirement 후보 검토 요청)",
+      "dependsOn": [
+        "PD-023",
+        "PD-025"
+      ]
+    },
+    {
+      "id": "PD-027",
+      "fromSession": "session_082",
+      "fromTopic": "pd023-self-scores-thin-impl",
+      "item": "Compute incremental layer / cache (Fin 권고)",
+      "status": "pending",
+      "resolveCondition": "self_scores.jsonl ≥ 100세션 + compute SLA > 2초 3회 발생",
+      "dependsOn": [
+        "PD-023"
+      ]
+    },
     {
       "id": "PD-004",
       "fromSession": "session_015",
@@ -231,5 +274,5 @@
       "note": "D-058 확정. opus-dispatcher 스킬 + dispatch_config.json + 에이전트 정의 4종(role-ace/arki/fin/riki.md) 구현. G1(write 계약)·G3(RED→GREEN) 통과. auto-model-switch 스킬 폐기."
     }
   ],
-  "lastUpdated": "2026-04-23T00:44:42.049Z"
+  "lastUpdated": "2026-04-23T03:04:03.647Z"
 }

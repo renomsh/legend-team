@@ -261,7 +261,7 @@
       "actionRule": "스키마 설계 시 '이 규칙으로 정보 손실이 발생하면 어디서 복원 가능한가'를 반드시 검토. 복원 포인트 없으면 구조 보강."
     }
   ],
-  "lastUpdated": "2026-04-22",
+  "lastUpdated": "2026-04-23T01:30:00.000Z",
   "lessonLog": [
     {
       "date": "2026-04-22",
@@ -269,5 +269,66 @@
       "topic": "growth-metrics-board-design",
       "lesson": "자기감사 2회로 시간축(지연채점·Provenance·QA) 결함 발견. 1차는 역할 확장성 축, 2차는 시간축. 축 순회 체크리스트 필요: 역할확장·스케일·시간축·관측자효과·내부일관성·메타·기본환경변화. 설계는 단일축 최적화 시 다른 축 사각지대 발생 — Master 반복 압박 질문으로 강제 전환 효과적."
     }
-  ]
+  ],
+  "selfAuditProtocol": {
+    "installedInSession": "session_082",
+    "installedByDecision": "D-063",
+    "dimensions": [
+      "structuration",
+      "hardcoding",
+      "efficiency",
+      "extensibility"
+    ],
+    "minIssuesPerDimension": 3,
+    "mandatoryRounds": 3,
+    "deliveryRequiresROILabels": true,
+    "labelsAllowed": [
+      "MUST_NOW",
+      "MUST_BY_N=10",
+      "MUST_BY_N=30",
+      "SHOULD",
+      "NICE",
+      "DEFER"
+    ],
+    "scopeDriftCheck": "Nth차 누적 spec이 토픽 원래 정의 N배 초과 시 Ace alert + PD 분할 제안",
+    "terminationCriteria": "Nth차 발견 1개 이하 + 모든 발견 NICE/DEFER + Master 또는 Ace 승인",
+    "prohibitedPhrases": [
+      "더 깎을 곳 없습니다",
+      "문제 없습니다"
+    ],
+    "masterPressureSemantics": "축 전환 요청 (feedback_arki_self_audit_on_pressure 준용)",
+    "rikiDelegationCheck": "Arki는 100% 잡으려 노력. 단 Riki 무용화 X — Arki 자가감사 후에도 Riki 검토 필수 (session_082 Riki cross-review 3건 보강 사례)",
+    "deliveryFormat": "Nth차 감사 — 발견 N개 / 각 축 최소 3지점 검사 / ROI 라벨 의무 / 미발견 축은 No issue at this dimension 명시",
+    "pastAudits": [
+      {
+        "sessionId": "session_082",
+        "topicId": "topic_088",
+        "rounds": 12,
+        "totalFindings": 38,
+        "distribution": {
+          "MUST_NOW": 18,
+          "MUST_BY_N=10": 8,
+          "MUST_BY_N=30": 4,
+          "SHOULD": 5,
+          "NICE": 3,
+          "DEFER": 0
+        },
+        "perDimension": {
+          "structuration": 14,
+          "hardcoding": 7,
+          "efficiency": 9,
+          "extensibility": 8
+        },
+        "rikiCrossReviewBoosts": 3,
+        "terminationReason": "Master approval after round 12 + diminishing returns confirmed",
+        "scopeDriftRatio": 5,
+        "pdSplit": [
+          "PD-023",
+          "PD-025",
+          "PD-026",
+          "PD-027"
+        ]
+      }
+    ]
+  }
 }

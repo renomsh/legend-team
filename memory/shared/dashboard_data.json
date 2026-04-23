@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-23T00:44:46.360Z",
-  "totalSessions": 80,
+  "generatedAt": "2026-04-23T03:04:08.266Z",
+  "totalSessions": 81,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.28,
+    "avgMasterTurns": 16.36,
     "avgCacheHitRate": 0.9294,
-    "cacheSampleSize": 54,
-    "cacheSampleTotal": 80,
+    "cacheSampleSize": 55,
+    "cacheSampleTotal": 81,
     "avgAdoptionRate": 0,
-    "totalDecisions": 62,
+    "totalDecisions": 63,
     "gradeDistribution": {
-      "S": 25,
+      "S": 26,
       "A": 16,
       "B": 28,
       "C": 11
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 35,
-    "totalCostUSD": 674.1613,
-    "avgCostPerSession": 8.9888,
-    "costSampleSize": 75
+    "turnBasedSessions": 36,
+    "totalCostUSD": 681.1543,
+    "avgCostPerSession": 8.9626,
+    "costSampleSize": 76
   },
   "sessions": [
     {
@@ -2947,12 +2947,67 @@
         "messageCount": 114
       },
       "sessionCostUSD": 10.2855
+    },
+    {
+      "sessionId": "session_082",
+      "topicSlug": "pd023-self-scores-thin-impl",
+      "topic": "PD-023 Dev 얇은 구현 (self_scores.jsonl + 훅 + 대시보드 카드)",
+      "startedAt": "2026-04-23T01:05:00.000Z",
+      "closedAt": "2026-04-23T02:00:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-063"
+      ],
+      "rolesCalled": 20,
+      "rolesRecalled": 14,
+      "sessionsSpanned": 1,
+      "size": 53,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 22,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "nova",
+        "ace",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 8257411,
+        "ioTokens": 217117,
+        "inputTokens": 295,
+        "outputTokens": 216822,
+        "cacheCreate": 384848,
+        "cacheRead": 7655446,
+        "cacheHitRate": 0.9271000317169631,
+        "messageCount": 67
+      },
+      "sessionCostUSD": 6.993
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 54,
+      "count": 58,
       "sessions": [
         "session_047",
         "session_048",
@@ -2984,12 +3039,37 @@
         "session_078",
         "session_079",
         "session_080",
-        "session_081"
+        "session_081",
+        "session_082"
+      ]
+    },
+    {
+      "role": "arki",
+      "count": 41,
+      "sessions": [
+        "session_048",
+        "session_049",
+        "session_053",
+        "session_054",
+        "session_059",
+        "session_060",
+        "session_061",
+        "session_063",
+        "session_066",
+        "session_067",
+        "session_068",
+        "session_069",
+        "session_071",
+        "session_075",
+        "session_077",
+        "session_078",
+        "session_081",
+        "session_082"
       ]
     },
     {
       "role": "editor",
-      "count": 32,
+      "count": 33,
       "sessions": [
         "session_050",
         "session_051",
@@ -3022,30 +3102,8 @@
         "session_078",
         "session_079",
         "session_080",
-        "session_081"
-      ]
-    },
-    {
-      "role": "arki",
-      "count": 29,
-      "sessions": [
-        "session_048",
-        "session_049",
-        "session_053",
-        "session_054",
-        "session_059",
-        "session_060",
-        "session_061",
-        "session_063",
-        "session_066",
-        "session_067",
-        "session_068",
-        "session_069",
-        "session_071",
-        "session_075",
-        "session_077",
-        "session_078",
-        "session_081"
+        "session_081",
+        "session_082"
       ]
     },
     {
@@ -3078,7 +3136,7 @@
     },
     {
       "role": "riki",
-      "count": 18,
+      "count": 19,
       "sessions": [
         "session_049",
         "session_053",
@@ -3094,12 +3152,13 @@
         "session_075",
         "session_077",
         "session_080",
-        "session_081"
+        "session_081",
+        "session_082"
       ]
     },
     {
       "role": "fin",
-      "count": 15,
+      "count": 16,
       "sessions": [
         "session_053",
         "session_054",
@@ -3113,7 +3172,8 @@
         "session_071",
         "session_077",
         "session_080",
-        "session_081"
+        "session_081",
+        "session_082"
       ]
     },
     {
@@ -3127,10 +3187,11 @@
     },
     {
       "role": "nova",
-      "count": 2,
+      "count": 3,
       "sessions": [
         "session_066",
-        "session_077"
+        "session_077",
+        "session_082"
       ]
     },
     {
@@ -4462,6 +4523,132 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_082",
+      "topic": "PD-023 Dev 얇은 구현 (self_scores.jsonl + 훅 + 대시보드 카드)",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "nova",
+          "phase": "speculative-input",
+          "turnIdx": 1,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 2,
+          "recallReason": "post-nova"
+        },
+        {
+          "role": "arki",
+          "phase": "structural-analysis",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 4,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 5,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 6,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 7,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 8,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 9,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 10,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 11,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 12,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 13,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 14,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 15,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "fin",
+          "phase": "audit",
+          "turnIdx": 16,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "phase": "risk-review",
+          "turnIdx": 17,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 18,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 19,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -4482,9 +4669,188 @@
       "severity": "yellow",
       "sessionId": "session_081",
       "description": "역할 과호출: rolesRecalled=11 (임계값 5, grade=S)"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_082",
+      "description": "역할 과호출: rolesRecalled=14 (임계값 5, grade=S)"
     }
   ],
   "feedbackRecurrences": [
+    {
+      "keyword": "Arki",
+      "occurrences": [
+        {
+          "date": "2026-04-23",
+          "feedbackId": "MF-075",
+          "summary": "Arki — 설계 시 구조화·하드코딩·효율성·확장성 4축 자가점검 루틴 박음. 1차 후 자가검토 수정이 기본"
+        },
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-041",
+          "summary": "1) Arki 원안에 대해 '하드코딩 최소화·확장성 최선·쉬운 길 아닌가' 자가검토 강제 → Arki 6개 "
+        },
+        {
+          "date": "2026-04-11",
+          "feedbackId": "MF-008",
+          "summary": "3가지 역할 피드백: 1) Arki — 아키텍처 그리는 방법론 학습, Agent 설계가 팀 과업. 2) No"
+        }
+      ]
+    },
+    {
+      "keyword": "설계",
+      "occurrences": [
+        {
+          "date": "2026-04-23",
+          "feedbackId": "MF-075",
+          "summary": "Arki — 설계 시 구조화·하드코딩·효율성·확장성 4축 자가점검 루틴 박음. 1차 후 자가검토 수정이 기본"
+        },
+        {
+          "date": "2026-04-13",
+          "feedbackId": "MF-009",
+          "summary": "1) 폴더 기반 설계 확정. 2) MCP 불필요. 3) 자율수정 초기엔 전건 확인. 4) 스키마부터 고정 후"
+        },
+        {
+          "date": "2026-04-19",
+          "summary": "Dev-Arki는 단방향 설계 인수가 아니라 양방향 의견 교환. Dev=0.1% 프로그래머 특별 정의."
+        }
+      ]
+    },
+    {
+      "keyword": "하드코딩",
+      "occurrences": [
+        {
+          "date": "2026-04-23",
+          "feedbackId": "MF-075",
+          "summary": "Arki — 설계 시 구조화·하드코딩·효율성·확장성 4축 자가점검 루틴 박음. 1차 후 자가검토 수정이 기본"
+        },
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-041",
+          "summary": "1) Arki 원안에 대해 '하드코딩 최소화·확장성 최선·쉬운 길 아닌가' 자가검토 강제 → Arki 6개 "
+        },
+        {
+          "date": "2026-04-20",
+          "feedbackId": "MF-037",
+          "summary": "Dev 검증 기본값 + 하드코딩 금지: (1) 구현 후 런타임 검증 필수 — tsc 통과만으론 부족, 실 데"
+        },
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-028",
+          "summary": "하드코딩 최소화, 데이터를 호출하는 형태로. 구조설계·코딩 전반에 적용."
+        }
+      ]
+    },
+    {
+      "keyword": "Riki",
+      "occurrences": [
+        {
+          "date": "2026-04-23",
+          "feedbackId": "MF-076",
+          "summary": "Riki 의존 금지 — Arki가 100% 완벽한 산출물 구조화. 설계 재검토는 회수비용 대비 무시 가능."
+        },
+        {
+          "date": "2026-04-19",
+          "summary": "Riki R-02 기각 — Master 주관 판정 최우선. Master 동의 없이는 실행 불가. 레전드팀=M"
+        }
+      ]
+    },
+    {
+      "keyword": "금지",
+      "occurrences": [
+        {
+          "date": "2026-04-23",
+          "feedbackId": "MF-076",
+          "summary": "Riki 의존 금지 — Arki가 100% 완벽한 산출물 구조화. 설계 재검토는 회수비용 대비 무시 가능."
+        },
+        {
+          "date": "2026-04-20",
+          "feedbackId": "MF-037",
+          "summary": "Dev 검증 기본값 + 하드코딩 금지: (1) 구현 후 런타임 검증 필수 — tsc 통과만으론 부족, 실 데"
+        },
+        {
+          "date": "2026-04-18",
+          "feedbackId": "MF-S034-1",
+          "summary": "어중간한 절충안 금지. 목표(고IF 최고점수) 기준 단일 최적해만 제시. 의견 조율은 Master 몫. Ac"
+        }
+      ]
+    },
+    {
+      "keyword": "페르소나",
+      "occurrences": [
+        {
+          "date": "2026-04-23",
+          "feedbackId": "MF-077",
+          "summary": "Fin 페르소나 동의 — 자가채점은 발언 종료 시 간략히. 본업은 발언 자체."
+        },
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-S036-4",
+          "summary": "페르소나 업데이트, 성장지표 측정 논의는 욕심이었나. 버그 이외는 이연과제로."
+        }
+      ]
+    },
+    {
+      "keyword": "발언",
+      "occurrences": [
+        {
+          "date": "2026-04-23",
+          "feedbackId": "MF-077",
+          "summary": "Fin 페르소나 동의 — 자가채점은 발언 종료 시 간략히. 본업은 발언 자체."
+        },
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-046",
+          "summary": "Editor를 '에디'(Edi)로 호칭하라. 발언 맥락에선 에디/Edi, 스키마·코드 식별자에만 editor"
+        }
+      ]
+    },
+    {
+      "keyword": "Grade",
+      "occurrences": [
+        {
+          "date": "2026-04-23",
+          "feedbackId": "MF-078",
+          "summary": "G6 Grade 분포 의무 — 토픽 기준 우선, 안 되면 모든 등급 점검. 구현 세션은 Dev/Ace만."
+        },
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-043",
+          "summary": "Grade C /open 완료 후 Ace가 \"진행 지시 주세요\"로 Master 입력 대기 — L0 프로토콜 "
+        },
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-S036-3",
+          "summary": "Grade 조정권은 Ace가 가져. 선언 grade와 실제 gap 발생 시 Ace가 조정."
+        }
+      ]
+    },
+    {
+      "keyword": "토픽",
+      "occurrences": [
+        {
+          "date": "2026-04-23",
+          "feedbackId": "MF-078",
+          "summary": "G6 Grade 분포 의무 — 토픽 기준 우선, 안 되면 모든 등급 점검. 구현 세션은 Dev/Ace만."
+        },
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-040",
+          "summary": "1) 세션-토픽 다대다는 운영 복잡도 대비 비효율 — N:1 단방향(토픽 하나에 여러 세션)으로 단순화. 여"
+        },
+        {
+          "date": "2026-04-16",
+          "feedbackId": "MF-014",
+          "summary": "에이스 왜 반말써? 효율화라면 토픽 확인. 타입 분류 진행. 이렇게 더 자르던가."
+        },
+        {
+          "date": "2026-04-16",
+          "feedbackId": "MF-015",
+          "summary": "이번에 한해서 소급 적용하라고 (토픽 타입/명칭 정비)"
+        }
+      ]
+    },
     {
       "keyword": "Dev",
       "occurrences": [
@@ -4708,21 +5074,6 @@
       ]
     },
     {
-      "keyword": "Grade",
-      "occurrences": [
-        {
-          "date": "2026-04-21",
-          "feedbackId": "MF-043",
-          "summary": "Grade C /open 완료 후 Ace가 \"진행 지시 주세요\"로 Master 입력 대기 — L0 프로토콜 "
-        },
-        {
-          "date": "2026-04-19",
-          "feedbackId": "MF-S036-3",
-          "summary": "Grade 조정권은 Ace가 가져. 선언 grade와 실제 gap 발생 시 Ace가 조정."
-        }
-      ]
-    },
-    {
       "keyword": "진행",
       "occurrences": [
         {
@@ -4788,41 +5139,6 @@
       ]
     },
     {
-      "keyword": "Arki",
-      "occurrences": [
-        {
-          "date": "2026-04-21",
-          "feedbackId": "MF-041",
-          "summary": "1) Arki 원안에 대해 '하드코딩 최소화·확장성 최선·쉬운 길 아닌가' 자가검토 강제 → Arki 6개 "
-        },
-        {
-          "date": "2026-04-11",
-          "feedbackId": "MF-008",
-          "summary": "3가지 역할 피드백: 1) Arki — 아키텍처 그리는 방법론 학습, Agent 설계가 팀 과업. 2) No"
-        }
-      ]
-    },
-    {
-      "keyword": "하드코딩",
-      "occurrences": [
-        {
-          "date": "2026-04-21",
-          "feedbackId": "MF-041",
-          "summary": "1) Arki 원안에 대해 '하드코딩 최소화·확장성 최선·쉬운 길 아닌가' 자가검토 강제 → Arki 6개 "
-        },
-        {
-          "date": "2026-04-20",
-          "feedbackId": "MF-037",
-          "summary": "Dev 검증 기본값 + 하드코딩 금지: (1) 구현 후 런타임 검증 필수 — tsc 통과만으론 부족, 실 데"
-        },
-        {
-          "date": "2026-04-19",
-          "feedbackId": "MF-028",
-          "summary": "하드코딩 최소화, 데이터를 호출하는 형태로. 구조설계·코딩 전반에 적용."
-        }
-      ]
-    },
-    {
       "keyword": "최소화",
       "occurrences": [
         {
@@ -4849,41 +5165,6 @@
           "date": "2026-04-17",
           "feedbackId": "MF-023",
           "summary": "세션에 버전도 안맞고, 홈에 세션 클릭하면 메뉴바가 상단으로 올라가. 박스도 흰색이라 안보이고. 베라 이번 "
-        }
-      ]
-    },
-    {
-      "keyword": "토픽",
-      "occurrences": [
-        {
-          "date": "2026-04-21",
-          "feedbackId": "MF-040",
-          "summary": "1) 세션-토픽 다대다는 운영 복잡도 대비 비효율 — N:1 단방향(토픽 하나에 여러 세션)으로 단순화. 여"
-        },
-        {
-          "date": "2026-04-16",
-          "feedbackId": "MF-014",
-          "summary": "에이스 왜 반말써? 효율화라면 토픽 확인. 타입 분류 진행. 이렇게 더 자르던가."
-        },
-        {
-          "date": "2026-04-16",
-          "feedbackId": "MF-015",
-          "summary": "이번에 한해서 소급 적용하라고 (토픽 타입/명칭 정비)"
-        }
-      ]
-    },
-    {
-      "keyword": "금지",
-      "occurrences": [
-        {
-          "date": "2026-04-20",
-          "feedbackId": "MF-037",
-          "summary": "Dev 검증 기본값 + 하드코딩 금지: (1) 구현 후 런타임 검증 필수 — tsc 통과만으론 부족, 실 데"
-        },
-        {
-          "date": "2026-04-18",
-          "feedbackId": "MF-S034-1",
-          "summary": "어중간한 절충안 금지. 목표(고IF 최고점수) 기준 단일 최적해만 제시. 의견 조율은 Master 몫. Ac"
         }
       ]
     },
@@ -5013,20 +5294,6 @@
           "date": "2026-04-19",
           "feedbackId": "MF-S036-2",
           "summary": "학습 누적 → 적중률 → 자율성 인과체인. Grade 상향 근거."
-        }
-      ]
-    },
-    {
-      "keyword": "설계",
-      "occurrences": [
-        {
-          "date": "2026-04-13",
-          "feedbackId": "MF-009",
-          "summary": "1) 폴더 기반 설계 확정. 2) MCP 불필요. 3) 자율수정 초기엔 전건 확인. 4) 스키마부터 고정 후"
-        },
-        {
-          "date": "2026-04-19",
-          "summary": "Dev-Arki는 단방향 설계 인수가 아니라 양방향 의견 교환. Dev=0.1% 프로그래머 특별 정의."
         }
       ]
     },
