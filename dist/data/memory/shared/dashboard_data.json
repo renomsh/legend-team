@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-22T22:30:47.368Z",
-  "totalSessions": 79,
+  "generatedAt": "2026-04-23T00:44:46.360Z",
+  "totalSessions": 80,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.2,
-    "avgCacheHitRate": 0.929,
-    "cacheSampleSize": 53,
-    "cacheSampleTotal": 79,
+    "avgMasterTurns": 16.28,
+    "avgCacheHitRate": 0.9294,
+    "cacheSampleSize": 54,
+    "cacheSampleTotal": 80,
     "avgAdoptionRate": 0,
-    "totalDecisions": 61,
+    "totalDecisions": 62,
     "gradeDistribution": {
-      "S": 24,
+      "S": 25,
       "A": 16,
       "B": 28,
       "C": 11
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 34,
-    "totalCostUSD": 663.8758,
-    "avgCostPerSession": 8.9713,
-    "costSampleSize": 74
+    "turnBasedSessions": 35,
+    "totalCostUSD": 674.1613,
+    "avgCostPerSession": 8.9888,
+    "costSampleSize": 75
   },
   "sessions": [
     {
@@ -2894,12 +2894,65 @@
         "messageCount": 305
       },
       "sessionCostUSD": 16.7131
+    },
+    {
+      "sessionId": "session_081",
+      "topicSlug": "nd060-phase2-consensus-scoring",
+      "topic": "nD-060 Phase 2 — consensus 채점 인프라 (학습축 자가평가 MVP로 전환)",
+      "startedAt": "2026-04-23T00:00:00.000Z",
+      "closedAt": "2026-04-23T01:00:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-062"
+      ],
+      "rolesCalled": 18,
+      "rolesRecalled": 11,
+      "sessionsSpanned": 1,
+      "size": 45,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 22,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "dev",
+        "fin",
+        "riki",
+        "ace",
+        "arki",
+        "riki",
+        "fin",
+        "riki",
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "dev",
+        "vera",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 16443804,
+        "ioTokens": 250053,
+        "inputTokens": 11890,
+        "outputTokens": 238163,
+        "cacheCreate": 527324,
+        "cacheRead": 15666427,
+        "cacheHitRate": 0.9527252331638105,
+        "messageCount": 114
+      },
+      "sessionCostUSD": 10.2855
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 50,
+      "count": 54,
       "sessions": [
         "session_047",
         "session_048",
@@ -2930,12 +2983,13 @@
         "session_077",
         "session_078",
         "session_079",
-        "session_080"
+        "session_080",
+        "session_081"
       ]
     },
     {
       "role": "editor",
-      "count": 31,
+      "count": 32,
       "sessions": [
         "session_050",
         "session_051",
@@ -2967,12 +3021,13 @@
         "session_077",
         "session_078",
         "session_079",
-        "session_080"
+        "session_080",
+        "session_081"
       ]
     },
     {
       "role": "arki",
-      "count": 26,
+      "count": 29,
       "sessions": [
         "session_048",
         "session_049",
@@ -2989,12 +3044,13 @@
         "session_071",
         "session_075",
         "session_077",
-        "session_078"
+        "session_078",
+        "session_081"
       ]
     },
     {
       "role": "dev",
-      "count": 25,
+      "count": 27,
       "sessions": [
         "session_047",
         "session_048",
@@ -3016,12 +3072,13 @@
         "session_075",
         "session_078",
         "session_079",
-        "session_080"
+        "session_080",
+        "session_081"
       ]
     },
     {
       "role": "riki",
-      "count": 14,
+      "count": 18,
       "sessions": [
         "session_049",
         "session_053",
@@ -3036,12 +3093,13 @@
         "session_071",
         "session_075",
         "session_077",
-        "session_080"
+        "session_080",
+        "session_081"
       ]
     },
     {
       "role": "fin",
-      "count": 12,
+      "count": 15,
       "sessions": [
         "session_053",
         "session_054",
@@ -3054,15 +3112,17 @@
         "session_069",
         "session_071",
         "session_077",
-        "session_080"
+        "session_080",
+        "session_081"
       ]
     },
     {
       "role": "vera",
-      "count": 5,
+      "count": 6,
       "sessions": [
         "session_049",
-        "session_052"
+        "session_052",
+        "session_081"
       ]
     },
     {
@@ -4288,6 +4348,120 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_081",
+      "topic": "nD-060 Phase 2 — consensus 채점 인프라 (학습축 자가평가 MVP로 전환)",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "structural-analysis",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "feasibility",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": "audit",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "risk-review",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 5,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "structural-analysis",
+          "turnIdx": 6,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "phase": "risk-review",
+          "turnIdx": 7,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "fin",
+          "phase": "audit",
+          "turnIdx": 8,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "phase": "self-audit",
+          "turnIdx": 9,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 10,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "arki",
+          "phase": "self-proposal",
+          "turnIdx": 11,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "fin",
+          "phase": "self-proposal",
+          "turnIdx": 12,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "phase": "self-proposal",
+          "turnIdx": 13,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "dev",
+          "phase": "self-proposal",
+          "turnIdx": 14,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "vera",
+          "phase": "self-proposal",
+          "turnIdx": 15,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 16,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 17,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -4302,6 +4476,12 @@
       "severity": "yellow",
       "sessionId": "session_077",
       "description": "역할 과호출: rolesRecalled=8 (임계값 5, grade=S)"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_081",
+      "description": "역할 과호출: rolesRecalled=11 (임계값 5, grade=S)"
     }
   ],
   "feedbackRecurrences": [
@@ -4927,6 +5107,20 @@
           "date": "2026-04-19",
           "feedbackId": "MF-S036-2",
           "summary": "학습 누적 → 적중률 → 자율성 인과체인. Grade 상향 근거."
+        }
+      ]
+    },
+    {
+      "keyword": "각자",
+      "occurrences": [
+        {
+          "date": "2026-04-19",
+          "summary": "각자 희망 캐릭터 벤치마킹했으니 역할 수행 시 '그 인물이라면 어떻게 했을까' 관점으로 접근할 것."
+        },
+        {
+          "date": "2026-04-23",
+          "feedbackId": "MF-074",
+          "summary": "각자 역할에서 중요하다고 생각하는 부분들을 협의하여 정하고 평가는 본인이 하면 좋겠어. 난 각각 모두를 믿으"
         }
       ]
     }

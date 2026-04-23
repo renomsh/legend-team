@@ -14,7 +14,8 @@
       "Bash(\"/c/Users/문성훈/AppData/Local/Omnara/bin/omnara.exe\" --help)",
       "Bash(\"/c/Users/문성훈/AppData/Local/Omnara/bin/omnara.exe\" workspace:*)",
       "mcp__Claude_Preview__preview_start",
-      "Bash(python -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('keys:', list\\(d.keys\\(\\)\\)\\); print\\('last session:', d['sessions'][-1]\\)\")"
+      "Bash(python -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('keys:', list\\(d.keys\\(\\)\\)\\); print\\('last session:', d['sessions'][-1]\\)\")",
+      "Bash(python -c \"import json,sys; r=json.load\\(sys.stdin\\); [print\\(f\\\\\"{m['id']:50s} | tier={m['tier']:9s} | scorer={m['scorer']['mode']:16s} | status={m['status']}\\\\\"\\) for m in r['metrics']]\")"
     ]
   }
 }

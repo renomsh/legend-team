@@ -848,6 +848,47 @@
       "decision": "Phase 2 Go 판정. registry v2: Phase 2 지표 7개 draft 전환(compute-growth.ts 제외). L3.autonomy: session_note 파싱 버그 → token_log proxy 공식(1 - masterTurns/agentTurns)으로 수정, proxyMode=true 레이블 Board 구현 시 처리. resolvePendingLag에 status=active 필터 추가(R-2). active 지표 4개: L1.cumulativeLearning / L3.autonomy / dev.firstPassRate / nova.promotionRate.",
       "value": "compute-growth.ts 실행 메트릭 11→4 (64% 감소). nonNull rate 37%→51%. L3.autonomy 0%→95% 복구. 매 세션 hook 오버헤드 대폭 감소 — 느린 /open·/close 개선 기여.",
       "rejectedAlternatives": []
+    },
+    {
+      "id": "D-062",
+      "date": "2026-04-23",
+      "session": "session_081",
+      "topic": "nd060-phase2-consensus-scoring",
+      "owningTopicId": "topic_087",
+      "scopeCheck": "학습축 자가평가 MVP 설계 확정 + consensus 본체 보류 결정. 구현은 PD-023으로 이연.",
+      "axis": "자기평가-외부평가 공존 원칙 + 학습축 자가평가 MVP 착지 (Phase 2 consensus 본체 보류)",
+      "decision": "Phase 2 consensus 교차채점 본체 보류(registry draft 동결, 복구 가능). 학습축은 자가평가 MVP로 착륙: 8역할 x 2~4 signature 지표 총 28개(즉시 21 / 지연 7), 100점 자가 채점, 3뷰 추이(전체 평균 / 최근 10개 / 최근 3개). self_scores.jsonl append-only. 자가평가는 외부평가(결과품질축·판단일치축)와 공존하도록 설계 — 자가평가 편향(기각 민감·발언 축소)은 외부평가가 붙으며 자연 상쇄. 4축 프레임 전체 설계 헌장. Nova 지표 집계 단위는 호출 세션 기반.",
+      "value": "N4(나 없이도 돌아가는 팀) 로드맵 정합. Top 0.1% 신뢰 전제에 가장 정합한 학습축 라이트 착륙. consensus 인프라 과투자(측정을 위한 측정) 회피. 4축 공존 원칙 조기 박제로 미래 결과품질·판단일치 축 붙을 때 편향 자동 상쇄 구조 사전 확보. Riki 자기 부정 감사로 7/8 정교화 층 철회 — 측정→품질 인과 경로 공백 자인.",
+      "rejectedAlternatives": [
+        {
+          "option": "consensus mode 3개(L2.hitRate·ace.orch·riki.riskF1) 즉시 착수",
+          "rejectedBy": "master",
+          "reason": "Riki 자기 부정 감사로 측정-품질 인과 경로 공백 확인. 측정을 위한 측정 위험.",
+          "tagger": "riki",
+          "validatedOutcome": null
+        },
+        {
+          "option": "외부 평가자 agent (d)",
+          "rejectedBy": "fin",
+          "reason": "같은 베이스 모델은 외부성 구조적 보장 실패. 분기 1회 운영이면 Master 직접이 비용·신뢰 모두 우위.",
+          "tagger": "fin",
+          "validatedOutcome": null
+        },
+        {
+          "option": "Master 분기 스팟 샘플링 10건 (b)",
+          "rejectedBy": "master",
+          "reason": "자가평가+외부평가 공존 설계로 상쇄 — 스팟 자체는 불필요. 미래 외부평가 축 도입으로 대체.",
+          "tagger": "ace",
+          "validatedOutcome": null
+        },
+        {
+          "option": "Riki 정교화 7층(담합 탐지 3축·3단 경보·2-track UI·동적 calibration·pair 프로브·rater_bias 파생·post_hoc_incidents)",
+          "rejectedBy": "riki",
+          "reason": "Riki 자기 부정 감사 — 없으면 오는 구체 실패 증거 부재. Top 0.1% 신뢰 전제 위배.",
+          "tagger": "riki",
+          "validatedOutcome": null
+        }
+      ]
     }
   ],
   "lastUpdated": "2026-04-19T13:30:00.000Z"

@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_080",
-  "nextSessionId": "session_081",
+  "lastSessionId": "session_081",
+  "nextSessionId": "session_082",
   "currentVersion": "v1.54",
   "openTopics": [
     {
@@ -27,6 +27,12 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-062",
+      "date": "2026-04-23",
+      "axis": "자기평가-외부평가 공존 원칙 + 학습축 자가평가 MVP 착지 (Phase 2 consensus 본체 보류)",
+      "summary": "N4(나 없이도 돌아가는 팀) 로드맵 정합. Top 0.1% 신뢰 전제에 가장 정합한 학습축 라이트 착륙. consensus 인프라 과투자(측정을 위한 측정) 회피. 4축 공존 원칙 조기 박제로 미래 결과품질·판단일치 축 붙을 때 편향 자동 상쇄 구조 사전 확보. Riki 자기 부정 감사로 7/8 정교화 층 철회 — 측정→품질 인과 경로 공백 자인."
+    },
+    {
       "id": "D-061",
       "date": "2026-04-22",
       "axis": "D-060 G1 Gate — 성장지표 registry v2 + L3.autonomy proxy + Phase 2 Go",
@@ -49,12 +55,6 @@
       "date": "2026-04-22",
       "axis": "Dispatcher-Worker 오케스트레이션 — Sonnet 메인 + Opus 서브에이전트 구조 확정 (Grade A)",
       "summary": "Grade A 세션 비용 ~75% 절감(directional). 역할 발언은 Opus 품질 유지. Probe 3건(라우팅·품질·스킬 상속) 실측 통과. G1(write 계약)·G3(RED→GREEN) 검증 완료. 메인 Sonnet의 빠른 응답성으로 세션 wall-time 단축. 저마찰·N4 비전 로드맵과 정합."
-    },
-    {
-      "id": "D-057",
-      "date": "2026-04-21",
-      "axis": "PD-022 토픽 생명주기 시스템 구현 — D-056 스키마·규칙을 실시스템에 박음 + 소급 범위 축소(테스트 케이스 2건)",
-      "summary": "D-056에서 확정된 토픽 생명주기 모델을 실제 시스템에 안전하게 착륙. Master 지침으로 소급 범위 2건 한정 → R-1(숨은 쌍 오분류) 리스크 원천 차단. 자동 종결 dry-run 2단으로 저마찰 원칙 박제. 신규 토픽부터 Ace Step 0로 topicType 판정 자동화 — '나 없이도 사고하는 팀'(Nova N4) 로드맵 진전."
     }
   ],
   "pendingDeferrals": [
@@ -231,5 +231,5 @@
       "note": "D-058 확정. opus-dispatcher 스킬 + dispatch_config.json + 에이전트 정의 4종(role-ace/arki/fin/riki.md) 구현. G1(write 계약)·G3(RED→GREEN) 통과. auto-model-switch 스킬 폐기."
     }
   ],
-  "lastUpdated": "2026-04-22T22:30:42.892Z"
+  "lastUpdated": "2026-04-23T00:44:42.049Z"
 }

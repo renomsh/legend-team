@@ -760,3 +760,14 @@
 [2026-04-22T22:30:42.893Z] [sync-system-state] lastSession=session_080 openTopics=3 recentDecisions=5 deferrals=19
 [2026-04-22T22:30:45.203Z] [compute-growth] Phase 1 ok. sessions=1 newDatapoints=0 totalDatapoints=1605 pendingLag=14
 [2026-04-22T22:30:47.377Z] [compute-dashboard] 완료 — 79개 세션, 2개 경보
+[2026-04-23T00:44:24.157Z] [checklist] [INFO] reports: all 1 registered file(s) present: editor_rev1.md
+[2026-04-23T00:44:24.159Z] [checklist] [INFO] decision_ledger: 1 decision(s) recorded for session_081
+[2026-04-23T00:44:24.159Z] [checklist] [INFO] topic_index: topic found: topic_087 (completed)
+[2026-04-23T00:44:24.160Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-23T00:44:24.160Z] [checklist] [INFO] master_feedback: 3 feedback entry(ies) recorded
+[2026-04-23T00:44:24.160Z] [session-log] [INFO] END session_081 | topic: nd060-phase2-consensus-scoring | duration: 44m
+[2026-04-23T00:44:32.289Z] [L2-writer] wrote C:\Projects\legend-team\topics\topic_087\session_contributions\session_081.md | turns=0 decisions=1
+[2026-04-23T00:44:34.276Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_087\context_brief.md | sessions=1 size=676B
+[2026-04-23T00:44:42.050Z] [sync-system-state] lastSession=session_081 openTopics=3 recentDecisions=5 deferrals=19
+[2026-04-23T00:44:44.290Z] [compute-growth] Phase 1 ok. sessions=1 newDatapoints=12 totalDatapoints=1617 pendingLag=13
+[2026-04-23T00:44:46.362Z] [compute-dashboard] 완료 — 80개 세션, 3개 경보

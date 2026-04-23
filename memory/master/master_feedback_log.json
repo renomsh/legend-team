@@ -794,6 +794,42 @@
       "effect": "ver2.1_E/K(Discussion) + ver3.0_E/K(전체 원고) 4개 파일. Arki 설계 반영: Fig1 DAG, Fig2 Cohort flow, Fig3 NIE Forest(신규), Table 1-4 + Supp Fig S1·Table S1.",
       "status": "resolved",
       "statusNote": "이중 언어 전체 원고 산출. Master 잔여 작업은 데이터 populate와 figure 실작도."
+    },
+    {
+      "id": "MF-072",
+      "date": "2026-04-23",
+      "session": "session_081",
+      "topic": "nd060-phase2-consensus-scoring",
+      "afterAgent": "dev",
+      "feedback": "실무용 병기를 만들려는 거지 아트를 만들려는 게 아니다. rater 선택지 B (SDK 직호출)는 효과 대비 비용 효율이 별로다.",
+      "instruction": "선택지 C(다음 세션 큐잉) 유지, 과투자형 대안 기각.",
+      "effect": "외부 평가자 agent (d)도 연속 기각. D-062에 \"실무용 병기 ROI 우선\" 원칙 박제 기반 형성.",
+      "status": "resolved",
+      "statusNote": "D-062로 박제, feedback_pragmatic_weapon_not_art.md 메모리 저장"
+    },
+    {
+      "id": "MF-073",
+      "date": "2026-04-23",
+      "session": "session_081",
+      "topic": "nd060-phase2-consensus-scoring",
+      "afterAgent": "riki",
+      "feedback": "자기평가와 외부평가가 공존하면 해결될 문제. 지금은 기각에 신경 쓰겠지만 채택률·결과값이 붙으면 놓친 리스크가 외부평가에서 나와 상호보완된다.",
+      "instruction": "자가평가의 편향(기각 민감·발언 축소)을 외부평가 부재 상태에서 완벽히 막으려 하지 말고, 4축 공존 구조로 설계하라.",
+      "effect": "D-062 원칙의 핵심 근거. 4축 프레임 전체의 설계 헌장으로 승격.",
+      "status": "resolved",
+      "statusNote": "D-062 박제, feedback_self_and_external_eval_coexist.md 메모리 저장"
+    },
+    {
+      "id": "MF-074",
+      "date": "2026-04-23",
+      "session": "session_081",
+      "topic": "nd060-phase2-consensus-scoring",
+      "afterAgent": "ace",
+      "feedback": "각자 역할에서 중요하다고 생각하는 부분들을 협의하여 정하고 평가는 본인이 하면 좋겠어. 난 각각 모두를 믿으니까.",
+      "instruction": "학습축 측정은 자가평가 MVP로, 각 역할이 본인 signature 지표를 스스로 제안·자가 채점. Top 0.1% 신뢰 전제.",
+      "effect": "28지표 자가평가 설계 확정. consensus 교차채점 본체 보류. 3뷰 추이(전체/최근10/최근3)로 집계.",
+      "status": "resolved",
+      "statusNote": "D-062, PD-023 등록"
     }
   ],
   "statusValues": [
@@ -802,5 +838,5 @@
     "resolved"
   ],
   "statusUpdatedBy": "Claude Code at session end — based on topic status and implementation evidence",
-  "lastUpdated": "2026-04-17T06:00:00.000Z"
+  "lastUpdated": "2026-04-23T00:00:00.000Z"
 }
