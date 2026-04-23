@@ -805,3 +805,21 @@
 [2026-04-23T05:09:29.386Z] [sync-system-state] lastSession=session_086 openTopics=4 recentDecisions=5 deferrals=23
 [2026-04-23T05:09:41.199Z] [compute-growth] Phase 1 ok. sessions=1 newDatapoints=15 totalDatapoints=1668 pendingLag=7
 [2026-04-23T05:09:43.910Z] [compute-dashboard] 완료 — 84개 세션, 4개 경보
+[2026-04-23T05:24:22.377Z] [session-log] [INFO] START session_087 | topic: cost-report-2025-reanalysis | mode: observation
+[2026-04-23T06:00:02.492Z] [checklist] [INFO] reports: all 6 registered file(s) present: ace_rev1.md, arki_rev1.md, fin_rev1.md, riki_rev1.md, editor_rev1.md, cost-report-2025-reanalysis.html
+[2026-04-23T06:00:02.495Z] [checklist] [WARN] decision_ledger: masterDecisions noted but none found in ledger for session_087
+[2026-04-23T06:00:02.497Z] [checklist] [INFO] topic_index: topic found: topic_093 (completed)
+[2026-04-23T06:00:02.498Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-23T06:00:02.499Z] [checklist] [INFO] master_feedback: 4 feedback entry(ies) recorded
+[2026-04-23T06:00:02.499Z] [session-log] [INFO] END session_087 | topic: cost-report-2025-reanalysis | duration: 36m
+[2026-04-23T06:00:26.487Z] [checklist] [INFO] reports: all 6 registered file(s) present: ace_rev1.md, arki_rev1.md, fin_rev1.md, riki_rev1.md, editor_rev1.md, cost-report-2025-reanalysis.html
+[2026-04-23T06:00:26.492Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-23T06:00:26.493Z] [checklist] [INFO] topic_index: topic found: topic_093 (completed)
+[2026-04-23T06:00:26.494Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-23T06:00:26.495Z] [checklist] [INFO] master_feedback: 4 feedback entry(ies) recorded
+[2026-04-23T06:00:26.496Z] [session-log] [INFO] END session_087 | topic: cost-report-2025-reanalysis | duration: 36m
+[2026-04-23T06:00:35.822Z] [L2-writer] wrote C:\Projects\legend-team\topics\topic_093\session_contributions\session_087.md | turns=0 decisions=0
+[2026-04-23T06:00:38.580Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_093\context_brief.md | sessions=1 size=362B
+[2026-04-23T06:00:49.807Z] [sync-system-state] lastSession=session_087 openTopics=4 recentDecisions=5 deferrals=24
+[2026-04-23T06:01:01.855Z] [compute-growth] Phase 1 ok. sessions=1 newDatapoints=12 totalDatapoints=1680 pendingLag=6
+[2026-04-23T06:01:04.662Z] [compute-dashboard] 완료 — 85개 세션, 4개 경보

@@ -1,6 +1,23 @@
 {
   "topics": [
     {
+      "id": "topic_093",
+      "title": "2025 매출/비용 재분석 — 이러닝 통합 공헌이익율",
+      "grade": "A",
+      "status": "completed",
+      "phase": "implementation",
+      "hold": null,
+      "topicType": "implementation",
+      "parentTopicId": "topic_092",
+      "outcome": "사업단위·거래처 중심 재분석 8슬라이드 HTML 산출. 재귀속 v4 (저작권료=이러닝 / 라이브외주 40%=하이브리드)로 이러닝군 62.0% / 하이브리드 25.7% / 컨텐츠개발 13.6% 진단. 액션 제외 진단 리포트.",
+      "created": "2026-04-23",
+      "controlPath": "topics/topic_093",
+      "reportPath": "reports/2026-04-23_cost-report-2025-reanalysis",
+      "reportFiles": ["ace_rev1.md","arki_rev1.md","fin_rev1.md","riki_rev1.md","editor_rev1.md","cost-report-2025-reanalysis.html"],
+      "published": true,
+      "path": "topics/topic_093"
+    },
+    {
       "id": "topic_092",
       "title": "2025 비용분석 HTML 슬라이드 보고서",
       "grade": "A",
@@ -1811,5 +1828,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-23T04:51:58.067Z"
+  "lastUpdated": "2026-04-23T05:24:03.569Z"
 }

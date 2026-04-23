@@ -1,11 +1,11 @@
 {
-  "computedAt": "2026-04-23T05:09:37.738Z",
+  "computedAt": "2026-04-23T06:00:58.494Z",
   "registryVersion": "v1.0",
-  "durationMs": 1,
+  "durationMs": 2,
   "slaWarnMs": 3000,
   "slaBreached": false,
   "sourceJsonl": "memory\\growth\\self_scores.jsonl",
-  "recordCount": 35,
+  "recordCount": 42,
   "metricCount": 29,
   "aggregates": [
     {
@@ -256,7 +256,7 @@
       "role": "dev",
       "view": "all",
       "mean": 100,
-      "n": 5,
+      "n": 6,
       "std": 0,
       "ci95": [
         100,
@@ -268,7 +268,7 @@
       "role": "dev",
       "view": "recent10",
       "mean": 100,
-      "n": 5,
+      "n": 6,
       "std": 0,
       "ci95": [
         100,
@@ -292,7 +292,7 @@
       "role": "dev",
       "view": "all",
       "mean": 0,
-      "n": 5,
+      "n": 6,
       "std": 0,
       "ci95": [
         0,
@@ -304,7 +304,7 @@
       "role": "dev",
       "view": "recent10",
       "mean": 0,
-      "n": 5,
+      "n": 6,
       "std": 0,
       "ci95": [
         0,
@@ -328,7 +328,7 @@
       "role": "dev",
       "view": "all",
       "mean": 100,
-      "n": 5,
+      "n": 6,
       "std": 0,
       "ci95": [
         100,
@@ -340,7 +340,7 @@
       "role": "dev",
       "view": "recent10",
       "mean": 100,
-      "n": 5,
+      "n": 6,
       "std": 0,
       "ci95": [
         100,
@@ -364,7 +364,7 @@
       "role": "editor",
       "view": "all",
       "mean": 100,
-      "n": 5,
+      "n": 6,
       "std": 0,
       "ci95": [
         100,
@@ -376,7 +376,7 @@
       "role": "editor",
       "view": "recent10",
       "mean": 100,
-      "n": 5,
+      "n": 6,
       "std": 0,
       "ci95": [
         100,
@@ -400,7 +400,7 @@
       "role": "editor",
       "view": "all",
       "mean": 0,
-      "n": 5,
+      "n": 6,
       "std": 0,
       "ci95": [
         0,
@@ -412,7 +412,7 @@
       "role": "editor",
       "view": "recent10",
       "mean": 0,
-      "n": 5,
+      "n": 6,
       "std": 0,
       "ci95": [
         0,
@@ -436,7 +436,7 @@
       "role": "editor",
       "view": "all",
       "mean": 80,
-      "n": 5,
+      "n": 6,
       "std": 0,
       "ci95": [
         80,
@@ -448,7 +448,7 @@
       "role": "editor",
       "view": "recent10",
       "mean": 80,
-      "n": 5,
+      "n": 6,
       "std": 0,
       "ci95": [
         80,
@@ -472,7 +472,7 @@
       "role": "editor",
       "view": "all",
       "mean": 100,
-      "n": 5,
+      "n": 6,
       "std": 0,
       "ci95": [
         100,
@@ -484,7 +484,7 @@
       "role": "editor",
       "view": "recent10",
       "mean": 100,
-      "n": 5,
+      "n": 6,
       "std": 0,
       "ci95": [
         100,

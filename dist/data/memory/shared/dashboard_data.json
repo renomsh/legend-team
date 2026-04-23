@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-23T05:09:43.906Z",
-  "totalSessions": 84,
+  "generatedAt": "2026-04-23T06:01:04.656Z",
+  "totalSessions": 85,
   "autoDataFrom": "session_027",
   "metrics": {
     "avgMasterTurns": 16,
-    "avgCacheHitRate": 0.9288,
-    "cacheSampleSize": 58,
-    "cacheSampleTotal": 84,
+    "avgCacheHitRate": 0.9289,
+    "cacheSampleSize": 59,
+    "cacheSampleTotal": 85,
     "avgAdoptionRate": 0,
     "totalDecisions": 63,
     "gradeDistribution": {
-      "S": 26,
+      "S": 27,
       "A": 17,
       "B": 30,
       "C": 11
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 39,
-    "totalCostUSD": 709.4615,
-    "avgCostPerSession": 8.9805,
-    "costSampleSize": 79
+    "turnBasedSessions": 40,
+    "totalCostUSD": 718.642,
+    "avgCostPerSession": 8.983,
+    "costSampleSize": 80
   },
   "sessions": [
     {
@@ -3107,12 +3107,53 @@
         "messageCount": 124
       },
       "sessionCostUSD": 8.6474
+    },
+    {
+      "sessionId": "session_087",
+      "topicSlug": "cost-report-2025-reanalysis",
+      "topic": "2025 매출/비용 재분석 — 이러닝 통합 공헌이익율",
+      "startedAt": "2026-04-23T05:24:22.373Z",
+      "closedAt": "2026-04-23T08:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 9,
+      "rolesRecalled": 4,
+      "sessionsSpanned": 1,
+      "size": 20,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 16,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "arki",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 14402623,
+        "ioTokens": 159112,
+        "inputTokens": 433,
+        "outputTokens": 158679,
+        "cacheCreate": 732152,
+        "cacheRead": 13511359,
+        "cacheHitRate": 0.9381179386560351,
+        "messageCount": 115
+      },
+      "sessionCostUSD": 9.1805
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 60,
+      "count": 63,
       "sessions": [
         "session_047",
         "session_048",
@@ -3146,12 +3187,13 @@
         "session_080",
         "session_081",
         "session_082",
-        "session_086"
+        "session_086",
+        "session_087"
       ]
     },
     {
       "role": "arki",
-      "count": 42,
+      "count": 45,
       "sessions": [
         "session_048",
         "session_049",
@@ -3171,12 +3213,13 @@
         "session_078",
         "session_081",
         "session_082",
-        "session_086"
+        "session_086",
+        "session_087"
       ]
     },
     {
       "role": "editor",
-      "count": 36,
+      "count": 37,
       "sessions": [
         "session_050",
         "session_051",
@@ -3213,7 +3256,8 @@
         "session_082",
         "session_083",
         "session_084",
-        "session_086"
+        "session_086",
+        "session_087"
       ]
     },
     {
@@ -3248,7 +3292,7 @@
     },
     {
       "role": "riki",
-      "count": 20,
+      "count": 21,
       "sessions": [
         "session_049",
         "session_053",
@@ -3266,12 +3310,13 @@
         "session_080",
         "session_081",
         "session_082",
-        "session_086"
+        "session_086",
+        "session_087"
       ]
     },
     {
       "role": "fin",
-      "count": 16,
+      "count": 17,
       "sessions": [
         "session_053",
         "session_054",
@@ -3286,7 +3331,8 @@
         "session_077",
         "session_080",
         "session_081",
-        "session_082"
+        "session_082",
+        "session_087"
       ]
     },
     {
@@ -4834,6 +4880,66 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_087",
+      "topic": "2025 매출/비용 재분석 — 이러닝 통합 공헌이익율",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "framing",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "framing",
+          "turnIdx": 2,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "framing",
+          "turnIdx": 3,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "fin",
+          "phase": "framing",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "framing",
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 6,
+          "recallReason": "synthesis"
+        },
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 7,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "editor",
+          "phase": "implementation",
+          "turnIdx": 8,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -4863,6 +4969,71 @@
     }
   ],
   "feedbackRecurrences": [
+    {
+      "keyword": "비용",
+      "occurrences": [
+        {
+          "date": "2026-04-23",
+          "feedbackId": "MF-079",
+          "summary": "비용 분석 시 분석 축 우선순위: 사업단위 > 거래처 > 영업대표. 영업대표 중심은 책임 추궁형, 사업단위·"
+        },
+        {
+          "date": "2026-04-23",
+          "feedbackId": "MF-081",
+          "summary": "비용 안분(매출비율)은 사업군 진단을 통째로 왜곡한다. 안분 결과를 '평탄'하게 만들기 때문. 가능하면 비용"
+        }
+      ]
+    },
+    {
+      "keyword": "분석",
+      "occurrences": [
+        {
+          "date": "2026-04-23",
+          "feedbackId": "MF-079",
+          "summary": "비용 분석 시 분석 축 우선순위: 사업단위 > 거래처 > 영업대표. 영업대표 중심은 책임 추궁형, 사업단위·"
+        },
+        {
+          "date": "2026-04-23",
+          "feedbackId": "MF-079",
+          "summary": "비용 분석 시 분석 축 우선순위: 사업단위 > 거래처 > 영업대표. 영업대표 중심은 책임 추궁형, 사업단위·"
+        },
+        {
+          "date": "2026-04-23",
+          "feedbackId": "MF-082",
+          "summary": "분석 리포트에 액션은 빼고 진단/분석만 담을 것. 액션은 별도 의사결정 영역. 분석 신뢰도 확보가 우선."
+        },
+        {
+          "date": "2026-04-18",
+          "feedbackId": "MF-S034-2",
+          "summary": "데이터 분석 시 필요하면 skill 쓰라. Bash 단발 대신 data:* / bio-research:* s"
+        }
+      ]
+    },
+    {
+      "keyword": "데이터",
+      "occurrences": [
+        {
+          "date": "2026-04-23",
+          "feedbackId": "MF-080",
+          "summary": "데이터 카테고리 명칭과 실체 다를 수 있음. '강사(개인)' = 실제론 저작권료. Master 실무 감각 없"
+        },
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-031",
+          "summary": "'데이터 미스가 왜 발생한거야. 아키 데이터 정확하게 검증해봐' — 구조적 원인 분석 요구"
+        },
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-031",
+          "summary": "'데이터 미스가 왜 발생한거야. 아키 데이터 정확하게 검증해봐' — 구조적 원인 분석 요구"
+        },
+        {
+          "date": "2026-04-18",
+          "feedbackId": "MF-S034-2",
+          "summary": "데이터 분석 시 필요하면 skill 쓰라. Bash 단발 대신 data:* / bio-research:* s"
+        }
+      ]
+    },
     {
       "keyword": "Arki",
       "occurrences": [
@@ -5395,26 +5566,6 @@
           "date": "2026-04-19",
           "feedbackId": "MF-032",
           "summary": "'ERJ 모수가 작은데 되겠어?' — ERJ 권고 철회 요구"
-        }
-      ]
-    },
-    {
-      "keyword": "데이터",
-      "occurrences": [
-        {
-          "date": "2026-04-19",
-          "feedbackId": "MF-031",
-          "summary": "'데이터 미스가 왜 발생한거야. 아키 데이터 정확하게 검증해봐' — 구조적 원인 분석 요구"
-        },
-        {
-          "date": "2026-04-19",
-          "feedbackId": "MF-031",
-          "summary": "'데이터 미스가 왜 발생한거야. 아키 데이터 정확하게 검증해봐' — 구조적 원인 분석 요구"
-        },
-        {
-          "date": "2026-04-18",
-          "feedbackId": "MF-S034-2",
-          "summary": "데이터 분석 시 필요하면 skill 쓰라. Bash 단발 대신 data:* / bio-research:* s"
         }
       ]
     },

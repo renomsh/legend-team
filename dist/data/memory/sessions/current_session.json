@@ -1,11 +1,11 @@
 {
-  "sessionId": "session_086",
-  "topicId": "topic_092",
-  "topic": "2025 비용분석 HTML 슬라이드 보고서",
-  "topicSlug": "cost-report-2025-html",
+  "sessionId": "session_087",
+  "topicId": "topic_093",
+  "topic": "2025 매출/비용 재분석 — 이러닝 통합 공헌이익율",
+  "topicSlug": "cost-report-2025-reanalysis",
   "status": "closed",
-  "startedAt": "2026-04-23T06:00:00.000Z",
-  "closedAt": "2026-04-23T06:45:00.000Z",
+  "startedAt": "2026-04-23T05:24:22.373Z",
+  "closedAt": "2026-04-23T08:00:00.000Z",
   "mode": "observation",
   "grade": "A",
   "gradeDeclared": "A",
@@ -14,7 +14,11 @@
   "agentsCompleted": [
     "ace",
     "arki",
+    "arki",
+    "arki",
+    "fin",
     "riki",
+    "ace",
     "ace",
     "editor"
   ],
@@ -30,38 +34,74 @@
       "phase": "framing"
     },
     {
-      "role": "riki",
+      "role": "arki",
       "turnIdx": 2,
+      "phase": "framing",
+      "recallReason": "post-master",
+      "splitReason": "강사+생태계 100% 하이브리드 귀속 v2"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 3,
+      "phase": "framing",
+      "recallReason": "post-master",
+      "splitReason": "강사 100% 하이브리드 v3"
+    },
+    {
+      "role": "fin",
+      "turnIdx": 4,
+      "phase": "framing"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 5,
       "phase": "framing"
     },
     {
       "role": "ace",
-      "turnIdx": 3,
+      "turnIdx": 6,
       "phase": "framing",
-      "recallReason": "synthesis"
+      "recallReason": "synthesis",
+      "splitReason": "v3 종합검토 (저작권료 정정 전)"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 7,
+      "phase": "framing",
+      "recallReason": "post-master",
+      "splitReason": "v4 최종 종합검토 (라이브외주 40% 귀속)"
     },
     {
       "role": "editor",
-      "turnIdx": 4,
+      "turnIdx": 8,
       "phase": "implementation"
     }
   ],
   "decisions": [],
   "masterDecisions": [],
-  "masterFeedback": [],
+  "masterFeedback": [
+    "MF-079",
+    "MF-080",
+    "MF-081",
+    "MF-082"
+  ],
   "notes": [
-    "session_085 (vera-claude-design-ai-integration) held 유지, 병행 신규 토픽 오픈",
-    "데이터 소스: Data/Cost/시사점_2025.md (12개 섹션) + 분석_2025_step2.xlsx (12시트)"
+    "Master 운영결정 (D-code 아님): ① 구독(FLEX/CEO)→이러닝 흡수 ② 강사=저작권료→이러닝 100% ③ 라이브외주 40% 하이브리드 귀속 ④ 분석 리포트에서 액션 제거",
+    "session_086(cost-report-2025-html) 후속. Master: 회사 claude code 분석 불만족 → 재분석",
+    "재귀속 4단계(v1 안분 → v2 강사+생태계 100% → v3 강사 100% → v4 저작권료=이러닝+라이브외주 40% 하이브리드) 거쳐 최종 매트릭스 산출",
+    "이러닝군 62.0% / 하이브리드 25.7% / 컨텐츠개발 13.6% / 운영 44.8% / 솔루션 29.7%",
+    "PD-028 신설: 회사 claude code 환경 cross-check",
+    "산출물: cost-report-2025-reanalysis.html (8 슬라이드, 액션 제외, 진단 전용)"
   ],
   "gaps": [],
-  "reportPath": "reports/2026-04-23_cost-report-2025-html",
+  "reportPath": "reports/2026-04-23_cost-report-2025-reanalysis",
   "tokenUsage": {
-    "input_tokens": 145,
-    "output_tokens": 51278,
-    "cache_creation_input_tokens": 516846,
-    "cache_read_input_tokens": 6762154,
-    "messageCount": 67,
-    "masterTurns": 6,
-    "total_billable": 7330423
+    "input_tokens": 433,
+    "output_tokens": 158679,
+    "cache_creation_input_tokens": 732152,
+    "cache_read_input_tokens": 13511359,
+    "messageCount": 115,
+    "masterTurns": 16,
+    "total_billable": 14402623
   }
 }

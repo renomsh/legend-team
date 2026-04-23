@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_086",
-  "nextSessionId": "session_087",
+  "lastSessionId": "session_087",
+  "nextSessionId": "session_088",
   "currentVersion": "v1.54",
   "openTopics": [
     {
@@ -64,6 +64,15 @@
     }
   ],
   "pendingDeferrals": [
+    {
+      "id": "PD-028",
+      "fromSession": "session_087",
+      "fromTopic": "cost-report-2025-reanalysis",
+      "item": "회사 claude code 환경에서 동일 분석 재실행 후 본 재분석(이러닝군 62.0% / 하이브리드 25.7% / 컨텐츠개발 13.6%)과 cross-check. 안분 가정·재귀속 v4 결과의 외부 앵커 검증.",
+      "status": "pending",
+      "resolveCondition": "회사 claude code 분석 결과 공유 + 본 리포트와 사업군 이익율 차이 ±5%p 이내 일치",
+      "dependsOn": []
+    },
     {
       "id": "PD-023",
       "fromSession": "session_082",
@@ -280,5 +289,5 @@
       "note": "D-058 확정. opus-dispatcher 스킬 + dispatch_config.json + 에이전트 정의 4종(role-ace/arki/fin/riki.md) 구현. G1(write 계약)·G3(RED→GREEN) 통과. auto-model-switch 스킬 폐기."
     }
   ],
-  "lastUpdated": "2026-04-23T05:09:29.385Z"
+  "lastUpdated": "2026-04-23T06:00:49.805Z"
 }
