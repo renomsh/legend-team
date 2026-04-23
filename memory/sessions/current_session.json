@@ -1,74 +1,33 @@
 {
-  "sessionId": "session_088",
-  "topicId": "topic_091",
-  "topic": "Vera Claude Design AI 웹 호출 활용 방법 — T2 아키텍처 실측 + framing 박제",
-  "topicSlug": "vera-claude-design-ai-integration",
-  "status": "closed",
-  "startedAt": "2026-04-23T09:00:00.000Z",
-  "closedAt": "2026-04-23T10:30:00.000Z",
+  "sessionId": "session_089",
+  "topicId": "topic_094",
+  "topic": "PD-029 해결 — Claude Design SKILL.md 통합 + 프롬프트 template 파일화 + Vera 패턴 흡수 리뷰",
+  "topicSlug": "pd029-claude-design-integration",
+  "status": "open",
+  "startedAt": "2026-04-23T10:45:00.000Z",
   "mode": "observation",
-  "grade": "A",
-  "gradeDeclared": "A",
+  "grade": "S",
+  "gradeDeclared": "S",
   "framingLevel": 2,
   "framingSkipped": false,
-  "agentsCompleted": [
-    "ace",
-    "ace",
-    "ace",
-    "editor"
-  ],
-  "turns": [
-    {
-      "role": "ace",
-      "turnIdx": 0,
-      "phase": "framing",
-      "splitReason": "Wireframe 모드 프롬프트 추천"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 1,
-      "phase": "framing",
-      "recallReason": "post-master",
-      "splitReason": "T2 Hi-fi 판정 → Master 지적 → Wireframe 재시도 프롬프트 작성"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 2,
-      "phase": "framing",
-      "recallReason": "synthesis",
-      "splitReason": "T2 Wireframe 2차 결과 판정 + D-064 박제 + PD-029 신설"
-    },
-    {
-      "role": "editor",
-      "turnIdx": 3,
-      "phase": "compile"
-    }
-  ],
-  "decisions": [
-    "D-064"
-  ],
-  "masterDecisions": [
-    "T2 도입 확정 + 다각도 병렬 유지",
-    "Vera 패턴 흡수 + Figma 보류",
-    "테스트성 운영 — SKILL.md 박제 지연"
-  ],
+  "agentsCompleted": [],
+  "turns": [],
+  "decisions": [],
+  "masterDecisions": [],
   "masterFeedback": [],
   "notes": [
-    "topic_091 재개 세션. T1 실측은 이전 세션(session_085)에서 완료, 본 세션은 T2 실측 + framing 박제",
-    "T2 1차(Hi-fi) 기각 → Master 지적으로 Wireframe 재시도 → 2차 도입 확정",
-    "결함 주원인 = Hi-fi 모드 선택 (단일 확정 편향). Wireframe + 역할 본질 주입 조합이 hallucination 방어 성공",
-    "handoff bundle 보존: design/handoffs/2026-04-23_vera-claude-design-ai-integration/source/ (gzip tar + 전개 파일)",
-    "저마찰 원칙: SKILL.md·프롬프트 template 파일화는 PD-029로 지연 (실사용 3~5회 누적 후)"
+    "PD-029 조기 개방 — resolveCondition '실사례 3건 누적' 미충족 상태에서 Master가 Grade S로 선제 개방",
+    "연계 자산: session_088 D-064, design/handoffs/2026-04-23_vera-claude-design-ai-integration/ (T1+T2 실측 로그)"
   ],
   "gaps": [],
-  "reportPath": "reports/2026-04-23_vera-claude-design-ai-integration",
+  "reportPath": "reports/2026-04-23_pd029-claude-design-integration",
   "tokenUsage": {
-    "input_tokens": 188,
-    "output_tokens": 47157,
-    "cache_creation_input_tokens": 518811,
-    "cache_read_input_tokens": 6392047,
-    "messageCount": 66,
-    "masterTurns": 8,
-    "total_billable": 6958203
+    "input_tokens": 72,
+    "output_tokens": 13729,
+    "cache_creation_input_tokens": 195999,
+    "cache_read_input_tokens": 1819141,
+    "messageCount": 27,
+    "masterTurns": 6,
+    "total_billable": 2028941
   }
 }

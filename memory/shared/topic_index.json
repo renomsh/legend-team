@@ -1,6 +1,20 @@
 {
   "topics": [
     {
+      "id": "topic_094",
+      "grade": "S",
+      "title": "PD-029 해결 — Claude Design SKILL.md 통합 + 프롬프트 template 파일화 + Vera 패턴 흡수 리뷰",
+      "status": "open",
+      "phase": "framing",
+      "hold": null,
+      "created": "2026-04-23",
+      "controlPath": "topics/topic_094",
+      "reportPath": "reports/2026-04-23_pd029-claude-design-integration",
+      "reportFiles": [],
+      "published": false,
+      "path": "topics/topic_094"
+    },
+    {
       "id": "topic_093",
       "title": "2025 매출/비용 재분석 — 이러닝 통합 공헌이익율",
       "grade": "A",
@@ -13,7 +27,14 @@
       "created": "2026-04-23",
       "controlPath": "topics/topic_093",
       "reportPath": "reports/2026-04-23_cost-report-2025-reanalysis",
-      "reportFiles": ["ace_rev1.md","arki_rev1.md","fin_rev1.md","riki_rev1.md","editor_rev1.md","cost-report-2025-reanalysis.html"],
+      "reportFiles": [
+        "ace_rev1.md",
+        "arki_rev1.md",
+        "fin_rev1.md",
+        "riki_rev1.md",
+        "editor_rev1.md",
+        "cost-report-2025-reanalysis.html"
+      ],
       "published": true,
       "path": "topics/topic_093"
     },
@@ -1829,5 +1850,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-23T05:24:03.569Z"
+  "lastUpdated": "2026-04-23T08:10:35.710Z"
 }
