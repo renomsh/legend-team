@@ -251,5 +251,125 @@
         "finalize 검증 방법: FINALIZE_* 환경변수 + 픽스처 JSON으로 실 데이터 전파 검증."
       ]
     }
+  ],
+  "signatureMetrics": [
+    {
+      "id": "dev.gate_pass_rate",
+      "shortKey": "gt_pas",
+      "role": "dev",
+      "scope": "role",
+      "axis": "execution-transfer",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "higher-better",
+      "construct": "Phase 게이트 G0~Gn 통과 비율 (재시도 X 1패스)",
+      "externalAnchor": [
+        "phase_dod.json 통과 기록"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "dev"
+      },
+      "raterWeights": {
+        "dev": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "implementation",
+        "standalone"
+      ]
+    },
+    {
+      "id": "dev.spec_drift_count",
+      "shortKey": "spc_drf",
+      "role": "dev",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "lower-better",
+      "construct": "spec과 어긋난 의사결정 횟수 (스코프 외 추가/누락)",
+      "externalAnchor": [
+        "session notes '스펙 외'"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "dev"
+      },
+      "raterWeights": {
+        "dev": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "implementation",
+        "standalone"
+      ]
+    },
+    {
+      "id": "dev.regression_zero",
+      "shortKey": "reg_zr",
+      "role": "dev",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "Y/N",
+      "polarity": "higher-better",
+      "construct": "회귀 테스트 fixture diff 0",
+      "externalAnchor": [
+        "test-regression.ts 결과"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "dev"
+      },
+      "raterWeights": {
+        "dev": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "implementation",
+        "standalone"
+      ]
+    }
+  ],
+  "applicableTopicTypes": [
+    "implementation",
+    "standalone"
   ]
 }

@@ -1,6 +1,18 @@
 {
-  "generatedAt": "2026-04-23T03:04:08.952Z",
+  "generatedAt": "2026-04-23T03:24:59.233Z",
   "topics": [
+    {
+      "id": "topic_089",
+      "title": "PD-023 Dev 얇은 구현 P0a~P3 (self_scores.jsonl + 훅 + 카드)",
+      "status": "completed",
+      "created": "2026-04-23",
+      "reportPath": "reports/2026-04-23_pd023-dev-impl-p0a-p3",
+      "reportFiles": [],
+      "published": false,
+      "outcome": "5게이트(P0a~P3) 1패스 통과. 29 metrics 시딩 + Ajv 검증 + 실세션 finalize audit=100%",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_088",
       "title": "PD-023 Dev 얇은 구현 (self_scores.jsonl + 훅 + 대시보드 카드)",

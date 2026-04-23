@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "self-scores.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "recordId", "sessionId", "topicId", "topicType", "role", "metricId",
+    "raterId", "rawScore", "normalizedScore", "registryVersion",
+    "recordedBy", "recordSource", "sessionPhase", "ts"
+  ],
+  "properties": {
+    "recordId": { "type": "string" },
+    "sessionId": { "type": "string" },
+    "topicId": { "type": "string" },
+    "topicType": { "enum": ["framing", "implementation", "standalone"] },
+    "role": { "type": "string" },
+    "metricId": { "type": "string" },
+    "raterId": { "type": "string" },
+    "rawScore": { "type": ["number", "string"] },
+    "normalizedScore": { "type": "number", "minimum": 0, "maximum": 100 },
+    "registryVersion": { "type": "string" },
+    "recordedBy": { "type": "string" },
+    "recordSource": {
+      "enum": ["yaml-block", "cli", "auto-scorer", "manual-edit", "master-override", "default-fallback"]
+    },
+    "sessionPhase": { "type": "string" },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "ts": { "type": "string" },
+    "supersedes": { "type": "string" },
+    "overrideReason": { "type": "string" },
+    "extensions": { "type": "object" }
+  }
+}

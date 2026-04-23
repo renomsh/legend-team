@@ -53,27 +53,51 @@
       "title": "레전드팀 업그레이드",
       "date": "2026-04-03",
       "reportPath": "reports/2026-04-03_legend-team-upgrade/riki_rev01.md",
-      "criticalRisks": ["R-01", "R-02", "R-04", "R-05"],
-      "resolvedRisks": ["R-03(결정 3B)", "R-04(결정 1A 범위 확정)"],
-      "residualRisks": ["R-02(수동 누락 — v0.3.0 자동화 전까지 잔존)"]
+      "criticalRisks": [
+        "R-01",
+        "R-02",
+        "R-04",
+        "R-05"
+      ],
+      "resolvedRisks": [
+        "R-03(결정 3B)",
+        "R-04(결정 1A 범위 확정)"
+      ],
+      "residualRisks": [
+        "R-02(수동 누락 — v0.3.0 자동화 전까지 잔존)"
+      ]
     },
     {
       "topicId": "topic_003",
       "title": "로컬 업그레이드 vs 서버 이전",
       "date": "2026-04-04",
       "reportPath": "reports/2026-04-04_local-vs-server/riki_rev01.md",
-      "criticalRisks": ["R-1 전략 데이터 노출(🟡)", "R-2 Push 규율 붕괴(🟡)", "R-3 뷰어 확장 유혹(🟡)"],
-      "resolvedRisks": ["R-2(D-008 자동push)", "R-3(D-003 revised CLAUDE.md 명시)"],
-      "residualRisks": ["R-1(Cloudflare Access 단일 방어선 — Master가 수용)"]
+      "criticalRisks": [
+        "R-1 전략 데이터 노출(🟡)",
+        "R-2 Push 규율 붕괴(🟡)",
+        "R-3 뷰어 확장 유혹(🟡)"
+      ],
+      "resolvedRisks": [
+        "R-2(D-008 자동push)",
+        "R-3(D-003 revised CLAUDE.md 명시)"
+      ],
+      "residualRisks": [
+        "R-1(Cloudflare Access 단일 방어선 — Master가 수용)"
+      ]
     },
     {
       "topicId": "topic_007",
       "title": "레전드팀 저장 내용 기준 점검",
       "date": "2026-04-08",
       "reportPath": null,
-      "criticalRisks": ["R-01 세션 시작 시 role memory 미로드", "R-02 미발언 역할 memory 갱신 모호성"],
+      "criticalRisks": [
+        "R-01 세션 시작 시 role memory 미로드",
+        "R-02 미발언 역할 memory 갱신 모호성"
+      ],
       "resolvedRisks": [],
-      "residualRisks": ["R-03 소급 수정이 재발 방지를 대체할 위험"]
+      "residualRisks": [
+        "R-03 소급 수정이 재발 방지를 대체할 위험"
+      ]
     }
   ],
   "riskPatterns": [
@@ -99,7 +123,9 @@
       "title": "2팀 내용 업그레이드 — 델타팩 활용 점검",
       "date": "2026-04-09",
       "criticalRisks": [],
-      "residualRisks": ["R-05: 분류 체계 없는 FR-003 — 일반 원칙화로 수용 가능 수준"]
+      "residualRisks": [
+        "R-05: 분류 체계 없는 FR-003 — 일반 원칙화로 수용 가능 수준"
+      ]
     }
   ],
   "topicsHandled_session012": [
@@ -107,8 +133,12 @@
       "topicId": "topic_010",
       "title": "역할 재정의",
       "date": "2026-04-10",
-      "criticalRisks": ["R-02 눈치 vs 학습 — Ace memory에 Master 선택 패턴 미기록"],
-      "residualRisks": ["masterSelectionPatterns 미구현 — 정의만 있고 기록 구조 없음"],
+      "criticalRisks": [
+        "R-02 눈치 vs 학습 — Ace memory에 Master 선택 패턴 미기록"
+      ],
+      "residualRisks": [
+        "masterSelectionPatterns 미구현 — 정의만 있고 기록 구조 없음"
+      ],
       "masterAdopted": "masterSelectionPatterns 제안 채택 (구현 이연)"
     }
   ],
@@ -144,5 +174,164 @@
       "R-03 수정: 레이어 불일치 리스크 (스킬 트리거 ≠ Grade 전환) — 설계 과제로 분류."
     ]
   },
-  "lastUpdated": "2026-04-19T08:00:00.000Z"
+  "lastUpdated": "2026-04-19T08:00:00.000Z",
+  "signatureMetrics": [
+    {
+      "id": "riki.critical_recall",
+      "shortKey": "crt_rcl",
+      "role": "riki",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "higher-better",
+      "construct": "사후 명시된 critical risk 중 Riki가 사전 식별한 비율",
+      "externalAnchor": [
+        "evidence_index status:open critical"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "external",
+        "by": "ace"
+      },
+      "raterWeights": {
+        "ace": 1
+      },
+      "timing": "deferred",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "core",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "riki.productive_rejection",
+      "shortKey": "prd_rej",
+      "role": "riki",
+      "scope": "role",
+      "axis": "learning",
+      "type": "base",
+      "scale": "Y/N",
+      "polarity": "higher-better",
+      "construct": "기각된 옵션 중 Master/Ace가 사후 동의한 비율 (1건 이상)",
+      "externalAnchor": [
+        "session_notes '기각'"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "riki"
+      },
+      "raterWeights": {
+        "riki": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "riki.false_positive_rate",
+      "shortKey": "fp_rt",
+      "role": "riki",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "lower-better",
+      "construct": "Riki가 critical로 표기했으나 사후 무영향 판정된 비율",
+      "externalAnchor": [
+        "evidence_index status:resolved-noimpact"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "riki"
+      },
+      "raterWeights": {
+        "riki": 1
+      },
+      "timing": "deferred",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "riki.cross_review_value",
+      "shortKey": "cr_val",
+      "role": "riki",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "Y/N",
+      "polarity": "higher-better",
+      "construct": "Arki 자가감사가 못 잡은 항목 1건 이상 보강",
+      "externalAnchor": [
+        "riki_rev*.md '보강' 항목"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "riki"
+      },
+      "raterWeights": {
+        "riki": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    }
+  ],
+  "applicableTopicTypes": [
+    "framing",
+    "implementation",
+    "standalone"
+  ]
 }

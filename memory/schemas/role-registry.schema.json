@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "role-registry.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "roles"],
+  "properties": {
+    "version": { "type": "string" },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "displayName", "tier", "applicableTopicTypes", "participationExpectedTopicTypes"],
+        "properties": {
+          "id": { "type": "string" },
+          "displayName": { "type": "string" },
+          "tier": { "enum": [1, 2, 3] },
+          "color": { "type": "string" },
+          "applicableTopicTypes": {
+            "type": "array",
+            "items": { "enum": ["framing", "implementation", "standalone"] }
+          },
+          "participationExpectedTopicTypes": {
+            "type": "array",
+            "items": { "enum": ["framing", "implementation", "standalone"] }
+          }
+        }
+      }
+    }
+  }
+}

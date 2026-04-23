@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "dashboard-layout.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "tiers"],
+  "properties": {
+    "version": { "type": "string" },
+    "tiers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "label", "panels"],
+        "properties": {
+          "id": { "enum": ["overview", "role", "drill"] },
+          "label": { "type": "string" },
+          "panels": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["id", "kind"],
+              "properties": {
+                "id": { "type": "string" },
+                "kind": { "enum": ["health-score", "axis-balance", "role-card", "metric-table", "alert-list"] },
+                "metricIds": { "type": "array", "items": { "type": "string" } },
+                "view": { "enum": ["all", "recent10", "recent3"] }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

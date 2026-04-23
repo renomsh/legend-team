@@ -1,0 +1,75 @@
+{
+  "derived": [
+    {
+      "id": "session.health_score",
+      "shortKey": "hlth",
+      "role": "session",
+      "scope": "cross-role",
+      "axis": "quality",
+      "type": "derived",
+      "scale": "percentile",
+      "polarity": "higher-better",
+      "construct": "세션 전반 건강도 (역할별 quality axis 가중평균)",
+      "externalAnchor": [
+        "Master 사후 만족도 정성 회고"
+      ],
+      "validityCheck": "quarterly",
+      "rater": {
+        "type": "automated",
+        "by": "auto:weighted-mean"
+      },
+      "raterWeights": {
+        "auto": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "core",
+      "defaultStrategy": "explicit-only",
+      "missingPenalty": "silent",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "computedBy": "compute-signature-metrics.ts",
+      "composition": {
+        "formula": "weighted-mean",
+        "inputs": [
+          {
+            "metricId": "ace.orchestration_hit_rate",
+            "weight": 1
+          },
+          {
+            "metricId": "arki.structural_finding_density",
+            "weight": 1
+          },
+          {
+            "metricId": "fin.redundancy_call",
+            "weight": 0.5
+          },
+          {
+            "metricId": "riki.critical_recall",
+            "weight": 1
+          },
+          {
+            "metricId": "dev.regression_zero",
+            "weight": 1
+          },
+          {
+            "metricId": "editor.artifact_completeness",
+            "weight": 0.5
+          }
+        ],
+        "polarityNormalized": true,
+        "nullPolicy": "weight-renormalize"
+      }
+    }
+  ]
+}

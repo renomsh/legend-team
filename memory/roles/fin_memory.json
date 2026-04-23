@@ -150,5 +150,165 @@
       "trueFormula": "1 - (directive+corrective+override)/masterTurns",
       "note": "Phase 2 intervention_classifier 태깅 구현 후 교체 예정"
     }
+  ],
+  "signatureMetrics": [
+    {
+      "id": "fin.roi_pre_post_delta",
+      "shortKey": "roi_dl",
+      "role": "fin",
+      "scope": "role",
+      "axis": "judgment-consistency",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "higher-better",
+      "construct": "사전 ROI 직관 vs 사후 실제 비용 일치 정도",
+      "externalAnchor": [
+        "session 종결 후 cost_log"
+      ],
+      "validityCheck": "quarterly",
+      "rater": {
+        "type": "self",
+        "by": "fin"
+      },
+      "raterWeights": {
+        "fin": 1
+      },
+      "timing": "deferred",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "fin.redundancy_call",
+      "shortKey": "rdn_cal",
+      "role": "fin",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "Y/N",
+      "polarity": "higher-better",
+      "construct": "과투자/중복 신호 발견 시 1회 이상 명시 호출",
+      "externalAnchor": [
+        "fin_rev*.md '기각' 또는 '과투자' 키워드"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "fin"
+      },
+      "raterWeights": {
+        "fin": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "fin.cost_estimate_accuracy",
+      "shortKey": "cst_acc",
+      "role": "fin",
+      "scope": "role",
+      "axis": "judgment-consistency",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "higher-better",
+      "construct": "Fin 추정 cost ±20% 안에 실제 cost 포함된 비율",
+      "externalAnchor": [
+        "token_log.json 실측"
+      ],
+      "validityCheck": "quarterly",
+      "rater": {
+        "type": "self",
+        "by": "fin"
+      },
+      "raterWeights": {
+        "fin": 1
+      },
+      "timing": "deferred",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "fin.cost_alert_lead",
+      "shortKey": "cst_alt",
+      "role": "fin",
+      "scope": "role",
+      "axis": "execution-transfer",
+      "type": "base",
+      "scale": "Y/N",
+      "polarity": "higher-better",
+      "construct": "예산/리소스 초과 신호를 Master 인지 전 1회 이상 선제 호출",
+      "externalAnchor": [
+        "fin_rev*.md '경보' 키워드 + token_log 임계 도달"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "fin"
+      },
+      "raterWeights": {
+        "fin": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ],
+      "leadingIndicator": true
+    }
+  ],
+  "applicableTopicTypes": [
+    "framing",
+    "implementation",
+    "standalone"
   ]
 }

@@ -1,0 +1,87 @@
+{
+  "spec": "PD-023 arki_rev1.md §6",
+  "phases": {
+    "P0a": {
+      "dispatch": "single-dev",
+      "outputs": ["scripts/lib/signature-metrics-types.ts"],
+      "dod": ["TS 컴파일 통과", "interface 12종 export"],
+      "failurePlaybook": "타입 충돌 시 단일 source 재정의"
+    },
+    "P0b": {
+      "dispatch": "parallel-subagents (5)",
+      "outputs": [
+        "scripts/lib/metric-normalizer.ts",
+        "scripts/lib/aggregation-strategies.ts",
+        "scripts/lib/alert-evaluator.ts",
+        "scripts/lib/write-atomic.ts",
+        "scripts/lib/derived-metric-compute.ts",
+        "scripts/lib/confidence-interval.ts",
+        "memory/schemas/metrics-registry.schema.json",
+        "memory/schemas/self-scores.schema.json",
+        "memory/schemas/role-registry.schema.json",
+        "memory/schemas/dashboard-layout.schema.json",
+        "memory/shared/role_registry.json",
+        "memory/growth/phase_dod.json",
+        "memory/shared/feature_flags.json",
+        "tests/fixtures/signature-metrics/{empty,baseline-10,full-30}/"
+      ],
+      "dod": ["unit test green", "Ajv validation pass"],
+      "failurePlaybook": "모듈별 독립 롤백"
+    },
+    "P1": {
+      "dispatch": "single-dev",
+      "outputs": [
+        "memory/roles/{role}_memory.json signatureMetrics 8역할",
+        "scripts/compile-metrics-registry.ts"
+      ],
+      "dod": [
+        "29지표 compile",
+        "sourceHash 기록",
+        "snapshot v1.0.json 생성",
+        "axis 분포 표시"
+      ],
+      "failurePlaybook": "E-009 sourceHash mismatch 시 재compile"
+    },
+    "P2": {
+      "dispatch": "parallel-subagents (2)",
+      "outputs": [
+        "self_scores.jsonl writer",
+        "pending_deferred",
+        "_quarantine 구조",
+        "schema 검증"
+      ],
+      "dod": ["round-trip", "extensions slot 보존", "orphan 0"],
+      "failurePlaybook": "partial 레코드 sessionId 단위 삭제 후 재실행"
+    },
+    "P3": {
+      "dispatch": "single-dev",
+      "outputs": [
+        "finalize.js (YAML 파싱 + default lookup + defaultUsageCount + supersedes + audit + topicType-aware participation)",
+        "scripts/validate-registry-freshness.ts"
+      ],
+      "dod": ["실세션 append 검증", "audit 5필드 non-null"],
+      "failurePlaybook": "YAML 파싱 실패 시 transcript 보존, stderr 로그"
+    },
+    "P4": {
+      "dispatch": "parallel-subagents (3)",
+      "outputs": [
+        "scripts/compute-signature-metrics.ts",
+        "scripts/resolve-deferred-scores.ts",
+        "SLA 측정"
+      ],
+      "dod": ["3뷰 fixture diff 0", "Tier 1 health score 검산", "SLA < 3초"],
+      "failurePlaybook": "분기 disable, L1~L3만 노출"
+    },
+    "P5": {
+      "dispatch": "single-dev",
+      "outputs": [
+        "dashboard 3-tier",
+        "baseline state UI",
+        "integrity·alert 배지",
+        "app/role-signature-card.html 템플릿"
+      ],
+      "dod": ["dist/ 빌드", "8 Tier 1 카드 노출", "Master 수동 검수"],
+      "failurePlaybook": "카드 hidden 토글 (feature_flags)"
+    }
+  }
+}

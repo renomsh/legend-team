@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "metrics-registry.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["registryVersion", "compiledAt", "sourceHash", "axisDistribution", "metrics"],
+  "properties": {
+    "registryVersion": { "type": "string" },
+    "compiledAt": { "type": "string" },
+    "sourceHash": { "type": "string" },
+    "axisDistribution": {
+      "type": "object",
+      "additionalProperties": { "type": "integer", "minimum": 0 }
+    },
+    "aggregationViews": {
+      "type": "array",
+      "items": { "enum": ["all", "recent10", "recent3"] }
+    },
+    "metrics": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/metric" }
+    }
+  },
+  "definitions": {
+    "metric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "shortKey", "role", "scope", "axis", "scale", "polarity",
+        "construct", "externalAnchor", "validityCheck", "rater", "raterWeights",
+        "timing", "aggregation", "baselineSessions", "lifecycleState",
+        "inputPriority", "defaultStrategy", "missingPenalty",
+        "applicableTopicTypes", "participationExpectedTopicTypes"
+      ],
+      "properties": {
+        "id": { "type": "string" },
+        "shortKey": { "type": "string" },
+        "role": { "type": "string" },
+        "scope": { "enum": ["role", "cross-role", "session"] },
+        "axis": { "enum": ["learning", "quality", "judgment-consistency", "execution-transfer"] },
+        "type": { "enum": ["base", "derived"] },
+        "scale": { "enum": ["0-5", "Y/N", "ratio", "percentile"] },
+        "polarity": { "enum": ["higher-better", "lower-better", "target-value"] },
+        "targetValue": { "type": "number" },
+        "tradeoffWith": { "type": "array", "items": { "type": "string" } },
+        "construct": { "type": "string", "minLength": 1 },
+        "externalAnchor": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "validityCheck": { "enum": ["monthly", "quarterly", "yearly"] },
+        "rater": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type"],
+          "properties": {
+            "type": { "enum": ["self", "external", "automated"] },
+            "by": { "type": "string" }
+          }
+        },
+        "raterWeights": {
+          "type": "object",
+          "additionalProperties": { "type": "number" }
+        },
+        "timing": { "enum": ["immediate", "deferred"] },
+        "aggregation": { "type": "string" },
+        "baselineSessions": { "type": "integer", "minimum": 0 },
+        "alerts": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "redBelow": { "type": "number" },
+            "yellowBelow": { "type": "number" },
+            "trendDropPct": { "type": "number" }
+          }
+        },
+        "causedBy": { "type": "array", "items": { "type": "string" } },
+        "leadingIndicator": { "type": "boolean" },
+        "lifecycleState": { "enum": ["draft", "shadow", "candidate", "active", "deprecated", "archived"] },
+        "deprecatedInVersion": { "type": "string" },
+        "supersededBy": { "type": "string" },
+        "computedBy": { "type": "string" },
+        "composition": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["formula", "inputs", "polarityNormalized", "nullPolicy"],
+          "properties": {
+            "formula": { "enum": ["weighted-mean"] },
+            "inputs": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["metricId", "weight"],
+                "properties": {
+                  "metricId": { "type": "string" },
+                  "weight": { "type": "number" }
+                }
+              }
+            },
+            "polarityNormalized": { "type": "boolean" },
+            "nullPolicy": { "enum": ["weight-renormalize", "propagate-null", "zero-fill"] }
+          }
+        },
+        "indicator": { "type": "boolean" },
+        "outcomeMetrics": { "type": "array", "items": { "type": "string" } },
+        "stratifyBy": { "enum": ["grade", "mode", null] },
+        "inputPriority": { "enum": ["core", "extended"] },
+        "defaultStrategy": { "enum": ["previous-session-value", "explicit-only"] },
+        "missingPenalty": { "enum": ["warn", "silent", "block"] },
+        "applicableTopicTypes": {
+          "type": "array",
+          "items": { "enum": ["framing", "implementation", "standalone"] }
+        },
+        "participationExpectedTopicTypes": {
+          "type": "array",
+          "items": { "enum": ["framing", "implementation", "standalone"] }
+        },
+        "defaultUsageCount": { "type": "integer", "minimum": 0 },
+        "_reserved": { "type": "object" }
+      }
+    }
+  }
+}

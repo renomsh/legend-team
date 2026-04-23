@@ -1,0 +1,1147 @@
+{
+  "registryVersion": "v1.0",
+  "compiledAt": "2026-04-23T03:22:59.409Z",
+  "sourceHash": "8d314a6912debb0f",
+  "axisDistribution": {
+    "learning": 4,
+    "quality": 12,
+    "judgment-consistency": 7,
+    "execution-transfer": 6
+  },
+  "aggregationViews": [
+    "all",
+    "recent10",
+    "recent3"
+  ],
+  "metrics": [
+    {
+      "id": "ace.angle_novelty",
+      "shortKey": "ang_nov",
+      "role": "ace",
+      "scope": "role",
+      "axis": "learning",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "higher-better",
+      "construct": "프레이밍 각도 신선도 — 기존 프레임과 차별 정도",
+      "externalAnchor": [
+        "Master 명시 피드백 '신선하다'/'전형'"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "ace"
+      },
+      "raterWeights": {
+        "ace": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "core",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "ace.reframe_trigger",
+      "shortKey": "rfrm_trg",
+      "role": "ace",
+      "scope": "role",
+      "axis": "judgment-consistency",
+      "type": "base",
+      "scale": "Y/N",
+      "polarity": "higher-better",
+      "construct": "재프레이밍이 결정 변경을 유발했는지",
+      "externalAnchor": [
+        "decision_ledger D-xxx 변경 기록"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "external",
+        "by": "master"
+      },
+      "raterWeights": {
+        "master": 1
+      },
+      "timing": "deferred",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "ace.orchestration_hit_rate",
+      "shortKey": "orc_hit",
+      "role": "ace",
+      "scope": "role",
+      "axis": "judgment-consistency",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "higher-better",
+      "construct": "역할 호출 순서가 사후 best-fit과 일치한 비율",
+      "externalAnchor": [
+        "session 종료 시 turn 기록"
+      ],
+      "validityCheck": "quarterly",
+      "rater": {
+        "type": "self",
+        "by": "ace"
+      },
+      "raterWeights": {
+        "ace": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "core",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "ace.context_carryover",
+      "shortKey": "ctx_car",
+      "role": "ace",
+      "scope": "role",
+      "axis": "execution-transfer",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "higher-better",
+      "construct": "이전 세션 결정·맥락 누락 없이 인계 정도",
+      "externalAnchor": [
+        "context_brief.md 검토"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "ace"
+      },
+      "raterWeights": {
+        "ace": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "ace.master_friction",
+      "shortKey": "mst_fr",
+      "role": "ace",
+      "scope": "role",
+      "axis": "judgment-consistency",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "lower-better",
+      "construct": "세션 내 Master 명시 마찰(좌절·재요청·원복) 횟수",
+      "externalAnchor": [
+        "master_feedback_log 부정 신호"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "ace"
+      },
+      "raterWeights": {
+        "ace": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "arki.structural_finding_density",
+      "shortKey": "str_fd",
+      "role": "arki",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "higher-better",
+      "construct": "발언당 구조 결함 발견 밀도",
+      "externalAnchor": [
+        "arki_rev*.md finding 카운트"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "arki"
+      },
+      "raterWeights": {
+        "arki": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "arki.self_audit_rounds",
+      "shortKey": "sa_rnd",
+      "role": "arki",
+      "scope": "role",
+      "axis": "learning",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "higher-better",
+      "construct": "토픽 내 자가감사 라운드 수 (4축 균형)",
+      "externalAnchor": [
+        "session notes 'audit-round-N'"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "arki"
+      },
+      "raterWeights": {
+        "arki": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ],
+      "stratifyBy": "grade"
+    },
+    {
+      "id": "arki.audit_finding_recall",
+      "shortKey": "aud_rcl",
+      "role": "arki",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "higher-better",
+      "construct": "Riki cross-review에서 Arki 미발견 비율의 역수",
+      "externalAnchor": [
+        "riki_rev*.md 보강 항목"
+      ],
+      "validityCheck": "quarterly",
+      "rater": {
+        "type": "self",
+        "by": "arki"
+      },
+      "raterWeights": {
+        "arki": 1
+      },
+      "timing": "deferred",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "core",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "arki.spec_lock_rate",
+      "shortKey": "spc_lck",
+      "role": "arki",
+      "scope": "role",
+      "axis": "execution-transfer",
+      "type": "base",
+      "scale": "Y/N",
+      "polarity": "higher-better",
+      "construct": "Dev 인계 spec이 P0a~P5 동안 변경 없이 유지",
+      "externalAnchor": [
+        "spec frontmatter status:locked-for-dev"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "arki"
+      },
+      "raterWeights": {
+        "arki": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "dev.gate_pass_rate",
+      "shortKey": "gt_pas",
+      "role": "dev",
+      "scope": "role",
+      "axis": "execution-transfer",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "higher-better",
+      "construct": "Phase 게이트 G0~Gn 통과 비율 (재시도 X 1패스)",
+      "externalAnchor": [
+        "phase_dod.json 통과 기록"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "dev"
+      },
+      "raterWeights": {
+        "dev": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "implementation",
+        "standalone"
+      ]
+    },
+    {
+      "id": "dev.spec_drift_count",
+      "shortKey": "spc_drf",
+      "role": "dev",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "lower-better",
+      "construct": "spec과 어긋난 의사결정 횟수 (스코프 외 추가/누락)",
+      "externalAnchor": [
+        "session notes '스펙 외'"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "dev"
+      },
+      "raterWeights": {
+        "dev": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "implementation",
+        "standalone"
+      ]
+    },
+    {
+      "id": "dev.regression_zero",
+      "shortKey": "reg_zr",
+      "role": "dev",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "Y/N",
+      "polarity": "higher-better",
+      "construct": "회귀 테스트 fixture diff 0",
+      "externalAnchor": [
+        "test-regression.ts 결과"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "dev"
+      },
+      "raterWeights": {
+        "dev": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "implementation",
+        "standalone"
+      ]
+    },
+    {
+      "id": "editor.artifact_completeness",
+      "shortKey": "art_cmp",
+      "role": "editor",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "higher-better",
+      "construct": "세션 종결 시 reports/{role}_rev*.md 작성 비율",
+      "externalAnchor": [
+        "reports 디렉토리 조사"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "editor"
+      },
+      "raterWeights": {
+        "editor": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ]
+    },
+    {
+      "id": "editor.gap_flag_count",
+      "shortKey": "gap_fc",
+      "role": "editor",
+      "scope": "role",
+      "axis": "judgment-consistency",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "lower-better",
+      "construct": "current_session.gaps에 누락된 항목 수 (Edi 자체 검수)",
+      "externalAnchor": [
+        "current_session.json gaps 누락"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "editor"
+      },
+      "raterWeights": {
+        "editor": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ]
+    },
+    {
+      "id": "editor.cross_session_continuity",
+      "shortKey": "cs_cnt",
+      "role": "editor",
+      "scope": "role",
+      "axis": "execution-transfer",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "higher-better",
+      "construct": "차기 세션 인계용 메모/PD 등록 충분도",
+      "externalAnchor": [
+        "pendingDeferrals 등록 적시성"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "editor"
+      },
+      "raterWeights": {
+        "editor": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ]
+    },
+    {
+      "id": "editor.session_close_compliance",
+      "shortKey": "scc",
+      "role": "editor",
+      "scope": "role",
+      "axis": "execution-transfer",
+      "type": "base",
+      "scale": "Y/N",
+      "polarity": "higher-better",
+      "construct": "Session End 8단계 체크리스트 전 항목 통과",
+      "externalAnchor": [
+        "session-log.ts gap 0"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "editor"
+      },
+      "raterWeights": {
+        "editor": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ]
+    },
+    {
+      "id": "fin.roi_pre_post_delta",
+      "shortKey": "roi_dl",
+      "role": "fin",
+      "scope": "role",
+      "axis": "judgment-consistency",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "higher-better",
+      "construct": "사전 ROI 직관 vs 사후 실제 비용 일치 정도",
+      "externalAnchor": [
+        "session 종결 후 cost_log"
+      ],
+      "validityCheck": "quarterly",
+      "rater": {
+        "type": "self",
+        "by": "fin"
+      },
+      "raterWeights": {
+        "fin": 1
+      },
+      "timing": "deferred",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "fin.redundancy_call",
+      "shortKey": "rdn_cal",
+      "role": "fin",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "Y/N",
+      "polarity": "higher-better",
+      "construct": "과투자/중복 신호 발견 시 1회 이상 명시 호출",
+      "externalAnchor": [
+        "fin_rev*.md '기각' 또는 '과투자' 키워드"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "fin"
+      },
+      "raterWeights": {
+        "fin": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "fin.cost_estimate_accuracy",
+      "shortKey": "cst_acc",
+      "role": "fin",
+      "scope": "role",
+      "axis": "judgment-consistency",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "higher-better",
+      "construct": "Fin 추정 cost ±20% 안에 실제 cost 포함된 비율",
+      "externalAnchor": [
+        "token_log.json 실측"
+      ],
+      "validityCheck": "quarterly",
+      "rater": {
+        "type": "self",
+        "by": "fin"
+      },
+      "raterWeights": {
+        "fin": 1
+      },
+      "timing": "deferred",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "fin.cost_alert_lead",
+      "shortKey": "cst_alt",
+      "role": "fin",
+      "scope": "role",
+      "axis": "execution-transfer",
+      "type": "base",
+      "scale": "Y/N",
+      "polarity": "higher-better",
+      "construct": "예산/리소스 초과 신호를 Master 인지 전 1회 이상 선제 호출",
+      "externalAnchor": [
+        "fin_rev*.md '경보' 키워드 + token_log 임계 도달"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "fin"
+      },
+      "raterWeights": {
+        "fin": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ],
+      "leadingIndicator": true
+    },
+    {
+      "id": "nova.speculative_axis_count",
+      "shortKey": "spc_axs",
+      "role": "nova",
+      "scope": "role",
+      "axis": "learning",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "higher-better",
+      "construct": "제시한 대안 축 수 (관습 외)",
+      "externalAnchor": [
+        "nova_rev*.md axis 수"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "nova"
+      },
+      "raterWeights": {
+        "nova": 1
+      },
+      "timing": "immediate",
+      "aggregation": "invoked-sessions-only",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": []
+    },
+    {
+      "id": "nova.promotion_rate",
+      "shortKey": "prm_rt",
+      "role": "nova",
+      "scope": "role",
+      "axis": "judgment-consistency",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "higher-better",
+      "construct": "Nova 제안이 Master 승인 후 D-xxx로 박힌 비율",
+      "externalAnchor": [
+        "decision_ledger 'Nova' 출처"
+      ],
+      "validityCheck": "quarterly",
+      "rater": {
+        "type": "self",
+        "by": "nova"
+      },
+      "raterWeights": {
+        "nova": 1
+      },
+      "timing": "deferred",
+      "aggregation": "invoked-sessions-only",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": []
+    },
+    {
+      "id": "riki.critical_recall",
+      "shortKey": "crt_rcl",
+      "role": "riki",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "higher-better",
+      "construct": "사후 명시된 critical risk 중 Riki가 사전 식별한 비율",
+      "externalAnchor": [
+        "evidence_index status:open critical"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "external",
+        "by": "ace"
+      },
+      "raterWeights": {
+        "ace": 1
+      },
+      "timing": "deferred",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "core",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "riki.productive_rejection",
+      "shortKey": "prd_rej",
+      "role": "riki",
+      "scope": "role",
+      "axis": "learning",
+      "type": "base",
+      "scale": "Y/N",
+      "polarity": "higher-better",
+      "construct": "기각된 옵션 중 Master/Ace가 사후 동의한 비율 (1건 이상)",
+      "externalAnchor": [
+        "session_notes '기각'"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "riki"
+      },
+      "raterWeights": {
+        "riki": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "riki.false_positive_rate",
+      "shortKey": "fp_rt",
+      "role": "riki",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "lower-better",
+      "construct": "Riki가 critical로 표기했으나 사후 무영향 판정된 비율",
+      "externalAnchor": [
+        "evidence_index status:resolved-noimpact"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "riki"
+      },
+      "raterWeights": {
+        "riki": 1
+      },
+      "timing": "deferred",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "riki.cross_review_value",
+      "shortKey": "cr_val",
+      "role": "riki",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "Y/N",
+      "polarity": "higher-better",
+      "construct": "Arki 자가감사가 못 잡은 항목 1건 이상 보강",
+      "externalAnchor": [
+        "riki_rev*.md '보강' 항목"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "riki"
+      },
+      "raterWeights": {
+        "riki": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "vera.token_consistency",
+      "shortKey": "tk_cns",
+      "role": "vera",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "higher-better",
+      "construct": "디자인 토큰 적용 일관성 (역할 색상·spacing·typography)",
+      "externalAnchor": [
+        "dist/ 빌드 시각 검수"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "vera"
+      },
+      "raterWeights": {
+        "vera": 1
+      },
+      "timing": "immediate",
+      "aggregation": "invoked-sessions-only",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": []
+    },
+    {
+      "id": "vera.spec_compliance",
+      "shortKey": "spc_cpl",
+      "role": "vera",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "higher-better",
+      "construct": "Vera Design System 적용 비율",
+      "externalAnchor": [
+        "component spec 매핑"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "vera"
+      },
+      "raterWeights": {
+        "vera": 1
+      },
+      "timing": "immediate",
+      "aggregation": "invoked-sessions-only",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": []
+    },
+    {
+      "id": "session.health_score",
+      "shortKey": "hlth",
+      "role": "session",
+      "scope": "cross-role",
+      "axis": "quality",
+      "type": "derived",
+      "scale": "percentile",
+      "polarity": "higher-better",
+      "construct": "세션 전반 건강도 (역할별 quality axis 가중평균)",
+      "externalAnchor": [
+        "Master 사후 만족도 정성 회고"
+      ],
+      "validityCheck": "quarterly",
+      "rater": {
+        "type": "automated",
+        "by": "auto:weighted-mean"
+      },
+      "raterWeights": {
+        "auto": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "core",
+      "defaultStrategy": "explicit-only",
+      "missingPenalty": "silent",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "computedBy": "compute-signature-metrics.ts",
+      "composition": {
+        "formula": "weighted-mean",
+        "inputs": [
+          {
+            "metricId": "ace.orchestration_hit_rate",
+            "weight": 1
+          },
+          {
+            "metricId": "arki.structural_finding_density",
+            "weight": 1
+          },
+          {
+            "metricId": "fin.redundancy_call",
+            "weight": 0.5
+          },
+          {
+            "metricId": "riki.critical_recall",
+            "weight": 1
+          },
+          {
+            "metricId": "dev.regression_zero",
+            "weight": 1
+          },
+          {
+            "metricId": "editor.artifact_completeness",
+            "weight": 0.5
+          }
+        ],
+        "polarityNormalized": true,
+        "nullPolicy": "weight-renormalize"
+      }
+    }
+  ]
+}

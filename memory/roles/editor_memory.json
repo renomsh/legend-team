@@ -164,5 +164,168 @@
       "topic": "growth-metrics-board-design",
       "lesson": "세션 077에서 발언 맥락 호칭 '에디' 활성 문서 일괄 반영 완료(CLAUDE.md/AGENTS.md/CONTEXT.md/agents/*.md). 스키마·파일명은 'editor' 유지. 리포트 77개는 역사 기록으로 불변."
     }
+  ],
+  "signatureMetrics": [
+    {
+      "id": "editor.artifact_completeness",
+      "shortKey": "art_cmp",
+      "role": "editor",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "higher-better",
+      "construct": "세션 종결 시 reports/{role}_rev*.md 작성 비율",
+      "externalAnchor": [
+        "reports 디렉토리 조사"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "editor"
+      },
+      "raterWeights": {
+        "editor": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ]
+    },
+    {
+      "id": "editor.gap_flag_count",
+      "shortKey": "gap_fc",
+      "role": "editor",
+      "scope": "role",
+      "axis": "judgment-consistency",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "lower-better",
+      "construct": "current_session.gaps에 누락된 항목 수 (Edi 자체 검수)",
+      "externalAnchor": [
+        "current_session.json gaps 누락"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "editor"
+      },
+      "raterWeights": {
+        "editor": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ]
+    },
+    {
+      "id": "editor.cross_session_continuity",
+      "shortKey": "cs_cnt",
+      "role": "editor",
+      "scope": "role",
+      "axis": "execution-transfer",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "higher-better",
+      "construct": "차기 세션 인계용 메모/PD 등록 충분도",
+      "externalAnchor": [
+        "pendingDeferrals 등록 적시성"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "editor"
+      },
+      "raterWeights": {
+        "editor": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ]
+    },
+    {
+      "id": "editor.session_close_compliance",
+      "shortKey": "scc",
+      "role": "editor",
+      "scope": "role",
+      "axis": "execution-transfer",
+      "type": "base",
+      "scale": "Y/N",
+      "polarity": "higher-better",
+      "construct": "Session End 8단계 체크리스트 전 항목 통과",
+      "externalAnchor": [
+        "session-log.ts gap 0"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "editor"
+      },
+      "raterWeights": {
+        "editor": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ]
+    }
+  ],
+  "applicableTopicTypes": [
+    "framing",
+    "implementation",
+    "standalone"
   ]
 }

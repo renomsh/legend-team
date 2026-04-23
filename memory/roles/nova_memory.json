@@ -104,5 +104,81 @@
     ],
     "note": "Nova는 skills 최소 원칙. 많은 스킬 = 발언 유혹 = 역할 오염. 침묵이 건강 신호."
   },
-  "lastUpdated": "2026-04-22"
+  "lastUpdated": "2026-04-22",
+  "signatureMetrics": [
+    {
+      "id": "nova.speculative_axis_count",
+      "shortKey": "spc_axs",
+      "role": "nova",
+      "scope": "role",
+      "axis": "learning",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "higher-better",
+      "construct": "제시한 대안 축 수 (관습 외)",
+      "externalAnchor": [
+        "nova_rev*.md axis 수"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "nova"
+      },
+      "raterWeights": {
+        "nova": 1
+      },
+      "timing": "immediate",
+      "aggregation": "invoked-sessions-only",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": []
+    },
+    {
+      "id": "nova.promotion_rate",
+      "shortKey": "prm_rt",
+      "role": "nova",
+      "scope": "role",
+      "axis": "judgment-consistency",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "higher-better",
+      "construct": "Nova 제안이 Master 승인 후 D-xxx로 박힌 비율",
+      "externalAnchor": [
+        "decision_ledger 'Nova' 출처"
+      ],
+      "validityCheck": "quarterly",
+      "rater": {
+        "type": "self",
+        "by": "nova"
+      },
+      "raterWeights": {
+        "nova": 1
+      },
+      "timing": "deferred",
+      "aggregation": "invoked-sessions-only",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": []
+    }
+  ],
+  "applicableTopicTypes": [
+    "framing",
+    "standalone"
+  ]
 }

@@ -330,5 +330,165 @@
         ]
       }
     ]
-  }
+  },
+  "signatureMetrics": [
+    {
+      "id": "arki.structural_finding_density",
+      "shortKey": "str_fd",
+      "role": "arki",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "higher-better",
+      "construct": "발언당 구조 결함 발견 밀도",
+      "externalAnchor": [
+        "arki_rev*.md finding 카운트"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "arki"
+      },
+      "raterWeights": {
+        "arki": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "arki.self_audit_rounds",
+      "shortKey": "sa_rnd",
+      "role": "arki",
+      "scope": "role",
+      "axis": "learning",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "higher-better",
+      "construct": "토픽 내 자가감사 라운드 수 (4축 균형)",
+      "externalAnchor": [
+        "session notes 'audit-round-N'"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "arki"
+      },
+      "raterWeights": {
+        "arki": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ],
+      "stratifyBy": "grade"
+    },
+    {
+      "id": "arki.audit_finding_recall",
+      "shortKey": "aud_rcl",
+      "role": "arki",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "higher-better",
+      "construct": "Riki cross-review에서 Arki 미발견 비율의 역수",
+      "externalAnchor": [
+        "riki_rev*.md 보강 항목"
+      ],
+      "validityCheck": "quarterly",
+      "rater": {
+        "type": "self",
+        "by": "arki"
+      },
+      "raterWeights": {
+        "arki": 1
+      },
+      "timing": "deferred",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "core",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "arki.spec_lock_rate",
+      "shortKey": "spc_lck",
+      "role": "arki",
+      "scope": "role",
+      "axis": "execution-transfer",
+      "type": "base",
+      "scale": "Y/N",
+      "polarity": "higher-better",
+      "construct": "Dev 인계 spec이 P0a~P5 동안 변경 없이 유지",
+      "externalAnchor": [
+        "spec frontmatter status:locked-for-dev"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "arki"
+      },
+      "raterWeights": {
+        "arki": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    }
+  ],
+  "applicableTopicTypes": [
+    "framing",
+    "implementation",
+    "standalone"
+  ]
 }

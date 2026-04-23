@@ -512,5 +512,202 @@
     "detail": "/open 체크리스트(current_session.json 업데이트 + create-topic.ts 실행) 완료 후 즉시 Dev 진입. 세션 오픈 완료 보고 후 대기 신호 금지. MF-043 (session_056) — Grade C에서 Ace가 진행 지시 대기 후 Master 지적.",
     "antiPattern": "\"진행 지시 주세요\" / \"Dev 직행 준비됐습니다\"로 멈추기",
     "correctBehavior": "Grade C → /open 완료 직후 Dev 역할 즉시 진입, 추가 발화 없음"
-  }
+  },
+  "signatureMetrics": [
+    {
+      "id": "ace.angle_novelty",
+      "shortKey": "ang_nov",
+      "role": "ace",
+      "scope": "role",
+      "axis": "learning",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "higher-better",
+      "construct": "프레이밍 각도 신선도 — 기존 프레임과 차별 정도",
+      "externalAnchor": [
+        "Master 명시 피드백 '신선하다'/'전형'"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "ace"
+      },
+      "raterWeights": {
+        "ace": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "core",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "ace.reframe_trigger",
+      "shortKey": "rfrm_trg",
+      "role": "ace",
+      "scope": "role",
+      "axis": "judgment-consistency",
+      "type": "base",
+      "scale": "Y/N",
+      "polarity": "higher-better",
+      "construct": "재프레이밍이 결정 변경을 유발했는지",
+      "externalAnchor": [
+        "decision_ledger D-xxx 변경 기록"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "external",
+        "by": "master"
+      },
+      "raterWeights": {
+        "master": 1
+      },
+      "timing": "deferred",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "ace.orchestration_hit_rate",
+      "shortKey": "orc_hit",
+      "role": "ace",
+      "scope": "role",
+      "axis": "judgment-consistency",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "higher-better",
+      "construct": "역할 호출 순서가 사후 best-fit과 일치한 비율",
+      "externalAnchor": [
+        "session 종료 시 turn 기록"
+      ],
+      "validityCheck": "quarterly",
+      "rater": {
+        "type": "self",
+        "by": "ace"
+      },
+      "raterWeights": {
+        "ace": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "core",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "ace.context_carryover",
+      "shortKey": "ctx_car",
+      "role": "ace",
+      "scope": "role",
+      "axis": "execution-transfer",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "higher-better",
+      "construct": "이전 세션 결정·맥락 누락 없이 인계 정도",
+      "externalAnchor": [
+        "context_brief.md 검토"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "ace"
+      },
+      "raterWeights": {
+        "ace": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "ace.master_friction",
+      "shortKey": "mst_fr",
+      "role": "ace",
+      "scope": "role",
+      "axis": "judgment-consistency",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "lower-better",
+      "construct": "세션 내 Master 명시 마찰(좌절·재요청·원복) 횟수",
+      "externalAnchor": [
+        "master_feedback_log 부정 신호"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "ace"
+      },
+      "raterWeights": {
+        "ace": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    }
+  ],
+  "applicableTopicTypes": [
+    "framing",
+    "implementation",
+    "standalone"
+  ]
 }

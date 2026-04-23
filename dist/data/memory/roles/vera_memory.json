@@ -62,14 +62,16 @@
     "dashboardShell": "confirmed — 220px sidebar + s-main, sticky, 100vh",
     "heroCard": "confirmed — gradient bg, 92px bold number, accent-color glow",
     "kpiCard": "confirmed — 48px number, color-coded top border + bg gradient + radial glow per type",
-    "roleCard": "confirmed — 145deg linear-gradient(color 16%→4%→dark), radial glow ::before 20%",
+    "roleCard": "confirmed v1.1 — 145deg linear-gradient(color 16%→4%→dark). session_052: 8역할 canonical ROLE_COLORS 적용 완료",
     "statCard": "confirmed — border-top:3px solid accent + gradient bg per semantic color",
     "tabBar": "confirmed — tab-btn uppercase, active=border-bottom purple + white text",
     "sequencePanel": "confirmed v1.1 — D3 SVG, 96px label + 20px node(r=10) + 36px gap, rowH=28, stroke=#0B0B0D 1.5px, recall dashed 4,3, R-D02 connector α=0.18. (session_052: r8→10, gap28→36 수정)",
-    "roleFrequencyChart": "confirmed — ECharts bar 대체. HTML/CSS 트랙 바: dot(8px) + 역할명(52px min) + 트랙(h:6px, bg:#26262D) + 숫자. fill=rgba(ROLE_COLOR,.65)",
-    "roleCard": "confirmed v1.1 — 145deg linear-gradient(color 16%→4%→dark). session_052: 8역할 canonical ROLE_COLORS 적용 완료"
+    "roleFrequencyChart": "confirmed — ECharts bar 대체. HTML/CSS 트랙 바: dot(8px) + 역할명(52px min) + 트랙(h:6px, bg:#26262D) + 숫자. fill=rgba(ROLE_COLOR,.65)"
   },
-  "patterns": ["R-D01", "R-D02"],
+  "patterns": [
+    "R-D01",
+    "R-D02"
+  ],
   "topicsHandled": [
     {
       "topicId": "topic_052",
@@ -175,8 +177,87 @@
       "finding": "skillsApplied 필드에 스킬명 적은 것이 실제 Skill() 호출을 의미하지 않음. Master가 '스킬 모두 인식했어?' 질문으로 드러냄.",
       "lesson": "스펙 산출 시 (a) 실제 Skill() 호출로 증거 남기거나 (b) 명시적으로 '패턴 차용, Skill() 미호출' 표기. skillsApplied 필드 용법을 구분.",
       "actionRule": "디자인 산출물에 skillsApplied 적을 때는 invocationMode: 'skill-call' | 'pattern-reference' 병기. 허세성 기재 금지.",
-      "artifacts": ["reports/2026-04-20_role-recall-measurement-structure/vera_rev1.md", "memory/shared/role_palette.json"]
+      "artifacts": [
+        "reports/2026-04-20_role-recall-measurement-structure/vera_rev1.md",
+        "memory/shared/role_palette.json"
+      ]
     }
   ],
-  "lastUpdated": "2026-04-20T09:00:00.000Z"
+  "lastUpdated": "2026-04-20T09:00:00.000Z",
+  "signatureMetrics": [
+    {
+      "id": "vera.token_consistency",
+      "shortKey": "tk_cns",
+      "role": "vera",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "higher-better",
+      "construct": "디자인 토큰 적용 일관성 (역할 색상·spacing·typography)",
+      "externalAnchor": [
+        "dist/ 빌드 시각 검수"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "vera"
+      },
+      "raterWeights": {
+        "vera": 1
+      },
+      "timing": "immediate",
+      "aggregation": "invoked-sessions-only",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": []
+    },
+    {
+      "id": "vera.spec_compliance",
+      "shortKey": "spc_cpl",
+      "role": "vera",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "higher-better",
+      "construct": "Vera Design System 적용 비율",
+      "externalAnchor": [
+        "component spec 매핑"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "vera"
+      },
+      "raterWeights": {
+        "vera": 1
+      },
+      "timing": "immediate",
+      "aggregation": "invoked-sessions-only",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": []
+    }
+  ],
+  "applicableTopicTypes": [
+    "framing",
+    "standalone"
+  ]
 }
