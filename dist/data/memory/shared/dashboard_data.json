@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-23T05:05:43.153Z",
-  "totalSessions": 83,
+  "generatedAt": "2026-04-23T05:09:43.906Z",
+  "totalSessions": 84,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.09,
-    "avgCacheHitRate": 0.9289,
-    "cacheSampleSize": 57,
-    "cacheSampleTotal": 83,
+    "avgMasterTurns": 16,
+    "avgCacheHitRate": 0.9288,
+    "cacheSampleSize": 58,
+    "cacheSampleTotal": 84,
     "avgAdoptionRate": 0,
     "totalDecisions": 63,
     "gradeDistribution": {
       "S": 26,
-      "A": 16,
+      "A": 17,
       "B": 30,
       "C": 11
     },
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 38,
-    "totalCostUSD": 700.8141,
-    "avgCostPerSession": 8.9848,
-    "costSampleSize": 78
+    "turnBasedSessions": 39,
+    "totalCostUSD": 709.4615,
+    "avgCostPerSession": 8.9805,
+    "costSampleSize": 79
   },
   "sessions": [
     {
@@ -3070,12 +3070,49 @@
         "messageCount": 113
       },
       "sessionCostUSD": 7.7686
+    },
+    {
+      "sessionId": "session_086",
+      "topicSlug": "cost-report-2025-html",
+      "topic": "2025 비용분석 HTML 슬라이드 보고서",
+      "startedAt": "2026-04-23T06:00:00.000Z",
+      "closedAt": "2026-04-23T06:45:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 5,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 10,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 9,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 13348847,
+        "ioTokens": 99991,
+        "inputTokens": 267,
+        "outputTokens": 99724,
+        "cacheCreate": 920602,
+        "cacheRead": 12328254,
+        "cacheHitRate": 0.9235444829055274,
+        "messageCount": 124
+      },
+      "sessionCostUSD": 8.6474
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 58,
+      "count": 60,
       "sessions": [
         "session_047",
         "session_048",
@@ -3108,12 +3145,13 @@
         "session_079",
         "session_080",
         "session_081",
-        "session_082"
+        "session_082",
+        "session_086"
       ]
     },
     {
       "role": "arki",
-      "count": 41,
+      "count": 42,
       "sessions": [
         "session_048",
         "session_049",
@@ -3132,12 +3170,13 @@
         "session_077",
         "session_078",
         "session_081",
-        "session_082"
+        "session_082",
+        "session_086"
       ]
     },
     {
       "role": "editor",
-      "count": 35,
+      "count": 36,
       "sessions": [
         "session_050",
         "session_051",
@@ -3173,7 +3212,8 @@
         "session_081",
         "session_082",
         "session_083",
-        "session_084"
+        "session_084",
+        "session_086"
       ]
     },
     {
@@ -3208,7 +3248,7 @@
     },
     {
       "role": "riki",
-      "count": 19,
+      "count": 20,
       "sessions": [
         "session_049",
         "session_053",
@@ -3225,7 +3265,8 @@
         "session_077",
         "session_080",
         "session_081",
-        "session_082"
+        "session_082",
+        "session_086"
       ]
     },
     {
@@ -4754,6 +4795,42 @@
           "role": "editor",
           "phase": "compile",
           "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_086",
+      "topic": "2025 비용분석 HTML 슬라이드 보고서",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "framing",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "framing",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 3,
+          "recallReason": "synthesis"
+        },
+        {
+          "role": "editor",
+          "phase": "implementation",
+          "turnIdx": 4,
           "recallReason": null
         }
       ]

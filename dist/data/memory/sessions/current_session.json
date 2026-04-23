@@ -3,15 +3,49 @@
   "topicId": "topic_092",
   "topic": "2025 비용분석 HTML 슬라이드 보고서",
   "topicSlug": "cost-report-2025-html",
-  "status": "open",
+  "status": "closed",
   "startedAt": "2026-04-23T06:00:00.000Z",
+  "closedAt": "2026-04-23T06:45:00.000Z",
   "mode": "observation",
   "grade": "A",
   "gradeDeclared": "A",
   "framingLevel": 2,
   "framingSkipped": false,
-  "agentsCompleted": [],
-  "turns": [],
+  "agentsCompleted": [
+    "ace",
+    "arki",
+    "riki",
+    "ace",
+    "editor"
+  ],
+  "turns": [
+    {
+      "role": "ace",
+      "turnIdx": 0,
+      "phase": "framing"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 1,
+      "phase": "framing"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 2,
+      "phase": "framing"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 3,
+      "phase": "framing",
+      "recallReason": "synthesis"
+    },
+    {
+      "role": "editor",
+      "turnIdx": 4,
+      "phase": "implementation"
+    }
+  ],
   "decisions": [],
   "masterDecisions": [],
   "masterFeedback": [],
@@ -22,12 +56,12 @@
   "gaps": [],
   "reportPath": "reports/2026-04-23_cost-report-2025-html",
   "tokenUsage": {
-    "input_tokens": 122,
-    "output_tokens": 48446,
-    "cache_creation_input_tokens": 403756,
-    "cache_read_input_tokens": 5566100,
-    "messageCount": 57,
-    "masterTurns": 3,
-    "total_billable": 6018424
+    "input_tokens": 145,
+    "output_tokens": 51278,
+    "cache_creation_input_tokens": 516846,
+    "cache_read_input_tokens": 6762154,
+    "messageCount": 67,
+    "masterTurns": 6,
+    "total_billable": 7330423
   }
 }

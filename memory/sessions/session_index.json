@@ -2977,8 +2977,53 @@
       ],
       "grade": "B",
       "note": "P4 compute-signature-metrics: 3뷰 집계 + stratified-by-grade + alerts + derived weighted-mean. baseline-10 mean=78.0 spec 일치. full-30 fixture 840 records → 3ms (SLA 3000ms ✓) | P4 resolve-deferred-scores: dry-run / --apply 모드, queue 비어있을 때 정상 동작 | P5 app/signature.html: Tier1 overview(8 role cards, role_registry에서 동적 렌더 — 하드코딩 X) / Tier2 per-role / Tier3 drill, view selector, integrity 배지, baseline state UI | P5 app/role-signature-card.html: 단일 카드 임베드 템플릿(?role=&view=) | Hook chain 등록 — auto-push.js: tokens → finalize → finalize-self-scores → resolve-deferred(--apply) → compute-signature → compute-growth → compute-dashboard → build | 회귀 통과: P0b smoke 29/29 + P2 roundtrip 11/11 + finalize audit 100% + build 246 files | Master 검수: '단순해서 판단 여지 없음' → 자동 종료 승인 | PD-023 G6 Tier A trigger 5토픽 누적 카운트 시작 (이번이 1토픽)"
+    },
+    {
+      "sessionId": "session_086",
+      "topicSlug": "cost-report-2025-html",
+      "topic": "2025 비용분석 HTML 슬라이드 보고서",
+      "startedAt": "2026-04-23T06:00:00.000Z",
+      "closedAt": "2026-04-23T06:45:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "phase": "framing"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 2,
+          "phase": "framing"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 3,
+          "phase": "framing",
+          "recallReason": "synthesis"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 4,
+          "phase": "implementation"
+        }
+      ],
+      "grade": "A",
+      "note": "session_085 (vera-claude-design-ai-integration) held 유지, 병행 신규 토픽 오픈 | 데이터 소스: Data/Cost/시사점_2025.md (12개 섹션) + 분석_2025_step2.xlsx (12시트)"
     }
   ],
-  "lastUpdated": "2026-04-23T03:42:54.107Z",
+  "lastUpdated": "2026-04-23T05:09:12.879Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

@@ -1,9 +1,15 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_084",
-  "nextSessionId": "session_085",
+  "lastSessionId": "session_086",
+  "nextSessionId": "session_087",
   "currentVersion": "v1.54",
   "openTopics": [
+    {
+      "id": "topic_091",
+      "title": "Vera Claude Design AI 웹 호출 활용 방법",
+      "status": "suspended",
+      "reportPath": "reports/2026-04-23_vera-claude-design-ai-integration"
+    },
     {
       "id": "topic_082",
       "title": "Dashboard 개편 — 인터페이스 UX + 반응형 프레임",
@@ -274,5 +280,5 @@
       "note": "D-058 확정. opus-dispatcher 스킬 + dispatch_config.json + 에이전트 정의 4종(role-ace/arki/fin/riki.md) 구현. G1(write 계약)·G3(RED→GREEN) 통과. auto-model-switch 스킬 폐기."
     }
   ],
-  "lastUpdated": "2026-04-23T03:43:06.114Z"
+  "lastUpdated": "2026-04-23T05:09:29.385Z"
 }
