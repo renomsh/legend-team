@@ -1,0 +1,81 @@
+<!--
+  PD-023 P5 — role-signature-card template (single-card embed)
+  Usage: open with ?role=ace&view=all (uses fetched aggregate JSON).
+  Standalone, dependency-free; consumed by signature.html or embedded externally.
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Role Signature Card</title>
+  <style>
+    body{margin:0;background:#000;color:#F5F5F7;font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;padding:20px}
+    .card{max-width:300px;background:#0B0B0D;border:1px solid #26262D;border-radius:10px;padding:16px}
+    .role{display:inline-flex;align-items:center;gap:8px;font-size:11px;color:#6E6E78;text-transform:uppercase;letter-spacing:.08em}
+    .dot{width:8px;height:8px;border-radius:2px}
+    .name{font-size:18px;font-weight:700;margin:6px 0 2px}
+    .topMetric{font-size:11px;color:#B8B8C0}
+    .score{font-size:32px;font-weight:800;letter-spacing:-1px;margin:6px 0 2px}
+    .unit{font-size:13px;color:#6E6E78;font-weight:500}
+    .ci{font-size:10px;color:#6E6E78}
+    .badge{display:inline-block;font-size:9px;padding:2px 7px;border-radius:10px;margin-top:6px;letter-spacing:.06em;text-transform:uppercase}
+    .ok{background:rgba(16,185,129,.15);color:#10B981}
+    .warn{background:rgba(245,158,11,.15);color:#F59E0B}
+    .bad{background:rgba(239,68,68,.15);color:#EF4444}
+    .baseline{background:rgba(110,110,120,.18);color:#6E6E78}
+    .err{padding:30px;text-align:center;color:#6E6E78;font-size:12px;border:1px dashed #26262D;border-radius:10px}
+  </style>
+</head>
+<body>
+<div id="root"><div class="err">Loading…</div></div>
+<script>
+const params = new URLSearchParams(location.search);
+const ROLE = params.get('role') || 'ace';
+const VIEW = params.get('view') || 'all';
+const BASE = params.get('base') || 'data/';
+
+function fmt(n){ return n===null||n===undefined ? '—' : (Math.round(n*10)/10).toFixed(1); }
+function badge(level, baseline){
+  if (baseline) return '<span class="badge baseline">baseline</span>';
+  if (!level || level === 'ok') return '<span class="badge ok">ok</span>';
+  return `<span class="badge ${level === 'red' ? 'bad' : 'warn'}">${level}</span>`;
+}
+
+async function load(p){ const r = await fetch(p, {cache:'no-store'}); return r.ok ? r.json() : null; }
+
+function topMetric(roleId, registry){
+  const ms = registry.metrics.filter(m => m.role === roleId);
+  return ms.find(m => m.type === 'derived') || ms.find(m => m.axis === 'learning') || ms[0];
+}
+
+function findAgg(agg, metricId){
+  const all = (agg.aggregates||[]).concat(agg.derivedAggregates||[]);
+  return all.find(a => a.metricId === metricId && a.view === VIEW && !a.stratum);
+}
+
+(async function(){
+  const root = document.getElementById('root');
+  const registry = await load(BASE+'memory/growth/metrics_registry.json');
+  const agg = await load(BASE+'memory/growth/signature_metrics_aggregate.json');
+  const roles = (await load(BASE+'memory/shared/role_registry.json'))?.roles || [];
+  if (!registry || !agg) { root.innerHTML = '<div class="err">aggregate not found</div>'; return; }
+  const role = roles.find(r => r.id === ROLE);
+  if (!role) { root.innerHTML = `<div class="err">role "${ROLE}" not in registry</div>`; return; }
+  const m = topMetric(ROLE, registry);
+  if (!m) { root.innerHTML = `<div class="err">no metrics for role ${ROLE}</div>`; return; }
+  const a = findAgg(agg, m.id);
+  const baseline = !a || a.n === 0 || a.n < (m.baselineSessions ?? 10);
+  const ci = a?.ci95 ? `CI95 [${fmt(a.ci95[0])}, ${fmt(a.ci95[1])}] · n=${a.n}` : `n=${a?.n ?? 0}`;
+  root.innerHTML = `
+    <div class="card">
+      <div class="role"><span class="dot" style="background:${role.color}"></span>${role.displayName}</div>
+      <div class="name">${role.displayName}</div>
+      <div class="topMetric">${m.shortKey} · ${m.axis}</div>
+      <div class="score">${fmt(a?.mean)}<span class="unit"> /100</span></div>
+      <div class="ci">${ci}</div>
+      ${badge(a?.alert?.level, baseline)}
+    </div>`;
+})();
+</script>
+</body>
+</html>

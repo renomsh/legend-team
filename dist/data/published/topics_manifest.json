@@ -1,6 +1,20 @@
 {
-  "generatedAt": "2026-04-23T03:24:59.233Z",
+  "generatedAt": "2026-04-23T03:43:18.513Z",
   "topics": [
+    {
+      "id": "topic_090",
+      "title": "PD-023 P4/P5 — compute-signature-metrics + dashboard 3-tier + finalize hook 등록",
+      "status": "completed",
+      "created": "2026-04-23",
+      "reportPath": "reports/2026-04-23_pd023-p4-p5-dashboard-hook",
+      "reportFiles": [
+        "dev_rev1.md"
+      ],
+      "published": false,
+      "outcome": "P4(compute SLA 1ms/full-30 3ms · resolve-deferred · 84+3 aggregates) + P5(3-tier dashboard · 8 role cards · role-signature-card 템플릿) + hook chain 등록 + 회귀(smoke 29/29·roundtrip 11/11) 전 게이트 통과. Master 수동 검수 승인.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_089",
       "title": "PD-023 Dev 얇은 구현 P0a~P3 (self_scores.jsonl + 훅 + 카드)",

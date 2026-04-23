@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-23T03:24:58.468Z",
-  "totalSessions": 82,
+  "generatedAt": "2026-04-23T03:43:17.590Z",
+  "totalSessions": 83,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.23,
-    "avgCacheHitRate": 0.9288,
-    "cacheSampleSize": 56,
-    "cacheSampleTotal": 82,
+    "avgMasterTurns": 16.09,
+    "avgCacheHitRate": 0.9289,
+    "cacheSampleSize": 57,
+    "cacheSampleTotal": 83,
     "avgAdoptionRate": 0,
     "totalDecisions": 63,
     "gradeDistribution": {
       "S": 26,
       "A": 16,
-      "B": 29,
+      "B": 30,
       "C": 11
     },
     "gradeMismatchCount": 2,
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 37,
-    "totalCostUSD": 693.0455,
-    "avgCostPerSession": 9.0006,
-    "costSampleSize": 77
+    "turnBasedSessions": 38,
+    "totalCostUSD": 700.8141,
+    "avgCostPerSession": 8.9848,
+    "costSampleSize": 78
   },
   "sessions": [
     {
@@ -3036,6 +3036,40 @@
         "messageCount": 118
       },
       "sessionCostUSD": 11.8912
+    },
+    {
+      "sessionId": "session_084",
+      "topicSlug": "pd023-p4-p5-dashboard-hook",
+      "topic": "PD-023 P4/P5 — compute-signature-metrics + dashboard 3-tier + finalize hook 등록",
+      "startedAt": "2026-04-23T03:35:00.000Z",
+      "closedAt": "2026-04-23T03:55:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 5,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 13436629,
+        "ioTokens": 58354,
+        "inputTokens": 206,
+        "outputTokens": 58148,
+        "cacheCreate": 835440,
+        "cacheRead": 12542835,
+        "cacheHitRate": 0.9334807859917841,
+        "messageCount": 113
+      },
+      "sessionCostUSD": 7.7686
     }
   ],
   "roleFrequency": [
@@ -3103,7 +3137,7 @@
     },
     {
       "role": "editor",
-      "count": 34,
+      "count": 35,
       "sessions": [
         "session_050",
         "session_051",
@@ -3138,12 +3172,13 @@
         "session_080",
         "session_081",
         "session_082",
-        "session_083"
+        "session_083",
+        "session_084"
       ]
     },
     {
       "role": "dev",
-      "count": 28,
+      "count": 29,
       "sessions": [
         "session_047",
         "session_048",
@@ -3167,7 +3202,8 @@
         "session_079",
         "session_080",
         "session_081",
-        "session_083"
+        "session_083",
+        "session_084"
       ]
     },
     {
@@ -4689,6 +4725,24 @@
     {
       "sessionId": "session_083",
       "topic": "PD-023 Dev 얇은 구현 P0a~P3 (self_scores.jsonl + 훅 + 카드)",
+      "sequence": [
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_084",
+      "topic": "PD-023 P4/P5 — compute-signature-metrics + dashboard 3-tier + finalize hook 등록",
       "sequence": [
         {
           "role": "dev",

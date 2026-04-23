@@ -72,6 +72,9 @@ function runHookChain() {
   const steps = [
     'node .claude/hooks/session-end-tokens.js',
     'node .claude/hooks/session-end-finalize.js',
+    'npx ts-node scripts/finalize-self-scores.ts',
+    'npx ts-node scripts/resolve-deferred-scores.ts --apply',
+    'npx ts-node scripts/compute-signature-metrics.ts',
     'npx ts-node scripts/compute-growth.ts',
     'npx ts-node scripts/compute-dashboard.ts',
     'node scripts/build.js',

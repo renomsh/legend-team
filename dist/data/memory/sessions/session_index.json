@@ -2946,8 +2946,39 @@
       ],
       "grade": "B",
       "note": "Dev 호출 — PD-023 canonical spec arki_rev1.md 기반 P0a~P3 5게이트 1패스 통과 | P0b smoke 29/29 PASS, P2 roundtrip 11/11 PASS, P3 finalize audit=100% (7 records) | Ajv 설치 후 compile에 wire-in (E-006 검증 활성) | 차기 세션(session_084): P4(compute+SLA) + P5(dashboard 3-tier) + finalize hook chain 등록 + 회귀 + Master 수동 검수 | 5토픽 후: G6 Tier A 평가 → PD-025 진입 판단"
+    },
+    {
+      "sessionId": "session_084",
+      "topicSlug": "pd023-p4-p5-dashboard-hook",
+      "topic": "PD-023 P4/P5 — compute-signature-metrics + dashboard 3-tier + finalize hook 등록",
+      "startedAt": "2026-04-23T03:35:00.000Z",
+      "closedAt": "2026-04-23T03:55:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "dev",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "dev",
+          "turnIdx": 0,
+          "phase": "implementation",
+          "selfScores": {
+            "gt_pas": 1,
+            "spc_drf": 0,
+            "reg_zr": "Y"
+          }
+        },
+        {
+          "role": "editor",
+          "turnIdx": 1,
+          "phase": "compile"
+        }
+      ],
+      "grade": "B",
+      "note": "P4 compute-signature-metrics: 3뷰 집계 + stratified-by-grade + alerts + derived weighted-mean. baseline-10 mean=78.0 spec 일치. full-30 fixture 840 records → 3ms (SLA 3000ms ✓) | P4 resolve-deferred-scores: dry-run / --apply 모드, queue 비어있을 때 정상 동작 | P5 app/signature.html: Tier1 overview(8 role cards, role_registry에서 동적 렌더 — 하드코딩 X) / Tier2 per-role / Tier3 drill, view selector, integrity 배지, baseline state UI | P5 app/role-signature-card.html: 단일 카드 임베드 템플릿(?role=&view=) | Hook chain 등록 — auto-push.js: tokens → finalize → finalize-self-scores → resolve-deferred(--apply) → compute-signature → compute-growth → compute-dashboard → build | 회귀 통과: P0b smoke 29/29 + P2 roundtrip 11/11 + finalize audit 100% + build 246 files | Master 검수: '단순해서 판단 여지 없음' → 자동 종료 승인 | PD-023 G6 Tier A trigger 5토픽 누적 카운트 시작 (이번이 1토픽)"
     }
   ],
-  "lastUpdated": "2026-04-23T03:24:40.852Z",
+  "lastUpdated": "2026-04-23T03:42:54.107Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
