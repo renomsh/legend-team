@@ -1,12 +1,11 @@
 {
-  "sessionId": "session_094",
-  "topicId": "topic_099",
-  "topic": "PD-023 재개 — Self-scores MVP 얇은 구현 (post-D074)",
-  "topicSlug": "pd023-resume-self-scores-mvp",
-  "reportPath": "reports/2026-04-24_pd023-resume-self-scores-mvp",
+  "sessionId": "session_095",
+  "topicId": "topic_100",
+  "topic": "PD-035 P3-supplementary — 8역할 YAML instruction 보강",
+  "topicSlug": "pd035-yaml-instruction-8roles",
+  "reportPath": "reports/2026-04-24_pd035-yaml-instruction-8roles",
   "status": "closed",
-  "startedAt": "2026-04-24T23:00:00.000Z",
-  "closedAt": "2026-04-25T02:00:00.000Z",
+  "startedAt": "2026-04-25T02:30:00.000Z",
   "mode": "observation",
   "grade": "A",
   "gradeDeclared": "A",
@@ -18,13 +17,18 @@
   "childTopicIds": [],
   "agentsCompleted": [
     "ace",
-    "arki",
-    "arki",
-    "fin",
-    "riki",
-    "arki",
+    "ace",
+    "ace",
     "arki",
     "ace",
+    "arki",
+    "ace",
+    "ace",
+    "riki",
+    "riki",
+    "ace",
+    "arki",
+    "dev",
     "editor"
   ],
   "turns": [
@@ -33,107 +37,91 @@
       "turnIdx": 0
     },
     {
-      "role": "arki",
-      "turnIdx": 1,
-      "phase": "analysis"
+      "role": "ace",
+      "turnIdx": 1
+    },
+    {
+      "role": "ace",
+      "turnIdx": 2
     },
     {
       "role": "arki",
-      "turnIdx": 2,
-      "phase": "execution-plan",
-      "recallReason": "phase-transition",
-      "splitReason": "Section 4 구조적 실행계획 전환"
-    },
-    {
-      "role": "fin",
       "turnIdx": 3
     },
     {
-      "role": "riki",
+      "role": "ace",
       "turnIdx": 4
     },
     {
       "role": "arki",
-      "turnIdx": 5,
-      "phase": "re-audit",
-      "recallReason": "post-intervention",
-      "splitReason": "Riki 오진 공격 → Master 지시로 재실측"
+      "turnIdx": 5
     },
     {
-      "role": "arki",
+      "role": "ace",
       "turnIdx": 6
     },
     {
       "role": "ace",
-      "turnIdx": 7,
-      "phase": "synthesis"
+      "turnIdx": 7
+    },
+    {
+      "role": "riki",
+      "turnIdx": 8
+    },
+    {
+      "role": "riki",
+      "turnIdx": 9
+    },
+    {
+      "role": "ace",
+      "turnIdx": 10
+    },
+    {
+      "role": "arki",
+      "turnIdx": 11
+    },
+    {
+      "role": "dev",
+      "turnIdx": 12
     },
     {
       "role": "editor",
-      "turnIdx": 8,
-      "phase": "compile"
+      "turnIdx": 13,
+      "phase": "compilation"
     }
   ],
   "decisions": [
-    "D-075",
-    "D-076",
-    "D-077",
-    "D-078",
-    "D-079",
-    "D-080"
+    "D-081",
+    "D-082",
+    "D-083",
+    "D-084",
+    "D-085",
+    "D-086"
   ],
-  "masterDecisions": [
-    {
-      "id": "D-075",
-      "summary": "D-073 부분 rescind + 페르소나 통합경로 memory/roles/personas/"
-    },
-    {
-      "id": "D-076",
-      "summary": "PD-031 root cause 재판정 — 입력 공급선 결함"
-    },
-    {
-      "id": "D-077",
-      "summary": "3세션 summary 자동 로드 시스템"
-    },
-    {
-      "id": "D-078",
-      "summary": "Arki 감사 프로토콜 v2 — hook chain 전수 확인"
-    },
-    {
-      "id": "D-079",
-      "summary": "Grade D 토픽 self-scores 대상 외 명문화"
-    },
-    {
-      "id": "D-080",
-      "summary": "PD-023 Phase 재매핑 — P3-supp 최우선, P3' 기각"
-    }
-  ],
+  "masterDecisions": [],
   "masterFeedback": [
-    "MF-079",
-    "MF-080",
-    "MF-081"
+    "성장하기 위해 부족한 축을 잡으려는 거라 — 지금은 정교하지 않아도 된다는 방향 확인 → Goodhart 방어·deferred-settlement·turns 자동 판정 전량 폐기, 단순화 경로 확정",
+    "5역할 균등 가중 (tier 구분 없음) — 3역할 기존 가중치 유지"
   ],
-  "pendingDeferralsAdded": [
-    "PD-035",
-    "PD-036",
-    "PD-037",
-    "PD-038",
-    "PD-039"
+  "pendingDeferralsAdded": [],
+  "pendingDeferralsResolved": [
+    "PD-035"
   ],
-  "pendingDeferralsResolved": [],
   "notes": [
-    "PD-023 (session_082 발생, canonical spec: reports/2026-04-23_pd023-self-scores-thin-impl/arki_rev1.md) 재개.",
-    "직전 구현 시도(session_082~089)에서 PD-031(YAML 미기입 실가동 감사) 파생. MVP 자체는 일부 구현됨.",
-    "D-074(2026-04-24)로 dispatcher/Grade 체계 전면 개편된 직후 — 재개 시 post-D074 아키텍처와 정합 여부 재확인 필요."
+    "PD-035 구현 토픽. session_094에서 생성됨(D-080 Phase remapping). PD-031 근본 원인 해소용 — YAML 미기입은 role instruction 결함이 1차 원인.",
+    "관련 PD: PD-023 (parent canonical spec), PD-031 (실가동 감사 결과), PD-037 (Vera 페르소나 신규), PD-038 (probe 재설계, 장기).",
+    "Grade A → L2 full framing, Ace 첫 주자.",
+    "구현 완료: 8 persona 파일 YAML 계약 + 32 shortKey + Vera canonical + 구조 통일. D-081~D-086 박제."
   ],
   "gaps": [],
+  "closedAt": "2026-04-25T02:30:00.000Z",
   "tokenUsage": {
-    "input_tokens": 338,
-    "output_tokens": 146664,
-    "cache_creation_input_tokens": 410122,
-    "cache_read_input_tokens": 13180936,
-    "messageCount": 100,
-    "masterTurns": 17,
-    "total_billable": 13738060
+    "input_tokens": 419,
+    "output_tokens": 150302,
+    "cache_creation_input_tokens": 606478,
+    "cache_read_input_tokens": 17800159,
+    "messageCount": 168,
+    "masterTurns": 27,
+    "total_billable": 18557358
   }
 }

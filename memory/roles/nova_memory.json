@@ -174,11 +174,88 @@
         "implementation",
         "standalone"
       ],
-      "participationExpectedTopicTypes": []
+      "participationExpectedTopicTypes": [],
+      "deprecated": true,
+      "deprecatedAt": "2026-04-24",
+      "replacedBy": "inv_prm"
+    },
+    {
+      "id": "nova.invocation_promotion",
+      "shortKey": "inv_prm",
+      "role": "nova",
+      "scope": "role",
+      "axis": "judgment-consistency",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "higher-better",
+      "construct": "호출된 Nova 세션 중 제안이 Master 승인 또는 Phase2 보류로 진전된 비율 (prm_rt 후계 — 전체 세션이 아닌 invoked 세션만 분모)",
+      "externalAnchor": [
+        "decision_ledger 'Nova' 출처",
+        "lessonLog invoked-sessions-only 집계"
+      ],
+      "validityCheck": "quarterly",
+      "rater": {
+        "type": "self",
+        "by": "nova"
+      },
+      "raterWeights": {
+        "nova": 1
+      },
+      "timing": "deferred",
+      "aggregation": "invoked-sessions-only",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [],
+      "_reserved": { "pd035_scope": true }
+    },
+    {
+      "id": "nova.blindspot_flag",
+      "shortKey": "blnd_spt",
+      "role": "nova",
+      "scope": "role",
+      "axis": "learning",
+      "type": "base",
+      "scale": "Y/N",
+      "polarity": "higher-better",
+      "construct": "세션 내 다른 역할이 놓친 전제를 명시 인용 + 대안 프레임 1개 이상 제시",
+      "externalAnchor": [
+        "nova_rev*.md 전제 인용 + 대안 프레임 섹션"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "nova"
+      },
+      "raterWeights": {
+        "nova": 1
+      },
+      "timing": "immediate",
+      "aggregation": "invoked-sessions-only",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [],
+      "_reserved": { "pd035_scope": true }
     }
   ],
   "applicableTopicTypes": [
     "framing",
     "standalone"
-  ]
+  ],
+  "lastUpdated": "2026-04-24"
 }

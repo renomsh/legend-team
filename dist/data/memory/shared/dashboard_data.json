@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-24T12:56:36.930Z",
-  "totalSessions": 92,
+  "generatedAt": "2026-04-24T15:12:56.478Z",
+  "totalSessions": 93,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.61,
-    "avgCacheHitRate": 0.9304,
-    "cacheSampleSize": 66,
-    "cacheSampleTotal": 92,
+    "avgMasterTurns": 16.73,
+    "avgCacheHitRate": 0.9308,
+    "cacheSampleSize": 67,
+    "cacheSampleTotal": 93,
     "avgAdoptionRate": 0,
-    "totalDecisions": 80,
+    "totalDecisions": 86,
     "gradeDistribution": {
-      "S": 33,
+      "S": 34,
       "A": 18,
       "B": 30,
       "C": 11
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 47,
-    "totalCostUSD": 805.2749,
-    "avgCostPerSession": 9.256,
-    "costSampleSize": 87
+    "turnBasedSessions": 48,
+    "totalCostUSD": 815.145,
+    "avgCostPerSession": 9.263,
+    "costSampleSize": 88
   },
   "sessions": [
     {
@@ -3443,12 +3443,66 @@
         "messageCount": 100
       },
       "sessionCostUSD": 7.6932
+    },
+    {
+      "sessionId": "session_095",
+      "topicSlug": "pd035-yaml-instruction-8roles",
+      "topic": "PD-035 P3-supplementary — 8역할 YAML instruction 보강",
+      "startedAt": "2026-04-25T02:30:00.000Z",
+      "closedAt": "2026-04-25T02:30:00.000Z",
+      "decisionCount": 6,
+      "decisionAxes": 6,
+      "decisions": [
+        "D-081",
+        "D-082",
+        "D-083",
+        "D-084",
+        "D-085",
+        "D-086"
+      ],
+      "rolesCalled": 14,
+      "rolesRecalled": 9,
+      "sessionsSpanned": 1,
+      "size": 47,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 27,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "ace",
+        "ace",
+        "arki",
+        "ace",
+        "arki",
+        "ace",
+        "ace",
+        "riki",
+        "riki",
+        "ace",
+        "arki",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 18557358,
+        "ioTokens": 150721,
+        "inputTokens": 419,
+        "outputTokens": 150302,
+        "cacheCreate": 606478,
+        "cacheRead": 17800159,
+        "cacheHitRate": 0.9591968317903874,
+        "messageCount": 168
+      },
+      "sessionCostUSD": 9.8701
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 83,
+      "count": 90,
       "sessions": [
         "session_047",
         "session_048",
@@ -3490,12 +3544,13 @@
         "session_091",
         "session_092",
         "session_093",
-        "session_094"
+        "session_094",
+        "session_095"
       ]
     },
     {
       "role": "arki",
-      "count": 62,
+      "count": 65,
       "sessions": [
         "session_048",
         "session_049",
@@ -3522,12 +3577,13 @@
         "session_091",
         "session_092",
         "session_093",
-        "session_094"
+        "session_094",
+        "session_095"
       ]
     },
     {
       "role": "editor",
-      "count": 44,
+      "count": 45,
       "sessions": [
         "session_050",
         "session_051",
@@ -3572,12 +3628,13 @@
         "session_091",
         "session_092",
         "session_093",
-        "session_094"
+        "session_094",
+        "session_095"
       ]
     },
     {
       "role": "dev",
-      "count": 31,
+      "count": 32,
       "sessions": [
         "session_047",
         "session_048",
@@ -3604,12 +3661,13 @@
         "session_083",
         "session_084",
         "session_091",
-        "session_093"
+        "session_093",
+        "session_095"
       ]
     },
     {
       "role": "riki",
-      "count": 24,
+      "count": 26,
       "sessions": [
         "session_049",
         "session_053",
@@ -3631,7 +3689,8 @@
         "session_087",
         "session_092",
         "session_093",
-        "session_094"
+        "session_094",
+        "session_095"
       ]
     },
     {
@@ -5603,6 +5662,96 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_095",
+      "topic": "PD-035 P3-supplementary — 8역할 YAML instruction 보강",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 6,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 7,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 8,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 9,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 10,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 11,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 12,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compilation",
+          "turnIdx": 13,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -5635,6 +5784,12 @@
       "severity": "yellow",
       "sessionId": "session_090",
       "description": "역할 과호출: rolesRecalled=8 (임계값 5, grade=S)"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_095",
+      "description": "역할 과호출: rolesRecalled=9 (임계값 5, grade=S)"
     }
   ],
   "feedbackRecurrences": [

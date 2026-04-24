@@ -3630,8 +3630,93 @@
       ],
       "grade": "A",
       "note": "PD-023 (session_082 발생, canonical spec: reports/2026-04-23_pd023-self-scores-thin-impl/arki_rev1.md) 재개. | 직전 구현 시도(session_082~089)에서 PD-031(YAML 미기입 실가동 감사) 파생. MVP 자체는 일부 구현됨. | D-074(2026-04-24)로 dispatcher/Grade 체계 전면 개편된 직후 — 재개 시 post-D074 아키텍처와 정합 여부 재확인 필요."
+    },
+    {
+      "sessionId": "session_095",
+      "topicSlug": "pd035-yaml-instruction-8roles",
+      "topic": "PD-035 P3-supplementary — 8역할 YAML instruction 보강",
+      "startedAt": "2026-04-25T02:30:00.000Z",
+      "closedAt": "2026-04-25T02:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "ace",
+        "ace",
+        "ace",
+        "arki",
+        "ace",
+        "arki",
+        "ace",
+        "ace",
+        "riki",
+        "riki",
+        "ace",
+        "arki",
+        "dev",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0
+        },
+        {
+          "role": "ace",
+          "turnIdx": 1
+        },
+        {
+          "role": "ace",
+          "turnIdx": 2
+        },
+        {
+          "role": "arki",
+          "turnIdx": 3
+        },
+        {
+          "role": "ace",
+          "turnIdx": 4
+        },
+        {
+          "role": "arki",
+          "turnIdx": 5
+        },
+        {
+          "role": "ace",
+          "turnIdx": 6
+        },
+        {
+          "role": "ace",
+          "turnIdx": 7
+        },
+        {
+          "role": "riki",
+          "turnIdx": 8
+        },
+        {
+          "role": "riki",
+          "turnIdx": 9
+        },
+        {
+          "role": "ace",
+          "turnIdx": 10
+        },
+        {
+          "role": "arki",
+          "turnIdx": 11
+        },
+        {
+          "role": "dev",
+          "turnIdx": 12
+        },
+        {
+          "role": "editor",
+          "turnIdx": 13,
+          "phase": "compilation"
+        }
+      ],
+      "grade": "A",
+      "note": "PD-035 구현 토픽. session_094에서 생성됨(D-080 Phase remapping). PD-031 근본 원인 해소용 — YAML 미기입은 role instruction 결함이 1차 원인. | 관련 PD: PD-023 (parent canonical spec), PD-031 (실가동 감사 결과), PD-037 (Vera 페르소나 신규), PD-038 (probe 재설계, 장기). | Grade A → L2 full framing, Ace 첫 주자. | 구현 완료: 8 persona 파일 YAML 계약 + 32 shortKey + Vera canonical + 구조 통일. D-081~D-086 박제."
     }
   ],
-  "lastUpdated": "2026-04-24T12:56:02.380Z",
+  "lastUpdated": "2026-04-24T15:12:16.180Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

@@ -183,7 +183,7 @@
       ]
     }
   ],
-  "lastUpdated": "2026-04-20T09:00:00.000Z",
+  "lastUpdated": "2026-04-24",
   "signatureMetrics": [
     {
       "id": "vera.token_consistency",
@@ -219,6 +219,43 @@
         "standalone"
       ],
       "participationExpectedTopicTypes": []
+    },
+    {
+      "id": "vera.token_drift_zero",
+      "shortKey": "tk_drf0",
+      "role": "vera",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "Y/N",
+      "polarity": "higher-better",
+      "construct": "디자인 토큰 drift 0건 (신규 토큰 무단 추가·기존 값 변형 없음)",
+      "externalAnchor": [
+        "design tokens diff 스캔",
+        "role-colors.js 단일 원천 대조"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "vera"
+      },
+      "raterWeights": {
+        "vera": 1
+      },
+      "timing": "immediate",
+      "aggregation": "invoked-sessions-only",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [],
+      "_reserved": { "pd035_scope": true }
     },
     {
       "id": "vera.spec_compliance",

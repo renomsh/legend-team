@@ -1,6 +1,30 @@
 {
-  "generatedAt": "2026-04-24T12:56:38.682Z",
+  "generatedAt": "2026-04-24T15:12:57.897Z",
   "topics": [
+    {
+      "id": "topic_100",
+      "title": "PD-035 P3-supplementary — 8역할 YAML instruction 보강",
+      "status": "completed",
+      "created": "2026-04-24",
+      "reportPath": "reports/2026-04-24_pd035-yaml-instruction-8roles",
+      "reportFiles": [
+        "ace_rev1.md",
+        "ace_rev2.md",
+        "ace_rev3.md",
+        "ace_rev4.md",
+        "arki_rev1.md",
+        "arki_rev2.md",
+        "arki_rev3.md",
+        "riki_rev1.md",
+        "riki_rev2.md",
+        "dev_rev1.md",
+        "edi_final.md"
+      ],
+      "published": false,
+      "outcome": "8역할 persona 파일 전체 Self-Score YAML 계약 삽입 완료. 32 shortKey 확정(D-081~D-086). Vera canonical 선언(role-vera.md 신규). dev/editor/nova Write 계약 구조 통일. PD-035 resolveCondition 충족 — 3세션 관찰 기간 시작. PD-031 근본 원인(입력 공급선 결함) 해소.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_099",
       "title": "PD-023 재개 — Self-scores MVP 얇은 구현 (post-D074)",

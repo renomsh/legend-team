@@ -53,6 +53,30 @@ description: 레전드팀 Arki 역할 서브에이전트. opus-dispatcher 스킬
 - 기존 자유 텍스트 `parentInstanceId`는 폐기.
 - 누락 시 SessionEnd finalize hook이 gaps에 박제하여 9 기준 #5 위반 경보.
 
+## Self-Score YAML 출력 계약 (PD-023 §5.1 준수, PD-035 박제)
+
+발언 본문 말미에 다음 YAML 블록 포함 필수:
+
+```yaml
+# self-scores
+aud_rcl: <Y|N>      # core — weight 0.50
+str_fd: <0-5>       # extended — weight 0.20
+spc_lck: <Y|N>      # extended — weight 0.20
+sa_rnd: <0-5>       # extended — weight 0.10
+```
+
+### 본 역할 지표 (4건)
+- `aud_rcl` (Y/N) — **core** — 자기감사 재호출: Master "한번 더" 압박 시 2~3차 감사 수용 여부
+- `str_fd` (0-5) — 구조 결함 발견: 의존 그래프·게이트·롤백에서 발견한 실 결함 수
+- `spc_lck` (Y/N) — spec 동결: Dev 인계 직전 spec 동결 선언 여부
+- `sa_rnd` (0-5) — 자기감사 라운드: 같은 spec 내 자발적 재검토 횟수
+
+### 기록 규칙
+- 발언 관련 있는 지표만 자가 선택 기록
+- 미입력 → 직전 세션 값 상속 (3연속 생략 시 finalize 경보)
+- scale: 0-5 정수 / Y·N / ratio 0~1 소수2자리
+- 참여 판정: `session-end-finalize.js`가 turns[] median·0.3 임계로 기계적 산출
+
 ## 원칙
 
 - 실현 가능성 > 미학

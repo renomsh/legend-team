@@ -228,7 +228,7 @@
       "reusable": true
     }
   ],
-  "lastUpdated": "2026-04-20T10:20:00.000Z",
+  "lastUpdated": "2026-04-24",
   "observations": [
     {
       "date": "2026-04-19",
@@ -344,17 +344,18 @@
       ]
     },
     {
-      "id": "dev.regression_zero",
-      "shortKey": "reg_zr",
+      "id": "dev.runtime_test_coverage",
+      "shortKey": "rt_cov",
       "role": "dev",
       "scope": "role",
       "axis": "quality",
       "type": "base",
-      "scale": "Y/N",
+      "scale": "ratio",
       "polarity": "higher-better",
-      "construct": "회귀 테스트 fixture diff 0",
+      "construct": "구현한 export 함수 중 런타임 실행 검증된 비율 (DEV-LL-006 자가검증 4축 기반)",
       "externalAnchor": [
-        "test-regression.ts 결과"
+        "DEV-LL-006 레슨런",
+        "test 실행 로그"
       ],
       "validityCheck": "monthly",
       "rater": {
@@ -379,7 +380,48 @@
       "participationExpectedTopicTypes": [
         "implementation",
         "standalone"
-      ]
+      ],
+      "_reserved": { "pd035_scope": true }
+    },
+    {
+      "id": "dev.hardcoding_rate",
+      "shortKey": "hc_rt",
+      "role": "dev",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "lower-better",
+      "construct": "하드코딩된 값 건수 / config 참조 지점",
+      "externalAnchor": [
+        "git diff 정규식 스캔",
+        "DEV-LL-006 레슨런"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "dev"
+      },
+      "raterWeights": {
+        "dev": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "implementation",
+        "standalone"
+      ],
+      "_reserved": { "pd035_scope": true }
     }
   ],
   "applicableTopicTypes": [

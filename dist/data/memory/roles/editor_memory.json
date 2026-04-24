@@ -156,7 +156,7 @@
       "Ace 종합검토 완료 확인 후에만 산출물 작성 시작."
     ]
   },
-  "lastUpdated": "2026-04-22",
+  "lastUpdated": "2026-04-24",
   "lessonLog": [
     {
       "date": "2026-04-22",
@@ -295,6 +295,49 @@
         "implementation",
         "standalone"
       ]
+    },
+    {
+      "id": "editor.gap_pinning_accuracy",
+      "shortKey": "gp_acc",
+      "role": "editor",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "higher-better",
+      "construct": "세션 종결 시 박제한 gap이 N+3 세션 내 실제 결함으로 확인된 비율 (deferred-settlement: settlementOffset=3)",
+      "externalAnchor": [
+        "current_session.json gaps",
+        "N+3 세션 실제 결함 발생 기록"
+      ],
+      "settlementOffset": 3,
+      "settlementStrategy": "retroactive-injection",
+      "timing": "deferred",
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "editor"
+      },
+      "raterWeights": {
+        "editor": 1
+      },
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "_reserved": { "pd035_scope": true }
     },
     {
       "id": "editor.session_close_compliance",

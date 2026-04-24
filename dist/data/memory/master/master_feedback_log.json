@@ -1016,6 +1016,24 @@
       "effect": "PD-039 등록. 차후 토픽으로 처리.",
       "status": "pending",
       "statusNote": "PD-039로 이관"
+    },
+    {
+      "id": "MF-083",
+      "date": "2026-04-24",
+      "session": "session_095",
+      "topic": "pd035-yaml-instruction-8roles",
+      "feedback": "성장하기 위해 부족한 축을 잡으려는 거라 — 지금은 정교하지 않아도 된다는 방향 확인. Goodhart 방어·deferred-settlement·turns 자동 판정 전량 폐기, 단순화 경로 확정.",
+      "status": "resolved",
+      "statusNote": "arki_rev3 단순화 계획으로 채택. D-086 박제(참여 판정 자가 선언 단일화)."
+    },
+    {
+      "id": "MF-084",
+      "date": "2026-04-24",
+      "session": "session_095",
+      "topic": "pd035-yaml-instruction-8roles",
+      "feedback": "5역할 균등 가중 (tier 구분 없음) — 3역할 기존 가중치 유지.",
+      "status": "resolved",
+      "statusNote": "ace_rev4 §5-B 균등 가중 적용 확정. 8역할 가중치 전체 박제(D-081)."
     }
   ],
   "statusValues": [

@@ -1273,6 +1273,54 @@
       "topic": "topic_099",
       "axis": "PD-023 Phase remapping",
       "summary": "PD-023 Phase 재매핑 — P3-supplementary(역할 YAML instruction 보강) 최우선. P3'(hook 재구현) 기각."
+    },
+    {
+      "id": "D-081",
+      "date": "2026-04-24",
+      "session": "session_095",
+      "topic": "topic_100",
+      "axis": "8역할 YAML Self-Score 출력 계약 확정",
+      "summary": "8 persona 파일 전체에 `## Self-Score YAML 출력 계약` 섹션 삽입 완료. shortKey·weight·polarity 32건 동결. composite = Σ(normalized × weight), invoked-sessions-only. lower-better 정규화: 100 - raw_pct."
+    },
+    {
+      "id": "D-082",
+      "date": "2026-04-24",
+      "session": "session_095",
+      "topic": "topic_100",
+      "axis": "dev 지표 확정 (reg_zr 삭제 / hc_rt 신설 / core 재배분)",
+      "summary": "dev.reg_zr 삭제. dev.hc_rt(하드코딩률, lower-better) 신설. 최종 4건: rt_cov 0.35(core) / gt_pas 0.25(core) / hc_rt 0.25(standard) / spc_drf 0.15(standard). DEV-LL-006 정합."
+    },
+    {
+      "id": "D-083",
+      "date": "2026-04-24",
+      "session": "session_095",
+      "topic": "topic_100",
+      "axis": "nova 지표 재편 (prm_rt deprecate / blnd_spt 신설)",
+      "summary": "nova.prm_rt deprecated(replacedBy: inv_prm). blnd_spt(Riki 미포착 블라인드 스팟 발견률) 신설. nova 3건: inv_prm 0.35(core) / blnd_spt 0.30(core) / spc_axs 0.35(extended)."
+    },
+    {
+      "id": "D-084",
+      "date": "2026-04-24",
+      "session": "session_095",
+      "topic": "topic_100",
+      "axis": "vera persona canonical 선언",
+      "summary": "memory/roles/personas/role-vera.md 신규 생성. raterId=vera canonical 선언. designer는 레거시 role 분류로 격하. vera 3지표: tk_drf0 0.45(core) / spc_cpl 0.35 / tk_cns 0.20."
+    },
+    {
+      "id": "D-085",
+      "date": "2026-04-24",
+      "session": "session_095",
+      "topic": "topic_100",
+      "axis": "editor gp_acc deferred-settlement 설계",
+      "summary": "editor.gp_acc: timing=deferred, settlementOffset=3, settlementStrategy=retroactive-injection. 현세션 자가 선언 단발 기록 방식으로 운용. 3세션 후 실측 주입 프로토콜은 향후 PD로 이연."
+    },
+    {
+      "id": "D-086",
+      "date": "2026-04-24",
+      "session": "session_095",
+      "topic": "topic_100",
+      "axis": "invoked-sessions-only 참여 판정 자가 선언 단일화",
+      "summary": "turns 자동 산출·deferred-settlement 메커니즘 전량 스코프 제외(단순화). 참여 판정은 자가 선언 기준. 재정밀화 조건(기록률 ≥70% 3세션 관찰 후) 충족 시 별도 PD 오픈."
     }
   ],
   "lastUpdated": "2026-04-24"

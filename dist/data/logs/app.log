@@ -901,3 +901,14 @@
 [2026-04-24T12:56:19.716Z] [sync-system-state] lastSession=session_094 openTopics=3 recentDecisions=5 deferrals=35
 [2026-04-24T12:56:33.254Z] [compute-growth] Phase 1 ok. sessions=1 newDatapoints=12 totalDatapoints=1761 pendingLag=5
 [2026-04-24T12:56:36.934Z] [compute-dashboard] 완료 — 92개 세션, 5개 경보
+[2026-04-24T15:12:12.124Z] [checklist] [INFO] reports: all 11 registered file(s) present: ace_rev1.md, ace_rev2.md, ace_rev3.md, ace_rev4.md, arki_rev1.md, arki_rev2.md, arki_rev3.md, riki_rev1.md, riki_rev2.md, dev_rev1.md, edi_final.md
+[2026-04-24T15:12:12.128Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-24T15:12:12.129Z] [checklist] [INFO] topic_index: topic found: topic_100 (completed)
+[2026-04-24T15:12:12.130Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-24T15:12:12.131Z] [checklist] [INFO] master_feedback: 2 feedback entry(ies) recorded
+[2026-04-24T15:12:12.131Z] [session-log] [INFO] END session_095 | topic: pd035-yaml-instruction-8roles | duration: unknown (startedAt in future)
+[2026-04-24T15:12:19.865Z] [L2-writer] wrote C:\Projects\legend-team\topics\topic_100\session_contributions\session_095.md | turns=0 decisions=6
+[2026-04-24T15:12:23.625Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_100\context_brief.md | sessions=1 size=1669B
+[2026-04-24T15:12:38.344Z] [sync-system-state] lastSession=session_095 openTopics=3 recentDecisions=5 deferrals=35
+[2026-04-24T15:12:53.148Z] [compute-growth] Phase 1 ok. sessions=1 newDatapoints=12 totalDatapoints=1773 pendingLag=5
+[2026-04-24T15:12:56.510Z] [compute-dashboard] 완료 — 93개 세션, 6개 경보
