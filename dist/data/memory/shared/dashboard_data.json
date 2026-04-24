@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-24T01:30:28.619Z",
-  "totalSessions": 86,
+  "generatedAt": "2026-04-24T03:39:17.807Z",
+  "totalSessions": 87,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 15.9,
-    "avgCacheHitRate": 0.9288,
-    "cacheSampleSize": 60,
-    "cacheSampleTotal": 86,
+    "avgMasterTurns": 16.35,
+    "avgCacheHitRate": 0.9294,
+    "cacheSampleSize": 61,
+    "cacheSampleTotal": 87,
     "avgAdoptionRate": 0,
-    "totalDecisions": 64,
+    "totalDecisions": 65,
     "gradeDistribution": {
       "S": 28,
-      "A": 17,
+      "A": 18,
       "B": 30,
       "C": 11
     },
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 41,
-    "totalCostUSD": 723.2131,
-    "avgCostPerSession": 8.9286,
-    "costSampleSize": 81
+    "turnBasedSessions": 42,
+    "totalCostUSD": 750.4583,
+    "avgCostPerSession": 9.1519,
+    "costSampleSize": 82
   },
   "sessions": [
     {
@@ -3187,12 +3187,51 @@
         "messageCount": 66
       },
       "sessionCostUSD": 4.5711
+    },
+    {
+      "sessionId": "session_089",
+      "topicSlug": "pd023-self-scores-mvp-impl",
+      "topic": "PD-023 학습축 자가평가 MVP 본체 구현 — 29지표×8역할×3뷰 + Tier1/2/3 대시보드",
+      "startedAt": "2026-04-24T00:00:00.000Z",
+      "closedAt": "2026-04-24T12:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-065"
+      ],
+      "rolesCalled": 4,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 11,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 53,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 58219382,
+        "ioTokens": 319826,
+        "inputTokens": 908,
+        "outputTokens": 318918,
+        "cacheCreate": 1475024,
+        "cacheRead": 56424532,
+        "cacheHitRate": 0.9691709197462797,
+        "messageCount": 368
+      },
+      "sessionCostUSD": 27.2452
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 66,
+      "count": 68,
       "sessions": [
         "session_047",
         "session_048",
@@ -3228,12 +3267,13 @@
         "session_082",
         "session_086",
         "session_087",
-        "session_088"
+        "session_088",
+        "session_089"
       ]
     },
     {
       "role": "arki",
-      "count": 45,
+      "count": 46,
       "sessions": [
         "session_048",
         "session_049",
@@ -3254,12 +3294,13 @@
         "session_081",
         "session_082",
         "session_086",
-        "session_087"
+        "session_087",
+        "session_089"
       ]
     },
     {
       "role": "editor",
-      "count": 38,
+      "count": 39,
       "sessions": [
         "session_050",
         "session_051",
@@ -3298,7 +3339,8 @@
         "session_084",
         "session_086",
         "session_087",
-        "session_088"
+        "session_088",
+        "session_089"
       ]
     },
     {
@@ -5011,6 +5053,36 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_089",
+      "topic": "PD-023 학습축 자가평가 MVP 본체 구현 — 29지표×8역할×3뷰 + Tier1/2/3 대시보드",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "framing",
+          "turnIdx": 1,
+          "recallReason": "synthesis"
+        },
+        {
+          "role": "ace",
+          "phase": "recovery",
+          "turnIdx": 2,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 3,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -5040,6 +5112,51 @@
     }
   ],
   "feedbackRecurrences": [
+    {
+      "keyword": "측정",
+      "occurrences": [
+        {
+          "date": "2026-04-24",
+          "feedbackId": "MF-082",
+          "summary": "심플하되 성장하는 측정 — 이렇게 측정하다가 어느순간 100이 되면 그때가서 또 조정하면 돼. 한번에 모든 "
+        },
+        {
+          "date": "2026-04-22",
+          "feedbackId": "MF-051",
+          "summary": "토큰 측정 체계 재검증 지시 — 이전 '맞다' 결론 의심, 가설 3+ 수립. 대시보드 표시안 반복 재조정: "
+        },
+        {
+          "date": "2026-04-19",
+          "feedbackId": "MF-S036-4",
+          "summary": "페르소나 업데이트, 성장지표 측정 논의는 욕심이었나. 버그 이외는 이연과제로."
+        }
+      ]
+    },
+    {
+      "keyword": "PD",
+      "occurrences": [
+        {
+          "date": "2026-04-24",
+          "feedbackId": "MF-081",
+          "summary": "긴급 과제 끼어들기 후 PD 상태 drift가 이번 재구현 오사고의 근본 원인 — 구조적 대안 검토 필요"
+        },
+        {
+          "date": "2026-04-24",
+          "feedbackId": "MF-080",
+          "summary": "PD pending ≠ 구현 미완. resolveCondition은 '종결 조건'이며 '남은 일' 아님. A"
+        },
+        {
+          "date": "2026-04-22",
+          "feedbackId": "MF-052",
+          "summary": "(1) PD-005 삭제 — Claude Design 웹 지원 생김, Arki/Vera가 필요 시 재도입. "
+        },
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-046",
+          "summary": "PD-020b 실집행은 새 세션으로 분할 진행. 본 세션은 framing+실행계획만."
+        }
+      ]
+    },
     {
       "keyword": "비용",
       "occurrences": [
@@ -5298,21 +5415,6 @@
       ]
     },
     {
-      "keyword": "PD",
-      "occurrences": [
-        {
-          "date": "2026-04-22",
-          "feedbackId": "MF-052",
-          "summary": "(1) PD-005 삭제 — Claude Design 웹 지원 생김, Arki/Vera가 필요 시 재도입. "
-        },
-        {
-          "date": "2026-04-21",
-          "feedbackId": "MF-046",
-          "summary": "PD-020b 실집행은 새 세션으로 분할 진행. 본 세션은 framing+실행계획만."
-        }
-      ]
-    },
-    {
       "keyword": "토큰",
       "occurrences": [
         {
@@ -5324,21 +5426,6 @@
           "date": "2026-04-17",
           "feedbackId": "MF-025",
           "summary": "토큰 8.9M이 이상한데. 누적 아래에 세션당 평균 토큰수도 표기해줘."
-        }
-      ]
-    },
-    {
-      "keyword": "측정",
-      "occurrences": [
-        {
-          "date": "2026-04-22",
-          "feedbackId": "MF-051",
-          "summary": "토큰 측정 체계 재검증 지시 — 이전 '맞다' 결론 의심, 가설 3+ 수립. 대시보드 표시안 반복 재조정: "
-        },
-        {
-          "date": "2026-04-19",
-          "feedbackId": "MF-S036-4",
-          "summary": "페르소나 업데이트, 성장지표 측정 논의는 욕심이었나. 버그 이외는 이연과제로."
         }
       ]
     },

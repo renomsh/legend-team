@@ -20,7 +20,10 @@
       "Bash(node -e \"const a=require\\('/tmp/agg-baseline.json'\\); const r=a.aggregates.filter\\(x=>x.metricId==='ace.angle_novelty' && !x.stratum\\); console.log\\(JSON.stringify\\(r,null,2\\)\\);\")",
       "WebSearch",
       "WebFetch(domain:claude.ai)",
-      "Bash(python -c ' *)"
+      "Bash(python -c ' *)",
+      "Bash(cd /tmp)",
+      "Bash(cp /c/Projects/legend-team/types/signature-metrics.d.ts .)",
+      "Bash(echo \"exit=$?\")"
     ]
   }
 }

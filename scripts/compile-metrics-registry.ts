@@ -62,6 +62,17 @@ if (fs.existsSync(derivedPath)) {
   }
 }
 
+// Collect composite sub-metric inputs (D-065, session_089)
+// surface 노출 X — signatureMetrics 배열 외부. compile 시점에만 base로 등록되어 composite derived의 inputs 해석 가능.
+const compositePath = path.join(GROWTH_DIR, "composite_inputs.json");
+if (fs.existsSync(compositePath)) {
+  const composites = JSON.parse(fs.readFileSync(compositePath, "utf8"));
+  for (const m of composites.inputs || []) {
+    validateMetric(m, "composite_inputs.json");
+    metrics.push(m as Metric);
+  }
+}
+
 // Axis distribution
 const axisDistribution: Record<Axis, number> = {
   "learning": 0, "quality": 0, "judgment-consistency": 0, "execution-transfer": 0,

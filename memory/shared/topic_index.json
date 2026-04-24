@@ -3,13 +3,19 @@
     {
       "id": "topic_094",
       "grade": "S",
-      "title": "PD-029 해결 — Claude Design SKILL.md 통합 + 프롬프트 template 파일화 + Vera 패턴 흡수 리뷰",
-      "status": "open",
-      "phase": "framing",
+      "gradeActual": "B",
+      "gradeMismatchReason": "선언 S, 실제 work은 acceptance + cleanup (B 수준). session_083/084 선행 구현 미인지로 재구현 시도 후 복구 경로 선택",
+      "topicType": "implementation",
+      "parentTopicId": "topic_088",
+      "title": "PD-023 학습축 자가평가 MVP 본체 구현 — 29지표×8역할×3뷰 + Tier1/2/3 대시보드",
+      "status": "completed",
+      "phase": "implementation",
       "hold": null,
-      "created": "2026-04-23",
+      "outcome": "G6 PARTIAL PASS (정량 6/6 PASS, 정성 FAIL 1·PARTIAL 1·DEFERRED 2). D-065 박제 + PD-030/PD-031 신설. composite 2건 재정의(Dev gate_pass_rate, Edi gap_flag_count). 다음 세션 PD-031+topic_082 병행 권고.",
+      "created": "2026-04-24",
+      "closedAt": "2026-04-24",
       "controlPath": "topics/topic_094",
-      "reportPath": "reports/2026-04-23_pd029-claude-design-integration",
+      "reportPath": "reports/2026-04-24_pd023-self-scores-mvp-impl",
       "reportFiles": [],
       "published": false,
       "path": "topics/topic_094"
@@ -1850,5 +1856,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-23T08:10:35.710Z"
+  "lastUpdated": "2026-04-24T01:32:21.868Z"
 }

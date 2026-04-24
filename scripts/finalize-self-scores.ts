@@ -19,6 +19,18 @@ import type { ScoreRecord, TopicType, RecordSource } from "./lib/signature-metri
 
 const ROOT = path.join(__dirname, "..");
 const CURRENT = path.join(ROOT, "memory", "sessions", "current_session.json");
+const FEATURE_FLAGS = path.join(ROOT, "memory", "shared", "feature_flags.json");
+
+// D-065 session_089: allowDefaultFallback=false 시 YAML 블록 미기입 지표는 기록 안 함 (participationGaps로 이관).
+// 70 records 중 86% propagation 발견 후 정직한 데이터 정책으로 전환.
+function isDefaultFallbackAllowed(): boolean {
+  try {
+    const ff = JSON.parse(fs.readFileSync(FEATURE_FLAGS, "utf8"));
+    return ff.flags?.allowDefaultFallback !== false;
+  } catch {
+    return true;  // safe default — backward compat
+  }
+}
 
 interface SessionInfo {
   sessionId: string;
@@ -164,7 +176,7 @@ export function finalize(opts: { transcript?: string; sessionInfo?: SessionInfo 
 
     if (presentKey !== undefined) {
       rawScore = bag[presentKey]!;
-    } else if (metric.defaultStrategy === "previous-session-value") {
+    } else if (metric.defaultStrategy === "previous-session-value" && isDefaultFallbackAllowed()) {
       const prev = previousValue(metric.id, role);
       if (prev) {
         rawScore = prev.rawScore;
@@ -172,6 +184,7 @@ export function finalize(opts: { transcript?: string; sessionInfo?: SessionInfo 
         report.defaultsUsed.push({ role, metricId: metric.id });
       }
     }
+    // D-065: allowDefaultFallback=false 시 default 분기 스킵 → participationGaps로 이관 (아래 null check)
 
     if (rawScore === null) {
       report.participationGaps.push({ role, metricId: metric.id });

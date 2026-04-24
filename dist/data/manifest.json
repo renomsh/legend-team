@@ -2,12 +2,18 @@
   "memory": [
     "derived/growth_metrics.json",
     "derived/metric_health.json",
+    "growth/baseline_policy.json",
+    "growth/composite_inputs.json",
     "growth/derived_metrics.json",
+    "growth/g6_evaluation_template.md",
     "growth/metrics_registry.json",
     "growth/phase_dod.json",
+    "growth/registry_history/.gitkeep",
     "growth/registry_history/v1.0.json",
+    "growth/rollback_playbook.md",
     "growth/self_scores.jsonl",
     "growth/signature_metrics_aggregate.json",
+    "growth/_quarantine/.gitkeep",
     "master/master_feedback_log.json",
     "master/master_preferences.json",
     "roles/ace_memory.json",
@@ -255,7 +261,10 @@
     "2026-04-23_pd023-self-scores-thin-impl/arki_rev1.md",
     "2026-04-23_vera-claude-design-ai-integration/ace_rev1.md",
     "2026-04-23_vera-claude-design-ai-integration/arki_rev1.md",
-    "2026-04-23_vera-claude-design-ai-integration/riki_rev1.md"
+    "2026-04-23_vera-claude-design-ai-integration/riki_rev1.md",
+    "2026-04-24_pd023-self-scores-mvp-impl/ace_rev1.md",
+    "2026-04-24_pd023-self-scores-mvp-impl/arki_rev1.md",
+    "2026-04-24_pd023-self-scores-mvp-impl/editor_rev1.md"
   ],
   "logs": [
     "app.log",

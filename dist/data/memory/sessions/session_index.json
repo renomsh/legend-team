@@ -3146,8 +3146,58 @@
       ],
       "grade": "A",
       "note": "topic_091 재개 세션. T1 실측은 이전 세션(session_085)에서 완료, 본 세션은 T2 실측 + framing 박제 | T2 1차(Hi-fi) 기각 → Master 지적으로 Wireframe 재시도 → 2차 도입 확정 | 결함 주원인 = Hi-fi 모드 선택 (단일 확정 편향). Wireframe + 역할 본질 주입 조합이 hallucination 방어 성공 | handoff bundle 보존: design/handoffs/2026-04-23_vera-claude-design-ai-integration/source/ (gzip tar + 전개 파일) | 저마찰 원칙: SKILL.md·프롬프트 template 파일화는 PD-029로 지연 (실사용 3~5회 누적 후)"
+    },
+    {
+      "sessionId": "session_089",
+      "topicSlug": "pd023-self-scores-mvp-impl",
+      "topic": "PD-023 학습축 자가평가 MVP 본체 구현 — 29지표×8역할×3뷰 + Tier1/2/3 대시보드",
+      "startedAt": "2026-04-24T00:00:00.000Z",
+      "closedAt": "2026-04-24T12:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "decisions": [
+        "PD-029 조기 개방 철회 + PD-023으로 topic 전환",
+        "P0b overwrite 복구: 완전 rewind + git restore 경로 채택",
+        "Dev-1 gate_pass_rate composite 재정의 (A안, signatureMetrics ≤ 4 유지)",
+        "Dev-2 spec_drift_count 정당 판정 (심플-성장 원칙, B안 기각)",
+        "Edi-2 gap_flag_count composite 재정의 (C안, Edi-4는 유지)",
+        "self-score default-fallback 폐지 (B안) + PD-031 실가동 감사 신설 (D안)",
+        "G6 PARTIAL PASS 확정, topic_082+PD-031 병행 Grade A 통합 다음 세션 권고"
+      ],
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "ace",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "phase": "framing",
+          "recallReason": "synthesis"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 2,
+          "phase": "recovery",
+          "recallReason": "post-intervention",
+          "splitReason": "damage 판정 후 G6 평가 재프레이밍"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 3,
+          "phase": "compile"
+        }
+      ],
+      "grade": "S",
+      "note": "[토픽 전환] /open S PD-029 → resolveCondition 미충족 확인 → PD-023으로 재지정, topic_094 rewind | [중대 발견] PD-023 P0a~P5는 session_083/084에서 이미 구현 완료 (commit add088c, 7dc4684). Ace Step 0 PD 교차검증 미수행이 원인 | [runtime 파괴] P0b parallel 5 agents 투입 후 compile/smoke/compute FAIL. Arki 구조 진단으로 원인 3중 규명 | [복구] git restore 선별 + types/ 제거 + 14 파일 원상 → 전 scripts 재검증 PASS. sourceHash 8d314a 보존 후 composite 재정의로 1c555d20 업데이트 | [G6] 정량 6/6 PASS (audit 100%, SLA 1-2ms, 0 E-class error). 정성 PARTIAL (086~089 4세션 YAML 0건, 70 records 중 86% default propagation) | [composite] Dev gate_pass_rate + Edi gap_flag_count → derived + 7 sub-metric base (composite_inputs.json). metrics_registry 29 → 36 | [default 폐지] feature_flags.allowDefaultFallback=false 추가 + finalize-self-scores.ts 로직 추가. 다음 세션부터 YAML 없으면 기록 안 함 | [다음 세션 권고] PD-031 + topic_082 병행 Grade A 통합 토픽. Ace Step 0b 교차검증 체제 하 재진입"
     }
   ],
-  "lastUpdated": "2026-04-23T07:50:26.023Z",
+  "lastUpdated": "2026-04-24T03:38:54.406Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

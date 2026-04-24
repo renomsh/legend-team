@@ -1,6 +1,38 @@
 {
-  "generatedAt": "2026-04-24T01:30:29.128Z",
+  "generatedAt": "2026-04-24T03:39:18.704Z",
   "decisions": [
+    {
+      "id": "D-065",
+      "date": "2026-04-24",
+      "session": "session_089",
+      "topic": "pd023-self-scores-mvp-impl",
+      "owningTopicId": "topic_094",
+      "scopeCheck": "/open resumption protocol — 긴급 끼어들기 이후 PD 상태 drift 방지 구조 박제",
+      "axis": "Ace Step 0 PD 교차검증 의무화 + PD-030 자동전이 훅 신설 (D1+D3 병행, D2 기각)",
+      "decision": "(1) D1 채택: Ace /open 첫 발언 Step 0에 'PD 교차검증' 줄 추가 — 해당 PD의 children topic status + 관련 git commit log + artifacts 존재 의무 확인 후 잔여 작업 판정. 긴급 과제 끼어들기 후 resumption 세션에서 특히 강제. ace-framing skill SKILL.md 반영. (2) D3 채택: PD-030 신설 — 구현 토픽 close 시 부모 PD resolved 자동 전이 제안 훅 (dry-run). git commit PD-XXX 키워드 스캔. (3) D2 기각: 'implementation-complete' 중간 상태 신설은 enum 팽창 + 68 PD 소급 필요. resolveCondition이 같은 역할 수행 중이므로 ROI 낮음. (4) Master 피드백 박제: 'PD pending ≠ 구현 미완' — master_feedback_log.json + memory/MEMORY.md 색인 등록.",
+      "value": "이번 session_089에서 PD-023을 잘못 Grade S로 재구현 시도해 P0b parallel agents가 working artifacts를 overwrite한 runtime 파괴 사고가 발생. 근본 원인 = Ace가 /open 시 PD resolveCondition을 '종결 조건'이 아닌 '남은 일'로 오독 + children 완료 상태 미확인. Master 긴급 과제 끼어들기(session_085~088 Vera Claude Design·cost-report) 후 resumption에서 취약. D1 Ace Step 0 교차검증 의무화로 재발 1순위 차단 — 인지 비용 저렴(5행 브리핑) 효과 근본(오독 자체 방지). D3 PD-030 훅은 구현 완료 시 자동 제안으로 상태 drift 애초에 발생 방지. D2 중간 상태 기각으로 over-engineering 회피(feedback_pragmatic_weapon_not_art 정합).",
+      "rejectedAlternatives": [
+        {
+          "option": "D2: implementation-complete 중간 상태 신설",
+          "reason": "resolveCondition이 같은 역할 수행. enum 팽창 + 68 PD 소급 비용 과다. Ace Step 0 개선(D1)으로 같은 효과."
+        },
+        {
+          "option": "현상 유지 (Ace 자율 판단)",
+          "reason": "이번 세션이 증명 — 자율만으로는 재발 보장. 의무 프로토콜 필요."
+        },
+        {
+          "option": "Grade S 재구현 완주",
+          "reason": "이미 session_083/084에서 완료된 것을 재구현 = 중복 + 파괴. 복구 선택."
+        }
+      ],
+      "appliedTo": [
+        "ace-framing skill SKILL.md Step 0 (D1 반영)",
+        "memory/shared/system_state.json pendingDeferrals PD-030 신규",
+        "memory/master/master_feedback_log.json 신규 feedback 등재",
+        "memory/MEMORY.md 색인 1행 추가"
+      ],
+      "implementationNote": "D1은 본 세션에서 skill 파일 편집으로 즉시 박제. D3 실구현(자동 훅)은 PD-030으로 지연 — 별도 Grade B 토픽."
+    },
     {
       "id": "D-064",
       "date": "2026-04-23",

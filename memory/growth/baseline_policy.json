@@ -1,0 +1,10 @@
+{
+  "baselineSessionsDefault": 10,
+  "windowBelowThreshold": 3,
+  "rules": {
+    "nullWindowWhenBelow": 3,
+    "nullCIBeforeBaseline": true,
+    "nullPercentileBeforeBaseline": true
+  },
+  "_spec": "reports/2026-04-23_pd023-self-scores-thin-impl/arki_rev1.md §4.3"
+}

@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_088",
-  "nextSessionId": "session_089",
+  "lastSessionId": "session_089",
+  "nextSessionId": "session_090",
   "currentVersion": "v1.54",
   "openTopics": [
     {
@@ -27,6 +27,12 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-065",
+      "date": "2026-04-24",
+      "axis": "Ace Step 0 PD 교차검증 의무화 + PD-030 자동전이 훅 신설 (D1+D3 병행, D2 기각)",
+      "summary": "이번 session_089에서 PD-023을 잘못 Grade S로 재구현 시도해 P0b parallel agents가 working artifacts를 overwrite한 runtime 파괴 사고가 발생. 근본 원인 = Ace가 /open 시 PD resolveCondition을 '종결 조건'이 아닌 '남은 일'로 오독 + children 완료 상태 미확인. Master 긴급 과제 끼어들기(session_085~088 Vera Claude Design·cost-report) 후 resumption에서 취약. D1 Ace Step 0 교차검증 의무화로 재발 1순위 차단 — 인지 비용 저렴(5행 브리핑) 효과 근본(오독 자체 방지). D3 PD-030 훅은 구현 완료 시 자동 제안으로 상태 drift 애초에 발생 방지. D2 중간 상태 기각으로 over-engineering 회피(feedback_pragmatic_weapon_not_art 정합)."
+    },
+    {
       "id": "D-064",
       "date": "2026-04-23",
       "axis": "Vera/Arki Claude Design 통합 — 테스트 도입 + 11개 결정 박제",
@@ -49,15 +55,27 @@
       "date": "2026-04-22",
       "axis": "D-060 G1 Gate — 성장지표 registry v2 + L3.autonomy proxy + Phase 2 Go",
       "summary": "compute-growth.ts 실행 메트릭 11→4 (64% 감소). nonNull rate 37%→51%. L3.autonomy 0%→95% 복구. 매 세션 hook 오버헤드 대폭 감소 — 느린 /open·/close 개선 기여."
-    },
-    {
-      "id": "D-060",
-      "date": "2026-04-22",
-      "axis": "성장지표 정의 프레임 + Board 계측 구조 확정 (PD-015)",
-      "summary": "Nova N4 비전('나 없이도 사고하는 팀') 진척도 최초 가시화. 시간축·확장성 축 2회 자기감사로 plug-in registry·지연채점·provenance·QA 레이어까지 Phase 0에 선 내재화 — 설계 수명 장기화. Master '한번 더' 압박 패턴이 시간축 공백 발견, 향후 자기감사 프로토콜 학습으로 박제(feedback_arki_self_audit_on_pressure). Board IA 메인 페이지 재정의로 topic_082(대시보드 개편) 기반 선결."
     }
   ],
   "pendingDeferrals": [
+    {
+      "id": "PD-031",
+      "fromSession": "session_089",
+      "fromTopic": "pd023-self-scores-mvp-impl",
+      "item": "Self-score MVP 실가동 감사 — 70 records 중 86%가 default-fallback propagation, 실제 YAML 블록 기록은 10건뿐. session_086~089 4세션 연속 YAML 미기입. 원인 진단 필요: (1) Master 관심 부족? (2) finalize hook이 YAML 블록을 역할 발언에서 자동 추출 못 함? (3) YAML 포맷 학습 장벽? (4) 역할별 메트릭 shortKey 기억 어려움? (5) 입력 도구 자체 부재 — batch-score-helper.ts가 spec §2.1에 명시됐으나 미구현. YAML 직접 타이핑만 유일 경로 → 진입장벽 형성(G6.2 ② 감사에서 발견). (6) 출력 surface staged — signature.html은 base form으로 배포 완료되었으나 main nav 통합은 topic_082(Dashboard 전면 개편, 현재 suspended) 합류 시점까지 의도적 지연. 즉 structural gap이 아닌 계획된 staging. PD-031 재활성화 protocol 설계 시 topic_082 재개를 dependency로 고려 필요. MVP 비가시성 주원인은 '미통합'이 아니라 '미운영 대기 상태'. 재활성화 protocol 설계 필요. D-065 B 조치(allowDefaultFallback=false)로 앞으로는 propagation 차단됨 → 실 기록 없으면 빈 상태로 남음.",
+      "status": "pending",
+      "resolveCondition": "원인 진단 완료 + YAML 블록 자동/반자동 기입 protocol 확정 + 10세션 이상 실 yaml-block 기록 비율 ≥ 70%",
+      "dependsOn": []
+    },
+    {
+      "id": "PD-030",
+      "fromSession": "session_089",
+      "fromTopic": "pd023-self-scores-mvp-impl",
+      "item": "구현 완료 세션의 PD status 자동 전이 훅 — resolveCondition 매칭 확장판. 현재 resolve-pending-deferrals.ts는 topicType/parentTopicId 기반 자동 전이만 처리(D-057). 추가 필요: (1) children 완료 시 부모 PD 자동 resolved 전이 (2) 구현 토픽 closed + git log에 해당 PD 키워드 commit 있을 때 suggest (3) /open 이연 브리핑에 'PD X는 이미 구현됨 (commit Y, topic Z)' 자동 교차검증 제시 (4) Ace Step 0에서 PD status 재판정 prompt.",
+      "status": "pending",
+      "resolveCondition": "설계 토픽 1건 + 구현 토픽 1건 완료 + /open 브리핑에 교차검증 메시지 통합",
+      "dependsOn": []
+    },
     {
       "id": "PD-029",
       "fromSession": "session_088",
@@ -292,5 +310,5 @@
       "note": "D-058 확정. opus-dispatcher 스킬 + dispatch_config.json + 에이전트 정의 4종(role-ace/arki/fin/riki.md) 구현. G1(write 계약)·G3(RED→GREEN) 통과. auto-model-switch 스킬 폐기."
     }
   ],
-  "lastUpdated": "2026-04-23T07:50:54.134Z"
+  "lastUpdated": "2026-04-24T03:39:06.345Z"
 }

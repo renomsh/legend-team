@@ -259,13 +259,27 @@
       "role": "dev",
       "scope": "role",
       "axis": "execution-transfer",
-      "type": "base",
+      "type": "derived",
       "scale": "ratio",
       "polarity": "higher-better",
-      "construct": "Phase 게이트 G0~Gn 통과 비율 (재시도 X 1패스)",
+      "construct": "Phase 게이트 실행 품질 composite — 첫 시도 pass + 재시도 페널티 + 사후 디버깅 페널티 + 하드코딩 페널티 weighted-mean. D-065에서 4축 composite로 재정의(session_089, feedback from Master G6.2 ① audit).",
       "externalAnchor": [
-        "phase_dod.json 통과 기록"
+        "phase_dod.json 통과 기록",
+        "git log post-gate fix commit 추적",
+        "config JSON 외 상수 grep 감사"
       ],
+      "composition": {
+        "formula": "weighted-mean",
+        "inputs": [
+          { "metricId": "dev.first_try_pass_rate", "weight": 0.35 },
+          { "metricId": "dev.retry_count_per_phase", "weight": 0.2 },
+          { "metricId": "dev.post_gate_debug_count", "weight": 0.25 },
+          { "metricId": "dev.hardcoding_ratio", "weight": 0.2 }
+        ],
+        "polarityNormalized": true,
+        "nullPolicy": "weight-renormalize"
+      },
+      "deprecatedInVersion": "v1.1",
       "validityCheck": "monthly",
       "rater": {
         "type": "self",

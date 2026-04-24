@@ -1,33 +1,94 @@
 {
   "sessionId": "session_089",
   "topicId": "topic_094",
-  "topic": "PD-029 해결 — Claude Design SKILL.md 통합 + 프롬프트 template 파일화 + Vera 패턴 흡수 리뷰",
-  "topicSlug": "pd029-claude-design-integration",
-  "status": "open",
-  "startedAt": "2026-04-23T10:45:00.000Z",
+  "topic": "PD-023 학습축 자가평가 MVP 본체 구현 — 29지표×8역할×3뷰 + Tier1/2/3 대시보드",
+  "topicSlug": "pd023-self-scores-mvp-impl",
+  "status": "closed",
+  "startedAt": "2026-04-24T00:00:00.000Z",
+  "closedAt": "2026-04-24T12:30:00.000Z",
   "mode": "observation",
   "grade": "S",
   "gradeDeclared": "S",
+  "gradeActual": "B",
   "framingLevel": 2,
   "framingSkipped": false,
-  "agentsCompleted": [],
-  "turns": [],
-  "decisions": [],
-  "masterDecisions": [],
-  "masterFeedback": [],
-  "notes": [
-    "PD-029 조기 개방 — resolveCondition '실사례 3건 누적' 미충족 상태에서 Master가 Grade S로 선제 개방",
-    "연계 자산: session_088 D-064, design/handoffs/2026-04-23_vera-claude-design-ai-integration/ (T1+T2 실측 로그)"
+  "topicType": "implementation",
+  "parentTopicId": "topic_088",
+  "agentsCompleted": [
+    "ace",
+    "arki",
+    "ace",
+    "editor"
   ],
-  "gaps": [],
-  "reportPath": "reports/2026-04-23_pd029-claude-design-integration",
+  "turns": [
+    {
+      "role": "ace",
+      "turnIdx": 0,
+      "phase": "framing"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 1,
+      "phase": "framing",
+      "recallReason": "synthesis"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 2,
+      "phase": "recovery",
+      "recallReason": "post-intervention",
+      "splitReason": "damage 판정 후 G6 평가 재프레이밍"
+    },
+    {
+      "role": "editor",
+      "turnIdx": 3,
+      "phase": "compile"
+    }
+  ],
+  "decisions": [
+    "D-065"
+  ],
+  "masterDecisions": [
+    "PD-029 조기 개방 철회 + PD-023으로 topic 전환",
+    "P0b overwrite 복구: 완전 rewind + git restore 경로 채택",
+    "Dev-1 gate_pass_rate composite 재정의 (A안, signatureMetrics ≤ 4 유지)",
+    "Dev-2 spec_drift_count 정당 판정 (심플-성장 원칙, B안 기각)",
+    "Edi-2 gap_flag_count composite 재정의 (C안, Edi-4는 유지)",
+    "self-score default-fallback 폐지 (B안) + PD-031 실가동 감사 신설 (D안)",
+    "G6 PARTIAL PASS 확정, topic_082+PD-031 병행 Grade A 통합 다음 세션 권고"
+  ],
+  "masterFeedback": [
+    "긴급 과제 끼어들기 후 PD 상태 drift 구조적 대안 검토 지시 (→ D-065 D1+D3)",
+    "심플하되 성장하는 측정 원칙 박제 (100 도달 후 조정, 사전 상세화 금지)",
+    "signatureMetrics 배열 < 5 제약으로 Dev/Edi composite 재정의",
+    "topic_089 Dev/Edi 감사 시 '역할 섞지 말고 한명씩 보자' 정교화 지시",
+    "signature.html main nav 미통합은 topic_082 전체 개편 대기 (의도된 staging)"
+  ],
+  "pendingDeferralsAdded": [
+    "PD-030",
+    "PD-031"
+  ],
+  "notes": [
+    "[토픽 전환] /open S PD-029 → resolveCondition 미충족 확인 → PD-023으로 재지정, topic_094 rewind",
+    "[중대 발견] PD-023 P0a~P5는 session_083/084에서 이미 구현 완료 (commit add088c, 7dc4684). Ace Step 0 PD 교차검증 미수행이 원인",
+    "[runtime 파괴] P0b parallel 5 agents 투입 후 compile/smoke/compute FAIL. Arki 구조 진단으로 원인 3중 규명",
+    "[복구] git restore 선별 + types/ 제거 + 14 파일 원상 → 전 scripts 재검증 PASS. sourceHash 8d314a 보존 후 composite 재정의로 1c555d20 업데이트",
+    "[G6] 정량 6/6 PASS (audit 100%, SLA 1-2ms, 0 E-class error). 정성 PARTIAL (086~089 4세션 YAML 0건, 70 records 중 86% default propagation)",
+    "[composite] Dev gate_pass_rate + Edi gap_flag_count → derived + 7 sub-metric base (composite_inputs.json). metrics_registry 29 → 36",
+    "[default 폐지] feature_flags.allowDefaultFallback=false 추가 + finalize-self-scores.ts 로직 추가. 다음 세션부터 YAML 없으면 기록 안 함",
+    "[다음 세션 권고] PD-031 + topic_082 병행 Grade A 통합 토픽. Ace Step 0b 교차검증 체제 하 재진입"
+  ],
+  "gaps": [
+    "session_089 self_scores.jsonl 21 records 중 실 자가채점 0 (전부 default-fallback, 다음 세션 allowDefaultFallback=false 발효 전 기록)"
+  ],
+  "reportPath": "reports/2026-04-24_pd023-self-scores-mvp-impl",
   "tokenUsage": {
-    "input_tokens": 37,
-    "output_tokens": 3177,
-    "cache_creation_input_tokens": 125101,
-    "cache_read_input_tokens": 597831,
-    "messageCount": 12,
-    "masterTurns": 3,
-    "total_billable": 726146
+    "input_tokens": 727,
+    "output_tokens": 288283,
+    "cache_creation_input_tokens": 957925,
+    "cache_read_input_tokens": 52188419,
+    "messageCount": 302,
+    "masterTurns": 38,
+    "total_billable": 53435354
   }
 }

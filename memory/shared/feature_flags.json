@@ -1,12 +1,14 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "flags": {
     "signatureMetricsEnabled": true,
     "signatureMetricsCardsVisible": true,
     "signatureMetricsAlertsVisible": true,
     "quarantineEnforcement": false,
     "deferredScoresAutoResolve": true,
-    "computeSlaWarnMs": 3000
+    "computeSlaWarnMs": 3000,
+    "allowDefaultFallback": false,
+    "_allowDefaultFallback_note": "D-065/session_089. false = YAML 블록 미기입 시 기록 안 함. 70 records 중 86% propagation 발견 후 폐지. PD-031 실가동 감사 연계."
   },
-  "lastUpdated": "2026-04-23"
+  "lastUpdated": "2026-04-24"
 }

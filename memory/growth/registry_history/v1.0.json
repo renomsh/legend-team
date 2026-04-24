@@ -1,12 +1,12 @@
 {
   "registryVersion": "v1.0",
-  "compiledAt": "2026-04-23T03:22:59.409Z",
-  "sourceHash": "8d314a6912debb0f",
+  "compiledAt": "2026-04-24T03:04:52.065Z",
+  "sourceHash": "1c555d201ac602f0",
   "axisDistribution": {
     "learning": 4,
-    "quality": 12,
-    "judgment-consistency": 7,
-    "execution-transfer": 6
+    "quality": 14,
+    "judgment-consistency": 10,
+    "execution-transfer": 8
   },
   "aggregationViews": [
     "all",
@@ -363,13 +363,39 @@
       "role": "dev",
       "scope": "role",
       "axis": "execution-transfer",
-      "type": "base",
+      "type": "derived",
       "scale": "ratio",
       "polarity": "higher-better",
-      "construct": "Phase 게이트 G0~Gn 통과 비율 (재시도 X 1패스)",
+      "construct": "Phase 게이트 실행 품질 composite — 첫 시도 pass + 재시도 페널티 + 사후 디버깅 페널티 + 하드코딩 페널티 weighted-mean. D-065에서 4축 composite로 재정의(session_089, feedback from Master G6.2 ① audit).",
       "externalAnchor": [
-        "phase_dod.json 통과 기록"
+        "phase_dod.json 통과 기록",
+        "git log post-gate fix commit 추적",
+        "config JSON 외 상수 grep 감사"
       ],
+      "composition": {
+        "formula": "weighted-mean",
+        "inputs": [
+          {
+            "metricId": "dev.first_try_pass_rate",
+            "weight": 0.35
+          },
+          {
+            "metricId": "dev.retry_count_per_phase",
+            "weight": 0.2
+          },
+          {
+            "metricId": "dev.post_gate_debug_count",
+            "weight": 0.25
+          },
+          {
+            "metricId": "dev.hardcoding_ratio",
+            "weight": 0.2
+          }
+        ],
+        "polarityNormalized": true,
+        "nullPolicy": "weight-renormalize"
+      },
+      "deprecatedInVersion": "v1.1",
       "validityCheck": "monthly",
       "rater": {
         "type": "self",
@@ -516,13 +542,35 @@
       "role": "editor",
       "scope": "role",
       "axis": "judgment-consistency",
-      "type": "base",
+      "type": "derived",
       "scale": "0-5",
       "polarity": "lower-better",
-      "construct": "current_session.gaps에 누락된 항목 수 (Edi 자체 검수)",
+      "construct": "Gap 감사 composite — 기계적 누락 + 구조적 심각도 + 사후 발견율 weighted-mean. D-065 session_089 Edi-2 부풀림 감사 후 재정의 (심플-성장 원칙: 현재 100점 상단 도달 + 실제 gap 발견되었으므로 축 보강 타이밍).",
       "externalAnchor": [
-        "current_session.json gaps 누락"
+        "current_session.json gaps 누락",
+        "system_state pendingDeferrals 미전이 건수",
+        "session_index 엔트리 undefined 필드 rate"
       ],
+      "composition": {
+        "formula": "weighted-mean",
+        "inputs": [
+          {
+            "metricId": "editor.mechanical_gap_count",
+            "weight": 0.3
+          },
+          {
+            "metricId": "editor.structural_gap_severity",
+            "weight": 0.45
+          },
+          {
+            "metricId": "editor.retroactive_gap_discovery",
+            "weight": 0.25
+          }
+        ],
+        "polarityNormalized": true,
+        "nullPolicy": "weight-renormalize"
+      },
+      "deprecatedInVersion": "v1.1",
       "validityCheck": "monthly",
       "rater": {
         "type": "self",
@@ -1142,6 +1190,277 @@
         "polarityNormalized": true,
         "nullPolicy": "weight-renormalize"
       }
+    },
+    {
+      "id": "dev.first_try_pass_rate",
+      "shortKey": "gt_ftr",
+      "role": "dev",
+      "scope": "role",
+      "axis": "execution-transfer",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "higher-better",
+      "construct": "Phase 게이트 중 첫 시도에 pass한 비율 (재시도 없이 통과)",
+      "externalAnchor": [
+        "phase_dod.json 게이트별 첫 시도 기록"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "dev"
+      },
+      "raterWeights": {
+        "dev": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "implementation",
+        "standalone"
+      ]
+    },
+    {
+      "id": "dev.retry_count_per_phase",
+      "shortKey": "gt_rtc",
+      "role": "dev",
+      "scope": "role",
+      "axis": "execution-transfer",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "lower-better",
+      "construct": "phase당 평균 재시도 횟수 (0=무재시도, 5=5회 이상)",
+      "externalAnchor": [
+        "phase_dod.json 재시도 로그",
+        "turns 배열 recallReason=post-master 카운트"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "dev"
+      },
+      "raterWeights": {
+        "dev": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "implementation",
+        "standalone"
+      ]
+    },
+    {
+      "id": "dev.post_gate_debug_count",
+      "shortKey": "gt_pgd",
+      "role": "dev",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "lower-better",
+      "construct": "게이트 pass 선언 이후 후속 세션(5세션 window)에서 해당 phase artifact에 가해진 debug·fix commit 수",
+      "externalAnchor": [
+        "git log --oneline phase-artifact 경로 grep",
+        "session_contributions/ 내 debug 메모"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "dev"
+      },
+      "raterWeights": {
+        "dev": 1
+      },
+      "timing": "deferred",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "implementation",
+        "standalone"
+      ]
+    },
+    {
+      "id": "dev.hardcoding_ratio",
+      "shortKey": "gt_hcr",
+      "role": "dev",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "lower-better",
+      "construct": "config JSON·환경변수·registry 외에 소스코드에 하드코딩된 magic number·path·threshold·모델명 비율 (0~1, feedback_dev_verify_and_callable 위반도)",
+      "externalAnchor": [
+        "grep magic number in scripts/",
+        "config 원천 파일 대비 hardcoded 상수 count"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "dev"
+      },
+      "raterWeights": {
+        "dev": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "implementation",
+        "standalone"
+      ]
+    },
+    {
+      "id": "editor.mechanical_gap_count",
+      "shortKey": "gp_mec",
+      "role": "editor",
+      "scope": "role",
+      "axis": "judgment-consistency",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "lower-better",
+      "construct": "current_session.gaps에 기록된 기계적 누락 건수 (체크리스트 미완료 등)",
+      "externalAnchor": [
+        "current_session.json gaps 배열"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "editor"
+      },
+      "raterWeights": {
+        "editor": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ]
+    },
+    {
+      "id": "editor.structural_gap_severity",
+      "shortKey": "gp_str",
+      "role": "editor",
+      "scope": "role",
+      "axis": "judgment-consistency",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "lower-better",
+      "construct": "구조적 gap 심각도 누적 (PD 미전이, resolveCondition 모호, session_index 필드 undefined 등 체크리스트 바깥 이슈). 각 건당 심각도 0-5 가중 평균.",
+      "externalAnchor": [
+        "system_state pendingDeferrals status 미전이 건수",
+        "session_index 엔트리 undefined 필드 rate",
+        "topic_index phase-hold 불일치 건수"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "editor"
+      },
+      "raterWeights": {
+        "editor": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ]
+    },
+    {
+      "id": "editor.retroactive_gap_discovery",
+      "shortKey": "gp_rtr",
+      "role": "editor",
+      "scope": "role",
+      "axis": "judgment-consistency",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "lower-better",
+      "construct": "후속 세션(5세션 window)에서 발견된 '이전 세션 Edi가 놓친 gap' 건수. timing=deferred",
+      "externalAnchor": [
+        "차기 세션 open 시 current_session.gaps 소급 추가 count",
+        "retrospective PD 신설로 인한 이전 session 재분류"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "editor"
+      },
+      "raterWeights": {
+        "editor": 1
+      },
+      "timing": "deferred",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ]
     }
   ]
 }

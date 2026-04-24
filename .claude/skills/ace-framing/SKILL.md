@@ -31,6 +31,23 @@ user_invocable: true
 
 이 판정 결과는 `create-topic.ts --topicType ... --parentTopicId ...` 인자로 전달된다.
 
+### Step 0b. PD 교차검증 (D-065, session_089)
+
+**PD(pendingDeferral)를 이행하는 토픽이면 첫 발언 Step 0 블록 내에 반드시 아래 교차검증 3행을 포함한다.**
+
+1. **children 확인**: PD의 `fromTopic`에 연결된 child implementation 토픽 존재 여부 + status. `topic_index.json`에서 `parentTopicId` 역조회.
+2. **git log 확인**: `git log --oneline --all | grep -i <pd-topic-keyword>` 로 commit 존재 확인. session_083/084처럼 **이미 merged된 구현** 여부.
+3. **artifacts 확인**: PD spec에 명시된 핵심 산출물(예: `memory/growth/metrics_registry.json`, `scripts/compile-X.ts`)의 디스크 존재 + 기능 작동.
+
+**PD pending ≠ 구현 미완.** resolveCondition은 "남은 일"이 아닌 "종결 조건(G6 acceptance, 외부 검증 등)". 구현 자체는 이미 완료되어 있을 수 있다.
+
+**판정 결과 3가지 분기:**
+- ✅ 구현·artifacts 완료 + 잔여는 검수·박제만 → 실제 scope = acceptance/박제/정비. Grade 재조정 권고.
+- ⚠️ 구현 부분 완료 + 일부 산출물만 존재 → reconcile + 잔여 phase 구현.
+- ❌ 구현 전무 → spec 기반 신규 구현 진입.
+
+**긴급 과제 끼어들기(resumption) 세션에서 특히 강제.** Master가 중간에 다른 작업을 끼워 넣고 돌아온 경우, 직전 N세션(3~5개)의 git log를 빠르게 훑어 원 과업 구현 여부 재확인.
+
 ### 1. 토픽 정의 (What)
 - 이 토픽이 다루는 **핵심 질문** 1문장
 - 배경: 왜 이 토픽이 지금 열리는가

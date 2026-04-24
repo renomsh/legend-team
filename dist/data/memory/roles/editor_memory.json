@@ -211,13 +211,26 @@
       "role": "editor",
       "scope": "role",
       "axis": "judgment-consistency",
-      "type": "base",
+      "type": "derived",
       "scale": "0-5",
       "polarity": "lower-better",
-      "construct": "current_session.gaps에 누락된 항목 수 (Edi 자체 검수)",
+      "construct": "Gap 감사 composite — 기계적 누락 + 구조적 심각도 + 사후 발견율 weighted-mean. D-065 session_089 Edi-2 부풀림 감사 후 재정의 (심플-성장 원칙: 현재 100점 상단 도달 + 실제 gap 발견되었으므로 축 보강 타이밍).",
       "externalAnchor": [
-        "current_session.json gaps 누락"
+        "current_session.json gaps 누락",
+        "system_state pendingDeferrals 미전이 건수",
+        "session_index 엔트리 undefined 필드 rate"
       ],
+      "composition": {
+        "formula": "weighted-mean",
+        "inputs": [
+          { "metricId": "editor.mechanical_gap_count", "weight": 0.3 },
+          { "metricId": "editor.structural_gap_severity", "weight": 0.45 },
+          { "metricId": "editor.retroactive_gap_discovery", "weight": 0.25 }
+        ],
+        "polarityNormalized": true,
+        "nullPolicy": "weight-renormalize"
+      },
+      "deprecatedInVersion": "v1.1",
       "validityCheck": "monthly",
       "rater": {
         "type": "self",
