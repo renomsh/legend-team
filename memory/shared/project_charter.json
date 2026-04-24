@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-team",
-    "version": "1.55",
+    "version": "1.65",
     "purpose": "Memory-first, topic-based strategy and implementation system. Master receives structured analysis from role-separated agents on any strategic or implementation topic, with all outputs preserved in inspectable, revisionable files.",
     "principles": [
       "Memory first: all agent outputs, decisions, and session state are written to files immediately. No analysis lives only in conversation context.",
@@ -42,9 +42,9 @@
       "2": "structure (arki)",
       "3": "financials (fin)",
       "4": "risk (riki)",
-      "4b": "speculation (nova) — optional, Master-invoked only",
       "5": "review (ace) — cross-review + final recommendation",
       "6": "output (editor) — compile + format artifacts",
+      "4b": "speculation (nova) — optional, Master-invoked only",
       "dev": "implementation (dev) — invoked for implementation/debugging topics only"
     },
     "topicContract": {
@@ -141,7 +141,12 @@
       "version": "1.55",
       "date": "2026-04-22",
       "summary": "토큰 측정 정본 재정의 + 외부 앵커 cross-check 의무 원칙(D-059). 128배 괴리(CC 7.9M vs 레전드팀 1,013M)는 정의 불일치로 규명 — CC='input+output', 레전드팀='4필드 전합'. KPI Primary를 사용량(I/O 토큰)+효율(캐시 히트율)로 재배치. Master 정액제 구조 반영. child 토픽 3건 분기 예정(KPI 개편/캐시 패널 분리/evidence 등록). feedback_external_anchor_mandatory 원칙 박제."
+    },
+    {
+      "version": "1.65",
+      "date": "2026-04-24",
+      "summary": "session_094: D-075~D-080 박제, PD-031 root cause 재판정, 페르소나 통합경로(memory/roles/personas/). D-073 부분 rescind. 3세션 summary 자동 로드 시스템(D-077) 설계. Arki 감사 프로토콜 v2(D-078). Grade D self-scores 제외(D-079). PD-023 Phase 재매핑(D-080)."
     }
   ],
-  "lastUpdated": "2026-04-22T02:30:00.000Z"
+  "lastUpdated": "2026-04-24"
 }

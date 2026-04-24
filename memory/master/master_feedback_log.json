@@ -980,6 +980,42 @@
       "effect": "master-direct-nomination recallReason 첫 사용. Arki 3차 호출로 실행 명세 canonical 확정.",
       "status": "resolved",
       "statusNote": "role=arki + master-response phase 첫 기록"
+    },
+    {
+      "id": "MF-079",
+      "date": "2026-04-24",
+      "session": "session_094",
+      "topic": "pd023-resume-self-scores-mvp",
+      "afterAgent": "ace",
+      "feedback": "구현은 3세션 이내 원칙으로 진행.",
+      "instruction": "세션 토큰 효율화로 인한 정보 휘발 차단. 구현 작업은 3세션 이내 완료 지향.",
+      "effect": "3세션 summary 자동 로드 시스템(D-077) 설계로 연결. PD-036 등록.",
+      "status": "pending",
+      "statusNote": "PD-036으로 이관"
+    },
+    {
+      "id": "MF-080",
+      "date": "2026-04-24",
+      "session": "session_094",
+      "topic": "pd023-resume-self-scores-mvp",
+      "afterAgent": "ace",
+      "feedback": "추가 질문은 능동적으로 해.",
+      "instruction": "침묵은 안전 신호가 아니다. 역할·Ace 모두 불명확하면 능동 질의.",
+      "effect": "ace-framing Step3(정교화 질문 필수) 보강. ace_memory에 박제.",
+      "status": "pending",
+      "statusNote": "다음 세션부터 적용"
+    },
+    {
+      "id": "MF-081",
+      "date": "2026-04-24",
+      "session": "session_094",
+      "topic": "pd023-resume-self-scores-mvp",
+      "afterAgent": "edi",
+      "feedback": "자동 close와 수동 /close 스킬 실행 결과 차이가 뭔지 검토 필요.",
+      "instruction": "CLAUDE.md 자동 close 규칙과 수동 스킬 실행 결과 diff 분석 필요.",
+      "effect": "PD-039 등록. 차후 토픽으로 처리.",
+      "status": "pending",
+      "statusNote": "PD-039로 이관"
     }
   ],
   "statusValues": [
@@ -988,5 +1024,5 @@
     "resolved"
   ],
   "statusUpdatedBy": "Claude Code at session end — based on topic status and implementation evidence",
-  "lastUpdated": "2026-04-23T00:00:00.000Z"
+  "lastUpdated": "2026-04-24"
 }

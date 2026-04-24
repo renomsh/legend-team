@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-24T10:41:10.132Z",
-  "totalSessions": 91,
+  "generatedAt": "2026-04-24T12:56:36.930Z",
+  "totalSessions": 92,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.6,
-    "avgCacheHitRate": 0.9299,
-    "cacheSampleSize": 65,
-    "cacheSampleTotal": 91,
+    "avgMasterTurns": 16.61,
+    "avgCacheHitRate": 0.9304,
+    "cacheSampleSize": 66,
+    "cacheSampleTotal": 92,
     "avgAdoptionRate": 0,
-    "totalDecisions": 74,
+    "totalDecisions": 80,
     "gradeDistribution": {
-      "S": 32,
+      "S": 33,
       "A": 18,
       "B": 30,
       "C": 11
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 46,
-    "totalCostUSD": 797.5817,
-    "avgCostPerSession": 9.2742,
-    "costSampleSize": 86
+    "turnBasedSessions": 47,
+    "totalCostUSD": 805.2749,
+    "avgCostPerSession": 9.256,
+    "costSampleSize": 87
   },
   "sessions": [
     {
@@ -3394,12 +3394,61 @@
         "messageCount": 166
       },
       "sessionCostUSD": 11.4049
+    },
+    {
+      "sessionId": "session_094",
+      "topicSlug": "pd023-resume-self-scores-mvp",
+      "topic": "PD-023 재개 — Self-scores MVP 얇은 구현 (post-D074)",
+      "startedAt": "2026-04-24T23:00:00.000Z",
+      "closedAt": "2026-04-25T02:00:00.000Z",
+      "decisionCount": 6,
+      "decisionAxes": 6,
+      "decisions": [
+        "D-075",
+        "D-076",
+        "D-077",
+        "D-078",
+        "D-079",
+        "D-080"
+      ],
+      "rolesCalled": 9,
+      "rolesRecalled": 4,
+      "sessionsSpanned": 1,
+      "size": 32,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 17,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "arki",
+        "fin",
+        "riki",
+        "arki",
+        "arki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 13738060,
+        "ioTokens": 147002,
+        "inputTokens": 338,
+        "outputTokens": 146664,
+        "cacheCreate": 410122,
+        "cacheRead": 13180936,
+        "cacheHitRate": 0.9594466758770889,
+        "messageCount": 100
+      },
+      "sessionCostUSD": 7.6932
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 81,
+      "count": 83,
       "sessions": [
         "session_047",
         "session_048",
@@ -3440,12 +3489,13 @@
         "session_090",
         "session_091",
         "session_092",
-        "session_093"
+        "session_093",
+        "session_094"
       ]
     },
     {
       "role": "arki",
-      "count": 58,
+      "count": 62,
       "sessions": [
         "session_048",
         "session_049",
@@ -3471,12 +3521,13 @@
         "session_090",
         "session_091",
         "session_092",
-        "session_093"
+        "session_093",
+        "session_094"
       ]
     },
     {
       "role": "editor",
-      "count": 43,
+      "count": 44,
       "sessions": [
         "session_050",
         "session_051",
@@ -3520,7 +3571,8 @@
         "session_090",
         "session_091",
         "session_092",
-        "session_093"
+        "session_093",
+        "session_094"
       ]
     },
     {
@@ -3557,7 +3609,7 @@
     },
     {
       "role": "riki",
-      "count": 23,
+      "count": 24,
       "sessions": [
         "session_049",
         "session_053",
@@ -3578,12 +3630,13 @@
         "session_086",
         "session_087",
         "session_092",
-        "session_093"
+        "session_093",
+        "session_094"
       ]
     },
     {
       "role": "fin",
-      "count": 17,
+      "count": 18,
       "sessions": [
         "session_053",
         "session_054",
@@ -3599,7 +3652,8 @@
         "session_080",
         "session_081",
         "session_082",
-        "session_087"
+        "session_087",
+        "session_094"
       ]
     },
     {
@@ -5489,6 +5543,66 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_094",
+      "topic": "PD-023 재개 — Self-scores MVP 얇은 구현 (post-D074)",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "analysis",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "execution-plan",
+          "turnIdx": 2,
+          "recallReason": "phase-transition"
+        },
+        {
+          "role": "fin",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "re-audit",
+          "turnIdx": 5,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 6,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 7,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 8,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -6026,6 +6140,11 @@
           "date": "2026-04-16",
           "feedbackId": "MF-012",
           "summary": "소프트웨어 구현도 향후 진행 업무. Arki 설계 + 별도 Dev 에이전트 + Editor 디자인 강화. 에"
+        },
+        {
+          "date": "2026-04-24",
+          "feedbackId": "MF-079",
+          "summary": "구현은 3세션 이내 원칙으로 진행."
         }
       ]
     },
@@ -6151,6 +6270,21 @@
           "date": "2026-04-19",
           "feedbackId": "MF-031",
           "summary": "'데이터 미스가 왜 발생한거야. 아키 데이터 정확하게 검증해봐' — 구조적 원인 분석 요구"
+        }
+      ]
+    },
+    {
+      "keyword": "스킬",
+      "occurrences": [
+        {
+          "date": "2026-04-20",
+          "feedbackId": "MF-040",
+          "summary": "베라는 스킬 모두 인식했어?"
+        },
+        {
+          "date": "2026-04-24",
+          "feedbackId": "MF-081",
+          "summary": "자동 close와 수동 /close 스킬 실행 결과 차이가 뭔지 검토 필요."
         }
       ]
     },

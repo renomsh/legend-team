@@ -174,7 +174,7 @@
       "R-03 수정: 레이어 불일치 리스크 (스킬 트리거 ≠ Grade 전환) — 설계 과제로 분류."
     ]
   },
-  "lastUpdated": "2026-04-19T08:00:00.000Z",
+  "lastUpdated": "2026-04-24",
   "signatureMetrics": [
     {
       "id": "riki.critical_recall",
@@ -333,5 +333,12 @@
     "framing",
     "implementation",
     "standalone"
+  ],
+  "sessionLearnings": [
+    {
+      "session": "session_094",
+      "date": "2026-04-24",
+      "note": "hook chain 실측 증거 공격이 유효. 공격 1건이 전체 세션 value를 바꿈."
+    }
   ]
 }

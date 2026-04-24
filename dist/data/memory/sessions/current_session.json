@@ -1,11 +1,12 @@
 {
-  "sessionId": "session_093",
-  "topicId": "topic_098",
-  "topic": "D-058 unwind 구현 — dispatcher 폐기 + role-*.md archive + 연쇄 코드 정리",
-  "topicSlug": "d058-dispatcher-unwind",
+  "sessionId": "session_094",
+  "topicId": "topic_099",
+  "topic": "PD-023 재개 — Self-scores MVP 얇은 구현 (post-D074)",
+  "topicSlug": "pd023-resume-self-scores-mvp",
+  "reportPath": "reports/2026-04-24_pd023-resume-self-scores-mvp",
   "status": "closed",
-  "startedAt": "2026-04-24T20:45:00.000Z",
-  "closedAt": "2026-04-24T22:30:00.000Z",
+  "startedAt": "2026-04-24T23:00:00.000Z",
+  "closedAt": "2026-04-25T02:00:00.000Z",
   "mode": "observation",
   "grade": "A",
   "gradeDeclared": "A",
@@ -13,22 +14,23 @@
   "framingLevel": 2,
   "framingSkipped": false,
   "topicType": "implementation",
-  "parentTopicId": "topic_097",
+  "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
     "ace",
     "arki",
     "arki",
+    "fin",
     "riki",
+    "arki",
+    "arki",
     "ace",
-    "dev",
     "editor"
   ],
   "turns": [
     {
       "role": "ace",
-      "turnIdx": 0,
-      "phase": "framing"
+      "turnIdx": 0
     },
     {
       "role": "arki",
@@ -38,53 +40,100 @@
     {
       "role": "arki",
       "turnIdx": 2,
-      "phase": "execution-plan"
+      "phase": "execution-plan",
+      "recallReason": "phase-transition",
+      "splitReason": "Section 4 구조적 실행계획 전환"
+    },
+    {
+      "role": "fin",
+      "turnIdx": 3
     },
     {
       "role": "riki",
-      "turnIdx": 3,
-      "phase": "analysis"
+      "turnIdx": 4
+    },
+    {
+      "role": "arki",
+      "turnIdx": 5,
+      "phase": "re-audit",
+      "recallReason": "post-intervention",
+      "splitReason": "Riki 오진 공격 → Master 지시로 재실측"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 6
     },
     {
       "role": "ace",
-      "turnIdx": 4,
+      "turnIdx": 7,
       "phase": "synthesis"
     },
     {
-      "role": "dev",
-      "turnIdx": 5,
-      "phase": "implementation"
-    },
-    {
       "role": "editor",
-      "turnIdx": 6,
+      "turnIdx": 8,
       "phase": "compile"
     }
   ],
   "decisions": [
-    "D-074"
+    "D-075",
+    "D-076",
+    "D-077",
+    "D-078",
+    "D-079",
+    "D-080"
   ],
   "masterDecisions": [
     {
-      "id": "D-074",
-      "summary": "Grade 5단 체계 + orchestrationMode + D-058 dispatcher 전체 폐기"
+      "id": "D-075",
+      "summary": "D-073 부분 rescind + 페르소나 통합경로 memory/roles/personas/"
+    },
+    {
+      "id": "D-076",
+      "summary": "PD-031 root cause 재판정 — 입력 공급선 결함"
+    },
+    {
+      "id": "D-077",
+      "summary": "3세션 summary 자동 로드 시스템"
+    },
+    {
+      "id": "D-078",
+      "summary": "Arki 감사 프로토콜 v2 — hook chain 전수 확인"
+    },
+    {
+      "id": "D-079",
+      "summary": "Grade D 토픽 self-scores 대상 외 명문화"
+    },
+    {
+      "id": "D-080",
+      "summary": "PD-023 Phase 재매핑 — P3-supp 최우선, P3' 기각"
     }
   ],
-  "masterFeedback": [],
-  "pendingDeferralsAdded": [],
+  "masterFeedback": [
+    "MF-079",
+    "MF-080",
+    "MF-081"
+  ],
+  "pendingDeferralsAdded": [
+    "PD-035",
+    "PD-036",
+    "PD-037",
+    "PD-038",
+    "PD-039"
+  ],
   "pendingDeferralsResolved": [],
   "notes": [
-    "topic_098는 session_092(topic_097)에서 사전 생성된 implementation 토픽. create-topic.ts 재실행 불필요.",
-    "D-071(dispatcher 폐기) + D-073(role-*.md archive) 실행 담당."
+    "PD-023 (session_082 발생, canonical spec: reports/2026-04-23_pd023-self-scores-thin-impl/arki_rev1.md) 재개.",
+    "직전 구현 시도(session_082~089)에서 PD-031(YAML 미기입 실가동 감사) 파생. MVP 자체는 일부 구현됨.",
+    "D-074(2026-04-24)로 dispatcher/Grade 체계 전면 개편된 직후 — 재개 시 post-D074 아키텍처와 정합 여부 재확인 필요."
   ],
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 11407,
-    "output_tokens": 163750,
-    "cache_creation_input_tokens": 1166119,
-    "cache_read_input_tokens": 15138185,
-    "messageCount": 166,
-    "masterTurns": 23,
-    "total_billable": 16479461
+    "input_tokens": 338,
+    "output_tokens": 146664,
+    "cache_creation_input_tokens": 410122,
+    "cache_read_input_tokens": 13180936,
+    "messageCount": 100,
+    "masterTurns": 17,
+    "total_billable": 13738060
   }
 }

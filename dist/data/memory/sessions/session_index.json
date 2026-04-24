@@ -3536,8 +3536,102 @@
       ],
       "grade": "A",
       "note": "topic_098는 session_092(topic_097)에서 사전 생성된 implementation 토픽. create-topic.ts 재실행 불필요. | D-071(dispatcher 폐기) + D-073(role-*.md archive) 실행 담당."
+    },
+    {
+      "sessionId": "session_094",
+      "topicSlug": "pd023-resume-self-scores-mvp",
+      "topic": "PD-023 재개 — Self-scores MVP 얇은 구현 (post-D074)",
+      "startedAt": "2026-04-24T23:00:00.000Z",
+      "closedAt": "2026-04-25T02:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "decisions": [
+        {
+          "id": "D-075",
+          "summary": "D-073 부분 rescind + 페르소나 통합경로 memory/roles/personas/"
+        },
+        {
+          "id": "D-076",
+          "summary": "PD-031 root cause 재판정 — 입력 공급선 결함"
+        },
+        {
+          "id": "D-077",
+          "summary": "3세션 summary 자동 로드 시스템"
+        },
+        {
+          "id": "D-078",
+          "summary": "Arki 감사 프로토콜 v2 — hook chain 전수 확인"
+        },
+        {
+          "id": "D-079",
+          "summary": "Grade D 토픽 self-scores 대상 외 명문화"
+        },
+        {
+          "id": "D-080",
+          "summary": "PD-023 Phase 재매핑 — P3-supp 최우선, P3' 기각"
+        }
+      ],
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "arki",
+        "fin",
+        "riki",
+        "arki",
+        "arki",
+        "ace",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "phase": "analysis"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 2,
+          "phase": "execution-plan",
+          "recallReason": "phase-transition",
+          "splitReason": "Section 4 구조적 실행계획 전환"
+        },
+        {
+          "role": "fin",
+          "turnIdx": 3
+        },
+        {
+          "role": "riki",
+          "turnIdx": 4
+        },
+        {
+          "role": "arki",
+          "turnIdx": 5,
+          "phase": "re-audit",
+          "recallReason": "post-intervention",
+          "splitReason": "Riki 오진 공격 → Master 지시로 재실측"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 6
+        },
+        {
+          "role": "ace",
+          "turnIdx": 7,
+          "phase": "synthesis"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 8,
+          "phase": "compile"
+        }
+      ],
+      "grade": "A",
+      "note": "PD-023 (session_082 발생, canonical spec: reports/2026-04-23_pd023-self-scores-thin-impl/arki_rev1.md) 재개. | 직전 구현 시도(session_082~089)에서 PD-031(YAML 미기입 실가동 감사) 파생. MVP 자체는 일부 구현됨. | D-074(2026-04-24)로 dispatcher/Grade 체계 전면 개편된 직후 — 재개 시 post-D074 아키텍처와 정합 여부 재확인 필요."
     }
   ],
-  "lastUpdated": "2026-04-24T10:39:29.390Z",
+  "lastUpdated": "2026-04-24T12:56:02.380Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

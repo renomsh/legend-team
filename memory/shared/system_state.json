@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_093",
-  "nextSessionId": "session_094",
+  "lastSessionId": "session_094",
+  "nextSessionId": "session_095",
   "currentVersion": "v1.54",
   "openTopics": [
     {
@@ -27,34 +27,34 @@
   ],
   "recentDecisions": [
     {
-      "id": "D-074",
+      "id": "D-080",
       "date": "2026-04-24",
-      "axis": "Grade 재정의, L0/L1/L2 폐기, Dispatcher 아키텍처 전체 폐기, orchestrationMode 신설",
-      "summary": "22세션 동안 작동하지 않은 dispatcher 허구 인프라 제거. Grade 시스템을 실제 운용 패턴에 맞게 재정의. orchestrationMode로 Master 개입 수준 명시적 제어."
+      "axis": "PD-023 Phase remapping",
+      "summary": "PD-023 Phase remapping"
     },
     {
-      "id": "D-073",
+      "id": "D-079",
       "date": "2026-04-24",
-      "axis": "role-*.md 페르소나 정의 archive 이동 (제거 아님)",
-      "summary": "22세션 누적 페르소나 정의(F-013 자기소개 제약 등 학습 포함) 손실 방지. 미래 옵션 보존."
+      "axis": "Grade D exclusion from self-scores",
+      "summary": "Grade D exclusion from self-scores"
     },
     {
-      "id": "D-072",
+      "id": "D-078",
       "date": "2026-04-24",
-      "axis": "측정 전 단정 금지 — 인프라 결정은 falsification probe 1회 통과 필수",
-      "summary": "D-058 22세션 잠복 재발 방지. 측정 부재 자기복제 차단. Riki 절차 권고를 protocol화."
+      "axis": "Arki audit protocol v2",
+      "summary": "Arki audit protocol v2"
     },
     {
-      "id": "D-071",
+      "id": "D-077",
       "date": "2026-04-24",
-      "axis": "Sonnet 메인 + Opus 서브에이전트 dispatcher 구조 폐기",
-      "summary": "falsification probe 4/4 fail로 22세션 fiction 확정. 잃는 것 0(작동한 적 없음). 측정·hook·schema 부담 모두 해제."
+      "axis": "3-session summary auto-load system",
+      "summary": "3-session summary auto-load system"
     },
     {
-      "id": "D-070",
+      "id": "D-076",
       "date": "2026-04-24",
-      "axis": "session_090 immutable snapshot 박제 + appendOrUpdateSessionIndex 가드",
-      "summary": "rev6에서 처음 박제된 보호 신호 부재 위험(Object.assign 덮어쓰기) 차단. session_090을 baseline으로 격상하지 않고 symptom snapshot으로 영구 동결. 인-플레이스 immutable 마커가 별도 사본 격리보다 영향 최소(SSOT 유지)."
+      "axis": "PD-031 root cause re-judgment",
+      "summary": "PD-031 root cause re-judgment"
     }
   ],
   "pendingDeferrals": [
@@ -93,7 +93,7 @@
       "fromTopic": "pd023-self-scores-mvp-impl",
       "item": "Self-score MVP 실가동 감사 — 70 records 중 86%가 default-fallback propagation, 실제 YAML 블록 기록은 10건뿐. session_086~089 4세션 연속 YAML 미기입. 원인 진단 필요: (1) Master 관심 부족? (2) finalize hook이 YAML 블록을 역할 발언에서 자동 추출 못 함? (3) YAML 포맷 학습 장벽? (4) 역할별 메트릭 shortKey 기억 어려움? (5) 입력 도구 자체 부재 — batch-score-helper.ts가 spec §2.1에 명시됐으나 미구현. YAML 직접 타이핑만 유일 경로 → 진입장벽 형성(G6.2 ② 감사에서 발견). (6) 출력 surface staged — signature.html은 base form으로 배포 완료되었으나 main nav 통합은 topic_082(Dashboard 전면 개편, 현재 suspended) 합류 시점까지 의도적 지연. 즉 structural gap이 아닌 계획된 staging. PD-031 재활성화 protocol 설계 시 topic_082 재개를 dependency로 고려 필요. MVP 비가시성 주원인은 '미통합'이 아니라 '미운영 대기 상태'. 재활성화 protocol 설계 필요. D-065 B 조치(allowDefaultFallback=false)로 앞으로는 propagation 차단됨 → 실 기록 없으면 빈 상태로 남음.",
       "status": "pending",
-      "resolveCondition": "원인 진단 완료 + YAML 블록 자동/반자동 기입 protocol 확정 + 10세션 이상 실 yaml-block 기록 비율 ≥ 70%",
+      "resolveCondition": "P3-supplementary 완료 + 10세션 관찰 중 8개 role 각각 yaml-block 기록률 ≥ 70% 달성",
       "dependsOn": []
     },
     {
@@ -337,7 +337,52 @@
       "status": "resolved",
       "resolvedInSession": "session_068",
       "note": "D-058 확정. opus-dispatcher 스킬 + dispatch_config.json + 에이전트 정의 4종(role-ace/arki/fin/riki.md) 구현. G1(write 계약)·G3(RED→GREEN) 통과. auto-model-switch 스킬 폐기."
+    },
+    {
+      "id": "PD-035",
+      "fromSession": "session_094",
+      "fromTopic": "pd023-resume-self-scores-mvp",
+      "item": "PD-023 P3-supplementary 구현 — 8역할 페르소나/서브에이전트 프롬프트에 YAML 블록 생성 instruction 편입",
+      "status": "pending",
+      "resolveCondition": "다음 세션 완료 + 3세션 관찰 시 8역할 yaml-block 기록률 ≥ 70%",
+      "dependsOn": []
+    },
+    {
+      "id": "PD-036",
+      "fromSession": "session_094",
+      "fromTopic": "pd023-resume-self-scores-mvp",
+      "item": "3세션 summary 자동 로드 시스템 구현 (D-077 후속) — session_index 2필드 + topic_index closedInSession + sync-system-state 확장",
+      "status": "pending",
+      "resolveCondition": "구현 완료 + 3세션 자동 summary 생성 확인 + /open step 3.5 브리핑 동작",
+      "dependsOn": []
+    },
+    {
+      "id": "PD-037",
+      "fromSession": "session_094",
+      "fromTopic": "pd023-resume-self-scores-mvp",
+      "item": "Vera 페르소나 신규 생성 — memory/roles/personas/role-vera.md 작성. D-029 Vera 역할 정의 기반",
+      "status": "pending",
+      "resolveCondition": "파일 생성 + 1토픽 이상 실사용 확인",
+      "dependsOn": []
+    },
+    {
+      "id": "PD-038",
+      "fromSession": "session_094",
+      "fromTopic": "pd023-resume-self-scores-mvp",
+      "item": "옵션 (3) .claude/agents/ 재활성화 falsification probe 재설계 — \"YAML 블록 생성률\" 신호로 재테스트 (장기 보류)",
+      "status": "pending",
+      "resolveCondition": "D-071 재오픈 조건 정의 + 신규 probe 2주 가동 통과",
+      "dependsOn": []
+    },
+    {
+      "id": "PD-039",
+      "fromSession": "session_094",
+      "fromTopic": "pd023-resume-self-scores-mvp",
+      "item": "자동 close vs 수동 /close 스킬 차이 검토 — CLAUDE.md \"자동 close 규칙\"과 Master 수동 /close 실행 결과가 어떻게 다른지 비교 (Master 요청 session_094)",
+      "status": "pending",
+      "resolveCondition": "두 경로의 산출물 diff 분석 + 일관성 확보 방안 박제",
+      "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-24T10:40:22.596Z"
+  "lastUpdated": "2026-04-24T12:56:19.714Z"
 }

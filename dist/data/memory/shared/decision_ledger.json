@@ -1225,7 +1225,55 @@
           "validatedOutcome": null
         }
       ]
+    },
+    {
+      "id": "D-075",
+      "date": "2026-04-24",
+      "session": "session_094",
+      "topic": "topic_099",
+      "axis": "role-persona integration path",
+      "summary": "D-073 부분 rescind + 페르소나 통합경로 memory/roles/personas/ 확정. 분산된 활성 7 + legacy 7 파일을 한 디렉토리에 통합. D-073 \"archive 이동\"을 \"통합경로 재배치\"로 부분 수정."
+    },
+    {
+      "id": "D-076",
+      "date": "2026-04-24",
+      "session": "session_094",
+      "topic": "topic_099",
+      "axis": "PD-031 root cause re-judgment",
+      "summary": "PD-031 root cause 재판정 — 파이프라인 정상. 결함은 입력 공급선(역할 YAML instruction dev/editor만 보유). Arki v1 오진을 Riki 공격으로 수정."
+    },
+    {
+      "id": "D-077",
+      "date": "2026-04-24",
+      "session": "session_094",
+      "topic": "topic_099",
+      "axis": "3-session summary auto-load system",
+      "summary": "3세션 summary 자동 로드 시스템 신설 — system_state.recentSessionSummaries[]. 생성 주체 sync-system-state.ts. 필드 스펙 Arki v2/v3. /open step 3.5에서 Master 브리핑 자동 포함."
+    },
+    {
+      "id": "D-078",
+      "date": "2026-04-24",
+      "session": "session_094",
+      "topic": "topic_099",
+      "axis": "Arki audit protocol v2",
+      "summary": "Arki 감사 프로토콜 v2 — hook chain(auto-push.js) 전수 확인 + 실측 증거 우선. 파일 1개만 보고 단정 금지."
+    },
+    {
+      "id": "D-079",
+      "date": "2026-04-24",
+      "session": "session_094",
+      "topic": "topic_099",
+      "axis": "Grade D exclusion from self-scores",
+      "summary": "Grade D 토픽 self-scores 대상 외 명문화. Grade D는 self-scores jsonl 기록 대상 아님. participation 분모에서 자동 제외."
+    },
+    {
+      "id": "D-080",
+      "date": "2026-04-24",
+      "session": "session_094",
+      "topic": "topic_099",
+      "axis": "PD-023 Phase remapping",
+      "summary": "PD-023 Phase 재매핑 — P3-supplementary(역할 YAML instruction 보강) 최우선. P3'(hook 재구현) 기각."
     }
   ],
-  "lastUpdated": "2026-04-19T13:30:00.000Z"
+  "lastUpdated": "2026-04-24"
 }

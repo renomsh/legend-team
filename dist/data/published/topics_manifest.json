@@ -1,6 +1,18 @@
 {
-  "generatedAt": "2026-04-24T10:41:12.880Z",
+  "generatedAt": "2026-04-24T12:56:38.682Z",
   "topics": [
+    {
+      "id": "topic_099",
+      "title": "PD-023 재개 — Self-scores MVP 얇은 구현 (post-D074)",
+      "status": "completed",
+      "created": "2026-04-24",
+      "reportPath": "reports/2026-04-24_pd023-resume-self-scores-mvp",
+      "reportFiles": [],
+      "published": false,
+      "outcome": "감사+진단+설계 완료 (E3 scope). Arki v1 오진 → Riki 반박 → Arki v2 재판정. PD-031 root cause 재정립: 입력 공급선(역할 YAML instruction) 결함. 페르소나 통합경로 memory/roles/personas/ 실행. D-075~D-080 박제. PD-035~PD-039 신규. 구현은 PD-035(P3-supp 최우선)부터 별 세션 분할.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_098",
       "title": "D-058 unwind 구현 — dispatcher 폐기 + role-*.md archive + 연쇄 코드 정리",

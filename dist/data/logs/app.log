@@ -890,3 +890,14 @@
 [2026-04-24T10:40:22.599Z] [sync-system-state] lastSession=session_093 openTopics=3 recentDecisions=5 deferrals=30
 [2026-04-24T10:41:00.878Z] [compute-growth] Phase 1 ok. sessions=1 newDatapoints=12 totalDatapoints=1749 pendingLag=5
 [2026-04-24T10:41:10.145Z] [compute-dashboard] 완료 — 91개 세션, 5개 경보
+[2026-04-24T12:55:51.959Z] [checklist] [WARN] reports: no reportPath in current_session.json
+[2026-04-24T12:55:51.962Z] [checklist] [INFO] decision_ledger: 6 decision(s) recorded for session_094
+[2026-04-24T12:55:51.962Z] [checklist] [INFO] topic_index: topic found: topic_047 (completed)
+[2026-04-24T12:55:51.963Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-24T12:55:51.963Z] [checklist] [INFO] master_feedback: 3 feedback entry(ies) recorded
+[2026-04-24T12:55:51.964Z] [session-log] [INFO] END session_094 | topic: pd023-resume-self-scores-mvp | duration: unknown (startedAt in future)
+[2026-04-24T12:56:04.803Z] [L2-writer] wrote C:\Projects\legend-team\topics\topic_099\session_contributions\session_094.md | turns=0 decisions=6
+[2026-04-24T12:56:07.322Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_099\context_brief.md | sessions=1 size=1436B
+[2026-04-24T12:56:19.716Z] [sync-system-state] lastSession=session_094 openTopics=3 recentDecisions=5 deferrals=35
+[2026-04-24T12:56:33.254Z] [compute-growth] Phase 1 ok. sessions=1 newDatapoints=12 totalDatapoints=1761 pendingLag=5
+[2026-04-24T12:56:36.934Z] [compute-dashboard] 완료 — 92개 세션, 5개 경보
