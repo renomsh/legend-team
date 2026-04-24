@@ -215,15 +215,175 @@
       ],
       "detectedAt": "2026-04-24T06:47:39.371Z",
       "ref": "D-068+D-069"
+    },
+    {
+      "type": "dual-satisfaction-violation",
+      "count": 9,
+      "violations": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        },
+        {
+          "role": "arki",
+          "turnIdx": 2,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        },
+        {
+          "role": "arki",
+          "turnIdx": 3,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        },
+        {
+          "role": "arki",
+          "turnIdx": 4,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        },
+        {
+          "role": "arki",
+          "turnIdx": 5,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        },
+        {
+          "role": "arki",
+          "turnIdx": 6,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        },
+        {
+          "role": "ace",
+          "turnIdx": 7,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        },
+        {
+          "role": "dev",
+          "turnIdx": 8,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        }
+      ],
+      "detectedAt": "2026-04-24T06:48:55.587Z",
+      "ref": "D-068+D-069"
+    },
+    {
+      "type": "dual-satisfaction-violation",
+      "count": 9,
+      "violations": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        },
+        {
+          "role": "arki",
+          "turnIdx": 2,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        },
+        {
+          "role": "arki",
+          "turnIdx": 3,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        },
+        {
+          "role": "arki",
+          "turnIdx": 4,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        },
+        {
+          "role": "arki",
+          "turnIdx": 5,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        },
+        {
+          "role": "arki",
+          "turnIdx": 6,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        },
+        {
+          "role": "ace",
+          "turnIdx": 7,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        },
+        {
+          "role": "dev",
+          "turnIdx": 8,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        }
+      ],
+      "detectedAt": "2026-04-24T06:49:20.075Z",
+      "ref": "D-068+D-069"
     }
   ],
   "tokenUsage": {
-    "input_tokens": 224,
-    "output_tokens": 106062,
-    "cache_creation_input_tokens": 360436,
-    "cache_read_input_tokens": 7720929,
-    "messageCount": 66,
-    "masterTurns": 9,
-    "total_billable": 8187651
+    "input_tokens": 249,
+    "output_tokens": 111114,
+    "cache_creation_input_tokens": 384233,
+    "cache_read_input_tokens": 10095952,
+    "messageCount": 79,
+    "masterTurns": 11,
+    "total_billable": 10591548
   }
 }

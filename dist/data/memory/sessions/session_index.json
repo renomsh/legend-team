@@ -3418,6 +3418,6 @@
       "note": "Grade S 첫 세션. Opus 메인 + Opus 서브 강제 — 7회 Agent 호출 모두 subagent 박제, inline-main 0건 | Arki 6회 호출(rev1 framing 응답 포함)로 단일 토픽 내 최다 — PD-033 실증: 매 호출마다 다른 agentId, F-NNN findings 미전달 in-session 확인 | Master 4회 토픽 재정의: 설계→regression→breakpoint→9기준 c → 결정+구현. STOP 사용 1회 (포장 차단) | PostToolUse hook 즉시 작동 실증: Dev 호출 직후 turns에 dev entry 자동 push (D-068 in-session 검증) | regression test 10/10 PASS, fail 0건. session_090 immutable 박제 완료 (line 3314~3315) | PD-032 페르소나 분리·PD-033 서브 지속성은 본 토픽 scope 외로 명시 분리 — 페르소나는 후속, 지속성은 4 결정으로 부분 cover (turns 박제만, scratchpad는 미진입)"
     }
   ],
-  "lastUpdated": "2026-04-24T06:47:39.376Z",
+  "lastUpdated": "2026-04-24T06:49:20.080Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
