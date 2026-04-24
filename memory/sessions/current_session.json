@@ -112,15 +112,31 @@
       ],
       "detectedAt": "2026-04-24T08:38:48.472Z",
       "ref": "D-068+D-069"
+    },
+    {
+      "type": "dual-satisfaction-violation",
+      "count": 1,
+      "violations": [
+        {
+          "role": "ace",
+          "turnIdx": 3,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": true,
+          "cond_turnIdMatch": false
+        }
+      ],
+      "detectedAt": "2026-04-24T08:40:43.817Z",
+      "ref": "D-068+D-069"
     }
   ],
   "tokenUsage": {
-    "input_tokens": 813,
-    "output_tokens": 71528,
-    "cache_creation_input_tokens": 453713,
-    "cache_read_input_tokens": 6215732,
-    "messageCount": 70,
+    "input_tokens": 814,
+    "output_tokens": 72007,
+    "cache_creation_input_tokens": 458701,
+    "cache_read_input_tokens": 6337931,
+    "messageCount": 71,
     "masterTurns": 9,
-    "total_billable": 6741786
+    "total_billable": 6869453
   }
 }
