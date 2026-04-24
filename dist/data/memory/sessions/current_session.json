@@ -1,127 +1,71 @@
 {
-  "sessionId": "session_095",
-  "topicId": "topic_100",
-  "topic": "PD-035 P3-supplementary — 8역할 YAML instruction 보강",
-  "topicSlug": "pd035-yaml-instruction-8roles",
-  "reportPath": "reports/2026-04-24_pd035-yaml-instruction-8roles",
+  "sessionId": "session_096",
+  "topicId": "topic_101",
+  "topic": "PD-037 Vera 실사용 시범 — signature.html 시각 점검",
+  "topicSlug": "pd037-vera-signature-review",
+  "reportPath": "reports/2026-04-25_pd037-vera-signature-review",
   "status": "closed",
-  "startedAt": "2026-04-25T02:30:00.000Z",
+  "startedAt": "2026-04-25T02:45:00.000Z",
+  "closedAt": "2026-04-25T03:30:00.000Z",
   "mode": "observation",
-  "grade": "A",
-  "gradeDeclared": "A",
+  "grade": "C",
+  "gradeDeclared": "C",
   "orchestrationMode": "manual",
-  "framingLevel": 2,
+  "framingLevel": 1,
   "framingSkipped": false,
   "topicType": "implementation",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
     "ace",
-    "ace",
-    "ace",
-    "arki",
-    "ace",
-    "arki",
-    "ace",
-    "ace",
-    "riki",
-    "riki",
-    "ace",
-    "arki",
+    "vera",
     "dev",
     "editor"
   ],
   "turns": [
     {
       "role": "ace",
-      "turnIdx": 0
+      "turnIdx": 0,
+      "phase": "framing"
     },
     {
-      "role": "ace",
-      "turnIdx": 1
-    },
-    {
-      "role": "ace",
-      "turnIdx": 2
-    },
-    {
-      "role": "arki",
-      "turnIdx": 3
-    },
-    {
-      "role": "ace",
-      "turnIdx": 4
-    },
-    {
-      "role": "arki",
-      "turnIdx": 5
-    },
-    {
-      "role": "ace",
-      "turnIdx": 6
-    },
-    {
-      "role": "ace",
-      "turnIdx": 7
-    },
-    {
-      "role": "riki",
-      "turnIdx": 8
-    },
-    {
-      "role": "riki",
-      "turnIdx": 9
-    },
-    {
-      "role": "ace",
-      "turnIdx": 10
-    },
-    {
-      "role": "arki",
-      "turnIdx": 11
+      "role": "vera",
+      "turnIdx": 1,
+      "phase": "design-critique"
     },
     {
       "role": "dev",
-      "turnIdx": 12
+      "turnIdx": 2,
+      "phase": "implementation"
     },
     {
       "role": "editor",
-      "turnIdx": 13,
+      "turnIdx": 3,
       "phase": "compilation"
     }
   ],
-  "decisions": [
-    "D-081",
-    "D-082",
-    "D-083",
-    "D-084",
-    "D-085",
-    "D-086"
-  ],
+  "decisions": [],
   "masterDecisions": [],
   "masterFeedback": [
-    "성장하기 위해 부족한 축을 잡으려는 거라 — 지금은 정교하지 않아도 된다는 방향 확인 → Goodhart 방어·deferred-settlement·turns 자동 판정 전량 폐기, 단순화 경로 확정",
-    "5역할 균등 가중 (tier 구분 없음) — 3역할 기존 가중치 유지"
+    "C/D grade 서브에이전트 금지 — 메인 인라인 직접 발언만 허용"
   ],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [
-    "PD-035"
+    "PD-037"
   ],
   "notes": [
-    "PD-035 구현 토픽. session_094에서 생성됨(D-080 Phase remapping). PD-031 근본 원인 해소용 — YAML 미기입은 role instruction 결함이 1차 원인.",
-    "관련 PD: PD-023 (parent canonical spec), PD-031 (실가동 감사 결과), PD-037 (Vera 페르소나 신규), PD-038 (probe 재설계, 장기).",
-    "Grade A → L2 full framing, Ace 첫 주자.",
-    "구현 완료: 8 persona 파일 YAML 계약 + 32 shortKey + Vera canonical + 구조 통일. D-081~D-086 박제."
+    "PD-037 resolveCondition 충족: Vera 1토픽 실사용 완료",
+    "발견: signature.html ROLE_COLOR fallback 6/8 불일치(구버전 팔레트) → role-colors.js canonical 동기화",
+    "C/D grade 서브에이전트 금지 피드백 박제(MF-085, feedback_cd_no_subagent.md)"
   ],
   "gaps": [],
-  "closedAt": "2026-04-25T02:30:00.000Z",
   "tokenUsage": {
-    "input_tokens": 425,
-    "output_tokens": 150879,
-    "cache_creation_input_tokens": 788692,
-    "cache_read_input_tokens": 17970165,
-    "messageCount": 172,
-    "masterTurns": 29,
-    "total_billable": 18910161
+    "input_tokens": 166,
+    "output_tokens": 34362,
+    "cache_creation_input_tokens": 340000,
+    "cache_read_input_tokens": 5902911,
+    "messageCount": 81,
+    "masterTurns": 15,
+    "total_billable": 6277439
   }
 }

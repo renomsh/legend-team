@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-24T22:36:26.680Z",
-  "totalSessions": 93,
+  "generatedAt": "2026-04-24T23:01:37.870Z",
+  "totalSessions": 94,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.06,
-    "avgCacheHitRate": 0.9308,
-    "cacheSampleSize": 67,
-    "cacheSampleTotal": 93,
+    "avgMasterTurns": 17.03,
+    "avgCacheHitRate": 0.9309,
+    "cacheSampleSize": 68,
+    "cacheSampleTotal": 94,
     "avgAdoptionRate": 0,
     "totalDecisions": 86,
     "gradeDistribution": {
       "S": 34,
       "A": 18,
-      "B": 30,
+      "B": 31,
       "C": 11
     },
     "gradeMismatchCount": 2,
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 48,
-    "totalCostUSD": 825.7581,
-    "avgCostPerSession": 9.3836,
-    "costSampleSize": 88
+    "turnBasedSessions": 49,
+    "totalCostUSD": 829.3199,
+    "avgCostPerSession": 9.3182,
+    "costSampleSize": 89
   },
   "sessions": [
     {
@@ -3497,12 +3497,48 @@
         "messageCount": 340
       },
       "sessionCostUSD": 20.4832
+    },
+    {
+      "sessionId": "session_096",
+      "topicSlug": "pd037-vera-signature-review",
+      "topic": "PD-037 Vera 실사용 시범 — signature.html 시각 점검",
+      "startedAt": "2026-04-25T02:45:00.000Z",
+      "closedAt": "2026-04-25T03:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 4,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 7,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 15,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "vera",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 6277439,
+        "ioTokens": 34528,
+        "inputTokens": 166,
+        "outputTokens": 34362,
+        "cacheCreate": 340000,
+        "cacheRead": 5902911,
+        "cacheHitRate": 0.9403374529007769,
+        "messageCount": 81
+      },
+      "sessionCostUSD": 3.5618
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 90,
+      "count": 91,
       "sessions": [
         "session_047",
         "session_048",
@@ -3545,7 +3581,8 @@
         "session_092",
         "session_093",
         "session_094",
-        "session_095"
+        "session_095",
+        "session_096"
       ]
     },
     {
@@ -3583,7 +3620,7 @@
     },
     {
       "role": "editor",
-      "count": 45,
+      "count": 46,
       "sessions": [
         "session_050",
         "session_051",
@@ -3629,12 +3666,13 @@
         "session_092",
         "session_093",
         "session_094",
-        "session_095"
+        "session_095",
+        "session_096"
       ]
     },
     {
       "role": "dev",
-      "count": 32,
+      "count": 33,
       "sessions": [
         "session_047",
         "session_048",
@@ -3662,7 +3700,8 @@
         "session_084",
         "session_091",
         "session_093",
-        "session_095"
+        "session_095",
+        "session_096"
       ]
     },
     {
@@ -3717,11 +3756,12 @@
     },
     {
       "role": "vera",
-      "count": 6,
+      "count": 7,
       "sessions": [
         "session_049",
         "session_052",
-        "session_081"
+        "session_081",
+        "session_096"
       ]
     },
     {
@@ -5749,6 +5789,36 @@
           "role": "editor",
           "phase": "compilation",
           "turnIdx": 13,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_096",
+      "topic": "PD-037 Vera 실사용 시범 — signature.html 시각 점검",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "vera",
+          "phase": "design-critique",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compilation",
+          "turnIdx": 3,
           "recallReason": null
         }
       ]

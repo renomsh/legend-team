@@ -1,6 +1,22 @@
 {
   "topics": [
     {
+      "id": "topic_101",
+      "title": "PD-037 Vera 실사용 시범 — signature.html 시각 점검",
+      "status": "completed",
+      "phase": "validated",
+      "grade": "C",
+      "hold": null,
+      "created": "2026-04-25",
+      "closedAt": "2026-04-25",
+      "outcome": "signature.html ROLE_COLOR fallback 6/8 불일치(구버전 팔레트) 발견 및 수정. role-colors.js canonical 동기화 완료. PD-037 resolveCondition 충족(1토픽 실사용). C/D grade 서브에이전트 금지 피드백 박제.",
+      "controlPath": "topics/topic_101",
+      "reportPath": "reports/2026-04-25_pd037-vera-signature-review",
+      "reportFiles": ["vera_rev1.md", "editor_rev1.md"],
+      "published": false,
+      "path": "topics/topic_101"
+    },
+    {
       "id": "topic_100",
       "title": "PD-035 P3-supplementary — 8역할 YAML instruction 보강",
       "status": "completed",
@@ -12,7 +28,19 @@
       "outcome": "8역할 persona 파일 전체 Self-Score YAML 계약 삽입 완료. 32 shortKey 확정(D-081~D-086). Vera canonical 선언(role-vera.md 신규). dev/editor/nova Write 계약 구조 통일. PD-035 resolveCondition 충족 — 3세션 관찰 기간 시작. PD-031 근본 원인(입력 공급선 결함) 해소.",
       "controlPath": "topics/topic_100",
       "reportPath": "reports/2026-04-24_pd035-yaml-instruction-8roles",
-      "reportFiles": ["ace_rev1.md","ace_rev2.md","ace_rev3.md","ace_rev4.md","arki_rev1.md","arki_rev2.md","arki_rev3.md","riki_rev1.md","riki_rev2.md","dev_rev1.md","edi_final.md"],
+      "reportFiles": [
+        "ace_rev1.md",
+        "ace_rev2.md",
+        "ace_rev3.md",
+        "ace_rev4.md",
+        "arki_rev1.md",
+        "arki_rev2.md",
+        "arki_rev3.md",
+        "riki_rev1.md",
+        "riki_rev2.md",
+        "dev_rev1.md",
+        "edi_final.md"
+      ],
       "published": false,
       "path": "topics/topic_100",
       "grade": "A"
@@ -1965,5 +1993,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-24T13:00:38.717Z"
+  "lastUpdated": "2026-04-24T22:45:31.453Z"
 }

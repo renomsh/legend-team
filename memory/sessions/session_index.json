@@ -3715,8 +3715,46 @@
       ],
       "grade": "A",
       "note": "PD-035 구현 토픽. session_094에서 생성됨(D-080 Phase remapping). PD-031 근본 원인 해소용 — YAML 미기입은 role instruction 결함이 1차 원인. | 관련 PD: PD-023 (parent canonical spec), PD-031 (실가동 감사 결과), PD-037 (Vera 페르소나 신규), PD-038 (probe 재설계, 장기). | Grade A → L2 full framing, Ace 첫 주자. | 구현 완료: 8 persona 파일 YAML 계약 + 32 shortKey + Vera canonical + 구조 통일. D-081~D-086 박제."
+    },
+    {
+      "sessionId": "session_096",
+      "topicSlug": "pd037-vera-signature-review",
+      "topic": "PD-037 Vera 실사용 시범 — signature.html 시각 점검",
+      "startedAt": "2026-04-25T02:45:00.000Z",
+      "closedAt": "2026-04-25T03:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "ace",
+        "vera",
+        "dev",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "vera",
+          "turnIdx": 1,
+          "phase": "design-critique"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 2,
+          "phase": "implementation"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 3,
+          "phase": "compilation"
+        }
+      ],
+      "grade": "C",
+      "note": "PD-037 resolveCondition 충족: Vera 1토픽 실사용 완료 | 발견: signature.html ROLE_COLOR fallback 6/8 불일치(구버전 팔레트) → role-colors.js canonical 동기화 | C/D grade 서브에이전트 금지 피드백 박제(MF-085, feedback_cd_no_subagent.md)"
     }
   ],
-  "lastUpdated": "2026-04-24T22:35:50.578Z",
+  "lastUpdated": "2026-04-24T23:01:07.490Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

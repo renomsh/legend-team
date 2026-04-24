@@ -1,6 +1,21 @@
 {
-  "generatedAt": "2026-04-24T22:36:28.262Z",
+  "generatedAt": "2026-04-24T23:01:38.842Z",
   "topics": [
+    {
+      "id": "topic_101",
+      "title": "PD-037 Vera 실사용 시범 — signature.html 시각 점검",
+      "status": "completed",
+      "created": "2026-04-25",
+      "reportPath": "reports/2026-04-25_pd037-vera-signature-review",
+      "reportFiles": [
+        "vera_rev1.md",
+        "editor_rev1.md"
+      ],
+      "published": false,
+      "outcome": "signature.html ROLE_COLOR fallback 6/8 불일치(구버전 팔레트) 발견 및 수정. role-colors.js canonical 동기화 완료. PD-037 resolveCondition 충족(1토픽 실사용). C/D grade 서브에이전트 금지 피드백 박제.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_100",
       "title": "PD-035 P3-supplementary — 8역할 YAML instruction 보강",
