@@ -45,16 +45,42 @@ export const VALID_RECALL_REASONS: RecallReason[] = [
 
 export interface Turn {
   role: string;
+  /**
+   * D-067 (session_091, topic_096) — canonical link key.
+   * 모든 role report frontmatter는 동일 `turnId` 값으로 본 turn을 참조한다.
+   * 본 필드(turnIdx)는 turns 배열 내 0-based 자동 부여, report frontmatter는 `turnId`로 동일 정수 매칭.
+   * link 책임: PostToolUse(Task) hook이 자동 박제 (D-068), SessionEnd finalize hook이 cross-check (D-068).
+   */
   turnIdx: number;
   phase?: PhaseId;
   /** D-066: invocationMode. Grade A/S 세션은 필수, 기존 세션(001~089)은 undefined 허용(legacy). */
   invocationMode?: InvocationMode;
-  /** D-066: invocationMode=subagent일 때 required. Agent 툴이 반환한 agentId. */
+  /**
+   * D-067 (의미 강화) — invocationMode=subagent인 turn에서 **반드시** 박제되는 보조 식별자.
+   * Agent 툴 반환 시 PostToolUse(Task) hook이 자동 추출하여 push (D-068).
+   * 9 기준 #3 충족: invocationMode=subagent + subagentId 양자 박제.
+   * legacy(legacy=true) 세션에선 undefined 허용 — 백필 금지(기준 #7).
+   */
   subagentId?: string;
   recallReason?: RecallReason;
   splitReason?: string;
   chars?: number;
   segments?: number;
+}
+
+/**
+ * D-067 (session_091, topic_096) — role report frontmatter link 표준.
+ * 신규 세션의 모든 role report (.md) frontmatter는 `turnId` 필드를 의무 기록한다.
+ * 기존 자유 텍스트 `parentInstanceId`는 폐기. `turnId`는 정수.
+ *
+ * - 9 기준 #5 (invocation record와 turnId/agentId link) 충족.
+ * - SessionEnd finalize hook이 turn.turnIdx ↔ frontmatter.turnId cross-check (D-068).
+ */
+export interface ReportLinkFrontmatter {
+  /** turn.turnIdx와 동일 값. 정수. */
+  turnId: number;
+  /** invocationMode=subagent인 경우 동시 박제 권장 (Turn.subagentId와 동일). */
+  subagentId?: string;
 }
 
 /** plannedSequence 개정 기록 */

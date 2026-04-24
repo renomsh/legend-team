@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_090",
-  "nextSessionId": "session_091",
+  "lastSessionId": "session_091",
+  "nextSessionId": "session_092",
   "currentVersion": "v1.54",
   "openTopics": [
     {
@@ -27,34 +27,34 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-070",
+      "date": "2026-04-24",
+      "axis": "session_090 immutable snapshot 박제 + appendOrUpdateSessionIndex 가드",
+      "summary": "rev6에서 처음 박제된 보호 신호 부재 위험(Object.assign 덮어쓰기) 차단. session_090을 baseline으로 격상하지 않고 symptom snapshot으로 영구 동결. 인-플레이스 immutable 마커가 별도 사본 격리보다 영향 최소(SSOT 유지)."
+    },
+    {
+      "id": "D-069",
+      "date": "2026-04-24",
+      "axis": "agentsCompleted 의미 재정의 — string[] 무변경, 생성 로직만 4조건 필터",
+      "summary": "rev6 영향 강도 1위 대상(agentsCompleted semantics) 직접 cover. session_090 length 11 → 0~3로 정보량 감소 수용 — 정확성 우선. 기준 7(백필 금지) 위반 차단."
+    },
+    {
+      "id": "D-068",
+      "date": "2026-04-24",
+      "axis": "PostToolUse(Task) 자동 박제 + SessionEnd 양자 충족 검증 분리",
+      "summary": "rev6 hook gap(PostToolUse 부재) 직접 메움. session 중간 turns에 subagentId 부재 → Master 가시성 0 위험 차단. 자동 박제와 검증 분리가 9 기준 3·4·5 동시 충족에 유일 최적."
+    },
+    {
+      "id": "D-067",
+      "date": "2026-04-24",
+      "axis": "Role differentiation baseline 정의 = actual Task/subagent invocation + corresponding physical report artifact (Master c 기준)",
+      "summary": "Master 9 기준 c(양자 충족) 정의의 schema 표현. rev6 영향 강도 2·3위 대상(reports structure + turns schema) 동시 cover. parentInstanceId 자유 텍스트 폐기 → turnId 단일 canonical로 일관성 확보."
+    },
+    {
       "id": "D-066",
       "date": "2026-04-24",
       "axis": "Grade A/S inline-main 차단 enforcement (Schema+Hook+Structural 3층). opus-dispatcher 스킬 의존 폐기.",
       "summary": "session_090에서 Grade A임에도 Main(Opus)이 Arki/Fin/Riki/Dev/Edi/Nova/Vera 7개 역할을 inline 시뮬레이션 → 팀 존재가치 붕괴. Ace가 서브 응답 후 relay까지 반복. Master 지적('팀의 존재 가치 없앰')으로 3층 방어 착수. D-058(opus-dispatcher)이 선언만 있고 enforcement 없어 22세션 중 어느 세션이든 재발 가능했음 판정. Schema 필드가 진실 강제 + Hook이 사후 감사 + Structural이 원천 필드 박제 — 셋 모두 soft-guide 경로 우회."
-    },
-    {
-      "id": "D-065",
-      "date": "2026-04-24",
-      "axis": "Ace Step 0 PD 교차검증 의무화 + PD-030 자동전이 훅 신설 (D1+D3 병행, D2 기각)",
-      "summary": "이번 session_089에서 PD-023을 잘못 Grade S로 재구현 시도해 P0b parallel agents가 working artifacts를 overwrite한 runtime 파괴 사고가 발생. 근본 원인 = Ace가 /open 시 PD resolveCondition을 '종결 조건'이 아닌 '남은 일'로 오독 + children 완료 상태 미확인. Master 긴급 과제 끼어들기(session_085~088 Vera Claude Design·cost-report) 후 resumption에서 취약. D1 Ace Step 0 교차검증 의무화로 재발 1순위 차단 — 인지 비용 저렴(5행 브리핑) 효과 근본(오독 자체 방지). D3 PD-030 훅은 구현 완료 시 자동 제안으로 상태 drift 애초에 발생 방지. D2 중간 상태 기각으로 over-engineering 회피(feedback_pragmatic_weapon_not_art 정합)."
-    },
-    {
-      "id": "D-064",
-      "date": "2026-04-23",
-      "axis": "Vera/Arki Claude Design 통합 — 테스트 도입 + 11개 결정 박제",
-      "summary": "Hi-fi 모드 1차 실패(Nova=Execution hallucination + 임의 Strategic/Execution/Output 분류) → Wireframe 2차 성공(5축 + compare cheat-sheet, 결함 5종 전부 해소) 실측으로 모드 선택이 근본 원인임을 규명. 프롬프트 protocol(결정 8)이 future Vera/Arki Claude Design 호출의 hallucination 방어 자산. 다각도 병렬 원칙(결정 9)이 canonical 토폴로지의 단일 그림 경직화 방지. 패턴 흡수 원칙(결정 10)이 장기 외부 의존 감소 경로 확보. 저마찰 원칙 적용으로 SKILL.md·template 파일화는 PD-029로 지연 — over-engineering 방지."
-    },
-    {
-      "id": "D-063",
-      "date": "2026-04-23",
-      "axis": "PD-023 학습축 자가평가 MVP — 얇은 구현 spec 확정 (12차 자가감사 + Fin/Riki/Ace 통합)",
-      "summary": "Master 박은 ROI 우선 원칙(feedback_pragmatic_weapon_not_art) 보존하며 12차 누적 spec을 PD 4분할로 over-engineering 차단. Arki 자가감사 루틴이 미래 모든 Grade A/S 토픽에서 사전 spec drift 방지 자산화. Riki cross-review 가치 박제 — Arki 12차 자가감사도 못 잡은 3건(default 인플레/forward-compat nothing-burger/P0 type race) 보강. implementation 토픽 발언 비대칭 정식 처리. 자가채점 페르소나 본업 보호."
-    },
-    {
-      "id": "D-062",
-      "date": "2026-04-23",
-      "axis": "자기평가-외부평가 공존 원칙 + 학습축 자가평가 MVP 착지 (Phase 2 consensus 본체 보류)",
-      "summary": "N4(나 없이도 돌아가는 팀) 로드맵 정합. Top 0.1% 신뢰 전제에 가장 정합한 학습축 라이트 착륙. consensus 인프라 과투자(측정을 위한 측정) 회피. 4축 공존 원칙 조기 박제로 미래 결과품질·판단일치 축 붙을 때 편향 자동 상쇄 구조 사전 확보. Riki 자기 부정 감사로 7/8 정교화 층 철회 — 측정→품질 인과 경로 공백 자인."
     }
   ],
   "pendingDeferrals": [
@@ -337,5 +337,5 @@
       "note": "D-058 확정. opus-dispatcher 스킬 + dispatch_config.json + 에이전트 정의 4종(role-ace/arki/fin/riki.md) 구현. G1(write 계약)·G3(RED→GREEN) 통과. auto-model-switch 스킬 폐기."
     }
   ],
-  "lastUpdated": "2026-04-24T05:14:05.862Z"
+  "lastUpdated": "2026-04-24T06:47:50.936Z"
 }

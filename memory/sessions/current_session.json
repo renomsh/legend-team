@@ -1,29 +1,19 @@
 {
-  "sessionId": "session_090",
-  "topicId": "topic_095",
-  "topic": "PD-031 + topic_082 병행 통합 — self-score MVP input/output 양방향 동시 활성화",
-  "topicSlug": "pd031-topic082-parallel-integration",
+  "sessionId": "session_091",
+  "topicId": "topic_096",
+  "topic": "S legend-team 구조 점검 — 서브에이전트 미발동·세션 단절 원인 + 상시 병행 검토",
+  "topicSlug": "legend-team-structure-audit-subagent-persistence",
   "status": "closed",
-  "closedAt": "2026-04-24T16:00:00.000Z",
-  "startedAt": "2026-04-24T00:00:00.000Z",
+  "startedAt": "2026-04-24T16:30:00.000Z",
+  "closedAt": "2026-04-24T18:30:00.000Z",
   "mode": "observation",
-  "grade": "A",
-  "gradeDeclared": "A",
+  "grade": "S",
+  "gradeDeclared": "S",
   "framingLevel": 2,
   "framingSkipped": false,
-  "topicType": "implementation",
-  "parentTopicId": "topic_088",
+  "topicType": "framing",
+  "parentTopicId": null,
   "agentsCompleted": [
-    "ace",
-    "ace",
-    "ace",
-    "ace",
-    "ace",
-    "arki",
-    "ace",
-    "arki",
-    "ace",
-    "arki",
     "editor"
   ],
   "turns": [
@@ -31,146 +21,209 @@
       "role": "ace",
       "turnIdx": 0,
       "phase": "framing",
-      "invocationMode": "inline-allowed"
+      "invocationMode": "subagent",
+      "subagentId": "a69ac1c0d925ba00f"
     },
     {
-      "role": "ace",
+      "role": "arki",
       "turnIdx": 1,
-      "phase": "reframe",
-      "invocationMode": "inline-allowed",
-      "splitReason": "Master scope 조정 반영 (A1~A5 축 재정의)"
+      "phase": "role-speech",
+      "invocationMode": "subagent",
+      "subagentId": "a5eb841cc5684571f",
+      "splitReason": "두 증상 진단"
     },
     {
-      "role": "ace",
+      "role": "arki",
       "turnIdx": 2,
-      "phase": "reframe",
-      "invocationMode": "inline-main",
-      "splitReason": "Arki 인라인 발언 (위반) — Grade A임에도 서브 미호출",
-      "recallReason": "post-master"
+      "phase": "role-speech",
+      "invocationMode": "subagent",
+      "subagentId": "a78eb4826abd0206b",
+      "recallReason": "master-direct-nomination",
+      "splitReason": "rev2 구조 설계 (Master '아키 메인으로 나와')"
     },
     {
-      "role": "ace",
+      "role": "arki",
       "turnIdx": 3,
       "phase": "role-speech",
-      "invocationMode": "inline-main",
-      "splitReason": "Vera/Nova/Edi/Dev/Riki/Fin 전원 인라인 시뮬레이션 (위반)"
+      "invocationMode": "subagent",
+      "subagentId": "a51ef399640dcdf94",
+      "splitReason": "rev3 regression 진단 (Master '과거 히스토리 다 읽어')"
     },
     {
-      "role": "ace",
+      "role": "arki",
       "turnIdx": 4,
-      "phase": "synthesis",
-      "invocationMode": "inline-allowed",
-      "splitReason": "signal v1.00 30개 lock"
+      "phase": "role-speech",
+      "invocationMode": "subagent",
+      "subagentId": "a32e588af43982eb3",
+      "splitReason": "rev4 breakpoint localization (Master STOP 후)"
     },
     {
       "role": "arki",
       "turnIdx": 5,
       "phase": "role-speech",
       "invocationMode": "subagent",
-      "subagentId": "ae844b15ec6eda182",
-      "splitReason": "Master '아키가 답변줘봐' 호명 — 첫 진짜 서브 호출 (강제성 설계)"
+      "subagentId": "a69fc0242996ca03d",
+      "splitReason": "rev5 good-state 검증 (auto mode 자동 채택)"
     },
     {
-      "role": "ace",
+      "role": "arki",
       "turnIdx": 6,
-      "phase": "relay",
-      "invocationMode": "inline-main",
-      "splitReason": "Ace-as-relay 위반 (F-005) — Arki 서브 응답 직후 요약"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 7,
       "phase": "role-speech",
       "invocationMode": "subagent",
-      "subagentId": "afb198c09b2033911",
-      "splitReason": "Master 지시 — Arki Phase 1 명세·D.1~D.10 결정 요청"
+      "subagentId": "a8bc8f6c54cde85ea",
+      "splitReason": "rev6 schema impact (Master c 결정 후)"
     },
     {
       "role": "ace",
-      "turnIdx": 8,
+      "turnIdx": 7,
       "phase": "synthesis",
-      "invocationMode": "inline-allowed",
-      "splitReason": "원인 재진단 — 22세션 부채 과장 철회 → /open 스킬 누락 → Master '스킬 아님' 재반박 수용"
+      "invocationMode": "subagent",
+      "subagentId": "a1d901fa4f1ded8f2",
+      "splitReason": "4 결정 D-067~D-070 박제"
     },
     {
-      "role": "arki",
-      "turnIdx": 9,
-      "phase": "role-speech",
+      "role": "dev",
+      "turnIdx": 8,
+      "phase": "implementation",
       "invocationMode": "subagent",
-      "subagentId": "abc7376a51148552f",
-      "splitReason": "Master '아키가 메인으로 나와' — Section A~D 단독 설계 주도",
-      "recallReason": "master-direct-nomination"
+      "subagentId": "a3a2e23547ef148f8",
+      "splitReason": "최소 구현 + 보호 패치 + regression test"
     },
     {
       "role": "editor",
-      "turnIdx": 10,
+      "turnIdx": 9,
       "phase": "compile"
     }
   ],
   "decisions": [
-    "D-066"
+    "D-067",
+    "D-068",
+    "D-069",
+    "D-070"
   ],
   "masterDecisions": [
-    "A1~A5 축 전체 B극 수용 (topic_082 '전면'을 signature 반응형 골격+main nav로 축소)",
-    "자가평가 방향 전환 — YAML 기입 폐기, 시스템 자동 추출 + 10세션 리뷰 대화",
-    "역할별 지표 3~4개, Vera/Nova 최소 3개, Dev hardcoding_ratio 포함",
-    "역할 간 점수 미공유 + ver1.00 시작 + Master 판단 성장 시 +0.01",
-    "Ace 전체 열람권 (Master 대리), 업그레이드 원칙 진행하며 정립",
-    "기존 36지표 최대 재사용 + 고비용 대체 (9개 탈락, 2개 신규)",
-    "Arki 리소스 감사 이슈 1+2+3 전부 YES (grep/F-태깅/visual_regression_zero PD)",
-    "signal v1.00 30개 확정",
-    "Arki '메인으로 나와' — Ace 필터 해제, Arki 직접 설계 주도",
-    "F-013 박제 + Phase 1 구현 진행 + role-*.md 자기소개 제약 추가"
+    "Q1: A2=(ii) 토픽 단위 상주, Grade S/A 한정. 향후 (i) 동시 발동 혼합 방향",
+    "Q2: 페르소나 분리 방향 확정, 본 토픽은 점검만",
+    "Riki cross-attack 생략, Ace 종합검토로 전환",
+    "사안 재정의: 회귀 분석 아닌 미구현 선언부 최초 구축 — 후 Master STOP",
+    "재정의 II: 구현 아닌 breakpoint localization, session_090=symptom snapshot",
+    "Role differentiation baseline = (c) 양자 충족 = Task 실호출 + 물리 reports + link",
+    "9 기준 박제 (reports만/문자열만 인정 불가, invocationMode/subagentId/turnId 의무, agentsCompleted 양자 충족, legacy 백필 금지, session_090 snapshot 유지, 신규 baseline 신규 측정)",
+    "진단 종료 → 결정 4개 고정 → Dev 최소 구현 → 보호 패치 → regression test"
   ],
   "masterFeedback": [
-    "자가평가가 이렇게 복잡하면 의미 퇴색 — 심플 원칙 재확인",
-    "성장하되 가볍게 — 배보다 배꼽 크면 안하니만 못함",
-    "'팀의 존재 가치를 없애는 행동' — inline-main 지적",
-    "'스킬이 문제가 아니다, 삭제해도 된다' — enforcement는 스킬 경로 아님",
-    "'왜 갑자기 이렇게 됐지?' + '어제는 각 Agent 호출 확인했는데' — 22세션 부채 프레이밍 반박",
-    "'한 세션에 로드하면 계속 유지되어야지' — 서브에이전트 세션 지속성 문제 제기",
-    "'아키가 메인으로 나와' — Ace 필터 제거 지시"
+    "어떻게 구조를 만들어야 되겠어? 네가 중심이어야 해. 그럴듯하게 포장만 (Arki 직접 호명 + 포장 detector 의무화)",
+    "전에는 안그랬는데 왜 이러지? 과거 히스토리 다 읽어 (regression 진단 의무)",
+    "STOP. 신규 구축 단계 아니다. breakpoint localization으로 전환",
+    "(c) 양자 충족 결정 + 9 기준 박제",
+    "진단 종료 → 결정 4개 고정 → Dev 구현 → 보호 패치 → regression"
   ],
-  "pendingDeferralsAdded": [
-    "PD-032",
-    "PD-033",
-    "PD-034"
-  ],
+  "pendingDeferralsAdded": [],
   "notes": [
-    "[대전환] session_090 전반: signal v1.00 설계 → 중대 구조 위반(inline-main·relay) 발견 → Phase 1 방어책 박제로 scope 전환",
-    "[confession] Main(Opus 4.7)이 Grade A임에도 7역할 inline 시뮬레이션. D-058 enforcement 공백 노출",
-    "[defense L1+L2+L3] Schema(invocationMode) + Hook(finalize gate) + Structural(dispatch_config 4필드) 동시 박제",
-    "[F-태깅] evidence_index.json에 F-001~F-013 프로토콜 도입. signal S-007/S-013 source",
-    "[signal v1.00] 30개 spec 박제 (24🟢+3🟡+3🔴). 수집 로직은 topic_095 실행 세션으로",
-    "[persona drift] Arki 서브 2회 '김우진' 자가 생성. role-*.md 4개에 자기소개 제약 추가",
-    "[Ace relay 금지] role-ace.md에 F-005 룰 명문화 — 단일 서브 응답 직후 Ace 침묵",
-    "[다음 세션 권고] signal 수집 로직 구현 (extract-signals.ts, signature.html UI, upgrade-role-signal.ts). Grade B 적정"
+    "Grade S 첫 세션. Opus 메인 + Opus 서브 강제 — 7회 Agent 호출 모두 subagent 박제, inline-main 0건",
+    "Arki 6회 호출(rev1 framing 응답 포함)로 단일 토픽 내 최다 — PD-033 실증: 매 호출마다 다른 agentId, F-NNN findings 미전달 in-session 확인",
+    "Master 4회 토픽 재정의: 설계→regression→breakpoint→9기준 c → 결정+구현. STOP 사용 1회 (포장 차단)",
+    "PostToolUse hook 즉시 작동 실증: Dev 호출 직후 turns에 dev entry 자동 push (D-068 in-session 검증)",
+    "regression test 10/10 PASS, fail 0건. session_090 immutable 박제 완료 (line 3314~3315)",
+    "PD-032 페르소나 분리·PD-033 서브 지속성은 본 토픽 scope 외로 명시 분리 — 페르소나는 후속, 지속성은 4 결정으로 부분 cover (turns 박제만, scratchpad는 미진입)"
   ],
   "gaps": [
     {
-      "type": "inline-main-violation",
-      "grade": "A",
-      "count": 3,
-      "roles": [
-        "ace"
+      "type": "scope-deferred",
+      "items": [
+        "A3 페르소나 분리 (Child-3, Master 보류)",
+        "Scratchpad cross-instance memory (Child-2 spec 박제됐으나 Master STOP 후 미실행)"
       ],
-      "turnIndices": [
-        2,
-        3,
-        6
+      "note": "본 토픽은 측정 schema + 보호 패치까지. 기억 누적 메커니즘은 별도 후속."
+    },
+    {
+      "type": "dual-satisfaction-violation",
+      "count": 9,
+      "violations": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        },
+        {
+          "role": "arki",
+          "turnIdx": 2,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        },
+        {
+          "role": "arki",
+          "turnIdx": 3,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        },
+        {
+          "role": "arki",
+          "turnIdx": 4,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        },
+        {
+          "role": "arki",
+          "turnIdx": 5,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        },
+        {
+          "role": "arki",
+          "turnIdx": 6,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        },
+        {
+          "role": "ace",
+          "turnIdx": 7,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        },
+        {
+          "role": "dev",
+          "turnIdx": 8,
+          "cond_invocationMode": true,
+          "cond_subagentId": true,
+          "cond_reportExists": false,
+          "cond_turnIdMatch": false
+        }
       ],
-      "note": "session_090 첫 절반에서 Ace가 Arki·Fin·Riki·Dev·Edi·Nova·Vera 역할로 inline-main + relay 1회. D-066 게이트 최초 baseline 케이스. dashboard 첫 카운트.",
-      "ref": "D-066"
+      "detectedAt": "2026-04-24T06:47:39.371Z",
+      "ref": "D-068+D-069"
     }
   ],
-  "reportPath": "reports/2026-04-24_pd031-topic082-parallel-integration",
   "tokenUsage": {
-    "input_tokens": 488,
-    "output_tokens": 210210,
-    "cache_creation_input_tokens": 921431,
-    "cache_read_input_tokens": 27887706,
-    "messageCount": 177,
-    "masterTurns": 26,
-    "total_billable": 29019835
+    "input_tokens": 224,
+    "output_tokens": 106062,
+    "cache_creation_input_tokens": 360436,
+    "cache_read_input_tokens": 7720929,
+    "messageCount": 66,
+    "masterTurns": 9,
+    "total_billable": 8187651
   }
 }

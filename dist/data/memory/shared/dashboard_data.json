@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-24T05:14:15.779Z",
-  "totalSessions": 88,
+  "generatedAt": "2026-04-24T06:48:02.099Z",
+  "totalSessions": 89,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.47,
-    "avgCacheHitRate": 0.9299,
-    "cacheSampleSize": 62,
-    "cacheSampleTotal": 88,
+    "avgMasterTurns": 16.38,
+    "avgCacheHitRate": 0.9302,
+    "cacheSampleSize": 63,
+    "cacheSampleTotal": 89,
     "avgAdoptionRate": 0,
-    "totalDecisions": 66,
+    "totalDecisions": 70,
     "gradeDistribution": {
-      "S": 29,
+      "S": 30,
       "A": 18,
       "B": 30,
       "C": 11
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 43,
-    "totalCostUSD": 765.4346,
-    "avgCostPerSession": 9.2221,
-    "costSampleSize": 83
+    "turnBasedSessions": 44,
+    "totalCostUSD": 770.6941,
+    "avgCostPerSession": 9.1749,
+    "costSampleSize": 84
   },
   "sessions": [
     {
@@ -3272,12 +3272,51 @@
         "messageCount": 177
       },
       "sessionCostUSD": 14.9763
+    },
+    {
+      "sessionId": "session_091",
+      "topicSlug": "legend-team-structure-audit-subagent-persistence",
+      "topic": "S legend-team 구조 점검 — 서브에이전트 미발동·세션 단절 원인 + 상시 병행 검토",
+      "startedAt": "2026-04-24T16:30:00.000Z",
+      "closedAt": "2026-04-24T18:30:00.000Z",
+      "decisionCount": 4,
+      "decisionAxes": 4,
+      "decisions": [
+        "D-070",
+        "D-069",
+        "D-068",
+        "D-067"
+      ],
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 12,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 9,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 8187651,
+        "ioTokens": 106286,
+        "inputTokens": 224,
+        "outputTokens": 106062,
+        "cacheCreate": 360436,
+        "cacheRead": 7720929,
+        "cacheHitRate": 0.9429968375545074,
+        "messageCount": 66
+      },
+      "sessionCostUSD": 5.2595
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 75,
+      "count": 77,
       "sessions": [
         "session_047",
         "session_048",
@@ -3315,12 +3354,13 @@
         "session_087",
         "session_088",
         "session_089",
-        "session_090"
+        "session_090",
+        "session_091"
       ]
     },
     {
       "role": "arki",
-      "count": 49,
+      "count": 55,
       "sessions": [
         "session_048",
         "session_049",
@@ -3343,12 +3383,13 @@
         "session_086",
         "session_087",
         "session_089",
-        "session_090"
+        "session_090",
+        "session_091"
       ]
     },
     {
       "role": "editor",
-      "count": 40,
+      "count": 41,
       "sessions": [
         "session_050",
         "session_051",
@@ -3389,12 +3430,13 @@
         "session_087",
         "session_088",
         "session_089",
-        "session_090"
+        "session_090",
+        "session_091"
       ]
     },
     {
       "role": "dev",
-      "count": 29,
+      "count": 30,
       "sessions": [
         "session_047",
         "session_048",
@@ -3419,7 +3461,8 @@
         "session_080",
         "session_081",
         "session_083",
-        "session_084"
+        "session_084",
+        "session_091"
       ]
     },
     {
@@ -5201,6 +5244,72 @@
           "role": "editor",
           "phase": "compile",
           "turnIdx": 10,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_091",
+      "topic": "S legend-team 구조 점검 — 서브에이전트 미발동·세션 단절 원인 + 상시 병행 검토",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "role-speech",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "role-speech",
+          "turnIdx": 2,
+          "recallReason": "master-direct-nomination"
+        },
+        {
+          "role": "arki",
+          "phase": "role-speech",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "role-speech",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "role-speech",
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "role-speech",
+          "turnIdx": 6,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 7,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 8,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 9,
           "recallReason": null
         }
       ]

@@ -1,6 +1,18 @@
 {
-  "generatedAt": "2026-04-24T05:14:16.506Z",
+  "generatedAt": "2026-04-24T06:48:02.898Z",
   "topics": [
+    {
+      "id": "topic_096",
+      "title": "S legend-team 구조 점검 — 서브에이전트 미발동·세션 단절 원인 + 상시 병행 검토",
+      "status": "completed",
+      "created": "2026-04-24",
+      "reportPath": "reports/2026-04-24_legend-team-structure-audit-subagent-persistence",
+      "reportFiles": [],
+      "published": false,
+      "outcome": "결정 4개(D-067~D-070) 박제 + Dev 최소 구현 완료(신규 1+수정 6 파일) + regression 10/10 PASS + session_090 immutable 보호. Master 9 기준(c 양자 충족) schema 표현 + PostToolUse hook 자동 박제 in-session 실증. 진단 흐름: rev2 설계 보류 → rev3 회귀 부인 → rev4 breakpoint localization → rev5 good-state 부재 확정 → rev6 schema impact → 4 결정 + Dev 구현.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_095",
       "title": "PD-031 + topic_082 병행 통합 — self-score MVP input/output 양방향 동시 활성화",

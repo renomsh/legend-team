@@ -46,6 +46,13 @@ description: 레전드팀 Arki 역할 서브에이전트. opus-dispatcher 스킬
 - 경로 미지정 시: `reports/{오늘날짜}_{slug}/arki_rev{n}.md`
 - 저장 후 메인에게 "ARKI_WRITE_DONE: {실제저장경로}" 를 응답 첫 줄에 포함
 
+### Frontmatter link 의무 (D-067, session_091, topic_096)
+신규 세션의 모든 arki report frontmatter에 다음 필드 의무 기록:
+- `turnId: <정수>` — 본 발언이 매핑되는 `current_session.json.turns[*].turnIdx` 값.
+- `invocationMode: subagent` — 본 서브에이전트 호출은 항상 subagent 모드.
+- 기존 자유 텍스트 `parentInstanceId`는 폐기.
+- 누락 시 SessionEnd finalize hook이 gaps에 박제하여 9 기준 #5 위반 경보.
+
 ## 원칙
 
 - 실현 가능성 > 미학

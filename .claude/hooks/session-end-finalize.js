@@ -110,11 +110,150 @@ function ensureEditorInAgents(sess) {
   return false;
 }
 
+/**
+ * D-068 + D-069 (session_091, topic_096) — 양자 충족 검증 + agentsCompleted 필터.
+ *
+ * legacy=true 세션:
+ *   - 기존 의미("추정 발언 기록")로 동결, 재계산하지 않음 (기준 #7).
+ *
+ * 신규 세션 (legacy 미설정 또는 false):
+ *   - turns 순회하며 4조건 검사:
+ *       (1) invocationMode === 'subagent'
+ *       (2) subagentId 존재
+ *       (3) 대응 reports 파일 존재 (reports/{date}_{slug}/{role}_rev*.md 중 하나)
+ *       (4) 해당 reports frontmatter에 turnId === turn.turnIdx 일치
+ *   - 4조건 통과 role만 agentsCompleted 재생성 (editor는 기록 주체로 항상 포함).
+ *   - 불일치는 sess.gaps에 박제.
+ */
+function filterAgentsCompletedByDualSatisfaction(sess) {
+  // legacy 가드 (기준 #7)
+  if (sess.legacy === true) {
+    log(`[dual-sat] legacy 세션 ${sess.sessionId}: agentsCompleted 동결 (재계산 skip)`);
+    return;
+  }
+
+  const turns = Array.isArray(sess.turns) ? sess.turns : [];
+  if (turns.length === 0) return;
+
+  // reports 디렉토리 결정: reports/{startedAt date}_{topicSlug}
+  const dateStr = (sess.startedAt || '').slice(0, 10); // YYYY-MM-DD
+  const slug = sess.topicSlug || '';
+  if (!dateStr || !slug) {
+    log('[dual-sat] startedAt or topicSlug 부재, skip');
+    return;
+  }
+  const reportsDir = path.join(CWD, 'reports', `${dateStr}_${slug}`);
+  let reportFiles = [];
+  if (fs.existsSync(reportsDir)) {
+    try {
+      reportFiles = fs.readdirSync(reportsDir).filter(f => f.endsWith('.md'));
+    } catch {
+      reportFiles = [];
+    }
+  }
+
+  function findReportForRole(role) {
+    // {role}_rev*.md, {role}_*.md 패턴 모두 cover
+    return reportFiles.find(f => {
+      const lower = f.toLowerCase();
+      return lower.startsWith(`${role}_rev`) || lower.startsWith(`${role}_`);
+    });
+  }
+
+  function readFrontmatterTurnId(filename) {
+    try {
+      const fp = path.join(reportsDir, filename);
+      const raw = fs.readFileSync(fp, 'utf8');
+      // simple YAML frontmatter parse
+      const m = raw.match(/^---\s*\n([\s\S]*?)\n---/);
+      if (!m) return null;
+      const block = m[1];
+      const tm = block.match(/^\s*turnId\s*:\s*(\d+)\s*$/m);
+      if (!tm) return null;
+      return parseInt(tm[1], 10);
+    } catch {
+      return null;
+    }
+  }
+
+  const passedRoles = [];
+  const gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
+  const violations = [];
+
+  for (const turn of turns) {
+    if (!turn || typeof turn.role !== 'string') continue;
+    const role = turn.role;
+
+    // editor는 기록 주체. 양자 충족 적용 외, 항상 포함 보장.
+    if (role === 'editor') {
+      passedRoles.push(role);
+      continue;
+    }
+
+    const cond1 = turn.invocationMode === 'subagent';
+    const cond2 = typeof turn.subagentId === 'string' && turn.subagentId.length > 0;
+
+    const reportFile = findReportForRole(role);
+    const cond3 = !!reportFile;
+
+    let cond4 = false;
+    if (cond3) {
+      const fmTurnId = readFrontmatterTurnId(reportFile);
+      cond4 = fmTurnId !== null && fmTurnId === turn.turnIdx;
+    }
+
+    if (cond1 && cond2 && cond3 && cond4) {
+      passedRoles.push(role);
+    } else {
+      violations.push({
+        role,
+        turnIdx: turn.turnIdx,
+        cond_invocationMode: cond1,
+        cond_subagentId: cond2,
+        cond_reportExists: cond3,
+        cond_turnIdMatch: cond4,
+      });
+    }
+  }
+
+  sess.agentsCompleted = passedRoles;
+
+  if (violations.length > 0) {
+    gaps.push({
+      type: 'dual-satisfaction-violation',
+      count: violations.length,
+      violations,
+      detectedAt: new Date().toISOString(),
+      ref: 'D-068+D-069',
+    });
+    sess.gaps = gaps;
+    log(`[dual-sat] 양자 충족 실패 ${violations.length}건 → gaps 박제, agentsCompleted 필터 적용 (${passedRoles.length}건 통과)`);
+  } else {
+    log(`[dual-sat] 양자 충족 통과 ${passedRoles.length}건, agentsCompleted 정합`);
+  }
+}
+
 function appendOrUpdateSessionIndex(sess) {
   const index = readJson(SESSION_INDEX_PATH, { sessions: [] });
   if (!Array.isArray(index.sessions)) index.sessions = [];
 
   const existing = index.sessions.find(s => s.sessionId === sess.sessionId);
+
+  // D-070 (session_091, topic_096) — immutable snapshot 가드.
+  // immutable=true entry는 어떤 갱신 시도도 차단 (기준 #8: session_090 snapshot 유지).
+  if (existing && existing.immutable === true) {
+    log(`[immutable] ${sess.sessionId} entry는 immutable=true (frozenAt=${existing.frozenAt || 'unknown'}). 갱신 차단 → no-op + gap 박제`);
+    sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
+    sess.gaps.push({
+      type: 'immutable-update-blocked',
+      sessionId: sess.sessionId,
+      frozenAt: existing.frozenAt || null,
+      attemptedAt: new Date().toISOString(),
+      ref: 'D-070',
+    });
+    writeJson(CURRENT_SESSION_PATH, sess);
+    return index.sessions.length;
+  }
   // cwd: hook이 발동된 디렉토리 = 세션이 실행된 worktree 경로.
   // session-end-tokens.js의 tier 3 fallback이 이 값을 조회해 transcript를 역탐색한다.
   const sessionCwd = sess.cwd || CWD;
@@ -346,6 +485,7 @@ function runSyncSystemState() {
     }
 
     ensureEditorInAgents(sess);
+    filterAgentsCompletedByDualSatisfaction(sess);
     auditInlineMainViolations(sess);
     writeJson(CURRENT_SESSION_PATH, sess);
     appendOrUpdateSessionIndex(sess);

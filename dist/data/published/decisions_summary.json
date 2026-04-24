@@ -1,6 +1,91 @@
 {
-  "generatedAt": "2026-04-24T05:14:16.509Z",
+  "generatedAt": "2026-04-24T06:48:02.902Z",
   "decisions": [
+    {
+      "id": "D-070",
+      "date": "2026-04-24",
+      "session": "session_091",
+      "topic": "legend-team-structure-audit-subagent-persistence",
+      "owningTopicId": "topic_096",
+      "scopeCheck": "session_090 snapshot 보호 — finalize hook 갱신 차단 가드",
+      "axis": "session_090 immutable snapshot 박제 + appendOrUpdateSessionIndex 가드",
+      "decision": "session_090 entry에 immutable:true + frozenAt:2026-04-24 마커 박제. finalize hook이 immutable=true entry에 대해 모든 갱신 시도를 no-op 처리하고 gaps에 'attempted-mutation-blocked' 기록. 9 기준 8(snapshot 유지) + 9(신규 baseline 격상 차단) cover.",
+      "value": "rev6에서 처음 박제된 보호 신호 부재 위험(Object.assign 덮어쓰기) 차단. session_090을 baseline으로 격상하지 않고 symptom snapshot으로 영구 동결. 인-플레이스 immutable 마커가 별도 사본 격리보다 영향 최소(SSOT 유지).",
+      "rejectedAlternatives": [
+        {
+          "option": "session_090 entry를 별도 immutable 사본 파일로 격리",
+          "reason": "session_index SSOT 깨짐 + dashboard·통계 코드 전수 분기 필요. 인-플레이스 마커가 영향 최소."
+        }
+      ],
+      "appliedTo": [
+        ".claude/hooks/session-end-finalize.js",
+        "memory/sessions/session_index.json (session_090 entry)"
+      ]
+    },
+    {
+      "id": "D-069",
+      "date": "2026-04-24",
+      "session": "session_091",
+      "topic": "legend-team-structure-audit-subagent-persistence",
+      "owningTopicId": "topic_096",
+      "scopeCheck": "agentsCompleted 양자 충족 필터 + legacy 동결",
+      "axis": "agentsCompleted 의미 재정의 — string[] 무변경, 생성 로직만 4조건 필터",
+      "decision": "신규 세션의 agentsCompleted는 finalize hook이 (invocationMode=subagent AND subagentId 존재 AND 대응 reports 파일 존재 AND turnId 매칭) 4조건 동시 통과한 role만 포함. legacy:true 세션의 agentsCompleted는 기존 의미('추정 발언 기록')로 동결. 두 의미는 legacy 플래그로 분기 해석. 9 기준 1·2·6·7 cover.",
+      "value": "rev6 영향 강도 1위 대상(agentsCompleted semantics) 직접 cover. session_090 length 11 → 0~3로 정보량 감소 수용 — 정확성 우선. 기준 7(백필 금지) 위반 차단.",
+      "rejectedAlternatives": [
+        {
+          "option": "신규 의미를 legacy에도 소급 적용",
+          "reason": "기준 7 직접 위반 + rev5 §2의 '측정 부재 89세션' 결정적 단서 소실. 의미 분기 공존이 유일 정답."
+        }
+      ],
+      "appliedTo": [
+        ".claude/hooks/session-end-finalize.js (filterAgentsCompletedByDualSatisfaction)"
+      ]
+    },
+    {
+      "id": "D-068",
+      "date": "2026-04-24",
+      "session": "session_091",
+      "topic": "legend-team-structure-audit-subagent-persistence",
+      "owningTopicId": "topic_096",
+      "scopeCheck": "측정 시점·자동 박제 경로 — hook gap 메움",
+      "axis": "PostToolUse(Task) 자동 박제 + SessionEnd 양자 충족 검증 분리",
+      "decision": "subagentId·turnId의 turns 박제는 PostToolUse(Task) hook이 Agent 툴 반환 직후 자동 수행. reports 파일 존재·link 매칭 검증은 SessionEnd finalize hook이 단일 시점에 수행. 신규 .claude/hooks/post-tool-use-task.js + settings.json hooks.PostToolUse 등록 + finalize 검증 함수 확장. 9 기준 3·4·5 cover.",
+      "value": "rev6 hook gap(PostToolUse 부재) 직접 메움. session 중간 turns에 subagentId 부재 → Master 가시성 0 위험 차단. 자동 박제와 검증 분리가 9 기준 3·4·5 동시 충족에 유일 최적.",
+      "rejectedAlternatives": [
+        {
+          "option": "SessionEnd 1회 시점에 모든 박제·검증 통합",
+          "reason": "session 중간 박제 누락 + Master 개입 시점 가시성 0 위험."
+        }
+      ],
+      "appliedTo": [
+        ".claude/hooks/post-tool-use-task.js (신규)",
+        ".claude/hooks/session-end-finalize.js",
+        ".claude/settings.json"
+      ],
+      "verifiedInSession": "session_091 — Dev 호출 직후 turns에 dev entry 자동 push 실증"
+    },
+    {
+      "id": "D-067",
+      "date": "2026-04-24",
+      "session": "session_091",
+      "topic": "legend-team-structure-audit-subagent-persistence",
+      "owningTopicId": "topic_096",
+      "scopeCheck": "측정 schema 최소 변경 — turns + reports link 표준",
+      "axis": "Role differentiation baseline 정의 = actual Task/subagent invocation + corresponding physical report artifact (Master c 기준)",
+      "decision": "신규 세션부터 Turn은 turnIdx를 canonical link key로 갖고 모든 role report frontmatter에 동일 turnId 필드를 의무 기록. subagentId는 invocationMode=subagent인 turn에서 보조 식별자로 동시 박제. agentId 신규 필드 신설 거부(subagentId 의미 중복). 9 기준 3·5 cover.",
+      "value": "Master 9 기준 c(양자 충족) 정의의 schema 표현. rev6 영향 강도 2·3위 대상(reports structure + turns schema) 동시 cover. parentInstanceId 자유 텍스트 폐기 → turnId 단일 canonical로 일관성 확보.",
+      "rejectedAlternatives": [
+        {
+          "option": "agentId 신규 필드 신설",
+          "reason": "subagentId와 의미 중복 + schema 분기 증가. 9 기준의 'agentId 또는 turnId' 둘 중 1개로 충족 가능 → turnId 단일이 영향 최소."
+        }
+      ],
+      "appliedTo": [
+        "scripts/lib/turn-types.ts",
+        ".claude/agents/role-{ace,arki,fin,riki}.md"
+      ]
+    },
     {
       "id": "D-066",
       "date": "2026-04-24",
