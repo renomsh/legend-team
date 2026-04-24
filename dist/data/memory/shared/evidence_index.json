@@ -153,5 +153,21 @@
       }
     }
   ],
-  "lastUpdated": "2026-04-22T05:00:00.000Z"
+  "lastUpdated": "2026-04-24T05:00:00.000Z",
+  "_findings_tagged_v1": {
+    "_comment": "F-태깅 프로토콜 도입 (session_090, D-066). role 발언의 findings를 [F-NNN] prefix로 박제. S-007·S-013 signal source.",
+    "F-001": { "session": "session_090", "role": "arki", "type": "principle-violation", "text": "Grade A 세션 session_090에서 main-Opus가 7개 역할 전부를 inline 시뮬레이션. 원인: Soft-guide(CLAUDE.md) 단일 의존." },
+    "F-002": { "session": "session_090", "role": "arki", "type": "structural-diagnosis", "text": "dispatch_config.json이 단일 원천으로 선언됐으나 alwaysActive/conditionalDispatch 키 부재 — 비대칭 가동 모델 표현 필드 없음. (D-066으로 해소)" },
+    "F-003": { "session": "session_090", "role": "arki", "type": "structural-diagnosis", "text": "turns[].invocationMode 필드 부재로 inline-main 위반이 사후 감사 불가. (D-066으로 해소)" },
+    "F-004": { "session": "session_090", "role": "arki", "type": "operational-gap", "text": "/close 게이트가 Grade별 차등 검증 없음 — Grade C와 Grade A가 동일 경로로 통과. (D-066으로 해소)" },
+    "F-005": { "session": "session_090", "role": "ace", "type": "principle-violation", "text": "Ace-as-relay 위반 — 단일 서브에이전트 응답 직후 Ace가 요약/전달. 역할 독립성 침해. D-066 enforcement 대상." },
+    "F-006": { "session": "session_090", "role": "arki", "type": "structural-diagnosis", "text": "방어책과 대책을 다른 세션으로 분리하면 그 사이 세션이 구조적 비무장 상태 — 자백-내-대책 원칙." },
+    "F-007": { "session": "session_090", "role": "arki", "type": "structural-diagnosis", "text": "signal 측정 지표는 생성 schema 인프라에 역의존 — 측정 체계 구현 전 schema 확장 선행." },
+    "F-008": { "session": "session_090", "role": "arki", "type": "structural-diagnosis", "text": "turns.phase enum 세분화 없이 Ace-as-relay 탐지는 false positive 구조적 발생. phase={synthesis,dispatch,master-response,framing,role-speech,relay} 6값 분류 필요. (D-066으로 해소)" },
+    "F-009": { "session": "session_090", "role": "arki", "type": "structural-diagnosis", "text": "Ace의 alwaysActive 속성이 relay 남용의 구조적 유인 — aceMaxConsecutiveTurns 상한 검토 필요." },
+    "F-010": { "session": "session_090", "role": "arki", "type": "operational-gap", "text": "finalize hook이 gaps 박제만 하고 차단은 안 함(저마찰). 3세션 연속 누적 시 /open Master 확인 게이트 강제 권고." },
+    "F-011": { "session": "session_090", "role": "arki", "type": "structural-diagnosis", "text": "signal registry tagged/review tier는 invocationMode=subagent 턴에서만 수집. inline-main 턴 포함 시 v1.00 자체가 self-deceiving 측정기." },
+    "F-012": { "session": "session_090", "role": "arki", "type": "operational-gap", "text": "/open hard-prompt가 opus-dispatcher 스킬 기능을 흡수하면 스킬은 dead code. 3세션 무호출 시 삭제 검토 재개." },
+    "F-013": { "session": "session_090", "role": "ace", "type": "principle-violation", "text": "서브에이전트 페르소나 drift — Arki 서브가 spec에 없는 한국 이름('김우진')을 자가 생성. Rich Hickey 레퍼런스 무시. role-*.md 자기소개 제약 추가로 해소." }
+  }
 }

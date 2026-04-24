@@ -3196,8 +3196,124 @@
       ],
       "grade": "S",
       "note": "[토픽 전환] /open S PD-029 → resolveCondition 미충족 확인 → PD-023으로 재지정, topic_094 rewind | [중대 발견] PD-023 P0a~P5는 session_083/084에서 이미 구현 완료 (commit add088c, 7dc4684). Ace Step 0 PD 교차검증 미수행이 원인 | [runtime 파괴] P0b parallel 5 agents 투입 후 compile/smoke/compute FAIL. Arki 구조 진단으로 원인 3중 규명 | [복구] git restore 선별 + types/ 제거 + 14 파일 원상 → 전 scripts 재검증 PASS. sourceHash 8d314a 보존 후 composite 재정의로 1c555d20 업데이트 | [G6] 정량 6/6 PASS (audit 100%, SLA 1-2ms, 0 E-class error). 정성 PARTIAL (086~089 4세션 YAML 0건, 70 records 중 86% default propagation) | [composite] Dev gate_pass_rate + Edi gap_flag_count → derived + 7 sub-metric base (composite_inputs.json). metrics_registry 29 → 36 | [default 폐지] feature_flags.allowDefaultFallback=false 추가 + finalize-self-scores.ts 로직 추가. 다음 세션부터 YAML 없으면 기록 안 함 | [다음 세션 권고] PD-031 + topic_082 병행 Grade A 통합 토픽. Ace Step 0b 교차검증 체제 하 재진입"
+    },
+    {
+      "sessionId": "session_090",
+      "topicSlug": "pd031-topic082-parallel-integration",
+      "topic": "PD-031 + topic_082 병행 통합 — self-score MVP input/output 양방향 동시 활성화",
+      "startedAt": "2026-04-24T00:00:00.000Z",
+      "closedAt": "2026-04-24T16:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "decisions": [
+        "A1~A5 축 전체 B극 수용 (topic_082 '전면'을 signature 반응형 골격+main nav로 축소)",
+        "자가평가 방향 전환 — YAML 기입 폐기, 시스템 자동 추출 + 10세션 리뷰 대화",
+        "역할별 지표 3~4개, Vera/Nova 최소 3개, Dev hardcoding_ratio 포함",
+        "역할 간 점수 미공유 + ver1.00 시작 + Master 판단 성장 시 +0.01",
+        "Ace 전체 열람권 (Master 대리), 업그레이드 원칙 진행하며 정립",
+        "기존 36지표 최대 재사용 + 고비용 대체 (9개 탈락, 2개 신규)",
+        "Arki 리소스 감사 이슈 1+2+3 전부 YES (grep/F-태깅/visual_regression_zero PD)",
+        "signal v1.00 30개 확정",
+        "Arki '메인으로 나와' — Ace 필터 해제, Arki 직접 설계 주도",
+        "F-013 박제 + Phase 1 구현 진행 + role-*.md 자기소개 제약 추가"
+      ],
+      "agentsCompleted": [
+        "ace",
+        "ace",
+        "ace",
+        "ace",
+        "ace",
+        "arki",
+        "ace",
+        "arki",
+        "ace",
+        "arki",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing",
+          "invocationMode": "inline-allowed"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 1,
+          "phase": "reframe",
+          "invocationMode": "inline-allowed",
+          "splitReason": "Master scope 조정 반영 (A1~A5 축 재정의)"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 2,
+          "phase": "reframe",
+          "invocationMode": "inline-main",
+          "splitReason": "Arki 인라인 발언 (위반) — Grade A임에도 서브 미호출",
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 3,
+          "phase": "role-speech",
+          "invocationMode": "inline-main",
+          "splitReason": "Vera/Nova/Edi/Dev/Riki/Fin 전원 인라인 시뮬레이션 (위반)"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 4,
+          "phase": "synthesis",
+          "invocationMode": "inline-allowed",
+          "splitReason": "signal v1.00 30개 lock"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 5,
+          "phase": "role-speech",
+          "invocationMode": "subagent",
+          "subagentId": "ae844b15ec6eda182",
+          "splitReason": "Master '아키가 답변줘봐' 호명 — 첫 진짜 서브 호출 (강제성 설계)"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 6,
+          "phase": "relay",
+          "invocationMode": "inline-main",
+          "splitReason": "Ace-as-relay 위반 (F-005) — Arki 서브 응답 직후 요약"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 7,
+          "phase": "role-speech",
+          "invocationMode": "subagent",
+          "subagentId": "afb198c09b2033911",
+          "splitReason": "Master 지시 — Arki Phase 1 명세·D.1~D.10 결정 요청"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 8,
+          "phase": "synthesis",
+          "invocationMode": "inline-allowed",
+          "splitReason": "원인 재진단 — 22세션 부채 과장 철회 → /open 스킬 누락 → Master '스킬 아님' 재반박 수용"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 9,
+          "phase": "role-speech",
+          "invocationMode": "subagent",
+          "subagentId": "abc7376a51148552f",
+          "splitReason": "Master '아키가 메인으로 나와' — Section A~D 단독 설계 주도",
+          "recallReason": "master-direct-nomination"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 10,
+          "phase": "compile"
+        }
+      ],
+      "grade": "A",
+      "note": "[대전환] session_090 전반: signal v1.00 설계 → 중대 구조 위반(inline-main·relay) 발견 → Phase 1 방어책 박제로 scope 전환 | [confession] Main(Opus 4.7)이 Grade A임에도 7역할 inline 시뮬레이션. D-058 enforcement 공백 노출 | [defense L1+L2+L3] Schema(invocationMode) + Hook(finalize gate) + Structural(dispatch_config 4필드) 동시 박제 | [F-태깅] evidence_index.json에 F-001~F-013 프로토콜 도입. signal S-007/S-013 source | [signal v1.00] 30개 spec 박제 (24🟢+3🟡+3🔴). 수집 로직은 topic_095 실행 세션으로 | [persona drift] Arki 서브 2회 '김우진' 자가 생성. role-*.md 4개에 자기소개 제약 추가 | [Ace relay 금지] role-ace.md에 F-005 룰 명문화 — 단일 서브 응답 직후 Ace 침묵 | [다음 세션 권고] signal 수집 로직 구현 (extract-signals.ts, signature.html UI, upgrade-role-signal.ts). Grade B 적정"
     }
   ],
-  "lastUpdated": "2026-04-24T03:38:54.406Z",
+  "lastUpdated": "2026-04-24T05:13:54.718Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

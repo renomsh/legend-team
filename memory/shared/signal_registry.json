@@ -1,0 +1,72 @@
+{
+  "_version": "1.00",
+  "_createdAt": "2026-04-24",
+  "_sessionSource": "session_090",
+  "_topicSource": "topic_095",
+  "_comment": "Signal v1.00 spec — PD-023 학습축 자가평가 MVP의 signal 집합. 30개(24🟢 자동 + 3🟡 F-태깅 + 3🔴 리뷰형). 수집 로직은 별도 topic에서 구현. inline-main 턴은 source로 제외(F-011).",
+  "_tierLegend": {
+    "green": "자동 추출 — session_index/decision_ledger/topic_index/grep",
+    "yellow": "부분 자동 — F-태깅 필요",
+    "red": "리뷰형 — 10세션 리뷰 시 Master 일괄 판정"
+  },
+  "_roleInitialVersion": {
+    "ace": "1.00", "arki": "1.00", "fin": "1.00", "riki": "1.00",
+    "dev": "1.00", "editor": "1.00", "nova": "1.00", "vera": "1.00"
+  },
+  "_tierCounts": { "green": 24, "yellow": 3, "red": 3, "total": 30 },
+  "_collectionPrinciples": [
+    "invocationMode=subagent 또는 inline-allowed(Ace) 턴에서만 수집 (F-011)",
+    "inline-main 턴은 source 제외 — dashboard baseline 오염 방지",
+    "Grade별 가중치 차등 없음 v1.00. 추이 누적 후 재검토"
+  ],
+  "signals": [
+    {"id": "S-001", "role": "ace", "name": "framing_acceptance", "tier": "green", "extractor": "field", "source": "current_session.masterDecisions + turns[role=ace,phase=framing] — scope 수정 키워드 부재 비율"},
+    {"id": "S-002", "role": "ace", "name": "reframe_trigger", "tier": "green", "extractor": "field", "source": "turns[role=ace,phase=reframe] ∩ decision_ledger D-xxx 발생"},
+    {"id": "S-003", "role": "ace", "name": "orchestration_hit_rate", "tier": "yellow", "extractor": "partial-auto", "source": "turns recallReason 분석 + Master 리뷰 보정"},
+    {"id": "S-004", "role": "ace", "name": "master_friction", "tier": "green", "extractor": "field", "source": "current_session.masterFeedback 키워드 카운트 — 좌절/원복/수정"},
+
+    {"id": "S-005", "role": "arki", "name": "structural_finding_density", "tier": "green", "extractor": "grep", "source": "reports/*/arki_rev*.md — 구조/결함/의존/리스크 키워드 빈도"},
+    {"id": "S-006", "role": "arki", "name": "self_audit_rounds", "tier": "green", "extractor": "field", "source": "turns[role=arki,recallReason=self-audit] 카운트"},
+    {"id": "S-007", "role": "arki", "name": "audit_finding_recall", "tier": "yellow", "extractor": "f-tagging", "source": "[F-NNN] prefix in arki vs riki reports — 교집합"},
+    {"id": "S-008", "role": "arki", "name": "spec_lock_rate", "tier": "green", "extractor": "hash", "source": "P0a~P5 구간 spec 파일 hash 불변 여부"},
+
+    {"id": "S-009", "role": "fin", "name": "redundancy_call", "tier": "green", "extractor": "grep", "source": "reports/*/fin_rev*.md — 과투자/중복/배보다 배꼽 키워드"},
+    {"id": "S-010", "role": "fin", "name": "taboo_audit_hit", "tier": "green", "extractor": "grep", "source": "Arki 실행계획 본문에서 D-017 금지어 적발 + Fin 발언 인용 매칭"},
+    {"id": "S-011", "role": "fin", "name": "cost_alert_lead", "tier": "green", "extractor": "field", "source": "Fin turn vs Master 경보 관련 masterFeedback 순서"},
+
+    {"id": "S-012", "role": "riki", "name": "risk_flag_count", "tier": "green", "extractor": "grep", "source": "reports/*/riki_rev*.md — 🔴/critical/실패 모드 키워드"},
+    {"id": "S-013", "role": "riki", "name": "cross_review_value", "tier": "yellow", "extractor": "f-tagging", "source": "[F-NNN] in riki - arki 차집합"},
+    {"id": "S-014", "role": "riki", "name": "critical_recall", "tier": "red", "extractor": "review", "source": "10세션 리뷰 시 Master 판정"},
+    {"id": "S-015", "role": "riki", "name": "productive_rejection", "tier": "red", "extractor": "review", "source": "10세션 리뷰 시 Master 판정"},
+
+    {"id": "S-016", "role": "dev", "name": "gate_pass_rate", "tier": "green", "extractor": "composite", "source": "composite_inputs.json 재사용"},
+    {"id": "S-017", "role": "dev", "name": "spec_drift_count", "tier": "green", "extractor": "hash", "source": "spec 파일 hash vs 실제 변경"},
+    {"id": "S-018", "role": "dev", "name": "hardcoding_ratio", "tier": "green", "extractor": "grep", "source": "grep magic number/string vs config/env 참조 비율 (.ts/.js 로직 한정, Vera 영역 제외)"},
+    {"id": "S-019", "role": "dev", "name": "verify_before_claim", "tier": "green", "extractor": "field", "source": "current_session.gaps — '검증 누락' 매칭"},
+
+    {"id": "S-020", "role": "editor", "name": "artifact_completeness", "tier": "green", "extractor": "field", "source": "reports/{role}_rev*.md 파일 존재 비율"},
+    {"id": "S-021", "role": "editor", "name": "gap_flag_count", "tier": "green", "extractor": "composite", "source": "current_session.gaps — mechanical + structural + retroactive 가중합"},
+    {"id": "S-022", "role": "editor", "name": "cross_session_continuity", "tier": "green", "extractor": "field", "source": "pendingDeferralsAdded + notes 존재 여부"},
+    {"id": "S-023", "role": "editor", "name": "session_close_compliance", "tier": "green", "extractor": "field", "source": "session-log 체크리스트 전 8단계 통과"},
+
+    {"id": "S-024", "role": "nova", "name": "speculative_axis_count", "tier": "green", "extractor": "grep", "source": "reports/*/nova_rev*.md — 축/대안 키워드"},
+    {"id": "S-025", "role": "nova", "name": "promotion_rate", "tier": "green", "extractor": "field", "source": "decision_ledger Nova 출처 태그 → D-xxx 전이 비율"},
+    {"id": "S-026", "role": "nova", "name": "contrarian_accuracy", "tier": "red", "extractor": "review", "source": "10세션 리뷰 — Nova 기각안 중 사후 '맞았을 수도' 비율"},
+    {"id": "S-027", "role": "nova", "name": "invocation_rate", "tier": "green", "extractor": "field", "source": "Grade A/S 토픽 중 Nova agentsCompleted 포함 비율"},
+
+    {"id": "S-028", "role": "vera", "name": "token_consistency", "tier": "green", "extractor": "grep", "source": "CSS/HTML design-token 참조 vs 하드코딩 색상·spacing 비율"},
+    {"id": "S-029", "role": "vera", "name": "spec_compliance", "tier": "green", "extractor": "field", "source": "Design System 파일(design/ 디렉토리) 기준 적용률"},
+    {"id": "S-030", "role": "vera", "name": "design_handoff_completeness", "tier": "green", "extractor": "grep", "source": "Edi 리포트에 Design System 섹션 존재 + context_brief design 앵커"}
+  ],
+  "_deferred": {
+    "vera.visual_regression_zero": "PD-034 — 스냅샷 diff 인프라(Playwright 등) 구축 후 추가",
+    "fin.roi_pre_post_delta": "signal 아닌 세션 로그 1줄 박제로 대체 — 10세션 리뷰 시 Master 보정"
+  },
+  "_upgradeProtocol": {
+    "types": ["signal-change", "growth"],
+    "growthDelta": 0.01,
+    "signalChangeDelta": "role 판정 (0.01 minor / 0.10 major)",
+    "historyFile": "memory/growth/role_version_history.jsonl",
+    "trigger": "Master 리뷰 세션에서 명시 승인만 — 자동 bump 금지"
+  }
+}

@@ -46,6 +46,48 @@ function writeJson(p, obj) {
  * PD-020b P0.3c (session_060): turns[] = 단일 원천. agentsCompleted는 turns에서 파생.
  * 기존 Set-의미 중복제거 버그 근절 (RK-1, D-048 "중복 허용 배열" 위반).
  */
+/**
+ * D-066 (session_090) — Grade A/S inline-main 감사 게이트.
+ * dispatch_config.json의 gradeAInlineBlock/gradeSInlineBlock을 읽어
+ * 금지 역할이 invocationMode='inline-main'으로 기록된 turn을 gaps에 박제.
+ * 차단(exit)하지 않음 — 저마찰 원칙. gaps 누적이 /open 경보로 작동.
+ */
+function auditInlineMainViolations(sess) {
+  try {
+    const turns = Array.isArray(sess.turns) ? sess.turns : [];
+    if (turns.length === 0) return;
+    const grade = sess.gradeDeclared || sess.grade;
+    if (!grade || (grade !== 'A' && grade !== 'S')) return;
+
+    const dispatchConfigPath = path.join(CWD, 'memory', 'shared', 'dispatch_config.json');
+    const cfg = readJson(dispatchConfigPath, null);
+    if (!cfg) return;
+    const blockList = grade === 'S'
+      ? (cfg.gradeSInlineBlock || [])
+      : (cfg.gradeAInlineBlock || []);
+    if (blockList.length === 0) return;
+
+    const violations = turns.filter(t =>
+      t && blockList.includes(t.role) && t.invocationMode === 'inline-main'
+    );
+    if (violations.length === 0) return;
+
+    sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
+    sess.gaps.push({
+      type: 'inline-main-violation',
+      grade,
+      count: violations.length,
+      roles: [...new Set(violations.map(v => v.role))],
+      turnIndices: violations.map(v => v.turnIdx),
+      detectedAt: new Date().toISOString(),
+      ref: 'D-066',
+    });
+    log(`[gate] Grade ${grade} inline-main violations: ${violations.length} (roles: ${[...new Set(violations.map(v => v.role))].join(', ')})`);
+  } catch (e) {
+    log(`[gate] inline-main audit skipped: ${e.message}`);
+  }
+}
+
 function ensureEditorInAgents(sess) {
   const turns = Array.isArray(sess.turns) ? sess.turns : [];
   const turnRoles = turns.map(t => t && t.role).filter(r => typeof r === 'string');
@@ -304,6 +346,8 @@ function runSyncSystemState() {
     }
 
     ensureEditorInAgents(sess);
+    auditInlineMainViolations(sess);
+    writeJson(CURRENT_SESSION_PATH, sess);
     appendOrUpdateSessionIndex(sess);
     runL2Writer(sess);
     runL3Regenerator(sess);

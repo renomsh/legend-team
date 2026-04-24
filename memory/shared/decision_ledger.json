@@ -1,6 +1,49 @@
 {
   "decisions": [
     {
+      "id": "D-066",
+      "date": "2026-04-24",
+      "session": "session_090",
+      "topic": "pd031-topic082-parallel-integration",
+      "owningTopicId": "topic_095",
+      "scopeCheck": "Grade A/S 역할 발언 강제 구조 박제 — inline-main 위반 재발 방지 3층 방어",
+      "axis": "Grade A/S inline-main 차단 enforcement (Schema+Hook+Structural 3층). opus-dispatcher 스킬 의존 폐기.",
+      "decision": "(1) Schema L1: turns[].invocationMode 신설 {subagent|inline-main|inline-allowed|master-direct}. phase_catalog에 dispatch/master-response/relay/role-speech 4종 추가. (2) Hook L2: session-end-finalize.js에 Grade A+inline-main 감사 게이트. 차단이 아닌 gaps 박제(저마찰). validate-session-turns.ts에 Grade별 차등 검증. (3) Structural L3: dispatch_config.json에 alwaysActive(['ace']) + conditionalDispatch + gradeAInlineBlock + gradeSInlineBlock 4필드. role-*.md 자기소개 제약(F-013) + Ace relay 금지 룰(F-005). (4) Soft-guide 폐기: opus-dispatcher 스킬은 enforcement 경로 아님 — 유지하되 참고용. /open hard-prompt는 후속 조치로 PD-032/033 병행.",
+      "value": "session_090에서 Grade A임에도 Main(Opus)이 Arki/Fin/Riki/Dev/Edi/Nova/Vera 7개 역할을 inline 시뮬레이션 → 팀 존재가치 붕괴. Ace가 서브 응답 후 relay까지 반복. Master 지적('팀의 존재 가치 없앰')으로 3층 방어 착수. D-058(opus-dispatcher)이 선언만 있고 enforcement 없어 22세션 중 어느 세션이든 재발 가능했음 판정. Schema 필드가 진실 강제 + Hook이 사후 감사 + Structural이 원천 필드 박제 — 셋 모두 soft-guide 경로 우회.",
+      "rejectedAlternatives": [
+        {
+          "option": "opus-dispatcher 스킬 invoke 자동화만 추가",
+          "reason": "Master 지적: '스킬은 문제가 아니다, 삭제해도 된다'. 스킬은 L0 Soft-guide로 변수 아님."
+        },
+        {
+          "option": "세션 종료 차단 (hard block)",
+          "reason": "저마찰 원칙 위배. gaps 박제만으로 누적 감사 충분."
+        },
+        {
+          "option": "Phase 1을 별도 토픽으로 분리",
+          "reason": "그 사이 세션이 구조적 비무장 상태 (F-006). 자백-내-대책 원칙."
+        },
+        {
+          "option": "signal v1.00 구현까지 이번 세션에 포함",
+          "reason": "측정 대상 신뢰성이 방어책 통과 후에만 성립 (F-011). 다음 세션으로."
+        }
+      ],
+      "appliedTo": [
+        "scripts/lib/turn-types.ts — InvocationMode 타입 + Turn 필드 확장",
+        "memory/shared/phase_catalog.json — 4 phase 추가",
+        "memory/shared/dispatch_config.json — alwaysActive/conditionalDispatch/gradeAInlineBlock/gradeSInlineBlock",
+        ".claude/hooks/session-end-finalize.js — auditInlineMainViolations 게이트",
+        "scripts/validate-session-turns.ts — Grade 파라미터 + 차등 검증",
+        ".claude/agents/role-ace.md — Relay 금지 룰 + 자기소개 제약",
+        ".claude/agents/role-arki.md — 자기소개 제약 (F-013)",
+        ".claude/agents/role-fin.md — 자기소개 제약",
+        ".claude/agents/role-riki.md — 자기소개 제약",
+        "memory/shared/signal_registry.json — v1.00 spec 박제 (30 signals)",
+        "memory/shared/evidence_index.json — F-001~F-013 태깅 프로토콜 도입"
+      ],
+      "implementationNote": "Phase 1 이번 세션 완료. Phase 2(PreToolUse hook)/Phase 3(페르소나 분리 L5) 및 서브에이전트 세션 지속성은 PD-032/033으로 이관. signal v1.00 수집 로직은 topic_095 실행 세션에서 구현."
+    },
+    {
       "id": "D-065",
       "date": "2026-04-24",
       "session": "session_089",

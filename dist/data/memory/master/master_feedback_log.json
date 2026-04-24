@@ -932,6 +932,54 @@
       "effect": "28지표 자가평가 설계 확정. consensus 교차채점 본체 보류. 3뷰 추이(전체/최근10/최근3)로 집계.",
       "status": "resolved",
       "statusNote": "D-062, PD-023 등록"
+    },
+    {
+      "id": "MF-075",
+      "date": "2026-04-24",
+      "session": "session_090",
+      "topic": "pd031-topic082-parallel-integration",
+      "afterAgent": "ace",
+      "feedback": "자가평가가 이렇게 어렵고 복잡한 거였어? 의미가 퇴색되는데? 성장하되 가볍게 가고 싶다고. 배가 배꼽보다 크면 안하니만 못해.",
+      "instruction": "YAML 기입·batch-helper·main nav 전면 개편 폐기. 시스템 자동 추출 + 역할별 단일 점수 + 카드 클릭 드릴다운 + 세션 구간 슬라이더 + 역할간 미공유 + ver1.00 시작 + 성장 시 +0.01.",
+      "effect": "36 지표 → 30 v1.00 재설계. 24🟢+3🟡+3🔴. signal_registry.json 박제.",
+      "status": "resolved",
+      "statusNote": "MEMORY.md 색인 추가 대상"
+    },
+    {
+      "id": "MF-076",
+      "date": "2026-04-24",
+      "session": "session_090",
+      "topic": "pd031-topic082-parallel-integration",
+      "afterAgent": "ace",
+      "feedback": "팀의 존재 가치가 없어지는 행동인데? 이런 걸 어떻게 방지할까? 스킬은 문제가 아니다(삭제 가능). 어제는 Agent 호출 확인했다.",
+      "instruction": "Grade A inline-main 시뮬레이션 구조적 방지. 스킬 의존 폐기. Schema+Hook+Structural 3층 방어.",
+      "effect": "D-066 박제. invocationMode 필드 + finalize gate + dispatch_config 4필드. F-001~F-012 박제.",
+      "status": "resolved",
+      "statusNote": "D-066 박제, MEMORY.md 색인 추가 대상"
+    },
+    {
+      "id": "MF-077",
+      "date": "2026-04-24",
+      "session": "session_090",
+      "topic": "pd031-topic082-parallel-integration",
+      "afterAgent": "ace",
+      "feedback": "왜 에이스가 아키의 응답을 전달하지? 라우터 역할을 하는 건가?",
+      "instruction": "Ace는 단일 역할 서브 응답 직후 요약·전달 금지. 복수 역할 synthesis·Master 질문·dispatch 3조건만 발언.",
+      "effect": "F-005 Ace-as-relay 룰 박제. role-ace.md 명문화. phase=relay enum으로 탐지.",
+      "status": "resolved",
+      "statusNote": "MEMORY.md 색인 추가 대상"
+    },
+    {
+      "id": "MF-078",
+      "date": "2026-04-24",
+      "session": "session_090",
+      "topic": "pd031-topic082-parallel-integration",
+      "afterAgent": "arki",
+      "feedback": "아키가 메인으로 나와.",
+      "instruction": "Ace 필터 해제. Arki 독립 설계 주도. Master 직접 Arki와 대화.",
+      "effect": "master-direct-nomination recallReason 첫 사용. Arki 3차 호출로 실행 명세 canonical 확정.",
+      "status": "resolved",
+      "statusNote": "role=arki + master-response phase 첫 기록"
     }
   ],
   "statusValues": [

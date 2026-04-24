@@ -23,7 +23,8 @@
       "Bash(python -c ' *)",
       "Bash(cd /tmp)",
       "Bash(cp /c/Projects/legend-team/types/signature-metrics.d.ts .)",
-      "Bash(echo \"exit=$?\")"
+      "Bash(echo \"exit=$?\")",
+      "Bash(node -e \"const r=require\\('./memory/growth/metrics_registry.json'\\); console.log\\('keys:', Object.keys\\(r\\)\\); const m=r.metrics||r; if\\(Array.isArray\\(m\\)\\){console.log\\('count:',m.length\\); console.log\\(JSON.stringify\\(m.slice\\(0,3\\),null,2\\)\\)} else {console.log\\(JSON.stringify\\(m,null,2\\).slice\\(0,3000\\)\\)}\")"
     ]
   }
 }

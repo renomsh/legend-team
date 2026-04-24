@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_089",
-  "nextSessionId": "session_090",
+  "lastSessionId": "session_090",
+  "nextSessionId": "session_091",
   "currentVersion": "v1.54",
   "openTopics": [
     {
@@ -27,6 +27,12 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-066",
+      "date": "2026-04-24",
+      "axis": "Grade A/S inline-main 차단 enforcement (Schema+Hook+Structural 3층). opus-dispatcher 스킬 의존 폐기.",
+      "summary": "session_090에서 Grade A임에도 Main(Opus)이 Arki/Fin/Riki/Dev/Edi/Nova/Vera 7개 역할을 inline 시뮬레이션 → 팀 존재가치 붕괴. Ace가 서브 응답 후 relay까지 반복. Master 지적('팀의 존재 가치 없앰')으로 3층 방어 착수. D-058(opus-dispatcher)이 선언만 있고 enforcement 없어 22세션 중 어느 세션이든 재발 가능했음 판정. Schema 필드가 진실 강제 + Hook이 사후 감사 + Structural이 원천 필드 박제 — 셋 모두 soft-guide 경로 우회."
+    },
+    {
       "id": "D-065",
       "date": "2026-04-24",
       "axis": "Ace Step 0 PD 교차검증 의무화 + PD-030 자동전이 훅 신설 (D1+D3 병행, D2 기각)",
@@ -49,15 +55,36 @@
       "date": "2026-04-23",
       "axis": "자기평가-외부평가 공존 원칙 + 학습축 자가평가 MVP 착지 (Phase 2 consensus 본체 보류)",
       "summary": "N4(나 없이도 돌아가는 팀) 로드맵 정합. Top 0.1% 신뢰 전제에 가장 정합한 학습축 라이트 착륙. consensus 인프라 과투자(측정을 위한 측정) 회피. 4축 공존 원칙 조기 박제로 미래 결과품질·판단일치 축 붙을 때 편향 자동 상쇄 구조 사전 확보. Riki 자기 부정 감사로 7/8 정교화 층 철회 — 측정→품질 인과 경로 공백 자인."
-    },
-    {
-      "id": "D-061",
-      "date": "2026-04-22",
-      "axis": "D-060 G1 Gate — 성장지표 registry v2 + L3.autonomy proxy + Phase 2 Go",
-      "summary": "compute-growth.ts 실행 메트릭 11→4 (64% 감소). nonNull rate 37%→51%. L3.autonomy 0%→95% 복구. 매 세션 hook 오버헤드 대폭 감소 — 느린 /open·/close 개선 기여."
     }
   ],
   "pendingDeferrals": [
+    {
+      "id": "PD-034",
+      "fromSession": "session_090",
+      "fromTopic": "pd031-topic082-parallel-integration",
+      "item": "Vera visual_regression_zero signal 추가 — 스냅샷 diff 인프라(Playwright/Percy) 구축 + signature.html·app 파일 시각 회귀 테스트 + signal_registry.json에 S-031 엔트리 추가.",
+      "status": "pending",
+      "resolveCondition": "스냅샷 인프라 설치 + 3세션 연속 시각 회귀 0 확인 + signal_registry v1.01 bump",
+      "dependsOn": []
+    },
+    {
+      "id": "PD-033",
+      "fromSession": "session_090",
+      "fromTopic": "pd031-topic082-parallel-integration",
+      "item": "서브에이전트 세션 지속성 구현 — SendMessage 툴 미로드로 같은 세션 내 역할 서브가 매 호출 재부팅. F-001~F-013 findings가 서브 인스턴스 간 전달되지 않아 맥락 유실. 해결 방안: (1) SendMessage 툴 활성화 경로 조사, (2) shared scratchpad JSON + explicit re-inject 프로토콜, (3) 역할별 lifecycle 정의(Ace=session 상주, 타 역할=topic 상주/call 상주).",
+      "status": "pending",
+      "resolveCondition": "같은 session 내 Arki 3회 호출 시 이전 findings F-NNN 번호 유지 확인 + scratchpad 또는 SendMessage 경로 중 택1 구현",
+      "dependsOn": []
+    },
+    {
+      "id": "PD-032",
+      "fromSession": "session_090",
+      "fromTopic": "pd031-topic082-parallel-integration",
+      "item": "L5 페르소나 분리 로딩 구현 — CLAUDE.md에서 역할 페르소나 서술 제거, `.claude/agents/role-*.md`만 canonical. Main 컨텍스트에 페르소나 원문 미주입 시 오케스트레이션 성립 여부 검증. Claude Agent SDK 제약 조사 선행.",
+      "status": "pending",
+      "resolveCondition": "Claude Agent SDK에서 main 컨텍스트에 역할 페르소나 원문을 주입하지 않고도 오케스트레이션 성립 확인 + 3세션 dry-run 통과 (또는 SDK 업데이트로 페르소나 분리 로딩 API 제공)",
+      "dependsOn": []
+    },
     {
       "id": "PD-031",
       "fromSession": "session_089",
@@ -310,5 +337,5 @@
       "note": "D-058 확정. opus-dispatcher 스킬 + dispatch_config.json + 에이전트 정의 4종(role-ace/arki/fin/riki.md) 구현. G1(write 계약)·G3(RED→GREEN) 통과. auto-model-switch 스킬 폐기."
     }
   ],
-  "lastUpdated": "2026-04-24T03:39:06.345Z"
+  "lastUpdated": "2026-04-24T05:14:05.862Z"
 }

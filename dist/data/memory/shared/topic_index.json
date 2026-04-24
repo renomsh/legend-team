@@ -1,6 +1,25 @@
 {
   "topics": [
     {
+      "id": "topic_095",
+      "grade": "A",
+      "gradeActual": "A",
+      "topicType": "implementation",
+      "parentTopicId": "topic_088",
+      "title": "PD-031 + topic_082 병행 통합 — self-score MVP input/output 양방향 동시 활성화",
+      "status": "completed",
+      "phase": "implementation",
+      "hold": null,
+      "created": "2026-04-24",
+      "closedAt": "2026-04-24",
+      "outcome": "원 scope(signal v1.00 구현)에서 중대 구조 위반(inline-main·relay) 발견으로 Phase 1 방어책 박제로 전환. D-066 3층 방어(Schema L1 + Hook L2 + Structural L3) 완료. signal_registry.json v1.00 30 signals spec 박제. F-태깅 프로토콜(F-001~F-013) 도입. PD-032/033/034 신설. 수집 로직은 다음 세션(Grade B).",
+      "controlPath": "topics/topic_095",
+      "reportPath": "reports/2026-04-24_pd031-topic082-parallel-integration",
+      "reportFiles": ["ace_rev1.md", "arki_rev1.md", "editor_rev1.md"],
+      "published": false,
+      "path": "topics/topic_095"
+    },
+    {
       "id": "topic_094",
       "grade": "S",
       "gradeActual": "B",
@@ -1856,5 +1875,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-24T01:32:21.868Z"
+  "lastUpdated": "2026-04-24T03:41:37.948Z"
 }

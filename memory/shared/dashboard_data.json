@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-24T03:39:17.807Z",
-  "totalSessions": 87,
+  "generatedAt": "2026-04-24T05:14:15.779Z",
+  "totalSessions": 88,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.35,
-    "avgCacheHitRate": 0.9294,
-    "cacheSampleSize": 61,
-    "cacheSampleTotal": 87,
+    "avgMasterTurns": 16.47,
+    "avgCacheHitRate": 0.9299,
+    "cacheSampleSize": 62,
+    "cacheSampleTotal": 88,
     "avgAdoptionRate": 0,
-    "totalDecisions": 65,
+    "totalDecisions": 66,
     "gradeDistribution": {
-      "S": 28,
+      "S": 29,
       "A": 18,
       "B": 30,
       "C": 11
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 42,
-    "totalCostUSD": 750.4583,
-    "avgCostPerSession": 9.1519,
-    "costSampleSize": 82
+    "turnBasedSessions": 43,
+    "totalCostUSD": 765.4346,
+    "avgCostPerSession": 9.2221,
+    "costSampleSize": 83
   },
   "sessions": [
     {
@@ -3226,12 +3226,58 @@
         "messageCount": 368
       },
       "sessionCostUSD": 27.2452
+    },
+    {
+      "sessionId": "session_090",
+      "topicSlug": "pd031-topic082-parallel-integration",
+      "topic": "PD-031 + topic_082 병행 통합 — self-score MVP input/output 양방향 동시 활성화",
+      "startedAt": "2026-04-24T00:00:00.000Z",
+      "closedAt": "2026-04-24T16:00:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-066"
+      ],
+      "rolesCalled": 11,
+      "rolesRecalled": 8,
+      "sessionsSpanned": 1,
+      "size": 32,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 26,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "ace",
+        "ace",
+        "ace",
+        "ace",
+        "arki",
+        "ace",
+        "arki",
+        "ace",
+        "arki",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 29019835,
+        "ioTokens": 210698,
+        "inputTokens": 488,
+        "outputTokens": 210210,
+        "cacheCreate": 921431,
+        "cacheRead": 27887706,
+        "cacheHitRate": 0.9609877519979008,
+        "messageCount": 177
+      },
+      "sessionCostUSD": 14.9763
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 68,
+      "count": 75,
       "sessions": [
         "session_047",
         "session_048",
@@ -3268,12 +3314,13 @@
         "session_086",
         "session_087",
         "session_088",
-        "session_089"
+        "session_089",
+        "session_090"
       ]
     },
     {
       "role": "arki",
-      "count": 46,
+      "count": 49,
       "sessions": [
         "session_048",
         "session_049",
@@ -3295,12 +3342,13 @@
         "session_082",
         "session_086",
         "session_087",
-        "session_089"
+        "session_089",
+        "session_090"
       ]
     },
     {
       "role": "editor",
-      "count": 39,
+      "count": 40,
       "sessions": [
         "session_050",
         "session_051",
@@ -3340,7 +3388,8 @@
         "session_086",
         "session_087",
         "session_088",
-        "session_089"
+        "session_089",
+        "session_090"
       ]
     },
     {
@@ -5083,6 +5132,78 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_090",
+      "topic": "PD-031 + topic_082 병행 통합 — self-score MVP input/output 양방향 동시 활성화",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "reframe",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "reframe",
+          "turnIdx": 2,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "phase": "role-speech",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "role-speech",
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "relay",
+          "turnIdx": 6,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "role-speech",
+          "turnIdx": 7,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 8,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "role-speech",
+          "turnIdx": 9,
+          "recallReason": "master-direct-nomination"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 10,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -5109,6 +5230,12 @@
       "severity": "yellow",
       "sessionId": "session_082",
       "description": "역할 과호출: rolesRecalled=14 (임계값 5, grade=S)"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_090",
+      "description": "역할 과호출: rolesRecalled=8 (임계값 5, grade=S)"
     }
   ],
   "feedbackRecurrences": [
@@ -5129,6 +5256,21 @@
           "date": "2026-04-19",
           "feedbackId": "MF-S036-4",
           "summary": "페르소나 업데이트, 성장지표 측정 논의는 욕심이었나. 버그 이외는 이연과제로."
+        }
+      ]
+    },
+    {
+      "keyword": "이렇게",
+      "occurrences": [
+        {
+          "date": "2026-04-24",
+          "feedbackId": "MF-082",
+          "summary": "심플하되 성장하는 측정 — 이렇게 측정하다가 어느순간 100이 되면 그때가서 또 조정하면 돼. 한번에 모든 "
+        },
+        {
+          "date": "2026-04-24",
+          "feedbackId": "MF-075",
+          "summary": "자가평가가 이렇게 어렵고 복잡한 거였어? 의미가 퇴색되는데? 성장하되 가볍게 가고 싶다고. 배가 배꼽보다 크"
         }
       ]
     },
@@ -5679,6 +5821,21 @@
           "date": "2026-04-17",
           "feedbackId": "MF-023",
           "summary": "세션에 버전도 안맞고, 홈에 세션 클릭하면 메뉴바가 상단으로 올라가. 박스도 흰색이라 안보이고. 베라 이번 "
+        }
+      ]
+    },
+    {
+      "keyword": "에이스가",
+      "occurrences": [
+        {
+          "date": "2026-04-20",
+          "feedbackId": "MF-036",
+          "summary": "기본 전제가 D3였어. 그래야 에이스가 학습하고 패턴 읽고 호출하니까. 연속된 대답은 Claude Code가"
+        },
+        {
+          "date": "2026-04-24",
+          "feedbackId": "MF-077",
+          "summary": "왜 에이스가 아키의 응답을 전달하지? 라우터 역할을 하는 건가?"
         }
       ]
     },

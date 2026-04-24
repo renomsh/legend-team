@@ -845,3 +845,14 @@
 [2026-04-24T03:39:06.346Z] [sync-system-state] lastSession=session_089 openTopics=3 recentDecisions=5 deferrals=27
 [2026-04-24T03:39:15.517Z] [compute-growth] Phase 1 ok. sessions=1 newDatapoints=12 totalDatapoints=1704 pendingLag=4
 [2026-04-24T03:39:17.811Z] [compute-dashboard] 완료 — 87개 세션, 4개 경보
+[2026-04-24T05:13:49.100Z] [checklist] [INFO] reports: all 3 registered file(s) present: ace_rev1.md, arki_rev1.md, editor_rev1.md
+[2026-04-24T05:13:49.102Z] [checklist] [INFO] decision_ledger: 1 decision(s) recorded for session_090
+[2026-04-24T05:13:49.102Z] [checklist] [INFO] topic_index: topic found: topic_095 (completed)
+[2026-04-24T05:13:49.103Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-24T05:13:49.103Z] [checklist] [INFO] master_feedback: 4 feedback entry(ies) recorded
+[2026-04-24T05:13:49.103Z] [session-log] [INFO] END session_090 | topic: pd031-topic082-parallel-integration | duration: 314m
+[2026-04-24T05:13:56.485Z] [L2-writer] wrote C:\Projects\legend-team\topics\topic_095\session_contributions\session_090.md | turns=0 decisions=1
+[2026-04-24T05:13:58.306Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_095\context_brief.md | sessions=1 size=509B
+[2026-04-24T05:14:05.863Z] [sync-system-state] lastSession=session_090 openTopics=3 recentDecisions=5 deferrals=30
+[2026-04-24T05:14:13.785Z] [compute-growth] Phase 1 ok. sessions=1 newDatapoints=9 totalDatapoints=1713 pendingLag=5
+[2026-04-24T05:14:15.784Z] [compute-dashboard] 완료 — 88개 세션, 5개 경보

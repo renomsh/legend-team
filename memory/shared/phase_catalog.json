@@ -1,7 +1,7 @@
 {
-  "_comment": "세션 내 역할 발언 phase enum. Turn.phase 필드 참조 원천. session_045 D-048 R-2 확정. (2026-04-20)",
-  "version": "1.1",
-  "lastUpdated": "2026-04-21",
+  "_comment": "세션 내 역할 발언 phase enum. Turn.phase 필드 참조 원천. session_045 D-048 R-2 확정. D-066 (session_090): dispatch/master-response/relay/role-speech 4종 추가.",
+  "version": "1.2",
+  "lastUpdated": "2026-04-24",
   "phases": [
     {
       "id": "framing",
@@ -58,6 +58,34 @@
       "description": "Dev 실집행 — 코드 작성·스크립트 실행·런타임 검증 (session_060 신설, D-048 v1.1)",
       "color": "#3B82F6",
       "order": 8
+    },
+    {
+      "id": "dispatch",
+      "label": "Dispatch",
+      "description": "Ace가 역할 호출 계획만 밝히고 실제 서브에이전트 호출 (D-066, session_090)",
+      "color": "#94a3b8",
+      "order": 9
+    },
+    {
+      "id": "master-response",
+      "label": "Master-Response",
+      "description": "Master 직접 지명에 대한 역할 응답 — Ace 경유 없음 (D-066)",
+      "color": "#fbbf24",
+      "order": 10
+    },
+    {
+      "id": "relay",
+      "label": "Relay",
+      "description": "Ace가 서브 결과를 요약/전달 — Grade A/S 금지, F-005 탐지용 박제 phase (D-066)",
+      "color": "#ef4444",
+      "order": 11
+    },
+    {
+      "id": "role-speech",
+      "label": "Role-Speech",
+      "description": "역할 서브에이전트 일반 발언 (분석·권고·findings) (D-066)",
+      "color": "#8b5cf6",
+      "order": 12
     }
   ]
 }
