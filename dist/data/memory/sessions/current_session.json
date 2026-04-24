@@ -1,142 +1,90 @@
 {
-  "sessionId": "session_092",
-  "topicId": "topic_097",
-  "topic": "A Agent review — 진행 내역 점검 + 다음 액션 식별",
-  "topicSlug": "agent-review-progress-and-next",
+  "sessionId": "session_093",
+  "topicId": "topic_098",
+  "topic": "D-058 unwind 구현 — dispatcher 폐기 + role-*.md archive + 연쇄 코드 정리",
+  "topicSlug": "d058-dispatcher-unwind",
   "status": "closed",
-  "startedAt": "2026-04-24T19:00:00.000Z",
-  "closedAt": "2026-04-24T20:30:00.000Z",
+  "startedAt": "2026-04-24T20:45:00.000Z",
+  "closedAt": "2026-04-24T22:30:00.000Z",
   "mode": "observation",
   "grade": "A",
   "gradeDeclared": "A",
+  "orchestrationMode": "manual",
   "framingLevel": 2,
   "framingSkipped": false,
-  "topicType": "framing",
-  "parentTopicId": null,
-  "childTopicIds": [
-    "topic_098"
-  ],
+  "topicType": "implementation",
+  "parentTopicId": "topic_097",
+  "childTopicIds": [],
   "agentsCompleted": [
     "ace",
     "arki",
+    "arki",
     "riki",
+    "ace",
+    "dev",
     "editor"
   ],
   "turns": [
     {
       "role": "ace",
       "turnIdx": 0,
-      "phase": "framing",
-      "invocationMode": "subagent",
-      "subagentId": "a4dd1e0c4c3024113"
+      "phase": "framing"
     },
     {
       "role": "arki",
       "turnIdx": 1,
-      "phase": "diagnosis",
-      "invocationMode": "subagent",
-      "subagentId": "ad9ca0ea8d837cf99"
+      "phase": "analysis"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 2,
+      "phase": "execution-plan"
     },
     {
       "role": "riki",
-      "turnIdx": 2,
-      "phase": "cross-attack",
-      "invocationMode": "subagent",
-      "subagentId": "aaa2c4b175dd163c6"
+      "turnIdx": 3,
+      "phase": "analysis"
     },
     {
       "role": "ace",
-      "turnIdx": 3,
-      "phase": "synthesis",
-      "invocationMode": "subagent",
-      "subagentId": "a8f3d1b3be55d0603"
+      "turnIdx": 4,
+      "phase": "synthesis"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 5,
+      "phase": "implementation"
     },
     {
       "role": "editor",
-      "turnIdx": 4,
-      "phase": "compile",
-      "invocationMode": "subagent",
-      "subagentId": "a5399dd35d0a84478"
+      "turnIdx": 6,
+      "phase": "compile"
     }
   ],
   "decisions": [
-    "D-071",
-    "D-072",
-    "D-073"
+    "D-074"
   ],
   "masterDecisions": [
-    "Review 범위 (c) 에이전트 인프라 단독 채택",
-    "Riki 권고 채택 — falsification probe 1회 즉시 실행",
-    "Ace 종합검토 모든 승인 (D-071/D-072/D-073 박제 + 후속 토픽 #1 오픈)"
-  ],
-  "masterFeedback": [
-    "수정은 하지말고 원인 파악해. 그 분기가 문제면 그 로직을 제거하게 (수정 금지 원칙)"
-  ],
-  "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [
-    "PD-032 (resolved-fiction)"
-  ],
-  "deprecatedDecisions": [
-    "D-058",
-    "D-066",
-    "D-068",
-    "D-070"
-  ],
-  "redefinedDecisions": [
-    "D-067",
-    "D-069"
-  ],
-  "notes": [
-    "Probe 4/4 fail 확정 — D-058 분기 22세션 fiction 입증",
-    "frontmatter `name:` 부재 + 루트 agents/ leftover 발견",
-    "Hook 자동 박제는 turnIdx 2/4의 role을 잘못 추론(arki/fin) — D-068 deprecated가 정확히 짚은 silent fallback 패턴 재현. Edit으로 수동 정정.",
-    "코드 unwind는 후속 topic_098에서 처리, 본 세션은 ledger·meta만"
-  ],
-  "gaps": [
     {
-      "type": "post-tool-use-hook-mis-inference",
-      "note": "PostToolUse hook이 Riki turn을 'arki', Editor turn을 'fin'으로 박제. D-068 deprecated 사유 in-session 입증. topic_098 unwind 시 hook 폐기 대상."
-    },
-    {
-      "type": "dual-satisfaction-violation",
-      "count": 1,
-      "violations": [
-        {
-          "role": "ace",
-          "turnIdx": 3,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": true,
-          "cond_turnIdMatch": false
-        }
-      ],
-      "detectedAt": "2026-04-24T08:38:48.472Z",
-      "ref": "D-068+D-069"
-    },
-    {
-      "type": "dual-satisfaction-violation",
-      "count": 1,
-      "violations": [
-        {
-          "role": "ace",
-          "turnIdx": 3,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": true,
-          "cond_turnIdMatch": false
-        }
-      ],
-      "detectedAt": "2026-04-24T08:40:43.817Z",
-      "ref": "D-068+D-069"
+      "id": "D-074",
+      "summary": "Grade 5단 체계 + orchestrationMode + D-058 dispatcher 전체 폐기"
     }
   ],
+  "masterFeedback": [],
+  "pendingDeferralsAdded": [],
+  "pendingDeferralsResolved": [],
+  "notes": [
+    "topic_098는 session_092(topic_097)에서 사전 생성된 implementation 토픽. create-topic.ts 재실행 불필요.",
+    "D-071(dispatcher 폐기) + D-073(role-*.md archive) 실행 담당."
+  ],
+  "gaps": [],
   "tokenUsage": {
-    "input_tokens": 814,
-    "output_tokens": 72007,
-    "cache_creation_input_tokens": 458701,
-    "cache_read_input_tokens": 6337931,
-    "messageCount": 71,
-    "masterTurns": 9,
-    "total_billable": 6869453
+    "input_tokens": 11407,
+    "output_tokens": 163750,
+    "cache_creation_input_tokens": 1166119,
+    "cache_read_input_tokens": 15138185,
+    "messageCount": 166,
+    "masterTurns": 23,
+    "total_billable": 16479461
   }
 }

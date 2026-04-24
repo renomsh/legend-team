@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_092",
-  "nextSessionId": "session_093",
+  "lastSessionId": "session_093",
+  "nextSessionId": "session_094",
   "currentVersion": "v1.54",
   "openTopics": [
     {
@@ -27,6 +27,12 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-074",
+      "date": "2026-04-24",
+      "axis": "Grade 재정의, L0/L1/L2 폐기, Dispatcher 아키텍처 전체 폐기, orchestrationMode 신설",
+      "summary": "22세션 동안 작동하지 않은 dispatcher 허구 인프라 제거. Grade 시스템을 실제 운용 패턴에 맞게 재정의. orchestrationMode로 Master 개입 수준 명시적 제어."
+    },
+    {
       "id": "D-073",
       "date": "2026-04-24",
       "axis": "role-*.md 페르소나 정의 archive 이동 (제거 아님)",
@@ -49,12 +55,6 @@
       "date": "2026-04-24",
       "axis": "session_090 immutable snapshot 박제 + appendOrUpdateSessionIndex 가드",
       "summary": "rev6에서 처음 박제된 보호 신호 부재 위험(Object.assign 덮어쓰기) 차단. session_090을 baseline으로 격상하지 않고 symptom snapshot으로 영구 동결. 인-플레이스 immutable 마커가 별도 사본 격리보다 영향 최소(SSOT 유지)."
-    },
-    {
-      "id": "D-069",
-      "date": "2026-04-24",
-      "axis": "agentsCompleted 의미 재정의 — string[] 무변경, 생성 로직만 4조건 필터",
-      "summary": "rev6 영향 강도 1위 대상(agentsCompleted semantics) 직접 cover. session_090 length 11 → 0~3로 정보량 감소 수용 — 정확성 우선. 기준 7(백필 금지) 위반 차단."
     }
   ],
   "pendingDeferrals": [
@@ -339,5 +339,5 @@
       "note": "D-058 확정. opus-dispatcher 스킬 + dispatch_config.json + 에이전트 정의 4종(role-ace/arki/fin/riki.md) 구현. G1(write 계약)·G3(RED→GREEN) 통과. auto-model-switch 스킬 폐기."
     }
   ],
-  "lastUpdated": "2026-04-24T08:40:56.689Z"
+  "lastUpdated": "2026-04-24T10:40:22.596Z"
 }

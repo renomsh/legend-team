@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-24T08:41:10.313Z",
-  "totalSessions": 90,
+  "generatedAt": "2026-04-24T10:41:10.132Z",
+  "totalSessions": 91,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.53,
-    "avgCacheHitRate": 0.9301,
-    "cacheSampleSize": 64,
-    "cacheSampleTotal": 90,
+    "avgMasterTurns": 16.6,
+    "avgCacheHitRate": 0.9299,
+    "cacheSampleSize": 65,
+    "cacheSampleTotal": 91,
     "avgAdoptionRate": 0,
-    "totalDecisions": 73,
+    "totalDecisions": 74,
     "gradeDistribution": {
-      "S": 31,
+      "S": 32,
       "A": 18,
       "B": 30,
       "C": 11
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 45,
-    "totalCostUSD": 786.1768,
-    "avgCostPerSession": 9.2491,
-    "costSampleSize": 85
+    "turnBasedSessions": 46,
+    "totalCostUSD": 797.5817,
+    "avgCostPerSession": 9.2742,
+    "costSampleSize": 86
   },
   "sessions": [
     {
@@ -3352,12 +3352,54 @@
         "messageCount": 141
       },
       "sessionCostUSD": 9.3456
+    },
+    {
+      "sessionId": "session_093",
+      "topicSlug": "d058-dispatcher-unwind",
+      "topic": "D-058 unwind 구현 — dispatcher 폐기 + role-*.md archive + 연쇄 코드 정리",
+      "startedAt": "2026-04-24T20:45:00.000Z",
+      "closedAt": "2026-04-24T22:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-074"
+      ],
+      "rolesCalled": 7,
+      "rolesRecalled": 2,
+      "sessionsSpanned": 1,
+      "size": 16,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 23,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "arki",
+        "riki",
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 16479461,
+        "ioTokens": 175157,
+        "inputTokens": 11407,
+        "outputTokens": 163750,
+        "cacheCreate": 1166119,
+        "cacheRead": 15138185,
+        "cacheHitRate": 0.918609231212113,
+        "messageCount": 166
+      },
+      "sessionCostUSD": 11.4049
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 79,
+      "count": 81,
       "sessions": [
         "session_047",
         "session_048",
@@ -3397,12 +3439,13 @@
         "session_089",
         "session_090",
         "session_091",
-        "session_092"
+        "session_092",
+        "session_093"
       ]
     },
     {
       "role": "arki",
-      "count": 56,
+      "count": 58,
       "sessions": [
         "session_048",
         "session_049",
@@ -3427,12 +3470,13 @@
         "session_089",
         "session_090",
         "session_091",
-        "session_092"
+        "session_092",
+        "session_093"
       ]
     },
     {
       "role": "editor",
-      "count": 42,
+      "count": 43,
       "sessions": [
         "session_050",
         "session_051",
@@ -3475,12 +3519,13 @@
         "session_089",
         "session_090",
         "session_091",
-        "session_092"
+        "session_092",
+        "session_093"
       ]
     },
     {
       "role": "dev",
-      "count": 30,
+      "count": 31,
       "sessions": [
         "session_047",
         "session_048",
@@ -3506,12 +3551,13 @@
         "session_081",
         "session_083",
         "session_084",
-        "session_091"
+        "session_091",
+        "session_093"
       ]
     },
     {
       "role": "riki",
-      "count": 22,
+      "count": 23,
       "sessions": [
         "session_049",
         "session_053",
@@ -3531,7 +3577,8 @@
         "session_082",
         "session_086",
         "session_087",
-        "session_092"
+        "session_092",
+        "session_093"
       ]
     },
     {
@@ -5391,6 +5438,54 @@
           "role": "editor",
           "phase": "compile",
           "turnIdx": 4,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_093",
+      "topic": "D-058 unwind 구현 — dispatcher 폐기 + role-*.md archive + 연쇄 코드 정리",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "analysis",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "execution-plan",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "analysis",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 6,
           "recallReason": null
         }
       ]

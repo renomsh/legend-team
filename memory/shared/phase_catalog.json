@@ -86,6 +86,13 @@
       "description": "역할 서브에이전트 일반 발언 (분석·권고·findings) (D-066)",
       "color": "#8b5cf6",
       "order": 12
+    },
+    {
+      "id": "master-gate-request",
+      "label": "Master-Gate-Request",
+      "description": "auto 모드에서 결정 박제 직전·Edi 호출 직전 Ace가 Master 확인 질의를 Turn으로 박제 (D-074)",
+      "color": "#f97316",
+      "order": 13
     }
   ]
 }

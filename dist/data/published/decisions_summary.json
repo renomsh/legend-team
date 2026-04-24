@@ -1,6 +1,42 @@
 {
-  "generatedAt": "2026-04-24T08:41:11.178Z",
+  "generatedAt": "2026-04-24T10:41:12.902Z",
   "decisions": [
+    {
+      "id": "D-074",
+      "date": "2026-04-24",
+      "session": "session_093",
+      "topic": "dispatcher-unwind-and-grade-redesign",
+      "owningTopicId": "topic_098",
+      "scopeCheck": "Grade 시스템 + orchestrationMode + D-058 dispatcher 폐기",
+      "axis": "Grade 재정의, L0/L1/L2 폐기, Dispatcher 아키텍처 전체 폐기, orchestrationMode 신설",
+      "decision": "5단 Grade(S/A/B/C/D) 확정. L0/L1/L2 framingLevel 레이어 폐기(90세션 기록 없음 확인). D-058 dispatcher fiction 전체 폐기: dispatch_config.json, opus-dispatcher skill, role-*.md 4개, agents/*.md 7개 → memory/archive/ 이동. /auto + /master slash command로 orchestrationMode(manual|auto) 전환. auto 모드 Master 강제 확인점 2곳(D-xxx 박제 직전, Edi 호출 직전). Turn.invocationMode/subagentId 제거. 모델 선택은 Grade와 완전 분리(Master 수동: /fast, /model).",
+      "value": "22세션 동안 작동하지 않은 dispatcher 허구 인프라 제거. Grade 시스템을 실제 운용 패턴에 맞게 재정의. orchestrationMode로 Master 개입 수준 명시적 제어.",
+      "rejectedAlternatives": [
+        {
+          "option": "B grade 유지",
+          "reason": "25건 기록 있으나 S/A/C/D 4단으로 실운용 커버 가능. 기존 기록은 역사 보존."
+        },
+        {
+          "option": "L0/L1/L2 유지",
+          "reason": "90세션 기록에 framingLevel 필드 없음 — 문서만 존재한 사문화 레이어."
+        },
+        {
+          "option": "dispatcher 코드만 제거, 개념 유지",
+          "reason": "D-072 falsification probe 4/4 실패로 개념 자체가 fiction 확인."
+        }
+      ],
+      "appliedTo": [
+        "CLAUDE.md (Grade 5단 표, orchestrationMode 섹션)",
+        "scripts/lib/turn-types.ts (OrchestrationMode, master-gate-request PhaseId)",
+        "memory/shared/phase_catalog.json (master-gate-request 추가)",
+        ".claude/skills/ace-framing/SKILL.md (Grade별 발동 규칙, Vera 키워드)",
+        ".claude/skills/orchestration-mode/SKILL.md (신규 생성)",
+        ".claude/hooks/session-end-finalize.js (auditInlineMainViolations 제거)",
+        ".claude/hooks/post-tool-use-task.js (invocationMode/subagentId 제거)",
+        "scripts/validate-session-turns.ts (dispatch_config 참조 제거)",
+        "memory/archive/ (13개 아카이브 파일)"
+      ]
+    },
     {
       "id": "D-073",
       "date": "2026-04-24",

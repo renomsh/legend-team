@@ -3474,8 +3474,70 @@
       ],
       "grade": "A",
       "note": "Probe 4/4 fail 확정 — D-058 분기 22세션 fiction 입증 | frontmatter `name:` 부재 + 루트 agents/ leftover 발견 | Hook 자동 박제는 turnIdx 2/4의 role을 잘못 추론(arki/fin) — D-068 deprecated가 정확히 짚은 silent fallback 패턴 재현. Edit으로 수동 정정. | 코드 unwind는 후속 topic_098에서 처리, 본 세션은 ledger·meta만"
+    },
+    {
+      "sessionId": "session_093",
+      "topicSlug": "d058-dispatcher-unwind",
+      "topic": "D-058 unwind 구현 — dispatcher 폐기 + role-*.md archive + 연쇄 코드 정리",
+      "startedAt": "2026-04-24T20:45:00.000Z",
+      "closedAt": "2026-04-24T22:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "decisions": [
+        {
+          "id": "D-074",
+          "summary": "Grade 5단 체계 + orchestrationMode + D-058 dispatcher 전체 폐기"
+        }
+      ],
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "arki",
+        "riki",
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "phase": "analysis"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 2,
+          "phase": "execution-plan"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 3,
+          "phase": "analysis"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 4,
+          "phase": "synthesis"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 5,
+          "phase": "implementation"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 6,
+          "phase": "compile"
+        }
+      ],
+      "grade": "A",
+      "note": "topic_098는 session_092(topic_097)에서 사전 생성된 implementation 토픽. create-topic.ts 재실행 불필요. | D-071(dispatcher 폐기) + D-073(role-*.md archive) 실행 담당."
     }
   ],
-  "lastUpdated": "2026-04-24T08:40:43.821Z",
+  "lastUpdated": "2026-04-24T10:39:29.390Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

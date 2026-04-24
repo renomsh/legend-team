@@ -879,3 +879,14 @@
 [2026-04-24T08:40:56.690Z] [sync-system-state] lastSession=session_092 openTopics=3 recentDecisions=5 deferrals=30
 [2026-04-24T08:41:07.733Z] [compute-growth] Phase 1 ok. sessions=1 newDatapoints=0 totalDatapoints=1737 pendingLag=5
 [2026-04-24T08:41:10.318Z] [compute-dashboard] 완료 — 90개 세션, 5개 경보
+[2026-04-24T10:39:18.376Z] [checklist] [WARN] reports: no reportPath in current_session.json
+[2026-04-24T10:39:18.384Z] [checklist] [INFO] decision_ledger: 1 decision(s) recorded for session_093
+[2026-04-24T10:39:18.387Z] [checklist] [INFO] topic_index: topic found: topic_047 (completed)
+[2026-04-24T10:39:18.389Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-24T10:39:18.391Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-24T10:39:18.392Z] [session-log] [INFO] END session_093 | topic: d058-dispatcher-unwind | duration: unknown (startedAt in future)
+[2026-04-24T10:39:38.127Z] [L2-writer] wrote C:\Projects\legend-team\topics\topic_098\session_contributions\session_093.md | turns=0 decisions=1
+[2026-04-24T10:39:47.319Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_098\context_brief.md | sessions=1 size=474B
+[2026-04-24T10:40:22.599Z] [sync-system-state] lastSession=session_093 openTopics=3 recentDecisions=5 deferrals=30
+[2026-04-24T10:41:00.878Z] [compute-growth] Phase 1 ok. sessions=1 newDatapoints=12 totalDatapoints=1749 pendingLag=5
+[2026-04-24T10:41:10.145Z] [compute-dashboard] 완료 — 91개 세션, 5개 경보

@@ -22,22 +22,32 @@ Rules:
 - Before designing structure or architecture, first confirm the scope and goal of the work. Work definition precedes structural design.
 - `session_index.json`은 `append-session.ts` 스크립트로만 수정. Edit 도구 직접 수정 금지. (D-028, 2026-04-17)
 
-## Topic Grade System (2026-04-18, updated D-058 2026-04-22)
+## Topic Grade System (D-074, 2026-04-24)
 
-토픽 난이도 등급. `/open` 시 선언, `compute-dashboard.ts`가 실측 Size로 사후 검증.
+토픽 난이도·성격 등급. `/open` 시 선언, `compute-dashboard.ts`가 실측 Size로 사후 검증.
 
-| Grade | Size 기준 | ace-framing | 첫 주자 | 메인 모델 | 역할 서브 모델 |
-|---|---|---|---|---|---|
-| S | 12+ | L2 스킬 전체 | Ace | **Opus** | Opus |
-| A | 8~11 | L2 스킬 전체 | Ace | **Sonnet** | **Opus** |
-| B | 5~7 | L1 인라인 2~3줄 | Ace (경량) | Sonnet | Sonnet |
-| C | 4 | L0 없음 | Dev 직행 | Sonnet | — |
+| Grade | Size | 성격 | Ace 프레이밍 | 첫 주자 | 기본 역할 구성 | 선택 역할 |
+|---|---|---|---|---|---|---|
+| **S** | 무관 | 오픈 탐색형 (Master 선언 전용) | ace-framing 스킬 미발동, scope 확인 질문만 | Ace (턴별 Master 확인) | Ace-Nova-Arki-Riki 꼬리물기 루프, Edi | Fin, Dev, Vera |
+| **A** | 11+ | 닫힌 실행형 (기본값) | ace-framing 스킬 전체 발동 | Ace | Ace-Arki-Fin-Riki, Dev, Edi | Nova, Vera |
+| **B** | 6~10 | 명확 결정건 (Nova 추천 없음) | ace-framing 스킬 전체 발동 | Ace | Ace-Arki-Riki-Edi (순서 재배치 자유) | Fin, Dev, Vera |
+| **C** | ≤5 | 경량 + 판단 여지 있음 | Ace 인라인 1~2줄 | Ace | Ace(인라인)→Dev→Arki 검토→Dev 수정→Edi | — |
+| **D** | ≤5 | 명백 단순 작업 | 없음 | Dev | Dev 직행 (Edi 생략, hook 자동 기록) | — |
 
-- 기본값: A (키워드 미명시 시)
-- Master가 `/open grade:X` 로 명시하면 우선 적용
-- C/B 진행 중 구조적 문제 발견 시 → Ace 재소집, L2 전환 필수
-- 사후 검증: `gradeDeclared` vs `gradeActual` 불일치는 대시보드 gradeMismatch 패널에 누적
-- **Grade A/S 오케스트레이션**: `opus-dispatcher` 스킬 참조. 역할 발언은 Opus 서브에이전트로 위임. 설정값은 `memory/shared/dispatch_config.json` 단일 원천.
+### Grade 선언 규칙
+- **S**: Master 명시 선언 전용. Ace는 "S 승격 검토" 추천 후 Master 승인.
+- **A/B/C/D**: Ace 자동 추론 가능. Master 명시 우선. 기본값: **A**
+- **C/D 자동 분기**: D 키워드(`bug`, `fix`, `patch`, `log`, `오타`, `수정`(단독), `deploy`, `rollback`) 매칭 시 D. 애매하면 C. Master 강제 전환 가능.
+- C/B 진행 중 구조적 문제 발견 시 → Ace 재소집 필수
+- 사후 검증: `grade` vs `gradeActual` 불일치는 대시보드 gradeMismatch 패널에 누적
+
+### 오케스트레이션 모드 (D-074)
+- **기본: manual** — Ace가 매 분기마다 Master 확인. Master 무응답=대기.
+- **`/auto`** — 프레이밍 발언 후 Master가 입력하면: 프레이밍 승인 + 이후 루프 자동 전환. `orchestrationMode: "auto"` 기록.
+- **`/master`** — auto → manual 복귀. Master 자연어 개입 시 자동 복귀.
+- **auto 중 강제 Master 확인**: (1) 결정 박제(D-xxx) 직전, (2) Edi 호출 직전. Ace가 `phase: "master-gate-request"` Turn 박제 후 질의.
+- **S grade + `/auto`**: grade 필드는 S 유지, orchestrationMode만 전환.
+- 스킬: `.claude/skills/orchestration-mode/SKILL.md` (`/auto`·`/master` 통합)
 
 ## Topic Lifecycle System (D-056 / D-057, 2026-04-21)
 
@@ -55,7 +65,7 @@ Rules:
 - 저마찰 원칙: 무응답=보류. 적용하려면 `--apply` 재호출.
 
 ### Ace Step 0 (ace-framing)
-프레이밍 첫 발언 최상단에서 topicType 판정 + parentTopicId 후보 제안. Grade A/S는 전체 블록, Grade B/C는 1줄 인라인.
+프레이밍 첫 발언 최상단에서 topicType 판정 + parentTopicId 후보 제안. Grade A/B/S는 전체 블록. Grade C는 1줄 인라인. Grade D는 생략.
 
 ### 레거시 호환
 기존 토픽 중 topic_062/066 2건만 소급(테스트 케이스). 나머지 68개는 topicType undefined 유지 — 자동 종결 로직의 영향권 밖.
@@ -175,6 +185,10 @@ Master may switch modes at any time by stating the mode name.
 - `recallReason` — `turn-types.ts` RecallReason 참조 (재호출인 경우)
 - `splitReason` — 분리 사유 (조건 3 phase 전환 시)
 - `chars` / `segments` — 출력 크기 (선택)
+
+**orchestrationMode 기록:**
+- `/auto` 입력 시 `current_session.orchestrationMode: "auto"` + `orchestrationTransitions[]` 항목 즉시 기록
+- `/master` 또는 자연어 개입 시 `"manual"` 복귀 기록
 
 **분리/병합 4조건:**
 1. 다른 역할 개입 후 복귀 → 자동 분리, `recallReason: "post-intervention"`

@@ -46,47 +46,7 @@ function writeJson(p, obj) {
  * PD-020b P0.3c (session_060): turns[] = 단일 원천. agentsCompleted는 turns에서 파생.
  * 기존 Set-의미 중복제거 버그 근절 (RK-1, D-048 "중복 허용 배열" 위반).
  */
-/**
- * D-066 (session_090) — Grade A/S inline-main 감사 게이트.
- * dispatch_config.json의 gradeAInlineBlock/gradeSInlineBlock을 읽어
- * 금지 역할이 invocationMode='inline-main'으로 기록된 turn을 gaps에 박제.
- * 차단(exit)하지 않음 — 저마찰 원칙. gaps 누적이 /open 경보로 작동.
- */
-function auditInlineMainViolations(sess) {
-  try {
-    const turns = Array.isArray(sess.turns) ? sess.turns : [];
-    if (turns.length === 0) return;
-    const grade = sess.gradeDeclared || sess.grade;
-    if (!grade || (grade !== 'A' && grade !== 'S')) return;
-
-    const dispatchConfigPath = path.join(CWD, 'memory', 'shared', 'dispatch_config.json');
-    const cfg = readJson(dispatchConfigPath, null);
-    if (!cfg) return;
-    const blockList = grade === 'S'
-      ? (cfg.gradeSInlineBlock || [])
-      : (cfg.gradeAInlineBlock || []);
-    if (blockList.length === 0) return;
-
-    const violations = turns.filter(t =>
-      t && blockList.includes(t.role) && t.invocationMode === 'inline-main'
-    );
-    if (violations.length === 0) return;
-
-    sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
-    sess.gaps.push({
-      type: 'inline-main-violation',
-      grade,
-      count: violations.length,
-      roles: [...new Set(violations.map(v => v.role))],
-      turnIndices: violations.map(v => v.turnIdx),
-      detectedAt: new Date().toISOString(),
-      ref: 'D-066',
-    });
-    log(`[gate] Grade ${grade} inline-main violations: ${violations.length} (roles: ${[...new Set(violations.map(v => v.role))].join(', ')})`);
-  } catch (e) {
-    log(`[gate] inline-main audit skipped: ${e.message}`);
-  }
-}
+// D-074 (session_093): auditInlineMainViolations 제거. D-058 dispatcher 폐기로 invocationMode 개념 삭제.
 
 function ensureEditorInAgents(sess) {
   const turns = Array.isArray(sess.turns) ? sess.turns : [];
@@ -111,126 +71,19 @@ function ensureEditorInAgents(sess) {
 }
 
 /**
- * D-068 + D-069 (session_091, topic_096) — 양자 충족 검증 + agentsCompleted 필터.
- *
- * legacy=true 세션:
- *   - 기존 의미("추정 발언 기록")로 동결, 재계산하지 않음 (기준 #7).
- *
- * 신규 세션 (legacy 미설정 또는 false):
- *   - turns 순회하며 4조건 검사:
- *       (1) invocationMode === 'subagent'
- *       (2) subagentId 존재
- *       (3) 대응 reports 파일 존재 (reports/{date}_{slug}/{role}_rev*.md 중 하나)
- *       (4) 해당 reports frontmatter에 turnId === turn.turnIdx 일치
- *   - 4조건 통과 role만 agentsCompleted 재생성 (editor는 기록 주체로 항상 포함).
- *   - 불일치는 sess.gaps에 박제.
+ * D-074 (session_093): agentsCompleted를 turns[].role에서 단순 파생.
+ * D-058 폐기로 invocationMode/subagentId 조건 삭제. legacy 가드 유지.
  */
 function filterAgentsCompletedByDualSatisfaction(sess) {
-  // legacy 가드 (기준 #7)
   if (sess.legacy === true) {
-    log(`[dual-sat] legacy 세션 ${sess.sessionId}: agentsCompleted 동결 (재계산 skip)`);
+    log(`[agents] legacy 세션 ${sess.sessionId}: agentsCompleted 동결`);
     return;
   }
-
   const turns = Array.isArray(sess.turns) ? sess.turns : [];
-  if (turns.length === 0) return;
-
-  // reports 디렉토리 결정: reports/{startedAt date}_{topicSlug}
-  const dateStr = (sess.startedAt || '').slice(0, 10); // YYYY-MM-DD
-  const slug = sess.topicSlug || '';
-  if (!dateStr || !slug) {
-    log('[dual-sat] startedAt or topicSlug 부재, skip');
-    return;
-  }
-  const reportsDir = path.join(CWD, 'reports', `${dateStr}_${slug}`);
-  let reportFiles = [];
-  if (fs.existsSync(reportsDir)) {
-    try {
-      reportFiles = fs.readdirSync(reportsDir).filter(f => f.endsWith('.md'));
-    } catch {
-      reportFiles = [];
-    }
-  }
-
-  function findReportForRole(role) {
-    // {role}_rev*.md, {role}_*.md 패턴 모두 cover
-    return reportFiles.find(f => {
-      const lower = f.toLowerCase();
-      return lower.startsWith(`${role}_rev`) || lower.startsWith(`${role}_`);
-    });
-  }
-
-  function readFrontmatterTurnId(filename) {
-    try {
-      const fp = path.join(reportsDir, filename);
-      const raw = fs.readFileSync(fp, 'utf8');
-      // simple YAML frontmatter parse
-      const m = raw.match(/^---\s*\n([\s\S]*?)\n---/);
-      if (!m) return null;
-      const block = m[1];
-      const tm = block.match(/^\s*turnId\s*:\s*(\d+)\s*$/m);
-      if (!tm) return null;
-      return parseInt(tm[1], 10);
-    } catch {
-      return null;
-    }
-  }
-
-  const passedRoles = [];
-  const gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
-  const violations = [];
-
-  for (const turn of turns) {
-    if (!turn || typeof turn.role !== 'string') continue;
-    const role = turn.role;
-
-    // editor는 기록 주체. 양자 충족 적용 외, 항상 포함 보장.
-    if (role === 'editor') {
-      passedRoles.push(role);
-      continue;
-    }
-
-    const cond1 = turn.invocationMode === 'subagent';
-    const cond2 = typeof turn.subagentId === 'string' && turn.subagentId.length > 0;
-
-    const reportFile = findReportForRole(role);
-    const cond3 = !!reportFile;
-
-    let cond4 = false;
-    if (cond3) {
-      const fmTurnId = readFrontmatterTurnId(reportFile);
-      cond4 = fmTurnId !== null && fmTurnId === turn.turnIdx;
-    }
-
-    if (cond1 && cond2 && cond3 && cond4) {
-      passedRoles.push(role);
-    } else {
-      violations.push({
-        role,
-        turnIdx: turn.turnIdx,
-        cond_invocationMode: cond1,
-        cond_subagentId: cond2,
-        cond_reportExists: cond3,
-        cond_turnIdMatch: cond4,
-      });
-    }
-  }
-
-  sess.agentsCompleted = passedRoles;
-
-  if (violations.length > 0) {
-    gaps.push({
-      type: 'dual-satisfaction-violation',
-      count: violations.length,
-      violations,
-      detectedAt: new Date().toISOString(),
-      ref: 'D-068+D-069',
-    });
-    sess.gaps = gaps;
-    log(`[dual-sat] 양자 충족 실패 ${violations.length}건 → gaps 박제, agentsCompleted 필터 적용 (${passedRoles.length}건 통과)`);
-  } else {
-    log(`[dual-sat] 양자 충족 통과 ${passedRoles.length}건, agentsCompleted 정합`);
-  }
+  sess.agentsCompleted = turns
+    .filter(t => t && typeof t.role === 'string')
+    .map(t => t.role);
+  log(`[agents] agentsCompleted turns에서 재생성: ${sess.agentsCompleted.length}건`);
 }
 
 function appendOrUpdateSessionIndex(sess) {
@@ -486,7 +339,6 @@ function runSyncSystemState() {
 
     ensureEditorInAgents(sess);
     filterAgentsCompletedByDualSatisfaction(sess);
-    auditInlineMainViolations(sess);
     writeJson(CURRENT_SESSION_PATH, sess);
     appendOrUpdateSessionIndex(sess);
     runL2Writer(sess);

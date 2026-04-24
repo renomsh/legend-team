@@ -1,27 +1,27 @@
 #!/usr/bin/env node
 /**
  * PostToolUse(Task) hook — D-068 (session_091, topic_096).
+ * D-074 (session_093): invocationMode/subagentId 제거.
  *
- * Agent(Task) 툴 반환 직후 자동 발동하여 subagentId·turnId를
+ * Agent(Task) 툴 반환 직후 자동 발동하여 role turn을
  * memory/sessions/current_session.json.turns 에 push 한다.
  *
  * 입력 (stdin JSON, Claude Code hook protocol 추정):
  *   {
  *     tool_name: "Task" | "Agent" | ...,
  *     tool_input: { subagent_type?: string, description?: string, prompt?: string, ... },
- *     tool_response: { agentId?: string, subagent_id?: string, ... } | string,
+ *     tool_response: { ... } | string,
  *     cwd?: string,
  *     session_id?: string,
  *   }
  *
  * 박제 규칙:
  *   - tool_name이 "Task" 또는 "Agent"가 아니면 silent pass.
- *   - subagentId 추출 실패해도 invocationMode=subagent + role 추정으로 turn은 push.
+ *   - role 추출 실패 시 silent pass.
  *   - role 추출은 subagent_type 기반 ("role-ace" → "ace").
  *   - current_session.json 부재·파싱 실패도 silent pass (process.exit(0)).
  *
- * 9 기준 #3 (subagentId 박제) 자동 충족 경로.
- * legacy 가드: legacy:true 세션엔 push하지 않음 (기준 #7).
+ * legacy 가드: legacy:true 세션엔 push하지 않음.
  */
 
 const fs = require('fs');
@@ -84,19 +84,6 @@ function extractRole(toolInput) {
   return null;
 }
 
-function extractSubagentId(toolResponse, fallbackSessionId) {
-  if (toolResponse && typeof toolResponse === 'object') {
-    if (typeof toolResponse.agentId === 'string') return toolResponse.agentId;
-    if (typeof toolResponse.subagent_id === 'string') return toolResponse.subagent_id;
-    if (typeof toolResponse.subagentId === 'string') return toolResponse.subagentId;
-    if (typeof toolResponse.id === 'string') return toolResponse.id;
-  }
-  // fallback: hook 호출 session_id + 타임스탬프로 합성
-  const ts = Date.now().toString(36);
-  if (fallbackSessionId) return `${fallbackSessionId.slice(0, 8)}-${ts}`;
-  return `auto-${ts}`;
-}
-
 function log(msg) {
   console.error(`[post-tool-use-task] ${msg}`);
 }
@@ -136,24 +123,17 @@ function log(msg) {
       process.exit(0);
     }
 
-    const subagentId = extractSubagentId(
-      input.tool_response || input.toolResponse,
-      input.session_id || input.sessionId
-    );
-
     const turns = Array.isArray(sess.turns) ? sess.turns : [];
     const turnIdx = turns.length;
     const newTurn = {
       role,
       turnIdx,
-      invocationMode: 'subagent',
-      subagentId,
     };
     turns.push(newTurn);
     sess.turns = turns;
 
     if (writeJsonFile(currentSessionPath, sess)) {
-      log(`turn push: role=${role} turnIdx=${turnIdx} subagentId=${subagentId}`);
+      log(`turn push: role=${role} turnIdx=${turnIdx}`);
     } else {
       log('current_session.json write 실패, silent pass');
     }

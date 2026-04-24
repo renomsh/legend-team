@@ -3,6 +3,8 @@
  * D-048 Turn[] 구조 검증기.
  * current_session.json 또는 session_index.json 엔트리의 turns 배열을 검사한다.
  *
+ * D-074 (session_093): dispatch_config 참조 제거, invocationMode/subagentId 검증 제거.
+ *
  * 사용:
  *   npx ts-node scripts/validate-session-turns.ts                    # current_session 검사
  *   npx ts-node scripts/validate-session-turns.ts session_047        # 특정 세션 검사
@@ -13,15 +15,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import { Turn, VALID_RECALL_REASONS, VALID_INVOCATION_MODES } from './lib/turn-types';
-
-const DISPATCH_CONFIG_PATH = path.join(process.cwd(), 'memory', 'shared', 'dispatch_config.json');
-
-function loadDispatchConfig(): { alwaysActive?: string[]; gradeAInlineBlock?: string[]; gradeSInlineBlock?: string[] } | null {
-  try {
-    return JSON.parse(fs.readFileSync(DISPATCH_CONFIG_PATH, 'utf8'));
-  } catch { return null; }
-}
+import { Turn, VALID_RECALL_REASONS } from './lib/turn-types';
 
 const CWD = process.cwd();
 const CURRENT_SESSION_PATH = path.join(CWD, 'memory', 'sessions', 'current_session.json');
@@ -58,13 +52,8 @@ export function validateTurns(
   turns: unknown,
   legacy: boolean,
   validPhases?: string[],
-  grade?: string,
 ): ValidationResult {
   const result: ValidationResult = { sessionId, ok: true, errors: [], warnings: [], turnsCount: 0 };
-  const cfg = (grade === 'A' || grade === 'S') ? loadDispatchConfig() : null;
-  const blockList = cfg
-    ? (grade === 'S' ? (cfg.gradeSInlineBlock || []) : (cfg.gradeAInlineBlock || []))
-    : [];
 
   if (legacy) {
     result.warnings.push('legacy:true — turns 검증 스킵');
@@ -111,23 +100,6 @@ export function validateTurns(
       result.errors.push(`${prefix}: 알 수 없는 recallReason="${turn.recallReason}"`);
       result.ok = false;
     }
-    // D-066: invocationMode 검증
-    if (turn.invocationMode !== undefined && !VALID_INVOCATION_MODES.includes(turn.invocationMode)) {
-      result.errors.push(`${prefix}: 알 수 없는 invocationMode="${turn.invocationMode}"`);
-      result.ok = false;
-    }
-    if (turn.invocationMode === 'subagent' && !turn.subagentId) {
-      result.warnings.push(`${prefix}: invocationMode=subagent인데 subagentId 누락`);
-    }
-    // D-066: Grade A/S에서 Block 역할이 inline-main이면 에러
-    if ((grade === 'A' || grade === 'S') && turn.role && blockList.includes(turn.role) && turn.invocationMode === 'inline-main') {
-      result.errors.push(`${prefix}: Grade ${grade} inline-main violation — role="${turn.role}" must be subagent (D-066)`);
-      result.ok = false;
-    }
-    // D-066: Grade A/S에서 Ace의 phase=relay 경고 (F-005)
-    if ((grade === 'A' || grade === 'S') && turn.role === 'ace' && turn.phase === 'relay') {
-      result.warnings.push(`${prefix}: Ace relay phase in Grade ${grade} — single-role relay is F-005 anti-pattern`);
-    }
     if (turn.chars !== undefined && typeof turn.chars !== 'number') {
       result.warnings.push(`${prefix}: chars가 숫자가 아님`);
     }
@@ -163,7 +135,6 @@ function main(): void {
         sess['turns'],
         sess['legacy'] === true,
         validPhases,
-        sess['grade'] as string | undefined,
       ));
     }
   } else if (args.length > 0 && !args[0]!.startsWith('--')) {
@@ -176,9 +147,9 @@ function main(): void {
         console.error(`세션 "${targetId}" 를 찾을 수 없음`);
         process.exit(1);
       }
-      results.push(validateTurns(targetId, cur['turns'], cur['legacy'] === true, validPhases, cur['grade'] as string | undefined));
+      results.push(validateTurns(targetId, cur['turns'], cur['legacy'] === true, validPhases));
     } else {
-      results.push(validateTurns(targetId, sess['turns'], sess['legacy'] === true, validPhases, sess['grade'] as string | undefined));
+      results.push(validateTurns(targetId, sess['turns'], sess['legacy'] === true, validPhases));
     }
   } else {
     const cur = readJson(CURRENT_SESSION_PATH) as Record<string, unknown> | null;
@@ -191,7 +162,6 @@ function main(): void {
       cur['turns'],
       cur['legacy'] === true,
       validPhases,
-      cur['grade'] as string | undefined,
     ));
   }
 
