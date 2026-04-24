@@ -1,24 +1,26 @@
 {
-  "sessionId": "session_096",
-  "topicId": "topic_101",
-  "topic": "PD-037 Vera 실사용 시범 — signature.html 시각 점검",
-  "topicSlug": "pd037-vera-signature-review",
-  "reportPath": "reports/2026-04-25_pd037-vera-signature-review",
+  "sessionId": "session_097",
+  "topicId": "topic_102",
+  "topic": "PD-030 PD 자동 전이 훅 확장 — children/git/교차검증/Step 0 재판정",
+  "topicSlug": "pd030-pd-auto-transition-hooks",
+  "reportPath": "reports/2026-04-25_pd030-pd-auto-transition-hooks",
   "status": "closed",
-  "startedAt": "2026-04-25T02:45:00.000Z",
-  "closedAt": "2026-04-25T03:30:00.000Z",
+  "startedAt": "2026-04-25T04:00:00.000Z",
+  "closedAt": "2026-04-25T05:00:00.000Z",
   "mode": "observation",
-  "grade": "C",
-  "gradeDeclared": "C",
+  "grade": "B",
+  "gradeDeclared": "B",
   "orchestrationMode": "manual",
-  "framingLevel": 1,
+  "framingLevel": 2,
   "framingSkipped": false,
   "topicType": "implementation",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
     "ace",
-    "vera",
+    "arki",
+    "riki",
+    "ace",
     "dev",
     "editor"
   ],
@@ -29,43 +31,57 @@
       "phase": "framing"
     },
     {
-      "role": "vera",
+      "role": "arki",
       "turnIdx": 1,
-      "phase": "design-critique"
+      "phase": "design"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 2,
+      "phase": "risk-audit"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 3,
+      "phase": "synthesis",
+      "recallReason": "post-intervention"
     },
     {
       "role": "dev",
-      "turnIdx": 2,
+      "turnIdx": 4,
       "phase": "implementation"
     },
     {
       "role": "editor",
-      "turnIdx": 3,
+      "turnIdx": 5,
       "phase": "compilation"
     }
   ],
   "decisions": [],
   "masterDecisions": [],
   "masterFeedback": [
-    "C/D grade 서브에이전트 금지 — 메인 인라인 직접 발언만 허용"
+    "Grade B는 ace-framing 스킬 전체 발동 (open.md L1 표기는 오류 — 수정 완료)"
   ],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [
-    "PD-037"
+    "PD-030"
   ],
   "notes": [
-    "PD-037 resolveCondition 충족: Vera 1토픽 실사용 완료",
-    "발견: signature.html ROLE_COLOR fallback 6/8 불일치(구버전 팔레트) → role-colors.js canonical 동기화",
-    "C/D grade 서브에이전트 금지 피드백 박제(MF-085, feedback_cd_no_subagent.md)"
+    "resolve-pending-deferrals.ts git 스캔 축 구현 완료 (P0~P4)",
+    "R-1 반영: implementation 커밋 0건 PD는 '구현 커밋 없음' 출력, '구현 확인 권장' 억제",
+    "R-2 반영: gitEvidence hash 기준 upsert (append-or-update)",
+    "R-3 반영: git log --since='6 months ago' 범위 제한",
+    "R-4: PD-030 자기 언급 커밋 없어 자동 회피 확인",
+    ".claude/commands/open.md Grade B → L2 충돌 수정 (ace-framing 스킬 전체 발동)"
   ],
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 166,
-    "output_tokens": 34362,
-    "cache_creation_input_tokens": 340000,
-    "cache_read_input_tokens": 5902911,
-    "messageCount": 81,
-    "masterTurns": 15,
-    "total_billable": 6277439
+    "input_tokens": 124,
+    "output_tokens": 55896,
+    "cache_creation_input_tokens": 464607,
+    "cache_read_input_tokens": 5945717,
+    "messageCount": 74,
+    "masterTurns": 11,
+    "total_billable": 6466344
   }
 }

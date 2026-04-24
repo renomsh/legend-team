@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-24T23:01:37.870Z",
-  "totalSessions": 94,
+  "generatedAt": "2026-04-24T23:23:42.162Z",
+  "totalSessions": 95,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.03,
-    "avgCacheHitRate": 0.9309,
-    "cacheSampleSize": 68,
-    "cacheSampleTotal": 94,
+    "avgMasterTurns": 16.97,
+    "avgCacheHitRate": 0.9307,
+    "cacheSampleSize": 69,
+    "cacheSampleTotal": 95,
     "avgAdoptionRate": 0,
     "totalDecisions": 86,
     "gradeDistribution": {
       "S": 34,
-      "A": 18,
+      "A": 19,
       "B": 31,
       "C": 11
     },
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 49,
-    "totalCostUSD": 829.3199,
-    "avgCostPerSession": 9.3182,
-    "costSampleSize": 89
+    "turnBasedSessions": 50,
+    "totalCostUSD": 833.6847,
+    "avgCostPerSession": 9.2632,
+    "costSampleSize": 90
   },
   "sessions": [
     {
@@ -3533,12 +3533,50 @@
         "messageCount": 81
       },
       "sessionCostUSD": 3.5618
+    },
+    {
+      "sessionId": "session_097",
+      "topicSlug": "pd030-pd-auto-transition-hooks",
+      "topic": "PD-030 PD 자동 전이 훅 확장 — children/git/교차검증/Step 0 재판정",
+      "startedAt": "2026-04-25T04:00:00.000Z",
+      "closedAt": "2026-04-25T05:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 6,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 11,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 11,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 6466344,
+        "ioTokens": 56020,
+        "inputTokens": 124,
+        "outputTokens": 55896,
+        "cacheCreate": 464607,
+        "cacheRead": 5945717,
+        "cacheHitRate": 0.9194866527360747,
+        "messageCount": 74
+      },
+      "sessionCostUSD": 4.3648
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 91,
+      "count": 93,
       "sessions": [
         "session_047",
         "session_048",
@@ -3582,12 +3620,13 @@
         "session_093",
         "session_094",
         "session_095",
-        "session_096"
+        "session_096",
+        "session_097"
       ]
     },
     {
       "role": "arki",
-      "count": 65,
+      "count": 66,
       "sessions": [
         "session_048",
         "session_049",
@@ -3615,12 +3654,13 @@
         "session_092",
         "session_093",
         "session_094",
-        "session_095"
+        "session_095",
+        "session_097"
       ]
     },
     {
       "role": "editor",
-      "count": 46,
+      "count": 47,
       "sessions": [
         "session_050",
         "session_051",
@@ -3667,12 +3707,13 @@
         "session_093",
         "session_094",
         "session_095",
-        "session_096"
+        "session_096",
+        "session_097"
       ]
     },
     {
       "role": "dev",
-      "count": 33,
+      "count": 34,
       "sessions": [
         "session_047",
         "session_048",
@@ -3701,12 +3742,13 @@
         "session_091",
         "session_093",
         "session_095",
-        "session_096"
+        "session_096",
+        "session_097"
       ]
     },
     {
       "role": "riki",
-      "count": 26,
+      "count": 27,
       "sessions": [
         "session_049",
         "session_053",
@@ -3729,7 +3771,8 @@
         "session_092",
         "session_093",
         "session_094",
-        "session_095"
+        "session_095",
+        "session_097"
       ]
     },
     {
@@ -5819,6 +5862,48 @@
           "role": "editor",
           "phase": "compilation",
           "turnIdx": 3,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_097",
+      "topic": "PD-030 PD 자동 전이 훅 확장 — children/git/교차검증/Step 0 재판정",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "risk-audit",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 3,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compilation",
+          "turnIdx": 5,
           "recallReason": null
         }
       ]

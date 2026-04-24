@@ -1,6 +1,23 @@
 {
-  "generatedAt": "2026-04-24T23:01:38.842Z",
+  "generatedAt": "2026-04-24T23:23:43.530Z",
   "topics": [
+    {
+      "id": "topic_102",
+      "title": "PD-030 PD 자동 전이 훅 확장 — children/git/교차검증/Step 0 재판정",
+      "status": "completed",
+      "created": "2026-04-25",
+      "reportPath": "reports/2026-04-25_pd030-pd-auto-transition-hooks",
+      "reportFiles": [
+        "ace_rev1.md",
+        "arki_rev1.md",
+        "riki_rev1.md",
+        "dev_rev1.md"
+      ],
+      "published": false,
+      "outcome": "resolve-pending-deferrals.ts에 git log 스캔 축 추가 (GitEvidenceEntry + scanGitLog). /open 교차검증 브리핑 통합 완료. R-1(commitType 구분), R-2(hash upsert), R-3(6개월 범위), R-4(부트스트랩 회피) 반영. open.md Grade B→L2 충돌 수정. PD-030 resolveCondition 충족(설계+구현+/open 통합).",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_101",
       "title": "PD-037 Vera 실사용 시범 — signature.html 시각 점검",

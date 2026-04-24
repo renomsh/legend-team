@@ -59,7 +59,7 @@
 |---|---|---|---|
 | S | L2 | `ace-framing` 스킬 전체 | Ace |
 | A | L2 | `ace-framing` 스킬 전체 | Ace |
-| B | L1 | Ace 인라인 2~3문장 (스킬 없음) | Ace (경량) |
+| B | L2 | `ace-framing` 스킬 전체 | Ace |
 | C | L0 | 프레이밍 없음 | Dev 직행 (또는 최소 역할) |
 
 ### 4. C/B grade Dev 판정 스텝 (필수)

@@ -149,3 +149,50 @@ export function matchesResolveCondition(
   if (!c || !s) return false;
   return s.includes(c) || c.includes(s);
 }
+
+// ─── PD-030: Git Evidence ────────────────────────────────────────────────────
+
+export interface GitEvidenceEntry {
+  commit: string;
+  message: string;
+  commitType: 'session-end' | 'implementation';
+  scannedAt: string;
+}
+
+/**
+ * git log --oneline --all --since="6 months ago" 실행 후
+ * PD-NNN 패턴 매칭 → Map<pdId, GitEvidenceEntry[]> 반환
+ * 실패 시 빈 Map (git 부재 환경 방어)
+ */
+export function scanGitLog(root: string): Map<string, GitEvidenceEntry[]> {
+  const result = new Map<string, GitEvidenceEntry[]>();
+  try {
+    const { execSync } = require('child_process');
+    const output: string = execSync('git log --oneline --all --since="6 months ago"', {
+      cwd: root,
+      encoding: 'utf-8',
+      timeout: 10000,
+      stdio: ['pipe', 'pipe', 'pipe'],
+    });
+    const now = new Date().toISOString();
+    for (const line of output.split('\n')) {
+      const trimmed = line.trim();
+      if (!trimmed) continue;
+      const spaceIdx = trimmed.indexOf(' ');
+      if (spaceIdx === -1) continue;
+      const hash = trimmed.slice(0, spaceIdx);
+      const message = trimmed.slice(spaceIdx + 1);
+      const pdMatches = message.match(/\bPD-\d{3}\b/gi) ?? [];
+      for (const raw of pdMatches) {
+        const pdId = raw.toUpperCase();
+        if (!result.has(pdId)) result.set(pdId, []);
+        const commitType: 'session-end' | 'implementation' =
+          /^session[_ ]?end:/i.test(message) ? 'session-end' : 'implementation';
+        result.get(pdId)!.push({ commit: hash, message, commitType, scannedAt: now });
+      }
+    }
+  } catch {
+    console.warn('  [git-scan] git log 실행 실패 — git evidence 축 스킵');
+  }
+  return result;
+}

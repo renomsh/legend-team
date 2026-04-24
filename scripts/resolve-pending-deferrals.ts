@@ -14,7 +14,7 @@
  */
 import * as fs from 'fs';
 import * as path from 'path';
-import { matchesResolveCondition } from './lib/topic-lifecycle';
+import { matchesResolveCondition, scanGitLog, GitEvidenceEntry } from './lib/topic-lifecycle';
 
 const ROOT = path.join(__dirname, '..');
 const SYSTEM_STATE = path.join(ROOT, 'memory', 'shared', 'system_state.json');
@@ -27,6 +27,8 @@ interface PD {
   resolveCondition?: string | null;
   resolvedInSession?: string;
   note?: string;
+  gitEvidence?: GitEvidenceEntry[];
+  gitEvidenceLastScanned?: string;
   [k: string]: any;
 }
 
@@ -72,6 +74,18 @@ function main() {
     else stale.push(pd);
   }
 
+  // PD-030: git evidence 스캔
+  const gitEvidenceMap = scanGitLog(ROOT);
+
+  // gitEvidence 있는 PD 목록 수집 (pending 전체 대상)
+  const gitEvidencePDs: Array<{ pd: PD; entries: GitEvidenceEntry[] }> = [];
+  for (const pd of pds.filter(p => p.status === 'pending')) {
+    const entries = gitEvidenceMap.get(pd.id.toUpperCase());
+    if (entries && entries.length > 0) {
+      gitEvidencePDs.push({ pd, entries });
+    }
+  }
+
   console.log(`[resolve-pending-deferrals] mode=${apply ? 'APPLY' : 'dry-run'}`);
   console.log(`  total PDs: ${pds.length}`);
   console.log(`  pending + with resolveCondition: ${pendingWithCondition.length}`);
@@ -94,6 +108,23 @@ function main() {
     }
   }
 
+  // git evidence 섹션 출력
+  if (gitEvidencePDs.length > 0) {
+    console.log('\n  → [git-evidence] PD-ID 매칭 커밋 발견:');
+    for (const { pd, entries } of gitEvidencePDs) {
+      const implEntries = entries.filter(e => e.commitType === 'implementation');
+      console.log(`    ⚠ ${pd.id}: ${entries.length}건 발견`);
+      for (const e of entries) {
+        console.log(`        ${e.commit} "${e.message}" [${e.commitType}]`);
+      }
+      if (implEntries.length > 0) {
+        console.log(`      → 구현 확인 권장 (suggest only, auto-apply 아님)`);
+      } else {
+        console.log(`      → 구현 커밋 없음 (session-end 언급만 존재) — resolved 근거 아님`);
+      }
+    }
+  }
+
   if (pendingWithoutCondition.length > 0) {
     console.log('\n  (info) PDs without resolveCondition — manual resolution only:');
     for (const p of pendingWithoutCondition) {
@@ -110,6 +141,25 @@ function main() {
       if (!pd.note) pd.note = '';
       pd.note += ` [auto-resolved via resolveCondition match → ${m.topic.id}]`;
     }
+    // git evidence upsert (append-or-update, 동일 hash 중복 없음)
+    for (const { pd: gitPd, entries: newEntries } of gitEvidencePDs) {
+      const target = state.pendingDeferrals.find((p: any) => p.id === gitPd.id);
+      if (!target) continue;
+      const existing: GitEvidenceEntry[] = target.gitEvidence ?? [];
+      const existingHashes = new Set(existing.map((e: GitEvidenceEntry) => e.commit));
+      for (const entry of newEntries) {
+        if (existingHashes.has(entry.commit)) {
+          // 기존 hash: scannedAt만 업데이트
+          const found = existing.find((e: GitEvidenceEntry) => e.commit === entry.commit);
+          if (found) found.scannedAt = entry.scannedAt;
+        } else {
+          existing.push(entry);
+        }
+      }
+      target.gitEvidence = existing;
+      target.gitEvidenceLastScanned = new Date().toISOString();
+    }
+
     state.lastUpdated = new Date().toISOString();
     fs.writeFileSync(SYSTEM_STATE, JSON.stringify(state, null, 2) + '\n');
     console.log(`\n  ✓ applied: ${matches.length} PD(s) resolved`);

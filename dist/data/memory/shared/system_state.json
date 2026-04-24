@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_096",
-  "nextSessionId": "session_097",
+  "lastSessionId": "session_097",
+  "nextSessionId": "session_098",
   "currentVersion": "v1.54",
   "openTopics": [
     {
@@ -101,8 +101,10 @@
       "fromSession": "session_089",
       "fromTopic": "pd023-self-scores-mvp-impl",
       "item": "구현 완료 세션의 PD status 자동 전이 훅 — resolveCondition 매칭 확장판. 현재 resolve-pending-deferrals.ts는 topicType/parentTopicId 기반 자동 전이만 처리(D-057). 추가 필요: (1) children 완료 시 부모 PD 자동 resolved 전이 (2) 구현 토픽 closed + git log에 해당 PD 키워드 commit 있을 때 suggest (3) /open 이연 브리핑에 'PD X는 이미 구현됨 (commit Y, topic Z)' 자동 교차검증 제시 (4) Ace Step 0에서 PD status 재판정 prompt.",
-      "status": "pending",
+      "status": "resolved",
       "resolveCondition": "설계 토픽 1건 + 구현 토픽 1건 완료 + /open 브리핑에 교차검증 메시지 통합",
+      "resolvedInSession": "session_097",
+      "resolvedNote": "topic_102 완료. git log 스캔 축 + [git-evidence] 브리핑 섹션 구현. R-1~R-4 반영. open.md B grade 충돌 수정. resolveCondition 3조건 모두 충족.",
       "dependsOn": []
     },
     {
@@ -384,5 +386,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-24T23:01:23.691Z"
+  "lastUpdated": "2026-04-24T23:23:28.855Z"
 }
