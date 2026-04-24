@@ -1,19 +1,25 @@
 {
-  "sessionId": "session_091",
-  "topicId": "topic_096",
-  "topic": "S legend-team 구조 점검 — 서브에이전트 미발동·세션 단절 원인 + 상시 병행 검토",
-  "topicSlug": "legend-team-structure-audit-subagent-persistence",
+  "sessionId": "session_092",
+  "topicId": "topic_097",
+  "topic": "A Agent review — 진행 내역 점검 + 다음 액션 식별",
+  "topicSlug": "agent-review-progress-and-next",
   "status": "closed",
-  "startedAt": "2026-04-24T16:30:00.000Z",
-  "closedAt": "2026-04-24T18:30:00.000Z",
+  "startedAt": "2026-04-24T19:00:00.000Z",
+  "closedAt": "2026-04-24T20:30:00.000Z",
   "mode": "observation",
-  "grade": "S",
-  "gradeDeclared": "S",
+  "grade": "A",
+  "gradeDeclared": "A",
   "framingLevel": 2,
   "framingSkipped": false,
   "topicType": "framing",
   "parentTopicId": null,
+  "childTopicIds": [
+    "topic_098"
+  ],
   "agentsCompleted": [
+    "ace",
+    "arki",
+    "riki",
     "editor"
   ],
   "turns": [
@@ -22,368 +28,99 @@
       "turnIdx": 0,
       "phase": "framing",
       "invocationMode": "subagent",
-      "subagentId": "a69ac1c0d925ba00f"
+      "subagentId": "a4dd1e0c4c3024113"
     },
     {
       "role": "arki",
       "turnIdx": 1,
-      "phase": "role-speech",
+      "phase": "diagnosis",
       "invocationMode": "subagent",
-      "subagentId": "a5eb841cc5684571f",
-      "splitReason": "두 증상 진단"
+      "subagentId": "ad9ca0ea8d837cf99"
     },
     {
-      "role": "arki",
+      "role": "riki",
       "turnIdx": 2,
-      "phase": "role-speech",
+      "phase": "cross-attack",
       "invocationMode": "subagent",
-      "subagentId": "a78eb4826abd0206b",
-      "recallReason": "master-direct-nomination",
-      "splitReason": "rev2 구조 설계 (Master '아키 메인으로 나와')"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 3,
-      "phase": "role-speech",
-      "invocationMode": "subagent",
-      "subagentId": "a51ef399640dcdf94",
-      "splitReason": "rev3 regression 진단 (Master '과거 히스토리 다 읽어')"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 4,
-      "phase": "role-speech",
-      "invocationMode": "subagent",
-      "subagentId": "a32e588af43982eb3",
-      "splitReason": "rev4 breakpoint localization (Master STOP 후)"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 5,
-      "phase": "role-speech",
-      "invocationMode": "subagent",
-      "subagentId": "a69fc0242996ca03d",
-      "splitReason": "rev5 good-state 검증 (auto mode 자동 채택)"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 6,
-      "phase": "role-speech",
-      "invocationMode": "subagent",
-      "subagentId": "a8bc8f6c54cde85ea",
-      "splitReason": "rev6 schema impact (Master c 결정 후)"
+      "subagentId": "aaa2c4b175dd163c6"
     },
     {
       "role": "ace",
-      "turnIdx": 7,
+      "turnIdx": 3,
       "phase": "synthesis",
       "invocationMode": "subagent",
-      "subagentId": "a1d901fa4f1ded8f2",
-      "splitReason": "4 결정 D-067~D-070 박제"
-    },
-    {
-      "role": "dev",
-      "turnIdx": 8,
-      "phase": "implementation",
-      "invocationMode": "subagent",
-      "subagentId": "a3a2e23547ef148f8",
-      "splitReason": "최소 구현 + 보호 패치 + regression test"
+      "subagentId": "a8f3d1b3be55d0603"
     },
     {
       "role": "editor",
-      "turnIdx": 9,
-      "phase": "compile"
+      "turnIdx": 4,
+      "phase": "compile",
+      "invocationMode": "subagent",
+      "subagentId": "a5399dd35d0a84478"
     }
   ],
   "decisions": [
-    "D-067",
-    "D-068",
-    "D-069",
-    "D-070"
+    "D-071",
+    "D-072",
+    "D-073"
   ],
   "masterDecisions": [
-    "Q1: A2=(ii) 토픽 단위 상주, Grade S/A 한정. 향후 (i) 동시 발동 혼합 방향",
-    "Q2: 페르소나 분리 방향 확정, 본 토픽은 점검만",
-    "Riki cross-attack 생략, Ace 종합검토로 전환",
-    "사안 재정의: 회귀 분석 아닌 미구현 선언부 최초 구축 — 후 Master STOP",
-    "재정의 II: 구현 아닌 breakpoint localization, session_090=symptom snapshot",
-    "Role differentiation baseline = (c) 양자 충족 = Task 실호출 + 물리 reports + link",
-    "9 기준 박제 (reports만/문자열만 인정 불가, invocationMode/subagentId/turnId 의무, agentsCompleted 양자 충족, legacy 백필 금지, session_090 snapshot 유지, 신규 baseline 신규 측정)",
-    "진단 종료 → 결정 4개 고정 → Dev 최소 구현 → 보호 패치 → regression test"
+    "Review 범위 (c) 에이전트 인프라 단독 채택",
+    "Riki 권고 채택 — falsification probe 1회 즉시 실행",
+    "Ace 종합검토 모든 승인 (D-071/D-072/D-073 박제 + 후속 토픽 #1 오픈)"
   ],
   "masterFeedback": [
-    "어떻게 구조를 만들어야 되겠어? 네가 중심이어야 해. 그럴듯하게 포장만 (Arki 직접 호명 + 포장 detector 의무화)",
-    "전에는 안그랬는데 왜 이러지? 과거 히스토리 다 읽어 (regression 진단 의무)",
-    "STOP. 신규 구축 단계 아니다. breakpoint localization으로 전환",
-    "(c) 양자 충족 결정 + 9 기준 박제",
-    "진단 종료 → 결정 4개 고정 → Dev 구현 → 보호 패치 → regression"
+    "수정은 하지말고 원인 파악해. 그 분기가 문제면 그 로직을 제거하게 (수정 금지 원칙)"
   ],
   "pendingDeferralsAdded": [],
+  "pendingDeferralsResolved": [
+    "PD-032 (resolved-fiction)"
+  ],
+  "deprecatedDecisions": [
+    "D-058",
+    "D-066",
+    "D-068",
+    "D-070"
+  ],
+  "redefinedDecisions": [
+    "D-067",
+    "D-069"
+  ],
   "notes": [
-    "Grade S 첫 세션. Opus 메인 + Opus 서브 강제 — 7회 Agent 호출 모두 subagent 박제, inline-main 0건",
-    "Arki 6회 호출(rev1 framing 응답 포함)로 단일 토픽 내 최다 — PD-033 실증: 매 호출마다 다른 agentId, F-NNN findings 미전달 in-session 확인",
-    "Master 4회 토픽 재정의: 설계→regression→breakpoint→9기준 c → 결정+구현. STOP 사용 1회 (포장 차단)",
-    "PostToolUse hook 즉시 작동 실증: Dev 호출 직후 turns에 dev entry 자동 push (D-068 in-session 검증)",
-    "regression test 10/10 PASS, fail 0건. session_090 immutable 박제 완료 (line 3314~3315)",
-    "PD-032 페르소나 분리·PD-033 서브 지속성은 본 토픽 scope 외로 명시 분리 — 페르소나는 후속, 지속성은 4 결정으로 부분 cover (turns 박제만, scratchpad는 미진입)"
+    "Probe 4/4 fail 확정 — D-058 분기 22세션 fiction 입증",
+    "frontmatter `name:` 부재 + 루트 agents/ leftover 발견",
+    "Hook 자동 박제는 turnIdx 2/4의 role을 잘못 추론(arki/fin) — D-068 deprecated가 정확히 짚은 silent fallback 패턴 재현. Edit으로 수동 정정.",
+    "코드 unwind는 후속 topic_098에서 처리, 본 세션은 ledger·meta만"
   ],
   "gaps": [
     {
-      "type": "scope-deferred",
-      "items": [
-        "A3 페르소나 분리 (Child-3, Master 보류)",
-        "Scratchpad cross-instance memory (Child-2 spec 박제됐으나 Master STOP 후 미실행)"
-      ],
-      "note": "본 토픽은 측정 schema + 보호 패치까지. 기억 누적 메커니즘은 별도 후속."
+      "type": "post-tool-use-hook-mis-inference",
+      "note": "PostToolUse hook이 Riki turn을 'arki', Editor turn을 'fin'으로 박제. D-068 deprecated 사유 in-session 입증. topic_098 unwind 시 hook 폐기 대상."
     },
     {
       "type": "dual-satisfaction-violation",
-      "count": 9,
+      "count": 1,
       "violations": [
         {
           "role": "ace",
-          "turnIdx": 0,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        },
-        {
-          "role": "arki",
-          "turnIdx": 1,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        },
-        {
-          "role": "arki",
-          "turnIdx": 2,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        },
-        {
-          "role": "arki",
           "turnIdx": 3,
           "cond_invocationMode": true,
           "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        },
-        {
-          "role": "arki",
-          "turnIdx": 4,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        },
-        {
-          "role": "arki",
-          "turnIdx": 5,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        },
-        {
-          "role": "arki",
-          "turnIdx": 6,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        },
-        {
-          "role": "ace",
-          "turnIdx": 7,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        },
-        {
-          "role": "dev",
-          "turnIdx": 8,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
+          "cond_reportExists": true,
           "cond_turnIdMatch": false
         }
       ],
-      "detectedAt": "2026-04-24T06:47:39.371Z",
-      "ref": "D-068+D-069"
-    },
-    {
-      "type": "dual-satisfaction-violation",
-      "count": 9,
-      "violations": [
-        {
-          "role": "ace",
-          "turnIdx": 0,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        },
-        {
-          "role": "arki",
-          "turnIdx": 1,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        },
-        {
-          "role": "arki",
-          "turnIdx": 2,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        },
-        {
-          "role": "arki",
-          "turnIdx": 3,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        },
-        {
-          "role": "arki",
-          "turnIdx": 4,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        },
-        {
-          "role": "arki",
-          "turnIdx": 5,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        },
-        {
-          "role": "arki",
-          "turnIdx": 6,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        },
-        {
-          "role": "ace",
-          "turnIdx": 7,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        },
-        {
-          "role": "dev",
-          "turnIdx": 8,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        }
-      ],
-      "detectedAt": "2026-04-24T06:48:55.587Z",
-      "ref": "D-068+D-069"
-    },
-    {
-      "type": "dual-satisfaction-violation",
-      "count": 9,
-      "violations": [
-        {
-          "role": "ace",
-          "turnIdx": 0,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        },
-        {
-          "role": "arki",
-          "turnIdx": 1,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        },
-        {
-          "role": "arki",
-          "turnIdx": 2,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        },
-        {
-          "role": "arki",
-          "turnIdx": 3,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        },
-        {
-          "role": "arki",
-          "turnIdx": 4,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        },
-        {
-          "role": "arki",
-          "turnIdx": 5,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        },
-        {
-          "role": "arki",
-          "turnIdx": 6,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        },
-        {
-          "role": "ace",
-          "turnIdx": 7,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        },
-        {
-          "role": "dev",
-          "turnIdx": 8,
-          "cond_invocationMode": true,
-          "cond_subagentId": true,
-          "cond_reportExists": false,
-          "cond_turnIdMatch": false
-        }
-      ],
-      "detectedAt": "2026-04-24T06:49:20.075Z",
+      "detectedAt": "2026-04-24T08:38:48.472Z",
       "ref": "D-068+D-069"
     }
   ],
   "tokenUsage": {
-    "input_tokens": 249,
-    "output_tokens": 111114,
-    "cache_creation_input_tokens": 384233,
-    "cache_read_input_tokens": 10095952,
-    "messageCount": 79,
-    "masterTurns": 11,
-    "total_billable": 10591548
+    "input_tokens": 813,
+    "output_tokens": 71528,
+    "cache_creation_input_tokens": 453713,
+    "cache_read_input_tokens": 6215732,
+    "messageCount": 70,
+    "masterTurns": 9,
+    "total_billable": 6741786
   }
 }

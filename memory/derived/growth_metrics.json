@@ -1,6 +1,6 @@
 {
   "schemaVersion": "0.1.0",
-  "generatedAt": "2026-04-24T06:49:40.336Z",
+  "generatedAt": "2026-04-24T08:39:13.149Z",
   "registryVersion": "v2",
   "datapoints": [
     {
@@ -24152,6 +24152,174 @@
         "window": 500,
         "source": "turns.recallReason"
       }
+    },
+    {
+      "metricId": "signature.nova.promotionRate",
+      "sessionId": "session_087",
+      "computedAtSession": "session_092",
+      "value": 0,
+      "registryVersion": "v2",
+      "regimeId": "R-003",
+      "inTransitionZone": false,
+      "window": 20,
+      "rawInputs": {
+        "window": 20,
+        "source": "speculative_options+decision_ledger"
+      }
+    },
+    {
+      "metricId": "signature.nova.promotionRate",
+      "sessionId": "session_087",
+      "computedAtSession": "session_092",
+      "value": 0,
+      "registryVersion": "v2",
+      "regimeId": "R-003",
+      "inTransitionZone": false,
+      "window": 100,
+      "rawInputs": {
+        "window": 100,
+        "source": "speculative_options+decision_ledger"
+      }
+    },
+    {
+      "metricId": "signature.nova.promotionRate",
+      "sessionId": "session_087",
+      "computedAtSession": "session_092",
+      "value": 0,
+      "registryVersion": "v2",
+      "regimeId": "R-003",
+      "inTransitionZone": false,
+      "window": 500,
+      "rawInputs": {
+        "window": 500,
+        "source": "speculative_options+decision_ledger"
+      }
+    },
+    {
+      "metricId": "common.L1.cumulativeLearning",
+      "sessionId": "session_092",
+      "computedAtSession": "session_092",
+      "value": 137,
+      "registryVersion": "v2",
+      "regimeId": "R-003",
+      "inTransitionZone": false,
+      "window": 20,
+      "rawInputs": {
+        "window": 20,
+        "source": "turns+role_memory"
+      }
+    },
+    {
+      "metricId": "common.L1.cumulativeLearning",
+      "sessionId": "session_092",
+      "computedAtSession": "session_092",
+      "value": 389,
+      "registryVersion": "v2",
+      "regimeId": "R-003",
+      "inTransitionZone": false,
+      "window": 100,
+      "rawInputs": {
+        "window": 100,
+        "source": "turns+role_memory"
+      }
+    },
+    {
+      "metricId": "common.L1.cumulativeLearning",
+      "sessionId": "session_092",
+      "computedAtSession": "session_092",
+      "value": 389,
+      "registryVersion": "v2",
+      "regimeId": "R-003",
+      "inTransitionZone": false,
+      "window": 500,
+      "rawInputs": {
+        "window": 500,
+        "source": "turns+role_memory"
+      }
+    },
+    {
+      "metricId": "common.L3.autonomy",
+      "sessionId": "session_092",
+      "computedAtSession": "session_092",
+      "value": 0.8775,
+      "registryVersion": "v2",
+      "regimeId": "R-003",
+      "inTransitionZone": false,
+      "window": 20,
+      "rawInputs": {
+        "window": 20,
+        "source": "token_log.masterTurns (proxy, Phase2에서 intervention_classifier로 교체 예정)"
+      }
+    },
+    {
+      "metricId": "common.L3.autonomy",
+      "sessionId": "session_092",
+      "computedAtSession": "session_092",
+      "value": 0.8809,
+      "registryVersion": "v2",
+      "regimeId": "R-003",
+      "inTransitionZone": false,
+      "window": 100,
+      "rawInputs": {
+        "window": 100,
+        "source": "token_log.masterTurns (proxy, Phase2에서 intervention_classifier로 교체 예정)"
+      }
+    },
+    {
+      "metricId": "common.L3.autonomy",
+      "sessionId": "session_092",
+      "computedAtSession": "session_092",
+      "value": 0.8809,
+      "registryVersion": "v2",
+      "regimeId": "R-003",
+      "inTransitionZone": false,
+      "window": 500,
+      "rawInputs": {
+        "window": 500,
+        "source": "token_log.masterTurns (proxy, Phase2에서 intervention_classifier로 교체 예정)"
+      }
+    },
+    {
+      "metricId": "signature.dev.firstPassRate",
+      "sessionId": "session_092",
+      "computedAtSession": "session_092",
+      "value": 0.7273,
+      "registryVersion": "v2",
+      "regimeId": "R-003",
+      "inTransitionZone": false,
+      "window": 20,
+      "rawInputs": {
+        "window": 20,
+        "source": "turns.recallReason"
+      }
+    },
+    {
+      "metricId": "signature.dev.firstPassRate",
+      "sessionId": "session_092",
+      "computedAtSession": "session_092",
+      "value": 0.8387,
+      "registryVersion": "v2",
+      "regimeId": "R-003",
+      "inTransitionZone": false,
+      "window": 100,
+      "rawInputs": {
+        "window": 100,
+        "source": "turns.recallReason"
+      }
+    },
+    {
+      "metricId": "signature.dev.firstPassRate",
+      "sessionId": "session_092",
+      "computedAtSession": "session_092",
+      "value": 0.8387,
+      "registryVersion": "v2",
+      "regimeId": "R-003",
+      "inTransitionZone": false,
+      "window": 500,
+      "rawInputs": {
+        "window": 500,
+        "source": "turns.recallReason"
+      }
     }
   ],
   "latestBySignature": {
@@ -24300,6 +24468,48 @@
     "signature.dev.firstPassRate": [
       {
         "metricId": "signature.dev.firstPassRate",
+        "sessionId": "session_092",
+        "computedAtSession": "session_092",
+        "value": 0.7273,
+        "registryVersion": "v2",
+        "regimeId": "R-003",
+        "inTransitionZone": false,
+        "window": 20,
+        "rawInputs": {
+          "window": 20,
+          "source": "turns.recallReason"
+        }
+      },
+      {
+        "metricId": "signature.dev.firstPassRate",
+        "sessionId": "session_092",
+        "computedAtSession": "session_092",
+        "value": 0.8387,
+        "registryVersion": "v2",
+        "regimeId": "R-003",
+        "inTransitionZone": false,
+        "window": 100,
+        "rawInputs": {
+          "window": 100,
+          "source": "turns.recallReason"
+        }
+      },
+      {
+        "metricId": "signature.dev.firstPassRate",
+        "sessionId": "session_092",
+        "computedAtSession": "session_092",
+        "value": 0.8387,
+        "registryVersion": "v2",
+        "regimeId": "R-003",
+        "inTransitionZone": false,
+        "window": 500,
+        "rawInputs": {
+          "window": 500,
+          "source": "turns.recallReason"
+        }
+      },
+      {
+        "metricId": "signature.dev.firstPassRate",
         "sessionId": "session_091",
         "computedAtSession": "session_091",
         "value": 0.7273,
@@ -24386,48 +24596,6 @@
         "metricId": "signature.dev.firstPassRate",
         "sessionId": "session_089",
         "computedAtSession": "session_089",
-        "value": 0.7273,
-        "registryVersion": "v2",
-        "regimeId": "R-003",
-        "inTransitionZone": false,
-        "window": 20,
-        "rawInputs": {
-          "window": 20,
-          "source": "turns.recallReason"
-        }
-      },
-      {
-        "metricId": "signature.dev.firstPassRate",
-        "sessionId": "session_089",
-        "computedAtSession": "session_089",
-        "value": 0.8333,
-        "registryVersion": "v2",
-        "regimeId": "R-003",
-        "inTransitionZone": false,
-        "window": 100,
-        "rawInputs": {
-          "window": 100,
-          "source": "turns.recallReason"
-        }
-      },
-      {
-        "metricId": "signature.dev.firstPassRate",
-        "sessionId": "session_089",
-        "computedAtSession": "session_089",
-        "value": 0.8333,
-        "registryVersion": "v2",
-        "regimeId": "R-003",
-        "inTransitionZone": false,
-        "window": 500,
-        "rawInputs": {
-          "window": 500,
-          "source": "turns.recallReason"
-        }
-      },
-      {
-        "metricId": "signature.dev.firstPassRate",
-        "sessionId": "session_088",
-        "computedAtSession": "session_088",
         "value": 0.7273,
         "registryVersion": "v2",
         "regimeId": "R-003",
@@ -24584,6 +24752,48 @@
     "signature.nova.promotionRate": [
       {
         "metricId": "signature.nova.promotionRate",
+        "sessionId": "session_087",
+        "computedAtSession": "session_092",
+        "value": 0,
+        "registryVersion": "v2",
+        "regimeId": "R-003",
+        "inTransitionZone": false,
+        "window": 20,
+        "rawInputs": {
+          "window": 20,
+          "source": "speculative_options+decision_ledger"
+        }
+      },
+      {
+        "metricId": "signature.nova.promotionRate",
+        "sessionId": "session_087",
+        "computedAtSession": "session_092",
+        "value": 0,
+        "registryVersion": "v2",
+        "regimeId": "R-003",
+        "inTransitionZone": false,
+        "window": 100,
+        "rawInputs": {
+          "window": 100,
+          "source": "speculative_options+decision_ledger"
+        }
+      },
+      {
+        "metricId": "signature.nova.promotionRate",
+        "sessionId": "session_087",
+        "computedAtSession": "session_092",
+        "value": 0,
+        "registryVersion": "v2",
+        "regimeId": "R-003",
+        "inTransitionZone": false,
+        "window": 500,
+        "rawInputs": {
+          "window": 500,
+          "source": "speculative_options+decision_ledger"
+        }
+      },
+      {
+        "metricId": "signature.nova.promotionRate",
         "sessionId": "session_086",
         "computedAtSession": "session_091",
         "value": 0,
@@ -24670,48 +24880,6 @@
         "metricId": "signature.nova.promotionRate",
         "sessionId": "session_083",
         "computedAtSession": "session_088",
-        "value": 0,
-        "registryVersion": "v2",
-        "regimeId": "R-003",
-        "inTransitionZone": false,
-        "window": 20,
-        "rawInputs": {
-          "window": 20,
-          "source": "speculative_options+decision_ledger"
-        }
-      },
-      {
-        "metricId": "signature.nova.promotionRate",
-        "sessionId": "session_083",
-        "computedAtSession": "session_088",
-        "value": 0,
-        "registryVersion": "v2",
-        "regimeId": "R-003",
-        "inTransitionZone": false,
-        "window": 100,
-        "rawInputs": {
-          "window": 100,
-          "source": "speculative_options+decision_ledger"
-        }
-      },
-      {
-        "metricId": "signature.nova.promotionRate",
-        "sessionId": "session_083",
-        "computedAtSession": "session_088",
-        "value": 0,
-        "registryVersion": "v2",
-        "regimeId": "R-003",
-        "inTransitionZone": false,
-        "window": 500,
-        "rawInputs": {
-          "window": 500,
-          "source": "speculative_options+decision_ledger"
-        }
-      },
-      {
-        "metricId": "signature.nova.promotionRate",
-        "sessionId": "session_082",
-        "computedAtSession": "session_087",
         "value": 0,
         "registryVersion": "v2",
         "regimeId": "R-003",
@@ -24869,12 +25037,6 @@
   "pendingLag": [
     {
       "metricId": "signature.nova.promotionRate",
-      "triggerSession": "session_087",
-      "dueAtSession": "session_092",
-      "createdAt": "2026-04-23T06:01:01.834Z"
-    },
-    {
-      "metricId": "signature.nova.promotionRate",
       "triggerSession": "session_088",
       "dueAtSession": "session_093",
       "createdAt": "2026-04-23T07:51:19.047Z"
@@ -24896,6 +25058,12 @@
       "triggerSession": "session_091",
       "dueAtSession": "session_096",
       "createdAt": "2026-04-24T06:47:59.731Z"
+    },
+    {
+      "metricId": "signature.nova.promotionRate",
+      "triggerSession": "session_092",
+      "dueAtSession": "session_097",
+      "createdAt": "2026-04-24T08:39:13.149Z"
     }
   ]
 }

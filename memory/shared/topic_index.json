@@ -1,6 +1,40 @@
 {
   "topics": [
     {
+      "id": "topic_098",
+      "title": "D-058 unwind 구현 — dispatcher 폐기 + role-*.md archive + 연쇄 코드 정리",
+      "status": "open",
+      "phase": "framing",
+      "hold": null,
+      "created": "2026-04-24",
+      "controlPath": "topics/topic_098",
+      "reportPath": "reports/2026-04-24_d058-dispatcher-unwind",
+      "reportFiles": [],
+      "published": false,
+      "path": "topics/topic_098",
+      "parentTopicId": "topic_097",
+      "topicType": "implementation",
+      "grade": "A"
+    },
+    {
+      "id": "topic_097",
+      "title": "A Agent review — 진행 내역 점검 + 다음 액션 식별",
+      "status": "completed",
+      "phase": "validated",
+      "hold": null,
+      "created": "2026-04-24",
+      "controlPath": "topics/topic_097",
+      "reportPath": "reports/2026-04-24_agent-review-progress-and-next",
+      "reportFiles": [],
+      "published": false,
+      "path": "topics/topic_097",
+      "grade": "A",
+      "childTopicIds": [
+        "topic_098"
+      ],
+      "closedAt": "2026-04-24"
+    },
+    {
       "id": "topic_096",
       "title": "S legend-team 구조 점검 — 서브에이전트 미발동·세션 단절 원인 + 상시 병행 검토",
       "status": "completed",
@@ -1896,5 +1930,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-24T05:24:30.118Z"
+  "lastUpdated": "2026-04-24T08:35:55.374Z"
 }

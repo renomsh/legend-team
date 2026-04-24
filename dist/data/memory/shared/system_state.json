@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_091",
-  "nextSessionId": "session_092",
+  "lastSessionId": "session_092",
+  "nextSessionId": "session_093",
   "currentVersion": "v1.54",
   "openTopics": [
     {
@@ -27,6 +27,24 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-073",
+      "date": "2026-04-24",
+      "axis": "role-*.md 페르소나 정의 archive 이동 (제거 아님)",
+      "summary": "22세션 누적 페르소나 정의(F-013 자기소개 제약 등 학습 포함) 손실 방지. 미래 옵션 보존."
+    },
+    {
+      "id": "D-072",
+      "date": "2026-04-24",
+      "axis": "측정 전 단정 금지 — 인프라 결정은 falsification probe 1회 통과 필수",
+      "summary": "D-058 22세션 잠복 재발 방지. 측정 부재 자기복제 차단. Riki 절차 권고를 protocol화."
+    },
+    {
+      "id": "D-071",
+      "date": "2026-04-24",
+      "axis": "Sonnet 메인 + Opus 서브에이전트 dispatcher 구조 폐기",
+      "summary": "falsification probe 4/4 fail로 22세션 fiction 확정. 잃는 것 0(작동한 적 없음). 측정·hook·schema 부담 모두 해제."
+    },
+    {
       "id": "D-070",
       "date": "2026-04-24",
       "axis": "session_090 immutable snapshot 박제 + appendOrUpdateSessionIndex 가드",
@@ -37,24 +55,6 @@
       "date": "2026-04-24",
       "axis": "agentsCompleted 의미 재정의 — string[] 무변경, 생성 로직만 4조건 필터",
       "summary": "rev6 영향 강도 1위 대상(agentsCompleted semantics) 직접 cover. session_090 length 11 → 0~3로 정보량 감소 수용 — 정확성 우선. 기준 7(백필 금지) 위반 차단."
-    },
-    {
-      "id": "D-068",
-      "date": "2026-04-24",
-      "axis": "PostToolUse(Task) 자동 박제 + SessionEnd 양자 충족 검증 분리",
-      "summary": "rev6 hook gap(PostToolUse 부재) 직접 메움. session 중간 turns에 subagentId 부재 → Master 가시성 0 위험 차단. 자동 박제와 검증 분리가 9 기준 3·4·5 동시 충족에 유일 최적."
-    },
-    {
-      "id": "D-067",
-      "date": "2026-04-24",
-      "axis": "Role differentiation baseline 정의 = actual Task/subagent invocation + corresponding physical report artifact (Master c 기준)",
-      "summary": "Master 9 기준 c(양자 충족) 정의의 schema 표현. rev6 영향 강도 2·3위 대상(reports structure + turns schema) 동시 cover. parentInstanceId 자유 텍스트 폐기 → turnId 단일 canonical로 일관성 확보."
-    },
-    {
-      "id": "D-066",
-      "date": "2026-04-24",
-      "axis": "Grade A/S inline-main 차단 enforcement (Schema+Hook+Structural 3층). opus-dispatcher 스킬 의존 폐기.",
-      "summary": "session_090에서 Grade A임에도 Main(Opus)이 Arki/Fin/Riki/Dev/Edi/Nova/Vera 7개 역할을 inline 시뮬레이션 → 팀 존재가치 붕괴. Ace가 서브 응답 후 relay까지 반복. Master 지적('팀의 존재 가치 없앰')으로 3층 방어 착수. D-058(opus-dispatcher)이 선언만 있고 enforcement 없어 22세션 중 어느 세션이든 재발 가능했음 판정. Schema 필드가 진실 강제 + Hook이 사후 감사 + Structural이 원천 필드 박제 — 셋 모두 soft-guide 경로 우회."
     }
   ],
   "pendingDeferrals": [
@@ -81,9 +81,11 @@
       "fromSession": "session_090",
       "fromTopic": "pd031-topic082-parallel-integration",
       "item": "L5 페르소나 분리 로딩 구현 — CLAUDE.md에서 역할 페르소나 서술 제거, `.claude/agents/role-*.md`만 canonical. Main 컨텍스트에 페르소나 원문 미주입 시 오케스트레이션 성립 여부 검증. Claude Agent SDK 제약 조사 선행.",
-      "status": "pending",
+      "status": "resolved-fiction",
       "resolveCondition": "Claude Agent SDK에서 main 컨텍스트에 역할 페르소나 원문을 주입하지 않고도 오케스트레이션 성립 확인 + 3세션 dry-run 통과 (또는 SDK 업데이트로 페르소나 분리 로딩 API 제공)",
-      "dependsOn": []
+      "dependsOn": [],
+      "resolvedInSession": "session_092",
+      "resolvedNote": "D-071로 D-058 분기 폐기. 격리 인프라가 fiction이었으므로 페르소나 분리 대상 자체 소멸. 미래 harness 등록 spike 통과 시 재오픈."
     },
     {
       "id": "PD-031",
@@ -337,5 +339,5 @@
       "note": "D-058 확정. opus-dispatcher 스킬 + dispatch_config.json + 에이전트 정의 4종(role-ace/arki/fin/riki.md) 구현. G1(write 계약)·G3(RED→GREEN) 통과. auto-model-switch 스킬 폐기."
     }
   ],
-  "lastUpdated": "2026-04-24T06:49:31.611Z"
+  "lastUpdated": "2026-04-24T08:39:02.820Z"
 }

@@ -1,6 +1,66 @@
 {
-  "generatedAt": "2026-04-24T06:49:43.331Z",
+  "generatedAt": "2026-04-24T08:39:16.623Z",
   "decisions": [
+    {
+      "id": "D-073",
+      "date": "2026-04-24",
+      "session": "session_092",
+      "topic": "agent-review-progress-and-next",
+      "owningTopicId": "topic_097",
+      "scopeCheck": "페르소나 정의 자산 보존",
+      "axis": "role-*.md 페르소나 정의 archive 이동 (제거 아님)",
+      "decision": ".claude/agents/role-{ace,arki,fin,riki}.md 4개 + 루트 agents/{arki,fin,riki}.md 3개를 archive/agents/legacy-d058/ 로 이동. 페르소나 텍스트는 미래 harness 등록 spike 통과 시 재활용 가능 자산. 즉시 삭제 아님.",
+      "value": "22세션 누적 페르소나 정의(F-013 자기소개 제약 등 학습 포함) 손실 방지. 미래 옵션 보존.",
+      "rejectedAlternatives": [
+        {
+          "option": "전부 삭제",
+          "reason": "학습 자산 영구 손실. archive로 충분."
+        }
+      ],
+      "appliedTo": [
+        "archive/agents/legacy-d058/ (후속 토픽이 이동 수행)"
+      ]
+    },
+    {
+      "id": "D-072",
+      "date": "2026-04-24",
+      "session": "session_092",
+      "topic": "agent-review-progress-and-next",
+      "owningTopicId": "topic_097",
+      "scopeCheck": "인프라 결정 사전 측정 의무화",
+      "axis": "측정 전 단정 금지 — 인프라 결정은 falsification probe 1회 통과 필수",
+      "decision": "harness/dispatcher/agent registration 등 인프라 의존 결정은 채택 전 falsification probe 1회 실측 통과를 게이트 G1로 의무화. 파일 생성·문서 작성을 G1 통과로 인정 금지. 미통과 시 결정 박제 차단.",
+      "value": "D-058 22세션 잠복 재발 방지. 측정 부재 자기복제 차단. Riki 절차 권고를 protocol화.",
+      "rejectedAlternatives": [],
+      "appliedTo": [
+        "후속 모든 인프라 토픽의 G1 정의"
+      ]
+    },
+    {
+      "id": "D-071",
+      "date": "2026-04-24",
+      "session": "session_092",
+      "topic": "agent-review-progress-and-next",
+      "owningTopicId": "topic_097",
+      "scopeCheck": "D-058 분기 로직 폐기 + 연쇄 결정 처리",
+      "axis": "Sonnet 메인 + Opus 서브에이전트 dispatcher 구조 폐기",
+      "decision": "D-058 dispatcher-worker 분기 로직 폐기. .claude/agents/role-{ace,arki,fin,riki}.md 4개는 archive 이동(D-073). opus-dispatcher 스킬 + dispatch_config.json 폐기. 연쇄 D-066/D-068/D-070 deprecated, D-067/D-069 inline 의미로 재정의. unwind 구현은 후속 토픽 처리.",
+      "value": "falsification probe 4/4 fail로 22세션 fiction 확정. 잃는 것 0(작동한 적 없음). 측정·hook·schema 부담 모두 해제.",
+      "rejectedAlternatives": [
+        {
+          "option": "보존 + harness 등록 메커니즘 신규 구축",
+          "reason": "미지수 다수(등록 schema/model 강제/subagentId 반환/context 격리). 외부 의존 영구화 + 측정 위한 측정."
+        },
+        {
+          "option": "보류 후 추가 측정",
+          "reason": "probe 결과 단정적, 추가 측정 한계효용 0."
+        }
+      ],
+      "appliedTo": [
+        "memory/shared/decision_ledger.json (D-058/D-066/D-068/D-070 deprecated, D-067/D-069 redefined)",
+        "후속 토픽이 코드/파일 unwind 처리 예정"
+      ]
+    },
     {
       "id": "D-070",
       "date": "2026-04-24",
@@ -20,7 +80,10 @@
       "appliedTo": [
         ".claude/hooks/session-end-finalize.js",
         "memory/sessions/session_index.json (session_090 entry)"
-      ]
+      ],
+      "status": "deprecated",
+      "deprecatedInSession": "session_092",
+      "deprecatedNote": "D-058 의존. session_090 immutable 보호도 격리 인프라 부재로 의미 상실."
     },
     {
       "id": "D-069",
@@ -40,7 +103,10 @@
       ],
       "appliedTo": [
         ".claude/hooks/session-end-finalize.js (filterAgentsCompletedByDualSatisfaction)"
-      ]
+      ],
+      "status": "redefined",
+      "redefinedInSession": "session_092",
+      "redefinedNote": "agentsCompleted 4조건 필터 폐기. inline 모드 기준 단순 role 기록으로 환원. legacy:true 세션 처리는 그대로 유지."
     },
     {
       "id": "D-068",
@@ -63,7 +129,10 @@
         ".claude/hooks/session-end-finalize.js",
         ".claude/settings.json"
       ],
-      "verifiedInSession": "session_091 — Dev 호출 직후 turns에 dev entry 자동 push 실증"
+      "verifiedInSession": "session_091 — Dev 호출 직후 turns에 dev entry 자동 push 실증",
+      "status": "deprecated",
+      "deprecatedInSession": "session_092",
+      "deprecatedNote": "D-058 의존. PostToolUse 자동 박제는 silent fallback 위 invocationMode=subagent 거짓 박제만 생산."
     },
     {
       "id": "D-067",
@@ -84,7 +153,10 @@
       "appliedTo": [
         "scripts/lib/turn-types.ts",
         ".claude/agents/role-{ace,arki,fin,riki}.md"
-      ]
+      ],
+      "status": "redefined",
+      "redefinedInSession": "session_092",
+      "redefinedNote": "양자 baseline(report+turnId 매칭) 폐기. turnId/invocationMode 필드는 inline 모드 의미로 재정의: invocationMode는 inline|sub|tool 중 inline이 정상값, subagent는 미래 spike 통과 후에만 사용."
     },
     {
       "id": "D-066",
@@ -127,7 +199,10 @@
         "memory/shared/signal_registry.json — v1.00 spec 박제 (30 signals)",
         "memory/shared/evidence_index.json — F-001~F-013 태깅 프로토콜 도입"
       ],
-      "implementationNote": "Phase 1 이번 세션 완료. Phase 2(PreToolUse hook)/Phase 3(페르소나 분리 L5) 및 서브에이전트 세션 지속성은 PD-032/033으로 이관. signal v1.00 수집 로직은 topic_095 실행 세션에서 구현."
+      "implementationNote": "Phase 1 이번 세션 완료. Phase 2(PreToolUse hook)/Phase 3(페르소나 분리 L5) 및 서브에이전트 세션 지속성은 PD-032/033으로 이관. signal v1.00 수집 로직은 topic_095 실행 세션에서 구현.",
+      "status": "deprecated",
+      "deprecatedInSession": "session_092",
+      "deprecatedNote": "D-058 의존. Grade A/S inline-main 차단의 Structural 층이 비어있어 enforcement 자체가 fiction."
     },
     {
       "id": "D-065",
@@ -294,7 +369,7 @@
       "decision": "(A) Grade A: 메인 Sonnet + 역할 서브 Opus. Grade S: 메인 Opus 유지(보수적). Grade B/C: Sonnet 단일. (B) 서브 대상: Ace·Arki·Fin·Riki 4역할. Nova·Dev·Vera·Editor 제외(1차). (C) 서브 계약: 역할 서브가 reports/{slug}/{role}_rev{n}.md 직접 write. {ROLE}_WRITE_DONE 신호로 확인. (D) 컨텍스트 빌더: fixed(CLAUDE.md 발췌 3k) + framing + previous_roles(file-path-list) + role_memory(file-path-ref) + write_contract. 총 예산 30k 토큰. (E) 단일 원천: memory/shared/dispatch_config.json — 모델명·Grade 매핑·역할 목록·경로 패턴·가드레일 전부. 스킬·에이전트 파일 하드코딩 금지. (F) 롤백 플래그: dispatchMode=monolithic 1줄로 전환. (G) 실측 검증 P4: 3세션 — 비용 절감률·Master 신호 감지·재호출 분포 측정. (H) auto-model-switch 스킬 폐기. opus-dispatcher 스킬로 교체.",
       "value": "Grade A 세션 비용 ~75% 절감(directional). 역할 발언은 Opus 품질 유지. Probe 3건(라우팅·품질·스킬 상속) 실측 통과. G1(write 계약)·G3(RED→GREEN) 검증 완료. 메인 Sonnet의 빠른 응답성으로 세션 wall-time 단축. 저마찰·N4 비전 로드맵과 정합.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "deprecated",
       "owningTopicId": "topic_071",
       "scopeCheck": "standalone",
       "relatedTopics": [
@@ -302,7 +377,9 @@
       ],
       "relatedDecisions": [
         "D-043"
-      ]
+      ],
+      "deprecatedInSession": "session_092",
+      "deprecatedNote": "session_092 falsification probe 4/4 fail. role-*.md frontmatter name: 부재로 harness 미등록 — 22세션 동안 fiction. D-071이 제거 결정 박제."
     },
     {
       "id": "D-057",

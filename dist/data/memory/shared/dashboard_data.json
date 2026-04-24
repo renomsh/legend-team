@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-24T06:49:42.570Z",
-  "totalSessions": 89,
+  "generatedAt": "2026-04-24T08:39:15.626Z",
+  "totalSessions": 90,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.51,
-    "avgCacheHitRate": 0.9302,
-    "cacheSampleSize": 63,
-    "cacheSampleTotal": 89,
+    "avgMasterTurns": 16.42,
+    "avgCacheHitRate": 0.9301,
+    "cacheSampleSize": 64,
+    "cacheSampleTotal": 90,
     "avgAdoptionRate": 0,
-    "totalDecisions": 70,
+    "totalDecisions": 73,
     "gradeDistribution": {
-      "S": 30,
+      "S": 31,
       "A": 18,
       "B": 30,
       "C": 11
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 44,
-    "totalCostUSD": 776.8312,
-    "avgCostPerSession": 9.248,
-    "costSampleSize": 84
+    "turnBasedSessions": 45,
+    "totalCostUSD": 781.4727,
+    "avgCostPerSession": 9.1938,
+    "costSampleSize": 85
   },
   "sessions": [
     {
@@ -3311,12 +3311,53 @@
         "messageCount": 145
       },
       "sessionCostUSD": 11.3966
+    },
+    {
+      "sessionId": "session_092",
+      "topicSlug": "agent-review-progress-and-next",
+      "topic": "A Agent review — 진행 내역 점검 + 다음 액션 식별",
+      "startedAt": "2026-04-24T19:00:00.000Z",
+      "closedAt": "2026-04-24T20:30:00.000Z",
+      "decisionCount": 3,
+      "decisionAxes": 3,
+      "decisions": [
+        "D-073",
+        "D-072",
+        "D-071"
+      ],
+      "rolesCalled": 4,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 9,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 6741786,
+        "ioTokens": 72341,
+        "inputTokens": 813,
+        "outputTokens": 71528,
+        "cacheCreate": 453713,
+        "cacheRead": 6215732,
+        "cacheHitRate": 0.9219711215989354,
+        "messageCount": 70
+      },
+      "sessionCostUSD": 4.6415
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 77,
+      "count": 79,
       "sessions": [
         "session_047",
         "session_048",
@@ -3355,12 +3396,13 @@
         "session_088",
         "session_089",
         "session_090",
-        "session_091"
+        "session_091",
+        "session_092"
       ]
     },
     {
       "role": "arki",
-      "count": 55,
+      "count": 56,
       "sessions": [
         "session_048",
         "session_049",
@@ -3384,12 +3426,13 @@
         "session_087",
         "session_089",
         "session_090",
-        "session_091"
+        "session_091",
+        "session_092"
       ]
     },
     {
       "role": "editor",
-      "count": 41,
+      "count": 42,
       "sessions": [
         "session_050",
         "session_051",
@@ -3431,7 +3474,8 @@
         "session_088",
         "session_089",
         "session_090",
-        "session_091"
+        "session_091",
+        "session_092"
       ]
     },
     {
@@ -3467,7 +3511,7 @@
     },
     {
       "role": "riki",
-      "count": 21,
+      "count": 22,
       "sessions": [
         "session_049",
         "session_053",
@@ -3486,7 +3530,8 @@
         "session_081",
         "session_082",
         "session_086",
-        "session_087"
+        "session_087",
+        "session_092"
       ]
     },
     {
@@ -5310,6 +5355,42 @@
           "role": "editor",
           "phase": "compile",
           "turnIdx": 9,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_092",
+      "topic": "A Agent review — 진행 내역 점검 + 다음 액션 식별",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "diagnosis",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "cross-attack",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 4,
           "recallReason": null
         }
       ]
