@@ -1,12 +1,12 @@
 {
-  "computedAt": "2026-04-25T04:12:02.525Z",
+  "computedAt": "2026-04-25T04:21:33.608Z",
   "registryVersion": "v1.0",
-  "durationMs": 2,
+  "durationMs": 1,
   "slaWarnMs": 3000,
   "slaBreached": false,
   "sourceJsonl": "memory\\growth\\self_scores.jsonl",
   "recordCount": 40,
-  "metricCount": 36,
+  "metricCount": 41,
   "aggregates": [
     {
       "metricId": "ace.angle_novelty",
@@ -279,35 +279,8 @@
       "ci95": null
     },
     {
-      "metricId": "dev.regression_zero",
+      "metricId": "dev.runtime_test_coverage",
       "role": "dev",
-      "view": "all",
-      "mean": 100,
-      "n": 2,
-      "std": 0,
-      "ci95": null
-    },
-    {
-      "metricId": "dev.regression_zero",
-      "role": "dev",
-      "view": "recent10",
-      "mean": 100,
-      "n": 2,
-      "std": 0,
-      "ci95": null
-    },
-    {
-      "metricId": "dev.regression_zero",
-      "role": "dev",
-      "view": "recent3",
-      "mean": 100,
-      "n": 2,
-      "std": 0,
-      "ci95": null
-    },
-    {
-      "metricId": "editor.artifact_completeness",
-      "role": "editor",
       "view": "all",
       "mean": null,
       "n": 0,
@@ -315,8 +288,8 @@
       "ci95": null
     },
     {
-      "metricId": "editor.artifact_completeness",
-      "role": "editor",
+      "metricId": "dev.runtime_test_coverage",
+      "role": "dev",
       "view": "recent10",
       "mean": null,
       "n": 0,
@@ -324,8 +297,8 @@
       "ci95": null
     },
     {
-      "metricId": "editor.artifact_completeness",
-      "role": "editor",
+      "metricId": "dev.runtime_test_coverage",
+      "role": "dev",
       "view": "recent3",
       "mean": null,
       "n": 0,
@@ -333,6 +306,60 @@
       "ci95": null
     },
     {
+      "metricId": "dev.hardcoding_rate",
+      "role": "dev",
+      "view": "all",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "dev.hardcoding_rate",
+      "role": "dev",
+      "view": "recent10",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "dev.hardcoding_rate",
+      "role": "dev",
+      "view": "recent3",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "editor.artifact_completeness",
+      "role": "editor",
+      "view": "all",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "editor.artifact_completeness",
+      "role": "editor",
+      "view": "recent10",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "editor.artifact_completeness",
+      "role": "editor",
+      "view": "recent3",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
       "metricId": "editor.cross_session_continuity",
       "role": "editor",
       "view": "all",
@@ -352,6 +379,33 @@
     },
     {
       "metricId": "editor.cross_session_continuity",
+      "role": "editor",
+      "view": "recent3",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "editor.gap_pinning_accuracy",
+      "role": "editor",
+      "view": "all",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "editor.gap_pinning_accuracy",
+      "role": "editor",
+      "view": "recent10",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "editor.gap_pinning_accuracy",
       "role": "editor",
       "view": "recent3",
       "mean": null,
@@ -541,6 +595,60 @@
     },
     {
       "metricId": "nova.promotion_rate",
+      "role": "nova",
+      "view": "recent3",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "nova.invocation_promotion",
+      "role": "nova",
+      "view": "all",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "nova.invocation_promotion",
+      "role": "nova",
+      "view": "recent10",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "nova.invocation_promotion",
+      "role": "nova",
+      "view": "recent3",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "nova.blindspot_flag",
+      "role": "nova",
+      "view": "all",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "nova.blindspot_flag",
+      "role": "nova",
+      "view": "recent10",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "nova.blindspot_flag",
       "role": "nova",
       "view": "recent3",
       "mean": null,
@@ -676,6 +784,33 @@
     },
     {
       "metricId": "vera.token_consistency",
+      "role": "vera",
+      "view": "recent3",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "vera.token_drift_zero",
+      "role": "vera",
+      "view": "all",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "vera.token_drift_zero",
+      "role": "vera",
+      "view": "recent10",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "vera.token_drift_zero",
       "role": "vera",
       "view": "recent3",
       "mean": null,
@@ -959,8 +1094,8 @@
       "metricId": "session.health_score",
       "role": "session",
       "view": "all",
-      "mean": 77.5,
-      "n": 4,
+      "mean": 70,
+      "n": 3,
       "std": 0,
       "ci95": null
     },
@@ -968,8 +1103,8 @@
       "metricId": "session.health_score",
       "role": "session",
       "view": "recent10",
-      "mean": 77.5,
-      "n": 4,
+      "mean": 70,
+      "n": 3,
       "std": 0,
       "ci95": null
     },
@@ -977,8 +1112,8 @@
       "metricId": "session.health_score",
       "role": "session",
       "view": "recent3",
-      "mean": 77.5,
-      "n": 4,
+      "mean": 70,
+      "n": 3,
       "std": 0,
       "ci95": null
     }
@@ -987,8 +1122,8 @@
     "editor.gap_flag_count all: no inputs",
     "editor.gap_flag_count recent10: no inputs",
     "editor.gap_flag_count recent3: no inputs",
-    "session.health_score all: partial: 4/6 present",
-    "session.health_score recent10: partial: 4/6 present",
-    "session.health_score recent3: partial: 4/6 present"
+    "session.health_score all: partial: 3/6 present",
+    "session.health_score recent10: partial: 3/6 present",
+    "session.health_score recent3: partial: 3/6 present"
   ]
 }

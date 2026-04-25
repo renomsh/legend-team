@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-25T04:12:04.895Z",
-  "totalSessions": 99,
+  "generatedAt": "2026-04-25T04:21:36.911Z",
+  "totalSessions": 100,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.81,
-    "avgCacheHitRate": 0.9316,
-    "cacheSampleSize": 73,
-    "cacheSampleTotal": 99,
+    "avgMasterTurns": 16.66,
+    "avgCacheHitRate": 0.9317,
+    "cacheSampleSize": 74,
+    "cacheSampleTotal": 100,
     "avgAdoptionRate": 0,
     "totalDecisions": 92,
     "gradeDistribution": {
       "S": 37,
       "A": 19,
-      "B": 31,
+      "B": 32,
       "C": 12
     },
     "gradeMismatchCount": 2,
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 54,
-    "totalCostUSD": 859.0854,
-    "avgCostPerSession": 9.1392,
-    "costSampleSize": 94
+    "turnBasedSessions": 55,
+    "totalCostUSD": 862.1688,
+    "avgCostPerSession": 9.0755,
+    "costSampleSize": 95
   },
   "sessions": [
     {
@@ -3742,6 +3742,40 @@
         "messageCount": 202
       },
       "sessionCostUSD": 15.3624
+    },
+    {
+      "sessionId": "session_102",
+      "topicSlug": "maintenance-d087-pd036-metrics-fix",
+      "topic": "D 단발 — A-1(decision_ledger D-087~D-091 sync) + A-2(PD-036 status 전이) + A-5(compile-metrics-registry schema fix)",
+      "startedAt": "2026-04-25T14:00:00.000Z",
+      "closedAt": "2026-04-25T14:15:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 3,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 4890662,
+        "ioTokens": 45398,
+        "inputTokens": 78,
+        "outputTokens": 45320,
+        "cacheCreate": 275300,
+        "cacheRead": 4569964,
+        "cacheHitRate": 0.9344264641473895,
+        "messageCount": 68
+      },
+      "sessionCostUSD": 3.0834
     }
   ],
   "roleFrequency": [
@@ -3837,7 +3871,7 @@
     },
     {
       "role": "editor",
-      "count": 51,
+      "count": 52,
       "sessions": [
         "session_050",
         "session_051",
@@ -3889,12 +3923,13 @@
         "session_098",
         "session_099",
         "session_100",
-        "session_101"
+        "session_101",
+        "session_102"
       ]
     },
     {
       "role": "dev",
-      "count": 38,
+      "count": 39,
       "sessions": [
         "session_047",
         "session_048",
@@ -3927,7 +3962,8 @@
         "session_097",
         "session_098",
         "session_100",
-        "session_101"
+        "session_101",
+        "session_102"
       ]
     },
     {
@@ -6302,6 +6338,24 @@
           "role": "editor",
           "phase": "compile",
           "turnIdx": 13,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_102",
+      "topic": "D 단발 — A-1(decision_ledger D-087~D-091 sync) + A-2(PD-036 status 전이) + A-5(compile-metrics-registry schema fix)",
+      "sequence": [
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 1,
           "recallReason": null
         }
       ]

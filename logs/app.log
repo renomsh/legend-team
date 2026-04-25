@@ -1008,3 +1008,11 @@
 [2026-04-25T04:11:43.340Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_106\context_brief.md | sessions=1 size=482B
 [2026-04-25T04:11:56.752Z] [sync-system-state] lastSession=session_101 openTopics=3 recentDecisions=5 recentSummaries=3 deferrals=38
 [2026-04-25T04:12:04.899Z] [compute-dashboard] 완료 — 99개 세션, 7개 경보
+[2026-04-25T04:20:51.944Z] [checklist] [WARN] reports: reportPath not found on disk: reports/2026-04-25_maintenance-d087-pd036-metrics-fix
+[2026-04-25T04:20:51.946Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-25T04:20:51.947Z] [checklist] [INFO] topic_index: topic found: topic_107 (completed)
+[2026-04-25T04:20:51.948Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-25T04:20:51.948Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-25T04:20:51.949Z] [session-log] [INFO] END session_102 | topic: maintenance-d087-pd036-metrics-fix | duration: unknown (startedAt in future)
+[2026-04-25T04:21:28.136Z] [sync-system-state] lastSession=session_102 openTopics=3 recentDecisions=5 recentSummaries=3 deferrals=38
+[2026-04-25T04:21:36.917Z] [compute-dashboard] 완료 — 100개 세션, 7개 경보

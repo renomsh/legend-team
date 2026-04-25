@@ -1,11 +1,11 @@
 {
   "registryVersion": "v1.0",
-  "compiledAt": "2026-04-24T03:04:52.065Z",
-  "sourceHash": "1c555d201ac602f0",
+  "compiledAt": "2026-04-25T04:19:38.441Z",
+  "sourceHash": "dfa76f91086c39c8",
   "axisDistribution": {
-    "learning": 4,
-    "quality": 14,
-    "judgment-consistency": 10,
+    "learning": 5,
+    "quality": 17,
+    "judgment-consistency": 11,
     "execution-transfer": 8
   },
   "aggregationViews": [
@@ -460,17 +460,18 @@
       ]
     },
     {
-      "id": "dev.regression_zero",
-      "shortKey": "reg_zr",
+      "id": "dev.runtime_test_coverage",
+      "shortKey": "rt_cov",
       "role": "dev",
       "scope": "role",
       "axis": "quality",
       "type": "base",
-      "scale": "Y/N",
+      "scale": "ratio",
       "polarity": "higher-better",
-      "construct": "회귀 테스트 fixture diff 0",
+      "construct": "구현한 export 함수 중 런타임 실행 검증된 비율 (DEV-LL-006 자가검증 4축 기반)",
       "externalAnchor": [
-        "test-regression.ts 결과"
+        "DEV-LL-006 레슨런",
+        "test 실행 로그"
       ],
       "validityCheck": "monthly",
       "rater": {
@@ -495,7 +496,52 @@
       "participationExpectedTopicTypes": [
         "implementation",
         "standalone"
-      ]
+      ],
+      "_reserved": {
+        "pd035_scope": true
+      }
+    },
+    {
+      "id": "dev.hardcoding_rate",
+      "shortKey": "hc_rt",
+      "role": "dev",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "lower-better",
+      "construct": "하드코딩된 값 건수 / config 참조 지점",
+      "externalAnchor": [
+        "git diff 정규식 스캔",
+        "DEV-LL-006 레슨런"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "dev"
+      },
+      "raterWeights": {
+        "dev": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "implementation",
+        "standalone"
+      ],
+      "_reserved": {
+        "pd035_scope": true
+      }
     },
     {
       "id": "editor.artifact_completeness",
@@ -635,6 +681,51 @@
         "implementation",
         "standalone"
       ]
+    },
+    {
+      "id": "editor.gap_pinning_accuracy",
+      "shortKey": "gp_acc",
+      "role": "editor",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "higher-better",
+      "construct": "세션 종결 시 박제한 gap이 N+3 세션 내 실제 결함으로 확인된 비율 (deferred-settlement: settlementOffset=3)",
+      "externalAnchor": [
+        "current_session.json gaps",
+        "N+3 세션 실제 결함 발생 기록"
+      ],
+      "timing": "deferred",
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "editor"
+      },
+      "raterWeights": {
+        "editor": 1
+      },
+      "aggregation": "all-sessions",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "_reserved": {
+        "pd035_scope": true,
+        "settlementOffset": 3,
+        "settlementStrategy": "retroactive-injection"
+      }
     },
     {
       "id": "editor.session_close_compliance",
@@ -887,6 +978,46 @@
       "timing": "deferred",
       "aggregation": "invoked-sessions-only",
       "baselineSessions": 10,
+      "lifecycleState": "deprecated",
+      "supersededBy": "inv_prm",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [],
+      "_reserved": {
+        "deprecatedAt": "2026-04-24"
+      }
+    },
+    {
+      "id": "nova.invocation_promotion",
+      "shortKey": "inv_prm",
+      "role": "nova",
+      "scope": "role",
+      "axis": "judgment-consistency",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "higher-better",
+      "construct": "호출된 Nova 세션 중 제안이 Master 승인 또는 Phase2 보류로 진전된 비율 (prm_rt 후계 — 전체 세션이 아닌 invoked 세션만 분모)",
+      "externalAnchor": [
+        "decision_ledger 'Nova' 출처",
+        "lessonLog invoked-sessions-only 집계"
+      ],
+      "validityCheck": "quarterly",
+      "rater": {
+        "type": "self",
+        "by": "nova"
+      },
+      "raterWeights": {
+        "nova": 1
+      },
+      "timing": "deferred",
+      "aggregation": "invoked-sessions-only",
+      "baselineSessions": 10,
       "lifecycleState": "active",
       "inputPriority": "extended",
       "defaultStrategy": "previous-session-value",
@@ -896,7 +1027,48 @@
         "implementation",
         "standalone"
       ],
-      "participationExpectedTopicTypes": []
+      "participationExpectedTopicTypes": [],
+      "_reserved": {
+        "pd035_scope": true
+      }
+    },
+    {
+      "id": "nova.blindspot_flag",
+      "shortKey": "blnd_spt",
+      "role": "nova",
+      "scope": "role",
+      "axis": "learning",
+      "type": "base",
+      "scale": "Y/N",
+      "polarity": "higher-better",
+      "construct": "세션 내 다른 역할이 놓친 전제를 명시 인용 + 대안 프레임 1개 이상 제시",
+      "externalAnchor": [
+        "nova_rev*.md 전제 인용 + 대안 프레임 섹션"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "nova"
+      },
+      "raterWeights": {
+        "nova": 1
+      },
+      "timing": "immediate",
+      "aggregation": "invoked-sessions-only",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [],
+      "_reserved": {
+        "pd035_scope": true
+      }
     },
     {
       "id": "riki.critical_recall",
@@ -1084,6 +1256,45 @@
         "standalone"
       ],
       "participationExpectedTopicTypes": []
+    },
+    {
+      "id": "vera.token_drift_zero",
+      "shortKey": "tk_drf0",
+      "role": "vera",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "Y/N",
+      "polarity": "higher-better",
+      "construct": "디자인 토큰 drift 0건 (신규 토큰 무단 추가·기존 값 변형 없음)",
+      "externalAnchor": [
+        "design tokens diff 스캔",
+        "role-colors.js 단일 원천 대조"
+      ],
+      "validityCheck": "monthly",
+      "rater": {
+        "type": "self",
+        "by": "vera"
+      },
+      "raterWeights": {
+        "vera": 1
+      },
+      "timing": "immediate",
+      "aggregation": "invoked-sessions-only",
+      "baselineSessions": 10,
+      "lifecycleState": "active",
+      "inputPriority": "extended",
+      "defaultStrategy": "previous-session-value",
+      "missingPenalty": "warn",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [],
+      "_reserved": {
+        "pd035_scope": true
+      }
     },
     {
       "id": "vera.spec_compliance",

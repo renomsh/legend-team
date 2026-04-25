@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_101",
-  "nextSessionId": "session_102",
+  "lastSessionId": "session_102",
+  "nextSessionId": "session_103",
   "currentVersion": "v1.54",
   "openTopics": [
     {
@@ -59,6 +59,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_102",
+      "topicSlug": "maintenance-d087-pd036-metrics-fix",
+      "closedAt": "2026-04-25T14:15:00.000Z",
+      "oneLineSummary": "A-1 확인(D-087~D-091 기존 동기화), A-2 PD-036 resolved, A-5 compile-metrics-registry Ajv 스키마 fix",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_101",
       "topicSlug": "pd023-ops-activation-check",
       "closedAt": "2026-04-25T13:30:00.000Z",
@@ -78,13 +85,6 @@
         "D-090",
         "D-091"
       ]
-    },
-    {
-      "sessionId": "session_099",
-      "topicSlug": "pd037-vera-persona-status-check",
-      "closedAt": "2026-04-25T09:10:00.000Z",
-      "oneLineSummary": "PD-037 resolved: role-vera.md 존재 확인 + vera-signature-review 실사용 확인",
-      "decisionsAdded": []
     }
   ],
   "pendingDeferrals": [
@@ -424,9 +424,11 @@
       "fromSession": "session_094",
       "fromTopic": "pd023-resume-self-scores-mvp",
       "item": "3세션 summary 자동 로드 시스템 구현 (D-077 후속) — session_index 2필드 + topic_index closedInSession + sync-system-state 확장",
-      "status": "pending",
+      "status": "resolved",
       "resolveCondition": "구현 완료 + 3세션 자동 summary 생성 확인 + /open step 3.5 브리핑 동작",
-      "dependsOn": []
+      "dependsOn": [],
+      "resolvedInSession": "session_097",
+      "resolvedNote": "session_097(pd036-3session-summary-autoload)에서 구현 완료. system_state.json recentSessionSummaries 3건 자동 생성 확인. /open step 3.5-b 브리핑 동작 확인(session_102)."
     },
     {
       "id": "PD-037",
@@ -458,5 +460,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-25T04:11:56.751Z"
+  "lastUpdated": "2026-04-25T04:21:28.134Z"
 }

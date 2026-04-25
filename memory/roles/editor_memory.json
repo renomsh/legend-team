@@ -310,8 +310,6 @@
         "current_session.json gaps",
         "N+3 세션 실제 결함 발생 기록"
       ],
-      "settlementOffset": 3,
-      "settlementStrategy": "retroactive-injection",
       "timing": "deferred",
       "validityCheck": "monthly",
       "rater": {
@@ -337,7 +335,7 @@
         "implementation",
         "standalone"
       ],
-      "_reserved": { "pd035_scope": true }
+      "_reserved": { "pd035_scope": true, "settlementOffset": 3, "settlementStrategy": "retroactive-injection" }
     },
     {
       "id": "editor.session_close_compliance",

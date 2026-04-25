@@ -1,189 +1,63 @@
 {
-  "sessionId": "session_101",
-  "topicId": "topic_106",
-  "topic": "PD-023 운영 가동 점검 (fallback 비율 측정 + batch-helper 실사용)",
-  "topicSlug": "pd023-ops-activation-check",
-  "reportPath": "reports/2026-04-25_pd023-ops-activation-check",
+  "sessionId": "session_102",
+  "topicId": "topic_107",
+  "topic": "D 단발 — A-1(decision_ledger D-087~D-091 sync) + A-2(PD-036 status 전이) + A-5(compile-metrics-registry schema fix)",
+  "topicSlug": "maintenance-d087-pd036-metrics-fix",
+  "reportPath": "reports/2026-04-25_maintenance-d087-pd036-metrics-fix",
   "status": "closed",
-  "startedAt": "2026-04-25T11:30:00.000Z",
-  "closedAt": "2026-04-25T13:30:00.000Z",
-  "oneLineSummary": "PD-023 운영 가동 점검 → 자가평가 단순화. propagation·자동감시 폐기, 단일 출처 박제, polarity-aligned 100점, D-092·PD-023 close.",
+  "startedAt": "2026-04-25T14:00:00.000Z",
+  "closedAt": "2026-04-25T14:15:00.000Z",
+  "oneLineSummary": "A-1 확인(D-087~D-091 기존 동기화), A-2 PD-036 resolved, A-5 compile-metrics-registry Ajv 스키마 fix",
   "mode": "observation",
-  "grade": "B",
-  "gradeDeclared": "B",
+  "grade": "D",
+  "gradeDeclared": "D",
   "orchestrationMode": "manual",
-  "orchestrationTransitions": [
-    {
-      "mode": "auto",
-      "turnIdx": 0,
-      "trigger": "/auto",
-      "at": "2026-04-25T11:35:00.000Z"
-    },
-    {
-      "mode": "manual",
-      "turnIdx": 1,
-      "trigger": "/master",
-      "at": "2026-04-25T11:45:00.000Z"
-    }
-  ],
-  "framingLevel": 2,
-  "framingSkipped": false,
-  "topicType": "implementation",
-  "parentTopicId": "topic_105",
+  "orchestrationTransitions": [],
+  "framingLevel": 0,
+  "framingSkipped": true,
+  "topicType": "standalone",
+  "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
-    "ace",
-    "arki",
-    "arki",
-    "riki",
-    "dev",
-    "ace",
-    "ace",
-    "riki",
-    "arki",
-    "arki",
-    "riki",
-    "ace",
     "dev",
     "editor"
   ],
   "turns": [
     {
-      "role": "ace",
-      "turnIdx": 0,
-      "phase": "framing",
-      "selfScores": {
-        "ang_nov": 2,
-        "rfrm_trg": "N",
-        "orc_hit": 0.6,
-        "ctx_car": 4,
-        "mst_fr": 2
-      }
-    },
-    {
-      "role": "arki",
-      "turnIdx": 1,
-      "phase": "design"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 2,
-      "phase": "design",
-      "recallReason": "post-master"
-    },
-    {
-      "role": "riki",
-      "turnIdx": 3,
-      "phase": "design"
-    },
-    {
       "role": "dev",
-      "turnIdx": 4,
+      "turnIdx": 0,
       "phase": "implementation"
     },
     {
-      "role": "ace",
-      "turnIdx": 5,
-      "phase": "synthesis"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 6,
-      "phase": "synthesis",
-      "recallReason": "post-master"
-    },
-    {
-      "role": "riki",
-      "turnIdx": 7,
-      "recallReason": "post-master"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 8,
-      "recallReason": "post-master"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 9,
-      "recallReason": "post-master",
-      "selfScores": {
-        "str_fd": 3,
-        "sa_rnd": 2,
-        "aud_rcl": 0.6,
-        "spc_lck": "Y"
-      }
-    },
-    {
-      "role": "riki",
-      "turnIdx": 10,
-      "recallReason": "post-master",
-      "selfScores": {
-        "crt_rcl": 0.9,
-        "prd_rej": "Y",
-        "fp_rt": 0.1,
-        "cr_val": "Y"
-      }
-    },
-    {
-      "role": "ace",
-      "turnIdx": 11,
-      "phase": "synthesis",
-      "recallReason": "post-master"
-    },
-    {
-      "role": "dev",
-      "turnIdx": 12,
-      "phase": "implementation",
-      "selfScores": {
-        "gt_pas": 0.85,
-        "spc_drf": 1,
-        "reg_zr": "Y",
-        "gt_ftr": 0.7,
-        "gt_rtc": 1,
-        "gt_pgd": 0,
-        "gt_hcr": 0
-      }
-    },
-    {
       "role": "editor",
-      "turnIdx": 13,
+      "turnIdx": 1,
       "phase": "compile"
     }
   ],
-  "decisions": [
-    "D-092"
-  ],
+  "decisions": [],
   "masterDecisions": [],
-  "masterFeedback": [
-    "본질도 아닌 것에 왜 이렇게 어렵고 꼬이지 (단순화 회귀 신호)",
-    "점수만 보여주면 돼 (자연어 리뷰 폐기, 점수 기록만)",
-    "한번 더 확인 + 단일화 (canonical 분산 우려)",
-    "리키 의견 — 필요 없는 의견 말고 아키 잘못만 (개수 채우기 금지)"
-  ],
+  "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [
-    "PD-023"
+    "PD-036"
   ],
-  "pendingDeferralsDeprecated": [
-    "PD-025",
-    "PD-026",
-    "PD-027"
-  ],
-  "decisionsAdded": [
-    "D-092"
-  ],
+  "pendingDeferralsDeprecated": [],
+  "decisionsAdded": [],
   "notes": [
-    "decision_ledger D-087~D-091 ledger 미동기화 발견(session_100 박제분이 system_state까지만 반영). 별도 sync 필요(본 토픽 범위 외).",
-    "self_scores.jsonl 70 records → memory/growth/_quarantine/legacy_propagation_session083-089.jsonl 이관. fresh start."
+    "A-1: D-087~D-091 decision_ledger.json에 이미 완전 동기화(decision+value 필드 모두 존재). session_101 note 기준 동작 불필요.",
+    "A-2: PD-036 resolved — session_097(pd036-3session-summary-autoload) 구현 완료, 3세션 summary 자동 생성 + /open step 3.5-b 동작 확인.",
+    "A-5: editor.gap_pinning_accuracy(settlementOffset/settlementStrategy → _reserved 이동) + nova.promotion_rate(deprecated/deprecatedAt/replacedBy → lifecycleState:deprecated/supersededBy/_reserved 재매핑). compile-metrics-registry OK 통과."
   ],
-  "gaps": [],
+  "gaps": [
+    "reports 파일 없음 (Grade D, Edi 생략 규칙 적용)"
+  ],
   "tokenUsage": {
-    "input_tokens": 524,
-    "output_tokens": 201374,
-    "cache_creation_input_tokens": 927038,
-    "cache_read_input_tokens": 29546213,
-    "messageCount": 202,
-    "masterTurns": 31,
-    "total_billable": 30675149
+    "input_tokens": 78,
+    "output_tokens": 45320,
+    "cache_creation_input_tokens": 275300,
+    "cache_read_input_tokens": 4569964,
+    "messageCount": 68,
+    "masterTurns": 3,
+    "total_billable": 4890662
   }
 }

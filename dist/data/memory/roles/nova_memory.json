@@ -165,7 +165,8 @@
       "timing": "deferred",
       "aggregation": "invoked-sessions-only",
       "baselineSessions": 10,
-      "lifecycleState": "active",
+      "lifecycleState": "deprecated",
+      "supersededBy": "inv_prm",
       "inputPriority": "extended",
       "defaultStrategy": "previous-session-value",
       "missingPenalty": "warn",
@@ -175,9 +176,7 @@
         "standalone"
       ],
       "participationExpectedTopicTypes": [],
-      "deprecated": true,
-      "deprecatedAt": "2026-04-24",
-      "replacedBy": "inv_prm"
+      "_reserved": { "deprecatedAt": "2026-04-24" }
     },
     {
       "id": "nova.invocation_promotion",

@@ -1,6 +1,18 @@
 {
-  "generatedAt": "2026-04-25T04:12:05.835Z",
+  "generatedAt": "2026-04-25T04:21:38.617Z",
   "topics": [
+    {
+      "id": "topic_107",
+      "title": "D 단발 — A-1(decision_ledger D-087~D-091 sync) + A-2(PD-036 status 전이) + A-5(compile-metrics-registry schema fix)",
+      "status": "completed",
+      "created": "2026-04-25",
+      "reportPath": "reports/2026-04-25_maintenance-d087-pd036-metrics-fix",
+      "reportFiles": [],
+      "published": false,
+      "outcome": "A-1: D-087~D-091 decision_ledger 이미 동기화 완료 확인. A-2: PD-036 resolved 전이. A-5: compile-metrics-registry Ajv 스키마 추가 프로퍼티 오류 수정(editor+nova).",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_106",
       "title": "PD-023 운영 가동 점검 (fallback 비율 측정 + batch-helper 실사용)",
