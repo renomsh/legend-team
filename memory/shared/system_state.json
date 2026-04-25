@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_104",
-  "nextSessionId": "session_105",
+  "lastSessionId": "session_105",
+  "nextSessionId": "session_106",
   "currentVersion": "v1.65",
   "openTopics": [
     {
@@ -59,6 +59,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_105",
+      "topicSlug": "dashboard-redesign-ux-responsive",
+      "closedAt": "2026-04-25T19:30:00.000Z",
+      "oneLineSummary": "topic_082 Phase 2 G2 8/8 PASS, baseline 24/24 lock self-diff 0.000%, PD-051 신설(VR image 핀 mismatch), 새 D 0건",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_104",
       "topicSlug": "dashboard-redesign-ux-responsive",
       "closedAt": "2026-04-25T18:10:00.000Z",
@@ -79,13 +86,6 @@
       "decisionsAdded": [
         "D-093"
       ]
-    },
-    {
-      "sessionId": "session_102",
-      "topicSlug": "maintenance-d087-pd036-metrics-fix",
-      "closedAt": "2026-04-25T14:15:00.000Z",
-      "oneLineSummary": "A-1 확인(D-087~D-091 기존 동기화), A-2 PD-036 resolved, A-5 compile-metrics-registry Ajv 스키마 fix",
-      "decisionsAdded": []
     }
   ],
   "pendingDeferrals": [
@@ -535,7 +535,16 @@
       "item": "ECharts label fixture — VR mock fixture에서 ECharts 차트 label 텍스트(축·범례·tooltip) 결정점 확장. 현 mock fixture 10항목은 KPI 숫자 위주, 차트 내부 label 변동 시 false-positive 가능성.",
       "status": "pending",
       "note": "D-089 mock fixture 후속"
+    },
+    {
+      "id": "PD-051",
+      "fromSession": "session_105",
+      "fromTopic": "dashboard-redesign-ux-responsive-phase2",
+      "item": "vr-infra-spec image 핀 정정 — D-096 박제값 mcr.microsoft.com/playwright:v1.45.0-jammy ↔ 실설치 @playwright/test v1.59.1 mismatch. session_106 docker pull 시 v1.59.1-jammy로 fallback하여 baseline lock 성공했으나 spec 박제값과 어긋남. vr-infra-spec.md image 핀 갱신 또는 D-096 정정 결정 필요.",
+      "status": "pending",
+      "resolveCondition": "vr-infra-spec.md image 핀 갱신(또는 D-096 정정 D-099 박제) + session_106 dry-run에서 docker pull → vr-capture 24/24 PASS",
+      "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-25T11:55:52.367Z"
+  "lastUpdated": "2026-04-25T13:10:20.007Z"
 }

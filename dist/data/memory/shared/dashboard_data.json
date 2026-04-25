@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-25T11:56:02.993Z",
-  "totalSessions": 102,
+  "generatedAt": "2026-04-25T13:10:26.822Z",
+  "totalSessions": 103,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.95,
-    "avgCacheHitRate": 0.9322,
-    "cacheSampleSize": 76,
-    "cacheSampleTotal": 102,
+    "avgMasterTurns": 16.9,
+    "avgCacheHitRate": 0.9326,
+    "cacheSampleSize": 77,
+    "cacheSampleTotal": 103,
     "avgAdoptionRate": 0,
     "totalDecisions": 98,
     "gradeDistribution": {
-      "S": 39,
+      "S": 40,
       "A": 19,
       "B": 32,
       "C": 12
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 57,
-    "totalCostUSD": 889.9352,
-    "avgCostPerSession": 9.1746,
-    "costSampleSize": 97
+    "turnBasedSessions": 58,
+    "totalCostUSD": 900.4494,
+    "avgCostPerSession": 9.1883,
+    "costSampleSize": 98
   },
   "sessions": [
     {
@@ -2708,8 +2708,8 @@
       ],
       "rolesCalled": 2,
       "rolesRecalled": 0,
-      "sessionsSpanned": 2,
-      "size": 16,
+      "sessionsSpanned": 3,
+      "size": 19,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -3836,8 +3836,8 @@
       ],
       "rolesCalled": 17,
       "rolesRecalled": 10,
-      "sessionsSpanned": 2,
-      "size": 53,
+      "sessionsSpanned": 3,
+      "size": 56,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -3874,12 +3874,51 @@
         "messageCount": 236
       },
       "sessionCostUSD": 19.5962
+    },
+    {
+      "sessionId": "session_105",
+      "topicSlug": "dashboard-redesign-ux-responsive",
+      "topic": "Dashboard 개편 — 인터페이스 UX + 반응형 프레임 (Phase 2)",
+      "startedAt": "2026-04-25T18:30:00.000Z",
+      "closedAt": "2026-04-25T19:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 7,
+      "rolesRecalled": 2,
+      "sessionsSpanned": 3,
+      "size": 20,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 12,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "dev",
+        "riki",
+        "dev",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 20765492,
+        "ioTokens": 132662,
+        "inputTokens": 465,
+        "outputTokens": 132197,
+        "cacheCreate": 678258,
+        "cacheRead": 19954572,
+        "cacheHitRate": 0.9609486738864651,
+        "messageCount": 149
+      },
+      "sessionCostUSD": 10.5142
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 107,
+      "count": 109,
       "sessions": [
         "session_047",
         "session_048",
@@ -3929,12 +3968,13 @@
         "session_100",
         "session_101",
         "session_103",
-        "session_104"
+        "session_104",
+        "session_105"
       ]
     },
     {
       "role": "arki",
-      "count": 79,
+      "count": 80,
       "sessions": [
         "session_048",
         "session_049",
@@ -3968,12 +4008,13 @@
         "session_100",
         "session_101",
         "session_103",
-        "session_104"
+        "session_104",
+        "session_105"
       ]
     },
     {
       "role": "editor",
-      "count": 54,
+      "count": 55,
       "sessions": [
         "session_050",
         "session_051",
@@ -4028,12 +4069,13 @@
         "session_101",
         "session_102",
         "session_103",
-        "session_104"
+        "session_104",
+        "session_105"
       ]
     },
     {
       "role": "dev",
-      "count": 43,
+      "count": 45,
       "sessions": [
         "session_047",
         "session_048",
@@ -4069,12 +4111,13 @@
         "session_101",
         "session_102",
         "session_103",
-        "session_104"
+        "session_104",
+        "session_105"
       ]
     },
     {
       "role": "riki",
-      "count": 35,
+      "count": 36,
       "sessions": [
         "session_049",
         "session_053",
@@ -4103,7 +4146,8 @@
         "session_100",
         "session_101",
         "session_103",
-        "session_104"
+        "session_104",
+        "session_105"
       ]
     },
     {
@@ -6625,6 +6669,54 @@
           "recallReason": "session-close-compile"
         }
       ]
+    },
+    {
+      "sessionId": "session_105",
+      "topic": "Dashboard 개편 — 인터페이스 UX + 반응형 프레임 (Phase 2)",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 6,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -6678,6 +6770,85 @@
     }
   ],
   "feedbackRecurrences": [
+    {
+      "keyword": "필요",
+      "occurrences": [
+        {
+          "date": "2026-04-25",
+          "feedbackId": "MF-099",
+          "summary": "결정사항이 필요 없는건 진행해."
+        },
+        {
+          "date": "2026-04-25",
+          "feedbackId": "MF-088",
+          "summary": "리키 — 필요 없는 의견 말고 아키 잘못만. 개수 채우기 금지."
+        }
+      ]
+    },
+    {
+      "keyword": "Riki",
+      "occurrences": [
+        {
+          "date": "2026-04-25",
+          "feedbackId": "MF-098",
+          "summary": "go (Riki Q-A·Q-B·Q-C 권고 일괄 채택)"
+        },
+        {
+          "date": "2026-04-23",
+          "feedbackId": "MF-076",
+          "summary": "Riki 의존 금지 — Arki가 100% 완벽한 산출물 구조화. 설계 재검토는 회수비용 대비 무시 가능."
+        },
+        {
+          "date": "2026-04-19",
+          "summary": "Riki R-02 기각 — Master 주관 판정 최우선. Master 동의 없이는 실행 불가. 레전드팀=M"
+        }
+      ]
+    },
+    {
+      "keyword": "채택",
+      "occurrences": [
+        {
+          "date": "2026-04-25",
+          "feedbackId": "MF-098",
+          "summary": "go (Riki Q-A·Q-B·Q-C 권고 일괄 채택)"
+        },
+        {
+          "date": "2026-04-25",
+          "feedbackId": "MF-097",
+          "summary": "2 (Vera 정정안 직접 채택, Arki 재소집 생략)"
+        },
+        {
+          "date": "2026-04-17",
+          "feedbackId": "MF-018",
+          "summary": "무응답 = 묵시적 채택. 개입 없이 다음 단계로 넘어간 것은 통과 신호."
+        }
+      ]
+    },
+    {
+      "keyword": "Arki",
+      "occurrences": [
+        {
+          "date": "2026-04-25",
+          "feedbackId": "MF-097",
+          "summary": "2 (Vera 정정안 직접 채택, Arki 재소집 생략)"
+        },
+        {
+          "date": "2026-04-23",
+          "feedbackId": "MF-075",
+          "summary": "Arki — 설계 시 구조화·하드코딩·효율성·확장성 4축 자가점검 루틴 박음. 1차 후 자가검토 수정이 기본"
+        },
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-041",
+          "summary": "1) Arki 원안에 대해 '하드코딩 최소화·확장성 최선·쉬운 길 아닌가' 자가검토 강제 → Arki 6개 "
+        },
+        {
+          "date": "2026-04-11",
+          "feedbackId": "MF-008",
+          "summary": "3가지 역할 피드백: 1) Arki — 아키텍처 그리는 방법론 학습, Agent 설계가 팀 과업. 2) No"
+        }
+      ]
+    },
     {
       "keyword": "과제",
       "occurrences": [
@@ -6824,26 +6995,6 @@
       ]
     },
     {
-      "keyword": "Arki",
-      "occurrences": [
-        {
-          "date": "2026-04-23",
-          "feedbackId": "MF-075",
-          "summary": "Arki — 설계 시 구조화·하드코딩·효율성·확장성 4축 자가점검 루틴 박음. 1차 후 자가검토 수정이 기본"
-        },
-        {
-          "date": "2026-04-21",
-          "feedbackId": "MF-041",
-          "summary": "1) Arki 원안에 대해 '하드코딩 최소화·확장성 최선·쉬운 길 아닌가' 자가검토 강제 → Arki 6개 "
-        },
-        {
-          "date": "2026-04-11",
-          "feedbackId": "MF-008",
-          "summary": "3가지 역할 피드백: 1) Arki — 아키텍처 그리는 방법론 학습, Agent 설계가 팀 과업. 2) No"
-        }
-      ]
-    },
-    {
       "keyword": "설계",
       "occurrences": [
         {
@@ -6884,20 +7035,6 @@
           "date": "2026-04-19",
           "feedbackId": "MF-028",
           "summary": "하드코딩 최소화, 데이터를 호출하는 형태로. 구조설계·코딩 전반에 적용."
-        }
-      ]
-    },
-    {
-      "keyword": "Riki",
-      "occurrences": [
-        {
-          "date": "2026-04-23",
-          "feedbackId": "MF-076",
-          "summary": "Riki 의존 금지 — Arki가 100% 완벽한 산출물 구조화. 설계 재검토는 회수비용 대비 무시 가능."
-        },
-        {
-          "date": "2026-04-19",
-          "summary": "Riki R-02 기각 — Master 주관 판정 최우선. Master 동의 없이는 실행 불가. 레전드팀=M"
         }
       ]
     },

@@ -1,6 +1,33 @@
 {
   "feedbackLog": [
     {
+      "id": "MF-099",
+      "date": "2026-04-25",
+      "session": "session_105",
+      "topic": "dashboard-redesign-ux-responsive-phase2",
+      "feedback": "결정사항이 필요 없는건 진행해.",
+      "status": "resolved",
+      "statusNote": "저마찰 게이트 중복 금지 신규 메모리 박제 (feedback_low_friction_no_redundant_gate). 본 세션 후속 진행에서 R-1·R-2 정정 적용·Dev 재호출·Edi/close 모두 게이트 없이 자동 진행."
+    },
+    {
+      "id": "MF-098",
+      "date": "2026-04-25",
+      "session": "session_105",
+      "topic": "dashboard-redesign-ux-responsive-phase2",
+      "feedback": "go (Riki Q-A·Q-B·Q-C 권고 일괄 채택)",
+      "status": "resolved",
+      "statusNote": "Q-A=a(components.css 셀렉터 .kpi-row 통일+9페이지 link), Q-B=명시 분기 추가, Q-C=(1)본 세션 docker pull+baseline lock. Dev rev2 baseline 24/24 lock self-diff 0.000% 달성."
+    },
+    {
+      "id": "MF-097",
+      "date": "2026-04-25",
+      "session": "session_105",
+      "topic": "dashboard-redesign-ux-responsive-phase2",
+      "feedback": "2 (Vera 정정안 직접 채택, Arki 재소집 생략)",
+      "status": "resolved",
+      "statusNote": "Vera CRITICAL 4건(R-V1·R-V8·R-V10·R-V7) 정정안을 spec 파일에 직접 적용. Arki 재호출 1패스 생략으로 시간 절약 + 3세션 마감 정합."
+    },
+    {
       "id": "MF-086",
       "date": "2026-04-25",
       "session": "session_103",

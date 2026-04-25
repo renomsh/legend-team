@@ -1,16 +1,16 @@
 {
-  "sessionId": "session_104",
+  "sessionId": "session_105",
   "topicId": "topic_082",
-  "topic": "Dashboard 개편 — 인터페이스 UX + 반응형 프레임",
+  "topic": "Dashboard 개편 — 인터페이스 UX + 반응형 프레임 (Phase 2)",
   "topicSlug": "dashboard-redesign-ux-responsive",
-  "reportPath": "reports/2026-04-22_dashboard-redesign-ux-responsive",
+  "reportPath": "reports/2026-04-25_dashboard-redesign-ux-responsive-phase2",
   "status": "closed",
-  "startedAt": "2026-04-25T17:30:00.000Z",
-  "closedAt": "2026-04-25T18:10:00.000Z",
-  "oneLineSummary": "topic_082 재개: framing→Phase 1 G1 PASS(7/7), D-094~D-098 박제, PD-046~050 신설/PD-045 deprecated, MF-090~096",
+  "startedAt": "2026-04-25T18:30:00.000Z",
+  "closedAt": "2026-04-25T19:30:00.000Z",
+  "oneLineSummary": "topic_082 Phase 2 G2 8/8 PASS, baseline 24/24 lock self-diff 0.000%, PD-051 신설(VR image 핀 mismatch), 새 D 0건",
   "mode": "observation",
-  "grade": "S",
-  "gradeDeclared": "S",
+  "grade": "A",
+  "gradeDeclared": "A",
   "orchestrationMode": "manual",
   "orchestrationTransitions": [],
   "framingLevel": 2,
@@ -21,160 +21,75 @@
   "agentsCompleted": [
     "ace",
     "arki",
-    "vera",
+    "dev",
     "riki",
-    "fin",
-    "ace",
-    "arki",
-    "vera",
-    "ace",
     "dev",
-    "arki",
-    "vera",
     "ace",
-    "dev",
-    "vera",
-    "dev",
     "editor"
   ],
   "turns": [
     {
       "role": "ace",
-      "turnIdx": 0,
-      "phase": "framing"
+      "turnIdx": 0
     },
     {
       "role": "arki",
-      "turnIdx": 1,
-      "phase": "design"
+      "turnIdx": 1
     },
     {
-      "role": "vera",
-      "turnIdx": 2,
-      "phase": "design"
+      "role": "dev",
+      "turnIdx": 2
     },
     {
       "role": "riki",
-      "turnIdx": 3,
-      "phase": "design"
-    },
-    {
-      "role": "fin",
-      "turnIdx": 4,
-      "phase": "design"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 5,
-      "phase": "synthesis"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 6,
-      "phase": "design",
-      "recallReason": "post-synthesis"
-    },
-    {
-      "role": "vera",
-      "turnIdx": 7,
-      "phase": "design",
-      "recallReason": "post-synthesis"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 8,
-      "phase": "synthesis",
-      "recallReason": "post-master-decisions"
+      "turnIdx": 3
     },
     {
       "role": "dev",
-      "turnIdx": 9,
-      "phase": "implementation"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 10,
-      "phase": "implementation",
-      "recallReason": "phase-0-execution"
-    },
-    {
-      "role": "vera",
-      "turnIdx": 11,
-      "phase": "implementation",
-      "recallReason": "phase-0-execution"
+      "turnIdx": 4
     },
     {
       "role": "ace",
-      "turnIdx": 12,
-      "phase": "synthesis",
-      "recallReason": "phase-0-execution"
-    },
-    {
-      "role": "dev",
-      "turnIdx": 13,
-      "phase": "implementation",
-      "recallReason": "phase-1-g1-execution"
-    },
-    {
-      "role": "vera",
-      "turnIdx": 14,
-      "phase": "implementation",
-      "recallReason": "spec-drift-correction"
-    },
-    {
-      "role": "dev",
-      "turnIdx": 15,
-      "phase": "implementation",
-      "recallReason": "phase-1-g1-pass-verification"
+      "turnIdx": 5
     },
     {
       "role": "editor",
-      "turnIdx": 16,
-      "phase": "compile",
-      "recallReason": "session-close-compile"
+      "turnIdx": 6,
+      "phase": "compile"
     }
   ],
   "decisions": [],
   "masterDecisions": [],
-  "masterFeedback": [],
+  "masterFeedback": [
+    "MF-097",
+    "MF-098",
+    "MF-099"
+  ],
   "pendingDeferralsAdded": [
-    "PD-045",
-    "PD-046",
-    "PD-047",
-    "PD-048",
-    "PD-049",
-    "PD-050"
+    "PD-051"
   ],
   "pendingDeferralsResolved": [],
-  "pendingDeferralsDeprecated": [
-    "PD-045"
-  ],
-  "decisionsAdded": [
-    "D-094",
-    "D-095",
-    "D-096",
-    "D-097",
-    "D-098"
-  ],
+  "pendingDeferralsDeprecated": [],
+  "decisionsAdded": [],
   "notes": [
-    "topic_082 재개 (suspended → active → in-progress). PD-015 hold 해제됨 (D-060 session_077 완료).",
-    "Grade S Master 선언, 본 시스템 첫 S 적용. ace-framing 스킬 미발동.",
-    "framing→design→Phase 0 G0 PASS(9 산출물)→Phase 1 G1 PASS(7/7) 도달.",
-    "Vera spec drift 자기 인정 + 정정 (--text-3 #6E6E78 → #82828C, contrast 표 WCAG 2.1 표준 공식 재산출). Dev rev2가 적출.",
-    "본 토픽 안에서 framing→구현 끝까지 (Master 명시 분화 금지). 잔여 Phase 2~5 다음 세션.",
-    "Master 박제 결정 18건 (사이드바 6 메뉴 / Records 5 sub / 반응형 2축 1024 / VR docker pin + 24 baseline + mock fixture / G1 lint 색 토큰만 / partial=<template>+build-time inline / dashboard-upgrade canonical / Hard breaker B1·B2·B3 / 부분 출시 4 페이지 / 기타).",
-    "Decision D-094~D-098 5건 박제, PD-046~PD-050 6건 신설(PD-045 deprecated by Dev 실측), MF-090~096 7건 master feedback.",
-    "memory 박제 4건: feedback_no_premature_topic_split / feedback_no_re_asking_settled_policy / feedback_role_color_unification_pending / feedback_dashboard_upgrade_template_canonical.",
-    "Master Docker Desktop 설치 진행 중 — Phase 2 진입 전 확인 필요."
+    "topic_082 Phase 2 재개. session_104에서 Phase 1 G1 PASS(7/7) 완료, D-094~D-098 박제됨.",
+    "Grade A (Master 명시). topic_082 원본은 Grade S이나, Phase 2 구현 세션은 A로 진행.",
+    "Master Docker Desktop 설치 완료 확인 → Phase 2 G2 진입.",
+    "G2 8/8 PASS: components.css 신규(177 lines, helper 5종+drawer+KPI), VR baseline 24/24 lock(self-diff 0.000%), lint 3종 PASS, 토큰 정합 cross-check PASS.",
+    "5 turn 적출 흐름: Vera CRITICAL 4 정정 → Riki R-1·R-2·R-3 적출 → Main 직접 정정 4(M-1~M-4) → Dev rev2 모두 흡수.",
+    "신규 PD-051 박제: VR image 핀 mismatch (D-096 v1.45.0 ↔ 실설치 v1.59.1).",
+    "메모리 신규 박제: feedback_low_friction_no_redundant_gate (결정 불요 사항 자동 진행).",
+    "본 토픽 안에서 분화 0 유지(Master 메모리 정합). 잔여 carry 5건은 session_106(마지막 마감)에서 처리.",
+    "새 D-xxx 0건 박제 — D-094~D-098 동결 spec의 구현 세션."
   ],
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 713,
-    "output_tokens": 223653,
-    "cache_creation_input_tokens": 1159077,
-    "cache_read_input_tokens": 39642441,
-    "messageCount": 236,
-    "masterTurns": 40,
-    "total_billable": 41025884
+    "input_tokens": 465,
+    "output_tokens": 132197,
+    "cache_creation_input_tokens": 678258,
+    "cache_read_input_tokens": 19954572,
+    "messageCount": 149,
+    "masterTurns": 12,
+    "total_billable": 20765492
   }
 }

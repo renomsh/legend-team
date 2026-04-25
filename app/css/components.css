@@ -1,0 +1,182 @@
+/* ============================================================
+ * components.css — Phase 2 G2 박제 (session_105, topic_082)
+ * ------------------------------------------------------------
+ * Source of truth (spec):
+ *   reports/2026-04-25_dashboard-redesign-ux-responsive-phase2/components-spec.md
+ *   reports/2026-04-25_dashboard-redesign-ux-responsive-phase2/kpi-fallback-spec.md
+ * Token source of truth: app/css/tokens.css (D-091 canonical)
+ * Lint: lint-inline-root-color (no :root{} here), lint-contrast,
+ *       lint-accent-only (no body color uses --c-* accent).
+ * ============================================================ */
+
+/* ── §1. helper class 5종 (components-spec §1-2) ───────────── */
+
+/* 1. .title-1l — 1-line ellipsis */
+.title-1l {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+/* 2. .kr-text — 한국어 줄바꿈 */
+.kr-text {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+/* 3. .kpi-num — KPI 큰 숫자 */
+.kpi-num {
+  font-variant-numeric: tabular-nums;
+  font-size: var(--fs-display);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-display);
+  font-feature-settings: 'tnum' 1;
+}
+
+/* 4. .chip-row — 가로 chip nav */
+.chip-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  mask-image: linear-gradient(to right, #000 92%, transparent);
+}
+.chip-row::-webkit-scrollbar { display: none; }
+
+/* 5. .table-scroll — 표 가로 스크롤 wrapper */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.table-scroll > table {
+  min-width: 560px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* ── §2. drawer mobile CSS (components-spec §2-2) ─────────── */
+
+/* 데스크톱 기본 (≥1024) */
+.sidebar {
+  position: sticky;
+  top: 0;
+  width: var(--sidebar-w);
+  height: 100vh;
+  z-index: var(--z-sticky);
+  background: var(--panel);
+}
+.sidebar-backdrop { display: none; }
+.hamburger { display: none; }
+
+/* 모바일 분기 (D-095 단일 분기 1024) */
+@media (max-width: 1023px) {
+  .sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: 280px;
+    transform: translateX(-100%);
+    transition: transform var(--t-base) var(--ease-std);
+    z-index: var(--z-drawer);
+    box-shadow: var(--shadow-2);
+  }
+  .sidebar[data-open="true"] {
+    transform: translateX(0);
+  }
+
+  .sidebar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--t-base) var(--ease-std);
+    z-index: var(--z-backdrop);
+  }
+  .sidebar-backdrop[data-open="true"] {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .hamburger {
+    display: block;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;             /* 40+8 = 48 tap target (WCAG SC 2.5.5) */
+    z-index: var(--z-hamburger);
+    background: var(--panel);
+    border-radius: var(--r-2);
+  }
+}
+
+/* prefers-reduced-motion (R-1 mitigation b) */
+@media (prefers-reduced-motion: reduce) {
+  .sidebar,
+  .sidebar-backdrop {
+    transition: none !important;
+  }
+}
+
+/* ── §3. KPI auto-fit + fallback (kpi-fallback-spec §1-2) ─── */
+/* Riki R-1 정정: dashboard-upgrade.html canonical 셀렉터 .kpi-row로 통일 */
+/* Riki R-2 정정: data-kpi-count="5"에도 명시 분기 적용 (1024~1279 4-col, 1280+ 5-col) */
+
+.kpi-row {
+  display: grid;
+  gap: var(--sp-4);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* Upgrade KPI 4 — Vera R-V10 정정: 명시 분기 */
+.kpi-row[data-kpi-count="4"] {
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+}
+@media (min-width: 1280px) {
+  .kpi-row[data-kpi-count="4"] {
+    grid-template-columns: repeat(4, minmax(220px, 1fr));
+  }
+}
+
+/* Upgrade/Ops KPI 5 — Riki R-2 정정: auto-fit + 1fr wrap 거대화 차단 */
+.kpi-row[data-kpi-count="5"] {
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+}
+@media (min-width: 1280px) {
+  .kpi-row[data-kpi-count="5"] {
+    grid-template-columns: repeat(5, minmax(180px, 1fr));
+  }
+}
+
+/* Ops KPI 6 — minmax 축소 */
+.kpi-row[data-kpi-count="6"] {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+/* 모바일 1col stack (D-095) */
+@media (max-width: 1023px) {
+  .kpi-row,
+  .kpi-row[data-kpi-count="4"],
+  .kpi-row[data-kpi-count="5"],
+  .kpi-row[data-kpi-count="6"] {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* KPI 카드 — Vera R-V8 정정 토큰 (--panel-2, --r-3, --fs-meta, --ls-eyebrow, --text-2) */
+.kpi-card {
+  padding: var(--sp-4);
+  background: var(--panel-2);
+  border-radius: var(--r-3);
+  min-width: 0;
+}
+.kpi-card .kpi-label {
+  font-size: var(--fs-meta);
+  letter-spacing: var(--ls-eyebrow);
+  color: var(--text-2);
+}
+/* .kpi-card .kpi-value 는 .kpi-num helper class 직접 부여 */
