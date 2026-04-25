@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-25T06:02:26.896Z",
+  "generatedAt": "2026-04-25T11:56:05.251Z",
   "decisions": [
     {
       "id": "D-093",
@@ -1399,6 +1399,46 @@
       "topic": "topic_100",
       "axis": "invoked-sessions-only 참여 판정 자가 선언 단일화",
       "summary": "turns 자동 산출·deferred-settlement 메커니즘 전량 스코프 제외(단순화). 참여 판정은 자가 선언 기준. 재정밀화 조건(기록률 ≥70% 3세션 관찰 후) 충족 시 별도 PD 오픈."
+    },
+    {
+      "id": "D-094",
+      "date": "2026-04-25",
+      "session": "session_104",
+      "topic": "topic_082",
+      "axis": "대시보드 IA 전면 개편 — 사이드바 6 메뉴(Home/Dashboard/Growth/People/Records/System) + Records 5 sub(Topics·Sessions·Decisions·Feedback·Deferrals) + 토픽-세션 chip 매핑 + Sessions 3탭 + Deferrals D3.js dependsOn 그래프",
+      "summary": "topic_082 framing 21일 hold 해제 후 전면 IA 박제. Records 정문 = Topics, 토픽 카드에 매핑 세션 시간순 chip. People 4×2, Growth D-060 안 β 본체. Home 가벼운 랜딩 / Dashboard 풀 KPI 분리."
+    },
+    {
+      "id": "D-095",
+      "date": "2026-04-25",
+      "session": "session_104",
+      "topic": "topic_082",
+      "axis": "반응형 2축 단일 분기 1024px 정책 박제",
+      "summary": "1024px 이상=데스크톱 풀, 미만=모바일 단일 처리. Vera 4단 breakpoint·태블릿 collapsed sidebar 폐기. 모바일 = off-canvas drawer 280px. 데스크톱 기준 + 모바일 안 깨짐(가로 스크롤·텍스트 잘림 0) Master 정책 직접 충족."
+    },
+    {
+      "id": "D-096",
+      "date": "2026-04-25",
+      "session": "session_104",
+      "topic": "topic_082",
+      "axis": "VR 인프라 spec 박제 — Playwright docker pin + mock fixture + 24 baseline + bbox + maxDiffPixelRatio 0.02",
+      "summary": "mcr.microsoft.com/playwright:v1.45.0-jammy 핀 + reducedMotion + ko-KR/Asia/Seoul + dark. 6 페이지 × 4 viewport(1920/1440/1280/375)=24 baseline. mock fixture 10항목 + bbox 영역 마킹(data-vr-bbox) + diff 임계 2%. PD-034 본 토픽 안 흡수."
+    },
+    {
+      "id": "D-097",
+      "date": "2026-04-25",
+      "session": "session_104",
+      "topic": "topic_082",
+      "axis": "dashboard-upgrade canonical reference + 컴포넌트 카탈로그 단일화",
+      "summary": "app/dashboard-upgrade.html이 viewer 디자인 reference. 색·토큰뿐 아니라 컴포넌트 클래스(.kpi-row/.section-grid/.card/.flow-row 등) 표준 카탈로그. dashboard-ops .command-grid 등은 PD-046로 흡수. tokens.css 단일 출처. Master 직접 명시."
+    },
+    {
+      "id": "D-098",
+      "date": "2026-04-25",
+      "session": "session_104",
+      "topic": "topic_082",
+      "axis": "G1 lint(--c-* 색 토큰) + G3 자동 contrast check + Hard breaker B1·B2·B3 + 부분 출시 4 페이지 + partial 로딩 패턴",
+      "summary": "G1=색 토큰만 빌드 실패(레이아웃은 PD-045 이연). G3=WCAG AA 4.5:1 자동 contrast lint(scripts/lint-contrast.ts) + accent-only lint. 분화 금지 원칙 유지하되 Hard breaker B1·B2·B3 한정 child 분기 허용. 부분 출시 가능 4 페이지: Home/Dashboard-Upgrade/Dashboard-Ops/Records-Topics. Partial 로딩=<template>+build-time inline(Master M1)."
     }
   ]
 }

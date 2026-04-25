@@ -1098,6 +1098,69 @@
       "feedback": "본인 참여 프로젝트 = 발언한 토픽. 모두 발언했으면 모두 적용되어야지.",
       "status": "resolved",
       "statusNote": "finalize-self-scores participationExpectedTopicTypes 게이트 제거. applicableTopicTypes만 유지. 4역할 20 records 정상 적재."
+    },
+    {
+      "id": "MF-090",
+      "date": "2026-04-25",
+      "session": "session_104",
+      "topic": "dashboard-redesign-ux-responsive",
+      "feedback": "구현은 후속 child토픽으로 분화해도 되는데 일단 해보고. 분화하면 제대로 진행이 안돼.",
+      "status": "resolved",
+      "statusNote": "feedback_no_premature_topic_split.md 박제. 본 토픽 안에서 framing→Phase 1 G1 PASS까지 완료. child 분화 권고 없이 단일 토픽 진행."
+    },
+    {
+      "id": "MF-091",
+      "date": "2026-04-25",
+      "session": "session_104",
+      "topic": "dashboard-redesign-ux-responsive",
+      "feedback": "데스크탑 기준 모바일에서 깨지지 않게. 고정 픽셀 프레임과 글자 쓰는 것들이 있어. (정착 정책 재질문 지적)",
+      "status": "resolved",
+      "statusNote": "feedback_no_re_asking_settled_policy.md 박제. 반응형 2축 1024 단일 분기 + 고정 픽셀 보존 + 컨테이너 fluid 정책 D-095 박제."
+    },
+    {
+      "id": "MF-092",
+      "date": "2026-04-25",
+      "session": "session_104",
+      "topic": "dashboard-redesign-ux-responsive",
+      "feedback": "각 캐릭터별 색상은 홈에 있는것으로 유지하고 통일해. 내가 페이지마다 통일하라고 했는데 안된것 같네.",
+      "status": "resolved",
+      "statusNote": "feedback_role_color_unification_pending.md 박제. tokens.css 단일 출처 + lint 3 분리. dashboard-upgrade.html canonical 21 토큰 인라인 제거 + 9 active 페이지 link import 완료. D-097 박제."
+    },
+    {
+      "id": "MF-093",
+      "date": "2026-04-25",
+      "session": "session_104",
+      "topic": "dashboard-redesign-ux-responsive",
+      "feedback": "대시보드 중 업그레이드 템플릿이 더 좋아.",
+      "status": "resolved",
+      "statusNote": "feedback_dashboard_upgrade_template_canonical.md 박제 + D-097 결정 박제. dashboard-upgrade가 viewer 디자인 reference, 컴포넌트 카탈로그 단일화. ops 흡수는 PD-046 후속."
+    },
+    {
+      "id": "MF-094",
+      "date": "2026-04-25",
+      "session": "session_104",
+      "topic": "dashboard-redesign-ux-responsive",
+      "feedback": "Dashboard는? (사이드바 메뉴 빠뜨림 지적)",
+      "status": "resolved",
+      "statusNote": "사이드바 6 메뉴 (Home/Dashboard{Upgrade,Ops}/Growth/People/Records/System) 확정. D-094 IA 박제."
+    },
+    {
+      "id": "MF-095",
+      "date": "2026-04-25",
+      "session": "session_104",
+      "topic": "dashboard-redesign-ux-responsive",
+      "feedback": "세션 사이드 메뉴에 흐름 있잖아. 그건 어떻게 할껀데?",
+      "status": "resolved",
+      "statusNote": "Sessions 페이지 내부 3탭(Current/History/Turn Flow) 확정. ia-spec §Sessions 박제. dependsOn 그래프 ECharts series.type:'graph' 단일 채택(D3.js reject)."
+    },
+    {
+      "id": "MF-096",
+      "date": "2026-04-25",
+      "session": "session_104",
+      "topic": "dashboard-redesign-ux-responsive",
+      "feedback": "버전 1.65.",
+      "status": "resolved",
+      "statusNote": "system_state.json currentVersion v1.54 → v1.65 정정 박제."
     }
   ],
   "statusValues": [
@@ -1106,5 +1169,5 @@
     "resolved"
   ],
   "statusUpdatedBy": "Claude Code at session end — based on topic status and implementation evidence",
-  "lastUpdated": "2026-04-25"
+  "lastUpdated": "2026-04-25T18:00:00.000Z"
 }

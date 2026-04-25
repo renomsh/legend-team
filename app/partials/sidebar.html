@@ -1,0 +1,69 @@
+<!-- partials/sidebar.html — Phase 1 G1 (D-094 6 메뉴 nav) — build-time inline only -->
+<button class="hamburger" id="hamburgerBtn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="primarySidebar">
+  <span></span><span></span><span></span>
+</button>
+<div class="sidebar-backdrop" id="sidebarBackdrop" data-open="false"></div>
+<aside class="sidebar" id="primarySidebar" role="navigation" aria-label="주요 메뉴" data-open="false">
+  <div class="brand">
+    <div class="brand-mark">L</div>
+    <div>
+      <div class="brand-name">legend·team</div>
+      <div class="brand-tag">Strategy OS</div>
+    </div>
+  </div>
+
+  <!-- 1. Home -->
+  <a href="index.html" class="nav-item" data-nav="home">
+    <span class="nav-dot" style="background:var(--text-3)"></span>Home
+  </a>
+
+  <!-- 2. Dashboard (Upgrade · Ops 2 sub) -->
+  <div class="nav-group">Dashboard</div>
+  <a href="dashboard-upgrade.html" class="nav-item" data-nav="dashboard-upgrade">
+    <span class="nav-dot" style="background:var(--c-ace)"></span>Upgrade
+  </a>
+  <a href="dashboard-ops.html" class="nav-item" data-nav="dashboard-ops">
+    <span class="nav-dot" style="background:var(--c-arki)"></span>Ops
+  </a>
+
+  <!-- 3. Growth (Phase 4 신설 — pending) -->
+  <div class="nav-group">Growth</div>
+  <a href="growth.html" class="nav-item" data-nav="growth" data-state="pending" aria-disabled="true" tabindex="-1" title="Phase 4 진행 중">
+    <span class="nav-dot" style="background:var(--c-nova)"></span>Growth
+  </a>
+
+  <!-- 4. People (Phase 4 — pending) -->
+  <div class="nav-group">People</div>
+  <a href="people.html" class="nav-item" data-nav="people" data-state="pending" aria-disabled="true" tabindex="-1" title="Phase 4 진행 중">
+    <span class="nav-dot" style="background:var(--c-vera)"></span>People
+  </a>
+
+  <!-- 5. Records (5 sub: Topics·Sessions·Decisions·Feedback·Deferrals) -->
+  <div class="nav-group">Records</div>
+  <a href="topic.html" class="nav-item" data-nav="records-topics">
+    <span class="nav-dot" style="background:var(--c-fin)"></span>Topics
+  </a>
+  <a href="session.html" class="nav-item" data-nav="records-sessions">
+    <span class="nav-dot" style="background:var(--c-nova)"></span>Sessions
+  </a>
+  <a href="decisions.html" class="nav-item" data-nav="records-decisions">
+    <span class="nav-dot" style="background:var(--c-fin)"></span>Decisions
+  </a>
+  <a href="feedback.html" class="nav-item" data-nav="records-feedback">
+    <span class="nav-dot" style="background:var(--c-riki)"></span>Feedback
+  </a>
+  <a href="deferrals.html" class="nav-item" data-nav="records-deferrals" data-state="pending" aria-disabled="true" tabindex="-1" title="Phase 4 진행 중">
+    <span class="nav-dot" style="background:var(--text-3)"></span>Deferrals
+  </a>
+
+  <!-- 6. System (Phase 4/5 — pending) -->
+  <div class="nav-group">System</div>
+  <a href="system.html" class="nav-item" data-nav="system" data-state="pending" aria-disabled="true" tabindex="-1" title="Phase 4 진행 중">
+    <span class="nav-dot" style="background:var(--c-editor)"></span>System
+  </a>
+
+  <div class="sidebar-foot" id="sidebarFoot">
+    <span id="sidebarVersion">v1.54</span> · Legend Team<br>
+    <span id="buildTs">—</span>
+  </div>
+</aside>

@@ -1,13 +1,13 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_103",
-  "nextSessionId": "session_104",
-  "currentVersion": "v1.54",
+  "lastSessionId": "session_104",
+  "nextSessionId": "session_105",
+  "currentVersion": "v1.65",
   "openTopics": [
     {
       "id": "topic_082",
       "title": "Dashboard 개편 — 인터페이스 UX + 반응형 프레임",
-      "status": "suspended",
+      "status": "in-progress",
       "reportPath": "reports/2026-04-22_dashboard-redesign-ux-responsive"
     },
     {
@@ -27,37 +27,50 @@
   ],
   "recentDecisions": [
     {
-      "id": "D-093",
+      "id": "D-098",
       "date": "2026-04-25",
-      "axis": "회귀 검증 인프라 최소화 원칙 박제 — fixture 2종 + 수동 CLI, 자동 감시 패턴 배제",
-      "summary": "D-092 정신 일관 적용 — 자동 감시 인프라는 실 incident 근거 없이 선제 투자 금지. Arki scopeDriftCheck 우회(placeholder→spec 오독) 사례 박제로 재발 방지."
+      "axis": "G1 lint(--c-* 색 토큰) + G3 자동 contrast check + Hard breaker B1·B2·B3 + 부분 출시 4 페이지 + partial 로딩 패턴",
+      "summary": "G1 lint(--c-* 색 토큰) + G3 자동 contrast check + Hard breaker B1·B2·B3 + 부분 출시 4 페이지 + partial 로딩 패턴"
     },
     {
-      "id": "D-092",
+      "id": "D-097",
       "date": "2026-04-25",
-      "axis": "자가평가 자동 감시·propagation·게이트 폐기 + 지표 정의 단일 출처 박제 + PD-023 close",
-      "summary": "본질 회귀: 점수 기록 + Master 수동 열람. 시스템 자동 감시 인프라가 자가평가 의미를 propagation 86%로 오염시킨 전례 차단. 단일 출처 박제로 잘못 참조 사고 봉쇄."
+      "axis": "dashboard-upgrade canonical reference + 컴포넌트 카탈로그 단일화",
+      "summary": "dashboard-upgrade canonical reference + 컴포넌트 카탈로그 단일화"
     },
     {
-      "id": "D-091",
+      "id": "D-096",
       "date": "2026-04-25",
-      "axis": "operationalStatus·triggerType·absorbed enum 박제 + 재호출 강제 원칙",
-      "summary": "PD/topic 양쪽에서 임시 활용 중인 enum의 영구 박제. 스키마 drift 차단."
+      "axis": "VR 인프라 spec 박제 — Playwright docker pin + mock fixture + 24 baseline + bbox + maxDiffPixelRatio 0.02",
+      "summary": "VR 인프라 spec 박제 — Playwright docker pin + mock fixture + 24 baseline + bbox + maxDiffPixelRatio 0.02"
     },
     {
-      "id": "D-090",
+      "id": "D-095",
       "date": "2026-04-25",
-      "axis": "batch-score-helper.ts + validate-self-scores.ts + followup-A/B 분리",
-      "summary": "PD-023 P3 진입장벽(YAML 직접 타이핑) 해소 도구 완비. followup 트랙 분리로 본 토픽 범위 유지."
+      "axis": "반응형 2축 단일 분기 1024px 정책 박제",
+      "summary": "반응형 2축 단일 분기 1024px 정책 박제"
     },
     {
-      "id": "D-089",
+      "id": "D-094",
       "date": "2026-04-25",
-      "axis": "resolveCondition 재정의 + 코드 done / 운영 KPI open 이원화",
-      "summary": "기존 'G6 통과' 모호 해소. 코드 완료와 운영 KPI 분리로 false-resolved 차단."
+      "axis": "대시보드 IA 전면 개편 — 사이드바 6 메뉴(Home/Dashboard/Growth/People/Records/System) + Records 5 sub(Topics·Sessions·Decisions·Feedback·Deferrals) + 토픽-세션 chip 매핑 + Sessions 3탭 + Deferrals D3.js dependsOn 그래프",
+      "summary": "대시보드 IA 전면 개편 — 사이드바 6 메뉴(Home/Dashboard/Growth/People/Records/System) + Records 5 sub(Topics·Sessions·Decisions·Feedback·Deferrals) + 토픽-세션 chip 매핑 + Sessions 3탭 + Deferrals D3.js dependsOn 그래프"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_104",
+      "topicSlug": "dashboard-redesign-ux-responsive",
+      "closedAt": "2026-04-25T18:10:00.000Z",
+      "oneLineSummary": "topic_082 재개: framing→Phase 1 G1 PASS(7/7), D-094~D-098 박제, PD-046~050 신설/PD-045 deprecated, MF-090~096",
+      "decisionsAdded": [
+        "D-094",
+        "D-095",
+        "D-096",
+        "D-097",
+        "D-098"
+      ]
+    },
     {
       "sessionId": "session_103",
       "topicSlug": "pd040-schema-governance-pd041-test-regression",
@@ -73,15 +86,6 @@
       "closedAt": "2026-04-25T14:15:00.000Z",
       "oneLineSummary": "A-1 확인(D-087~D-091 기존 동기화), A-2 PD-036 resolved, A-5 compile-metrics-registry Ajv 스키마 fix",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_101",
-      "topicSlug": "pd023-ops-activation-check",
-      "closedAt": "2026-04-25T13:30:00.000Z",
-      "oneLineSummary": "PD-023 운영 가동 점검 → 자가평가 단순화. propagation·자동감시 폐기, 단일 출처 박제, polarity-aligned 100점, D-092·PD-023 close.",
-      "decisionsAdded": [
-        "D-092"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -481,7 +485,57 @@
       "status": "pending",
       "resolveCondition": "두 경로의 산출물 diff 분석 + 일관성 확보 방안 박제",
       "dependsOn": []
+    },
+    {
+      "id": "PD-045",
+      "fromSession": "session_104",
+      "fromTopic": "dashboard-redesign-ux-responsive",
+      "item": "레이아웃 인라인 :root{} 정리 — G1 lint(--c-* 색 토큰만) 결정의 부수 작업. --panel/--text/--line 등 레이아웃 토큰을 페이지별 :root{}에서 app/css/tokens.css 단일 출처로 이전. 13 페이지 dump 인벤토리(G0-5 산출물) 기반.",
+      "status": "deprecated",
+      "note": "topic_082 spec lock D-098 부수 PD",
+      "deprecatedInSession": "session_104",
+      "deprecatedNote": "Dev G0-5 실측 결과 명분 약화: active 페이지 9개 중 레이아웃 토큰 인라인 페이지 0건, 색 토큰 인라인은 dashboard-upgrade.html 1건만. legacy 4 페이지는 archive 이동 대상으로 무관. 정리 대상 사실상 0건 — Master 폐기 결정 (session_104)."
+    },
+    {
+      "id": "PD-046",
+      "fromSession": "session_104",
+      "fromTopic": "dashboard-redesign-ux-responsive",
+      "item": "dashboard-ops 컴포넌트 흡수 — .command-grid 등 ops 자체 클래스를 dashboard-upgrade canonical 카탈로그(.kpi-row/.section-grid/.card 등) 형태로 흡수. D-090 dashboard-upgrade canonical 결정 부수.",
+      "status": "pending",
+      "note": "topic_082 Phase 4 후속"
+    },
+    {
+      "id": "PD-047",
+      "fromSession": "session_104",
+      "fromTopic": "dashboard-redesign-ux-responsive",
+      "item": "Playwright docker image 갱신 주기 정책 — mcr.microsoft.com/playwright:v1.45.0-jammy 핀 이후 보안 패치·Chromium 메이저 업데이트 시 갱신 검토 프로토콜 박제. 환경 핀 vs 최신 보안의 trade-off 정책.",
+      "status": "pending",
+      "note": "D-089 VR 인프라 부수 정책"
+    },
+    {
+      "id": "PD-048",
+      "fromSession": "session_104",
+      "fromTopic": "dashboard-redesign-ux-responsive",
+      "item": "VR baseline dpr 2 (retina) 추가 — 현 24 baseline은 dpr 1만 캡처. Master 또는 미래 협업자가 retina 디스플레이 사용 시 픽셀 차이 false-positive 가능성. dpr 2 baseline 추가 시 48 baseline 부담 vs 정확도 trade-off.",
+      "status": "pending",
+      "note": "D-089 후속 검토"
+    },
+    {
+      "id": "PD-049",
+      "fromSession": "session_104",
+      "fromTopic": "dashboard-redesign-ux-responsive",
+      "item": "동적 색 주입 case 처리 — 차트 라이브러리(ECharts) 등이 런타임에 색을 주입하는 경우 G1 lint 우회 가능성. tokens.css 단일 출처 원칙 위반 검출 패턴 박제 필요.",
+      "status": "pending",
+      "note": "D-091 G1 lint 후속"
+    },
+    {
+      "id": "PD-050",
+      "fromSession": "session_104",
+      "fromTopic": "dashboard-redesign-ux-responsive",
+      "item": "ECharts label fixture — VR mock fixture에서 ECharts 차트 label 텍스트(축·범례·tooltip) 결정점 확장. 현 mock fixture 10항목은 KPI 숫자 위주, 차트 내부 label 변동 시 false-positive 가능성.",
+      "status": "pending",
+      "note": "D-089 mock fixture 후속"
     }
   ],
-  "lastUpdated": "2026-04-25T06:02:17.161Z"
+  "lastUpdated": "2026-04-25T11:55:52.367Z"
 }

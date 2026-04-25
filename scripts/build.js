@@ -16,6 +16,12 @@ const ROOT = path.resolve(__dirname, '..');
 const DIST = path.join(ROOT, 'dist');
 const APP_SRC = path.join(ROOT, 'app');
 
+// D-094 — legacy archive paths excluded from production tree (Phase 1 G1)
+// Top-level dir name relative to app/. dist/app/legacy/ MUST NOT exist after build.
+const LEGACY_TOP_DIRS = ['legacy', 'partials'];
+// `partials/` is build-time inline only — source files are inlined into pages
+// via <!-- @partial:* --> markers; the dir itself is not deployed.
+
 // Directories to copy as data
 const DATA_SOURCES = [
   { src: 'memory', dest: 'data/memory' },
@@ -41,6 +47,51 @@ function copyDirRecursive(src, dest) {
       fs.copyFileSync(srcPath, destPath);
     }
   }
+}
+
+// ── Partial inline (D-091, Phase 1 G1) ─────────────────────────────────────
+// Single-pass marker replacement on dist HTML files. Source app/ untouched.
+// Marker format: <!-- @partial:<id> --> where <id> matches app/partials/<id>.html
+const PARTIAL_DIR = path.join(APP_SRC, 'partials');
+const PARTIAL_MARKER_RE = /<!--\s*@partial:([a-z0-9-]+)\s*-->/g;
+
+function loadPartials() {
+  const partials = {};
+  if (!fs.existsSync(PARTIAL_DIR)) return partials;
+  for (const f of fs.readdirSync(PARTIAL_DIR)) {
+    if (!f.endsWith('.html')) continue;
+    const id = f.replace(/\.html$/, '');
+    partials[id] = fs.readFileSync(path.join(PARTIAL_DIR, f), 'utf8');
+  }
+  return partials;
+}
+
+function applyPartialsToDist(distAppDir, partials) {
+  let totalReplaced = 0;
+  let missing = 0;
+  const stack = [distAppDir];
+  while (stack.length) {
+    const cur = stack.pop();
+    if (!fs.existsSync(cur)) continue;
+    for (const ent of fs.readdirSync(cur, { withFileTypes: true })) {
+      const p = path.join(cur, ent.name);
+      if (ent.isDirectory()) { stack.push(p); continue; }
+      if (!ent.name.endsWith('.html')) continue;
+      let html = fs.readFileSync(p, 'utf8');
+      let changed = false;
+      html = html.replace(PARTIAL_MARKER_RE, (m, id) => {
+        if (partials[id] !== undefined) {
+          changed = true; totalReplaced++;
+          return partials[id];
+        }
+        console.warn(`[build] missing partial: ${id} in ${path.relative(DIST, p)}`);
+        missing++;
+        return m;
+      });
+      if (changed) fs.writeFileSync(p, html, 'utf8');
+    }
+  }
+  return { totalReplaced, missing };
 }
 
 function listFilesRecursive(dir, base = '') {
@@ -157,9 +208,13 @@ function build() {
   }
   ensureDir(DIST);
 
-  // Copy app source files (HTML, CSS, JS)
+  // Copy app source files (HTML, CSS, JS) — D-094 legacy/partials excluded
   const appEntries = fs.readdirSync(APP_SRC, { withFileTypes: true });
   for (const entry of appEntries) {
+    if (entry.isDirectory() && LEGACY_TOP_DIRS.includes(entry.name)) {
+      console.log(`[build] Skipping app/${entry.name}/ (excluded from production)`);
+      continue;
+    }
     const srcPath = path.join(APP_SRC, entry.name);
     const destPath = path.join(DIST, entry.name);
     if (entry.isDirectory()) {
@@ -169,6 +224,16 @@ function build() {
     }
   }
   console.log('[build] Copied app/ source files');
+
+  // D-091 partial inline — replace <!-- @partial:* --> markers in dist HTML
+  const partials = loadPartials();
+  const partialIds = Object.keys(partials);
+  if (partialIds.length > 0) {
+    const r = applyPartialsToDist(DIST, partials);
+    console.log(`[build] Applied partials: ${partialIds.length} loaded (${partialIds.join(', ')}), ${r.totalReplaced} markers replaced, ${r.missing} missing`);
+  } else {
+    console.log('[build] No partials directory; skipping partial inline');
+  }
 
   // Copy data directories
   const fileManifest = {};

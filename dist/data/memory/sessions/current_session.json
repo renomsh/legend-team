@@ -1,29 +1,39 @@
 {
-  "sessionId": "session_103",
-  "topicId": "topic_108",
-  "topic": "PD-041 test-regression 자동화 — derived data 회귀 안전망",
-  "topicSlug": "pd040-schema-governance-pd041-test-regression",
-  "reportPath": "reports/2026-04-25_pd040-schema-governance-pd041-test-regression",
+  "sessionId": "session_104",
+  "topicId": "topic_082",
+  "topic": "Dashboard 개편 — 인터페이스 UX + 반응형 프레임",
+  "topicSlug": "dashboard-redesign-ux-responsive",
+  "reportPath": "reports/2026-04-22_dashboard-redesign-ux-responsive",
   "status": "closed",
-  "startedAt": "2026-04-25T14:30:00.000Z",
-  "closedAt": "2026-04-25T17:00:00.000Z",
-  "oneLineSummary": "PD-041 MVP 완료(test-regression 2fixture+CLI), PD-040/028 deprecated, PD-043/044 신규, D-093 박제",
+  "startedAt": "2026-04-25T17:30:00.000Z",
+  "closedAt": "2026-04-25T18:10:00.000Z",
+  "oneLineSummary": "topic_082 재개: framing→Phase 1 G1 PASS(7/7), D-094~D-098 박제, PD-046~050 신설/PD-045 deprecated, MF-090~096",
   "mode": "observation",
-  "grade": "A",
-  "gradeDeclared": "A",
+  "grade": "S",
+  "gradeDeclared": "S",
   "orchestrationMode": "manual",
   "orchestrationTransitions": [],
   "framingLevel": 2,
   "framingSkipped": false,
-  "topicType": "implementation",
+  "topicType": "framing",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
     "ace",
     "arki",
-    "arki",
+    "vera",
     "riki",
+    "fin",
+    "ace",
     "arki",
+    "vera",
+    "ace",
+    "dev",
+    "arki",
+    "vera",
+    "ace",
+    "dev",
+    "vera",
     "dev",
     "editor"
   ],
@@ -39,10 +49,9 @@
       "phase": "design"
     },
     {
-      "role": "arki",
+      "role": "vera",
       "turnIdx": 2,
-      "phase": "design",
-      "recallReason": "post-master"
+      "phase": "design"
     },
     {
       "role": "riki",
@@ -50,62 +59,122 @@
       "phase": "design"
     },
     {
-      "role": "arki",
+      "role": "fin",
       "turnIdx": 4,
+      "phase": "design"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 5,
+      "phase": "synthesis"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 6,
       "phase": "design",
-      "recallReason": "post-master"
+      "recallReason": "post-synthesis"
+    },
+    {
+      "role": "vera",
+      "turnIdx": 7,
+      "phase": "design",
+      "recallReason": "post-synthesis"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 8,
+      "phase": "synthesis",
+      "recallReason": "post-master-decisions"
     },
     {
       "role": "dev",
-      "turnIdx": 5,
+      "turnIdx": 9,
       "phase": "implementation"
     },
     {
+      "role": "arki",
+      "turnIdx": 10,
+      "phase": "implementation",
+      "recallReason": "phase-0-execution"
+    },
+    {
+      "role": "vera",
+      "turnIdx": 11,
+      "phase": "implementation",
+      "recallReason": "phase-0-execution"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 12,
+      "phase": "synthesis",
+      "recallReason": "phase-0-execution"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 13,
+      "phase": "implementation",
+      "recallReason": "phase-1-g1-execution"
+    },
+    {
+      "role": "vera",
+      "turnIdx": 14,
+      "phase": "implementation",
+      "recallReason": "spec-drift-correction"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 15,
+      "phase": "implementation",
+      "recallReason": "phase-1-g1-pass-verification"
+    },
+    {
       "role": "editor",
-      "turnIdx": 6,
-      "phase": "compile"
+      "turnIdx": 16,
+      "phase": "compile",
+      "recallReason": "session-close-compile"
     }
   ],
-  "decisions": [
-    "D-093"
-  ],
+  "decisions": [],
   "masterDecisions": [],
-  "masterFeedback": [
-    "이 과제 자체가 의문이야 (framing 단계에서 PD-040 필요성 재검토 촉발)",
-    "이게 이정도로 크게 설계해야 할 문제인가 (Arki 풀스펙 → MVP 재설계)",
-    "아키 자기감사 정책이 페르소나에 기록되어 있어야 한다 (PD-044 신규)"
-  ],
+  "masterFeedback": [],
   "pendingDeferralsAdded": [
-    "PD-043",
-    "PD-044"
+    "PD-045",
+    "PD-046",
+    "PD-047",
+    "PD-048",
+    "PD-049",
+    "PD-050"
   ],
-  "pendingDeferralsResolved": [
-    "PD-041"
-  ],
+  "pendingDeferralsResolved": [],
   "pendingDeferralsDeprecated": [
-    "PD-028",
-    "PD-040"
+    "PD-045"
   ],
   "decisionsAdded": [
-    "D-093"
+    "D-094",
+    "D-095",
+    "D-096",
+    "D-097",
+    "D-098"
   ],
   "notes": [
-    "Master 최종 결정: PD-040 폐기, PD-041만 본 토픽 진행, 역할 사칭 검증 hook은 PD-043(PD-033 dependsOn), 페르소나 정책 박제는 PD-044.",
-    "PD-040 폐기 사유: 실 drift 0건 + 육안 검출 충분 + D-092 패턴 동류.",
-    "Arki 핵심 사건: scopeDriftCheck 우회 자가 인정 — placeholder 카테고리를 spec으로 오독해 5종 풀구현 시도. 24시간 내 D-092 패턴 재이식.",
-    "MVP scope: fixture 2종(01_empty·02_baseline_n3) + test-regression.ts 132 lines. hook 편입·feature_flag·3중 차단 전부 폐기.",
-    "런타임 3단 검증 독립 확인: PASS(2/2) → FAIL(의도적 주입) → PASS(원복).",
-    "PD-028 deprecated 처리 (Master 선택, asset protocol 준수).",
-    "메모리-페르소나 분리 구조 논의: 정책=persona canonical / 누적학습=memory. D-092 단일 출처 원칙 연장."
+    "topic_082 재개 (suspended → active → in-progress). PD-015 hold 해제됨 (D-060 session_077 완료).",
+    "Grade S Master 선언, 본 시스템 첫 S 적용. ace-framing 스킬 미발동.",
+    "framing→design→Phase 0 G0 PASS(9 산출물)→Phase 1 G1 PASS(7/7) 도달.",
+    "Vera spec drift 자기 인정 + 정정 (--text-3 #6E6E78 → #82828C, contrast 표 WCAG 2.1 표준 공식 재산출). Dev rev2가 적출.",
+    "본 토픽 안에서 framing→구현 끝까지 (Master 명시 분화 금지). 잔여 Phase 2~5 다음 세션.",
+    "Master 박제 결정 18건 (사이드바 6 메뉴 / Records 5 sub / 반응형 2축 1024 / VR docker pin + 24 baseline + mock fixture / G1 lint 색 토큰만 / partial=<template>+build-time inline / dashboard-upgrade canonical / Hard breaker B1·B2·B3 / 부분 출시 4 페이지 / 기타).",
+    "Decision D-094~D-098 5건 박제, PD-046~PD-050 6건 신설(PD-045 deprecated by Dev 실측), MF-090~096 7건 master feedback.",
+    "memory 박제 4건: feedback_no_premature_topic_split / feedback_no_re_asking_settled_policy / feedback_role_color_unification_pending / feedback_dashboard_upgrade_template_canonical.",
+    "Master Docker Desktop 설치 진행 중 — Phase 2 진입 전 확인 필요."
   ],
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 308,
-    "output_tokens": 105432,
-    "cache_creation_input_tokens": 726984,
-    "cache_read_input_tokens": 12872180,
-    "messageCount": 117,
-    "masterTurns": 21,
-    "total_billable": 13704904
+    "input_tokens": 713,
+    "output_tokens": 223653,
+    "cache_creation_input_tokens": 1159077,
+    "cache_read_input_tokens": 39642441,
+    "messageCount": 236,
+    "masterTurns": 40,
+    "total_billable": 41025884
   }
 }

@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-25T06:02:25.212Z",
-  "totalSessions": 101,
+  "generatedAt": "2026-04-25T11:56:02.993Z",
+  "totalSessions": 102,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.71,
-    "avgCacheHitRate": 0.9318,
-    "cacheSampleSize": 75,
-    "cacheSampleTotal": 101,
+    "avgMasterTurns": 16.95,
+    "avgCacheHitRate": 0.9322,
+    "cacheSampleSize": 76,
+    "cacheSampleTotal": 102,
     "avgAdoptionRate": 0,
-    "totalDecisions": 93,
+    "totalDecisions": 98,
     "gradeDistribution": {
-      "S": 38,
+      "S": 39,
       "A": 19,
       "B": 32,
       "C": 12
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 56,
-    "totalCostUSD": 870.339,
-    "avgCostPerSession": 9.066,
-    "costSampleSize": 96
+    "turnBasedSessions": 57,
+    "totalCostUSD": 889.9352,
+    "avgCostPerSession": 9.1746,
+    "costSampleSize": 97
   },
   "sessions": [
     {
@@ -2708,8 +2708,8 @@
       ],
       "rolesCalled": 2,
       "rolesRecalled": 0,
-      "sessionsSpanned": 1,
-      "size": 13,
+      "sessionsSpanned": 2,
+      "size": 16,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -3818,12 +3818,68 @@
         "messageCount": 117
       },
       "sessionCostUSD": 8.1702
+    },
+    {
+      "sessionId": "session_104",
+      "topicSlug": "dashboard-redesign-ux-responsive",
+      "topic": "Dashboard 개편 — 인터페이스 UX + 반응형 프레임",
+      "startedAt": "2026-04-25T17:30:00.000Z",
+      "closedAt": "2026-04-25T18:10:00.000Z",
+      "decisionCount": 5,
+      "decisionAxes": 5,
+      "decisions": [
+        "D-094",
+        "D-095",
+        "D-096",
+        "D-097",
+        "D-098"
+      ],
+      "rolesCalled": 17,
+      "rolesRecalled": 10,
+      "sessionsSpanned": 2,
+      "size": 53,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 40,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "vera",
+        "riki",
+        "fin",
+        "ace",
+        "arki",
+        "vera",
+        "ace",
+        "dev",
+        "arki",
+        "vera",
+        "ace",
+        "dev",
+        "vera",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 41025884,
+        "ioTokens": 224366,
+        "inputTokens": 713,
+        "outputTokens": 223653,
+        "cacheCreate": 1159077,
+        "cacheRead": 39642441,
+        "cacheHitRate": 0.9662787765889457,
+        "messageCount": 236
+      },
+      "sessionCostUSD": 19.5962
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 103,
+      "count": 107,
       "sessions": [
         "session_047",
         "session_048",
@@ -3872,12 +3928,13 @@
         "session_098",
         "session_100",
         "session_101",
-        "session_103"
+        "session_103",
+        "session_104"
       ]
     },
     {
       "role": "arki",
-      "count": 76,
+      "count": 79,
       "sessions": [
         "session_048",
         "session_049",
@@ -3910,12 +3967,13 @@
         "session_098",
         "session_100",
         "session_101",
-        "session_103"
+        "session_103",
+        "session_104"
       ]
     },
     {
       "role": "editor",
-      "count": 53,
+      "count": 54,
       "sessions": [
         "session_050",
         "session_051",
@@ -3969,12 +4027,13 @@
         "session_100",
         "session_101",
         "session_102",
-        "session_103"
+        "session_103",
+        "session_104"
       ]
     },
     {
       "role": "dev",
-      "count": 40,
+      "count": 43,
       "sessions": [
         "session_047",
         "session_048",
@@ -4009,12 +4068,13 @@
         "session_100",
         "session_101",
         "session_102",
-        "session_103"
+        "session_103",
+        "session_104"
       ]
     },
     {
       "role": "riki",
-      "count": 34,
+      "count": 35,
       "sessions": [
         "session_049",
         "session_053",
@@ -4042,12 +4102,13 @@
         "session_098",
         "session_100",
         "session_101",
-        "session_103"
+        "session_103",
+        "session_104"
       ]
     },
     {
       "role": "fin",
-      "count": 19,
+      "count": 20,
       "sessions": [
         "session_053",
         "session_054",
@@ -4065,17 +4126,19 @@
         "session_082",
         "session_087",
         "session_094",
-        "session_098"
+        "session_098",
+        "session_104"
       ]
     },
     {
       "role": "vera",
-      "count": 7,
+      "count": 11,
       "sessions": [
         "session_049",
         "session_052",
         "session_081",
-        "session_096"
+        "session_096",
+        "session_104"
       ]
     },
     {
@@ -6454,6 +6517,114 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_104",
+      "topic": "Dashboard 개편 — 인터페이스 UX + 반응형 프레임",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "vera",
+          "phase": "design",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "design",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": "design",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 6,
+          "recallReason": "post-synthesis"
+        },
+        {
+          "role": "vera",
+          "phase": "design",
+          "turnIdx": 7,
+          "recallReason": "post-synthesis"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 8,
+          "recallReason": "post-master-decisions"
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 9,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "implementation",
+          "turnIdx": 10,
+          "recallReason": "phase-0-execution"
+        },
+        {
+          "role": "vera",
+          "phase": "implementation",
+          "turnIdx": 11,
+          "recallReason": "phase-0-execution"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 12,
+          "recallReason": "phase-0-execution"
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 13,
+          "recallReason": "phase-1-g1-execution"
+        },
+        {
+          "role": "vera",
+          "phase": "implementation",
+          "turnIdx": 14,
+          "recallReason": "spec-drift-correction"
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 15,
+          "recallReason": "phase-1-g1-pass-verification"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 16,
+          "recallReason": "session-close-compile"
+        }
+      ]
     }
   ],
   "alarms": [
@@ -6498,6 +6669,12 @@
       "severity": "yellow",
       "sessionId": "session_101",
       "description": "역할 과호출: rolesRecalled=9 (임계값 5, grade=S)"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_104",
+      "description": "역할 과호출: rolesRecalled=10 (임계값 5, grade=S)"
     }
   ],
   "feedbackRecurrences": [
@@ -7113,6 +7290,11 @@
           "date": "2026-04-17",
           "feedbackId": "MF-023",
           "summary": "세션에 버전도 안맞고, 홈에 세션 클릭하면 메뉴바가 상단으로 올라가. 박스도 흰색이라 안보이고. 베라 이번 "
+        },
+        {
+          "date": "2026-04-25",
+          "feedbackId": "MF-095",
+          "summary": "세션 사이드 메뉴에 흐름 있잖아. 그건 어떻게 할껀데?"
         }
       ]
     },
@@ -7203,6 +7385,11 @@
           "date": "2026-04-04",
           "feedbackId": "MF-002",
           "summary": "역할 혼선 지적. Ace가 종합검토를 해야 하고, Editor는 결과물 작성/정리/출력만 해야 한다."
+        },
+        {
+          "date": "2026-04-25",
+          "feedbackId": "MF-094",
+          "summary": "Dashboard는? (사이드바 메뉴 빠뜨림 지적)"
         }
       ]
     },
@@ -7321,6 +7508,21 @@
       ]
     },
     {
+      "keyword": "업그레이드",
+      "occurrences": [
+        {
+          "date": "2026-04-17",
+          "feedbackId": "MF-021",
+          "summary": "베라가 주체적으로 변경하고 제안해야지. 업그레이드 페이지만 제대로 적용되고 나머지는 이야기 한 것만 변경되잖"
+        },
+        {
+          "date": "2026-04-25",
+          "feedbackId": "MF-093",
+          "summary": "대시보드 중 업그레이드 템플릿이 더 좋아."
+        }
+      ]
+    },
+    {
       "keyword": "버전도",
       "occurrences": [
         {
@@ -7332,6 +7534,21 @@
           "date": "2026-04-19",
           "feedbackId": "MF-030",
           "summary": "한글 버전도 만들고, K/E로 논문 구분. 논문형태로 작성, 표·그래프 추가(구조 이해 쉽도록)."
+        }
+      ]
+    },
+    {
+      "keyword": "홈에",
+      "occurrences": [
+        {
+          "date": "2026-04-17",
+          "feedbackId": "MF-023",
+          "summary": "세션에 버전도 안맞고, 홈에 세션 클릭하면 메뉴바가 상단으로 올라가. 박스도 흰색이라 안보이고. 베라 이번 "
+        },
+        {
+          "date": "2026-04-25",
+          "feedbackId": "MF-092",
+          "summary": "각 캐릭터별 색상은 홈에 있는것으로 유지하고 통일해. 내가 페이지마다 통일하라고 했는데 안된것 같네."
         }
       ]
     },
@@ -7391,6 +7608,21 @@
           "date": "2026-04-25",
           "feedbackId": "MF-085",
           "summary": "본질도 아닌 것에 왜 이렇게 어렵고 꼬이지 — 측정 인프라 over-engineering 회귀 신호. 점수 "
+        }
+      ]
+    },
+    {
+      "keyword": "구현은",
+      "occurrences": [
+        {
+          "date": "2026-04-24",
+          "feedbackId": "MF-079",
+          "summary": "구현은 3세션 이내 원칙으로 진행."
+        },
+        {
+          "date": "2026-04-25",
+          "feedbackId": "MF-090",
+          "summary": "구현은 후속 child토픽으로 분화해도 되는데 일단 해보고. 분화하면 제대로 진행이 안돼."
         }
       ]
     }

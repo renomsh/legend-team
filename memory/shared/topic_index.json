@@ -499,24 +499,52 @@
     {
       "id": "topic_082",
       "title": "Dashboard 개편 — 인터페이스 UX + 반응형 프레임",
-      "status": "suspended",
-      "phase": "framing",
+      "status": "in-progress",
+      "phase": "implementation",
       "hold": {
-        "active": true,
+        "active": false,
         "heldAt": "2026-04-22T09:50:00.000Z",
         "heldAtPhase": "framing",
-        "reason": "PD-015(성장지표 정의 + Board 계측) 선행 완료 후 Master 재호출까지 보류. IA 확장 리스크로 Option A 채택."
+        "reason": "PD-015(성장지표 정의 + Board 계측) 선행 완료 후 Master 재호출까지 보류. IA 확장 리스크로 Option A 채택.",
+        "releasedAt": "2026-04-25T17:30:00.000Z",
+        "releaseReason": "Master 재호출 (session_104). PD-015 resolved (D-060, session_077). Grade S 재선언."
       },
       "created": "2026-04-22",
       "controlPath": "topics/topic_082",
       "reportPath": "reports/2026-04-22_dashboard-redesign-ux-responsive",
       "reportFiles": [
-        "ace_rev1.md"
+        "ace_rev1.md",
+        "ace_rev2.md",
+        "ace_rev3.md",
+        "ace_rev4.md",
+        "arki_rev1.md",
+        "arki_rev2.md",
+        "arki_rev3.md",
+        "vera_rev1.md",
+        "vera_rev2.md",
+        "vera_rev3.md",
+        "vera_rev4.md",
+        "riki_rev1.md",
+        "fin_rev1.md",
+        "dev_rev1.md",
+        "dev_rev2.md",
+        "dev_rev3.md",
+        "editor_rev1.md",
+        "inventory.md",
+        "legacy-decision.md",
+        "ia-spec.md",
+        "token-axes-spec.md",
+        "responsive-policy.md",
+        "vr-spec.md",
+        "contrast-check.md",
+        "spec-lock-decisions.md",
+        "inline-root-dump.json"
       ],
       "published": false,
       "path": "topics/topic_082",
       "grade": "S",
-      "outcome": "framing held — Option A: defer until PD-015 completes"
+      "outcome": "session_104: framing→design→Phase 0 G0 PASS→Phase 1 G1 PASS (7/7) 도달. D-094~D-098 5건 박제, PD-046~PD-050 신설, PD-045 deprecated. 잔여 Phase 2~5(반응형 + VR 인프라 + 8 페이지 신설 + Edi 인계)는 다음 세션.",
+      "closedInSession": "session_104"
     },
     {
       "id": "topic_081",
@@ -2124,5 +2152,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-25T06:02:09.386Z"
+  "lastUpdated": "2026-04-25T11:55:43.821Z"
 }

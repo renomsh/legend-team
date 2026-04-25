@@ -1,0 +1,184 @@
+/* ============================================================
+ * tokens.css — Legend Team 단일 디자인 토큰 출처
+ * ------------------------------------------------------------
+ * Source of truth: app/dashboard-upgrade.html (D-097 canonical)
+ * Spec: reports/2026-04-22_dashboard-redesign-ux-responsive/token-axes-spec.md
+ * Owner: Vera (G0-4) → Editor 인계 후 상시 사용
+ * Phase: Phase 0 spec lock skeleton (Phase 1 G1 진입 직전)
+ *
+ * 변경 규칙
+ *   - 본 파일이 단일 출처. 인라인 :root{} 토큰 추가 금지 (Dev rev1 §F-1 lint 차단).
+ *   - 색·spacing·typography 토큰 변경 시 scripts/lint-contrast.ts 자동 발동.
+ *   - --c-ace 는 ALARM(margin 0.14) — accent-only 강제. --c-dev는 5.35:1 안전권.
+ *   - vera rev4 (turnId 14) spec-drift-correction: --text-3 hex swap + 비율 실측 정정.
+ * ============================================================ */
+
+:root {
+  /* ── Layout / Surface (8 axis) ─────────────────────────────
+   * 출처: dashboard-upgrade.html line 9~18
+   * 다크 단일 테마 (Color scheme: dark) */
+  --bg:        #000000;   /* page background */
+  --panel:     #0B0B0D;   /* card surface (default) */
+  --panel-2:   #141418;   /* nested panel / hover */
+  --panel-3:   #1C1C22;   /* deep nested / active filter */
+  --line:      #26262D;   /* default border 1px */
+  --line-2:    #333340;   /* hover / focus border */
+  --text:      #F5F5F7;   /* primary text — 18.06:1 on --panel */
+  --text-2:    #B8B8C0;   /* secondary text / nav default — 9.98:1 on --panel */
+  --text-3:    #82828C;   /* tertiary text / meta / eyebrow
+                           * vera rev4 spec-drift-correction (turnId 14):
+                           *   prev hex #6E6E78 = 3.90:1 on --panel (FAIL)
+                           *   curr hex #82828C = 5.17:1 on --panel (PASS, margin 0.67)
+                           *                      5.52:1 on --bg
+                           *                      4.83:1 on --panel-2 (hover surface PASS — rev3 §1-1 #20 정책 차단 해제)
+                           *   WCAG 2.1 sRGB linearization (scripts/lint-contrast.ts) */
+
+  /* ── Role colors (8 roles) ─────────────────────────────────
+   * 출처: dashboard-upgrade.html line 23~24 (canonical hex)
+   * raterId 기준. PD-035 박제 — designer 토큰 미사용. */
+  /* 비율은 vera rev4 (turnId 14) WCAG 2.1 sRGB linearization 실측 (lint-contrast.ts) */
+  --c-ace:     #8B5CF6;   /* 4.64:1 on --panel — ALARM (margin 0.14) — accent-only 강제 */
+  --c-arki:    #06B6D4;   /* 8.10:1 on --panel */
+  --c-fin:     #F59E0B;   /* 9.16:1 on --panel */
+  --c-riki:    #EF4444;   /* 5.23:1 on --panel */
+  --c-nova:    #10B981;   /* 7.75:1 on --panel */
+  --c-dev:     #3B82F6;   /* 5.35:1 on --panel — 간당 해소(rev3 4.7 추정 → 실측 5.35) */
+  --c-vera:    #F472B6;   /* 7.43:1 on --panel */
+  --c-editor:  #9CA3AF;   /* 7.75:1 on --panel — 'edi'는 칭호, 토큰명은 editor 유지 */
+
+  /* ── 간당값 fallback candidate (vera_rev2 §D 박제, rev4 실측 정정) ─
+   * tokens.css 자동 swap 대상 (lint-contrast.ts FAIL/ALARM 시 후보) */
+  --c-dev-fallback:  #4F8FF7;   /* 6.19:1 on --panel — margin 1.69 */
+  --c-ace-fallback:  #9F75F8;   /* 5.97:1 on --panel — margin 1.47 */
+
+  /* ── Gradients ─────────────────────────────────────────────
+   * 출처: dashboard-upgrade.html line 19~22 */
+  --grad-violet: linear-gradient(135deg, #4F46E5 0%, #9333EA 100%);
+  --grad-teal:   linear-gradient(135deg, #0891B2 0%, #14B8A6 100%);
+  --grad-amber:  linear-gradient(135deg, #D97706 0%, #F59E0B 100%);
+  --grad-rose:   linear-gradient(135deg, #BE185D 0%, #F43F5E 100%);
+
+  /* ── Alpha 3-tier (vera_rev1 R-D02 drift 회피) ─────────────
+   * nav-item active·tag bg·overlay 모두 이 3단으로만 운용 */
+  --alpha-1: 0.12;   /* subtle background tint */
+  --alpha-2: 0.18;   /* nav active / chip bg */
+  --alpha-3: 0.25;   /* hover emphasis / border accent */
+
+  /* ── Semantic state (PD-047 신설) ──────────────────────────
+   * Phase 1 G1에서 build·dashboard 회수기·status badge 사용 */
+  --ok:    #10B981;   /* green — pass / running */
+  --warn:  #F59E0B;   /* amber — pending / partial */
+  --bad:   #EF4444;   /* red — fail / blocker */
+
+  /* ── Spacing scale (vera_rev1 §1) ──────────────────────────
+   * 4px base. 중간값 사용 금지 (drift 차단) */
+  --sp-0:   0;
+  --sp-1:   4px;
+  --sp-2:   8px;
+  --sp-3:   12px;
+  --sp-4:   16px;
+  --sp-5:   20px;
+  --sp-6:   24px;
+  --sp-7:   28px;
+  --sp-8:   36px;
+  --sp-9:   48px;
+  --sp-10:  64px;
+
+  /* ── Radius (vera_rev1 §1) ─────────────────────────────────
+   * 카드 12 / pill 999 / hero 20 / chip 6 */
+  --r-1:    6px;     /* chip */
+  --r-2:    8px;     /* nav item / button small */
+  --r-3:    12px;    /* card / panel */
+  --r-4:    16px;    /* large panel */
+  --r-5:    20px;    /* hero */
+  --r-pill: 999px;   /* pill / badge */
+
+  /* ── Shadow (vera_rev1 §2) ─────────────────────────────────
+   * 그림자 사용 최소화 (border가 1차 표현). hover에만 1단. */
+  --shadow-1: 0 1px 2px rgba(0,0,0,.4);
+  --shadow-2: 0 4px 12px rgba(0,0,0,.5);
+  --shadow-glow-violet: 0 0 24px rgba(139,92,246,.25);
+
+  /* ── Typography scale (8단 위계, vera_rev1 §2 + 모바일 보정) ─
+   * font-family: -apple-system, 'SF Pro Display', 'Inter', 'Pretendard', sans-serif
+   * font-feature: 'tnum' (KPI 숫자) — JS·CSS 양쪽에서 적용
+   * desktop / mobile (<1024) 픽셀 분리 */
+  --fs-display:     48px;   /* hero KPI desktop */
+  --fs-display-m:   36px;   /* hero KPI mobile */
+  --fs-h1:          28px;   /* page h1 */
+  --fs-h1-m:        24px;
+  --fs-h2:          20px;   /* section h2 / hero meta value */
+  --fs-h2-m:        18px;
+  --fs-h3:          16px;   /* card title */
+  --fs-h3-m:        15px;
+  --fs-body:        14px;   /* paragraph / nav-item label */
+  --fs-body-m:      13px;
+  --fs-label:       13px;   /* table label / chip label */
+  --fs-label-m:     12px;
+  --fs-meta:        11px;   /* eyebrow / pill / meta */
+  --fs-meta-m:      11px;   /* 동일 — 가독 최소선 보장 */
+  --fs-mono-min:    11px;   /* 본문 최소 (vera_rev1 §2-3 7규칙) */
+
+  /* line-height — heading 짧고 본문 넉넉 */
+  --lh-tight:   1.05;       /* hero KPI */
+  --lh-heading: 1.2;        /* h1·h2·h3 */
+  --lh-body:    1.5;        /* 본문 */
+  --lh-loose:   1.7;        /* description */
+
+  /* tracking (letter-spacing) */
+  --ls-display: -0.04em;    /* hero KPI 음수 트래킹 */
+  --ls-h1:      -0.02em;
+  --ls-h2:      -0.01em;
+  --ls-body:    0;
+  --ls-eyebrow: 0.14em;     /* uppercase eyebrow */
+  --ls-cap:     0.18em;     /* hero h-eyebrow */
+
+  /* ── Container (반응형 토큰) ───────────────────────────────
+   * 반응형 정책은 G0-6 responsive-policy.md (1024 단일 분기) */
+  --sidebar-w:        220px;     /* desktop fixed */
+  --drawer-w:         280px;     /* mobile off-canvas */
+  --container-max:    1440px;    /* main content 최대폭 */
+  --topbar-h:         56px;
+  --hamburger-size:   40px;
+  --bp-mobile-max:    1023px;    /* @media (max-width: 1023px) — 단일 분기 */
+
+  /* ── Motion ────────────────────────────────────────────────
+   * 모션은 transform·opacity 단일. layout shift 금지. */
+  --t-fast:    120ms;
+  --t-base:    220ms;
+  --t-slow:    320ms;
+  --ease-std:  cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:  cubic-bezier(0, 0, 0.2, 1);
+
+  /* ── Z-index (drawer·backdrop·tooltip 단일 출처) ───────────
+   * vera_rev2 §2-2 transition spec 정합 */
+  --z-base:     1;
+  --z-sticky:   10;
+  --z-backdrop: 49;
+  --z-drawer:   50;
+  --z-hamburger: 51;
+  --z-tooltip:  100;
+}
+
+/* ============================================================
+ * 모바일 분기 (단일 분기 1024) — 토큰 자동 보정
+ * G0-6 responsive-policy.md §1 정합
+ * ============================================================ */
+@media (max-width: 1023px) {
+  :root {
+    /* 모바일 보정값 — typography 자동 swap */
+    --fs-display: var(--fs-display-m);
+    --fs-h1:      var(--fs-h1-m);
+    --fs-h2:      var(--fs-h2-m);
+    --fs-h3:      var(--fs-h3-m);
+    --fs-body:    var(--fs-body-m);
+    --fs-label:   var(--fs-label-m);
+  }
+}
+
+/* ============================================================
+ * 사용 import
+ *   <link rel="stylesheet" href="css/tokens.css">
+ * 주의: 본 파일 외부에서 :root{} 재정의 금지.
+ * Dev rev1 §F-1 lint-inline-root-color.ts가 차단.
+ * ============================================================ */

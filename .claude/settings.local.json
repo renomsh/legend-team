@@ -42,7 +42,8 @@
       "Read(//c/Projects/legend-team/reports/2026-04-24_pd023-resume-self-scores-mvp//**)",
       "Read(//c/Projects/legend-team/reports//**)",
       "Bash(node scripts/auto-push.js \"session end: pd037-vera-persona-status-check\")",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(node -e \"const t=require\\('./memory/shared/topic_index.json'\\).topics.find\\(t=>t.id==='topic_082'\\); console.log\\(JSON.stringify\\(t,null,2\\)\\)\")"
     ]
   }
 }
