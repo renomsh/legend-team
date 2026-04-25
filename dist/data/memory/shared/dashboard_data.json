@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-04-25T00:26:57.510Z",
-  "totalSessions": 96,
+  "generatedAt": "2026-04-25T01:23:38.539Z",
+  "totalSessions": 97,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.89,
-    "avgCacheHitRate": 0.9308,
-    "cacheSampleSize": 70,
-    "cacheSampleTotal": 96,
+    "avgMasterTurns": 16.75,
+    "avgCacheHitRate": 0.9309,
+    "cacheSampleSize": 71,
+    "cacheSampleTotal": 97,
     "avgAdoptionRate": 0,
     "totalDecisions": 87,
     "gradeDistribution": {
       "S": 35,
       "A": 19,
       "B": 31,
-      "C": 11
+      "C": 12
     },
     "gradeMismatchCount": 2,
     "gradeMismatchSessions": [
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 51,
-    "totalCostUSD": 837.9444,
-    "avgCostPerSession": 9.2082,
-    "costSampleSize": 91
+    "turnBasedSessions": 52,
+    "totalCostUSD": 839.3851,
+    "avgCostPerSession": 9.1238,
+    "costSampleSize": 92
   },
   "sessions": [
     {
@@ -3613,6 +3613,39 @@
         "messageCount": 79
       },
       "sessionCostUSD": 4.2597
+    },
+    {
+      "sessionId": "session_099",
+      "topicSlug": "pd037-vera-persona-status-check",
+      "topic": "PD-037 Vera 페르소나 상태 검증 — pending 해소",
+      "startedAt": "2026-04-25T09:00:00.000Z",
+      "closedAt": "2026-04-25T09:10:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 4,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 2416763,
+        "ioTokens": 16502,
+        "inputTokens": 57,
+        "outputTokens": 16445,
+        "cacheCreate": 137321,
+        "cacheRead": 2262940,
+        "cacheHitRate": 0.9363516406035677,
+        "messageCount": 41
+      },
+      "sessionCostUSD": 1.4407
     }
   ],
   "roleFrequency": [
@@ -3704,7 +3737,7 @@
     },
     {
       "role": "editor",
-      "count": 48,
+      "count": 49,
       "sessions": [
         "session_050",
         "session_051",
@@ -3753,7 +3786,8 @@
         "session_095",
         "session_096",
         "session_097",
-        "session_098"
+        "session_098",
+        "session_099"
       ]
     },
     {
@@ -6000,6 +6034,18 @@
           "role": "editor",
           "phase": null,
           "turnIdx": 6,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_099",
+      "topic": "PD-037 Vera 페르소나 상태 검증 — pending 해소",
+      "sequence": [
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 0,
           "recallReason": null
         }
       ]

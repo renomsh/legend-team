@@ -1,88 +1,52 @@
 {
-  "sessionId": "session_098",
-  "topicId": "topic_103",
-  "topic": "PD-036 3세션 summary 자동 로드 시스템 구현",
-  "topicSlug": "pd036-3session-summary-autoload",
-  "reportPath": "reports/2026-04-25_pd036-3session-summary-autoload",
+  "sessionId": "session_099",
+  "topicId": "topic_104",
+  "topic": "PD-037 Vera 페르소나 상태 검증 — pending 해소",
+  "topicSlug": "pd037-vera-persona-status-check",
+  "reportPath": "reports/2026-04-25_pd037-vera-persona-status-check",
   "status": "closed",
-  "startedAt": "2026-04-25T05:30:00.000Z",
-  "closedAt": "2026-04-25T08:00:00.000Z",
+  "startedAt": "2026-04-25T09:00:00.000Z",
+  "closedAt": "2026-04-25T09:10:00.000Z",
   "mode": "observation",
-  "grade": "B",
-  "gradeDeclared": "B",
+  "grade": "D",
+  "gradeDeclared": "D",
   "orchestrationMode": "manual",
-  "framingLevel": 2,
-  "framingSkipped": false,
-  "topicType": "implementation",
+  "framingLevel": 0,
+  "framingSkipped": true,
+  "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
-    "ace",
-    "arki",
-    "riki",
-    "fin",
-    "ace",
-    "dev",
     "editor"
   ],
   "turns": [
     {
-      "role": "ace",
-      "turnIdx": 0
-    },
-    {
-      "role": "arki",
-      "turnIdx": 1
-    },
-    {
-      "role": "riki",
-      "turnIdx": 2
-    },
-    {
-      "role": "fin",
-      "turnIdx": 3
-    },
-    {
-      "role": "ace",
-      "turnIdx": 4
-    },
-    {
-      "role": "dev",
-      "turnIdx": 5
-    },
-    {
       "role": "editor",
-      "turnIdx": 6
+      "turnIdx": 0,
+      "phase": "compile"
     }
   ],
-  "decisions": [
-    "D-087"
-  ],
-  "masterDecisions": [
-    "D-087"
-  ],
+  "decisions": [],
+  "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [],
-  "oneLineSummary": "PD-036 3세션 summary 자동 로드 구현 완료: 7파일 변경, G0~G4 통과, D-087 박제",
-  "decisionsAdded": [
-    "D-087"
+  "pendingDeferralsResolved": [
+    "PD-037"
   ],
+  "oneLineSummary": "PD-037 resolved: role-vera.md 존재 확인 + vera-signature-review 실사용 확인",
+  "decisionsAdded": [],
   "notes": [
-    "D-087 박제: R-1 guard 로직(placeholder 자동삽입) + R-2 spawnSync 위임 패턴 확정",
-    "7개 파일 변경: append-session.ts, create-topic.ts, set-closed-in-session.ts(신규), session-end-finalize.js, sync-system-state.ts, open.md, close.md",
-    "G0~G4 검증 게이트 전원 통과",
-    "recentSessionSummaries 현재 빈 배열 — 다음 /close 부터 자동 누적 시작",
-    "PD-036 resolveCondition: 구현 완료 ✅, 3세션 누적 확인 ⏳(session_101 이후 자동 resolved 예정)"
+    "PD-037 resolveCondition 2조건 모두 충족: (1) memory/roles/personas/role-vera.md 파일 존재, (2) git commit f238672 pd037-vera-signature-review 실사용 확인",
+    "system_state.json PD-037 status → resolved 갱신 완료"
   ],
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 145,
-    "output_tokens": 38045,
-    "cache_creation_input_tokens": 420080,
-    "cache_read_input_tokens": 7044210,
-    "messageCount": 79,
-    "masterTurns": 10,
-    "total_billable": 7502480
+    "input_tokens": 57,
+    "output_tokens": 16445,
+    "cache_creation_input_tokens": 137321,
+    "cache_read_input_tokens": 2262940,
+    "messageCount": 41,
+    "masterTurns": 4,
+    "total_billable": 2416763
   }
 }

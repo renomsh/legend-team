@@ -3860,8 +3860,30 @@
       "decisionsAdded": [
         "D-087"
       ]
+    },
+    {
+      "sessionId": "session_099",
+      "topicSlug": "pd037-vera-persona-status-check",
+      "topic": "PD-037 Vera 페르소나 상태 검증 — pending 해소",
+      "startedAt": "2026-04-25T09:00:00.000Z",
+      "closedAt": "2026-04-25T09:10:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "editor",
+          "turnIdx": 0,
+          "phase": "compile"
+        }
+      ],
+      "grade": "D",
+      "note": "PD-037 resolveCondition 2조건 모두 충족: (1) memory/roles/personas/role-vera.md 파일 존재, (2) git commit f238672 pd037-vera-signature-review 실사용 확인 | system_state.json PD-037 status → resolved 갱신 완료",
+      "oneLineSummary": "PD-037 resolved: role-vera.md 존재 확인 + vera-signature-review 실사용 확인",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-04-25T00:25:05.153Z",
+  "lastUpdated": "2026-04-25T01:23:04.798Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

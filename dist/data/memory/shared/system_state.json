@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_098",
-  "nextSessionId": "session_099",
+  "lastSessionId": "session_099",
+  "nextSessionId": "session_100",
   "currentVersion": "v1.54",
   "openTopics": [
     {
@@ -58,6 +58,13 @@
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_099",
+      "topicSlug": "pd037-vera-persona-status-check",
+      "closedAt": "2026-04-25T09:10:00.000Z",
+      "oneLineSummary": "PD-037 resolved: role-vera.md 존재 확인 + vera-signature-review 실사용 확인",
+      "decisionsAdded": []
+    },
     {
       "sessionId": "session_098",
       "topicSlug": "pd036-3session-summary-autoload",
@@ -374,9 +381,11 @@
       "fromSession": "session_094",
       "fromTopic": "pd023-resume-self-scores-mvp",
       "item": "Vera 페르소나 신규 생성 — memory/roles/personas/role-vera.md 작성. D-029 Vera 역할 정의 기반",
-      "status": "pending",
+      "status": "resolved",
       "resolveCondition": "파일 생성 + 1토픽 이상 실사용 확인",
-      "dependsOn": []
+      "dependsOn": [],
+      "resolvedInSession": "session_099",
+      "resolvedNote": "memory/roles/personas/role-vera.md 존재 확인. pd037-vera-signature-review 세션에서 실사용 확인(git commit f238672). 두 조건 모두 충족."
     },
     {
       "id": "PD-038",
@@ -397,5 +406,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-25T00:26:09.107Z"
+  "lastUpdated": "2026-04-25T01:23:22.883Z"
 }

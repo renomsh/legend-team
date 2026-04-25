@@ -40,7 +40,8 @@
       "Bash(mv .claude/agents/role-nova.md memory/roles/personas/)",
       "Bash(mv memory/archive/role-ace.md memory/roles/personas/)",
       "Read(//c/Projects/legend-team/reports/2026-04-24_pd023-resume-self-scores-mvp//**)",
-      "Read(//c/Projects/legend-team/reports//**)"
+      "Read(//c/Projects/legend-team/reports//**)",
+      "Bash(node scripts/auto-push.js \"session end: pd037-vera-persona-status-check\")"
     ]
   }
 }

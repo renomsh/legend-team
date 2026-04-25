@@ -964,3 +964,13 @@
 [2026-04-25T00:26:09.110Z] [sync-system-state] lastSession=session_098 openTopics=3 recentDecisions=5 recentSummaries=1 deferrals=35
 [2026-04-25T00:26:48.082Z] [compute-growth] Phase 1 ok. sessions=1 newDatapoints=12 totalDatapoints=1809 pendingLag=5
 [2026-04-25T00:26:57.523Z] [compute-dashboard] 완료 — 96개 세션, 6개 경보
+[2026-04-25T01:22:38.794Z] [checklist] [WARN] reports: reportPath not found on disk: reports/2026-04-25_pd037-vera-persona-status-check
+[2026-04-25T01:22:38.797Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-25T01:22:38.797Z] [checklist] [INFO] topic_index: topic found: topic_104 (completed)
+[2026-04-25T01:22:38.799Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-25T01:22:38.800Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-25T01:22:38.801Z] [session-log] [INFO] END session_099 | topic: pd037-vera-persona-status-check | duration: unknown (startedAt in future)
+[2026-04-25T01:23:09.905Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_104\context_brief.md | sessions=0 size=348B
+[2026-04-25T01:23:22.884Z] [sync-system-state] lastSession=session_099 openTopics=3 recentDecisions=5 recentSummaries=2 deferrals=35
+[2026-04-25T01:23:35.537Z] [compute-growth] Phase 1 ok. sessions=1 newDatapoints=12 totalDatapoints=1821 pendingLag=5
+[2026-04-25T01:23:38.543Z] [compute-dashboard] 완료 — 97개 세션, 6개 경보
