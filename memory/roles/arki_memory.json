@@ -269,6 +269,13 @@
   "lastUpdated": "2026-04-24",
   "lessonLog": [
     {
+      "date": "2026-04-25",
+      "session": "session_103",
+      "topic": "pd040-schema-governance-pd041-test-regression",
+      "lesson": "scopeDriftCheck 우회 사례 — PD-041 fixture '5종' placeholder 카테고리 라벨을 구현 spec으로 오독해 풀구현(6 phase·17 findings·hook 편입·feature_flag·3중 차단)으로 부풀림. 1.6배 계산 자체가 부풀려진 baseline 위에서 이루어져 scopeDriftCheck를 통과가 아니라 우회한 것. 핵심 오류: placeholder 카테고리(예시) ≠ 구현 체크리스트. + D-092 폐기 패턴(자동 감시 인프라)을 24시간 만에 동일 토픽에 재이식. Master 2차 압박 질문('이게 이정도로 크게 설계해야 할 문제인가')에서 자가 인정.",
+      "actionRule": "fixture·시나리오·카테고리 분류가 spec에 등장할 때: 'N종 모두 구현'이 명시되지 않았으면 '이런 시나리오가 있다'는 안내로 해석. 최소 구현(MVP) 제안 후 Master 승인 받기. 자동 감시 패턴(hook 편입·flag·차단 메커니즘) 포함 시 D-092 일관성 체크 명시."
+    },
+    {
       "date": "2026-04-22",
       "session": "session_077",
       "topic": "growth-metrics-board-design",

@@ -1,6 +1,21 @@
 {
-  "generatedAt": "2026-04-25T04:21:38.617Z",
+  "generatedAt": "2026-04-25T06:02:26.889Z",
   "topics": [
+    {
+      "id": "topic_108",
+      "title": "PD-041 test-regression 자동화 — derived data 회귀 안전망",
+      "status": "completed",
+      "created": "2026-04-25",
+      "reportPath": "reports/2026-04-25_pd040-schema-governance-pd041-test-regression",
+      "reportFiles": [
+        "ace_rev1.md",
+        "dev_rev1.md"
+      ],
+      "published": false,
+      "outcome": "MVP 완료: test-regression.ts + fixture 2종. PD-040 deprecated. PD-041 resolved. D-093 박제. D-092 정신 일관 적용 확인.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_107",
       "title": "D 단발 — A-1(decision_ledger D-087~D-091 sync) + A-2(PD-036 status 전이) + A-5(compile-metrics-registry schema fix)",

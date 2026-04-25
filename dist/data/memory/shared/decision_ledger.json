@@ -1,6 +1,17 @@
 {
   "decisions": [
     {
+      "id": "D-093",
+      "date": "2026-04-25",
+      "session": "session_103",
+      "topic": "topic_108",
+      "owningTopicId": "topic_108",
+      "scopeCheck": "PD-041 test-regression MVP — D-092 정신 일관 적용",
+      "axis": "회귀 검증 인프라 최소화 원칙 박제 — fixture 2종 + 수동 CLI, 자동 감시 패턴 배제",
+      "decision": "(1) PD-041 MVP: fixture 2종(01_empty·02_baseline_n3) + scripts/test-regression.ts(callable export + enumerate + NON_DETERMINISTIC_FIELDS 제외). hook 편입·feature_flag·3중 차단·compute 수정 전부 폐기. (2) PD-040 deprecated: 실 drift 0건 + 육안 검출 충분 + D-092 자동 감시 패턴 동류. (3) 회귀 검증 확장 원칙: 실 incident 발생 시 PD 등록. 선제 투자 금지. (4) PD-043 신규: 역할 사칭 검증 hook(PD-033 dependsOn). (5) PD-044 신규: 역할 페르소나에 정책 박제(selfAuditProtocol 등) — canonical 분리 원칙 확립. (6) PD-028 deprecated: 회사 cross-check 미실행, 효용 없음.",
+      "value": "D-092 정신 일관 적용 — 자동 감시 인프라는 실 incident 근거 없이 선제 투자 금지. Arki scopeDriftCheck 우회(placeholder→spec 오독) 사례 박제로 재발 방지."
+    },
+    {
       "id": "D-092",
       "date": "2026-04-25",
       "session": "session_101",

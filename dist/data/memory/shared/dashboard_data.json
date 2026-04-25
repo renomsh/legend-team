@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-25T04:21:36.911Z",
-  "totalSessions": 100,
+  "generatedAt": "2026-04-25T06:02:25.212Z",
+  "totalSessions": 101,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.66,
-    "avgCacheHitRate": 0.9317,
-    "cacheSampleSize": 74,
-    "cacheSampleTotal": 100,
+    "avgMasterTurns": 16.71,
+    "avgCacheHitRate": 0.9318,
+    "cacheSampleSize": 75,
+    "cacheSampleTotal": 101,
     "avgAdoptionRate": 0,
-    "totalDecisions": 92,
+    "totalDecisions": 93,
     "gradeDistribution": {
-      "S": 37,
+      "S": 38,
       "A": 19,
       "B": 32,
       "C": 12
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 55,
-    "totalCostUSD": 862.1688,
-    "avgCostPerSession": 9.0755,
-    "costSampleSize": 95
+    "turnBasedSessions": 56,
+    "totalCostUSD": 870.339,
+    "avgCostPerSession": 9.066,
+    "costSampleSize": 96
   },
   "sessions": [
     {
@@ -3776,12 +3776,54 @@
         "messageCount": 68
       },
       "sessionCostUSD": 3.0834
+    },
+    {
+      "sessionId": "session_103",
+      "topicSlug": "pd040-schema-governance-pd041-test-regression",
+      "topic": "PD-041 test-regression 자동화 — derived data 회귀 안전망",
+      "startedAt": "2026-04-25T14:30:00.000Z",
+      "closedAt": "2026-04-25T17:00:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-093"
+      ],
+      "rolesCalled": 7,
+      "rolesRecalled": 2,
+      "sessionsSpanned": 1,
+      "size": 16,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 21,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "arki",
+        "riki",
+        "arki",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 13704904,
+        "ioTokens": 105740,
+        "inputTokens": 308,
+        "outputTokens": 105432,
+        "cacheCreate": 726984,
+        "cacheRead": 12872180,
+        "cacheHitRate": 0.939238976062875,
+        "messageCount": 117
+      },
+      "sessionCostUSD": 8.1702
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 102,
+      "count": 103,
       "sessions": [
         "session_047",
         "session_048",
@@ -3829,12 +3871,13 @@
         "session_097",
         "session_098",
         "session_100",
-        "session_101"
+        "session_101",
+        "session_103"
       ]
     },
     {
       "role": "arki",
-      "count": 73,
+      "count": 76,
       "sessions": [
         "session_048",
         "session_049",
@@ -3866,12 +3909,13 @@
         "session_097",
         "session_098",
         "session_100",
-        "session_101"
+        "session_101",
+        "session_103"
       ]
     },
     {
       "role": "editor",
-      "count": 52,
+      "count": 53,
       "sessions": [
         "session_050",
         "session_051",
@@ -3924,12 +3968,13 @@
         "session_099",
         "session_100",
         "session_101",
-        "session_102"
+        "session_102",
+        "session_103"
       ]
     },
     {
       "role": "dev",
-      "count": 39,
+      "count": 40,
       "sessions": [
         "session_047",
         "session_048",
@@ -3963,12 +4008,13 @@
         "session_098",
         "session_100",
         "session_101",
-        "session_102"
+        "session_102",
+        "session_103"
       ]
     },
     {
       "role": "riki",
-      "count": 33,
+      "count": 34,
       "sessions": [
         "session_049",
         "session_053",
@@ -3995,7 +4041,8 @@
         "session_097",
         "session_098",
         "session_100",
-        "session_101"
+        "session_101",
+        "session_103"
       ]
     },
     {
@@ -6359,6 +6406,54 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_103",
+      "topic": "PD-041 test-regression 자동화 — derived data 회귀 안전망",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 2,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "phase": "design",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 4,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 6,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -6406,6 +6501,21 @@
     }
   ],
   "feedbackRecurrences": [
+    {
+      "keyword": "과제",
+      "occurrences": [
+        {
+          "date": "2026-04-25",
+          "feedbackId": "MF-086",
+          "summary": "이 과제 자체가 의문이야 / 이게 이정도로 크게 설계해야 할 문제인가 / 아키 페르소나에 정책이 기록되어 있"
+        },
+        {
+          "date": "2026-04-24",
+          "feedbackId": "MF-081",
+          "summary": "긴급 과제 끼어들기 후 PD 상태 drift가 이번 재구현 오사고의 근본 원인 — 구조적 대안 검토 필요"
+        }
+      ]
+    },
     {
       "keyword": "측정",
       "occurrences": [

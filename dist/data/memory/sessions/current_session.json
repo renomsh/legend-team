@@ -1,63 +1,111 @@
 {
-  "sessionId": "session_102",
-  "topicId": "topic_107",
-  "topic": "D 단발 — A-1(decision_ledger D-087~D-091 sync) + A-2(PD-036 status 전이) + A-5(compile-metrics-registry schema fix)",
-  "topicSlug": "maintenance-d087-pd036-metrics-fix",
-  "reportPath": "reports/2026-04-25_maintenance-d087-pd036-metrics-fix",
+  "sessionId": "session_103",
+  "topicId": "topic_108",
+  "topic": "PD-041 test-regression 자동화 — derived data 회귀 안전망",
+  "topicSlug": "pd040-schema-governance-pd041-test-regression",
+  "reportPath": "reports/2026-04-25_pd040-schema-governance-pd041-test-regression",
   "status": "closed",
-  "startedAt": "2026-04-25T14:00:00.000Z",
-  "closedAt": "2026-04-25T14:15:00.000Z",
-  "oneLineSummary": "A-1 확인(D-087~D-091 기존 동기화), A-2 PD-036 resolved, A-5 compile-metrics-registry Ajv 스키마 fix",
+  "startedAt": "2026-04-25T14:30:00.000Z",
+  "closedAt": "2026-04-25T17:00:00.000Z",
+  "oneLineSummary": "PD-041 MVP 완료(test-regression 2fixture+CLI), PD-040/028 deprecated, PD-043/044 신규, D-093 박제",
   "mode": "observation",
-  "grade": "D",
-  "gradeDeclared": "D",
+  "grade": "A",
+  "gradeDeclared": "A",
   "orchestrationMode": "manual",
   "orchestrationTransitions": [],
-  "framingLevel": 0,
-  "framingSkipped": true,
-  "topicType": "standalone",
+  "framingLevel": 2,
+  "framingSkipped": false,
+  "topicType": "implementation",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
+    "ace",
+    "arki",
+    "arki",
+    "riki",
+    "arki",
     "dev",
     "editor"
   ],
   "turns": [
     {
-      "role": "dev",
+      "role": "ace",
       "turnIdx": 0,
+      "phase": "framing"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 1,
+      "phase": "design"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 2,
+      "phase": "design",
+      "recallReason": "post-master"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 3,
+      "phase": "design"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 4,
+      "phase": "design",
+      "recallReason": "post-master"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 5,
       "phase": "implementation"
     },
     {
       "role": "editor",
-      "turnIdx": 1,
+      "turnIdx": 6,
       "phase": "compile"
     }
   ],
-  "decisions": [],
+  "decisions": [
+    "D-093"
+  ],
   "masterDecisions": [],
-  "masterFeedback": [],
-  "pendingDeferralsAdded": [],
+  "masterFeedback": [
+    "이 과제 자체가 의문이야 (framing 단계에서 PD-040 필요성 재검토 촉발)",
+    "이게 이정도로 크게 설계해야 할 문제인가 (Arki 풀스펙 → MVP 재설계)",
+    "아키 자기감사 정책이 페르소나에 기록되어 있어야 한다 (PD-044 신규)"
+  ],
+  "pendingDeferralsAdded": [
+    "PD-043",
+    "PD-044"
+  ],
   "pendingDeferralsResolved": [
-    "PD-036"
+    "PD-041"
   ],
-  "pendingDeferralsDeprecated": [],
-  "decisionsAdded": [],
+  "pendingDeferralsDeprecated": [
+    "PD-028",
+    "PD-040"
+  ],
+  "decisionsAdded": [
+    "D-093"
+  ],
   "notes": [
-    "A-1: D-087~D-091 decision_ledger.json에 이미 완전 동기화(decision+value 필드 모두 존재). session_101 note 기준 동작 불필요.",
-    "A-2: PD-036 resolved — session_097(pd036-3session-summary-autoload) 구현 완료, 3세션 summary 자동 생성 + /open step 3.5-b 동작 확인.",
-    "A-5: editor.gap_pinning_accuracy(settlementOffset/settlementStrategy → _reserved 이동) + nova.promotion_rate(deprecated/deprecatedAt/replacedBy → lifecycleState:deprecated/supersededBy/_reserved 재매핑). compile-metrics-registry OK 통과."
+    "Master 최종 결정: PD-040 폐기, PD-041만 본 토픽 진행, 역할 사칭 검증 hook은 PD-043(PD-033 dependsOn), 페르소나 정책 박제는 PD-044.",
+    "PD-040 폐기 사유: 실 drift 0건 + 육안 검출 충분 + D-092 패턴 동류.",
+    "Arki 핵심 사건: scopeDriftCheck 우회 자가 인정 — placeholder 카테고리를 spec으로 오독해 5종 풀구현 시도. 24시간 내 D-092 패턴 재이식.",
+    "MVP scope: fixture 2종(01_empty·02_baseline_n3) + test-regression.ts 132 lines. hook 편입·feature_flag·3중 차단 전부 폐기.",
+    "런타임 3단 검증 독립 확인: PASS(2/2) → FAIL(의도적 주입) → PASS(원복).",
+    "PD-028 deprecated 처리 (Master 선택, asset protocol 준수).",
+    "메모리-페르소나 분리 구조 논의: 정책=persona canonical / 누적학습=memory. D-092 단일 출처 원칙 연장."
   ],
-  "gaps": [
-    "reports 파일 없음 (Grade D, Edi 생략 규칙 적용)"
-  ],
+  "gaps": [],
   "tokenUsage": {
-    "input_tokens": 78,
-    "output_tokens": 45320,
-    "cache_creation_input_tokens": 275300,
-    "cache_read_input_tokens": 4569964,
-    "messageCount": 68,
-    "masterTurns": 3,
-    "total_billable": 4890662
+    "input_tokens": 308,
+    "output_tokens": 105432,
+    "cache_creation_input_tokens": 726984,
+    "cache_read_input_tokens": 12872180,
+    "messageCount": 117,
+    "masterTurns": 21,
+    "total_billable": 13704904
   }
 }

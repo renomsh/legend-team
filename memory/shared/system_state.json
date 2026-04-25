@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_102",
-  "nextSessionId": "session_103",
+  "lastSessionId": "session_103",
+  "nextSessionId": "session_104",
   "currentVersion": "v1.54",
   "openTopics": [
     {
@@ -27,6 +27,12 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-093",
+      "date": "2026-04-25",
+      "axis": "회귀 검증 인프라 최소화 원칙 박제 — fixture 2종 + 수동 CLI, 자동 감시 패턴 배제",
+      "summary": "D-092 정신 일관 적용 — 자동 감시 인프라는 실 incident 근거 없이 선제 투자 금지. Arki scopeDriftCheck 우회(placeholder→spec 오독) 사례 박제로 재발 방지."
+    },
+    {
       "id": "D-092",
       "date": "2026-04-25",
       "axis": "자가평가 자동 감시·propagation·게이트 폐기 + 지표 정의 단일 출처 박제 + PD-023 close",
@@ -49,15 +55,18 @@
       "date": "2026-04-25",
       "axis": "resolveCondition 재정의 + 코드 done / 운영 KPI open 이원화",
       "summary": "기존 'G6 통과' 모호 해소. 코드 완료와 운영 KPI 분리로 false-resolved 차단."
-    },
-    {
-      "id": "D-088",
-      "date": "2026-04-25",
-      "axis": "PD-031 흡수 → PD-023 단일 트랙",
-      "summary": "PD-031 진단 컨텍스트 손실 없이 트랙 단일화. PD-023 P3 운영 KPI에서 실가동 감사 항목을 직접 측정."
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_103",
+      "topicSlug": "pd040-schema-governance-pd041-test-regression",
+      "closedAt": "2026-04-25T17:00:00.000Z",
+      "oneLineSummary": "PD-041 MVP 완료(test-regression 2fixture+CLI), PD-040/028 deprecated, PD-043/044 신규, D-093 박제",
+      "decisionsAdded": [
+        "D-093"
+      ]
+    },
     {
       "sessionId": "session_102",
       "topicSlug": "maintenance-d087-pd036-metrics-fix",
@@ -73,21 +82,29 @@
       "decisionsAdded": [
         "D-092"
       ]
-    },
-    {
-      "sessionId": "session_100",
-      "topicSlug": "pd023-impl-status-check",
-      "closedAt": "2026-04-25T11:00:00.000Z",
-      "oneLineSummary": "PD-023 매트릭스 확정(P0a~P4 done, P3-supp done, P5 partial-nav). Quick-win 2파일 구현(batch-score-helper·validate-self-scores). PD-031 흡수, PD-035 resolved, PD-040/041/042 분리 등록.",
-      "decisionsAdded": [
-        "D-088",
-        "D-089",
-        "D-090",
-        "D-091"
-      ]
     }
   ],
   "pendingDeferrals": [
+    {
+      "id": "PD-044",
+      "fromSession": "session_103",
+      "fromTopic": "pd040-schema-governance-pd041-test-regression",
+      "item": "역할 정책의 페르소나 박제 — selfAuditProtocol(arki) 등 '발언 시 강제 적용' 정책이 *_memory.json에만 있고 personas/role-*.md에 미박제. 서브에이전트 호출 시 페르소나만 prompt에 주입되므로 정책 무용. canonical 분리 원칙 박제: 정책=persona / 누적학습=memory. 8역할 페르소나 점검 + 정책성 항목 본문 이전.",
+      "status": "pending",
+      "resolveCondition": "8역할 페르소나에 정책 블록 박제 완료 + canonical 분리 원칙 CLAUDE.md 또는 D-09x로 박제 + 1세션 dry-run에서 정책 작동 확인",
+      "dependsOn": []
+    },
+    {
+      "id": "PD-043",
+      "fromSession": "session_103",
+      "fromTopic": "pd040-schema-governance-pd041-test-regression",
+      "item": "역할 사칭 검증 hook — Main 컨텍스트가 Agent 툴 미경유 상태로 '## Ace', 'Arki:', '**Riki**' 등 역할 헤더 직접 작성 차단. session-end 시 turns[].role 항목마다 직전 Agent tool_use 매칭 검증. Main inline 역할 발언 + Ace relay 패턴 자동 적발. D-066(Grade A 서브에이전트 강제) + F-005(Ace relay 금지) 박혔으나 enforcement hook 미박제 → 현재 수동 감지뿐.",
+      "status": "pending",
+      "resolveCondition": "PD-033(서브에이전트 세션 지속성)과 함께 다룸. 검증 hook 구현 + 1세션 dry-run에서 위반 0건 또는 적발 정상 작동 확인.",
+      "dependsOn": [
+        "PD-033"
+      ]
+    },
     {
       "id": "PD-042",
       "fromSession": "session_100",
@@ -102,8 +119,10 @@
       "fromSession": "session_100",
       "fromTopic": "pd023-impl-status-check",
       "item": "PD-023 후속-A — test-regression.ts 자동화(회귀 baseline 잠금). fixture는 tests/fixtures/regression/ 존재. 수동 CLI + CI 친화.",
-      "status": "pending",
+      "status": "resolved",
       "resolveCondition": "구현 완료 + 회귀 fixture 5종 PASS",
+      "resolvedInSession": "session_103",
+      "resolvedNote": "MVP 합의(Master 승인): fixture 2종(01_empty·02_baseline_n3) + scripts/test-regression.ts(132 lines). 5종→2종 scope 축소는 D-092 정신 적용(placeholder 카테고리를 spec으로 오독 방지). 3단 검증 통과(PASS/의도적FAIL검출/PASS복귀). D-093 박제.",
       "dependsOn": []
     },
     {
@@ -111,8 +130,10 @@
       "fromSession": "session_100",
       "fromTopic": "pd023-impl-status-check",
       "item": "스키마 거버넌스 — operationalStatus·triggerType·absorbed enum·재호출 강제 원칙 박제. PD-020 거버넌스 트랙.",
-      "status": "pending",
+      "status": "deprecated",
       "resolveCondition": "PD-020 거버넌스 차기 토픽에서 스키마 변경 논의 + validate-schema-lifecycle.ts 갱신 + 1회 실적용 사례",
+      "deprecatedInSession": "session_103",
+      "deprecatedNote": "Master 폐기 결정 (session_103). 사유: (1) 실 드리프트 발생 0건, (2) 작성 빈도 세션당 0~1회 — Master 육안 검출 충분, (3) D-092 폐기한 자동 감시 패턴 카테고리에 속함. 자동 검증 인프라 ROI 낮음.",
       "dependsOn": []
     },
     {
@@ -180,8 +201,10 @@
       "fromSession": "session_087",
       "fromTopic": "cost-report-2025-reanalysis",
       "item": "회사 claude code 환경에서 동일 분석 재실행 후 본 재분석(이러닝군 62.0% / 하이브리드 25.7% / 컨텐츠개발 13.6%)과 cross-check. 안분 가정·재귀속 v4 결과의 외부 앵커 검증.",
-      "status": "pending",
+      "status": "deprecated",
       "resolveCondition": "회사 claude code 분석 결과 공유 + 본 리포트와 사업군 이익율 차이 ±5%p 이내 일치",
+      "deprecatedInSession": "session_103",
+      "deprecatedNote": "Master 폐기 결정 (session_103). 회사 claude code cross-check 미실행 + 효용 없음.",
       "dependsOn": []
     },
     {
@@ -460,5 +483,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-25T04:21:28.134Z"
+  "lastUpdated": "2026-04-25T06:02:17.161Z"
 }
