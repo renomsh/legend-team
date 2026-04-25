@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-04-24T23:23:43.538Z",
+  "generatedAt": "2026-04-25T00:27:00.549Z",
   "decisions": [
+    {
+      "id": "D-087",
+      "date": "2026-04-25",
+      "session": "session_098",
+      "topic": "topic_103",
+      "owningTopicId": "topic_103",
+      "scopeCheck": "PD-036 구현 핵심 설계",
+      "axis": "PD-036 finalize hook 위임 패턴 + guard 로직 + 500자 상한",
+      "decision": "(1) updateClosedInSession: finalize hook 내 topic_index 직접 쓰기 금지. set-closed-in-session.ts 신규 스크립트를 spawnSync 위임 패턴으로 호출 (R-2 대응). (2) oneLineSummary guard: finalize hook에 빈값 시 [summary 없음 — {topicSlug}] placeholder 자동 삽입 + /close SKILL.md 체크리스트 항목 추가 (R-1 대응). (3) recentSessionSummaries 세션당 500자 상한. 초과 시 truncate + console.warn. (4) decisionsAdded 기존 decisions 키 유지 + decisionsAdded 병기 (하위 호환). (5) set-closed-in-session.ts 신규 파일: --topicId --sessionId 인수, exit code 0/1 명시.",
+      "value": "R-1(누락 시 영구 공백) + R-2(race condition + 조용한 실패) 동시 해소. 위임 패턴으로 hook chain 안정성 확보."
+    },
     {
       "id": "D-074",
       "date": "2026-04-24",

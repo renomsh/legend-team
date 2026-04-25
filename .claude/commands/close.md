@@ -14,6 +14,7 @@
    - status: "closed"
    - closedAt: 현재 시각 (ISO 8601)
    - 세션 중 발생한 notes, gaps 기록
+   - **`oneLineSummary` 필드를 1줄(≤100자)로 작성하고 Edit 툴로 기록** (예: "topic-slug 구현 완료: 핵심 변경 3개, D-087 박제"). 없으면 finalize hook이 placeholder 자동 삽입 (안전장치 있음)
 6. Master feedback이 있었으면 `memory/master/master_feedback_log.json`에 추가
 7. 역할별 학습사항이 있으면 `memory/roles/{role}_memory.json` 업데이트
 8. **[자동]** `memory/sessions/session_index.json` 세션 기록 추가 — `session-end-finalize.js` hook이 `current_session.json` status=closed 확인 시 자동 append (agentsCompleted·decisions·note 포함). 수동 실행 불필요. (PD-009)

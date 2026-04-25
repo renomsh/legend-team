@@ -939,3 +939,28 @@
 [2026-04-24T23:23:28.856Z] [sync-system-state] lastSession=session_097 openTopics=3 recentDecisions=5 deferrals=35
 [2026-04-24T23:23:39.460Z] [compute-growth] Phase 1 ok. sessions=1 newDatapoints=12 totalDatapoints=1797 pendingLag=5
 [2026-04-24T23:23:42.168Z] [compute-dashboard] 완료 — 95개 세션, 6개 경보
+[2026-04-25T00:17:05.062Z] [sync-system-state] lastSession=session_097 openTopics=3 recentDecisions=5 recentSummaries=0 deferrals=35
+[2026-04-25T00:19:00.541Z] [sync-system-state] lastSession=session_097 openTopics=3 recentDecisions=5 recentSummaries=0 deferrals=35
+[2026-04-25T00:23:40.142Z] [checklist] [INFO] reports: 7 file(s) on disk, none registered in topic_index
+[2026-04-25T00:23:40.150Z] [checklist] [INFO] decision_ledger: 1 decision(s) recorded for session_098
+[2026-04-25T00:23:40.151Z] [checklist] [WARN] topic_index: topic not found in topic_index.json
+[2026-04-25T00:23:40.153Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-25T00:23:40.155Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-25T00:23:40.157Z] [session-log] [INFO] END session_098 | topic: pd036-3session-summary-autoload | duration: unknown (startedAt in future)
+[2026-04-25T00:24:04.588Z] [checklist] [INFO] reports: 7 file(s) on disk, none registered in topic_index
+[2026-04-25T00:24:04.597Z] [checklist] [INFO] decision_ledger: 1 decision(s) recorded for session_098
+[2026-04-25T00:24:04.600Z] [checklist] [WARN] topic_index: topic not found in topic_index.json
+[2026-04-25T00:24:04.602Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-25T00:24:04.604Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-25T00:24:04.606Z] [session-log] [INFO] END session_098 | topic: pd036-3session-summary-autoload | duration: unknown (startedAt in future)
+[2026-04-25T00:24:54.934Z] [checklist] [INFO] reports: 7 file(s) on disk, none registered in topic_index
+[2026-04-25T00:24:54.943Z] [checklist] [INFO] decision_ledger: 1 decision(s) recorded for session_098
+[2026-04-25T00:24:54.945Z] [checklist] [INFO] topic_index: topic found: topic_103 (completed)
+[2026-04-25T00:24:54.947Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-25T00:24:54.949Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-25T00:24:54.950Z] [session-log] [INFO] END session_098 | topic: pd036-3session-summary-autoload | duration: unknown (startedAt in future)
+[2026-04-25T00:25:14.015Z] [L2-writer] wrote C:\Projects\legend-team\topics\topic_103\session_contributions\session_098.md | turns=0 decisions=1
+[2026-04-25T00:25:23.222Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_103\context_brief.md | sessions=1 size=404B
+[2026-04-25T00:26:09.110Z] [sync-system-state] lastSession=session_098 openTopics=3 recentDecisions=5 recentSummaries=1 deferrals=35
+[2026-04-25T00:26:48.082Z] [compute-growth] Phase 1 ok. sessions=1 newDatapoints=12 totalDatapoints=1809 pendingLag=5
+[2026-04-25T00:26:57.523Z] [compute-dashboard] 완료 — 96개 세션, 6개 경보

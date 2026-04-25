@@ -125,6 +125,16 @@ function appendOrUpdateSessionIndex(sess) {
     ...(sess.grade && { grade: sess.grade }),
     ...(sess.legacy === true && { legacy: true }),
     ...(Array.isArray(sess.notes) && sess.notes.length > 0 && { note: sess.notes.join(' | ') }),
+    // P3-A (PD-036): oneLineSummary — 없으면 placeholder 삽입 (G3 안전장치)
+    oneLineSummary: sess.oneLineSummary || `[summary 없음 — ${sess.topicSlug}]`,
+    // P3-A (PD-036): decisionsAdded — sess.decisions(string[]) 또는 masterDecisions ID 목록 재사용
+    decisionsAdded: (() => {
+      if (Array.isArray(sess.decisionsAdded) && sess.decisionsAdded.length > 0) return sess.decisionsAdded;
+      if (Array.isArray(sess.masterDecisions) && sess.masterDecisions.length > 0) {
+        return sess.masterDecisions.map(d => (typeof d === 'string' ? d : (d && d.id ? d.id : String(d))));
+      }
+      return [];
+    })(),
   };
 
   if (existing) {
@@ -246,6 +256,48 @@ function runCheckPendingDeferrals(sess) {
 }
 
 /**
+ * P3-A (PD-036): topic_index.json의 closedInSession 필드 기록.
+ * set-closed-in-session.ts를 호출하여 topicId가 있는 세션의 종결 세션 ID를 박제.
+ * 실패 시 sess.gaps에 기록하고 hook 체인 계속 (조용한 실패 금지).
+ */
+function updateClosedInSession(sess) {
+  const topicId = sess.topicId;
+  const sessionId = sess.sessionId;
+  if (!topicId) {
+    log('updateClosedInSession skip: topicId 없음');
+    return;
+  }
+  if (sess.legacy) {
+    log(`updateClosedInSession skip: legacy 세션 (${sessionId})`);
+    return;
+  }
+
+  const scriptPath = path.join(CWD, 'scripts', 'set-closed-in-session.ts');
+  if (!fs.existsSync(scriptPath)) {
+    log('updateClosedInSession skip: set-closed-in-session.ts 없음');
+    return;
+  }
+
+  const isWin = process.platform === 'win32';
+  const cmd = isWin ? 'npx.cmd' : 'npx';
+  const result = spawnSync(cmd, ['ts-node', scriptPath, '--topicId', topicId, '--sessionId', sessionId], {
+    cwd: CWD,
+    encoding: 'utf8',
+    shell: isWin,
+  });
+
+  if (result.status !== 0) {
+    const errMsg = (result.stderr || result.stdout || '').trim();
+    log(`updateClosedInSession 실패 (code ${result.status}): ${errMsg}`);
+    sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
+    sess.gaps.push({ type: 'topic-index-write-failed', topicId, sessionId, detail: errMsg });
+    writeJson(CURRENT_SESSION_PATH, sess);
+  } else {
+    log(`updateClosedInSession 완료 — ${topicId}.closedInSession = "${sessionId}"`);
+  }
+}
+
+/**
  * D-057 — framing 토픽 자동 종결 dry-run + PD 자동 전이 dry-run.
  * 저마찰 원칙: 훅 체인에서는 dry-run만 실행하여 로그로 제안 출력.
  * 실제 적용은 마스터가 --apply로 재호출 (무응답=해당 제안 보류).
@@ -344,6 +396,7 @@ function runSyncSystemState() {
     runL2Writer(sess);
     runL3Regenerator(sess);
     runCheckPendingDeferrals(sess);
+    updateClosedInSession(sess);
     runAutoCloseDryRun();
     runResolvePDDryRun();
     runSyncSystemState();

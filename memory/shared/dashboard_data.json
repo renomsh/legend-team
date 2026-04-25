@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-24T23:23:42.162Z",
-  "totalSessions": 95,
+  "generatedAt": "2026-04-25T00:26:57.510Z",
+  "totalSessions": 96,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.97,
-    "avgCacheHitRate": 0.9307,
-    "cacheSampleSize": 69,
-    "cacheSampleTotal": 95,
+    "avgMasterTurns": 16.89,
+    "avgCacheHitRate": 0.9308,
+    "cacheSampleSize": 70,
+    "cacheSampleTotal": 96,
     "avgAdoptionRate": 0,
-    "totalDecisions": 86,
+    "totalDecisions": 87,
     "gradeDistribution": {
-      "S": 34,
+      "S": 35,
       "A": 19,
       "B": 31,
       "C": 11
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 50,
-    "totalCostUSD": 833.6847,
-    "avgCostPerSession": 9.2632,
-    "costSampleSize": 90
+    "turnBasedSessions": 51,
+    "totalCostUSD": 837.9444,
+    "avgCostPerSession": 9.2082,
+    "costSampleSize": 91
   },
   "sessions": [
     {
@@ -3571,12 +3571,54 @@
         "messageCount": 74
       },
       "sessionCostUSD": 4.3648
+    },
+    {
+      "sessionId": "session_098",
+      "topicSlug": "pd036-3session-summary-autoload",
+      "topic": "PD-036 3세션 summary 자동 로드 시스템 구현",
+      "startedAt": "2026-04-25T05:30:00.000Z",
+      "closedAt": "2026-04-25T08:00:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-087"
+      ],
+      "rolesCalled": 7,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 14,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 10,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "fin",
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 7502480,
+        "ioTokens": 38190,
+        "inputTokens": 145,
+        "outputTokens": 38045,
+        "cacheCreate": 420080,
+        "cacheRead": 7044210,
+        "cacheHitRate": 0.9389175312696602,
+        "messageCount": 79
+      },
+      "sessionCostUSD": 4.2597
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 93,
+      "count": 95,
       "sessions": [
         "session_047",
         "session_048",
@@ -3621,12 +3663,13 @@
         "session_094",
         "session_095",
         "session_096",
-        "session_097"
+        "session_097",
+        "session_098"
       ]
     },
     {
       "role": "arki",
-      "count": 66,
+      "count": 67,
       "sessions": [
         "session_048",
         "session_049",
@@ -3655,12 +3698,13 @@
         "session_093",
         "session_094",
         "session_095",
-        "session_097"
+        "session_097",
+        "session_098"
       ]
     },
     {
       "role": "editor",
-      "count": 47,
+      "count": 48,
       "sessions": [
         "session_050",
         "session_051",
@@ -3708,12 +3752,13 @@
         "session_094",
         "session_095",
         "session_096",
-        "session_097"
+        "session_097",
+        "session_098"
       ]
     },
     {
       "role": "dev",
-      "count": 34,
+      "count": 35,
       "sessions": [
         "session_047",
         "session_048",
@@ -3743,12 +3788,13 @@
         "session_093",
         "session_095",
         "session_096",
-        "session_097"
+        "session_097",
+        "session_098"
       ]
     },
     {
       "role": "riki",
-      "count": 27,
+      "count": 28,
       "sessions": [
         "session_049",
         "session_053",
@@ -3772,12 +3818,13 @@
         "session_093",
         "session_094",
         "session_095",
-        "session_097"
+        "session_097",
+        "session_098"
       ]
     },
     {
       "role": "fin",
-      "count": 18,
+      "count": 19,
       "sessions": [
         "session_053",
         "session_054",
@@ -3794,7 +3841,8 @@
         "session_081",
         "session_082",
         "session_087",
-        "session_094"
+        "session_094",
+        "session_098"
       ]
     },
     {
@@ -5904,6 +5952,54 @@
           "role": "editor",
           "phase": "compilation",
           "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_098",
+      "topic": "PD-036 3세션 summary 자동 로드 시스템 구현",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": null,
+          "turnIdx": 6,
           "recallReason": null
         }
       ]

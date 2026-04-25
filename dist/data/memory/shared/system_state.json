@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_097",
-  "nextSessionId": "session_098",
+  "lastSessionId": "session_098",
+  "nextSessionId": "session_099",
   "currentVersion": "v1.54",
   "openTopics": [
     {
@@ -27,6 +27,12 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-087",
+      "date": "2026-04-25",
+      "axis": "PD-036 finalize hook 위임 패턴 + guard 로직 + 500자 상한",
+      "summary": "R-1(누락 시 영구 공백) + R-2(race condition + 조용한 실패) 동시 해소. 위임 패턴으로 hook chain 안정성 확보."
+    },
+    {
       "id": "D-086",
       "date": "2026-04-24",
       "axis": "invoked-sessions-only 참여 판정 자가 선언 단일화",
@@ -49,12 +55,17 @@
       "date": "2026-04-24",
       "axis": "nova 지표 재편 (prm_rt deprecate / blnd_spt 신설)",
       "summary": "nova 지표 재편 (prm_rt deprecate / blnd_spt 신설)"
-    },
+    }
+  ],
+  "recentSessionSummaries": [
     {
-      "id": "D-082",
-      "date": "2026-04-24",
-      "axis": "dev 지표 확정 (reg_zr 삭제 / hc_rt 신설 / core 재배분)",
-      "summary": "dev 지표 확정 (reg_zr 삭제 / hc_rt 신설 / core 재배분)"
+      "sessionId": "session_098",
+      "topicSlug": "pd036-3session-summary-autoload",
+      "closedAt": "2026-04-25T08:00:00.000Z",
+      "oneLineSummary": "PD-036 3세션 summary 자동 로드 구현 완료: 7파일 변경, G0~G4 통과, D-087 박제",
+      "decisionsAdded": [
+        "D-087"
+      ]
     }
   ],
   "pendingDeferrals": [
@@ -386,5 +397,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-24T23:23:28.855Z"
+  "lastUpdated": "2026-04-25T00:26:09.107Z"
 }

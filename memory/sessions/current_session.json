@@ -1,12 +1,12 @@
 {
-  "sessionId": "session_097",
-  "topicId": "topic_102",
-  "topic": "PD-030 PD 자동 전이 훅 확장 — children/git/교차검증/Step 0 재판정",
-  "topicSlug": "pd030-pd-auto-transition-hooks",
-  "reportPath": "reports/2026-04-25_pd030-pd-auto-transition-hooks",
+  "sessionId": "session_098",
+  "topicId": "topic_103",
+  "topic": "PD-036 3세션 summary 자동 로드 시스템 구현",
+  "topicSlug": "pd036-3session-summary-autoload",
+  "reportPath": "reports/2026-04-25_pd036-3session-summary-autoload",
   "status": "closed",
-  "startedAt": "2026-04-25T04:00:00.000Z",
-  "closedAt": "2026-04-25T05:00:00.000Z",
+  "startedAt": "2026-04-25T05:30:00.000Z",
+  "closedAt": "2026-04-25T08:00:00.000Z",
   "mode": "observation",
   "grade": "B",
   "gradeDeclared": "B",
@@ -20,6 +20,7 @@
     "ace",
     "arki",
     "riki",
+    "fin",
     "ace",
     "dev",
     "editor"
@@ -27,61 +28,61 @@
   "turns": [
     {
       "role": "ace",
-      "turnIdx": 0,
-      "phase": "framing"
+      "turnIdx": 0
     },
     {
       "role": "arki",
-      "turnIdx": 1,
-      "phase": "design"
+      "turnIdx": 1
     },
     {
       "role": "riki",
-      "turnIdx": 2,
-      "phase": "risk-audit"
+      "turnIdx": 2
+    },
+    {
+      "role": "fin",
+      "turnIdx": 3
     },
     {
       "role": "ace",
-      "turnIdx": 3,
-      "phase": "synthesis",
-      "recallReason": "post-intervention"
+      "turnIdx": 4
     },
     {
       "role": "dev",
-      "turnIdx": 4,
-      "phase": "implementation"
+      "turnIdx": 5
     },
     {
       "role": "editor",
-      "turnIdx": 5,
-      "phase": "compilation"
+      "turnIdx": 6
     }
   ],
-  "decisions": [],
-  "masterDecisions": [],
-  "masterFeedback": [
-    "Grade B는 ace-framing 스킬 전체 발동 (open.md L1 표기는 오류 — 수정 완료)"
+  "decisions": [
+    "D-087"
   ],
+  "masterDecisions": [
+    "D-087"
+  ],
+  "masterFeedback": [],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [
-    "PD-030"
+  "pendingDeferralsResolved": [],
+  "oneLineSummary": "PD-036 3세션 summary 자동 로드 구현 완료: 7파일 변경, G0~G4 통과, D-087 박제",
+  "decisionsAdded": [
+    "D-087"
   ],
   "notes": [
-    "resolve-pending-deferrals.ts git 스캔 축 구현 완료 (P0~P4)",
-    "R-1 반영: implementation 커밋 0건 PD는 '구현 커밋 없음' 출력, '구현 확인 권장' 억제",
-    "R-2 반영: gitEvidence hash 기준 upsert (append-or-update)",
-    "R-3 반영: git log --since='6 months ago' 범위 제한",
-    "R-4: PD-030 자기 언급 커밋 없어 자동 회피 확인",
-    ".claude/commands/open.md Grade B → L2 충돌 수정 (ace-framing 스킬 전체 발동)"
+    "D-087 박제: R-1 guard 로직(placeholder 자동삽입) + R-2 spawnSync 위임 패턴 확정",
+    "7개 파일 변경: append-session.ts, create-topic.ts, set-closed-in-session.ts(신규), session-end-finalize.js, sync-system-state.ts, open.md, close.md",
+    "G0~G4 검증 게이트 전원 통과",
+    "recentSessionSummaries 현재 빈 배열 — 다음 /close 부터 자동 누적 시작",
+    "PD-036 resolveCondition: 구현 완료 ✅, 3세션 누적 확인 ⏳(session_101 이후 자동 resolved 예정)"
   ],
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 124,
-    "output_tokens": 55896,
-    "cache_creation_input_tokens": 464607,
-    "cache_read_input_tokens": 5945717,
-    "messageCount": 74,
-    "masterTurns": 11,
-    "total_billable": 6466344
+    "input_tokens": 145,
+    "output_tokens": 38045,
+    "cache_creation_input_tokens": 420080,
+    "cache_read_input_tokens": 7044210,
+    "messageCount": 79,
+    "masterTurns": 10,
+    "total_billable": 7502480
   }
 }

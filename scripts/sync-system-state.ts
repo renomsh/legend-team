@@ -24,7 +24,14 @@ const TOPIC_INDEX_PATH = path.join(ROOT, 'memory', 'shared', 'topic_index.json')
 const DECISION_LEDGER_PATH = path.join(ROOT, 'memory', 'shared', 'decision_ledger.json');
 const SYSTEM_STATE_PATH = path.join(ROOT, 'memory', 'shared', 'system_state.json');
 
-interface SessionEntry { sessionId: string; topicSlug?: string; startedAt?: string; }
+interface SessionEntry {
+  sessionId: string;
+  topicSlug?: string;
+  startedAt?: string;
+  closedAt?: string | null;
+  oneLineSummary?: string;
+  decisionsAdded?: string[];
+}
 interface TopicEntry {
   id: string;
   title: string;
@@ -48,6 +55,14 @@ interface PendingDeferral {
   note?: string;
   resolvedInSession?: string;
 }
+interface RecentSessionSummary {
+  sessionId: string;
+  topicSlug: string;
+  closedAt: string;
+  oneLineSummary: string;
+  decisionsAdded: string[];
+}
+
 interface SystemState {
   _comment?: string;
   lastSessionId: string;
@@ -55,6 +70,7 @@ interface SystemState {
   currentVersion: string;
   openTopics: Array<{ id: string; title: string; status: string; reportPath?: string; note?: string }>;
   recentDecisions: Array<{ id: string; date: string; axis: string; summary?: string }>;
+  recentSessionSummaries: RecentSessionSummary[];
   pendingDeferrals: PendingDeferral[];
   lastUpdated: string;
 }
@@ -80,6 +96,7 @@ function main() {
     currentVersion: 'v0.0.0',
     openTopics: [],
     recentDecisions: [],
+    recentSessionSummaries: [],
     pendingDeferrals: [],
     lastUpdated: new Date().toISOString(),
   });
@@ -114,6 +131,30 @@ function main() {
     summary: d.value || d.axis,
   }));
 
+  // recentSessionSummaries (최신 3개, closedAt 역순)
+  // R-3 레거시 폴백: closedInSession 없는 항목도 topicSlug 그대로 포함 + "(레거시)" 표기
+  const sessionsSortedByClose = [...sessionIndex.sessions]
+    .filter(s => s.closedAt != null)
+    .sort((a, b) => (b.closedAt || '').localeCompare(a.closedAt || ''));
+
+  const summaryEligible = sessionsSortedByClose.filter(s => s.oneLineSummary != null);
+
+  const recentSessionSummaries: RecentSessionSummary[] = summaryEligible.slice(0, 3).map(s => {
+    let summary = s.oneLineSummary as string;
+    // 500자 초과 시 truncate
+    if (summary.length > 500) {
+      console.warn(`[sync-system-state] oneLineSummary truncated for ${s.sessionId} (${summary.length} chars)`);
+      summary = summary.slice(0, 497) + '…';
+    }
+    return {
+      sessionId: s.sessionId,
+      topicSlug: s.topicSlug || '(unknown)',
+      closedAt: s.closedAt as string,
+      oneLineSummary: summary,
+      decisionsAdded: Array.isArray(s.decisionsAdded) ? s.decisionsAdded : [],
+    };
+  });
+
   const next: SystemState = {
     _comment: currentState._comment || 'fast-path 파일. /open 시 최우선 로드. 원본에서 파생됨. /close 시 재계산.',
     lastSessionId,
@@ -121,13 +162,14 @@ function main() {
     currentVersion: currentState.currentVersion,
     openTopics,
     recentDecisions,
+    recentSessionSummaries,
     pendingDeferrals: currentState.pendingDeferrals || [],
     lastUpdated: new Date().toISOString(),
   };
 
   writeJson(SYSTEM_STATE_PATH, next);
-  appendLog('sync-system-state', `lastSession=${lastSessionId} openTopics=${openTopics.length} recentDecisions=${recentDecisions.length} deferrals=${next.pendingDeferrals.length}`);
-  console.log(`✅ system_state.json 갱신 — last=${lastSessionId} next=${nextSessionId} openTopics=${openTopics.length} deferrals(pending)=${next.pendingDeferrals.filter(d => d.status === 'pending').length}`);
+  appendLog('sync-system-state', `lastSession=${lastSessionId} openTopics=${openTopics.length} recentDecisions=${recentDecisions.length} recentSummaries=${recentSessionSummaries.length} deferrals=${next.pendingDeferrals.length}`);
+  console.log(`✅ system_state.json 갱신 — last=${lastSessionId} next=${nextSessionId} openTopics=${openTopics.length} recentSummaries=${recentSessionSummaries.length} deferrals(pending)=${next.pendingDeferrals.filter(d => d.status === 'pending').length}`);
 }
 
 main();

@@ -3804,8 +3804,64 @@
       ],
       "grade": "B",
       "note": "resolve-pending-deferrals.ts git 스캔 축 구현 완료 (P0~P4) | R-1 반영: implementation 커밋 0건 PD는 '구현 커밋 없음' 출력, '구현 확인 권장' 억제 | R-2 반영: gitEvidence hash 기준 upsert (append-or-update) | R-3 반영: git log --since='6 months ago' 범위 제한 | R-4: PD-030 자기 언급 커밋 없어 자동 회피 확인 | .claude/commands/open.md Grade B → L2 충돌 수정 (ace-framing 스킬 전체 발동)"
+    },
+    {
+      "sessionId": "session_098",
+      "topicSlug": "pd036-3session-summary-autoload",
+      "topic": "PD-036 3세션 summary 자동 로드 시스템 구현",
+      "startedAt": "2026-04-25T05:30:00.000Z",
+      "closedAt": "2026-04-25T08:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "decisions": [
+        "D-087"
+      ],
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "fin",
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1
+        },
+        {
+          "role": "riki",
+          "turnIdx": 2
+        },
+        {
+          "role": "fin",
+          "turnIdx": 3
+        },
+        {
+          "role": "ace",
+          "turnIdx": 4
+        },
+        {
+          "role": "dev",
+          "turnIdx": 5
+        },
+        {
+          "role": "editor",
+          "turnIdx": 6
+        }
+      ],
+      "grade": "B",
+      "note": "D-087 박제: R-1 guard 로직(placeholder 자동삽입) + R-2 spawnSync 위임 패턴 확정 | 7개 파일 변경: append-session.ts, create-topic.ts, set-closed-in-session.ts(신규), session-end-finalize.js, sync-system-state.ts, open.md, close.md | G0~G4 검증 게이트 전원 통과 | recentSessionSummaries 현재 빈 배열 — 다음 /close 부터 자동 누적 시작 | PD-036 resolveCondition: 구현 완료 ✅, 3세션 누적 확인 ⏳(session_101 이후 자동 resolved 예정)",
+      "oneLineSummary": "PD-036 3세션 summary 자동 로드 구현 완료: 7파일 변경, G0~G4 통과, D-087 박제",
+      "decisionsAdded": [
+        "D-087"
+      ]
     }
   ],
-  "lastUpdated": "2026-04-24T23:23:13.480Z",
+  "lastUpdated": "2026-04-25T00:25:05.153Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

@@ -1,6 +1,18 @@
 {
-  "generatedAt": "2026-04-24T23:23:43.530Z",
+  "generatedAt": "2026-04-25T00:27:00.535Z",
   "topics": [
+    {
+      "id": "topic_103",
+      "title": "PD-036 3세션 summary 자동 로드 시스템 구현",
+      "status": "completed",
+      "created": "2026-04-25",
+      "reportPath": "reports/2026-04-25_pd036-3session-summary-autoload",
+      "reportFiles": [],
+      "published": false,
+      "outcome": "PD-036 구현 완료: session_index 2필드 + topic_index closedInSession + sync-system-state recentSessionSummaries + finalize hook guard + set-closed-in-session.ts 신규. D-087 박제. G0~G4 통과.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_102",
       "title": "PD-030 PD 자동 전이 훅 확장 — children/git/교차검증/Step 0 재판정",

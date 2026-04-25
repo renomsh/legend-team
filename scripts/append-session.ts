@@ -55,6 +55,10 @@ interface SessionEntry {
   turns?: Turn[];
   agentsCompleted?: string[];
   note?: string;
+  /** 세션 1줄 요약 (≤100자). /close 시 기록, finalize hook fallback 삽입. */
+  oneLineSummary?: string;
+  /** 이 세션에서 추가된 결정 ID 배열 (예: ["D-087", "D-088"]) */
+  decisionsAdded?: string[];
 }
 
 interface SessionIndex {
@@ -79,6 +83,8 @@ interface ParsedArgs {
   turns?: Turn[];
   agentsCompleted?: string[];
   note?: string;
+  oneLineSummary?: string;
+  decisionsAdded?: string[];
 }
 
 function parseArgs(): ParsedArgs {
@@ -109,6 +115,8 @@ function parseArgs(): ParsedArgs {
   const turnsRaw = parsed.get('turns');
   const agentsCompleted = parsed.get('agentsCompleted');
   const note = parsed.get('note');
+  const oneLineSummary = parsed.get('oneLineSummary');
+  const decisionsAdded = parsed.get('decisionsAdded');
 
   if (sessionId) result.sessionId = sessionId;
   if (topicId) result.topicId = topicId;
@@ -130,6 +138,8 @@ function parseArgs(): ParsedArgs {
   }
   if (agentsCompleted) result.agentsCompleted = agentsCompleted.split(',').map(a => a.trim()).filter(Boolean);
   if (note) result.note = note;
+  if (oneLineSummary) result.oneLineSummary = oneLineSummary;
+  if (decisionsAdded) result.decisionsAdded = decisionsAdded.split(',').map(d => d.trim()).filter(Boolean);
 
   return result;
 }
@@ -200,6 +210,8 @@ D-051/D-052 필드: topicId(N:1), grade/gradeDeclared/gradeActual/gradeMismatch(
       ...(args.turns && { turns: args.turns }),
       ...(args.agentsCompleted && { agentsCompleted: args.agentsCompleted }),
       ...(args.note && { note: args.note }),
+      ...(args.oneLineSummary && { oneLineSummary: args.oneLineSummary }),
+      ...(args.decisionsAdded && { decisionsAdded: args.decisionsAdded }),
     });
   } else {
     const entry: SessionEntry = {
@@ -218,6 +230,8 @@ D-051/D-052 필드: topicId(N:1), grade/gradeDeclared/gradeActual/gradeMismatch(
       ...(args.turns && { turns: args.turns }),
       ...(args.agentsCompleted && { agentsCompleted: args.agentsCompleted }),
       ...(args.note && { note: args.note }),
+      ...(args.oneLineSummary && { oneLineSummary: args.oneLineSummary }),
+      ...(args.decisionsAdded && { decisionsAdded: args.decisionsAdded }),
     };
     index.sessions.push(entry);
   }

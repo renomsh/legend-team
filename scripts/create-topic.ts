@@ -151,9 +151,11 @@ function createTopic(
     reportPath,
     reportFiles: [],
     published: false,
+    /** 이 토픽이 종결된 세션 ID (session-end-finalize.js가 set-closed-in-session.ts로 기록) */
+    closedInSession: null,
     // legacy fallback
     path: `topics/${id}`,
-  };
+  } as TopicIndexEntry & { closedInSession: string | null };
   index.topics.push(entry);
 
   // D-057: parentTopicId 지정 시 parent의 childTopicIds에 자동 추가
