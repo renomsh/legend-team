@@ -19,18 +19,7 @@ import type { ScoreRecord, TopicType, RecordSource } from "./lib/signature-metri
 
 const ROOT = path.join(__dirname, "..");
 const CURRENT = path.join(ROOT, "memory", "sessions", "current_session.json");
-const FEATURE_FLAGS = path.join(ROOT, "memory", "shared", "feature_flags.json");
-
-// D-065 session_089: allowDefaultFallback=false 시 YAML 블록 미기입 지표는 기록 안 함 (participationGaps로 이관).
-// 70 records 중 86% propagation 발견 후 정직한 데이터 정책으로 전환.
-function isDefaultFallbackAllowed(): boolean {
-  try {
-    const ff = JSON.parse(fs.readFileSync(FEATURE_FLAGS, "utf8"));
-    return ff.flags?.allowDefaultFallback !== false;
-  } catch {
-    return true;  // safe default — backward compat
-  }
-}
+// D-092 session_101: default-fallback propagation 폐기. 빈 칸이 진실. Master 수동 대시보드 열람이 단일 피드백.
 
 interface SessionInfo {
   sessionId: string;
@@ -153,13 +142,9 @@ export function finalize(opts: { transcript?: string; sessionInfo?: SessionInfo 
   const turnPhase: Record<string, string> = {};
   for (const t of info.turns) if (t.phase) turnPhase[t.role] = t.phase;
 
-  // 2) Iterate registry per metric — apply only to applicable roles for this topicType
+  // 2) Iterate registry per metric — D-092: 발언한 역할(selfScores 박제) = 적재. 토픽 타입별 expected 게이트 폐기.
   for (const metric of reg.metrics) {
     if (!metric.applicableTopicTypes.includes(info.topicType)) continue;
-    if (!metric.participationExpectedTopicTypes.includes(info.topicType)) {
-      // not expected — skip both write and gap counting
-      continue;
-    }
     const role = metric.role;
     if (role === "session" || role === "cross-role") continue; // derived handled by compute
     const bag = roleScores.get(role) ?? {};
@@ -176,18 +161,10 @@ export function finalize(opts: { transcript?: string; sessionInfo?: SessionInfo 
 
     if (presentKey !== undefined) {
       rawScore = bag[presentKey]!;
-    } else if (metric.defaultStrategy === "previous-session-value" && isDefaultFallbackAllowed()) {
-      const prev = previousValue(metric.id, role);
-      if (prev) {
-        rawScore = prev.rawScore;
-        source = "default-fallback";
-        report.defaultsUsed.push({ role, metricId: metric.id });
-      }
     }
-    // D-065: allowDefaultFallback=false 시 default 분기 스킵 → participationGaps로 이관 (아래 null check)
+    // D-092 session_101: default-fallback 폐기. 미기입은 빈 칸으로 둠.
 
     if (rawScore === null) {
-      report.participationGaps.push({ role, metricId: metric.id });
       continue;
     }
 
@@ -201,10 +178,9 @@ export function finalize(opts: { transcript?: string; sessionInfo?: SessionInfo 
         metricId: metric.id,
         raterId: metric.rater.type === "external" && metric.rater.by ? metric.rater.by : raterId,
         rawScore,
-        recordedBy: source === "default-fallback" ? "finalize:default" : "finalize:yaml",
+        recordedBy: "finalize:yaml",
         recordSource: source,
         sessionPhase: turnPhase[role] ?? "unknown",
-        ...(prevForSupersede && source === "default-fallback" ? {} : {}), // supersedes only when explicit revision arrives later
       });
       report.recordsWritten++;
       auditScores.push(auditNonNullRatio(rec));

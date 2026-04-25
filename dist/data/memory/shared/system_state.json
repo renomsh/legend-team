@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_100",
-  "nextSessionId": "session_101",
+  "lastSessionId": "session_101",
+  "nextSessionId": "session_102",
   "currentVersion": "v1.54",
   "openTopics": [
     {
@@ -27,6 +27,12 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-092",
+      "date": "2026-04-25",
+      "axis": "자가평가 자동 감시·propagation·게이트 폐기 + 지표 정의 단일 출처 박제 + PD-023 close",
+      "summary": "본질 회귀: 점수 기록 + Master 수동 열람. 시스템 자동 감시 인프라가 자가평가 의미를 propagation 86%로 오염시킨 전례 차단. 단일 출처 박제로 잘못 참조 사고 봉쇄."
+    },
+    {
       "id": "D-091",
       "date": "2026-04-25",
       "axis": "operationalStatus·triggerType·absorbed enum 박제 + 재호출 강제 원칙",
@@ -49,15 +55,18 @@
       "date": "2026-04-25",
       "axis": "PD-031 흡수 → PD-023 단일 트랙",
       "summary": "PD-031 진단 컨텍스트 손실 없이 트랙 단일화. PD-023 P3 운영 KPI에서 실가동 감사 항목을 직접 측정."
-    },
-    {
-      "id": "D-087",
-      "date": "2026-04-25",
-      "axis": "PD-036 finalize hook 위임 패턴 + guard 로직 + 500자 상한",
-      "summary": "R-1(누락 시 영구 공백) + R-2(race condition + 조용한 실패) 동시 해소. 위임 패턴으로 hook chain 안정성 확보."
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_101",
+      "topicSlug": "pd023-ops-activation-check",
+      "closedAt": "2026-04-25T13:30:00.000Z",
+      "oneLineSummary": "PD-023 운영 가동 점검 → 자가평가 단순화. propagation·자동감시 폐기, 단일 출처 박제, polarity-aligned 100점, D-092·PD-023 close.",
+      "decisionsAdded": [
+        "D-092"
+      ]
+    },
     {
       "sessionId": "session_100",
       "topicSlug": "pd023-impl-status-check",
@@ -76,15 +85,6 @@
       "closedAt": "2026-04-25T09:10:00.000Z",
       "oneLineSummary": "PD-037 resolved: role-vera.md 존재 확인 + vera-signature-review 실사용 확인",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_098",
-      "topicSlug": "pd036-3session-summary-autoload",
-      "closedAt": "2026-04-25T08:00:00.000Z",
-      "oneLineSummary": "PD-036 3세션 summary 자동 로드 구현 완료: 7파일 변경, G0~G4 통과, D-087 박제",
-      "decisionsAdded": [
-        "D-087"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -189,9 +189,11 @@
       "fromSession": "session_082",
       "fromTopic": "pd023-self-scores-thin-impl",
       "item": "Dev 얇은 구현 — 학습축 자가평가 MVP 본체 (29지표×100점×3뷰×8역할 카드 + Tier1/2/3 dashboard + forward-compat 슬롯). canonical spec: reports/2026-04-23_pd023-self-scores-thin-impl/arki_rev1.md",
-      "status": "pending",
+      "status": "resolved",
       "resolveCondition": "Quick-win 2건 done + followup-A PD 등록 + (5토픽 누적 OR fallback<30%). 단 fallback<30% 단독 트리거 시 Master 게이트 자동 발동",
-      "statusNote": "D-089 재정의 (session_100). 코드 done / 운영 KPI open 이원화. PD-031 흡수(D-088) 완료.",
+      "statusNote": "D-092 (session_101). resolveCondition 5토픽 누적 ✅ (6 distinct topics: topic_089~094). 자가평가 단순화 정책으로 운영 KPI 트랙(fallback<30%·자동 감시) 폐기.",
+      "resolvedInSession": "session_101",
+      "resolvedNote": "D-092로 자가평가 자동 감시 인프라 전부 폐기. 점수 기록 + Master 수동 대시보드 열람으로 단순화. PD-023 close.",
       "dependsOn": []
     },
     {
@@ -199,8 +201,10 @@
       "fromSession": "session_082",
       "fromTopic": "pd023-self-scores-thin-impl",
       "item": "Self-rating 품질 + Goodhart 방어 (quarantine enforcement / inflation·anchoring·Goodhart detector / retroactive cascade / causal DAG / registry diff viewer)",
-      "status": "pending",
+      "status": "deprecated",
       "resolveCondition": "PD-023 G6 통과 + 10세션 누적 self_scores.jsonl + Master inflation/anchoring 신호 1건 이상 감지",
+      "deprecatedInSession": "session_101",
+      "deprecatedNote": "D-092: 자동 감시 영역 폐기. Master 수동 대시보드 열람으로 대체. inflation/anchoring/Goodhart 신호는 Master가 직접 판단.",
       "dependsOn": [
         "PD-023"
       ]
@@ -210,8 +214,10 @@
       "fromSession": "session_082",
       "fromTopic": "pd023-self-scores-thin-impl",
       "item": "운영 hygiene + Validity (validity matrix / retirement suggestor / rater reliability / axis balance enforcement)",
-      "status": "pending",
+      "status": "deprecated",
       "resolveCondition": "PD-025 통과 + 30세션 누적 + (4축 중 추가 축 지표 도입 토픽 발생 OR Master가 retirement 후보 검토 요청)",
+      "deprecatedInSession": "session_101",
+      "deprecatedNote": "D-092: 자동 검증 도구 영역 폐기. Master 수동 판단으로 대체.",
       "dependsOn": [
         "PD-023",
         "PD-025"
@@ -222,8 +228,10 @@
       "fromSession": "session_082",
       "fromTopic": "pd023-self-scores-thin-impl",
       "item": "Compute incremental layer / cache (Fin 권고)",
-      "status": "pending",
+      "status": "deprecated",
       "resolveCondition": "self_scores.jsonl ≥ 100세션 + compute SLA > 2초 3회 발생",
+      "deprecatedInSession": "session_101",
+      "deprecatedNote": "D-092: 자동 SLA 감시 영역 폐기. computeSlaWarnMs flag 동시 제거.",
       "dependsOn": [
         "PD-023"
       ]
@@ -450,5 +458,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-25T02:06:35.303Z"
+  "lastUpdated": "2026-04-25T04:11:56.751Z"
 }

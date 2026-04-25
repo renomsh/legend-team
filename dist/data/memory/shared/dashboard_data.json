@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-25T02:06:56.679Z",
-  "totalSessions": 98,
+  "generatedAt": "2026-04-25T04:12:04.895Z",
+  "totalSessions": 99,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.66,
-    "avgCacheHitRate": 0.9312,
-    "cacheSampleSize": 72,
-    "cacheSampleTotal": 98,
+    "avgMasterTurns": 16.81,
+    "avgCacheHitRate": 0.9316,
+    "cacheSampleSize": 73,
+    "cacheSampleTotal": 99,
     "avgAdoptionRate": 0,
-    "totalDecisions": 91,
+    "totalDecisions": 92,
     "gradeDistribution": {
-      "S": 36,
+      "S": 37,
       "A": 19,
       "B": 31,
       "C": 12
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 53,
-    "totalCostUSD": 843.723,
-    "avgCostPerSession": 9.0723,
-    "costSampleSize": 93
+    "turnBasedSessions": 54,
+    "totalCostUSD": 859.0854,
+    "avgCostPerSession": 9.1392,
+    "costSampleSize": 94
   },
   "sessions": [
     {
@@ -3693,12 +3693,61 @@
         "messageCount": 69
       },
       "sessionCostUSD": 4.3379
+    },
+    {
+      "sessionId": "session_101",
+      "topicSlug": "pd023-ops-activation-check",
+      "topic": "PD-023 운영 가동 점검 (fallback 비율 측정 + batch-helper 실사용)",
+      "startedAt": "2026-04-25T11:30:00.000Z",
+      "closedAt": "2026-04-25T13:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-092"
+      ],
+      "rolesCalled": 14,
+      "rolesRecalled": 9,
+      "sessionsSpanned": 1,
+      "size": 37,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 31,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "arki",
+        "riki",
+        "dev",
+        "ace",
+        "ace",
+        "riki",
+        "arki",
+        "arki",
+        "riki",
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 30675149,
+        "ioTokens": 201898,
+        "inputTokens": 524,
+        "outputTokens": 201374,
+        "cacheCreate": 927038,
+        "cacheRead": 29546213,
+        "cacheHitRate": 0.9631970491814074,
+        "messageCount": 202
+      },
+      "sessionCostUSD": 15.3624
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 98,
+      "count": 102,
       "sessions": [
         "session_047",
         "session_048",
@@ -3745,12 +3794,13 @@
         "session_096",
         "session_097",
         "session_098",
-        "session_100"
+        "session_100",
+        "session_101"
       ]
     },
     {
       "role": "arki",
-      "count": 69,
+      "count": 73,
       "sessions": [
         "session_048",
         "session_049",
@@ -3781,12 +3831,13 @@
         "session_095",
         "session_097",
         "session_098",
-        "session_100"
+        "session_100",
+        "session_101"
       ]
     },
     {
       "role": "editor",
-      "count": 50,
+      "count": 51,
       "sessions": [
         "session_050",
         "session_051",
@@ -3837,12 +3888,13 @@
         "session_097",
         "session_098",
         "session_099",
-        "session_100"
+        "session_100",
+        "session_101"
       ]
     },
     {
       "role": "dev",
-      "count": 36,
+      "count": 38,
       "sessions": [
         "session_047",
         "session_048",
@@ -3874,12 +3926,13 @@
         "session_096",
         "session_097",
         "session_098",
-        "session_100"
+        "session_100",
+        "session_101"
       ]
     },
     {
       "role": "riki",
-      "count": 30,
+      "count": 33,
       "sessions": [
         "session_049",
         "session_053",
@@ -3905,7 +3958,8 @@
         "session_095",
         "session_097",
         "session_098",
-        "session_100"
+        "session_100",
+        "session_101"
       ]
     },
     {
@@ -6161,6 +6215,96 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_101",
+      "topic": "PD-023 운영 가동 점검 (fallback 비율 측정 + batch-helper 실사용)",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 2,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "phase": "design",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 6,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 7,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 8,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 9,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 10,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 11,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 12,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 13,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -6199,6 +6343,12 @@
       "severity": "yellow",
       "sessionId": "session_095",
       "description": "역할 과호출: rolesRecalled=9 (임계값 5, grade=S)"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_101",
+      "description": "역할 과호출: rolesRecalled=9 (임계값 5, grade=S)"
     }
   ],
   "feedbackRecurrences": [
@@ -6234,6 +6384,11 @@
           "date": "2026-04-24",
           "feedbackId": "MF-075",
           "summary": "자가평가가 이렇게 어렵고 복잡한 거였어? 의미가 퇴색되는데? 성장하되 가볍게 가고 싶다고. 배가 배꼽보다 크"
+        },
+        {
+          "date": "2026-04-25",
+          "feedbackId": "MF-085",
+          "summary": "본질도 아닌 것에 왜 이렇게 어렵고 꼬이지 — 측정 인프라 over-engineering 회귀 신호. 점수 "
         }
       ]
     },
@@ -6497,6 +6652,11 @@
           "date": "2026-04-16",
           "feedbackId": "MF-015",
           "summary": "이번에 한해서 소급 적용하라고 (토픽 타입/명칭 정비)"
+        },
+        {
+          "date": "2026-04-25",
+          "feedbackId": "MF-089",
+          "summary": "본인 참여 프로젝트 = 발언한 토픽. 모두 발언했으면 모두 적용되어야지."
         }
       ]
     },
@@ -6932,6 +7092,36 @@
       ]
     },
     {
+      "keyword": "프로젝트",
+      "occurrences": [
+        {
+          "date": "2026-04-14",
+          "feedbackId": "MF-010",
+          "summary": "1) 프로젝트 정의 수정: 스케일업300 달성을 위해 오너십 이전이 필요하다. 2) 기획 프로젝트는 목적·정"
+        },
+        {
+          "date": "2026-04-25",
+          "feedbackId": "MF-089",
+          "summary": "본인 참여 프로젝트 = 발언한 토픽. 모두 발언했으면 모두 적용되어야지."
+        }
+      ]
+    },
+    {
+      "keyword": "정의",
+      "occurrences": [
+        {
+          "date": "2026-04-14",
+          "feedbackId": "MF-010",
+          "summary": "1) 프로젝트 정의 수정: 스케일업300 달성을 위해 오너십 이전이 필요하다. 2) 기획 프로젝트는 목적·정"
+        },
+        {
+          "date": "2026-04-25",
+          "feedbackId": "MF-087",
+          "summary": "각각 측정지표들의 정의 한 곳에만 둬. 잘못 참조하지 않게."
+        }
+      ]
+    },
+    {
       "keyword": "이번에",
       "occurrences": [
         {
@@ -7022,6 +7212,21 @@
           "date": "2026-04-23",
           "feedbackId": "MF-074",
           "summary": "각자 역할에서 중요하다고 생각하는 부분들을 협의하여 정하고 평가는 본인이 하면 좋겠어. 난 각각 모두를 믿으"
+        }
+      ]
+    },
+    {
+      "keyword": "어렵고",
+      "occurrences": [
+        {
+          "date": "2026-04-24",
+          "feedbackId": "MF-075",
+          "summary": "자가평가가 이렇게 어렵고 복잡한 거였어? 의미가 퇴색되는데? 성장하되 가볍게 가고 싶다고. 배가 배꼽보다 크"
+        },
+        {
+          "date": "2026-04-25",
+          "feedbackId": "MF-085",
+          "summary": "본질도 아닌 것에 왜 이렇게 어렵고 꼬이지 — 측정 인프라 over-engineering 회귀 신호. 점수 "
         }
       ]
     }

@@ -3,7 +3,7 @@ import * as fs from "fs";
 import * as path from "path";
 import * as crypto from "crypto";
 import { appendAtomicLine, writeAtomic } from "./write-atomic";
-import { normalize } from "./metric-normalizer";
+import { normalize, applyPolarity } from "./metric-normalizer";
 import type { ScoreRecord, Metric, TopicType, RecordSource } from "./signature-metrics-types";
 
 const ROOT = path.join(__dirname, "..", "..");
@@ -73,7 +73,8 @@ function validateExtensions(ext: Record<string, unknown> | undefined): void {
 export function buildRecord(input: ScoreInput): ScoreRecord {
   const metric = findMetric(input.metricId);
   if (!metric) throw new OrphanMetricError(input.metricId);
-  const normalizedScore = normalize(input.rawScore, metric.scale);
+  // D-092 session_101: polarity-aligned 100점 환산 (높을수록 좋음 단일 방향)
+  const normalizedScore = applyPolarity(normalize(input.rawScore, metric.scale), metric.polarity);
   validateExtensions(input.extensions);
   const reg = loadRegistry();
   const ts = new Date().toISOString();

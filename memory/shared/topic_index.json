@@ -1,6 +1,24 @@
 {
   "topics": [
     {
+      "id": "topic_106",
+      "title": "PD-023 운영 가동 점검 (fallback 비율 측정 + batch-helper 실사용)",
+      "status": "completed",
+      "phase": "validated",
+      "outcome": "측정 결과 self_scores.jsonl session_089 이후 11세션 0건·역할 2/8 커버리지 발견. Master 단순화 회귀로 propagation/자동 감시/auto-resolve 게이트·shared/registry 중복·compute-growth/resolve-deferred-scores 전부 폐기. 단일 출처 박제(role memory[].metrics → growth/registry). polarity-aligned 100점 환산. legacy 70 records quarantine 이관, fresh start. 시범 적재: 4역할 20 records 평균 74.75. PD-023 close, PD-025/026/027 deprecated. D-092 박제.",
+      "hold": null,
+      "grade": "B",
+      "topicType": "implementation",
+      "parentTopicId": "topic_105",
+      "created": "2026-04-25",
+      "controlPath": "topics/topic_106",
+      "reportPath": "reports/2026-04-25_pd023-ops-activation-check",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_101",
+      "path": "topics/topic_106"
+    },
+    {
       "id": "topic_105",
       "title": "PD-023 구현 점검",
       "status": "completed",
@@ -2071,5 +2089,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-25T02:06:23.975Z"
+  "lastUpdated": "2026-04-25T04:11:48.373Z"
 }

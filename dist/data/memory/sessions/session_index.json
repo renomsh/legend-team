@@ -3952,8 +3952,141 @@
         "D-090",
         "D-091"
       ]
+    },
+    {
+      "sessionId": "session_101",
+      "topicSlug": "pd023-ops-activation-check",
+      "topic": "PD-023 운영 가동 점검 (fallback 비율 측정 + batch-helper 실사용)",
+      "startedAt": "2026-04-25T11:30:00.000Z",
+      "closedAt": "2026-04-25T13:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "arki",
+        "riki",
+        "dev",
+        "ace",
+        "ace",
+        "riki",
+        "arki",
+        "arki",
+        "riki",
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing",
+          "selfScores": {
+            "ang_nov": 2,
+            "rfrm_trg": "N",
+            "orc_hit": 0.6,
+            "ctx_car": 4,
+            "mst_fr": 2
+          }
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "phase": "design"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 2,
+          "phase": "design",
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 3,
+          "phase": "design"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 4,
+          "phase": "implementation"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 5,
+          "phase": "synthesis"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 6,
+          "phase": "synthesis",
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 7,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 8,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 9,
+          "recallReason": "post-master",
+          "selfScores": {
+            "str_fd": 3,
+            "sa_rnd": 2,
+            "aud_rcl": 0.6,
+            "spc_lck": "Y"
+          }
+        },
+        {
+          "role": "riki",
+          "turnIdx": 10,
+          "recallReason": "post-master",
+          "selfScores": {
+            "crt_rcl": 0.9,
+            "prd_rej": "Y",
+            "fp_rt": 0.1,
+            "cr_val": "Y"
+          }
+        },
+        {
+          "role": "ace",
+          "turnIdx": 11,
+          "phase": "synthesis",
+          "recallReason": "post-master"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 12,
+          "phase": "implementation",
+          "selfScores": {
+            "gt_pas": 0.85,
+            "spc_drf": 1,
+            "reg_zr": "Y",
+            "gt_ftr": 0.7,
+            "gt_rtc": 1,
+            "gt_pgd": 0,
+            "gt_hcr": 0
+          }
+        },
+        {
+          "role": "editor",
+          "turnIdx": 13,
+          "phase": "compile"
+        }
+      ],
+      "grade": "B",
+      "note": "decision_ledger D-087~D-091 ledger 미동기화 발견(session_100 박제분이 system_state까지만 반영). 별도 sync 필요(본 토픽 범위 외). | self_scores.jsonl 70 records → memory/growth/_quarantine/legacy_propagation_session083-089.jsonl 이관. fresh start.",
+      "oneLineSummary": "PD-023 운영 가동 점검 → 자가평가 단순화. propagation·자동감시 폐기, 단일 출처 박제, polarity-aligned 100점, D-092·PD-023 close.",
+      "decisionsAdded": [
+        "D-092"
+      ]
     }
   ],
-  "lastUpdated": "2026-04-25T02:06:10.623Z",
+  "lastUpdated": "2026-04-25T04:11:38.245Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

@@ -1,6 +1,17 @@
 {
   "decisions": [
     {
+      "id": "D-092",
+      "date": "2026-04-25",
+      "session": "session_101",
+      "topic": "topic_106",
+      "owningTopicId": "topic_106",
+      "scopeCheck": "PD-023 운영 가동 점검 — 자가평가 단순화 + canonical 단일화",
+      "axis": "자가평가 자동 감시·propagation·게이트 폐기 + 지표 정의 단일 출처 박제 + PD-023 close",
+      "decision": "(1) propagation/default-fallback/자동 알림/SLA 경보/auto-resolve 게이트 전부 폐기. Master 수동 대시보드 열람이 단일 피드백. (2) 지표 정의 단일 출처: memory/roles/{role}_memory.json[].metrics + derived_metrics.json + composite_inputs.json → compile-metrics-registry → growth/metrics_registry.json. shared/metrics_registry.json(11 metrics 구버전) 삭제, compute-growth.ts·resolve-deferred-scores.ts 삭제, feature_flags 5필드 제거, finalize-self-scores default 분기 + participationExpectedTopicTypes 게이트 제거. (3) 발언한 역할 = 점수 적재 (토픽 타입별 expected 제한 폐기). (4) PD-023 resolveCondition 5토픽 누적 ✅(6 distinct topics) → resolved. (5) PD-025/026/027 폐기(자동 감시 영역). (6) legacy 70 records → _quarantine/legacy_propagation_session083-089.jsonl 이관, jsonl fresh start. (7) CLAUDE.md 1줄 추가. (8) 시범 적재 검증: ace 5 + arki 4 + riki 4 + dev 7 = 20 records 정상.",
+      "value": "본질 회귀: 점수 기록 + Master 수동 열람. 시스템 자동 감시 인프라가 자가평가 의미를 propagation 86%로 오염시킨 전례 차단. 단일 출처 박제로 잘못 참조 사고 봉쇄."
+    },
+    {
       "id": "D-091",
       "date": "2026-04-25",
       "session": "session_100",

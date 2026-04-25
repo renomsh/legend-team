@@ -1044,6 +1044,51 @@
       "feedback": "5역할 균등 가중 (tier 구분 없음) — 3역할 기존 가중치 유지.",
       "status": "resolved",
       "statusNote": "ace_rev4 §5-B 균등 가중 적용 확정. 8역할 가중치 전체 박제(D-081)."
+    },
+    {
+      "id": "MF-085",
+      "date": "2026-04-25",
+      "session": "session_101",
+      "topic": "pd023-ops-activation-check",
+      "feedback": "본질도 아닌 것에 왜 이렇게 어렵고 꼬이지 — 측정 인프라 over-engineering 회귀 신호. 점수 기록 + Master 수동 열람으로 단순화.",
+      "status": "resolved",
+      "statusNote": "D-092 자가평가 단순화. propagation/자동감시/게이트 폐기. PD-025/026/027 deprecated."
+    },
+    {
+      "id": "MF-086",
+      "date": "2026-04-25",
+      "session": "session_101",
+      "topic": "pd023-ops-activation-check",
+      "feedback": "점수만 보여주면 돼 — 자연어 자가리뷰 안. 점수 기록만으로 충분.",
+      "status": "resolved",
+      "statusNote": "turns[].selfScores 박제 = 단일 입력 surface. CLAUDE.md 1줄 박제."
+    },
+    {
+      "id": "MF-087",
+      "date": "2026-04-25",
+      "session": "session_101",
+      "topic": "pd023-ops-activation-check",
+      "feedback": "각각 측정지표들의 정의 한 곳에만 둬. 잘못 참조하지 않게.",
+      "status": "resolved",
+      "statusNote": "shared/metrics_registry.json 삭제, single source = role memory[].metrics → compile → growth/metrics_registry.json. CLAUDE.md 명시."
+    },
+    {
+      "id": "MF-088",
+      "date": "2026-04-25",
+      "session": "session_101",
+      "topic": "pd023-ops-activation-check",
+      "feedback": "리키 — 필요 없는 의견 말고 아키 잘못만. 개수 채우기 금지.",
+      "status": "resolved",
+      "statusNote": "Riki R-A1/R-A2/R-A3/R-A4로 Arki 정정 4건만 보강. 약한 항목 전부 폐기. heritage feedback_riki_no_opposition_for_opposition + feedback_riki_count_filler 정합."
+    },
+    {
+      "id": "MF-089",
+      "date": "2026-04-25",
+      "session": "session_101",
+      "topic": "pd023-ops-activation-check",
+      "feedback": "본인 참여 프로젝트 = 발언한 토픽. 모두 발언했으면 모두 적용되어야지.",
+      "status": "resolved",
+      "statusNote": "finalize-self-scores participationExpectedTopicTypes 게이트 제거. applicableTopicTypes만 유지. 4역할 20 records 정상 적재."
     }
   ],
   "statusValues": [
@@ -1052,5 +1097,5 @@
     "resolved"
   ],
   "statusUpdatedBy": "Claude Code at session end — based on topic status and implementation evidence",
-  "lastUpdated": "2026-04-24"
+  "lastUpdated": "2026-04-25"
 }

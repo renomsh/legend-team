@@ -1,14 +1,9 @@
 {
-  "version": "1.1",
+  "version": "1.2",
+  "_comment": "D-092/session_101. 자동 감시·게이트 폐기. Master 수동 대시보드 열람이 단일 피드백 경로.",
   "flags": {
     "signatureMetricsEnabled": true,
-    "signatureMetricsCardsVisible": true,
-    "signatureMetricsAlertsVisible": true,
-    "quarantineEnforcement": false,
-    "deferredScoresAutoResolve": true,
-    "computeSlaWarnMs": 3000,
-    "allowDefaultFallback": false,
-    "_allowDefaultFallback_note": "D-065/session_089. false = YAML 블록 미기입 시 기록 안 함. 70 records 중 86% propagation 발견 후 폐지. PD-031 실가동 감사 연계."
+    "signatureMetricsCardsVisible": true
   },
-  "lastUpdated": "2026-04-24"
+  "lastUpdated": "2026-04-25"
 }

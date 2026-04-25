@@ -21,6 +21,7 @@ Rules:
 - Do not overwrite prior decisions or reports silently
 - Before designing structure or architecture, first confirm the scope and goal of the work. Work definition precedes structural design.
 - `session_index.json`은 `append-session.ts` 스크립트로만 수정. Edit 도구 직접 수정 금지. (D-028, 2026-04-17)
+- 자가평가 단순화 (D-092, 2026-04-25): 지표 정의 단일 출처는 `memory/roles/{role}_memory.json[].metrics` + `memory/growth/derived_metrics.json` + `memory/growth/composite_inputs.json`. `compile-metrics-registry.ts`가 `memory/growth/metrics_registry.json`로 빌드. 다른 위치(특히 `memory/shared/metrics_registry.json`)에 지표 정의 두지 않는다. 역할 turn 박제 시 `selfScores: {shortKey: value, ...}` 동봉, 점수만 남기면 됨. propagation·자동 알림·자동 게이트 폐기. Master 수동 대시보드 열람이 단일 피드백 경로.
 
 ## Topic Grade System (D-074, 2026-04-24)
 
