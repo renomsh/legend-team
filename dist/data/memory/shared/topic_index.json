@@ -1,6 +1,24 @@
 {
   "topics": [
     {
+      "id": "topic_105",
+      "title": "PD-023 구현 점검",
+      "status": "completed",
+      "phase": "validated",
+      "outcome": "PD-023 P0a~P4 done·P3-supp done·P5 partial(nav 외부의존) 매트릭스 확정. Quick-win 2파일 구현 완료. PD-031 흡수(D-088), PD-035 resolved(C7). 후속 PD-040/041/042 분리 등록.",
+      "hold": null,
+      "created": "2026-04-25",
+      "topicType": "standalone",
+      "parentTopicId": "topic_088",
+      "controlPath": "topics/topic_105",
+      "reportPath": "reports/2026-04-25_pd023-impl-status-check",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_100",
+      "path": "topics/topic_105",
+      "grade": "A"
+    },
+    {
       "id": "topic_104",
       "title": "PD-037 Vera 페르소나 상태 검증 — pending 해소",
       "status": "completed",
@@ -2053,5 +2071,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-25T01:23:15.050Z"
+  "lastUpdated": "2026-04-25T02:06:23.975Z"
 }

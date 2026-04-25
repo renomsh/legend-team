@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-25T01:23:38.539Z",
-  "totalSessions": 97,
+  "generatedAt": "2026-04-25T02:06:56.679Z",
+  "totalSessions": 98,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.75,
-    "avgCacheHitRate": 0.9309,
-    "cacheSampleSize": 71,
-    "cacheSampleTotal": 97,
+    "avgMasterTurns": 16.66,
+    "avgCacheHitRate": 0.9312,
+    "cacheSampleSize": 72,
+    "cacheSampleTotal": 98,
     "avgAdoptionRate": 0,
-    "totalDecisions": 87,
+    "totalDecisions": 91,
     "gradeDistribution": {
-      "S": 35,
+      "S": 36,
       "A": 19,
       "B": 31,
       "C": 12
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 52,
-    "totalCostUSD": 839.3851,
-    "avgCostPerSession": 9.1238,
-    "costSampleSize": 92
+    "turnBasedSessions": 53,
+    "totalCostUSD": 843.723,
+    "avgCostPerSession": 9.0723,
+    "costSampleSize": 93
   },
   "sessions": [
     {
@@ -3646,12 +3646,59 @@
         "messageCount": 41
       },
       "sessionCostUSD": 1.4407
+    },
+    {
+      "sessionId": "session_100",
+      "topicSlug": "pd023-impl-status-check",
+      "topic": "PD-023 구현 점검",
+      "startedAt": "2026-04-25T10:00:00.000Z",
+      "closedAt": "2026-04-25T11:00:00.000Z",
+      "decisionCount": 4,
+      "decisionAxes": 4,
+      "decisions": [
+        "D-091",
+        "D-090",
+        "D-089",
+        "D-088"
+      ],
+      "rolesCalled": 9,
+      "rolesRecalled": 4,
+      "sessionsSpanned": 1,
+      "size": 28,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 8,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "ace",
+        "arki",
+        "riki",
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 7460184,
+        "ioTokens": 70759,
+        "inputTokens": 176,
+        "outputTokens": 70583,
+        "cacheCreate": 307755,
+        "cacheRead": 7081670,
+        "cacheHitRate": 0.9492621093527988,
+        "messageCount": 69
+      },
+      "sessionCostUSD": 4.3379
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 95,
+      "count": 98,
       "sessions": [
         "session_047",
         "session_048",
@@ -3697,12 +3744,13 @@
         "session_095",
         "session_096",
         "session_097",
-        "session_098"
+        "session_098",
+        "session_100"
       ]
     },
     {
       "role": "arki",
-      "count": 67,
+      "count": 69,
       "sessions": [
         "session_048",
         "session_049",
@@ -3732,12 +3780,13 @@
         "session_094",
         "session_095",
         "session_097",
-        "session_098"
+        "session_098",
+        "session_100"
       ]
     },
     {
       "role": "editor",
-      "count": 49,
+      "count": 50,
       "sessions": [
         "session_050",
         "session_051",
@@ -3787,12 +3836,13 @@
         "session_096",
         "session_097",
         "session_098",
-        "session_099"
+        "session_099",
+        "session_100"
       ]
     },
     {
       "role": "dev",
-      "count": 35,
+      "count": 36,
       "sessions": [
         "session_047",
         "session_048",
@@ -3823,12 +3873,13 @@
         "session_095",
         "session_096",
         "session_097",
-        "session_098"
+        "session_098",
+        "session_100"
       ]
     },
     {
       "role": "riki",
-      "count": 28,
+      "count": 30,
       "sessions": [
         "session_049",
         "session_053",
@@ -3853,7 +3904,8 @@
         "session_094",
         "session_095",
         "session_097",
-        "session_098"
+        "session_098",
+        "session_100"
       ]
     },
     {
@@ -6046,6 +6098,66 @@
           "role": "editor",
           "phase": "compile",
           "turnIdx": 0,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_100",
+      "topic": "PD-023 구현 점검",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 6,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 7,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": null,
+          "turnIdx": 8,
           "recallReason": null
         }
       ]

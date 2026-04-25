@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_099",
-  "nextSessionId": "session_100",
+  "lastSessionId": "session_100",
+  "nextSessionId": "session_101",
   "currentVersion": "v1.54",
   "openTopics": [
     {
@@ -27,37 +27,49 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-091",
+      "date": "2026-04-25",
+      "axis": "operationalStatus·triggerType·absorbed enum 박제 + 재호출 강제 원칙",
+      "summary": "PD/topic 양쪽에서 임시 활용 중인 enum의 영구 박제. 스키마 drift 차단."
+    },
+    {
+      "id": "D-090",
+      "date": "2026-04-25",
+      "axis": "batch-score-helper.ts + validate-self-scores.ts + followup-A/B 분리",
+      "summary": "PD-023 P3 진입장벽(YAML 직접 타이핑) 해소 도구 완비. followup 트랙 분리로 본 토픽 범위 유지."
+    },
+    {
+      "id": "D-089",
+      "date": "2026-04-25",
+      "axis": "resolveCondition 재정의 + 코드 done / 운영 KPI open 이원화",
+      "summary": "기존 'G6 통과' 모호 해소. 코드 완료와 운영 KPI 분리로 false-resolved 차단."
+    },
+    {
+      "id": "D-088",
+      "date": "2026-04-25",
+      "axis": "PD-031 흡수 → PD-023 단일 트랙",
+      "summary": "PD-031 진단 컨텍스트 손실 없이 트랙 단일화. PD-023 P3 운영 KPI에서 실가동 감사 항목을 직접 측정."
+    },
+    {
       "id": "D-087",
       "date": "2026-04-25",
       "axis": "PD-036 finalize hook 위임 패턴 + guard 로직 + 500자 상한",
       "summary": "R-1(누락 시 영구 공백) + R-2(race condition + 조용한 실패) 동시 해소. 위임 패턴으로 hook chain 안정성 확보."
-    },
-    {
-      "id": "D-086",
-      "date": "2026-04-24",
-      "axis": "invoked-sessions-only 참여 판정 자가 선언 단일화",
-      "summary": "invoked-sessions-only 참여 판정 자가 선언 단일화"
-    },
-    {
-      "id": "D-085",
-      "date": "2026-04-24",
-      "axis": "editor gp_acc deferred-settlement 설계",
-      "summary": "editor gp_acc deferred-settlement 설계"
-    },
-    {
-      "id": "D-084",
-      "date": "2026-04-24",
-      "axis": "vera persona canonical 선언",
-      "summary": "vera persona canonical 선언"
-    },
-    {
-      "id": "D-083",
-      "date": "2026-04-24",
-      "axis": "nova 지표 재편 (prm_rt deprecate / blnd_spt 신설)",
-      "summary": "nova 지표 재편 (prm_rt deprecate / blnd_spt 신설)"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_100",
+      "topicSlug": "pd023-impl-status-check",
+      "closedAt": "2026-04-25T11:00:00.000Z",
+      "oneLineSummary": "PD-023 매트릭스 확정(P0a~P4 done, P3-supp done, P5 partial-nav). Quick-win 2파일 구현(batch-score-helper·validate-self-scores). PD-031 흡수, PD-035 resolved, PD-040/041/042 분리 등록.",
+      "decisionsAdded": [
+        "D-088",
+        "D-089",
+        "D-090",
+        "D-091"
+      ]
+    },
     {
       "sessionId": "session_099",
       "topicSlug": "pd037-vera-persona-status-check",
@@ -76,6 +88,33 @@
     }
   ],
   "pendingDeferrals": [
+    {
+      "id": "PD-042",
+      "fromSession": "session_100",
+      "fromTopic": "pd023-impl-status-check",
+      "item": "PD-023 후속-B — signature.html main nav 통합. P5 '배포되었으나 미운영 대기' 해소.",
+      "status": "pending",
+      "resolveCondition": "topic_082 closed 후 promote 트리거, nav 통합 PR merged + 1토픽 실운영",
+      "dependsOn": []
+    },
+    {
+      "id": "PD-041",
+      "fromSession": "session_100",
+      "fromTopic": "pd023-impl-status-check",
+      "item": "PD-023 후속-A — test-regression.ts 자동화(회귀 baseline 잠금). fixture는 tests/fixtures/regression/ 존재. 수동 CLI + CI 친화.",
+      "status": "pending",
+      "resolveCondition": "구현 완료 + 회귀 fixture 5종 PASS",
+      "dependsOn": []
+    },
+    {
+      "id": "PD-040",
+      "fromSession": "session_100",
+      "fromTopic": "pd023-impl-status-check",
+      "item": "스키마 거버넌스 — operationalStatus·triggerType·absorbed enum·재호출 강제 원칙 박제. PD-020 거버넌스 트랙.",
+      "status": "pending",
+      "resolveCondition": "PD-020 거버넌스 차기 토픽에서 스키마 변경 논의 + validate-schema-lifecycle.ts 갱신 + 1회 실적용 사례",
+      "dependsOn": []
+    },
     {
       "id": "PD-034",
       "fromSession": "session_090",
@@ -110,8 +149,10 @@
       "fromSession": "session_089",
       "fromTopic": "pd023-self-scores-mvp-impl",
       "item": "Self-score MVP 실가동 감사 — 70 records 중 86%가 default-fallback propagation, 실제 YAML 블록 기록은 10건뿐. session_086~089 4세션 연속 YAML 미기입. 원인 진단 필요: (1) Master 관심 부족? (2) finalize hook이 YAML 블록을 역할 발언에서 자동 추출 못 함? (3) YAML 포맷 학습 장벽? (4) 역할별 메트릭 shortKey 기억 어려움? (5) 입력 도구 자체 부재 — batch-score-helper.ts가 spec §2.1에 명시됐으나 미구현. YAML 직접 타이핑만 유일 경로 → 진입장벽 형성(G6.2 ② 감사에서 발견). (6) 출력 surface staged — signature.html은 base form으로 배포 완료되었으나 main nav 통합은 topic_082(Dashboard 전면 개편, 현재 suspended) 합류 시점까지 의도적 지연. 즉 structural gap이 아닌 계획된 staging. PD-031 재활성화 protocol 설계 시 topic_082 재개를 dependency로 고려 필요. MVP 비가시성 주원인은 '미통합'이 아니라 '미운영 대기 상태'. 재활성화 protocol 설계 필요. D-065 B 조치(allowDefaultFallback=false)로 앞으로는 propagation 차단됨 → 실 기록 없으면 빈 상태로 남음.",
-      "status": "pending",
+      "status": "resolved",
       "resolveCondition": "P3-supplementary 완료 + 10세션 관찰 중 8개 role 각각 yaml-block 기록률 ≥ 70% 달성",
+      "resolvedInSession": "session_100",
+      "resolvedNote": "absorbed-by-PD-023 per D-088. 실가동 감사 항목을 PD-023 P3 운영 KPI 잔여로 재정의 흡수. 원본 item 6가지 가설은 PD-023 P3 운영 KPI 트랙에서 직접 측정.",
       "dependsOn": []
     },
     {
@@ -149,7 +190,8 @@
       "fromTopic": "pd023-self-scores-thin-impl",
       "item": "Dev 얇은 구현 — 학습축 자가평가 MVP 본체 (29지표×100점×3뷰×8역할 카드 + Tier1/2/3 dashboard + forward-compat 슬롯). canonical spec: reports/2026-04-23_pd023-self-scores-thin-impl/arki_rev1.md",
       "status": "pending",
-      "resolveCondition": "topic_088 closed + arki_rev1.md Phase P0a~P5 게이트 G0~G5 전 통과",
+      "resolveCondition": "Quick-win 2건 done + followup-A PD 등록 + (5토픽 누적 OR fallback<30%). 단 fallback<30% 단독 트리거 시 Master 게이트 자동 발동",
+      "statusNote": "D-089 재정의 (session_100). 코드 done / 운영 KPI open 이원화. PD-031 흡수(D-088) 완료.",
       "dependsOn": []
     },
     {
@@ -363,8 +405,10 @@
       "fromSession": "session_094",
       "fromTopic": "pd023-resume-self-scores-mvp",
       "item": "PD-023 P3-supplementary 구현 — 8역할 페르소나/서브에이전트 프롬프트에 YAML 블록 생성 instruction 편입",
-      "status": "pending",
+      "status": "resolved",
       "resolveCondition": "다음 세션 완료 + 3세션 관찰 시 8역할 yaml-block 기록률 ≥ 70%",
+      "resolvedInSession": "session_100",
+      "resolvedNote": "8/8 persona mention 확인 (C7). 행동 변화 검증(yaml-block 기록률)은 PD-023 P3 운영 KPI 트랙에서 후속 관찰.",
       "dependsOn": []
     },
     {
@@ -406,5 +450,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-25T01:23:22.883Z"
+  "lastUpdated": "2026-04-25T02:06:35.303Z"
 }

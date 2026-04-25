@@ -1,6 +1,50 @@
 {
   "decisions": [
     {
+      "id": "D-091",
+      "date": "2026-04-25",
+      "session": "session_100",
+      "topic": "topic_105",
+      "owningTopicId": "topic_105",
+      "scopeCheck": "PD-023 구현 점검 — 스키마 거버넌스 트랙 분리",
+      "axis": "operationalStatus·triggerType·absorbed enum 박제 + 재호출 강제 원칙",
+      "decision": "operationalStatus·triggerType·absorbed enum 정의 + PD/topic 재호출 강제 원칙 → PD-040 신설. PD-020 거버넌스 트랙으로 이관. validate-schema-lifecycle.ts 갱신 + 1회 실적용을 resolveCondition으로 결합.",
+      "value": "PD/topic 양쪽에서 임시 활용 중인 enum의 영구 박제. 스키마 drift 차단."
+    },
+    {
+      "id": "D-090",
+      "date": "2026-04-25",
+      "session": "session_100",
+      "topic": "topic_105",
+      "owningTopicId": "topic_105",
+      "scopeCheck": "PD-023 Quick-win 본 세션 구현 + followup PD 분리",
+      "axis": "batch-score-helper.ts + validate-self-scores.ts + followup-A/B 분리",
+      "decision": "scripts/batch-score-helper.ts (152줄, 대화형 CLI, --help/--dry-run, atomic write) + scripts/validate-self-scores.ts (131줄, Ajv + orphan + scale 검증) 본 세션 완료. 검증: total=70 valid=70 exit 0. followup-A test-regression → PD-041 분리 등록. followup-B signature.html nav 통합 → PD-042 분리 등록 (topic_082 closed 후 promote).",
+      "value": "PD-023 P3 진입장벽(YAML 직접 타이핑) 해소 도구 완비. followup 트랙 분리로 본 토픽 범위 유지."
+    },
+    {
+      "id": "D-089",
+      "date": "2026-04-25",
+      "session": "session_100",
+      "topic": "topic_105",
+      "owningTopicId": "topic_105",
+      "scopeCheck": "PD-023 resolveCondition 재정의 + 매트릭스 표기 이원화",
+      "axis": "resolveCondition 재정의 + 코드 done / 운영 KPI open 이원화",
+      "decision": "PD-023 resolveCondition='Quick-win 2건 done + followup-A PD 등록 + (5토픽 누적 OR fallback<30%). 단 fallback<30% 단독 트리거 시 Master 게이트 자동 발동'. 매트릭스 표기 이원화: 코드 done / 운영 KPI open. statusNote 활용하여 KPI 미달 명시.",
+      "value": "기존 'G6 통과' 모호 해소. 코드 완료와 운영 KPI 분리로 false-resolved 차단."
+    },
+    {
+      "id": "D-088",
+      "date": "2026-04-25",
+      "session": "session_100",
+      "topic": "topic_105",
+      "owningTopicId": "topic_105",
+      "scopeCheck": "PD-031 ↔ PD-023 트랙 중복 해소",
+      "axis": "PD-031 흡수 → PD-023 단일 트랙",
+      "decision": "PD-031 실가동 감사 항목을 PD-023 P3 운영 KPI 잔여로 재정의하여 흡수. PD-031 status=resolved + statusNote='absorbed-by-PD-023'. 원본 item 텍스트(원인 6가지 가설)는 statusNote에 보존. 트랙 단일화로 중복 관리 비용 제거.",
+      "value": "PD-031 진단 컨텍스트 손실 없이 트랙 단일화. PD-023 P3 운영 KPI에서 실가동 감사 항목을 직접 측정."
+    },
+    {
       "id": "D-087",
       "date": "2026-04-25",
       "session": "session_098",

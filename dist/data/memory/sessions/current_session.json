@@ -1,52 +1,103 @@
 {
-  "sessionId": "session_099",
-  "topicId": "topic_104",
-  "topic": "PD-037 Vera 페르소나 상태 검증 — pending 해소",
-  "topicSlug": "pd037-vera-persona-status-check",
-  "reportPath": "reports/2026-04-25_pd037-vera-persona-status-check",
+  "sessionId": "session_100",
+  "topicId": "topic_105",
+  "topic": "PD-023 구현 점검",
+  "topicSlug": "pd023-impl-status-check",
+  "reportPath": "reports/2026-04-25_pd023-impl-status-check",
   "status": "closed",
-  "startedAt": "2026-04-25T09:00:00.000Z",
-  "closedAt": "2026-04-25T09:10:00.000Z",
+  "startedAt": "2026-04-25T10:00:00.000Z",
+  "closedAt": "2026-04-25T11:00:00.000Z",
   "mode": "observation",
-  "grade": "D",
-  "gradeDeclared": "D",
+  "grade": "A",
+  "gradeDeclared": "A",
   "orchestrationMode": "manual",
-  "framingLevel": 0,
-  "framingSkipped": true,
+  "framingLevel": 2,
+  "framingSkipped": false,
   "topicType": "standalone",
-  "parentTopicId": null,
+  "parentTopicId": "topic_088",
   "childTopicIds": [],
   "agentsCompleted": [
+    "ace",
+    "arki",
+    "riki",
+    "ace",
+    "arki",
+    "riki",
+    "ace",
+    "dev",
     "editor"
   ],
   "turns": [
     {
+      "role": "ace",
+      "turnIdx": 0
+    },
+    {
+      "role": "arki",
+      "turnIdx": 1
+    },
+    {
+      "role": "riki",
+      "turnIdx": 2
+    },
+    {
+      "role": "ace",
+      "turnIdx": 3,
+      "phase": "synthesis"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 4,
+      "recallReason": "post-master"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 5,
+      "recallReason": "post-master"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 6,
+      "phase": "synthesis",
+      "recallReason": "post-master"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 7
+    },
+    {
       "role": "editor",
-      "turnIdx": 0,
-      "phase": "compile"
+      "turnIdx": 8
     }
   ],
   "decisions": [],
   "masterDecisions": [],
   "masterFeedback": [],
-  "pendingDeferralsAdded": [],
+  "pendingDeferralsAdded": [
+    "PD-040",
+    "PD-041",
+    "PD-042"
+  ],
   "pendingDeferralsResolved": [
-    "PD-037"
+    "PD-031",
+    "PD-035"
   ],
-  "oneLineSummary": "PD-037 resolved: role-vera.md 존재 확인 + vera-signature-review 실사용 확인",
-  "decisionsAdded": [],
-  "notes": [
-    "PD-037 resolveCondition 2조건 모두 충족: (1) memory/roles/personas/role-vera.md 파일 존재, (2) git commit f238672 pd037-vera-signature-review 실사용 확인",
-    "system_state.json PD-037 status → resolved 갱신 완료"
+  "decisionsAdded": [
+    "D-088",
+    "D-089",
+    "D-090",
+    "D-091"
   ],
+  "oneLineSummary": "PD-023 매트릭스 확정(P0a~P4 done, P3-supp done, P5 partial-nav). Quick-win 2파일 구현(batch-score-helper·validate-self-scores). PD-031 흡수, PD-035 resolved, PD-040/041/042 분리 등록.",
+  "notes": [],
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 57,
-    "output_tokens": 16445,
-    "cache_creation_input_tokens": 137321,
-    "cache_read_input_tokens": 2262940,
-    "messageCount": 41,
-    "masterTurns": 4,
-    "total_billable": 2416763
+    "input_tokens": 176,
+    "output_tokens": 70583,
+    "cache_creation_input_tokens": 307755,
+    "cache_read_input_tokens": 7081670,
+    "messageCount": 69,
+    "masterTurns": 8,
+    "total_billable": 7460184
   }
 }
