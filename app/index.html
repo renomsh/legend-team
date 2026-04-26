@@ -7,140 +7,166 @@
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/components.css">
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 </head>
-<style>
-.app{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
-.sidebar{background:var(--panel);border-right:1px solid var(--line);padding:24px 16px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:4px;overflow-y:auto}
-.brand{display:flex;align-items:center;gap:10px;padding:4px 8px 20px 8px;border-bottom:1px solid var(--line);margin-bottom:12px}
-.brand-mark{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#4F46E5,#9333EA);display:grid;place-items:center;font-weight:800;font-size:13px;color:#fff;flex-shrink:0}
-.brand-name{font-size:15px;font-weight:700;letter-spacing:-.2px}.brand-tag{font-size:9px;color:var(--text-3);text-transform:uppercase;letter-spacing:.14em;margin-top:2px}
-.nav-group{font-size:9px;color:var(--text-3);text-transform:uppercase;letter-spacing:.14em;padding:14px 10px 6px}
-.nav-item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;color:var(--text-2);font-size:13px;transition:all .15s;text-decoration:none}
-.nav-item:hover{background:var(--panel-2);color:var(--text)}.nav-item.active{background:linear-gradient(135deg,rgba(139,92,246,.18),rgba(6,182,212,.12));color:#fff;box-shadow:inset 0 0 0 1px rgba(139,92,246,.3)}
-.nav-dot{width:6px;height:6px;border-radius:2px;flex-shrink:0}.sidebar-foot{margin-top:auto;padding:12px 10px;border-top:1px solid var(--line);font-size:11px;color:var(--text-3)}.sidebar-foot b{color:var(--text-2)}
-.s-main{padding:28px 36px 64px;min-width:0}.s-crumb{font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:.14em}.s-h1{font-size:28px;font-weight:800;letter-spacing:-.6px;margin-top:4px;color:var(--text);margin-bottom:20px}
-</style>
 <body>
 <a href="#main-content" class="skip-link">본문으로 건너뛰기</a>
 <div class="app">
 <!-- @partial:sidebar -->
-<main class="s-main" id="main-content">
-  <div class="s-crumb">System / Home</div>
-  <div class="s-h1">Dashboard</div>
+<main class="main" id="main-content">
+  <div class="topbar">
+    <div>
+      <div class="crumb">Home</div>
+      <div class="h1">Legend Team</div>
+    </div>
+    <div class="topbar-right">
+      <div class="pill"><span class="dot"></span><span id="sessionBadge">—</span></div>
+      <div class="pill">Build: <span id="buildDate" style="color:var(--text-3)">—</span></div>
+    </div>
+  </div>
   <div class="page" style="padding:0;max-width:none;margin:0">
-    <div style="margin-bottom:20px;font-size:12px;color:var(--text-tertiary)" id="charterSub">Memory-First · Topic-Based · Role-Separated</div>
+    <!-- Hero (D-097 단계적 추출 — components.css §8 적용) -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="h-eyebrow"><span class="blip"></span>Total sessions accumulated</div>
+          <div class="hero-number" id="kpiSessions">—</div>
+          <div class="hero-label">Legend Team Strategy OS</div>
+          <div class="hero-meta">
+            <div>
+              <div class="hm-k">Topics</div>
+              <div class="hm-v" id="kpiTopics">—</div>
+            </div>
+            <div>
+              <div class="hm-k">Decisions</div>
+              <div class="hm-v" id="kpiDecisions">—</div>
+            </div>
+            <div>
+              <div class="hm-k">Version</div>
+              <div class="hm-v" id="heroVersion">—</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="hero-chart-title">Sessions · last 14</div>
+          <div id="heroChart" style="height:160px"></div>
+        </div>
+      </div>
+    </section>
 
-    <!-- Hero KPI row (ia-spec §5-2) -->
-    <div class="kpi-row" data-kpi-count="3" style="margin-bottom:24px">
-      <div class="kpi" style="--accent:var(--grad-violet,#8B5CF6)">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
-          <div class="kpi-label">Sessions</div>
-        </div>
-        <div class="kpi-val" id="kpiSessions">--</div>
-        <div class="kpi-sub">누적 세션 수</div>
-      </div>
-      <div class="kpi" style="--accent:var(--grad-teal,#06B6D4)">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
-          <div class="kpi-label">Topics</div>
-        </div>
-        <div class="kpi-val" id="kpiTopics">--</div>
-        <div class="kpi-sub">누적 토픽 수</div>
-      </div>
-      <div class="kpi" style="--accent:var(--grad-amber,#F59E0B)">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
-          <div class="kpi-label">Decisions</div>
-        </div>
-        <div class="kpi-val" id="kpiDecisions">--</div>
-        <div class="kpi-sub">누적 결정 수</div>
-      </div>
+    <!-- 4 Hub Cards (ia-spec §5-1: H1~H4) -->
+    <div class="section-grid">
+      <a href="dashboard-upgrade.html" class="card hub-card">
+        <div class="hub-title">Dashboard</div>
+        <div class="hub-sub">성장 지표 · 세션 분석 · 비용</div>
+      </a>
+      <a href="growth.html" class="card hub-card">
+        <div class="hub-title">Growth</div>
+        <div class="hub-sub">역할 성장 · 지표 추이</div>
+      </a>
+      <a href="people.html" class="card hub-card">
+        <div class="hub-title">People</div>
+        <div class="hub-sub">역할 프로필 · 권한 현황</div>
+      </a>
+      <a href="topic.html" class="card hub-card">
+        <div class="hub-title">Records</div>
+        <div class="hub-sub">Topics · Decisions · Feedback · Sessions · Deferrals</div>
+      </a>
     </div>
 
-    <!-- 5 Index Cards (ia-spec §5-1: H1~H5) -->
-    <div class="section-grid">
-      <a href="dashboard-upgrade.html" class="card" style="text-decoration:none;color:inherit;cursor:pointer;transition:border-color .15s" onmouseover="this.style.borderColor='var(--line-2)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div class="card-title">Dashboard</div>
-        <div style="font-size:12px;color:var(--text-3);margin-top:8px">성장 지표 · 세션 분석 · 비용</div>
-      </a>
-      <a href="growth.html" class="card" style="text-decoration:none;color:inherit;cursor:pointer;transition:border-color .15s" onmouseover="this.style.borderColor='var(--line-2)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div class="card-title">Growth</div>
-        <div style="font-size:12px;color:var(--text-3);margin-top:8px">역할 성장 · 지표 추이</div>
-      </a>
-      <a href="people.html" class="card" style="text-decoration:none;color:inherit;cursor:pointer;transition:border-color .15s" onmouseover="this.style.borderColor='var(--line-2)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div class="card-title">People</div>
-        <div style="font-size:12px;color:var(--text-3);margin-top:8px">역할 프로필 · 권한 현황</div>
-      </a>
-      <a href="topic.html" class="card" style="text-decoration:none;color:inherit;cursor:pointer;transition:border-color .15s" onmouseover="this.style.borderColor='var(--line-2)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div class="card-title">Records</div>
-        <div style="font-size:12px;color:var(--text-3);margin-top:8px">Topics · Decisions · Feedback</div>
-      </a>
-      <a href="dashboard-ops.html" class="card" style="text-decoration:none;color:inherit;cursor:pointer;transition:border-color .15s" onmouseover="this.style.borderColor='var(--line-2)'" onmouseout="this.style.borderColor='var(--line)'">
-        <div class="card-title">System</div>
-        <div style="font-size:12px;color:var(--text-3);margin-top:8px">Ops 대시보드 · 시스템 상태</div>
-      </a>
+    <!-- 3 Mini Panels (Recent Activity / Pending Deferrals / Cost & Tokens) -->
+    <div class="mini-row">
+      <div class="mini-panel" style="--mini-accent:#06B6D4">
+        <div class="mini-h">
+          <div class="mini-title">Recent Activity</div>
+          <a href="session.html" class="mini-meta" style="text-decoration:none;color:var(--text-3)">최근 5세션 →</a>
+        </div>
+        <div class="mini-list" id="recentActivity"><div class="loading">Loading</div></div>
+      </div>
+
+      <div class="mini-panel" style="--mini-accent:#F59E0B">
+        <div class="mini-h">
+          <div class="mini-title">Pending Deferrals</div>
+          <a href="deferrals.html" class="mini-meta" style="text-decoration:none;color:var(--text-3)" id="pdMeta">— pending</a>
+        </div>
+        <div class="mini-list" id="pendingList"><div class="loading">Loading</div></div>
+      </div>
+
+      <div class="mini-panel" style="--mini-accent:#F472B6">
+        <div class="mini-h">
+          <div class="mini-title">Cost &amp; Tokens</div>
+          <span class="mini-meta" id="costMeta">최근 5세션</span>
+        </div>
+        <div class="mini-stats" id="costStats">
+          <div class="mini-stat-row"><span class="mini-stat-k">Total billable</span><span class="mini-stat-v" id="costTotal">—</span></div>
+          <div class="mini-stat-row"><span class="mini-stat-k">Cache hit</span><span class="mini-stat-v" id="costCache">—<small>%</small></span></div>
+          <div class="mini-stat-row"><span class="mini-stat-k">Avg / session</span><span class="mini-stat-v" id="costAvg">—</span></div>
+        </div>
+      </div>
     </div>
 
     <!-- Roles -->
     <div class="section-title">Agents</div>
     <div class="roles-grid" id="rolesGrid">
       <div class="role-card" style="--card-color:#8B5CF6;background:linear-gradient(145deg,rgba(139,92,246,.16) 0%,rgba(139,92,246,.04) 50%,#0B0B0D 100%)">
-        <div class="role-icon">&#x2694;&#xFE0F;</div>
         <div class="role-phase">Phase 1 + Review</div>
+        <div class="role-mono">A</div>
         <div class="role-name">ACE</div>
         <div class="role-domain">Strategy</div>
         <div class="role-desc">Lead strategist. Framing, decision axes, scope. Comprehensive review of all role outputs.</div>
         <div class="role-status"><span class="status-dot dot-active"></span><span class="auth-badge auth-primary">primary</span></div>
       </div>
       <div class="role-card" style="--card-color:#06B6D4;background:linear-gradient(145deg,rgba(6,182,212,.16) 0%,rgba(6,182,212,.04) 50%,#0B0B0D 100%)">
-        <div class="role-icon">&#x1F3DB;&#xFE0F;</div>
         <div class="role-phase">Phase 2</div>
+        <div class="role-mono">Ar</div>
         <div class="role-name">ARKI</div>
         <div class="role-domain">Architecture</div>
         <div class="role-desc">Systems architect. Structure, dependencies, design constraints.</div>
         <div class="role-status"><span class="status-dot dot-active"></span><span class="auth-badge auth-domain">domain</span></div>
       </div>
       <div class="role-card" style="--card-color:#F59E0B;background:linear-gradient(145deg,rgba(245,158,11,.16) 0%,rgba(245,158,11,.04) 50%,#0B0B0D 100%)">
-        <div class="role-icon">&#x1F4B0;</div>
         <div class="role-phase">Phase 3</div>
+        <div class="role-mono">F</div>
         <div class="role-name">FIN</div>
         <div class="role-domain">Finance</div>
         <div class="role-desc">Financial analyst. Cost, return, resource evaluation.</div>
         <div class="role-status"><span class="status-dot dot-active"></span><span class="auth-badge auth-domain">domain</span></div>
       </div>
       <div class="role-card" style="--card-color:#EF4444;background:linear-gradient(145deg,rgba(239,68,68,.16) 0%,rgba(239,68,68,.04) 50%,#0B0B0D 100%)">
-        <div class="role-icon">&#x1F6E1;&#xFE0F;</div>
         <div class="role-phase">Phase 4</div>
+        <div class="role-mono">R</div>
         <div class="role-name">RIKI</div>
         <div class="role-domain">Risk</div>
         <div class="role-desc">Adversarial analyst. Failure modes, assumption audits, contradictions.</div>
         <div class="role-status"><span class="status-dot dot-active"></span><span class="auth-badge auth-domain">domain</span></div>
       </div>
       <div class="role-card" style="--card-color:#3B82F6;background:linear-gradient(145deg,rgba(59,130,246,.16) 0%,rgba(59,130,246,.04) 50%,#0B0B0D 100%)">
-        <div class="role-icon">&#x1F4BB;</div>
         <div class="role-phase">Phase 5</div>
+        <div class="role-mono">D</div>
         <div class="role-name">DEV</div>
         <div class="role-domain">Implementation</div>
         <div class="role-desc">Implementation specialist. Builds, tests, and deploys code artifacts.</div>
         <div class="role-status"><span class="status-dot dot-active"></span><span class="auth-badge auth-domain">domain</span></div>
       </div>
       <div class="role-card" style="--card-color:#9CA3AF;background:linear-gradient(145deg,rgba(156,163,175,.16) 0%,rgba(156,163,175,.04) 50%,#0B0B0D 100%)">
-        <div class="role-icon">&#x1F4DD;</div>
         <div class="role-phase">Phase 6</div>
+        <div class="role-mono">E</div>
         <div class="role-name">EDI</div>
         <div class="role-domain">Output</div>
         <div class="role-desc">Artifact compiler. Formats, organizes, and outputs final documents.</div>
         <div class="role-status"><span class="status-dot dot-active"></span><span class="auth-badge auth-domain">domain</span></div>
       </div>
       <div class="role-card" style="--card-color:#F472B6;background:linear-gradient(145deg,rgba(244,114,182,.16) 0%,rgba(244,114,182,.04) 50%,#0B0B0D 100%)">
-        <div class="role-icon">&#x1F58C;&#xFE0F;</div>
         <div class="role-phase">On-Demand</div>
+        <div class="role-mono">V</div>
         <div class="role-name">VERA</div>
         <div class="role-domain">Visual Design</div>
         <div class="role-desc">Visual system designer. Color, typography, components. Delivers spec to Editor. Top 0.1% aesthetic standard.</div>
         <div class="role-status"><span class="status-dot dot-active"></span><span class="auth-badge" style="background:rgba(244,114,182,.15);color:#FBCFE8">design</span></div>
       </div>
       <div class="role-card" style="--card-color:#10B981;background:linear-gradient(145deg,rgba(16,185,129,.10) 0%,rgba(16,185,129,.03) 50%,#0B0B0D 100%);opacity:0.75;border-style:dashed">
-        <div class="role-icon">&#x1F31F;</div>
         <div class="role-phase">Optional</div>
+        <div class="role-mono">N</div>
         <div class="role-name">NOVA</div>
         <div class="role-domain">Speculation</div>
         <div class="role-desc">Speculative thinker. Advisory only. Master request only.</div>
@@ -148,111 +174,158 @@
       </div>
     </div>
 
-    <!-- Topic Index -->
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
-      <div class="section-title" style="margin-bottom:0">Topics</div>
-      <button id="topicToggle" onclick="toggleTopics()" style="background:var(--surface-2);color:var(--text-secondary);border:1px solid var(--border);border-radius:4px;padding:4px 12px;font-size:11px;cursor:pointer;display:none">▼ Show all</button>
-    </div>
-    <div id="topicList"><div class="loading">Loading topics</div></div>
-
-    <!-- Recent Decisions -->
-    <div style="margin-top: 32px;">
-      <div class="section-title">Recent Decisions</div>
-      <div id="recentDecisions"><div class="loading">Loading decisions</div></div>
-    </div>
   </div>
 
   <script src="js/data-loader.js"></script>
   <script src="js/nav.js"></script>
   <script>
+    function fmtNum(n) {
+      if (n == null) return '—';
+      if (n >= 1e9) return (n/1e9).toFixed(1)+'B';
+      if (n >= 1e6) return (n/1e6).toFixed(1)+'M';
+      if (n >= 1e3) return (n/1e3).toFixed(1)+'k';
+      return String(n);
+    }
+
     async function init() {
-      // Load KPI counts
-      try {
-        const [topicIdx, decIdx] = await Promise.all([
-          DataLoader.getTopicIndex(),
-          DataLoader.getDecisionLedger()
-        ]);
-        const sessionIdx = await DataLoader.getSessionIndex().catch(() => null);
-        if (sessionIdx && sessionIdx.sessions) {
-          document.getElementById('kpiSessions').textContent = sessionIdx.sessions.length;
-        }
-        if (topicIdx && topicIdx.topics) {
-          document.getElementById('kpiTopics').textContent = topicIdx.topics.length;
-        }
-        if (decIdx && decIdx.decisions) {
-          document.getElementById('kpiDecisions').textContent = decIdx.decisions.length;
-        }
-      } catch(e) { /* placeholder -- 값 유지 */ }
+      // KPI + hero chart (token-based)
+      const [topicIdx, decIdx, sessionIdx, tokenLog, sysState, charter] = await Promise.all([
+        DataLoader.getTopicIndex(),
+        DataLoader.getDecisionLedger(),
+        DataLoader.getSessionIndex().catch(() => null),
+        DataLoader.getTokenLog().catch(() => null),
+        DataLoader.getSystemState().catch(() => null),
+        DataLoader.getProjectCharter().catch(() => null)
+      ]);
 
-      // Load topics — recent 10 first, expand/collapse for rest
-      const topicData = await DataLoader.getTopicIndex();
-      const topicEl = document.getElementById('topicList');
-      if (topicData && topicData.topics && topicData.topics.length > 0) {
-        const all = sortTopicsDesc(topicData.topics);
-        window._allTopics = all;
-        window._topicsExpanded = false;
-        renderTopics(false);
-        if (all.length > 10) {
-          const btn = document.getElementById('topicToggle');
-          btn.style.display = 'block';
-          btn.textContent = `▼ Show all (${all.length})`;
-        }
-      } else {
-        topicEl.innerHTML = '<div class="empty-state">No topics found</div>';
+      if (sessionIdx?.sessions) {
+        document.getElementById('kpiSessions').textContent = sessionIdx.sessions.length;
+        const last = sessionIdx.sessions.at(-1);
+        if (last?.sessionId) document.getElementById('sessionBadge').textContent = last.sessionId;
+      }
+      const manifest = await DataLoader.fetchJSON('manifest.json').catch(() => null);
+      const buildAt = manifest?.generatedAt || new Date().toISOString();
+      document.getElementById('buildDate').textContent = new Date(buildAt).toLocaleDateString('ko-KR');
+      if (topicIdx?.topics) document.getElementById('kpiTopics').textContent = topicIdx.topics.length;
+      if (decIdx?.decisions) document.getElementById('kpiDecisions').textContent = decIdx.decisions.length;
+
+      // Hero chart — last 14 sessions, total tokens (Master Q1=b)
+      if (tokenLog?.entries?.length) {
+        const last14 = tokenLog.entries.slice(-14).map(e => {
+          const u = e.usage || {};
+          const total = (u.input_tokens||0) + (u.output_tokens||0) + (u.cache_creation_input_tokens||0) + (u.cache_read_input_tokens||0);
+          return { sessionId: e.legendSessionId, total };
+        });
+        renderHeroChart(last14);
       }
 
-      // Load recent decisions (last 5)
-      const decData = await DataLoader.getDecisionLedger();
-      const decEl = document.getElementById('recentDecisions');
-      if (decData && decData.decisions && decData.decisions.length > 0) {
-        const recent = decData.decisions.slice(-5).reverse();
-        decEl.innerHTML = recent.map(d => `
-          <div class="decision-item">
-            <div class="decision-id">${d.id}</div>
-            <div class="decision-axis">${d.axis}</div>
-            <div class="decision-value">${d.value}</div>
-            <div class="decision-meta">
-              <span>${d.date}</span>
-              <span>${d.topic}</span>
-              <span>${d.status}</span>
-            </div>
-          </div>
+      // Recent Activity — last 5 sessions
+      if (sessionIdx?.sessions?.length) {
+        const recent5 = sessionIdx.sessions.slice(-5).reverse();
+        document.getElementById('recentActivity').innerHTML = recent5.map(s => `
+          <a class="mini-item" href="session.html?id=${s.sessionId}" style="text-decoration:none">
+            <span class="mini-item-id">${s.sessionId.replace('session_','S')}</span>
+            <span class="mini-item-text" title="${(s.topic||'').replace(/"/g,'&quot;')}">${s.topic || s.topicSlug || '—'}</span>
+          </a>
         `).join('');
-      } else {
-        decEl.innerHTML = '<div class="empty-state">No decisions found</div>';
       }
 
-      // Load charter version
-      const charter = await DataLoader.getProjectCharter();
-      if (charter && charter.charter) {
-        document.getElementById('charterSub').textContent =
-          `v${charter.charter.version} · Memory-First · Topic-Based · Role-Separated`;
+      // Pending Deferrals — deferrals.html 카드 패턴 (title — desc 분리, 자동 wrap, session 출처)
+      if (sysState?.pendingDeferrals) {
+        const pending = sysState.pendingDeferrals.filter(p => p.status === 'pending');
+        document.getElementById('pdMeta').textContent = `${pending.length} pending →`;
+        const top5 = pending.slice(0, 5);
+        document.getElementById('pendingList').innerHTML = top5.map(p => {
+          const item = p.item || '';
+          const m = item.match(/^([^—–]+?)\s*[—–]\s*(.+)$/s);
+          const title = m ? m[1].trim() : item;
+          const tt = (item || '').replace(/"/g, '&quot;');
+          const srcSession = (p.fromSession || '').replace('session_', 'S');
+          return `
+            <a class="mini-item" href="deferrals.html#${p.id}" style="text-decoration:none" title="${tt}">
+              <span class="mini-item-id">${p.id}</span>
+              <span class="mini-item-body">
+                <span class="mini-item-title">${title}</span>
+              </span>
+              <span class="mini-item-src">${srcSession}</span>
+            </a>`;
+        }).join('') || '<div class="empty-state">No pending</div>';
+      }
+
+      // Cost & Tokens — last 5 sessions aggregate
+      if (tokenLog?.entries?.length) {
+        const last5 = tokenLog.entries.slice(-5);
+        let total=0, cacheRead=0, cacheCreate=0, output=0, input=0;
+        last5.forEach(e => {
+          const u = e.usage || {};
+          input += u.input_tokens||0;
+          output += u.output_tokens||0;
+          cacheCreate += u.cache_creation_input_tokens||0;
+          cacheRead += u.cache_read_input_tokens||0;
+        });
+        total = input + output + cacheCreate + cacheRead;
+        const cacheHit = total > 0 ? (cacheRead / total * 100) : 0;
+        document.getElementById('costTotal').textContent = fmtNum(total);
+        document.getElementById('costCache').innerHTML = cacheHit.toFixed(1) + '<small>%</small>';
+        document.getElementById('costAvg').textContent = fmtNum(Math.round(total / Math.max(last5.length,1)));
+      }
+
+      // Charter version → hero meta only
+      if (charter?.charter) {
+        const hv = document.getElementById('heroVersion');
+        if (hv) hv.textContent = `v${charter.charter.version}`;
       }
     }
-    function renderTopics(expanded) {
-      const all = window._allTopics || [];
-      const visible = expanded ? all : all.slice(0, 10);
-      const rows = visible.map(t => `
-        <tr class="topic-row" onclick="location.href='topic.html?id=${t.id}'">
-          <td class="topic-id">${t.id}</td>
-          <td class="topic-title-cell">${t.title}</td>
-          <td>${statusBadge(t.status)}</td>
-          <td>${t.created || '—'}</td>
-        </tr>
-      `).join('');
-      document.getElementById('topicList').innerHTML = `
-        <table class="topic-table">
-          <thead><tr><th>ID</th><th>Title</th><th>Status</th><th>Created</th></tr></thead>
-          <tbody>${rows}</tbody>
-        </table>`;
-    }
 
-    function toggleTopics() {
-      window._topicsExpanded = !window._topicsExpanded;
-      renderTopics(window._topicsExpanded);
-      const btn = document.getElementById('topicToggle');
-      const total = (window._allTopics || []).length;
-      btn.textContent = window._topicsExpanded ? '▲ Show less' : `▼ Show all (${total})`;
+    function renderHeroChart(sessions) {
+      if (typeof echarts === 'undefined' || !sessions?.length) return;
+      const el = document.getElementById('heroChart');
+      if (!el) return;
+      // 200ms defer ensures flexbox layout settles + ECharts canvas DPR sync.
+      // (RAF alone insufficient — observed 0-children after 3s on cold load.)
+      setTimeout(() => doRenderChart(el, sessions), 200);
+    }
+    function doRenderChart(el, sessions) {
+      echarts.dispose(el);
+      const chart = echarts.init(el);
+      // ECharts canvas bar render bug: hiding axisLine+axisTick+splitLine all
+      // together produces 0-height bars. Hide only axisLabel; tint others.
+      const subtleLine = '#1e1e26';
+      chart.setOption({
+        backgroundColor: 'transparent',
+        grid: { top: 10, left: 6, right: 6, bottom: 10 },
+        xAxis: {
+          type: 'category', data: sessions.map(s => (s.sessionId || '').slice(-3)),
+          axisLabel: { show: false },
+          axisLine: { lineStyle: { color: subtleLine } },
+          axisTick: { show: false }
+        },
+        yAxis: {
+          type: 'value', min: 0,
+          axisLabel: { show: false },
+          axisLine: { lineStyle: { color: subtleLine } },
+          splitLine: { lineStyle: { color: subtleLine, opacity: 0.4 } }
+        },
+        tooltip: {
+          trigger: 'axis', backgroundColor: '#0B0B0D', borderColor: '#333340',
+          textStyle: { color: '#F5F5F7', fontSize: 11 },
+          formatter: p => `${p[0].name} · ${(p[0].value/1e6).toFixed(2)}M tokens`
+        },
+        series: [{
+          type: 'bar',
+          data: sessions.map(s => s.total || 0),
+          barWidth: '60%',
+          itemStyle: {
+            borderRadius: [3, 3, 0, 0],
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: '#F472B6' }, { offset: 1, color: '#8B5CF6' }
+            ])
+          }
+        }]
+      });
+      requestAnimationFrame(() => chart.resize());
+      setTimeout(() => chart.resize(), 100);
+      window.addEventListener('resize', () => chart.resize());
     }
 
     init();

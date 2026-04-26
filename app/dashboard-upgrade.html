@@ -14,46 +14,7 @@
 html,body{background:var(--bg);color:var(--text);font-family:-apple-system,'SF Pro Display','Inter','Pretendard',sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh}
 a{color:inherit;text-decoration:none}
 
-/* ===== Layout ===== */
-.app{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
-
-/* ===== Sidebar ===== */
-.sidebar{background:var(--panel);border-right:1px solid var(--line);padding:24px 16px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:4px;overflow-y:auto}
-.brand{display:flex;align-items:center;gap:10px;padding:4px 8px 20px 8px;border-bottom:1px solid var(--line);margin-bottom:12px}
-.brand-mark{width:32px;height:32px;border-radius:8px;background:var(--grad-violet);display:grid;place-items:center;font-weight:800;font-size:13px;color:#fff;flex-shrink:0}
-.brand-name{font-size:15px;font-weight:700;letter-spacing:-.2px}
-.brand-tag{font-size:9px;color:var(--text-3);text-transform:uppercase;letter-spacing:.14em;margin-top:2px}
-.nav-group{font-size:9px;color:var(--text-3);text-transform:uppercase;letter-spacing:.14em;padding:14px 10px 6px}
-.nav-item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;color:var(--text-2);font-size:13px;cursor:pointer;transition:all .15s}
-.nav-item:hover{background:var(--panel-2);color:var(--text)}
-.nav-item.active{background:linear-gradient(135deg,rgba(139,92,246,.18),rgba(6,182,212,.12));color:#fff;box-shadow:inset 0 0 0 1px rgba(139,92,246,.3)}
-.nav-dot{width:6px;height:6px;border-radius:2px;flex-shrink:0}
-.sidebar-foot{margin-top:auto;padding:12px 10px;border-top:1px solid var(--line);font-size:11px;color:var(--text-3)}
-.sidebar-foot b{color:var(--text-2)}
-
-/* ===== Main ===== */
-.main{padding:28px 36px 64px;min-width:0}
-.topbar{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;gap:16px;flex-wrap:wrap}
-.crumb{font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:.14em}
-.h1{font-size:28px;font-weight:800;letter-spacing:-.6px;margin-top:4px}
-.topbar-right{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.pill{padding:6px 12px;border-radius:999px;background:var(--panel-2);border:1px solid var(--line);font-size:11px;color:var(--text-2);display:flex;align-items:center;gap:6px;white-space:nowrap}
-.pill .dot{width:6px;height:6px;border-radius:50%;background:#10B981;box-shadow:0 0 8px #10B981}
-
-/* ===== Hero ===== */
-.hero{position:relative;border-radius:20px;padding:36px 40px;overflow:hidden;margin-bottom:24px;background:linear-gradient(135deg,#1a0e3d 0%,#0b1a3a 45%,#041e34 100%);border:1px solid rgba(139,92,246,.25)}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 300px at 85% 120%,rgba(244,114,182,.18),transparent 60%),radial-gradient(600px 260px at 10% -20%,rgba(6,182,212,.18),transparent 60%);pointer-events:none}
-.hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:36px;position:relative}
-.h-eyebrow{font-size:10px;color:#C4B5FD;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px}
-.blip{width:6px;height:6px;border-radius:50%;background:#F472B6;box-shadow:0 0 10px #F472B6;flex-shrink:0}
-.hero-number{font-size:92px;font-weight:800;line-height:.95;letter-spacing:-3px;background:linear-gradient(180deg,#fff 30%,#A5B4FC 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero-label{font-size:14px;color:#E9D5FF;margin-top:10px;letter-spacing:-.2px}
-.hero-meta{display:flex;gap:28px;margin-top:24px;flex-wrap:wrap}
-.hm-k{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:#A78BFA}
-.hm-v{font-size:20px;font-weight:700;color:#fff;margin-top:4px}
-.hm-v small{font-size:11px;color:var(--text-3);font-weight:500;margin-left:6px}
-.hero-right{display:flex;flex-direction:column;justify-content:center}
-.hero-chart-title{font-size:11px;color:#C4B5FD;text-transform:uppercase;letter-spacing:.14em;margin-bottom:6px}
+/* Layout / Sidebar / Main / Hero / Pill / Blip — components.css §7 §8 §10 단일 출처 (D-097, topic_113) */
 #heroChart{height:160px}
 
 /* ===== Filter ===== */
@@ -416,6 +377,7 @@ a{color:inherit;text-decoration:none}
   </main>
 </div>
 
+<script src="js/nav.js"></script>
 <script src="js/role-colors.js"></script>
 <script src="js/data-loader.js"></script>
 <script>

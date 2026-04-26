@@ -93,6 +93,18 @@ const DataLoader = {
     return this.fetchJSON('memory/sessions/current_session.json');
   },
 
+  async getSessionIndex() {
+    return this.fetchJSON('memory/sessions/session_index.json');
+  },
+
+  async getTokenLog() {
+    return this.fetchJSON('memory/sessions/token_log.json');
+  },
+
+  async getSystemState() {
+    return this.fetchJSON('memory/shared/system_state.json');
+  },
+
   async getProjectCharter() {
     return this.fetchJSON('memory/shared/project_charter.json');
   },

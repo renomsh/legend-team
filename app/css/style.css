@@ -57,7 +57,7 @@
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: -apple-system, 'SF Pro Display', 'Inter', 'Pretendard', system-ui, sans-serif;
+  font-family: -apple-system, 'SF Pro Display', 'Inter', 'Pretendard', sans-serif;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
   overflow-x: hidden;

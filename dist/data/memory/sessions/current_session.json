@@ -1,121 +1,30 @@
 {
-  "sessionId": "session_109",
-  "topicId": "topic_112",
-  "topic": "대시보드 후속 — People/Growth 페이지 신설 + PD-046 ops 흡수",
-  "topicSlug": "dashboard-followup-people-growth-pd046",
-  "reportPath": "reports/2026-04-26_dashboard-followup-people-growth-pd046",
-  "status": "closed",
-  "startedAt": "2026-04-26T03:08:21.276Z",
-  "closedAt": "2026-04-26T17:30:00.000Z",
+  "sessionId": "session_110",
+  "topicId": "topic_113",
+  "topic": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비",
+  "topicSlug": "dashboard-maintenance-home-growth-system",
+  "reportPath": "reports/2026-04-26_dashboard-maintenance-home-growth-system",
+  "status": "open",
+  "startedAt": "2026-04-26T18:00:00.000Z",
   "mode": "observation",
-  "grade": "B",
-  "gradeDeclared": "B",
+  "grade": "A",
+  "gradeDeclared": "A",
   "orchestrationMode": "manual",
   "orchestrationTransitions": [],
   "framingLevel": 2,
   "framingSkipped": false,
   "topicType": "implementation",
-  "parentTopicId": "topic_082",
+  "parentTopicId": null,
   "childTopicIds": [],
-  "agentsCompleted": [
-    "ace",
-    "arki",
-    "riki",
-    "dev",
-    "dev",
-    "dev",
-    "dev",
-    "editor"
-  ],
-  "turns": [
-    {
-      "role": "ace",
-      "turnIdx": 0,
-      "phase": "framing"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 1,
-      "phase": "planning"
-    },
-    {
-      "role": "riki",
-      "turnIdx": 2,
-      "phase": "audit"
-    },
-    {
-      "role": "dev",
-      "turnIdx": 3,
-      "phase": "implementation",
-      "splitReason": "Phase 1 ops 흡수"
-    },
-    {
-      "role": "dev",
-      "turnIdx": 4,
-      "phase": "implementation",
-      "recallReason": "phase-transition",
-      "splitReason": "Phase 2 People 신설"
-    },
-    {
-      "role": "dev",
-      "turnIdx": 5,
-      "phase": "implementation",
-      "recallReason": "phase-transition",
-      "splitReason": "Phase 3 Growth 신설"
-    },
-    {
-      "role": "dev",
-      "turnIdx": 6,
-      "phase": "implementation",
-      "recallReason": "phase-transition",
-      "splitReason": "Phase 4 VR baseline lock"
-    },
-    {
-      "role": "editor",
-      "turnIdx": 7,
-      "phase": "compile"
-    }
-  ],
+  "agentsCompleted": [],
+  "turns": [],
   "decisions": [],
-  "masterDecisions": [
-    {
-      "decision": "People 페이지 = signature 카드 뷰어만 우선 (성장 지표 후속)",
-      "context": "Q1 답변"
-    },
-    {
-      "decision": "Growth 페이지 = 수치 + 지표 표시 (실데이터 연결까지)",
-      "context": "Q2 답변"
-    },
-    {
-      "decision": "VR baseline 새로 최대로 (전부 신규 캡처)",
-      "context": "Q3 정정"
-    }
-  ],
+  "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [
-    "PD-046"
-  ],
+  "pendingDeferralsResolved": [],
   "pendingDeferralsDeprecated": [],
   "decisionsAdded": [],
-  "oneLineSummary": "People/Growth 신설 + PD-046 ops 흡수 완료. signature→people mv + 301 redirect, growth 3축×4×2 panel 실데이터, VR 24/24 lock(0.00%).",
-  "notes": [
-    "Phase 1: dashboard-ops .command-grid → .section-grid (PD-046 resolved)",
-    "Phase 2: signature.html → people.html atomic mv (vr-capture PAGES + _redirects + sidebar 4속성 + g1-apply 동기 갱신)",
-    "Phase 3: growth.html 신설, active 지표 40개로 R-4 게이트 통과, 4×2 panel = ace.angle_novelty/ace.orchestration_hit_rate/dev.gate_pass_rate/session.health_score × {all,recent10}",
-    "Phase 4: VR baseline 24 신규 캡처 (Ace 프레이밍의 32는 records/system 코드베이스 부재로 6 페이지로 정정), self-diff 0.00%",
-    "Riki R-1·R-2·R-3 mitigation 모두 atomic commit으로 해소"
-  ],
-  "gaps": [
-    "session-log audit: masterDecisions는 ad-hoc 선택 기록(D-xxx 미등재 정상 — 본 세션 D-xxx 결정 0건)"
-  ],
-  "tokenUsage": {
-    "input_tokens": 118,
-    "output_tokens": 64494,
-    "cache_creation_input_tokens": 513126,
-    "cache_read_input_tokens": 4794435,
-    "messageCount": 57,
-    "masterTurns": 7,
-    "total_billable": 5372173
-  }
+  "notes": [],
+  "gaps": []
 }
