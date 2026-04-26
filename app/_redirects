@@ -4,3 +4,6 @@
 # All pages are explicit static HTML files (index.html, topic.html, etc.)
 # Missing data/ files must return 404 — not index.html.
 # This overrides any CF Pages dashboard SPA mode setting.
+
+# Phase 2 (topic_112) — signature.html → people.html 통합 (R-3 mitigation)
+/signature.html  /people.html  301

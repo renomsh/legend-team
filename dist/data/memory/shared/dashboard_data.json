@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-26T02:59:11.298Z",
-  "totalSessions": 106,
+  "generatedAt": "2026-04-26T05:18:29.160Z",
+  "totalSessions": 107,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.61,
-    "avgCacheHitRate": 0.9331,
-    "cacheSampleSize": 80,
-    "cacheSampleTotal": 106,
+    "avgMasterTurns": 16.52,
+    "avgCacheHitRate": 0.9326,
+    "cacheSampleSize": 81,
+    "cacheSampleTotal": 107,
     "avgAdoptionRate": 0,
     "totalDecisions": 100,
     "gradeDistribution": {
-      "S": 42,
+      "S": 43,
       "A": 20,
       "B": 32,
       "C": 12
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 61,
-    "totalCostUSD": 917.5401,
-    "avgCostPerSession": 9.0846,
-    "costSampleSize": 101
+    "turnBasedSessions": 62,
+    "totalCostUSD": 921.8704,
+    "avgCostPerSession": 9.0379,
+    "costSampleSize": 102
   },
   "sessions": [
     {
@@ -4041,12 +4041,66 @@
         "messageCount": 72
       },
       "sessionCostUSD": 3.6113
+    },
+    {
+      "sessionId": "session_109",
+      "topicSlug": "dashboard-followup-people-growth-pd046",
+      "topic": "대시보드 후속 — People/Growth 페이지 신설 + PD-046 ops 흡수",
+      "startedAt": "2026-04-26T03:08:21.276Z",
+      "closedAt": "2026-04-26T17:30:00.000Z",
+      "decisionCount": 3,
+      "decisionAxes": 3,
+      "decisions": [
+        {
+          "decision": "People 페이지 = signature 카드 뷰어만 우선 (성장 지표 후속)",
+          "context": "Q1 답변"
+        },
+        {
+          "decision": "Growth 페이지 = 수치 + 지표 표시 (실데이터 연결까지)",
+          "context": "Q2 답변"
+        },
+        {
+          "decision": "VR baseline 새로 최대로 (전부 신규 캡처)",
+          "context": "Q3 정정"
+        }
+      ],
+      "rolesCalled": 8,
+      "rolesRecalled": 3,
+      "sessionsSpanned": 1,
+      "size": 23,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 7,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "dev",
+        "dev",
+        "dev",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 5372173,
+        "ioTokens": 64612,
+        "inputTokens": 118,
+        "outputTokens": 64494,
+        "cacheCreate": 513126,
+        "cacheRead": 4794435,
+        "cacheHitRate": 0.8924572980058535,
+        "messageCount": 57
+      },
+      "sessionCostUSD": 4.3303
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 115,
+      "count": 116,
       "sessions": [
         "session_047",
         "session_048",
@@ -4100,12 +4154,13 @@
         "session_105",
         "session_106",
         "session_107",
-        "session_108"
+        "session_108",
+        "session_109"
       ]
     },
     {
       "role": "arki",
-      "count": 83,
+      "count": 84,
       "sessions": [
         "session_048",
         "session_049",
@@ -4143,12 +4198,13 @@
         "session_105",
         "session_106",
         "session_107",
-        "session_108"
+        "session_108",
+        "session_109"
       ]
     },
     {
       "role": "editor",
-      "count": 58,
+      "count": 59,
       "sessions": [
         "session_050",
         "session_051",
@@ -4207,12 +4263,13 @@
         "session_105",
         "session_106",
         "session_107",
-        "session_108"
+        "session_108",
+        "session_109"
       ]
     },
     {
       "role": "dev",
-      "count": 49,
+      "count": 53,
       "sessions": [
         "session_047",
         "session_048",
@@ -4252,12 +4309,13 @@
         "session_105",
         "session_106",
         "session_107",
-        "session_108"
+        "session_108",
+        "session_109"
       ]
     },
     {
       "role": "riki",
-      "count": 39,
+      "count": 40,
       "sessions": [
         "session_049",
         "session_053",
@@ -4290,7 +4348,8 @@
         "session_105",
         "session_106",
         "session_107",
-        "session_108"
+        "session_108",
+        "session_109"
       ]
     },
     {
@@ -6996,6 +7055,60 @@
           "role": "editor",
           "phase": "compilation",
           "turnIdx": 4,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_109",
+      "topic": "대시보드 후속 — People/Growth 페이지 신설 + PD-046 ops 흡수",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "planning",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "audit",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 4,
+          "recallReason": "phase-transition"
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 5,
+          "recallReason": "phase-transition"
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 6,
+          "recallReason": "phase-transition"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 7,
           "recallReason": null
         }
       ]

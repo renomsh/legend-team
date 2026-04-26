@@ -1,6 +1,18 @@
 {
-  "generatedAt": "2026-04-26T02:59:14.703Z",
+  "generatedAt": "2026-04-26T05:18:30.603Z",
   "topics": [
+    {
+      "id": "topic_112",
+      "title": "대시보드 후속 — People/Growth 페이지 신설 + PD-046 ops 흡수",
+      "status": "completed",
+      "created": "2026-04-26",
+      "reportPath": "reports/2026-04-26_dashboard-followup-people-growth-pd046",
+      "reportFiles": [],
+      "published": false,
+      "outcome": "Phase 1~4 모두 PASS. PD-046 ops 흡수(.command-grid → .section-grid), People 페이지 신설(signature.html→people.html mv + 301 redirect + nav 활성화), Growth 페이지 신설(3축 헤더 + 4×2 panel + 실데이터 fetch), VR baseline 24/24 신규 lock(self-diff 0.00%). dashboard scope = 6 페이지 확정.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_111",
       "title": "Phase B 진입 — 6페이지 cross-check + 임계 후보 (i)(ii) 박제 + Master Q-A",

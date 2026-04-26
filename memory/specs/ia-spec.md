@@ -191,9 +191,12 @@ ace rev3 §1-2 + arki rev2 §1-8 정합. Phase 0~3 누적만으로 출시 가능
 | **Dashboard / Ops** (그대로 유지) | G1 (sidebar partial 치환만) + G2 + G3 + ops 페이지 그대로 검증 | 동일 |
 | **Records / Topics** (topic-card·session-chip-row 신규 컴포넌트) | G1 + G2 + G3 + 신규 컴포넌트 회귀 0 (Phase 2 baseline은 신규 컴포넌트 적용 후 박제) | 동일 |
 
-### 6-2. Phase 4 미완 시 hidden state 페이지 (4건)
+### 6-2. Phase 4 미완 시 hidden state 페이지 (2건)
 
-Growth / People / Deferrals / System. nav.js가 `data-state="pending"` 마킹 + click disable + tooltip "Phase 4 진행 중" + `aria-disabled="true"` + `tabindex="-1"` (Dev D-feedback-8 a11y 보강 흡수). 사이드바에는 표시되지만 click 0.
+Deferrals / System. nav.js가 `data-state="pending"` 마킹 + click disable + tooltip "Phase 4 진행 중" + `aria-disabled="true"` + `tabindex="-1"` (Dev D-feedback-8 a11y 보강 흡수). 사이드바에는 표시되지만 click 0.
+
+※ People은 topic_112 Phase 2(session_109)에서 signature.html 흡수로 active 승격됨.
+※ Growth는 topic_112 Phase 3(session_109)에서 D-060 안 β(3축 헤더 + 4×2 panel) 신설로 active 승격됨.
 
 ### 6-3. Records 5 sub 부분 출시 처리
 
@@ -201,7 +204,7 @@ Growth / People / Deferrals / System. nav.js가 `data-state="pending"` 마킹 + 
 - Records / Sessions·Decisions·Feedback는 기존 페이지(session.html·decisions.html·feedback.html)가 G1 G2 G3 통과만 하면 자동 active. 단 second-nav-tab 컴포넌트 적용 필요 → Phase 1 G1에서 처리
 - Records / Deferrals는 신설이므로 Phase 4 미완 시 hidden state
 
-따라서 **Phase 3 통과 시점에 active 페이지 = Home + Dashboard×2 + Records 4(Topics·Sessions·Decisions·Feedback) = 7건**. Phase 4 통과 시점에 8건 추가(Growth·People·Deferrals·System).
+따라서 **Phase 3 통과 시점에 active 페이지 = Home + Dashboard×2 + People + Records 4(Topics·Sessions·Decisions·Feedback) = 8건** (People은 topic_112 Phase 2에서 활성화). Phase 4 통과 시점에 3건 추가(Growth·Deferrals·System).
 
 ---
 

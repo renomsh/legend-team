@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signature Metrics · Legend Team</title>
+  <title>People · Legend Team</title>
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/components.css">
@@ -52,9 +52,9 @@
   <!-- @partial:sidebar -->
 
   <main class="s-main">
-    <div class="s-crumb">System / Signature Metrics</div>
-    <h1 class="s-h1">Signature Metrics</h1>
-    <div class="s-sub">PD-023 학습축 자가평가 MVP — 3-tier dashboard (overview · role · drill)</div>
+    <div class="s-crumb">People / Signature Cards</div>
+    <h1 class="s-h1">People</h1>
+    <div class="s-sub">8 역할 시그니처 카드 뷰어 — 3-tier (overview · role · drill)</div>
     <div class="integrity" id="integrity">
       <span class="dot" style="background:var(--text-3)"></span>
       <span id="integrityText">Loading…</span>
@@ -71,7 +71,9 @@
           </select>
         </div>
       </div>
-      <div class="cards" id="tier1Cards"></div>
+      <div class="cards" id="tier1Cards">
+        <div class="card" data-skeleton="true"><div class="role">Loading…</div></div>
+      </div>
     </section>
 
     <section class="tier" id="tier2">

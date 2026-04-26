@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_108",
-  "nextSessionId": "session_109",
+  "lastSessionId": "session_109",
+  "nextSessionId": "session_110",
   "currentVersion": "v1.65",
   "openTopics": [
     {
@@ -53,6 +53,17 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_109",
+      "topicSlug": "dashboard-followup-people-growth-pd046",
+      "closedAt": "2026-04-26T17:30:00.000Z",
+      "oneLineSummary": "People/Growth 신설 + PD-046 ops 흡수 완료. signature→people mv + 301 redirect, growth 3축×4×2 panel 실데이터, VR 24/24 lock(0.00%).",
+      "decisionsAdded": [
+        "[object Object]",
+        "[object Object]",
+        "[object Object]"
+      ]
+    },
+    {
       "sessionId": "session_108",
       "topicSlug": "dashboard-phase-b-cross-check",
       "closedAt": "2026-04-26T16:30:00.000Z",
@@ -68,15 +79,6 @@
       "oneLineSummary": "G0.5 spec 정합 게이트 신설(D-100), 정본 3종 + page-checklist 6 박제, 9 리스크(R1~R9), Phase A 완료. FAIL 2 + WARN 2 노출.",
       "decisionsAdded": [
         "D-100"
-      ]
-    },
-    {
-      "sessionId": "session_106",
-      "topicSlug": "dashboard-redesign-phase3-g3-to-phase5-g5",
-      "closedAt": "2026-04-26T12:00:00.000Z",
-      "oneLineSummary": "G3/G4/G5 PASS: vr-compare 구현, baseline 24/24 lock, B1+B2+B3 PASS, 5페이지 CF Pages 배포. deferrals.html 신설. D-099 박제. PD-051 resolved.",
-      "decisionsAdded": [
-        "D-099"
       ]
     }
   ],
@@ -493,7 +495,9 @@
       "fromSession": "session_104",
       "fromTopic": "dashboard-redesign-ux-responsive",
       "item": "dashboard-ops 컴포넌트 흡수 — .command-grid 등 ops 자체 클래스를 dashboard-upgrade canonical 카탈로그(.kpi-row/.section-grid/.card 등) 형태로 흡수. D-090 dashboard-upgrade canonical 결정 부수.",
-      "status": "pending",
+      "status": "resolved",
+      "resolvedInSession": "session_109",
+      "resolvedNote": "topic_112 Phase 1에서 .command-grid → .section-grid 매핑 완료. dashboard-ops.html:11 인라인 정의 제거 + line 117 class 치환. G0.5 PASS, grep 잔존 0건. .kpi-row 후보는 ops 카드의 자체 토큰 사용으로 부적합하여 .section-grid 1택.",
       "note": "topic_082 Phase 4 후속"
     },
     {
@@ -540,5 +544,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-26T02:58:43.905Z"
+  "lastUpdated": "2026-04-26T05:18:20.063Z"
 }

@@ -16,7 +16,7 @@ const PAGES = [
   'session.html',
   'decisions.html',
   'feedback.html',
-  'signature.html',
+  'people.html',
 ];
 
 function injectTokensLink(html) {

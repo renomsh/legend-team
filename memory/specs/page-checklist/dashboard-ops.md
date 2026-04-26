@@ -27,8 +27,8 @@ sidebar_entry:
 
 ## Selector 도출 근거
 
-- 본체 그대로 유지 정책 — 최소 sidebar partial 적용 + canonical `.card` 사용 ≥ 3 (PD-046 흡수 후 점진 정합).
-- 강제 selector는 최소화 (자유도 확보), `.command-grid` 등 ops-specific 클래스는 lint scope 외.
+- 본체 그대로 유지 정책 — 최소 sidebar partial 적용 + canonical `.card` 사용 ≥ 3 (PD-046 흡수 Phase 1 완료, session_109).
+- 강제 selector는 최소화 (자유도 확보). PD-046 Phase 1: `.command-grid` → `.section-grid` 매핑 완료 (canonical class 정합).
 
 ## sidebar_entry
 

@@ -1,12 +1,12 @@
 {
-  "sessionId": "session_108",
-  "topicId": "topic_111",
-  "topic": "Phase B 진입 — 6페이지 cross-check + 임계 후보 (i)(ii) 박제 + Master Q-A",
-  "topicSlug": "dashboard-phase-b-cross-check",
-  "reportPath": "reports/2026-04-26_dashboard-phase-b-cross-check",
+  "sessionId": "session_109",
+  "topicId": "topic_112",
+  "topic": "대시보드 후속 — People/Growth 페이지 신설 + PD-046 ops 흡수",
+  "topicSlug": "dashboard-followup-people-growth-pd046",
+  "reportPath": "reports/2026-04-26_dashboard-followup-people-growth-pd046",
   "status": "closed",
-  "startedAt": "2026-04-26T15:30:00.000Z",
-  "closedAt": "2026-04-26T16:30:00.000Z",
+  "startedAt": "2026-04-26T03:08:21.276Z",
+  "closedAt": "2026-04-26T17:30:00.000Z",
   "mode": "observation",
   "grade": "B",
   "gradeDeclared": "B",
@@ -15,12 +15,15 @@
   "framingLevel": 2,
   "framingSkipped": false,
   "topicType": "implementation",
-  "parentTopicId": "topic_110",
+  "parentTopicId": "topic_082",
   "childTopicIds": [],
   "agentsCompleted": [
     "ace",
     "arki",
     "riki",
+    "dev",
+    "dev",
+    "dev",
     "dev",
     "editor"
   ],
@@ -43,43 +46,76 @@
     {
       "role": "dev",
       "turnIdx": 3,
-      "phase": "implementation"
+      "phase": "implementation",
+      "splitReason": "Phase 1 ops 흡수"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 4,
+      "phase": "implementation",
+      "recallReason": "phase-transition",
+      "splitReason": "Phase 2 People 신설"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 5,
+      "phase": "implementation",
+      "recallReason": "phase-transition",
+      "splitReason": "Phase 3 Growth 신설"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 6,
+      "phase": "implementation",
+      "recallReason": "phase-transition",
+      "splitReason": "Phase 4 VR baseline lock"
     },
     {
       "role": "editor",
-      "turnIdx": 4,
-      "phase": "compilation"
+      "turnIdx": 7,
+      "phase": "compile"
     }
   ],
   "decisions": [],
   "masterDecisions": [
     {
-      "decision": "index.html 역할 카드 → (b) 하단 섹션 이동",
-      "context": "Phase B 진입 시 Master 결정"
+      "decision": "People 페이지 = signature 카드 뷰어만 우선 (성장 지표 후속)",
+      "context": "Q1 답변"
+    },
+    {
+      "decision": "Growth 페이지 = 수치 + 지표 표시 (실데이터 연결까지)",
+      "context": "Q2 답변"
+    },
+    {
+      "decision": "VR baseline 새로 최대로 (전부 신규 캡처)",
+      "context": "Q3 정정"
     }
   ],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [],
+  "pendingDeferralsResolved": [
+    "PD-046"
+  ],
   "pendingDeferralsDeprecated": [],
   "decisionsAdded": [],
-  "oneLineSummary": "Phase B/C 완료 — FAIL 2→0, Gate C PASS, VR 24/24 재lock. index.html kpi-row+section-grid 추가, topic.html .card 추가",
+  "oneLineSummary": "People/Growth 신설 + PD-046 ops 흡수 완료. signature→people mv + 301 redirect, growth 3축×4×2 panel 실데이터, VR 24/24 lock(0.00%).",
   "notes": [
-    "Gate C: g0_5-spec-check.mjs --mode=enforce → FAIL=0, WARN=2(허용), PASS=4",
-    "Gate VR: vr:capture self-diff 0.00% PASS, 24/24 baseline 재lock",
-    "Riki R1(HIGH/.kpi), R2(MEDIUM/.section-grid), R3(LOW/.card margin) 모두 해소",
-    "components.css에 .kpi, .section-grid, .card/.card-h/.card-title 등재 완료"
+    "Phase 1: dashboard-ops .command-grid → .section-grid (PD-046 resolved)",
+    "Phase 2: signature.html → people.html atomic mv (vr-capture PAGES + _redirects + sidebar 4속성 + g1-apply 동기 갱신)",
+    "Phase 3: growth.html 신설, active 지표 40개로 R-4 게이트 통과, 4×2 panel = ace.angle_novelty/ace.orchestration_hit_rate/dev.gate_pass_rate/session.health_score × {all,recent10}",
+    "Phase 4: VR baseline 24 신규 캡처 (Ace 프레이밍의 32는 records/system 코드베이스 부재로 6 페이지로 정정), self-diff 0.00%",
+    "Riki R-1·R-2·R-3 mitigation 모두 atomic commit으로 해소"
   ],
   "gaps": [
-    "session-log audit warning: masterDecisions는 ad-hoc 선택 기록 (D-xxx 미등재 정상 — 이 세션 D-xxx 결정 0건)"
+    "session-log audit: masterDecisions는 ad-hoc 선택 기록(D-xxx 미등재 정상 — 본 세션 D-xxx 결정 0건)"
   ],
   "tokenUsage": {
-    "input_tokens": 104,
-    "output_tokens": 55798,
-    "cache_creation_input_tokens": 299813,
-    "cache_read_input_tokens": 5499182,
-    "messageCount": 72,
-    "masterTurns": 5,
-    "total_billable": 5854897
+    "input_tokens": 118,
+    "output_tokens": 64494,
+    "cache_creation_input_tokens": 513126,
+    "cache_read_input_tokens": 4794435,
+    "messageCount": 57,
+    "masterTurns": 7,
+    "total_billable": 5372173
   }
 }

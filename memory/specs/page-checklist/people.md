@@ -28,7 +28,7 @@ sidebar_entry:
 
 ## Spec completeness
 
-**minimal**: Vera wireframe 미작성, 파일 부재. 4×2 panel · 8 역할 시그니처라는 구조 골격만 박제. enforce 모드에서 warn 처리. Phase 4에서 Vera wireframe 보강 후 `spec_completeness: full` 승격 + `.card` ≥ 8 / 역할별 시그니처 selector 추가 예정.
+**minimal**: Vera wireframe 미작성. 파일은 topic_112 Phase 2에서 signature.html → people.html 통째 이동으로 신설(8 역할 시그니처 카드 뷰어 그대로). 4×2 panel 구조 골격만 박제. Phase 4에서 Vera wireframe 보강 후 `spec_completeness: full` 승격 + `.card` ≥ 8 / 역할별 시그니처 selector 추가 예정.
 
 ## R7 mitigation 메모
 

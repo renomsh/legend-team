@@ -28,8 +28,8 @@ export const PAGES: VrPage[] = [
   { slug: 'upgrade', path: '/dashboard-upgrade.html' },
   { slug: 'ops', path: '/dashboard-ops.html' },
   { slug: 'topics', path: '/topic.html' },
-  { slug: 'growth', path: '/signature.html' },
-  { slug: 'people', path: '/role-signature-card.html' },
+  { slug: 'growth', path: '/growth.html' },
+  { slug: 'people', path: '/people.html' },
 ];
 
 export const VIEWPORTS: VrViewport[] = [
