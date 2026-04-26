@@ -9,6 +9,42 @@
  *       lint-accent-only (no body color uses --c-* accent).
  * ============================================================ */
 
+/* ── §0. G4 Accessibility AA (session_106, D-099) ──────────── */
+
+/* G4-1: Skip link (WCAG 2.4.1 — bypass blocks) */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  background: var(--panel-2);
+  color: var(--text);
+  padding: 8px 16px;
+  border-radius: var(--r-2);
+  font-size: 13px;
+  font-weight: 600;
+  z-index: 9999;
+  text-decoration: none;
+}
+.skip-link:focus {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  outline: 2px solid var(--c-ace);
+  outline-offset: 2px;
+}
+
+/* G4-3: focus-visible (WCAG 2.4.7 — visible focus) */
+:focus-visible {
+  outline: 2px solid var(--c-ace);
+  outline-offset: 2px;
+}
+
 /* ── §1. helper class 5종 (components-spec §1-2) ───────────── */
 
 /* 1. .title-1l — 1-line ellipsis */

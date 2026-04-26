@@ -34,7 +34,7 @@ Arki입니다. 본 문서는 Phase 2 G2 게이트 3·6·7 산출물의 **단일 
 | Step | 명령 | 검증 |
 |---|---|---|
 | **S0** | `docker --version` | exit 0 + version 출력 (Master Docker Desktop 동작 확인) |
-| **S1** | `docker pull mcr.microsoft.com/playwright:v1.45.0-jammy` | exit 0 + image 다이제스트 출력. SHA256 첫 박제는 PD-048 트랙 |
+| **S1** | `docker pull mcr.microsoft.com/playwright:v1.59.1-jammy` | exit 0 + image 다이제스트 출력. SHA256 첫 박제는 PD-048 트랙. ~~v1.45.0-jammy~~ → v1.59.1-jammy (PD-051 해결: v1.45.0-jammy unavailable) |
 | **S2** | `npm install -D @playwright/test@1.45.0` (이미 설치 시 skip) | `node_modules/@playwright/test/package.json` version 확인 |
 | **S3** | `npx playwright install chromium --with-deps` (호스트 fallback용) | 설치 완료 메시지 |
 | **S4** | mock fixture 추출 (§2 절차) | `tests/vr/fixtures/dashboard.mock.json` 생성 + JSON.parse 검증 |
@@ -47,14 +47,16 @@ Arki입니다. 본 문서는 Phase 2 G2 게이트 3·6·7 산출물의 **단일 
 
 **시간 표현 0건 정합**: 각 step의 소요 시간·담당자·완료일 표현 0건. Schedule-on-Demand (D-017) 준수.
 
+> **PD-051 해결 기록 (session_106)**: v1.45.0-jammy Docker 이미지 unavailable 확인. v1.59.1-jammy로 교체. vr:capture npm script에 `--add-host=host.docker.internal:host-gateway` + `VR_BASE_URL=http://host.docker.internal:8788` 추가. vr:compare는 host-side `ts-node scripts/vr-compare.ts` 직접 실행으로 변경. G3-B PASS (24 files, max diff 0.05%).
+
 ### 1-2. npm script 박제 (`package.json`)
 
 ```json
 {
   "scripts": {
     "vr:fixture:freeze": "node scripts/freeze-mock-fixture.js",
-    "vr:capture": "docker run --rm -v $(pwd):/work -w /work mcr.microsoft.com/playwright:v1.45.0-jammy npx ts-node scripts/vr-capture.ts",
-    "vr:compare": "docker run --rm -v $(pwd):/work -w /work mcr.microsoft.com/playwright:v1.45.0-jammy npx ts-node scripts/vr-compare.ts",
+    "vr:capture": "docker run --rm --add-host=host.docker.internal:host-gateway -e VR_BASE_URL=http://host.docker.internal:8788 -v $(pwd):/work -w /work mcr.microsoft.com/playwright:v1.59.1-jammy npx ts-node scripts/vr-capture.ts",
+    "vr:compare": "ts-node scripts/vr-compare.ts",
     "vr:capture:host": "npx ts-node scripts/vr-capture.ts",
     "vr:lint:bbox": "npx ts-node scripts/lint-bbox-markers.ts"
   }
@@ -323,7 +325,7 @@ docker pull (S1)
 
 | # | 검증 | 게이트 |
 |---|---|---|
-| 1 | `docker pull mcr.microsoft.com/playwright:v1.45.0-jammy` exit 0 | G2-3 |
+| 1 | `docker pull mcr.microsoft.com/playwright:v1.59.1-jammy` exit 0 (PD-051: v1.45.0-jammy → v1.59.1-jammy) | G2-3 |
 | 2 | `tests/vr/fixtures/dashboard.mock.json` 생성 + JSON.parse OK | G2-4 |
 | 3 | dashboard_data.json 변경 시 fixture 영향 0 (격리 검증) | G2-4 |
 | 4 | 24 PNG baseline 캡처 성공 | G2-6 |

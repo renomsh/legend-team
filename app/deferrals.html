@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deferrals — Legend Team</title>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<style>
+.app{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
+.sidebar{background:var(--panel);border-right:1px solid var(--line);padding:24px 16px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:4px;overflow-y:auto}
+.brand{display:flex;align-items:center;gap:10px;padding:4px 8px 20px 8px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.brand-mark{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#4F46E5,#9333EA);display:grid;place-items:center;font-weight:800;font-size:13px;color:#fff;flex-shrink:0}
+.brand-name{font-size:15px;font-weight:700;letter-spacing:-.2px}.brand-tag{font-size:9px;color:var(--text-3);text-transform:uppercase;letter-spacing:.14em;margin-top:2px}
+.nav-group{font-size:9px;color:var(--text-3);text-transform:uppercase;letter-spacing:.14em;padding:14px 10px 6px}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;color:var(--text-2);font-size:13px;transition:all .15s;text-decoration:none}
+.nav-item:hover{background:var(--panel-2);color:var(--text)}.nav-item.active{background:linear-gradient(135deg,rgba(139,92,246,.18),rgba(6,182,212,.12));color:#fff;box-shadow:inset 0 0 0 1px rgba(139,92,246,.3)}
+.nav-dot{width:6px;height:6px;border-radius:2px;flex-shrink:0}.sidebar-foot{margin-top:auto;padding:12px 10px;border-top:1px solid var(--line);font-size:11px;color:var(--text-3)}.sidebar-foot b{color:var(--text-2)}
+.s-main{padding:28px 36px 64px;min-width:0}
+.s-crumb{font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:.14em}
+.s-h1{font-size:28px;font-weight:800;letter-spacing:-.6px;margin-top:4px;color:var(--text);margin-bottom:4px}
+
+/* Chip row for filter */
+.chip-filter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.chip{padding:5px 14px;border-radius:999px;font-size:11px;font-weight:600;cursor:pointer;border:1px solid var(--line);background:var(--panel-2);color:var(--text-2);transition:all .15s}
+.chip:hover{border-color:var(--line-2);color:var(--text)}
+.chip.active{background:rgba(6,182,212,.15);border-color:rgba(6,182,212,.4);color:#67E8F9}
+
+/* D3 graph */
+.graph-card{background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:24px}
+.graph-title{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--text-3);margin-bottom:14px}
+#deferralGraph{width:100%;height:320px;overflow:hidden}
+
+/* List */
+.deferral-card{background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:8px;transition:border-color .15s}
+.deferral-card:hover{border-color:var(--line-2)}
+.deferral-card-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:6px}
+.deferral-id{font-family:monospace;font-size:11px;font-weight:700;color:#06B6D4;min-width:52px;padding-top:1px}
+.deferral-item-text{font-size:13px;color:var(--text);line-height:1.5;flex:1}
+.deferral-meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:6px}
+.meta-tag{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:500}
+.tag-pending{background:rgba(245,158,11,.12);color:#FCD34D;border:1px solid rgba(245,158,11,.25)}
+.tag-resolved{background:rgba(16,185,129,.12);color:#34D399;border:1px solid rgba(16,185,129,.25)}
+.tag-session{background:rgba(139,92,246,.1);color:#A78BFA;border:1px solid rgba(139,92,246,.2)}
+.resolve-cond{font-size:11px;color:var(--text-3);margin-top:6px;padding:8px 10px;background:var(--panel-3,#1C1C22);border-radius:6px;line-height:1.5}
+.resolve-cond b{color:var(--text-2)}
+.empty-state{padding:32px;text-align:center;color:var(--text-3);font-size:13px;background:var(--panel-2);border:1px solid var(--line);border-radius:10px}
+.section-title{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--text-3);margin:0 0 12px}
+
+@media(max-width:1023px){.app{grid-template-columns:1fr}.s-main{padding:72px 20px 64px}}
+</style>
+<body>
+<a href="#main-content" class="skip-link">본문으로 건너뛰기</a>
+<div class="app">
+<!-- @partial:sidebar -->
+<main class="s-main" id="main-content">
+  <div class="s-crumb">Records / Deferrals</div>
+  <div class="s-h1">Pending Deferrals</div>
+  <div style="margin-bottom:20px;font-size:12px;color:var(--text-3)" id="pageSub">Loading...</div>
+
+  <!-- Filter chips -->
+  <div class="chip-filter" role="group" aria-label="이연 상태 필터">
+    <button class="chip active" onclick="filterDeferrals('all',this)" aria-pressed="true">All</button>
+    <button class="chip" onclick="filterDeferrals('pending',this)" aria-pressed="false">Pending</button>
+    <button class="chip" onclick="filterDeferrals('resolved',this)" aria-pressed="false">Resolved</button>
+  </div>
+
+  <!-- D3 Dependency Graph -->
+  <div class="graph-card">
+    <div class="graph-title">Deferral Timeline — 세션별 PD 누적</div>
+    <div id="deferralGraph" aria-label="이연 항목 타임라인 그래프" role="img">
+      <svg id="deferralSvg" width="100%" height="100%" role="img" aria-label="이연 항목 세션별 분포 시각화"></svg>
+    </div>
+  </div>
+
+  <!-- List -->
+  <div class="section-title" id="listTitle">All Deferrals</div>
+  <div id="deferralList"><div class="empty-state">Loading...</div></div>
+</main>
+</div>
+
+<script src="js/data-loader.js"></script>
+<script src="js/nav.js"></script>
+<script>
+  let allDeferrals = [];
+  let currentFilter = 'all';
+
+  function filterDeferrals(status, btn) {
+    currentFilter = status;
+    document.querySelectorAll('.chip-filter .chip').forEach(c => {
+      c.classList.remove('active');
+      c.setAttribute('aria-pressed', 'false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-pressed', 'true');
+    renderList();
+  }
+
+  function renderList() {
+    const filtered = currentFilter === 'all'
+      ? allDeferrals
+      : allDeferrals.filter(d => d.status === currentFilter);
+
+    const el = document.getElementById('deferralList');
+    const titleEl = document.getElementById('listTitle');
+    titleEl.textContent = currentFilter === 'all'
+      ? `All Deferrals (${filtered.length})`
+      : `${currentFilter.charAt(0).toUpperCase() + currentFilter.slice(1)} (${filtered.length})`;
+
+    if (filtered.length === 0) {
+      el.innerHTML = '<div class="empty-state">해당 조건의 이연 항목 없음</div>';
+      return;
+    }
+
+    el.innerHTML = filtered.map(d => {
+      const statusCls = d.status === 'resolved' ? 'tag-resolved' : 'tag-pending';
+      const resolveHtml = d.resolveCondition
+        ? `<div class="resolve-cond"><b>해결 조건:</b> ${escHtml(d.resolveCondition)}</div>`
+        : '';
+      const deps = (d.dependsOn || []).length > 0
+        ? `<span class="meta-tag" style="background:rgba(239,68,68,.1);color:#FCA5A5;border:1px solid rgba(239,68,68,.2)">depends: ${d.dependsOn.join(', ')}</span>`
+        : '';
+      return `
+        <div class="deferral-card">
+          <div class="deferral-card-header">
+            <span class="deferral-id">${escHtml(d.id)}</span>
+            <span class="deferral-item-text">${escHtml(d.item || '')}</span>
+          </div>
+          <div class="deferral-meta">
+            <span class="meta-tag ${statusCls}">${d.status}</span>
+            ${d.fromSession ? `<span class="meta-tag tag-session">${escHtml(d.fromSession)}</span>` : ''}
+            ${d.fromTopic ? `<span class="meta-tag" style="background:rgba(6,182,212,.1);color:#67E8F9;border:1px solid rgba(6,182,212,.2)">${escHtml(d.fromTopic)}</span>` : ''}
+            ${deps}
+          </div>
+          ${resolveHtml}
+        </div>`;
+    }).join('');
+  }
+
+  function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function renderGraph(deferrals) {
+    const container = document.getElementById('deferralGraph');
+    const W = container.clientWidth || 700;
+    const H = 320;
+    const svg = d3.select('#deferralSvg')
+      .attr('width', W)
+      .attr('height', H);
+
+    svg.selectAll('*').remove();
+
+    // Group by fromSession
+    const bySession = d3.group(deferrals, d => d.fromSession || 'unknown');
+    const sessions = Array.from(bySession.keys()).sort();
+    const total = deferrals.length;
+
+    if (total === 0) {
+      svg.append('text').attr('x', W/2).attr('y', H/2)
+        .attr('text-anchor','middle').attr('fill','#82828C').attr('font-size',13)
+        .text('No deferral data');
+      return;
+    }
+
+    const margin = { top: 30, right: 20, bottom: 50, left: 40 };
+    const innerW = W - margin.left - margin.right;
+    const innerH = H - margin.top - margin.bottom;
+
+    const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
+
+    // x: session index, y: count
+    const sessionCounts = sessions.map(s => ({ session: s, count: bySession.get(s).length, items: bySession.get(s) }));
+    const xScale = d3.scaleBand().domain(sessions).range([0, innerW]).padding(0.3);
+    const yMax = d3.max(sessionCounts, d => d.count) || 1;
+    const yScale = d3.scaleLinear().domain([0, yMax + 1]).range([innerH, 0]);
+
+    // Grid lines
+    g.append('g').attr('class','grid').selectAll('line')
+      .data(yScale.ticks(4))
+      .join('line')
+        .attr('x1', 0).attr('x2', innerW)
+        .attr('y1', d => yScale(d)).attr('y2', d => yScale(d))
+        .attr('stroke', '#26262D').attr('stroke-dasharray','3,3');
+
+    // Bars
+    g.selectAll('.bar')
+      .data(sessionCounts)
+      .join('rect')
+        .attr('class','bar')
+        .attr('x', d => xScale(d.session))
+        .attr('y', d => yScale(d.count))
+        .attr('width', xScale.bandwidth())
+        .attr('height', d => innerH - yScale(d.count))
+        .attr('rx', 4)
+        .attr('fill', d => {
+          const pending = d.items.filter(i => i.status === 'pending').length;
+          return pending > 0 ? 'rgba(245,158,11,0.7)' : 'rgba(16,185,129,0.6)';
+        })
+        .attr('role', 'img')
+        .attr('aria-label', d => `${d.session}: ${d.count}개 이연`);
+
+    // Count labels on bars
+    g.selectAll('.bar-label')
+      .data(sessionCounts)
+      .join('text')
+        .attr('class','bar-label')
+        .attr('x', d => xScale(d.session) + xScale.bandwidth()/2)
+        .attr('y', d => yScale(d.count) - 4)
+        .attr('text-anchor','middle')
+        .attr('fill','#B8B8C0')
+        .attr('font-size', 10)
+        .text(d => d.count);
+
+    // x-axis: show every Nth label to avoid crowding
+    const step = Math.ceil(sessions.length / 12);
+    const xAxis = g.append('g').attr('transform', `translate(0,${innerH})`);
+    xAxis.call(
+      d3.axisBottom(xScale)
+        .tickValues(sessions.filter((_, i) => i % step === 0))
+        .tickSize(3)
+    );
+    xAxis.selectAll('text').attr('fill','#82828C').attr('font-size',9).attr('transform','rotate(-30)').attr('text-anchor','end');
+    xAxis.select('.domain').attr('stroke','#26262D');
+    xAxis.selectAll('.tick line').attr('stroke','#26262D');
+
+    // y-axis
+    const yAxis = g.append('g');
+    yAxis.call(d3.axisLeft(yScale).ticks(4).tickSize(3));
+    yAxis.selectAll('text').attr('fill','#82828C').attr('font-size',9);
+    yAxis.select('.domain').attr('stroke','#26262D');
+    yAxis.selectAll('.tick line').attr('stroke','#26262D');
+
+    // Legend
+    const legG = svg.append('g').attr('transform', `translate(${margin.left},${H - 14})`);
+    legG.append('rect').attr('width',10).attr('height',10).attr('rx',2).attr('fill','rgba(245,158,11,0.7)');
+    legG.append('text').attr('x',14).attr('y',9).attr('fill','#82828C').attr('font-size',9).text('has pending');
+    legG.append('rect').attr('x',90).attr('width',10).attr('height',10).attr('rx',2).attr('fill','rgba(16,185,129,0.6)');
+    legG.append('text').attr('x',104).attr('y',9).attr('fill','#82828C').attr('font-size',9).text('all resolved');
+  }
+
+  async function init() {
+    const sys = await DataLoader.fetchJSON('memory/shared/system_state.json');
+    const deferrals = sys?.pendingDeferrals ?? [];
+    allDeferrals = deferrals;
+
+    const pending = deferrals.filter(d => d.status === 'pending').length;
+    const resolved = deferrals.filter(d => d.status === 'resolved' || d.status?.startsWith('resolved')).length;
+    document.getElementById('pageSub').textContent =
+      `전체 ${deferrals.length}건 · pending ${pending} · resolved ${resolved}`;
+
+    renderGraph(deferrals);
+    renderList();
+  }
+
+  init();
+</script>
+</body>
+</html>

@@ -1,6 +1,23 @@
 {
   "topics": [
     {
+      "id": "topic_109",
+      "title": "Dashboard 개편 — Phase 3 G3 회귀 게이트 → Phase 5 G5 부분 출시",
+      "status": "in-progress",
+      "phase": "framing",
+      "hold": null,
+      "created": "2026-04-26",
+      "controlPath": "topics/topic_109",
+      "reportPath": "reports/2026-04-26_dashboard-redesign-phase3-g3-to-phase5-g5",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": null,
+      "path": "topics/topic_109",
+      "grade": "A",
+      "topicType": "implementation",
+      "parentTopicId": "topic_082"
+    },
+    {
       "id": "topic_108",
       "title": "PD-041 test-regression 자동화 — derived data 회귀 안전망",
       "status": "completed",
@@ -2152,5 +2169,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-25T13:10:13.136Z"
+  "lastUpdated": "2026-04-26T00:23:39.723Z"
 }

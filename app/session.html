@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="css/components.css">
 </head>
 <style>
-:root{--bg:#000000;--panel:#0B0B0D;--panel-2:#141418;--line:#26262D;--text:#F5F5F7;--text-2:#B8B8C0;--text-3:#6E6E78}
 .app{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
 .sidebar{background:var(--panel);border-right:1px solid var(--line);padding:24px 16px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:4px;overflow-y:auto}
 .brand{display:flex;align-items:center;gap:10px;padding:4px 8px 20px 8px;border-bottom:1px solid var(--line);margin-bottom:12px}
@@ -79,9 +78,9 @@
   <div class="s-h1">Sessions</div>
   <div style="margin-bottom:20px;font-size:12px;color:var(--text-3)" id="pageSub">Loading...</div>
 
-  <div class="tab-bar">
-    <button class="tab-btn active" onclick="switchTab('current',this)">Current Session</button>
-    <button class="tab-btn" onclick="switchTab('history',this)">Session History</button>
+  <div class="tab-bar" role="tablist" aria-label="세션 보기 탭">
+    <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-current" id="tab-btn-current" onclick="switchTab('current',this)">Current Session</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-history" id="tab-btn-history" onclick="switchTab('history',this)">Session History</button>
   </div>
 
   <!-- ══ CURRENT SESSION ══ -->
@@ -160,9 +159,10 @@
 
     function switchTab(id, btn) {
       document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
       document.getElementById('tab-' + id).classList.add('active');
       btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
       if (id === 'history' && roleFrequency.length) renderRoleChart();
     }
 

@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="css/components.css">
 </head>
 <style>
-:root{--bg:#000000;--panel:#0B0B0D;--panel-2:#141418;--line:#26262D;--text:#F5F5F7;--text-2:#B8B8C0;--text-3:#6E6E78}
 .app{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
 .sidebar{background:var(--panel);border-right:1px solid var(--line);padding:24px 16px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:4px;overflow-y:auto}
 .brand{display:flex;align-items:center;gap:10px;padding:4px 8px 20px 8px;border-bottom:1px solid var(--line);margin-bottom:12px}
@@ -22,9 +21,10 @@
 .s-main{padding:28px 36px 64px;min-width:0}.s-crumb{font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:.14em}.s-h1{font-size:28px;font-weight:800;letter-spacing:-.6px;margin-top:4px;color:var(--text);margin-bottom:20px}
 </style>
 <body>
+<a href="#main-content" class="skip-link">본문으로 건너뛰기</a>
 <div class="app">
 <!-- @partial:sidebar -->
-<main class="s-main">
+<main class="s-main" id="main-content">
   <div class="s-crumb">System / Home</div>
   <div class="s-h1">Dashboard</div>
   <div class="page" style="padding:0;max-width:none;margin:0">

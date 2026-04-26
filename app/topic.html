@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="css/components.css">
 </head>
 <style>
-:root{--bg:#000000;--panel:#0B0B0D;--panel-2:#141418;--line:#26262D;--text:#F5F5F7;--text-2:#B8B8C0;--text-3:#6E6E78}
 .app{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
 .sidebar{background:var(--panel);border-right:1px solid var(--line);padding:24px 16px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:4px;overflow-y:auto}
 .brand{display:flex;align-items:center;gap:10px;padding:4px 8px 20px 8px;border-bottom:1px solid var(--line);margin-bottom:12px}
@@ -29,18 +28,19 @@
 .tab-btn.active{color:#fff;border-bottom-color:#8B5CF6}
 </style>
 <body>
+<a href="#main-content" class="skip-link">본문으로 건너뛰기</a>
 <div class="app">
 <!-- @partial:sidebar -->
-<main class="s-main">
+<main class="s-main" id="main-content">
   <div class="s-crumb">Records / <a href="index.html" style="color:var(--text-3);text-decoration:none">Topics</a></div>
   <div class="s-h1" id="topicTitle"><div class="loading">Loading</div></div>
   <div class="s-meta" id="topicMeta"></div>
 
   <!-- Tab Bar -->
-  <div class="tab-bar">
-    <button class="tab-btn active" onclick="showTab('reports', this)">Reports</button>
-    <button class="tab-btn" onclick="showTab('decisions', this)">Decisions</button>
-    <button class="tab-btn" onclick="showTab('feedback', this)">Feedback</button>
+  <div class="tab-bar" role="tablist" aria-label="토픽 탭">
+    <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-reports" id="tab-btn-reports" onclick="showTab('reports', this)">Reports</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-decisions" id="tab-btn-decisions" onclick="showTab('decisions', this)">Decisions</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-feedback" id="tab-btn-feedback" onclick="showTab('feedback', this)">Feedback</button>
   </div>
 
   <div id="tab-reports"></div>
@@ -56,8 +56,9 @@
   function showTab(name, btn) {
     document.querySelectorAll('[id^="tab-"]').forEach(el => el.style.display = 'none');
     document.getElementById('tab-' + name).style.display = 'block';
-    btn.parentElement.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.parentElement.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
     btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
   }
 
   async function init() {

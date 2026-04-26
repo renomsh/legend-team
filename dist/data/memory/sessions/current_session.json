@@ -1,13 +1,11 @@
 {
-  "sessionId": "session_105",
-  "topicId": "topic_082",
-  "topic": "Dashboard 개편 — 인터페이스 UX + 반응형 프레임 (Phase 2)",
-  "topicSlug": "dashboard-redesign-ux-responsive",
-  "reportPath": "reports/2026-04-25_dashboard-redesign-ux-responsive-phase2",
-  "status": "closed",
-  "startedAt": "2026-04-25T18:30:00.000Z",
-  "closedAt": "2026-04-25T19:30:00.000Z",
-  "oneLineSummary": "topic_082 Phase 2 G2 8/8 PASS, baseline 24/24 lock self-diff 0.000%, PD-051 신설(VR image 핀 mismatch), 새 D 0건",
+  "sessionId": "session_106",
+  "topicId": "topic_109",
+  "topic": "Dashboard 개편 — Phase 3 G3 회귀 게이트 → Phase 5 G5 부분 출시",
+  "topicSlug": "dashboard-redesign-phase3-g3-to-phase5-g5",
+  "reportPath": "reports/2026-04-26_dashboard-redesign-phase3-g3-to-phase5-g5",
+  "status": "open",
+  "startedAt": "2026-04-26T00:00:00.000Z",
   "mode": "observation",
   "grade": "A",
   "gradeDeclared": "A",
@@ -15,18 +13,10 @@
   "orchestrationTransitions": [],
   "framingLevel": 2,
   "framingSkipped": false,
-  "topicType": "framing",
-  "parentTopicId": null,
+  "topicType": "implementation",
+  "parentTopicId": "topic_082",
   "childTopicIds": [],
-  "agentsCompleted": [
-    "ace",
-    "arki",
-    "dev",
-    "riki",
-    "dev",
-    "ace",
-    "editor"
-  ],
+  "agentsCompleted": [],
   "turns": [
     {
       "role": "ace",
@@ -37,59 +27,48 @@
       "turnIdx": 1
     },
     {
-      "role": "dev",
+      "role": "riki",
       "turnIdx": 2
     },
     {
-      "role": "riki",
+      "role": "vera",
       "turnIdx": 3
     },
     {
-      "role": "dev",
-      "turnIdx": 4
+      "role": "ace",
+      "turnIdx": 4,
+      "phase": "synthesis"
     },
     {
-      "role": "ace",
+      "role": "dev",
       "turnIdx": 5
     },
     {
-      "role": "editor",
-      "turnIdx": 6,
-      "phase": "compile"
+      "role": "ace",
+      "turnIdx": 6
     }
   ],
   "decisions": [],
   "masterDecisions": [],
-  "masterFeedback": [
-    "MF-097",
-    "MF-098",
-    "MF-099"
-  ],
-  "pendingDeferralsAdded": [
-    "PD-051"
-  ],
+  "masterFeedback": [],
+  "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "pendingDeferralsDeprecated": [],
   "decisionsAdded": [],
   "notes": [
-    "topic_082 Phase 2 재개. session_104에서 Phase 1 G1 PASS(7/7) 완료, D-094~D-098 박제됨.",
-    "Grade A (Master 명시). topic_082 원본은 Grade S이나, Phase 2 구현 세션은 A로 진행.",
-    "Master Docker Desktop 설치 완료 확인 → Phase 2 G2 진입.",
-    "G2 8/8 PASS: components.css 신규(177 lines, helper 5종+drawer+KPI), VR baseline 24/24 lock(self-diff 0.000%), lint 3종 PASS, 토큰 정합 cross-check PASS.",
-    "5 turn 적출 흐름: Vera CRITICAL 4 정정 → Riki R-1·R-2·R-3 적출 → Main 직접 정정 4(M-1~M-4) → Dev rev2 모두 흡수.",
-    "신규 PD-051 박제: VR image 핀 mismatch (D-096 v1.45.0 ↔ 실설치 v1.59.1).",
-    "메모리 신규 박제: feedback_low_friction_no_redundant_gate (결정 불요 사항 자동 진행).",
-    "본 토픽 안에서 분화 0 유지(Master 메모리 정합). 잔여 carry 5건은 session_106(마지막 마감)에서 처리.",
-    "새 D-xxx 0건 박제 — D-094~D-098 동결 spec의 구현 세션."
+    "topic_082 Phase 2 G2 PASS(session_105) → Phase 3 G3 회귀 게이트부터 시작. 목표: Phase 5 G5 부분 출시(4 페이지: Home/Dashboard-Upgrade/Dashboard-Ops/Records-Topics).",
+    "Grade A (Master 명시). 세션 마감 목표: Phase 3~5 전 완결 — 3세션 이내 완결 원칙 적용 (feedback_implementation_within_3_sessions).",
+    "carry 5건 인계: PD-051(vr-infra-spec image 핀 정정 dry-run), Docker Desktop 설치 확인, role color 단일 css 통일, Phase 3 범위 선언, VR cross-OS 결정성 검증.",
+    "topic_109는 topic_082의 implementation child 세션."
   ],
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 465,
-    "output_tokens": 132197,
-    "cache_creation_input_tokens": 678258,
-    "cache_read_input_tokens": 19954572,
-    "messageCount": 149,
-    "masterTurns": 12,
-    "total_billable": 20765492
+    "input_tokens": 109,
+    "output_tokens": 59572,
+    "cache_creation_input_tokens": 317303,
+    "cache_read_input_tokens": 6004912,
+    "messageCount": 71,
+    "masterTurns": 3,
+    "total_billable": 6381896
   }
 }
