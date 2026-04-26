@@ -1405,7 +1405,7 @@
       "session": "session_104",
       "topic": "topic_082",
       "axis": "대시보드 IA 전면 개편 — 사이드바 6 메뉴(Home/Dashboard/Growth/People/Records/System) + Records 5 sub(Topics·Sessions·Decisions·Feedback·Deferrals) + 토픽-세션 chip 매핑 + Sessions 3탭 + Deferrals D3.js dependsOn 그래프",
-      "summary": "topic_082 framing 21일 hold 해제 후 전면 IA 박제. Records 정문 = Topics, 토픽 카드에 매핑 세션 시간순 chip. People 4×2, Growth D-060 안 β 본체. Home 가벼운 랜딩 / Dashboard 풀 KPI 분리."
+      "summary": "STATUS: derived from ia-spec.md (downgraded by D-100, topic_110). | topic_082 framing 21일 hold 해제 후 전면 IA 박제. Records 정문 = Topics, 토픽 카드에 매핑 세션 시간순 chip. People 4×2, Growth D-060 안 β 본체. Home 가벼운 랜딩 / Dashboard 풀 KPI 분리."
     },
     {
       "id": "D-095",
@@ -1429,7 +1429,7 @@
       "session": "session_104",
       "topic": "topic_082",
       "axis": "dashboard-upgrade canonical reference + 컴포넌트 카탈로그 단일화",
-      "summary": "app/dashboard-upgrade.html이 viewer 디자인 reference. 색·토큰뿐 아니라 컴포넌트 클래스(.kpi-row/.section-grid/.card/.flow-row 등) 표준 카탈로그. dashboard-ops .command-grid 등은 PD-046로 흡수. tokens.css 단일 출처. Master 직접 명시."
+      "summary": "STATUS: derived from ia-spec.md + page-checklist/dashboard-upgrade.md (downgraded by D-100, topic_110). | app/dashboard-upgrade.html이 viewer 디자인 reference. 색·토큰뿐 아니라 컴포넌트 클래스(.kpi-row/.section-grid/.card/.flow-row 등) 표준 카탈로그. dashboard-ops .command-grid 등은 PD-046로 흡수. tokens.css 단일 출처. Master 직접 명시."
     },
     {
       "id": "D-098",
@@ -1448,7 +1448,17 @@
       "axis": "vr-compare.ts 스펙 확정 + PD-051 핀 정정 통합",
       "summary": "vr-compare.ts: diff=diffPixelCount/(w×h), 임계 2%, 이미지 크기 불일치 FAIL, pixelmatch+pngjs. Docker 이미지 핀 v1.45.0-jammy → v1.59.1-jammy 정정. vr:capture --add-host=host.docker.internal:host-gateway + VR_BASE_URL 추가.",
       "owningTopicId": "topic_109"
+    },
+    {
+      "id": "D-100",
+      "date": "2026-04-26",
+      "session": "session_107",
+      "topic": "topic_110",
+      "topicId": "topic_110",
+      "axis": "G0.5 spec 정합 게이트 도입 + 정본 3종 + Phase A→B→C + R6~R9 mitigation",
+      "summary": "P-3 채택 후 spec ↔ 구현 단절 메타 결함 해소. 정본 = memory/specs/ia-spec.md + app/dashboard-upgrade.html canonical + memory/specs/page-checklist/<page>.md 6종. D-094/D-097 derived 강등(STATUS inline). G0.5 = G1 앞 + G5 직전 재확인. People 신규 포함, Phase A spec 박제 / Phase B 6페이지 report + 임계 (i)(ii) 동시 박제 / Phase C enforce + VR baseline 재lock. R8 보강: (ii) 미달분 자동 follow-up topic 예고. R9 fallback: Phase B 2세션 hard cap, 미달 시 (ii) 단일값 lock.",
+      "owningTopicId": "topic_110"
     }
   ],
-  "lastUpdated": "2026-04-26"
+  "lastUpdated": "2026-04-26T02:19:08.927Z"
 }

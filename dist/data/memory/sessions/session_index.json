@@ -4435,8 +4435,70 @@
       "decisionsAdded": [
         "D-099"
       ]
+    },
+    {
+      "sessionId": "session_107",
+      "topicSlug": "dashboard-inspection-home-mismatch",
+      "topic": "대시보드 점검 — 홈/논의 불일치 진단",
+      "startedAt": "2026-04-26T13:00:00.000Z",
+      "closedAt": "2026-04-26T15:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "decisions": [
+        "Q1=a 정본 3종 (ia-spec.md + dashboard-upgrade.html canonical + page-checklist/)",
+        "Q2=a People 페이지 신규 생성 — 본 토픽 scope 포함",
+        "Q3=b 임계 Phase B 실측 후 Phase C 직전 lock",
+        "Q4=a Phase A 즉시 착수",
+        "Q5=a Phase A까지만 박제 후 close",
+        "Q6=a Records 통합 파일 유지"
+      ],
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "phase": "execution-plan"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 2,
+          "phase": "analysis"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 3,
+          "phase": "synthesis"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 4,
+          "phase": "execution-plan"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 5,
+          "phase": "compile"
+        }
+      ],
+      "grade": "A",
+      "note": "Master 입력: '일단 홈페이지부터 - 이렇게 만들기로 했었나? 논의한 내용과 전혀 맞지 않아.' (스크린샷 첨부) | 추가 입력: '피플. 다 엉망이야. 디자인도 업그레이드로 되기로 했는데 디자인도 안되고...' | P-3 채택 (게이트 자체 재설계). G1~G5는 코드 형식만 검증, spec 정합 검증 부재 — 메타 결함 진단. | Q1=a/Q2=a/Q3=b/Q4=a/Q5=a/Q6=a 6결정. | Phase A 완료: ia-spec.md 정본화 / page-checklist 6 / g0_5-spec-check.mjs / D-094·D-097 STATUS inline / D-100 / 4-way diff drift 0. | g0_5 report mode: PASS 2 (canonical 자기 + Ops) / WARN 2 (growth/people 파일 부재 minimal) / FAIL 2 (index.html Home spec 0건, topic.html canonical 0건). | Phase B/C 잔여 → 차기 세션. 3세션 원칙 잔여 슬롯 2. | 9 리스크 박제 (Arki R1~R5 + Riki R6~R9). R7 mit 채택: People을 Phase A 산출물 포함. | topic_110 status = in-progress (Phase B/C 잔여).",
+      "oneLineSummary": "G0.5 spec 정합 게이트 신설(D-100), 정본 3종 + page-checklist 6 박제, 9 리스크(R1~R9), Phase A 완료. FAIL 2 + WARN 2 노출.",
+      "decisionsAdded": [
+        "D-100"
+      ]
     }
   ],
-  "lastUpdated": "2026-04-26T01:08:13.496Z",
+  "lastUpdated": "2026-04-26T02:29:12.863Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

@@ -1,6 +1,21 @@
 {
   "topics": [
     {
+      "id": "topic_110",
+      "title": "대시보드 점검 — 홈/논의 불일치 진단",
+      "status": "in-progress",
+      "phase": "implementation",
+      "hold": null,
+      "created": "2026-04-26",
+      "controlPath": "topics/topic_110",
+      "reportPath": "reports/2026-04-26_dashboard-inspection-home-mismatch",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_107",
+      "path": "topics/topic_110",
+      "grade": "A"
+    },
+    {
       "id": "topic_109",
       "title": "Dashboard 개편 — Phase 3 G3 회귀 게이트 → Phase 5 G5 부분 출시",
       "status": "completed",
@@ -2179,5 +2194,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-26T01:08:24.816Z"
+  "lastUpdated": "2026-04-26T02:29:23.957Z"
 }

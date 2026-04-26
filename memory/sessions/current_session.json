@@ -1,12 +1,12 @@
 {
-  "sessionId": "session_106",
-  "topicId": "topic_109",
-  "topic": "Dashboard 개편 — Phase 3 G3 회귀 게이트 → Phase 5 G5 부분 출시",
-  "topicSlug": "dashboard-redesign-phase3-g3-to-phase5-g5",
-  "reportPath": "reports/2026-04-26_dashboard-redesign-phase3-g3-to-phase5-g5",
+  "sessionId": "session_107",
+  "topicId": "topic_110",
+  "topic": "대시보드 점검 — 홈/논의 불일치 진단",
+  "topicSlug": "dashboard-inspection-home-mismatch",
+  "reportPath": "reports/2026-04-26_dashboard-inspection-home-mismatch",
   "status": "closed",
-  "startedAt": "2026-04-26T00:00:00.000Z",
-  "closedAt": "2026-04-26T12:00:00.000Z",
+  "startedAt": "2026-04-26T13:00:00.000Z",
+  "closedAt": "2026-04-26T15:00:00.000Z",
   "mode": "observation",
   "grade": "A",
   "gradeDeclared": "A",
@@ -14,16 +14,13 @@
   "orchestrationTransitions": [],
   "framingLevel": 2,
   "framingSkipped": false,
-  "topicType": "implementation",
-  "parentTopicId": "topic_082",
+  "topicType": "framing",
+  "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
     "ace",
     "arki",
     "riki",
-    "vera",
-    "ace",
-    "dev",
     "ace",
     "dev",
     "editor"
@@ -45,67 +42,68 @@
       "phase": "analysis"
     },
     {
-      "role": "vera",
-      "turnIdx": 3,
-      "phase": "execution-plan"
-    },
-    {
       "role": "ace",
-      "turnIdx": 4,
+      "turnIdx": 3,
       "phase": "synthesis"
     },
     {
       "role": "dev",
-      "turnIdx": 5,
+      "turnIdx": 4,
       "phase": "execution-plan"
     },
     {
-      "role": "ace",
-      "turnIdx": 6,
-      "phase": "synthesis",
-      "recallReason": "post-intervention"
-    },
-    {
-      "role": "dev",
-      "turnIdx": 7,
-      "phase": "execution-plan",
-      "recallReason": "post-master"
-    },
-    {
       "role": "editor",
-      "turnIdx": 8,
+      "turnIdx": 5,
       "phase": "compile"
     }
   ],
   "decisions": [
-    "D-099"
+    "D-100"
   ],
-  "masterDecisions": [],
-  "masterFeedback": [],
+  "masterDecisions": [
+    "Q1=a 정본 3종 (ia-spec.md + dashboard-upgrade.html canonical + page-checklist/)",
+    "Q2=a People 페이지 신규 생성 — 본 토픽 scope 포함",
+    "Q3=b 임계 Phase B 실측 후 Phase C 직전 lock",
+    "Q4=a Phase A 즉시 착수",
+    "Q5=a Phase A까지만 박제 후 close",
+    "Q6=a Records 통합 파일 유지"
+  ],
+  "masterFeedback": [
+    {
+      "ts": "2026-04-26T13:00:00.000Z",
+      "content": "대시보드 홈페이지가 논의한 내용과 전혀 맞지 않음. 점검 필요."
+    },
+    {
+      "ts": "2026-04-26T13:30:00.000Z",
+      "content": "피플. 다 엉망이야. 디자인도 업그레이드로 되기로 했는데 디자인도 안되고 도대체 뭐 한지 모르겠어."
+    }
+  ],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [
-    "PD-051"
-  ],
+  "pendingDeferralsResolved": [],
   "pendingDeferralsDeprecated": [],
   "decisionsAdded": [
-    "D-099"
+    "D-100"
   ],
-  "oneLineSummary": "G3/G4/G5 PASS: vr-compare 구현, baseline 24/24 lock, B1+B2+B3 PASS, 5페이지 CF Pages 배포. deferrals.html 신설. D-099 박제. PD-051 resolved.",
+  "oneLineSummary": "G0.5 spec 정합 게이트 신설(D-100), 정본 3종 + page-checklist 6 박제, 9 리스크(R1~R9), Phase A 완료. FAIL 2 + WARN 2 노출.",
   "notes": [
-    "topic_082 Phase 2 G2 PASS(session_105) → Phase 3 G3 회귀 게이트부터 시작. 목표: Phase 5 G5 부분 출시(4 페이지: Home/Dashboard-Upgrade/Dashboard-Ops/Records-Topics).",
-    "Grade A (Master 명시). 세션 마감 목표: Phase 3~5 전 완결 — 3세션 이내 완결 원칙 적용 (feedback_implementation_within_3_sessions).",
-    "carry 5건 인계: PD-051(vr-infra-spec image 핀 정정 dry-run), Docker Desktop 설치 확인, role color 단일 css 통일, Phase 3 범위 선언, VR cross-OS 결정성 검증.",
-    "topic_109는 topic_082의 implementation child 세션.",
-    "SESSION_END: Pre-G3 블록 완료(pixelmatch+pngjs+vr-compare.ts+role-colors.js+inline :root{} 7파일 제거). G3-A 19/19 PASS, G3-B 24/24 PASS. Phase 3.5 deferrals.html 신설. G4 skip-link×5+ARIA 완비. G5 B1+B2+B3 PASS. CF Pages 5페이지 배포. D-099 박제. PD-051 resolved. topic_109 completed. topic_082 completed(3세션 완결)."
+    "Master 입력: '일단 홈페이지부터 - 이렇게 만들기로 했었나? 논의한 내용과 전혀 맞지 않아.' (스크린샷 첨부)",
+    "추가 입력: '피플. 다 엉망이야. 디자인도 업그레이드로 되기로 했는데 디자인도 안되고...'",
+    "P-3 채택 (게이트 자체 재설계). G1~G5는 코드 형식만 검증, spec 정합 검증 부재 — 메타 결함 진단.",
+    "Q1=a/Q2=a/Q3=b/Q4=a/Q5=a/Q6=a 6결정.",
+    "Phase A 완료: ia-spec.md 정본화 / page-checklist 6 / g0_5-spec-check.mjs / D-094·D-097 STATUS inline / D-100 / 4-way diff drift 0.",
+    "g0_5 report mode: PASS 2 (canonical 자기 + Ops) / WARN 2 (growth/people 파일 부재 minimal) / FAIL 2 (index.html Home spec 0건, topic.html canonical 0건).",
+    "Phase B/C 잔여 → 차기 세션. 3세션 원칙 잔여 슬롯 2.",
+    "9 리스크 박제 (Arki R1~R5 + Riki R6~R9). R7 mit 채택: People을 Phase A 산출물 포함.",
+    "topic_110 status = in-progress (Phase B/C 잔여)."
   ],
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 118,
-    "output_tokens": 73476,
-    "cache_creation_input_tokens": 332292,
-    "cache_read_input_tokens": 7106801,
-    "messageCount": 80,
-    "masterTurns": 3,
-    "total_billable": 7512687
+    "input_tokens": 320,
+    "output_tokens": 101037,
+    "cache_creation_input_tokens": 286851,
+    "cache_read_input_tokens": 8404228,
+    "messageCount": 77,
+    "masterTurns": 11,
+    "total_billable": 8792436
   }
 }

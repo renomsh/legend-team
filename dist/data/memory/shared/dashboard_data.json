@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-26T01:08:52.550Z",
-  "totalSessions": 104,
+  "generatedAt": "2026-04-26T02:29:44.233Z",
+  "totalSessions": 105,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.79,
-    "avgCacheHitRate": 0.9327,
-    "cacheSampleSize": 78,
-    "cacheSampleTotal": 104,
+    "avgMasterTurns": 16.73,
+    "avgCacheHitRate": 0.933,
+    "cacheSampleSize": 79,
+    "cacheSampleTotal": 105,
     "avgAdoptionRate": 0,
-    "totalDecisions": 99,
+    "totalDecisions": 100,
     "gradeDistribution": {
-      "S": 41,
+      "S": 42,
       "A": 19,
       "B": 32,
       "C": 12
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 59,
-    "totalCostUSD": 908.8153,
-    "avgCostPerSession": 9.18,
-    "costSampleSize": 99
+    "turnBasedSessions": 60,
+    "totalCostUSD": 913.9288,
+    "avgCostPerSession": 9.1393,
+    "costSampleSize": 100
   },
   "sessions": [
     {
@@ -3957,12 +3957,53 @@
         "messageCount": 151
       },
       "sessionCostUSD": 8.3659
+    },
+    {
+      "sessionId": "session_107",
+      "topicSlug": "dashboard-inspection-home-mismatch",
+      "topic": "대시보드 점검 — 홈/논의 불일치 진단",
+      "startedAt": "2026-04-26T13:00:00.000Z",
+      "closedAt": "2026-04-26T15:00:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-100"
+      ],
+      "rolesCalled": 6,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 11,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 8792436,
+        "ioTokens": 101357,
+        "inputTokens": 320,
+        "outputTokens": 101037,
+        "cacheCreate": 286851,
+        "cacheRead": 8404228,
+        "cacheHitRate": 0.9558475034677534,
+        "messageCount": 77
+      },
+      "sessionCostUSD": 5.1135
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 112,
+      "count": 114,
       "sessions": [
         "session_047",
         "session_048",
@@ -4014,12 +4055,13 @@
         "session_103",
         "session_104",
         "session_105",
-        "session_106"
+        "session_106",
+        "session_107"
       ]
     },
     {
       "role": "arki",
-      "count": 81,
+      "count": 82,
       "sessions": [
         "session_048",
         "session_049",
@@ -4055,12 +4097,13 @@
         "session_103",
         "session_104",
         "session_105",
-        "session_106"
+        "session_106",
+        "session_107"
       ]
     },
     {
       "role": "editor",
-      "count": 56,
+      "count": 57,
       "sessions": [
         "session_050",
         "session_051",
@@ -4117,12 +4160,13 @@
         "session_103",
         "session_104",
         "session_105",
-        "session_106"
+        "session_106",
+        "session_107"
       ]
     },
     {
       "role": "dev",
-      "count": 47,
+      "count": 48,
       "sessions": [
         "session_047",
         "session_048",
@@ -4160,12 +4204,13 @@
         "session_103",
         "session_104",
         "session_105",
-        "session_106"
+        "session_106",
+        "session_107"
       ]
     },
     {
       "role": "riki",
-      "count": 37,
+      "count": 38,
       "sessions": [
         "session_049",
         "session_053",
@@ -4196,7 +4241,8 @@
         "session_103",
         "session_104",
         "session_105",
-        "session_106"
+        "session_106",
+        "session_107"
       ]
     },
     {
@@ -6824,6 +6870,48 @@
           "role": "editor",
           "phase": "compile",
           "turnIdx": 8,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_107",
+      "topic": "대시보드 점검 — 홈/논의 불일치 진단",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "execution-plan",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "analysis",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "execution-plan",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 5,
           "recallReason": null
         }
       ]
