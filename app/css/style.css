@@ -109,20 +109,6 @@ a:hover { text-decoration: underline; }
 .page-title { font-size: 26px; font-weight: 800; letter-spacing: -.5px; color: var(--text); margin-bottom: var(--space-xs); }
 .page-sub { font-size: var(--text-base); color: var(--text-tertiary); }
 
-/* ── CARDS ── */
-.card {
-  background: linear-gradient(160deg, var(--surface) 0%, var(--surface-2) 100%);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: var(--space-md) 18px;
-  margin-bottom: var(--space-sm);
-  transition: border-color .15s;
-}
-.card:hover { border-color: var(--border-light); }
-.card-accent {
-  border-top: 3px solid var(--card-color, var(--accent-blue));
-}
-
 /* ── ROLE GRID ── */
 .roles-grid {
   display: grid;

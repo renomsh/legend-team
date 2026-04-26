@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-26T13:11:43.973Z",
-  "totalSessions": 108,
+  "generatedAt": "2026-04-26T14:01:13.035Z",
+  "totalSessions": 109,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.93,
-    "avgCacheHitRate": 0.933,
-    "cacheSampleSize": 82,
-    "cacheSampleTotal": 108,
+    "avgMasterTurns": 16.87,
+    "avgCacheHitRate": 0.9331,
+    "cacheSampleSize": 83,
+    "cacheSampleTotal": 109,
     "avgAdoptionRate": 0,
     "totalDecisions": 100,
     "gradeDistribution": {
       "S": 43,
-      "A": 20,
+      "A": 21,
       "B": 32,
       "C": 13
     },
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 63,
-    "totalCostUSD": 1071.7609,
-    "avgCostPerSession": 10.4054,
-    "costSampleSize": 103
+    "turnBasedSessions": 64,
+    "totalCostUSD": 1086.2658,
+    "avgCostPerSession": 10.4449,
+    "costSampleSize": 104
   },
   "sessions": [
     {
@@ -4128,12 +4128,48 @@
         "messageCount": 1318
       },
       "sessionCostUSD": 149.8905
+    },
+    {
+      "sessionId": "session_111",
+      "topicSlug": "dashboard-maintenance-remaining-pages",
+      "topic": "대시보드 정비 (계속) — 나머지 페이지 점검 + version bump",
+      "startedAt": "2026-04-26T00:00:00.000Z",
+      "closedAt": "2026-04-27T00:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 4,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 9,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 10,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 26738495,
+        "ioTokens": 129560,
+        "inputTokens": 682,
+        "outputTokens": 128878,
+        "cacheCreate": 1329563,
+        "cacheRead": 25279372,
+        "cacheHitRate": 0.9454298755408634,
+        "messageCount": 233
+      },
+      "sessionCostUSD": 14.5049
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 116,
+      "count": 118,
       "sessions": [
         "session_047",
         "session_048",
@@ -4188,12 +4224,13 @@
         "session_106",
         "session_107",
         "session_108",
-        "session_109"
+        "session_109",
+        "session_111"
       ]
     },
     {
       "role": "arki",
-      "count": 84,
+      "count": 85,
       "sessions": [
         "session_048",
         "session_049",
@@ -4232,12 +4269,13 @@
         "session_106",
         "session_107",
         "session_108",
-        "session_109"
+        "session_109",
+        "session_111"
       ]
     },
     {
       "role": "editor",
-      "count": 60,
+      "count": 61,
       "sessions": [
         "session_050",
         "session_051",
@@ -4298,7 +4336,8 @@
         "session_107",
         "session_108",
         "session_109",
-        "session_110"
+        "session_110",
+        "session_111"
       ]
     },
     {
@@ -7155,6 +7194,36 @@
           "role": "editor",
           "phase": "compile",
           "turnIdx": 0,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_111",
+      "topic": "대시보드 정비 (계속) — 나머지 페이지 점검 + version bump",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 3,
           "recallReason": null
         }
       ]

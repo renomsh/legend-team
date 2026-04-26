@@ -1,6 +1,18 @@
 {
-  "generatedAt": "2026-04-26T13:11:45.031Z",
+  "generatedAt": "2026-04-26T14:01:14.096Z",
   "topics": [
+    {
+      "id": "topic_114",
+      "title": "대시보드 정비 (계속) — 나머지 페이지 점검 + version bump",
+      "status": "completed",
+      "created": "2026-04-26",
+      "reportPath": "reports/2026-04-26_dashboard-maintenance-remaining-pages",
+      "reportFiles": [],
+      "published": false,
+      "outcome": "G0~G5 완료: .card 단일화 + 7페이지 sidebar CSS 제거 + badge/table 공통화 + tab-bar 공통화 + version bump v1.65→v1.75",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_113",
       "title": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비",

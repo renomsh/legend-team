@@ -259,6 +259,7 @@
 }
 .card-h { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 18px; gap: 12px; }
 .card-title { font-size: 14px; font-weight: 700; letter-spacing: -.2px; }
+.card-sub { font-size: 11px; color: var(--text-3); margin-top: 3px; }
 
 /* hub-card: index.html 4 진입 카드 — 단일 보라 톤 + raised 버튼 (topic_113 v3) */
 /* Master 요청: 글자 키우고 bg=border 통일, hero 보다 연한 단색. */
@@ -580,3 +581,21 @@
   .hero-grid { grid-template-columns: 1fr; gap: 24px; }
   .hero-number { font-size: 64px; letter-spacing: -2px; }
 }
+
+/* ── §11. tab-bar / tab-btn — session·topic 공유 탭 기본 ─────── */
+.tab-bar { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 24px; }
+.tab-btn { background: none; border: none; padding: 10px 18px; font-size: 12px; font-weight: 600; letter-spacing: .5px; color: var(--text-3); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color .15s, border-color .15s; text-transform: uppercase; }
+.tab-btn:hover { color: var(--text-2); }
+
+/* ── §13. badge — 상태 표시 공통 (growth/people 공유) ─────────── */
+.badge { display: inline-block; font-size: 9px; padding: 2px 7px; border-radius: 10px; letter-spacing: .06em; text-transform: uppercase; font-weight: 700; }
+.badge.ok { background: rgba(16,185,129,.15); color: var(--ok); }
+.badge.warn { background: rgba(245,158,11,.15); color: var(--warn); }
+.badge.bad { background: rgba(239,68,68,.15); color: var(--bad); }
+.badge.baseline { background: rgba(110,110,120,.18); color: var(--text-3); }
+
+/* ── §14. table — 데이터 테이블 공통 ────────────────────────────── */
+.table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.table th { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); color: var(--text-3); font-weight: 500; text-transform: uppercase; letter-spacing: .08em; font-size: 10px; }
+.table td { padding: 8px 10px; border-bottom: 1px solid rgba(38,38,45,.5); color: var(--text-2); }
+.table td.num { font-variant-numeric: tabular-nums; color: var(--text); }

@@ -47,7 +47,8 @@
       "Bash(node -e \"const d=JSON.parse\\(require\\('fs'\\).readFileSync\\('/dev/stdin','utf8'\\)\\); const t=d.topics.find\\(x=>x.id==='topic_082'\\); console.log\\(JSON.stringify\\(t,null,2\\)\\);\")",
       "Bash(grep -rn -B2 -A5 \"옵션 X\\\\|옵션 Y\\\\|Home.{0,20}Dashboard.{0,20}분리\\\\|Home.*Dashboard.*통합\\\\|홈과 업그레이드\\\\|홈은 가벼운\\\\|시스템 글랜스\" reports/2026-04-22_dashboard-redesign-ux-responsive/)",
       "Bash(python -c \"import json,sys; data=json.load\\(sys.stdin\\); sessions=data.get\\('sessions',[]\\); print\\('Last:', sessions[-1]['sessionId'] if sessions else 'none'\\)\")",
-      "Bash(python3 -c \"import json,sys; data=json.load\\(sys.stdin\\); t=[x for x in data if x.get\\('id'\\)=='topic_088']; print\\(json.dumps\\(t, ensure_ascii=False, indent=2\\)\\)\")"
+      "Bash(python3 -c \"import json,sys; data=json.load\\(sys.stdin\\); t=[x for x in data if x.get\\('id'\\)=='topic_088']; print\\(json.dumps\\(t, ensure_ascii=False, indent=2\\)\\)\")",
+      "Bash(node -e \"const s=require\\('./memory/sessions/session_index.json'\\); const last=s[s.length-1]; console.log\\('last:', last.sessionId, 'nextId: session_'+\\(parseInt\\(last.sessionId.replace\\('session_',''\\)\\)+1\\)\\)\")"
     ]
   }
 }

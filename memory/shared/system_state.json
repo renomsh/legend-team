@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_110",
-  "nextSessionId": "session_111",
-  "currentVersion": "v1.65",
+  "lastSessionId": "session_111",
+  "nextSessionId": "session_112",
+  "currentVersion": "v1.75",
   "openTopics": [
     {
       "id": "topic_113",
@@ -59,6 +59,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_111",
+      "topicSlug": "dashboard-maintenance-remaining-pages",
+      "closedAt": "2026-04-27T00:00:00.000Z",
+      "oneLineSummary": "CSS 단일화 G0~G5 완료: .card/badge/table/tab-bar 공통화, 7페이지 sidebar 중복 제거, v1.75",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_110",
       "topicSlug": "dashboard-maintenance-home-growth-system",
       "closedAt": "2026-04-26T23:59:00.000Z",
@@ -73,15 +80,6 @@
       "decisionsAdded": [
         "[object Object]",
         "[object Object]",
-        "[object Object]"
-      ]
-    },
-    {
-      "sessionId": "session_108",
-      "topicSlug": "dashboard-phase-b-cross-check",
-      "closedAt": "2026-04-26T16:30:00.000Z",
-      "oneLineSummary": "Phase B/C 완료 — FAIL 2→0, Gate C PASS, VR 24/24 재lock. index.html kpi-row+section-grid 추가, topic.html .card 추가",
-      "decisionsAdded": [
         "[object Object]"
       ]
     }
@@ -548,5 +546,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-26T13:11:36.128Z"
+  "lastUpdated": "2026-04-26T14:01:05.307Z"
 }
