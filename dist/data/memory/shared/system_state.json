@@ -1,9 +1,15 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_109",
-  "nextSessionId": "session_110",
+  "lastSessionId": "session_110",
+  "nextSessionId": "session_111",
   "currentVersion": "v1.65",
   "openTopics": [
+    {
+      "id": "topic_113",
+      "title": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비",
+      "status": "in-progress",
+      "reportPath": "reports/2026-04-26_dashboard-maintenance-home-growth-system"
+    },
     {
       "id": "topic_044",
       "title": "COPD 논문 ver3.4 최종화 — canonical 재분석 + (e) 프레임 확정",
@@ -53,6 +59,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_110",
+      "topicSlug": "dashboard-maintenance-home-growth-system",
+      "closedAt": "2026-04-26T23:59:00.000Z",
+      "oneLineSummary": "dashboard-maintenance session_110: CSS §7~§10 단일화, topbar pills nav.js, Home·Ops·Upgrade 전면 정비",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_109",
       "topicSlug": "dashboard-followup-people-growth-pd046",
       "closedAt": "2026-04-26T17:30:00.000Z",
@@ -70,15 +83,6 @@
       "oneLineSummary": "Phase B/C 완료 — FAIL 2→0, Gate C PASS, VR 24/24 재lock. index.html kpi-row+section-grid 추가, topic.html .card 추가",
       "decisionsAdded": [
         "[object Object]"
-      ]
-    },
-    {
-      "sessionId": "session_107",
-      "topicSlug": "dashboard-inspection-home-mismatch",
-      "closedAt": "2026-04-26T15:00:00.000Z",
-      "oneLineSummary": "G0.5 spec 정합 게이트 신설(D-100), 정본 3종 + page-checklist 6 박제, 9 리스크(R1~R9), Phase A 완료. FAIL 2 + WARN 2 노출.",
-      "decisionsAdded": [
-        "D-100"
       ]
     }
   ],
@@ -544,5 +548,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-26T05:18:20.063Z"
+  "lastUpdated": "2026-04-26T13:11:36.128Z"
 }

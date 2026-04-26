@@ -3,17 +3,20 @@
     {
       "id": "topic_113",
       "title": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비",
-      "status": "open",
-      "phase": "framing",
+      "status": "in-progress",
+      "phase": "implementation",
       "hold": null,
       "created": "2026-04-26",
       "controlPath": "topics/topic_113",
       "reportPath": "reports/2026-04-26_dashboard-maintenance-home-growth-system",
-      "reportFiles": [],
+      "reportFiles": [
+        "editor_rev1.md"
+      ],
       "published": false,
-      "closedInSession": null,
+      "closedInSession": "session_110",
       "path": "topics/topic_113",
-      "grade": "A"
+      "grade": "A",
+      "outcome": "session_110 완료: CSS §7~§10 단일화, nav.js topbar pills, Home·Ops·Upgrade 전면 정비. 나머지 페이지는 session_111 예정."
     },
     {
       "id": "topic_112",
@@ -2244,5 +2247,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-26T05:32:10.552Z"
+  "lastUpdated": "2026-04-26T13:11:28.223Z"
 }

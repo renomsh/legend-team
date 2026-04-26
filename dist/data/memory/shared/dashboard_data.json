@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-04-26T13:06:46.649Z",
-  "totalSessions": 107,
+  "generatedAt": "2026-04-26T13:11:43.973Z",
+  "totalSessions": 108,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.52,
-    "avgCacheHitRate": 0.9326,
-    "cacheSampleSize": 81,
-    "cacheSampleTotal": 107,
+    "avgMasterTurns": 16.93,
+    "avgCacheHitRate": 0.933,
+    "cacheSampleSize": 82,
+    "cacheSampleTotal": 108,
     "avgAdoptionRate": 0,
     "totalDecisions": 100,
     "gradeDistribution": {
       "S": 43,
       "A": 20,
       "B": 32,
-      "C": 12
+      "C": 13
     },
     "gradeMismatchCount": 2,
     "gradeMismatchSessions": [
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 62,
-    "totalCostUSD": 921.8704,
-    "avgCostPerSession": 9.0379,
-    "costSampleSize": 102
+    "turnBasedSessions": 63,
+    "totalCostUSD": 1071.7609,
+    "avgCostPerSession": 10.4054,
+    "costSampleSize": 103
   },
   "sessions": [
     {
@@ -4095,6 +4095,39 @@
         "messageCount": 57
       },
       "sessionCostUSD": 4.3303
+    },
+    {
+      "sessionId": "session_110",
+      "topicSlug": "dashboard-maintenance-home-growth-system",
+      "topic": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비",
+      "startedAt": "2026-04-26T18:00:00.000Z",
+      "closedAt": "2026-04-26T23:59:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 59,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 329259873,
+        "ioTokens": 868036,
+        "inputTokens": 2916,
+        "outputTokens": 865120,
+        "cacheCreate": 11126769,
+        "cacheRead": 317265068,
+        "cacheHitRate": 0.9635704014257456,
+        "messageCount": 1318
+      },
+      "sessionCostUSD": 149.8905
     }
   ],
   "roleFrequency": [
@@ -4204,7 +4237,7 @@
     },
     {
       "role": "editor",
-      "count": 59,
+      "count": 60,
       "sessions": [
         "session_050",
         "session_051",
@@ -4264,7 +4297,8 @@
         "session_106",
         "session_107",
         "session_108",
-        "session_109"
+        "session_109",
+        "session_110"
       ]
     },
     {
@@ -7109,6 +7143,18 @@
           "role": "editor",
           "phase": "compile",
           "turnIdx": 7,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_110",
+      "topic": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비",
+      "sequence": [
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 0,
           "recallReason": null
         }
       ]
