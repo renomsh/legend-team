@@ -1438,7 +1438,17 @@
       "topic": "topic_082",
       "axis": "G1 lint(--c-* 색 토큰) + G3 자동 contrast check + Hard breaker B1·B2·B3 + 부분 출시 4 페이지 + partial 로딩 패턴",
       "summary": "G1=색 토큰만 빌드 실패(레이아웃은 PD-045 이연). G3=WCAG AA 4.5:1 자동 contrast lint(scripts/lint-contrast.ts) + accent-only lint. 분화 금지 원칙 유지하되 Hard breaker B1·B2·B3 한정 child 분기 허용. 부분 출시 가능 4 페이지: Home/Dashboard-Upgrade/Dashboard-Ops/Records-Topics. Partial 로딩=<template>+build-time inline(Master M1)."
+    },
+    {
+      "id": "D-099",
+      "date": "2026-04-26",
+      "session": "session_106",
+      "topic": "dashboard-redesign-phase3-g3-to-phase5-g5",
+      "topicId": "topic_109",
+      "axis": "vr-compare.ts 스펙 확정 + PD-051 핀 정정 통합",
+      "summary": "vr-compare.ts: diff=diffPixelCount/(w×h), 임계 2%, 이미지 크기 불일치 FAIL, pixelmatch+pngjs. Docker 이미지 핀 v1.45.0-jammy → v1.59.1-jammy 정정. vr:capture --add-host=host.docker.internal:host-gateway + VR_BASE_URL 추가.",
+      "owningTopicId": "topic_109"
     }
   ],
-  "lastUpdated": "2026-04-24"
+  "lastUpdated": "2026-04-26"
 }

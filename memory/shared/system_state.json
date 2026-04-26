@@ -1,15 +1,9 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_105",
-  "nextSessionId": "session_106",
+  "lastSessionId": "session_106",
+  "nextSessionId": "session_107",
   "currentVersion": "v1.65",
   "openTopics": [
-    {
-      "id": "topic_082",
-      "title": "Dashboard 개편 — 인터페이스 UX + 반응형 프레임",
-      "status": "in-progress",
-      "reportPath": "reports/2026-04-22_dashboard-redesign-ux-responsive"
-    },
     {
       "id": "topic_044",
       "title": "COPD 논문 ver3.4 최종화 — canonical 재분석 + (e) 프레임 확정",
@@ -26,6 +20,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-099",
+      "date": "2026-04-26",
+      "axis": "vr-compare.ts 스펙 확정 + PD-051 핀 정정 통합",
+      "summary": "vr-compare.ts 스펙 확정 + PD-051 핀 정정 통합"
+    },
     {
       "id": "D-098",
       "date": "2026-04-25",
@@ -49,15 +49,18 @@
       "date": "2026-04-25",
       "axis": "반응형 2축 단일 분기 1024px 정책 박제",
       "summary": "반응형 2축 단일 분기 1024px 정책 박제"
-    },
-    {
-      "id": "D-094",
-      "date": "2026-04-25",
-      "axis": "대시보드 IA 전면 개편 — 사이드바 6 메뉴(Home/Dashboard/Growth/People/Records/System) + Records 5 sub(Topics·Sessions·Decisions·Feedback·Deferrals) + 토픽-세션 chip 매핑 + Sessions 3탭 + Deferrals D3.js dependsOn 그래프",
-      "summary": "대시보드 IA 전면 개편 — 사이드바 6 메뉴(Home/Dashboard/Growth/People/Records/System) + Records 5 sub(Topics·Sessions·Decisions·Feedback·Deferrals) + 토픽-세션 chip 매핑 + Sessions 3탭 + Deferrals D3.js dependsOn 그래프"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_106",
+      "topicSlug": "dashboard-redesign-phase3-g3-to-phase5-g5",
+      "closedAt": "2026-04-26T12:00:00.000Z",
+      "oneLineSummary": "G3/G4/G5 PASS: vr-compare 구현, baseline 24/24 lock, B1+B2+B3 PASS, 5페이지 CF Pages 배포. deferrals.html 신설. D-099 박제. PD-051 resolved.",
+      "decisionsAdded": [
+        "D-099"
+      ]
+    },
     {
       "sessionId": "session_105",
       "topicSlug": "dashboard-redesign-ux-responsive",
@@ -76,15 +79,6 @@
         "D-096",
         "D-097",
         "D-098"
-      ]
-    },
-    {
-      "sessionId": "session_103",
-      "topicSlug": "pd040-schema-governance-pd041-test-regression",
-      "closedAt": "2026-04-25T17:00:00.000Z",
-      "oneLineSummary": "PD-041 MVP 완료(test-regression 2fixture+CLI), PD-040/028 deprecated, PD-043/044 신규, D-093 박제",
-      "decisionsAdded": [
-        "D-093"
       ]
     }
   ],
@@ -541,10 +535,12 @@
       "fromSession": "session_105",
       "fromTopic": "dashboard-redesign-ux-responsive-phase2",
       "item": "vr-infra-spec image 핀 정정 — D-096 박제값 mcr.microsoft.com/playwright:v1.45.0-jammy ↔ 실설치 @playwright/test v1.59.1 mismatch. session_106 docker pull 시 v1.59.1-jammy로 fallback하여 baseline lock 성공했으나 spec 박제값과 어긋남. vr-infra-spec.md image 핀 갱신 또는 D-096 정정 결정 필요.",
-      "status": "pending",
+      "status": "resolved",
       "resolveCondition": "vr-infra-spec.md image 핀 갱신(또는 D-096 정정 D-099 박제) + session_106 dry-run에서 docker pull → vr-capture 24/24 PASS",
+      "resolvedInSession": "session_106",
+      "resolvedNote": "vr-infra-spec.md image 핀 v1.59.1-jammy 정정 완료. vr:capture --add-host+VR_BASE_URL 갱신. session_106 docker pull → vr-capture 24/24 PASS. D-099 박제.",
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-25T13:10:20.007Z"
+  "lastUpdated": "2026-04-26T01:08:37.823Z"
 }

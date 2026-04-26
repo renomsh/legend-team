@@ -1,15 +1,24 @@
 {
-  "generatedAt": "2026-04-26T00:59:27.510Z",
+  "generatedAt": "2026-04-26T01:08:54.762Z",
   "topics": [
     {
       "id": "topic_109",
       "title": "Dashboard 개편 — Phase 3 G3 회귀 게이트 → Phase 5 G5 부분 출시",
-      "status": "in-progress",
+      "status": "completed",
       "created": "2026-04-26",
       "reportPath": "reports/2026-04-26_dashboard-redesign-phase3-g3-to-phase5-g5",
-      "reportFiles": [],
+      "reportFiles": [
+        "ace_rev1.md",
+        "arki_rev1.md",
+        "riki_rev1.md",
+        "vera_rev1.md",
+        "dev_rev1.md",
+        "dev_rev2.md",
+        "ace_rev2.md",
+        "editor_rev1.md"
+      ],
       "published": false,
-      "outcome": null,
+      "outcome": "G3/G4/G5 PASS: vr-compare 구현(pixelmatch+pngjs), baseline 24/24 lock, B1+B2+B3 PASS, deferrals.html 신설, CF Pages 5페이지 배포. D-099 박제. PD-051 resolved.",
       "note": null,
       "masterDecisions": []
     },
@@ -376,7 +385,7 @@
     {
       "id": "topic_082",
       "title": "Dashboard 개편 — 인터페이스 UX + 반응형 프레임",
-      "status": "in-progress",
+      "status": "completed",
       "created": "2026-04-22",
       "reportPath": "reports/2026-04-22_dashboard-redesign-ux-responsive",
       "reportFiles": [
@@ -408,7 +417,7 @@
         "inline-root-dump.json"
       ],
       "published": false,
-      "outcome": "session_104: framing→design→Phase 0 G0 PASS→Phase 1 G1 PASS (7/7) 도달. D-094~D-098 5건 박제, PD-046~PD-050 신설, PD-045 deprecated. 잔여 Phase 2~5(반응형 + VR 인프라 + 8 페이지 신설 + Edi 인계)는 다음 세션.",
+      "outcome": "session_104: G0~G1 PASS, D-094~D-098, PD-046~PD-050. session_105: Phase 2 G2 반응형 PASS, baseline 24/24. session_106: Phase 3~5 완결 — G3(lint-contrast 19/19 + vr-compare 24/24) + G4(skip-link×5 + ARIA) + G5(B1+B2+B3 PASS) + CF Pages 배포. deferrals.html 신설. D-099 박제. PD-051 resolved.",
       "note": null,
       "masterDecisions": []
     },

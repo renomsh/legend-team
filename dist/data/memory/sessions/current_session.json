@@ -4,8 +4,9 @@
   "topic": "Dashboard 개편 — Phase 3 G3 회귀 게이트 → Phase 5 G5 부분 출시",
   "topicSlug": "dashboard-redesign-phase3-g3-to-phase5-g5",
   "reportPath": "reports/2026-04-26_dashboard-redesign-phase3-g3-to-phase5-g5",
-  "status": "open",
+  "status": "closed",
   "startedAt": "2026-04-26T00:00:00.000Z",
+  "closedAt": "2026-04-26T12:00:00.000Z",
   "mode": "observation",
   "grade": "A",
   "gradeDeclared": "A",
@@ -16,23 +17,37 @@
   "topicType": "implementation",
   "parentTopicId": "topic_082",
   "childTopicIds": [],
-  "agentsCompleted": [],
+  "agentsCompleted": [
+    "ace",
+    "arki",
+    "riki",
+    "vera",
+    "ace",
+    "dev",
+    "ace",
+    "dev",
+    "editor"
+  ],
   "turns": [
     {
       "role": "ace",
-      "turnIdx": 0
+      "turnIdx": 0,
+      "phase": "framing"
     },
     {
       "role": "arki",
-      "turnIdx": 1
+      "turnIdx": 1,
+      "phase": "execution-plan"
     },
     {
       "role": "riki",
-      "turnIdx": 2
+      "turnIdx": 2,
+      "phase": "analysis"
     },
     {
       "role": "vera",
-      "turnIdx": 3
+      "turnIdx": 3,
+      "phase": "execution-plan"
     },
     {
       "role": "ace",
@@ -41,34 +56,56 @@
     },
     {
       "role": "dev",
-      "turnIdx": 5
+      "turnIdx": 5,
+      "phase": "execution-plan"
     },
     {
       "role": "ace",
-      "turnIdx": 6
+      "turnIdx": 6,
+      "phase": "synthesis",
+      "recallReason": "post-intervention"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 7,
+      "phase": "execution-plan",
+      "recallReason": "post-master"
+    },
+    {
+      "role": "editor",
+      "turnIdx": 8,
+      "phase": "compile"
     }
   ],
-  "decisions": [],
+  "decisions": [
+    "D-099"
+  ],
   "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [],
+  "pendingDeferralsResolved": [
+    "PD-051"
+  ],
   "pendingDeferralsDeprecated": [],
-  "decisionsAdded": [],
+  "decisionsAdded": [
+    "D-099"
+  ],
+  "oneLineSummary": "G3/G4/G5 PASS: vr-compare 구현, baseline 24/24 lock, B1+B2+B3 PASS, 5페이지 CF Pages 배포. deferrals.html 신설. D-099 박제. PD-051 resolved.",
   "notes": [
     "topic_082 Phase 2 G2 PASS(session_105) → Phase 3 G3 회귀 게이트부터 시작. 목표: Phase 5 G5 부분 출시(4 페이지: Home/Dashboard-Upgrade/Dashboard-Ops/Records-Topics).",
     "Grade A (Master 명시). 세션 마감 목표: Phase 3~5 전 완결 — 3세션 이내 완결 원칙 적용 (feedback_implementation_within_3_sessions).",
     "carry 5건 인계: PD-051(vr-infra-spec image 핀 정정 dry-run), Docker Desktop 설치 확인, role color 단일 css 통일, Phase 3 범위 선언, VR cross-OS 결정성 검증.",
-    "topic_109는 topic_082의 implementation child 세션."
+    "topic_109는 topic_082의 implementation child 세션.",
+    "SESSION_END: Pre-G3 블록 완료(pixelmatch+pngjs+vr-compare.ts+role-colors.js+inline :root{} 7파일 제거). G3-A 19/19 PASS, G3-B 24/24 PASS. Phase 3.5 deferrals.html 신설. G4 skip-link×5+ARIA 완비. G5 B1+B2+B3 PASS. CF Pages 5페이지 배포. D-099 박제. PD-051 resolved. topic_109 completed. topic_082 completed(3세션 완결)."
   ],
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 109,
-    "output_tokens": 59572,
-    "cache_creation_input_tokens": 317303,
-    "cache_read_input_tokens": 6004912,
-    "messageCount": 71,
+    "input_tokens": 118,
+    "output_tokens": 73476,
+    "cache_creation_input_tokens": 332292,
+    "cache_read_input_tokens": 7106801,
+    "messageCount": 80,
     "masterTurns": 3,
-    "total_billable": 6381896
+    "total_billable": 7512687
   }
 }

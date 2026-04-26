@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-26T00:59:24.939Z",
-  "totalSessions": 103,
+  "generatedAt": "2026-04-26T01:08:52.550Z",
+  "totalSessions": 104,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.9,
-    "avgCacheHitRate": 0.9326,
-    "cacheSampleSize": 77,
-    "cacheSampleTotal": 103,
+    "avgMasterTurns": 16.79,
+    "avgCacheHitRate": 0.9327,
+    "cacheSampleSize": 78,
+    "cacheSampleTotal": 104,
     "avgAdoptionRate": 0,
-    "totalDecisions": 98,
+    "totalDecisions": 99,
     "gradeDistribution": {
-      "S": 40,
+      "S": 41,
       "A": 19,
       "B": 32,
       "C": 12
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 58,
-    "totalCostUSD": 900.4494,
-    "avgCostPerSession": 9.1883,
-    "costSampleSize": 98
+    "turnBasedSessions": 59,
+    "totalCostUSD": 908.8153,
+    "avgCostPerSession": 9.18,
+    "costSampleSize": 99
   },
   "sessions": [
     {
@@ -3913,12 +3913,56 @@
         "messageCount": 149
       },
       "sessionCostUSD": 10.5142
+    },
+    {
+      "sessionId": "session_106",
+      "topicSlug": "dashboard-redesign-phase3-g3-to-phase5-g5",
+      "topic": "Dashboard 개편 — Phase 3 G3 회귀 게이트 → Phase 5 G5 부분 출시",
+      "startedAt": "2026-04-26T00:00:00.000Z",
+      "closedAt": "2026-04-26T12:00:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-099"
+      ],
+      "rolesCalled": 9,
+      "rolesRecalled": 3,
+      "sessionsSpanned": 1,
+      "size": 20,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 6,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "vera",
+        "ace",
+        "dev",
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 13894583,
+        "ioTokens": 133275,
+        "inputTokens": 227,
+        "outputTokens": 133048,
+        "cacheCreate": 649595,
+        "cacheRead": 13111713,
+        "cacheHitRate": 0.9436564594993603,
+        "messageCount": 151
+      },
+      "sessionCostUSD": 8.3659
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 109,
+      "count": 112,
       "sessions": [
         "session_047",
         "session_048",
@@ -3969,12 +4013,13 @@
         "session_101",
         "session_103",
         "session_104",
-        "session_105"
+        "session_105",
+        "session_106"
       ]
     },
     {
       "role": "arki",
-      "count": 80,
+      "count": 81,
       "sessions": [
         "session_048",
         "session_049",
@@ -4009,12 +4054,13 @@
         "session_101",
         "session_103",
         "session_104",
-        "session_105"
+        "session_105",
+        "session_106"
       ]
     },
     {
       "role": "editor",
-      "count": 55,
+      "count": 56,
       "sessions": [
         "session_050",
         "session_051",
@@ -4070,12 +4116,13 @@
         "session_102",
         "session_103",
         "session_104",
-        "session_105"
+        "session_105",
+        "session_106"
       ]
     },
     {
       "role": "dev",
-      "count": 45,
+      "count": 47,
       "sessions": [
         "session_047",
         "session_048",
@@ -4112,12 +4159,13 @@
         "session_102",
         "session_103",
         "session_104",
-        "session_105"
+        "session_105",
+        "session_106"
       ]
     },
     {
       "role": "riki",
-      "count": 36,
+      "count": 37,
       "sessions": [
         "session_049",
         "session_053",
@@ -4147,7 +4195,8 @@
         "session_101",
         "session_103",
         "session_104",
-        "session_105"
+        "session_105",
+        "session_106"
       ]
     },
     {
@@ -4176,13 +4225,14 @@
     },
     {
       "role": "vera",
-      "count": 11,
+      "count": 12,
       "sessions": [
         "session_049",
         "session_052",
         "session_081",
         "session_096",
-        "session_104"
+        "session_104",
+        "session_106"
       ]
     },
     {
@@ -6714,6 +6764,66 @@
           "role": "editor",
           "phase": "compile",
           "turnIdx": 6,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_106",
+      "topic": "Dashboard 개편 — Phase 3 G3 회귀 게이트 → Phase 5 G5 부분 출시",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "execution-plan",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "analysis",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "vera",
+          "phase": "execution-plan",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "execution-plan",
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 6,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "dev",
+          "phase": "execution-plan",
+          "turnIdx": 7,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 8,
           "recallReason": null
         }
       ]

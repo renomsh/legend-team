@@ -105,6 +105,17 @@
     "역할 재정의 구현: 쓰기 제거 시 선행 조건 소멸 여부 먼저 확인 (B-02 retroactive push 제거 근거)",
     "exit code 1은 critical 항목(reports, topic_index)에만. advisory(master_feedback)는 제외."
   ],
+  "sessionLearnings_session106": {
+    "session": "session_106",
+    "date": "2026-04-26",
+    "topic": "dashboard-redesign-phase3-g3-to-phase5-g5",
+    "findings": [
+      "vr-compare.ts 구현: diff 단위는 반드시 비율(diffPixelCount/(width×height))로 정의. 픽셀 수 절대값은 이미지 크기에 따라 임계값 의미가 달라짐.",
+      "pixelmatch + pngjs 조합: PNG 디코딩(pngjs) → 픽셀 비교(pixelmatch) → diff 비율 계산. 이미지 크기 불일치는 compare 전 즉시 FAIL.",
+      "Docker 이미지 핀 검증: docker pull 선행 검증 없이 핀 명시는 위험. 실제 pull 성공 여부를 CI 전 확인 필수(PD-051 교훈).",
+      "role-colors.js canonical: inline :root{} 산재 패턴은 드리프트 원인. 단일 파일 + import 패턴으로 7파일 동시 통제."
+    ]
+  },
   "lessonLog": [
     {
       "id": "DEV-LL-001",
@@ -228,7 +239,7 @@
       "reusable": true
     }
   ],
-  "lastUpdated": "2026-04-24",
+  "lastUpdated": "2026-04-26",
   "observations": [
     {
       "date": "2026-04-19",
