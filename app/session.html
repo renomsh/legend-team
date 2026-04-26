@@ -9,12 +9,10 @@
   <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
   <link rel="stylesheet" href="css/components.css">
-</head>
-<style>
-/* Tabs */
-.tab-bar{display:flex;gap:4px;margin-bottom:28px;border-bottom:1px solid var(--line);padding-bottom:0}
-.tab-btn{padding:10px 20px;font-size:13px;font-weight:600;color:var(--text-3);background:none;border:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s}
-.tab-btn:hover{color:var(--text-2)}
+  <style>
+/* Tabs — §11 base, session overrides */
+.tab-bar{margin-bottom:28px}
+.tab-btn{padding:10px 20px;font-size:13px;letter-spacing:0}
 .tab-btn.active{color:#10B981;border-bottom-color:#10B981}
 .tab-pane{display:none}.tab-pane.active{display:block}
 
@@ -56,7 +54,8 @@
 .decision-id{font-size:11px;font-family:monospace;color:#F59E0B;font-weight:700;margin-bottom:2px}
 .decision-axis{font-size:12px;color:var(--text);font-weight:600;margin-bottom:4px}
 .decision-value{font-size:11px;color:var(--text-2);line-height:1.5}
-</style>
+  </style>
+</head>
 <body>
 <div class="app">
 <!-- @partial:sidebar -->

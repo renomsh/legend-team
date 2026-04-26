@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-26T14:01:13.035Z",
-  "totalSessions": 109,
+  "generatedAt": "2026-04-26T14:36:08.317Z",
+  "totalSessions": 110,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.87,
-    "avgCacheHitRate": 0.9331,
-    "cacheSampleSize": 83,
-    "cacheSampleTotal": 109,
+    "avgMasterTurns": 16.77,
+    "avgCacheHitRate": 0.9334,
+    "cacheSampleSize": 84,
+    "cacheSampleTotal": 110,
     "avgAdoptionRate": 0,
     "totalDecisions": 100,
     "gradeDistribution": {
       "S": 43,
-      "A": 21,
+      "A": 22,
       "B": 32,
       "C": 13
     },
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 64,
-    "totalCostUSD": 1086.2658,
-    "avgCostPerSession": 10.4449,
-    "costSampleSize": 104
+    "turnBasedSessions": 65,
+    "totalCostUSD": 1096.8342,
+    "avgCostPerSession": 10.446,
+    "costSampleSize": 105
   },
   "sessions": [
     {
@@ -4164,12 +4164,49 @@
         "messageCount": 233
       },
       "sessionCostUSD": 14.5049
+    },
+    {
+      "sessionId": "session_112",
+      "topicSlug": "dashboard-arch-review-dup-check",
+      "topic": "대시보드 아키 변경 재확인 + 구성 중복 점검",
+      "startedAt": "2026-04-26T14:30:00.000Z",
+      "closedAt": "2026-04-26T16:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 5,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 10,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 7,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 20851992,
+        "ioTokens": 125686,
+        "inputTokens": 1999,
+        "outputTokens": 123687,
+        "cacheCreate": 721521,
+        "cacheRead": 20004785,
+        "cacheHitRate": 0.959370452472838,
+        "messageCount": 182
+      },
+      "sessionCostUSD": 10.5684
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 118,
+      "count": 120,
       "sessions": [
         "session_047",
         "session_048",
@@ -4225,12 +4262,13 @@
         "session_107",
         "session_108",
         "session_109",
-        "session_111"
+        "session_111",
+        "session_112"
       ]
     },
     {
       "role": "arki",
-      "count": 85,
+      "count": 86,
       "sessions": [
         "session_048",
         "session_049",
@@ -4270,12 +4308,13 @@
         "session_107",
         "session_108",
         "session_109",
-        "session_111"
+        "session_111",
+        "session_112"
       ]
     },
     {
       "role": "editor",
-      "count": 61,
+      "count": 62,
       "sessions": [
         "session_050",
         "session_051",
@@ -4337,12 +4376,13 @@
         "session_108",
         "session_109",
         "session_110",
-        "session_111"
+        "session_111",
+        "session_112"
       ]
     },
     {
       "role": "dev",
-      "count": 53,
+      "count": 54,
       "sessions": [
         "session_047",
         "session_048",
@@ -4383,7 +4423,8 @@
         "session_106",
         "session_107",
         "session_108",
-        "session_109"
+        "session_109",
+        "session_112"
       ]
     },
     {
@@ -7224,6 +7265,42 @@
           "role": "editor",
           "phase": "compile",
           "turnIdx": 3,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_112",
+      "topic": "대시보드 아키 변경 재확인 + 구성 중복 점검",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 4,
           "recallReason": null
         }
       ]

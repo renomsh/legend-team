@@ -1,6 +1,18 @@
 {
-  "generatedAt": "2026-04-26T14:01:14.096Z",
+  "generatedAt": "2026-04-26T14:36:09.495Z",
   "topics": [
+    {
+      "id": "topic_115",
+      "title": "대시보드 아키 변경 재확인 + 구성 중복 점검",
+      "status": "completed",
+      "created": "2026-04-26",
+      "reportPath": "reports/2026-04-26_dashboard-arch-review-dup-check",
+      "reportFiles": [],
+      "published": false,
+      "outcome": "Phase1~4 구조적·내용적 중복 제거 완료. ops sidebar 15개/upgrade .card/§12 신설/renderTier3 공통 추출. P3 이연.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_114",
       "title": "대시보드 정비 (계속) — 나머지 페이지 점검 + version bump",

@@ -4702,8 +4702,54 @@
       "note": ".card 3중 정의 해소: style.css/growth.html/people.html 인라인 제거 → components.css §6 단일화 | decisions/feedback/deferrals/people/topic/session 6페이지 sidebar CSS 중복 제거 | components.css §11(tab-bar) §13(badge) §14(table) §6+(.card-sub) 신설 | version bump v1.65 → v1.75 (구조 변경 +0.1) | build 완료: dist/ 갱신, v1.75 브라우저 확인",
       "oneLineSummary": "CSS 단일화 G0~G5 완료: .card/badge/table/tab-bar 공통화, 7페이지 sidebar 중복 제거, v1.75",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_112",
+      "topicSlug": "dashboard-arch-review-dup-check",
+      "topic": "대시보드 아키 변경 재확인 + 구성 중복 점검",
+      "startedAt": "2026-04-26T14:30:00.000Z",
+      "closedAt": "2026-04-26T16:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "phase": "design"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 2,
+          "phase": "synthesis"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 3,
+          "phase": "implementation"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 4,
+          "phase": "compile"
+        }
+      ],
+      "grade": "B",
+      "note": "Phase 1: dashboard-ops.html sidebar §7 inline 15개 제거, .s-topbar 유지 | Phase 2: dashboard-upgrade.html §6 .card inline 제거, .section-grid → .section-grid-2col 분리 | Phase 3: session.html §11 최소 override 압축, <style> head 내 이동 | Phase 4: components.css §12 신설(.kpi-top/.kpi-icon), dashboard-upgrade.html 해당 inline 제거 | Phase 4: renderTier3() → app/js/metrics-utils.js 공통 추출, growth/people 중복 제거 | build 완료: dist/ 갱신",
+      "oneLineSummary": "아키 중복 제거 Phase1~4: ops sidebar 15개/upgrade .card/session tab-bar/§12 신설/renderTier3 공통 추출",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-04-26T14:00:46.876Z",
+  "lastUpdated": "2026-04-26T14:35:42.799Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
