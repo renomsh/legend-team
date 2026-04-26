@@ -558,12 +558,20 @@
   color: var(--text-2);
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   flex: 1; min-width: 0;
+  font-size: 12px;
 }
+.mini-item-text strong { color: var(--text); font-weight: 700; }
+.mini-item-text .mini-desc-inline { color: var(--text-3); font-weight: 400; }
+
+/* Cost & Tokens 행 — 1줄 ellipsis 강제 (Master: 잘려도 OK) */
+.mini-stat-row { white-space: nowrap; min-width: 0; }
+.mini-stat-row .mini-stat-k { overflow: hidden; text-overflow: ellipsis; }
+.mini-stat-row .mini-stat-v { flex-shrink: 0; }
 
 /* Cost mini KPI 3 stats stack */
 .mini-stats { display: flex; flex-direction: column; gap: 14px; }
 .mini-stat-row { display: flex; justify-content: space-between; align-items: baseline; }
-.mini-stat-k { font-size: 11px; color: var(--text-3); }
+.mini-stat-k { font-size: 12px; font-weight: 700; color: var(--text); }
 .mini-stat-v { font-size: 18px; font-weight: 800; color: var(--text); font-variant-numeric: tabular-nums; letter-spacing: -.5px; }
 .mini-stat-v small { font-size: 11px; color: var(--text-3); font-weight: 500; margin-left: 4px; }
 

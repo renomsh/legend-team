@@ -26,5 +26,14 @@
   "pendingDeferralsDeprecated": [],
   "decisionsAdded": [],
   "notes": [],
-  "gaps": []
+  "gaps": [],
+  "tokenUsage": {
+    "input_tokens": 1534,
+    "output_tokens": 444523,
+    "cache_creation_input_tokens": 5540714,
+    "cache_read_input_tokens": 159523214,
+    "messageCount": 665,
+    "masterTurns": 28,
+    "total_billable": 165509985
+  }
 }

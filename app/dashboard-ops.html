@@ -109,52 +109,36 @@
     <div class="s-h1">Ops Dashboard</div>
   </div>
   <div class="page" style="padding:0;max-width:none;margin:0">
-    <!-- O1: Command Center -->
-    <div class="section-title" style="margin-bottom:12px">O1 — Command Center</div>
+    <!-- O1: System Health (운영 신호 5종) -->
+    <div class="section-title" style="margin-bottom:12px">O1 — System Health</div>
     <div class="section-grid" id="commandGrid">
       <div class="command-card"><div class="command-label">로딩 중...</div></div>
     </div>
 
-    <!-- O2: Pipeline -->
-    <div class="section-title" style="margin-bottom:12px">O2 — Pipeline</div>
-    <div class="pipeline-list" id="pipelineList">
+    <!-- O2: Suspended Topics (재개 후보) -->
+    <div class="section-title" style="margin-bottom:12px;margin-top:24px">O2 — Suspended Topics <span style="color:var(--text-3);font-weight:400;text-transform:none;letter-spacing:0;font-size:11px">· 재개 후보</span></div>
+    <div class="pipeline-list" id="suspendedList">
       <div class="empty-state">로딩 중...</div>
     </div>
 
-    <!-- O3: Recent Sessions -->
-    <div class="section-title" style="margin-bottom:12px">O3 — Recent Sessions</div>
-    <table class="session-table">
-      <thead>
-        <tr>
-          <th>SESSION</th>
-          <th>TOPIC</th>
-          <th>STARTED</th>
-          <th>DECISIONS</th>
-          <th>SIZE</th>
-          <th>QUALITY</th>
-        </tr>
-      </thead>
-      <tbody id="sessionTable"></tbody>
-    </table>
-
-    <!-- O4: Pending Deferrals -->
-    <div class="section-title" style="margin-bottom:12px; margin-top:24px">O4 — Pending Deferrals</div>
-    <div class="deferral-list" id="deferralList">
+    <!-- O3: Active Alarms -->
+    <div class="section-title" style="margin-bottom:12px;margin-top:24px">O3 — Active Alarms</div>
+    <div class="deferral-list" id="alarmList">
       <div class="empty-state">로딩 중...</div>
     </div>
 
-    <!-- O5: Recent Decisions -->
-    <div class="section-title" style="margin-bottom:12px; margin-top:24px">O5 — Recent Decisions</div>
+    <!-- O4: Recent Hook Events -->
+    <div class="section-title" style="margin-bottom:12px;margin-top:24px">O4 — Recent Hook Events</div>
     <table class="decision-table">
       <thead>
         <tr>
-          <th>ID</th>
-          <th>DATE</th>
-          <th>AXIS</th>
+          <th>TIME</th>
+          <th>HOOK</th>
+          <th>SESSION</th>
           <th>STATUS</th>
         </tr>
       </thead>
-      <tbody id="decisionTable"></tbody>
+      <tbody id="hookTable"></tbody>
     </table>
   </div>
 
@@ -162,149 +146,180 @@
   <script src="js/data-loader.js"></script>
   <script>
     async function init() {
-      const [dashData, systemState, topicIndex, decisionLedger] = await Promise.all([
+      const [dashData, systemState, topicIndex, evidenceIdx, tokenLog, hookLog, manifest] = await Promise.all([
         DataLoader.fetchJSON('memory/shared/dashboard_data.json'),
         DataLoader.fetchJSON('memory/shared/system_state.json'),
         DataLoader.fetchJSON('memory/shared/topic_index.json'),
-        DataLoader.fetchJSON('memory/shared/decision_ledger.json'),
+        DataLoader.fetchJSON('memory/shared/evidence_index.json'),
+        DataLoader.fetchJSON('memory/sessions/token_log.json'),
+        DataLoader.fetchMD('logs/hook-diagnostics.log'),
+        DataLoader.fetchJSON('published/topics_manifest.json'),
       ]);
 
-      renderCommand(dashData, systemState, topicIndex);
-      renderPipeline(topicIndex, systemState);
-      renderDeferrals(systemState);
-      renderSessions(dashData);
-      renderDecisions(decisionLedger);
+      renderHealth(dashData, evidenceIdx, tokenLog, hookLog, manifest);
+      renderSuspended(topicIndex);
+      renderAlarms(dashData);
+      renderHookEvents(hookLog);
     }
 
-    function renderCommand(dash, sys, topics) {
+    // ── O1: System Health (5 KPI) ─────────────────────────────────
+    function renderHealth(dash, evi, tokenLog, hookLog, manifest) {
+      // 1) Build freshness
+      const buildAt = manifest?.generatedAt ? new Date(manifest.generatedAt) : null;
+      const ageMs = buildAt ? (Date.now() - buildAt.getTime()) : null;
+      const ageStr = ageMs == null ? '—' : (ageMs < 3600e3 ? `${Math.round(ageMs/60e3)}분 전` : `${Math.round(ageMs/3600e3)}시간 전`);
+      const stale = ageMs != null && ageMs > 24*3600e3;
+
+      // 2) Hook success rate (recent 10)
+      const lines = (hookLog || '').trim().split('\n').slice(-30);
+      const hookEvents = parseHookLines(lines);
+      const recent10 = hookEvents.slice(-10);
+      const okCount = recent10.filter(e => e.status === 'OK').length;
+      const hookRate = recent10.length ? Math.round(okCount/recent10.length*100) : 0;
+
+      // 3) Open alarms
       const alarms = dash?.alarms ?? [];
-      const openTopics = (topics?.topics ?? []).filter(t =>
-        t.status === 'in-progress' || t.status === 'suspended'
-      );
-      const pendingDef = (sys?.pendingDeferrals ?? []).filter(d => d.status === 'pending');
-      const totalDec = dash?.metrics?.totalDecisions ?? 0;
+      const redCount = alarms.filter(a => a.severity === 'red').length;
+      const yellowCount = alarms.filter(a => a.severity === 'yellow').length;
+
+      // 4) Open evidence
+      const eviArr = Array.isArray(evi) ? evi : (evi?.entries || evi?.evidence || []);
+      const openEvi = eviArr.filter(e => e.status === 'open').length;
+
+      // 5) Avg cost / session (last 5)
+      const last5 = (tokenLog?.entries ?? []).slice(-5);
+      let totalTok = 0;
+      last5.forEach(e => {
+        const u = e.usage || {};
+        totalTok += (u.input_tokens||0) + (u.output_tokens||0) + (u.cache_creation_input_tokens||0) + (u.cache_read_input_tokens||0);
+      });
+      const avgTok = last5.length ? Math.round(totalTok/last5.length) : 0;
+      const avgTokStr = avgTok >= 1e6 ? (avgTok/1e6).toFixed(1)+'M' : (avgTok/1e3).toFixed(0)+'k';
 
       const cards = [
         {
-          label: 'Alarms', value: alarms.length,
-          color: '#EF4444', glow: 'rgba(239,68,68,.18)',
-          bg: 'linear-gradient(145deg,rgba(239,68,68,.12) 0%,rgba(239,68,68,.03) 50%,#0B0B0D 100%)',
-          border: 'rgba(239,68,68,.35)',
-          badge: alarms.length > 0 ? { text: `${alarms.length} active`, cls: 'badge-alarm' } : { text: 'All Clear', cls: 'badge-ok' }
+          label: 'Build Freshness', value: ageStr,
+          color: stale ? '#F59E0B' : '#10B981',
+          glow: stale ? 'rgba(245,158,11,.18)' : 'rgba(16,185,129,.18)',
+          bg: `linear-gradient(145deg,${stale?'rgba(245,158,11,.12)':'rgba(16,185,129,.12)'} 0%,rgba(0,0,0,.03) 50%,#0B0B0D 100%)`,
+          border: stale ? 'rgba(245,158,11,.35)' : 'rgba(16,185,129,.35)',
+          badge: { text: stale ? 'STALE' : 'fresh', cls: stale ? 'badge-warn' : 'badge-ok' }
         },
         {
-          label: 'Open Topics', value: openTopics.length,
-          color: '#F59E0B', glow: 'rgba(245,158,11,.18)',
-          bg: 'linear-gradient(145deg,rgba(245,158,11,.12) 0%,rgba(245,158,11,.03) 50%,#0B0B0D 100%)',
-          border: 'rgba(245,158,11,.35)',
-          badge: openTopics.length > 0 ? { text: openTopics.map(t => t.id).join(', '), cls: 'badge-warn' } : { text: 'None', cls: 'badge-ok' }
+          label: 'Hook Success', value: hookRate + '%',
+          color: hookRate >= 90 ? '#10B981' : hookRate >= 70 ? '#F59E0B' : '#EF4444',
+          glow: 'rgba(16,185,129,.18)',
+          bg: 'linear-gradient(145deg,rgba(16,185,129,.10) 0%,rgba(0,0,0,.03) 50%,#0B0B0D 100%)',
+          border: 'rgba(16,185,129,.30)',
+          badge: { text: `${okCount}/${recent10.length} recent`, cls: hookRate >= 90 ? 'badge-ok' : 'badge-warn' }
         },
         {
-          label: 'Pending Deferrals', value: pendingDef.length,
+          label: 'Open Alarms', value: alarms.length,
+          color: redCount ? '#EF4444' : (yellowCount ? '#F59E0B' : '#10B981'),
+          glow: redCount ? 'rgba(239,68,68,.18)' : 'rgba(245,158,11,.18)',
+          bg: 'linear-gradient(145deg,rgba(239,68,68,.10) 0%,rgba(0,0,0,.03) 50%,#0B0B0D 100%)',
+          border: redCount ? 'rgba(239,68,68,.35)' : (yellowCount ? 'rgba(245,158,11,.35)' : 'rgba(16,185,129,.30)'),
+          badge: alarms.length ? { text: `${redCount}🔴 ${yellowCount}🟡`, cls: redCount ? 'badge-alarm' : 'badge-warn' } : { text: 'All Clear', cls: 'badge-ok' }
+        },
+        {
+          label: 'Open Evidence', value: openEvi,
           color: '#06B6D4', glow: 'rgba(6,182,212,.18)',
-          bg: 'linear-gradient(145deg,rgba(6,182,212,.12) 0%,rgba(6,182,212,.03) 50%,#0B0B0D 100%)',
-          border: 'rgba(6,182,212,.35)',
-          badge: pendingDef.length > 0 ? { text: pendingDef.map(d => d.id).join(', '), cls: 'badge-warn' } : { text: 'None', cls: 'badge-ok' }
+          bg: 'linear-gradient(145deg,rgba(6,182,212,.10) 0%,rgba(0,0,0,.03) 50%,#0B0B0D 100%)',
+          border: 'rgba(6,182,212,.30)',
+          badge: { text: `of ${eviArr.length} total`, cls: 'badge-ok' }
         },
         {
-          label: 'Total Decisions', value: totalDec,
-          color: '#10B981', glow: 'rgba(16,185,129,.18)',
-          bg: 'linear-gradient(145deg,rgba(16,185,129,.12) 0%,rgba(16,185,129,.03) 50%,#0B0B0D 100%)',
-          border: 'rgba(16,185,129,.35)',
-          badge: { text: `D-001 ~ D-${String(totalDec).padStart(3,'0')}`, cls: 'badge-ok' }
+          label: 'Avg Cost / Session', value: avgTokStr,
+          color: '#A78BFA', glow: 'rgba(167,139,250,.18)',
+          bg: 'linear-gradient(145deg,rgba(167,139,250,.10) 0%,rgba(0,0,0,.03) 50%,#0B0B0D 100%)',
+          border: 'rgba(167,139,250,.30)',
+          badge: { text: `last ${last5.length}`, cls: 'badge-ok' }
         },
       ];
 
       document.getElementById('commandGrid').innerHTML = cards.map(c =>
         `<div class="command-card" style="--cc-color:${c.color};--cc-glow:${c.glow};background:${c.bg};border:1px solid ${c.border};border-top:3px solid ${c.color}">
           <div class="command-label">${c.label}</div>
-          <div class="command-value">${c.value}</div>
+          <div class="command-value" style="font-size:${typeof c.value==='string'&&c.value.length>4?'28px':'48px'}">${c.value}</div>
           ${c.badge ? `<span class="command-badge ${c.badge.cls}">${c.badge.text}</span>` : ''}
         </div>`
       ).join('');
     }
 
-    function statusClass(status) {
-      if (status === 'in-progress') return 'status-in-progress';
-      if (status === 'suspended') return 'status-suspended';
-      if (status === 'completed') return 'status-completed';
-      return 'status-closed';
-    }
-
-    function renderPipeline(topicIndex, sys) {
+    // ── O2: Suspended Topics ──────────────────────────────────────
+    function renderSuspended(topicIndex) {
       const topics = topicIndex?.topics ?? [];
-      const active = topics.filter(t =>
-        t.status === 'in-progress' || t.status === 'suspended'
-      );
-      const recent = topics.filter(t =>
-        t.status === 'completed' || t.status === 'closed'
-      ).slice(-5).reverse();
-
-      const items = [...active, ...recent].slice(0, 10);
-      if (items.length === 0) {
-        document.getElementById('pipelineList').innerHTML = '<div class="empty-state">No items</div>';
+      const suspended = topics.filter(t => t.status === 'suspended');
+      const list = document.getElementById('suspendedList');
+      if (suspended.length === 0) {
+        list.innerHTML = '<div class="empty-state">No suspended topics</div>';
         return;
       }
-
-      document.getElementById('pipelineList').innerHTML = items.map(t =>
-        `<div class="pipeline-item">
+      list.innerHTML = suspended.map(t =>
+        `<a class="pipeline-item" href="topic.html?id=${t.id}" style="text-decoration:none;color:inherit">
           <span class="pipeline-type">${t.type ?? 'general'}</span>
           <span class="pipeline-title">${t.title}</span>
-          <span class="pipeline-status ${statusClass(t.status)}">${t.status}</span>
-          <span class="pipeline-session">${t.note?.match(/session_\d+/)?.[0] ?? t.id}</span>
-        </div>`
+          <span class="pipeline-status status-suspended">suspended</span>
+          <span class="pipeline-session">${t.id}${t.created?` · ${t.created}`:''}</span>
+        </a>`
       ).join('');
     }
 
-    function renderDeferrals(sys) {
-      const deferrals = (sys?.pendingDeferrals ?? []).filter(d => d.status === 'pending');
-      if (deferrals.length === 0) {
-        document.getElementById('deferralList').innerHTML = '<div class="empty-state">No deferrals</div>';
+    // ── O3: Active Alarms ─────────────────────────────────────────
+    function renderAlarms(dash) {
+      const alarms = (dash?.alarms ?? []);
+      const el = document.getElementById('alarmList');
+      if (alarms.length === 0) {
+        el.innerHTML = '<div class="empty-state">No active alarms</div>';
         return;
       }
-      document.getElementById('deferralList').innerHTML = deferrals.map(d =>
+      const sevColor = { red:'#EF4444', yellow:'#F59E0B', green:'#10B981' };
+      el.innerHTML = alarms.slice(0, 10).map(a =>
         `<div class="deferral-item">
-          <span class="deferral-id">${d.id}</span>
+          <span class="deferral-id" style="color:${sevColor[a.severity]||'#9CA3AF'}">${a.ruleId||''} ${a.severity?'· '+a.severity.toUpperCase():''}</span>
           <div class="deferral-content">
-            <div>${d.item}</div>
-            ${d.note ? `<div style="color:var(--text-tertiary);margin-top:4px;font-size:11px">${d.note}</div>` : ''}
+            <div>${a.description||''}</div>
+            ${a.sessionId ? `<div style="color:var(--text-tertiary);margin-top:4px;font-size:11px">${a.sessionId}</div>` : ''}
           </div>
-          <span class="deferral-status status-${d.status}">${d.status}</span>
         </div>`
       ).join('');
     }
 
-    function renderSessions(dash) {
-      const sessions = (dash?.sessions ?? []).slice().reverse().slice(0, 15);
-      const tbody = document.getElementById('sessionTable');
-      if (sessions.length === 0) { tbody.innerHTML = '<tr><td colspan="6" class="empty-state">No data</td></tr>'; return; }
-
-      tbody.innerHTML = sessions.map(s =>
-        `<tr>
-          <td class="td-id">${s.sessionId}</td>
-          <td>${s.topic ?? s.topicSlug}</td>
-          <td style="color:var(--text-tertiary)">${s.startedAt.slice(0,10)}</td>
-          <td class="td-dec">${s.decisionCount > 0 ? '+' + s.decisionCount : '—'}</td>
-          <td>${s.size}</td>
-          <td style="color:${s.dataQuality === 'auto' ? 'var(--accent-blue)' : 'var(--text-tertiary)'}">${s.dataQuality}</td>
-        </tr>`
-      ).join('');
+    // ── O4: Recent Hook Events ────────────────────────────────────
+    function parseHookLines(lines) {
+      const events = [];
+      for (const ln of lines) {
+        // [2026-04-26T05:17:50.150Z] [hook-name] STATUS rest...
+        const m = /^\[([^\]]+)\]\s*\[([^\]]+)\]\s*(\S+)\s*(.*)$/.exec(ln);
+        if (!m) continue;
+        const [, ts, hook, status, tail] = m;
+        const sm = /legend=(session_\d+)/.exec(tail) || /(session_\d+)/.exec(tail);
+        events.push({ ts, hook, status, session: sm ? sm[1] : '', raw: ln });
+      }
+      return events;
     }
 
-    function renderDecisions(ledger) {
-      const decisions = (ledger?.decisions ?? []).slice().reverse().slice(0, 10);
-      const tbody = document.getElementById('decisionTable');
-      if (decisions.length === 0) { tbody.innerHTML = '<tr><td colspan="4" class="empty-state">No data</td></tr>'; return; }
-
-      tbody.innerHTML = decisions.map(d =>
-        `<tr>
-          <td class="td-id">${d.id}</td>
-          <td style="color:var(--text-tertiary)">${d.date}</td>
-          <td class="td-axis">${d.axis}</td>
-          <td><span style="font-size:10px;color:var(--accent-green)">${d.status}</span></td>
-        </tr>`
-      ).join('');
+    function renderHookEvents(hookLog) {
+      const tbody = document.getElementById('hookTable');
+      const allLines = (hookLog || '').trim().split('\n');
+      const events = parseHookLines(allLines).slice(-10).reverse();
+      if (events.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="4" class="empty-state">No hook events</td></tr>';
+        return;
+      }
+      const sCol = { OK:'var(--accent-green)', FIRED:'var(--accent-blue)', FALLBACK:'#F59E0B', ABORT:'#EF4444', ERROR:'#EF4444' };
+      tbody.innerHTML = events.map(e => {
+        const t = new Date(e.ts);
+        const tStr = isNaN(t) ? e.ts : t.toLocaleString('ko-KR',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
+        return `<tr>
+          <td style="color:var(--text-tertiary);font-size:11px">${tStr}</td>
+          <td class="td-axis">${e.hook}</td>
+          <td class="td-id">${e.session||'—'}</td>
+          <td><span style="font-size:10px;color:${sCol[e.status]||'var(--text-tertiary)'}">${e.status}</span></td>
+        </tr>`;
+      }).join('');
     }
+
 
     init();
   </script>

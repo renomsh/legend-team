@@ -19,23 +19,20 @@
       <div class="crumb">Home</div>
       <div class="h1">Legend Team</div>
     </div>
-    <div class="topbar-right">
-      <div class="pill"><span class="dot"></span><span id="sessionBadge">—</span></div>
-      <div class="pill">Build: <span id="buildDate" style="color:var(--text-3)">—</span></div>
-    </div>
+    <div class="topbar-right"><!-- nav.js 자동 주입 --></div>
   </div>
   <div class="page" style="padding:0;max-width:none;margin:0">
     <!-- Hero (D-097 단계적 추출 — components.css §8 적용) -->
     <section class="hero">
       <div class="hero-grid">
         <div>
-          <div class="h-eyebrow"><span class="blip"></span>Total sessions accumulated</div>
-          <div class="hero-number" id="kpiSessions">—</div>
+          <div class="h-eyebrow"><span class="blip"></span>Latest topic accumulated</div>
+          <div class="hero-number" id="kpiTopicId">—</div>
           <div class="hero-label">Legend Team Strategy OS</div>
           <div class="hero-meta">
             <div>
-              <div class="hm-k">Topics</div>
-              <div class="hm-v" id="kpiTopics">—</div>
+              <div class="hm-k">Sessions</div>
+              <div class="hm-v" id="kpiSessions">—</div>
             </div>
             <div>
               <div class="hm-k">Decisions</div>
@@ -92,7 +89,7 @@
         <div class="mini-list" id="pendingList"><div class="loading">Loading</div></div>
       </div>
 
-      <div class="mini-panel" style="--mini-accent:#F472B6">
+      <div class="mini-panel" style="--mini-accent:#3B82F6">
         <div class="mini-h">
           <div class="mini-title">Cost &amp; Tokens</div>
           <span class="mini-meta" id="costMeta">최근 5세션</span>
@@ -198,15 +195,25 @@
         DataLoader.getProjectCharter().catch(() => null)
       ]);
 
-      if (sessionIdx?.sessions) {
-        document.getElementById('kpiSessions').textContent = sessionIdx.sessions.length;
-        const last = sessionIdx.sessions.at(-1);
-        if (last?.sessionId) document.getElementById('sessionBadge').textContent = last.sessionId;
+      // Sessions hero-meta = session ID 최대 (ID-기준 통일, Master 직관)
+      if (sessionIdx?.sessions?.length) {
+        let maxN = 0;
+        for (const s of sessionIdx.sessions) {
+          const m = /^session_(\d+)$/.exec(s.sessionId || '');
+          if (m && +m[1] > maxN) maxN = +m[1];
+        }
+        if (maxN) document.getElementById('kpiSessions').textContent = maxN;
       }
-      const manifest = await DataLoader.fetchJSON('manifest.json').catch(() => null);
-      const buildAt = manifest?.generatedAt || new Date().toISOString();
-      document.getElementById('buildDate').textContent = new Date(buildAt).toLocaleDateString('ko-KR');
-      if (topicIdx?.topics) document.getElementById('kpiTopics').textContent = topicIdx.topics.length;
+      // Hero hero-number = 최신 토픽 ID (ID-기준 통일)
+      if (topicIdx?.topics?.length) {
+        let maxId = 0;
+        for (const t of topicIdx.topics) {
+          const m = /^topic_(\d+)/.exec(t.id || '');
+          if (m && +m[1] > maxId) maxId = +m[1];
+        }
+        if (maxId) document.getElementById('kpiTopicId').textContent = maxId;
+      }
+      // session/topic/build pill은 nav.js에서 단일 주입
       if (decIdx?.decisions) document.getElementById('kpiDecisions').textContent = decIdx.decisions.length;
 
       // Hero chart — last 14 sessions, total tokens (Master Q1=b)
@@ -219,15 +226,21 @@
         renderHeroChart(last14);
       }
 
-      // Recent Activity — last 5 sessions
+      // Recent Activity — last 5 sessions (PD와 동일 1줄 패턴: title 굵 — desc 얇)
       if (sessionIdx?.sessions?.length) {
         const recent5 = sessionIdx.sessions.slice(-5).reverse();
-        document.getElementById('recentActivity').innerHTML = recent5.map(s => `
-          <a class="mini-item" href="session.html?id=${s.sessionId}" style="text-decoration:none">
-            <span class="mini-item-id">${s.sessionId.replace('session_','S')}</span>
-            <span class="mini-item-text" title="${(s.topic||'').replace(/"/g,'&quot;')}">${s.topic || s.topicSlug || '—'}</span>
-          </a>
-        `).join('');
+        document.getElementById('recentActivity').innerHTML = recent5.map(s => {
+          const topic = s.topic || s.topicSlug || '—';
+          const m = topic.match(/^([^—–]+?)\s*[—–]\s*(.+)$/s);
+          const title = m ? m[1].trim() : topic;
+          const desc = m ? m[2].trim() : '';
+          const tt = topic.replace(/"/g, '&quot;');
+          return `
+            <a class="mini-item" href="session.html?id=${s.sessionId}" style="text-decoration:none" title="${tt}">
+              <span class="mini-item-id">${s.sessionId.replace('session_','S')}</span>
+              <span class="mini-item-text"><strong>${title}</strong>${desc ? ` — <span class="mini-desc-inline">${desc}</span>` : ''}</span>
+            </a>`;
+        }).join('');
       }
 
       // Pending Deferrals — deferrals.html 카드 패턴 (title — desc 분리, 자동 wrap, session 출처)

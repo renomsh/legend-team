@@ -119,10 +119,7 @@ a{color:inherit;text-decoration:none}
         <div class="crumb">Dashboard / Upgrade</div>
         <div class="h1">Upgrade Dashboard</div>
       </div>
-      <div class="topbar-right">
-        <div class="pill"><span class="dot"></span><span id="sessionBadge">—</span></div>
-        <div class="pill">Build: <span id="buildDate" style="color:var(--text-3)">—</span></div>
-      </div>
+      <div class="topbar-right"><!-- nav.js 자동 주입 --></div>
     </div>
 
     <!-- HERO -->
@@ -414,15 +411,19 @@ async function init() {
   const total = allSessions.length;
   const avgSize = total ? (allSessions.reduce((a,s)=>a+(s.size||0),0)/total).toFixed(1) : '—';
 
-  document.getElementById('buildDate').textContent = new Date(data.generatedAt).toLocaleDateString('ko-KR');
-  document.getElementById('buildTs').textContent = new Date(data.generatedAt).toLocaleString('ko-KR',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
-  document.getElementById('heroNum').textContent = total;
+  // buildDate / sessionBadge / buildTs → nav.js 단일 주입 (id 제거됨)
+  // ID-기준 통일 (Master 직관, topic_113): hero number = session ID 최대 (count 아님)
+  let maxSessionN = 0;
+  for (const s of allSessions) {
+    const m = /^session_(\d+)$/.exec(s.sessionId || '');
+    if (m && +m[1] > maxSessionN) maxSessionN = +m[1];
+  }
+  const heroN = maxSessionN || total;
+  document.getElementById('heroNum').textContent = heroN;
   const ver = charter?.charter?.version ?? '1.11';
-  document.getElementById('heroLabel').textContent = `${total} sessions · v${ver} · Legend Team`;
+  document.getElementById('heroLabel').textContent = `${heroN} sessions · v${ver} · Legend Team`;
   document.querySelectorAll('#sidebarVersion').forEach(el => el.textContent = `v${ver}`);
-  document.getElementById('mDec').innerHTML = (globalMetrics.totalDecisions ?? 0)+'<small style="font-size:11px;color:#6E6E78;margin-left:6px">건</small>';
-  document.getElementById('mCache').textContent = fmtPct(globalMetrics.avgCacheHitRate);
-  document.getElementById('mSize').textContent = avgSize;
+  // hero-meta는 applyFilter()에서 카드와 동일한 filtered 값으로 채움 (단일 출처)
 
   const slider = document.getElementById('sessionSlider');
   slider.max = Math.max(total, 1);
@@ -505,9 +506,19 @@ function renderKPIs() {
   // 필터 구간 내 결정 수
   const filteredDec = filteredSessions.reduce((a,s)=>a+(s.decisionCount||0),0);
 
-  document.getElementById('kDec').textContent = filteredDec || (globalMetrics.totalDecisions ?? 0);
+  // 전 페이지 일관 — decision_ledger 기반 totalDecisions 단일 출처 (Master, topic_113)
+  const decVal = globalMetrics.totalDecisions ?? filteredDec ?? 0;
+  const cacheVal = fmtPct(avgCache);
+  document.getElementById('kDec').textContent = decVal;
   document.getElementById('kSize').textContent = avgSize;
-  document.getElementById('kCache').textContent = fmtPct(avgCache);
+  document.getElementById('kCache').textContent = cacheVal;
+  // hero-meta 동기화 (단일 출처, 카드와 동일 필터값)
+  const mDec = document.getElementById('mDec');
+  if (mDec) mDec.innerHTML = decVal + '<small style="font-size:11px;color:#6E6E78;margin-left:6px">건</small>';
+  const mCache = document.getElementById('mCache');
+  if (mCache) mCache.textContent = cacheVal;
+  const mSize = document.getElementById('mSize');
+  if (mSize) mSize.textContent = avgSize;
   const cacheSub = document.getElementById('kCacheSub');
   const cacheWarn = document.getElementById('kCacheWarn');
   if (cacheSub) cacheSub.textContent = withTok.length
@@ -527,7 +538,7 @@ function renderKPIs() {
   const avgTok = withTok.length ? totalTokens / withTok.length : null;
   document.getElementById('kTokensAvg').textContent = avgTok ? `avg ${fmtTokens(avgTok)}/세션` : 'avg —/세션';
   document.getElementById('kSessions').textContent = t;
-  document.getElementById('sessionBadge').textContent = filteredSessions.at(-1)?.sessionId ?? '—';
+  // sessionBadge → nav.js 단일 주입 (id 제거됨)
 
   spark('sparkDec', filteredSessions.map(s=>s.decisionCount||0), '#A78BFA');
   spark('sparkSize', filteredSessions.map(s=>s.size||0), '#14B8A6');

@@ -104,7 +104,63 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
     }
   } catch (_) {}
+
+  // Topbar pills: 모든 페이지 .topbar-right 자동 주입 (단일 출처) — topic_113 v3
+  // session_NN · topic_NNN · Build YYYY. M. D.  — 모두 녹색 dot
+  await _renderTopbarPills();
 });
+
+async function _renderTopbarPills() {
+  let tr = document.querySelector('.topbar-right');
+  if (!tr) {
+    // 페이지에 .topbar-right 없으면 .main/.s-main 우측 상단에 자동 주입
+    const main = document.querySelector('.main, .s-main, main.main, main.s-main');
+    if (!main) return;
+    if (getComputedStyle(main).position === 'static') main.style.position = 'relative';
+    tr = document.createElement('div');
+    tr.className = 'topbar-right';
+    tr.style.cssText = 'position:absolute;top:28px;right:36px;z-index:5';
+    main.appendChild(tr);
+  }
+
+  // ID-기준 통일: session ID 최대 / topic ID 최대 / manifest generatedAt
+  let sessionId = '—', topicId = '—', buildDate = '—';
+  try {
+    const sIdx = await fetch('./data/memory/sessions/session_index.json').then(r => r.json()).catch(() => null);
+    if (sIdx?.sessions?.length) {
+      let maxN = 0, last = '';
+      for (const s of sIdx.sessions) {
+        const m = /^session_(\d+)$/.exec(s.sessionId || '');
+        if (m && +m[1] > maxN) { maxN = +m[1]; last = s.sessionId; }
+      }
+      if (last) sessionId = last;
+    }
+    const tIdx = await fetch('./data/memory/shared/topic_index.json').then(r => r.json()).catch(() => null);
+    const topics = Array.isArray(tIdx) ? tIdx : (tIdx?.topics || []);
+    if (topics.length) {
+      let maxN = 0, last = '';
+      for (const t of topics) {
+        const m = /^topic_(\d+)/.exec(t.id || '');
+        if (m && +m[1] > maxN) { maxN = +m[1]; last = t.id; }
+      }
+      if (last) topicId = last;
+    }
+    const pub = await fetch('./data/published/topics_manifest.json').then(r => r.json()).catch(() => null);
+    const ts = pub?.generatedAt;
+    if (ts) {
+      buildDate = new Date(ts).toLocaleDateString('ko-KR');
+      // sidebar 하단 buildTs도 단일 출처로 채움 (모든 페이지)
+      const tsStr = new Date(ts).toLocaleString('ko-KR', { month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit' });
+      document.querySelectorAll('#buildTs').forEach(el => { el.textContent = tsStr; });
+    }
+  } catch (_) {}
+
+  tr.innerHTML = `
+    <div class="pill"><span class="dot"></span><span>${sessionId}</span></div>
+    <div class="pill"><span class="dot"></span><span>${topicId}</span></div>
+    <div class="pill"><span class="dot"></span><span>Build: <span style="color:var(--text-3)">${buildDate}</span></span></div>
+  `;
+}
 
 // Get URL parameters
 function getParam(name) {
