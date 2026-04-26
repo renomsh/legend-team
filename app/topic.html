@@ -26,6 +26,7 @@
 .tab-btn{background:none;border:none;padding:10px 18px;font-size:12px;font-weight:600;letter-spacing:.5px;color:var(--text-3);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .15s,border-color .15s;text-transform:uppercase}
 .tab-btn:hover{color:var(--text-2)}
 .tab-btn.active{color:#fff;border-bottom-color:#8B5CF6}
+.report-item.card{margin-bottom:12px;padding:0}
 </style>
 <body>
 <a href="#main-content" class="skip-link">본문으로 건너뛰기</a>
@@ -90,7 +91,7 @@
         folderBase = `${topic.created}_${topicId}`;
       }
       const items = topic.reportFiles.map(f => `
-        <div class="report-item" id="report-${f}">
+        <div class="report-item card" id="report-${f}">
           <div class="report-header" onclick="toggleReport('${folderBase}/${f}', '${f}')">
             <span class="report-icon">&#x1F4C4;</span>
             <span class="report-name">${f}</span>

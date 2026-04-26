@@ -30,6 +30,55 @@
   <div class="page" style="padding:0;max-width:none;margin:0">
     <div style="margin-bottom:20px;font-size:12px;color:var(--text-tertiary)" id="charterSub">Memory-First · Topic-Based · Role-Separated</div>
 
+    <!-- Hero KPI row (ia-spec §5-2) -->
+    <div class="kpi-row" data-kpi-count="3" style="margin-bottom:24px">
+      <div class="kpi" style="--accent:var(--grad-violet,#8B5CF6)">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
+          <div class="kpi-label">Sessions</div>
+        </div>
+        <div class="kpi-val" id="kpiSessions">--</div>
+        <div class="kpi-sub">누적 세션 수</div>
+      </div>
+      <div class="kpi" style="--accent:var(--grad-teal,#06B6D4)">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
+          <div class="kpi-label">Topics</div>
+        </div>
+        <div class="kpi-val" id="kpiTopics">--</div>
+        <div class="kpi-sub">누적 토픽 수</div>
+      </div>
+      <div class="kpi" style="--accent:var(--grad-amber,#F59E0B)">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
+          <div class="kpi-label">Decisions</div>
+        </div>
+        <div class="kpi-val" id="kpiDecisions">--</div>
+        <div class="kpi-sub">누적 결정 수</div>
+      </div>
+    </div>
+
+    <!-- 5 Index Cards (ia-spec §5-1: H1~H5) -->
+    <div class="section-grid">
+      <a href="dashboard-upgrade.html" class="card" style="text-decoration:none;color:inherit;cursor:pointer;transition:border-color .15s" onmouseover="this.style.borderColor='var(--line-2)'" onmouseout="this.style.borderColor='var(--line)'">
+        <div class="card-title">Dashboard</div>
+        <div style="font-size:12px;color:var(--text-3);margin-top:8px">성장 지표 · 세션 분석 · 비용</div>
+      </a>
+      <a href="growth.html" class="card" style="text-decoration:none;color:inherit;cursor:pointer;transition:border-color .15s" onmouseover="this.style.borderColor='var(--line-2)'" onmouseout="this.style.borderColor='var(--line)'">
+        <div class="card-title">Growth</div>
+        <div style="font-size:12px;color:var(--text-3);margin-top:8px">역할 성장 · 지표 추이</div>
+      </a>
+      <a href="people.html" class="card" style="text-decoration:none;color:inherit;cursor:pointer;transition:border-color .15s" onmouseover="this.style.borderColor='var(--line-2)'" onmouseout="this.style.borderColor='var(--line)'">
+        <div class="card-title">People</div>
+        <div style="font-size:12px;color:var(--text-3);margin-top:8px">역할 프로필 · 권한 현황</div>
+      </a>
+      <a href="topic.html" class="card" style="text-decoration:none;color:inherit;cursor:pointer;transition:border-color .15s" onmouseover="this.style.borderColor='var(--line-2)'" onmouseout="this.style.borderColor='var(--line)'">
+        <div class="card-title">Records</div>
+        <div style="font-size:12px;color:var(--text-3);margin-top:8px">Topics · Decisions · Feedback</div>
+      </a>
+      <a href="dashboard-ops.html" class="card" style="text-decoration:none;color:inherit;cursor:pointer;transition:border-color .15s" onmouseover="this.style.borderColor='var(--line-2)'" onmouseout="this.style.borderColor='var(--line)'">
+        <div class="card-title">System</div>
+        <div style="font-size:12px;color:var(--text-3);margin-top:8px">Ops 대시보드 · 시스템 상태</div>
+      </a>
+    </div>
+
     <!-- Roles -->
     <div class="section-title">Agents</div>
     <div class="roles-grid" id="rolesGrid">
@@ -117,6 +166,24 @@
   <script src="js/nav.js"></script>
   <script>
     async function init() {
+      // Load KPI counts
+      try {
+        const [topicIdx, decIdx] = await Promise.all([
+          DataLoader.getTopicIndex(),
+          DataLoader.getDecisionLedger()
+        ]);
+        const sessionIdx = await DataLoader.getSessionIndex().catch(() => null);
+        if (sessionIdx && sessionIdx.sessions) {
+          document.getElementById('kpiSessions').textContent = sessionIdx.sessions.length;
+        }
+        if (topicIdx && topicIdx.topics) {
+          document.getElementById('kpiTopics').textContent = topicIdx.topics.length;
+        }
+        if (decIdx && decIdx.decisions) {
+          document.getElementById('kpiDecisions').textContent = decIdx.decisions.length;
+        }
+      } catch(e) { /* placeholder -- 값 유지 */ }
+
       // Load topics — recent 10 first, expand/collapse for rest
       const topicData = await DataLoader.getTopicIndex();
       const topicEl = document.getElementById('topicList');

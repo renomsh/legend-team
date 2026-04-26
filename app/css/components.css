@@ -216,3 +216,46 @@
   color: var(--text-2);
 }
 /* .kpi-card .kpi-value 는 .kpi-num helper class 직접 부여 */
+
+/* ── §4. .kpi (dashboard-upgrade.html canonical 셀렉터) ─────── */
+/* index.html Hero KPI 카드 — dashboard-upgrade.html 인라인에서 추출 */
+.kpi {
+  position: relative;
+  padding: 20px;
+  border-radius: 16px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  transition: all .2s;
+}
+.kpi:hover { border-color: var(--line-2); transform: translateY(-2px); }
+.kpi::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent, var(--grad-violet)); }
+.kpi .kpi-label { font-size: 10px; text-transform: uppercase; letter-spacing: .14em; color: var(--text-3); font-weight: 600; }
+.kpi .kpi-val { font-size: 36px; font-weight: 800; letter-spacing: -1px; line-height: 1; }
+.kpi .kpi-sub { font-size: 11px; color: var(--text-3); margin-top: 6px; }
+
+/* ── §5. .section-grid (dashboard-upgrade.html canonical 셀렉터) */
+/* 5 인덱스 카드 grid layout — ia-spec.md §5-1 */
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+@media (max-width: 1023px) {
+  .section-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 599px) {
+  .section-grid { grid-template-columns: 1fr; }
+}
+
+/* ── §6. .card (generic card — section-grid 자식 등) ──────────── */
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px;
+  min-width: 0;
+}
+.card-h { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 18px; gap: 12px; }
+.card-title { font-size: 14px; font-weight: 700; letter-spacing: -.2px; }

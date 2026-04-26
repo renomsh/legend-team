@@ -4497,8 +4497,62 @@
       "decisionsAdded": [
         "D-100"
       ]
+    },
+    {
+      "sessionId": "session_108",
+      "topicSlug": "dashboard-phase-b-cross-check",
+      "topic": "Phase B 진입 — 6페이지 cross-check + 임계 후보 (i)(ii) 박제 + Master Q-A",
+      "startedAt": "2026-04-26T15:30:00.000Z",
+      "closedAt": "2026-04-26T16:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "decisions": [
+        {
+          "decision": "index.html 역할 카드 → (b) 하단 섹션 이동",
+          "context": "Phase B 진입 시 Master 결정"
+        }
+      ],
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "dev",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "phase": "planning"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 2,
+          "phase": "audit"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 3,
+          "phase": "implementation"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 4,
+          "phase": "compilation"
+        }
+      ],
+      "grade": "B",
+      "note": "Gate C: g0_5-spec-check.mjs --mode=enforce → FAIL=0, WARN=2(허용), PASS=4 | Gate VR: vr:capture self-diff 0.00% PASS, 24/24 baseline 재lock | Riki R1(HIGH/.kpi), R2(MEDIUM/.section-grid), R3(LOW/.card margin) 모두 해소 | components.css에 .kpi, .section-grid, .card/.card-h/.card-title 등재 완료",
+      "oneLineSummary": "Phase B/C 완료 — FAIL 2→0, Gate C PASS, VR 24/24 재lock. index.html kpi-row+section-grid 추가, topic.html .card 추가",
+      "decisionsAdded": [
+        "[object Object]"
+      ]
     }
   ],
-  "lastUpdated": "2026-04-26T02:29:12.863Z",
+  "lastUpdated": "2026-04-26T02:57:42.250Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

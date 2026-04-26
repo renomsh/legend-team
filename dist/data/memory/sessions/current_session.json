@@ -1,27 +1,26 @@
 {
-  "sessionId": "session_107",
-  "topicId": "topic_110",
-  "topic": "대시보드 점검 — 홈/논의 불일치 진단",
-  "topicSlug": "dashboard-inspection-home-mismatch",
-  "reportPath": "reports/2026-04-26_dashboard-inspection-home-mismatch",
+  "sessionId": "session_108",
+  "topicId": "topic_111",
+  "topic": "Phase B 진입 — 6페이지 cross-check + 임계 후보 (i)(ii) 박제 + Master Q-A",
+  "topicSlug": "dashboard-phase-b-cross-check",
+  "reportPath": "reports/2026-04-26_dashboard-phase-b-cross-check",
   "status": "closed",
-  "startedAt": "2026-04-26T13:00:00.000Z",
-  "closedAt": "2026-04-26T15:00:00.000Z",
+  "startedAt": "2026-04-26T15:30:00.000Z",
+  "closedAt": "2026-04-26T16:30:00.000Z",
   "mode": "observation",
-  "grade": "A",
-  "gradeDeclared": "A",
+  "grade": "B",
+  "gradeDeclared": "B",
   "orchestrationMode": "manual",
   "orchestrationTransitions": [],
   "framingLevel": 2,
   "framingSkipped": false,
-  "topicType": "framing",
-  "parentTopicId": null,
+  "topicType": "implementation",
+  "parentTopicId": "topic_110",
   "childTopicIds": [],
   "agentsCompleted": [
     "ace",
     "arki",
     "riki",
-    "ace",
     "dev",
     "editor"
   ],
@@ -34,76 +33,53 @@
     {
       "role": "arki",
       "turnIdx": 1,
-      "phase": "execution-plan"
+      "phase": "planning"
     },
     {
       "role": "riki",
       "turnIdx": 2,
-      "phase": "analysis"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 3,
-      "phase": "synthesis"
+      "phase": "audit"
     },
     {
       "role": "dev",
-      "turnIdx": 4,
-      "phase": "execution-plan"
+      "turnIdx": 3,
+      "phase": "implementation"
     },
     {
       "role": "editor",
-      "turnIdx": 5,
-      "phase": "compile"
+      "turnIdx": 4,
+      "phase": "compilation"
     }
   ],
-  "decisions": [
-    "D-100"
-  ],
+  "decisions": [],
   "masterDecisions": [
-    "Q1=a 정본 3종 (ia-spec.md + dashboard-upgrade.html canonical + page-checklist/)",
-    "Q2=a People 페이지 신규 생성 — 본 토픽 scope 포함",
-    "Q3=b 임계 Phase B 실측 후 Phase C 직전 lock",
-    "Q4=a Phase A 즉시 착수",
-    "Q5=a Phase A까지만 박제 후 close",
-    "Q6=a Records 통합 파일 유지"
-  ],
-  "masterFeedback": [
     {
-      "ts": "2026-04-26T13:00:00.000Z",
-      "content": "대시보드 홈페이지가 논의한 내용과 전혀 맞지 않음. 점검 필요."
-    },
-    {
-      "ts": "2026-04-26T13:30:00.000Z",
-      "content": "피플. 다 엉망이야. 디자인도 업그레이드로 되기로 했는데 디자인도 안되고 도대체 뭐 한지 모르겠어."
+      "decision": "index.html 역할 카드 → (b) 하단 섹션 이동",
+      "context": "Phase B 진입 시 Master 결정"
     }
   ],
+  "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "pendingDeferralsDeprecated": [],
-  "decisionsAdded": [
-    "D-100"
-  ],
-  "oneLineSummary": "G0.5 spec 정합 게이트 신설(D-100), 정본 3종 + page-checklist 6 박제, 9 리스크(R1~R9), Phase A 완료. FAIL 2 + WARN 2 노출.",
+  "decisionsAdded": [],
+  "oneLineSummary": "Phase B/C 완료 — FAIL 2→0, Gate C PASS, VR 24/24 재lock. index.html kpi-row+section-grid 추가, topic.html .card 추가",
   "notes": [
-    "Master 입력: '일단 홈페이지부터 - 이렇게 만들기로 했었나? 논의한 내용과 전혀 맞지 않아.' (스크린샷 첨부)",
-    "추가 입력: '피플. 다 엉망이야. 디자인도 업그레이드로 되기로 했는데 디자인도 안되고...'",
-    "P-3 채택 (게이트 자체 재설계). G1~G5는 코드 형식만 검증, spec 정합 검증 부재 — 메타 결함 진단.",
-    "Q1=a/Q2=a/Q3=b/Q4=a/Q5=a/Q6=a 6결정.",
-    "Phase A 완료: ia-spec.md 정본화 / page-checklist 6 / g0_5-spec-check.mjs / D-094·D-097 STATUS inline / D-100 / 4-way diff drift 0.",
-    "g0_5 report mode: PASS 2 (canonical 자기 + Ops) / WARN 2 (growth/people 파일 부재 minimal) / FAIL 2 (index.html Home spec 0건, topic.html canonical 0건).",
-    "Phase B/C 잔여 → 차기 세션. 3세션 원칙 잔여 슬롯 2.",
-    "9 리스크 박제 (Arki R1~R5 + Riki R6~R9). R7 mit 채택: People을 Phase A 산출물 포함.",
-    "topic_110 status = in-progress (Phase B/C 잔여)."
+    "Gate C: g0_5-spec-check.mjs --mode=enforce → FAIL=0, WARN=2(허용), PASS=4",
+    "Gate VR: vr:capture self-diff 0.00% PASS, 24/24 baseline 재lock",
+    "Riki R1(HIGH/.kpi), R2(MEDIUM/.section-grid), R3(LOW/.card margin) 모두 해소",
+    "components.css에 .kpi, .section-grid, .card/.card-h/.card-title 등재 완료"
   ],
-  "gaps": [],
+  "gaps": [
+    "session-log audit warning: masterDecisions는 ad-hoc 선택 기록 (D-xxx 미등재 정상 — 이 세션 D-xxx 결정 0건)"
+  ],
   "tokenUsage": {
-    "input_tokens": 320,
-    "output_tokens": 101037,
-    "cache_creation_input_tokens": 286851,
-    "cache_read_input_tokens": 8404228,
-    "messageCount": 77,
-    "masterTurns": 11,
-    "total_billable": 8792436
+    "input_tokens": 104,
+    "output_tokens": 55798,
+    "cache_creation_input_tokens": 299813,
+    "cache_read_input_tokens": 5499182,
+    "messageCount": 72,
+    "masterTurns": 5,
+    "total_billable": 5854897
   }
 }

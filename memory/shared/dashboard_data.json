@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-26T02:29:44.233Z",
-  "totalSessions": 105,
+  "generatedAt": "2026-04-26T02:59:11.298Z",
+  "totalSessions": 106,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.73,
-    "avgCacheHitRate": 0.933,
-    "cacheSampleSize": 79,
-    "cacheSampleTotal": 105,
+    "avgMasterTurns": 16.61,
+    "avgCacheHitRate": 0.9331,
+    "cacheSampleSize": 80,
+    "cacheSampleTotal": 106,
     "avgAdoptionRate": 0,
     "totalDecisions": 100,
     "gradeDistribution": {
       "S": 42,
-      "A": 19,
+      "A": 20,
       "B": 32,
       "C": 12
     },
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 60,
-    "totalCostUSD": 913.9288,
-    "avgCostPerSession": 9.1393,
-    "costSampleSize": 100
+    "turnBasedSessions": 61,
+    "totalCostUSD": 917.5401,
+    "avgCostPerSession": 9.0846,
+    "costSampleSize": 101
   },
   "sessions": [
     {
@@ -3998,12 +3998,55 @@
         "messageCount": 77
       },
       "sessionCostUSD": 5.1135
+    },
+    {
+      "sessionId": "session_108",
+      "topicSlug": "dashboard-phase-b-cross-check",
+      "topic": "Phase B 진입 — 6페이지 cross-check + 임계 후보 (i)(ii) 박제 + Master Q-A",
+      "startedAt": "2026-04-26T15:30:00.000Z",
+      "closedAt": "2026-04-26T16:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        {
+          "decision": "index.html 역할 카드 → (b) 하단 섹션 이동",
+          "context": "Phase B 진입 시 Master 결정"
+        }
+      ],
+      "rolesCalled": 5,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 10,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 5,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 5854897,
+        "ioTokens": 55902,
+        "inputTokens": 104,
+        "outputTokens": 55798,
+        "cacheCreate": 299813,
+        "cacheRead": 5499182,
+        "cacheHitRate": 0.9392448748457914,
+        "messageCount": 72
+      },
+      "sessionCostUSD": 3.6113
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 114,
+      "count": 115,
       "sessions": [
         "session_047",
         "session_048",
@@ -4056,12 +4099,13 @@
         "session_104",
         "session_105",
         "session_106",
-        "session_107"
+        "session_107",
+        "session_108"
       ]
     },
     {
       "role": "arki",
-      "count": 82,
+      "count": 83,
       "sessions": [
         "session_048",
         "session_049",
@@ -4098,12 +4142,13 @@
         "session_104",
         "session_105",
         "session_106",
-        "session_107"
+        "session_107",
+        "session_108"
       ]
     },
     {
       "role": "editor",
-      "count": 57,
+      "count": 58,
       "sessions": [
         "session_050",
         "session_051",
@@ -4161,12 +4206,13 @@
         "session_104",
         "session_105",
         "session_106",
-        "session_107"
+        "session_107",
+        "session_108"
       ]
     },
     {
       "role": "dev",
-      "count": 48,
+      "count": 49,
       "sessions": [
         "session_047",
         "session_048",
@@ -4205,12 +4251,13 @@
         "session_104",
         "session_105",
         "session_106",
-        "session_107"
+        "session_107",
+        "session_108"
       ]
     },
     {
       "role": "riki",
-      "count": 38,
+      "count": 39,
       "sessions": [
         "session_049",
         "session_053",
@@ -4242,7 +4289,8 @@
         "session_104",
         "session_105",
         "session_106",
-        "session_107"
+        "session_107",
+        "session_108"
       ]
     },
     {
@@ -6912,6 +6960,42 @@
           "role": "editor",
           "phase": "compile",
           "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_108",
+      "topic": "Phase B 진입 — 6페이지 cross-check + 임계 후보 (i)(ii) 박제 + Master Q-A",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "planning",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "audit",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compilation",
+          "turnIdx": 4,
           "recallReason": null
         }
       ]
