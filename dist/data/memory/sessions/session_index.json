@@ -4838,8 +4838,36 @@
       "note": "ops Build Freshness 카드 삭제 + 폰트 균일화 | growth + people 통합 — 단일 캐릭터 성장 페이지 (§1~§4) | 홈 hub card 4→3 (People 제거) | role_registry.json v1.1 — 6개 역할 색상 tokens.css 팔레트로 동기화 | _redirects: /people.html → /growth.html 301",
       "oneLineSummary": "ops Build Freshness 제거·글자통일, growth+people 통합, 홈 3카드, 역할색상 v1.1 동기화",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_116",
+      "topicSlug": "topic-session-1-to-n-open-rule",
+      "topic": "Topic-세션 1:다 구조 — /open 스킬 토픽 번호 명시 시 기존 토픽 유지",
+      "startedAt": "2026-04-27T14:00:00.000Z",
+      "closedAt": "2026-04-27T14:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "ace",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 1,
+          "phase": "compile"
+        }
+      ],
+      "grade": "B",
+      "note": "/open 스킬 7번 항목 분기 A/B 재작성 완료 | Grade 판정 규칙 §0 신설 — 토픽 ID 명시 최우선 감지 | 에디 산출물: editor_rev1.md (세션 내 소급 작성)",
+      "oneLineSummary": "/open 스킬 7번 분기 A/B 재작성 — 토픽 ID 명시 시 기존 토픽 재사용, Grade §0 추가",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-04-27T01:25:18.271Z",
+  "lastUpdated": "2026-04-27T09:11:45.628Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

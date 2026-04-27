@@ -4,8 +4,10 @@
   "topic": "Topic-세션 1:다 구조 — /open 스킬 토픽 번호 명시 시 기존 토픽 유지",
   "topicSlug": "topic-session-1-to-n-open-rule",
   "reportPath": "reports/2026-04-27_topic-session-1-to-n-open-rule",
-  "status": "open",
+  "status": "closed",
   "startedAt": "2026-04-27T14:00:00.000Z",
+  "closedAt": "2026-04-27T14:30:00.000Z",
+  "oneLineSummary": "/open 스킬 7번 분기 A/B 재작성 — 토픽 ID 명시 시 기존 토픽 재사용, Grade §0 추가",
   "mode": "observation",
   "grade": "B",
   "gradeDeclared": "B",
@@ -16,11 +18,20 @@
   "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
-  "agentsCompleted": [],
+  "agentsCompleted": [
+    "ace",
+    "editor"
+  ],
   "turns": [
     {
       "role": "ace",
-      "turnIdx": 0
+      "turnIdx": 0,
+      "phase": "framing"
+    },
+    {
+      "role": "editor",
+      "turnIdx": 1,
+      "phase": "compile"
     }
   ],
   "decisions": [],
@@ -30,15 +41,21 @@
   "pendingDeferralsResolved": [],
   "pendingDeferralsDeprecated": [],
   "decisionsAdded": [],
-  "notes": [],
-  "gaps": [],
+  "notes": [
+    "/open 스킬 7번 항목 분기 A/B 재작성 완료",
+    "Grade 판정 규칙 §0 신설 — 토픽 ID 명시 최우선 감지",
+    "에디 산출물: editor_rev1.md (세션 내 소급 작성)"
+  ],
+  "gaps": [
+    "에디가 세션 내 실시간 호출되지 않고 close 시점에 소급 기록됨 — B grade 소규모 토픽 관행"
+  ],
   "tokenUsage": {
-    "input_tokens": 49,
-    "output_tokens": 19539,
-    "cache_creation_input_tokens": 215616,
-    "cache_read_input_tokens": 1897223,
-    "messageCount": 33,
-    "masterTurns": 3,
-    "total_billable": 2132427
+    "input_tokens": 71,
+    "output_tokens": 26727,
+    "cache_creation_input_tokens": 239098,
+    "cache_read_input_tokens": 3594623,
+    "messageCount": 53,
+    "masterTurns": 4,
+    "total_billable": 3860519
   }
 }

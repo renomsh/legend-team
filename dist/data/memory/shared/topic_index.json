@@ -3,16 +3,20 @@
     {
       "id": "topic_117",
       "title": "Topic-세션 1:다 구조 — /open 스킬 토픽 번호 명시 시 기존 토픽 유지",
-      "status": "open",
-      "phase": "framing",
+      "status": "completed",
+      "phase": "validated",
       "hold": null,
       "grade": "B",
       "created": "2026-04-27",
       "controlPath": "topics/topic_117",
       "reportPath": "reports/2026-04-27_topic-session-1-to-n-open-rule",
-      "reportFiles": [],
+      "reportFiles": [
+        "ace_rev1.md",
+        "editor_rev1.md"
+      ],
       "published": false,
-      "closedInSession": null,
+      "closedInSession": "session_116",
+      "outcome": "/open 스킬 7번 분기 A/B 재작성 완료 — 토픽 ID 명시 시 기존 토픽 재사용, Grade 판정 §0 추가",
       "path": "topics/topic_117"
     },
     {
@@ -2312,5 +2316,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-27T09:05:21.230Z"
+  "lastUpdated": "2026-04-27T09:12:05.174Z"
 }
