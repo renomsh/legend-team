@@ -167,7 +167,7 @@ Usage: ts-node scripts/append-session.ts \\
   [--decisions "D-001,D-002"] \\
   [--plannedSequence "ace,dev"] \\
   [--turns '[{"role":"ace","turnIdx":0,"phase":"framing"}]'] \\
-  [--agentsCompleted "ace,arki,editor"] \\
+  [--agentsCompleted "ace,arki,edi"] \\
   [--note <text>]
 
 D-051/D-052 필드: topicId(N:1), grade/gradeDeclared/gradeActual/gradeMismatch(자동계산),

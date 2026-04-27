@@ -8,7 +8,7 @@ Rules:
 - Never generate JSX, React pages, dashboards, or mockups first
 - Preserve structured topic state and revision history
 - Master feedback is authoritative — but Ace validates before accepting. If a decision conflicts with prior decisions or core principles, Ace asks a clarifying question before proceeding. Master can override with "진행해". See `ace-learning-loop` skill. (D-020, 2026-04-16)
-- Keep role separation: ace, arki, fin, riki, designer, editor, nova
+- Keep role separation: ace, arki, fin, riki, designer, edi, nova
 - Nova is optional and speculative unless explicitly promoted
 - Designer (Vera) handles visual system: color, typography, spacing, gradient, component spec. Receives direction from Ace, delivers spec to Edi. Does NOT make UX strategy or data decisions. (D-029, 2026-04-17)
 - Prefer explicit, inspectable, file-based structure
@@ -178,7 +178,7 @@ Master may switch modes at any time by stating the mode name.
 **기록 주체:** Claude Code (역할 발언 직후 자동)
 
 **필수 필드:**
-- `role` — 발언 역할 (ace, arki, fin, riki, nova, dev, editor 등)
+- `role` — 발언 역할 (ace, arki, fin, riki, nova, dev, edi 등)
 - `turnIdx` — 현재 turns 배열 길이 기준 0-based 자동 부여
 
 **선택 필드 (해당 시 기록):**

@@ -57,7 +57,7 @@ a{color:inherit;text-decoration:none}
 .rchip.arki{background:rgba(6,182,212,.15);color:#67E8F9}
 .rchip.fin{background:rgba(245,158,11,.15);color:#FCD34D}
 .rchip.riki{background:rgba(239,68,68,.15);color:#FCA5A5}
-.rchip.editor{background:rgba(156,163,175,.15);color:#D1D5DB}
+.rchip.edi{background:rgba(156,163,175,.15);color:#D1D5DB}
 .rchip.nova{background:rgba(16,185,129,.15);color:#6EE7B7}
 .rchip.dev{background:rgba(59,130,246,.15);color:#93C5FD}
 .rchip.vera{background:rgba(244,114,182,.15);color:#FBCFE8}
@@ -345,7 +345,7 @@ a{color:inherit;text-decoration:none}
 <script src="js/data-loader.js"></script>
 <script>
 const ROLE_COLORS = window.ROLE_COLORS;
-const ROLE_ORDER = ['ace','arki','fin','riki','editor','dev','nova','vera'];
+const ROLE_ORDER = ['ace','arki','fin','riki','edi','dev','nova','vera'];
 
 function fmtPct(v) {
   if (v === null || v === undefined || isNaN(v)) return '—';
@@ -628,20 +628,15 @@ function renderFlow() {
   }).join('');
 }
 
-function renderRoleFreq(sessions) {
-  // dashboard_data.json의 roleFrequency 사용 — compute-dashboard.ts 실집계
-  const ids = new Set(sessions.map(s=>s.sessionId));
+function renderRoleFreq(_sessions) {
+  // Canonical: dashboard_data.json.roleFrequency (Turn[] 기반, legacy 제외).
+  // session.html roleFrequency 차트와 동일 데이터 — 정합 보장.
   const counts = {};
   ROLE_ORDER.forEach(r=>counts[r]=0);
-  // 필터 구간 내 세션만 집계 (roleFrequency는 전체라서 직접 계산)
-  sessions.forEach(s => {
-    if (!s.agentsCompleted) return;
-    const seen = new Set();
-    s.agentsCompleted.forEach(r => {
-      if (seen.has(r)) return;
-      seen.add(r);
-      if (counts[r] !== undefined) counts[r]++;
-    });
+  (globalRoleFreq || []).forEach(entry => {
+    let role = (entry.role || '').toLowerCase();
+    if (role === 'editor') role = 'edi';
+    if (counts[role] !== undefined) counts[role] = entry.count;
   });
   const max = Math.max(...Object.values(counts),1);
   document.getElementById('roleFreq').innerHTML = ROLE_ORDER.map(r => {

@@ -45,11 +45,11 @@ const METRICS: Record<string, Partial<Metric>[]> = {
     base("vera.token_consistency", "tk_cns", "vera", "quality", "0-5", "higher-better", "디자인 토큰 적용 일관성 (역할 색상·spacing·typography)", ["dist/ 빌드 시각 검수"], { aggregation: "invoked-sessions-only" }),
     base("vera.spec_compliance", "spc_cpl", "vera", "quality", "ratio", "higher-better", "Vera Design System 적용 비율", ["component spec 매핑"], { aggregation: "invoked-sessions-only" }),
   ],
-  editor: [
-    base("editor.artifact_completeness", "art_cmp", "editor", "quality", "ratio", "higher-better", "세션 종결 시 reports/{role}_rev*.md 작성 비율", ["reports 디렉토리 조사"]),
-    base("editor.gap_flag_count", "gap_fc", "editor", "judgment-consistency", "0-5", "lower-better", "current_session.gaps에 누락된 항목 수 (Edi 자체 검수)", ["current_session.json gaps 누락"]),
-    base("editor.cross_session_continuity", "cs_cnt", "editor", "execution-transfer", "0-5", "higher-better", "차기 세션 인계용 메모/PD 등록 충분도", ["pendingDeferrals 등록 적시성"]),
-    base("editor.session_close_compliance", "scc", "editor", "execution-transfer", "Y/N", "higher-better", "Session End 8단계 체크리스트 전 항목 통과", ["session-log.ts gap 0"]),
+  edi: [
+    base("edi.artifact_completeness", "art_cmp", "edi", "quality", "ratio", "higher-better", "세션 종결 시 reports/{role}_rev*.md 작성 비율", ["reports 디렉토리 조사"]),
+    base("edi.gap_flag_count", "gap_fc", "edi", "judgment-consistency", "0-5", "lower-better", "current_session.gaps에 누락된 항목 수 (Edi 자체 검수)", ["current_session.json gaps 누락"]),
+    base("edi.cross_session_continuity", "cs_cnt", "edi", "execution-transfer", "0-5", "higher-better", "차기 세션 인계용 메모/PD 등록 충분도", ["pendingDeferrals 등록 적시성"]),
+    base("edi.session_close_compliance", "scc", "edi", "execution-transfer", "Y/N", "higher-better", "Session End 8단계 체크리스트 전 항목 통과", ["session-log.ts gap 0"]),
   ],
 };
 
@@ -86,7 +86,7 @@ const DERIVED: Partial<Metric> = {
       { metricId: "fin.redundancy_call", weight: 0.5 },
       { metricId: "riki.critical_recall", weight: 1 },
       { metricId: "dev.regression_zero", weight: 1 },
-      { metricId: "editor.artifact_completeness", weight: 0.5 },
+      { metricId: "edi.artifact_completeness", weight: 0.5 },
     ],
     polarityNormalized: true,
     nullPolicy: "weight-renormalize",
@@ -121,7 +121,7 @@ function base(
 function participationByRole(role: string): ("framing" | "implementation" | "standalone")[] {
   switch (role) {
     case "dev": return ["implementation", "standalone"];
-    case "editor": return ["framing", "implementation", "standalone"];
+    case "edi": return ["framing", "implementation", "standalone"];
     case "nova":
     case "vera": return []; // invoked-only, never expected
     default: return ["framing", "standalone"];

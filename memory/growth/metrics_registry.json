@@ -544,9 +544,9 @@
       }
     },
     {
-      "id": "editor.artifact_completeness",
+      "id": "edi.artifact_completeness",
       "shortKey": "art_cmp",
-      "role": "editor",
+      "role": "edi",
       "scope": "role",
       "axis": "quality",
       "type": "base",
@@ -559,10 +559,10 @@
       "validityCheck": "monthly",
       "rater": {
         "type": "self",
-        "by": "editor"
+        "by": "edi"
       },
       "raterWeights": {
-        "editor": 1
+        "edi": 1
       },
       "timing": "immediate",
       "aggregation": "all-sessions",
@@ -583,9 +583,9 @@
       ]
     },
     {
-      "id": "editor.gap_flag_count",
+      "id": "edi.gap_flag_count",
       "shortKey": "gap_fc",
-      "role": "editor",
+      "role": "edi",
       "scope": "role",
       "axis": "judgment-consistency",
       "type": "derived",
@@ -601,15 +601,15 @@
         "formula": "weighted-mean",
         "inputs": [
           {
-            "metricId": "editor.mechanical_gap_count",
+            "metricId": "edi.mechanical_gap_count",
             "weight": 0.3
           },
           {
-            "metricId": "editor.structural_gap_severity",
+            "metricId": "edi.structural_gap_severity",
             "weight": 0.45
           },
           {
-            "metricId": "editor.retroactive_gap_discovery",
+            "metricId": "edi.retroactive_gap_discovery",
             "weight": 0.25
           }
         ],
@@ -620,10 +620,10 @@
       "validityCheck": "monthly",
       "rater": {
         "type": "self",
-        "by": "editor"
+        "by": "edi"
       },
       "raterWeights": {
-        "editor": 1
+        "edi": 1
       },
       "timing": "immediate",
       "aggregation": "all-sessions",
@@ -644,9 +644,9 @@
       ]
     },
     {
-      "id": "editor.cross_session_continuity",
+      "id": "edi.cross_session_continuity",
       "shortKey": "cs_cnt",
-      "role": "editor",
+      "role": "edi",
       "scope": "role",
       "axis": "execution-transfer",
       "type": "base",
@@ -659,10 +659,10 @@
       "validityCheck": "monthly",
       "rater": {
         "type": "self",
-        "by": "editor"
+        "by": "edi"
       },
       "raterWeights": {
-        "editor": 1
+        "edi": 1
       },
       "timing": "immediate",
       "aggregation": "all-sessions",
@@ -683,9 +683,9 @@
       ]
     },
     {
-      "id": "editor.gap_pinning_accuracy",
+      "id": "edi.gap_pinning_accuracy",
       "shortKey": "gp_acc",
-      "role": "editor",
+      "role": "edi",
       "scope": "role",
       "axis": "quality",
       "type": "base",
@@ -700,10 +700,10 @@
       "validityCheck": "monthly",
       "rater": {
         "type": "self",
-        "by": "editor"
+        "by": "edi"
       },
       "raterWeights": {
-        "editor": 1
+        "edi": 1
       },
       "aggregation": "all-sessions",
       "baselineSessions": 10,
@@ -728,9 +728,9 @@
       }
     },
     {
-      "id": "editor.session_close_compliance",
+      "id": "edi.session_close_compliance",
       "shortKey": "scc",
-      "role": "editor",
+      "role": "edi",
       "scope": "role",
       "axis": "execution-transfer",
       "type": "base",
@@ -743,10 +743,10 @@
       "validityCheck": "monthly",
       "rater": {
         "type": "self",
-        "by": "editor"
+        "by": "edi"
       },
       "raterWeights": {
-        "editor": 1
+        "edi": 1
       },
       "timing": "immediate",
       "aggregation": "all-sessions",
@@ -1394,7 +1394,7 @@
             "weight": 1
           },
           {
-            "metricId": "editor.artifact_completeness",
+            "metricId": "edi.artifact_completeness",
             "weight": 0.5
           }
         ],
@@ -1554,9 +1554,9 @@
       ]
     },
     {
-      "id": "editor.mechanical_gap_count",
+      "id": "edi.mechanical_gap_count",
       "shortKey": "gp_mec",
-      "role": "editor",
+      "role": "edi",
       "scope": "role",
       "axis": "judgment-consistency",
       "type": "base",
@@ -1569,10 +1569,10 @@
       "validityCheck": "monthly",
       "rater": {
         "type": "self",
-        "by": "editor"
+        "by": "edi"
       },
       "raterWeights": {
-        "editor": 1
+        "edi": 1
       },
       "timing": "immediate",
       "aggregation": "all-sessions",
@@ -1593,9 +1593,9 @@
       ]
     },
     {
-      "id": "editor.structural_gap_severity",
+      "id": "edi.structural_gap_severity",
       "shortKey": "gp_str",
-      "role": "editor",
+      "role": "edi",
       "scope": "role",
       "axis": "judgment-consistency",
       "type": "base",
@@ -1610,10 +1610,10 @@
       "validityCheck": "monthly",
       "rater": {
         "type": "self",
-        "by": "editor"
+        "by": "edi"
       },
       "raterWeights": {
-        "editor": 1
+        "edi": 1
       },
       "timing": "immediate",
       "aggregation": "all-sessions",
@@ -1634,9 +1634,9 @@
       ]
     },
     {
-      "id": "editor.retroactive_gap_discovery",
+      "id": "edi.retroactive_gap_discovery",
       "shortKey": "gp_rtr",
-      "role": "editor",
+      "role": "edi",
       "scope": "role",
       "axis": "judgment-consistency",
       "type": "base",
@@ -1650,10 +1650,10 @@
       "validityCheck": "monthly",
       "rater": {
         "type": "self",
-        "by": "editor"
+        "by": "edi"
       },
       "raterWeights": {
-        "editor": 1
+        "edi": 1
       },
       "timing": "deferred",
       "aggregation": "all-sessions",

@@ -398,7 +398,8 @@ function main() {
     if (s.legacy) continue;
     if (!s.turns || s.turns.length === 0) continue;
     for (const turn of s.turns) {
-      const role = turn.role.toLowerCase();
+      let role = turn.role.toLowerCase();
+      if (role === 'editor') role = 'edi';
       const entry = turnRoleFreqMap.get(role) ?? { count: 0, sessions: [] };
       entry.count++;
       if (!entry.sessions.includes(s.sessionId)) entry.sessions.push(s.sessionId);

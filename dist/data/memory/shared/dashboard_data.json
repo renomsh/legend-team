@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-27T10:25:18.325Z",
-  "totalSessions": 115,
+  "generatedAt": "2026-04-27T13:41:57.726Z",
+  "totalSessions": 116,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.6,
-    "avgCacheHitRate": 0.9336,
-    "cacheSampleSize": 89,
-    "cacheSampleTotal": 115,
+    "avgMasterTurns": 16.62,
+    "avgCacheHitRate": 0.9339,
+    "cacheSampleSize": 90,
+    "cacheSampleTotal": 116,
     "avgAdoptionRate": 0,
     "totalDecisions": 100,
     "gradeDistribution": {
-      "S": 43,
+      "S": 45,
       "A": 23,
-      "B": 36,
+      "B": 35,
       "C": 13
     },
     "gradeMismatchCount": 2,
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 70,
-    "totalCostUSD": 1147.0047,
-    "avgCostPerSession": 10.4273,
-    "costSampleSize": 110
+    "turnBasedSessions": 71,
+    "totalCostUSD": 1183.1126,
+    "avgCostPerSession": 10.6587,
+    "costSampleSize": 111
   },
   "sessions": [
     {
@@ -195,7 +195,7 @@
       "dataQuality": "backfill",
       "agentsCompleted": [
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 8579025,
@@ -264,7 +264,7 @@
         "arki",
         "fin",
         "riki",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 16407855,
@@ -296,7 +296,7 @@
       "masterTurns": 20,
       "dataQuality": "backfill",
       "agentsCompleted": [
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 16407855,
@@ -334,7 +334,7 @@
         "arki",
         "riki",
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 3875975,
@@ -373,7 +373,7 @@
         "arki",
         "fin",
         "riki",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 6598910,
@@ -405,7 +405,7 @@
       "masterTurns": 0,
       "dataQuality": "backfill",
       "agentsCompleted": [
-        "editor",
+        "edi",
         "ace",
         "nova"
       ]
@@ -429,7 +429,7 @@
       "dataQuality": "backfill",
       "agentsCompleted": [
         "ace",
-        "editor",
+        "edi",
         "nova"
       ],
       "tokenUsage": {
@@ -463,7 +463,7 @@
       "dataQuality": "backfill",
       "agentsCompleted": [
         "arki",
-        "editor",
+        "edi",
         "nova"
       ],
       "tokenUsage": {
@@ -500,7 +500,7 @@
         "arki",
         "fin",
         "riki",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 14757847,
@@ -532,7 +532,7 @@
       "masterTurns": 26,
       "dataQuality": "backfill",
       "agentsCompleted": [
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 11321676,
@@ -570,7 +570,7 @@
       "masterTurns": 10,
       "dataQuality": "backfill",
       "agentsCompleted": [
-        "editor",
+        "edi",
         "ace",
         "arki"
       ],
@@ -607,7 +607,7 @@
       "masterTurns": 21,
       "dataQuality": "backfill",
       "agentsCompleted": [
-        "editor",
+        "edi",
         "ace"
       ],
       "tokenUsage": {
@@ -643,7 +643,7 @@
       "masterTurns": 48,
       "dataQuality": "backfill",
       "agentsCompleted": [
-        "editor",
+        "edi",
         "dev"
       ],
       "tokenUsage": {
@@ -676,7 +676,7 @@
       "masterTurns": 6,
       "dataQuality": "backfill",
       "agentsCompleted": [
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 6497689,
@@ -708,7 +708,7 @@
       "masterTurns": 18,
       "dataQuality": "backfill",
       "agentsCompleted": [
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 7646816,
@@ -740,7 +740,7 @@
       "masterTurns": 11,
       "dataQuality": "backfill",
       "agentsCompleted": [
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 10676683,
@@ -777,7 +777,7 @@
       "agentsCompleted": [
         "ace",
         "fin",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 36066355,
@@ -813,7 +813,7 @@
       "masterTurns": 17,
       "dataQuality": "backfill",
       "agentsCompleted": [
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 7148400,
@@ -847,7 +847,7 @@
       "dataQuality": "backfill",
       "agentsCompleted": [
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 7148400,
@@ -919,7 +919,7 @@
       "masterTurns": 42,
       "dataQuality": "auto",
       "agentsCompleted": [
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 41400594,
@@ -952,7 +952,7 @@
       "masterTurns": 5,
       "dataQuality": "auto",
       "agentsCompleted": [
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 13407225,
@@ -986,7 +986,7 @@
       "agentsCompleted": [
         "ace",
         "vera",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 35518851,
@@ -1025,7 +1025,7 @@
         "riki",
         "ace-review",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 69003386,
@@ -1150,7 +1150,7 @@
         "arki",
         "riki",
         "nova",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 60893038,
@@ -1379,7 +1379,7 @@
         "riki",
         "fin",
         "ace-review",
-        "editor",
+        "edi",
         "arki-review",
         "editor-full"
       ],
@@ -1419,7 +1419,7 @@
         "riki",
         "fin",
         "ace-review",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 29761321,
@@ -1464,7 +1464,7 @@
         "nova",
         "dev",
         "ace-review",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 54853620,
@@ -1544,7 +1544,7 @@
         "riki",
         "ace",
         "arki",
-        "editor",
+        "edi",
         "arki",
         "vera",
         "ace"
@@ -1727,7 +1727,7 @@
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 2630496,
@@ -1762,7 +1762,7 @@
       "agentsCompleted": [
         "ace",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 6683452,
@@ -1803,7 +1803,7 @@
         "vera",
         "vera",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 160333,
@@ -1847,7 +1847,7 @@
         "riki",
         "ace",
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 4312254,
@@ -1890,7 +1890,7 @@
         "riki",
         "ace",
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 5138559,
@@ -1925,7 +1925,7 @@
       "agentsCompleted": [
         "ace",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 7320867,
@@ -1960,7 +1960,7 @@
       "agentsCompleted": [
         "ace",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 6928948,
@@ -1994,7 +1994,7 @@
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 9801231,
@@ -2028,7 +2028,7 @@
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 4424362,
@@ -2070,7 +2070,7 @@
         "riki",
         "arki",
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 7461024,
@@ -2113,7 +2113,7 @@
         "ace",
         "arki",
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 13280887,
@@ -2149,7 +2149,7 @@
         "ace",
         "arki",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 13515571,
@@ -2184,7 +2184,7 @@
       "agentsCompleted": [
         "ace",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 4624153,
@@ -2225,7 +2225,7 @@
         "fin",
         "riki",
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 2889497,
@@ -2262,7 +2262,7 @@
         "dev",
         "dev",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 24146698,
@@ -2296,7 +2296,7 @@
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 10196911,
@@ -2338,7 +2338,7 @@
         "fin",
         "riki",
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 4249202,
@@ -2381,7 +2381,7 @@
         "ace",
         "arki",
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 18550709,
@@ -2422,7 +2422,7 @@
         "fin",
         "riki",
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 20649590,
@@ -2460,7 +2460,7 @@
         "fin",
         "riki",
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 3359405,
@@ -2495,7 +2495,7 @@
       "agentsCompleted": [
         "ace",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 20850796,
@@ -2536,7 +2536,7 @@
         "fin",
         "riki",
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 8185955,
@@ -2571,7 +2571,7 @@
       "agentsCompleted": [
         "ace",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 17440440,
@@ -2606,7 +2606,7 @@
       "agentsCompleted": [
         "ace",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 6228732,
@@ -2641,7 +2641,7 @@
       "agentsCompleted": [
         "ace",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 8849828,
@@ -2678,7 +2678,7 @@
         "arki",
         "riki",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 7656904,
@@ -2718,7 +2718,7 @@
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 2751856,
@@ -2744,9 +2744,9 @@
         "D-060"
       ],
       "rolesCalled": 15,
-      "rolesRecalled": 8,
+      "rolesRecalled": 9,
       "sessionsSpanned": 1,
-      "size": 36,
+      "size": 38,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -2768,7 +2768,7 @@
         "arki",
         "ace",
         "edi",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 10410196,
@@ -2791,11 +2791,11 @@
       "decisionCount": 0,
       "decisionAxes": 0,
       "rolesCalled": 6,
-      "rolesRecalled": 1,
+      "rolesRecalled": 2,
       "sessionsSpanned": 1,
-      "size": 11,
-      "gradeDeclared": "A",
-      "gradeActual": "A",
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 8,
@@ -2806,7 +2806,7 @@
         "dev",
         "dev",
         "edi",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 8111340,
@@ -2841,7 +2841,7 @@
       "agentsCompleted": [
         "ace",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 7551257,
@@ -2881,7 +2881,7 @@
         "dev",
         "riki",
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 27597952,
@@ -2934,7 +2934,7 @@
         "dev",
         "vera",
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 16443804,
@@ -2989,7 +2989,7 @@
         "fin",
         "riki",
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 8257411,
@@ -3023,7 +3023,7 @@
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 13513151,
@@ -3057,7 +3057,7 @@
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 13436629,
@@ -3094,7 +3094,7 @@
         "arki",
         "riki",
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 13348847,
@@ -3135,7 +3135,7 @@
         "riki",
         "ace",
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 14402623,
@@ -3174,7 +3174,7 @@
         "ace",
         "ace",
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 6958203,
@@ -3213,7 +3213,7 @@
         "ace",
         "arki",
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 58219382,
@@ -3259,7 +3259,7 @@
         "arki",
         "ace",
         "arki",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 29019835,
@@ -3298,7 +3298,7 @@
       "masterTurns": 20,
       "dataQuality": "auto",
       "agentsCompleted": [
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 18779199,
@@ -3339,7 +3339,7 @@
         "ace",
         "arki",
         "riki",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 13611239,
@@ -3381,7 +3381,7 @@
         "riki",
         "ace",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 16479461,
@@ -3430,7 +3430,7 @@
         "arki",
         "arki",
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 13738060,
@@ -3484,7 +3484,7 @@
         "ace",
         "arki",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 37467519,
@@ -3520,7 +3520,7 @@
         "ace",
         "vera",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 6277439,
@@ -3558,7 +3558,7 @@
         "riki",
         "ace",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 6466344,
@@ -3600,7 +3600,7 @@
         "fin",
         "ace",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 7502480,
@@ -3633,7 +3633,7 @@
       "masterTurns": 4,
       "dataQuality": "auto",
       "agentsCompleted": [
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 2416763,
@@ -3680,7 +3680,7 @@
         "riki",
         "ace",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 7460184,
@@ -3729,7 +3729,7 @@
         "riki",
         "ace",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 30675149,
@@ -3763,7 +3763,7 @@
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 4890662,
@@ -3805,7 +3805,7 @@
         "riki",
         "arki",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 13704904,
@@ -3861,7 +3861,7 @@
         "dev",
         "vera",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 41025884,
@@ -3900,7 +3900,7 @@
         "riki",
         "dev",
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 20765492,
@@ -3944,7 +3944,7 @@
         "dev",
         "ace",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 13894583,
@@ -3985,7 +3985,7 @@
         "riki",
         "ace",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 8792436,
@@ -4028,7 +4028,7 @@
         "arki",
         "riki",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 5854897,
@@ -4082,7 +4082,7 @@
         "dev",
         "dev",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 5372173,
@@ -4106,16 +4106,16 @@
       "decisionAxes": 0,
       "rolesCalled": 1,
       "rolesRecalled": 0,
-      "sessionsSpanned": 2,
-      "size": 7,
-      "gradeDeclared": "B",
-      "gradeActual": "B",
+      "sessionsSpanned": 3,
+      "size": 10,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 59,
       "dataQuality": "auto",
       "agentsCompleted": [
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 329259873,
@@ -4151,7 +4151,7 @@
         "ace",
         "arki",
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 26738495,
@@ -4188,7 +4188,7 @@
         "arki",
         "ace",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 41868304,
@@ -4223,7 +4223,7 @@
       "agentsCompleted": [
         "ace",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 35288269,
@@ -4258,7 +4258,7 @@
       "agentsCompleted": [
         "ace",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 7267530,
@@ -4291,7 +4291,7 @@
       "masterTurns": 21,
       "dataQuality": "auto",
       "agentsCompleted": [
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 17543809,
@@ -4325,7 +4325,7 @@
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 5992946,
@@ -4356,10 +4356,10 @@
       ],
       "rolesCalled": 3,
       "rolesRecalled": 0,
-      "sessionsSpanned": 2,
-      "size": 11,
-      "gradeDeclared": "A",
-      "gradeActual": "A",
+      "sessionsSpanned": 3,
+      "size": 14,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 12,
@@ -4367,7 +4367,7 @@
       "agentsCompleted": [
         "ace",
         "dev",
-        "editor"
+        "edi"
       ],
       "tokenUsage": {
         "totalBillable": 5510900,
@@ -4380,6 +4380,40 @@
         "messageCount": 70
       },
       "sessionCostUSD": 3.1198
+    },
+    {
+      "sessionId": "session_118",
+      "topicSlug": "dashboard-maintenance-home-growth-system",
+      "topic": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비",
+      "startedAt": "2026-04-27T16:00:00.000Z",
+      "closedAt": "2026-04-27T18:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 3,
+      "size": 11,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 19,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "dev",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 72322954,
+        "ioTokens": 365588,
+        "inputTokens": 804,
+        "outputTokens": 364784,
+        "cacheCreate": 2622180,
+        "cacheRead": 69335186,
+        "cacheHitRate": 0.9586885237016176,
+        "messageCount": 386
+      },
+      "sessionCostUSD": 36.1079
     }
   ],
   "roleFrequency": [
@@ -4496,8 +4530,8 @@
       ]
     },
     {
-      "role": "editor",
-      "count": 67,
+      "role": "edi",
+      "count": 70,
       "sessions": [
         "session_050",
         "session_051",
@@ -4565,12 +4599,13 @@
         "session_114",
         "session_115",
         "session_116",
-        "session_117"
+        "session_117",
+        "session_118"
       ]
     },
     {
       "role": "dev",
-      "count": 57,
+      "count": 58,
       "sessions": [
         "session_047",
         "session_048",
@@ -4615,7 +4650,8 @@
         "session_112",
         "session_113",
         "session_114",
-        "session_117"
+        "session_117",
+        "session_118"
       ]
     },
     {
@@ -4700,14 +4736,6 @@
         "session_066",
         "session_077",
         "session_082"
-      ]
-    },
-    {
-      "role": "edi",
-      "count": 2,
-      "sessions": [
-        "session_077",
-        "session_078"
       ]
     }
   ],
@@ -4819,7 +4847,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 1,
           "recallReason": null
@@ -4843,7 +4871,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 2,
           "recallReason": null
@@ -4885,7 +4913,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 5,
           "recallReason": null
@@ -4945,7 +4973,7 @@
           "recallReason": "post-master"
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 8,
           "recallReason": null
@@ -4999,7 +5027,7 @@
           "recallReason": "post-master"
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 7,
           "recallReason": null
@@ -5023,7 +5051,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 2,
           "recallReason": null
@@ -5047,7 +5075,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 2,
           "recallReason": null
@@ -5065,7 +5093,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 1,
           "recallReason": null
@@ -5083,7 +5111,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 1,
           "recallReason": null
@@ -5131,7 +5159,7 @@
           "recallReason": "post-intervention"
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 6,
           "recallReason": null
@@ -5185,7 +5213,7 @@
           "recallReason": "post-intervention"
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 7,
           "recallReason": null
@@ -5215,7 +5243,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 3,
           "recallReason": null
@@ -5239,7 +5267,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 2,
           "recallReason": null
@@ -5281,7 +5309,7 @@
           "recallReason": "post-master"
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 5,
           "recallReason": null
@@ -5317,7 +5345,7 @@
           "recallReason": "post-master"
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 4,
           "recallReason": null
@@ -5335,7 +5363,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 1,
           "recallReason": null
@@ -5383,7 +5411,7 @@
           "recallReason": "post-roles"
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 6,
           "recallReason": null
@@ -5437,7 +5465,7 @@
           "recallReason": "post-roles"
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 7,
           "recallReason": null
@@ -5479,7 +5507,7 @@
           "recallReason": "post-roles"
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 5,
           "recallReason": null
@@ -5521,7 +5549,7 @@
           "recallReason": "post-roles"
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 5,
           "recallReason": null
@@ -5545,7 +5573,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 2,
           "recallReason": null
@@ -5587,7 +5615,7 @@
           "recallReason": "post-intervention"
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 5,
           "recallReason": null
@@ -5611,7 +5639,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 2,
           "recallReason": null
@@ -5635,7 +5663,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 2,
           "recallReason": null
@@ -5659,7 +5687,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 2,
           "recallReason": null
@@ -5695,7 +5723,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 4,
           "recallReason": null
@@ -5713,7 +5741,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 1,
           "recallReason": null
@@ -5809,7 +5837,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 14,
           "recallReason": null
@@ -5851,7 +5879,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 5,
           "recallReason": null
@@ -5875,7 +5903,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 2,
           "recallReason": null
@@ -5911,7 +5939,7 @@
           "recallReason": "post-intervention"
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 5,
           "recallReason": null
@@ -6025,7 +6053,7 @@
           "recallReason": "post-master"
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 17,
           "recallReason": null
@@ -6151,7 +6179,7 @@
           "recallReason": "post-master"
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 19,
           "recallReason": null
@@ -6169,7 +6197,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 1,
           "recallReason": null
@@ -6187,7 +6215,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 1,
           "recallReason": null
@@ -6223,7 +6251,7 @@
           "recallReason": "synthesis"
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "implementation",
           "turnIdx": 4,
           "recallReason": null
@@ -6283,7 +6311,7 @@
           "recallReason": "post-master"
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "implementation",
           "turnIdx": 8,
           "recallReason": null
@@ -6313,7 +6341,7 @@
           "recallReason": "synthesis"
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 3,
           "recallReason": null
@@ -6343,7 +6371,7 @@
           "recallReason": "post-intervention"
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 3,
           "recallReason": null
@@ -6415,7 +6443,7 @@
           "recallReason": "master-direct-nomination"
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 10,
           "recallReason": null
@@ -6481,7 +6509,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 9,
           "recallReason": null
@@ -6517,7 +6545,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 4,
           "recallReason": null
@@ -6565,7 +6593,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 6,
           "recallReason": null
@@ -6625,7 +6653,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 8,
           "recallReason": null
@@ -6715,7 +6743,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compilation",
           "turnIdx": 13,
           "recallReason": null
@@ -6745,7 +6773,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compilation",
           "turnIdx": 3,
           "recallReason": null
@@ -6787,7 +6815,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compilation",
           "turnIdx": 5,
           "recallReason": null
@@ -6835,7 +6863,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": null,
           "turnIdx": 6,
           "recallReason": null
@@ -6847,7 +6875,7 @@
       "topic": "PD-037 Vera 페르소나 상태 검증 — pending 해소",
       "sequence": [
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 0,
           "recallReason": null
@@ -6907,7 +6935,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": null,
           "turnIdx": 8,
           "recallReason": null
@@ -6997,7 +7025,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 13,
           "recallReason": null
@@ -7015,7 +7043,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 1,
           "recallReason": null
@@ -7063,7 +7091,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 6,
           "recallReason": null
@@ -7171,7 +7199,7 @@
           "recallReason": "phase-1-g1-pass-verification"
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 16,
           "recallReason": "session-close-compile"
@@ -7219,7 +7247,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 6,
           "recallReason": null
@@ -7279,7 +7307,7 @@
           "recallReason": "post-master"
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 8,
           "recallReason": null
@@ -7321,7 +7349,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 5,
           "recallReason": null
@@ -7357,7 +7385,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compilation",
           "turnIdx": 4,
           "recallReason": null
@@ -7411,7 +7439,7 @@
           "recallReason": "phase-transition"
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 7,
           "recallReason": null
@@ -7423,7 +7451,7 @@
       "topic": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비",
       "sequence": [
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 0,
           "recallReason": null
@@ -7453,7 +7481,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 3,
           "recallReason": null
@@ -7489,7 +7517,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 4,
           "recallReason": null
@@ -7513,7 +7541,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 2,
           "recallReason": null
@@ -7537,7 +7565,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 2,
           "recallReason": null
@@ -7549,7 +7577,7 @@
       "topic": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비",
       "sequence": [
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 0,
           "recallReason": null
@@ -7567,7 +7595,7 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 1,
           "recallReason": null
@@ -7591,9 +7619,27 @@
           "recallReason": null
         },
         {
-          "role": "editor",
+          "role": "edi",
           "phase": "compile",
           "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_118",
+      "topic": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비",
+      "sequence": [
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 1,
           "recallReason": null
         }
       ]
@@ -7610,7 +7656,7 @@
       "ruleId": "R1",
       "severity": "yellow",
       "sessionId": "session_077",
-      "description": "역할 과호출: rolesRecalled=8 (임계값 5, grade=S)"
+      "description": "역할 과호출: rolesRecalled=9 (임계값 5, grade=S)"
     },
     {
       "ruleId": "R1",

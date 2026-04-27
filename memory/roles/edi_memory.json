@@ -1,5 +1,5 @@
 {
-  "role": "editor",
+  "role": "edi",
   "responsibility": "판단 없는 산출물 컴파일러. 규율 기반 실행. Ace 종합검토 이후에만 작동. 포맷·구조·문서화 일관성.",
   "persona": {
     "tier": "실행층 (판단 역할 아님 — Top 0.1% '전문가' 대상 외. 규율 기준은 최상급.)",
@@ -62,7 +62,7 @@
       "topicId": "topic_002",
       "title": "레전드팀 업그레이드",
       "date": "2026-04-03",
-      "reportPath": "reports/2026-04-03_legend-team-upgrade/editor_rev01.md",
+      "reportPath": "reports/2026-04-03_legend-team-upgrade/edi_rev01.md",
       "agentsIntegrated": [
         "ace",
         "arki",
@@ -76,7 +76,7 @@
       "topicId": "topic_003",
       "title": "로컬 업그레이드 vs 서버 이전",
       "date": "2026-04-04",
-      "reportPath": "reports/2026-04-04_local-vs-server/editor_rev01.md",
+      "reportPath": "reports/2026-04-04_local-vs-server/edi_rev01.md",
       "agentsIntegrated": [
         "ace",
         "arki",
@@ -91,7 +91,7 @@
       "topicId": "topic_005",
       "title": "레전드팀 v0.4.0 업그레이드 검토",
       "date": "2026-04-05",
-      "reportPath": "reports/2026-04-05_legend-team-upgrade-review/editor_rev01.md",
+      "reportPath": "reports/2026-04-05_legend-team-upgrade-review/edi_rev01.md",
       "agentsIntegrated": [
         "ace"
       ],
@@ -113,13 +113,13 @@
     "decisionRef": "D-015, session_012"
   },
   "outputPatterns_new": [
-    "선행 제안(다음 토픽 예고 등)은 Editor 도메인 밖 — topic_007에서 발견된 경계 위반 사례"
+    "선행 제안(다음 토픽 예고 등)은 Edi 도메인 밖 — topic_007에서 발견된 경계 위반 사례"
   ],
   "skills": {
     "core": [
       {
         "name": "anthropic-skills:web-artifacts-builder",
-        "trigger": "HTML 시각물 생성 시. Vera 스펙 기반 구현. 소유자=Editor (Vera 직접 호출 금지).",
+        "trigger": "HTML 시각물 생성 시. Vera 스펙 기반 구현. 소유자=Edi (Vera 직접 호출 금지).",
         "type": "official",
         "status": "core"
       },
@@ -167,9 +167,9 @@
   ],
   "signatureMetrics": [
     {
-      "id": "editor.artifact_completeness",
+      "id": "edi.artifact_completeness",
       "shortKey": "art_cmp",
-      "role": "editor",
+      "role": "edi",
       "scope": "role",
       "axis": "quality",
       "type": "base",
@@ -182,10 +182,10 @@
       "validityCheck": "monthly",
       "rater": {
         "type": "self",
-        "by": "editor"
+        "by": "edi"
       },
       "raterWeights": {
-        "editor": 1
+        "edi": 1
       },
       "timing": "immediate",
       "aggregation": "all-sessions",
@@ -206,9 +206,9 @@
       ]
     },
     {
-      "id": "editor.gap_flag_count",
+      "id": "edi.gap_flag_count",
       "shortKey": "gap_fc",
-      "role": "editor",
+      "role": "edi",
       "scope": "role",
       "axis": "judgment-consistency",
       "type": "derived",
@@ -223,9 +223,18 @@
       "composition": {
         "formula": "weighted-mean",
         "inputs": [
-          { "metricId": "editor.mechanical_gap_count", "weight": 0.3 },
-          { "metricId": "editor.structural_gap_severity", "weight": 0.45 },
-          { "metricId": "editor.retroactive_gap_discovery", "weight": 0.25 }
+          {
+            "metricId": "edi.mechanical_gap_count",
+            "weight": 0.3
+          },
+          {
+            "metricId": "edi.structural_gap_severity",
+            "weight": 0.45
+          },
+          {
+            "metricId": "edi.retroactive_gap_discovery",
+            "weight": 0.25
+          }
         ],
         "polarityNormalized": true,
         "nullPolicy": "weight-renormalize"
@@ -234,10 +243,10 @@
       "validityCheck": "monthly",
       "rater": {
         "type": "self",
-        "by": "editor"
+        "by": "edi"
       },
       "raterWeights": {
-        "editor": 1
+        "edi": 1
       },
       "timing": "immediate",
       "aggregation": "all-sessions",
@@ -258,9 +267,9 @@
       ]
     },
     {
-      "id": "editor.cross_session_continuity",
+      "id": "edi.cross_session_continuity",
       "shortKey": "cs_cnt",
-      "role": "editor",
+      "role": "edi",
       "scope": "role",
       "axis": "execution-transfer",
       "type": "base",
@@ -273,10 +282,10 @@
       "validityCheck": "monthly",
       "rater": {
         "type": "self",
-        "by": "editor"
+        "by": "edi"
       },
       "raterWeights": {
-        "editor": 1
+        "edi": 1
       },
       "timing": "immediate",
       "aggregation": "all-sessions",
@@ -297,9 +306,9 @@
       ]
     },
     {
-      "id": "editor.gap_pinning_accuracy",
+      "id": "edi.gap_pinning_accuracy",
       "shortKey": "gp_acc",
-      "role": "editor",
+      "role": "edi",
       "scope": "role",
       "axis": "quality",
       "type": "base",
@@ -314,10 +323,10 @@
       "validityCheck": "monthly",
       "rater": {
         "type": "self",
-        "by": "editor"
+        "by": "edi"
       },
       "raterWeights": {
-        "editor": 1
+        "edi": 1
       },
       "aggregation": "all-sessions",
       "baselineSessions": 10,
@@ -335,12 +344,16 @@
         "implementation",
         "standalone"
       ],
-      "_reserved": { "pd035_scope": true, "settlementOffset": 3, "settlementStrategy": "retroactive-injection" }
+      "_reserved": {
+        "pd035_scope": true,
+        "settlementOffset": 3,
+        "settlementStrategy": "retroactive-injection"
+      }
     },
     {
-      "id": "editor.session_close_compliance",
+      "id": "edi.session_close_compliance",
       "shortKey": "scc",
-      "role": "editor",
+      "role": "edi",
       "scope": "role",
       "axis": "execution-transfer",
       "type": "base",
@@ -353,10 +366,10 @@
       "validityCheck": "monthly",
       "rater": {
         "type": "self",
-        "by": "editor"
+        "by": "edi"
       },
       "raterWeights": {
-        "editor": 1
+        "edi": 1
       },
       "timing": "immediate",
       "aggregation": "all-sessions",

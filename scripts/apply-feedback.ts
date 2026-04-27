@@ -7,7 +7,7 @@
  *   ts-node scripts/apply-feedback.ts <topicId> <phase> "<feedback>" "<directive>" [appliedTo...]
  *
  * Example:
- *   ts-node scripts/apply-feedback.ts topic_002 editor "Approved. Proceed." "Save reports." ace_rev01.md editor_rev01.md
+ *   ts-node scripts/apply-feedback.ts topic_002 edi "Approved. Proceed." "Save reports." ace_rev01.md edi_rev01.md
  */
 
 import * as fs from 'fs';

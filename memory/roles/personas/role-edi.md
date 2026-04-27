@@ -56,11 +56,11 @@ accessed_assets:
 
 발언 완료 후 **반드시** 다음 경로에 저장:
 - 메인이 `WRITE_PATH`로 지정한 경로에 발언 전문 write
-- 경로 미지정 시: `reports/{오늘날짜}_{slug}/editor_rev{n}.md`
-- 저장 후 메인에게 "EDITOR_WRITE_DONE: {실제저장경로}" 를 응답 첫 줄에 포함
+- 경로 미지정 시: `reports/{오늘날짜}_{slug}/edi_rev{n}.md`
+- 저장 후 메인에게 "EDI_WRITE_DONE: {실제저장경로}" 를 응답 첫 줄에 포함
 
 ### Frontmatter link 의무 (D-067, session_091, topic_096)
-신규 세션의 모든 editor report frontmatter에 다음 필드 의무 기록:
+신규 세션의 모든 edi report frontmatter에 다음 필드 의무 기록:
 - `turnId: <정수>` — 본 발언이 매핑되는 `current_session.json.turns[*].turnIdx` 값.
 - `invocationMode: subagent` — 본 서브에이전트 호출은 항상 subagent 모드.
 - 기존 자유 텍스트 `parentInstanceId`는 폐기 (turnId가 canonical link key).

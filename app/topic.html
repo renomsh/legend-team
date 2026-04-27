@@ -12,6 +12,35 @@
 .s-meta{font-size:12px;color:var(--text-3);margin-bottom:24px;display:flex;align-items:center;gap:10px}
 .tab-btn.active{color:#fff;border-bottom-color:#8B5CF6}
 .report-item.card{margin-bottom:12px;padding:0}
+.session-group{margin-bottom:18px;padding:14px 16px;background:var(--panel);border:1px solid var(--line);border-radius:8px}
+.session-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--line);font-size:12px}
+.session-head .sid{font-family:monospace;color:#8B5CF6;font-weight:600}
+.session-head .slug{color:var(--text-2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.session-head .date{color:var(--text-3)}
+.session-head .grade{padding:2px 6px;border-radius:3px;background:rgba(139,92,246,0.15);color:#8B5CF6;font-weight:600}
+.session-summary{font-size:12px;color:var(--text-2);margin-bottom:10px;line-height:1.5}
+.session-empty{font-size:11px;color:var(--text-3);font-style:italic}
+.count-chip{display:inline-block;margin-left:10px;padding:3px 12px;font-size:14px;font-weight:600;color:#8B5CF6;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);border-radius:999px;vertical-align:middle}
+.meta-pill{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;font-size:11px;font-weight:500;border-radius:4px;border:1px solid var(--line)}
+.meta-pill.open{color:#10B981;background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.25)}
+.meta-pill.done{color:var(--text-2);background:rgba(255,255,255,0.04)}
+.meta-pill.susp{color:#F59E0B;background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.25)}
+.list-toolbar{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:14px;padding:12px 14px;background:var(--panel);border:1px solid var(--line);border-radius:8px}
+.list-search{flex:1;min-width:220px;padding:7px 12px;font-size:13px;background:var(--bg);border:1px solid var(--line);border-radius:6px;color:var(--text-1);outline:none}
+.list-search:focus{border-color:#8B5CF6}
+.filter-pills{display:flex;gap:6px;flex-wrap:wrap}
+.fpill{padding:6px 12px;font-size:12px;font-weight:500;color:var(--text-2);background:transparent;border:1px solid var(--line);border-radius:6px;cursor:pointer;transition:all .15s}
+.fpill:hover{color:var(--text-1);border-color:var(--text-3)}
+.fpill.active{color:#fff;background:rgba(139,92,246,0.18);border-color:#8B5CF6}
+.fpill span{margin-left:4px;opacity:0.7;font-size:11px}
+.pager{display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding-top:14px;border-top:1px solid var(--line);flex-wrap:wrap;gap:10px}
+.pager-info{font-size:12px;color:var(--text-3)}
+.pager-ctrls{display:flex;gap:4px;align-items:center}
+.pbtn{min-width:32px;padding:6px 10px;font-size:12px;color:var(--text-2);background:transparent;border:1px solid var(--line);border-radius:5px;cursor:pointer}
+.pbtn:hover:not(.disabled):not(.active){color:var(--text-1);border-color:var(--text-3)}
+.pbtn.active{color:#fff;background:#8B5CF6;border-color:#8B5CF6;font-weight:600}
+.pbtn.disabled{opacity:0.35;cursor:not-allowed}
+.pdot{padding:0 4px;color:var(--text-3);font-size:12px}
 </style>
 <body>
 <a href="#main-content" class="skip-link">본문으로 건너뛰기</a>
@@ -39,9 +68,100 @@
 <script src="js/md-renderer.js"></script>
 <script src="js/nav.js"></script>
 <script>
+  function applyTopicFilters() {
+    const s = window.__topicsList;
+    const q = (s.search || '').trim().toLowerCase();
+    return s.all.filter(t => {
+      if (s.status !== 'all' && t.status !== s.status) return false;
+      if (q && !(t.id.toLowerCase().includes(q) || (t.title||'').toLowerCase().includes(q))) return false;
+      return true;
+    });
+  }
+
+  function renderTopicList() {
+    const s = window.__topicsList;
+    const filtered = applyTopicFilters();
+    const total = filtered.length;
+    const totalPages = Math.max(1, Math.ceil(total / s.pageSize));
+    if (s.page > totalPages) s.page = totalPages;
+    const start = (s.page - 1) * s.pageSize;
+    const slice = filtered.slice(start, start + s.pageSize);
+    const rows = slice.map(t => `
+      <tr class="topic-row" onclick="location.href='topic.html?id=${t.id}'">
+        <td class="topic-id">${escHtml(t.id)}</td>
+        <td class="topic-title-cell">${escHtml(t.title)}</td>
+        <td>${statusBadge(t.status)}</td>
+        <td>${escHtml(t.created || '—')}</td>
+      </tr>`).join('');
+    document.getElementById('topicTableWrap').innerHTML = total > 0
+      ? `<table class="topic-table">
+          <thead><tr><th>ID</th><th>Title</th><th>Status</th><th>Created</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>`
+      : '<div class="empty-state">No topics match the current filter</div>';
+    renderTopicPager(total, totalPages);
+  }
+
+  function renderTopicPager(total, totalPages) {
+    const s = window.__topicsList;
+    const pagerEl = document.getElementById('topicPager');
+    if (total === 0) { pagerEl.innerHTML = ''; return; }
+    const start = (s.page - 1) * s.pageSize + 1;
+    const end = Math.min(s.page * s.pageSize, total);
+    const btn = (label, page, opts={}) => {
+      const cls = ['pbtn'];
+      if (opts.active) cls.push('active');
+      if (opts.disabled) cls.push('disabled');
+      const onclick = opts.disabled ? '' : `onclick="goToTopicPage(${page})"`;
+      return `<button class="${cls.join(' ')}" ${onclick}>${label}</button>`;
+    };
+    let pageBtns = '';
+    const window1 = 2;
+    for (let p = 1; p <= totalPages; p++) {
+      if (p === 1 || p === totalPages || (p >= s.page - window1 && p <= s.page + window1)) {
+        pageBtns += btn(p, p, { active: p === s.page });
+      } else if (p === s.page - window1 - 1 || p === s.page + window1 + 1) {
+        pageBtns += '<span class="pdot">…</span>';
+      }
+    }
+    pagerEl.innerHTML = `
+      <div class="pager-info">${start}–${end} of ${total}</div>
+      <div class="pager-ctrls">
+        ${btn('‹ Prev', s.page - 1, { disabled: s.page <= 1 })}
+        ${pageBtns}
+        ${btn('Next ›', s.page + 1, { disabled: s.page >= totalPages })}
+      </div>`;
+  }
+
+  function goToTopicPage(p) {
+    window.__topicsList.page = p;
+    renderTopicList();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function onTopicFilter(status, btn) {
+    window.__topicsList.status = status;
+    window.__topicsList.page = 1;
+    btn.parentElement.querySelectorAll('.fpill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderTopicList();
+  }
+
+  let _topicSearchTimer;
+  function onTopicSearch(v) {
+    clearTimeout(_topicSearchTimer);
+    _topicSearchTimer = setTimeout(() => {
+      window.__topicsList.search = v;
+      window.__topicsList.page = 1;
+      renderTopicList();
+    }, 150);
+  }
+
   function showTab(name, btn) {
-    document.querySelectorAll('[id^="tab-"]').forEach(el => el.style.display = 'none');
-    document.getElementById('tab-' + name).style.display = 'block';
+    ['reports','decisions','feedback'].forEach(n => {
+      const el = document.getElementById('tab-' + n);
+      if (el) el.style.display = (n === name) ? 'block' : 'none';
+    });
     btn.parentElement.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
     btn.classList.add('active');
     btn.setAttribute('aria-selected', 'true');
@@ -50,24 +170,33 @@
   async function init() {
     const topicId = getParam('id');
     if (!topicId) {
-      // List view — id 없으면 전체 토픽 리스트 (topic_113 session_110)
+      // List view — id 없으면 전체 토픽 리스트
       const data = await DataLoader.getTopicIndex();
       const topics = sortTopicsDesc(data?.topics || []);
-      document.getElementById('topicTitle').textContent = `Topics (${topics.length})`;
-      document.getElementById('topicMeta').innerHTML = '';
+      const open = topics.filter(t => t.status === 'open').length;
+      const completed = topics.filter(t => t.status === 'completed').length;
+      const suspended = topics.filter(t => t.status === 'suspended').length;
+      document.getElementById('topicTitle').innerHTML =
+        `Topics <span class="count-chip">${topics.length}</span>`;
+      document.getElementById('topicMeta').innerHTML =
+        `<span class="meta-pill open">Open ${open}</span>` +
+        `<span class="meta-pill done">Completed ${completed}</span>` +
+        `<span class="meta-pill susp">Suspended ${suspended}</span>`;
       document.querySelector('.tab-bar').style.display = 'none';
-      const rows = topics.map(t => `
-        <tr class="topic-row" onclick="location.href='topic.html?id=${t.id}'">
-          <td class="topic-id">${t.id}</td>
-          <td class="topic-title-cell">${t.title}</td>
-          <td>${statusBadge(t.status)}</td>
-          <td>${t.created || '—'}</td>
-        </tr>`).join('');
+      window.__topicsList = { all: topics, page: 1, pageSize: 50, status: 'all', search: '' };
       document.getElementById('tab-reports').innerHTML = `
-        <table class="topic-table">
-          <thead><tr><th>ID</th><th>Title</th><th>Status</th><th>Created</th></tr></thead>
-          <tbody>${rows}</tbody>
-        </table>`;
+        <div class="list-toolbar">
+          <input type="search" id="topicSearch" class="list-search" placeholder="Search by ID or title…" oninput="onTopicSearch(this.value)">
+          <div class="filter-pills" role="tablist">
+            <button class="fpill active" data-status="all" onclick="onTopicFilter('all', this)">All <span>${topics.length}</span></button>
+            <button class="fpill" data-status="open" onclick="onTopicFilter('open', this)">Open <span>${open}</span></button>
+            <button class="fpill" data-status="completed" onclick="onTopicFilter('completed', this)">Completed <span>${completed}</span></button>
+            <button class="fpill" data-status="suspended" onclick="onTopicFilter('suspended', this)">Suspended <span>${suspended}</span></button>
+          </div>
+        </div>
+        <div id="topicTableWrap"></div>
+        <div id="topicPager" class="pager"></div>`;
+      renderTopicList();
       return;
     }
 
@@ -83,28 +212,49 @@
       `<span style="font-family:monospace;color:#06B6D4;font-size:11px">${topic.id}</span>${statusBadge(topic.status)}<span>${topic.created || ''}</span>`;
     document.title = `${topic.title} — Legend Team`;
 
-    // Reports tab
+    // Reports tab — session-grouped
     const reportsEl = document.getElementById('tab-reports');
-    if (topic.reportFiles && topic.reportFiles.length > 0) {
-      let folderBase = '';
-      if (topic.reportPath) {
-        folderBase = topic.reportPath.replace(/^reports\//, '').replace(/\/$/, '');
-      } else {
-        folderBase = `${topic.created}_${topicId}`;
-      }
-      const items = topic.reportFiles.map(f => `
-        <div class="report-item card" id="report-${f}">
-          <div class="report-header" onclick="toggleReport('${folderBase}/${f}', '${f}')">
-            <span class="report-icon">&#x1F4C4;</span>
-            <span class="report-name">${f}</span>
-            <span class="report-toggle" id="toggle-${f}">&#x25B6;</span>
-          </div>
-          <div class="report-body" id="body-${f}"></div>
-        </div>
-      `).join('');
-      reportsEl.innerHTML = `<div class="report-list">${items}</div>`;
+    const sessIdx = await DataLoader.getSessionIndex();
+    const titlePrefix = topic.title.replace(/\s+\(계속\).*$/, '');
+    const sessions = (sessIdx?.sessions || []).filter(s =>
+      s.topicId === topicId ||
+      (s.topic && s.topic.startsWith(titlePrefix))
+    ).sort((a,b) => (b.startedAt||'').localeCompare(a.startedAt||''));
+
+    if (sessions.length === 0) {
+      reportsEl.innerHTML = '<div class="empty-state">No sessions for this topic</div>';
     } else {
-      reportsEl.innerHTML = '<div class="empty-state">No reports available</div>';
+      const groups = sessions.map(s => {
+        const date = (s.startedAt || s.closedAt || '').slice(0, 10);
+        const folder = (date && s.topicSlug) ? `${date}_${s.topicSlug}` : null;
+        const roles = Array.from(new Set(s.agentsCompleted || []));
+        const files = roles.map(r => `${r}_rev1.md`);
+        const summary = s.oneLineSummary ? `<div class="session-summary">${escHtml(s.oneLineSummary)}</div>` : '';
+        const reports = (folder && files.length > 0)
+          ? files.map(f => {
+              const key = `${s.sessionId}-${f}`;
+              return `<div class="report-item card" id="report-${key}">
+                <div class="report-header" onclick="toggleReport('${folder}/${f}', '${key}')">
+                  <span class="report-icon">&#x1F4C4;</span>
+                  <span class="report-name">${f}</span>
+                  <span class="report-toggle" id="toggle-${key}">&#x25B6;</span>
+                </div>
+                <div class="report-body" id="body-${key}"></div>
+              </div>`;
+            }).join('')
+          : '<div class="session-empty">No report files</div>';
+        return `<div class="session-group">
+          <div class="session-head">
+            <span class="sid">${escHtml(s.sessionId)}</span>
+            <span class="slug">${escHtml(s.topicSlug || '')}</span>
+            ${s.grade ? `<span class="grade">${escHtml(s.grade)}</span>` : ''}
+            <span class="date">${escHtml(date)}</span>
+          </div>
+          ${summary}
+          ${reports}
+        </div>`;
+      }).join('');
+      reportsEl.innerHTML = groups;
     }
 
     // Decisions tab

@@ -41,7 +41,7 @@ export interface ScanSummary {
   };
 }
 
-const COLOR_TOKEN_RE = /^--c-(ace|arki|fin|riki|dev|vera|editor|nova)$/;
+const COLOR_TOKEN_RE = /^--c-(ace|arki|fin|riki|dev|vera|edi|nova)$/;
 const LAYOUT_TOKEN_RE = /^--(space|radius|fs|bp|container)-/;
 const BASE_TOKEN_RE = /^--(text|panel|bg|line|brand|grad)(-|$)/;
 

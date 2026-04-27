@@ -67,7 +67,7 @@
       "topicId": "topic_018",
       "title": "Dev Test",
       "date": "2026-04-16",
-      "reportPath": "reports/2026-04-16_dev-test/editor_rev1.md",
+      "reportPath": "reports/2026-04-16_dev-test/edi_rev1.md",
       "designSource": "Arki — session-log.ts 버그 3종 구조 분석",
       "implemented": [
         "B-01: duration 음수 방어 (ms >= 0 조건)",
@@ -282,10 +282,22 @@
       "composition": {
         "formula": "weighted-mean",
         "inputs": [
-          { "metricId": "dev.first_try_pass_rate", "weight": 0.35 },
-          { "metricId": "dev.retry_count_per_phase", "weight": 0.2 },
-          { "metricId": "dev.post_gate_debug_count", "weight": 0.25 },
-          { "metricId": "dev.hardcoding_ratio", "weight": 0.2 }
+          {
+            "metricId": "dev.first_try_pass_rate",
+            "weight": 0.35
+          },
+          {
+            "metricId": "dev.retry_count_per_phase",
+            "weight": 0.2
+          },
+          {
+            "metricId": "dev.post_gate_debug_count",
+            "weight": 0.25
+          },
+          {
+            "metricId": "dev.hardcoding_ratio",
+            "weight": 0.2
+          }
         ],
         "polarityNormalized": true,
         "nullPolicy": "weight-renormalize"
@@ -392,7 +404,9 @@
         "implementation",
         "standalone"
       ],
-      "_reserved": { "pd035_scope": true }
+      "_reserved": {
+        "pd035_scope": true
+      }
     },
     {
       "id": "dev.hardcoding_rate",
@@ -432,7 +446,9 @@
         "implementation",
         "standalone"
       ],
-      "_reserved": { "pd035_scope": true }
+      "_reserved": {
+        "pd035_scope": true
+      }
     }
   ],
   "applicableTopicTypes": [

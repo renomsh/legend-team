@@ -44,7 +44,7 @@
   --c-nova:    #10B981;   /* 7.75:1 on --panel */
   --c-dev:     #3B82F6;   /* 5.35:1 on --panel — 간당 해소(rev3 4.7 추정 → 실측 5.35) */
   --c-vera:    #F472B6;   /* 7.43:1 on --panel */
-  --c-editor:  #9CA3AF;   /* 7.75:1 on --panel — 'edi'는 칭호, 토큰명은 editor 유지 */
+  --c-edi:     #9CA3AF;   /* 7.75:1 on --panel — canonical role: edi */
 
   /* ── 간당값 fallback candidate (vera_rev2 §D 박제, rev4 실측 정정) ─
    * tokens.css 자동 swap 대상 (lint-contrast.ts FAIL/ALARM 시 후보) */

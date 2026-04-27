@@ -23,7 +23,7 @@ const ROLE_PATTERNS: Array<{ name: string; regex: RegExp }> = [
   { name: 'fin', regex: /\bFin\b/ },
   { name: 'riki', regex: /\bRiki\b/ },
   { name: 'nova', regex: /\bNova\b/ },
-  { name: 'editor', regex: /\bEditor\b/ },
+  { name: 'edi', regex: /\b(Edi|Editor)\b/ },
   { name: 'vera', regex: /\bVera\b/ },
   { name: 'dev', regex: /\bDev\b/ },
 ];

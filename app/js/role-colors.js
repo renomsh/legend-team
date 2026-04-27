@@ -26,7 +26,7 @@ window.ROLE_COLORS = new Proxy({
   fin:          '#F59E0B',
   riki:         '#EF4444',
   nova:         '#10B981',
-  editor:       '#9CA3AF',
+  edi:          '#9CA3AF',
   dev:          '#3B82F6',
   vera:         '#F472B6'
 }, {
@@ -51,7 +51,7 @@ window.ROLE_LABELS = {
   fin:          'fin',
   riki:         'riki',
   nova:         'nova',
-  editor:       'edi',
+  edi:          'edi',
   dev:          'dev',
   vera:         'vera'
 };

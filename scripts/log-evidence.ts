@@ -24,7 +24,7 @@ const VALID_TYPES = [
   'assumption', 'data', 'reference', 'expert-input',
 ];
 
-const VALID_AGENTS: AgentId[] = ['ace', 'arki', 'fin', 'riki', 'editor', 'nova', 'master'];
+const VALID_AGENTS: AgentId[] = ['ace', 'arki', 'fin', 'riki', 'edi', 'nova', 'master'];
 
 function run(): void {
   const [topicSlug, type, source, finding, status = 'open'] = process.argv.slice(2);

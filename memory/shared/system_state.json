@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_117",
-  "nextSessionId": "session_118",
+  "lastSessionId": "session_118",
+  "nextSessionId": "session_119",
   "currentVersion": "v1.75",
   "openTopics": [
     {
@@ -53,6 +53,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_118",
+      "topicSlug": "dashboard-maintenance-home-growth-system",
+      "closedAt": "2026-04-27T18:30:00.000Z",
+      "oneLineSummary": "topic/session/decisions/feedback/deferrals 5페이지 정체성 재정의 + editor→edi 전면 정규화 + 양방향 링크 그래프",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_117",
       "topicSlug": "dashboard-maintenance-home-growth-system",
       "closedAt": "2026-04-27T15:45:00.000Z",
@@ -66,13 +73,6 @@
       "topicSlug": "topic-session-1-to-n-open-rule",
       "closedAt": "2026-04-27T14:30:00.000Z",
       "oneLineSummary": "/open 스킬 7번 분기 A/B 재작성 — 토픽 ID 명시 시 기존 토픽 재사용, Grade §0 추가",
-      "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_115",
-      "topicSlug": "topic113-ops-build-freshness-remove",
-      "closedAt": "2026-04-27T13:30:00.000Z",
-      "oneLineSummary": "ops Build Freshness 제거·글자통일, growth+people 통합, 홈 3카드, 역할색상 v1.1 동기화",
       "decisionsAdded": []
     }
   ],
@@ -538,5 +538,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-27T10:25:11.631Z"
+  "lastUpdated": "2026-04-27T13:41:51.049Z"
 }

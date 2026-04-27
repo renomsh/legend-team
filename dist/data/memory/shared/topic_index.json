@@ -12,7 +12,7 @@
       "reportPath": "reports/2026-04-27_topic-session-1-to-n-open-rule",
       "reportFiles": [
         "ace_rev1.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "closedInSession": "session_116",
@@ -79,13 +79,13 @@
       "controlPath": "topics/topic_113",
       "reportPath": "reports/2026-04-26_dashboard-maintenance-home-growth-system",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
-      "closedInSession": "session_117",
+      "closedInSession": "session_118",
       "path": "topics/topic_113",
       "grade": "A",
-      "outcome": "session_117에서 잔여 정비 추가: session.html All Sessions 카드→테이블 전환(.table §14 위임), feedback.html 검색·필터·status counts·escape 정비. Hook Success rate 개선은 별도 토픽 분리."
+      "outcome": "session_118: topic.html 세션별 매핑+탭 버그 수정, editor→edi 전면 정규화(4-pass + 63 reports rename + 17 surfaces), session.html 리스트/상세 분리(topic 패턴 mirror, Current Session→growth bottom), decisions/feedback/deferrals 양방향 링크 그래프 완성, deferrals=Action Queue 정체성+amber+age badge."
     },
     {
       "id": "topic_112",
@@ -116,7 +116,7 @@
       "controlPath": "topics/topic_111",
       "reportPath": "reports/2026-04-26_dashboard-phase-b-cross-check",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "closedInSession": "session_108",
@@ -154,7 +154,7 @@
         "dev_rev1.md",
         "dev_rev2.md",
         "ace_rev2.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "closedInSession": "session_106",
@@ -306,7 +306,7 @@
       "reportPath": "reports/2026-04-25_pd037-vera-signature-review",
       "reportFiles": [
         "vera_rev1.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "path": "topics/topic_101"
@@ -427,7 +427,7 @@
       "reportFiles": [
         "ace_rev1.md",
         "arki_rev1.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "path": "topics/topic_095"
@@ -470,7 +470,7 @@
         "arki_rev1.md",
         "fin_rev1.md",
         "riki_rev1.md",
-        "editor_rev1.md",
+        "edi_rev1.md",
         "cost-report-2025-reanalysis.html"
       ],
       "published": true,
@@ -568,7 +568,7 @@
       "controlPath": "topics/topic_087",
       "reportPath": "reports/2026-04-22_nd060-phase2-consensus-scoring",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "path": "topics/topic_087",
@@ -609,7 +609,7 @@
       "controlPath": "topics/topic_085",
       "reportPath": "reports/2026-04-22_growth-metrics-phase1-automatic-mvp",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "path": "topics/topic_085"
@@ -628,7 +628,7 @@
       "controlPath": "topics/topic_084",
       "reportPath": "reports/2026-04-22_growth-metrics-phase0-scaffold",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "path": "topics/topic_084",
@@ -651,7 +651,7 @@
       "controlPath": "topics/topic_083",
       "reportPath": "reports/2026-04-22_growth-metrics-board-design",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "path": "topics/topic_083",
@@ -693,7 +693,7 @@
         "dev_rev1.md",
         "dev_rev2.md",
         "dev_rev3.md",
-        "editor_rev1.md",
+        "edi_rev1.md",
         "inventory.md",
         "legacy-decision.md",
         "ia-spec.md",
@@ -941,7 +941,7 @@
       "controlPath": "topics/topic_069",
       "reportPath": "reports/2026-04-21_topic-closure-declaration",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "path": "topics/topic_069",
@@ -1005,7 +1005,7 @@
         "arki_rev1.md",
         "fin_rev1.md",
         "riki_rev1.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "path": "topics/topic_066",
@@ -1028,7 +1028,7 @@
       "reportFiles": [
         "ace_rev1.md",
         "dev_rev1.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "path": "topics/topic_065"
@@ -1056,7 +1056,7 @@
         "ace_rev1.md",
         "arki_rev1.md",
         "dev_rev1.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "path": "topics/topic_064"
@@ -1080,7 +1080,7 @@
         "arki_rev1.md",
         "fin_rev1.md",
         "riki_rev1.md",
-        "editor_rev1.md",
+        "edi_rev1.md",
         "turns-integrity-report.md"
       ],
       "published": false,
@@ -1109,7 +1109,7 @@
         "arki_rev1.md",
         "fin_rev1.md",
         "riki_rev1.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "path": "topics/topic_062",
@@ -1291,7 +1291,7 @@
         "vera_rev1.md",
         "riki_rev1.md",
         "arki_rev1.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "path": "topics/topic_052",
@@ -1329,7 +1329,7 @@
       "controlPath": "topics/topic_050",
       "reportPath": "reports/2026-04-20_phase2-turn-push-validate",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "path": "topics/topic_050",
@@ -1363,7 +1363,7 @@
       "controlPath": "topics/topic_048",
       "reportPath": "reports/2026-04-20_role-recall-measurement-structure",
       "reportFiles": [
-        "editor_rev1.md",
+        "edi_rev1.md",
         "vera_rev1.md"
       ],
       "published": false,
@@ -1421,7 +1421,7 @@
         "arki_rev1.md",
         "riki_rev1.md",
         "nova_rev1.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": true,
       "grade": "S",
@@ -1628,7 +1628,7 @@
       "controlPath": null,
       "reportPath": "reports/2026-04-17_agents-completed-hook",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "masterDecisions": [
@@ -1653,7 +1653,7 @@
       "reportPath": "reports/2026-04-17_session-history-view",
       "reportFiles": [
         "ace_rev1.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "masterDecisions": [],
@@ -1689,7 +1689,7 @@
       "created": "2026-04-17",
       "reportPath": "reports/2026-04-17_legend-team-dashboard-2",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "dist/ 배포 갭 해소 + nav 영어 통일 + status 통일 + Topics 개편",
@@ -1710,7 +1710,7 @@
       "controlPath": null,
       "reportPath": "reports/2026-04-17_legend-team-dashboard",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "masterDecisions": [
@@ -1753,7 +1753,7 @@
       "reportPath": "reports/2026-04-16_canva-integration",
       "reportFiles": [
         "ace_rev1.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "masterDecisions": [],
@@ -1774,7 +1774,7 @@
       "controlPath": null,
       "reportPath": "reports/2026-04-16_v090-design-upgrade",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "masterDecisions": [
@@ -1799,7 +1799,7 @@
       "reportFiles": [
         "ace_rev1.md",
         "fin_rev1.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "masterDecisions": [
@@ -1822,7 +1822,7 @@
       "controlPath": null,
       "reportPath": "reports/2026-04-16_legend-team-efficiency",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "masterDecisions": [],
@@ -1843,7 +1843,7 @@
       "controlPath": null,
       "reportPath": "reports/2026-04-16_dev-role-session-close",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "masterDecisions": [],
@@ -1864,7 +1864,7 @@
       "controlPath": null,
       "reportPath": "reports/2026-04-16_dev-test",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "masterDecisions": [],
@@ -1885,7 +1885,7 @@
       "controlPath": null,
       "reportPath": "reports/2026-04-16_superpowers-3",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "skill 실행 테스트 5/5 정상. Superpowers 나머지 4개 흡수. Dev(데브) 신설(D-021). Editor 디자인 권한 확장. v0.7.0 선언. 총 9개 skill, 7개 역할.",
@@ -1908,7 +1908,7 @@
       "controlPath": null,
       "reportPath": "reports/2026-04-16_superpowers-2",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "Superpowers 14개 skill 전수 평가. 4개 흡수(writing-skills, verification-before-completion, dispatching-parallel-agents, ace-framing 작동 확인) + ace-learning-loop 레전드팀 고유 창작. Ace 검증-질문-수용 루프 도입(D-020). v0.6.0 선언.",
@@ -1931,7 +1931,7 @@
       "controlPath": null,
       "reportPath": "reports/2026-04-15_superpowers-absorption-plan",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "실행계획 역할을 Arki에 통합. Ace 오케스트레이터 선언(D-019), Schedule-on-Demand 원칙(D-017), 실행계획 오염 금지어 v0(D-018) 확정. CLAUDE.md·decision_ledger 반영 완료.",
@@ -1957,7 +1957,7 @@
       "controlPath": null,
       "reportPath": "reports/2026-04-15_superpowers-plugin-review",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "Superpowers 미설치 결정. 자립 경로 채택. `ace-framing` 자작 skill 신설(brainstorming 3번·7번 해체·흡수)을 topic_015로 이연. 실행 계획 작성 역할 공백도 이연. clone은 참고서로 scratch/에 유지.",
@@ -1982,8 +1982,8 @@
         "arki_rev1.md",
         "fin_rev1.md",
         "riki_rev1.md",
-        "editor_rev1.html",
-        "editor_rev1.doc"
+        "edi_rev1.html",
+        "edi_rev1.doc"
       ],
       "published": false,
       "outcome": "스케일업300 8대 카테고리 + 전체 액션 아이템 리스트 + FAST 다이어그램 확정. 상반기 데드라인 기준 체계 수립 후 상시 확장 구조 정립.",
@@ -2005,7 +2005,7 @@
       "reportPath": "reports/2026-04-13_databook-agent-design",
       "reportFiles": [
         "arki_rev01.md",
-        "editor_rev01.md",
+        "edi_rev01.md",
         "architecture_d2.svg",
         "architecture_d2.png"
       ],
@@ -2029,7 +2029,7 @@
       "reportPath": "reports/2026-04-11_deeptutor-review",
       "reportFiles": [
         "ace_rev01.md",
-        "editor_rev01.md",
+        "edi_rev01.md",
         "eduagent-architecture.png",
         "EduAgent_Architecture_Report.docx"
       ],
@@ -2052,7 +2052,7 @@
       "controlPath": null,
       "reportPath": "reports/2026-04-10_ace-measurement-structure",
       "reportFiles": [
-        "editor_rev01.md"
+        "edi_rev01.md"
       ],
       "published": false,
       "outcome": "masterSelectionPatterns + lessonLog 구현. Ace 추천 필수화. observations를 Decision 레코드 내장으로 확정.",
@@ -2076,7 +2076,7 @@
         "arki_rev01.md",
         "fin_rev01.md",
         "riki_rev01.md",
-        "editor_rev01.md"
+        "edi_rev01.md"
       ],
       "published": true,
       "outcome": "6개 역할 재정의 완료. Ace=Master 판단 대리인(후행→선행 진화). Fin Financial 유지. Editor 기록자 한정. Riki adversarial 강화.",
@@ -2102,7 +2102,7 @@
         "arki_rev01.md",
         "riki_rev01.md",
         "ace_rev01.md",
-        "editor_rev01.md"
+        "edi_rev01.md"
       ],
       "published": true,
       "outcome": "2팀 델타팩 4건 채택 적용 완료. CLAUDE.md 3개 원칙 추가/강화. config/project.json 버전 동기화. 분류 체계는 별도 토픽 이연.",
@@ -2125,7 +2125,7 @@
       "controlPath": null,
       "reportPath": "reports/2026-04-08_viewer-display-diagnosis",
       "reportFiles": [
-        "editor_rev01.md"
+        "edi_rev01.md"
       ],
       "published": true,
       "outcome": "root cause 확정(report 파일 미생성). 3단계 방어 게이트 수립. XSS 패치. session-log.ts 교차검증 추가.",
@@ -2150,7 +2150,7 @@
         "arki_rev01.md",
         "fin_rev01.md",
         "riki_rev01.md",
-        "editor_rev01.md"
+        "edi_rev01.md"
       ],
       "published": true,
       "outcome": "학습 순환 고리 수복. 세션 프로토콜 보정, role memory 소급, evidence/glossary/feedback 수복. v0.5.0 선언.",
@@ -2195,7 +2195,7 @@
       "reportPath": "reports/2026-04-05_legend-team-upgrade-review",
       "reportFiles": [
         "ace_rev01.md",
-        "editor_rev01.md"
+        "edi_rev01.md"
       ],
       "published": true,
       "outcome": "v0.4.0 확정. 세션 체크리스트 자동화(H-01), 스크립트 정리, 자산 프로토콜 정의 완료.",
@@ -2247,7 +2247,7 @@
         "fin_rev01.md",
         "riki_rev01.md",
         "nova_rev01.md",
-        "editor_rev01.md"
+        "edi_rev01.md"
       ],
       "published": true,
       "outcome": "Cloudflare Pages 배포 완료. 다중 페이지 뷰어 구현. Ace/Editor 역할 재정의.",
@@ -2278,7 +2278,7 @@
         "arki_rev01.md",
         "fin_rev01.md",
         "riki_rev01.md",
-        "editor_rev01.md"
+        "edi_rev01.md"
       ],
       "published": true,
       "outcome": "v0.2.0 기준 확정 및 실행 완료",
@@ -2305,7 +2305,7 @@
       "reportPath": "reports/2026-04-02_shared-asset-protocol",
       "reportFiles": [
         "ace_rev01.md",
-        "editor_rev01.md"
+        "edi_rev01.md"
       ],
       "published": true,
       "note": "retroactive — individual role debate files not recovered. Ace + Editor reconstruction only.",
@@ -2316,5 +2316,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-27T10:25:04.929Z"
+  "lastUpdated": "2026-04-27T13:41:44.475Z"
 }

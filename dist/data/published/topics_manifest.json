@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-27T10:25:19.561Z",
+  "generatedAt": "2026-04-27T13:41:58.649Z",
   "topics": [
     {
       "id": "topic_117",
@@ -9,7 +9,7 @@
       "reportPath": "reports/2026-04-27_topic-session-1-to-n-open-rule",
       "reportFiles": [
         "ace_rev1.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "/open 스킬 7번 분기 A/B 재작성 완료 — 토픽 ID 명시 시 기존 토픽 재사용, Grade 판정 §0 추가",
@@ -59,10 +59,10 @@
       "created": "2026-04-26",
       "reportPath": "reports/2026-04-26_dashboard-maintenance-home-growth-system",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
-      "outcome": "session_117에서 잔여 정비 추가: session.html All Sessions 카드→테이블 전환(.table §14 위임), feedback.html 검색·필터·status counts·escape 정비. Hook Success rate 개선은 별도 토픽 분리.",
+      "outcome": "session_118: topic.html 세션별 매핑+탭 버그 수정, editor→edi 전면 정규화(4-pass + 63 reports rename + 17 surfaces), session.html 리스트/상세 분리(topic 패턴 mirror, Current Session→growth bottom), decisions/feedback/deferrals 양방향 링크 그래프 완성, deferrals=Action Queue 정체성+amber+age badge.",
       "note": null,
       "masterDecisions": []
     },
@@ -85,7 +85,7 @@
       "created": "2026-04-26",
       "reportPath": "reports/2026-04-26_dashboard-phase-b-cross-check",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": null,
@@ -118,7 +118,7 @@
         "dev_rev1.md",
         "dev_rev2.md",
         "ace_rev2.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "G3/G4/G5 PASS: vr-compare 구현(pixelmatch+pngjs), baseline 24/24 lock, B1+B2+B3 PASS, deferrals.html 신설, CF Pages 5페이지 배포. D-099 박제. PD-051 resolved.",
@@ -225,7 +225,7 @@
       "reportPath": "reports/2026-04-25_pd037-vera-signature-review",
       "reportFiles": [
         "vera_rev1.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "signature.html ROLE_COLOR fallback 6/8 불일치(구버전 팔레트) 발견 및 수정. role-colors.js canonical 동기화 완료. PD-037 resolveCondition 충족(1토픽 실사용). C/D grade 서브에이전트 금지 피드백 박제.",
@@ -313,7 +313,7 @@
       "reportFiles": [
         "ace_rev1.md",
         "arki_rev1.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "원 scope(signal v1.00 구현)에서 중대 구조 위반(inline-main·relay) 발견으로 Phase 1 방어책 박제로 전환. D-066 3층 방어(Schema L1 + Hook L2 + Structural L3) 완료. signal_registry.json v1.00 30 signals spec 박제. F-태깅 프로토콜(F-001~F-013) 도입. PD-032/033/034 신설. 수집 로직은 다음 세션(Grade B).",
@@ -343,7 +343,7 @@
         "arki_rev1.md",
         "fin_rev1.md",
         "riki_rev1.md",
-        "editor_rev1.md",
+        "edi_rev1.md",
         "cost-report-2025-reanalysis.html"
       ],
       "published": true,
@@ -424,7 +424,7 @@
       "created": "2026-04-22",
       "reportPath": "reports/2026-04-22_nd060-phase2-consensus-scoring",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "D-062 확정. Phase 2 consensus 본체 보류 + 학습축 자가평가 MVP 설계 완료 (28지표, 3뷰 추이). 자가평가-외부평가 공존 원칙 박제. 구현 PD-023 이연.",
@@ -450,7 +450,7 @@
       "created": "2026-04-22",
       "reportPath": "reports/2026-04-22_growth-metrics-phase1-automatic-mvp",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "G1 게이트 통과. automatic 스코어러 4종 + resolvePendingLag + 훅 체인 삽입. nonNull datapoints=584, pendingLag=15. 19 PASS / 0 FAIL.",
@@ -464,7 +464,7 @@
       "created": "2026-04-22",
       "reportPath": "reports/2026-04-22_growth-metrics-phase0-scaffold",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "D-060 Phase 0 scaffold 완료. 스키마 5종(metrics_registry/hit_rate_rubric[versioned]/intervention_classifier/regime_markers/metric_health) + compute-growth.ts registry-driven skeleton(append-only, pendingLag, incremental, provenance 필드). scoringLag 8종 확정(ace=3/arki=10/fin=0/riki=3/dev=0/vera=0/edi=1/nova=5). regime marker 3건 백필(R-001 D-051 / R-002 D-056 / R-003 D-058). 자가검증 36 PASS/0 FAIL. Phase 1(automatic 스코어러 + 훅 체인 통합 MVP) 선행 완료.",
@@ -478,7 +478,7 @@
       "created": "2026-04-22",
       "reportPath": "reports/2026-04-22_growth-metrics-board-design",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "D-060 확정. 공통 3층(학습누적·적중률·자율성) + 역할별 signature 8종 + 교차채점 + Registry/Rubric versioning + 지연채점 + Provenance chain + Metric QA + Multi-scale + Percentile + Regime marker/transition zone + Incremental aggregation. Growth Board 메인 페이지(안 β). PD-015 해소. 구현은 child 토픽(topic_082 재개 시 병합).",
@@ -508,7 +508,7 @@
         "dev_rev1.md",
         "dev_rev2.md",
         "dev_rev3.md",
-        "editor_rev1.md",
+        "edi_rev1.md",
         "inventory.md",
         "legacy-decision.md",
         "ia-spec.md",
@@ -694,7 +694,7 @@
       "created": "2026-04-21",
       "reportPath": "reports/2026-04-21_topic-closure-declaration",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "D-056 확정. PD-022 분기. 저마찰 원칙 박제.",
@@ -741,7 +741,7 @@
         "arki_rev1.md",
         "fin_rev1.md",
         "riki_rev1.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "프레이밍+실행계획 확정(D-055). 강제강도 재분류: 하드 2(A6-1·A6-4) + 경고 2(A6-2·A6-3). 구현은 별도 세션(P1부터).",
@@ -757,7 +757,7 @@
       "reportFiles": [
         "ace_rev1.md",
         "dev_rev1.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "scripts/load-context-briefs.ts 신설 + .claude/commands/open.md step 3.5 추가. PD-020b 전 구간 완료.",
@@ -774,7 +774,7 @@
         "ace_rev1.md",
         "arki_rev1.md",
         "dev_rev1.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "P2 L1 writer + P2b backfill + P3 L2 writer + P4 L3 regenerator + P5 훅 체인 편입 완료. TopicIndexEntry gap 해소. 전 게이트 통과.",
@@ -792,7 +792,7 @@
         "arki_rev1.md",
         "fin_rev1.md",
         "riki_rev1.md",
-        "editor_rev1.md",
+        "edi_rev1.md",
         "turns-integrity-report.md"
       ],
       "published": false,
@@ -811,7 +811,7 @@
         "arki_rev1.md",
         "fin_rev1.md",
         "riki_rev1.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "PD-020b 전 구간 완료. 프레이밍(D-053: Context 3층 아키텍처 v1) → 구현 분할(topic_063 P0+P1 / topic_064 P2~P5 / topic_065 P6) → 검증. session_060~062 실집행 완료. PD-021 신규(auto-model-switch 재구현) 이연.",
@@ -954,7 +954,7 @@
         "vera_rev1.md",
         "riki_rev1.md",
         "arki_rev1.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "D-049 확정. D3 sequence 패널 프로토타입 구현(Vera 직접)·vera_memory skills 조건부 매트릭스·design_rules.json(R-D01·R-D02)·sequence-panel.js 모듈 분리 완료. 이월: 색 대비 전역·PD-018·PD-019.",
@@ -983,7 +983,7 @@
       "created": "2026-04-20",
       "reportPath": "reports/2026-04-20_phase2-turn-push-validate",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "3개 산출물 완성: CLAUDE.md Turn Push Protocol 추가, session-end-finalize.js Turn[] 전파 검증, validate-session-turns.ts 신설(callable export + phase_catalog 런타임 로드). Master 피드백 보완 완료.",
@@ -1009,7 +1009,7 @@
       "created": "2026-04-20",
       "reportPath": "reports/2026-04-20_role-recall-measurement-structure",
       "reportFiles": [
-        "editor_rev1.md",
+        "edi_rev1.md",
         "vera_rev1.md"
       ],
       "published": false,
@@ -1057,7 +1057,7 @@
         "arki_rev1.md",
         "riki_rev1.md",
         "nova_rev1.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": true,
       "outcome": null,
@@ -1214,7 +1214,7 @@
       "created": "2026-04-17",
       "reportPath": "reports/2026-04-17_agents-completed-hook",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "Hook 체인 완성(tokens→finalize→compute→build). dashboard 6개 이슈 해결. PD-009 발동 검증 이연.",
@@ -1232,7 +1232,7 @@
       "reportPath": "reports/2026-04-17_session-history-view",
       "reportFiles": [
         "ace_rev1.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "PD-008 완전 이행: append-session.ts agentsCompleted 파라미터 추가, close.md step 8 명시화, backfill-agents.ts 신설(22개 소급), compute-dashboard.ts roleFrequency 집계 추가, session.html Current|History 탭 + ECharts 역할 빈도 차트 구현.",
@@ -1258,7 +1258,7 @@
       "created": "2026-04-17",
       "reportPath": "reports/2026-04-17_legend-team-dashboard-2",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "dist/ 배포 갭 해소 + nav 영어 통일 + status 통일 + Topics 개편",
@@ -1272,7 +1272,7 @@
       "created": "2026-04-17",
       "reportPath": "reports/2026-04-17_legend-team-dashboard",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "대시보드 구조적 공백 해소(축A/B/C) + 2뷰 구현 완료. compute-dashboard.ts(28세션 Size 계산) + dashboard-upgrade.html + dashboard-ops.html + append-session.ts. Size 공식 masterTurns 제거(D-027). Hook 자동화(D-028). session_index JSON 구조 오염 원천 차단.",
@@ -1302,7 +1302,7 @@
       "reportPath": "reports/2026-04-16_canva-integration",
       "reportFiles": [
         "ace_rev1.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "Canva 채널 통합 보류. AI 생성 품질 미달, 템플릿+편집 방식은 기술 작동 확인이나 Master 기준 미충족. 추가 발견: Claude Code PPT 직접 생성 = 토큰 극소비 문제.",
@@ -1316,7 +1316,7 @@
       "created": "2026-04-16",
       "reportPath": "reports/2026-04-16_v090-design-upgrade",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "3개 디자인 스타일 체계 확정(Navy/Red/Gold) + HTML 보고서 디자인 시스템 구현 완료. design:design-critique 흡수 → CRITIQUE_CHECKLIST.md. PD-003 삭제. PD-005(Figma) 등록. v0.9.0 선언.",
@@ -1334,7 +1334,7 @@
       "reportFiles": [
         "ace_rev1.md",
         "fin_rev1.md",
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "효율화 fast-path 토큰 절감 실증(90% 감소). PD-001 21개 토픽 타입 레이블링 완료. PD-002 자동 해소. D-022 수립(토픽명 사후 조정 원칙). 소급 타입/명칭 정비 7건/2건. Fin 세션 전환 타이밍 기준 정의.",
@@ -1350,7 +1350,7 @@
       "created": "2026-04-16",
       "reportPath": "reports/2026-04-16_legend-team-efficiency",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "system_state fast-path 신설, topic_load_manifest 선택적 로드, pendingDeferrals 이연 관리 체계 구축. v0.8.0 선언. /open 로드 ~700줄 → ~50줄.",
@@ -1364,7 +1364,7 @@
       "created": "2026-04-16",
       "reportPath": "reports/2026-04-16_dev-role-session-close",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "/open 비용 구조 최적화 완료(A+B+C+D'). open.md 2단계 로드+Ace 조건부 프레이밍. close.md closeVerified 마커. session-log.ts 읽기 전용 감사관 전환. TopicIndexEntry 선행 버그 수정. tsc 오류 0.",
@@ -1378,7 +1378,7 @@
       "created": "2026-04-16",
       "reportPath": "reports/2026-04-16_dev-test",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "session-log.ts 버그 3종 수정(B-01 음수 duration, B-02 OP-04 FAIL, B-03 mismatch 불명확). TopicIndexEntry 타입 실제화. tsc 오류 0.",
@@ -1392,7 +1392,7 @@
       "created": "2026-04-16",
       "reportPath": "reports/2026-04-16_superpowers-3",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "skill 실행 테스트 5/5 정상. Superpowers 나머지 4개 흡수. Dev(데브) 신설(D-021). Editor 디자인 권한 확장. v0.7.0 선언. 총 9개 skill, 7개 역할.",
@@ -1408,7 +1408,7 @@
       "created": "2026-04-16",
       "reportPath": "reports/2026-04-16_superpowers-2",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "Superpowers 14개 skill 전수 평가. 4개 흡수(writing-skills, verification-before-completion, dispatching-parallel-agents, ace-framing 작동 확인) + ace-learning-loop 레전드팀 고유 창작. Ace 검증-질문-수용 루프 도입(D-020). v0.6.0 선언.",
@@ -1424,7 +1424,7 @@
       "created": "2026-04-15",
       "reportPath": "reports/2026-04-15_superpowers-absorption-plan",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "실행계획 역할을 Arki에 통합. Ace 오케스트레이터 선언(D-019), Schedule-on-Demand 원칙(D-017), 실행계획 오염 금지어 v0(D-018) 확정. CLAUDE.md·decision_ledger 반영 완료.",
@@ -1443,7 +1443,7 @@
       "created": "2026-04-15",
       "reportPath": "reports/2026-04-15_superpowers-plugin-review",
       "reportFiles": [
-        "editor_rev1.md"
+        "edi_rev1.md"
       ],
       "published": false,
       "outcome": "Superpowers 미설치 결정. 자립 경로 채택. `ace-framing` 자작 skill 신설(brainstorming 3번·7번 해체·흡수)을 topic_015로 이연. 실행 계획 작성 역할 공백도 이연. clone은 참고서로 scratch/에 유지.",
@@ -1461,8 +1461,8 @@
         "arki_rev1.md",
         "fin_rev1.md",
         "riki_rev1.md",
-        "editor_rev1.html",
-        "editor_rev1.doc"
+        "edi_rev1.html",
+        "edi_rev1.doc"
       ],
       "published": false,
       "outcome": "스케일업300 8대 카테고리 + 전체 액션 아이템 리스트 + FAST 다이어그램 확정. 상반기 데드라인 기준 체계 수립 후 상시 확장 구조 정립.",
@@ -1477,7 +1477,7 @@
       "reportPath": "reports/2026-04-13_databook-agent-design",
       "reportFiles": [
         "arki_rev01.md",
-        "editor_rev01.md",
+        "edi_rev01.md",
         "architecture_d2.svg",
         "architecture_d2.png"
       ],
@@ -1494,7 +1494,7 @@
       "reportPath": "reports/2026-04-11_deeptutor-review",
       "reportFiles": [
         "ace_rev01.md",
-        "editor_rev01.md",
+        "edi_rev01.md",
         "eduagent-architecture.png",
         "EduAgent_Architecture_Report.docx"
       ],
@@ -1510,7 +1510,7 @@
       "created": "2026-04-10",
       "reportPath": "reports/2026-04-10_ace-measurement-structure",
       "reportFiles": [
-        "editor_rev01.md"
+        "edi_rev01.md"
       ],
       "published": false,
       "outcome": "masterSelectionPatterns + lessonLog 구현. Ace 추천 필수화. observations를 Decision 레코드 내장으로 확정.",
@@ -1528,7 +1528,7 @@
         "arki_rev01.md",
         "fin_rev01.md",
         "riki_rev01.md",
-        "editor_rev01.md"
+        "edi_rev01.md"
       ],
       "published": true,
       "outcome": "6개 역할 재정의 완료. Ace=Master 판단 대리인(후행→선행 진화). Fin Financial 유지. Editor 기록자 한정. Riki adversarial 강화.",
@@ -1547,7 +1547,7 @@
         "arki_rev01.md",
         "riki_rev01.md",
         "ace_rev01.md",
-        "editor_rev01.md"
+        "edi_rev01.md"
       ],
       "published": true,
       "outcome": "2팀 델타팩 4건 채택 적용 완료. CLAUDE.md 3개 원칙 추가/강화. config/project.json 버전 동기화. 분류 체계는 별도 토픽 이연.",
@@ -1563,7 +1563,7 @@
       "created": "2026-04-08",
       "reportPath": "reports/2026-04-08_viewer-display-diagnosis",
       "reportFiles": [
-        "editor_rev01.md"
+        "edi_rev01.md"
       ],
       "published": true,
       "outcome": "root cause 확정(report 파일 미생성). 3단계 방어 게이트 수립. XSS 패치. session-log.ts 교차검증 추가.",
@@ -1581,7 +1581,7 @@
         "arki_rev01.md",
         "fin_rev01.md",
         "riki_rev01.md",
-        "editor_rev01.md"
+        "edi_rev01.md"
       ],
       "published": true,
       "outcome": "학습 순환 고리 수복. 세션 프로토콜 보정, role memory 소급, evidence/glossary/feedback 수복. v0.5.0 선언.",
@@ -1611,7 +1611,7 @@
       "reportPath": "reports/2026-04-05_legend-team-upgrade-review",
       "reportFiles": [
         "ace_rev01.md",
-        "editor_rev01.md"
+        "edi_rev01.md"
       ],
       "published": true,
       "outcome": "v0.4.0 확정. 세션 체크리스트 자동화(H-01), 스크립트 정리, 자산 프로토콜 정의 완료.",
@@ -1649,7 +1649,7 @@
         "fin_rev01.md",
         "riki_rev01.md",
         "nova_rev01.md",
-        "editor_rev01.md"
+        "edi_rev01.md"
       ],
       "published": true,
       "outcome": "Cloudflare Pages 배포 완료. 다중 페이지 뷰어 구현. Ace/Editor 역할 재정의.",
@@ -1674,7 +1674,7 @@
         "arki_rev01.md",
         "fin_rev01.md",
         "riki_rev01.md",
-        "editor_rev01.md"
+        "edi_rev01.md"
       ],
       "published": true,
       "outcome": "v0.2.0 기준 확정 및 실행 완료",
@@ -1695,12 +1695,16 @@
       "reportPath": "reports/2026-04-02_shared-asset-protocol",
       "reportFiles": [
         "ace_rev01.md",
-        "editor_rev01.md"
+        "edi_rev01.md"
       ],
       "published": true,
       "outcome": null,
       "note": "retroactive — individual role debate files not recovered. Ace + Editor reconstruction only.",
       "masterDecisions": []
     }
+  ],
+  "buildWarnings": [
+    "[build] WARN: topic_013 (reports/2026-04-14_hybrid-scaleup300/edi_rev1.html) registered in topic_index but file not found on disk",
+    "[build] WARN: topic_013 (reports/2026-04-14_hybrid-scaleup300/edi_rev1.doc) registered in topic_index but file not found on disk"
   ]
 }

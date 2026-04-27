@@ -31,7 +31,7 @@ const CHECKS: ContrastCheck[] = [
   { fg: '--c-dev',    bg: '--panel',   minRatio: 4.5 },
   { fg: '--c-riki',   bg: '--panel',   minRatio: 4.5 },
   { fg: '--c-ace',    bg: '--panel',   minRatio: 4.5 },
-  { fg: '--c-editor', bg: '--panel',   minRatio: 4.5 },
+  { fg: '--c-edi',    bg: '--panel',   minRatio: 4.5 },
   { fg: '--ok',       bg: '--panel',   minRatio: 4.5 },
   { fg: '--warn',     bg: '--panel',   minRatio: 4.5 },
   { fg: '--bad',      bg: '--panel',   minRatio: 4.5 },

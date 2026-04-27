@@ -29,7 +29,7 @@ const path = require('path');
 
 const TARGET_TOOL_NAMES = ['Task', 'Agent']; // 양쪽 모두 cover
 const ROLE_AGENT_PREFIX = 'role-';
-const KNOWN_ROLES = ['ace', 'arki', 'fin', 'riki', 'nova', 'dev', 'editor', 'designer'];
+const KNOWN_ROLES = ['ace', 'arki', 'fin', 'riki', 'nova', 'dev', 'edi', 'designer'];
 
 function readStdin() {
   return new Promise((resolve) => {

@@ -1,13 +1,13 @@
 {
-  "sessionId": "session_117",
+  "sessionId": "session_118",
   "topicId": "topic_113",
   "topic": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비",
   "topicSlug": "dashboard-maintenance-home-growth-system",
   "reportPath": "reports/2026-04-27_dashboard-maintenance-home-growth-system",
   "status": "closed",
-  "startedAt": "2026-04-27T15:00:00.000Z",
-  "closedAt": "2026-04-27T15:45:00.000Z",
-  "oneLineSummary": "session.html All Sessions 카드→테이블 전환(.table 위임) + feedback.html 검색·필터·status counts·escape 정비",
+  "startedAt": "2026-04-27T16:00:00.000Z",
+  "closedAt": "2026-04-27T18:30:00.000Z",
+  "oneLineSummary": "topic/session/decisions/feedback/deferrals 5페이지 정체성 재정의 + editor→edi 전면 정규화 + 양방향 링크 그래프",
   "mode": "observation",
   "grade": "B",
   "gradeDeclared": "B",
@@ -19,35 +19,44 @@
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
-    "ace",
     "dev",
-    "editor"
+    "edi"
   ],
   "turns": [
     {
-      "role": "ace",
-      "turnIdx": 0,
-      "phase": "framing"
-    },
-    {
       "role": "dev",
-      "turnIdx": 1,
+      "turnIdx": 0,
       "phase": "implementation"
     },
     {
-      "role": "editor",
-      "turnIdx": 2,
+      "role": "edi",
+      "turnIdx": 1,
       "phase": "compile"
     }
   ],
-  "decisions": [],
-  "masterDecisions": [
+  "decisions": [
     {
-      "id": "MD-117a",
-      "axis": "scope 확정",
-      "value": "Q1=(b) feedback.html, Q2=(b) 데이터·기능까지"
+      "id": "MD-118a",
+      "axis": "페이지네이션 단위",
+      "value": "50/페이지 + 검색 + 필터 (장기 성장 고려)"
+    },
+    {
+      "id": "MD-118b",
+      "axis": "role identifier 정규화",
+      "value": "edi가 공식 — 모든 페이지/로직/md/파일명 정규화 (editor 흔적 제거)"
+    },
+    {
+      "id": "MD-118c",
+      "axis": "Current Session 위치",
+      "value": "growth.html 맨 아래 (한 세션 스냅샷은 보조 정보)"
+    },
+    {
+      "id": "MD-118d",
+      "axis": "deferrals 색상",
+      "value": "amber #F59E0B 정체성 + dependsOn 빨강 #EF4444 + 그래프 monochrome 정비"
     }
   ],
+  "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
@@ -55,20 +64,25 @@
   "decisionsAdded": [],
   "notes": [
     "topic_113 재사용 (분기 A). status completed → open → completed",
-    "Master 명시 grade B (원 topic_index grade A는 유지)",
-    "session.html All Sessions 카드형 .hist-card → .table .sess-table 8컬럼 전환",
-    "feedback.html 전면 재작성 — counts/filter/search/escape 추가",
-    "빌드 통과: dist/session.html line 178 .sess-table, dist/feedback.html line 108 .fb-counts",
-    "Hook Success rate 개선은 별도 토픽으로 분리(scope out)"
+    "Master 명시 grade B",
+    "topic.html: 세션별 그룹 매핑 + 탭 클릭 메뉴바 사라짐 버그 수정 + 카운트 chip + 페이지네이션 50",
+    "editor→edi 전면 정규화: 4-pass JSON migration + 63 report files rename + 10 scripts + 2 hooks + 5 HTML/CSS/JS",
+    "session.html 분리: 리스트(검색·필터·페이저+RF strip+TurnSeq) + 상세(Reports/Decisions/Turns 탭)",
+    "Current Session + Agent Progress → growth.html 맨 아래로 이전",
+    "decisions.html 재구축: 인라인 expand + 양방향 링크 + anchor(?id=D-NNN)",
+    "feedback.html 재구축: 인라인 expand + Resulting decisions의 D-id → decisions anchor",
+    "deferrals.html 정체성 재정의: Action Queue, Pending default, Age 배지, resolveCondition 메인 승격, 그래프 monochrome 정비",
+    "Role Frequency 양 페이지 일치(edi 69) — dashboard-upgrade가 globalRoleFreq 직접 사용으로 통일",
+    "빌드 통과: dist/ 405 files"
   ],
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 120,
-    "output_tokens": 39827,
-    "cache_creation_input_tokens": 255301,
-    "cache_read_input_tokens": 5215652,
-    "messageCount": 70,
-    "masterTurns": 12,
-    "total_billable": 5510900
+    "input_tokens": 804,
+    "output_tokens": 364784,
+    "cache_creation_input_tokens": 2622180,
+    "cache_read_input_tokens": 69335186,
+    "messageCount": 386,
+    "masterTurns": 19,
+    "total_billable": 72322954
   }
 }

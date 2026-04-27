@@ -15,8 +15,13 @@
         "phase_dod.json 게이트별 첫 시도 기록"
       ],
       "validityCheck": "monthly",
-      "rater": { "type": "self", "by": "dev" },
-      "raterWeights": { "dev": 1 },
+      "rater": {
+        "type": "self",
+        "by": "dev"
+      },
+      "raterWeights": {
+        "dev": 1
+      },
       "timing": "immediate",
       "aggregation": "all-sessions",
       "baselineSessions": 10,
@@ -24,8 +29,14 @@
       "inputPriority": "extended",
       "defaultStrategy": "previous-session-value",
       "missingPenalty": "warn",
-      "applicableTopicTypes": ["implementation", "standalone"],
-      "participationExpectedTopicTypes": ["implementation", "standalone"]
+      "applicableTopicTypes": [
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "implementation",
+        "standalone"
+      ]
     },
     {
       "id": "dev.retry_count_per_phase",
@@ -42,8 +53,13 @@
         "turns 배열 recallReason=post-master 카운트"
       ],
       "validityCheck": "monthly",
-      "rater": { "type": "self", "by": "dev" },
-      "raterWeights": { "dev": 1 },
+      "rater": {
+        "type": "self",
+        "by": "dev"
+      },
+      "raterWeights": {
+        "dev": 1
+      },
       "timing": "immediate",
       "aggregation": "all-sessions",
       "baselineSessions": 10,
@@ -51,8 +67,14 @@
       "inputPriority": "extended",
       "defaultStrategy": "previous-session-value",
       "missingPenalty": "warn",
-      "applicableTopicTypes": ["implementation", "standalone"],
-      "participationExpectedTopicTypes": ["implementation", "standalone"]
+      "applicableTopicTypes": [
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "implementation",
+        "standalone"
+      ]
     },
     {
       "id": "dev.post_gate_debug_count",
@@ -69,8 +91,13 @@
         "session_contributions/ 내 debug 메모"
       ],
       "validityCheck": "monthly",
-      "rater": { "type": "self", "by": "dev" },
-      "raterWeights": { "dev": 1 },
+      "rater": {
+        "type": "self",
+        "by": "dev"
+      },
+      "raterWeights": {
+        "dev": 1
+      },
       "timing": "deferred",
       "aggregation": "all-sessions",
       "baselineSessions": 10,
@@ -78,8 +105,14 @@
       "inputPriority": "extended",
       "defaultStrategy": "previous-session-value",
       "missingPenalty": "warn",
-      "applicableTopicTypes": ["implementation", "standalone"],
-      "participationExpectedTopicTypes": ["implementation", "standalone"]
+      "applicableTopicTypes": [
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "implementation",
+        "standalone"
+      ]
     },
     {
       "id": "dev.hardcoding_ratio",
@@ -96,8 +129,13 @@
         "config 원천 파일 대비 hardcoded 상수 count"
       ],
       "validityCheck": "monthly",
-      "rater": { "type": "self", "by": "dev" },
-      "raterWeights": { "dev": 1 },
+      "rater": {
+        "type": "self",
+        "by": "dev"
+      },
+      "raterWeights": {
+        "dev": 1
+      },
       "timing": "immediate",
       "aggregation": "all-sessions",
       "baselineSessions": 10,
@@ -105,23 +143,36 @@
       "inputPriority": "extended",
       "defaultStrategy": "previous-session-value",
       "missingPenalty": "warn",
-      "applicableTopicTypes": ["implementation", "standalone"],
-      "participationExpectedTopicTypes": ["implementation", "standalone"]
+      "applicableTopicTypes": [
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "implementation",
+        "standalone"
+      ]
     },
     {
-      "id": "editor.mechanical_gap_count",
+      "id": "edi.mechanical_gap_count",
       "shortKey": "gp_mec",
-      "role": "editor",
+      "role": "edi",
       "scope": "role",
       "axis": "judgment-consistency",
       "type": "base",
       "scale": "0-5",
       "polarity": "lower-better",
       "construct": "current_session.gaps에 기록된 기계적 누락 건수 (체크리스트 미완료 등)",
-      "externalAnchor": ["current_session.json gaps 배열"],
+      "externalAnchor": [
+        "current_session.json gaps 배열"
+      ],
       "validityCheck": "monthly",
-      "rater": { "type": "self", "by": "editor" },
-      "raterWeights": { "editor": 1 },
+      "rater": {
+        "type": "self",
+        "by": "edi"
+      },
+      "raterWeights": {
+        "edi": 1
+      },
       "timing": "immediate",
       "aggregation": "all-sessions",
       "baselineSessions": 10,
@@ -129,13 +180,21 @@
       "inputPriority": "extended",
       "defaultStrategy": "previous-session-value",
       "missingPenalty": "warn",
-      "applicableTopicTypes": ["framing", "implementation", "standalone"],
-      "participationExpectedTopicTypes": ["framing", "implementation", "standalone"]
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ]
     },
     {
-      "id": "editor.structural_gap_severity",
+      "id": "edi.structural_gap_severity",
       "shortKey": "gp_str",
-      "role": "editor",
+      "role": "edi",
       "scope": "role",
       "axis": "judgment-consistency",
       "type": "base",
@@ -148,8 +207,13 @@
         "topic_index phase-hold 불일치 건수"
       ],
       "validityCheck": "monthly",
-      "rater": { "type": "self", "by": "editor" },
-      "raterWeights": { "editor": 1 },
+      "rater": {
+        "type": "self",
+        "by": "edi"
+      },
+      "raterWeights": {
+        "edi": 1
+      },
       "timing": "immediate",
       "aggregation": "all-sessions",
       "baselineSessions": 10,
@@ -157,13 +221,21 @@
       "inputPriority": "extended",
       "defaultStrategy": "previous-session-value",
       "missingPenalty": "warn",
-      "applicableTopicTypes": ["framing", "implementation", "standalone"],
-      "participationExpectedTopicTypes": ["framing", "implementation", "standalone"]
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ]
     },
     {
-      "id": "editor.retroactive_gap_discovery",
+      "id": "edi.retroactive_gap_discovery",
       "shortKey": "gp_rtr",
-      "role": "editor",
+      "role": "edi",
       "scope": "role",
       "axis": "judgment-consistency",
       "type": "base",
@@ -175,8 +247,13 @@
         "retrospective PD 신설로 인한 이전 session 재분류"
       ],
       "validityCheck": "monthly",
-      "rater": { "type": "self", "by": "editor" },
-      "raterWeights": { "editor": 1 },
+      "rater": {
+        "type": "self",
+        "by": "edi"
+      },
+      "raterWeights": {
+        "edi": 1
+      },
       "timing": "deferred",
       "aggregation": "all-sessions",
       "baselineSessions": 10,
@@ -184,8 +261,16 @@
       "inputPriority": "extended",
       "defaultStrategy": "previous-session-value",
       "missingPenalty": "warn",
-      "applicableTopicTypes": ["framing", "implementation", "standalone"],
-      "participationExpectedTopicTypes": ["framing", "implementation", "standalone"]
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ]
     }
   ]
 }

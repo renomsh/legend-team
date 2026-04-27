@@ -7,92 +7,223 @@
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/components.css">
+  <style>
+.tab-btn.active{color:#F59E0B;border-bottom-color:#F59E0B}
+.s-meta{font-size:12px;color:var(--text-3);margin-bottom:18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.count-chip{display:inline-block;margin-left:10px;padding:3px 12px;font-size:14px;font-weight:600;color:#F59E0B;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.3);border-radius:999px;vertical-align:middle}
+.meta-pill{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;font-size:11px;font-weight:500;border-radius:4px;border:1px solid var(--line);color:var(--text-2)}
+.meta-pill.confirmed{color:#10B981;background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.25)}
+.meta-pill.pending{color:#F59E0B;background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.25)}
+.meta-pill.deprecated{color:#6E6E78;background:rgba(110,110,120,0.08)}
+
+.list-toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px;padding:12px 14px;background:var(--panel);border:1px solid var(--line);border-radius:8px}
+.list-search{flex:1;min-width:240px;padding:7px 12px;font-size:13px;background:var(--bg);border:1px solid var(--line);border-radius:6px;color:var(--text);outline:none}
+.list-search:focus{border-color:#F59E0B}
+.list-select{background:var(--panel-2);border:1px solid var(--line);border-radius:6px;padding:7px 12px;color:var(--text-2);font-size:12px;outline:none;cursor:pointer;min-width:130px}
+
+.dec-row{background:var(--panel);border:1px solid var(--line);border-radius:8px;margin-bottom:8px;cursor:pointer;transition:border-color .12s,background .12s}
+.dec-row:hover{border-color:rgba(245,158,11,.4)}
+.dec-row.target{border-color:#F59E0B;box-shadow:0 0 0 1px rgba(245,158,11,.25)}
+.dec-head{display:flex;align-items:center;gap:12px;padding:12px 16px;flex-wrap:wrap}
+.dec-id{font-family:'SF Mono',monospace;color:#F59E0B;font-weight:700;font-size:12px;min-width:56px}
+.dec-axis{flex:1;color:var(--text);font-weight:500;font-size:13px;min-width:200px}
+.dec-date{color:var(--text-3);font-size:11px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.dec-link{color:#06B6D4;font-size:11px;font-family:monospace;text-decoration:none}
+.dec-link:hover{text-decoration:underline}
+.dec-toggle{color:var(--text-3);font-size:12px;width:14px;text-align:center;transition:transform .15s}
+.dec-row.open .dec-toggle{transform:rotate(90deg)}
+.dec-body{display:none;padding:0 16px 14px 16px;border-top:1px solid var(--line);margin-top:0;font-size:12px;line-height:1.6;color:var(--text-2)}
+.dec-row.open .dec-body{display:block;padding-top:12px}
+.dec-block{margin-bottom:10px}
+.dec-block-label{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);font-weight:600;margin-bottom:4px}
+.dec-block-value{color:var(--text);white-space:pre-wrap;word-break:break-word}
+.dec-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:11px}
+.dec-links a{padding:3px 9px;border-radius:4px;background:var(--panel-2);color:var(--text-2);text-decoration:none;border:1px solid var(--line)}
+.dec-links a:hover{color:var(--text);border-color:var(--text-3)}
+
+.pager{display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding-top:14px;border-top:1px solid var(--line);flex-wrap:wrap;gap:10px}
+.pager-info{font-size:12px;color:var(--text-3)}
+.pager-ctrls{display:flex;gap:4px;align-items:center}
+.pbtn{min-width:32px;padding:6px 10px;font-size:12px;color:var(--text-2);background:transparent;border:1px solid var(--line);border-radius:5px;cursor:pointer}
+.pbtn:hover:not(.disabled):not(.active){color:var(--text);border-color:var(--text-3)}
+.pbtn.active{color:#fff;background:#F59E0B;border-color:#F59E0B;font-weight:600}
+.pbtn.disabled{opacity:.35;cursor:not-allowed}
+.pdot{padding:0 4px;color:var(--text-3);font-size:12px}
+  </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">본문으로 건너뛰기</a>
 <div class="app">
 <!-- @partial:sidebar -->
-<main class="s-main">
+<main class="s-main" id="main-content">
   <div class="s-crumb">Records / Decisions</div>
-  <div class="s-h1">Decision Ledger</div>
-  <div class="page" style="padding:0;max-width:none;margin:0">
-    <div style="margin-bottom:16px;font-size:12px;color:var(--text-tertiary)" id="decCount">Loading...</div>
+  <div class="s-h1" id="pageTitle">Decisions <span class="count-chip" id="decCount">…</span></div>
+  <div class="s-meta" id="decMeta"></div>
 
-    <!-- Filter -->
-    <div style="margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
-      <select id="filterTopic" onchange="applyFilter()" style="background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 6px 10px; font-size: 11px;">
-        <option value="">All Topics</option>
-      </select>
-      <select id="filterStatus" onchange="applyFilter()" style="background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 6px 10px; font-size: 11px;">
-        <option value="">All Status</option>
-        <option value="confirmed">Confirmed</option>
-        <option value="pending">Pending</option>
-      </select>
-    </div>
-
-    <div id="decisionList"><div class="loading">Loading decisions</div></div>
+  <div class="list-toolbar">
+    <input type="search" class="list-search" id="search" placeholder="Search axis / value / decision text…" oninput="onSearch(this.value)">
+    <select class="list-select" id="filterTopic" onchange="onTopicFilter(this.value)">
+      <option value="">All topics</option>
+    </select>
+    <select class="list-select" id="filterStatus" onchange="onStatusFilter(this.value)">
+      <option value="">All statuses</option>
+      <option value="confirmed">Confirmed</option>
+      <option value="pending">Pending</option>
+      <option value="deprecated">Deprecated</option>
+    </select>
   </div>
 
-  <script src="js/data-loader.js"></script>
-  <script src="js/nav.js"></script>
-  <script>
-    let allDecisions = [];
+  <div id="listWrap"><div class="loading">Loading decisions</div></div>
+  <div id="pager" class="pager"></div>
+</main>
+</div>
 
-    function renderDecisions(decisions) {
-      const el = document.getElementById('decisionList');
-      if (decisions.length === 0) {
-        el.innerHTML = '<div class="empty-state">No decisions match filter</div>';
-        return;
-      }
-      el.innerHTML = decisions.map(d => `
-        <div class="decision-item">
-          <div class="decision-id">${d.id}</div>
-          <div class="decision-axis">${d.axis}</div>
-          <div class="decision-value">${d.value}</div>
-          <div class="decision-meta">
-            <span>${d.date}</span>
-            <span>${d.topic}</span>
-            <span>${d.session || ''}</span>
-            <span>${d.decision}</span>
-            <span>${statusBadge(d.status === 'confirmed' ? 'closed' : 'open')}</span>
-          </div>
+<script src="js/data-loader.js"></script>
+<script src="js/nav.js"></script>
+<script>
+const PAGE_SIZE = 50;
+let state = { all: [], page: 1, search: '', topic: '', status: '', target: null };
+
+function escHtmlSafe(s) {
+  if (s == null) return '';
+  return String(s).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+}
+
+function applyFilters() {
+  const q = state.search.toLowerCase();
+  return state.all.filter(d => {
+    if (state.topic && d.topic !== state.topic && d.owningTopicId !== state.topic) return false;
+    if (state.status && (d.status || 'pending') !== state.status) return false;
+    if (q) {
+      const blob = `${d.id} ${d.axis||''} ${d.value||''} ${d.decision||''} ${d.scopeCheck||''} ${d.session||''} ${d.topic||''}`.toLowerCase();
+      if (!blob.includes(q)) return false;
+    }
+    return true;
+  });
+}
+
+function renderList() {
+  const filtered = applyFilters();
+  const total = filtered.length;
+  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  if (state.target) {
+    const targetIdx = filtered.findIndex(d => d.id === state.target);
+    if (targetIdx >= 0) state.page = Math.floor(targetIdx / PAGE_SIZE) + 1;
+  }
+  if (state.page > totalPages) state.page = totalPages;
+  const start = (state.page - 1) * PAGE_SIZE;
+  const slice = filtered.slice(start, start + PAGE_SIZE);
+
+  const wrap = document.getElementById('listWrap');
+  if (!total) {
+    wrap.innerHTML = '<div class="empty-state">No decisions match the current filter</div>';
+    document.getElementById('pager').innerHTML = '';
+    return;
+  }
+
+  wrap.innerHTML = slice.map(d => {
+    const status = d.status || 'pending';
+    const statusCls = status === 'confirmed' ? 'confirmed' : (status === 'deprecated' ? 'deprecated' : 'pending');
+    const sessLink = d.session ? `<a class="dec-link" href="session.html?id=${d.session}" onclick="event.stopPropagation()">${d.session}</a>` : '';
+    const topicId = d.owningTopicId || d.topic;
+    const topicLink = topicId && /^topic_\d+$/.test(topicId)
+      ? `<a class="dec-link" href="topic.html?id=${topicId}" onclick="event.stopPropagation()">${topicId}</a>`
+      : (d.topic ? `<span style="font-size:11px;color:var(--text-3)">${escHtmlSafe(d.topic)}</span>` : '');
+    const isOpen = state.target === d.id;
+    return `<div class="dec-row${isOpen ? ' open target' : ''}" data-id="${d.id}" onclick="toggleRow('${d.id}')">
+      <div class="dec-head">
+        <span class="dec-id">${escHtmlSafe(d.id)}</span>
+        <span class="dec-axis">${escHtmlSafe(d.axis || '—')}</span>
+        <span class="dec-date">${escHtmlSafe(d.date || '')}</span>
+        ${sessLink} ${topicLink}
+        <span class="meta-pill ${statusCls}" style="font-size:10px">${status}</span>
+        <span class="dec-toggle">▶</span>
+      </div>
+      <div class="dec-body">
+        ${d.value ? `<div class="dec-block"><div class="dec-block-label">Value</div><div class="dec-block-value">${escHtmlSafe(d.value)}</div></div>` : ''}
+        ${d.decision ? `<div class="dec-block"><div class="dec-block-label">Rationale</div><div class="dec-block-value">${escHtmlSafe(d.decision)}</div></div>` : ''}
+        ${d.scopeCheck ? `<div class="dec-block"><div class="dec-block-label">Scope check</div><div class="dec-block-value">${escHtmlSafe(d.scopeCheck)}</div></div>` : ''}
+        <div class="dec-links">
+          ${d.session ? `<a href="session.html?id=${d.session}">→ ${d.session}</a>` : ''}
+          ${topicId && /^topic_\d+$/.test(topicId) ? `<a href="topic.html?id=${topicId}">→ ${topicId}</a>` : ''}
+          <a href="decisions.html?id=${d.id}" onclick="event.stopPropagation()">🔗 anchor</a>
         </div>
-      `).join('');
+      </div>
+    </div>`;
+  }).join('');
+
+  // post-render: scroll to target if just opened from anchor
+  if (state.target) {
+    const el = document.querySelector(`.dec-row[data-id="${state.target}"]`);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    state.target = null;
+  }
+
+  renderPager(total, totalPages, start, slice.length);
+}
+
+function renderPager(total, totalPages, start, sliceLen) {
+  const pager = document.getElementById('pager');
+  const startN = start + 1;
+  const endN = start + sliceLen;
+  const btn = (label, page, opts={}) => {
+    const cls = ['pbtn'];
+    if (opts.active) cls.push('active');
+    if (opts.disabled) cls.push('disabled');
+    const onclick = opts.disabled ? '' : `onclick="goToPage(${page})"`;
+    return `<button class="${cls.join(' ')}" ${onclick}>${label}</button>`;
+  };
+  let pageBtns = '';
+  const w = 2;
+  for (let p = 1; p <= totalPages; p++) {
+    if (p === 1 || p === totalPages || (p >= state.page - w && p <= state.page + w)) {
+      pageBtns += btn(p, p, { active: p === state.page });
+    } else if (p === state.page - w - 1 || p === state.page + w + 1) {
+      pageBtns += '<span class="pdot">…</span>';
     }
+  }
+  pager.innerHTML = `<div class="pager-info">${startN}–${endN} of ${total}</div>
+    <div class="pager-ctrls">${btn('‹ Prev', state.page-1, {disabled:state.page<=1})}${pageBtns}${btn('Next ›', state.page+1, {disabled:state.page>=totalPages})}</div>`;
+}
 
-    function applyFilter() {
-      const topic = document.getElementById('filterTopic').value;
-      const status = document.getElementById('filterStatus').value;
-      let filtered = allDecisions;
-      if (topic) filtered = filtered.filter(d => d.topic === topic);
-      if (status) filtered = filtered.filter(d => d.status === status);
-      renderDecisions(filtered);
-      document.getElementById('decCount').textContent = `${filtered.length} decisions`;
-    }
+function toggleRow(id) {
+  const el = document.querySelector(`.dec-row[data-id="${id}"]`);
+  if (el) el.classList.toggle('open');
+}
+function goToPage(p) { state.page = p; renderList(); window.scrollTo({top:0,behavior:'smooth'}); }
+let _t;
+function onSearch(v) { clearTimeout(_t); _t = setTimeout(() => { state.search = v; state.page = 1; renderList(); }, 150); }
+function onTopicFilter(v) { state.topic = v; state.page = 1; renderList(); }
+function onStatusFilter(v) { state.status = v; state.page = 1; renderList(); }
 
-    async function init() {
-      const data = await DataLoader.getDecisionLedger();
-      if (data && data.decisions) {
-        allDecisions = [...data.decisions].reverse();
-        document.getElementById('decCount').textContent = `${allDecisions.length} decisions total`;
+async function init() {
+  const data = await DataLoader.getDecisionLedger();
+  const list = (data?.decisions || []).slice().reverse();
+  state.all = list;
 
-        // Populate topic filter
-        const topics = [...new Set(allDecisions.map(d => d.topic))];
-        const select = document.getElementById('filterTopic');
-        topics.forEach(t => {
-          const opt = document.createElement('option');
-          opt.value = t;
-          opt.textContent = t;
-          select.appendChild(opt);
-        });
+  document.getElementById('decCount').textContent = list.length;
+  const c = list.filter(d => (d.status || 'pending') === 'confirmed').length;
+  const p = list.filter(d => (d.status || 'pending') === 'pending').length;
+  const dep = list.filter(d => d.status === 'deprecated').length;
+  document.getElementById('decMeta').innerHTML =
+    `<span class="meta-pill confirmed">Confirmed ${c}</span>` +
+    `<span class="meta-pill pending">Pending ${p}</span>` +
+    (dep > 0 ? `<span class="meta-pill deprecated">Deprecated ${dep}</span>` : '');
 
-        renderDecisions(allDecisions);
-      } else {
-        document.getElementById('decisionList').innerHTML = '<div class="empty-state">No decisions found</div>';
-        document.getElementById('decCount').textContent = '0 decisions';
-      }
-    }
-    init();
-  </script>
-</div></main></div>
+  // populate topic filter
+  const topics = Array.from(new Set(list.map(d => d.owningTopicId || d.topic).filter(Boolean))).sort();
+  const sel = document.getElementById('filterTopic');
+  topics.forEach(t => {
+    const opt = document.createElement('option');
+    opt.value = t; opt.textContent = t;
+    sel.appendChild(opt);
+  });
+
+  // anchor support
+  state.target = getParam('id');
+  renderList();
+}
+init();
+</script>
 </body>
 </html>

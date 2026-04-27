@@ -9,7 +9,7 @@ import type { Metric, RecordSource, TopicType } from "./lib/signature-metrics-ty
 
 const ROOT = path.join(__dirname, "..");
 const CURRENT_SESSION_PATH = path.join(ROOT, "memory", "sessions", "current_session.json");
-const VALID_ROLES = ["ace", "arki", "fin", "riki", "nova", "dev", "vera", "editor"];
+const VALID_ROLES = ["ace", "arki", "fin", "riki", "nova", "dev", "vera", "edi"];
 const SESSION_ID_RE = /^session_\d{3,}$/;
 
 interface CurrentSession {

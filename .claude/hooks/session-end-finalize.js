@@ -39,8 +39,8 @@ function writeJson(p, obj) {
 }
 
 /**
- * 세션 종료 시 editor가 turns에 없으면 무조건 자동 push.
- * Dev 작업 포함 모든 세션의 기록 주체는 editor. reportPath 유무와 무관.
+ * 세션 종료 시 edi가 turns에 없으면 무조건 자동 push.
+ * Dev 작업 포함 모든 세션의 기록 주체는 edi. reportPath 유무와 무관.
  * current_session.json도 함께 갱신하여 session_index 전파 전 일관성 유지.
  *
  * PD-020b P0.3c (session_060): turns[] = 단일 원천. agentsCompleted는 turns에서 파생.
@@ -48,22 +48,22 @@ function writeJson(p, obj) {
  */
 // D-074 (session_093): auditInlineMainViolations 제거. D-058 dispatcher 폐기로 invocationMode 개념 삭제.
 
-function ensureEditorInAgents(sess) {
+function ensureEdiInAgents(sess) {
   const turns = Array.isArray(sess.turns) ? sess.turns : [];
   const turnRoles = turns.map(t => t && t.role).filter(r => typeof r === 'string');
-  const hasEditor = turnRoles.includes('editor');
+  const hasEdi = turnRoles.includes('edi');
 
-  if (!hasEditor) {
-    turns.push({ role: 'editor', turnIdx: turns.length, phase: 'compile' });
+  if (!hasEdi) {
+    turns.push({ role: 'edi', turnIdx: turns.length, phase: 'compile' });
     sess.turns = turns;
-    turnRoles.push('editor');
+    turnRoles.push('edi');
   }
   // agentsCompleted는 turns.role 순서대로·중복 허용 배열로 재생성
   sess.agentsCompleted = turnRoles;
 
   writeJson(CURRENT_SESSION_PATH, sess);
-  if (!hasEditor) {
-    log('editor turn 자동 push + agentsCompleted를 turns에서 재생성');
+  if (!hasEdi) {
+    log('edi turn 자동 push + agentsCompleted를 turns에서 재생성');
     return true;
   }
   log('agentsCompleted를 turns에서 재생성 (중복 허용, 순서 보존)');
@@ -231,7 +231,7 @@ function runL3Regenerator(sess) {
 }
 
 /**
- * A6-4 Editor 역검사 (D-055): PD 누락 여부 경고.
+ * A6-4 Edi 역검사 (D-055): PD 누락 여부 경고.
  * 실패해도 hook 체인 중단하지 않음.
  */
 function runCheckPendingDeferrals(sess) {
@@ -389,7 +389,7 @@ function runSyncSystemState() {
       process.exit(0);
     }
 
-    ensureEditorInAgents(sess);
+    ensureEdiInAgents(sess);
     filterAgentsCompletedByDualSatisfaction(sess);
     writeJson(CURRENT_SESSION_PATH, sess);
     appendOrUpdateSessionIndex(sess);

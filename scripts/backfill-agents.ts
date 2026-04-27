@@ -17,7 +17,7 @@ const ROOT = path.resolve(__dirname, '..');
 const SESSION_INDEX_PATH = path.join(ROOT, 'memory', 'sessions', 'session_index.json');
 const TOPIC_INDEX_PATH = path.join(ROOT, 'memory', 'shared', 'topic_index.json');
 
-const KNOWN_ROLES = new Set(['ace', 'arki', 'fin', 'riki', 'nova', 'editor', 'vera', 'dev']);
+const KNOWN_ROLES = new Set(['ace', 'arki', 'fin', 'riki', 'nova', 'edi', 'vera', 'dev']);
 
 interface SessionEntry {
   sessionId: string;

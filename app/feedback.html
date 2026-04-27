@@ -8,132 +8,223 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/components.css">
   <style>
-    /* Feedback 페이지 전용 — components.css 토큰 위임 + 최소 보강 */
-    .fb-toolbar { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; align-items: center; }
-    .fb-search { flex: 1; min-width: 200px; background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 9px 14px; color: var(--text); font-size: 13px; outline: none; }
-    .fb-search:focus { border-color: rgba(16,185,129,.4); }
-    .fb-filter { background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 9px 12px; color: var(--text-2); font-size: 12px; outline: none; cursor: pointer; }
+.s-meta{font-size:12px;color:var(--text-3);margin-bottom:18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.count-chip{display:inline-block;margin-left:10px;padding:3px 12px;font-size:14px;font-weight:600;color:#06B6D4;background:rgba(6,182,212,0.12);border:1px solid rgba(6,182,212,0.3);border-radius:999px;vertical-align:middle}
+.meta-pill{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;font-size:11px;font-weight:500;border-radius:4px;border:1px solid var(--line);color:var(--text-2)}
+.meta-pill.resolved{color:#10B981;background:rgba(16,185,129,.08);border-color:rgba(16,185,129,.25)}
+.meta-pill.in-progress{color:#F59E0B;background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.25)}
+.meta-pill.pending{color:#EF4444;background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.25)}
+.meta-pill.deprecated{color:#6E6E78;background:rgba(110,110,120,.08)}
 
-    .fb-counts { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
-    .fb-count { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 8px; font-size: 11px; font-weight: 600; background: var(--panel-2); border: 1px solid var(--line); color: var(--text-2); }
-    .fb-count .num { font-size: 13px; font-weight: 800; }
-    .fb-count.resolved { color: #34D399; border-color: rgba(16,185,129,.25); }
-    .fb-count.in-progress { color: #F59E0B; border-color: rgba(245,158,11,.25); }
-    .fb-count.pending { color: #F87171; border-color: rgba(239,68,68,.25); }
-    .fb-count.total { color: var(--text); }
+.list-toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px;padding:12px 14px;background:var(--panel);border:1px solid var(--line);border-radius:8px}
+.list-search{flex:1;min-width:240px;padding:7px 12px;font-size:13px;background:var(--bg);border:1px solid var(--line);border-radius:6px;color:var(--text);outline:none}
+.list-search:focus{border-color:#06B6D4}
+.list-select{background:var(--panel-2);border:1px solid var(--line);border-radius:6px;padding:7px 12px;color:var(--text-2);font-size:12px;outline:none;cursor:pointer;min-width:140px}
 
-    /* feedback-item — style.css 기존 정의 위에 status 좌측 보더만 추가 */
-    .feedback-item { position: relative; }
-    .feedback-item.s-resolved { border-left: 3px solid #10B981; }
-    .feedback-item.s-in-progress { border-left: 3px solid #F59E0B; }
-    .feedback-item.s-pending { border-left: 3px solid #EF4444; }
+.fb-row{background:var(--panel);border:1px solid var(--line);border-radius:8px;margin-bottom:8px;cursor:pointer;transition:border-color .12s}
+.fb-row:hover{border-color:rgba(6,182,212,.4)}
+.fb-row.target{border-color:#06B6D4;box-shadow:0 0 0 1px rgba(6,182,212,.25)}
+.fb-row.s-resolved{border-left:3px solid #10B981}
+.fb-row.s-in-progress{border-left:3px solid #F59E0B}
+.fb-row.s-pending{border-left:3px solid #EF4444}
+.fb-row.s-deprecated{border-left:3px solid #6E6E78}
+.fb-head{display:flex;align-items:center;gap:12px;padding:12px 16px;flex-wrap:wrap}
+.fb-id{font-family:'SF Mono',monospace;color:#06B6D4;font-weight:700;font-size:12px;min-width:64px}
+.fb-preview{flex:1;color:var(--text);font-size:13px;line-height:1.4;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;min-width:200px}
+.fb-date{color:var(--text-3);font-size:11px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.fb-link{color:#06B6D4;font-size:11px;font-family:monospace;text-decoration:none}
+.fb-link:hover{text-decoration:underline}
+.fb-toggle{color:var(--text-3);font-size:12px;width:14px;text-align:center;transition:transform .15s}
+.fb-row.open .fb-toggle{transform:rotate(90deg)}
+.fb-body{display:none;padding:0 16px 14px 16px;border-top:1px solid var(--line);font-size:12px;line-height:1.6;color:var(--text-2)}
+.fb-row.open .fb-body{display:block;padding-top:12px}
+.fb-block{margin-bottom:10px}
+.fb-block-label{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);font-weight:600;margin-bottom:4px}
+.fb-block-value{color:var(--text);white-space:pre-wrap;word-break:break-word}
+.fb-block-value.instruction{color:#06B6D4;font-style:italic}
+.fb-decisions{margin-top:6px}
+.fb-decision-row{font-size:11px;color:var(--text-2);padding:3px 0;display:flex;gap:8px;align-items:flex-start}
+.fb-decision-row code{background:var(--panel-2);padding:2px 6px;border-radius:3px;font-size:10px;color:#F59E0B;flex-shrink:0;font-family:'SF Mono',monospace}
+.fb-decision-row a{color:#F59E0B;text-decoration:none}
+.fb-decision-row a:hover{text-decoration:underline}
+.fb-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:11px}
+.fb-links a{padding:3px 9px;border-radius:4px;background:var(--panel-2);color:var(--text-2);text-decoration:none;border:1px solid var(--line)}
+.fb-links a:hover{color:var(--text);border-color:var(--text-3)}
 
-    .fb-status-badge { float: right; font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 10px; letter-spacing: .06em; text-transform: uppercase; }
-    .fb-status-badge.resolved { background: rgba(16,185,129,.15); color: #34D399; }
-    .fb-status-badge.in-progress { background: rgba(245,158,11,.15); color: #FCD34D; }
-    .fb-status-badge.pending { background: rgba(239,68,68,.15); color: #F87171; }
-
-    .fb-decisions { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line); }
-    .fb-decision-row { font-size: 11px; color: var(--text-2); padding: 2px 0; }
-    .fb-decision-row code { background: var(--panel-2); padding: 1px 5px; border-radius: 3px; font-size: 10px; color: var(--accent-blue); }
-
-    .fb-instruction { font-size: 11px; color: var(--accent-blue); margin-top: 6px; font-style: italic; }
-    .fb-statusnote { font-size: 11px; color: var(--text-3); margin-top: 4px; }
+.pager{display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding-top:14px;border-top:1px solid var(--line);flex-wrap:wrap;gap:10px}
+.pager-info{font-size:12px;color:var(--text-3)}
+.pager-ctrls{display:flex;gap:4px;align-items:center}
+.pbtn{min-width:32px;padding:6px 10px;font-size:12px;color:var(--text-2);background:transparent;border:1px solid var(--line);border-radius:5px;cursor:pointer}
+.pbtn:hover:not(.disabled):not(.active){color:var(--text);border-color:var(--text-3)}
+.pbtn.active{color:#fff;background:#06B6D4;border-color:#06B6D4;font-weight:600}
+.pbtn.disabled{opacity:.35;cursor:not-allowed}
+.pdot{padding:0 4px;color:var(--text-3);font-size:12px}
   </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">본문으로 건너뛰기</a>
 <div class="app">
 <!-- @partial:sidebar -->
-<main class="s-main">
+<main class="s-main" id="main-content">
   <div class="s-crumb">Records / Feedback</div>
-  <div class="s-h1">Master Feedback Log</div>
-  <div class="page" style="padding:0;max-width:none;margin:0">
-    <div class="fb-counts" id="fbCounts"></div>
-    <div class="fb-toolbar">
-      <input class="fb-search" id="fbSearch" placeholder="Search feedback / instruction / topic..." oninput="renderFeedback()">
-      <select class="fb-filter" id="fbFilter" onchange="renderFeedback()">
-        <option value="">All statuses</option>
-        <option value="pending">pending</option>
-        <option value="in-progress">in-progress</option>
-        <option value="resolved">resolved</option>
-      </select>
-    </div>
-    <div id="fbCount" style="margin-bottom:12px;font-size:11px;color:var(--text-3)"></div>
-    <div id="feedbackList"><div class="loading">Loading feedback</div></div>
+  <div class="s-h1">Feedback <span class="count-chip" id="fbCount">…</span></div>
+  <div class="s-meta" id="fbMeta"></div>
+
+  <div class="list-toolbar">
+    <input type="search" class="list-search" id="search" placeholder="Search feedback / instruction / topic…" oninput="onSearch(this.value)">
+    <select class="list-select" id="filterStatus" onchange="onStatusFilter(this.value)">
+      <option value="">All statuses</option>
+      <option value="pending">Pending</option>
+      <option value="in-progress">In progress</option>
+      <option value="resolved">Resolved</option>
+      <option value="deprecated">Deprecated</option>
+    </select>
   </div>
 
-  <script src="js/data-loader.js"></script>
-  <script src="js/nav.js"></script>
-  <script>
-    let allFeedback = [];
+  <div id="listWrap"><div class="loading">Loading feedback</div></div>
+  <div id="pager" class="pager"></div>
+</main>
+</div>
 
-    function escapeHtml(s) {
-      return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+<script src="js/data-loader.js"></script>
+<script src="js/nav.js"></script>
+<script>
+const PAGE_SIZE = 50;
+let state = { all: [], page: 1, search: '', status: '', target: null };
+
+function escHtmlSafe(s) {
+  if (s == null) return '';
+  return String(s).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+}
+
+function applyFilters() {
+  const q = state.search.toLowerCase();
+  return state.all.filter(f => {
+    const status = f.status || 'pending';
+    if (state.status && status !== state.status) return false;
+    if (q) {
+      const blob = `${f.id||''} ${f.feedback||''} ${f.instruction||''} ${f.topic||''} ${f.session||''} ${f.statusNote||''}`.toLowerCase();
+      if (!blob.includes(q)) return false;
     }
+    return true;
+  });
+}
 
-    function renderFeedback() {
-      const q = (document.getElementById('fbSearch').value || '').toLowerCase();
-      const qf = document.getElementById('fbFilter').value;
-      const list = document.getElementById('feedbackList');
-      const countEl = document.getElementById('fbCount');
+function renderList() {
+  const filtered = applyFilters();
+  const total = filtered.length;
+  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  if (state.target) {
+    const idx = filtered.findIndex(f => f.id === state.target);
+    if (idx >= 0) state.page = Math.floor(idx / PAGE_SIZE) + 1;
+  }
+  if (state.page > totalPages) state.page = totalPages;
+  const start = (state.page - 1) * PAGE_SIZE;
+  const slice = filtered.slice(start, start + PAGE_SIZE);
 
-      const filtered = allFeedback.filter(f => {
-        const text = `${f.feedback||''} ${f.instruction||''} ${f.topic||''} ${f.id||''} ${f.session||''}`.toLowerCase();
-        const matchQ = !q || text.includes(q);
-        const matchF = !qf || (f.status || 'pending') === qf;
-        return matchQ && matchF;
-      });
+  const wrap = document.getElementById('listWrap');
+  if (!total) {
+    wrap.innerHTML = '<div class="empty-state">No feedback matches the current filter</div>';
+    document.getElementById('pager').innerHTML = '';
+    return;
+  }
 
-      countEl.textContent = `${filtered.length} / ${allFeedback.length} entries`;
+  wrap.innerHTML = slice.map(f => {
+    const status = f.status || 'pending';
+    const sessLink = f.session ? `<a class="fb-link" href="session.html?id=${f.session}" onclick="event.stopPropagation()">${f.session}</a>` : '';
+    const isOpen = state.target === f.id;
+    const decisionsHtml = f.decisions ? Object.entries(f.decisions).map(([k, v]) => {
+      const isDecisionId = /^D-\d+$/.test(k);
+      const link = isDecisionId
+        ? `<a href="decisions.html?id=${k}" onclick="event.stopPropagation()"><code>${escHtmlSafe(k)}</code></a>`
+        : `<code>${escHtmlSafe(k)}</code>`;
+      return `<div class="fb-decision-row">${link}<span>${escHtmlSafe(v)}</span></div>`;
+    }).join('') : '';
 
-      if (!filtered.length) {
-        list.innerHTML = '<div class="empty-state">No feedback matches</div>';
-        return;
-      }
+    return `<div class="fb-row s-${status}${isOpen ? ' open target' : ''}" data-id="${f.id}" onclick="toggleRow('${f.id}')">
+      <div class="fb-head">
+        <span class="fb-id">${escHtmlSafe(f.id || '')}</span>
+        <span class="fb-preview">${escHtmlSafe(f.feedback || '')}</span>
+        <span class="fb-date">${escHtmlSafe(f.date || '')}</span>
+        ${sessLink}
+        <span class="meta-pill ${status}" style="font-size:10px">${status}</span>
+        <span class="fb-toggle">▶</span>
+      </div>
+      <div class="fb-body">
+        ${f.feedback ? `<div class="fb-block"><div class="fb-block-label">Feedback</div><div class="fb-block-value">${escHtmlSafe(f.feedback)}</div></div>` : ''}
+        ${f.instruction ? `<div class="fb-block"><div class="fb-block-label">Instruction</div><div class="fb-block-value instruction">"${escHtmlSafe(f.instruction)}"</div></div>` : ''}
+        ${f.statusNote ? `<div class="fb-block"><div class="fb-block-label">Status note</div><div class="fb-block-value">${escHtmlSafe(f.statusNote)}</div></div>` : ''}
+        ${f.effect ? `<div class="fb-block"><div class="fb-block-label">Effect</div><div class="fb-block-value">${escHtmlSafe(f.effect)}</div></div>` : ''}
+        ${decisionsHtml ? `<div class="fb-block"><div class="fb-block-label">Resulting decisions</div><div class="fb-decisions">${decisionsHtml}</div></div>` : ''}
+        <div class="fb-links">
+          ${f.session ? `<a href="session.html?id=${f.session}">→ ${f.session}</a>` : ''}
+          ${f.topic ? `<a href="topic.html">→ ${escHtmlSafe(f.topic)}</a>` : ''}
+          <a href="feedback.html?id=${f.id}" onclick="event.stopPropagation()">🔗 anchor</a>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
 
-      list.innerHTML = filtered.map(f => {
-        const status = f.status || 'pending';
-        const statusLabel = status === 'in-progress' ? 'IN PROGRESS' : status.toUpperCase();
-        const decisionsHtml = f.decisions ? Object.entries(f.decisions).map(([k, v]) =>
-          `<div class="fb-decision-row"><code>${escapeHtml(k)}</code> ${escapeHtml(v)}</div>`
-        ).join('') : '';
-        return `
-          <div class="feedback-item s-${status}">
-            <div class="feedback-id">${escapeHtml(f.id||'')} · ${escapeHtml(f.session||'')}<span class="fb-status-badge ${status}">${statusLabel}</span></div>
-            <div class="feedback-text">${escapeHtml(f.feedback||'')}</div>
-            ${f.statusNote ? `<div class="fb-statusnote">↳ ${escapeHtml(f.statusNote)}</div>` : ''}
-            ${f.instruction ? `<div class="fb-instruction">"${escapeHtml(f.instruction)}"</div>` : ''}
-            ${decisionsHtml ? `<div class="fb-decisions">${decisionsHtml}</div>` : ''}
-            <div class="feedback-meta">${escapeHtml(f.date||'')} · ${escapeHtml(f.topic||'')}${f.effect ? ' · ' + escapeHtml(f.effect) : ''}</div>
-          </div>`;
-      }).join('');
+  if (state.target) {
+    const el = document.querySelector(`.fb-row[data-id="${state.target}"]`);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    state.target = null;
+  }
+
+  renderPager(total, totalPages, start, slice.length);
+}
+
+function renderPager(total, totalPages, start, sliceLen) {
+  const pager = document.getElementById('pager');
+  const startN = start + 1;
+  const endN = start + sliceLen;
+  const btn = (label, page, opts={}) => {
+    const cls = ['pbtn'];
+    if (opts.active) cls.push('active');
+    if (opts.disabled) cls.push('disabled');
+    const onclick = opts.disabled ? '' : `onclick="goToPage(${page})"`;
+    return `<button class="${cls.join(' ')}" ${onclick}>${label}</button>`;
+  };
+  let pageBtns = '';
+  const w = 2;
+  for (let p = 1; p <= totalPages; p++) {
+    if (p === 1 || p === totalPages || (p >= state.page - w && p <= state.page + w)) {
+      pageBtns += btn(p, p, { active: p === state.page });
+    } else if (p === state.page - w - 1 || p === state.page + w + 1) {
+      pageBtns += '<span class="pdot">…</span>';
     }
+  }
+  pager.innerHTML = `<div class="pager-info">${startN}–${endN} of ${total}</div>
+    <div class="pager-ctrls">${btn('‹ Prev', state.page-1, {disabled:state.page<=1})}${pageBtns}${btn('Next ›', state.page+1, {disabled:state.page>=totalPages})}</div>`;
+}
 
-    function renderCounts() {
-      const counts = { resolved: 0, 'in-progress': 0, pending: 0 };
-      allFeedback.forEach(f => { counts[f.status || 'pending'] = (counts[f.status || 'pending'] || 0) + 1; });
-      const el = document.getElementById('fbCounts');
-      el.innerHTML = `
-        <span class="fb-count total"><span class="num">${allFeedback.length}</span> total</span>
-        <span class="fb-count resolved"><span class="num">${counts.resolved}</span> resolved</span>
-        <span class="fb-count in-progress"><span class="num">${counts['in-progress']}</span> in-progress</span>
-        <span class="fb-count pending"><span class="num">${counts.pending}</span> pending</span>
-      `;
-    }
+function toggleRow(id) {
+  const el = document.querySelector(`.fb-row[data-id="${id}"]`);
+  if (el) el.classList.toggle('open');
+}
+function goToPage(p) { state.page = p; renderList(); window.scrollTo({top:0,behavior:'smooth'}); }
+let _t;
+function onSearch(v) { clearTimeout(_t); _t = setTimeout(() => { state.search = v; state.page = 1; renderList(); }, 150); }
+function onStatusFilter(v) { state.status = v; state.page = 1; renderList(); }
 
-    async function init() {
-      const data = await DataLoader.getMasterFeedback();
-      if (data && Array.isArray(data.feedbackLog) && data.feedbackLog.length > 0) {
-        allFeedback = [...data.feedbackLog].reverse(); // newest first
-        renderCounts();
-        renderFeedback();
-      } else {
-        document.getElementById('feedbackList').innerHTML = '<div class="empty-state">No feedback recorded</div>';
-        document.getElementById('fbCount').textContent = '0 entries';
-      }
-    }
-    init();
-  </script>
-</div></main></div>
+async function init() {
+  const data = await DataLoader.getMasterFeedback();
+  const list = (data?.feedbackLog || []).slice().reverse();
+  state.all = list;
+
+  document.getElementById('fbCount').textContent = list.length;
+  const counts = { resolved: 0, 'in-progress': 0, pending: 0, deprecated: 0 };
+  list.forEach(f => { const s = f.status || 'pending'; counts[s] = (counts[s] || 0) + 1; });
+  document.getElementById('fbMeta').innerHTML =
+    `<span class="meta-pill pending">Pending ${counts.pending}</span>` +
+    `<span class="meta-pill in-progress">In progress ${counts['in-progress']}</span>` +
+    `<span class="meta-pill resolved">Resolved ${counts.resolved}</span>` +
+    (counts.deprecated > 0 ? `<span class="meta-pill deprecated">Deprecated ${counts.deprecated}</span>` : '');
+
+  state.target = getParam('id');
+  renderList();
+}
+init();
+</script>
 </body>
 </html>
