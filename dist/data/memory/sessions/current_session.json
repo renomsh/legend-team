@@ -1,13 +1,13 @@
 {
-  "sessionId": "session_113",
-  "topicId": "topic_113",
-  "topic": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비 (계속)",
-  "topicSlug": "dashboard-maintenance-followup",
-  "reportPath": "reports/2026-04-27_dashboard-maintenance-followup",
-  "status": "closed",
-  "startedAt": "2026-04-27T00:00:00.000Z",
-  "closedAt": "2026-04-27T09:00:00.000Z",
-  "oneLineSummary": "P3 3건 완료: Integrity §15 단일화, Alarm upgrade→ops 이식, Deferrals defer-row accordion 홈 이식",
+  "sessionId": "session_114",
+  "topicId": "topic_116",
+  "topic": "대시보드 홈 — Recent Activity·Pending Deferrals 레이아웃 통일",
+  "topicSlug": "dashboard-home-layout-unification",
+  "reportPath": "reports/2026-04-27_dashboard-home-layout-unification",
+  "status": "open",
+  "startedAt": "2026-04-27T10:00:00.000Z",
+  "closedAt": null,
+  "oneLineSummary": "",
   "mode": "observation",
   "grade": "B",
   "gradeDeclared": "B",
@@ -18,28 +18,8 @@
   "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
-  "agentsCompleted": [
-    "ace",
-    "dev",
-    "editor"
-  ],
-  "turns": [
-    {
-      "role": "ace",
-      "turnIdx": 0,
-      "phase": "framing"
-    },
-    {
-      "role": "dev",
-      "turnIdx": 1,
-      "phase": "implementation"
-    },
-    {
-      "role": "editor",
-      "turnIdx": 2,
-      "phase": "compile"
-    }
-  ],
+  "agentsCompleted": [],
+  "turns": [],
   "decisions": [],
   "masterDecisions": [],
   "masterFeedback": [],
@@ -47,22 +27,15 @@
   "pendingDeferralsResolved": [],
   "pendingDeferralsDeprecated": [],
   "decisionsAdded": [],
-  "notes": [
-    "P3-A: .integrity CSS → components.css §15 (growth/people inline 제거)",
-    "P3-B: dashboard-ops renderAlarms() → .alarm-item/.alarm-red/.alarm-yellow upgrade 스타일. alarm CSS → §16",
-    "P3-C: index.html Pending Deferrals → defer-row 3열 + 5줄 기본 + 더보기 accordion + deferrals.html 링크",
-    "dashboard-upgrade.html 알람+deferrals wide-grid 섹션 제거, JS 정리, system_state fetch 제거",
-    ".defer-row/.defer-id/.defer-text/.defer-src → components.css canonical 이전",
-    "build 완료: dist/ 갱신"
-  ],
+  "notes": [],
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 308,
-    "output_tokens": 106450,
-    "cache_creation_input_tokens": 596155,
-    "cache_read_input_tokens": 18161103,
-    "messageCount": 180,
-    "masterTurns": 6,
-    "total_billable": 18864016
+    "input_tokens": 74,
+    "output_tokens": 14210,
+    "cache_creation_input_tokens": 231441,
+    "cache_read_input_tokens": 2913353,
+    "messageCount": 48,
+    "masterTurns": 3,
+    "total_billable": 3159078
   }
 }
