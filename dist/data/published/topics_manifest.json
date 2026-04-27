@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-27T00:07:03.457Z",
+  "generatedAt": "2026-04-27T00:08:36.664Z",
   "topics": [
     {
       "id": "topic_115",
@@ -28,14 +28,14 @@
     {
       "id": "topic_113",
       "title": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비",
-      "status": "in-progress",
+      "status": "completed",
       "created": "2026-04-26",
       "reportPath": "reports/2026-04-26_dashboard-maintenance-home-growth-system",
       "reportFiles": [
         "editor_rev1.md"
       ],
       "published": false,
-      "outcome": "session_110 완료: CSS §7~§10 단일화, nav.js topbar pills, Home·Ops·Upgrade 전면 정비. 나머지 페이지는 session_111 예정.",
+      "outcome": "P3 이연 3건 완료: Integrity CSS §15 단일화, Alarm upgrade→ops 이식, Deferrals defer-row accordion→홈 이식. upgrade alarms/deferrals 섹션 제거.",
       "note": null,
       "masterDecisions": []
     },

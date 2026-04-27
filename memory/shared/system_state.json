@@ -1,15 +1,9 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_112",
-  "nextSessionId": "session_113",
+  "lastSessionId": "session_113",
+  "nextSessionId": "session_114",
   "currentVersion": "v1.75",
   "openTopics": [
-    {
-      "id": "topic_113",
-      "title": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비",
-      "status": "in-progress",
-      "reportPath": "reports/2026-04-26_dashboard-maintenance-home-growth-system"
-    },
     {
       "id": "topic_044",
       "title": "COPD 논문 ver3.4 최종화 — canonical 재분석 + (e) 프레임 확정",
@@ -59,6 +53,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_113",
+      "topicSlug": "dashboard-maintenance-followup",
+      "closedAt": "2026-04-27T09:00:00.000Z",
+      "oneLineSummary": "P3 3건 완료: Integrity §15 단일화, Alarm upgrade→ops 이식, Deferrals defer-row accordion 홈 이식",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_111",
       "topicSlug": "dashboard-maintenance-remaining-pages",
       "closedAt": "2026-04-27T00:00:00.000Z",
@@ -71,17 +72,6 @@
       "closedAt": "2026-04-26T23:59:00.000Z",
       "oneLineSummary": "dashboard-maintenance session_110: CSS §7~§10 단일화, topbar pills nav.js, Home·Ops·Upgrade 전면 정비",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_109",
-      "topicSlug": "dashboard-followup-people-growth-pd046",
-      "closedAt": "2026-04-26T17:30:00.000Z",
-      "oneLineSummary": "People/Growth 신설 + PD-046 ops 흡수 완료. signature→people mv + 301 redirect, growth 3축×4×2 panel 실데이터, VR 24/24 lock(0.00%).",
-      "decisionsAdded": [
-        "[object Object]",
-        "[object Object]",
-        "[object Object]"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -546,5 +536,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-26T23:07:22.579Z"
+  "lastUpdated": "2026-04-27T00:08:28.986Z"
 }

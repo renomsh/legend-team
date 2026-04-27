@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-27T00:07:02.683Z",
-  "totalSessions": 110,
+  "generatedAt": "2026-04-27T00:08:35.763Z",
+  "totalSessions": 111,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.84,
-    "avgCacheHitRate": 0.9334,
-    "cacheSampleSize": 84,
-    "cacheSampleTotal": 110,
+    "avgMasterTurns": 16.78,
+    "avgCacheHitRate": 0.9338,
+    "cacheSampleSize": 85,
+    "cacheSampleTotal": 111,
     "avgAdoptionRate": 0,
     "totalDecisions": 100,
     "gradeDistribution": {
       "S": 43,
       "A": 22,
-      "B": 32,
+      "B": 33,
       "C": 13
     },
     "gradeMismatchCount": 2,
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 65,
-    "totalCostUSD": 1107.4594,
-    "avgCostPerSession": 10.5472,
-    "costSampleSize": 105
+    "turnBasedSessions": 66,
+    "totalCostUSD": 1125.1578,
+    "avgCostPerSession": 10.6147,
+    "costSampleSize": 106
   },
   "sessions": [
     {
@@ -4201,12 +4201,47 @@
         "messageCount": 365
       },
       "sessionCostUSD": 21.1936
+    },
+    {
+      "sessionId": "session_113",
+      "topicSlug": "dashboard-maintenance-followup",
+      "topic": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비 (계속)",
+      "startedAt": "2026-04-27T00:00:00.000Z",
+      "closedAt": "2026-04-27T09:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 11,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 35288269,
+        "ioTokens": 207215,
+        "inputTokens": 596,
+        "outputTokens": 206619,
+        "cacheCreate": 1180582,
+        "cacheRead": 33900472,
+        "cacheHitRate": 0.9606725679856952,
+        "messageCount": 342
+      },
+      "sessionCostUSD": 17.6984
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 120,
+      "count": 121,
       "sessions": [
         "session_047",
         "session_048",
@@ -4263,7 +4298,8 @@
         "session_108",
         "session_109",
         "session_111",
-        "session_112"
+        "session_112",
+        "session_113"
       ]
     },
     {
@@ -4314,7 +4350,7 @@
     },
     {
       "role": "editor",
-      "count": 62,
+      "count": 63,
       "sessions": [
         "session_050",
         "session_051",
@@ -4377,12 +4413,13 @@
         "session_109",
         "session_110",
         "session_111",
-        "session_112"
+        "session_112",
+        "session_113"
       ]
     },
     {
       "role": "dev",
-      "count": 54,
+      "count": 55,
       "sessions": [
         "session_047",
         "session_048",
@@ -4424,7 +4461,8 @@
         "session_107",
         "session_108",
         "session_109",
-        "session_112"
+        "session_112",
+        "session_113"
       ]
     },
     {
@@ -7301,6 +7339,30 @@
           "role": "editor",
           "phase": "compile",
           "turnIdx": 4,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_113",
+      "topic": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비 (계속)",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 2,
           "recallReason": null
         }
       ]

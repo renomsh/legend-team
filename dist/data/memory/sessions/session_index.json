@@ -4748,8 +4748,42 @@
       "note": "Phase 1: dashboard-ops.html sidebar §7 inline 15개 제거, .s-topbar 유지 | Phase 2: dashboard-upgrade.html §6 .card inline 제거, .section-grid → .section-grid-2col 분리 | Phase 3: session.html §11 최소 override 압축, <style> head 내 이동 | Phase 4: components.css §12 신설(.kpi-top/.kpi-icon), dashboard-upgrade.html 해당 inline 제거 | Phase 4: renderTier3() → app/js/metrics-utils.js 공통 추출, growth/people 중복 제거 | build 완료: dist/ 갱신",
       "oneLineSummary": "아키 중복 제거 Phase1~4: ops sidebar 15개/upgrade .card/session tab-bar/§12 신설/renderTier3 공통 추출",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_113",
+      "topicSlug": "dashboard-maintenance-followup",
+      "topic": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비 (계속)",
+      "startedAt": "2026-04-27T00:00:00.000Z",
+      "closedAt": "2026-04-27T09:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 1,
+          "phase": "implementation"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 2,
+          "phase": "compile"
+        }
+      ],
+      "grade": "B",
+      "note": "P3-A: .integrity CSS → components.css §15 (growth/people inline 제거) | P3-B: dashboard-ops renderAlarms() → .alarm-item/.alarm-red/.alarm-yellow upgrade 스타일. alarm CSS → §16 | P3-C: index.html Pending Deferrals → defer-row 3열 + 5줄 기본 + 더보기 accordion + deferrals.html 링크 | dashboard-upgrade.html 알람+deferrals wide-grid 섹션 제거, JS 정리, system_state fetch 제거 | .defer-row/.defer-id/.defer-text/.defer-src → components.css canonical 이전 | build 완료: dist/ 갱신",
+      "oneLineSummary": "P3 3건 완료: Integrity §15 단일화, Alarm upgrade→ops 이식, Deferrals defer-row accordion 홈 이식",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-04-26T23:07:09.181Z",
+  "lastUpdated": "2026-04-27T00:08:13.142Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
