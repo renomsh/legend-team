@@ -340,6 +340,79 @@ function runResolvePDDryRun() {
   }
 }
 
+/**
+ * D-101 (session_119, PD-039 resolved): close.md 14단계 중 LLM 자율 수행 4개 핵심 단계
+ * (3 decision_ledger / 4 topic_index / 6 master_feedback / 7 role_memory) delta-check.
+ * 누락 검출 시 WARN 출력 (ERROR 게이트 아님 — Master 인지 후 재-close로 보완).
+ */
+function runChecklistDeltaCheck(sess) {
+  const warns = [];
+  const sessionStartMs = sess.startedAt ? Date.parse(sess.startedAt) : 0;
+
+  // Step 3 — decision_ledger: sess.decisions/masterDecisions에 D-NNN가 있으면 ledger에 박혀 있어야
+  const sessDecisions = [...(sess.decisions || []), ...(sess.masterDecisions || [])];
+  const dIds = sessDecisions
+    .map(d => (d && d.id) || '')
+    .filter(id => /^D-\d+$/.test(id));
+  if (dIds.length > 0) {
+    const ledgerPath = path.join(CWD, 'memory', 'shared', 'decision_ledger.json');
+    const ledger = readJson(ledgerPath, { decisions: [] });
+    const ledgerIds = new Set((ledger.decisions || []).map(d => d.id));
+    const missing = dIds.filter(id => !ledgerIds.has(id));
+    if (missing.length > 0) {
+      warns.push(`Step 3 누락 — decision_ledger에 미반영: ${missing.join(', ')}`);
+    }
+  }
+
+  // Step 4 — topic_index: 현 세션의 topicId 엔트리 status가 open이면 누락 의심
+  if (sess.topicId) {
+    const tiPath = path.join(CWD, 'memory', 'shared', 'topic_index.json');
+    const ti = readJson(tiPath, { topics: [] });
+    const entry = (ti.topics || []).find(t => t.id === sess.topicId);
+    if (entry && entry.status === 'open') {
+      warns.push(`Step 4 누락 — topic_index ${sess.topicId} status=open (completed/suspended/in-progress 미전환)`);
+    }
+  }
+
+  // Step 6 — master_feedback_log: sess.masterFeedback에 항목이 있으면 log에도 박혀 있어야
+  const mfCount = (sess.masterFeedback || []).length;
+  if (mfCount > 0) {
+    const mfPath = path.join(CWD, 'memory', 'master', 'master_feedback_log.json');
+    const mf = readJson(mfPath, { feedback: [] });
+    const arr = mf.feedback || mf.entries || [];
+    const fromThisSession = arr.filter(e => e && e.sessionId === sess.sessionId).length;
+    if (fromThisSession < mfCount) {
+      warns.push(`Step 6 누락 — current_session.masterFeedback ${mfCount}건 중 master_feedback_log 반영 ${fromThisSession}건`);
+    }
+  }
+
+  // Step 7 — role_memory: edi 외 역할이 turns에 있으면 해당 role memory mtime이 세션 시작 이후여야
+  const turns = Array.isArray(sess.turns) ? sess.turns : [];
+  const speakingRoles = [...new Set(turns.map(t => t && t.role).filter(r => r && r !== 'edi'))];
+  if (speakingRoles.length > 0 && sessionStartMs > 0) {
+    const stale = [];
+    for (const role of speakingRoles) {
+      const rmPath = path.join(CWD, 'memory', 'roles', `${role}_memory.json`);
+      if (!fs.existsSync(rmPath)) continue;
+      const stat = fs.statSync(rmPath);
+      if (stat.mtimeMs < sessionStartMs) {
+        stale.push(role);
+      }
+    }
+    if (stale.length > 0) {
+      warns.push(`Step 7 누락 가능 — role_memory mtime < 세션 시작: ${stale.join(', ')}`);
+    }
+  }
+
+  if (warns.length > 0) {
+    log(`⚠ checklist delta-check (${warns.length}건):`);
+    for (const w of warns) log(`  - ${w}`);
+    log(`  → Master 재-close로 보완 권고`);
+  } else {
+    log('checklist delta-check OK (4 단계 정상)');
+  }
+}
+
 function runSyncSystemState() {
   const tsPath = path.join(CWD, 'scripts', 'sync-system-state.ts');
   if (!fs.existsSync(tsPath)) {
@@ -399,6 +472,7 @@ function runSyncSystemState() {
     updateClosedInSession(sess);
     runAutoCloseDryRun();
     runResolvePDDryRun();
+    runChecklistDeltaCheck(sess);
     runSyncSystemState();
 
     log(`완료 — ${sess.sessionId} (turns=${(sess.turns || []).length}, agents=${(sess.agentsCompleted || []).length}, decisions=${(sess.masterDecisions || []).length})`);

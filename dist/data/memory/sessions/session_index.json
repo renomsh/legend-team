@@ -4937,8 +4937,55 @@
       "note": "topic_113 재사용 (분기 A). status completed → open → completed | Master 명시 grade B | topic.html: 세션별 그룹 매핑 + 탭 클릭 메뉴바 사라짐 버그 수정 + 카운트 chip + 페이지네이션 50 | editor→edi 전면 정규화: 4-pass JSON migration + 63 report files rename + 10 scripts + 2 hooks + 5 HTML/CSS/JS | session.html 분리: 리스트(검색·필터·페이저+RF strip+TurnSeq) + 상세(Reports/Decisions/Turns 탭) | Current Session + Agent Progress → growth.html 맨 아래로 이전 | decisions.html 재구축: 인라인 expand + 양방향 링크 + anchor(?id=D-NNN) | feedback.html 재구축: 인라인 expand + Resulting decisions의 D-id → decisions anchor | deferrals.html 정체성 재정의: Action Queue, Pending default, Age 배지, resolveCondition 메인 승격, 그래프 monochrome 정비 | Role Frequency 양 페이지 일치(edi 69) — dashboard-upgrade가 globalRoleFreq 직접 사용으로 통일 | 빌드 통과: dist/ 405 files",
       "oneLineSummary": "topic/session/decisions/feedback/deferrals 5페이지 정체성 재정의 + editor→edi 전면 정규화 + 양방향 링크 그래프",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_119",
+      "topicSlug": "auto-close-vs-manual-close-comparison",
+      "topic": "자동 close vs 수동 /close 스킬 차이 검토",
+      "startedAt": "2026-04-27T19:00:00.000Z",
+      "closedAt": "2026-04-27T20:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "arki",
+        "dev",
+        "riki",
+        "edi",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "arki",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 1,
+          "phase": "implementation"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 2,
+          "phase": "adversarial"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 3,
+          "phase": "compile"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 4
+        }
+      ],
+      "grade": "B",
+      "note": "PD-039 해소 트랙 — CLAUDE.md '자동 close 규칙' vs Master 수동 /close 산출물 diff 비교 | D-101 finalize hook delta-check 4단계(decision_ledger·topic_index·master_feedback·role_memory) WARN 게이트 추가 | Arki 시야 협소 피드백 수용 → feedback_arki_full_system_view.md 박제",
+      "oneLineSummary": "PD-039 resolved — finalize hook 4단계 delta-check WARN 게이트 추가 (D-101 박제), Arki 시야 협소 피드백 수용",
+      "decisionsAdded": [
+        "D-101"
+      ]
     }
   ],
-  "lastUpdated": "2026-04-27T23:13:58.218Z",
+  "lastUpdated": "2026-04-27T23:43:57.615Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

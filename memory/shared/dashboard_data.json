@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-27T23:14:15.968Z",
-  "totalSessions": 116,
+  "generatedAt": "2026-04-27T23:44:18.709Z",
+  "totalSessions": 117,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.79,
-    "avgCacheHitRate": 0.9339,
-    "cacheSampleSize": 90,
-    "cacheSampleTotal": 116,
+    "avgMasterTurns": 16.71,
+    "avgCacheHitRate": 0.9341,
+    "cacheSampleSize": 91,
+    "cacheSampleTotal": 117,
     "avgAdoptionRate": 0,
-    "totalDecisions": 100,
+    "totalDecisions": 101,
     "gradeDistribution": {
-      "S": 45,
+      "S": 46,
       "A": 23,
       "B": 35,
       "C": 13
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 71,
-    "totalCostUSD": 1219.3324,
-    "avgCostPerSession": 10.985,
-    "costSampleSize": 111
+    "turnBasedSessions": 72,
+    "totalCostUSD": 1223.2273,
+    "avgCostPerSession": 10.9217,
+    "costSampleSize": 112
   },
   "sessions": [
     {
@@ -4414,6 +4414,46 @@
         "messageCount": 773
       },
       "sessionCostUSD": 72.3277
+    },
+    {
+      "sessionId": "session_119",
+      "topicSlug": "auto-close-vs-manual-close-comparison",
+      "topic": "자동 close vs 수동 /close 스킬 차이 검토",
+      "startedAt": "2026-04-27T19:00:00.000Z",
+      "closedAt": "2026-04-27T20:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-101"
+      ],
+      "rolesCalled": 5,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 12,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 7,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "arki",
+        "dev",
+        "riki",
+        "edi",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 6957445,
+        "ioTokens": 52840,
+        "inputTokens": 195,
+        "outputTokens": 52645,
+        "cacheCreate": 299485,
+        "cacheRead": 6605120,
+        "cacheHitRate": 0.9493600021272177,
+        "messageCount": 65
+      },
+      "sessionCostUSD": 3.8949
     }
   ],
   "roleFrequency": [
@@ -4485,7 +4525,7 @@
     },
     {
       "role": "arki",
-      "count": 86,
+      "count": 87,
       "sessions": [
         "session_048",
         "session_049",
@@ -4526,12 +4566,13 @@
         "session_108",
         "session_109",
         "session_111",
-        "session_112"
+        "session_112",
+        "session_119"
       ]
     },
     {
       "role": "edi",
-      "count": 70,
+      "count": 72,
       "sessions": [
         "session_050",
         "session_051",
@@ -4600,12 +4641,13 @@
         "session_115",
         "session_116",
         "session_117",
-        "session_118"
+        "session_118",
+        "session_119"
       ]
     },
     {
       "role": "dev",
-      "count": 58,
+      "count": 59,
       "sessions": [
         "session_047",
         "session_048",
@@ -4651,12 +4693,13 @@
         "session_113",
         "session_114",
         "session_117",
-        "session_118"
+        "session_118",
+        "session_119"
       ]
     },
     {
       "role": "riki",
-      "count": 40,
+      "count": 41,
       "sessions": [
         "session_049",
         "session_053",
@@ -4690,7 +4733,8 @@
         "session_106",
         "session_107",
         "session_108",
-        "session_109"
+        "session_109",
+        "session_119"
       ]
     },
     {
@@ -7640,6 +7684,42 @@
           "role": "edi",
           "phase": "compile",
           "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_119",
+      "topic": "자동 close vs 수동 /close 스킬 차이 검토",
+      "sequence": [
+        {
+          "role": "arki",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "adversarial",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 4,
           "recallReason": null
         }
       ]

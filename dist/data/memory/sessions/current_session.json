@@ -1,13 +1,12 @@
 {
-  "sessionId": "session_118",
-  "topicId": "topic_113",
-  "topic": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비",
-  "topicSlug": "dashboard-maintenance-home-growth-system",
-  "reportPath": "reports/2026-04-27_dashboard-maintenance-home-growth-system",
+  "sessionId": "session_119",
+  "topicId": "topic_118",
+  "topic": "자동 close vs 수동 /close 스킬 차이 검토",
+  "topicSlug": "auto-close-vs-manual-close-comparison",
+  "reportPath": "reports/2026-04-27_auto-close-vs-manual-close-comparison",
   "status": "closed",
-  "startedAt": "2026-04-27T16:00:00.000Z",
-  "closedAt": "2026-04-27T18:30:00.000Z",
-  "oneLineSummary": "topic/session/decisions/feedback/deferrals 5페이지 정체성 재정의 + editor→edi 전면 정규화 + 양방향 링크 그래프",
+  "startedAt": "2026-04-27T19:00:00.000Z",
+  "closedAt": "2026-04-27T20:30:00.000Z",
   "mode": "observation",
   "grade": "B",
   "gradeDeclared": "B",
@@ -15,74 +14,67 @@
   "orchestrationTransitions": [],
   "framingLevel": 2,
   "framingSkipped": false,
-  "topicType": "implementation",
+  "topicType": "framing",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
+    "arki",
     "dev",
+    "riki",
+    "edi",
     "edi"
   ],
   "turns": [
     {
-      "role": "dev",
+      "role": "arki",
       "turnIdx": 0,
+      "phase": "framing"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 1,
       "phase": "implementation"
     },
     {
+      "role": "riki",
+      "turnIdx": 2,
+      "phase": "adversarial"
+    },
+    {
       "role": "edi",
-      "turnIdx": 1,
+      "turnIdx": 3,
       "phase": "compile"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 4
     }
   ],
-  "decisions": [
-    {
-      "id": "MD-118a",
-      "axis": "페이지네이션 단위",
-      "value": "50/페이지 + 검색 + 필터 (장기 성장 고려)"
-    },
-    {
-      "id": "MD-118b",
-      "axis": "role identifier 정규화",
-      "value": "edi가 공식 — 모든 페이지/로직/md/파일명 정규화 (editor 흔적 제거)"
-    },
-    {
-      "id": "MD-118c",
-      "axis": "Current Session 위치",
-      "value": "growth.html 맨 아래 (한 세션 스냅샷은 보조 정보)"
-    },
-    {
-      "id": "MD-118d",
-      "axis": "deferrals 색상",
-      "value": "amber #F59E0B 정체성 + dependsOn 빨강 #EF4444 + 그래프 monochrome 정비"
-    }
-  ],
+  "decisions": [],
   "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [],
+  "pendingDeferralsResolved": [
+    "PD-039"
+  ],
   "pendingDeferralsDeprecated": [],
-  "decisionsAdded": [],
+  "decisionsAdded": [
+    "D-101"
+  ],
+  "oneLineSummary": "PD-039 resolved — finalize hook 4단계 delta-check WARN 게이트 추가 (D-101 박제), Arki 시야 협소 피드백 수용",
   "notes": [
-    "topic_113 재사용 (분기 A). status completed → open → completed",
-    "Master 명시 grade B",
-    "topic.html: 세션별 그룹 매핑 + 탭 클릭 메뉴바 사라짐 버그 수정 + 카운트 chip + 페이지네이션 50",
-    "editor→edi 전면 정규화: 4-pass JSON migration + 63 report files rename + 10 scripts + 2 hooks + 5 HTML/CSS/JS",
-    "session.html 분리: 리스트(검색·필터·페이저+RF strip+TurnSeq) + 상세(Reports/Decisions/Turns 탭)",
-    "Current Session + Agent Progress → growth.html 맨 아래로 이전",
-    "decisions.html 재구축: 인라인 expand + 양방향 링크 + anchor(?id=D-NNN)",
-    "feedback.html 재구축: 인라인 expand + Resulting decisions의 D-id → decisions anchor",
-    "deferrals.html 정체성 재정의: Action Queue, Pending default, Age 배지, resolveCondition 메인 승격, 그래프 monochrome 정비",
-    "Role Frequency 양 페이지 일치(edi 69) — dashboard-upgrade가 globalRoleFreq 직접 사용으로 통일",
-    "빌드 통과: dist/ 405 files"
+    "PD-039 해소 트랙 — CLAUDE.md '자동 close 규칙' vs Master 수동 /close 산출물 diff 비교",
+    "D-101 finalize hook delta-check 4단계(decision_ledger·topic_index·master_feedback·role_memory) WARN 게이트 추가",
+    "Arki 시야 협소 피드백 수용 → feedback_arki_full_system_view.md 박제"
   ],
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 805,
-    "output_tokens": 365202,
-    "cache_creation_input_tokens": 2624871,
-    "cache_read_input_tokens": 69653584,
-    "messageCount": 387,
-    "masterTurns": 19,
-    "total_billable": 72644462
+    "input_tokens": 195,
+    "output_tokens": 52645,
+    "cache_creation_input_tokens": 299485,
+    "cache_read_input_tokens": 6605120,
+    "messageCount": 65,
+    "masterTurns": 7,
+    "total_billable": 6957445
   }
 }

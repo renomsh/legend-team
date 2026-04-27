@@ -1060,8 +1060,8 @@
       "feedback": "자동 close와 수동 /close 스킬 실행 결과 차이가 뭔지 검토 필요.",
       "instruction": "CLAUDE.md 자동 close 규칙과 수동 스킬 실행 결과 diff 분석 필요.",
       "effect": "PD-039 등록. 차후 토픽으로 처리.",
-      "status": "pending",
-      "statusNote": "PD-039로 이관"
+      "status": "resolved",
+      "statusNote": "PD-039 → topic_118(session_119) 해소. Dev 실측 + Riki 동일 슬러그 commit 4건 직접 증거. D-101 finalize hook delta-check 4단계 WARN 게이트 박제."
     },
     {
       "id": "MF-083",

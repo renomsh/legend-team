@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_118",
-  "nextSessionId": "session_119",
+  "lastSessionId": "session_119",
+  "nextSessionId": "session_120",
   "currentVersion": "v1.75",
   "openTopics": [
     {
@@ -20,6 +20,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-101",
+      "date": "2026-04-27",
+      "axis": "자연어 자동 close 시 14단계 delta-check 게이트 + PD-039 resolved",
+      "summary": "Master 정책 일관: 자동화 = 검출만, 강제 게이트 X. 누락 인지 책임은 Master로 명시. 자율성 원칙(low-friction autonomy)과 정합. ~10% 침묵 누락의 가시화로 재-close 판단 근거 제공."
+    },
     {
       "id": "D-100",
       "date": "2026-04-26",
@@ -43,15 +49,18 @@
       "date": "2026-04-25",
       "axis": "dashboard-upgrade canonical reference + 컴포넌트 카탈로그 단일화",
       "summary": "dashboard-upgrade canonical reference + 컴포넌트 카탈로그 단일화"
-    },
-    {
-      "id": "D-096",
-      "date": "2026-04-25",
-      "axis": "VR 인프라 spec 박제 — Playwright docker pin + mock fixture + 24 baseline + bbox + maxDiffPixelRatio 0.02",
-      "summary": "VR 인프라 spec 박제 — Playwright docker pin + mock fixture + 24 baseline + bbox + maxDiffPixelRatio 0.02"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_119",
+      "topicSlug": "auto-close-vs-manual-close-comparison",
+      "closedAt": "2026-04-27T20:30:00.000Z",
+      "oneLineSummary": "PD-039 resolved — finalize hook 4단계 delta-check WARN 게이트 추가 (D-101 박제), Arki 시야 협소 피드백 수용",
+      "decisionsAdded": [
+        "D-101"
+      ]
+    },
     {
       "sessionId": "session_118",
       "topicSlug": "dashboard-maintenance-home-growth-system",
@@ -67,13 +76,6 @@
       "decisionsAdded": [
         "MD-117a"
       ]
-    },
-    {
-      "sessionId": "session_116",
-      "topicSlug": "topic-session-1-to-n-open-rule",
-      "closedAt": "2026-04-27T14:30:00.000Z",
-      "oneLineSummary": "/open 스킬 7번 분기 A/B 재작성 — 토픽 ID 명시 시 기존 토픽 재사용, Grade §0 추가",
-      "decisionsAdded": []
     }
   ],
   "pendingDeferrals": [
@@ -470,8 +472,10 @@
       "fromSession": "session_094",
       "fromTopic": "pd023-resume-self-scores-mvp",
       "item": "자동 close vs 수동 /close 스킬 차이 검토 — CLAUDE.md \"자동 close 규칙\"과 Master 수동 /close 실행 결과가 어떻게 다른지 비교 (Master 요청 session_094)",
-      "status": "pending",
+      "status": "resolved",
       "resolveCondition": "두 경로의 산출물 diff 분석 + 일관성 확보 방안 박제",
+      "resolvedInSession": "session_119",
+      "resolvedNote": "topic_118에서 두 경로 산출물 diff 분석 완료(Dev 실측 + Riki 동일 슬러그 commit 4건 직접 증거). delta-check WARN 게이트 D-101 박제로 일관성 확보 방안 박제.",
       "dependsOn": []
     },
     {
@@ -538,5 +542,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-27T23:14:10.670Z"
+  "lastUpdated": "2026-04-27T23:44:12.124Z"
 }
