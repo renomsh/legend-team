@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_116",
-  "nextSessionId": "session_117",
+  "lastSessionId": "session_117",
+  "nextSessionId": "session_118",
   "currentVersion": "v1.75",
   "openTopics": [
     {
@@ -53,6 +53,15 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_117",
+      "topicSlug": "dashboard-maintenance-home-growth-system",
+      "closedAt": "2026-04-27T15:45:00.000Z",
+      "oneLineSummary": "session.html All Sessions 카드→테이블 전환(.table 위임) + feedback.html 검색·필터·status counts·escape 정비",
+      "decisionsAdded": [
+        "MD-117a"
+      ]
+    },
+    {
       "sessionId": "session_116",
       "topicSlug": "topic-session-1-to-n-open-rule",
       "closedAt": "2026-04-27T14:30:00.000Z",
@@ -64,13 +73,6 @@
       "topicSlug": "topic113-ops-build-freshness-remove",
       "closedAt": "2026-04-27T13:30:00.000Z",
       "oneLineSummary": "ops Build Freshness 제거·글자통일, growth+people 통합, 홈 3카드, 역할색상 v1.1 동기화",
-      "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_114",
-      "topicSlug": "dashboard-home-layout-unification",
-      "closedAt": "2026-04-27T10:30:00.000Z",
-      "oneLineSummary": "mini-row 균등화(1.2fr→1fr) + defer-row margin/padding 통일 — 2줄 CSS 수정",
       "decisionsAdded": []
     }
   ],
@@ -536,5 +538,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-27T09:12:19.081Z"
+  "lastUpdated": "2026-04-27T10:25:11.631Z"
 }

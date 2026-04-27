@@ -1,13 +1,13 @@
 {
-  "sessionId": "session_116",
-  "topicId": "topic_117",
-  "topic": "Topic-세션 1:다 구조 — /open 스킬 토픽 번호 명시 시 기존 토픽 유지",
-  "topicSlug": "topic-session-1-to-n-open-rule",
-  "reportPath": "reports/2026-04-27_topic-session-1-to-n-open-rule",
+  "sessionId": "session_117",
+  "topicId": "topic_113",
+  "topic": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비",
+  "topicSlug": "dashboard-maintenance-home-growth-system",
+  "reportPath": "reports/2026-04-27_dashboard-maintenance-home-growth-system",
   "status": "closed",
-  "startedAt": "2026-04-27T14:00:00.000Z",
-  "closedAt": "2026-04-27T14:30:00.000Z",
-  "oneLineSummary": "/open 스킬 7번 분기 A/B 재작성 — 토픽 ID 명시 시 기존 토픽 재사용, Grade §0 추가",
+  "startedAt": "2026-04-27T15:00:00.000Z",
+  "closedAt": "2026-04-27T15:45:00.000Z",
+  "oneLineSummary": "session.html All Sessions 카드→테이블 전환(.table 위임) + feedback.html 검색·필터·status counts·escape 정비",
   "mode": "observation",
   "grade": "B",
   "gradeDeclared": "B",
@@ -15,11 +15,12 @@
   "orchestrationTransitions": [],
   "framingLevel": 2,
   "framingSkipped": false,
-  "topicType": "standalone",
+  "topicType": "implementation",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
     "ace",
+    "dev",
     "editor"
   ],
   "turns": [
@@ -29,33 +30,45 @@
       "phase": "framing"
     },
     {
-      "role": "editor",
+      "role": "dev",
       "turnIdx": 1,
+      "phase": "implementation"
+    },
+    {
+      "role": "editor",
+      "turnIdx": 2,
       "phase": "compile"
     }
   ],
   "decisions": [],
-  "masterDecisions": [],
+  "masterDecisions": [
+    {
+      "id": "MD-117a",
+      "axis": "scope 확정",
+      "value": "Q1=(b) feedback.html, Q2=(b) 데이터·기능까지"
+    }
+  ],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "pendingDeferralsDeprecated": [],
   "decisionsAdded": [],
   "notes": [
-    "/open 스킬 7번 항목 분기 A/B 재작성 완료",
-    "Grade 판정 규칙 §0 신설 — 토픽 ID 명시 최우선 감지",
-    "에디 산출물: editor_rev1.md (세션 내 소급 작성)"
+    "topic_113 재사용 (분기 A). status completed → open → completed",
+    "Master 명시 grade B (원 topic_index grade A는 유지)",
+    "session.html All Sessions 카드형 .hist-card → .table .sess-table 8컬럼 전환",
+    "feedback.html 전면 재작성 — counts/filter/search/escape 추가",
+    "빌드 통과: dist/session.html line 178 .sess-table, dist/feedback.html line 108 .fb-counts",
+    "Hook Success rate 개선은 별도 토픽으로 분리(scope out)"
   ],
-  "gaps": [
-    "에디가 세션 내 실시간 호출되지 않고 close 시점에 소급 기록됨 — B grade 소규모 토픽 관행"
-  ],
+  "gaps": [],
   "tokenUsage": {
-    "input_tokens": 71,
-    "output_tokens": 26727,
-    "cache_creation_input_tokens": 239098,
-    "cache_read_input_tokens": 3594623,
-    "messageCount": 53,
-    "masterTurns": 4,
-    "total_billable": 3860519
+    "input_tokens": 120,
+    "output_tokens": 39827,
+    "cache_creation_input_tokens": 255301,
+    "cache_read_input_tokens": 5215652,
+    "messageCount": 70,
+    "masterTurns": 12,
+    "total_billable": 5510900
   }
 }

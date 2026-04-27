@@ -7,6 +7,39 @@
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/components.css">
+  <style>
+    /* Feedback 페이지 전용 — components.css 토큰 위임 + 최소 보강 */
+    .fb-toolbar { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; align-items: center; }
+    .fb-search { flex: 1; min-width: 200px; background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 9px 14px; color: var(--text); font-size: 13px; outline: none; }
+    .fb-search:focus { border-color: rgba(16,185,129,.4); }
+    .fb-filter { background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 9px 12px; color: var(--text-2); font-size: 12px; outline: none; cursor: pointer; }
+
+    .fb-counts { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+    .fb-count { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 8px; font-size: 11px; font-weight: 600; background: var(--panel-2); border: 1px solid var(--line); color: var(--text-2); }
+    .fb-count .num { font-size: 13px; font-weight: 800; }
+    .fb-count.resolved { color: #34D399; border-color: rgba(16,185,129,.25); }
+    .fb-count.in-progress { color: #F59E0B; border-color: rgba(245,158,11,.25); }
+    .fb-count.pending { color: #F87171; border-color: rgba(239,68,68,.25); }
+    .fb-count.total { color: var(--text); }
+
+    /* feedback-item — style.css 기존 정의 위에 status 좌측 보더만 추가 */
+    .feedback-item { position: relative; }
+    .feedback-item.s-resolved { border-left: 3px solid #10B981; }
+    .feedback-item.s-in-progress { border-left: 3px solid #F59E0B; }
+    .feedback-item.s-pending { border-left: 3px solid #EF4444; }
+
+    .fb-status-badge { float: right; font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 10px; letter-spacing: .06em; text-transform: uppercase; }
+    .fb-status-badge.resolved { background: rgba(16,185,129,.15); color: #34D399; }
+    .fb-status-badge.in-progress { background: rgba(245,158,11,.15); color: #FCD34D; }
+    .fb-status-badge.pending { background: rgba(239,68,68,.15); color: #F87171; }
+
+    .fb-decisions { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line); }
+    .fb-decision-row { font-size: 11px; color: var(--text-2); padding: 2px 0; }
+    .fb-decision-row code { background: var(--panel-2); padding: 1px 5px; border-radius: 3px; font-size: 10px; color: var(--accent-blue); }
+
+    .fb-instruction { font-size: 11px; color: var(--accent-blue); margin-top: 6px; font-style: italic; }
+    .fb-statusnote { font-size: 11px; color: var(--text-3); margin-top: 4px; }
+  </style>
 </head>
 <body>
 <div class="app">
@@ -15,45 +48,88 @@
   <div class="s-crumb">Records / Feedback</div>
   <div class="s-h1">Master Feedback Log</div>
   <div class="page" style="padding:0;max-width:none;margin:0">
-    <div style="margin-bottom:16px;font-size:12px;color:var(--text-tertiary)" id="fbCount">Loading...</div>
-
+    <div class="fb-counts" id="fbCounts"></div>
+    <div class="fb-toolbar">
+      <input class="fb-search" id="fbSearch" placeholder="Search feedback / instruction / topic..." oninput="renderFeedback()">
+      <select class="fb-filter" id="fbFilter" onchange="renderFeedback()">
+        <option value="">All statuses</option>
+        <option value="pending">pending</option>
+        <option value="in-progress">in-progress</option>
+        <option value="resolved">resolved</option>
+      </select>
+    </div>
+    <div id="fbCount" style="margin-bottom:12px;font-size:11px;color:var(--text-3)"></div>
     <div id="feedbackList"><div class="loading">Loading feedback</div></div>
   </div>
 
   <script src="js/data-loader.js"></script>
   <script src="js/nav.js"></script>
   <script>
-    async function init() {
-      const data = await DataLoader.getMasterFeedback();
-      const el = document.getElementById('feedbackList');
+    let allFeedback = [];
+
+    function escapeHtml(s) {
+      return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+
+    function renderFeedback() {
+      const q = (document.getElementById('fbSearch').value || '').toLowerCase();
+      const qf = document.getElementById('fbFilter').value;
+      const list = document.getElementById('feedbackList');
       const countEl = document.getElementById('fbCount');
 
-      if (data && data.feedbackLog && data.feedbackLog.length > 0) {
-        countEl.textContent = `${data.feedbackLog.length} feedback entries`;
-        // Show newest first
-        const sorted = [...data.feedbackLog].reverse();
-        el.innerHTML = sorted.map(f => {
-          const decisionsHtml = f.decisions ? Object.entries(f.decisions).map(([k, v]) =>
-            `<div style="font-size: 11px; color: var(--text-secondary); padding: 2px 0;"><code style="background: var(--border); padding: 1px 5px; border-radius: 3px; font-size: 10px;">${k}</code> ${v}</div>`
-          ).join('') : '';
+      const filtered = allFeedback.filter(f => {
+        const text = `${f.feedback||''} ${f.instruction||''} ${f.topic||''} ${f.id||''} ${f.session||''}`.toLowerCase();
+        const matchQ = !q || text.includes(q);
+        const matchF = !qf || (f.status || 'pending') === qf;
+        return matchQ && matchF;
+      });
 
-          const statusColor = f.status === 'resolved' ? '#4caf50' : f.status === 'in-progress' ? '#ff9800' : '#f44336';
-          const statusLabel = f.status === 'resolved' ? 'RESOLVED' : f.status === 'in-progress' ? 'IN PROGRESS' : 'PENDING';
+      countEl.textContent = `${filtered.length} / ${allFeedback.length} entries`;
 
-          return `
-            <div class="feedback-item">
-              <div class="feedback-id">${f.id} · ${f.session} <span style="float:right; font-size:10px; font-weight:600; color:${statusColor}; border:1px solid ${statusColor}; padding:1px 6px; border-radius:3px;">${statusLabel}</span></div>
-              <div class="feedback-text">${f.feedback}</div>
-              ${f.statusNote ? `<div style="font-size: 11px; color: var(--text-secondary); margin-top: 4px;">↳ ${f.statusNote}</div>` : ''}
-              ${f.instruction ? `<div style="font-size: 11px; color: var(--accent-blue); margin-top: 6px; font-style: italic;">"${f.instruction}"</div>` : ''}
-              ${decisionsHtml ? `<div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border);">${decisionsHtml}</div>` : ''}
-              <div class="feedback-meta">${f.date} · ${f.topic} · ${f.effect || ''}</div>
-            </div>
-          `;
-        }).join('');
+      if (!filtered.length) {
+        list.innerHTML = '<div class="empty-state">No feedback matches</div>';
+        return;
+      }
+
+      list.innerHTML = filtered.map(f => {
+        const status = f.status || 'pending';
+        const statusLabel = status === 'in-progress' ? 'IN PROGRESS' : status.toUpperCase();
+        const decisionsHtml = f.decisions ? Object.entries(f.decisions).map(([k, v]) =>
+          `<div class="fb-decision-row"><code>${escapeHtml(k)}</code> ${escapeHtml(v)}</div>`
+        ).join('') : '';
+        return `
+          <div class="feedback-item s-${status}">
+            <div class="feedback-id">${escapeHtml(f.id||'')} · ${escapeHtml(f.session||'')}<span class="fb-status-badge ${status}">${statusLabel}</span></div>
+            <div class="feedback-text">${escapeHtml(f.feedback||'')}</div>
+            ${f.statusNote ? `<div class="fb-statusnote">↳ ${escapeHtml(f.statusNote)}</div>` : ''}
+            ${f.instruction ? `<div class="fb-instruction">"${escapeHtml(f.instruction)}"</div>` : ''}
+            ${decisionsHtml ? `<div class="fb-decisions">${decisionsHtml}</div>` : ''}
+            <div class="feedback-meta">${escapeHtml(f.date||'')} · ${escapeHtml(f.topic||'')}${f.effect ? ' · ' + escapeHtml(f.effect) : ''}</div>
+          </div>`;
+      }).join('');
+    }
+
+    function renderCounts() {
+      const counts = { resolved: 0, 'in-progress': 0, pending: 0 };
+      allFeedback.forEach(f => { counts[f.status || 'pending'] = (counts[f.status || 'pending'] || 0) + 1; });
+      const el = document.getElementById('fbCounts');
+      el.innerHTML = `
+        <span class="fb-count total"><span class="num">${allFeedback.length}</span> total</span>
+        <span class="fb-count resolved"><span class="num">${counts.resolved}</span> resolved</span>
+        <span class="fb-count in-progress"><span class="num">${counts['in-progress']}</span> in-progress</span>
+        <span class="fb-count pending"><span class="num">${counts.pending}</span> pending</span>
+      `;
+    }
+
+    async function init() {
+      const data = await DataLoader.getMasterFeedback();
+      if (data && Array.isArray(data.feedbackLog) && data.feedbackLog.length > 0) {
+        allFeedback = [...data.feedbackLog].reverse(); // newest first
+        renderCounts();
+        renderFeedback();
       } else {
-        el.innerHTML = '<div class="empty-state">No feedback recorded</div>';
-        countEl.textContent = '0 entries';
+        document.getElementById('feedbackList').innerHTML = '<div class="empty-state">No feedback recorded</div>';
+        document.getElementById('fbCount').textContent = '0 entries';
       }
     }
     init();

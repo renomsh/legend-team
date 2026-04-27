@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-04-27T09:12:32.435Z",
-  "totalSessions": 114,
+  "generatedAt": "2026-04-27T10:25:18.325Z",
+  "totalSessions": 115,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.64,
-    "avgCacheHitRate": 0.9335,
-    "cacheSampleSize": 88,
-    "cacheSampleTotal": 114,
+    "avgMasterTurns": 16.6,
+    "avgCacheHitRate": 0.9336,
+    "cacheSampleSize": 89,
+    "cacheSampleTotal": 115,
     "avgAdoptionRate": 0,
     "totalDecisions": 100,
     "gradeDistribution": {
       "S": 43,
-      "A": 22,
-      "B": 35,
-      "C": 14
+      "A": 23,
+      "B": 36,
+      "C": 13
     },
     "gradeMismatchCount": 2,
     "gradeMismatchSessions": [
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 69,
-    "totalCostUSD": 1143.8849,
-    "avgCostPerSession": 10.4944,
-    "costSampleSize": 109
+    "turnBasedSessions": 70,
+    "totalCostUSD": 1147.0047,
+    "avgCostPerSession": 10.4273,
+    "costSampleSize": 110
   },
   "sessions": [
     {
@@ -4106,10 +4106,10 @@
       "decisionAxes": 0,
       "rolesCalled": 1,
       "rolesRecalled": 0,
-      "sessionsSpanned": 1,
-      "size": 4,
-      "gradeDeclared": "C",
-      "gradeActual": "C",
+      "sessionsSpanned": 2,
+      "size": 7,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 59,
@@ -4338,12 +4338,54 @@
         "messageCount": 86
       },
       "sessionCostUSD": 4.0471
+    },
+    {
+      "sessionId": "session_117",
+      "topicSlug": "dashboard-maintenance-home-growth-system",
+      "topic": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비",
+      "startedAt": "2026-04-27T15:00:00.000Z",
+      "closedAt": "2026-04-27T15:45:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        {
+          "id": "MD-117a",
+          "axis": "scope 확정",
+          "value": "Q1=(b) feedback.html, Q2=(b) 데이터·기능까지"
+        }
+      ],
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 2,
+      "size": 11,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 12,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 5510900,
+        "ioTokens": 39947,
+        "inputTokens": 120,
+        "outputTokens": 39827,
+        "cacheCreate": 255301,
+        "cacheRead": 5215652,
+        "cacheHitRate": 0.9464247219147508,
+        "messageCount": 70
+      },
+      "sessionCostUSD": 3.1198
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 123,
+      "count": 124,
       "sessions": [
         "session_047",
         "session_048",
@@ -4403,7 +4445,8 @@
         "session_112",
         "session_113",
         "session_114",
-        "session_116"
+        "session_116",
+        "session_117"
       ]
     },
     {
@@ -4454,7 +4497,7 @@
     },
     {
       "role": "editor",
-      "count": 66,
+      "count": 67,
       "sessions": [
         "session_050",
         "session_051",
@@ -4521,12 +4564,13 @@
         "session_113",
         "session_114",
         "session_115",
-        "session_116"
+        "session_116",
+        "session_117"
       ]
     },
     {
       "role": "dev",
-      "count": 56,
+      "count": 57,
       "sessions": [
         "session_047",
         "session_048",
@@ -4570,7 +4614,8 @@
         "session_109",
         "session_112",
         "session_113",
-        "session_114"
+        "session_114",
+        "session_117"
       ]
     },
     {
@@ -7525,6 +7570,30 @@
           "role": "editor",
           "phase": "compile",
           "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_117",
+      "topic": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 2,
           "recallReason": null
         }
       ]

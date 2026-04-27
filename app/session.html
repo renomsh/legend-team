@@ -10,40 +10,36 @@
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
   <link rel="stylesheet" href="css/components.css">
   <style>
-/* Tabs — §11 base, session overrides */
-.tab-bar{margin-bottom:28px}
-.tab-btn{padding:10px 20px;font-size:13px;letter-spacing:0}
+/* Tabs — §11 base, session overrides (active 색상만 — 다른 페이지와 차별화) */
 .tab-btn.active{color:#10B981;border-bottom-color:#10B981}
 .tab-pane{display:none}.tab-pane.active{display:block}
 
-/* Cards */
-.card{background:var(--panel-2);border-radius:10px;padding:14px 16px;margin-bottom:8px}
+/* Current Session 카드 grid */
 .session-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-bottom:8px}
 .session-label{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);margin-bottom:4px}
 .session-value{font-size:14px;font-weight:600;color:var(--text)}
-.section-title{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--text-3);margin:24px 0 8px}
-.empty-state{padding:24px;text-align:center;color:var(--text-3);font-size:13px;background:var(--panel-2);border:1px solid var(--line);border-radius:10px}
 .mono{font-family:monospace}
 
-/* History cards */
-.hist-card{background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin-bottom:10px;cursor:pointer;transition:border-color .15s}
-.hist-card:hover{border-color:rgba(16,185,129,.4)}
-.hist-card-header{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.hist-sid{font-size:11px;font-family:monospace;color:#06B6D4;font-weight:700}
-.hist-topic{font-size:13px;color:var(--text);font-weight:600;flex:1;margin:0 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.hist-date{font-size:11px;color:var(--text-3);white-space:nowrap}
-.hist-meta{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
-.hist-badge{font-size:10px;padding:2px 8px;border-radius:12px;font-weight:600}
-.hist-roles{display:flex;gap:4px;margin-top:6px;flex-wrap:wrap}
-.role-chip{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600;border:1px solid transparent}
-.dq-auto{color:#10B981;background:rgba(16,185,129,.12);border-color:rgba(16,185,129,.25)}
-.dq-backfill{color:#F59E0B;background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.2)}
-.dq-manual{color:#6E6E78;background:rgba(110,110,120,.1);border-color:rgba(110,110,120,.2)}
+/* History — .table §14 canonical 위임. 행 hover + 커서 + 셀 색상 토큰만 추가 */
+.sess-table tbody tr{cursor:default;transition:background .12s}
+.sess-table tbody tr:hover td{background:rgba(16,185,129,.04)}
+.sess-table .td-id{font-family:'SF Mono',monospace;color:#06B6D4;font-weight:700;font-size:11px;white-space:nowrap}
+.sess-table .td-topic{color:var(--text);font-weight:500;max-width:340px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sess-table .td-date{color:var(--text-3);font-size:11px;white-space:nowrap}
+.sess-table .td-num{text-align:right;font-variant-numeric:tabular-nums;color:var(--text)}
+.sess-table .td-num.zero{color:var(--text-3)}
+.sess-table .td-roles{display:flex;gap:3px;flex-wrap:wrap}
+.role-chip{font-size:9px;padding:1px 6px;border-radius:8px;font-weight:600;border:1px solid transparent;letter-spacing:.02em}
+
+/* Data quality cell — badge 색상 */
+.dq-auto{color:#10B981;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.25);padding:1px 7px;border-radius:8px;font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.dq-backfill{color:#F59E0B;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:1px 7px;border-radius:8px;font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.dq-manual{color:#6E6E78;background:rgba(110,110,120,.1);border:1px solid rgba(110,110,120,.2);padding:1px 7px;border-radius:8px;font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
 
 /* Role freq chart */
 #roleFreqChart{width:100%;max-width:400px}
 
-/* Search */
+/* Search row */
 .search-row{display:flex;gap:8px;margin-bottom:16px}
 .search-input{flex:1;background:var(--panel-2);border:1px solid var(--line);border-radius:8px;padding:9px 14px;color:var(--text);font-size:13px;outline:none}
 .search-input:focus{border-color:rgba(16,185,129,.4)}
@@ -121,7 +117,24 @@
         <option value="manual">manual</option>
       </select>
     </div>
-    <div id="histList"></div>
+    <div class="table-scroll">
+      <table class="table sess-table">
+        <thead>
+          <tr>
+            <th>Session</th>
+            <th>Topic</th>
+            <th>Date</th>
+            <th style="text-align:right">Size</th>
+            <th style="text-align:right">Decisions</th>
+            <th style="text-align:right">Turns</th>
+            <th>Quality</th>
+            <th>Roles</th>
+          </tr>
+        </thead>
+        <tbody id="histTableBody"></tbody>
+      </table>
+    </div>
+    <div id="histEmpty" class="empty-state" style="display:none">No sessions found</div>
   </div>
 
   <script src="js/role-colors.js"></script>
@@ -282,30 +295,34 @@
         return matchQ && matchF;
       });
       document.getElementById('histCount').textContent = `${filtered.length} / ${allSessions.length}개`;
-      const list = document.getElementById('histList');
+      const tbody = document.getElementById('histTableBody');
+      const emptyEl = document.getElementById('histEmpty');
+      const tableEl = tbody.closest('.table-scroll');
       if (!filtered.length) {
-        list.innerHTML = '<div class="empty-state">No sessions found</div>';
+        tbody.innerHTML = '';
+        if (tableEl) tableEl.style.display = 'none';
+        emptyEl.style.display = 'block';
         return;
       }
-      list.innerHTML = filtered.map(s => {
+      if (tableEl) tableEl.style.display = '';
+      emptyEl.style.display = 'none';
+      tbody.innerHTML = filtered.map(s => {
         const dqClass = `dq-${s.dataQuality || 'manual'}`;
         const roles = (s.agentsCompleted || []).map(r =>
           `<span class="role-chip" style="color:${ROLE_COLORS[r]||'#6E6E78'};background:${ROLE_COLORS[r]||'#6E6E78'}18;border-color:${ROLE_COLORS[r]||'#6E6E78'}30">${r}</span>`
         ).join('');
-        return `<div class="hist-card" title="${s.topicSlug}" data-sid="${s.sessionId}">
-          <div class="hist-card-header">
-            <span class="hist-sid">${s.sessionId}</span>
-            <span class="hist-topic">${s.topic || s.topicSlug || '—'}</span>
-            <span class="hist-date">${formatDate(s.startedAt)}</span>
-          </div>
-          <div class="hist-meta">
-            <span class="hist-badge ${dqClass}">${s.dataQuality||'manual'}</span>
-            <span class="hist-badge" style="color:#8B5CF6;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.2)">Size ${s.size}</span>
-            ${s.decisionAxes > 0 ? `<span class="hist-badge" style="color:#F59E0B;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2)">${s.decisionAxes} decisions</span>` : ''}
-            ${s.masterTurns > 0 ? `<span class="hist-badge" style="color:#06B6D4;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.2)">${s.masterTurns} turns</span>` : ''}
-          </div>
-          ${roles ? `<div class="hist-roles">${roles}</div>` : ''}
-        </div>`;
+        const decN = s.decisionAxes || 0;
+        const trnN = s.masterTurns || 0;
+        return `<tr title="${(s.topicSlug||'').replace(/"/g,'&quot;')}" data-sid="${s.sessionId}">
+          <td class="td-id">${s.sessionId}</td>
+          <td class="td-topic">${s.topic || s.topicSlug || '—'}</td>
+          <td class="td-date">${formatDate(s.startedAt)}</td>
+          <td class="td-num">${s.size != null ? s.size : '—'}</td>
+          <td class="td-num ${decN ? '' : 'zero'}">${decN}</td>
+          <td class="td-num ${trnN ? '' : 'zero'}">${trnN}</td>
+          <td><span class="${dqClass}">${s.dataQuality||'manual'}</span></td>
+          <td><div class="td-roles">${roles}</div></td>
+        </tr>`;
       }).join('');
     }
 

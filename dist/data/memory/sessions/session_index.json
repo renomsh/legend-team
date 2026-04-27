@@ -4866,8 +4866,51 @@
       "note": "/open 스킬 7번 항목 분기 A/B 재작성 완료 | Grade 판정 규칙 §0 신설 — 토픽 ID 명시 최우선 감지 | 에디 산출물: editor_rev1.md (세션 내 소급 작성)",
       "oneLineSummary": "/open 스킬 7번 분기 A/B 재작성 — 토픽 ID 명시 시 기존 토픽 재사용, Grade §0 추가",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_117",
+      "topicSlug": "dashboard-maintenance-home-growth-system",
+      "topic": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비",
+      "startedAt": "2026-04-27T15:00:00.000Z",
+      "closedAt": "2026-04-27T15:45:00.000Z",
+      "cwd": "C:\\Users\\문성훈\\.omnara\\worktrees\\legend-team\\omnara\\duo-accompany",
+      "decisions": [
+        {
+          "id": "MD-117a",
+          "axis": "scope 확정",
+          "value": "Q1=(b) feedback.html, Q2=(b) 데이터·기능까지"
+        }
+      ],
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 1,
+          "phase": "implementation"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 2,
+          "phase": "compile"
+        }
+      ],
+      "grade": "B",
+      "note": "topic_113 재사용 (분기 A). status completed → open → completed | Master 명시 grade B (원 topic_index grade A는 유지) | session.html All Sessions 카드형 .hist-card → .table .sess-table 8컬럼 전환 | feedback.html 전면 재작성 — counts/filter/search/escape 추가 | 빌드 통과: dist/session.html line 178 .sess-table, dist/feedback.html line 108 .fb-counts | Hook Success rate 개선은 별도 토픽으로 분리(scope out)",
+      "oneLineSummary": "session.html All Sessions 카드→테이블 전환(.table 위임) + feedback.html 검색·필터·status counts·escape 정비",
+      "decisionsAdded": [
+        "MD-117a"
+      ]
     }
   ],
-  "lastUpdated": "2026-04-27T09:11:45.628Z",
+  "lastUpdated": "2026-04-27T10:24:54.553Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
