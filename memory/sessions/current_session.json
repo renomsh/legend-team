@@ -4,10 +4,10 @@
   "topic": "대시보드 홈 — Recent Activity·Pending Deferrals 레이아웃 통일",
   "topicSlug": "dashboard-home-layout-unification",
   "reportPath": "reports/2026-04-27_dashboard-home-layout-unification",
-  "status": "open",
+  "status": "closed",
   "startedAt": "2026-04-27T10:00:00.000Z",
-  "closedAt": null,
-  "oneLineSummary": "",
+  "closedAt": "2026-04-27T10:30:00.000Z",
+  "oneLineSummary": "mini-row 균등화(1.2fr→1fr) + defer-row margin/padding 통일 — 2줄 CSS 수정",
   "mode": "observation",
   "grade": "B",
   "gradeDeclared": "B",
@@ -18,8 +18,28 @@
   "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
-  "agentsCompleted": [],
-  "turns": [],
+  "agentsCompleted": [
+    "ace",
+    "dev",
+    "editor"
+  ],
+  "turns": [
+    {
+      "role": "ace",
+      "turnIdx": 0,
+      "phase": "framing"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 1,
+      "phase": "implementation"
+    },
+    {
+      "role": "editor",
+      "turnIdx": 2,
+      "phase": "compile"
+    }
+  ],
   "decisions": [],
   "masterDecisions": [],
   "masterFeedback": [],
@@ -27,15 +47,18 @@
   "pendingDeferralsResolved": [],
   "pendingDeferralsDeprecated": [],
   "decisionsAdded": [],
-  "notes": [],
+  "notes": [
+    "components.css .mini-row: 1.2fr 1fr 1fr → 1fr 1fr 1fr (3패널 균등)",
+    "components.css .defer-row: margin-bottom 제거, padding 10px 12px, gap 12px — mini-item과 통일"
+  ],
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 74,
-    "output_tokens": 14210,
-    "cache_creation_input_tokens": 231441,
-    "cache_read_input_tokens": 2913353,
-    "messageCount": 48,
-    "masterTurns": 3,
-    "total_billable": 3159078
+    "input_tokens": 88,
+    "output_tokens": 16419,
+    "cache_creation_input_tokens": 238068,
+    "cache_read_input_tokens": 3853877,
+    "messageCount": 60,
+    "masterTurns": 4,
+    "total_billable": 4108452
   }
 }

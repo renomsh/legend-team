@@ -1135,3 +1135,13 @@
 [2026-04-27T00:08:28.987Z] [sync-system-state] lastSession=session_113 openTopics=2 recentDecisions=5 recentSummaries=3 deferrals=47
 [2026-04-27T00:08:35.768Z] [compute-dashboard] 완료 — 111개 세션, 8개 경보
 [2026-04-27T00:15:28.938Z] [compute-dashboard] 완료 — 111개 세션, 8개 경보
+[2026-04-27T00:16:01.642Z] [checklist] [WARN] reports: reportPath not found on disk: reports/2026-04-27_dashboard-home-layout-unification
+[2026-04-27T00:16:01.644Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-27T00:16:01.644Z] [checklist] [INFO] topic_index: topic found: topic_116 (completed)
+[2026-04-27T00:16:01.644Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-27T00:16:01.645Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-27T00:16:01.645Z] [session-log] [INFO] END session_114 | topic: dashboard-home-layout-unification | duration: unknown (startedAt in future)
+[2026-04-27T00:16:15.431Z] [L2-writer] wrote C:\Projects\legend-team\topics\topic_116\session_contributions\session_114.md | turns=0 decisions=0
+[2026-04-27T00:16:17.305Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_116\context_brief.md | sessions=1 size=370B
+[2026-04-27T00:16:26.378Z] [sync-system-state] lastSession=session_114 openTopics=2 recentDecisions=5 recentSummaries=3 deferrals=47
+[2026-04-27T00:16:32.248Z] [compute-dashboard] 완료 — 112개 세션, 8개 경보

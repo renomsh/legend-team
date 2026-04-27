@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-27T00:15:28.933Z",
-  "totalSessions": 111,
+  "generatedAt": "2026-04-27T00:16:32.244Z",
+  "totalSessions": 112,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.78,
-    "avgCacheHitRate": 0.9338,
-    "cacheSampleSize": 85,
-    "cacheSampleTotal": 111,
+    "avgMasterTurns": 16.69,
+    "avgCacheHitRate": 0.9337,
+    "cacheSampleSize": 86,
+    "cacheSampleTotal": 112,
     "avgAdoptionRate": 0,
     "totalDecisions": 100,
     "gradeDistribution": {
       "S": 43,
       "A": 22,
-      "B": 33,
+      "B": 34,
       "C": 13
     },
     "gradeMismatchCount": 2,
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 66,
-    "totalCostUSD": 1125.1578,
-    "avgCostPerSession": 10.6147,
-    "costSampleSize": 106
+    "turnBasedSessions": 67,
+    "totalCostUSD": 1129.4085,
+    "avgCostPerSession": 10.5552,
+    "costSampleSize": 107
   },
   "sessions": [
     {
@@ -4236,12 +4236,47 @@
         "messageCount": 342
       },
       "sessionCostUSD": 17.6984
+    },
+    {
+      "sessionId": "session_114",
+      "topicSlug": "dashboard-home-layout-unification",
+      "topic": "대시보드 홈 — Recent Activity·Pending Deferrals 레이아웃 통일",
+      "startedAt": "2026-04-27T10:00:00.000Z",
+      "closedAt": "2026-04-27T10:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 7,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 7267530,
+        "ioTokens": 30791,
+        "inputTokens": 162,
+        "outputTokens": 30629,
+        "cacheCreate": 469509,
+        "cacheRead": 6767230,
+        "cacheHitRate": 0.9311595548969183,
+        "messageCount": 108
+      },
+      "sessionCostUSD": 4.2507
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 121,
+      "count": 122,
       "sessions": [
         "session_047",
         "session_048",
@@ -4299,7 +4334,8 @@
         "session_109",
         "session_111",
         "session_112",
-        "session_113"
+        "session_113",
+        "session_114"
       ]
     },
     {
@@ -4350,7 +4386,7 @@
     },
     {
       "role": "editor",
-      "count": 63,
+      "count": 64,
       "sessions": [
         "session_050",
         "session_051",
@@ -4414,12 +4450,13 @@
         "session_110",
         "session_111",
         "session_112",
-        "session_113"
+        "session_113",
+        "session_114"
       ]
     },
     {
       "role": "dev",
-      "count": 55,
+      "count": 56,
       "sessions": [
         "session_047",
         "session_048",
@@ -4462,7 +4499,8 @@
         "session_108",
         "session_109",
         "session_112",
-        "session_113"
+        "session_113",
+        "session_114"
       ]
     },
     {
@@ -7346,6 +7384,30 @@
     {
       "sessionId": "session_113",
       "topic": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비 (계속)",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_114",
+      "topic": "대시보드 홈 — Recent Activity·Pending Deferrals 레이아웃 통일",
       "sequence": [
         {
           "role": "ace",

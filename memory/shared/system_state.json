@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_113",
-  "nextSessionId": "session_114",
+  "lastSessionId": "session_114",
+  "nextSessionId": "session_115",
   "currentVersion": "v1.75",
   "openTopics": [
     {
@@ -53,6 +53,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_114",
+      "topicSlug": "dashboard-home-layout-unification",
+      "closedAt": "2026-04-27T10:30:00.000Z",
+      "oneLineSummary": "mini-row 균등화(1.2fr→1fr) + defer-row margin/padding 통일 — 2줄 CSS 수정",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_113",
       "topicSlug": "dashboard-maintenance-followup",
       "closedAt": "2026-04-27T09:00:00.000Z",
@@ -64,13 +71,6 @@
       "topicSlug": "dashboard-maintenance-remaining-pages",
       "closedAt": "2026-04-27T00:00:00.000Z",
       "oneLineSummary": "CSS 단일화 G0~G5 완료: .card/badge/table/tab-bar 공통화, 7페이지 sidebar 중복 제거, v1.75",
-      "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_110",
-      "topicSlug": "dashboard-maintenance-home-growth-system",
-      "closedAt": "2026-04-26T23:59:00.000Z",
-      "oneLineSummary": "dashboard-maintenance session_110: CSS §7~§10 단일화, topbar pills nav.js, Home·Ops·Upgrade 전면 정비",
       "decisionsAdded": []
     }
   ],
@@ -536,5 +536,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-27T00:08:28.986Z"
+  "lastUpdated": "2026-04-27T00:16:26.377Z"
 }

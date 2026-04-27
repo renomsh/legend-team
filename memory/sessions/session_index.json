@@ -4782,8 +4782,42 @@
       "note": "P3-A: .integrity CSS → components.css §15 (growth/people inline 제거) | P3-B: dashboard-ops renderAlarms() → .alarm-item/.alarm-red/.alarm-yellow upgrade 스타일. alarm CSS → §16 | P3-C: index.html Pending Deferrals → defer-row 3열 + 5줄 기본 + 더보기 accordion + deferrals.html 링크 | dashboard-upgrade.html 알람+deferrals wide-grid 섹션 제거, JS 정리, system_state fetch 제거 | .defer-row/.defer-id/.defer-text/.defer-src → components.css canonical 이전 | build 완료: dist/ 갱신",
       "oneLineSummary": "P3 3건 완료: Integrity §15 단일화, Alarm upgrade→ops 이식, Deferrals defer-row accordion 홈 이식",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_114",
+      "topicSlug": "dashboard-home-layout-unification",
+      "topic": "대시보드 홈 — Recent Activity·Pending Deferrals 레이아웃 통일",
+      "startedAt": "2026-04-27T10:00:00.000Z",
+      "closedAt": "2026-04-27T10:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 1,
+          "phase": "implementation"
+        },
+        {
+          "role": "editor",
+          "turnIdx": 2,
+          "phase": "compile"
+        }
+      ],
+      "grade": "B",
+      "note": "components.css .mini-row: 1.2fr 1fr 1fr → 1fr 1fr 1fr (3패널 균등) | components.css .defer-row: margin-bottom 제거, padding 10px 12px, gap 12px — mini-item과 통일",
+      "oneLineSummary": "mini-row 균등화(1.2fr→1fr) + defer-row margin/padding 통일 — 2줄 CSS 수정",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-04-27T00:08:13.142Z",
+  "lastUpdated": "2026-04-27T00:16:13.615Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
