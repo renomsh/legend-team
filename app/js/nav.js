@@ -39,7 +39,7 @@ function _currentNavSlug() {
   if (f === 'dashboard-upgrade.html') return 'dashboard-upgrade';
   if (f === 'dashboard-ops.html') return 'dashboard-ops';
   if (f === 'growth.html') return 'growth';
-  if (f === 'people.html') return 'people';
+  if (f === 'people.html') return 'growth';
   if (f === 'topic.html') return 'records-topics';
   if (f === 'session.html') return 'records-sessions';
   if (f === 'decisions.html') return 'records-decisions';

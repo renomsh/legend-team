@@ -4816,8 +4816,30 @@
       "note": "components.css .mini-row: 1.2fr 1fr 1fr → 1fr 1fr 1fr (3패널 균등) | components.css .defer-row: margin-bottom 제거, padding 10px 12px, gap 12px — mini-item과 통일",
       "oneLineSummary": "mini-row 균등화(1.2fr→1fr) + defer-row margin/padding 통일 — 2줄 CSS 수정",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_115",
+      "topicSlug": "topic113-ops-build-freshness-remove",
+      "topic": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비",
+      "startedAt": "2026-04-27T11:00:00.000Z",
+      "closedAt": "2026-04-27T13:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "editor"
+      ],
+      "turns": [
+        {
+          "role": "editor",
+          "turnIdx": 0,
+          "phase": "compile"
+        }
+      ],
+      "grade": "B",
+      "note": "ops Build Freshness 카드 삭제 + 폰트 균일화 | growth + people 통합 — 단일 캐릭터 성장 페이지 (§1~§4) | 홈 hub card 4→3 (People 제거) | role_registry.json v1.1 — 6개 역할 색상 tokens.css 팔레트로 동기화 | _redirects: /people.html → /growth.html 301",
+      "oneLineSummary": "ops Build Freshness 제거·글자통일, growth+people 통합, 홈 3카드, 역할색상 v1.1 동기화",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-04-27T00:16:13.615Z",
+  "lastUpdated": "2026-04-27T01:25:18.271Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

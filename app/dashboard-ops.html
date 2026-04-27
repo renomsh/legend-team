@@ -183,14 +183,6 @@
 
       const cards = [
         {
-          label: 'Build Freshness', value: ageStr,
-          color: stale ? '#F59E0B' : '#10B981',
-          glow: stale ? 'rgba(245,158,11,.18)' : 'rgba(16,185,129,.18)',
-          bg: `linear-gradient(145deg,${stale?'rgba(245,158,11,.12)':'rgba(16,185,129,.12)'} 0%,rgba(0,0,0,.03) 50%,#0B0B0D 100%)`,
-          border: stale ? 'rgba(245,158,11,.35)' : 'rgba(16,185,129,.35)',
-          badge: { text: stale ? 'STALE' : 'fresh', cls: stale ? 'badge-warn' : 'badge-ok' }
-        },
-        {
           label: 'Hook Success', value: hookRate + '%',
           color: hookRate >= 90 ? '#10B981' : hookRate >= 70 ? '#F59E0B' : '#EF4444',
           glow: 'rgba(16,185,129,.18)',
@@ -225,7 +217,7 @@
       document.getElementById('commandGrid').innerHTML = cards.map(c =>
         `<div class="command-card" style="--cc-color:${c.color};--cc-glow:${c.glow};background:${c.bg};border:1px solid ${c.border};border-top:3px solid ${c.color}">
           <div class="command-label">${c.label}</div>
-          <div class="command-value" style="font-size:${typeof c.value==='string'&&c.value.length>4?'28px':'48px'}">${c.value}</div>
+          <div class="command-value">${c.value}</div>
           ${c.badge ? `<span class="command-badge ${c.badge.cls}">${c.badge.text}</span>` : ''}
         </div>`
       ).join('');

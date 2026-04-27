@@ -1,12 +1,12 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "roles": [
-    { "id": "ace",     "displayName": "Ace",     "tier": 1, "color": "#FF6B6B", "applicableTopicTypes": ["framing", "implementation", "standalone"], "participationExpectedTopicTypes": ["framing", "standalone"] },
-    { "id": "arki",    "displayName": "Arki",    "tier": 1, "color": "#845EC2", "applicableTopicTypes": ["framing", "implementation", "standalone"], "participationExpectedTopicTypes": ["framing", "standalone"] },
-    { "id": "fin",     "displayName": "Fin",     "tier": 1, "color": "#00C9A7", "applicableTopicTypes": ["framing", "implementation", "standalone"], "participationExpectedTopicTypes": ["framing", "standalone"] },
-    { "id": "riki",    "displayName": "Riki",    "tier": 1, "color": "#FFC75F", "applicableTopicTypes": ["framing", "implementation", "standalone"], "participationExpectedTopicTypes": ["framing", "standalone"] },
-    { "id": "nova",    "displayName": "Nova",    "tier": 2, "color": "#F9F871", "applicableTopicTypes": ["framing", "standalone"], "participationExpectedTopicTypes": [] },
-    { "id": "dev",     "displayName": "Dev",     "tier": 1, "color": "#4D96FF", "applicableTopicTypes": ["implementation", "standalone"], "participationExpectedTopicTypes": ["implementation"] },
+    { "id": "ace",     "displayName": "Ace",     "tier": 1, "color": "#8B5CF6", "applicableTopicTypes": ["framing", "implementation", "standalone"], "participationExpectedTopicTypes": ["framing", "standalone"] },
+    { "id": "arki",    "displayName": "Arki",    "tier": 1, "color": "#06B6D4", "applicableTopicTypes": ["framing", "implementation", "standalone"], "participationExpectedTopicTypes": ["framing", "standalone"] },
+    { "id": "fin",     "displayName": "Fin",     "tier": 1, "color": "#F59E0B", "applicableTopicTypes": ["framing", "implementation", "standalone"], "participationExpectedTopicTypes": ["framing", "standalone"] },
+    { "id": "riki",    "displayName": "Riki",    "tier": 1, "color": "#EF4444", "applicableTopicTypes": ["framing", "implementation", "standalone"], "participationExpectedTopicTypes": ["framing", "standalone"] },
+    { "id": "nova",    "displayName": "Nova",    "tier": 2, "color": "#10B981", "applicableTopicTypes": ["framing", "standalone"], "participationExpectedTopicTypes": [] },
+    { "id": "dev",     "displayName": "Dev",     "tier": 1, "color": "#3B82F6", "applicableTopicTypes": ["implementation", "standalone"], "participationExpectedTopicTypes": ["implementation"] },
     { "id": "vera",    "displayName": "Vera",    "tier": 2, "color": "#F472B6", "applicableTopicTypes": ["implementation", "standalone"], "participationExpectedTopicTypes": [] },
     { "id": "editor",  "displayName": "Edi",     "tier": 1, "color": "#9CA3AF", "applicableTopicTypes": ["framing", "implementation", "standalone"], "participationExpectedTopicTypes": ["framing", "implementation", "standalone"] }
   ]

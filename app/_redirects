@@ -6,4 +6,6 @@
 # This overrides any CF Pages dashboard SPA mode setting.
 
 # Phase 2 (topic_112) — signature.html → people.html 통합 (R-3 mitigation)
-/signature.html  /people.html  301
+# topic_113 session_115 — people.html → growth.html 통합 (캐릭터별 성장 단일 페이지)
+/signature.html  /growth.html  301
+/people.html     /growth.html  301

@@ -10,8 +10,13 @@
   <style>
     /* Page Layout (.main/.topbar/.crumb/.h1) → components.css §10 단일 출처 (D-097, topic_113) */
     .sub{font-size:12px;color:var(--text-3);margin-top:6px}
-    /* 3축 헤더 (L1/L2/L3) — .kpi-row canonical 재사용 */
-    .axis-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+
+    /* Top filter — view selector (all/recent10/recent3) */
+    .view-bar{display:flex;justify-content:flex-end;gap:8px;align-items:center;margin-bottom:14px;font-size:11px;color:var(--text-3)}
+    .view-bar select{background:var(--panel-2);color:var(--text);border:1px solid var(--line);border-radius:6px;padding:4px 10px;font-size:11px}
+
+    /* §1 Axis Pulse — 3 cards (L1/L2/L3) */
+    .axis-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
     .axis-card{position:relative;padding:20px;border-radius:16px;background:var(--panel);border:1px solid var(--line);overflow:hidden}
     .axis-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent)}
     .axis-card.l1{--accent:var(--grad-violet)}
@@ -23,34 +28,49 @@
     .axis-val{font-size:32px;font-weight:800;letter-spacing:-1px;margin-top:10px;line-height:1}
     .axis-val .unit{font-size:13px;color:var(--text-3);font-weight:500;margin-left:4px}
 
-    /* 4×2 panel grid */
-    .panel-section{margin-top:8px;margin-bottom:24px}
-    .panel-section-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;gap:12px;flex-wrap:wrap}
-    .panel-section-h h2{font-size:14px;font-weight:700;letter-spacing:-.2px;text-transform:uppercase;letter-spacing:.08em;color:var(--text)}
-    .panel-section-h .meta{font-size:11px;color:var(--text-3)}
-    .panel-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .panel-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px}
-    .panel-card.empty{border-style:dashed;opacity:.7}
-    .pc-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
-    .pc-key{font-size:12px;font-weight:700;letter-spacing:-.1px;color:var(--text)}
-    .pc-axis{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3)}
-    .pc-views{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
-    .pc-view{padding:8px 10px;border-radius:8px;background:var(--panel-2);border:1px solid var(--line)}
-    .pc-view-label{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);margin-bottom:4px}
-    .pc-view-val{font-size:18px;font-weight:800;letter-spacing:-.5px;color:var(--text);font-variant-numeric:tabular-nums}
-    .pc-view-val .unit{font-size:11px;color:var(--text-3);font-weight:500;margin-left:2px}
-    .pc-view-n{font-size:10px;color:var(--text-3);margin-top:2px}
-    .pc-foot{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto;padding-top:6px}
-    .pc-construct{font-size:10px;color:var(--text-3);line-height:1.35;flex:1}
-    .empty-label{font-size:11px;color:var(--text-3);text-align:center;padding:12px 6px}
+    /* Generic section */
+    .gx-section{margin-bottom:28px}
+    .gx-section-h{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:14px;gap:12px;flex-wrap:wrap}
+    .gx-section-h h2{font-size:14px;font-weight:700;color:var(--text);margin:0;text-transform:uppercase;letter-spacing:.08em}
+    .gx-section-h .meta{font-size:11px;color:var(--text-3)}
+
+    /* §2 Roles — 8 cards */
+    .role-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+    .role-card{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;transition:border-color .15s}
+    .role-card:hover{border-color:rgba(139,92,246,.35)}
+    .role-card .role-tag{display:inline-flex;align-items:center;gap:8px;font-size:10px;color:var(--text-3);text-transform:uppercase;letter-spacing:.08em}
+    .role-card .role-dot{width:8px;height:8px;border-radius:2px}
+    .role-card .role-name{font-size:16px;font-weight:700;margin:4px 0 2px}
+    .role-card .role-top{font-size:10px;color:var(--text-2)}
+    .role-card .role-score{font-size:28px;font-weight:800;letter-spacing:-1px;margin:6px 0 2px;line-height:1}
+    .role-card .role-score .unit{font-size:12px;color:var(--text-3);font-weight:500}
+    .role-card .role-ci{font-size:10px;color:var(--text-3);margin-top:2px}
+    .role-card .badge{margin-top:6px;align-self:flex-start}
+
+    /* §3 Drill — table */
+    .drill-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+    .drill-h .meta{font-size:11px;color:var(--text-3)}
+    select.role-select{background:var(--panel-2);color:var(--text);border:1px solid var(--line);border-radius:6px;padding:4px 10px;font-size:11px}
+
+    /* §4 Raw aggregates — collapsed by default */
+    .raw-details{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:0;overflow:hidden}
+    .raw-details > summary{cursor:pointer;list-style:none;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600;color:var(--text);user-select:none}
+    .raw-details > summary::-webkit-details-marker{display:none}
+    .raw-details > summary::after{content:"▸";font-size:11px;color:var(--text-3);transition:transform .15s}
+    .raw-details[open] > summary::after{transform:rotate(90deg)}
+    .raw-details > summary:hover{background:var(--panel-2)}
+    .raw-details .raw-body{max-height:360px;overflow-y:auto;border-top:1px solid var(--line);padding:0 6px}
+    .raw-details .raw-body .table{margin:0}
+    .raw-details .raw-meta{font-size:11px;color:var(--text-3);font-weight:400}
+
+    .empty{padding:32px 20px;text-align:center;color:var(--text-3);font-size:12px;border:1px dashed var(--line);border-radius:10px}
 
     @media (max-width: 1023px){
       .app{grid-template-columns:1fr}
       .axis-row{grid-template-columns:1fr}
-      .panel-grid{grid-template-columns:1fr 1fr}
     }
     @media (max-width: 600px){
-      .panel-grid{grid-template-columns:1fr}
+      .role-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -63,7 +83,7 @@
       <div>
         <div class="crumb">Growth</div>
         <h1 class="h1">Growth Board</h1>
-        <div class="sub">D-060 안 β · 3축 × 4×2 panel</div>
+        <div class="sub">캐릭터별 성장 — 3축 × 8역할 × 시그니처 지표</div>
       </div>
     </div>
 
@@ -72,7 +92,16 @@
       <span id="integrityText">Loading…</span>
     </div>
 
-    <!-- 3축 헤더 (L1 / L2 / L3) -->
+    <div class="view-bar">
+      <span>view</span>
+      <select id="viewSelect">
+        <option value="all">all</option>
+        <option value="recent10">recent10</option>
+        <option value="recent3">recent3</option>
+      </select>
+    </div>
+
+    <!-- §1 Axis Pulse (L1/L2/L3) -->
     <section class="axis-row" id="axisRow">
       <div class="axis-card l1" data-axis="learning">
         <div class="axis-tag">L1 · Learning</div>
@@ -94,34 +123,48 @@
       </div>
     </section>
 
-    <!-- 4×2 Panel -->
-    <section class="panel-section">
-      <div class="panel-section-h">
-        <h2>Signature Metrics · 4×2 panel</h2>
-        <div class="meta">4 metric × {all · recent10}</div>
+    <!-- §2 Roles (8 cards) -->
+    <section class="gx-section">
+      <div class="gx-section-h">
+        <h2>Roles · Per-Character Snapshot</h2>
+        <div class="meta"><span id="roleCount">—</span> roles</div>
       </div>
-      <div class="panel-grid" id="panelGrid">
-        <div class="panel-card empty"><div class="empty-label">Loading…</div></div>
+      <div class="role-grid" id="roleGrid">
+        <div class="role-card" data-skeleton="true"><div class="role-tag">Loading…</div></div>
       </div>
     </section>
 
-    <!-- Tier3 raw drill -->
-    <section class="card">
-      <div class="card-h">
-        <div>
-          <div class="card-title">Raw aggregates (drill)</div>
-          <div class="card-sub">all + recent10 + recent3 · stratum 제외</div>
+    <!-- §3 Drill (per-role) -->
+    <section class="gx-section">
+      <div class="gx-section-h">
+        <h2>Drill · Per-Role Metrics</h2>
+        <div class="meta">role
+          <select id="roleSelect" class="role-select"></select>
         </div>
-        <div class="card-sub"><span id="t3Count">—</span> rows</div>
       </div>
-      <div id="tier3Body"></div>
+      <div id="drillBody"></div>
     </section>
+
+    <!-- §4 Raw aggregates (collapsed) -->
+    <details class="raw-details">
+      <summary>
+        <span>Raw aggregates (drill) <span class="raw-meta">— all + recent10 + recent3 · stratum 제외</span></span>
+        <span class="raw-meta"><span id="t3Count">—</span> rows</span>
+      </summary>
+      <div class="raw-body" id="tier3Body"></div>
+    </details>
   </main>
 </div>
 
 <script src="js/nav.js"></script>
+<script src="js/role-colors.js" onerror="window.ROLE_COLORS=null"></script>
 <script src="js/metrics-utils.js"></script>
 <script>
+const ROLE_COLOR = (window.ROLE_COLORS) || {
+  ace:'#8B5CF6', arki:'#06B6D4', fin:'#F59E0B', riki:'#EF4444',
+  nova:'#10B981', dev:'#3B82F6', vera:'#F472B6', editor:'#9CA3AF'
+};
+
 async function loadJson(p, fallback=null){
   try { const r = await fetch(p, {cache:'no-store'}); if (!r.ok) return fallback; return await r.json(); }
   catch(e){ return fallback; }
@@ -142,19 +185,19 @@ function findAggregate(agg, metricId, view){
   return all.find(a => a.metricId === metricId && a.view === view && !a.stratum);
 }
 
+function topMetricForRole(roleId, registry){
+  const ms = registry.metrics.filter(m => m.role === roleId);
+  const derived = ms.find(m => m.type === 'derived');
+  if (derived) return derived;
+  const learn = ms.find(m => m.axis === 'learning');
+  return learn || ms[0] || null;
+}
+
 // Axis → 3축 매핑 (D-060 안 β)
 const AXIS_DEF = [
   { axis: 'learning',             label: 'L1', name: '누적학습' },
   { axis: 'judgment-consistency', label: 'L2', name: '적중률' },
   { axis: 'execution-transfer',   label: 'L3', name: '자율성' }
-];
-
-// 4 signature metric — 3축 + 1 quality. metricId 명시(active 지표 중 axis 대표).
-const SIGNATURE_METRIC_IDS = [
-  'ace.angle_novelty',         // L1 learning · ace 프레이밍 신선도
-  'ace.orchestration_hit_rate',// L2 judgment-consistency · ace 적중률
-  'dev.gate_pass_rate',        // L3 execution-transfer · dev 자율성
-  'session.health_score'       // quality (supporting) · 종합 health
 ];
 
 function axisMean(metrics, agg, axis, view){
@@ -167,69 +210,70 @@ function axisMean(metrics, agg, axis, view){
   return { mean: cnt > 0 ? sum / cnt : null, n: cnt, total: ms.length };
 }
 
-function renderAxis(metrics, agg){
+// §1 Axis
+function renderAxis(metrics, agg, view){
   for (const def of AXIS_DEF){
-    const r = axisMean(metrics, agg, def.axis, 'all');
+    const r = axisMean(metrics, agg, def.axis, view);
     document.getElementById('axisVal-' + def.axis).innerHTML = fmt(r.mean) + '<span class="unit">/100</span>';
     document.getElementById('axisMeta-' + def.axis).textContent =
-      r.n + ' / ' + r.total + ' metric · view=all';
+      r.n + ' / ' + r.total + ' metric · view=' + view;
   }
 }
 
-function renderPanel(metrics, agg){
-  const grid = document.getElementById('panelGrid');
+// §2 Roles
+function renderRoles(roles, registry, agg, view){
+  const grid = document.getElementById('roleGrid');
   grid.innerHTML = '';
-  for (const id of SIGNATURE_METRIC_IDS){
-    const m = metrics.find(x => x.id === id);
-    if (!m){
-      // 빈 슬롯 — 데이터 부재
-      const card = document.createElement('div');
-      card.className = 'panel-card empty';
-      card.innerHTML = `
-        <div class="pc-head">
-          <div class="pc-key">${id}</div>
-          <span class="badge baseline">missing</span>
-        </div>
-        <div class="empty-label">Phase 4+ 채울 예정</div>
-      `;
-      grid.appendChild(card);
-      continue;
-    }
-    const aAll = findAggregate(agg, m.id, 'all');
-    const aR10 = findAggregate(agg, m.id, 'recent10');
-    const baselineAll = !aAll || aAll.n < (m.baselineSessions ?? 10);
-    const baselineR10 = !aR10 || aR10.n < (m.baselineSessions ?? 10);
+  let shown = 0;
+  for (const role of roles) {
+    const m = topMetricForRole(role.id, registry);
+    if (!m) continue;
+    const a = findAggregate(agg, m.id, view);
+    const baseline = !a || a.n === 0 || a.n < (m.baselineSessions ?? 10);
+    const score = a ? a.mean : null;
+    const ci = a && a.ci95 ? `CI95 [${fmt(a.ci95[0])}, ${fmt(a.ci95[1])}] · n=${a.n}` : `n=${a?.n ?? 0}`;
     const card = document.createElement('div');
-    card.className = 'panel-card';
+    card.className = 'role-card';
+    card.style.borderColor = baseline ? 'var(--line)' : 'rgba(139,92,246,.25)';
     card.innerHTML = `
-      <div class="pc-head">
-        <div>
-          <div class="pc-key">${m.shortKey}</div>
-          <div class="pc-axis">${m.axis} · ${m.role}</div>
-        </div>
-        ${alertBadge(aAll?.alert, baselineAll)}
-      </div>
-      <div class="pc-views">
-        <div class="pc-view">
-          <div class="pc-view-label">all</div>
-          <div class="pc-view-val">${fmt(aAll?.mean)}<span class="unit">/100</span></div>
-          <div class="pc-view-n">n=${aAll?.n ?? 0}</div>
-        </div>
-        <div class="pc-view">
-          <div class="pc-view-label">recent10</div>
-          <div class="pc-view-val">${fmt(aR10?.mean)}<span class="unit">/100</span></div>
-          <div class="pc-view-n">n=${aR10?.n ?? 0}</div>
-        </div>
-      </div>
-      <div class="pc-foot">
-        <div class="pc-construct">${m.construct || ''}</div>
-      </div>
+      <div class="role-tag"><span class="role-dot" style="background:${ROLE_COLOR[role.id] || '#888'}"></span>${role.id}</div>
+      <div class="role-name">${role.displayName}</div>
+      <div class="role-top">${m.shortKey} <span style="color:var(--text-3)">· ${m.axis}</span></div>
+      <div class="role-score">${fmt(score)}<span class="unit"> /100</span></div>
+      <div class="role-ci">${ci}</div>
+      ${alertBadge(a?.alert, baseline)}
     `;
     grid.appendChild(card);
+    shown++;
   }
+  document.getElementById('roleCount').textContent = shown;
+  if (shown === 0) grid.innerHTML = '<div class="empty">No roles found in registry.</div>';
 }
 
-/* renderTier3 → js/metrics-utils.js */
+// §3 Drill (per-role)
+function renderDrill(roleId, registry, agg, view){
+  const body = document.getElementById('drillBody');
+  const ms = registry.metrics.filter(m => m.role === roleId);
+  if (ms.length === 0) { body.innerHTML = '<div class="empty">No metrics for this role.</div>'; return; }
+  let html = '<table class="table"><thead><tr><th>Metric</th><th>Axis</th><th>Mean</th><th>n</th><th>CI95</th><th>Alert</th></tr></thead><tbody>';
+  for (const m of ms) {
+    const a = findAggregate(agg, m.id, view);
+    const baseline = !a || a.n < (m.baselineSessions ?? 10);
+    const ci = a && a.ci95 ? `[${fmt(a.ci95[0])}, ${fmt(a.ci95[1])}]` : '—';
+    html += `<tr>
+      <td>${m.shortKey} <span style="color:var(--text-3);font-size:10px">${m.id}</span></td>
+      <td>${m.axis}</td>
+      <td class="num">${fmt(a?.mean)}</td>
+      <td class="num">${a?.n ?? 0}</td>
+      <td class="num">${ci}</td>
+      <td>${alertBadge(a?.alert, baseline)}</td>
+    </tr>`;
+  }
+  html += '</tbody></table>';
+  body.innerHTML = html;
+}
+
+/* §4 renderTier3 → js/metrics-utils.js */
 
 function renderIntegrity(agg, registry){
   const el = document.getElementById('integrity');
@@ -250,22 +294,37 @@ function renderIntegrity(agg, registry){
 (async function init(){
   const flags = await loadJson('data/memory/shared/feature_flags.json', {flags:{}});
   const registry = await loadJson('data/memory/growth/metrics_registry.json');
+  const roles = (await loadJson('data/memory/shared/role_registry.json', {roles:[]})).roles;
   const agg = await loadJson('data/memory/growth/signature_metrics_aggregate.json');
 
   if (flags?.flags?.signatureMetricsEnabled === false){
-    document.querySelector('main').innerHTML = '<div class="card" style="margin-top:20px"><div class="card-title">Signature metrics feature flag is OFF.</div></div>';
+    document.querySelector('main').innerHTML = '<div class="empty" style="margin-top:80px">Signature metrics feature flag is OFF.</div>';
     return;
   }
 
   renderIntegrity(agg, registry);
   if (!registry || !agg){
-    document.getElementById('panelGrid').innerHTML = '<div class="panel-card empty"><div class="empty-label">Run <code>npx ts-node scripts/compute-signature-metrics.ts</code> to generate aggregates.</div></div>';
+    document.getElementById('roleGrid').innerHTML = '<div class="empty">Run <code>npx ts-node scripts/compute-signature-metrics.ts</code> to generate aggregates.</div>';
     return;
   }
 
-  renderAxis(registry.metrics, agg);
-  renderPanel(registry.metrics, agg);
-  renderTier3(agg);
+  // role <select> 채우기
+  const sel = document.getElementById('roleSelect');
+  sel.innerHTML = roles.map(r => `<option value="${r.id}">${r.displayName} (${r.id})</option>`).join('');
+
+  // view selector → 전 섹션 동기화
+  const vs = document.getElementById('viewSelect');
+  function rerender(){
+    const v = vs.value;
+    renderAxis(registry.metrics, agg, v);
+    renderRoles(roles, registry, agg, v);
+    renderDrill(sel.value, registry, agg, v);
+  }
+  vs.addEventListener('change', rerender);
+  sel.addEventListener('change', () => renderDrill(sel.value, registry, agg, vs.value));
+
+  rerender();
+  renderTier3(agg);  // §4 raw — view-independent
 })();
 </script>
 </body>
