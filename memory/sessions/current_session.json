@@ -1,13 +1,11 @@
 {
-  "sessionId": "session_115",
-  "topicId": "topic_113",
-  "topic": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비",
-  "topicSlug": "topic113-ops-build-freshness-remove",
-  "reportPath": "reports/2026-04-27_topic113-ops-build-freshness-remove",
-  "status": "closed",
-  "startedAt": "2026-04-27T11:00:00.000Z",
-  "closedAt": "2026-04-27T13:30:00.000Z",
-  "oneLineSummary": "ops Build Freshness 제거·글자통일, growth+people 통합, 홈 3카드, 역할색상 v1.1 동기화",
+  "sessionId": "session_116",
+  "topicId": "topic_117",
+  "topic": "Topic-세션 1:다 구조 — /open 스킬 토픽 번호 명시 시 기존 토픽 유지",
+  "topicSlug": "topic-session-1-to-n-open-rule",
+  "reportPath": "reports/2026-04-27_topic-session-1-to-n-open-rule",
+  "status": "open",
+  "startedAt": "2026-04-27T14:00:00.000Z",
   "mode": "observation",
   "grade": "B",
   "gradeDeclared": "B",
@@ -18,14 +16,11 @@
   "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
-  "agentsCompleted": [
-    "editor"
-  ],
+  "agentsCompleted": [],
   "turns": [
     {
-      "role": "editor",
-      "turnIdx": 0,
-      "phase": "compile"
+      "role": "ace",
+      "turnIdx": 0
     }
   ],
   "decisions": [],
@@ -35,21 +30,15 @@
   "pendingDeferralsResolved": [],
   "pendingDeferralsDeprecated": [],
   "decisionsAdded": [],
-  "notes": [
-    "ops Build Freshness 카드 삭제 + 폰트 균일화",
-    "growth + people 통합 — 단일 캐릭터 성장 페이지 (§1~§4)",
-    "홈 hub card 4→3 (People 제거)",
-    "role_registry.json v1.1 — 6개 역할 색상 tokens.css 팔레트로 동기화",
-    "_redirects: /people.html → /growth.html 301"
-  ],
+  "notes": [],
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 338,
-    "output_tokens": 81371,
-    "cache_creation_input_tokens": 1150460,
-    "cache_read_input_tokens": 16311640,
-    "messageCount": 169,
-    "masterTurns": 21,
-    "total_billable": 17543809
+    "input_tokens": 49,
+    "output_tokens": 19539,
+    "cache_creation_input_tokens": 215616,
+    "cache_read_input_tokens": 1897223,
+    "messageCount": 33,
+    "masterTurns": 3,
+    "total_billable": 2132427
   }
 }

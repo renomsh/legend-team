@@ -31,15 +31,36 @@
    - grade: 판정된 grade (S/A/B/C)
    - framingLevel: 0/1/2
    - framingSkipped: true/false
-7. **[필수·자동]** `npx ts-node scripts/create-topic.ts "<topic title>" <topicSlug>` 실행 — topic_index.json에 새 엔트리 자동 등록. Edit 도구로 수동 추가 금지. (D-047, 재발 방지 — session_036~041의 topic_index 등록 누락 사고 원인 해소)
+7. **[토픽 ID 명시 감지 → 분기]**
+
+   **분기 A — 기존 토픽 재사용** (`/open topic_NNN ...` 패턴으로 토픽 ID 명시 시):
+   - `memory/shared/topic_index.json`에서 `topic_NNN` 엔트리 확인
+   - 엔트리 없으면 오류 → Master에게 알림 후 중단
+   - 엔트리 있으면:
+     - `current_session.json.topicId` = `"topic_NNN"` (기존 그대로)
+     - `current_session.json.topic` = topic_index 엔트리의 title
+     - `current_session.json.topicSlug` = topic_index 엔트리의 기존 slug
+     - `current_session.json.reportPath` = `reports/{오늘날짜}_{topicSlug}` (새 세션의 날짜 반영)
+     - topic_index.json 해당 엔트리의 `status`를 `"open"`으로 갱신 (Edit 도구 사용)
+     - `create-topic.ts` 실행 금지
+   - 세션 오픈 완료 보고: **"기존 토픽 topic_NNN — {title}에 session_NNN 추가"**
+
+   **분기 B — 신규 토픽 생성** (토픽 ID 미명시 시):
+   - `npx ts-node scripts/create-topic.ts "<topic title>" <topicSlug>` 실행 — topic_index.json에 새 엔트리 자동 등록. Edit 도구로 수동 추가 금지. (D-047, 재발 방지 — session_036~041의 topic_index 등록 누락 사고 원인 해소)
    - 실행 후 출력된 topic_id를 `current_session.json.topicId`에 기록
    - grade 필드는 create-topic.ts가 topic_index 기록 후, 별도 Edit으로 해당 엔트리에 `grade: "<S|A|B|C>"` 추가
    - topic_index.json은 `compareTopicDesc` 기준 desc 정렬 상태로 유지됨 (create-topic.ts가 자동 정렬)
+
 8. 세션 오픈 완료 보고 후, **Framing Level에 따라 첫 주자 결정**
 
 ---
 
 ## Grade 판정 규칙
+
+### 0. 토픽 ID 명시 감지 (최우선)
+`/open topic_NNN ...` 패턴이면 **기존 토픽 재사용** 경로 진입 (7번 분기 A).
+- 토픽 ID + grade: `/open topic_NNN B 추가 작업` → 기존 topic_NNN, grade: B
+- 토픽 ID만: `/open topic_NNN` → 기존 topic_NNN, grade는 topic_index 엔트리의 grade 유지
 
 ### 1. Master 명시 우선
 토픽 앞에 단일 문자 `S` `A` `B` `C` 중 하나가 오면 grade로 인식:
