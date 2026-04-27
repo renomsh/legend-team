@@ -108,8 +108,8 @@
 
     <!-- O3: Active Alarms -->
     <div class="section-title" style="margin-bottom:12px;margin-top:24px">O3 — Active Alarms</div>
-    <div class="deferral-list" id="alarmList">
-      <div class="empty-state">로딩 중...</div>
+    <div id="alarmList">
+      <div class="alarm-none">로딩 중…</div>
     </div>
 
     <!-- O4: Recent Hook Events -->
@@ -255,17 +255,13 @@
       const alarms = (dash?.alarms ?? []);
       const el = document.getElementById('alarmList');
       if (alarms.length === 0) {
-        el.innerHTML = '<div class="empty-state">No active alarms</div>';
+        el.innerHTML = '<div class="alarm-none">경보 없음 ✅</div>';
         return;
       }
-      const sevColor = { red:'#EF4444', yellow:'#F59E0B', green:'#10B981' };
       el.innerHTML = alarms.slice(0, 10).map(a =>
-        `<div class="deferral-item">
-          <span class="deferral-id" style="color:${sevColor[a.severity]||'#9CA3AF'}">${a.ruleId||''} ${a.severity?'· '+a.severity.toUpperCase():''}</span>
-          <div class="deferral-content">
-            <div>${a.description||''}</div>
-            ${a.sessionId ? `<div style="color:var(--text-tertiary);margin-top:4px;font-size:11px">${a.sessionId}</div>` : ''}
-          </div>
+        `<div class="alarm-item alarm-${a.severity||''}">
+          <span style="color:${a.severity==='red'?'#EF4444':'#F59E0B'}">[${a.ruleId||''}]</span>
+          <span>${a.sessionId?`<strong>${a.sessionId}</strong> — `:''}${a.description||''}</span>
         </div>`
       ).join('');
     }

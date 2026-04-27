@@ -243,26 +243,37 @@
         }).join('');
       }
 
-      // Pending Deferrals — deferrals.html 카드 패턴 (title — desc 분리, 자동 wrap, session 출처)
+      // Pending Deferrals — defer-row 스타일 + 5줄 accordion
       if (sysState?.pendingDeferrals) {
         const pending = sysState.pendingDeferrals.filter(p => p.status === 'pending');
         document.getElementById('pdMeta').textContent = `${pending.length} pending →`;
-        const top5 = pending.slice(0, 5);
-        document.getElementById('pendingList').innerHTML = top5.map(p => {
-          const item = p.item || '';
-          const m = item.match(/^([^—–]+?)\s*[—–]\s*(.+)$/s);
-          const title = m ? m[1].trim() : item;
-          const tt = (item || '').replace(/"/g, '&quot;');
-          const srcSession = (p.fromSession || '').replace('session_', 'S');
-          return `
-            <a class="mini-item" href="deferrals.html#${p.id}" style="text-decoration:none" title="${tt}">
-              <span class="mini-item-id">${p.id}</span>
-              <span class="mini-item-body">
-                <span class="mini-item-title">${title}</span>
-              </span>
-              <span class="mini-item-src">${srcSession}</span>
+        const SHOW = 5;
+        const container = document.getElementById('pendingList');
+
+        function buildDeferRows(list) {
+          return list.map(d => {
+            const title = (d.item || '').split(/\s*[—–]\s*/)[0].trim() || d.item || '';
+            const src = (d.fromSession || '').replace('session_', 'S');
+            return `<a class="defer-row defer-link" href="deferrals.html#${d.id}">
+              <div class="defer-id">${d.id}</div>
+              <div class="defer-text"><b>${title}</b></div>
+              <div class="defer-src">${src}</div>
             </a>`;
-        }).join('') || '<div class="empty-state">No pending</div>';
+          }).join('') || '<div class="alarm-none">이연 과제 없음</div>';
+        }
+
+        function renderPD(showAll) {
+          container.innerHTML = buildDeferRows(showAll ? pending : pending.slice(0, SHOW));
+          if (pending.length > SHOW) {
+            const btn = document.createElement('button');
+            btn.style.cssText = 'width:100%;margin-top:6px;padding:7px 12px;border-radius:8px;border:1px solid var(--line);background:var(--panel-2);color:var(--text-3);font-size:11px;cursor:pointer;text-align:left';
+            btn.textContent = showAll ? '접기 ↑' : `더 보기 (${pending.length - SHOW}개 더) ↓`;
+            btn.onclick = () => renderPD(!showAll);
+            container.appendChild(btn);
+          }
+        }
+
+        renderPD(false);
       }
 
       // Cost & Tokens — last 5 sessions aggregate

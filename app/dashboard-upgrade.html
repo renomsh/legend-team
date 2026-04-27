@@ -80,12 +80,6 @@ a{color:inherit;text-decoration:none}
 .wide-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
 #efficiencyChart,#decisionChart,#bubbleChart,#lineChart{height:280px}
 
-/* ===== Alarms ===== */
-.alarm-none{font-size:13px;color:var(--text-3);padding:12px 0}
-.alarm-item{padding:10px 14px;border-radius:8px;background:var(--panel-2);border:1px solid var(--line);font-size:12px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start;line-height:1.5}
-.alarm-red{border-left:3px solid #EF4444}
-.alarm-yellow{border-left:3px solid #F59E0B}
-
 /* ===== Autonomy ===== */
 .autonomy-banner{display:flex;align-items:center;gap:24px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 28px;margin-bottom:20px}
 .auto-val{font-size:48px;font-weight:800;letter-spacing:-1.5px;background:var(--grad-violet);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
@@ -343,28 +337,6 @@ a{color:inherit;text-decoration:none}
       </div>
     </div>
 
-    <!-- ALARMS + DEFERRED -->
-    <div class="wide-grid">
-      <div class="card">
-        <div class="card-h">
-          <div>
-            <div class="card-title">알람 · Alarms</div>
-            <div class="card-sub">규칙 위반 / 이상 감지</div>
-          </div>
-        </div>
-        <div id="alarmList"><div class="alarm-none">로딩 중…</div></div>
-      </div>
-      <div class="card">
-        <div class="card-h">
-          <div>
-            <div class="card-title">이연 과제 · Deferrals</div>
-            <div class="card-sub">세션 출처 · 원문 · 상태</div>
-          </div>
-        </div>
-        <div id="deferList"><div style="color:var(--text-3);font-size:12px">로딩 중…</div></div>
-      </div>
-    </div>
-
   </main>
 </div>
 
@@ -386,21 +358,18 @@ function fmtTokens(n) {
   return String(n);
 }
 
-let allSessions = [], globalMetrics = {}, globalAlarms = [], globalRoleFreq = [], filteredSessions = [], globalDeferred = [];
+let allSessions = [], globalMetrics = {}, globalRoleFreq = [], filteredSessions = [];
 
 async function init() {
-  const [data, state, charter] = await Promise.all([
+  const [data, charter] = await Promise.all([
     DataLoader.fetchJSON('memory/shared/dashboard_data.json'),
-    DataLoader.fetchJSON('memory/shared/system_state.json'),
     DataLoader.fetchJSON('memory/shared/project_charter.json')
   ]);
   if (!data) { document.body.innerHTML += '<p style="color:red;padding:20px">dashboard_data.json 로드 실패</p>'; return; }
 
   allSessions = data.sessions ?? [];
   globalMetrics = data.metrics ?? {};
-  globalAlarms = data.alarms ?? [];
   globalRoleFreq = data.roleFrequency ?? [];
-  globalDeferred = state?.pendingDeferrals ?? [];
 
   const total = allSessions.length;
   const avgSize = total ? (allSessions.reduce((a,s)=>a+(s.size||0),0)/total).toFixed(1) : '—';
@@ -480,8 +449,6 @@ function renderAll() {
   renderLine();
   renderGradeDist();
   renderGradeMismatch();
-  renderAlarms();
-  renderDeferred();
 }
 
 function renderKPIs() {
@@ -813,29 +780,6 @@ function renderGradeMismatch() {
     총 ${mismatches.length}건 불일치 · 과소 선언(실제 더 복잡): <strong style="color:#F59E0B">${upCount}건</strong>
     &nbsp;·&nbsp; 과대 선언: <strong style="color:var(--text-2)">${mismatches.length - upCount}건</strong>
   </div>`;
-}
-
-function renderAlarms() {
-  const el = document.getElementById('alarmList');
-  const ids = new Set(filteredSessions.map(s=>s.sessionId));
-  const relevant = globalAlarms.filter(a=>!a.sessionId||ids.has(a.sessionId));
-  if (!relevant.length) { el.innerHTML='<div class="alarm-none">경보 없음 ✅</div>'; return; }
-  el.innerHTML = relevant.map(a=>
-    `<div class="alarm-item alarm-${a.severity}">
-      <span style="color:${a.severity==='red'?'#EF4444':'#F59E0B'}">[${a.ruleId}]</span>
-      <span>${a.sessionId?`<strong>${a.sessionId}</strong> — `:''}${a.description}</span>
-    </div>`).join('');
-}
-
-function renderDeferred() {
-  const pending = globalDeferred.filter(d => d.status === 'pending');
-  if (!pending.length) { document.getElementById('deferList').innerHTML='<div style="color:var(--text-3);font-size:12px;padding:4px 0">이연 과제 없음</div>'; return; }
-  document.getElementById('deferList').innerHTML = pending.map(d=>
-    `<div class="defer-row">
-      <div class="defer-id">${d.id}</div>
-      <div class="defer-text"><b>${d.item.split('—')[0].trim()}</b>${d.note||''}</div>
-      <div class="defer-src">${d.fromSession||''}</div>
-    </div>`).join('');
 }
 
 function spark(id, data, color) {

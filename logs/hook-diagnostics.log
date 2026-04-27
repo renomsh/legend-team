@@ -312,3 +312,6 @@
 [2026-04-26T23:07:09.057Z] [session-end-tokens] FIRED transcript=C:\Users\문성훈\.claude\projects\C--Projects-legend-team\6640455a-5053-45d1-bfc6-c4d62bb34649.jsonl cliSession=6640455a-5053-45d1-bfc6-c4d62bb34649 cwd=C:\Projects\legend-team
 [2026-04-26T23:07:09.072Z] [session-end-tokens] FALLBACK: found transcript at C:\Users\문성훈\.claude\projects\C--projects-legend-team\9c5280ef-a05d-4259-8f45-93d6cd2e214b.jsonl
 [2026-04-26T23:07:09.089Z] [session-end-tokens] OK legend=session_112 total=21016312 master=7 msg=183
+[2026-04-27T00:06:55.339Z] [session-end-tokens] FIRED transcript=MISSING cliSession=null cwd=C:\Projects\legend-team
+[2026-04-27T00:06:55.345Z] [session-end-tokens] PD-016 FALLBACK: transcript_path missing, found via cliSessionId at C:\Users\문성훈\.claude\projects\C--projects-legend-team\2828a8d2-f223-4abc-8c01-8259c09092a9.jsonl
+[2026-04-27T00:06:55.371Z] [session-end-tokens] OK legend=session_113 total=16424253 master=5 msg=162

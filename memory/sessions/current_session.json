@@ -1,13 +1,11 @@
 {
-  "sessionId": "session_112",
-  "topicId": "topic_115",
-  "topic": "대시보드 아키 변경 재확인 + 구성 중복 점검",
-  "topicSlug": "dashboard-arch-review-dup-check",
-  "reportPath": "reports/2026-04-26_dashboard-arch-review-dup-check",
-  "status": "closed",
-  "startedAt": "2026-04-26T14:30:00.000Z",
-  "closedAt": "2026-04-26T16:00:00.000Z",
-  "oneLineSummary": "아키 중복 제거 Phase1~4: ops sidebar 15개/upgrade .card/session tab-bar/§12 신설/renderTier3 공통 추출",
+  "sessionId": "session_113",
+  "topicId": "topic_113",
+  "topic": "대시보드 정비 — 홈 KPI·Growth 네비·System 페이지 일괄 정비 (계속)",
+  "topicSlug": "dashboard-maintenance-followup",
+  "reportPath": "reports/2026-04-27_dashboard-maintenance-followup",
+  "status": "open",
+  "startedAt": "2026-04-27T00:00:00.000Z",
   "mode": "observation",
   "grade": "B",
   "gradeDeclared": "B",
@@ -18,38 +16,11 @@
   "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
-  "agentsCompleted": [
-    "ace",
-    "arki",
-    "ace",
-    "dev",
-    "editor"
-  ],
+  "agentsCompleted": [],
   "turns": [
     {
       "role": "ace",
-      "turnIdx": 0,
-      "phase": "framing"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 1,
-      "phase": "design"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 2,
-      "phase": "synthesis"
-    },
-    {
-      "role": "dev",
-      "turnIdx": 3,
-      "phase": "implementation"
-    },
-    {
-      "role": "editor",
-      "turnIdx": 4,
-      "phase": "compile"
+      "turnIdx": 0
     }
   ],
   "decisions": [],
@@ -59,24 +30,15 @@
   "pendingDeferralsResolved": [],
   "pendingDeferralsDeprecated": [],
   "decisionsAdded": [],
-  "notes": [
-    "Phase 1: dashboard-ops.html sidebar §7 inline 15개 제거, .s-topbar 유지",
-    "Phase 2: dashboard-upgrade.html §6 .card inline 제거, .section-grid → .section-grid-2col 분리",
-    "Phase 3: session.html §11 최소 override 압축, <style> head 내 이동",
-    "Phase 4: components.css §12 신설(.kpi-top/.kpi-icon), dashboard-upgrade.html 해당 inline 제거",
-    "Phase 4: renderTier3() → app/js/metrics-utils.js 공통 추출, growth/people 중복 제거",
-    "build 완료: dist/ 갱신"
-  ],
-  "gaps": [
-    "P3 이연: Pending Deferrals 3중 표시 / Active Alarms 2중 표시 / Integrity 배너 중복 — Master 내용 판단 후 처리"
-  ],
+  "notes": [],
+  "gaps": [],
   "tokenUsage": {
-    "input_tokens": 2000,
-    "output_tokens": 123819,
-    "cache_creation_input_tokens": 723096,
-    "cache_read_input_tokens": 20167397,
-    "messageCount": 183,
-    "masterTurns": 7,
-    "total_billable": 21016312
+    "input_tokens": 288,
+    "output_tokens": 100169,
+    "cache_creation_input_tokens": 584427,
+    "cache_read_input_tokens": 15739369,
+    "messageCount": 162,
+    "masterTurns": 5,
+    "total_billable": 16424253
   }
 }
