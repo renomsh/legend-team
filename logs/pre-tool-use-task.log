@@ -1,0 +1,4 @@
+{"ts":"2026-04-28T03:40:42.015Z","phase":"mutate","toolName":"Task","role":"dev","topicId":"topic_121","sessionId":"session_123","originalPromptLen":11,"injectionLen":564,"mutatedPromptLen":575}
+{"ts":"2026-04-28T03:40:48.065Z","phase":"skip-already-injected","toolName":"Task"}
+{"ts":"2026-04-28T03:44:32.718Z","phase":"mutate","toolName":"Task","role":"edi","topicId":"topic_121","sessionId":"session_123","originalPromptLen":30,"injectionLen":633,"mutatedPromptLen":663}
+{"ts":"2026-04-28T03:48:41.617Z","phase":"mutate","toolName":"Agent","role":"edi","topicId":"topic_121","sessionId":"session_123","originalPromptLen":4569,"injectionLen":634,"mutatedPromptLen":5203}

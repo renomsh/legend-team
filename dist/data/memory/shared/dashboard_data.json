@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-28T01:25:10.385Z",
-  "totalSessions": 120,
+  "generatedAt": "2026-04-28T04:15:44.562Z",
+  "totalSessions": 121,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.63,
-    "avgCacheHitRate": 0.9344,
-    "cacheSampleSize": 94,
-    "cacheSampleTotal": 120,
+    "avgMasterTurns": 16.64,
+    "avgCacheHitRate": 0.9342,
+    "cacheSampleSize": 95,
+    "cacheSampleTotal": 121,
     "avgAdoptionRate": 0,
-    "totalDecisions": 102,
+    "totalDecisions": 103,
     "gradeDistribution": {
-      "S": 48,
+      "S": 49,
       "A": 24,
       "B": 35,
       "C": 13
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 75,
-    "totalCostUSD": 1263.9501,
-    "avgCostPerSession": 10.9909,
-    "costSampleSize": 115
+    "turnBasedSessions": 76,
+    "totalCostUSD": 1276.0208,
+    "avgCostPerSession": 11.0002,
+    "costSampleSize": 116
   },
   "sessions": [
     {
@@ -4568,12 +4568,59 @@
         "messageCount": 74
       },
       "sessionCostUSD": 3.9799
+    },
+    {
+      "sessionId": "session_123",
+      "topicSlug": "pd033-agent-continuity-design",
+      "topic": "PD-033 각 Agent 연속성 방안 수립",
+      "startedAt": "2026-04-28T05:00:00.000Z",
+      "closedAt": "2026-04-28T06:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-103"
+      ],
+      "rolesCalled": 12,
+      "rolesRecalled": 7,
+      "sessionsSpanned": 1,
+      "size": 31,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 18,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "arki",
+        "arki",
+        "ace",
+        "ace",
+        "riki",
+        "ace",
+        "arki",
+        "dev",
+        "dev",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 16899181,
+        "ioTokens": 172305,
+        "inputTokens": 357,
+        "outputTokens": 171948,
+        "cacheCreate": 1296329,
+        "cacheRead": 15430547,
+        "cacheHitRate": 0.9130943683010437,
+        "messageCount": 115
+      },
+      "sessionCostUSD": 12.0707
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 127,
+      "count": 131,
       "sessions": [
         "session_047",
         "session_048",
@@ -4635,12 +4682,13 @@
         "session_114",
         "session_116",
         "session_117",
-        "session_122"
+        "session_122",
+        "session_123"
       ]
     },
     {
       "role": "arki",
-      "count": 89,
+      "count": 93,
       "sessions": [
         "session_048",
         "session_049",
@@ -4683,12 +4731,13 @@
         "session_111",
         "session_112",
         "session_119",
-        "session_120"
+        "session_120",
+        "session_123"
       ]
     },
     {
       "role": "edi",
-      "count": 75,
+      "count": 76,
       "sessions": [
         "session_050",
         "session_051",
@@ -4761,12 +4810,13 @@
         "session_119",
         "session_120",
         "session_121",
-        "session_122"
+        "session_122",
+        "session_123"
       ]
     },
     {
       "role": "dev",
-      "count": 60,
+      "count": 62,
       "sessions": [
         "session_047",
         "session_048",
@@ -4814,12 +4864,13 @@
         "session_117",
         "session_118",
         "session_119",
-        "session_121"
+        "session_121",
+        "session_123"
       ]
     },
     {
       "role": "riki",
-      "count": 42,
+      "count": 43,
       "sessions": [
         "session_049",
         "session_053",
@@ -4855,7 +4906,8 @@
         "session_108",
         "session_109",
         "session_119",
-        "session_120"
+        "session_120",
+        "session_123"
       ]
     },
     {
@@ -7929,6 +7981,84 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_123",
+      "topic": "PD-033 각 Agent 연속성 방안 수립",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 6,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 7,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 8,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 9,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 10,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 11,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -7979,6 +8109,12 @@
       "severity": "yellow",
       "sessionId": "session_104",
       "description": "역할 과호출: rolesRecalled=10 (임계값 5, grade=S)"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_123",
+      "description": "역할 과호출: rolesRecalled=7 (임계값 5, grade=S)"
     }
   ],
   "feedbackRecurrences": [

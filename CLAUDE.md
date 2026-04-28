@@ -4,6 +4,7 @@ This project is a memory-first, topic-based strategy system.
 
 Rules:
 - Auto-close sessions: 구현 검증 완료(빌드 통과·경보 없음·Master 미결 질문 없음) 시 `/close` 명령 없이 자동으로 close 스킬을 호출한다. Master가 명시적으로 닫으면 중복 호출은 무시. (2026-04-22)
+- **Agent dispatch 규약 (PD-033 / topic_121, 2026-04-28):** Agent(Task) 툴 호출 시 prompt 본문 첫 줄 또는 메타 영역에 `## ROLE: <name>` 표준 마커를 박는다. description 자유 형식 허용 (substring 매칭 오분류 방지). PreToolUse/PostToolUse hook이 마커 우선 → subagent_type → description 첫 단어 순으로 role 식별. session_123 turn 6 "Riki risk audit Ace direction" 오분류 사고 재발 방지.
 - Never start from UI
 - Never generate JSX, React pages, dashboards, or mockups first
 - Preserve structured topic state and revision history

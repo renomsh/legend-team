@@ -5109,8 +5109,86 @@
       "note": "PD-034: VR diff 0은 vr-capture 실측 게이트로 충분 — signal 박제 이중 기록 | PD-042: signature surface는 growth.html이 이미 담당, role-signature-card.html은 임베드 템플릿 | PD-038: YAML 블록 생성률 신호 자체가 D-092로 폐기 영역 | PD-004 (데이터북 Agent 프로토타입): Master 의향 재확인 — 살림 | 결정 D-xxx 박제 없음 — 모두 PD status 전환만 (자가평가 단순화 D-092 정신 추가 적용)",
       "oneLineSummary": "PD 정비 브리핑 — PD-034/042/038 deprecate (D-092 자가평가 단순화 정합), PD-004 유지. 잔여 pending 7건.",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_123",
+      "topicSlug": "pd033-agent-continuity-design",
+      "topic": "PD-033 각 Agent 연속성 방안 수립",
+      "startedAt": "2026-04-28T05:00:00.000Z",
+      "closedAt": "2026-04-28T06:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "arki",
+        "arki",
+        "ace",
+        "ace",
+        "riki",
+        "ace",
+        "arki",
+        "dev",
+        "dev",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1
+        },
+        {
+          "role": "arki",
+          "turnIdx": 2
+        },
+        {
+          "role": "arki",
+          "turnIdx": 3
+        },
+        {
+          "role": "ace",
+          "turnIdx": 4
+        },
+        {
+          "role": "ace",
+          "turnIdx": 5
+        },
+        {
+          "role": "riki",
+          "turnIdx": 6
+        },
+        {
+          "role": "ace",
+          "turnIdx": 7
+        },
+        {
+          "role": "arki",
+          "turnIdx": 8
+        },
+        {
+          "role": "dev",
+          "turnIdx": 9
+        },
+        {
+          "role": "dev",
+          "turnIdx": 10
+        },
+        {
+          "role": "edi",
+          "turnIdx": 11
+        }
+      ],
+      "grade": "A",
+      "note": "Master 비전: 토픽 영속·세션 동기·자동 inject — '회의를 할 이유' | Ace 4 turns + Arki 4 turns + Riki 1 + Dev 2 + Edi 1 = 12 turns | Arki rev3 자기감사가 미니멀 안 권고 → Master 비전 정정으로 폐기 → rev4 spec 동결 | K6 spike: spike hook 보존(.claude/hooks/spike-k6-pretool-task-mutation.js), settings.json.backup-pd033 보존 | Asset #2(validateInlineRoleHeaders) 실 fire는 본 세션 종료 시 첫 작동 | Asset #4(/open auto-init) 실 fire는 다음 신규 토픽 오픈 시 | turn 6 misclassification 사고: 메인 수동 정정. dispatch 규약 #6으로 향후 재발 방지",
+      "oneLineSummary": "PD-033/043 resolved + PD-044 dropped — PreToolUse(Task) hook 토픽×세션 2축 auto-inject 인프라 5건 + dispatch 규약 박제. K6 static/unit/dynamic 전부 PASS, 첫 실 fire(Edi rev1) 검증 통과.",
+      "decisionsAdded": [
+        "D-103"
+      ]
     }
   ],
-  "lastUpdated": "2026-04-28T01:24:49.309Z",
+  "lastUpdated": "2026-04-28T04:15:25.048Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

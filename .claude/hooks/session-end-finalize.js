@@ -413,6 +413,106 @@ function runChecklistDeltaCheck(sess) {
   }
 }
 
+/**
+ * Asset #2 (PD-033 / topic_121, Arki rev4 Sec 2.4) — PD-043 inline-role-header 검증.
+ *
+ * reports/{date}_{topicSlug}/*.md frontmatter parse → turns[]와 cross-check.
+ * mismatch 검출 시 sess.gaps[]에 박제. 차단 X (warning만).
+ *
+ * 검증 항목:
+ *   1. frontmatter `role`이 turns[turnId].role와 일치
+ *   2. 본문 H1 헤더(`# {ROLE} —`)가 frontmatter role과 일치 (PD-043 사칭 검출)
+ *
+ * Master 메인 컨텍스트가 Agent 툴 미경유 상태로 직접 작성한 라인은 frontmatter 자체가
+ * 없거나 turnId 매핑이 깨지므로 turns[]와의 cross-check에서 자동 검출됨.
+ */
+function validateInlineRoleHeaders(sess) {
+  if (!sess.reportPath) {
+    log('inline-role-headers skip: reportPath 없음');
+    return;
+  }
+  const reportsDir = path.join(CWD, sess.reportPath);
+  if (!fs.existsSync(reportsDir)) {
+    log(`inline-role-headers skip: ${sess.reportPath} 없음`);
+    return;
+  }
+
+  const turns = Array.isArray(sess.turns) ? sess.turns : [];
+  const violations = [];
+
+  let files = [];
+  try {
+    files = fs.readdirSync(reportsDir).filter(f => f.endsWith('.md'));
+  } catch {
+    log('inline-role-headers skip: reports dir read 실패');
+    return;
+  }
+
+  for (const f of files) {
+    const filePath = path.join(reportsDir, f);
+    let content = '';
+    try { content = fs.readFileSync(filePath, 'utf8'); } catch { continue; }
+
+    // frontmatter parse — 단순 YAML 정규식 (key: value)
+    const fmMatch = content.match(/^---\n([\s\S]*?)\n---/);
+    if (!fmMatch) {
+      // frontmatter 부재 — Main 직접 작성 의심
+      violations.push({
+        type: 'inline-role-header-missing-frontmatter',
+        file: path.posix.join(sess.reportPath.replace(/\\/g, '/'), f),
+      });
+      continue;
+    }
+
+    const fmText = fmMatch[1];
+    const roleMatch = fmText.match(/^role:\s*(\S+)/m);
+    const turnIdMatch = fmText.match(/^turnId:\s*(\d+)/m);
+    const role = roleMatch ? roleMatch[1].toLowerCase() : null;
+    const turnId = turnIdMatch ? parseInt(turnIdMatch[1], 10) : null;
+
+    if (!role || turnId === null) continue; // 식별 불가 — skip
+
+    // turns[]와 cross-check
+    if (turnId < turns.length) {
+      const turnRole = turns[turnId] && turns[turnId].role;
+      if (turnRole && turnRole.toLowerCase() !== role) {
+        violations.push({
+          type: 'inline-role-header-mismatch',
+          file: path.posix.join(sess.reportPath.replace(/\\/g, '/'), f),
+          expected: role,
+          actualInTurns: turnRole,
+          turnId,
+        });
+      }
+    }
+
+    // 본문 H1 ↔ frontmatter role
+    const h1Match = content.match(/^#\s+(\w+)/m);
+    if (h1Match) {
+      const h1Role = h1Match[1].toLowerCase();
+      const KNOWN = ['ace', 'arki', 'fin', 'riki', 'nova', 'dev', 'edi', 'designer'];
+      if (KNOWN.includes(h1Role) && h1Role !== role) {
+        violations.push({
+          type: 'inline-role-header-h1-mismatch',
+          file: path.posix.join(sess.reportPath.replace(/\\/g, '/'), f),
+          frontmatterRole: role,
+          h1Role,
+        });
+      }
+    }
+  }
+
+  if (violations.length > 0) {
+    sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
+    for (const v of violations) sess.gaps.push(v);
+    writeJson(CURRENT_SESSION_PATH, sess);
+    log(`⚠ inline-role-header 위반 ${violations.length}건 → gaps 박제`);
+    for (const v of violations) log(`  - ${v.type}: ${v.file}`);
+  } else {
+    log('inline-role-header 검증 OK (위반 0건)');
+  }
+}
+
 function runSyncSystemState() {
   const tsPath = path.join(CWD, 'scripts', 'sync-system-state.ts');
   if (!fs.existsSync(tsPath)) {
@@ -464,6 +564,7 @@ function runSyncSystemState() {
 
     ensureEdiInAgents(sess);
     filterAgentsCompletedByDualSatisfaction(sess);
+    validateInlineRoleHeaders(sess);
     writeJson(CURRENT_SESSION_PATH, sess);
     appendOrUpdateSessionIndex(sess);
     runL2Writer(sess);

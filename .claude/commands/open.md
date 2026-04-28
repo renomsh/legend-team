@@ -50,6 +50,9 @@
    - 실행 후 출력된 topic_id를 `current_session.json.topicId`에 기록
    - grade 필드는 create-topic.ts가 topic_index 기록 후, 별도 Edit으로 해당 엔트리에 `grade: "<S|A|B|C>"` 추가
    - topic_index.json은 `compareTopicDesc` 기준 desc 정렬 상태로 유지됨 (create-topic.ts가 자동 정렬)
+   - **[Asset #4 — context layer init]** 신규 토픽 생성 직후 다음 2건 멱등 생성 (이미 존재 시 skip):
+     - `topics/{topicId}/turn_log.jsonl` 빈 파일 touch (PreToolUse hook이 첫 호출에서 inject 대상으로 read)
+     - `topics/{topicId}/context_brief.md` 헤더만 있는 stub (`# Topic {topicId} — {title}\n\n## Current Phase\n- framing\n` 정도)
 
 8. 세션 오픈 완료 보고 후, **Framing Level에 따라 첫 주자 결정**
 

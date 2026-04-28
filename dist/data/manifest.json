@@ -409,6 +409,18 @@
     "2026-04-27_topic-session-1-to-n-open-rule/edi_rev1.md",
     "2026-04-27_topic113-ops-build-freshness-remove/edi_rev1.md",
     "2026-04-28_pd-039-close-skill-natural-language/dev_rev1.md",
+    "2026-04-28_pd033-agent-continuity-design/ace_rev1.md",
+    "2026-04-28_pd033-agent-continuity-design/ace_rev2.md",
+    "2026-04-28_pd033-agent-continuity-design/ace_rev3.md",
+    "2026-04-28_pd033-agent-continuity-design/ace_rev4.md",
+    "2026-04-28_pd033-agent-continuity-design/arki_rev1.md",
+    "2026-04-28_pd033-agent-continuity-design/arki_rev2.md",
+    "2026-04-28_pd033-agent-continuity-design/arki_rev3.md",
+    "2026-04-28_pd033-agent-continuity-design/arki_rev4.md",
+    "2026-04-28_pd033-agent-continuity-design/dev_rev1.md",
+    "2026-04-28_pd033-agent-continuity-design/dev_rev2.md",
+    "2026-04-28_pd033-agent-continuity-design/edi_rev1.md",
+    "2026-04-28_pd033-agent-continuity-design/riki_rev1.md",
     "2026-04-28_pd034-briefing/ace_rev1.md",
     "2026-04-28_pd049-pd050-echarts-vr-g1-followup/arki_rev1.md",
     "2026-04-28_pd049-pd050-echarts-vr-g1-followup/arki_rev2.md",
@@ -421,6 +433,8 @@
   "logs": [
     "app.log",
     "errors.log",
-    "hook-diagnostics.log"
+    "hook-diagnostics.log",
+    "k6-spike.log",
+    "pre-tool-use-task.log"
   ]
 }

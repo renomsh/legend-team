@@ -1,17 +1,24 @@
 {
-  "sessionId": "session_122",
-  "topicId": "topic_120",
-  "topic": "PD34 브리핑",
-  "topicSlug": "pd034-briefing",
-  "reportPath": "reports/2026-04-28_pd034-briefing",
+  "sessionId": "session_123",
+  "topicId": "topic_121",
+  "topic": "PD-033 각 Agent 연속성 방안 수립",
+  "topicSlug": "pd033-agent-continuity-design",
+  "reportPath": "reports/2026-04-28_pd033-agent-continuity-design",
   "status": "closed",
-  "startedAt": "2026-04-28T04:00:00.000Z",
-  "closedAt": "2026-04-28T04:30:00.000Z",
+  "startedAt": "2026-04-28T05:00:00.000Z",
+  "closedAt": "2026-04-28T06:30:00.000Z",
   "mode": "observation",
-  "grade": "B",
-  "gradeDeclared": "B",
-  "orchestrationMode": "manual",
-  "orchestrationTransitions": [],
+  "grade": "A",
+  "gradeDeclared": "A",
+  "orchestrationMode": "auto",
+  "orchestrationTransitions": [
+    {
+      "from": "manual",
+      "to": "auto",
+      "at": "2026-04-28T05:35:00.000Z",
+      "reason": "Auto mode activated post-K6 dynamic PASS"
+    }
+  ],
   "framingLevel": 2,
   "framingSkipped": false,
   "topicType": "standalone",
@@ -19,63 +26,113 @@
   "childTopicIds": [],
   "agentsCompleted": [
     "ace",
+    "arki",
+    "arki",
+    "arki",
     "ace",
     "ace",
+    "riki",
+    "ace",
+    "arki",
+    "dev",
+    "dev",
     "edi"
   ],
   "turns": [
     {
       "role": "ace",
-      "turnIdx": 0,
-      "phase": "framing"
+      "turnIdx": 0
+    },
+    {
+      "role": "arki",
+      "turnIdx": 1
+    },
+    {
+      "role": "arki",
+      "turnIdx": 2
+    },
+    {
+      "role": "arki",
+      "turnIdx": 3
     },
     {
       "role": "ace",
-      "turnIdx": 1,
-      "phase": "review",
-      "recallReason": "post-master",
-      "splitReason": "PD-042 분석 요청"
+      "turnIdx": 4
     },
     {
       "role": "ace",
-      "turnIdx": 2,
-      "phase": "review",
-      "recallReason": "post-master",
-      "splitReason": "잔여 pending PD 전수 검토"
+      "turnIdx": 5
+    },
+    {
+      "role": "riki",
+      "turnIdx": 6
+    },
+    {
+      "role": "ace",
+      "turnIdx": 7
+    },
+    {
+      "role": "arki",
+      "turnIdx": 8
+    },
+    {
+      "role": "dev",
+      "turnIdx": 9
+    },
+    {
+      "role": "dev",
+      "turnIdx": 10
     },
     {
       "role": "edi",
-      "turnIdx": 3,
-      "phase": "compile"
+      "turnIdx": 11
     }
   ],
-  "decisions": [],
+  "decisions": [
+    {
+      "id": "D-103",
+      "axis": "PreToolUse(Task) hook 기반 토픽×세션 2축 자동 prompt inject + role 식별 강화 + 사칭 검증 hook + dispatch 규약 박제"
+    }
+  ],
   "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [],
+  "pendingDeferralsResolved": [
+    "PD-033",
+    "PD-043"
+  ],
   "pendingDeferralsDeprecated": [
-    "PD-034",
-    "PD-042",
-    "PD-038"
+    "PD-044"
   ],
-  "decisionsAdded": [],
-  "oneLineSummary": "PD 정비 브리핑 — PD-034/042/038 deprecate (D-092 자가평가 단순화 정합), PD-004 유지. 잔여 pending 7건.",
+  "decisionsAdded": [
+    "D-103"
+  ],
+  "oneLineSummary": "PD-033/043 resolved + PD-044 dropped — PreToolUse(Task) hook 토픽×세션 2축 auto-inject 인프라 5건 + dispatch 규약 박제. K6 static/unit/dynamic 전부 PASS, 첫 실 fire(Edi rev1) 검증 통과.",
   "notes": [
-    "PD-034: VR diff 0은 vr-capture 실측 게이트로 충분 — signal 박제 이중 기록",
-    "PD-042: signature surface는 growth.html이 이미 담당, role-signature-card.html은 임베드 템플릿",
-    "PD-038: YAML 블록 생성률 신호 자체가 D-092로 폐기 영역",
-    "PD-004 (데이터북 Agent 프로토타입): Master 의향 재확인 — 살림",
-    "결정 D-xxx 박제 없음 — 모두 PD status 전환만 (자가평가 단순화 D-092 정신 추가 적용)"
+    "Master 비전: 토픽 영속·세션 동기·자동 inject — '회의를 할 이유'",
+    "Ace 4 turns + Arki 4 turns + Riki 1 + Dev 2 + Edi 1 = 12 turns",
+    "Arki rev3 자기감사가 미니멀 안 권고 → Master 비전 정정으로 폐기 → rev4 spec 동결",
+    "K6 spike: spike hook 보존(.claude/hooks/spike-k6-pretool-task-mutation.js), settings.json.backup-pd033 보존",
+    "Asset #2(validateInlineRoleHeaders) 실 fire는 본 세션 종료 시 첫 작동",
+    "Asset #4(/open auto-init) 실 fire는 다음 신규 토픽 오픈 시",
+    "turn 6 misclassification 사고: 메인 수동 정정. dispatch 규약 #6으로 향후 재발 방지"
   ],
-  "gaps": [],
+  "gaps": [
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-28_pd033-agent-continuity-design/dev_rev2.md",
+      "expected": "dev",
+      "actualInTurns": "edi",
+      "turnId": 11
+    }
+  ],
   "tokenUsage": {
-    "input_tokens": 150,
-    "output_tokens": 55739,
-    "cache_creation_input_tokens": 378460,
-    "cache_read_input_tokens": 5747157,
-    "messageCount": 74,
-    "masterTurns": 12,
-    "total_billable": 6181506
+    "input_tokens": 357,
+    "output_tokens": 171948,
+    "cache_creation_input_tokens": 1296329,
+    "cache_read_input_tokens": 15430547,
+    "messageCount": 115,
+    "masterTurns": 18,
+    "total_billable": 16899181
   }
 }

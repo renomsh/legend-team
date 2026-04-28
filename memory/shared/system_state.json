@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_122",
-  "nextSessionId": "session_123",
+  "lastSessionId": "session_123",
+  "nextSessionId": "session_124",
   "currentVersion": "v1.75",
   "openTopics": [
     {
@@ -20,6 +20,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-103",
+      "date": "2026-04-28",
+      "axis": "PreToolUse(Task) hook 기반 토픽×세션 2축 자동 prompt inject + role 식별 강화 + 사칭 검증 hook + dispatch 규약 박제",
+      "summary": "Master 비전 'meeting needs continuity' 직역. 다중 호출이 monologue 집합이 아닌 누적 회의로 작동. 인프라 신설 5건 + 규약 1건으로 PD-033/043/044 동시 해소. K6 PASS 직접 증거 위에 박제. PreToolUse hook 첫 실 fire 즉시 검증."
+    },
     {
       "id": "D-102",
       "date": "2026-04-28",
@@ -43,15 +49,18 @@
       "date": "2026-04-26",
       "axis": "vr-compare.ts 스펙 확정 + PD-051 핀 정정 통합",
       "summary": "vr-compare.ts 스펙 확정 + PD-051 핀 정정 통합"
-    },
-    {
-      "id": "D-098",
-      "date": "2026-04-25",
-      "axis": "G1 lint(--c-* 색 토큰) + G3 자동 contrast check + Hard breaker B1·B2·B3 + 부분 출시 4 페이지 + partial 로딩 패턴",
-      "summary": "G1 lint(--c-* 색 토큰) + G3 자동 contrast check + Hard breaker B1·B2·B3 + 부분 출시 4 페이지 + partial 로딩 패턴"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_123",
+      "topicSlug": "pd033-agent-continuity-design",
+      "closedAt": "2026-04-28T06:30:00.000Z",
+      "oneLineSummary": "PD-033/043 resolved + PD-044 dropped — PreToolUse(Task) hook 토픽×세션 2축 auto-inject 인프라 5건 + dispatch 규약 박제. K6 static/unit/dynamic 전부 PASS, 첫 실 fire(Edi rev1) 검증 통과.",
+      "decisionsAdded": [
+        "D-103"
+      ]
+    },
     {
       "sessionId": "session_122",
       "topicSlug": "pd034-briefing",
@@ -65,15 +74,6 @@
       "closedAt": "2026-04-28T03:30:00.000Z",
       "oneLineSummary": "topic_119 D-102 Phase 1~8 구현 완결 — G1~G8+G-final PASS. 6 토큰+helper+5 swap+acorn lint+VR fixture/axis freeze+24 PNG re-baseline+lint chain ERROR 승격.",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_120",
-      "topicSlug": "pd049-pd050-echarts-vr-g1-followup",
-      "closedAt": "2026-04-28T01:30:00.000Z",
-      "oneLineSummary": "PD-049/050 통합 spec lock — D-102 박제(esprima 부분 AST + gradient stop 토큰 6종 + VR 3축 fixture freeze + WARN→ERROR 승격 시한 + Phase 1~8). 구현은 본 토픽 후속 세션.",
-      "decisionsAdded": [
-        "D-102"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -550,5 +550,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-28T01:25:03.639Z"
+  "lastUpdated": "2026-04-28T04:15:38.532Z"
 }

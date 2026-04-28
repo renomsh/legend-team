@@ -1,6 +1,17 @@
 {
   "decisions": [
     {
+      "id": "D-103",
+      "date": "2026-04-28",
+      "session": "session_123",
+      "topic": "topic_121",
+      "owningTopicId": "topic_121",
+      "scopeCheck": "PD-033 + PD-043 + PD-044 통합 — 서브에이전트 연속성 인프라",
+      "axis": "PreToolUse(Task) hook 기반 토픽×세션 2축 자동 prompt inject + role 식별 강화 + 사칭 검증 hook + dispatch 규약 박제",
+      "decision": "(1) Master 비전: 토픽은 여러 세션 걸침 / 같은 토픽 다음 세션은 이전 세션 발언 read / 같은 세션 내 다른 역할 발언 자동 read. (2) 5축 결정 — C1-α PreToolUse(Task) hook + C2-γ 양축 inject(토픽 layer + 세션 layer) + C3-γ 토픽 layer = topics/{id}/turn_log.jsonl + context_brief.md + role 필터 + C4-α 세션 layer = current_session.turns[] + reports/{role}_rev{n}.md + C5-α 토픽 종결 시도 read 보존. (3) 신설 자산 5건 + dispatch 규약 1건: #1 .claude/hooks/pre-tool-use-task.js (252줄, 토픽+세션 layer auto-prepend) / #2 session-end-finalize.js validateInlineRoleHeaders +88줄 (PD-043) / #3 post-tool-use-task.js turn_log 자동 작성 + role 식별 마커 우선 / #4 .claude/commands/open.md 1줄(신규 토픽 turn_log/context_brief 자동 init) / #5 .claude/settings.json PreToolUse(Task) 영구 등록 / #6 CLAUDE.md dispatch 규약 +3줄(prompt 첫 줄 '## ROLE: <name>' 표준). (4) K6 검증 = static-PASS(Anthropic 공식 docs updatedInput mutation + Task tool 적용) + unit-PASS(spike hook stdin/stdout JSON 정확) + dynamic-PASS(메인 echo dispatch에서 서브가 mutated prompt 정확 수신, logs/k6-spike.log 2 entry). (5) 첫 실 fire 검증(Edi rev1) — 토픽 layer(context_brief + 11 entries turn_log) + 세션 layer(직전 3 reports) + role-detected 모두 정확 prepend. logs/pre-tool-use-task.log 4 entries. 무한루프 skip 정상.",
+      "value": "Master 비전 'meeting needs continuity' 직역. 다중 호출이 monologue 집합이 아닌 누적 회의로 작동. 인프라 신설 5건 + 규약 1건으로 PD-033/043/044 동시 해소. K6 PASS 직접 증거 위에 박제. PreToolUse hook 첫 실 fire 즉시 검증."
+    },
+    {
       "id": "D-102",
       "date": "2026-04-28",
       "session": "session_120",
