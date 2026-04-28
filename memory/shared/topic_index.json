@@ -1,6 +1,25 @@
 {
   "topics": [
     {
+      "id": "topic_122",
+      "title": "세션 히스토리 기억",
+      "status": "completed",
+      "phase": "implementation",
+      "hold": null,
+      "created": "2026-04-28",
+      "controlPath": "topics/topic_122",
+      "reportPath": "reports/2026-04-28_session-history-remember",
+      "reportFiles": [
+        "ace_rev1.md",
+        "dev_rev1.md"
+      ],
+      "published": false,
+      "closedInSession": "session_124",
+      "path": "topics/topic_122",
+      "grade": "B",
+      "outcome": "D-103 구현 3갭 검증 완료 — hook v2 발동(74KB inject), Edi 자동복사, auto-init 모두 정상. context_brief grade 오기 hotfix."
+    },
+    {
       "id": "topic_121",
       "title": "PD-033 각 Agent 연속성 방안 수립",
       "status": "completed",
@@ -2379,5 +2398,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-28T04:40:42.721Z"
+  "lastUpdated": "2026-04-28T05:04:08.145Z"
 }

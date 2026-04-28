@@ -1,39 +1,23 @@
 {
-  "sessionId": "session_123",
-  "topicId": "topic_121",
-  "topic": "PD-033 각 Agent 연속성 방안 수립",
-  "topicSlug": "pd033-agent-continuity-design",
-  "reportPath": "reports/2026-04-28_pd033-agent-continuity-design",
+  "sessionId": "session_124",
+  "topicId": "topic_122",
+  "topic": "세션 히스토리 기억",
+  "topicSlug": "session-history-remember",
+  "reportPath": "reports/2026-04-28_session-history-remember",
   "status": "closed",
-  "startedAt": "2026-04-28T05:00:00.000Z",
+  "startedAt": "2026-04-28T05:30:00.000Z",
+  "closedAt": "2026-04-28T06:10:00.000Z",
+  "oneLineSummary": "D-103 구현 3갭 검증 완료 — hook v2·Edi 자동복사·auto-init 정상 확인",
   "mode": "observation",
-  "grade": "A",
-  "gradeDeclared": "A",
-  "orchestrationMode": "auto",
-  "orchestrationTransitions": [
-    {
-      "from": "manual",
-      "to": "auto",
-      "at": "2026-04-28T05:35:00.000Z",
-      "reason": "Auto mode activated post-K6 dynamic PASS"
-    }
-  ],
+  "grade": "B",
+  "gradeDeclared": "B",
   "framingLevel": 2,
   "framingSkipped": false,
-  "topicType": "standalone",
+  "topicType": null,
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
     "ace",
-    "arki",
-    "arki",
-    "arki",
-    "ace",
-    "ace",
-    "riki",
-    "ace",
-    "arki",
-    "dev",
     "dev",
     "edi"
   ],
@@ -43,106 +27,34 @@
       "turnIdx": 0
     },
     {
-      "role": "arki",
+      "role": "dev",
       "turnIdx": 1
     },
     {
-      "role": "arki",
-      "turnIdx": 2
-    },
-    {
-      "role": "arki",
-      "turnIdx": 3
-    },
-    {
-      "role": "ace",
-      "turnIdx": 4
-    },
-    {
-      "role": "ace",
-      "turnIdx": 5
-    },
-    {
-      "role": "riki",
-      "turnIdx": 6
-    },
-    {
-      "role": "ace",
-      "turnIdx": 7
-    },
-    {
-      "role": "arki",
-      "turnIdx": 8
-    },
-    {
-      "role": "dev",
-      "turnIdx": 9
-    },
-    {
-      "role": "dev",
-      "turnIdx": 10
-    },
-    {
       "role": "edi",
-      "turnIdx": 11
+      "turnIdx": 2,
+      "phase": "compile"
     }
   ],
-  "decisions": [
-    {
-      "id": "D-103",
-      "axis": "PreToolUse(Task) hook 기반 토픽×세션 2축 자동 prompt inject + role 식별 강화 + 사칭 검증 hook + dispatch 규약 박제"
-    }
-  ],
+  "decisions": [],
   "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [
-    "PD-033",
-    "PD-043"
-  ],
-  "pendingDeferralsDeprecated": [
-    "PD-044"
-  ],
-  "decisionsAdded": [
-    "D-103"
-  ],
-  "oneLineSummary": "PD-033/043 resolved — hook v2(경로→실제 내용 inject) + 3갭 보완(open Edi 브리핑·신규토픽 auto-init·보고서 미존재 경고). 세션 내·토픽 간 연속성 실질 달성.",
+  "pendingDeferralsResolved": [],
+  "decisionsAdded": [],
   "notes": [
-    "Master 비전: 토픽 영속·세션 동기·자동 inject — '회의를 할 이유'",
-    "Ace 4 turns + Arki 4 turns + Riki 1 + Dev 2 + Edi 1 = 12 turns",
-    "Arki rev3 자기감사가 미니멀 안 권고 → Master 비전 정정으로 폐기 → rev4 spec 동결",
-    "K6 spike: spike hook 보존(.claude/hooks/spike-k6-pretool-task-mutation.js), settings.json.backup-pd033 보존",
-    "Asset #2(validateInlineRoleHeaders) 실 fire: 본 세션 종료 시 첫 작동 PASS",
-    "Asset #4(/open auto-init): create-topic.ts 코드화 완료 (LLM 지시 의존 제거)",
-    "turn 6 misclassification 사고: 메인 수동 정정. dispatch 규약 #6으로 향후 재발 방지",
-    "[컨텍스트 압축 후 추가] hook v2: 경로 힌트→실제 내용 inject (세션 전체 보고서 + 이전세션 Edi 전문 자동 주입)",
-    "[컨텍스트 압축 후 추가] session-end-finalize: Edi 보고서 session_contributions 자동 복사",
-    "[컨텍스트 압축 후 추가] 3갭 보완: /open step3.5-c(Edi 브리핑) + create-topic.ts auto-init + post-hook 보고서 미존재 gap 기록"
+    "D-103 구현 검증 세션 — 3갭 모두 정상 확인",
+    "context_brief.md grade 오기(A→B) hotfix 완료",
+    "B grade 인라인 세션이라 hook v2 신규 발동 없음 (session_123 기존 로그로 증거 충분)"
   ],
-  "gaps": [
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-28_pd033-agent-continuity-design/dev_rev2.md",
-      "expected": "dev",
-      "actualInTurns": "edi",
-      "turnId": 11
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-28_pd033-agent-continuity-design/dev_rev2.md",
-      "expected": "dev",
-      "actualInTurns": "edi",
-      "turnId": 11
-    }
-  ],
+  "gaps": [],
   "tokenUsage": {
-    "input_tokens": 504,
-    "output_tokens": 252619,
-    "cache_creation_input_tokens": 2013845,
-    "cache_read_input_tokens": 24154098,
-    "messageCount": 216,
-    "masterTurns": 30,
-    "total_billable": 26421066
-  },
-  "closedAt": "2026-04-28T04:40:23.077Z"
+    "input_tokens": 104,
+    "output_tokens": 26126,
+    "cache_creation_input_tokens": 396422,
+    "cache_read_input_tokens": 4410735,
+    "messageCount": 56,
+    "masterTurns": 12,
+    "total_billable": 4833387
+  }
 }

@@ -5187,8 +5187,40 @@
       "decisionsAdded": [
         "D-103"
       ]
+    },
+    {
+      "sessionId": "session_124",
+      "topicSlug": "session-history-remember",
+      "topic": "세션 히스토리 기억",
+      "startedAt": "2026-04-28T05:30:00.000Z",
+      "closedAt": "2026-04-28T06:10:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0
+        },
+        {
+          "role": "dev",
+          "turnIdx": 1
+        },
+        {
+          "role": "edi",
+          "turnIdx": 2,
+          "phase": "compile"
+        }
+      ],
+      "grade": "B",
+      "note": "D-103 구현 검증 세션 — 3갭 모두 정상 확인 | context_brief.md grade 오기(A→B) hotfix 완료 | B grade 인라인 세션이라 hook v2 신규 발동 없음 (session_123 기존 로그로 증거 충분)",
+      "oneLineSummary": "D-103 구현 3갭 검증 완료 — hook v2·Edi 자동복사·auto-init 정상 확인",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-04-28T04:40:34.816Z",
+  "lastUpdated": "2026-04-28T05:04:01.770Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

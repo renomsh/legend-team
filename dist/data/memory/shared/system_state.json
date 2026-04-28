@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_123",
-  "nextSessionId": "session_124",
+  "lastSessionId": "session_124",
+  "nextSessionId": "session_125",
   "currentVersion": "v1.75",
   "openTopics": [
     {
@@ -53,6 +53,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_124",
+      "topicSlug": "session-history-remember",
+      "closedAt": "2026-04-28T06:10:00.000Z",
+      "oneLineSummary": "D-103 구현 3갭 검증 완료 — hook v2·Edi 자동복사·auto-init 정상 확인",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_123",
       "topicSlug": "pd033-agent-continuity-design",
       "closedAt": "2026-04-28T04:40:23.077Z",
@@ -66,13 +73,6 @@
       "topicSlug": "pd034-briefing",
       "closedAt": "2026-04-28T04:30:00.000Z",
       "oneLineSummary": "PD 정비 브리핑 — PD-034/042/038 deprecate (D-092 자가평가 단순화 정합), PD-004 유지. 잔여 pending 7건.",
-      "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_121",
-      "topicSlug": "pd049-pd050-echarts-vr-g1-followup",
-      "closedAt": "2026-04-28T03:30:00.000Z",
-      "oneLineSummary": "topic_119 D-102 Phase 1~8 구현 완결 — G1~G8+G-final PASS. 6 토큰+helper+5 swap+acorn lint+VR fixture/axis freeze+24 PNG re-baseline+lint chain ERROR 승격.",
       "decisionsAdded": []
     }
   ],
@@ -550,5 +550,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-28T04:40:50.582Z"
+  "lastUpdated": "2026-04-28T05:04:13.474Z"
 }

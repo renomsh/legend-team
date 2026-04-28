@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-28T04:40:57.688Z",
-  "totalSessions": 121,
+  "generatedAt": "2026-04-28T05:04:18.670Z",
+  "totalSessions": 122,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.35,
-    "avgCacheHitRate": 0.9342,
-    "cacheSampleSize": 95,
-    "cacheSampleTotal": 121,
+    "avgMasterTurns": 17.31,
+    "avgCacheHitRate": 0.934,
+    "cacheSampleSize": 96,
+    "cacheSampleTotal": 122,
     "avgAdoptionRate": 0,
     "totalDecisions": 103,
     "gradeDistribution": {
       "S": 49,
       "A": 24,
-      "B": 35,
+      "B": 36,
       "C": 13
     },
     "gradeMismatchCount": 2,
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 76,
-    "totalCostUSD": 1326.8557,
-    "avgCostPerSession": 11.4384,
-    "costSampleSize": 116
+    "turnBasedSessions": 77,
+    "totalCostUSD": 1330.0577,
+    "avgCostPerSession": 11.368,
+    "costSampleSize": 117
   },
   "sessions": [
     {
@@ -4615,12 +4615,47 @@
         "messageCount": 701
       },
       "sessionCostUSD": 62.9056
+    },
+    {
+      "sessionId": "session_124",
+      "topicSlug": "session-history-remember",
+      "topic": "세션 히스토리 기억",
+      "startedAt": "2026-04-28T05:30:00.000Z",
+      "closedAt": "2026-04-28T06:10:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 12,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 4833387,
+        "ioTokens": 26230,
+        "inputTokens": 104,
+        "outputTokens": 26126,
+        "cacheCreate": 396422,
+        "cacheRead": 4410735,
+        "cacheHitRate": 0.9125557295536236,
+        "messageCount": 56
+      },
+      "sessionCostUSD": 3.202
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 131,
+      "count": 132,
       "sessions": [
         "session_047",
         "session_048",
@@ -4683,7 +4718,8 @@
         "session_116",
         "session_117",
         "session_122",
-        "session_123"
+        "session_123",
+        "session_124"
       ]
     },
     {
@@ -4737,7 +4773,7 @@
     },
     {
       "role": "edi",
-      "count": 76,
+      "count": 77,
       "sessions": [
         "session_050",
         "session_051",
@@ -4811,12 +4847,13 @@
         "session_120",
         "session_121",
         "session_122",
-        "session_123"
+        "session_123",
+        "session_124"
       ]
     },
     {
       "role": "dev",
-      "count": 62,
+      "count": 63,
       "sessions": [
         "session_047",
         "session_048",
@@ -4865,7 +4902,8 @@
         "session_118",
         "session_119",
         "session_121",
-        "session_123"
+        "session_123",
+        "session_124"
       ]
     },
     {
@@ -8056,6 +8094,30 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 11,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_124",
+      "topic": "세션 히스토리 기억",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 2,
           "recallReason": null
         }
       ]
