@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-28T00:30:56.462Z",
-  "totalSessions": 118,
+  "generatedAt": "2026-04-28T00:57:41.402Z",
+  "totalSessions": 119,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.69,
-    "avgCacheHitRate": 0.9342,
-    "cacheSampleSize": 92,
-    "cacheSampleTotal": 118,
+    "avgMasterTurns": 16.6,
+    "avgCacheHitRate": 0.9345,
+    "cacheSampleSize": 93,
+    "cacheSampleTotal": 119,
     "avgAdoptionRate": 0,
     "totalDecisions": 102,
     "gradeDistribution": {
-      "S": 47,
+      "S": 48,
       "A": 23,
       "B": 35,
       "C": 13
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 73,
-    "totalCostUSD": 1231.8828,
-    "avgCostPerSession": 10.9016,
-    "costSampleSize": 113
+    "turnBasedSessions": 74,
+    "totalCostUSD": 1244.9916,
+    "avgCostPerSession": 10.921,
+    "costSampleSize": 114
   },
   "sessions": [
     {
@@ -4468,8 +4468,8 @@
       ],
       "rolesCalled": 5,
       "rolesRecalled": 1,
-      "sessionsSpanned": 1,
-      "size": 12,
+      "sessionsSpanned": 2,
+      "size": 15,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -4494,6 +4494,44 @@
         "messageCount": 72
       },
       "sessionCostUSD": 4.6527
+    },
+    {
+      "sessionId": "session_121",
+      "topicSlug": "pd049-pd050-echarts-vr-g1-followup",
+      "topic": "PD-049/050 — ECharts 동적 색 주입 + label fixture",
+      "startedAt": "2026-04-28T01:35:00.000Z",
+      "closedAt": "2026-04-28T03:30:00.000Z",
+      "decisionCount": 2,
+      "decisionAxes": 2,
+      "decisions": [
+        "Grade C 명시 (Phase 1 tokens.css 6종 추가 start)",
+        "순서대로 Phase 1~8 전부 진행"
+      ],
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 2,
+      "size": 12,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 6,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "dev",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 27152822,
+        "ioTokens": 105873,
+        "inputTokens": 552,
+        "outputTokens": 105321,
+        "cacheCreate": 989333,
+        "cacheRead": 26057616,
+        "cacheHitRate": 0.9596651132615239,
+        "messageCount": 195
+      },
+      "sessionCostUSD": 13.1088
     }
   ],
   "roleFrequency": [
@@ -4613,7 +4651,7 @@
     },
     {
       "role": "edi",
-      "count": 73,
+      "count": 74,
       "sessions": [
         "session_050",
         "session_051",
@@ -4684,12 +4722,13 @@
         "session_117",
         "session_118",
         "session_119",
-        "session_120"
+        "session_120",
+        "session_121"
       ]
     },
     {
       "role": "dev",
-      "count": 59,
+      "count": 60,
       "sessions": [
         "session_047",
         "session_048",
@@ -4736,7 +4775,8 @@
         "session_114",
         "session_117",
         "session_118",
-        "session_119"
+        "session_119",
+        "session_121"
       ]
     },
     {
@@ -7800,6 +7840,24 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 4,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_121",
+      "topic": "PD-049/050 — ECharts 동적 색 주입 + label fixture",
+      "sequence": [
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 1,
           "recallReason": null
         }
       ]

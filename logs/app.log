@@ -1211,3 +1211,13 @@
 [2026-04-28T00:30:38.638Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_119\context_brief.md | sessions=1 size=444B
 [2026-04-28T00:30:48.809Z] [sync-system-state] lastSession=session_120 openTopics=3 recentDecisions=5 recentSummaries=3 deferrals=47
 [2026-04-28T00:30:56.466Z] [compute-dashboard] 완료 — 118개 세션, 8개 경보
+[2026-04-28T00:57:01.998Z] [checklist] [INFO] reports: 6 file(s) on disk, none registered in topic_index
+[2026-04-28T00:57:02.002Z] [checklist] [WARN] decision_ledger: masterDecisions noted but none found in ledger for session_121
+[2026-04-28T00:57:02.003Z] [checklist] [INFO] topic_index: topic found: topic_119 (completed)
+[2026-04-28T00:57:02.004Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-28T00:57:02.005Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-28T00:57:02.006Z] [session-log] [INFO] END session_121 | topic: pd049-pd050-echarts-vr-g1-followup | duration: unknown (startedAt in future)
+[2026-04-28T00:57:12.297Z] [L2-writer] wrote C:\Projects\legend-team\topics\topic_119\session_contributions\session_121.md | turns=0 decisions=0
+[2026-04-28T00:57:15.266Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_119\context_brief.md | sessions=2 size=449B
+[2026-04-28T00:57:30.583Z] [sync-system-state] lastSession=session_121 openTopics=2 recentDecisions=5 recentSummaries=3 deferrals=47
+[2026-04-28T00:57:41.409Z] [compute-dashboard] 완료 — 119개 세션, 8개 경보

@@ -1,82 +1,71 @@
 {
-  "sessionId": "session_120",
+  "sessionId": "session_121",
   "topicId": "topic_119",
   "topic": "PD-049/050 — ECharts 동적 색 주입 + label fixture",
   "topicSlug": "pd049-pd050-echarts-vr-g1-followup",
   "reportPath": "reports/2026-04-28_pd049-pd050-echarts-vr-g1-followup",
   "status": "closed",
-  "startedAt": "2026-04-28T00:10:00.000Z",
-  "closedAt": "2026-04-28T01:30:00.000Z",
+  "startedAt": "2026-04-28T01:35:00.000Z",
+  "closedAt": "2026-04-28T03:30:00.000Z",
   "mode": "observation",
-  "grade": "B",
-  "gradeDeclared": "B",
+  "grade": "C",
+  "gradeDeclared": "C",
   "orchestrationMode": "manual",
   "orchestrationTransitions": [],
-  "framingLevel": 2,
-  "framingSkipped": false,
-  "topicType": "framing",
+  "framingLevel": 0,
+  "framingSkipped": true,
+  "topicType": "implementation",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
-    "riki",
-    "arki",
-    "vera",
-    "arki",
+    "dev",
     "edi"
   ],
   "turns": [
     {
-      "role": "riki",
-      "turnIdx": 0
-    },
-    {
-      "role": "arki",
-      "turnIdx": 1
-    },
-    {
-      "role": "vera",
-      "turnIdx": 2,
-      "phase": "design"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 3
+      "role": "dev",
+      "turnIdx": 0,
+      "phase": "implementation"
     },
     {
       "role": "edi",
-      "turnIdx": 4
+      "turnIdx": 1,
+      "phase": "compile"
     }
   ],
-  "decisions": [
-    "D-102"
-  ],
+  "decisions": [],
   "masterDecisions": [
-    "축 A=A1(좁음), 축 B=B1(WARN), 축 C=C1(axis label만), 축 D=D1(단일 토픽 완결), Vera 포함=Y",
-    "personas/role-vera.md Editor→에디 4건 정정(옵션 1)",
-    "Arki 재호출 → 실행계획 진행"
+    "Grade C 명시 (Phase 1 tokens.css 6종 추가 start)",
+    "순서대로 Phase 1~8 전부 진행"
   ],
-  "masterFeedback": [
-    "Vera 발언에서 'Editor' 표기 출처 추궁 → personas/role-vera.md 4건 정정. session_118 editor→edi 정규화 sweep에서 personas 디렉토리 누락 확인."
-  ],
+  "masterFeedback": [],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [],
-  "pendingDeferralsDeprecated": [],
-  "decisionsAdded": [
-    "D-102"
+  "pendingDeferralsResolved": [
+    "PD-049",
+    "PD-050"
   ],
-  "oneLineSummary": "PD-049/050 통합 spec lock — D-102 박제(esprima 부분 AST + gradient stop 토큰 6종 + VR 3축 fixture freeze + WARN→ERROR 승격 시한 + Phase 1~8). 구현은 본 토픽 후속 세션.",
+  "pendingDeferralsDeprecated": [],
+  "decisionsAdded": [],
+  "oneLineSummary": "topic_119 D-102 Phase 1~8 구현 완결 — G1~G8+G-final PASS. 6 토큰+helper+5 swap+acorn lint+VR fixture/axis freeze+24 PNG re-baseline+lint chain ERROR 승격.",
   "notes": [
-    "PD-049: 동적 색 주입 case (ECharts 등 런타임 색 주입) → G1 lint 우회 검출 패턴 박제",
-    "PD-050: ECharts label fixture (축·범례·tooltip 결정점 확장) → VR mock fixture 보강"
+    "기존 topic_119 재사용 — D-102 spec(session_120) 구현 세션",
+    "Master grade C 명시 — Dev 직행, framing 생략",
+    "Phase 1~8 단일 세션 완결, 3세션 이내 원칙 정합 (120 spec + 121 impl)",
+    "신규 파일 7건: chart-tokens.js, scan/lint-echarts-gradient.ts, verify-fixture-stability.ts, verify-axis-label-stability.ts, axis-labels.json, baseline/*.png 24장 재캡처",
+    "수정 파일 5건: tokens.css, index.html, dashboard-upgrade.html, dashboard.mock.json, package.json + launch.json",
+    "esprima 대신 acorn 8.16.0 사용 (transitive dep)",
+    "docker daemon 비활성으로 vr:capture:host 경로 사용",
+    "G7 max pixel diff 0.00% (intended :716 α 변경 포함 pixelmatch threshold 흡수)"
   ],
   "gaps": [],
+  "pdResolutionNote": "PD-049/050 본 세션에서 동시 resolved — D-102 Phase 1~8 구현 완결로 두 PD 모두 spec lock 후 게이트 통과.",
   "tokenUsage": {
-    "input_tokens": 194,
-    "output_tokens": 68632,
-    "cache_creation_input_tokens": 358206,
-    "cache_read_input_tokens": 7597933,
-    "messageCount": 72,
-    "masterTurns": 8,
-    "total_billable": 8024965
+    "input_tokens": 552,
+    "output_tokens": 105321,
+    "cache_creation_input_tokens": 989333,
+    "cache_read_input_tokens": 26057616,
+    "messageCount": 195,
+    "masterTurns": 6,
+    "total_billable": 27152822
   }
 }

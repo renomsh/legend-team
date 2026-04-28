@@ -1,15 +1,9 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_120",
-  "nextSessionId": "session_121",
+  "lastSessionId": "session_121",
+  "nextSessionId": "session_122",
   "currentVersion": "v1.75",
   "openTopics": [
-    {
-      "id": "topic_119",
-      "title": "PD-049/050 — ECharts 동적 색 주입 + label fixture",
-      "status": "in-progress",
-      "reportPath": "reports/2026-04-28_pd049-pd050-echarts-vr-g1-followup"
-    },
     {
       "id": "topic_044",
       "title": "COPD 논문 ver3.4 최종화 — canonical 재분석 + (e) 프레임 확정",
@@ -59,6 +53,16 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_121",
+      "topicSlug": "pd049-pd050-echarts-vr-g1-followup",
+      "closedAt": "2026-04-28T03:30:00.000Z",
+      "oneLineSummary": "topic_119 D-102 Phase 1~8 구현 완결 — G1~G8+G-final PASS. 6 토큰+helper+5 swap+acorn lint+VR fixture/axis freeze+24 PNG re-baseline+lint chain ERROR 승격.",
+      "decisionsAdded": [
+        "Grade C 명시 (Phase 1 tokens.css 6종 추가 start)",
+        "순서대로 Phase 1~8 전부 진행"
+      ]
+    },
+    {
       "sessionId": "session_120",
       "topicSlug": "pd049-pd050-echarts-vr-g1-followup",
       "closedAt": "2026-04-28T01:30:00.000Z",
@@ -75,13 +79,6 @@
       "decisionsAdded": [
         "D-101"
       ]
-    },
-    {
-      "sessionId": "session_118",
-      "topicSlug": "dashboard-maintenance-home-growth-system",
-      "closedAt": "2026-04-27T18:30:00.000Z",
-      "oneLineSummary": "topic/session/decisions/feedback/deferrals 5페이지 정체성 재정의 + editor→edi 전면 정규화 + 양방향 링크 그래프",
-      "decisionsAdded": []
     }
   ],
   "pendingDeferrals": [
@@ -525,7 +522,9 @@
       "fromSession": "session_104",
       "fromTopic": "dashboard-redesign-ux-responsive",
       "item": "동적 색 주입 case 처리 — 차트 라이브러리(ECharts) 등이 런타임에 색을 주입하는 경우 G1 lint 우회 가능성. tokens.css 단일 출처 원칙 위반 검출 패턴 박제 필요.",
-      "status": "pending",
+      "status": "resolved",
+      "resolvedInSession": "session_121",
+      "resolvedNote": "D-102 Phase 1~4 구현 완결. acorn 부분 AST 기반 scan/lint-echarts-gradient.ts 신설 + tokens.css 6종 + chart-tokens.js helper + 호출부 5건 swap + lint chain ERROR 승격. G4 양방향(post=0, pre=4 sites) PASS.",
       "note": "D-091 G1 lint 후속"
     },
     {
@@ -533,7 +532,9 @@
       "fromSession": "session_104",
       "fromTopic": "dashboard-redesign-ux-responsive",
       "item": "ECharts label fixture — VR mock fixture에서 ECharts 차트 label 텍스트(축·범례·tooltip) 결정점 확장. 현 mock fixture 10항목은 KPI 숫자 위주, 차트 내부 label 변동 시 false-positive 가능성.",
-      "status": "pending",
+      "status": "resolved",
+      "resolvedInSession": "session_121",
+      "resolvedNote": "D-102 Phase 5~7 구현 완결. dashboard.mock.json _meta freeze + verify-fixture-stability.ts(4 invariant) + verify-axis-label-stability.ts + axis-labels.json baseline + 24 PNG 재캡처 (max diff 0.00%).",
       "note": "D-089 mock fixture 후속"
     },
     {
@@ -548,5 +549,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-28T00:30:48.809Z"
+  "lastUpdated": "2026-04-28T00:57:30.581Z"
 }

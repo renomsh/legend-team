@@ -58,6 +58,18 @@
   --grad-amber:  linear-gradient(135deg, #D97706 0%, #F59E0B 100%);
   --grad-rose:   linear-gradient(135deg, #BE185D 0%, #F43F5E 100%);
 
+  /* ── Chart gradient stops (D-102 PD-049/050 Phase 1) ───────
+   * ECharts LinearGradient stop 토큰. 단일 색 분해 방식 (Vera 옵션 a).
+   * 호출부: dashboard-upgrade.html barChart/lineChart/spark + index.html hero bar.
+   * 명명 규칙: 차트 역할(bar/area) 기준, hero/teal 같은 시맨틱 회피 — 재사용성 ↑.
+   * α 토큰: 0x55/0xFF=0.333 → canonical 0.33 (rev2 §α 정합). */
+  --c-chart-bar-from:  #F472B6;   /* G1 stop 0 — pink-400 */
+  --c-chart-bar-to:    #8B5CF6;   /* G1 stop 1 — violet-500 */
+  --c-chart-bar2-from: #14B8A6;   /* G2 stop 0 — teal-500 */
+  --c-chart-bar2-to:   #0891B2;   /* G2 stop 1 — cyan-600 */
+  --a-chart-area-from: 0.33;      /* G3 stop 0 — area fade head (0x55/0xFF) */
+  --a-chart-area-to:   0.00;      /* G3 stop 1 — area fade tail (transparent) */
+
   /* ── Alpha 3-tier (vera_rev1 R-D02 drift 회피) ─────────────
    * nav-item active·tag bg·overlay 모두 이 3단으로만 운용 */
   --alpha-1: 0.12;   /* subtle background tint */

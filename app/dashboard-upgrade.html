@@ -342,6 +342,7 @@ a{color:inherit;text-decoration:none}
 
 <script src="js/nav.js"></script>
 <script src="js/role-colors.js"></script>
+<script src="js/chart-tokens.js"></script>
 <script src="js/data-loader.js"></script>
 <script>
 const ROLE_COLORS = window.ROLE_COLORS;
@@ -660,7 +661,7 @@ function renderHeroChart(sessions) {
     tooltip:{trigger:'axis',backgroundColor:'#0B0B0D',borderColor:'#333340',textStyle:{color:'#F5F5F7',fontSize:11}},
     series:[{type:'bar',data:sessions.map(s=>s.size||0),barWidth:'60%',
       itemStyle:{borderRadius:[3,3,0,0],color:new echarts.graphic.LinearGradient(0,0,0,1,[
-        {offset:0,color:'#F472B6'},{offset:1,color:'#8B5CF6'}
+        {offset:0,color:CHART_TOKENS.barFrom()},{offset:1,color:CHART_TOKENS.barTo()}
       ])}
     }]
   });
@@ -683,7 +684,7 @@ function renderEfficiency() {
     ],
     series:[
       {name:'Size',type:'bar',data:filteredSessions.map(s=>s.size||0),barWidth:'50%',
-        itemStyle:{borderRadius:[3,3,0,0],color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#14B8A6'},{offset:1,color:'#0891B2'}])}},
+        itemStyle:{borderRadius:[3,3,0,0],color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:CHART_TOKENS.bar2From()},{offset:1,color:CHART_TOKENS.bar2To()}])}},
       {name:'Cache%',type:'line',yAxisIndex:1,smooth:true,
         data:filteredSessions.map(s=>s.tokenUsage?((s.tokenUsage.cacheHitRate||0)*100).toFixed(1):null),
         connectNulls:true,
@@ -713,7 +714,7 @@ function renderLine() {
     series:[
       {name:'수기',type:'line',data:manualLine,connectNulls:false,lineStyle:{color:'#445566',type:'dashed',width:1},itemStyle:{color:'#445566'},symbolSize:4},
       {name:'자동',type:'line',data:autoLine,connectNulls:false,lineStyle:{color:'#8B5CF6',width:2},itemStyle:{color:'#8B5CF6'},symbolSize:5,
-        areaStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(139,92,246,.2)'},{offset:1,color:'rgba(139,92,246,0)'}])}},
+        areaStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,CHART_TOKENS.areaFade('#8B5CF6'))}},
       {name:'평균',type:'line',markLine:{data:[{yAxis:avg,label:{formatter:`avg ${avg}`,color:'#6E6E78'}}],lineStyle:{color:'#6E6E78',type:'dotted'}}}
     ]
   });
@@ -789,7 +790,7 @@ function spark(id, data, color) {
     tooltip:{show:false},
     series:[{type:'line',data,smooth:true,showSymbol:false,
       lineStyle:{color,width:1.8},
-      areaStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:color+'55'},{offset:1,color:color+'00'}])}
+      areaStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,CHART_TOKENS.areaFade(color))}
     }]
   });
 }

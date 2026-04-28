@@ -3,8 +3,8 @@
     {
       "id": "topic_119",
       "title": "PD-049/050 — ECharts 동적 색 주입 + label fixture",
-      "status": "in-progress",
-      "phase": "design",
+      "status": "completed",
+      "phase": "validated",
       "hold": null,
       "grade": "B",
       "created": "2026-04-28",
@@ -12,7 +12,8 @@
       "reportPath": "reports/2026-04-28_pd049-pd050-echarts-vr-g1-followup",
       "reportFiles": [],
       "published": false,
-      "closedInSession": "session_120",
+      "closedInSession": "session_121",
+      "outcome": "D-102 Phase 1~8 단일 세션 완결. G1~G8 + G-final PASS. 신규 7파일, 수정 5파일. PD-049/050 implementation done.",
       "path": "topics/topic_119"
     },
     {
@@ -2346,5 +2347,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-28T00:30:42.640Z"
+  "lastUpdated": "2026-04-28T00:57:21.070Z"
 }

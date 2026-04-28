@@ -171,6 +171,7 @@
 
   <script src="js/data-loader.js"></script>
   <script src="js/nav.js"></script>
+  <script src="js/chart-tokens.js"></script>
   <script>
     function fmtNum(n) {
       if (n == null) return '—';
@@ -338,7 +339,7 @@
           itemStyle: {
             borderRadius: [3, 3, 0, 0],
             color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-              { offset: 0, color: '#F472B6' }, { offset: 1, color: '#8B5CF6' }
+              { offset: 0, color: CHART_TOKENS.barFrom() }, { offset: 1, color: CHART_TOKENS.barTo() }
             ])
           }
         }]

@@ -49,5 +49,11 @@
       "runtimeArgs": ["http-server", "C:/Projects/legend-team/.claude/worktrees/crazy-moser-a0436c/dist", "-p", "8096", "-c-1"],
       "port": 8096
     }
+    ,{
+      "name": "vr-host",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "C:/Projects/legend-team/dist", "-p", "8788", "-c-1"],
+      "port": 8788
+    }
   ]
 }
