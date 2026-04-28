@@ -1,35 +1,51 @@
 {
-  "sessionId": "session_121",
-  "topicId": "topic_119",
-  "topic": "PD-049/050 — ECharts 동적 색 주입 + label fixture",
-  "topicSlug": "pd049-pd050-echarts-vr-g1-followup",
-  "reportPath": "reports/2026-04-28_pd049-pd050-echarts-vr-g1-followup",
+  "sessionId": "session_122",
+  "topicId": "topic_120",
+  "topic": "PD34 브리핑",
+  "topicSlug": "pd034-briefing",
+  "reportPath": "reports/2026-04-28_pd034-briefing",
   "status": "closed",
-  "startedAt": "2026-04-28T01:35:00.000Z",
-  "closedAt": "2026-04-28T03:30:00.000Z",
+  "startedAt": "2026-04-28T04:00:00.000Z",
+  "closedAt": "2026-04-28T04:30:00.000Z",
   "mode": "observation",
-  "grade": "C",
-  "gradeDeclared": "C",
+  "grade": "B",
+  "gradeDeclared": "B",
   "orchestrationMode": "manual",
   "orchestrationTransitions": [],
-  "framingLevel": 0,
-  "framingSkipped": true,
-  "topicType": "implementation",
+  "framingLevel": 2,
+  "framingSkipped": false,
+  "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
-    "dev",
+    "ace",
+    "ace",
+    "ace",
     "edi"
   ],
   "turns": [
     {
-      "role": "dev",
+      "role": "ace",
       "turnIdx": 0,
-      "phase": "implementation"
+      "phase": "framing"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 1,
+      "phase": "review",
+      "recallReason": "post-master",
+      "splitReason": "PD-042 분석 요청"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 2,
+      "phase": "review",
+      "recallReason": "post-master",
+      "splitReason": "잔여 pending PD 전수 검토"
     },
     {
       "role": "edi",
-      "turnIdx": 1,
+      "turnIdx": 3,
       "phase": "compile"
     }
   ],
@@ -37,32 +53,29 @@
   "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [
-    "PD-049",
-    "PD-050"
+  "pendingDeferralsResolved": [],
+  "pendingDeferralsDeprecated": [
+    "PD-034",
+    "PD-042",
+    "PD-038"
   ],
-  "pendingDeferralsDeprecated": [],
   "decisionsAdded": [],
-  "oneLineSummary": "topic_119 D-102 Phase 1~8 구현 완결 — G1~G8+G-final PASS. 6 토큰+helper+5 swap+acorn lint+VR fixture/axis freeze+24 PNG re-baseline+lint chain ERROR 승격.",
+  "oneLineSummary": "PD 정비 브리핑 — PD-034/042/038 deprecate (D-092 자가평가 단순화 정합), PD-004 유지. 잔여 pending 7건.",
   "notes": [
-    "기존 topic_119 재사용 — D-102 spec(session_120) 구현 세션",
-    "Master grade C 명시 — Dev 직행, framing 생략",
-    "Phase 1~8 단일 세션 완결, 3세션 이내 원칙 정합 (120 spec + 121 impl)",
-    "신규 파일 7건: chart-tokens.js, scan/lint-echarts-gradient.ts, verify-fixture-stability.ts, verify-axis-label-stability.ts, axis-labels.json, baseline/*.png 24장 재캡처",
-    "수정 파일 5건: tokens.css, index.html, dashboard-upgrade.html, dashboard.mock.json, package.json + launch.json",
-    "esprima 대신 acorn 8.16.0 사용 (transitive dep)",
-    "docker daemon 비활성으로 vr:capture:host 경로 사용",
-    "G7 max pixel diff 0.00% (intended :716 α 변경 포함 pixelmatch threshold 흡수)"
+    "PD-034: VR diff 0은 vr-capture 실측 게이트로 충분 — signal 박제 이중 기록",
+    "PD-042: signature surface는 growth.html이 이미 담당, role-signature-card.html은 임베드 템플릿",
+    "PD-038: YAML 블록 생성률 신호 자체가 D-092로 폐기 영역",
+    "PD-004 (데이터북 Agent 프로토타입): Master 의향 재확인 — 살림",
+    "결정 D-xxx 박제 없음 — 모두 PD status 전환만 (자가평가 단순화 D-092 정신 추가 적용)"
   ],
   "gaps": [],
-  "pdResolutionNote": "PD-049/050 본 세션에서 동시 resolved — D-102 Phase 1~8 구현 완결로 두 PD 모두 spec lock 후 게이트 통과.",
   "tokenUsage": {
-    "input_tokens": 580,
-    "output_tokens": 108972,
-    "cache_creation_input_tokens": 1371511,
-    "cache_read_input_tokens": 27330368,
-    "messageCount": 203,
-    "masterTurns": 8,
-    "total_billable": 28811431
+    "input_tokens": 150,
+    "output_tokens": 55739,
+    "cache_creation_input_tokens": 378460,
+    "cache_read_input_tokens": 5747157,
+    "messageCount": 74,
+    "masterTurns": 12,
+    "total_billable": 6181506
   }
 }

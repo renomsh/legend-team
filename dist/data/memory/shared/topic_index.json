@@ -1,6 +1,22 @@
 {
   "topics": [
     {
+      "id": "topic_120",
+      "title": "PD34 브리핑",
+      "status": "completed",
+      "phase": "framing",
+      "hold": null,
+      "created": "2026-04-28",
+      "controlPath": "topics/topic_120",
+      "reportPath": "reports/2026-04-28_pd034-briefing",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_122",
+      "path": "topics/topic_120",
+      "grade": "B",
+      "outcome": "PD-034/042/038 deprecate, PD-004 유지. 잔여 pending 7건."
+    },
+    {
       "id": "topic_119",
       "title": "PD-049/050 — ECharts 동적 색 주입 + label fixture",
       "status": "completed",
@@ -2347,5 +2363,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-28T01:01:07.644Z"
+  "lastUpdated": "2026-04-28T01:24:57.329Z"
 }

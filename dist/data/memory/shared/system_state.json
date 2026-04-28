@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_121",
-  "nextSessionId": "session_122",
+  "lastSessionId": "session_122",
+  "nextSessionId": "session_123",
   "currentVersion": "v1.75",
   "openTopics": [
     {
@@ -53,6 +53,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_122",
+      "topicSlug": "pd034-briefing",
+      "closedAt": "2026-04-28T04:30:00.000Z",
+      "oneLineSummary": "PD 정비 브리핑 — PD-034/042/038 deprecate (D-092 자가평가 단순화 정합), PD-004 유지. 잔여 pending 7건.",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_121",
       "topicSlug": "pd049-pd050-echarts-vr-g1-followup",
       "closedAt": "2026-04-28T03:30:00.000Z",
@@ -66,15 +73,6 @@
       "oneLineSummary": "PD-049/050 통합 spec lock — D-102 박제(esprima 부분 AST + gradient stop 토큰 6종 + VR 3축 fixture freeze + WARN→ERROR 승격 시한 + Phase 1~8). 구현은 본 토픽 후속 세션.",
       "decisionsAdded": [
         "D-102"
-      ]
-    },
-    {
-      "sessionId": "session_119",
-      "topicSlug": "auto-close-vs-manual-close-comparison",
-      "closedAt": "2026-04-27T20:30:00.000Z",
-      "oneLineSummary": "PD-039 resolved — finalize hook 4단계 delta-check WARN 게이트 추가 (D-101 박제), Arki 시야 협소 피드백 수용",
-      "decisionsAdded": [
-        "D-101"
       ]
     }
   ],
@@ -104,8 +102,10 @@
       "fromSession": "session_100",
       "fromTopic": "pd023-impl-status-check",
       "item": "PD-023 후속-B — signature.html main nav 통합. P5 '배포되었으나 미운영 대기' 해소.",
-      "status": "pending",
+      "status": "deprecated",
       "resolveCondition": "topic_082 closed 후 promote 트리거, nav 통합 PR merged + 1토픽 실운영",
+      "deprecatedInSession": "session_122",
+      "deprecatedNote": "signature surface는 growth.html이 이미 담당(8역할 signature_metrics_aggregate grid 표시 + 사이드바 Growth 메뉴 진입). role-signature-card.html은 standalone 임베드 템플릿(카드 1개)이라 별도 페이지 후보 아님. PD-023 본체가 D-092로 resolved되어 'main nav 별도 메뉴 승격' 명분(자동 감시 surface) 소멸. resolveCondition 트리거(topic_082 closed)도 D-092 이후 사실상 영구 미발동.",
       "dependsOn": []
     },
     {
@@ -135,8 +135,10 @@
       "fromSession": "session_090",
       "fromTopic": "pd031-topic082-parallel-integration",
       "item": "Vera visual_regression_zero signal 추가 — 스냅샷 diff 인프라(Playwright/Percy) 구축 + signature.html·app 파일 시각 회귀 테스트 + signal_registry.json에 S-031 엔트리 추가.",
-      "status": "pending",
+      "status": "deprecated",
       "resolveCondition": "스냅샷 인프라 설치 + 3세션 연속 시각 회귀 0 확인 + signal_registry v1.01 bump",
+      "deprecatedInSession": "session_122",
+      "deprecatedNote": "D-092 자가평가 단순화 정책으로 자동 감시·자동 알림·게이트 영역 폐기. PD-034의 'signal 추가 + 3세션 연속 자동 카운트'는 정확히 폐기 영역에 해당. VR diff 0은 D-089/D-099/D-102 인프라(vr-capture 24/24 PASS)로 매 세션 실측 게이트 작동 중 — signal 박제 ROI 없음(이중 기록). PD-025/026/027/028/040 동등 선례.",
       "dependsOn": []
     },
     {
@@ -463,8 +465,10 @@
       "fromSession": "session_094",
       "fromTopic": "pd023-resume-self-scores-mvp",
       "item": "옵션 (3) .claude/agents/ 재활성화 falsification probe 재설계 — \"YAML 블록 생성률\" 신호로 재테스트 (장기 보류)",
-      "status": "pending",
+      "status": "deprecated",
       "resolveCondition": "D-071 재오픈 조건 정의 + 신규 probe 2주 가동 통과",
+      "deprecatedInSession": "session_122",
+      "deprecatedNote": "트리거 신호('YAML 블록 생성률')가 D-092 자가평가 단순화로 폐기 영역에 진입 — probe 신호 자체가 무효. D-071 분기 폐기 결정 후 재오픈 조건 미정의 상태로 다수 세션 무진척. 미래 harness 등록 spike 통과 시 신규 PD로 재발의.",
       "dependsOn": []
     },
     {
@@ -546,5 +550,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-28T01:01:14.006Z"
+  "lastUpdated": "2026-04-28T01:25:03.639Z"
 }

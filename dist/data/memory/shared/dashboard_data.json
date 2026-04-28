@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-28T01:01:20.607Z",
-  "totalSessions": 119,
+  "generatedAt": "2026-04-28T01:25:10.385Z",
+  "totalSessions": 120,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.67,
+    "avgMasterTurns": 16.63,
     "avgCacheHitRate": 0.9344,
-    "cacheSampleSize": 93,
-    "cacheSampleTotal": 119,
+    "cacheSampleSize": 94,
+    "cacheSampleTotal": 120,
     "avgAdoptionRate": 0,
     "totalDecisions": 102,
     "gradeDistribution": {
       "S": 48,
-      "A": 23,
+      "A": 24,
       "B": 35,
       "C": 13
     },
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 74,
-    "totalCostUSD": 1259.9702,
-    "avgCostPerSession": 11.0524,
-    "costSampleSize": 114
+    "turnBasedSessions": 75,
+    "totalCostUSD": 1263.9501,
+    "avgCostPerSession": 10.9909,
+    "costSampleSize": 115
   },
   "sessions": [
     {
@@ -4532,12 +4532,48 @@
         "messageCount": 398
       },
       "sessionCostUSD": 28.0874
+    },
+    {
+      "sessionId": "session_122",
+      "topicSlug": "pd034-briefing",
+      "topic": "PD34 브리핑",
+      "startedAt": "2026-04-28T04:00:00.000Z",
+      "closedAt": "2026-04-28T04:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 4,
+      "rolesRecalled": 2,
+      "sessionsSpanned": 1,
+      "size": 11,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 12,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "ace",
+        "ace",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 6181506,
+        "ioTokens": 55889,
+        "inputTokens": 150,
+        "outputTokens": 55739,
+        "cacheCreate": 378460,
+        "cacheRead": 5747157,
+        "cacheHitRate": 0.9297341133374294,
+        "messageCount": 74
+      },
+      "sessionCostUSD": 3.9799
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 124,
+      "count": 127,
       "sessions": [
         "session_047",
         "session_048",
@@ -4598,7 +4634,8 @@
         "session_113",
         "session_114",
         "session_116",
-        "session_117"
+        "session_117",
+        "session_122"
       ]
     },
     {
@@ -4651,7 +4688,7 @@
     },
     {
       "role": "edi",
-      "count": 74,
+      "count": 75,
       "sessions": [
         "session_050",
         "session_051",
@@ -4723,7 +4760,8 @@
         "session_118",
         "session_119",
         "session_120",
-        "session_121"
+        "session_121",
+        "session_122"
       ]
     },
     {
@@ -7858,6 +7896,36 @@
           "role": "edi",
           "phase": "compile",
           "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_122",
+      "topic": "PD34 브리핑",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "review",
+          "turnIdx": 1,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "phase": "review",
+          "turnIdx": 2,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 3,
           "recallReason": null
         }
       ]
