@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_126",
-  "nextSessionId": "session_127",
+  "lastSessionId": "session_127",
+  "nextSessionId": "session_128",
   "currentVersion": "v1.75",
   "openTopics": [
     {
@@ -20,6 +20,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-104",
+      "date": "2026-04-28",
+      "axis": "버전 업그레이드 기준 개편 — 트리거 확장 + 세션당 +0.1 캡 + R1 임계값 통일",
+      "summary": "버전 업그레이드 기준 개편 — 트리거 확장 + 세션당 +0.1 캡 + R1 임계값 통일"
+    },
     {
       "id": "D-103",
       "date": "2026-04-28",
@@ -43,15 +49,18 @@
       "date": "2026-04-26",
       "axis": "G0.5 spec 정합 게이트 도입 + 정본 3종 + Phase A→B→C + R6~R9 mitigation",
       "summary": "G0.5 spec 정합 게이트 도입 + 정본 3종 + Phase A→B→C + R6~R9 mitigation"
-    },
-    {
-      "id": "D-099",
-      "date": "2026-04-26",
-      "axis": "vr-compare.ts 스펙 확정 + PD-051 핀 정정 통합",
-      "summary": "vr-compare.ts 스펙 확정 + PD-051 핀 정정 통합"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_127",
+      "topicSlug": "version-upgrade-criteria-redesign",
+      "closedAt": "2026-04-28T08:50:00.000Z",
+      "oneLineSummary": "D-104 박제: 버전 bump 트리거 확장 + 세션당 +0.1 캡 + R1 임계값 ≥11 통일, v1.75→v1.85",
+      "decisionsAdded": [
+        "D-104"
+      ]
+    },
     {
       "sessionId": "session_126",
       "topicSlug": "a-eval-progress-check",
@@ -64,13 +73,6 @@
       "topicSlug": "pd-status-check",
       "closedAt": "2026-04-28T06:50:00.000Z",
       "oneLineSummary": "PD-033/043 resolved — hook v2 content inject + dispatch 규약 박제 로그 직접 증거 확인",
-      "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_124",
-      "topicSlug": "session-history-remember",
-      "closedAt": "2026-04-28T06:10:00.000Z",
-      "oneLineSummary": "D-103 구현 3갭 검증 완료 — hook v2·Edi 자동복사·auto-init 정상 확인",
       "decisionsAdded": []
     }
   ],
@@ -556,5 +558,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-28T05:42:13.459Z"
+  "lastUpdated": "2026-04-28T06:35:32.079Z"
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-28T05:42:21.281Z",
+  "generatedAt": "2026-04-28T06:35:41.410Z",
   "decisions": [
     {
       "id": "D-103",
@@ -1492,6 +1492,15 @@
       "axis": "G0.5 spec 정합 게이트 도입 + 정본 3종 + Phase A→B→C + R6~R9 mitigation",
       "summary": "P-3 채택 후 spec ↔ 구현 단절 메타 결함 해소. 정본 = memory/specs/ia-spec.md + app/dashboard-upgrade.html canonical + memory/specs/page-checklist/<page>.md 6종. D-094/D-097 derived 강등(STATUS inline). G0.5 = G1 앞 + G5 직전 재확인. People 신규 포함, Phase A spec 박제 / Phase B 6페이지 report + 임계 (i)(ii) 동시 박제 / Phase C enforce + VR baseline 재lock. R8 보강: (ii) 미달분 자동 follow-up topic 예고. R9 fallback: Phase B 2세션 hard cap, 미달 시 (ii) 단일값 lock.",
       "owningTopicId": "topic_110"
+    },
+    {
+      "id": "D-104",
+      "date": "2026-04-28",
+      "topic": "topic_125",
+      "session": "session_127",
+      "axis": "버전 업그레이드 기준 개편 — 트리거 확장 + 세션당 +0.1 캡 + R1 임계값 통일",
+      "summary": "버전 bump 트리거를 Decision 전용에서 구현·디버그·역할 강화·정책 추가로 확장. Ace 수동 선언 + session-end-finalize.js 자동 전파. 증분 +0.1/+0.01/+0.001, 세션당 최대 +0.1 캡. 경고 없음 (캡이 구조적 안전장치). R1 역할 과호출 임계값 Grade 구분 없이 ≥11 단일 통일. legacy-gap 태그로 v1.65~v1.75 공백 마킹.",
+      "status": "active"
     }
   ]
 }

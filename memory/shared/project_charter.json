@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-team",
-    "version": "1.75",
+    "version": "1.85",
     "purpose": "Memory-first, topic-based strategy and implementation system. Master receives structured analysis from role-separated agents on any strategic or implementation topic, with all outputs preserved in inspectable, revisionable files.",
     "principles": [
       "Memory first: all agent outputs, decisions, and session state are written to files immediately. No analysis lives only in conversation context.",
@@ -146,7 +146,19 @@
       "version": "1.65",
       "date": "2026-04-24",
       "summary": "session_094: D-075~D-080 박제, PD-031 root cause 재판정, 페르소나 통합경로(memory/roles/personas/). D-073 부분 rescind. 3세션 summary 자동 로드 시스템(D-077) 설계. Arki 감사 프로토콜 v2(D-078). Grade D self-scores 제외(D-079). PD-023 Phase 재매핑(D-080)."
+    },
+    {
+      "version": "1.65~1.75",
+      "tag": "legacy-gap",
+      "note": "해당 구간 versionHistory 미기록. 소급 없음.",
+      "date": "2026-04-28"
+    },
+    {
+      "version": "1.85",
+      "date": "2026-04-28",
+      "summary": "D-104: 버전 bump 정책 개편 + R1 임계값 통일. 트리거 확장 + 세션당 +0.1 캡.",
+      "sessionId": "session_127"
     }
   ],
-  "lastUpdated": "2026-04-24"
+  "lastUpdated": "2026-04-28"
 }

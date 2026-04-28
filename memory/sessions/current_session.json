@@ -1,29 +1,64 @@
 {
-  "sessionId": "session_126",
-  "topicId": "topic_124",
-  "topic": "A 평가 진행 여부 점검",
-  "topicSlug": "a-eval-progress-check",
-  "reportPath": "reports/2026-04-28_a-eval-progress-check",
+  "sessionId": "session_127",
+  "topicId": "topic_125",
+  "topic": "버전 업그레이드 기준 개편",
+  "topicSlug": "version-upgrade-criteria-redesign",
+  "reportPath": "reports/2026-04-28_version-upgrade-criteria-redesign",
   "status": "closed",
-  "startedAt": "2026-04-28T07:00:00.000Z",
-  "closedAt": "2026-04-28T07:40:00.000Z",
-  "oneLineSummary": "self-scores 기록 단절 원인 진단 + PostToolUse hook 자동 추출 구현",
+  "startedAt": "2026-04-28T08:00:00.000Z",
+  "closedAt": "2026-04-28T08:50:00.000Z",
+  "oneLineSummary": "D-104 박제: 버전 bump 트리거 확장 + 세션당 +0.1 캡 + R1 임계값 ≥11 통일, v1.75→v1.85",
   "mode": "observation",
-  "grade": "C",
-  "gradeDeclared": "C",
-  "framingLevel": 0,
-  "framingSkipped": true,
+  "grade": "A",
+  "gradeDeclared": "A",
+  "framingLevel": 2,
+  "framingSkipped": false,
   "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
-    "edi"
+    "ace",
+    "arki",
+    "fin",
+    "riki",
+    "ace",
+    "edi",
+    "edi",
+    "dev"
   ],
   "turns": [
     {
+      "role": "ace",
+      "turnIdx": 0
+    },
+    {
+      "role": "arki",
+      "turnIdx": 1
+    },
+    {
+      "role": "fin",
+      "turnIdx": 2
+    },
+    {
+      "role": "riki",
+      "turnIdx": 3
+    },
+    {
+      "role": "ace",
+      "turnIdx": 4
+    },
+    {
       "role": "edi",
-      "turnIdx": 0,
+      "turnIdx": 5,
       "phase": "compile"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 6
+    },
+    {
+      "role": "dev",
+      "turnIdx": 7
     }
   ],
   "decisions": [],
@@ -31,25 +66,30 @@
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
-  "decisionsAdded": [],
+  "decisionsAdded": [
+    "D-104"
+  ],
   "notes": [
-    "진단: session_101 이후 20+ 세션 self-scores 기록 0건 — PostToolUse hook에 turns[].selfScores 박제 로직 미구현이 원인",
-    "수정: post-tool-use-task.js에 extractSelfScores() 추가 — tool_response에서 # self-scores 블록 자동 파싱 후 turn에 박제",
-    "다음 Grade A 세션에서 실제 기록 여부 확인 필요"
+    "D-104: 버전 bump 트리거 확장 — Decision 전용 폐기, 구현·디버그·역할 강화·정책 추가 모두 포함",
+    "세션당 최대 +0.1 캡 확정 — 인플레이션 구조적 통제, 경고 없음",
+    "R1 역할 과호출 임계값: Grade 구분 없이 ≥11 단일 통일 (기존 A/S:≥5, B/C:≥3)",
+    "legacy-gap 태그: v1.65~v1.75 history 공백 마킹 (번호 재발급 없음)",
+    "session-end-finalize.js에 applyVersionBump() 블록 신설 — versionBump 필드 존재 시 project_charter.json 자동 갱신"
   ],
-  "gaps": [
-    {
-      "type": "no-reports",
-      "note": "Grade C 세션 — 서브에이전트 없음, 역할 리포트 없음 (정상)"
-    }
-  ],
+  "gaps": [],
+  "versionBump": {
+    "from": "1.75",
+    "to": "1.85",
+    "delta": "+0.1",
+    "reason": "D-104: 버전 업그레이드 기준 개편 — 훅 전파 구조 변경 + 스키마 신설"
+  },
   "tokenUsage": {
-    "input_tokens": 140,
-    "output_tokens": 49596,
-    "cache_creation_input_tokens": 518046,
-    "cache_read_input_tokens": 8052109,
-    "messageCount": 94,
-    "masterTurns": 9,
-    "total_billable": 8619891
+    "input_tokens": 114,
+    "output_tokens": 69672,
+    "cache_creation_input_tokens": 573461,
+    "cache_read_input_tokens": 6167341,
+    "messageCount": 78,
+    "masterTurns": 6,
+    "total_billable": 6810588
   }
 }

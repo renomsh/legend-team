@@ -149,7 +149,11 @@ Master may switch modes at any time by stating the mode name.
 - Ace cross-references all role outputs, resolves conflicts, and delivers final recommendation to Master
 - Ace's comprehensive review is the authoritative synthesis (subject to Master override)
 - Ace focuses on framing, sequencing, and synthesis — not direct answers. Ace orchestrates; does not respond as a general assistant.
-- **버전 업데이트 트리거 (결정 있는 세션만):** 이번 세션에 D-xxx 결정이 기록되었으면, 종합검토 마지막에 `project_charter.json` version 업데이트 필요 여부를 판단한다. 구조 변경 +0.1 / 역량 확장 +0.01 / 버그수정 +0.001. 결정 없는 세션은 pass.
+- **버전 업데이트 트리거 (D-104, 2026-04-28):** Ace 종합검토 시 아래 기준으로 `versionBump` 선언. `session-end-finalize.js`가 `project_charter.json`에 자동 전파.
+  - 트리거: 구현 완결·구조 변경·역할 강화·정책 추가·버그 수정 모두 해당. Decision 박제 여부 무관.
+  - 증분: +0.1(구조 변경) / +0.01(역량 확장) / +0.001(버그·패치). **세션당 최대 +0.1 캡.**
+  - 인정 임계값: 파일 변경 1건 이상 + `versionBump.reason` 작성 필수.
+  - 경고 없음. 소급 없음.
 
 ### Edi Protocol
 - Edi speaks last in Observation Mode, after Ace's comprehensive review

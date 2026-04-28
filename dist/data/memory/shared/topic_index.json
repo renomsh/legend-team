@@ -1,6 +1,22 @@
 {
   "topics": [
     {
+      "id": "topic_125",
+      "title": "버전 업그레이드 기준 개편",
+      "status": "completed",
+      "phase": "framing",
+      "hold": null,
+      "created": "2026-04-28",
+      "controlPath": "topics/topic_125",
+      "reportPath": "reports/2026-04-28_version-upgrade-criteria-redesign",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_127",
+      "path": "topics/topic_125",
+      "grade": "A",
+      "outcome": "D-104 박제. 버전 bump 트리거 확장(구현·디버그·역할 강화·정책 추가) + 세션당 +0.1 캡 + R1 임계값 ≥11 통일. v1.75→v1.85."
+    },
+    {
       "id": "topic_124",
       "title": "A 평가 진행 여부 점검",
       "status": "completed",
@@ -2432,5 +2448,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-28T05:42:06.692Z"
+  "lastUpdated": "2026-04-28T06:35:24.224Z"
 }

@@ -358,8 +358,8 @@ function main() {
   //   → feedbackRecurrences 배열은 대시보드 별도 시각화용으로 보존
   const alarms: AlarmEntry[] = [];
 
-  // R1 임계값: Grade A/S → ≥5, Grade B/C → ≥3 (Grade-blind 임계값 2가 정상 오케스트레이션 포함 문제 해소)
-  const r1Threshold = (grade: string) => (grade === 'A' || grade === 'S') ? 5 : 3;
+  // R1 임계값: Grade 구분 없이 ≥11 (D-104, 2026-04-28. 기존 A/S:≥5, B/C:≥3)
+  const r1Threshold = (_grade: string) => 11;
 
   for (const s of sessions) {
     // R1: 역할 과호출 (Grade 조건부 임계값)

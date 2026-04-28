@@ -582,6 +582,56 @@ function copyEdiReportToSessionContributions(sess) {
   }
 }
 
+/**
+ * D-104 (2026-04-28): versionBump 자동 전파.
+ * current_session.json에 versionBump 필드가 있으면 project_charter.json에 반영.
+ * 없으면 pass (경고 없음).
+ */
+function applyVersionBump(sess) {
+  const bump = sess.versionBump;
+  if (!bump || !bump.to || !bump.reason) {
+    log('versionBump 없음 — project_charter 업데이트 skip');
+    return;
+  }
+
+  const charterPath = path.join(CWD, 'memory', 'shared', 'project_charter.json');
+  if (!fs.existsSync(charterPath)) {
+    log('applyVersionBump skip: project_charter.json 없음');
+    return;
+  }
+
+  let charter;
+  try {
+    charter = JSON.parse(fs.readFileSync(charterPath, 'utf8'));
+  } catch (e) {
+    log(`applyVersionBump skip: project_charter.json 파싱 실패 — ${e && e.message}`);
+    return;
+  }
+
+  const prevVersion = charter.charter && charter.charter.version;
+  charter.charter.version = bump.to;
+  charter.lastUpdated = new Date().toISOString().slice(0, 10);
+
+  // history 배열에 이미 해당 버전이 없으면 추가
+  if (!Array.isArray(charter.history)) charter.history = [];
+  const alreadyExists = charter.history.some(h => h.version === bump.to);
+  if (!alreadyExists) {
+    charter.history.push({
+      version: bump.to,
+      date: charter.lastUpdated,
+      summary: bump.reason,
+      sessionId: sess.sessionId || null,
+    });
+  }
+
+  try {
+    writeJson(charterPath, charter);
+    log(`applyVersionBump 완료 — ${prevVersion} → ${bump.to} (${bump.reason})`);
+  } catch (e) {
+    log(`applyVersionBump 실패: ${e && e.message}`);
+  }
+}
+
 function runSyncSystemState() {
   const tsPath = path.join(CWD, 'scripts', 'sync-system-state.ts');
   if (!fs.existsSync(tsPath)) {
@@ -644,6 +694,7 @@ function runSyncSystemState() {
     runAutoCloseDryRun();
     runResolvePDDryRun();
     runChecklistDeltaCheck(sess);
+    applyVersionBump(sess);
     runSyncSystemState();
 
     log(`완료 — ${sess.sessionId} (turns=${(sess.turns || []).length}, agents=${(sess.agentsCompleted || []).length}, decisions=${(sess.masterDecisions || []).length})`);

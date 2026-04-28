@@ -1,6 +1,15 @@
 {
   "feedbackLog": [
     {
+      "id": "MF-101",
+      "date": "2026-04-28",
+      "session": "session_127",
+      "topic": "version-upgrade-criteria-redesign",
+      "feedback": "(1) 세션당 최대 버전업은 +0.1 한정 — 경고 불필요. (2) R1 역할 과호출 임계값을 10 초과(≥11)로 통일, Grade 구분 없음. 과제 복잡도 증가로 10번까지는 허용.",
+      "status": "resolved",
+      "statusNote": "D-104에 반영 완료. +0.1 캡으로 인플레이션 구조 통제. compute-dashboard.ts r1Threshold ≥11 단일화."
+    },
+    {
       "id": "MF-100",
       "date": "2026-04-28",
       "session": "session_120",

@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-28T05:42:20.232Z",
-  "totalSessions": 124,
+  "generatedAt": "2026-04-28T06:35:39.822Z",
+  "totalSessions": 125,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.27,
-    "avgCacheHitRate": 0.9341,
-    "cacheSampleSize": 98,
-    "cacheSampleTotal": 124,
+    "avgMasterTurns": 17.18,
+    "avgCacheHitRate": 0.9338,
+    "cacheSampleSize": 99,
+    "cacheSampleTotal": 125,
     "avgAdoptionRate": 0,
-    "totalDecisions": 103,
+    "totalDecisions": 104,
     "gradeDistribution": {
-      "S": 49,
+      "S": 50,
       "A": 25,
       "B": 36,
       "C": 14
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 79,
-    "totalCostUSD": 1345.6435,
-    "avgCostPerSession": 11.3079,
-    "costSampleSize": 119
+    "turnBasedSessions": 80,
+    "totalCostUSD": 1350.6896,
+    "avgCostPerSession": 11.2557,
+    "costSampleSize": 120
   },
   "sessions": [
     {
@@ -4720,12 +4720,55 @@
         "messageCount": 174
       },
       "sessionCostUSD": 8.9298
+    },
+    {
+      "sessionId": "session_127",
+      "topicSlug": "version-upgrade-criteria-redesign",
+      "topic": "버전 업그레이드 기준 개편",
+      "startedAt": "2026-04-28T08:00:00.000Z",
+      "closedAt": "2026-04-28T08:50:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-104"
+      ],
+      "rolesCalled": 8,
+      "rolesRecalled": 2,
+      "sessionsSpanned": 1,
+      "size": 17,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 6,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "edi",
+        "edi",
+        "dev"
+      ],
+      "tokenUsage": {
+        "totalBillable": 6810588,
+        "ioTokens": 69786,
+        "inputTokens": 114,
+        "outputTokens": 69672,
+        "cacheCreate": 573461,
+        "cacheRead": 6167341,
+        "cacheHitRate": 0.9055519141665889,
+        "messageCount": 78
+      },
+      "sessionCostUSD": 5.0461
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 134,
+      "count": 136,
       "sessions": [
         "session_047",
         "session_048",
@@ -4790,12 +4833,13 @@
         "session_122",
         "session_123",
         "session_124",
-        "session_125"
+        "session_125",
+        "session_127"
       ]
     },
     {
       "role": "arki",
-      "count": 94,
+      "count": 95,
       "sessions": [
         "session_048",
         "session_049",
@@ -4840,12 +4884,13 @@
         "session_119",
         "session_120",
         "session_123",
-        "session_125"
+        "session_125",
+        "session_127"
       ]
     },
     {
       "role": "edi",
-      "count": 79,
+      "count": 81,
       "sessions": [
         "session_050",
         "session_051",
@@ -4922,12 +4967,13 @@
         "session_123",
         "session_124",
         "session_125",
-        "session_126"
+        "session_126",
+        "session_127"
       ]
     },
     {
       "role": "dev",
-      "count": 63,
+      "count": 64,
       "sessions": [
         "session_047",
         "session_048",
@@ -4977,12 +5023,13 @@
         "session_119",
         "session_121",
         "session_123",
-        "session_124"
+        "session_124",
+        "session_127"
       ]
     },
     {
       "role": "riki",
-      "count": 44,
+      "count": 45,
       "sessions": [
         "session_049",
         "session_053",
@@ -5020,12 +5067,13 @@
         "session_119",
         "session_120",
         "session_123",
-        "session_125"
+        "session_125",
+        "session_127"
       ]
     },
     {
       "role": "fin",
-      "count": 20,
+      "count": 21,
       "sessions": [
         "session_053",
         "session_054",
@@ -5044,7 +5092,8 @@
         "session_087",
         "session_094",
         "session_098",
-        "session_104"
+        "session_104",
+        "session_127"
       ]
     },
     {
@@ -8244,65 +8293,92 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_127",
+      "topic": "버전 업그레이드 기준 개편",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 6,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 7,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
     {
       "ruleId": "R1",
       "severity": "yellow",
-      "sessionId": "session_045",
-      "description": "역할 과호출: rolesRecalled=5 (임계값 5, grade=S)"
-    },
-    {
-      "ruleId": "R1",
-      "severity": "yellow",
-      "sessionId": "session_077",
-      "description": "역할 과호출: rolesRecalled=9 (임계값 5, grade=S)"
-    },
-    {
-      "ruleId": "R1",
-      "severity": "yellow",
       "sessionId": "session_081",
-      "description": "역할 과호출: rolesRecalled=11 (임계값 5, grade=S)"
+      "description": "역할 과호출: rolesRecalled=11 (임계값 11, grade=S)"
     },
     {
       "ruleId": "R1",
       "severity": "yellow",
       "sessionId": "session_082",
-      "description": "역할 과호출: rolesRecalled=14 (임계값 5, grade=S)"
-    },
-    {
-      "ruleId": "R1",
-      "severity": "yellow",
-      "sessionId": "session_090",
-      "description": "역할 과호출: rolesRecalled=8 (임계값 5, grade=S)"
-    },
-    {
-      "ruleId": "R1",
-      "severity": "yellow",
-      "sessionId": "session_095",
-      "description": "역할 과호출: rolesRecalled=9 (임계값 5, grade=S)"
-    },
-    {
-      "ruleId": "R1",
-      "severity": "yellow",
-      "sessionId": "session_101",
-      "description": "역할 과호출: rolesRecalled=9 (임계값 5, grade=S)"
-    },
-    {
-      "ruleId": "R1",
-      "severity": "yellow",
-      "sessionId": "session_104",
-      "description": "역할 과호출: rolesRecalled=10 (임계값 5, grade=S)"
-    },
-    {
-      "ruleId": "R1",
-      "severity": "yellow",
-      "sessionId": "session_123",
-      "description": "역할 과호출: rolesRecalled=7 (임계값 5, grade=S)"
+      "description": "역할 과호출: rolesRecalled=14 (임계값 11, grade=S)"
     }
   ],
   "feedbackRecurrences": [
+    {
+      "keyword": "최대",
+      "occurrences": [
+        {
+          "date": "2026-04-28",
+          "feedbackId": "MF-101",
+          "summary": "(1) 세션당 최대 버전업은 +0.1 한정 — 경고 불필요. (2) R1 역할 과호출 임계값을 10 초과(≥"
+        },
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-049-b",
+          "summary": "최대 깊이 2 + dry-run 출력 강제 — Ace 제안대로."
+        }
+      ]
+    },
     {
       "keyword": "베라가",
       "occurrences": [

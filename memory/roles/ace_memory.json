@@ -76,6 +76,16 @@
   },
   "topicsHandled": [
     {
+      "topicId": "topic_125",
+      "title": "버전 업그레이드 기준 개편",
+      "date": "2026-04-28",
+      "reportPath": "reports/2026-04-28_version-upgrade-criteria-redesign/ace_rev1.md",
+      "keyFraming": "Decision 전용 트리거 폐기. 세션당 +0.1 캡이 핵심 안전장치 — 경고 불필요. R1 임계값 Grade 무관 ≥11 통일. Fin 기준 확장+증분 재설계 동시 결정 필수 의견 채택.",
+      "decisionAxes": 4,
+      "status": "completed",
+      "pattern": "Master가 단순화 원칙(캡 = 안전장치, 경고 불필요)으로 R-01/R-02 mitigation을 구조적으로 해소. 절충안 없이 +0.1 캡 단일해."
+    },
+    {
       "topicId": "topic_071",
       "title": "PD-021 auto-model-switch 재구현 — Sonnet 메인 + Opus 서브에이전트",
       "date": "2026-04-22",
