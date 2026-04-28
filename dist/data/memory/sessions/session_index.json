@@ -5522,8 +5522,36 @@
       "note": "Master 사전 질문: 구현 중인 것 경로/역할 차단 가능한가 + 설계 승인 없이 진행한 점 지적 | 선택: (나) topic_127 그대로 오픈 + P2 hook v3 설계에 '승인 게이트' 자체 포함 | 이번 세션은 auto 아님 (manual). P2 본체에 이슈 없어 진행은 합의됨 | P2 G2 PASS — hook v3 + checkpoint + fixture 4건 + validate-hook-registration 구현 완료",
       "oneLineSummary": "persona-structure-redesign P2 완료: hook v3 G2 PASS(4/4), D-A~D-G 동결, P3 이관",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_131",
+      "topicSlug": "persona-structure-redesign",
+      "topic": "S 페르소나 구조 재수립",
+      "startedAt": "2026-04-28T14:30:00.000Z",
+      "closedAt": "2026-04-28T16:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "dev",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "dev",
+          "turnIdx": 0,
+          "phase": "implementation"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 1,
+          "phase": "compile"
+        }
+      ],
+      "grade": "B",
+      "note": "P3 세션: 잔여 5역할(fin·riki·nova·edi·vera) atomic 분리 + scaffold-role.ts 신규 | G3 PASS — 8/8 역할 scaffold-role.ts 검증 완료 | Nova Output Style → role-nova.md policy 이동 (persona 정비 완료) | PD-053 신규: 역할별 캐릭터 정비 (persona+policy+memory 통합 검토)",
+      "oneLineSummary": "P3 완료: 5역할 atomic 분리 + scaffold-role.ts G3 PASS(8/8), PD-053 등록",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-04-28T11:22:58.710Z",
+  "lastUpdated": "2026-04-28T12:00:52.779Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

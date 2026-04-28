@@ -1,129 +1,80 @@
 {
-  "sessionId": "session_130",
+  "sessionId": "session_131",
   "topicId": "topic_127",
   "topic": "S 페르소나 구조 재수립",
   "topicSlug": "persona-structure-redesign",
   "reportPath": "reports/2026-04-28_persona-structure-redesign",
   "status": "closed",
-  "startedAt": "2026-04-28T11:45:00.000Z",
-  "closedAt": "2026-04-28T14:20:00.000Z",
-  "oneLineSummary": "persona-structure-redesign P2 완료: hook v3 G2 PASS(4/4), D-A~D-G 동결, P3 이관",
+  "startedAt": "2026-04-28T14:30:00.000Z",
+  "closedAt": "2026-04-28T16:00:00.000Z",
+  "oneLineSummary": "P3 완료: 5역할 atomic 분리 + scaffold-role.ts G3 PASS(8/8), PD-053 등록",
   "mode": "observation",
   "grade": "B",
   "gradeDeclared": "B",
-  "gradeNote": "topic_127 본체는 S(전체 구조 재수립)이지만, 본 세션은 P2 hook v3 구현 + 승인 게이트 설계로 범위 한정 → B grade 명시",
+  "gradeNote": "P3: 잔여 5역할 atomic 분리 + scaffold-role.ts — 명확 실행형, 구조적 탐색 불필요",
   "framingLevel": 2,
   "framingSkipped": false,
   "topicType": "framing",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
-    "ace",
-    "arki",
-    "riki",
-    "ace",
     "dev",
-    "edi",
     "edi"
   ],
   "turns": [
     {
-      "role": "ace",
-      "turnIdx": 0,
-      "phase": "framing-exploration"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 1,
-      "phase": "structural-design"
-    },
-    {
-      "role": "riki",
-      "turnIdx": 2,
-      "phase": "risk-audit"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 3,
-      "phase": "synthesis",
-      "recallReason": "post-intervention"
-    },
-    {
       "role": "dev",
-      "turnIdx": 4,
+      "turnIdx": 0,
       "phase": "implementation"
     },
     {
       "role": "edi",
-      "turnIdx": 5,
-      "phase": "compilation"
-    },
-    {
-      "role": "edi",
-      "turnIdx": 6
+      "turnIdx": 1,
+      "phase": "compile"
     }
   ],
   "decisions": [],
   "masterDecisions": [],
   "masterFeedback": [],
-  "pendingDeferralsAdded": [],
+  "pendingDeferralsAdded": [
+    "PD-053"
+  ],
   "pendingDeferralsResolved": [],
   "decisionsAdded": [],
   "notes": [
-    "Master 사전 질문: 구현 중인 것 경로/역할 차단 가능한가 + 설계 승인 없이 진행한 점 지적",
-    "선택: (나) topic_127 그대로 오픈 + P2 hook v3 설계에 '승인 게이트' 자체 포함",
-    "이번 세션은 auto 아님 (manual). P2 본체에 이슈 없어 진행은 합의됨",
-    "P2 G2 PASS — hook v3 + checkpoint + fixture 4건 + validate-hook-registration 구현 완료"
+    "P3 세션: 잔여 5역할(fin·riki·nova·edi·vera) atomic 분리 + scaffold-role.ts 신규",
+    "G3 PASS — 8/8 역할 scaffold-role.ts 검증 완료",
+    "Nova Output Style → role-nova.md policy 이동 (persona 정비 완료)",
+    "PD-053 신규: 역할별 캐릭터 정비 (persona+policy+memory 통합 검토)"
   ],
-  "versionBump": {
-    "delta": 0.01,
-    "reason": "P2 hook v3 구현 완료 — 3층 persona compose(buildPersonaLayer) + transition checkpoint(evaluateTransitionCheckpoint) + G2 PASS(4/4). P3 완결 시 +0.1로 확대.",
-    "category": "capacity-extension"
-  },
   "gaps": [
     {
       "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-28_persona-structure-redesign/arki_rev2.md",
-      "expected": "arki",
-      "actualInTurns": "dev",
-      "turnId": 4
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-28_persona-structure-redesign/riki_rev2.md",
-      "expected": "riki",
-      "actualInTurns": "edi",
-      "turnId": 5
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-28_persona-structure-redesign/ace_rev3.md",
+      "file": "reports/2026-04-28_persona-structure-redesign/ace_rev1.md",
       "expected": "ace",
-      "actualInTurns": "edi",
-      "turnId": 6
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-28_persona-structure-redesign/arki_rev2.md",
-      "expected": "arki",
       "actualInTurns": "dev",
-      "turnId": 4
+      "turnId": 0
     },
     {
       "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-28_persona-structure-redesign/riki_rev2.md",
-      "expected": "riki",
+      "file": "reports/2026-04-28_persona-structure-redesign/arki_rev1.md",
+      "expected": "arki",
       "actualInTurns": "edi",
-      "turnId": 5
+      "turnId": 1
     }
   ],
+  "versionBump": {
+    "delta": 0.1,
+    "reason": "P3 완료 — 8역할 3층 분리 구조 완성(persona+policy+common). scaffold-role.ts G3 PASS. session_130 예고 +0.1 확대 적용.",
+    "category": "structural-change"
+  },
   "tokenUsage": {
-    "input_tokens": 135,
-    "output_tokens": 87585,
-    "cache_creation_input_tokens": 899221,
-    "cache_read_input_tokens": 4627044,
-    "messageCount": 53,
-    "masterTurns": 12,
-    "total_billable": 5613985
+    "input_tokens": 219,
+    "output_tokens": 142631,
+    "cache_creation_input_tokens": 721839,
+    "cache_read_input_tokens": 13453104,
+    "messageCount": 123,
+    "masterTurns": 21,
+    "total_billable": 14317793
   }
 }

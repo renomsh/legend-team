@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_130",
-  "nextSessionId": "session_131",
+  "lastSessionId": "session_131",
+  "nextSessionId": "session_132",
   "currentVersion": "v1.75",
   "openTopics": [
     {
@@ -59,6 +59,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_131",
+      "topicSlug": "persona-structure-redesign",
+      "closedAt": "2026-04-28T16:00:00.000Z",
+      "oneLineSummary": "P3 완료: 5역할 atomic 분리 + scaffold-role.ts G3 PASS(8/8), PD-053 등록",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_130",
       "topicSlug": "persona-structure-redesign",
       "closedAt": "2026-04-28T14:20:00.000Z",
@@ -71,18 +78,18 @@
       "closedAt": "2026-04-28T11:30:00.000Z",
       "oneLineSummary": "페르소나 3층 분리 옵션 2 채택 + P0/P1 PASS(24.7%, 3역할 -60.9%), PD-052 신설, P2~P4 이관",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_127",
-      "topicSlug": "version-upgrade-criteria-redesign",
-      "closedAt": "2026-04-28T08:50:00.000Z",
-      "oneLineSummary": "D-104 박제: 버전 bump 트리거 확장 + 세션당 +0.1 캡 + R1 임계값 ≥11 통일, v1.75→v1.85",
-      "decisionsAdded": [
-        "D-104"
-      ]
     }
   ],
   "pendingDeferrals": [
+    {
+      "id": "PD-053",
+      "fromSession": "session_131",
+      "fromTopic": "persona-structure-redesign",
+      "item": "역할별 캐릭터 정비 — persona(정체성)·policy(발언규칙)·memory(누적학습) 3축을 역할별로 Master와 1:1 검토. 각 역할 파일 내용 점검 + 불일치·누락·중복 정리.",
+      "status": "pending",
+      "resolveCondition": "8역할 전부 Master 직접 검토 완료 + 필요 시 수정 반영",
+      "dependsOn": []
+    },
     {
       "id": "PD-052",
       "fromSession": "session_129",
@@ -575,5 +582,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-28T11:23:17.117Z"
+  "lastUpdated": "2026-04-28T12:01:07.522Z"
 }

@@ -514,6 +514,30 @@ function validateInlineRoleHeaders(sess) {
 }
 
 /**
+ * P3 (topic_127, 2026-04-28) — _common.md 100줄 cap 검증.
+ * 초과 시 sess.gaps에 'common-policy-over-cap' 박제. 차단 X.
+ */
+function checkCommonPolicyCap(sess) {
+  const commonPath = path.join(CWD, 'memory', 'roles', 'policies', '_common.md');
+  try {
+    if (!fs.existsSync(commonPath)) {
+      log('_common.md 없음 — cap 검증 스킵');
+      return;
+    }
+    const lineCount = fs.readFileSync(commonPath, 'utf8').split('\n').length;
+    if (lineCount > 100) {
+      sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
+      sess.gaps.push({ type: 'common-policy-over-cap', lineCount, cap: 100 });
+      log(`⚠ _common.md ${lineCount}줄 — 100줄 cap 초과 → gaps 박제`);
+    } else {
+      log(`_common.md cap 검증 OK (${lineCount}줄)`);
+    }
+  } catch (e) {
+    log(`checkCommonPolicyCap 오류: ${e.message}`);
+  }
+}
+
+/**
  * Asset #1 v2 (PD-033 / D-103, 2026-04-28 개선) — Edi 보고서 session_contributions 복사.
  * 세션 종료 시 Edi 최종 보고서를 topics/{topicId}/session_contributions/{sessionId}_edi_report.md 에 복사.
  * 다음 세션의 pre-tool-use-task.js가 이 파일을 읽어 토픽 layer inject에 사용함.
@@ -681,6 +705,7 @@ function runSyncSystemState() {
       process.exit(0);
     }
 
+    checkCommonPolicyCap(sess);
     ensureEdiInAgents(sess);
     filterAgentsCompletedByDualSatisfaction(sess);
     validateInlineRoleHeaders(sess);
