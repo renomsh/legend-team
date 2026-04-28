@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-28T00:05:23.377Z",
-  "totalSessions": 117,
+  "generatedAt": "2026-04-28T00:30:56.462Z",
+  "totalSessions": 118,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.77,
-    "avgCacheHitRate": 0.9341,
-    "cacheSampleSize": 91,
-    "cacheSampleTotal": 117,
+    "avgMasterTurns": 16.69,
+    "avgCacheHitRate": 0.9342,
+    "cacheSampleSize": 92,
+    "cacheSampleTotal": 118,
     "avgAdoptionRate": 0,
-    "totalDecisions": 101,
+    "totalDecisions": 102,
     "gradeDistribution": {
-      "S": 46,
+      "S": 47,
       "A": 23,
       "B": 35,
       "C": 13
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 72,
-    "totalCostUSD": 1227.2301,
-    "avgCostPerSession": 10.9574,
-    "costSampleSize": 112
+    "turnBasedSessions": 73,
+    "totalCostUSD": 1231.8828,
+    "avgCostPerSession": 10.9016,
+    "costSampleSize": 113
   },
   "sessions": [
     {
@@ -4454,6 +4454,46 @@
         "messageCount": 132
       },
       "sessionCostUSD": 7.8977
+    },
+    {
+      "sessionId": "session_120",
+      "topicSlug": "pd049-pd050-echarts-vr-g1-followup",
+      "topic": "PD-049/050 — ECharts 동적 색 주입 + label fixture",
+      "startedAt": "2026-04-28T00:10:00.000Z",
+      "closedAt": "2026-04-28T01:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-102"
+      ],
+      "rolesCalled": 5,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 12,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 8,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "riki",
+        "arki",
+        "vera",
+        "arki",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 8024965,
+        "ioTokens": 68826,
+        "inputTokens": 194,
+        "outputTokens": 68632,
+        "cacheCreate": 358206,
+        "cacheRead": 7597933,
+        "cacheHitRate": 0.9467870576382577,
+        "messageCount": 72
+      },
+      "sessionCostUSD": 4.6527
     }
   ],
   "roleFrequency": [
@@ -4525,7 +4565,7 @@
     },
     {
       "role": "arki",
-      "count": 87,
+      "count": 89,
       "sessions": [
         "session_048",
         "session_049",
@@ -4567,12 +4607,13 @@
         "session_109",
         "session_111",
         "session_112",
-        "session_119"
+        "session_119",
+        "session_120"
       ]
     },
     {
       "role": "edi",
-      "count": 72,
+      "count": 73,
       "sessions": [
         "session_050",
         "session_051",
@@ -4642,7 +4683,8 @@
         "session_116",
         "session_117",
         "session_118",
-        "session_119"
+        "session_119",
+        "session_120"
       ]
     },
     {
@@ -4699,7 +4741,7 @@
     },
     {
       "role": "riki",
-      "count": 41,
+      "count": 42,
       "sessions": [
         "session_049",
         "session_053",
@@ -4734,7 +4776,8 @@
         "session_107",
         "session_108",
         "session_109",
-        "session_119"
+        "session_119",
+        "session_120"
       ]
     },
     {
@@ -4763,14 +4806,15 @@
     },
     {
       "role": "vera",
-      "count": 12,
+      "count": 13,
       "sessions": [
         "session_049",
         "session_052",
         "session_081",
         "session_096",
         "session_104",
-        "session_106"
+        "session_106",
+        "session_120"
       ]
     },
     {
@@ -7723,6 +7767,42 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_120",
+      "topic": "PD-049/050 — ECharts 동적 색 주입 + label fixture",
+      "sequence": [
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "vera",
+          "phase": "design",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -7776,6 +7856,21 @@
     }
   ],
   "feedbackRecurrences": [
+    {
+      "keyword": "베라가",
+      "occurrences": [
+        {
+          "date": "2026-04-28",
+          "feedbackId": "MF-100",
+          "summary": "에디라고 전역 통일했는데 베라가 'Editor'라는 표현을 쓰네? 어디에서 읽은 내용이지?"
+        },
+        {
+          "date": "2026-04-17",
+          "feedbackId": "MF-021",
+          "summary": "베라가 주체적으로 변경하고 제안해야지. 업그레이드 페이지만 제대로 적용되고 나머지는 이야기 한 것만 변경되잖"
+        }
+      ]
+    },
     {
       "keyword": "필요",
       "occurrences": [

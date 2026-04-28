@@ -1,6 +1,21 @@
 {
   "topics": [
     {
+      "id": "topic_119",
+      "title": "PD-049/050 — ECharts 동적 색 주입 + label fixture",
+      "status": "in-progress",
+      "phase": "design",
+      "hold": null,
+      "grade": "B",
+      "created": "2026-04-28",
+      "controlPath": "topics/topic_119",
+      "reportPath": "reports/2026-04-28_pd049-pd050-echarts-vr-g1-followup",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_120",
+      "path": "topics/topic_119"
+    },
+    {
       "id": "topic_118",
       "title": "자동 close vs 수동 /close 스킬 차이 검토",
       "status": "completed",
@@ -2331,5 +2346,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-28T00:05:12.790Z"
+  "lastUpdated": "2026-04-28T00:30:42.640Z"
 }

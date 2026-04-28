@@ -4984,8 +4984,57 @@
       "decisionsAdded": [
         "D-101"
       ]
+    },
+    {
+      "sessionId": "session_120",
+      "topicSlug": "pd049-pd050-echarts-vr-g1-followup",
+      "topic": "PD-049/050 — ECharts 동적 색 주입 + label fixture",
+      "startedAt": "2026-04-28T00:10:00.000Z",
+      "closedAt": "2026-04-28T01:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "decisions": [
+        "축 A=A1(좁음), 축 B=B1(WARN), 축 C=C1(axis label만), 축 D=D1(단일 토픽 완결), Vera 포함=Y",
+        "personas/role-vera.md Editor→에디 4건 정정(옵션 1)",
+        "Arki 재호출 → 실행계획 진행"
+      ],
+      "agentsCompleted": [
+        "riki",
+        "arki",
+        "vera",
+        "arki",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "riki",
+          "turnIdx": 0
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1
+        },
+        {
+          "role": "vera",
+          "turnIdx": 2,
+          "phase": "design"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 3
+        },
+        {
+          "role": "edi",
+          "turnIdx": 4
+        }
+      ],
+      "grade": "B",
+      "note": "PD-049: 동적 색 주입 case (ECharts 등 런타임 색 주입) → G1 lint 우회 검출 패턴 박제 | PD-050: ECharts label fixture (축·범례·tooltip 결정점 확장) → VR mock fixture 보강",
+      "oneLineSummary": "PD-049/050 통합 spec lock — D-102 박제(esprima 부분 AST + gradient stop 토큰 6종 + VR 3축 fixture freeze + WARN→ERROR 승격 시한 + Phase 1~8). 구현은 본 토픽 후속 세션.",
+      "decisionsAdded": [
+        "D-102"
+      ]
     }
   ],
-  "lastUpdated": "2026-04-28T00:05:05.460Z",
+  "lastUpdated": "2026-04-28T00:30:34.770Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

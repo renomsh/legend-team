@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-04-28T00:05:24.459Z",
+  "generatedAt": "2026-04-28T00:30:57.514Z",
   "decisions": [
+    {
+      "id": "D-102",
+      "date": "2026-04-28",
+      "session": "session_120",
+      "topic": "topic_119",
+      "owningTopicId": "topic_119",
+      "scopeCheck": "PD-049/PD-050 통합 — ECharts 동적 색 검출 + axis label fixture 정합",
+      "axis": "ECharts gradient 토큰화 + esprima 부분 AST lint + VR 3축 fixture freeze + WARN→ERROR 승격 시한",
+      "decision": "(1) Detection: ECharts `new echarts.graphic.LinearGradient/RadialGradient` 인수 + `setOption({...color/itemStyle.color/areaStyle.color})` 정적 hex literal까지 esprima 부분 AST로 검출. 변수·template literal·theme spread는 의도적 out (A1 좁음 정신). (2) Tokens: gradient stop 단위 단일 색 토큰 6종 — `--c-chart-bar-from/to`(#F472B6/#8B5CF6), `--c-chart-bar2-from/to`(#14B8A6/#0891B2), `--a-chart-area-from/to`(0.33/0.00). 신규 helper `chart-tokens.js`(`echGrad()` 등) 도입. tokens.css 단일 출처. role-colors.js 패턴 동형. (3) VR fixture: dashboard.mock.json `_meta`에 `sessionsLength`·`schemaVersion: v2-3axis-freeze` 박제 + `verify-fixture-stability.ts` 신설(길이·단조성 검증). axis label은 코드 inline literal(yAxis.name)이므로 lint 검출 대상 포함. snapshot stability check (`verify-axis-label-stability.ts`) 신설 — 두 번 렌더 SVG text diff 0 게이트. (4) WARN→ERROR 승격: 환경변수 `LINT_ECHARTS_LEVEL=warn|error`. D-102 박제 후 본 토픽 내 6건 토큰화 완료 + grep 잔존 0건 게이트 통과 후 ERROR 승격. (5) VR baseline pixel-perfect 0 게이트 — 토큰화 swap이 hex 1:1 동일이므로 의도된 1건(:716 area α .20→.33) 외 diff 0 강제. 의도 변경 영역만 mask. (6) Phase 분해 1~8 (Token→Helper→Swap→Lint→Fixture freeze→Stability check→VR rebaseline→ERROR 승격). 본 토픽 단일 완결 (D1).",
+      "value": "PD-049 G1 lint 사각지대(런타임 색 주입) 폐쇄 + PD-050 VR axis 결정점 freeze 통합 해소. 실무용 병기 원칙 — A1 좁음 + B1 WARN→ERROR 단계 도입으로 즉시 차단 강제 회피. esprima 부분 AST는 회피 패턴 1단계 차단(Riki R-1 수용). 차트 색 단일 출처 일관성 — role-colors.js 동형. 본 토픽 단일 완결 D1 — 3세션 이내 원칙 정합. PD-049/050 spec lock + 실행계획 박제까지가 본 세션. 구현(Phase 1~8)은 본 토픽 후속 세션."
+    },
     {
       "id": "D-101",
       "date": "2026-04-27",

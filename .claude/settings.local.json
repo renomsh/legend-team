@@ -50,7 +50,8 @@
       "Bash(python3 -c \"import json,sys; data=json.load\\(sys.stdin\\); t=[x for x in data if x.get\\('id'\\)=='topic_088']; print\\(json.dumps\\(t, ensure_ascii=False, indent=2\\)\\)\")",
       "Bash(node -e \"const s=require\\('./memory/sessions/session_index.json'\\); const last=s[s.length-1]; console.log\\('last:', last.sessionId, 'nextId: session_'+\\(parseInt\\(last.sessionId.replace\\('session_',''\\)\\)+1\\)\\)\")",
       "Bash(python3 -c \"import json,sys; data=json.load\\(sys.stdin\\); sessions=[s for s in data if s.get\\('sessionId'\\) in ['session_110','session_111','session_112']]; print\\(json.dumps\\(sessions, ensure_ascii=False, indent=2\\)\\)\")",
-      "Bash(node scripts/build.js)"
+      "Bash(node scripts/build.js)",
+      "Bash(node scripts/auto-push.js \"session end: pd049-pd050-echarts-vr-g1-followup\")"
     ]
   }
 }

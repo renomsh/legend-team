@@ -1,6 +1,15 @@
 {
   "feedbackLog": [
     {
+      "id": "MF-100",
+      "date": "2026-04-28",
+      "session": "session_120",
+      "topic": "pd049-pd050-echarts-vr-g1-followup",
+      "feedback": "에디라고 전역 통일했는데 베라가 'Editor'라는 표현을 쓰네? 어디에서 읽은 내용이지?",
+      "status": "resolved",
+      "statusNote": "출처: memory/roles/personas/role-vera.md L12·L21·L37·L90 4건. session_118 editor→edi 전면 정규화 sweep에서 personas 디렉토리 누락. 옵션 1(personas만 정정) Master 승인 → 4건 '에디'로 정정 완료. 잔존 7개 파일(memory/roles/*_memory.json + designer_memory.json)은 후속 sweep 대상."
+    },
+    {
       "id": "MF-099",
       "date": "2026-04-25",
       "session": "session_105",

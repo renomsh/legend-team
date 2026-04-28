@@ -1,12 +1,12 @@
 {
-  "sessionId": "session_119",
-  "topicId": "topic_118",
-  "topic": "자동 close vs 수동 /close 스킬 차이 검토",
-  "topicSlug": "auto-close-vs-manual-close-comparison",
-  "reportPath": "reports/2026-04-27_auto-close-vs-manual-close-comparison",
+  "sessionId": "session_120",
+  "topicId": "topic_119",
+  "topic": "PD-049/050 — ECharts 동적 색 주입 + label fixture",
+  "topicSlug": "pd049-pd050-echarts-vr-g1-followup",
+  "reportPath": "reports/2026-04-28_pd049-pd050-echarts-vr-g1-followup",
   "status": "closed",
-  "startedAt": "2026-04-27T19:00:00.000Z",
-  "closedAt": "2026-04-27T20:30:00.000Z",
+  "startedAt": "2026-04-28T00:10:00.000Z",
+  "closedAt": "2026-04-28T01:30:00.000Z",
   "mode": "observation",
   "grade": "B",
   "gradeDeclared": "B",
@@ -18,63 +18,65 @@
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
-    "arki",
-    "dev",
     "riki",
-    "edi",
+    "arki",
+    "vera",
+    "arki",
     "edi"
   ],
   "turns": [
     {
-      "role": "arki",
-      "turnIdx": 0,
-      "phase": "framing"
-    },
-    {
-      "role": "dev",
-      "turnIdx": 1,
-      "phase": "implementation"
-    },
-    {
       "role": "riki",
-      "turnIdx": 2,
-      "phase": "adversarial"
+      "turnIdx": 0
     },
     {
-      "role": "edi",
-      "turnIdx": 3,
-      "phase": "compile"
+      "role": "arki",
+      "turnIdx": 1
+    },
+    {
+      "role": "vera",
+      "turnIdx": 2,
+      "phase": "design"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 3
     },
     {
       "role": "edi",
       "turnIdx": 4
     }
   ],
-  "decisions": [],
-  "masterDecisions": [],
-  "masterFeedback": [],
-  "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [
-    "PD-039"
+  "decisions": [
+    "D-102"
   ],
+  "masterDecisions": [
+    "축 A=A1(좁음), 축 B=B1(WARN), 축 C=C1(axis label만), 축 D=D1(단일 토픽 완결), Vera 포함=Y",
+    "personas/role-vera.md Editor→에디 4건 정정(옵션 1)",
+    "Arki 재호출 → 실행계획 진행"
+  ],
+  "masterFeedback": [
+    "Vera 발언에서 'Editor' 표기 출처 추궁 → personas/role-vera.md 4건 정정. session_118 editor→edi 정규화 sweep에서 personas 디렉토리 누락 확인."
+  ],
+  "pendingDeferralsAdded": [],
+  "pendingDeferralsResolved": [],
   "pendingDeferralsDeprecated": [],
   "decisionsAdded": [
-    "D-101"
+    "D-102"
   ],
-  "oneLineSummary": "PD-039 resolved — finalize hook 4단계 delta-check WARN 게이트 추가 (D-101 박제), Arki 시야 협소 피드백 수용",
+  "oneLineSummary": "PD-049/050 통합 spec lock — D-102 박제(esprima 부분 AST + gradient stop 토큰 6종 + VR 3축 fixture freeze + WARN→ERROR 승격 시한 + Phase 1~8). 구현은 본 토픽 후속 세션.",
   "notes": [
-    "PD-039 해소 트랙 — CLAUDE.md '자동 close 규칙' vs Master 수동 /close 산출물 diff 비교",
-    "D-101 finalize hook delta-check 4단계(decision_ledger·topic_index·master_feedback·role_memory) WARN 게이트 추가",
-    "Arki 시야 협소 피드백 수용 → feedback_arki_full_system_view.md 박제"
+    "PD-049: 동적 색 주입 case (ECharts 등 런타임 색 주입) → G1 lint 우회 검출 패턴 박제",
+    "PD-050: ECharts label fixture (축·범례·tooltip 결정점 확장) → VR mock fixture 보강"
   ],
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 197,
-    "output_tokens": 53681,
-    "cache_creation_input_tokens": 303153,
-    "cache_read_input_tokens": 6867228,
-    "messageCount": 67,
-    "masterTurns": 7,
-    "total_billable": 7224259
+    "input_tokens": 194,
+    "output_tokens": 68632,
+    "cache_creation_input_tokens": 358206,
+    "cache_read_input_tokens": 7597933,
+    "messageCount": 72,
+    "masterTurns": 8,
+    "total_billable": 8024965
   }
 }

@@ -1,9 +1,15 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_119",
-  "nextSessionId": "session_120",
+  "lastSessionId": "session_120",
+  "nextSessionId": "session_121",
   "currentVersion": "v1.75",
   "openTopics": [
+    {
+      "id": "topic_119",
+      "title": "PD-049/050 — ECharts 동적 색 주입 + label fixture",
+      "status": "in-progress",
+      "reportPath": "reports/2026-04-28_pd049-pd050-echarts-vr-g1-followup"
+    },
     {
       "id": "topic_044",
       "title": "COPD 논문 ver3.4 최종화 — canonical 재분석 + (e) 프레임 확정",
@@ -20,6 +26,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-102",
+      "date": "2026-04-28",
+      "axis": "ECharts gradient 토큰화 + esprima 부분 AST lint + VR 3축 fixture freeze + WARN→ERROR 승격 시한",
+      "summary": "PD-049 G1 lint 사각지대(런타임 색 주입) 폐쇄 + PD-050 VR axis 결정점 freeze 통합 해소. 실무용 병기 원칙 — A1 좁음 + B1 WARN→ERROR 단계 도입으로 즉시 차단 강제 회피. esprima 부분 AST는 회피 패턴 1단계 차단(Riki R-1 수용). 차트 색 단일 출처 일관성 — role-colors.js 동형. 본 토픽 단일 완결 D1 — 3세션 이내 원칙 정합. PD-049/050 spec lock + 실행계획 박제까지가 본 세션. 구현(Phase 1~8)은 본 토픽 후속 세션."
+    },
     {
       "id": "D-101",
       "date": "2026-04-27",
@@ -43,15 +55,18 @@
       "date": "2026-04-25",
       "axis": "G1 lint(--c-* 색 토큰) + G3 자동 contrast check + Hard breaker B1·B2·B3 + 부분 출시 4 페이지 + partial 로딩 패턴",
       "summary": "G1 lint(--c-* 색 토큰) + G3 자동 contrast check + Hard breaker B1·B2·B3 + 부분 출시 4 페이지 + partial 로딩 패턴"
-    },
-    {
-      "id": "D-097",
-      "date": "2026-04-25",
-      "axis": "dashboard-upgrade canonical reference + 컴포넌트 카탈로그 단일화",
-      "summary": "dashboard-upgrade canonical reference + 컴포넌트 카탈로그 단일화"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_120",
+      "topicSlug": "pd049-pd050-echarts-vr-g1-followup",
+      "closedAt": "2026-04-28T01:30:00.000Z",
+      "oneLineSummary": "PD-049/050 통합 spec lock — D-102 박제(esprima 부분 AST + gradient stop 토큰 6종 + VR 3축 fixture freeze + WARN→ERROR 승격 시한 + Phase 1~8). 구현은 본 토픽 후속 세션.",
+      "decisionsAdded": [
+        "D-102"
+      ]
+    },
     {
       "sessionId": "session_119",
       "topicSlug": "auto-close-vs-manual-close-comparison",
@@ -67,15 +82,6 @@
       "closedAt": "2026-04-27T18:30:00.000Z",
       "oneLineSummary": "topic/session/decisions/feedback/deferrals 5페이지 정체성 재정의 + editor→edi 전면 정규화 + 양방향 링크 그래프",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_117",
-      "topicSlug": "dashboard-maintenance-home-growth-system",
-      "closedAt": "2026-04-27T15:45:00.000Z",
-      "oneLineSummary": "session.html All Sessions 카드→테이블 전환(.table 위임) + feedback.html 검색·필터·status counts·escape 정비",
-      "decisionsAdded": [
-        "MD-117a"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -542,5 +548,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-28T00:05:18.017Z"
+  "lastUpdated": "2026-04-28T00:30:48.809Z"
 }
