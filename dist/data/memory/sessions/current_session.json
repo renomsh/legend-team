@@ -131,15 +131,22 @@
       "expected": "dev",
       "actualInTurns": "edi",
       "turnId": 11
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-28_pd033-agent-continuity-design/dev_rev2.md",
+      "expected": "dev",
+      "actualInTurns": "edi",
+      "turnId": 11
     }
   ],
   "tokenUsage": {
-    "input_tokens": 427,
-    "output_tokens": 222571,
-    "cache_creation_input_tokens": 1568454,
-    "cache_read_input_tokens": 18816750,
-    "messageCount": 163,
-    "masterTurns": 25,
-    "total_billable": 20608202
+    "input_tokens": 493,
+    "output_tokens": 245536,
+    "cache_creation_input_tokens": 1790509,
+    "cache_read_input_tokens": 23268128,
+    "messageCount": 207,
+    "masterTurns": 28,
+    "total_billable": 25304666
   }
 }
