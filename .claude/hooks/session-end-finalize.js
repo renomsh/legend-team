@@ -514,6 +514,37 @@ function validateInlineRoleHeaders(sess) {
 }
 
 /**
+ * R-6 (topic_127 P4, 2026-04-28) — turns[].selfScores 스케일 검증.
+ * selfScores 값이 [0, 100] 범위를 벗어나거나 숫자가 아닌 경우 gaps 박제. 차단 X.
+ * D-092: selfScores: {shortKey: value} 포맷. 유효 범위 0~100.
+ */
+function checkSelfScoreScale(sess) {
+  const turns = Array.isArray(sess.turns) ? sess.turns : [];
+  const violations = [];
+
+  for (const turn of turns) {
+    if (!turn || !turn.selfScores || typeof turn.selfScores !== 'object') continue;
+    for (const [key, val] of Object.entries(turn.selfScores)) {
+      if (val === 'deferred' || val === null || val === undefined) continue;
+      const num = Number(val);
+      if (isNaN(num)) continue; // Y/N 등 비숫자 값은 스케일 검증 대상 아님
+      if (num < 0 || num > 100) {
+        violations.push({ role: turn.role, turnIdx: turn.turnIdx, key, val, reason: 'out-of-range' });
+      }
+    }
+  }
+
+  if (violations.length > 0) {
+    sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
+    sess.gaps.push({ type: 'self-score-scale-violation', count: violations.length, detail: violations });
+    log(`⚠ selfScores 스케일 위반 ${violations.length}건 → gaps 박제`);
+    for (const v of violations) log(`  - turn[${v.turnIdx}] ${v.role}.${v.key}=${v.val} (${v.reason})`);
+  } else {
+    log('selfScores 스케일 검증 OK');
+  }
+}
+
+/**
  * P3 (topic_127, 2026-04-28) — _common.md 100줄 cap 검증.
  * 초과 시 sess.gaps에 'common-policy-over-cap' 박제. 차단 X.
  */
@@ -705,6 +736,7 @@ function runSyncSystemState() {
       process.exit(0);
     }
 
+    checkSelfScoreScale(sess);
     checkCommonPolicyCap(sess);
     ensureEdiInAgents(sess);
     filterAgentsCompletedByDualSatisfaction(sess);

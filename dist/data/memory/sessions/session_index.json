@@ -5550,8 +5550,38 @@
       "note": "P3 세션: 잔여 5역할(fin·riki·nova·edi·vera) atomic 분리 + scaffold-role.ts 신규 | G3 PASS — 8/8 역할 scaffold-role.ts 검증 완료 | Nova Output Style → role-nova.md policy 이동 (persona 정비 완료) | PD-053 신규: 역할별 캐릭터 정비 (persona+policy+memory 통합 검토)",
       "oneLineSummary": "P3 완료: 5역할 atomic 분리 + scaffold-role.ts G3 PASS(8/8), PD-053 등록",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_132",
+      "topicSlug": "persona-structure-redesign",
+      "topic": "S 페르소나 구조 재수립",
+      "startedAt": "2026-04-28T16:10:00.000Z",
+      "closedAt": "2026-04-28T17:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "dev",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "dev",
+          "turnIdx": 0,
+          "phase": "implementation"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 1,
+          "phase": "compile"
+        }
+      ],
+      "grade": "B",
+      "note": "P4 세션: CLAUDE.md 박제 (D-E·D-F·D-G) + D-105 결정 박제 + topic-status.ts + finalize R-6 | P3 완료 확인 (session_131): 8/8 역할 G3 PASS, PD-053 등록 | 다음 세션: 검증 (D grade) — topic-status.ts 시나리오 + finalize R-6 dry-run",
+      "oneLineSummary": "P4 완료: CLAUDE.md D-E·D-F·D-G 박제 + D-105 + topic-status.ts + finalize R-6 scale 감지",
+      "decisionsAdded": [
+        "D-105"
+      ]
     }
   ],
-  "lastUpdated": "2026-04-28T12:00:52.779Z",
+  "lastUpdated": "2026-04-28T12:24:41.887Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

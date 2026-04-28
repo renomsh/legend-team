@@ -1,17 +1,17 @@
 {
-  "sessionId": "session_131",
+  "sessionId": "session_132",
   "topicId": "topic_127",
   "topic": "S 페르소나 구조 재수립",
   "topicSlug": "persona-structure-redesign",
   "reportPath": "reports/2026-04-28_persona-structure-redesign",
   "status": "closed",
-  "startedAt": "2026-04-28T14:30:00.000Z",
-  "closedAt": "2026-04-28T16:00:00.000Z",
-  "oneLineSummary": "P3 완료: 5역할 atomic 분리 + scaffold-role.ts G3 PASS(8/8), PD-053 등록",
+  "startedAt": "2026-04-28T16:10:00.000Z",
+  "closedAt": "2026-04-28T17:00:00.000Z",
+  "oneLineSummary": "P4 완료: CLAUDE.md D-E·D-F·D-G 박제 + D-105 + topic-status.ts + finalize R-6 scale 감지",
   "mode": "observation",
   "grade": "B",
   "gradeDeclared": "B",
-  "gradeNote": "P3: 잔여 5역할 atomic 분리 + scaffold-role.ts — 명확 실행형, 구조적 탐색 불필요",
+  "gradeNote": "P4: CLAUDE.md 박제 (D-E·D-F·D-G) + D-105 결정 박제 — 명확 실행형",
   "framingLevel": 2,
   "framingSkipped": false,
   "topicType": "framing",
@@ -36,16 +36,20 @@
   "decisions": [],
   "masterDecisions": [],
   "masterFeedback": [],
-  "pendingDeferralsAdded": [
-    "PD-053"
-  ],
+  "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
-  "decisionsAdded": [],
+  "decisionsAdded": [
+    "D-105"
+  ],
+  "versionBump": {
+    "delta": 0.01,
+    "reason": "P4 정책 박제 완료 — CLAUDE.md D-E·D-F·D-G + topic-status.ts SOT 헬퍼 + finalize R-6",
+    "category": "capacity-extension"
+  },
   "notes": [
-    "P3 세션: 잔여 5역할(fin·riki·nova·edi·vera) atomic 분리 + scaffold-role.ts 신규",
-    "G3 PASS — 8/8 역할 scaffold-role.ts 검증 완료",
-    "Nova Output Style → role-nova.md policy 이동 (persona 정비 완료)",
-    "PD-053 신규: 역할별 캐릭터 정비 (persona+policy+memory 통합 검토)"
+    "P4 세션: CLAUDE.md 박제 (D-E·D-F·D-G) + D-105 결정 박제 + topic-status.ts + finalize R-6",
+    "P3 완료 확인 (session_131): 8/8 역할 G3 PASS, PD-053 등록",
+    "다음 세션: 검증 (D grade) — topic-status.ts 시나리오 + finalize R-6 dry-run"
   ],
   "gaps": [
     {
@@ -63,18 +67,13 @@
       "turnId": 1
     }
   ],
-  "versionBump": {
-    "delta": 0.1,
-    "reason": "P3 완료 — 8역할 3층 분리 구조 완성(persona+policy+common). scaffold-role.ts G3 PASS. session_130 예고 +0.1 확대 적용.",
-    "category": "structural-change"
-  },
   "tokenUsage": {
-    "input_tokens": 219,
-    "output_tokens": 142631,
-    "cache_creation_input_tokens": 721839,
-    "cache_read_input_tokens": 13453104,
-    "messageCount": 123,
-    "masterTurns": 21,
-    "total_billable": 14317793
+    "input_tokens": 298,
+    "output_tokens": 55209,
+    "cache_creation_input_tokens": 507855,
+    "cache_read_input_tokens": 7887119,
+    "messageCount": 94,
+    "masterTurns": 11,
+    "total_billable": 8450481
   }
 }

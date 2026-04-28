@@ -72,7 +72,20 @@ Rules:
 ### 레거시 호환
 기존 토픽 중 topic_062/066 2건만 소급(테스트 케이스). 나머지 68개는 topicType undefined 유지 — 자동 종결 로직의 영향권 밖.
 
+### Topic Status SOT 정책 (D-F / D-104-s130, 2026-04-28)
+- **SOT:** `memory/shared/topic_index.json` — 모든 status 변경의 단일 출처
+- **mirror:** `topics/{topicId}/topic_meta.json` — SOT를 따라가는 복사본
+- **갱신 책임:** `scripts/lib/topic-status.ts`의 `updateTopicStatus()` 헬퍼가 SOT + mirror 동시 갱신. 수동 Edit으로 mirror만 갱신 금지.
+- **status enum 7종 (D-B):** `open` | `framing` | `design-approved` | `implementing` | `completed` | `suspended` | `cancelled`
+
+### Transition Checkpoint 정책 (D-C·D-E·D-G / D-104-s130, 2026-04-28)
+- **trigger 어휘 (D-E):** 구현 단계 진입 승인 = `"구현 진입"` 또는 `"approve-impl"`. `"진행해"`는 D-020(Ace validate override) 전용 — 혼용 금지.
+- **checkpoint 동작 (D-C):** 1회 알림만. tool blocker 아님 (Edit/Write/Bash 직접 차단 없음).
+- **적용 범위 (D-G):** Grade A/B/S framing 토픽만. Grade C/D는 optional.
+- **활성화 조건 (D-G):** PD-052(사칭 차단 hook) resolved 이후. 미해결 시 warn-only 모드.
+
 ### 관련 스크립트
+- `scripts/lib/topic-status.ts` — topic_index(SOT) + topic_meta(mirror) 동시 갱신 헬퍼 (D-F)
 - `scripts/lib/topic-lifecycle.ts` — 타입·검증·매칭 유틸
 - `scripts/auto-close-topics.ts` — framing 토픽 자동 종결 (dry-run / --apply)
 - `scripts/resolve-pending-deferrals.ts` — PD 자동 전이 + stale 리포트

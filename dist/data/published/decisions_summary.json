@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-04-28T12:01:15.395Z",
+  "generatedAt": "2026-04-28T12:25:03.750Z",
   "decisions": [
+    {
+      "id": "D-105",
+      "date": "2026-04-28",
+      "session": "session_132",
+      "topic": "topic_127",
+      "owningTopicId": "topic_127",
+      "scopeCheck": "P4 박제 — D-E·D-F·D-G CLAUDE.md 정책 공식화 + topic-status.ts SOT 헬퍼 구현",
+      "axis": "trigger 어휘 분리(D-E) / topic_index SOT + topic_meta mirror 정책(D-F) / transition checkpoint 적용 범위 + 활성화 조건(D-G)",
+      "decision": "D-E: 구현 진입 승인 trigger = '구현 진입'/'approve-impl'. '진행해'는 D-020(Ace override) 전용 — 혼용 금지. D-F: topic_index.json=SOT / topic_meta.json=mirror. updateTopicStatus() 헬퍼(scripts/lib/topic-status.ts)가 동시 갱신 책임. 수동 mirror-only 편집 금지. D-B status enum 7종 확정(open|framing|design-approved|implementing|completed|suspended|cancelled). D-G: transition checkpoint 적용 범위 = Grade A/B/S framing 토픽. Grade C/D optional. 활성화 = PD-052 resolved 이후. 미해결 시 warn-only. 구현: CLAUDE.md 'Topic Status SOT 정책' + 'Transition Checkpoint 정책' 섹션 신설. scripts/lib/topic-status.ts 신규(updateTopicStatus 함수).",
+      "value": "D-104-s130에서 동결된 D-E·D-F·D-G 결정을 CLAUDE.md에 정책으로 공식 박제. topic-status.ts 헬퍼로 SOT 표류(D-F) 구조적 방지. trigger 어휘 혼용 방지(D-E)로 D-020과 충돌 차단. 활성화 조건 명시(D-G)로 false-sense-of-security 방지."
+    },
     {
       "id": "D-104-s130",
       "date": "2026-04-28",
