@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-04-28T12:25:03.745Z",
+  "generatedAt": "2026-04-28T12:33:07.281Z",
   "topics": [
     {
       "id": "topic_127",
       "title": "S 페르소나 구조 재수립",
-      "status": "in-progress",
+      "status": "completed",
       "created": "2026-04-28",
       "reportPath": "reports/2026-04-28_persona-structure-redesign",
       "reportFiles": [
@@ -20,10 +20,11 @@
         "dev_rev2.md",
         "edi_rev2.md",
         "dev_rev3.md",
-        "dev_rev4.md"
+        "dev_rev4.md",
+        "dev_rev5.md"
       ],
       "published": false,
-      "outcome": "P0+P1 완료(session_129). P2 완료 — hook v3 G2 PASS 4/4(session_130). D-A~D-G 동결. P3 완료 — 8역할 G3 PASS(session_131). P4 완료 — CLAUDE.md 박제(D-E·D-F·D-G) + D-105 + topic-status.ts + finalize R-6(session_132). 검증 세션 예정.",
+      "outcome": "P0+P1 완료(session_129). P2 완료 — hook v3 G2 PASS 4/4(session_130). D-A~D-G 동결. P3 완료 — 8역할 G3 PASS(session_131). P4 완료 — CLAUDE.md 박제(D-E·D-F·D-G) + D-105 + topic-status.ts + finalize R-6(session_132). 검증 완료 — topic-status.ts 32/32 PASS + finalize R-6 dry-run 7/7 PASS(session_133).",
       "note": null,
       "masterDecisions": []
     },

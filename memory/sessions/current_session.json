@@ -1,19 +1,19 @@
 {
-  "sessionId": "session_132",
+  "sessionId": "session_133",
   "topicId": "topic_127",
   "topic": "S 페르소나 구조 재수립",
   "topicSlug": "persona-structure-redesign",
   "reportPath": "reports/2026-04-28_persona-structure-redesign",
   "status": "closed",
-  "startedAt": "2026-04-28T16:10:00.000Z",
-  "closedAt": "2026-04-28T17:00:00.000Z",
-  "oneLineSummary": "P4 완료: CLAUDE.md D-E·D-F·D-G 박제 + D-105 + topic-status.ts + finalize R-6 scale 감지",
+  "startedAt": "2026-04-28T12:27:22.431Z",
+  "closedAt": "2026-04-28T17:15:00.000Z",
+  "oneLineSummary": "검증 완료: topic-status.ts 32/32 PASS + finalize R-6 dry-run 7/7 PASS, topic_127 completed",
   "mode": "observation",
-  "grade": "B",
-  "gradeDeclared": "B",
-  "gradeNote": "P4: CLAUDE.md 박제 (D-E·D-F·D-G) + D-105 결정 박제 — 명확 실행형",
-  "framingLevel": 2,
-  "framingSkipped": false,
+  "grade": "D",
+  "gradeDeclared": "D",
+  "gradeNote": "검증 세션 — topic-status.ts 시나리오 + finalize R-6 dry-run",
+  "framingLevel": 0,
+  "framingSkipped": true,
   "topicType": "framing",
   "parentTopicId": null,
   "childTopicIds": [],
@@ -38,18 +38,11 @@
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
-  "decisionsAdded": [
-    "D-105"
-  ],
-  "versionBump": {
-    "delta": 0.01,
-    "reason": "P4 정책 박제 완료 — CLAUDE.md D-E·D-F·D-G + topic-status.ts SOT 헬퍼 + finalize R-6",
-    "category": "capacity-extension"
-  },
+  "decisionsAdded": [],
   "notes": [
-    "P4 세션: CLAUDE.md 박제 (D-E·D-F·D-G) + D-105 결정 박제 + topic-status.ts + finalize R-6",
-    "P3 완료 확인 (session_131): 8/8 역할 G3 PASS, PD-053 등록",
-    "다음 세션: 검증 (D grade) — topic-status.ts 시나리오 + finalize R-6 dry-run"
+    "D grade 검증 세션: topic-status.ts updateTopicStatus() 4시나리오 + finalize R-6 checkSelfScoreScale() 3시나리오",
+    "32/32 PASS — 전체 통과",
+    "topic_127 completed 전환 완료 (P0~P4 + 검증 전 단계 완결)"
   ],
   "gaps": [
     {
@@ -68,12 +61,12 @@
     }
   ],
   "tokenUsage": {
-    "input_tokens": 298,
-    "output_tokens": 55209,
-    "cache_creation_input_tokens": 507855,
-    "cache_read_input_tokens": 7887119,
-    "messageCount": 94,
-    "masterTurns": 11,
-    "total_billable": 8450481
+    "input_tokens": 658,
+    "output_tokens": 36866,
+    "cache_creation_input_tokens": 265827,
+    "cache_read_input_tokens": 4252731,
+    "messageCount": 61,
+    "masterTurns": 3,
+    "total_billable": 4556082
   }
 }
