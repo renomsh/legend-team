@@ -239,7 +239,18 @@
       "reusable": true
     }
   ],
-  "lastUpdated": "2026-04-26",
+  "lastUpdated": "2026-04-28",
+  "sessionLearnings_session130": {
+    "session": "session_130",
+    "date": "2026-04-28",
+    "topic": "persona-structure-redesign P2",
+    "findings": [
+      "hook 함수 분리 패턴: 단일 IIFE에 두 책임이 생길 때, 내부 순수 함수(buildPersonaLayer/evaluateTransitionCheckpoint)로 분리하면 테스트 픽스처와 로그 phase도 자연스럽게 분리됨.",
+      "절삭 계층 5단 설계: cap 초과 시 세션 → 토픽 → persona 순 절삭. persona는 절삭 대상 제외 — PERSONA_OVER_CAP 마커로 서브에 통보 후 절삭 없이 유지. T-P2-02 PASS 검증.",
+      "transition gate evaluateTransitionCheckpoint: grade/topicType/status 3조건 AND 매칭. 파싱 실패·파일 없음은 null 반환(silent pass) — D-G '선택적 gate' 정합.",
+      "validate-hook-registration 패턴: settings.json hooks PreToolUse/PostToolUse/SessionEnd 등록 여부를 단위 점검 스크립트로 구현. 매 세션 종료 시 finalize 체인에서 실행 가능."
+    ]
+  },
   "observations": [
     {
       "date": "2026-04-19",

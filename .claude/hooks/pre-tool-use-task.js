@@ -1,14 +1,12 @@
 #!/usr/bin/env node
 /**
- * PreToolUse(Task) hook — Asset #1 v2 (PD-033 / topic_121, 2026-04-28 개선).
+ * PreToolUse(Task) hook — Asset #1 v3 (topic_127, 2026-04-28 P2 구현).
  *
- * v1 (경로 힌트) → v2 (실제 내용 inject):
- *   - 세션 layer: 현재 세션 전체 turn 보고서 내용 직접 읽어서 박음
- *   - 토픽 layer: 이전 세션 Edi 보고서 내용 직접 읽어서 박음
- *   에이전트가 Read 도구를 따로 호출할 필요 없음.
- *
- * Agent(Task) 호출 직전 자동 발동. 호출되는 서브에이전트의 prompt에
- * "토픽 layer + 세션 layer" 컨텍스트를 자동 prepend.
+ * v2 (topic+session layer inject) → v3 (+ persona 3층 compose + transition checkpoint):
+ *   - buildPersonaLayer: _common.md + policies/role-{r}.md + personas/role-{r}.md concat
+ *   - evaluateTransitionCheckpoint: Grade A/B/S framing 토픽의 design-approved → implementing 알림
+ *   - KNOWN_ROLES에 vera 추가 (P2 흡수)
+ *   - 절삭 우선순위: sessionLayer → topicLayer → persona-layer 절삭 금지
  *
  * 안전:
  *   - 무한 루프 방지: prompt에 이미 [PRE-TOOL-USE-TASK-INJECTED] 마커 있으면 skip.
@@ -16,6 +14,7 @@
  *   - token cap: 보고서당 MAX_CHARS_PER_REPORT, 총합 TOTAL_CAP_CHARS 초과 시 절삭.
  *
  * 로그: logs/pre-tool-use-task.log (jsonl)
+ * 로그 phase: mutate-v3-persona | persona-missing | persona-over-cap | gate-check | gate-triggered | skip-already-injected | error
  */
 
 const fs = require('fs');
@@ -23,11 +22,15 @@ const path = require('path');
 
 const TARGET_TOOL_NAMES = ['Task', 'Agent'];
 const ROLE_AGENT_PREFIX = 'role-';
-const KNOWN_ROLES = ['ace', 'arki', 'fin', 'riki', 'nova', 'dev', 'edi', 'designer'];
+// vera 추가 (P2, topic_127)
+const KNOWN_ROLES = ['ace', 'arki', 'fin', 'riki', 'nova', 'dev', 'edi', 'designer', 'vera'];
 const INJECTION_MARKER = '[PRE-TOOL-USE-TASK-INJECTED]';
 const MAX_CHARS_PER_REPORT = 6000;   // 보고서 1개당 최대 (약 1.5K tokens)
 const MAX_CHARS_PER_EDI   = 8000;   // Edi 보고서는 좀 더 허용
 const TOTAL_CAP_CHARS    = 80000;   // 전체 inject 총합 최대
+
+// transition checkpoint 적용 대상 grade (D-G)
+const TRANSITION_GATE_GRADES = ['A', 'B', 'S'];
 
 function readStdin() {
   return new Promise((resolve) => {
@@ -127,6 +130,109 @@ function findLatestReport(cwd, reportPath, role) {
     }
     return latest ? path.posix.join(reportPath.replace(/\\/g, '/'), latest) : null;
   } catch { return null; }
+}
+
+/**
+ * [v3 신규] buildPersonaLayer — 3층 페르소나 compose.
+ *
+ * 절삭 우선순위 (TOTAL_CAP_CHARS 초과 시):
+ *   1. sessionLayer turns 절삭 (외부에서 처리)
+ *   2. sessionLayer 전체 drop (외부에서 처리)
+ *   3. topicLayer Edi 보고서 절삭 (외부에서 처리)
+ *   4. topicLayer 전체 drop (외부에서 처리)
+ *   5. persona-layer는 절삭 대상에서 제외 → PERSONA_OVER_CAP 마커 + 서브 발언 거부
+ *
+ * @param {string} cwd - 프로젝트 루트
+ * @param {string} role - 역할명 (소문자)
+ * @returns {{ content: string, markers: string[] }}
+ */
+function buildPersonaLayer(cwd, role) {
+  const markers = [];
+  const parts = [];
+
+  // 1. _common.md
+  const commonPath = path.join(cwd, 'memory', 'roles', 'policies', '_common.md');
+  const commonContent = readTextFile(commonPath);
+  if (commonContent) {
+    parts.push(commonContent.trim());
+  } else {
+    markers.push('⚠ COMMON_POLICY_MISSING');
+  }
+
+  // 2. policies/role-{role}.md (없으면 조용히 스킵 — P3 완료 전 잔여 역할)
+  if (role && role !== 'unknown') {
+    const policyPath = path.join(cwd, 'memory', 'roles', 'policies', `role-${role}.md`);
+    const policyContent = readTextFile(policyPath);
+    if (policyContent) {
+      parts.push(policyContent.trim());
+    }
+    // 없으면 조용히 스킵 (잔여 역할 P3 완료 전)
+  }
+
+  // 3. personas/role-{role}.md — 마지막에 와야 톤 잔존
+  if (role && role !== 'unknown') {
+    const personaPath = path.join(cwd, 'memory', 'roles', 'personas', `role-${role}.md`);
+    const personaContent = readTextFile(personaPath);
+    if (personaContent) {
+      parts.push(personaContent.trim());
+    } else {
+      markers.push(`⚠ PERSONA_INJECT_FAILED: role=${role}`);
+    }
+  }
+
+  const content = parts.join('\n\n---\n\n');
+  return { content, markers };
+}
+
+/**
+ * [v3 신규] evaluateTransitionCheckpoint — transition gate 평가.
+ *
+ * D-G 조건:
+ *   1. 해당 토픽 grade가 A/B/S인가?
+ *   2. topicType === 'framing'인가?
+ *   3. status가 'implementing'이 아닌가? (이미 진입했으면 패스)
+ *
+ * 3조건 모두 true → ⚠ TRANSITION_GATE 마커 반환.
+ * 조건 미충족 → null 반환 (조용히 패스).
+ * 파일 없음/파싱 실패 → null (gate는 선택적, D-G 정합).
+ *
+ * 활성화 조건 (D-G / R-5): PD-052 resolved 후에만 status 토글 발동.
+ * 현재 세션은 마커 prepend만 — status 토글 비활성.
+ *
+ * @param {string} cwd
+ * @param {string} topicId
+ * @returns {string|null} 마커 문자열 또는 null
+ */
+function evaluateTransitionCheckpoint(cwd, topicId) {
+  if (!topicId) return null;
+
+  try {
+    const indexPath = path.join(cwd, 'memory', 'shared', 'topic_index.json');
+    const index = readJsonFile(indexPath);
+    if (!index || !Array.isArray(index.topics)) return null;
+
+    const topic = index.topics.find(t => t.id === topicId);
+    if (!topic) return null;
+
+    // D-G: Grade A/B/S framing 토픽만 적용
+    const grade = (topic.grade || '').toUpperCase();
+    if (!TRANSITION_GATE_GRADES.includes(grade)) return null;
+
+    // framing topicType만 적용
+    if (topic.topicType !== 'framing') return null;
+
+    // 이미 implementing 상태면 패스
+    if (topic.status === 'implementing') return null;
+
+    // design-approved 상태에서만 게이트 발동 (또는 아직 미전이된 framing 토픽)
+    // status가 completed/suspended/cancelled면 패스
+    const passStatuses = ['completed', 'suspended', 'cancelled'];
+    if (passStatuses.includes(topic.status)) return null;
+
+    return `⚠ TRANSITION_GATE: topic '${topicId}' 상태 '${topic.status}' — 구현 진입 전 "구현 진입" 또는 "approve-impl" 확인 필요 (D-G, PD-052 resolved 후 활성화)`;
+  } catch {
+    return null; // 파일 없음/파싱 실패 → 조용히 패스
+  }
 }
 
 /**
@@ -248,21 +354,58 @@ function buildTopicLayer(cwd, topicId, currentSessionId) {
   return lines.join('\n');
 }
 
-function composeInjection(topicLayer, sessionLayer, role) {
+/**
+ * [v3] composeInjection — persona layer 포함 최종 합성.
+ *
+ * 절삭 계층 (외부에서 단계적 호출):
+ *   level 0 (기본): personaLayer + topicLayer + sessionLayer
+ *   level 1: personaLayer + topicLayer + sessionLayerShort (최근 5 turns)
+ *   level 2: personaLayer + topicLayer + null (session drop)
+ *   level 3: personaLayer + null + null (topic drop)
+ *   level 4: 여전히 초과 → ⚠ PERSONA_OVER_CAP 마커 + 서브 발언 거부
+ */
+function composeInjection(personaContent, personaMarkers, topicLayer, sessionLayer, role, gateMarker) {
   const parts = [];
   parts.push(`<dispatch-context ${INJECTION_MARKER}>`);
-  parts.push(`# 자동 주입 컨텍스트 — pre-tool-use-task.js v2 (PD-033 / D-103)`);
+  parts.push(`# 자동 주입 컨텍스트 — pre-tool-use-task.js v3 (topic_127, 2026-04-28 P2)`);
   parts.push(`# role: ${role}`);
   parts.push(`# 이 블록을 먼저 읽고 이전 발언자들의 내용을 파악한 후 발언하세요.`);
   parts.push(``);
+
+  // transition gate 마커 (최상단)
+  if (gateMarker) {
+    parts.push(gateMarker);
+    parts.push(``);
+  }
+
+  // persona 마커 (오류 알림)
+  if (personaMarkers && personaMarkers.length > 0) {
+    for (const m of personaMarkers) {
+      parts.push(m);
+    }
+    parts.push(``);
+  }
+
+  // persona layer
+  if (personaContent) {
+    parts.push(`## 페르소나 및 역할 정책`);
+    parts.push(``);
+    parts.push(personaContent);
+    parts.push(``);
+  }
+
+  // topic layer
   if (topicLayer) {
     parts.push(topicLayer);
     parts.push('');
   }
+
+  // session layer
   if (sessionLayer) {
     parts.push(sessionLayer);
     parts.push('');
   }
+
   parts.push(`</dispatch-context>`);
   parts.push(``);
   parts.push(``);
@@ -299,21 +442,40 @@ function composeInjection(topicLayer, sessionLayer, role) {
     const topicId = sess && sess.topicId ? sess.topicId : null;
     const sessionId = sess && sess.sessionId ? sess.sessionId : null;
 
+    // [v3] persona layer 빌드
+    const { content: personaContent, markers: personaMarkers } = buildPersonaLayer(cwd, role);
+
+    // [v3] transition gate 평가
+    const gateMarker = evaluateTransitionCheckpoint(cwd, topicId);
+
     const topicLayer = buildTopicLayer(cwd, topicId, sessionId);
     const sessionLayer = buildSessionLayer(cwd, sess);
 
-    let injection = composeInjection(topicLayer, sessionLayer, role);
+    // 단계적 절삭 (persona layer는 절삭 금지)
+    let injection = composeInjection(personaContent, personaMarkers, topicLayer, sessionLayer, role, gateMarker);
 
-    // 총합 cap: 초과 시 단계적 절삭
+    // Level 1: session turns 절삭 (최근 5건)
     if (injection.length > TOTAL_CAP_CHARS) {
-      // 세션 layer만 재구성 (최근 5 turns 한도, 더 공격적 절삭)
       const truncatedSess = sess ? { ...sess, turns: (sess.turns || []).slice(-5) } : sess;
       const sessionLayerShort = buildSessionLayer(cwd, truncatedSess);
-      injection = composeInjection(topicLayer, sessionLayerShort, role);
+      injection = composeInjection(personaContent, personaMarkers, topicLayer, sessionLayerShort, role, gateMarker);
     }
+
+    // Level 2: session layer 전체 drop
     if (injection.length > TOTAL_CAP_CHARS) {
-      // 토픽 layer만 보존
-      injection = composeInjection(topicLayer, null, role);
+      injection = composeInjection(personaContent, personaMarkers, topicLayer, null, role, gateMarker);
+    }
+
+    // Level 3: topic layer drop
+    if (injection.length > TOTAL_CAP_CHARS) {
+      injection = composeInjection(personaContent, personaMarkers, null, null, role, gateMarker);
+    }
+
+    // Level 4: 여전히 초과 → PERSONA_OVER_CAP (persona layer는 절삭 불가)
+    if (injection.length > TOTAL_CAP_CHARS) {
+      const overCapMarkers = [...(personaMarkers || []), '⚠ PERSONA_OVER_CAP: 페르소나 크기가 cap을 초과합니다. 이 서브에이전트 발언을 진행하기 전에 Master에게 보고하세요.'];
+      injection = composeInjection(personaContent, overCapMarkers, null, null, role, gateMarker);
+      logEntry(cwd, { ts, phase: 'persona-over-cap', role, topicId, injectionLen: injection.length });
     }
 
     const mutatedPrompt = injection + originalPrompt;
@@ -323,22 +485,33 @@ function composeInjection(topicLayer, sessionLayer, role) {
       hookSpecificOutput: {
         hookEventName: 'PreToolUse',
         permissionDecision: 'allow',
-        permissionDecisionReason: 'Asset #1 v2 — auto-inject topic+session content',
+        permissionDecisionReason: 'Asset #1 v3 — persona compose + transition gate + topic+session inject',
         updatedInput,
       },
     };
 
+    // 로그 phase 분리 (v3)
+    const logPhase = personaMarkers.some(m => m.includes('PERSONA_INJECT_FAILED'))
+      ? 'persona-missing'
+      : 'mutate-v3-persona';
+
     logEntry(cwd, {
       ts,
-      phase: 'mutate-v2',
+      phase: logPhase,
       toolName,
       role,
       topicId,
       sessionId,
+      gateTriggered: !!gateMarker,
+      personaMarkers,
       originalPromptLen: originalPrompt.length,
       injectionLen: injection.length,
       mutatedPromptLen: mutatedPrompt.length,
     });
+
+    if (gateMarker) {
+      logEntry(cwd, { ts, phase: 'gate-triggered', topicId, role, gateMarker });
+    }
 
     process.stdout.write(JSON.stringify(output));
     process.exit(0);

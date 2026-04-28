@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-04-28T08:09:20.559Z",
+  "generatedAt": "2026-04-28T11:22:28.271Z",
   "topics": [
     {
       "id": "topic_127",
       "title": "S 페르소나 구조 재수립",
-      "status": "in-progress",
+      "status": "implementing",
       "created": "2026-04-28",
       "reportPath": "reports/2026-04-28_persona-structure-redesign",
       "reportFiles": [
@@ -13,10 +13,15 @@
         "riki_rev1.md",
         "ace_rev2.md",
         "dev_rev1.md",
-        "edi_rev1.md"
+        "edi_rev1.md",
+        "arki_rev2.md",
+        "riki_rev2.md",
+        "ace_rev3.md",
+        "dev_rev2.md",
+        "edi_rev2.md"
       ],
       "published": false,
-      "outcome": "Phase P0+P1 완료(G0 24.7% PASS, G1 3역할 분리·회귀 0). P2~P4 다음 세션 이관.",
+      "outcome": "P0+P1 완료(G0/G1 PASS, session_129). P2 완료(G2 PASS 4/4 — hook v3 buildPersonaLayer + evaluateTransitionCheckpoint + fixture + validate-hook-registration, session_130). D-A~D-G 동결. P3(잔여 5역할 분리) + P4(D-105 박제) 다음 세션 이관.",
       "note": null,
       "masterDecisions": []
     },

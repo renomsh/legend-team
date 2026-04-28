@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-28T08:09:18.876Z",
-  "totalSessions": 127,
+  "generatedAt": "2026-04-28T11:22:27.050Z",
+  "totalSessions": 128,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.08,
-    "avgCacheHitRate": 0.9339,
-    "cacheSampleSize": 101,
-    "cacheSampleTotal": 127,
+    "avgMasterTurns": 17.04,
+    "avgCacheHitRate": 0.9329,
+    "cacheSampleSize": 102,
+    "cacheSampleTotal": 128,
     "avgAdoptionRate": 0,
-    "totalDecisions": 104,
+    "totalDecisions": 105,
     "gradeDistribution": {
-      "S": 50,
-      "A": 26,
+      "S": 52,
+      "A": 25,
       "B": 37,
       "C": 14
     },
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 82,
-    "totalCostUSD": 1373.2841,
-    "avgCostPerSession": 11.2564,
-    "costSampleSize": 122
+    "turnBasedSessions": 83,
+    "totalCostUSD": 1379.3585,
+    "avgCostPerSession": 11.2143,
+    "costSampleSize": 123
   },
   "sessions": [
     {
@@ -4810,10 +4810,10 @@
       "decisionAxes": 0,
       "rolesCalled": 6,
       "rolesRecalled": 1,
-      "sessionsSpanned": 1,
-      "size": 11,
-      "gradeDeclared": "A",
-      "gradeActual": "A",
+      "sessionsSpanned": 2,
+      "size": 14,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 8,
@@ -4837,12 +4837,53 @@
         "messageCount": 124
       },
       "sessionCostUSD": 11.5689
+    },
+    {
+      "sessionId": "session_130",
+      "topicSlug": "persona-structure-redesign",
+      "topic": "S 페르소나 구조 재수립",
+      "startedAt": "2026-04-28T11:45:00.000Z",
+      "closedAt": "2026-04-28T14:20:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-104-s130"
+      ],
+      "rolesCalled": 6,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 2,
+      "size": 16,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 12,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "ace",
+        "dev",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 5613985,
+        "ioTokens": 87720,
+        "inputTokens": 135,
+        "outputTokens": 87585,
+        "cacheCreate": 899221,
+        "cacheRead": 4627044,
+        "cacheHitRate": 0.824199565905502,
+        "messageCount": 53
+      },
+      "sessionCostUSD": 6.0744
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 139,
+      "count": 141,
       "sessions": [
         "session_047",
         "session_048",
@@ -4910,12 +4951,13 @@
         "session_125",
         "session_127",
         "session_128",
-        "session_129"
+        "session_129",
+        "session_130"
       ]
     },
     {
       "role": "arki",
-      "count": 97,
+      "count": 98,
       "sessions": [
         "session_048",
         "session_049",
@@ -4963,12 +5005,13 @@
         "session_125",
         "session_127",
         "session_128",
-        "session_129"
+        "session_129",
+        "session_130"
       ]
     },
     {
       "role": "edi",
-      "count": 83,
+      "count": 84,
       "sessions": [
         "session_050",
         "session_051",
@@ -5048,12 +5091,13 @@
         "session_126",
         "session_127",
         "session_128",
-        "session_129"
+        "session_129",
+        "session_130"
       ]
     },
     {
       "role": "dev",
-      "count": 65,
+      "count": 66,
       "sessions": [
         "session_047",
         "session_048",
@@ -5105,12 +5149,13 @@
         "session_123",
         "session_124",
         "session_127",
-        "session_129"
+        "session_129",
+        "session_130"
       ]
     },
     {
       "role": "riki",
-      "count": 47,
+      "count": 48,
       "sessions": [
         "session_049",
         "session_053",
@@ -5151,7 +5196,8 @@
         "session_125",
         "session_127",
         "session_128",
-        "session_129"
+        "session_129",
+        "session_130"
       ]
     },
     {
@@ -8498,6 +8544,48 @@
         {
           "role": "edi",
           "phase": "compile",
+          "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_130",
+      "topic": "S 페르소나 구조 재수립",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing-exploration",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "structural-design",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "risk-audit",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 3,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": "compilation",
           "turnIdx": 5,
           "recallReason": null
         }

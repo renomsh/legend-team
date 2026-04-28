@@ -1,6 +1,17 @@
 {
   "decisions": [
     {
+      "id": "D-104-s130",
+      "date": "2026-04-28",
+      "session": "session_130",
+      "topic": "topic_127",
+      "owningTopicId": "topic_127",
+      "scopeCheck": "persona·role policy·metrics 3층 분리 + hook v3 + transition checkpoint — P2 완료 결정 (D-A~D-G 동결)",
+      "axis": "hook v3 buildPersonaLayer + evaluateTransitionCheckpoint 두 함수 분리 / status enum 7종 확정 / trigger 어휘 분리 / SOT·mirror 정의 / Grade 적용 범위 + PD-052 dependency",
+      "decision": "D-A: persona·role policy·common 3층 분리 + metrics SOT 정합 — 동결. D-B: status enum 7종 = {open, framing, design-approved, implementing, completed, suspended, cancelled} — R-2 SOT 표류 흡수. D-C: transition checkpoint = 1회 알림, tool blocker 아님 — R-1(d) 사후 적발 추가. D-D: hook v3 두 책임 분리 (buildPersonaLayer + evaluateTransitionCheckpoint). D-E: trigger 어휘 = '구현 진입'/'approve-impl', '진행해'는 D-020 전용 유지 — R-3 흡수. D-F(신규): topic_index.json=SOT / topic_meta.json=mirror, topic-status.ts 헬퍼가 동시 갱신 책임 — R-2 흡수. D-G(신규): transition checkpoint 적용 = Grade A/B/S framing 토픽. Grade C/D optional. 활성화는 PD-052 resolved 후 — R-4+R-5 흡수. 구현 완료: hook v3 G2 PASS 4/4 + validate-hook-registration 4/4.",
+      "value": "P2 hook v3 완료 — 3층 persona compose + transition checkpoint 알림 메커니즘. Riki 5건 리스크 모두 흡수(R-1은 finalize 사후 적발 + PD-052 의존). D-F·D-G는 SOT 표류와 Grade 범위 명시로 향후 정책 혼선 방지. 활성화 시점을 PD-052 dependency로 명시하여 false-sense-of-security 방지."
+    },
+    {
       "id": "D-103",
       "date": "2026-04-28",
       "session": "session_123",

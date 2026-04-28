@@ -1,15 +1,17 @@
 {
-  "sessionId": "session_129",
+  "sessionId": "session_130",
   "topicId": "topic_127",
   "topic": "S 페르소나 구조 재수립",
   "topicSlug": "persona-structure-redesign",
   "reportPath": "reports/2026-04-28_persona-structure-redesign",
   "status": "closed",
-  "startedAt": "2026-04-28T09:30:00.000Z",
-  "closedAt": "2026-04-28T11:30:00.000Z",
+  "startedAt": "2026-04-28T11:45:00.000Z",
+  "closedAt": "2026-04-28T14:20:00.000Z",
+  "oneLineSummary": "persona-structure-redesign P2 완료: hook v3 G2 PASS(4/4), D-A~D-G 동결, P3 이관",
   "mode": "observation",
-  "grade": "S",
-  "gradeDeclared": "S",
+  "grade": "B",
+  "gradeDeclared": "B",
+  "gradeNote": "topic_127 본체는 S(전체 구조 재수립)이지만, 본 세션은 P2 hook v3 구현 + 승인 게이트 설계로 범위 한정 → B grade 명시",
   "framingLevel": 2,
   "framingSkipped": false,
   "topicType": "framing",
@@ -27,23 +29,17 @@
     {
       "role": "ace",
       "turnIdx": 0,
-      "phase": "framing"
+      "phase": "framing-exploration"
     },
     {
       "role": "arki",
       "turnIdx": 1,
-      "phase": "design",
-      "selfScores": {
-        "str_fd": 1
-      }
+      "phase": "structural-design"
     },
     {
       "role": "riki",
       "turnIdx": 2,
-      "phase": "design",
-      "selfScores": {
-        "fp_rt": 0.1
-      }
+      "phase": "risk-audit"
     },
     {
       "role": "ace",
@@ -54,55 +50,54 @@
     {
       "role": "dev",
       "turnIdx": 4,
-      "phase": "implementation",
-      "selfScores": {
-        "rt_cov": 1,
-        "gt_pas": 1,
-        "hc_rt": 0,
-        "spc_drf": 0
-      }
+      "phase": "implementation"
     },
     {
       "role": "edi",
       "turnIdx": 5,
-      "phase": "compile"
+      "phase": "compilation"
     }
   ],
   "decisions": [],
   "masterDecisions": [],
-  "masterFeedback": [
-    "MF-102"
-  ],
-  "pendingDeferralsAdded": [
-    "PD-052"
-  ],
+  "masterFeedback": [],
+  "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "decisionsAdded": [],
   "notes": [
-    "Master Q1~Q3 답: .claude/agents/ 비움 의도 + 오염/경량화 둘 다 + 가능한 영역까지",
-    "Master 추가 input: 과거 함정 F-A(agents 위치 시 실제 호출 안 됨) + F-B(호출 안 하고 호출한 척)",
-    "옵션 2 채택 — 3층 분리 (persona / role policy / common policy) + metrics_registry SOT",
-    "Riki R-1~R-8 식별, R-4 사칭 차단은 PD-052 별도 분리 (scope-out)",
-    "P0 G0 PASS — 8역할 worst-case prepend 19,751/80,000 chars = 24.7%",
-    "P1 G1 PASS — arki/ace/dev 3역할 분리 (avg -60.9%) + hook v2 회귀 0",
-    "신규 4파일: policies/_common.md, policies/role-{arki,ace,dev}.md",
-    "PD-044 (정책=persona) 노선과 본 토픽 정반대 — D-105 박제 시 deprecated 예정 (다음다음 세션)",
-    "P2 hook v3 / P3 8역할 일괄 / P4 dry-run+D-105 박제는 후속 세션 이관"
+    "Master 사전 질문: 구현 중인 것 경로/역할 차단 가능한가 + 설계 승인 없이 진행한 점 지적",
+    "선택: (나) topic_127 그대로 오픈 + P2 hook v3 설계에 '승인 게이트' 자체 포함",
+    "이번 세션은 auto 아님 (manual). P2 본체에 이슈 없어 진행은 합의됨",
+    "P2 G2 PASS — hook v3 + checkpoint + fixture 4건 + validate-hook-registration 구현 완료"
   ],
-  "gaps": [],
   "versionBump": {
     "delta": 0.01,
-    "reason": "역할 페르소나 분리 구조 P0+P1 실증 (G0/G1 PASS, 회귀 0). P3 완결 시 +0.1로 확대 예정.",
+    "reason": "P2 hook v3 구현 완료 — 3층 persona compose(buildPersonaLayer) + transition checkpoint(evaluateTransitionCheckpoint) + G2 PASS(4/4). P3 완결 시 +0.1로 확대.",
     "category": "capacity-extension"
   },
-  "oneLineSummary": "페르소나 3층 분리 옵션 2 채택 + P0/P1 PASS(24.7%, 3역할 -60.9%), PD-052 신설, P2~P4 이관",
+  "gaps": [
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-28_persona-structure-redesign/arki_rev2.md",
+      "expected": "arki",
+      "actualInTurns": "dev",
+      "turnId": 4
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-28_persona-structure-redesign/riki_rev2.md",
+      "expected": "riki",
+      "actualInTurns": "edi",
+      "turnId": 5
+    }
+  ],
   "tokenUsage": {
-    "input_tokens": 498,
-    "output_tokens": 132607,
-    "cache_creation_input_tokens": 466724,
-    "cache_read_input_tokens": 7595585,
-    "messageCount": 65,
-    "masterTurns": 4,
-    "total_billable": 8195414
+    "input_tokens": 135,
+    "output_tokens": 87585,
+    "cache_creation_input_tokens": 899221,
+    "cache_read_input_tokens": 4627044,
+    "messageCount": 53,
+    "masterTurns": 12,
+    "total_billable": 5613985
   }
 }

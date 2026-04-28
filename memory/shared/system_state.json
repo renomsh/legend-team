@@ -1,15 +1,9 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_129",
-  "nextSessionId": "session_130",
+  "lastSessionId": "session_130",
+  "nextSessionId": "session_131",
   "currentVersion": "v1.75",
   "openTopics": [
-    {
-      "id": "topic_127",
-      "title": "S 페르소나 구조 재수립",
-      "status": "in-progress",
-      "reportPath": "reports/2026-04-28_persona-structure-redesign"
-    },
     {
       "id": "topic_126",
       "title": "점수 오류 — growth 자기 점수 업데이트 안됨 (가설 수립·원인 파악)",
@@ -33,6 +27,12 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-104-s130",
+      "date": "2026-04-28",
+      "axis": "hook v3 buildPersonaLayer + evaluateTransitionCheckpoint 두 함수 분리 / status enum 7종 확정 / trigger 어휘 분리 / SOT·mirror 정의 / Grade 적용 범위 + PD-052 dependency",
+      "summary": "P2 hook v3 완료 — 3층 persona compose + transition checkpoint 알림 메커니즘. Riki 5건 리스크 모두 흡수(R-1은 finalize 사후 적발 + PD-052 의존). D-F·D-G는 SOT 표류와 Grade 범위 명시로 향후 정책 혼선 방지. 활성화 시점을 PD-052 dependency로 명시하여 false-sense-of-security 방지."
+    },
+    {
       "id": "D-104",
       "date": "2026-04-28",
       "axis": "버전 업그레이드 기준 개편 — 트리거 확장 + 세션당 +0.1 캡 + R1 임계값 통일",
@@ -55,15 +55,16 @@
       "date": "2026-04-27",
       "axis": "자연어 자동 close 시 14단계 delta-check 게이트 + PD-039 resolved",
       "summary": "Master 정책 일관: 자동화 = 검출만, 강제 게이트 X. 누락 인지 책임은 Master로 명시. 자율성 원칙(low-friction autonomy)과 정합. ~10% 침묵 누락의 가시화로 재-close 판단 근거 제공."
-    },
-    {
-      "id": "D-100",
-      "date": "2026-04-26",
-      "axis": "G0.5 spec 정합 게이트 도입 + 정본 3종 + Phase A→B→C + R6~R9 mitigation",
-      "summary": "G0.5 spec 정합 게이트 도입 + 정본 3종 + Phase A→B→C + R6~R9 mitigation"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_130",
+      "topicSlug": "persona-structure-redesign",
+      "closedAt": "2026-04-28T14:20:00.000Z",
+      "oneLineSummary": "persona-structure-redesign P2 완료: hook v3 G2 PASS(4/4), D-A~D-G 동결, P3 이관",
+      "decisionsAdded": []
+    },
     {
       "sessionId": "session_129",
       "topicSlug": "persona-structure-redesign",
@@ -79,13 +80,6 @@
       "decisionsAdded": [
         "D-104"
       ]
-    },
-    {
-      "sessionId": "session_126",
-      "topicSlug": "a-eval-progress-check",
-      "closedAt": "2026-04-28T07:40:00.000Z",
-      "oneLineSummary": "self-scores 기록 단절 원인 진단 + PostToolUse hook 자동 추출 구현",
-      "decisionsAdded": []
     }
   ],
   "pendingDeferrals": [
@@ -581,5 +575,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-28T08:09:09.269Z"
+  "lastUpdated": "2026-04-28T11:22:19.974Z"
 }

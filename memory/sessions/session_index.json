@@ -5464,8 +5464,61 @@
       "note": "Master Q1~Q3 답: .claude/agents/ 비움 의도 + 오염/경량화 둘 다 + 가능한 영역까지 | Master 추가 input: 과거 함정 F-A(agents 위치 시 실제 호출 안 됨) + F-B(호출 안 하고 호출한 척) | 옵션 2 채택 — 3층 분리 (persona / role policy / common policy) + metrics_registry SOT | Riki R-1~R-8 식별, R-4 사칭 차단은 PD-052 별도 분리 (scope-out) | P0 G0 PASS — 8역할 worst-case prepend 19,751/80,000 chars = 24.7% | P1 G1 PASS — arki/ace/dev 3역할 분리 (avg -60.9%) + hook v2 회귀 0 | 신규 4파일: policies/_common.md, policies/role-{arki,ace,dev}.md | PD-044 (정책=persona) 노선과 본 토픽 정반대 — D-105 박제 시 deprecated 예정 (다음다음 세션) | P2 hook v3 / P3 8역할 일괄 / P4 dry-run+D-105 박제는 후속 세션 이관",
       "oneLineSummary": "페르소나 3층 분리 옵션 2 채택 + P0/P1 PASS(24.7%, 3역할 -60.9%), PD-052 신설, P2~P4 이관",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_130",
+      "topicSlug": "persona-structure-redesign",
+      "topic": "S 페르소나 구조 재수립",
+      "startedAt": "2026-04-28T11:45:00.000Z",
+      "closedAt": "2026-04-28T14:20:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "ace",
+        "dev",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing-exploration"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "phase": "structural-design"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 2,
+          "phase": "risk-audit"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 3,
+          "phase": "synthesis",
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 4,
+          "phase": "implementation"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 5,
+          "phase": "compilation"
+        }
+      ],
+      "grade": "B",
+      "note": "Master 사전 질문: 구현 중인 것 경로/역할 차단 가능한가 + 설계 승인 없이 진행한 점 지적 | 선택: (나) topic_127 그대로 오픈 + P2 hook v3 설계에 '승인 게이트' 자체 포함 | 이번 세션은 auto 아님 (manual). P2 본체에 이슈 없어 진행은 합의됨 | P2 G2 PASS — hook v3 + checkpoint + fixture 4건 + validate-hook-registration 구현 완료",
+      "oneLineSummary": "persona-structure-redesign P2 완료: hook v3 G2 PASS(4/4), D-A~D-G 동결, P3 이관",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-04-28T08:08:53.181Z",
+  "lastUpdated": "2026-04-28T11:22:04.590Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
