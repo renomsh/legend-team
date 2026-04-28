@@ -513,6 +513,75 @@ function validateInlineRoleHeaders(sess) {
   }
 }
 
+/**
+ * Asset #1 v2 (PD-033 / D-103, 2026-04-28 개선) — Edi 보고서 session_contributions 복사.
+ * 세션 종료 시 Edi 최종 보고서를 topics/{topicId}/session_contributions/{sessionId}_edi_report.md 에 복사.
+ * 다음 세션의 pre-tool-use-task.js가 이 파일을 읽어 토픽 layer inject에 사용함.
+ */
+function copyEdiReportToSessionContributions(sess) {
+  const topicId = sess.topicId;
+  const sessionId = sess.sessionId;
+  const reportPath = sess.reportPath;
+
+  if (!topicId || !sessionId || !reportPath) {
+    log('copyEdiReport skip: topicId/sessionId/reportPath 없음');
+    return;
+  }
+  if (sess.legacy) {
+    log(`copyEdiReport skip: legacy 세션 (${sessionId})`);
+    return;
+  }
+
+  // Edi 최신 rev 파일 찾기
+  const reportsDir = path.join(CWD, reportPath);
+  if (!fs.existsSync(reportsDir)) {
+    log(`copyEdiReport skip: reportsDir 없음 (${reportPath})`);
+    return;
+  }
+
+  let ediFiles = [];
+  try {
+    ediFiles = fs.readdirSync(reportsDir)
+      .filter(f => f.startsWith('edi_rev') && f.endsWith('.md'));
+  } catch {
+    log('copyEdiReport skip: reportsDir read 실패');
+    return;
+  }
+
+  if (ediFiles.length === 0) {
+    log('copyEdiReport skip: edi 보고서 없음');
+    return;
+  }
+
+  // mtime 최신 1건
+  let latestEdi = null, latestMtime = 0;
+  for (const f of ediFiles) {
+    try {
+      const stat = fs.statSync(path.join(reportsDir, f));
+      if (stat.mtimeMs > latestMtime) { latestEdi = f; latestMtime = stat.mtimeMs; }
+    } catch {}
+  }
+  if (!latestEdi) return;
+
+  const srcPath = path.join(reportsDir, latestEdi);
+  const scDir = path.join(CWD, 'topics', topicId, 'session_contributions');
+  try {
+    fs.mkdirSync(scDir, { recursive: true });
+  } catch {}
+
+  const destName = `${sessionId}_edi_report.md`;
+  const destPath = path.join(scDir, destName);
+
+  // 이미 존재하면 덮어쓰기 (세션 재-close 시 최신 내용 반영)
+  try {
+    const content = fs.readFileSync(srcPath, 'utf8');
+    fs.writeFileSync(destPath, content, 'utf8');
+    log(`copyEdiReport 완료 — ${topicId}/session_contributions/${destName} (${content.length} chars)`);
+  } catch (e) {
+    log(`copyEdiReport 실패: ${e && e.message}`);
+  }
+}
+
 function runSyncSystemState() {
   const tsPath = path.join(CWD, 'scripts', 'sync-system-state.ts');
   if (!fs.existsSync(tsPath)) {
@@ -565,6 +634,7 @@ function runSyncSystemState() {
     ensureEdiInAgents(sess);
     filterAgentsCompletedByDualSatisfaction(sess);
     validateInlineRoleHeaders(sess);
+    copyEdiReportToSessionContributions(sess);
     writeJson(CURRENT_SESSION_PATH, sess);
     appendOrUpdateSessionIndex(sess);
     runL2Writer(sess);

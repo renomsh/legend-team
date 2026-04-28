@@ -1,36 +1,19 @@
 #!/usr/bin/env node
 /**
- * PreToolUse(Task) hook — Asset #1 (PD-033 / topic_121, Arki rev4 spec).
+ * PreToolUse(Task) hook — Asset #1 v2 (PD-033 / topic_121, 2026-04-28 개선).
+ *
+ * v1 (경로 힌트) → v2 (실제 내용 inject):
+ *   - 세션 layer: 현재 세션 전체 turn 보고서 내용 직접 읽어서 박음
+ *   - 토픽 layer: 이전 세션 Edi 보고서 내용 직접 읽어서 박음
+ *   에이전트가 Read 도구를 따로 호출할 필요 없음.
  *
  * Agent(Task) 호출 직전 자동 발동. 호출되는 서브에이전트의 prompt에
- * "토픽 layer + 세션 layer" 컨텍스트를 자동 prepend하여 메인 컨텍스트
- * 휘발성을 보강한다.
- *
- * 입력 (stdin JSON, Claude Code hook protocol):
- *   {
- *     tool_name: "Task" | "Agent",
- *     tool_input: { subagent_type?, description?, prompt? },
- *     cwd?: string,
- *     session_id?: string,
- *   }
- *
- * 출력 (stdout JSON, 공식 docs PreToolUse decision control):
- *   {
- *     hookSpecificOutput: {
- *       hookEventName: "PreToolUse",
- *       permissionDecision: "allow",
- *       updatedInput: { ...full tool_input with mutated prompt }
- *     }
- *   }
- *
- * 박제 규칙 (Arki rev4 Sec 2.1 알고리즘 정합):
- *   - tool_name이 "Task"/"Agent" 아니면 silent pass.
- *   - role 추출 실패해도 컨텍스트 inject은 수행 (role 무관 토픽 layer).
- *   - 에러 시 silent pass — 원본 호출 보호.
- *   - token cap 30K char 초과 시: 토픽 layer 요약, 세션 layer 직전 1 turn만.
+ * "토픽 layer + 세션 layer" 컨텍스트를 자동 prepend.
  *
  * 안전:
  *   - 무한 루프 방지: prompt에 이미 [PRE-TOOL-USE-TASK-INJECTED] 마커 있으면 skip.
+ *   - 에러 시 silent pass — 원본 호출 보호.
+ *   - token cap: 보고서당 MAX_CHARS_PER_REPORT, 총합 TOTAL_CAP_CHARS 초과 시 절삭.
  *
  * 로그: logs/pre-tool-use-task.log (jsonl)
  */
@@ -42,8 +25,9 @@ const TARGET_TOOL_NAMES = ['Task', 'Agent'];
 const ROLE_AGENT_PREFIX = 'role-';
 const KNOWN_ROLES = ['ace', 'arki', 'fin', 'riki', 'nova', 'dev', 'edi', 'designer'];
 const INJECTION_MARKER = '[PRE-TOOL-USE-TASK-INJECTED]';
-const TOKEN_CAP_CHARS = 30 * 1024; // 30K chars (rough proxy for ~7-8K tokens)
-const SESSION_LAYER_TURNS_DEFAULT = 3; // 직전 N turn
+const MAX_CHARS_PER_REPORT = 6000;   // 보고서 1개당 최대 (약 1.5K tokens)
+const MAX_CHARS_PER_EDI   = 8000;   // Edi 보고서는 좀 더 허용
+const TOTAL_CAP_CHARS    = 80000;   // 전체 inject 총합 최대
 
 function readStdin() {
   return new Promise((resolve) => {
@@ -66,6 +50,19 @@ function readJsonFile(p) {
   } catch { return null; }
 }
 
+function readTextFile(p) {
+  try {
+    if (!fs.existsSync(p)) return null;
+    return fs.readFileSync(p, 'utf8');
+  } catch { return null; }
+}
+
+function truncate(text, maxChars, label) {
+  if (!text) return '';
+  if (text.length <= maxChars) return text;
+  return text.slice(0, maxChars) + `\n\n... [이하 생략 — ${label} 전문은 Read 도구로 확인]\n`;
+}
+
 function logEntry(cwd, payload) {
   try {
     const logDir = path.join(cwd, 'logs');
@@ -81,13 +78,12 @@ function logEntry(cwd, payload) {
  * role 식별 — 다음 우선순위:
  *   1. prompt 본문 첫 부분에 `## ROLE: <name>` 또는 `[ROLE:<name>]` 명시 마커 (PD-043 표준)
  *   2. tool_input.subagent_type (`role-<name>` prefix)
- *   3. description prefix 휴리스틱 (호환)
+ *   3. description 첫 단어 휴리스틱 (호환)
  *   4. 실패 → "unknown"
  */
 function extractRole(toolInput) {
   if (!toolInput || typeof toolInput !== 'object') return 'unknown';
 
-  // 우선순위 1: prompt 마커
   const prompt = (toolInput.prompt || '');
   const promptHead = prompt.slice(0, 500);
   const markerMatch = promptHead.match(/(?:##\s+ROLE:|\[ROLE:)\s*([a-zA-Z]+)\s*\]?/i);
@@ -96,7 +92,6 @@ function extractRole(toolInput) {
     if (KNOWN_ROLES.includes(r)) return r;
   }
 
-  // 우선순위 2: subagent_type
   const subagentType = toolInput.subagent_type || toolInput.subagentType;
   if (typeof subagentType === 'string') {
     let s = subagentType.toLowerCase();
@@ -104,9 +99,7 @@ function extractRole(toolInput) {
     if (KNOWN_ROLES.includes(s)) return s;
   }
 
-  // 우선순위 3: description fallback (호환)
   const desc = (toolInput.description || '').toLowerCase();
-  // description 첫 단어가 role명일 때만 match (오분류 방지 — Riki "Ace direction" 사고 회피)
   const firstWord = desc.split(/[\s\-:]+/)[0];
   if (KNOWN_ROLES.includes(firstWord)) return firstWord;
 
@@ -114,31 +107,8 @@ function extractRole(toolInput) {
 }
 
 /**
- * 세션 layer 조립 — 직전 N turn의 reports/ 경로 list.
+ * 역할별 최신 보고서 파일 찾기 (mtime 기준)
  */
-function buildSessionLayer(cwd, sess, n) {
-  if (!sess || !Array.isArray(sess.turns) || sess.turns.length === 0) return null;
-
-  const reportPath = sess.reportPath; // 예: reports/2026-04-28_pd033-agent-continuity-design
-  const recentTurns = sess.turns.slice(-n);
-  const lines = [];
-
-  lines.push(`### Session Layer — 직전 ${recentTurns.length} turns (sessionId: ${sess.sessionId})`);
-
-  for (const t of recentTurns) {
-    const role = t.role || '?';
-    const turnIdx = t.turnIdx ?? '?';
-    // reports/ 글로브 패턴: {role}_rev{n}.md — 마지막 mtime 1건 추출
-    const candidate = findLatestReport(cwd, reportPath, role);
-    if (candidate) {
-      lines.push(`- turn ${turnIdx} [${role}] → ${candidate}`);
-    } else {
-      lines.push(`- turn ${turnIdx} [${role}] (report 미발견)`);
-    }
-  }
-  return lines.join('\n');
-}
-
 function findLatestReport(cwd, reportPath, role) {
   if (!reportPath || !role) return null;
   try {
@@ -147,7 +117,6 @@ function findLatestReport(cwd, reportPath, role) {
     const files = fs.readdirSync(dir)
       .filter(f => f.startsWith(`${role}_rev`) && f.endsWith('.md'));
     if (files.length === 0) return null;
-    // mtime 최신 1건
     let latest = null, latestMtime = 0;
     for (const f of files) {
       const stat = fs.statSync(path.join(dir, f));
@@ -161,59 +130,139 @@ function findLatestReport(cwd, reportPath, role) {
 }
 
 /**
- * 토픽 layer 조립 — turn_log.jsonl + context_brief.md 경로 + session_contributions/.
+ * 세션 layer — 현재 세션 전체 turn 보고서 실제 내용 inject.
+ * 이전 발언자가 무슨 말을 했는지 에이전트가 Read 없이 바로 알 수 있음.
  */
-function buildTopicLayer(cwd, topicId) {
+function buildSessionLayer(cwd, sess) {
+  if (!sess || !Array.isArray(sess.turns) || sess.turns.length === 0) return null;
+
+  const reportPath = sess.reportPath;
+  const turns = sess.turns;
+  const parts = [];
+
+  parts.push(`### 세션 내 이전 발언 전문 (${sess.sessionId}, 총 ${turns.length} turns)`);
+  parts.push(`> 아래 내용을 파악한 후 발언하세요. 이전 발언자들의 결론과 충돌하거나 중복되지 않게 하세요.\n`);
+
+  // 역할별 최신 rev만 추출 (같은 역할이 여러 번 발언해도 최신 1건)
+  const seenRoles = new Map(); // role -> { turnIdx, reportFile }
+  for (const t of turns) {
+    const role = t.role || '?';
+    const turnIdx = t.turnIdx ?? '?';
+    const reportFile = findLatestReport(cwd, reportPath, role);
+    if (reportFile) {
+      // 동일 역할 복수 발언 시 모두 포함 (rev 번호로 구분됨)
+      seenRoles.set(`${role}_turn${turnIdx}`, { role, turnIdx, reportFile });
+    }
+  }
+
+  // turn 순서대로 정렬하여 inject
+  const entries = [];
+  for (const t of turns) {
+    const role = t.role || '?';
+    const turnIdx = t.turnIdx ?? '?';
+    const key = `${role}_turn${turnIdx}`;
+    if (seenRoles.has(key)) {
+      entries.push({ ...seenRoles.get(key) });
+      seenRoles.delete(key); // 중복 방지
+    }
+  }
+
+  for (const { role, turnIdx, reportFile } of entries) {
+    const absPath = path.join(cwd, reportFile.replace(/\//g, path.sep));
+    const raw = readTextFile(absPath);
+    if (!raw) {
+      parts.push(`\n#### turn ${turnIdx} [${role}] — 보고서 없음 (${reportFile})`);
+      continue;
+    }
+    const content = truncate(raw, MAX_CHARS_PER_REPORT, `${reportFile}`);
+    parts.push(`\n#### turn ${turnIdx} [${role}] (${reportFile})`);
+    parts.push(content);
+    parts.push('---');
+  }
+
+  return parts.join('\n');
+}
+
+/**
+ * 토픽 layer — 이전 세션 Edi 보고서 실제 내용 inject.
+ * session-end-finalize.js가 세션 종료 시 edi 보고서를
+ * topics/{topicId}/session_contributions/{sessionId}_edi_report.md 로 복사해둔다.
+ */
+function buildTopicLayer(cwd, topicId, currentSessionId) {
   if (!topicId) return null;
   const lines = [];
-  lines.push(`### Topic Layer — ${topicId}`);
-
-  const briefPath = path.posix.join('topics', topicId, 'context_brief.md');
-  const briefAbs = path.join(cwd, briefPath);
-  if (fs.existsSync(briefAbs)) {
-    lines.push(`- context_brief: ${briefPath}`);
-  } else {
-    lines.push(`- context_brief: (없음)`);
-  }
-
-  const turnLogPath = path.posix.join('topics', topicId, 'turn_log.jsonl');
-  const turnLogAbs = path.join(cwd, turnLogPath);
-  if (fs.existsSync(turnLogAbs)) {
-    let lineCount = 0;
-    try {
-      const raw = fs.readFileSync(turnLogAbs, 'utf8');
-      lineCount = raw.split('\n').filter(l => l.trim()).length;
-    } catch {}
-    lines.push(`- turn_log: ${turnLogPath} (${lineCount} entries)`);
-  } else {
-    lines.push(`- turn_log: (없음)`);
-  }
+  lines.push(`### 이전 세션 Edi 요약 (${topicId})`);
 
   const scDir = path.join(cwd, 'topics', topicId, 'session_contributions');
-  if (fs.existsSync(scDir)) {
+  if (!fs.existsSync(scDir)) {
+    lines.push('- 이전 세션 기록 없음 (신규 토픽)');
+    return lines.join('\n');
+  }
+
+  let ediFiles = [];
+  try {
+    ediFiles = fs.readdirSync(scDir)
+      .filter(f => f.endsWith('_edi_report.md'))
+      .sort();
+  } catch {}
+
+  if (ediFiles.length === 0) {
+    // fallback: 세션 기여 요약 파일만 있는 경우
+    let metaFiles = [];
     try {
-      const scFiles = fs.readdirSync(scDir).filter(f => f.endsWith('.md'));
-      if (scFiles.length > 0) {
-        lines.push(`- session_contributions (${scFiles.length}건):`);
-        for (const f of scFiles.slice(-5)) {
-          lines.push(`  - ${path.posix.join('topics', topicId, 'session_contributions', f)}`);
+      metaFiles = fs.readdirSync(scDir)
+        .filter(f => f.endsWith('.md') && !f.includes('_edi_report'))
+        .sort();
+    } catch {}
+
+    if (metaFiles.length === 0) {
+      lines.push('- 이전 세션 Edi 기록 없음');
+    } else {
+      lines.push(`> Edi 전문 보고서 미생성. 세션 메타 요약만 제공 (session-end 이후 _edi_report.md 생성됨)\n`);
+      for (const f of metaFiles.slice(-3)) {
+        const absPath = path.join(scDir, f);
+        const raw = readTextFile(absPath);
+        if (raw) {
+          lines.push(`\n#### ${f}`);
+          lines.push(truncate(raw, 3000, f));
+          lines.push('---');
         }
       }
-    } catch {}
+    }
+    return lines.join('\n');
   }
+
+  lines.push(`> 이전 ${ediFiles.length}개 세션의 Edi 최종 정리 내용입니다. 이 토픽의 결정·컨텍스트를 파악하세요.\n`);
+
+  for (const f of ediFiles) {
+    // 현재 세션 것은 skip (아직 작성 중)
+    if (currentSessionId && f.startsWith(currentSessionId)) continue;
+    const absPath = path.join(scDir, f);
+    const raw = readTextFile(absPath);
+    if (!raw) continue;
+    lines.push(`\n#### ${f}`);
+    lines.push(truncate(raw, MAX_CHARS_PER_EDI, f));
+    lines.push('---');
+  }
+
   return lines.join('\n');
 }
 
 function composeInjection(topicLayer, sessionLayer, role) {
   const parts = [];
   parts.push(`<dispatch-context ${INJECTION_MARKER}>`);
-  parts.push(`# Auto-prepended by pre-tool-use-task.js (Asset #1, PD-033)`);
-  parts.push(`# 본 컨텍스트는 메인 휘발성 보강용. 필요 시 Read 도구로 위 경로를 직접 열어 확인하세요.`);
+  parts.push(`# 자동 주입 컨텍스트 — pre-tool-use-task.js v2 (PD-033 / D-103)`);
+  parts.push(`# role: ${role}`);
+  parts.push(`# 이 블록을 먼저 읽고 이전 발언자들의 내용을 파악한 후 발언하세요.`);
   parts.push(``);
-  if (topicLayer) parts.push(topicLayer);
-  if (sessionLayer) parts.push(sessionLayer);
-  parts.push(``);
-  parts.push(`role-detected: ${role}`);
+  if (topicLayer) {
+    parts.push(topicLayer);
+    parts.push('');
+  }
+  if (sessionLayer) {
+    parts.push(sessionLayer);
+    parts.push('');
+  }
   parts.push(`</dispatch-context>`);
   parts.push(``);
   parts.push(``);
@@ -230,14 +279,13 @@ function composeInjection(topicLayer, sessionLayer, role) {
     const toolName = input.tool_name || input.toolName || '';
 
     if (!TARGET_TOOL_NAMES.includes(toolName)) {
-      // silent pass
       process.exit(0);
     }
 
     const toolInput = input.tool_input || input.toolInput || {};
     const originalPrompt = typeof toolInput.prompt === 'string' ? toolInput.prompt : '';
 
-    // 무한 루프 방지: 이미 inject 마커 존재하면 skip
+    // 무한 루프 방지
     if (originalPrompt.includes(INJECTION_MARKER)) {
       logEntry(cwd, { ts, phase: 'skip-already-injected', toolName });
       process.exit(0);
@@ -245,24 +293,25 @@ function composeInjection(topicLayer, sessionLayer, role) {
 
     const role = extractRole(toolInput);
 
-    // current_session.json read
     const sessPath = path.join(cwd, 'memory', 'sessions', 'current_session.json');
     const sess = readJsonFile(sessPath);
 
     const topicId = sess && sess.topicId ? sess.topicId : null;
+    const sessionId = sess && sess.sessionId ? sess.sessionId : null;
 
-    const topicLayer = buildTopicLayer(cwd, topicId);
-    let sessionLayer = buildSessionLayer(cwd, sess, SESSION_LAYER_TURNS_DEFAULT);
+    const topicLayer = buildTopicLayer(cwd, topicId, sessionId);
+    const sessionLayer = buildSessionLayer(cwd, sess);
 
     let injection = composeInjection(topicLayer, sessionLayer, role);
 
-    // token cap 처리
-    if (injection.length + originalPrompt.length > TOKEN_CAP_CHARS) {
-      // 세션 layer 1 turn으로 축소
-      sessionLayer = buildSessionLayer(cwd, sess, 1);
-      injection = composeInjection(topicLayer, sessionLayer, role);
+    // 총합 cap: 초과 시 단계적 절삭
+    if (injection.length > TOTAL_CAP_CHARS) {
+      // 세션 layer만 재구성 (최근 5 turns 한도, 더 공격적 절삭)
+      const truncatedSess = sess ? { ...sess, turns: (sess.turns || []).slice(-5) } : sess;
+      const sessionLayerShort = buildSessionLayer(cwd, truncatedSess);
+      injection = composeInjection(topicLayer, sessionLayerShort, role);
     }
-    if (injection.length + originalPrompt.length > TOKEN_CAP_CHARS) {
+    if (injection.length > TOTAL_CAP_CHARS) {
       // 토픽 layer만 보존
       injection = composeInjection(topicLayer, null, role);
     }
@@ -274,18 +323,18 @@ function composeInjection(topicLayer, sessionLayer, role) {
       hookSpecificOutput: {
         hookEventName: 'PreToolUse',
         permissionDecision: 'allow',
-        permissionDecisionReason: 'Asset #1 — auto-prepend topic+session context',
+        permissionDecisionReason: 'Asset #1 v2 — auto-inject topic+session content',
         updatedInput,
       },
     };
 
     logEntry(cwd, {
       ts,
-      phase: 'mutate',
+      phase: 'mutate-v2',
       toolName,
       role,
       topicId,
-      sessionId: sess && sess.sessionId,
+      sessionId,
       originalPromptLen: originalPrompt.length,
       injectionLen: injection.length,
       mutatedPromptLen: mutatedPrompt.length,
@@ -295,7 +344,6 @@ function composeInjection(topicLayer, sessionLayer, role) {
     process.exit(0);
   } catch (err) {
     logEntry(cwd, { ts, phase: 'error', message: err && err.message });
-    // silent pass — 원본 호출 보호
     process.exit(0);
   }
 })();
