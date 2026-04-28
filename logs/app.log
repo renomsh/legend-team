@@ -1253,3 +1253,13 @@
 [2026-04-28T04:38:40.412Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_121\context_brief.md | sessions=2 size=477B
 [2026-04-28T04:38:51.195Z] [sync-system-state] lastSession=session_123 openTopics=2 recentDecisions=5 recentSummaries=3 deferrals=47
 [2026-04-28T04:39:03.096Z] [compute-dashboard] 완료 — 121개 세션, 9개 경보
+[2026-04-28T04:40:28.820Z] [checklist] [INFO] reports: 12 file(s) on disk, none registered in topic_index
+[2026-04-28T04:40:28.822Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-28T04:40:28.822Z] [checklist] [INFO] topic_index: topic found: topic_121 (completed)
+[2026-04-28T04:40:28.823Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-28T04:40:28.823Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-28T04:40:28.824Z] [session-log] [INFO] END session_123 | topic: pd033-agent-continuity-design | duration: unknown (startedAt in future)
+[2026-04-28T04:40:36.770Z] [L2-writer] skip (already exists): C:\Projects\legend-team\topics\topic_121\session_contributions\session_123.md
+[2026-04-28T04:40:38.822Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_121\context_brief.md | sessions=2 size=477B
+[2026-04-28T04:40:50.583Z] [sync-system-state] lastSession=session_123 openTopics=2 recentDecisions=5 recentSummaries=3 deferrals=47
+[2026-04-28T04:40:57.692Z] [compute-dashboard] 완료 — 121개 세션, 9개 경보

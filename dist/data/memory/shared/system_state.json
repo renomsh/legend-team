@@ -55,8 +55,8 @@
     {
       "sessionId": "session_123",
       "topicSlug": "pd033-agent-continuity-design",
-      "closedAt": "2026-04-28T06:30:00.000Z",
-      "oneLineSummary": "PD-033/043 resolved + PD-044 dropped — PreToolUse(Task) hook 토픽×세션 2축 auto-inject 인프라 5건 + dispatch 규약 박제. K6 static/unit/dynamic 전부 PASS, 첫 실 fire(Edi rev1) 검증 통과.",
+      "closedAt": "2026-04-28T04:40:23.077Z",
+      "oneLineSummary": "PD-033/043 resolved — hook v2(경로→실제 내용 inject) + 3갭 보완(open Edi 브리핑·신규토픽 auto-init·보고서 미존재 경고). 세션 내·토픽 간 연속성 실질 달성.",
       "decisionsAdded": [
         "D-103"
       ]
@@ -550,5 +550,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-28T04:38:51.194Z"
+  "lastUpdated": "2026-04-28T04:40:50.582Z"
 }

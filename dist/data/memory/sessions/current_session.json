@@ -6,7 +6,6 @@
   "reportPath": "reports/2026-04-28_pd033-agent-continuity-design",
   "status": "closed",
   "startedAt": "2026-04-28T05:00:00.000Z",
-  "closedAt": "2026-04-28T06:30:00.000Z",
   "mode": "observation",
   "grade": "A",
   "gradeDeclared": "A",
@@ -107,24 +106,20 @@
   "decisionsAdded": [
     "D-103"
   ],
-  "oneLineSummary": "PD-033/043 resolved + PD-044 dropped — PreToolUse(Task) hook 토픽×세션 2축 auto-inject 인프라 5건 + dispatch 규약 박제. K6 static/unit/dynamic 전부 PASS, 첫 실 fire(Edi rev1) 검증 통과.",
+  "oneLineSummary": "PD-033/043 resolved — hook v2(경로→실제 내용 inject) + 3갭 보완(open Edi 브리핑·신규토픽 auto-init·보고서 미존재 경고). 세션 내·토픽 간 연속성 실질 달성.",
   "notes": [
     "Master 비전: 토픽 영속·세션 동기·자동 inject — '회의를 할 이유'",
     "Ace 4 turns + Arki 4 turns + Riki 1 + Dev 2 + Edi 1 = 12 turns",
     "Arki rev3 자기감사가 미니멀 안 권고 → Master 비전 정정으로 폐기 → rev4 spec 동결",
     "K6 spike: spike hook 보존(.claude/hooks/spike-k6-pretool-task-mutation.js), settings.json.backup-pd033 보존",
-    "Asset #2(validateInlineRoleHeaders) 실 fire는 본 세션 종료 시 첫 작동",
-    "Asset #4(/open auto-init) 실 fire는 다음 신규 토픽 오픈 시",
-    "turn 6 misclassification 사고: 메인 수동 정정. dispatch 규약 #6으로 향후 재발 방지"
+    "Asset #2(validateInlineRoleHeaders) 실 fire: 본 세션 종료 시 첫 작동 PASS",
+    "Asset #4(/open auto-init): create-topic.ts 코드화 완료 (LLM 지시 의존 제거)",
+    "turn 6 misclassification 사고: 메인 수동 정정. dispatch 규약 #6으로 향후 재발 방지",
+    "[컨텍스트 압축 후 추가] hook v2: 경로 힌트→실제 내용 inject (세션 전체 보고서 + 이전세션 Edi 전문 자동 주입)",
+    "[컨텍스트 압축 후 추가] session-end-finalize: Edi 보고서 session_contributions 자동 복사",
+    "[컨텍스트 압축 후 추가] 3갭 보완: /open step3.5-c(Edi 브리핑) + create-topic.ts auto-init + post-hook 보고서 미존재 gap 기록"
   ],
   "gaps": [
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-28_pd033-agent-continuity-design/dev_rev2.md",
-      "expected": "dev",
-      "actualInTurns": "edi",
-      "turnId": 11
-    },
     {
       "type": "inline-role-header-mismatch",
       "file": "reports/2026-04-28_pd033-agent-continuity-design/dev_rev2.md",
@@ -141,12 +136,13 @@
     }
   ],
   "tokenUsage": {
-    "input_tokens": 493,
-    "output_tokens": 245536,
-    "cache_creation_input_tokens": 1790509,
-    "cache_read_input_tokens": 23268128,
-    "messageCount": 207,
-    "masterTurns": 28,
-    "total_billable": 25304666
-  }
+    "input_tokens": 504,
+    "output_tokens": 252619,
+    "cache_creation_input_tokens": 2013845,
+    "cache_read_input_tokens": 24154098,
+    "messageCount": 216,
+    "masterTurns": 30,
+    "total_billable": 26421066
+  },
+  "closedAt": "2026-04-28T04:40:23.077Z"
 }

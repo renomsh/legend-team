@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-04-28T04:39:03.088Z",
+  "generatedAt": "2026-04-28T04:40:57.688Z",
   "totalSessions": 121,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.09,
+    "avgMasterTurns": 17.35,
     "avgCacheHitRate": 0.9342,
     "cacheSampleSize": 95,
     "cacheSampleTotal": 121,
@@ -22,8 +22,8 @@
     ],
     "framingSkippedCount": 0,
     "turnBasedSessions": 76,
-    "totalCostUSD": 1308.2667,
-    "avgCostPerSession": 11.2782,
+    "totalCostUSD": 1326.8557,
+    "avgCostPerSession": 11.4384,
     "costSampleSize": 116
   },
   "sessions": [
@@ -4574,7 +4574,7 @@
       "topicSlug": "pd033-agent-continuity-design",
       "topic": "PD-033 각 Agent 연속성 방안 수립",
       "startedAt": "2026-04-28T05:00:00.000Z",
-      "closedAt": "2026-04-28T06:30:00.000Z",
+      "closedAt": "2026-04-28T04:40:23.077Z",
       "decisionCount": 1,
       "decisionAxes": 1,
       "decisions": [
@@ -4588,7 +4588,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 71,
+      "masterTurns": 101,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -4605,16 +4605,16 @@
         "edi"
       ],
       "tokenUsage": {
-        "totalBillable": 62812049,
-        "ioTokens": 641332,
-        "inputTokens": 1277,
-        "outputTokens": 640055,
-        "cacheCreate": 4655292,
-        "cacheRead": 57515425,
-        "cacheHitRate": 0.915675032349287,
-        "messageCount": 485
+        "totalBillable": 89233115,
+        "ioTokens": 894455,
+        "inputTokens": 1781,
+        "outputTokens": 892674,
+        "cacheCreate": 6669137,
+        "cacheRead": 81669523,
+        "cacheHitRate": 0.9152378351915653,
+        "messageCount": 701
       },
-      "sessionCostUSD": 44.3166
+      "sessionCostUSD": 62.9056
     }
   ],
   "roleFrequency": [
