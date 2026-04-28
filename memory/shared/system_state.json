@@ -1,15 +1,9 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_136",
-  "nextSessionId": "session_137",
+  "lastSessionId": "session_137",
+  "nextSessionId": "session_138",
   "currentVersion": "v1.86",
   "openTopics": [
-    {
-      "id": "topic_126",
-      "title": "점수 오류 — growth 자기 점수 업데이트 안됨 (가설 수립·원인 파악)",
-      "status": "suspended",
-      "reportPath": "reports/2026-04-28_score-update-bug"
-    },
     {
       "id": "topic_044",
       "title": "COPD 논문 ver3.4 최종화 — canonical 재분석 + (e) 프레임 확정",
@@ -26,6 +20,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-106",
+      "date": "2026-04-29",
+      "axis": "extractSelfScores tool_response 의존 결함 / Option A(파일 스캔) 기각 / Option B(_common.md 2개 지시 추가) 채택",
+      "summary": "수정 범위 최소화(파일 1개) + 기존 parseYamlBlocks 재사용. R-2·R-3 없음. turns[].selfScores 단일 경로 유지. session_129 이후 누락된 자가평가 적재 복구."
+    },
     {
       "id": "D-105",
       "date": "2026-04-28",
@@ -49,15 +49,18 @@
       "date": "2026-04-28",
       "axis": "PreToolUse(Task) hook 기반 토픽×세션 2축 자동 prompt inject + role 식별 강화 + 사칭 검증 hook + dispatch 규약 박제",
       "summary": "Master 비전 'meeting needs continuity' 직역. 다중 호출이 monologue 집합이 아닌 누적 회의로 작동. 인프라 신설 5건 + 규약 1건으로 PD-033/043/044 동시 해소. K6 PASS 직접 증거 위에 박제. PreToolUse hook 첫 실 fire 즉시 검증."
-    },
-    {
-      "id": "D-102",
-      "date": "2026-04-28",
-      "axis": "ECharts gradient 토큰화 + esprima 부분 AST lint + VR 3축 fixture freeze + WARN→ERROR 승격 시한",
-      "summary": "PD-049 G1 lint 사각지대(런타임 색 주입) 폐쇄 + PD-050 VR axis 결정점 freeze 통합 해소. 실무용 병기 원칙 — A1 좁음 + B1 WARN→ERROR 단계 도입으로 즉시 차단 강제 회피. esprima 부분 AST는 회피 패턴 1단계 차단(Riki R-1 수용). 차트 색 단일 출처 일관성 — role-colors.js 동형. 본 토픽 단일 완결 D1 — 3세션 이내 원칙 정합. PD-049/050 spec lock + 실행계획 박제까지가 본 세션. 구현(Phase 1~8)은 본 토픽 후속 세션."
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_137",
+      "topicSlug": "score-update-bug",
+      "closedAt": "2026-04-29T01:30:00.000Z",
+      "oneLineSummary": "_common.md [ROLE:xxx] 마커 + 채팅 응답 의무화 — self-score 7세션 0건 적재 결함 수정, D-106 박제",
+      "decisionsAdded": [
+        "D-106"
+      ]
+    },
     {
       "sessionId": "session_136",
       "topicSlug": "auto-mode-policy-redesign",
@@ -70,13 +73,6 @@
       "topicSlug": "system-state-debug",
       "closedAt": "2026-04-28T18:20:00.000Z",
       "oneLineSummary": "system-state 3버그 수정: PD-052 resolved 전파 누락·currentVersion 고착·hookRate 측정 오류",
-      "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_134",
-      "topicSlug": "pd052-role-impersonation-post-hook",
-      "closedAt": "2026-04-28T17:45:00.000Z",
-      "oneLineSummary": "PD-052 resolved: source 마킹 + auditRoleImpersonation() 구현, G1~G4 PASS, v1.86",
       "decisionsAdded": []
     }
   ],
@@ -583,5 +579,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-28T23:03:32.588Z"
+  "lastUpdated": "2026-04-28T23:33:18.315Z"
 }

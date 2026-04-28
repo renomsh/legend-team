@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-28T23:03:40.120Z",
-  "totalSessions": 134,
+  "generatedAt": "2026-04-28T23:33:26.056Z",
+  "totalSessions": 135,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.83,
-    "avgCacheHitRate": 0.9317,
-    "cacheSampleSize": 108,
-    "cacheSampleTotal": 134,
+    "avgMasterTurns": 16.74,
+    "avgCacheHitRate": 0.9318,
+    "cacheSampleSize": 109,
+    "cacheSampleTotal": 135,
     "avgAdoptionRate": 0,
-    "totalDecisions": 106,
+    "totalDecisions": 107,
     "gradeDistribution": {
-      "S": 55,
-      "A": 26,
-      "B": 39,
+      "S": 56,
+      "A": 27,
+      "B": 38,
       "C": 14
     },
     "gradeMismatchCount": 2,
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 89,
-    "totalCostUSD": 1423.0997,
-    "avgCostPerSession": 11.0318,
-    "costSampleSize": 129
+    "turnBasedSessions": 90,
+    "totalCostUSD": 1427.0624,
+    "avgCostPerSession": 10.9774,
+    "costSampleSize": 130
   },
   "sessions": [
     {
@@ -4774,10 +4774,10 @@
       "decisionAxes": 0,
       "rolesCalled": 4,
       "rolesRecalled": 0,
-      "sessionsSpanned": 1,
-      "size": 7,
-      "gradeDeclared": "B",
-      "gradeActual": "B",
+      "sessionsSpanned": 2,
+      "size": 10,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 9,
@@ -5090,12 +5090,52 @@
         "messageCount": 113
       },
       "sessionCostUSD": 11.393
+    },
+    {
+      "sessionId": "session_137",
+      "topicSlug": "score-update-bug",
+      "topic": "점수 오류 — growth 자기 점수 업데이트 안됨 (가설 수립·원인 파악)",
+      "startedAt": "2026-04-29T00:00:00.000Z",
+      "closedAt": "2026-04-29T01:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-106"
+      ],
+      "rolesCalled": 5,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 2,
+      "size": 15,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 5,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "riki",
+        "ace",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 7195617,
+        "ioTokens": 45962,
+        "inputTokens": 166,
+        "outputTokens": 45796,
+        "cacheCreate": 327630,
+        "cacheRead": 6822025,
+        "cacheHitRate": 0.9480806162973933,
+        "messageCount": 89
+      },
+      "sessionCostUSD": 3.9627
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 144,
+      "count": 146,
       "sessions": [
         "session_047",
         "session_048",
@@ -5166,7 +5206,8 @@
         "session_129",
         "session_130",
         "session_134",
-        "session_136"
+        "session_136",
+        "session_137"
       ]
     },
     {
@@ -5226,7 +5267,7 @@
     },
     {
       "role": "edi",
-      "count": 91,
+      "count": 92,
       "sessions": [
         "session_050",
         "session_051",
@@ -5313,12 +5354,13 @@
         "session_133",
         "session_134",
         "session_135",
-        "session_136"
+        "session_136",
+        "session_137"
       ]
     },
     {
       "role": "dev",
-      "count": 71,
+      "count": 72,
       "sessions": [
         "session_047",
         "session_048",
@@ -5376,12 +5418,13 @@
         "session_132",
         "session_133",
         "session_134",
-        "session_135"
+        "session_135",
+        "session_137"
       ]
     },
     {
       "role": "riki",
-      "count": 49,
+      "count": 50,
       "sessions": [
         "session_049",
         "session_053",
@@ -5424,7 +5467,8 @@
         "session_128",
         "session_129",
         "session_130",
-        "session_134"
+        "session_134",
+        "session_137"
       ]
     },
     {
@@ -8952,6 +8996,42 @@
           "role": "edi",
           "phase": "compile",
           "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_137",
+      "topic": "점수 오류 — growth 자기 점수 업데이트 안됨 (가설 수립·원인 파악)",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 4,
           "recallReason": null
         }
       ]

@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-04-28T23:03:41.615Z",
+  "generatedAt": "2026-04-28T23:33:27.480Z",
   "decisions": [
+    {
+      "id": "D-106",
+      "date": "2026-04-29",
+      "session": "session_137",
+      "topic": "topic_126",
+      "owningTopicId": "topic_126",
+      "scopeCheck": "self-score 파이프라인 결함 수정 방향 — Option B 채택 (_common.md 지시 강화)",
+      "axis": "extractSelfScores tool_response 의존 결함 / Option A(파일 스캔) 기각 / Option B(_common.md 2개 지시 추가) 채택",
+      "decision": "근본 원인: post-tool-use-task.js의 extractSelfScores(toolResponse)가 tool_response 전문을 파싱하나, 서브에이전트는 Write 툴로 파일에만 전문 저장 후 채팅 응답에는 짧은 마커만 반환 → session_129 이후 7세션 연속 0건 적재. Option A(파일 스캔 + frontmatter 파싱) 기각: Riki R-1 — parseYamlBlocks가 [ROLE:xxx] 인라인 마커 전용이며 frontmatter role: 필드 미인식 → 파일 스캔해도 역할 식별 0건. R-2(중복 집계)·R-3(병합 SOT 충돌) 추가 발생. Option B 채택: memory/roles/policies/_common.md Self-Score YAML 출력 계약 섹션에 2개 지시 추가 — (1) # self-scores 블록을 파일+채팅 응답 양쪽에 출력 의무화, (2) 블록 직전 [ROLE:{역할명}] 마커 출력 의무화. 코드 수정 없음, 파서 재사용.",
+      "value": "수정 범위 최소화(파일 1개) + 기존 parseYamlBlocks 재사용. R-2·R-3 없음. turns[].selfScores 단일 경로 유지. session_129 이후 누락된 자가평가 적재 복구."
+    },
     {
       "id": "D-105",
       "date": "2026-04-28",

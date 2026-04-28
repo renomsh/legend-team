@@ -1,22 +1,25 @@
 {
-  "sessionId": "session_136",
-  "topicId": "topic_130",
-  "topic": "auto mode 정책 변경",
-  "topicSlug": "auto-mode-policy-redesign",
-  "reportPath": "reports/2026-04-28_auto-mode-policy-redesign",
+  "sessionId": "session_137",
+  "topicId": "topic_126",
+  "topic": "점수 오류 — growth 자기 점수 업데이트 안됨 (가설 수립·원인 파악)",
+  "topicSlug": "score-update-bug",
+  "reportPath": "reports/2026-04-29_score-update-bug",
   "status": "closed",
-  "startedAt": "2026-04-28T18:30:00.000Z",
-  "closedAt": "2026-04-28T18:55:00.000Z",
-  "oneLineSummary": "Task 훅 permissionDecision 제거 — 페르소나 주입 유지하면서 auto/bypass mode 인터셉트 차단",
+  "startedAt": "2026-04-29T00:00:00.000Z",
+  "closedAt": "2026-04-29T01:30:00.000Z",
+  "oneLineSummary": "_common.md [ROLE:xxx] 마커 + 채팅 응답 의무화 — self-score 7세션 0건 적재 결함 수정, D-106 박제",
   "mode": "observation",
-  "grade": "B",
-  "gradeDeclared": "B",
+  "grade": "A",
+  "gradeDeclared": "A",
   "framingLevel": 2,
   "framingSkipped": false,
   "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
+    "ace",
+    "dev",
+    "riki",
     "ace",
     "edi"
   ],
@@ -27,37 +30,52 @@
       "source": "agent"
     },
     {
-      "role": "edi",
+      "role": "dev",
       "turnIdx": 1,
-      "phase": "compile"
+      "source": "agent"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 2,
+      "source": "agent"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 3,
+      "source": "agent"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 4,
+      "source": "agent"
     }
   ],
-  "decisions": [],
-  "masterDecisions": [],
-  "masterFeedback": [
-    "인터셉트 기능만 제거하고 페르소나 주입은 유지하라 (1차 조치 정정)",
-    "정확한 영역 없이 검토는 시간 오래 걸림 — 권한 묻는 현상 재발 시 별도 디버깅"
+  "decisions": [
+    "D-106"
   ],
+  "masterDecisions": [],
+  "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
-  "decisionsAdded": [],
+  "decisionsAdded": [
+    "D-106"
+  ],
   "notes": [
-    "settings.json: PreToolUse/PostToolUse(Task) 훅 등록 유지",
-    "pre-tool-use-task.js: permissionDecision/permissionDecisionReason 필드 제거. updatedInput만 반환",
-    "본래 토픽 목표(permission mode 5종 레전드팀 정책 재설계)는 미진행 — Master 보류",
-    "권한 건너뛰기 묻는 현상 검증은 재발 시 신규 토픽으로 처리"
+    "session_128에서 파이프라인 진단 완료 (Arki·Riki 발언)",
+    "페르소나 hook 구현 완료 상태 — hook 로직 + 셀프 점수 평가 로직 점검이 이번 세션 목표",
+    "Dev 발견: post-tool-use-task.js extractSelfScores가 tool_response 파싱 — session_129 이후 7세션 0건",
+    "Riki R-1: parseYamlBlocks [ROLE:xxx] 마커 전용, frontmatter role: 미인식 → Option A 기각",
+    "구현: _common.md Self-Score 계약에 [ROLE:xxx] 마커 + 채팅 응답 의무화 2개 지시 추가",
+    "에디 응답에서 [ROLE:edi] 마커 + # self-scores 블록 채팅 응답 출력 즉시 확인 (수정 효과 검증)"
   ],
-  "gaps": [
-    "본래 프레이밍 후속 역할(Arki·Riki·Edi) 미실행 — Master 판단으로 토픽 조기 종결",
-    "permissionDecision 제거 효과 검증 미실행 (Claude Code 재시작 후 자연 검증 대기)"
-  ],
+  "gaps": [],
   "tokenUsage": {
-    "input_tokens": 133,
-    "output_tokens": 44058,
-    "cache_creation_input_tokens": 980120,
-    "cache_read_input_tokens": 4630622,
-    "messageCount": 57,
-    "masterTurns": 11,
-    "total_billable": 5654933
+    "input_tokens": 166,
+    "output_tokens": 45796,
+    "cache_creation_input_tokens": 327630,
+    "cache_read_input_tokens": 6822025,
+    "messageCount": 89,
+    "masterTurns": 5,
+    "total_billable": 7195617
   }
 }

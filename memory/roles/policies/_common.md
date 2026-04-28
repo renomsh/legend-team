@@ -21,13 +21,17 @@
 
 ## Self-Score YAML 출력 계약 (PD-023 §5.1 준수, PD-035 박제)
 
-발언 본문 말미에 다음 YAML 블록 포함 필수 (역할별 지표 키는 `policies/role-{r}.md` 참조):
+발언 본문 말미에 다음 블록을 **채팅 응답(tool_response)에 반드시 포함** (파일 저장만으로는 파서에 전달되지 않음):
 
-```yaml
+```
+[ROLE:{역할명소문자}]
 # self-scores
 <key1>: <value>
 <key2>: <value>
 ```
+
+- `[ROLE:ace]` / `[ROLE:arki]` 등 역할명 소문자 마커를 `# self-scores` 블록 **바로 위** 에 반드시 출력 (파서 역할 식별 필수)
+- 역할별 지표 키는 `policies/role-{r}.md` 참조
 
 ### 공통 기록 규칙
 - 발언 관련 있는 지표만 자가 선택 기록 (미관련 생략 허용)
