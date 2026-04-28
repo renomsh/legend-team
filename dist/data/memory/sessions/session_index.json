@@ -5347,8 +5347,60 @@
       "decisionsAdded": [
         "D-104"
       ]
+    },
+    {
+      "sessionId": "session_128",
+      "topicSlug": "score-update-bug",
+      "topic": "점수 오류 — growth 자기 점수 업데이트 안됨 (가설 수립·원인 파악)",
+      "startedAt": "2026-04-28T09:00:00.000Z",
+      "closedAt": "2026-04-28T07:09:34.254Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "phase": "design",
+          "selfScores": {
+            "str_fnd": 0.92,
+            "self_aud": 0.88,
+            "spec_lock": 0.85,
+            "aud_rcll": 0.9
+          }
+        },
+        {
+          "role": "riki",
+          "turnIdx": 2,
+          "phase": "design",
+          "selfScores": {
+            "crit_rcll": 0.85,
+            "prod_rej": 0.8,
+            "fp_rate": 0.1,
+            "cross_rev": 0.75
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 3,
+          "phase": "compile"
+        }
+      ],
+      "grade": "B",
+      "note": "파이프라인 4단계 진단 완료 — 실패지점: [A] 서브에이전트 # self-scores 미출력 | Ace [C] 오진 수정: finalize-self-scores.ts가 담당 (존재·연결됨), session-end-finalize.js 무관 | .claude/agents/ 비어있음 + pre-tool-use가 페르소나 미inject → 서브에이전트 지시 미전달 | 대안 A(hook inject) + B(파일 파싱) 설계 완료, Riki R-2/R-4 고위험 확인 | 홀딩 사유: 페르소나 파일 구조(memory/roles/personas/ vs .claude/agents/) 재설계 논의 선행",
+      "oneLineSummary": "자기점수 파이프라인 진단: [A] 서브에이전트 미출력 확정, 페르소나 구조 재설계 후 재개",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-04-28T06:38:10.728Z",
+  "lastUpdated": "2026-04-28T07:09:44.295Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

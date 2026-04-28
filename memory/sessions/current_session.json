@@ -1,16 +1,14 @@
 {
-  "sessionId": "session_127",
-  "topicId": "topic_125",
-  "topic": "버전 업그레이드 기준 개편",
-  "topicSlug": "version-upgrade-criteria-redesign",
-  "reportPath": "reports/2026-04-28_version-upgrade-criteria-redesign",
+  "sessionId": "session_128",
+  "topicId": "topic_126",
+  "topic": "점수 오류 — growth 자기 점수 업데이트 안됨 (가설 수립·원인 파악)",
+  "topicSlug": "score-update-bug",
+  "reportPath": "reports/2026-04-28_score-update-bug",
   "status": "closed",
-  "startedAt": "2026-04-28T08:00:00.000Z",
-  "closedAt": "2026-04-28T08:50:00.000Z",
-  "oneLineSummary": "D-104 박제: 버전 bump 트리거 확장 + 세션당 +0.1 캡 + R1 임계값 ≥11 통일, v1.75→v1.85",
+  "startedAt": "2026-04-28T09:00:00.000Z",
   "mode": "observation",
-  "grade": "A",
-  "gradeDeclared": "A",
+  "grade": "B",
+  "gradeDeclared": "B",
   "framingLevel": 2,
   "framingSkipped": false,
   "topicType": "standalone",
@@ -19,46 +17,41 @@
   "agentsCompleted": [
     "ace",
     "arki",
-    "fin",
     "riki",
-    "ace",
-    "edi",
-    "edi",
-    "dev"
+    "edi"
   ],
   "turns": [
     {
       "role": "ace",
-      "turnIdx": 0
+      "turnIdx": 0,
+      "phase": "framing"
     },
     {
       "role": "arki",
-      "turnIdx": 1
-    },
-    {
-      "role": "fin",
-      "turnIdx": 2
+      "turnIdx": 1,
+      "phase": "design",
+      "selfScores": {
+        "str_fnd": 0.92,
+        "self_aud": 0.88,
+        "spec_lock": 0.85,
+        "aud_rcll": 0.9
+      }
     },
     {
       "role": "riki",
-      "turnIdx": 3
-    },
-    {
-      "role": "ace",
-      "turnIdx": 4
+      "turnIdx": 2,
+      "phase": "design",
+      "selfScores": {
+        "crit_rcll": 0.85,
+        "prod_rej": 0.8,
+        "fp_rate": 0.1,
+        "cross_rev": 0.75
+      }
     },
     {
       "role": "edi",
-      "turnIdx": 5,
+      "turnIdx": 3,
       "phase": "compile"
-    },
-    {
-      "role": "edi",
-      "turnIdx": 6
-    },
-    {
-      "role": "dev",
-      "turnIdx": 7
     }
   ],
   "decisions": [],
@@ -66,30 +59,24 @@
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
-  "decisionsAdded": [
-    "D-104"
-  ],
+  "decisionsAdded": [],
   "notes": [
-    "D-104: 버전 bump 트리거 확장 — Decision 전용 폐기, 구현·디버그·역할 강화·정책 추가 모두 포함",
-    "세션당 최대 +0.1 캡 확정 — 인플레이션 구조적 통제, 경고 없음",
-    "R1 역할 과호출 임계값: Grade 구분 없이 ≥11 단일 통일 (기존 A/S:≥5, B/C:≥3)",
-    "legacy-gap 태그: v1.65~v1.75 history 공백 마킹 (번호 재발급 없음)",
-    "session-end-finalize.js에 applyVersionBump() 블록 신설 — versionBump 필드 존재 시 project_charter.json 자동 갱신"
+    "파이프라인 4단계 진단 완료 — 실패지점: [A] 서브에이전트 # self-scores 미출력",
+    "Ace [C] 오진 수정: finalize-self-scores.ts가 담당 (존재·연결됨), session-end-finalize.js 무관",
+    ".claude/agents/ 비어있음 + pre-tool-use가 페르소나 미inject → 서브에이전트 지시 미전달",
+    "대안 A(hook inject) + B(파일 파싱) 설계 완료, Riki R-2/R-4 고위험 확인",
+    "홀딩 사유: 페르소나 파일 구조(memory/roles/personas/ vs .claude/agents/) 재설계 논의 선행"
   ],
   "gaps": [],
-  "versionBump": {
-    "from": "1.75",
-    "to": "1.85",
-    "delta": "+0.1",
-    "reason": "D-104: 버전 업그레이드 기준 개편 — 훅 전파 구조 변경 + 스키마 신설"
-  },
+  "closedAt": "2026-04-28T07:09:34.254Z",
+  "oneLineSummary": "자기점수 파이프라인 진단: [A] 서브에이전트 미출력 확정, 페르소나 구조 재설계 후 재개",
   "tokenUsage": {
-    "input_tokens": 115,
-    "output_tokens": 70096,
-    "cache_creation_input_tokens": 578172,
-    "cache_read_input_tokens": 6279166,
-    "messageCount": 79,
-    "masterTurns": 6,
-    "total_billable": 6927549
+    "input_tokens": 162,
+    "output_tokens": 93227,
+    "cache_creation_input_tokens": 349427,
+    "cache_read_input_tokens": 10709004,
+    "messageCount": 120,
+    "masterTurns": 9,
+    "total_billable": 11151820
   }
 }

@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-28T06:38:32.909Z",
-  "totalSessions": 125,
+  "generatedAt": "2026-04-28T07:10:09.380Z",
+  "totalSessions": 126,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.23,
-    "avgCacheHitRate": 0.9338,
-    "cacheSampleSize": 99,
-    "cacheSampleTotal": 125,
+    "avgMasterTurns": 17.16,
+    "avgCacheHitRate": 0.934,
+    "cacheSampleSize": 100,
+    "cacheSampleTotal": 126,
     "avgAdoptionRate": 0,
     "totalDecisions": 104,
     "gradeDistribution": {
       "S": 50,
       "A": 25,
-      "B": 36,
+      "B": 37,
       "C": 14
     },
     "gradeMismatchCount": 2,
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 80,
-    "totalCostUSD": 1355.7933,
-    "avgCostPerSession": 11.2983,
-    "costSampleSize": 120
+    "turnBasedSessions": 81,
+    "totalCostUSD": 1361.7152,
+    "avgCostPerSession": 11.2538,
+    "costSampleSize": 121
   },
   "sessions": [
     {
@@ -4763,12 +4763,48 @@
         "messageCount": 157
       },
       "sessionCostUSD": 10.1498
+    },
+    {
+      "sessionId": "session_128",
+      "topicSlug": "score-update-bug",
+      "topic": "점수 오류 — growth 자기 점수 업데이트 안됨 (가설 수립·원인 파악)",
+      "startedAt": "2026-04-28T09:00:00.000Z",
+      "closedAt": "2026-04-28T07:09:34.254Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 4,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 7,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 9,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 11151820,
+        "ioTokens": 93389,
+        "inputTokens": 162,
+        "outputTokens": 93227,
+        "cacheCreate": 349427,
+        "cacheRead": 10709004,
+        "cacheHitRate": 0.9602920420164601,
+        "messageCount": 120
+      },
+      "sessionCostUSD": 5.9219
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 136,
+      "count": 137,
       "sessions": [
         "session_047",
         "session_048",
@@ -4834,12 +4870,13 @@
         "session_123",
         "session_124",
         "session_125",
-        "session_127"
+        "session_127",
+        "session_128"
       ]
     },
     {
       "role": "arki",
-      "count": 95,
+      "count": 96,
       "sessions": [
         "session_048",
         "session_049",
@@ -4885,12 +4922,13 @@
         "session_120",
         "session_123",
         "session_125",
-        "session_127"
+        "session_127",
+        "session_128"
       ]
     },
     {
       "role": "edi",
-      "count": 81,
+      "count": 82,
       "sessions": [
         "session_050",
         "session_051",
@@ -4968,7 +5006,8 @@
         "session_124",
         "session_125",
         "session_126",
-        "session_127"
+        "session_127",
+        "session_128"
       ]
     },
     {
@@ -5029,7 +5068,7 @@
     },
     {
       "role": "riki",
-      "count": 45,
+      "count": 46,
       "sessions": [
         "session_049",
         "session_053",
@@ -5068,7 +5107,8 @@
         "session_120",
         "session_123",
         "session_125",
-        "session_127"
+        "session_127",
+        "session_128"
       ]
     },
     {
@@ -8344,6 +8384,36 @@
           "role": "dev",
           "phase": null,
           "turnIdx": 7,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_128",
+      "topic": "점수 오류 — growth 자기 점수 업데이트 안됨 (가설 수립·원인 파악)",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "design",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 3,
           "recallReason": null
         }
       ]

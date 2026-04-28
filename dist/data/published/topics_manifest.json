@@ -1,6 +1,18 @@
 {
-  "generatedAt": "2026-04-28T06:38:33.855Z",
+  "generatedAt": "2026-04-28T07:10:10.517Z",
   "topics": [
+    {
+      "id": "topic_126",
+      "title": "점수 오류 — growth 자기 점수 업데이트 안됨 (가설 수립·원인 파악)",
+      "status": "suspended",
+      "created": "2026-04-28",
+      "reportPath": "reports/2026-04-28_score-update-bug",
+      "reportFiles": [],
+      "published": false,
+      "outcome": "파이프라인 진단 완료: [A] 서브에이전트 # self-scores 미출력 확정. 페르소나 구조 재설계 논의 후 재개 예정.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_125",
       "title": "버전 업그레이드 기준 개편",

@@ -1,9 +1,15 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_127",
-  "nextSessionId": "session_128",
+  "lastSessionId": "session_128",
+  "nextSessionId": "session_129",
   "currentVersion": "v1.75",
   "openTopics": [
+    {
+      "id": "topic_126",
+      "title": "점수 오류 — growth 자기 점수 업데이트 안됨 (가설 수립·원인 파악)",
+      "status": "suspended",
+      "reportPath": "reports/2026-04-28_score-update-bug"
+    },
     {
       "id": "topic_044",
       "title": "COPD 논문 ver3.4 최종화 — canonical 재분석 + (e) 프레임 확정",
@@ -69,10 +75,10 @@
       "decisionsAdded": []
     },
     {
-      "sessionId": "session_125",
-      "topicSlug": "pd-status-check",
-      "closedAt": "2026-04-28T06:50:00.000Z",
-      "oneLineSummary": "PD-033/043 resolved — hook v2 content inject + dispatch 규약 박제 로그 직접 증거 확인",
+      "sessionId": "session_128",
+      "topicSlug": "score-update-bug",
+      "closedAt": "2026-04-28T07:09:34.254Z",
+      "oneLineSummary": "자기점수 파이프라인 진단: [A] 서브에이전트 미출력 확정, 페르소나 구조 재설계 후 재개",
       "decisionsAdded": []
     }
   ],
@@ -558,5 +564,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-28T06:38:26.300Z"
+  "lastUpdated": "2026-04-28T07:10:01.742Z"
 }
