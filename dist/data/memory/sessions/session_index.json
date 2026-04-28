@@ -5266,8 +5266,30 @@
       "note": "PD-004/029/047/048 현상 유지 — Master 명시 지시 전까지 | PD-044 별도 토픽으로 분리 예정 | PD-033/043 resolved 근거: logs/pre-tool-use-task.log Arki 3회 호출 직접 증거 (session_123)",
       "oneLineSummary": "PD-033/043 resolved — hook v2 content inject + dispatch 규약 박제 로그 직접 증거 확인",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_126",
+      "topicSlug": "a-eval-progress-check",
+      "topic": "A 평가 진행 여부 점검",
+      "startedAt": "2026-04-28T07:00:00.000Z",
+      "closedAt": "2026-04-28T07:40:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "edi",
+          "turnIdx": 0,
+          "phase": "compile"
+        }
+      ],
+      "grade": "C",
+      "note": "진단: session_101 이후 20+ 세션 self-scores 기록 0건 — PostToolUse hook에 turns[].selfScores 박제 로직 미구현이 원인 | 수정: post-tool-use-task.js에 extractSelfScores() 추가 — tool_response에서 # self-scores 블록 자동 파싱 후 turn에 박제 | 다음 Grade A 세션에서 실제 기록 여부 확인 필요",
+      "oneLineSummary": "self-scores 기록 단절 원인 진단 + PostToolUse hook 자동 추출 구현",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-04-28T05:23:13.643Z",
+  "lastUpdated": "2026-04-28T05:41:58.485Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

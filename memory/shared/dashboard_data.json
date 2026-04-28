@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-04-28T05:40:32.562Z",
-  "totalSessions": 123,
+  "generatedAt": "2026-04-28T05:42:20.232Z",
+  "totalSessions": 124,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.28,
-    "avgCacheHitRate": 0.934,
-    "cacheSampleSize": 97,
-    "cacheSampleTotal": 123,
+    "avgMasterTurns": 17.27,
+    "avgCacheHitRate": 0.9341,
+    "cacheSampleSize": 98,
+    "cacheSampleTotal": 124,
     "avgAdoptionRate": 0,
     "totalDecisions": 103,
     "gradeDistribution": {
       "S": 49,
       "A": 25,
       "B": 36,
-      "C": 13
+      "C": 14
     },
     "gradeMismatchCount": 2,
     "gradeMismatchSessions": [
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 78,
-    "totalCostUSD": 1336.7137,
-    "avgCostPerSession": 11.3281,
-    "costSampleSize": 118
+    "turnBasedSessions": 79,
+    "totalCostUSD": 1345.6435,
+    "avgCostPerSession": 11.3079,
+    "costSampleSize": 119
   },
   "sessions": [
     {
@@ -4687,6 +4687,39 @@
         "messageCount": 128
       },
       "sessionCostUSD": 6.656
+    },
+    {
+      "sessionId": "session_126",
+      "topicSlug": "a-eval-progress-check",
+      "topic": "A 평가 진행 여부 점검",
+      "startedAt": "2026-04-28T07:00:00.000Z",
+      "closedAt": "2026-04-28T07:40:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 16,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 15593703,
+        "ioTokens": 95080,
+        "inputTokens": 264,
+        "outputTokens": 94816,
+        "cacheCreate": 828175,
+        "cacheRead": 14670448,
+        "cacheHitRate": 0.9407930880817725,
+        "messageCount": 174
+      },
+      "sessionCostUSD": 8.9298
     }
   ],
   "roleFrequency": [
@@ -4812,7 +4845,7 @@
     },
     {
       "role": "edi",
-      "count": 78,
+      "count": 79,
       "sessions": [
         "session_050",
         "session_051",
@@ -4888,7 +4921,8 @@
         "session_122",
         "session_123",
         "session_124",
-        "session_125"
+        "session_125",
+        "session_126"
       ]
     },
     {
@@ -8195,6 +8229,18 @@
           "role": "edi",
           "phase": "compile",
           "turnIdx": 4,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_126",
+      "topic": "A 평가 진행 여부 점검",
+      "sequence": [
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 0,
           "recallReason": null
         }
       ]

@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-04-28T05:40:33.640Z",
+  "generatedAt": "2026-04-28T05:42:21.276Z",
   "topics": [
     {
       "id": "topic_124",
       "title": "A 평가 진행 여부 점검",
-      "status": "open",
+      "status": "completed",
       "created": "2026-04-28",
       "reportPath": "reports/2026-04-28_a-eval-progress-check",
       "reportFiles": [],
       "published": false,
-      "outcome": null,
+      "outcome": "self-scores 기록 단절 원인 진단 완료 + PostToolUse hook에 # self-scores 자동 추출 구현",
       "note": null,
       "masterDecisions": []
     },

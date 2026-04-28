@@ -4,8 +4,10 @@
   "topic": "A 평가 진행 여부 점검",
   "topicSlug": "a-eval-progress-check",
   "reportPath": "reports/2026-04-28_a-eval-progress-check",
-  "status": "open",
+  "status": "closed",
   "startedAt": "2026-04-28T07:00:00.000Z",
+  "closedAt": "2026-04-28T07:40:00.000Z",
+  "oneLineSummary": "self-scores 기록 단절 원인 진단 + PostToolUse hook 자동 추출 구현",
   "mode": "observation",
   "grade": "C",
   "gradeDeclared": "C",
@@ -14,23 +16,40 @@
   "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
-  "agentsCompleted": [],
-  "turns": [],
+  "agentsCompleted": [
+    "edi"
+  ],
+  "turns": [
+    {
+      "role": "edi",
+      "turnIdx": 0,
+      "phase": "compile"
+    }
+  ],
   "decisions": [],
   "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "decisionsAdded": [],
-  "notes": [],
-  "gaps": [],
+  "notes": [
+    "진단: session_101 이후 20+ 세션 self-scores 기록 0건 — PostToolUse hook에 turns[].selfScores 박제 로직 미구현이 원인",
+    "수정: post-tool-use-task.js에 extractSelfScores() 추가 — tool_response에서 # self-scores 블록 자동 파싱 후 turn에 박제",
+    "다음 Grade A 세션에서 실제 기록 여부 확인 필요"
+  ],
+  "gaps": [
+    {
+      "type": "no-reports",
+      "note": "Grade C 세션 — 서브에이전트 없음, 역할 리포트 없음 (정상)"
+    }
+  ],
   "tokenUsage": {
-    "input_tokens": 124,
-    "output_tokens": 45220,
-    "cache_creation_input_tokens": 310129,
-    "cache_read_input_tokens": 6618339,
-    "messageCount": 80,
-    "masterTurns": 7,
-    "total_billable": 6973812
+    "input_tokens": 140,
+    "output_tokens": 49596,
+    "cache_creation_input_tokens": 518046,
+    "cache_read_input_tokens": 8052109,
+    "messageCount": 94,
+    "masterTurns": 9,
+    "total_billable": 8619891
   }
 }

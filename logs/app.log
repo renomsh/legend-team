@@ -1288,3 +1288,19 @@
 [2026-04-28T05:23:25.564Z] [sync-system-state] lastSession=session_125 openTopics=2 recentDecisions=5 recentSummaries=3 deferrals=47
 [2026-04-28T05:23:31.437Z] [compute-dashboard] 완료 — 123개 세션, 9개 경보
 [2026-04-28T05:40:32.566Z] [compute-dashboard] 완료 — 123개 세션, 9개 경보
+[2026-04-28T05:41:44.442Z] [checklist] [WARN] reports: reportPath not found on disk: reports/2026-04-28_a-eval-progress-check
+[2026-04-28T05:41:44.445Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-28T05:41:44.446Z] [checklist] [INFO] topic_index: topic found: topic_124 (completed)
+[2026-04-28T05:41:44.446Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-28T05:41:44.446Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-28T05:41:44.447Z] [session-log] [INFO] END session_126 | topic: a-eval-progress-check | duration: unknown (startedAt in future)
+[2026-04-28T05:41:49.776Z] [checklist] [WARN] reports: 0 file(s) on disk, none registered in topic_index
+[2026-04-28T05:41:49.778Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-28T05:41:49.779Z] [checklist] [INFO] topic_index: topic found: topic_124 (completed)
+[2026-04-28T05:41:49.779Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-28T05:41:49.780Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-28T05:41:49.780Z] [session-log] [INFO] END session_126 | topic: a-eval-progress-check | duration: unknown (startedAt in future)
+[2026-04-28T05:42:00.479Z] [L2-writer] wrote C:\Projects\legend-team\topics\topic_124\session_contributions\session_126.md | turns=0 decisions=0
+[2026-04-28T05:42:02.564Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_124\context_brief.md | sessions=1 size=320B
+[2026-04-28T05:42:13.460Z] [sync-system-state] lastSession=session_126 openTopics=2 recentDecisions=5 recentSummaries=3 deferrals=47
+[2026-04-28T05:42:20.237Z] [compute-dashboard] 완료 — 124개 세션, 9개 경보

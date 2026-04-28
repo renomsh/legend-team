@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_125",
-  "nextSessionId": "session_126",
+  "lastSessionId": "session_126",
+  "nextSessionId": "session_127",
   "currentVersion": "v1.75",
   "openTopics": [
     {
@@ -53,6 +53,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_126",
+      "topicSlug": "a-eval-progress-check",
+      "closedAt": "2026-04-28T07:40:00.000Z",
+      "oneLineSummary": "self-scores 기록 단절 원인 진단 + PostToolUse hook 자동 추출 구현",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_125",
       "topicSlug": "pd-status-check",
       "closedAt": "2026-04-28T06:50:00.000Z",
@@ -65,15 +72,6 @@
       "closedAt": "2026-04-28T06:10:00.000Z",
       "oneLineSummary": "D-103 구현 3갭 검증 완료 — hook v2·Edi 자동복사·auto-init 정상 확인",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_123",
-      "topicSlug": "pd033-agent-continuity-design",
-      "closedAt": "2026-04-28T04:40:23.077Z",
-      "oneLineSummary": "PD-033/043 resolved — hook v2(경로→실제 내용 inject) + 3갭 보완(open Edi 브리핑·신규토픽 auto-init·보고서 미존재 경고). 세션 내·토픽 간 연속성 실질 달성.",
-      "decisionsAdded": [
-        "D-103"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -558,5 +556,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-28T05:23:25.563Z"
+  "lastUpdated": "2026-04-28T05:42:13.459Z"
 }
