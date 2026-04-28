@@ -1405,3 +1405,7 @@
 [2026-04-28T13:21:35.655Z] [session-log] [INFO] END session_135 | topic: system-state-debug | duration: unknown (startedAt in future)
 [2026-04-28T13:21:57.720Z] [sync-system-state] lastSession=session_135 openTopics=3 recentDecisions=5 recentSummaries=3 deferrals=49
 [2026-04-28T13:22:04.533Z] [compute-dashboard] 완료 — 133개 세션, 2개 경보
+[2026-04-28T13:42:29.061Z] [L2-writer] wrote C:\Projects\legend-team\topics\topic_130\session_contributions\session_136.md | turns=1 decisions=0
+[2026-04-28T13:42:31.064Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_130\context_brief.md | sessions=1 size=516B
+[2026-04-28T13:42:41.608Z] [sync-system-state] lastSession=session_136 openTopics=3 recentDecisions=5 recentSummaries=3 deferrals=49
+[2026-04-28T13:42:48.073Z] [compute-dashboard] 완료 — 134개 세션, 2개 경보

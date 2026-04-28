@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_135",
-  "nextSessionId": "session_136",
+  "lastSessionId": "session_136",
+  "nextSessionId": "session_137",
   "currentVersion": "v1.86",
   "openTopics": [
     {
@@ -59,6 +59,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_136",
+      "topicSlug": "auto-mode-policy-redesign",
+      "closedAt": "2026-04-28T18:55:00.000Z",
+      "oneLineSummary": "Task 훅 permissionDecision 제거 — 페르소나 주입 유지하면서 auto/bypass mode 인터셉트 차단",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_135",
       "topicSlug": "system-state-debug",
       "closedAt": "2026-04-28T18:20:00.000Z",
@@ -70,13 +77,6 @@
       "topicSlug": "pd052-role-impersonation-post-hook",
       "closedAt": "2026-04-28T17:45:00.000Z",
       "oneLineSummary": "PD-052 resolved: source 마킹 + auditRoleImpersonation() 구현, G1~G4 PASS, v1.86",
-      "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_133",
-      "topicSlug": "persona-structure-redesign",
-      "closedAt": "2026-04-28T17:15:00.000Z",
-      "oneLineSummary": "검증 완료: topic-status.ts 32/32 PASS + finalize R-6 dry-run 7/7 PASS, topic_127 completed",
       "decisionsAdded": []
     }
   ],
@@ -583,5 +583,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-28T13:21:57.719Z"
+  "lastUpdated": "2026-04-28T13:42:41.607Z"
 }

@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-28T13:22:04.528Z",
-  "totalSessions": 133,
+  "generatedAt": "2026-04-28T13:42:48.068Z",
+  "totalSessions": 134,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.79,
-    "avgCacheHitRate": 0.9327,
-    "cacheSampleSize": 107,
-    "cacheSampleTotal": 133,
+    "avgMasterTurns": 16.74,
+    "avgCacheHitRate": 0.9316,
+    "cacheSampleSize": 108,
+    "cacheSampleTotal": 134,
     "avgAdoptionRate": 0,
     "totalDecisions": 106,
     "gradeDistribution": {
       "S": 55,
       "A": 26,
-      "B": 38,
+      "B": 39,
       "C": 14
     },
     "gradeMismatchCount": 2,
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 88,
-    "totalCostUSD": 1411.7067,
-    "avgCostPerSession": 11.029,
-    "costSampleSize": 128
+    "turnBasedSessions": 89,
+    "totalCostUSD": 1417.3738,
+    "avgCostPerSession": 10.9874,
+    "costSampleSize": 129
   },
   "sessions": [
     {
@@ -5056,12 +5056,46 @@
         "messageCount": 80
       },
       "sessionCostUSD": 4.7085
+    },
+    {
+      "sessionId": "session_136",
+      "topicSlug": "auto-mode-policy-redesign",
+      "topic": "auto mode 정책 변경",
+      "startedAt": "2026-04-28T18:30:00.000Z",
+      "closedAt": "2026-04-28T18:55:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 11,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 5509369,
+        "ioTokens": 43659,
+        "inputTokens": 132,
+        "outputTokens": 43527,
+        "cacheCreate": 977996,
+        "cacheRead": 4487714,
+        "cacheHitRate": 0.8145604333273012,
+        "messageCount": 56
+      },
+      "sessionCostUSD": 5.6671
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 143,
+      "count": 144,
       "sessions": [
         "session_047",
         "session_048",
@@ -5131,7 +5165,8 @@
         "session_128",
         "session_129",
         "session_130",
-        "session_134"
+        "session_134",
+        "session_136"
       ]
     },
     {
@@ -5191,7 +5226,7 @@
     },
     {
       "role": "edi",
-      "count": 90,
+      "count": 91,
       "sessions": [
         "session_050",
         "session_051",
@@ -5277,7 +5312,8 @@
         "session_132",
         "session_133",
         "session_134",
-        "session_135"
+        "session_135",
+        "session_136"
       ]
     },
     {
@@ -8891,6 +8927,24 @@
         {
           "role": "dev",
           "phase": "implementation",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_136",
+      "topic": "auto mode 정책 변경",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": null,
           "turnIdx": 0,
           "recallReason": null
         },

@@ -5690,8 +5690,36 @@
       "note": "Fix 1: applyPendingDeferralsResolved() in session-end-finalize.js — pendingDeferralsResolved 배열을 system_state에 반영 | Fix 2: sync-system-state.ts currentVersion → project_charter.json에서 동기화 | Fix 3: dashboard-ops.html hookRate — 터미널 이벤트(OK/ERROR/ABORT)만 계산 대상 | session_134 소급: PD-052 system_state resolved 처리 완료",
       "oneLineSummary": "system-state 3버그 수정: PD-052 resolved 전파 누락·currentVersion 고착·hookRate 측정 오류",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_136",
+      "topicSlug": "auto-mode-policy-redesign",
+      "topic": "auto mode 정책 변경",
+      "startedAt": "2026-04-28T18:30:00.000Z",
+      "closedAt": "2026-04-28T18:55:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "ace",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "source": "agent"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 1,
+          "phase": "compile"
+        }
+      ],
+      "grade": "B",
+      "note": "settings.json: PreToolUse/PostToolUse(Task) 훅 등록 유지 | pre-tool-use-task.js: permissionDecision/permissionDecisionReason 필드 제거. updatedInput만 반환 | 본래 토픽 목표(permission mode 5종 레전드팀 정책 재설계)는 미진행 — Master 보류 | 권한 건너뛰기 묻는 현상 검증은 재발 시 신규 토픽으로 처리",
+      "oneLineSummary": "Task 훅 permissionDecision 제거 — 페르소나 주입 유지하면서 auto/bypass mode 인터셉트 차단",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-04-28T13:21:42.680Z",
+  "lastUpdated": "2026-04-28T13:42:27.124Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

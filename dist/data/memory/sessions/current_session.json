@@ -1,30 +1,30 @@
 {
-  "sessionId": "session_135",
-  "topicId": "topic_129",
-  "topic": "system-state 미갱신 디버깅 — PD-052 미결·버전 미변동 원인",
-  "topicSlug": "system-state-debug",
-  "reportPath": "reports/2026-04-28_system-state-debug",
+  "sessionId": "session_136",
+  "topicId": "topic_130",
+  "topic": "auto mode 정책 변경",
+  "topicSlug": "auto-mode-policy-redesign",
+  "reportPath": "reports/2026-04-28_auto-mode-policy-redesign",
   "status": "closed",
-  "startedAt": "2026-04-28T18:00:00.000Z",
-  "closedAt": "2026-04-28T18:20:00.000Z",
-  "oneLineSummary": "system-state 3버그 수정: PD-052 resolved 전파 누락·currentVersion 고착·hookRate 측정 오류",
+  "startedAt": "2026-04-28T18:30:00.000Z",
+  "closedAt": "2026-04-28T18:55:00.000Z",
+  "oneLineSummary": "Task 훅 permissionDecision 제거 — 페르소나 주입 유지하면서 auto/bypass mode 인터셉트 차단",
   "mode": "observation",
-  "grade": "D",
-  "gradeDeclared": "D",
-  "framingLevel": 0,
-  "framingSkipped": true,
+  "grade": "B",
+  "gradeDeclared": "B",
+  "framingLevel": 2,
+  "framingSkipped": false,
   "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
-    "dev",
+    "ace",
     "edi"
   ],
   "turns": [
     {
-      "role": "dev",
+      "role": "ace",
       "turnIdx": 0,
-      "phase": "implementation"
+      "source": "agent"
     },
     {
       "role": "edi",
@@ -34,24 +34,30 @@
   ],
   "decisions": [],
   "masterDecisions": [],
-  "masterFeedback": [],
+  "masterFeedback": [
+    "인터셉트 기능만 제거하고 페르소나 주입은 유지하라 (1차 조치 정정)",
+    "정확한 영역 없이 검토는 시간 오래 걸림 — 권한 묻는 현상 재발 시 별도 디버깅"
+  ],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "decisionsAdded": [],
   "notes": [
-    "Fix 1: applyPendingDeferralsResolved() in session-end-finalize.js — pendingDeferralsResolved 배열을 system_state에 반영",
-    "Fix 2: sync-system-state.ts currentVersion → project_charter.json에서 동기화",
-    "Fix 3: dashboard-ops.html hookRate — 터미널 이벤트(OK/ERROR/ABORT)만 계산 대상",
-    "session_134 소급: PD-052 system_state resolved 처리 완료"
+    "settings.json: PreToolUse/PostToolUse(Task) 훅 등록 유지",
+    "pre-tool-use-task.js: permissionDecision/permissionDecisionReason 필드 제거. updatedInput만 반환",
+    "본래 토픽 목표(permission mode 5종 레전드팀 정책 재설계)는 미진행 — Master 보류",
+    "권한 건너뛰기 묻는 현상 검증은 재발 시 신규 토픽으로 처리"
   ],
-  "gaps": [],
+  "gaps": [
+    "본래 프레이밍 후속 역할(Arki·Riki·Edi) 미실행 — Master 판단으로 토픽 조기 종결",
+    "permissionDecision 제거 효과 검증 미실행 (Claude Code 재시작 후 자연 검증 대기)"
+  ],
   "tokenUsage": {
-    "input_tokens": 103,
-    "output_tokens": 48211,
-    "cache_creation_input_tokens": 603337,
-    "cache_read_input_tokens": 5741692,
-    "messageCount": 80,
-    "masterTurns": 3,
-    "total_billable": 6393343
+    "input_tokens": 132,
+    "output_tokens": 43527,
+    "cache_creation_input_tokens": 977996,
+    "cache_read_input_tokens": 4487714,
+    "messageCount": 56,
+    "masterTurns": 11,
+    "total_billable": 5509369
   }
 }

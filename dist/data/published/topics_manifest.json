@@ -1,6 +1,20 @@
 {
-  "generatedAt": "2026-04-28T13:22:05.747Z",
+  "generatedAt": "2026-04-28T13:42:49.196Z",
   "topics": [
+    {
+      "id": "topic_130",
+      "title": "auto mode 정책 변경",
+      "status": "completed",
+      "created": "2026-04-28",
+      "reportPath": "reports/2026-04-28_auto-mode-policy-redesign",
+      "reportFiles": [
+        "ace_rev1.md"
+      ],
+      "published": false,
+      "outcome": "Task 훅 permissionDecision 인터셉트 제거. 본 토픽 본래 목표(permission mode 5종 정책 재설계)는 보류.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_129",
       "title": "system-state 미갱신 디버깅 — PD-052 미결·버전 미변동 원인",

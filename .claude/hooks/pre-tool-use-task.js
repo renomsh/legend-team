@@ -481,11 +481,11 @@ function composeInjection(personaContent, personaMarkers, topicLayer, sessionLay
     const mutatedPrompt = injection + originalPrompt;
     const updatedInput = { ...toolInput, prompt: mutatedPrompt };
 
+    // permissionDecision 제거 (2026-04-28, topic_130) — auto mode/bypass permissions와 충돌.
+    // updatedInput만 반환하여 페르소나·컨텍스트 주입은 유지하되 권한 결정엔 개입하지 않음.
     const output = {
       hookSpecificOutput: {
         hookEventName: 'PreToolUse',
-        permissionDecision: 'allow',
-        permissionDecisionReason: 'Asset #1 v3 — persona compose + transition gate + topic+session inject',
         updatedInput,
       },
     };
