@@ -511,16 +511,20 @@
       "fromSession": "session_104",
       "fromTopic": "dashboard-redesign-ux-responsive",
       "item": "Playwright docker image 갱신 주기 정책 — mcr.microsoft.com/playwright:v1.45.0-jammy 핀 이후 보안 패치·Chromium 메이저 업데이트 시 갱신 검토 프로토콜 박제. 환경 핀 vs 최신 보안의 trade-off 정책.",
-      "status": "pending",
-      "note": "D-089 VR 인프라 부수 정책"
+      "status": "deprecated",
+      "note": "D-089 VR 인프라 부수 정책",
+      "deprecatedInSession": "session_125",
+      "deprecatedNote": "incident 0건. 갱신 필요 시 그때 판단으로 충분 — 별도 정책 ROI 없음. Master 결정."
     },
     {
       "id": "PD-048",
       "fromSession": "session_104",
       "fromTopic": "dashboard-redesign-ux-responsive",
       "item": "VR baseline dpr 2 (retina) 추가 — 현 24 baseline은 dpr 1만 캡처. Master 또는 미래 협업자가 retina 디스플레이 사용 시 픽셀 차이 false-positive 가능성. dpr 2 baseline 추가 시 48 baseline 부담 vs 정확도 trade-off.",
-      "status": "pending",
-      "note": "D-089 후속 검토"
+      "status": "deprecated",
+      "note": "D-089 후속 검토",
+      "deprecatedInSession": "session_125",
+      "deprecatedNote": "Master retina 미사용, false-positive 발생 0건. resolveCondition 미정의 상태로 트리거 없음. 실제 문제 발생 시 신규 등록. Master 결정."
     },
     {
       "id": "PD-049",
@@ -554,5 +558,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-28T05:20:07.396Z"
+  "lastUpdated": "2026-04-28T05:23:25.563Z"
 }
