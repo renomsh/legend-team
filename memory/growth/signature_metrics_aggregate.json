@@ -1,11 +1,11 @@
 {
-  "computedAt": "2026-04-28T07:10:06.915Z",
+  "computedAt": "2026-04-28T08:09:15.397Z",
   "registryVersion": "v1.0",
-  "durationMs": 1,
+  "durationMs": 2,
   "slaWarnMs": 3000,
   "slaBreached": false,
   "sourceJsonl": "memory\\growth\\self_scores.jsonl",
-  "recordCount": 40,
+  "recordCount": 52,
   "metricCount": 41,
   "aggregates": [
     {
@@ -147,28 +147,37 @@
       "metricId": "arki.structural_finding_density",
       "role": "arki",
       "view": "all",
-      "mean": 60,
-      "n": 2,
-      "std": 0,
-      "ci95": null
+      "mean": 40,
+      "n": 4,
+      "std": 23.1,
+      "ci95": [
+        17.4,
+        62.6
+      ]
     },
     {
       "metricId": "arki.structural_finding_density",
       "role": "arki",
       "view": "recent10",
-      "mean": 60,
-      "n": 2,
-      "std": 0,
-      "ci95": null
+      "mean": 40,
+      "n": 4,
+      "std": 23.1,
+      "ci95": [
+        17.4,
+        62.6
+      ]
     },
     {
       "metricId": "arki.structural_finding_density",
       "role": "arki",
       "view": "recent3",
-      "mean": 60,
-      "n": 2,
-      "std": 0,
-      "ci95": null
+      "mean": 33.3,
+      "n": 3,
+      "std": 23.1,
+      "ci95": [
+        7.2,
+        59.5
+      ]
     },
     {
       "metricId": "arki.self_audit_rounds",
@@ -229,13 +238,85 @@
       "role": "arki",
       "view": "all",
       "mean": 100,
+      "n": 3,
+      "std": 0,
+      "ci95": [
+        100,
+        100
+      ]
+    },
+    {
+      "metricId": "arki.spec_lock_rate",
+      "role": "arki",
+      "view": "recent10",
+      "mean": 100,
+      "n": 3,
+      "std": 0,
+      "ci95": [
+        100,
+        100
+      ]
+    },
+    {
+      "metricId": "arki.spec_lock_rate",
+      "role": "arki",
+      "view": "recent3",
+      "mean": 100,
+      "n": 3,
+      "std": 0,
+      "ci95": [
+        100,
+        100
+      ]
+    },
+    {
+      "metricId": "dev.spec_drift_count",
+      "role": "dev",
+      "view": "all",
+      "mean": 90,
+      "n": 4,
+      "std": 11.5,
+      "ci95": [
+        78.7,
+        101.3
+      ]
+    },
+    {
+      "metricId": "dev.spec_drift_count",
+      "role": "dev",
+      "view": "recent10",
+      "mean": 90,
+      "n": 4,
+      "std": 11.5,
+      "ci95": [
+        78.7,
+        101.3
+      ]
+    },
+    {
+      "metricId": "dev.spec_drift_count",
+      "role": "dev",
+      "view": "recent3",
+      "mean": 93.3,
+      "n": 3,
+      "std": 11.5,
+      "ci95": [
+        80.3,
+        106.4
+      ]
+    },
+    {
+      "metricId": "dev.runtime_test_coverage",
+      "role": "dev",
+      "view": "all",
+      "mean": 100,
       "n": 2,
       "std": 0,
       "ci95": null
     },
     {
-      "metricId": "arki.spec_lock_rate",
-      "role": "arki",
+      "metricId": "dev.runtime_test_coverage",
+      "role": "dev",
       "view": "recent10",
       "mean": 100,
       "n": 2,
@@ -243,8 +324,8 @@
       "ci95": null
     },
     {
-      "metricId": "arki.spec_lock_rate",
-      "role": "arki",
+      "metricId": "dev.runtime_test_coverage",
+      "role": "dev",
       "view": "recent3",
       "mean": 100,
       "n": 2,
@@ -252,65 +333,11 @@
       "ci95": null
     },
     {
-      "metricId": "dev.spec_drift_count",
-      "role": "dev",
-      "view": "all",
-      "mean": 80,
-      "n": 2,
-      "std": 0,
-      "ci95": null
-    },
-    {
-      "metricId": "dev.spec_drift_count",
-      "role": "dev",
-      "view": "recent10",
-      "mean": 80,
-      "n": 2,
-      "std": 0,
-      "ci95": null
-    },
-    {
-      "metricId": "dev.spec_drift_count",
-      "role": "dev",
-      "view": "recent3",
-      "mean": 80,
-      "n": 2,
-      "std": 0,
-      "ci95": null
-    },
-    {
-      "metricId": "dev.runtime_test_coverage",
-      "role": "dev",
-      "view": "all",
-      "mean": null,
-      "n": 0,
-      "std": 0,
-      "ci95": null
-    },
-    {
-      "metricId": "dev.runtime_test_coverage",
-      "role": "dev",
-      "view": "recent10",
-      "mean": null,
-      "n": 0,
-      "std": 0,
-      "ci95": null
-    },
-    {
-      "metricId": "dev.runtime_test_coverage",
-      "role": "dev",
-      "view": "recent3",
-      "mean": null,
-      "n": 0,
-      "std": 0,
-      "ci95": null
-    },
-    {
       "metricId": "dev.hardcoding_rate",
       "role": "dev",
       "view": "all",
-      "mean": null,
-      "n": 0,
+      "mean": 100,
+      "n": 2,
       "std": 0,
       "ci95": null
     },
@@ -318,8 +345,8 @@
       "metricId": "dev.hardcoding_rate",
       "role": "dev",
       "view": "recent10",
-      "mean": null,
-      "n": 0,
+      "mean": 100,
+      "n": 2,
       "std": 0,
       "ci95": null
     },
@@ -327,8 +354,8 @@
       "metricId": "dev.hardcoding_rate",
       "role": "dev",
       "view": "recent3",
-      "mean": null,
-      "n": 0,
+      "mean": 100,
+      "n": 2,
       "std": 0,
       "ci95": null
     },
@@ -715,27 +742,36 @@
       "role": "riki",
       "view": "all",
       "mean": 90,
-      "n": 2,
+      "n": 3,
       "std": 0,
-      "ci95": null
+      "ci95": [
+        90,
+        90
+      ]
     },
     {
       "metricId": "riki.false_positive_rate",
       "role": "riki",
       "view": "recent10",
       "mean": 90,
-      "n": 2,
+      "n": 3,
       "std": 0,
-      "ci95": null
+      "ci95": [
+        90,
+        90
+      ]
     },
     {
       "metricId": "riki.false_positive_rate",
       "role": "riki",
       "view": "recent3",
       "mean": 90,
-      "n": 2,
+      "n": 3,
       "std": 0,
-      "ci95": null
+      "ci95": [
+        90,
+        90
+      ]
     },
     {
       "metricId": "riki.cross_review_value",
@@ -1094,7 +1130,7 @@
       "metricId": "session.health_score",
       "role": "session",
       "view": "all",
-      "mean": 70,
+      "mean": 63.3,
       "n": 3,
       "std": 0,
       "ci95": null
@@ -1103,7 +1139,7 @@
       "metricId": "session.health_score",
       "role": "session",
       "view": "recent10",
-      "mean": 70,
+      "mean": 63.3,
       "n": 3,
       "std": 0,
       "ci95": null
@@ -1112,7 +1148,7 @@
       "metricId": "session.health_score",
       "role": "session",
       "view": "recent3",
-      "mean": 70,
+      "mean": 61.1,
       "n": 3,
       "std": 0,
       "ci95": null

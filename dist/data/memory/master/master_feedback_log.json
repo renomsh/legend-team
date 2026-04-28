@@ -1,6 +1,15 @@
 {
   "feedbackLog": [
     {
+      "id": "MF-102",
+      "date": "2026-04-28",
+      "session": "session_129",
+      "topic": "persona-structure-redesign",
+      "feedback": "(Q1~Q3 답) `.claude/agents/` 비움은 의도 — Ace 추천으로 한 폴더 통합. 분리 1차 목적은 오염 방지 + 경량화 둘 다. 본 세션 종착점은 가능한 영역까지 (전체 구조 결정+설계). (추가 input) 과거 함정 2건: (F-A) agents/ 위치 시 실제 호출 안 되는 문제, (F-B) 호출 안 하고 호출한 척 하는 문제 — Riki 명시 검증 필수.",
+      "status": "resolved",
+      "statusNote": "결정축 5개 확정. 옵션 2(3층 분리) 채택. Riki R-1~R-8 함정 식별 + F-A/F-B 명시 검증. P0 G0 PASS(24.7%) + P1 G1 PASS(3역할 분리, 회귀 0). R-4 사칭 차단은 PD-052 별도 분리. P2~P4 다음 세션 이관."
+    },
+    {
       "id": "MF-101",
       "date": "2026-04-28",
       "session": "session_127",

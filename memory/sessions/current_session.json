@@ -1,23 +1,26 @@
 {
-  "sessionId": "session_128",
-  "topicId": "topic_126",
-  "topic": "점수 오류 — growth 자기 점수 업데이트 안됨 (가설 수립·원인 파악)",
-  "topicSlug": "score-update-bug",
-  "reportPath": "reports/2026-04-28_score-update-bug",
+  "sessionId": "session_129",
+  "topicId": "topic_127",
+  "topic": "S 페르소나 구조 재수립",
+  "topicSlug": "persona-structure-redesign",
+  "reportPath": "reports/2026-04-28_persona-structure-redesign",
   "status": "closed",
-  "startedAt": "2026-04-28T09:00:00.000Z",
+  "startedAt": "2026-04-28T09:30:00.000Z",
+  "closedAt": "2026-04-28T11:30:00.000Z",
   "mode": "observation",
-  "grade": "B",
-  "gradeDeclared": "B",
+  "grade": "S",
+  "gradeDeclared": "S",
   "framingLevel": 2,
   "framingSkipped": false,
-  "topicType": "standalone",
+  "topicType": "framing",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
     "ace",
     "arki",
     "riki",
+    "ace",
+    "dev",
     "edi"
   ],
   "turns": [
@@ -31,10 +34,7 @@
       "turnIdx": 1,
       "phase": "design",
       "selfScores": {
-        "str_fnd": 0.92,
-        "self_aud": 0.88,
-        "spec_lock": 0.85,
-        "aud_rcll": 0.9
+        "str_fd": 1
       }
     },
     {
@@ -42,41 +42,67 @@
       "turnIdx": 2,
       "phase": "design",
       "selfScores": {
-        "crit_rcll": 0.85,
-        "prod_rej": 0.8,
-        "fp_rate": 0.1,
-        "cross_rev": 0.75
+        "fp_rt": 0.1
+      }
+    },
+    {
+      "role": "ace",
+      "turnIdx": 3,
+      "phase": "synthesis",
+      "recallReason": "post-intervention"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 4,
+      "phase": "implementation",
+      "selfScores": {
+        "rt_cov": 1,
+        "gt_pas": 1,
+        "hc_rt": 0,
+        "spc_drf": 0
       }
     },
     {
       "role": "edi",
-      "turnIdx": 3,
+      "turnIdx": 5,
       "phase": "compile"
     }
   ],
   "decisions": [],
   "masterDecisions": [],
-  "masterFeedback": [],
-  "pendingDeferralsAdded": [],
+  "masterFeedback": [
+    "MF-102"
+  ],
+  "pendingDeferralsAdded": [
+    "PD-052"
+  ],
   "pendingDeferralsResolved": [],
   "decisionsAdded": [],
   "notes": [
-    "파이프라인 4단계 진단 완료 — 실패지점: [A] 서브에이전트 # self-scores 미출력",
-    "Ace [C] 오진 수정: finalize-self-scores.ts가 담당 (존재·연결됨), session-end-finalize.js 무관",
-    ".claude/agents/ 비어있음 + pre-tool-use가 페르소나 미inject → 서브에이전트 지시 미전달",
-    "대안 A(hook inject) + B(파일 파싱) 설계 완료, Riki R-2/R-4 고위험 확인",
-    "홀딩 사유: 페르소나 파일 구조(memory/roles/personas/ vs .claude/agents/) 재설계 논의 선행"
+    "Master Q1~Q3 답: .claude/agents/ 비움 의도 + 오염/경량화 둘 다 + 가능한 영역까지",
+    "Master 추가 input: 과거 함정 F-A(agents 위치 시 실제 호출 안 됨) + F-B(호출 안 하고 호출한 척)",
+    "옵션 2 채택 — 3층 분리 (persona / role policy / common policy) + metrics_registry SOT",
+    "Riki R-1~R-8 식별, R-4 사칭 차단은 PD-052 별도 분리 (scope-out)",
+    "P0 G0 PASS — 8역할 worst-case prepend 19,751/80,000 chars = 24.7%",
+    "P1 G1 PASS — arki/ace/dev 3역할 분리 (avg -60.9%) + hook v2 회귀 0",
+    "신규 4파일: policies/_common.md, policies/role-{arki,ace,dev}.md",
+    "PD-044 (정책=persona) 노선과 본 토픽 정반대 — D-105 박제 시 deprecated 예정 (다음다음 세션)",
+    "P2 hook v3 / P3 8역할 일괄 / P4 dry-run+D-105 박제는 후속 세션 이관"
   ],
   "gaps": [],
-  "closedAt": "2026-04-28T07:09:34.254Z",
-  "oneLineSummary": "자기점수 파이프라인 진단: [A] 서브에이전트 미출력 확정, 페르소나 구조 재설계 후 재개",
+  "versionBump": {
+    "delta": 0.01,
+    "reason": "역할 페르소나 분리 구조 P0+P1 실증 (G0/G1 PASS, 회귀 0). P3 완결 시 +0.1로 확대 예정.",
+    "category": "capacity-extension"
+  },
+  "oneLineSummary": "페르소나 3층 분리 옵션 2 채택 + P0/P1 PASS(24.7%, 3역할 -60.9%), PD-052 신설, P2~P4 이관",
   "tokenUsage": {
-    "input_tokens": 162,
-    "output_tokens": 93227,
-    "cache_creation_input_tokens": 349427,
-    "cache_read_input_tokens": 10709004,
-    "messageCount": 120,
-    "masterTurns": 9,
-    "total_billable": 11151820
+    "input_tokens": 498,
+    "output_tokens": 132607,
+    "cache_creation_input_tokens": 466724,
+    "cache_read_input_tokens": 7595585,
+    "messageCount": 65,
+    "masterTurns": 4,
+    "total_billable": 8195414
   }
 }

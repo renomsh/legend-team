@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-28T07:10:09.380Z",
-  "totalSessions": 126,
+  "generatedAt": "2026-04-28T08:09:18.876Z",
+  "totalSessions": 127,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.16,
-    "avgCacheHitRate": 0.934,
-    "cacheSampleSize": 100,
-    "cacheSampleTotal": 126,
+    "avgMasterTurns": 17.08,
+    "avgCacheHitRate": 0.9339,
+    "cacheSampleSize": 101,
+    "cacheSampleTotal": 127,
     "avgAdoptionRate": 0,
     "totalDecisions": 104,
     "gradeDistribution": {
       "S": 50,
-      "A": 25,
+      "A": 26,
       "B": 37,
       "C": 14
     },
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 81,
-    "totalCostUSD": 1361.7152,
-    "avgCostPerSession": 11.2538,
-    "costSampleSize": 121
+    "turnBasedSessions": 82,
+    "totalCostUSD": 1373.2841,
+    "avgCostPerSession": 11.2564,
+    "costSampleSize": 122
   },
   "sessions": [
     {
@@ -4799,12 +4799,50 @@
         "messageCount": 120
       },
       "sessionCostUSD": 5.9219
+    },
+    {
+      "sessionId": "session_129",
+      "topicSlug": "persona-structure-redesign",
+      "topic": "S 페르소나 구조 재수립",
+      "startedAt": "2026-04-28T09:30:00.000Z",
+      "closedAt": "2026-04-28T11:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 6,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 11,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 8,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "ace",
+        "dev",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 15374327,
+        "ioTokens": 261261,
+        "inputTokens": 990,
+        "outputTokens": 260271,
+        "cacheCreate": 906659,
+        "cacheRead": 14206407,
+        "cacheHitRate": 0.9240343983837471,
+        "messageCount": 124
+      },
+      "sessionCostUSD": 11.5689
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 137,
+      "count": 139,
       "sessions": [
         "session_047",
         "session_048",
@@ -4871,12 +4909,13 @@
         "session_124",
         "session_125",
         "session_127",
-        "session_128"
+        "session_128",
+        "session_129"
       ]
     },
     {
       "role": "arki",
-      "count": 96,
+      "count": 97,
       "sessions": [
         "session_048",
         "session_049",
@@ -4923,12 +4962,13 @@
         "session_123",
         "session_125",
         "session_127",
-        "session_128"
+        "session_128",
+        "session_129"
       ]
     },
     {
       "role": "edi",
-      "count": 82,
+      "count": 83,
       "sessions": [
         "session_050",
         "session_051",
@@ -5007,12 +5047,13 @@
         "session_125",
         "session_126",
         "session_127",
-        "session_128"
+        "session_128",
+        "session_129"
       ]
     },
     {
       "role": "dev",
-      "count": 64,
+      "count": 65,
       "sessions": [
         "session_047",
         "session_048",
@@ -5063,12 +5104,13 @@
         "session_121",
         "session_123",
         "session_124",
-        "session_127"
+        "session_127",
+        "session_129"
       ]
     },
     {
       "role": "riki",
-      "count": 46,
+      "count": 47,
       "sessions": [
         "session_049",
         "session_053",
@@ -5108,7 +5150,8 @@
         "session_123",
         "session_125",
         "session_127",
-        "session_128"
+        "session_128",
+        "session_129"
       ]
     },
     {
@@ -8414,6 +8457,48 @@
           "role": "edi",
           "phase": "compile",
           "turnIdx": 3,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_129",
+      "topic": "S 페르소나 구조 재수립",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "design",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 3,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 5,
           "recallReason": null
         }
       ]

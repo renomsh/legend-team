@@ -1,9 +1,15 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_128",
-  "nextSessionId": "session_129",
+  "lastSessionId": "session_129",
+  "nextSessionId": "session_130",
   "currentVersion": "v1.75",
   "openTopics": [
+    {
+      "id": "topic_127",
+      "title": "S 페르소나 구조 재수립",
+      "status": "in-progress",
+      "reportPath": "reports/2026-04-28_persona-structure-redesign"
+    },
     {
       "id": "topic_126",
       "title": "점수 오류 — growth 자기 점수 업데이트 안됨 (가설 수립·원인 파악)",
@@ -59,6 +65,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_129",
+      "topicSlug": "persona-structure-redesign",
+      "closedAt": "2026-04-28T11:30:00.000Z",
+      "oneLineSummary": "페르소나 3층 분리 옵션 2 채택 + P0/P1 PASS(24.7%, 3역할 -60.9%), PD-052 신설, P2~P4 이관",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_127",
       "topicSlug": "version-upgrade-criteria-redesign",
       "closedAt": "2026-04-28T08:50:00.000Z",
@@ -73,16 +86,20 @@
       "closedAt": "2026-04-28T07:40:00.000Z",
       "oneLineSummary": "self-scores 기록 단절 원인 진단 + PostToolUse hook 자동 추출 구현",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_128",
-      "topicSlug": "score-update-bug",
-      "closedAt": "2026-04-28T07:09:34.254Z",
-      "oneLineSummary": "자기점수 파이프라인 진단: [A] 서브에이전트 미출력 확정, 페르소나 구조 재설계 후 재개",
-      "decisionsAdded": []
     }
   ],
   "pendingDeferrals": [
+    {
+      "id": "PD-052",
+      "fromSession": "session_129",
+      "fromTopic": "persona-structure-redesign",
+      "item": "역할 사칭 사후 차단 hook — Main이 Agent 툴 미경유 상태로 역할 인라인 발언 사칭(F-B) 차단. PD-043은 식별만 완료, enforcement 미구현. SessionEnd finalize 시 turns[].role ↔ 직전 Agent tool_use 매칭 검증 + 위반 시 자동 차단/경고 hook. topic_127 옵션 2 페르소나 구조 가치 무력화 방지(Riki R-4).",
+      "status": "pending",
+      "resolveCondition": "사후 차단 hook 구현 + 1세션 dry-run에서 위반 적발 또는 0건 모두 정상 작동 확인",
+      "dependsOn": [
+        "PD-043"
+      ]
+    },
     {
       "id": "PD-044",
       "fromSession": "session_103",
@@ -564,5 +581,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-28T07:10:01.742Z"
+  "lastUpdated": "2026-04-28T08:09:09.269Z"
 }

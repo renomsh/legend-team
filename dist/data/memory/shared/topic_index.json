@@ -1,6 +1,30 @@
 {
   "topics": [
     {
+      "id": "topic_127",
+      "title": "S 페르소나 구조 재수립",
+      "status": "in-progress",
+      "phase": "implementation",
+      "hold": null,
+      "created": "2026-04-28",
+      "controlPath": "topics/topic_127",
+      "reportPath": "reports/2026-04-28_persona-structure-redesign",
+      "reportFiles": [
+        "ace_rev1.md",
+        "arki_rev1.md",
+        "riki_rev1.md",
+        "ace_rev2.md",
+        "dev_rev1.md",
+        "edi_rev1.md"
+      ],
+      "published": false,
+      "closedInSession": "session_129",
+      "path": "topics/topic_127",
+      "grade": "S",
+      "topicType": "framing",
+      "outcome": "Phase P0+P1 완료(G0 24.7% PASS, G1 3역할 분리·회귀 0). P2~P4 다음 세션 이관."
+    },
+    {
       "id": "topic_126",
       "title": "점수 오류 — growth 자기 점수 업데이트 안됨 (가설 수립·원인 파악)",
       "status": "suspended",
@@ -2464,5 +2488,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-28T07:09:54.088Z"
+  "lastUpdated": "2026-04-28T08:09:01.913Z"
 }

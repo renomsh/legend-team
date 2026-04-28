@@ -1,6 +1,25 @@
 {
-  "generatedAt": "2026-04-28T07:10:10.517Z",
+  "generatedAt": "2026-04-28T08:09:20.559Z",
   "topics": [
+    {
+      "id": "topic_127",
+      "title": "S 페르소나 구조 재수립",
+      "status": "in-progress",
+      "created": "2026-04-28",
+      "reportPath": "reports/2026-04-28_persona-structure-redesign",
+      "reportFiles": [
+        "ace_rev1.md",
+        "arki_rev1.md",
+        "riki_rev1.md",
+        "ace_rev2.md",
+        "dev_rev1.md",
+        "edi_rev1.md"
+      ],
+      "published": false,
+      "outcome": "Phase P0+P1 완료(G0 24.7% PASS, G1 3역할 분리·회귀 0). P2~P4 다음 세션 이관.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_126",
       "title": "점수 오류 — growth 자기 점수 업데이트 안됨 (가설 수립·원인 파악)",
