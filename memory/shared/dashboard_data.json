@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-28T13:00:25.718Z",
-  "totalSessions": 132,
+  "generatedAt": "2026-04-28T13:22:04.528Z",
+  "totalSessions": 133,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.9,
-    "avgCacheHitRate": 0.9331,
-    "cacheSampleSize": 106,
-    "cacheSampleTotal": 132,
+    "avgMasterTurns": 16.79,
+    "avgCacheHitRate": 0.9327,
+    "cacheSampleSize": 107,
+    "cacheSampleTotal": 133,
     "avgAdoptionRate": 0,
     "totalDecisions": 106,
     "gradeDistribution": {
       "S": 55,
       "A": 26,
-      "B": 37,
+      "B": 38,
       "C": 14
     },
     "gradeMismatchCount": 2,
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 87,
-    "totalCostUSD": 1406.9982,
-    "avgCostPerSession": 11.0787,
-    "costSampleSize": 127
+    "turnBasedSessions": 88,
+    "totalCostUSD": 1411.7067,
+    "avgCostPerSession": 11.029,
+    "costSampleSize": 128
   },
   "sessions": [
     {
@@ -5022,6 +5022,40 @@
         "messageCount": 95
       },
       "sessionCostUSD": 4.7553
+    },
+    {
+      "sessionId": "session_135",
+      "topicSlug": "system-state-debug",
+      "topic": "system-state 미갱신 디버깅 — PD-052 미결·버전 미변동 원인",
+      "startedAt": "2026-04-28T18:00:00.000Z",
+      "closedAt": "2026-04-28T18:20:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 3,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "dev",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 6393343,
+        "ioTokens": 48314,
+        "inputTokens": 103,
+        "outputTokens": 48211,
+        "cacheCreate": 603337,
+        "cacheRead": 5741692,
+        "cacheHitRate": 0.8980735117762335,
+        "messageCount": 80
+      },
+      "sessionCostUSD": 4.7085
     }
   ],
   "roleFrequency": [
@@ -5157,7 +5191,7 @@
     },
     {
       "role": "edi",
-      "count": 89,
+      "count": 90,
       "sessions": [
         "session_050",
         "session_051",
@@ -5242,12 +5276,13 @@
         "session_131",
         "session_132",
         "session_133",
-        "session_134"
+        "session_134",
+        "session_135"
       ]
     },
     {
       "role": "dev",
-      "count": 70,
+      "count": 71,
       "sessions": [
         "session_047",
         "session_048",
@@ -5304,7 +5339,8 @@
         "session_131",
         "session_132",
         "session_133",
-        "session_134"
+        "session_134",
+        "session_135"
       ]
     },
     {
@@ -8844,6 +8880,24 @@
           "role": "edi",
           "phase": "compile",
           "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_135",
+      "topic": "system-state 미갱신 디버깅 — PD-052 미결·버전 미변동 원인",
+      "sequence": [
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 1,
           "recallReason": null
         }
       ]

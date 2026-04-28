@@ -670,6 +670,57 @@ function auditRoleImpersonation(sess) {
 }
 
 /**
+ * current_session.pendingDeferralsResolved 배열 기반으로 system_state.pendingDeferrals 갱신.
+ * resolved 처리된 PD를 system_state에서 status='resolved'로 마킹.
+ */
+function applyPendingDeferralsResolved(sess) {
+  const resolved = Array.isArray(sess.pendingDeferralsResolved) ? sess.pendingDeferralsResolved : [];
+  if (resolved.length === 0) {
+    log('pendingDeferralsResolved 없음 — skip');
+    return;
+  }
+
+  const statePath = path.join(CWD, 'memory', 'shared', 'system_state.json');
+  if (!fs.existsSync(statePath)) {
+    log('applyPendingDeferralsResolved skip: system_state.json 없음');
+    return;
+  }
+
+  let state;
+  try {
+    state = JSON.parse(fs.readFileSync(statePath, 'utf8'));
+  } catch (e) {
+    log(`applyPendingDeferralsResolved skip: 파싱 실패 — ${e && e.message}`);
+    return;
+  }
+
+  if (!Array.isArray(state.pendingDeferrals)) {
+    log('applyPendingDeferralsResolved skip: pendingDeferrals 없음');
+    return;
+  }
+
+  let changed = 0;
+  for (const pd of state.pendingDeferrals) {
+    if (resolved.includes(pd.id) && pd.status !== 'resolved') {
+      pd.status = 'resolved';
+      pd.resolvedInSession = sess.sessionId || null;
+      changed++;
+    }
+  }
+
+  if (changed > 0) {
+    try {
+      writeJson(statePath, state);
+      log(`applyPendingDeferralsResolved 완료 — ${changed}건 resolved: ${resolved.join(', ')}`);
+    } catch (e) {
+      log(`applyPendingDeferralsResolved 실패: ${e && e.message}`);
+    }
+  } else {
+    log(`applyPendingDeferralsResolved — resolved 대상 없음 (${resolved.join(', ')} 이미 resolved 또는 미존재)`);
+  }
+}
+
+/**
  * D-104 (2026-04-28): versionBump 자동 전파.
  * current_session.json에 versionBump 필드가 있으면 project_charter.json에 반영.
  * 없으면 pass (경고 없음).
@@ -784,6 +835,7 @@ function runSyncSystemState() {
     runAutoCloseDryRun();
     runResolvePDDryRun();
     runChecklistDeltaCheck(sess);
+    applyPendingDeferralsResolved(sess);
     applyVersionBump(sess);
     runSyncSystemState();
 

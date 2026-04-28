@@ -5662,8 +5662,36 @@
       "note": "Phase 1: post-tool-use-task.js newTurn에 source='agent' 추가 | Phase 2+3: session-end-finalize.js에 auditRoleImpersonation() 추가 (legacy-unmarked 분리, violations 예약) | Phase 4: G1~G4 PASS — 3시나리오 단독 테스트 + validate-session-turns OK | PD-052 resolveCondition 달성: dry-run violations 0건 + 정상 작동 확인 | edi turn(turnIdx=5)에 source='agent' 자동 박제 확인 — Phase 1 실제 동작 증거",
       "oneLineSummary": "PD-052 resolved: source 마킹 + auditRoleImpersonation() 구현, G1~G4 PASS, v1.86",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_135",
+      "topicSlug": "system-state-debug",
+      "topic": "system-state 미갱신 디버깅 — PD-052 미결·버전 미변동 원인",
+      "startedAt": "2026-04-28T18:00:00.000Z",
+      "closedAt": "2026-04-28T18:20:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "dev",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "dev",
+          "turnIdx": 0,
+          "phase": "implementation"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 1,
+          "phase": "compile"
+        }
+      ],
+      "grade": "D",
+      "note": "Fix 1: applyPendingDeferralsResolved() in session-end-finalize.js — pendingDeferralsResolved 배열을 system_state에 반영 | Fix 2: sync-system-state.ts currentVersion → project_charter.json에서 동기화 | Fix 3: dashboard-ops.html hookRate — 터미널 이벤트(OK/ERROR/ABORT)만 계산 대상 | session_134 소급: PD-052 system_state resolved 처리 완료",
+      "oneLineSummary": "system-state 3버그 수정: PD-052 resolved 전파 누락·currentVersion 고착·hookRate 측정 오류",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-04-28T12:59:49.471Z",
+  "lastUpdated": "2026-04-28T13:21:42.680Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

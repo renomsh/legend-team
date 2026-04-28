@@ -1,6 +1,21 @@
 {
   "topics": [
     {
+      "id": "topic_129",
+      "title": "system-state 미갱신 디버깅 — PD-052 미결·버전 미변동 원인",
+      "status": "open",
+      "phase": "framing",
+      "hold": null,
+      "created": "2026-04-28",
+      "controlPath": "topics/topic_129",
+      "reportPath": "reports/2026-04-28_system-state-debug",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_135",
+      "path": "topics/topic_129",
+      "grade": "D"
+    },
+    {
       "id": "topic_128",
       "title": "PD-052 역할 사칭 사후 차단 hook 구현",
       "status": "completed",
@@ -2517,5 +2532,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-28T13:00:03.901Z"
+  "lastUpdated": "2026-04-28T13:21:50.853Z"
 }

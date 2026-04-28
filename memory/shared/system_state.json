@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_134",
-  "nextSessionId": "session_135",
-  "currentVersion": "v1.75",
+  "lastSessionId": "session_135",
+  "nextSessionId": "session_136",
+  "currentVersion": "v1.86",
   "openTopics": [
     {
       "id": "topic_126",
@@ -59,6 +59,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_135",
+      "topicSlug": "system-state-debug",
+      "closedAt": "2026-04-28T18:20:00.000Z",
+      "oneLineSummary": "system-state 3버그 수정: PD-052 resolved 전파 누락·currentVersion 고착·hookRate 측정 오류",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_134",
       "topicSlug": "pd052-role-impersonation-post-hook",
       "closedAt": "2026-04-28T17:45:00.000Z",
@@ -71,15 +78,6 @@
       "closedAt": "2026-04-28T17:15:00.000Z",
       "oneLineSummary": "검증 완료: topic-status.ts 32/32 PASS + finalize R-6 dry-run 7/7 PASS, topic_127 completed",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_132",
-      "topicSlug": "persona-structure-redesign",
-      "closedAt": "2026-04-28T17:00:00.000Z",
-      "oneLineSummary": "P4 완료: CLAUDE.md D-E·D-F·D-G 박제 + D-105 + topic-status.ts + finalize R-6 scale 감지",
-      "decisionsAdded": [
-        "D-105"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -97,11 +95,12 @@
       "fromSession": "session_129",
       "fromTopic": "persona-structure-redesign",
       "item": "역할 사칭 사후 차단 hook — Main이 Agent 툴 미경유 상태로 역할 인라인 발언 사칭(F-B) 차단. PD-043은 식별만 완료, enforcement 미구현. SessionEnd finalize 시 turns[].role ↔ 직전 Agent tool_use 매칭 검증 + 위반 시 자동 차단/경고 hook. topic_127 옵션 2 페르소나 구조 가치 무력화 방지(Riki R-4).",
-      "status": "pending",
+      "status": "resolved",
       "resolveCondition": "사후 차단 hook 구현 + 1세션 dry-run에서 위반 적발 또는 0건 모두 정상 작동 확인",
       "dependsOn": [
         "PD-043"
-      ]
+      ],
+      "resolvedInSession": "session_134"
     },
     {
       "id": "PD-044",
@@ -584,5 +583,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-28T13:00:14.900Z"
+  "lastUpdated": "2026-04-28T13:21:57.719Z"
 }

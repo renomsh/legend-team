@@ -1,90 +1,57 @@
 {
-  "sessionId": "session_134",
-  "topicId": "topic_128",
-  "topic": "PD-052 역할 사칭 사후 차단 hook 구현",
-  "topicSlug": "pd052-role-impersonation-post-hook",
-  "reportPath": "reports/2026-04-28_pd052-role-impersonation-post-hook",
+  "sessionId": "session_135",
+  "topicId": "topic_129",
+  "topic": "system-state 미갱신 디버깅 — PD-052 미결·버전 미변동 원인",
+  "topicSlug": "system-state-debug",
+  "reportPath": "reports/2026-04-28_system-state-debug",
   "status": "closed",
-  "startedAt": "2026-04-28T17:20:00.000Z",
-  "closedAt": "2026-04-28T17:45:00.000Z",
-  "oneLineSummary": "PD-052 resolved: source 마킹 + auditRoleImpersonation() 구현, G1~G4 PASS, v1.86",
+  "startedAt": "2026-04-28T18:00:00.000Z",
+  "closedAt": "2026-04-28T18:20:00.000Z",
+  "oneLineSummary": "system-state 3버그 수정: PD-052 resolved 전파 누락·currentVersion 고착·hookRate 측정 오류",
   "mode": "observation",
-  "grade": "B",
-  "gradeDeclared": "B",
-  "framingLevel": 2,
-  "framingSkipped": false,
-  "topicType": "implementation",
-  "parentTopicId": "topic_127",
+  "grade": "D",
+  "gradeDeclared": "D",
+  "framingLevel": 0,
+  "framingSkipped": true,
+  "topicType": "standalone",
+  "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
-    "ace",
-    "arki",
-    "riki",
-    "ace",
     "dev",
     "edi"
   ],
   "turns": [
     {
-      "role": "ace",
-      "turnIdx": 0,
-      "phase": "framing"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 1,
-      "phase": "framing"
-    },
-    {
-      "role": "riki",
-      "turnIdx": 2,
-      "phase": "framing"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 3,
-      "phase": "framing",
-      "recallReason": "post-intervention"
-    },
-    {
       "role": "dev",
-      "turnIdx": 4,
+      "turnIdx": 0,
       "phase": "implementation"
     },
     {
       "role": "edi",
-      "turnIdx": 5,
-      "phase": "compile",
-      "source": "agent"
+      "turnIdx": 1,
+      "phase": "compile"
     }
   ],
   "decisions": [],
   "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [
-    "PD-052"
-  ],
+  "pendingDeferralsResolved": [],
   "decisionsAdded": [],
-  "versionBump": {
-    "to": "1.86",
-    "reason": "PD-052 역할 사칭 사후 탐지 인프라 신설 — source 마킹 + auditRoleImpersonation()"
-  },
   "notes": [
-    "Phase 1: post-tool-use-task.js newTurn에 source='agent' 추가",
-    "Phase 2+3: session-end-finalize.js에 auditRoleImpersonation() 추가 (legacy-unmarked 분리, violations 예약)",
-    "Phase 4: G1~G4 PASS — 3시나리오 단독 테스트 + validate-session-turns OK",
-    "PD-052 resolveCondition 달성: dry-run violations 0건 + 정상 작동 확인",
-    "edi turn(turnIdx=5)에 source='agent' 자동 박제 확인 — Phase 1 실제 동작 증거"
+    "Fix 1: applyPendingDeferralsResolved() in session-end-finalize.js — pendingDeferralsResolved 배열을 system_state에 반영",
+    "Fix 2: sync-system-state.ts currentVersion → project_charter.json에서 동기화",
+    "Fix 3: dashboard-ops.html hookRate — 터미널 이벤트(OK/ERROR/ABORT)만 계산 대상",
+    "session_134 소급: PD-052 system_state resolved 처리 완료"
   ],
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 123,
-    "output_tokens": 46892,
-    "cache_creation_input_tokens": 427722,
-    "cache_read_input_tokens": 8158600,
-    "messageCount": 95,
+    "input_tokens": 103,
+    "output_tokens": 48211,
+    "cache_creation_input_tokens": 603337,
+    "cache_read_input_tokens": 5741692,
+    "messageCount": 80,
     "masterTurns": 3,
-    "total_billable": 8633337
+    "total_billable": 6393343
   }
 }

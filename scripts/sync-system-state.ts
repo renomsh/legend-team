@@ -87,9 +87,12 @@ function pad3(n: number): string {
 function main() {
   console.log('🔄 sync-system-state.ts 시작...');
 
+  const CHARTER_PATH = path.join(ROOT, 'memory', 'shared', 'project_charter.json');
+
   const sessionIndex = readJson<{ sessions: SessionEntry[] }>(SESSION_INDEX_PATH, { sessions: [] });
   const topicIndex = readJson<{ topics: TopicEntry[] }>(TOPIC_INDEX_PATH, { topics: [] });
   const decisionLedger = readJson<{ decisions: DecisionEntry[] }>(DECISION_LEDGER_PATH, { decisions: [] });
+  const charter = readJson<{ charter?: { version?: string } }>(CHARTER_PATH, {});
   const currentState = readJson<SystemState>(SYSTEM_STATE_PATH, {
     lastSessionId: 'session_000',
     nextSessionId: 'session_001',
@@ -155,11 +158,16 @@ function main() {
     };
   });
 
+  // currentVersion: project_charter.json이 최신 버전 출처 (applyVersionBump가 charter를 먼저 갱신)
+  const currentVersion = charter.charter?.version
+    ? `v${charter.charter.version}`.replace(/^vv/, 'v')
+    : currentState.currentVersion;
+
   const next: SystemState = {
     _comment: currentState._comment || 'fast-path 파일. /open 시 최우선 로드. 원본에서 파생됨. /close 시 재계산.',
     lastSessionId,
     nextSessionId,
-    currentVersion: currentState.currentVersion,
+    currentVersion,
     openTopics,
     recentDecisions,
     recentSessionSummaries,

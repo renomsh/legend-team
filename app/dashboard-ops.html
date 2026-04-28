@@ -155,10 +155,13 @@
       const ageStr = ageMs == null ? '—' : (ageMs < 3600e3 ? `${Math.round(ageMs/60e3)}분 전` : `${Math.round(ageMs/3600e3)}시간 전`);
       const stale = ageMs != null && ageMs > 24*3600e3;
 
-      // 2) Hook success rate (recent 10)
-      const lines = (hookLog || '').trim().split('\n').slice(-30);
+      // 2) Hook success rate (recent 10 terminal events)
+      // FIRED/FALLBACK/PD-016은 중간 상태 — OK/ERROR/ABORT만 터미널로 계산
+      const lines = (hookLog || '').trim().split('\n').slice(-60);
       const hookEvents = parseHookLines(lines);
-      const recent10 = hookEvents.slice(-10);
+      const terminalStatuses = new Set(['OK', 'ERROR', 'ABORT']);
+      const terminalEvents = hookEvents.filter(e => terminalStatuses.has(e.status));
+      const recent10 = terminalEvents.slice(-10);
       const okCount = recent10.filter(e => e.status === 'OK').length;
       const hookRate = recent10.length ? Math.round(okCount/recent10.length*100) : 0;
 
