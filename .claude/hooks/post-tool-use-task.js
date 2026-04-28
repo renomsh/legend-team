@@ -141,6 +141,45 @@ function writeTurnLogEntry(cwd, topicId, role, turnIdx, sessionId, extra = {}) {
 }
 
 /**
+ * tool_response 전체 텍스트에서 `# self-scores` YAML 블록 파싱.
+ * 역할 발언 말미의 형식:
+ *   # self-scores
+ *   metric_key: value
+ *   another: Y
+ * 반환: { shortKey: value, ... } 또는 null (블록 없으면)
+ */
+function extractSelfScores(toolResponse) {
+  if (!toolResponse) return null;
+  let text = '';
+  if (typeof toolResponse === 'string') text = toolResponse;
+  else if (typeof toolResponse === 'object') {
+    text = toolResponse.content || toolResponse.result || toolResponse.text || JSON.stringify(toolResponse);
+  }
+  text = String(text);
+  const idx = text.indexOf('# self-scores');
+  if (idx === -1) return null;
+
+  const scores = {};
+  let consecutiveNonKv = 0;
+  const lines = text.slice(idx + '# self-scores'.length).split(/\r?\n/);
+  for (const raw of lines) {
+    const line = raw.trim();
+    // 섹션 종료 마커: 코드 펜스 닫기, 구분선, 새 헤더
+    if (line.startsWith('```') || line.startsWith('---') || /^#{1,3} /.test(line)) break;
+    // 빈 줄 또는 순수 주석은 skip (블록 내 여백 허용)
+    if (line === '' || line.startsWith('#')) { consecutiveNonKv++; if (consecutiveNonKv >= 3) break; continue; }
+    const m = line.match(/^([\w.-]+):\s*(.+?)(?:\s+#.*)?$/);
+    if (!m) { consecutiveNonKv++; if (consecutiveNonKv >= 2) break; continue; }
+    consecutiveNonKv = 0;
+    const key = m[1];
+    const valRaw = m[2].trim();
+    const num = Number(valRaw);
+    scores[key] = Number.isFinite(num) && /^-?\d/.test(valRaw) ? num : valRaw;
+  }
+  return Object.keys(scores).length > 0 ? scores : null;
+}
+
+/**
  * tool_response 첫 줄에서 `{ROLE}_WRITE_DONE: <path>` 또는 `DEV_WRITE_DONE: ...` 등
  * 표준 마커 매칭하여 reports/ 경로 추출.
  */
@@ -203,6 +242,14 @@ function log(msg) {
       role,
       turnIdx,
     };
+
+    // self-scores 자동 추출 — PostToolUse에서 tool_response 파싱
+    const selfScores = extractSelfScores(input.tool_response || input.toolResponse);
+    if (selfScores) {
+      newTurn.selfScores = selfScores;
+      log(`selfScores 추출: role=${role} keys=[${Object.keys(selfScores).join(',')}]`);
+    }
+
     turns.push(newTurn);
     sess.turns = turns;
 
