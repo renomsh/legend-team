@@ -23,6 +23,7 @@
     "riki",
     "ace",
     "dev",
+    "edi",
     "edi"
   ],
   "turns": [
@@ -56,6 +57,10 @@
       "role": "edi",
       "turnIdx": 5,
       "phase": "compilation"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 6
     }
   ],
   "decisions": [],
@@ -76,6 +81,27 @@
     "category": "capacity-extension"
   },
   "gaps": [
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-28_persona-structure-redesign/arki_rev2.md",
+      "expected": "arki",
+      "actualInTurns": "dev",
+      "turnId": 4
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-28_persona-structure-redesign/riki_rev2.md",
+      "expected": "riki",
+      "actualInTurns": "edi",
+      "turnId": 5
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-28_persona-structure-redesign/ace_rev3.md",
+      "expected": "ace",
+      "actualInTurns": "edi",
+      "turnId": 6
+    },
     {
       "type": "inline-role-header-mismatch",
       "file": "reports/2026-04-28_persona-structure-redesign/arki_rev2.md",

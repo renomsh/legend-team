@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-04-28T11:22:27.050Z",
+  "generatedAt": "2026-04-28T11:23:28.678Z",
   "totalSessions": 128,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.04,
+    "avgMasterTurns": 17.14,
     "avgCacheHitRate": 0.9329,
     "cacheSampleSize": 102,
     "cacheSampleTotal": 128,
@@ -22,8 +22,8 @@
     ],
     "framingSkippedCount": 0,
     "turnBasedSessions": 83,
-    "totalCostUSD": 1379.3585,
-    "avgCostPerSession": 11.2143,
+    "totalCostUSD": 1385.4328,
+    "avgCostPerSession": 11.2637,
     "costSampleSize": 123
   },
   "sessions": [
@@ -4849,15 +4849,15 @@
       "decisions": [
         "D-104-s130"
       ],
-      "rolesCalled": 6,
-      "rolesRecalled": 1,
+      "rolesCalled": 7,
+      "rolesRecalled": 2,
       "sessionsSpanned": 2,
-      "size": 16,
+      "size": 19,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 12,
+      "masterTurns": 24,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -4865,19 +4865,20 @@
         "riki",
         "ace",
         "dev",
+        "edi",
         "edi"
       ],
       "tokenUsage": {
-        "totalBillable": 5613985,
-        "ioTokens": 87720,
-        "inputTokens": 135,
-        "outputTokens": 87585,
-        "cacheCreate": 899221,
-        "cacheRead": 4627044,
+        "totalBillable": 11227970,
+        "ioTokens": 175440,
+        "inputTokens": 270,
+        "outputTokens": 175170,
+        "cacheCreate": 1798442,
+        "cacheRead": 9254088,
         "cacheHitRate": 0.824199565905502,
-        "messageCount": 53
+        "messageCount": 106
       },
-      "sessionCostUSD": 6.0744
+      "sessionCostUSD": 12.1487
     }
   ],
   "roleFrequency": [
@@ -5011,7 +5012,7 @@
     },
     {
       "role": "edi",
-      "count": 84,
+      "count": 85,
       "sessions": [
         "session_050",
         "session_051",
@@ -8587,6 +8588,12 @@
           "role": "edi",
           "phase": "compilation",
           "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 6,
           "recallReason": null
         }
       ]

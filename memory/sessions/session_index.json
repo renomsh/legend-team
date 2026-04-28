@@ -5478,6 +5478,7 @@
         "riki",
         "ace",
         "dev",
+        "edi",
         "edi"
       ],
       "turns": [
@@ -5511,6 +5512,10 @@
           "role": "edi",
           "turnIdx": 5,
           "phase": "compilation"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 6
         }
       ],
       "grade": "B",
@@ -5519,6 +5524,6 @@
       "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-04-28T11:22:04.590Z",
+  "lastUpdated": "2026-04-28T11:22:58.710Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
