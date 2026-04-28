@@ -43,6 +43,8 @@ export interface Turn {
   splitReason?: string;
   chars?: number;
   segments?: number;
+  /** PD-052: Agent 툴 경유 마킹. post-tool-use-task.js가 'agent'로 박제. 없으면 legacy-unmarked. */
+  source?: string;
 }
 
 /** role report frontmatter link 표준. */

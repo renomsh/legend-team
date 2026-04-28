@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-28T12:33:06.333Z",
-  "totalSessions": 131,
+  "generatedAt": "2026-04-28T13:00:25.718Z",
+  "totalSessions": 132,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.01,
-    "avgCacheHitRate": 0.9329,
-    "cacheSampleSize": 105,
-    "cacheSampleTotal": 131,
+    "avgMasterTurns": 16.9,
+    "avgCacheHitRate": 0.9331,
+    "cacheSampleSize": 106,
+    "cacheSampleTotal": 132,
     "avgAdoptionRate": 0,
     "totalDecisions": 106,
     "gradeDistribution": {
       "S": 55,
-      "A": 25,
+      "A": 26,
       "B": 37,
       "C": 14
     },
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 86,
-    "totalCostUSD": 1402.2429,
-    "avgCostPerSession": 11.1289,
-    "costSampleSize": 126
+    "turnBasedSessions": 87,
+    "totalCostUSD": 1406.9982,
+    "avgCostPerSession": 11.0787,
+    "costSampleSize": 127
   },
   "sessions": [
     {
@@ -4984,12 +4984,50 @@
         "messageCount": 61
       },
       "sessionCostUSD": 2.8276
+    },
+    {
+      "sessionId": "session_134",
+      "topicSlug": "pd052-role-impersonation-post-hook",
+      "topic": "PD-052 역할 사칭 사후 차단 hook 구현",
+      "startedAt": "2026-04-28T17:20:00.000Z",
+      "closedAt": "2026-04-28T17:45:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 6,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 11,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 3,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "ace",
+        "dev",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 8633337,
+        "ioTokens": 47015,
+        "inputTokens": 123,
+        "outputTokens": 46892,
+        "cacheCreate": 427722,
+        "cacheRead": 8158600,
+        "cacheHitRate": 0.9450111816554827,
+        "messageCount": 95
+      },
+      "sessionCostUSD": 4.7553
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 141,
+      "count": 143,
       "sessions": [
         "session_047",
         "session_048",
@@ -5058,12 +5096,13 @@
         "session_127",
         "session_128",
         "session_129",
-        "session_130"
+        "session_130",
+        "session_134"
       ]
     },
     {
       "role": "arki",
-      "count": 98,
+      "count": 99,
       "sessions": [
         "session_048",
         "session_049",
@@ -5112,12 +5151,13 @@
         "session_127",
         "session_128",
         "session_129",
-        "session_130"
+        "session_130",
+        "session_134"
       ]
     },
     {
       "role": "edi",
-      "count": 88,
+      "count": 89,
       "sessions": [
         "session_050",
         "session_051",
@@ -5201,12 +5241,13 @@
         "session_130",
         "session_131",
         "session_132",
-        "session_133"
+        "session_133",
+        "session_134"
       ]
     },
     {
       "role": "dev",
-      "count": 69,
+      "count": 70,
       "sessions": [
         "session_047",
         "session_048",
@@ -5262,12 +5303,13 @@
         "session_130",
         "session_131",
         "session_132",
-        "session_133"
+        "session_133",
+        "session_134"
       ]
     },
     {
       "role": "riki",
-      "count": 48,
+      "count": 49,
       "sessions": [
         "session_049",
         "session_053",
@@ -5309,7 +5351,8 @@
         "session_127",
         "session_128",
         "session_129",
-        "session_130"
+        "session_130",
+        "session_134"
       ]
     },
     {
@@ -8759,6 +8802,48 @@
           "role": "edi",
           "phase": "compile",
           "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_134",
+      "topic": "PD-052 역할 사칭 사후 차단 hook 구현",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "framing",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "framing",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 3,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 5,
           "recallReason": null
         }
       ]

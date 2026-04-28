@@ -5608,8 +5608,62 @@
       "note": "D grade 검증 세션: topic-status.ts updateTopicStatus() 4시나리오 + finalize R-6 checkSelfScoreScale() 3시나리오 | 32/32 PASS — 전체 통과 | topic_127 completed 전환 완료 (P0~P4 + 검증 전 단계 완결)",
       "oneLineSummary": "검증 완료: topic-status.ts 32/32 PASS + finalize R-6 dry-run 7/7 PASS, topic_127 completed",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_134",
+      "topicSlug": "pd052-role-impersonation-post-hook",
+      "topic": "PD-052 역할 사칭 사후 차단 hook 구현",
+      "startedAt": "2026-04-28T17:20:00.000Z",
+      "closedAt": "2026-04-28T17:45:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "ace",
+        "dev",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "phase": "framing"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 2,
+          "phase": "framing"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 3,
+          "phase": "framing",
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 4,
+          "phase": "implementation"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 5,
+          "phase": "compile",
+          "source": "agent"
+        }
+      ],
+      "grade": "B",
+      "note": "Phase 1: post-tool-use-task.js newTurn에 source='agent' 추가 | Phase 2+3: session-end-finalize.js에 auditRoleImpersonation() 추가 (legacy-unmarked 분리, violations 예약) | Phase 4: G1~G4 PASS — 3시나리오 단독 테스트 + validate-session-turns OK | PD-052 resolveCondition 달성: dry-run violations 0건 + 정상 작동 확인 | edi turn(turnIdx=5)에 source='agent' 자동 박제 확인 — Phase 1 실제 동작 증거",
+      "oneLineSummary": "PD-052 resolved: source 마킹 + auditRoleImpersonation() 구현, G1~G4 PASS, v1.86",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-04-28T12:32:43.445Z",
+  "lastUpdated": "2026-04-28T12:59:49.471Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

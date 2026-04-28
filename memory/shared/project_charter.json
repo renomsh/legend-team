@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-team",
-    "version": "1.85",
+    "version": "1.86",
     "purpose": "Memory-first, topic-based strategy and implementation system. Master receives structured analysis from role-separated agents on any strategic or implementation topic, with all outputs preserved in inspectable, revisionable files.",
     "principles": [
       "Memory first: all agent outputs, decisions, and session state are written to files immediately. No analysis lives only in conversation context.",
@@ -158,6 +158,12 @@
       "date": "2026-04-28",
       "summary": "D-104: 버전 bump 정책 개편 + R1 임계값 통일. 트리거 확장 + 세션당 +0.1 캡.",
       "sessionId": "session_127"
+    },
+    {
+      "version": "1.86",
+      "date": "2026-04-28",
+      "summary": "PD-052 역할 사칭 사후 탐지 인프라 신설 — source 마킹 + auditRoleImpersonation()",
+      "sessionId": "session_134"
     }
   ],
   "lastUpdated": "2026-04-28"

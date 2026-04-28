@@ -241,6 +241,7 @@ function log(msg) {
     const newTurn = {
       role,
       turnIdx,
+      source: 'agent', // PD-052: Agent 툴 경유 마킹
     };
 
     // self-scores 자동 추출 — PostToolUse에서 tool_response 파싱

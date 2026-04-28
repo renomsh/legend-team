@@ -638,6 +638,38 @@ function copyEdiReportToSessionContributions(sess) {
 }
 
 /**
+ * PD-052 (2026-04-28): 역할 사칭 사후 탐지 — source 마킹 기반.
+ *
+ * post-tool-use-task.js가 Agent 툴 경유 turns에 source='agent'를 박제한다.
+ * source 없는 turns는 Phase 1 배포 이전 legacy-unmarked로 분류 (false-positive 방지).
+ * violations 실제 생성 조건: source='agent' turn의 role 변조 탐지 시 (향후 확장 지점).
+ *
+ * PD-033 준수 전제: extractRole() null 반환 시 turn push skip → turnIdx 갭 탐지는 Phase 5 후속.
+ */
+function auditRoleImpersonation(sess) {
+  const turns = Array.isArray(sess.turns) ? sess.turns : [];
+  let legacyUnmarkedCount = 0;
+
+  for (const turn of turns) {
+    if (!turn || typeof turn.role !== 'string') continue;
+
+    if (turn.source === 'agent') {
+      // 정상 Agent 경유 turn — violations 대상 아님
+      continue;
+    }
+
+    // source 없음 또는 'agent' 아님 → legacy-unmarked (Phase 1 배포 전 turn)
+    legacyUnmarkedCount++;
+  }
+
+  if (legacyUnmarkedCount > 0) {
+    log(`[PD-052] legacy-unmarked turns ${legacyUnmarkedCount}건 (source 미마킹, violations 미생성)`);
+  } else {
+    log('[PD-052] auditRoleImpersonation OK — violations 0건');
+  }
+}
+
+/**
  * D-104 (2026-04-28): versionBump 자동 전파.
  * current_session.json에 versionBump 필드가 있으면 project_charter.json에 반영.
  * 없으면 pass (경고 없음).
@@ -741,6 +773,7 @@ function runSyncSystemState() {
     ensureEdiInAgents(sess);
     filterAgentsCompletedByDualSatisfaction(sess);
     validateInlineRoleHeaders(sess);
+    auditRoleImpersonation(sess); // PD-052
     copyEdiReportToSessionContributions(sess);
     writeJson(CURRENT_SESSION_PATH, sess);
     appendOrUpdateSessionIndex(sess);

@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_133",
-  "nextSessionId": "session_134",
+  "lastSessionId": "session_134",
+  "nextSessionId": "session_135",
   "currentVersion": "v1.75",
   "openTopics": [
     {
@@ -59,6 +59,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_134",
+      "topicSlug": "pd052-role-impersonation-post-hook",
+      "closedAt": "2026-04-28T17:45:00.000Z",
+      "oneLineSummary": "PD-052 resolved: source 마킹 + auditRoleImpersonation() 구현, G1~G4 PASS, v1.86",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_133",
       "topicSlug": "persona-structure-redesign",
       "closedAt": "2026-04-28T17:15:00.000Z",
@@ -73,13 +80,6 @@
       "decisionsAdded": [
         "D-105"
       ]
-    },
-    {
-      "sessionId": "session_131",
-      "topicSlug": "persona-structure-redesign",
-      "closedAt": "2026-04-28T16:00:00.000Z",
-      "oneLineSummary": "P3 완료: 5역할 atomic 분리 + scaffold-role.ts G3 PASS(8/8), PD-053 등록",
-      "decisionsAdded": []
     }
   ],
   "pendingDeferrals": [
@@ -584,5 +584,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-28T12:32:59.248Z"
+  "lastUpdated": "2026-04-28T13:00:14.900Z"
 }
