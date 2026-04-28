@@ -229,6 +229,41 @@ function log(msg) {
       log(`turn_log skip: topicId 또는 sessionId 없음`);
     }
 
+    // Item 3 (2026-04-28) — 보고서 파일 존재 검증 (silent fail 감지)
+    // 에이전트가 발언 후 reports/{role}_rev{n}.md를 쓰지 않으면 다음 에이전트에게 내용 미전달.
+    // 차단은 하지 않되 current_session.json.gaps에 경고 기록.
+    const reportPath = sess.reportPath;
+    if (reportPath && role && role !== 'unknown') {
+      const reportsDir = path.join(cwd, reportPath);
+      if (fs.existsSync(reportsDir)) {
+        let hasReport = false;
+        try {
+          const files = fs.readdirSync(reportsDir);
+          hasReport = files.some(f => f.startsWith(`${role}_rev`) && f.endsWith('.md'));
+        } catch {}
+        if (!hasReport) {
+          // 보고서 없음 → gaps 기록
+          sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
+          // 중복 기록 방지
+          const alreadyRecorded = sess.gaps.some(
+            g => g.type === 'missing-report' && g.role === role && g.turnIdx === turnIdx
+          );
+          if (!alreadyRecorded) {
+            sess.gaps.push({
+              type: 'missing-report',
+              role,
+              turnIdx,
+              reportPath,
+              detectedAt: new Date().toISOString(),
+              note: `${role} turn${turnIdx} 완료 후 reports/${role}_rev*.md 미발견 — 다음 에이전트에게 내용 미전달`,
+            });
+            writeJsonFile(currentSessionPath, sess);
+            log(`⚠ missing-report gap 기록: ${role} turn${turnIdx} (${reportPath})`);
+          }
+        }
+      }
+    }
+
     process.exit(0);
   } catch (err) {
     log(`error (silent): ${err && err.message}`);

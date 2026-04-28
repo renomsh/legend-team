@@ -131,6 +131,50 @@ function createTopic(
   writeJson(path.join(topicDir, 'revision_history.json'), { topicId: id, revisions: [] });
   writeJson(path.join(topicDir, 'speculative_options.json'), { topicId: id, options: [] });
 
+  // Asset #4 (D-103, 2026-04-28) — context layer auto-init
+  // turn_log.jsonl: PostToolUse hook이 append. 첫 에이전트 호출 전 파일 존재 보장.
+  const turnLogPath = path.join(topicDir, 'turn_log.jsonl');
+  if (!fs.existsSync(turnLogPath)) {
+    fs.writeFileSync(turnLogPath, '', 'utf8');
+  }
+  // context_brief.md: regenerate-context-brief.ts가 세션 종료 시 재생성. stub으로 init.
+  const contextBriefPath = path.join(topicDir, 'context_brief.md');
+  if (!fs.existsSync(contextBriefPath)) {
+    fs.writeFileSync(
+      contextBriefPath,
+      [
+        '---',
+        `topicId: ${id}`,
+        `topicTitle: "${title}"`,
+        'phase: framing',
+        'hold: null',
+        `grade: ${grade || 'A'}`,
+        'sessionCount: 0',
+        `lastUpdated: ${now}`,
+        '---',
+        '',
+        '## Current Phase',
+        '',
+        '**framing**',
+        '',
+        '## Key Anchors',
+        '',
+        '(신규 토픽 — 아직 결정 없음)',
+        '',
+        '## Next Action',
+        '',
+        'Ace 프레이밍',
+        '',
+      ].join('\n'),
+      'utf8'
+    );
+  }
+  // session_contributions/: 이전 세션 Edi 보고서 저장 디렉토리 (pre-tool-use-task.js가 읽음)
+  const scDir = path.join(topicDir, 'session_contributions');
+  if (!fs.existsSync(scDir)) {
+    fs.mkdirSync(scDir, { recursive: true });
+  }
+
   // Register in topic_index.json with 2-plane paths + D-052 fields
   const entry: TopicIndexEntry = {
     id,

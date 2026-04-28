@@ -11,6 +11,11 @@
    - hold=null인 openTopics의 context_brief.md를 자동 로드해 Master에게 요약 브리핑
    - 파일 없는 토픽은 조용히 스킵 (오류 아님) — 신규 토픽도 context_brief 미생성 상태이므로 자동 스킵
    - 출력이 비어있으면 "활성 context_brief 없음"으로 보고 후 진행
+3.5-c. **[이전 세션 Edi 보고서 브리핑]** — 기존 토픽 재오픈 시 (분기 A 경로) 또는 openTopics에 이미 진행 중인 토픽이 있을 때:
+   - `topics/{topicId}/session_contributions/*_edi_report.md` 파일 중 최신 1~2건을 Read하여 Master에게 핵심 요약 브리핑
+   - 파일 없으면 "(이전 세션 Edi 기록 없음)" 출력 후 진행
+   - 신규 토픽 생성 시(분기 B)는 skip (이전 세션 없음)
+
 3.5-b. **[최근 3세션 요약 브리핑]**
    - `system_state.json`의 `recentSessionSummaries[]` 배열을 읽어 Master에게 브리핑:
      - 각 항목: `{sessionId}: {topicSlug} — {oneLineSummary} (결정: {decisionsAdded.join(', ')})`
@@ -50,9 +55,11 @@
    - 실행 후 출력된 topic_id를 `current_session.json.topicId`에 기록
    - grade 필드는 create-topic.ts가 topic_index 기록 후, 별도 Edit으로 해당 엔트리에 `grade: "<S|A|B|C>"` 추가
    - topic_index.json은 `compareTopicDesc` 기준 desc 정렬 상태로 유지됨 (create-topic.ts가 자동 정렬)
-   - **[Asset #4 — context layer init]** 신규 토픽 생성 직후 다음 2건 멱등 생성 (이미 존재 시 skip):
-     - `topics/{topicId}/turn_log.jsonl` 빈 파일 touch (PreToolUse hook이 첫 호출에서 inject 대상으로 read)
-     - `topics/{topicId}/context_brief.md` 헤더만 있는 stub (`# Topic {topicId} — {title}\n\n## Current Phase\n- framing\n` 정도)
+   - **[Asset #4 — context layer init]** `create-topic.ts`가 자동으로 처리함 (2026-04-28 코드화):
+     - `topics/{topicId}/turn_log.jsonl` 빈 파일 자동 생성
+     - `topics/{topicId}/context_brief.md` stub 자동 생성
+     - `topics/{topicId}/session_contributions/` 디렉토리 자동 생성
+     - Claude가 별도로 파일 생성할 필요 없음
 
 8. 세션 오픈 완료 보고 후, **Framing Level에 따라 첫 주자 결정**
 
