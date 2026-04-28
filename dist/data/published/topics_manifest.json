@@ -1,6 +1,20 @@
 {
-  "generatedAt": "2026-04-28T05:04:19.473Z",
+  "generatedAt": "2026-04-28T05:20:15.301Z",
   "topics": [
+    {
+      "id": "topic_123",
+      "title": "PD내역 확인",
+      "status": "completed",
+      "created": "2026-04-28",
+      "reportPath": "reports/2026-04-28_pd-status-check",
+      "reportFiles": [
+        "edi_rev1.md"
+      ],
+      "published": false,
+      "outcome": "PD-033/043 resolved. 잔여 pending 5건 현상 유지.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_122",
       "title": "세션 히스토리 기억",

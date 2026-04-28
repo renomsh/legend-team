@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-28T05:04:18.670Z",
-  "totalSessions": 122,
+  "generatedAt": "2026-04-28T05:20:14.151Z",
+  "totalSessions": 123,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.31,
+    "avgMasterTurns": 17.21,
     "avgCacheHitRate": 0.934,
-    "cacheSampleSize": 96,
-    "cacheSampleTotal": 122,
+    "cacheSampleSize": 97,
+    "cacheSampleTotal": 123,
     "avgAdoptionRate": 0,
     "totalDecisions": 103,
     "gradeDistribution": {
       "S": 49,
-      "A": 24,
+      "A": 25,
       "B": 36,
       "C": 13
     },
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 77,
-    "totalCostUSD": 1330.0577,
-    "avgCostPerSession": 11.368,
-    "costSampleSize": 117
+    "turnBasedSessions": 78,
+    "totalCostUSD": 1333.194,
+    "avgCostPerSession": 11.2983,
+    "costSampleSize": 118
   },
   "sessions": [
     {
@@ -4650,12 +4650,49 @@
         "messageCount": 56
       },
       "sessionCostUSD": 3.202
+    },
+    {
+      "sessionId": "session_125",
+      "topicSlug": "pd-status-check",
+      "topic": "PD내역 확인",
+      "startedAt": "2026-04-28T06:20:00.000Z",
+      "closedAt": "2026-04-28T06:50:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 5,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 10,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 6,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "ace",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 4952252,
+        "ioTokens": 45902,
+        "inputTokens": 86,
+        "outputTokens": 45816,
+        "cacheCreate": 283151,
+        "cacheRead": 4623199,
+        "cacheHitRate": 0.9335548756404157,
+        "messageCount": 60
+      },
+      "sessionCostUSD": 3.1363
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 132,
+      "count": 134,
       "sessions": [
         "session_047",
         "session_048",
@@ -4719,12 +4756,13 @@
         "session_117",
         "session_122",
         "session_123",
-        "session_124"
+        "session_124",
+        "session_125"
       ]
     },
     {
       "role": "arki",
-      "count": 93,
+      "count": 94,
       "sessions": [
         "session_048",
         "session_049",
@@ -4768,12 +4806,13 @@
         "session_112",
         "session_119",
         "session_120",
-        "session_123"
+        "session_123",
+        "session_125"
       ]
     },
     {
       "role": "edi",
-      "count": 77,
+      "count": 78,
       "sessions": [
         "session_050",
         "session_051",
@@ -4848,7 +4887,8 @@
         "session_121",
         "session_122",
         "session_123",
-        "session_124"
+        "session_124",
+        "session_125"
       ]
     },
     {
@@ -4908,7 +4948,7 @@
     },
     {
       "role": "riki",
-      "count": 43,
+      "count": 44,
       "sessions": [
         "session_049",
         "session_053",
@@ -4945,7 +4985,8 @@
         "session_109",
         "session_119",
         "session_120",
-        "session_123"
+        "session_123",
+        "session_125"
       ]
     },
     {
@@ -8118,6 +8159,42 @@
           "role": "edi",
           "phase": "compile",
           "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_125",
+      "topic": "PD내역 확인",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "design",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 3,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 4,
           "recallReason": null
         }
       ]

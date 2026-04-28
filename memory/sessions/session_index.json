@@ -5219,8 +5219,55 @@
       "note": "D-103 구현 검증 세션 — 3갭 모두 정상 확인 | context_brief.md grade 오기(A→B) hotfix 완료 | B grade 인라인 세션이라 hook v2 신규 발동 없음 (session_123 기존 로그로 증거 충분)",
       "oneLineSummary": "D-103 구현 3갭 검증 완료 — hook v2·Edi 자동복사·auto-init 정상 확인",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_125",
+      "topicSlug": "pd-status-check",
+      "topic": "PD내역 확인",
+      "startedAt": "2026-04-28T06:20:00.000Z",
+      "closedAt": "2026-04-28T06:50:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "ace",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "phase": "framing"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "phase": "design"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 2,
+          "phase": "design"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 3,
+          "phase": "synthesis",
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 4,
+          "phase": "compile"
+        }
+      ],
+      "grade": "B",
+      "note": "PD-004/029/047/048 현상 유지 — Master 명시 지시 전까지 | PD-044 별도 토픽으로 분리 예정 | PD-033/043 resolved 근거: logs/pre-tool-use-task.log Arki 3회 호출 직접 증거 (session_123)",
+      "oneLineSummary": "PD-033/043 resolved — hook v2 content inject + dispatch 규약 박제 로그 직접 증거 확인",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-04-28T05:04:01.770Z",
+  "lastUpdated": "2026-04-28T05:19:52.311Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

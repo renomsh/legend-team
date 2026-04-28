@@ -1,38 +1,53 @@
 {
-  "sessionId": "session_124",
-  "topicId": "topic_122",
-  "topic": "세션 히스토리 기억",
-  "topicSlug": "session-history-remember",
-  "reportPath": "reports/2026-04-28_session-history-remember",
+  "sessionId": "session_125",
+  "topicId": "topic_123",
+  "topic": "PD내역 확인",
+  "topicSlug": "pd-status-check",
+  "reportPath": "reports/2026-04-28_pd-status-check",
   "status": "closed",
-  "startedAt": "2026-04-28T05:30:00.000Z",
-  "closedAt": "2026-04-28T06:10:00.000Z",
-  "oneLineSummary": "D-103 구현 3갭 검증 완료 — hook v2·Edi 자동복사·auto-init 정상 확인",
+  "startedAt": "2026-04-28T06:20:00.000Z",
+  "closedAt": "2026-04-28T06:50:00.000Z",
+  "oneLineSummary": "PD-033/043 resolved — hook v2 content inject + dispatch 규약 박제 로그 직접 증거 확인",
   "mode": "observation",
   "grade": "B",
   "gradeDeclared": "B",
   "framingLevel": 2,
   "framingSkipped": false,
-  "topicType": null,
+  "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
     "ace",
-    "dev",
+    "arki",
+    "riki",
+    "ace",
     "edi"
   ],
   "turns": [
     {
       "role": "ace",
-      "turnIdx": 0
+      "turnIdx": 0,
+      "phase": "framing"
     },
     {
-      "role": "dev",
-      "turnIdx": 1
+      "role": "arki",
+      "turnIdx": 1,
+      "phase": "design"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 2,
+      "phase": "design"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 3,
+      "phase": "synthesis",
+      "recallReason": "post-intervention"
     },
     {
       "role": "edi",
-      "turnIdx": 2,
+      "turnIdx": 4,
       "phase": "compile"
     }
   ],
@@ -40,21 +55,24 @@
   "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [],
+  "pendingDeferralsResolved": [
+    "PD-033",
+    "PD-043"
+  ],
   "decisionsAdded": [],
   "notes": [
-    "D-103 구현 검증 세션 — 3갭 모두 정상 확인",
-    "context_brief.md grade 오기(A→B) hotfix 완료",
-    "B grade 인라인 세션이라 hook v2 신규 발동 없음 (session_123 기존 로그로 증거 충분)"
+    "PD-004/029/047/048 현상 유지 — Master 명시 지시 전까지",
+    "PD-044 별도 토픽으로 분리 예정",
+    "PD-033/043 resolved 근거: logs/pre-tool-use-task.log Arki 3회 호출 직접 증거 (session_123)"
   ],
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 104,
-    "output_tokens": 26126,
-    "cache_creation_input_tokens": 396422,
-    "cache_read_input_tokens": 4410735,
-    "messageCount": 56,
-    "masterTurns": 12,
-    "total_billable": 4833387
+    "input_tokens": 86,
+    "output_tokens": 45816,
+    "cache_creation_input_tokens": 283151,
+    "cache_read_input_tokens": 4623199,
+    "messageCount": 60,
+    "masterTurns": 6,
+    "total_billable": 4952252
   }
 }

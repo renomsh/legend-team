@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_124",
-  "nextSessionId": "session_125",
+  "lastSessionId": "session_125",
+  "nextSessionId": "session_126",
   "currentVersion": "v1.75",
   "openTopics": [
     {
@@ -53,6 +53,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_125",
+      "topicSlug": "pd-status-check",
+      "closedAt": "2026-04-28T06:50:00.000Z",
+      "oneLineSummary": "PD-033/043 resolved — hook v2 content inject + dispatch 규약 박제 로그 직접 증거 확인",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_124",
       "topicSlug": "session-history-remember",
       "closedAt": "2026-04-28T06:10:00.000Z",
@@ -67,13 +74,6 @@
       "decisionsAdded": [
         "D-103"
       ]
-    },
-    {
-      "sessionId": "session_122",
-      "topicSlug": "pd034-briefing",
-      "closedAt": "2026-04-28T04:30:00.000Z",
-      "oneLineSummary": "PD 정비 브리핑 — PD-034/042/038 deprecate (D-092 자가평가 단순화 정합), PD-004 유지. 잔여 pending 7건.",
-      "decisionsAdded": []
     }
   ],
   "pendingDeferrals": [
@@ -91,8 +91,10 @@
       "fromSession": "session_103",
       "fromTopic": "pd040-schema-governance-pd041-test-regression",
       "item": "역할 사칭 검증 hook — Main 컨텍스트가 Agent 툴 미경유 상태로 '## Ace', 'Arki:', '**Riki**' 등 역할 헤더 직접 작성 차단. session-end 시 turns[].role 항목마다 직전 Agent tool_use 매칭 검증. Main inline 역할 발언 + Ace relay 패턴 자동 적발. D-066(Grade A 서브에이전트 강제) + F-005(Ace relay 금지) 박혔으나 enforcement hook 미박제 → 현재 수동 감지뿐.",
-      "status": "pending",
+      "status": "resolved",
       "resolveCondition": "PD-033(서브에이전트 세션 지속성)과 함께 다룸. 검증 hook 구현 + 1세션 dry-run에서 위반 0건 또는 적발 정상 작동 확인.",
+      "resolvedInSession": "session_125",
+      "resolvedNote": "topic_123 교차검증 완료. D-103 구현: pre/post-tool-use-task.js extractRole() 3-priority (ROLE: 마커→subagent_type→description 첫 단어). CLAUDE.md dispatch 규약 박제. session_123 dry-run: 6회 hook fire, role=unknown 0건, 위반 0건 확인 (logs/pre-tool-use-task.log 직접 증거).",
       "dependsOn": [
         "PD-033"
       ]
@@ -146,8 +148,10 @@
       "fromSession": "session_090",
       "fromTopic": "pd031-topic082-parallel-integration",
       "item": "서브에이전트 세션 지속성 구현 — SendMessage 툴 미로드로 같은 세션 내 역할 서브가 매 호출 재부팅. F-001~F-013 findings가 서브 인스턴스 간 전달되지 않아 맥락 유실. 해결 방안: (1) SendMessage 툴 활성화 경로 조사, (2) shared scratchpad JSON + explicit re-inject 프로토콜, (3) 역할별 lifecycle 정의(Ace=session 상주, 타 역할=topic 상주/call 상주).",
-      "status": "pending",
+      "status": "resolved",
       "resolveCondition": "같은 session 내 Arki 3회 호출 시 이전 findings F-NNN 번호 유지 확인 + scratchpad 또는 SendMessage 경로 중 택1 구현",
+      "resolvedInSession": "session_125",
+      "resolvedNote": "topic_123 교차검증 완료. D-103 구현: pre-tool-use-task.js v2 content injection (scratchpad 방식 택1 구현). session_123 로그 직접 증거: Arki 3회 연속 호출(04:29:48/04:29:54/04:30:07), 매회 74,538자 컨텍스트(토픽+세션 layer 실제 내용) inject 확인. 이전 보고서 실제 내용 prepend로 F-NNN 맥락 유지 메커니즘 성립.",
       "dependsOn": []
     },
     {
@@ -550,5 +554,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-28T05:04:13.474Z"
+  "lastUpdated": "2026-04-28T05:20:07.396Z"
 }
