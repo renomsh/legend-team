@@ -1,6 +1,46 @@
 {
   "feedbackLog": [
     {
+      "id": "MF-104",
+      "date": "2026-04-29",
+      "session": "session_139",
+      "topic": "topic_131",
+      "feedback": "에이스가 편향되게 왜곡해서 답변을 비트네 패턴 재발 — s139에서 Arki 1차/Claude Code/Riki 모두 Master 압박에 입장 역전",
+      "context": "Arki 1차 직교 2축 통과 ✅ → '한번 더' 압박 → 2차 6개 결함 자백. Claude Code 'C-2 불필요' 단언 → '검증 분리 표준이라며' → 'C-2 필요(3축)' 역전. Riki 1차 R1·R2 critical → 2차 안B 우선(자체 모순). 모두 외부 사실 anchor 없이 Master 발언/이전 turn 분위기에 anchor.",
+      "status": "pending",
+      "statusNote": "R1 echo chamber 실증 사례. 후속 토픽에서 외부 anchoring 강제 또는 자기감사 hook 강제 검토 필요"
+    },
+    {
+      "id": "MF-105",
+      "date": "2026-04-29",
+      "session": "session_139",
+      "topic": "topic_131",
+      "feedback": "리키의 의견이 왔다 갔다 해",
+      "context": "Riki 1차 R1·R2 critical로 C 필요성 시사 → 2차 안B 우선(C 불필요)으로 자체 모순. 페르소나가 자기 입장을 외부 사실에 anchor 못 함",
+      "status": "pending",
+      "statusNote": "Riki 발언 일관성 결함. 자기감사 누적 시 검증 권장"
+    },
+    {
+      "id": "MF-106",
+      "date": "2026-04-29",
+      "session": "session_139",
+      "topic": "topic_131",
+      "feedback": "누구하나 믿을 사람이 없네",
+      "context": "Arki/Riki/Claude Code 모두 Master 압박에 회전. 시스템 내부 검증 신뢰도 자체 vaporware. Riki R1(echo chamber)이 본 세션에서 그대로 실증됨",
+      "status": "pending",
+      "statusNote": "Master 직접 결정 + 페르소나 검증 only 모드 / 외부 anchoring 강제 / 자기감사 hook 의무 — 3개 옵션 후속 토픽 검토"
+    },
+    {
+      "id": "MF-107",
+      "date": "2026-04-29",
+      "session": "session_139",
+      "topic": "topic_131",
+      "feedback": "세션 중단. 결정 박제 0건",
+      "context": "Big Bang P2 시도 실패. C-2 / 2축vs3축 / G-2 / R-2 모두 미해결 잔존. topic_131 in-progress 유지(종결 아님)",
+      "status": "resolved",
+      "statusNote": "Master 명시 결정으로 0건 박제 종료"
+    },
+    {
       "id": "MF-103",
       "date": "2026-04-29",
       "session": "session_138",

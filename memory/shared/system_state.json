@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_138",
-  "nextSessionId": "session_139",
+  "lastSessionId": "session_139",
+  "nextSessionId": "session_140",
   "currentVersion": "v1.96",
   "openTopics": [
     {
@@ -59,6 +59,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_139",
+      "topicSlug": "big-bang-legend-nexus-p2",
+      "closedAt": "2026-04-29T07:30:00.000Z",
+      "oneLineSummary": "세션 중단 — echo chamber 실증(Arki/Riki/Claude Code 모두 Master 발언 anchor, 의견 회전). 결정 박제 0건. 신뢰 회복 후 재개",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_138",
       "topicSlug": "big-bang-legend-nenux",
       "closedAt": "2026-04-29T05:00:00.000Z",
@@ -82,13 +89,6 @@
       "decisionsAdded": [
         "D-106"
       ]
-    },
-    {
-      "sessionId": "session_136",
-      "topicSlug": "auto-mode-policy-redesign",
-      "closedAt": "2026-04-28T18:55:00.000Z",
-      "oneLineSummary": "Task 훅 permissionDecision 제거 — 페르소나 주입 유지하면서 auto/bypass mode 인터셉트 차단",
-      "decisionsAdded": []
     }
   ],
   "pendingDeferrals": [
@@ -594,5 +594,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-29T04:55:10.909Z"
+  "lastUpdated": "2026-04-29T08:21:02.092Z"
 }

@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-29T04:55:16.478Z",
-  "totalSessions": 136,
+  "generatedAt": "2026-04-29T08:21:08.909Z",
+  "totalSessions": 137,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.85,
-    "avgCacheHitRate": 0.9319,
-    "cacheSampleSize": 110,
-    "cacheSampleTotal": 136,
+    "avgMasterTurns": 16.86,
+    "avgCacheHitRate": 0.9318,
+    "cacheSampleSize": 111,
+    "cacheSampleTotal": 137,
     "avgAdoptionRate": 0,
     "totalDecisions": 115,
     "gradeDistribution": {
-      "S": 57,
+      "S": 58,
       "A": 27,
       "B": 38,
       "C": 14
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 91,
-    "totalCostUSD": 1450.8686,
-    "avgCostPerSession": 11.0753,
-    "costSampleSize": 131
+    "turnBasedSessions": 92,
+    "totalCostUSD": 1458.2709,
+    "avgCostPerSession": 11.0475,
+    "costSampleSize": 132
   },
   "sessions": [
     {
@@ -5182,12 +5182,50 @@
         "messageCount": 255
       },
       "sessionCostUSD": 23.8062
+    },
+    {
+      "sessionId": "session_139",
+      "topicSlug": "big-bang-legend-nexus-p2",
+      "topic": "Big Bang — Legend Nexus 시스템 개편 및 역할 재정립",
+      "startedAt": "2026-04-29T06:00:00.000Z",
+      "closedAt": "2026-04-29T07:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 6,
+      "rolesRecalled": 2,
+      "sessionsSpanned": 1,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 18,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "arki",
+        "riki",
+        "riki",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 10510521,
+        "ioTokens": 124129,
+        "inputTokens": 4349,
+        "outputTokens": 119780,
+        "cacheCreate": 717869,
+        "cacheRead": 9668523,
+        "cacheHitRate": 0.9198899845212241,
+        "messageCount": 95
+      },
+      "sessionCostUSD": 7.4023
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 150,
+      "count": 151,
       "sessions": [
         "session_047",
         "session_048",
@@ -5260,12 +5298,13 @@
         "session_134",
         "session_136",
         "session_137",
-        "session_138"
+        "session_138",
+        "session_139"
       ]
     },
     {
       "role": "arki",
-      "count": 100,
+      "count": 102,
       "sessions": [
         "session_048",
         "session_049",
@@ -5316,12 +5355,13 @@
         "session_129",
         "session_130",
         "session_134",
-        "session_138"
+        "session_138",
+        "session_139"
       ]
     },
     {
       "role": "edi",
-      "count": 93,
+      "count": 94,
       "sessions": [
         "session_050",
         "session_051",
@@ -5410,7 +5450,8 @@
         "session_135",
         "session_136",
         "session_137",
-        "session_138"
+        "session_138",
+        "session_139"
       ]
     },
     {
@@ -5479,7 +5520,7 @@
     },
     {
       "role": "riki",
-      "count": 53,
+      "count": 55,
       "sessions": [
         "session_049",
         "session_053",
@@ -5524,7 +5565,8 @@
         "session_130",
         "session_134",
         "session_137",
-        "session_138"
+        "session_138",
+        "session_139"
       ]
     },
     {
@@ -9158,6 +9200,48 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_139",
+      "topic": "Big Bang — Legend Nexus 시스템 개편 및 역할 재정립",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -9180,6 +9264,11 @@
       "occurrences": [
         {
           "date": "2026-04-29",
+          "feedbackId": "MF-104",
+          "summary": "에이스가 편향되게 왜곡해서 답변을 비트네 패턴 재발 — s139에서 Arki 1차/Claude Code/Ri"
+        },
+        {
+          "date": "2026-04-29",
           "feedbackId": "MF-103",
           "summary": "에이스가 편향되게 왜곡해서 답변을 비트네"
         },
@@ -9192,6 +9281,106 @@
           "date": "2026-04-24",
           "feedbackId": "MF-077",
           "summary": "왜 에이스가 아키의 응답을 전달하지? 라우터 역할을 하는 건가?"
+        }
+      ]
+    },
+    {
+      "keyword": "편향되게",
+      "occurrences": [
+        {
+          "date": "2026-04-29",
+          "feedbackId": "MF-104",
+          "summary": "에이스가 편향되게 왜곡해서 답변을 비트네 패턴 재발 — s139에서 Arki 1차/Claude Code/Ri"
+        },
+        {
+          "date": "2026-04-29",
+          "feedbackId": "MF-103",
+          "summary": "에이스가 편향되게 왜곡해서 답변을 비트네"
+        }
+      ]
+    },
+    {
+      "keyword": "왜곡해서",
+      "occurrences": [
+        {
+          "date": "2026-04-29",
+          "feedbackId": "MF-104",
+          "summary": "에이스가 편향되게 왜곡해서 답변을 비트네 패턴 재발 — s139에서 Arki 1차/Claude Code/Ri"
+        },
+        {
+          "date": "2026-04-29",
+          "feedbackId": "MF-103",
+          "summary": "에이스가 편향되게 왜곡해서 답변을 비트네"
+        }
+      ]
+    },
+    {
+      "keyword": "답변을",
+      "occurrences": [
+        {
+          "date": "2026-04-29",
+          "feedbackId": "MF-104",
+          "summary": "에이스가 편향되게 왜곡해서 답변을 비트네 패턴 재발 — s139에서 Arki 1차/Claude Code/Ri"
+        },
+        {
+          "date": "2026-04-29",
+          "feedbackId": "MF-103",
+          "summary": "에이스가 편향되게 왜곡해서 답변을 비트네"
+        }
+      ]
+    },
+    {
+      "keyword": "비트네",
+      "occurrences": [
+        {
+          "date": "2026-04-29",
+          "feedbackId": "MF-104",
+          "summary": "에이스가 편향되게 왜곡해서 답변을 비트네 패턴 재발 — s139에서 Arki 1차/Claude Code/Ri"
+        },
+        {
+          "date": "2026-04-29",
+          "feedbackId": "MF-103",
+          "summary": "에이스가 편향되게 왜곡해서 답변을 비트네"
+        }
+      ]
+    },
+    {
+      "keyword": "세션",
+      "occurrences": [
+        {
+          "date": "2026-04-29",
+          "feedbackId": "MF-107",
+          "summary": "세션 중단. 결정 박제 0건"
+        },
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-040",
+          "summary": "1) 세션-토픽 다대다는 운영 복잡도 대비 비효율 — N:1 단방향(토픽 하나에 여러 세션)으로 단순화. 여"
+        },
+        {
+          "date": "2026-04-17",
+          "feedbackId": "MF-023",
+          "summary": "세션에 버전도 안맞고, 홈에 세션 클릭하면 메뉴바가 상단으로 올라가. 박스도 흰색이라 안보이고. 베라 이번 "
+        },
+        {
+          "date": "2026-04-25",
+          "feedbackId": "MF-095",
+          "summary": "세션 사이드 메뉴에 흐름 있잖아. 그건 어떻게 할껀데?"
+        }
+      ]
+    },
+    {
+      "keyword": "결정",
+      "occurrences": [
+        {
+          "date": "2026-04-29",
+          "feedbackId": "MF-107",
+          "summary": "세션 중단. 결정 박제 0건"
+        },
+        {
+          "date": "2026-04-03",
+          "feedbackId": "MF-001",
+          "summary": "5개 결정 항목에 대한 Master 결정 확정"
         }
       ]
     },
@@ -9867,26 +10056,6 @@
           "date": "2026-04-19",
           "feedbackId": "MF-028",
           "summary": "하드코딩 최소화, 데이터를 호출하는 형태로. 구조설계·코딩 전반에 적용."
-        }
-      ]
-    },
-    {
-      "keyword": "세션",
-      "occurrences": [
-        {
-          "date": "2026-04-21",
-          "feedbackId": "MF-040",
-          "summary": "1) 세션-토픽 다대다는 운영 복잡도 대비 비효율 — N:1 단방향(토픽 하나에 여러 세션)으로 단순화. 여"
-        },
-        {
-          "date": "2026-04-17",
-          "feedbackId": "MF-023",
-          "summary": "세션에 버전도 안맞고, 홈에 세션 클릭하면 메뉴바가 상단으로 올라가. 박스도 흰색이라 안보이고. 베라 이번 "
-        },
-        {
-          "date": "2026-04-25",
-          "feedbackId": "MF-095",
-          "summary": "세션 사이드 메뉴에 흐름 있잖아. 그건 어떻게 할껀데?"
         }
       ]
     },
