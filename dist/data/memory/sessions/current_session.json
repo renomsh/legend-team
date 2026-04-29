@@ -156,15 +156,78 @@
       "expected": "riki",
       "actualInTurns": "fin",
       "turnId": 3
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/ace_rev1.md",
+      "expected": "ace",
+      "actualInTurns": "arki",
+      "turnId": 0
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/ace_rev3.md",
+      "expected": "ace",
+      "actualInTurns": "dev",
+      "turnId": 5
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/arki_rev1.md",
+      "expected": "arki",
+      "actualInTurns": "riki",
+      "turnId": 2
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/arki_rev2.md",
+      "expected": "arki",
+      "actualInTurns": "riki",
+      "turnId": 1
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/dev_rev1.md",
+      "expected": "dev",
+      "actualInTurns": "edi",
+      "turnId": 6
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/fin_rev1.md",
+      "expected": "fin",
+      "actualInTurns": "dev",
+      "turnId": 5
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/fin_rev2.md",
+      "expected": "fin",
+      "actualInTurns": "ace",
+      "turnId": 4
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/riki_rev1.md",
+      "expected": "riki",
+      "actualInTurns": "fin",
+      "turnId": 3
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/riki_rev3.md",
+      "expected": "riki",
+      "actualInTurns": "fin",
+      "turnId": 3
     }
   ],
   "tokenUsage": {
-    "input_tokens": 247,
-    "output_tokens": 85070,
-    "cache_creation_input_tokens": 377202,
-    "cache_read_input_tokens": 8779558,
-    "messageCount": 74,
+    "input_tokens": 249,
+    "output_tokens": 86250,
+    "cache_creation_input_tokens": 384884,
+    "cache_read_input_tokens": 9124224,
+    "messageCount": 76,
     "masterTurns": 14,
-    "total_billable": 9242077
+    "total_billable": 9595607
   }
 }
