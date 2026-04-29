@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_143",
-  "nextSessionId": "session_144",
+  "lastSessionId": "session_144",
+  "nextSessionId": "session_145",
   "currentVersion": "v2.06",
   "openTopics": [
     {
@@ -27,6 +27,12 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-129",
+      "date": "2026-04-30",
+      "axis": "Master-first 모드 = 옵션 2 (hook 박제) + 6조건",
+      "summary": "Sage(D-126) 다음 세션 채점 시점 미스매치 보완. 세션 내 실시간 자기감사로 echo chamber 회귀 차단. D4 prime directive(모델 설득 무력화 전제) 정합 — 코드 hook 박제로 Claude 자율 우회 차단. 비용: 초기 ~500 LOC + 세션당 $0.06~$0.40 (LLM 2차 사용 시) < 회피 가치 (s139 echo chamber 1회 = 1.5~2 세션 회귀)."
+    },
+    {
       "id": "D-128",
       "date": "2026-04-29",
       "axis": "Sage 격리 enforcement = pre-tool-use-task-sage-gate.js 별도 hook (SRP + Defense in Depth)",
@@ -49,15 +55,18 @@
       "date": "2026-04-29",
       "axis": "Zero 정제 페르소나 운영 정의",
       "summary": "D-115 페르소나 노출 차단 정합. Zero가 violation flag 직접 read해 자기 검열·자기 조작하는 경로 차단. anchor governance 책임은 Edi(R-2 mitigation)로 분담 — Zero는 청소·검증, Edi는 anchor 거버넌스로 권한 분리."
-    },
-    {
-      "id": "D-124",
-      "date": "2026-04-29",
-      "axis": "판정 주체(D-120 미결) + Ace ack 누수 차단",
-      "summary": "D-120 미결 종결. R-3 silent dismiss 3 누수 경로(보고 누락·stale·자가 우선순위 강등) 모두 차단. echo chamber(s139) 회귀 차단. 외부 anchor: ITIL 4 + Google SRE Book Ch.6."
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_144",
+      "topicSlug": "master-first-mode",
+      "closedAt": "2026-04-30T01:30:00.000Z",
+      "oneLineSummary": "Master-first 모드 옵션 2 (hook 박제) 채택, MVP P1~P3 warn-only 구현 6 파일 8/8 PASS, D-129 박제.",
+      "decisionsAdded": [
+        "D-129"
+      ]
+    },
     {
       "sessionId": "session_143",
       "topicSlug": "persona-structure-redesign",
@@ -77,18 +86,6 @@
         "D-126",
         "D-127",
         "D-128"
-      ]
-    },
-    {
-      "sessionId": "session_141",
-      "topicSlug": "big-bang-legend-nexus-p2-1of3",
-      "closedAt": "2026-04-29T12:50:00.000Z",
-      "oneLineSummary": "P2(1/3): Affaan 4 prime directive CLAUDE.md+해시 hook 박제, NCL violation 4조건식+판정주체 확정, Zero 매핑. D-122~D-125 박제, D-120 종결.",
-      "decisionsAdded": [
-        "D-122",
-        "D-123",
-        "D-124",
-        "D-125"
       ]
     }
   ],
@@ -595,5 +592,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-29T23:01:32.144Z"
+  "lastUpdated": "2026-04-29T23:46:46.411Z"
 }

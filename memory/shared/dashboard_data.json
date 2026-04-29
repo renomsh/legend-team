@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-29T23:01:39.679Z",
-  "totalSessions": 141,
+  "generatedAt": "2026-04-29T23:46:53.375Z",
+  "totalSessions": 142,
   "autoDataFrom": "session_027",
   "metrics": {
     "avgMasterTurns": 16.94,
-    "avgCacheHitRate": 0.9312,
-    "cacheSampleSize": 115,
-    "cacheSampleTotal": 141,
+    "avgCacheHitRate": 0.9315,
+    "cacheSampleSize": 116,
+    "cacheSampleTotal": 142,
     "avgAdoptionRate": 0,
-    "totalDecisions": 129,
+    "totalDecisions": 130,
     "gradeDistribution": {
       "S": 62,
-      "A": 27,
+      "A": 28,
       "B": 38,
       "C": 14
     },
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 96,
-    "totalCostUSD": 1487.0635,
-    "avgCostPerSession": 10.9343,
-    "costSampleSize": 136
+    "turnBasedSessions": 97,
+    "totalCostUSD": 1492.2741,
+    "avgCostPerSession": 10.8925,
+    "costSampleSize": 137
   },
   "sessions": [
     {
@@ -5402,6 +5402,46 @@
         "messageCount": 30
       },
       "sessionCostUSD": 2.0507
+    },
+    {
+      "sessionId": "session_144",
+      "topicSlug": "master-first-mode",
+      "topic": "Master-first 모드 (echo chamber 실시간 자기감사 부재 보완)",
+      "startedAt": "2026-04-30T00:35:00.000Z",
+      "closedAt": "2026-04-30T01:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-129"
+      ],
+      "rolesCalled": 5,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 10,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 17,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "fin",
+        "arki",
+        "riki",
+        "dev",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 11078219,
+        "ioTokens": 62120,
+        "inputTokens": 4561,
+        "outputTokens": 57559,
+        "cacheCreate": 298181,
+        "cacheRead": 10717918,
+        "cacheHitRate": 0.9674766313971587,
+        "messageCount": 80
+      },
+      "sessionCostUSD": 5.2106
     }
   ],
   "roleFrequency": [
@@ -5490,7 +5530,7 @@
     },
     {
       "role": "arki",
-      "count": 108,
+      "count": 109,
       "sessions": [
         "session_048",
         "session_049",
@@ -5545,12 +5585,13 @@
         "session_139",
         "session_140",
         "session_141",
-        "session_142"
+        "session_142",
+        "session_144"
       ]
     },
     {
       "role": "edi",
-      "count": 98,
+      "count": 99,
       "sessions": [
         "session_050",
         "session_051",
@@ -5644,12 +5685,13 @@
         "session_140",
         "session_141",
         "session_142",
-        "session_143"
+        "session_143",
+        "session_144"
       ]
     },
     {
       "role": "dev",
-      "count": 74,
+      "count": 75,
       "sessions": [
         "session_047",
         "session_048",
@@ -5710,12 +5752,13 @@
         "session_135",
         "session_137",
         "session_141",
-        "session_142"
+        "session_142",
+        "session_144"
       ]
     },
     {
       "role": "riki",
-      "count": 63,
+      "count": 64,
       "sessions": [
         "session_049",
         "session_053",
@@ -5764,12 +5807,13 @@
         "session_139",
         "session_140",
         "session_141",
-        "session_142"
+        "session_142",
+        "session_144"
       ]
     },
     {
       "role": "fin",
-      "count": 24,
+      "count": 25,
       "sessions": [
         "session_053",
         "session_054",
@@ -5792,7 +5836,8 @@
         "session_127",
         "session_140",
         "session_141",
-        "session_142"
+        "session_142",
+        "session_144"
       ]
     },
     {
@@ -9644,6 +9689,42 @@
           "role": "edi",
           "phase": "compile",
           "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_144",
+      "topic": "Master-first 모드 (echo chamber 실시간 자기감사 부재 보완)",
+      "sequence": [
+        {
+          "role": "fin",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 4,
           "recallReason": null
         }
       ]

@@ -72,6 +72,8 @@
     "shared/hit_rate_rubric.json",
     "shared/hold_reasons_catalog.json",
     "shared/intervention_classifier.json",
+    "shared/master_first_config.json",
+    "shared/master_first_state.json",
     "shared/ncl_violations.jsonl.README.md",
     "shared/phase_catalog.json",
     "shared/prime_directive.lock.json",
@@ -506,6 +508,11 @@
     "2026-04-29_score-update-bug/dev_rev1.md",
     "2026-04-29_score-update-bug/edi_rev1.md",
     "2026-04-29_score-update-bug/riki_rev1.md",
+    "2026-04-30_master-first-mode/arki_rev1.md",
+    "2026-04-30_master-first-mode/dev_rev1.md",
+    "2026-04-30_master-first-mode/edi_rev1.md",
+    "2026-04-30_master-first-mode/fin_rev1.md",
+    "2026-04-30_master-first-mode/riki_rev1.md",
     "2026-04-30_persona-structure-redesign/ace_rev1.md"
   ],
   "logs": [
@@ -515,6 +522,7 @@
     "hook-test-err.txt",
     "hook-test-out.json",
     "k6-spike.log",
+    "master-first.log",
     "pre-tool-use-task.log",
     "sage-gate.log"
   ]

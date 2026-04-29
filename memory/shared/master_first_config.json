@@ -1,0 +1,13 @@
+{
+  "version": "v0",
+  "mode": "warn-only",
+  "triggerGrades": ["B", "A", "S"],
+  "triggerTopicTypes": ["framing"],
+  "echoTriggerKeywords": ["좋아", "맞아", "동의", "그대로", "OK", "ok", "확정", "박제해"],
+  "intentReconfirmKeywords": ["진행해", "다음", "계속"],
+  "dualTrigger": { "sessionCountThreshold": 30, "fpCountThreshold": 5 },
+  "timeoutMs": 2000,
+  "logPath": "logs/master-first.log",
+  "statePath": "memory/shared/master_first_state.json",
+  "_doc": "D-129 (topic_132 / session_144). MVP P1~P3 warn-only. P4 LLM 2차 / P5 enforce / P6 30세션 게이트는 별도 세션."
+}

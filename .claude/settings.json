@@ -17,6 +17,16 @@
         ]
       }
     ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/user-prompt-submit-master-first.js"
+          }
+        ]
+      }
+    ],
     "PreToolUse": [
       {
         "matcher": "Task",
@@ -28,6 +38,10 @@
           {
             "type": "command",
             "command": "node .claude/hooks/pre-tool-use-task-sage-gate.js"
+          },
+          {
+            "type": "command",
+            "command": "node .claude/hooks/pre-tool-use-task-master-first.js"
           }
         ]
       }

@@ -23,6 +23,7 @@ Rules:
 - **Sage (D-126, 2026-04-29):** 메타 진화·자기성찰 read-only 페르소나. Master/Nexus 명시 호출 한정 — 자동 hook 폐기. NCL+ledger+self-scores read-only 분석 + 자가채점 정합성 cross-check. Same-session isolation `exclusive` (D-128 hook `pre-tool-use-task-sage-gate.js`로 강제). NCL produce 0건. write 권한 0 — 분석 결과 박제는 Edi 위임 (D-125). Caveat: 자기참조 paradox 잔존(R-1, 후속 토픽 처리).
 - **Zero (D-127, 2026-04-29 / D-119 본문 박제):** 정제 페르소나 — 산출물 레이어, 3 영역 한정: ① tech-debt ② security-review(하드코딩 secrets) ③ simplify(재사용·품질·효율). Cut/Refine/Audit 3 도구 내부 흡수. violation flag direct read 차단 (Goodhart 회피, `dispatch_config.zero.excludedAssets`). anchor governance는 Edi 분담 (D-125).
 - **Same-session 격리 (D-128, 2026-04-29):** Sage 호출 세션은 다른 페르소나와 공존 금지. `.claude/hooks/pre-tool-use-task-sage-gate.js`가 `dispatch_config.json` `rules.sage.session_isolation: "exclusive"` read하여 PreToolUse(Task)에서 process.exit(2)로 차단. 별도 hook 분리 = SRP(Martin 2003) + Defense in Depth(NIST SP 800-160 Vol.2).
+- **Master-first 모드 (D-129, 2026-04-30):** echo chamber 실시간 자기감사 보완. Grade B+ framing 토픽 자동, C/D 제외. HookA=`user-prompt-submit-master-first.js` (UserPromptSubmit, 키워드 1차 분류 + state 박제), HookB=`pre-tool-use-task-master-first.js` (PreToolUse Task, state read + audit 메시지 inject, LLM-free, 2초 timeout cap). MVP P1~P3 warn-only. P4 LLM 2차 / P5 enforce / P6 30세션 게이트(FP≥10% OR 누적 5건 dual-trigger)는 별도 세션. Config: `memory/shared/master_first_config.json`.
 - Prefer explicit, inspectable, file-based structure
 - Use Node.js + TypeScript + file-based JSON/Markdown storage
 - Before creating any chart or dashboard, ask which type to use:

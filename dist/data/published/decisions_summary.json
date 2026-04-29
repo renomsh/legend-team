@@ -1,6 +1,23 @@
 {
-  "generatedAt": "2026-04-29T23:01:43.222Z",
+  "generatedAt": "2026-04-29T23:46:56.880Z",
   "decisions": [
+    {
+      "id": "D-129",
+      "date": "2026-04-30",
+      "session": "session_144",
+      "topic": "topic_132",
+      "owningTopicId": "topic_132",
+      "scopeCheck": "Master-first 모드 채택 — echo chamber 실시간 자기감사 부재 보완 (s139 회귀 차단)",
+      "axis": "Master-first 모드 = 옵션 2 (hook 박제) + 6조건",
+      "decision": "Master 발언 직후 (a) echo trigger 자가검사 1회 강제 + (b) Master 의도 재확인이 모든 role 발언 선행. 트리거 = Grade B+ framing 토픽 자동, C/D 제외. 구현 = hook 2건 분리(SRP) — `.claude/hooks/user-prompt-submit-master-first.js` (HookA: Master 분류·state 박제, 키워드 1차) + `.claude/hooks/pre-tool-use-task-master-first.js` (HookB: audit inject·차단, LLM-free + 2초 timeout cap). config = `memory/shared/master_first_config.json` (트리거 매트릭스, 키워드 룰, dual-trigger 임계). 6조건 박제 — Fin 3 (① 키워드 1차+LLM 2차, ② PD-052 resolved 후 warn-only→enforce 분리, ③ 30세션 후 FP≥10%면 재설계) + Riki 3 (④ false-negative 게이트 추가, ⑤ HookB LLM-free+2초 timeout cap, ⑥ Dual-trigger: 30세션 OR FP 5건 + Sage 자동 dashboard write).",
+      "value": "Sage(D-126) 다음 세션 채점 시점 미스매치 보완. 세션 내 실시간 자기감사로 echo chamber 회귀 차단. D4 prime directive(모델 설득 무력화 전제) 정합 — 코드 hook 박제로 Claude 자율 우회 차단. 비용: 초기 ~500 LOC + 세션당 $0.06~$0.40 (LLM 2차 사용 시) < 회피 가치 (s139 echo chamber 1회 = 1.5~2 세션 회귀).",
+      "externalAnchors": [
+        "Strathern (1997) — Goodhart's Law (자가검사 LLM 메타 echo chamber화 방지)",
+        "Wingspread Statement (1998) — Precautionary Principle (false sense of security 차단)",
+        "Robert C. Martin (2003) — Single Responsibility Principle (hook 2건 분리)"
+      ],
+      "caveat": "F-205/R-301 (자가검사 LLM 메타 회귀) 잔존 — false-negative 게이트 + dual-trigger로 측정. 30세션 후 재설계 조건부."
+    },
     {
       "id": "D-128",
       "date": "2026-04-29",
