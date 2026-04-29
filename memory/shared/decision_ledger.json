@@ -1,6 +1,94 @@
 {
   "decisions": [
     {
+      "id": "D-114",
+      "date": "2026-04-29",
+      "session": "session_138",
+      "topic": "topic_131",
+      "owningTopicId": "topic_131",
+      "scopeCheck": "Big Bang P1 — 마이그레이션 Phase 분해 (Riki R-4 mitigation)",
+      "axis": "Big Bang 마이그레이션 = Phase 분해 5단계 (10→5 단순화, Master 권고)",
+      "decision": "P1=종합 설계 박제(현세션 완료) / P2=페르소나 박제(Zero+Sage 동시) / P3=Nexus 골격+Hook chain 확장+dispatch_config v2 / P4=학습·정책 시스템(Instinct+rules+contexts+5 프로필, canonical 분리·PD-044 해소 포함) / P5=통합 마이그레이션(CLAUDE.md 전면 개정+ecc2 패턴+dual-log 검증). 각 Phase 2~3세션 (메모리 implementation_within_3_sessions 정합). rollback 태그 의무. 첫 3 세션 dual-log. 다음 세션은 본 결정의 방향성 연장 검토 (Phase 진행 아님).",
+      "value": "10단계 과세분화 회피 (Riki 메타 진단 — 추상화 격상 충동 적발 후 단순화). 자연스러운 의존 게이트(페르소나→인프라→학습·정책→통합). 토픽 총 8~11세션 예상."
+    },
+    {
+      "id": "D-113",
+      "date": "2026-04-29",
+      "session": "session_138",
+      "topic": "topic_131",
+      "owningTopicId": "topic_131",
+      "scopeCheck": "Big Bang P1 — 보안 도그마 prime directive 박제",
+      "axis": "Affaan 4 도그마 → Legend Nexus prime directive",
+      "decision": "(1) 악의적 텍스트가 컨텍스트에 들어올 것을 전제 (2) 도구 설명이 거짓말할 수 있다 전제 (3) 저장소가 오염될 수 있다 전제 (4) 모델이 설득당해도 시스템 안전. Riki + Zero 정책 베이스. CLAUDE.md prime directive 섹션 신설 예정 (P10).",
+      "value": "Riki adversarial 분석 + Zero 정제의 보안 기반. 시스템 진화 시 prompt injection·tool poisoning 등 외부 위협 모델 명시."
+    },
+    {
+      "id": "D-112",
+      "date": "2026-04-29",
+      "session": "session_138",
+      "topic": "topic_131",
+      "owningTopicId": "topic_131",
+      "scopeCheck": "Big Bang P1 — Sage 신설 (10인 체제)",
+      "axis": "Sage 신설 — 메타 진화·자기성찰·시스템 자체 학습 페르소나",
+      "decision": "9인 → 10인. ECC Instinct 시스템(`/evolve` `/promote` `/prune`) 흡수. 권한: 모든 메모리 read + 진화 제안 (write는 Master 승인). 위치: 세션 외 백그라운드 read-only 순찰 (Nova [N2] 패턴). Nexus·Zero와 분리: Nexus=라우팅(코드 레이어), Zero=정제(산출물 레이어), Sage=진화(메타 레이어).",
+      "value": "메타 진화 책임을 단일 페르소나에 집중. 3층 분리(라우팅/정제/진화) 명확화. Master 승인 게이트 유지로 자율 폭주 방지."
+    },
+    {
+      "id": "D-111",
+      "date": "2026-04-29",
+      "session": "session_138",
+      "topic": "topic_131",
+      "owningTopicId": "topic_131",
+      "scopeCheck": "Big Bang P1 — 토폴로지 + 라우팅 룰",
+      "axis": "Star 토폴로지 + Nexus first-speaker override",
+      "decision": "Master ↔ Nexus ↔ 9인+Sage 방사형. Grade 5단계(S/A/B/C/D) 보존. dispatch_config.json에 keywordPattern→role 룰 테이블 추가. override는 suggest only — Ace는 1턴 내 reject 권한 보유 (Riki R-3 mitigation).",
+      "value": "Nexus 라우팅 자동화 + Ace orchestrator 권한 보호 양립. R-3(Ace 권한 침식) 방어."
+    },
+    {
+      "id": "D-110",
+      "date": "2026-04-29",
+      "session": "session_138",
+      "topic": "topic_131",
+      "owningTopicId": "topic_131",
+      "scopeCheck": "Big Bang P1 — Zero 신규 도입 (Master 직접 결정)",
+      "axis": "Zero — 3 스킬(Cut/Refine/Audit) + 0수렴 페르소나 모두 원본 유지. 'Ace 지원' 미션 제거",
+      "decision": "Master 결정: Cut(하드코딩 도려내고 변수화)·Refine(스파게티→클린코드)·Audit(120 토픽 중복 감시) 3 스킬 모두 보존. 페르소나 '2GB→0 수렴' 유지. 미션 = 하드코딩 섬멸 + 코드 다이어트 2개. 'Ace 지원' 어구 폐기. 위치 = 가변(모든 역할 후위 가능). G-1 적용: Cut은 Riki/Nova 산출물 면제(refine만 허용).",
+      "value": "Zero 정체성 원본 보존(스킬 통합 격상 거부) + Ace 종속 제거(R-2 echo chamber 발생 경로 차단). G-1로 Riki/Nova 창조성 보호."
+    },
+    {
+      "id": "D-109",
+      "date": "2026-04-29",
+      "session": "session_138",
+      "topic": "topic_131",
+      "owningTopicId": "topic_131",
+      "scopeCheck": "Big Bang P1 — Ace 강화 (책임 재분배)",
+      "axis": "Ace 강화 — Master 대리인 + 깊은 프레이밍 + 종합검토 집중",
+      "decision": "이전 3중 부담(프레이밍+오케스트레이션+종합검토)에서 오케스트레이션 책임을 Nexus가 흡수. Ace는 깊은 프레이밍과 종합검토 품질에 집중. 단, Ace 발화 패턴 메타 감시 필요(R-2 잔여 + Riki 진단: 추상화 격상 충동·★ 권고 압력).",
+      "value": "Ace 부담 완화 + 깊이 강화. Sage 신설 후 Ace 발화 패턴 분기별 감사로 모니터링."
+    },
+    {
+      "id": "D-108",
+      "date": "2026-04-29",
+      "session": "session_138",
+      "topic": "topic_131",
+      "owningTopicId": "topic_131",
+      "scopeCheck": "Big Bang P1 — Nexus 정의 (Master 직접 결정 — Ace 우회)",
+      "axis": "Nexus = 코드 레이어 오케스트레이션 허브. 3축 중 A·B 유지 + C축 Ace 종속 제거",
+      "decision": "A.Grade 투입 조율 (Master 원본 유지). B.데이터 파이프라인 (Master 정정 #2 가변 흐름 — Dev→Zero→Ace 직렬은 단일 사례). C축은 'Ace 의사결정 서포트' 정의 폐기 (Master 통찰: Ace 종속 제거 시 R-2 구조 해소). C축 신규 정의는 후속 세션 합의.",
+      "value": "Nexus·Zero 모두 Ace 종속 제거 → R-2(Echo Chamber) 발생 경로 구조적 차단. Ace 발언 검토 결과 편향 왜곡(정합도 35/100) 직접 대응."
+    },
+    {
+      "id": "D-107",
+      "date": "2026-04-29",
+      "session": "session_138",
+      "topic": "topic_131",
+      "owningTopicId": "topic_131",
+      "scopeCheck": "Big Bang P1 — 시스템 명 개편",
+      "axis": "시스템 명 — legend-team → Legend Nexus ver.0.0",
+      "decision": "ECC(하네스 엔지니어링) 카테고리 정합. ver.0.0은 Phase 분해 마이그레이션 진행 중 표시. 1.0 승격 게이트는 후속 결정.",
+      "value": "Big Bang P1 시작점. 시스템 정체성 재정의."
+    },
+    {
       "id": "D-106",
       "date": "2026-04-29",
       "session": "session_137",

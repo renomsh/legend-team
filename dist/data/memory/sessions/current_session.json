@@ -1,26 +1,35 @@
 {
-  "sessionId": "session_137",
-  "topicId": "topic_126",
-  "topic": "점수 오류 — growth 자기 점수 업데이트 안됨 (가설 수립·원인 파악)",
-  "topicSlug": "score-update-bug",
-  "reportPath": "reports/2026-04-29_score-update-bug",
+  "sessionId": "session_138",
+  "topicId": "topic_131",
+  "topic": "Big Bang — Legend Nexus 시스템 개편 및 역할 재정립",
+  "topicSlug": "big-bang-legend-nenux",
+  "reportPath": "reports/2026-04-29_big-bang-legend-nenux",
   "status": "closed",
-  "startedAt": "2026-04-29T00:00:00.000Z",
-  "closedAt": "2026-04-29T01:30:00.000Z",
-  "oneLineSummary": "_common.md [ROLE:xxx] 마커 + 채팅 응답 의무화 — self-score 7세션 0건 적재 결함 수정, D-106 박제",
+  "startedAt": "2026-04-29T02:00:00.000Z",
+  "closedAt": "2026-04-29T05:00:00.000Z",
+  "oneLineSummary": "Big Bang P1 — 시스템명 Legend Nexus ver.0.0 + 9→10인(Sage 신설) + Nexus 3축(C 폐기) + Zero 원본 보존(Ace 지원 제거) + Phase 분해 5단계 + Affaan 4 도그마 prime directive",
+  "versionBump": {
+    "increment": "+0.1",
+    "reason": "Big Bang P1 — 10인 체제(+Sage), Nexus·Zero Ace 종속 제거, ECC 흡수 Phase 분해 5단계 박제"
+  },
   "mode": "observation",
-  "grade": "A",
-  "gradeDeclared": "A",
+  "grade": "S",
+  "gradeDeclared": "S",
   "framingLevel": 2,
   "framingSkipped": false,
-  "topicType": "standalone",
+  "topicType": "framing",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
     "ace",
-    "dev",
+    "ace",
+    "arki",
+    "nova",
     "riki",
     "ace",
+    "ace",
+    "riki",
+    "riki",
     "edi"
   ],
   "turns": [
@@ -30,52 +39,102 @@
       "source": "agent"
     },
     {
-      "role": "dev",
+      "role": "ace",
       "turnIdx": 1,
       "source": "agent"
     },
     {
-      "role": "riki",
+      "role": "arki",
       "turnIdx": 2,
       "source": "agent"
     },
     {
-      "role": "ace",
+      "role": "nova",
       "turnIdx": 3,
       "source": "agent"
     },
     {
-      "role": "edi",
+      "role": "riki",
       "turnIdx": 4,
+      "source": "agent"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 5,
+      "source": "agent"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 6,
+      "source": "agent"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 7,
+      "source": "agent"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 8,
+      "source": "agent"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 9,
       "source": "agent"
     }
   ],
   "decisions": [
-    "D-106"
+    "D-107",
+    "D-108",
+    "D-109",
+    "D-110",
+    "D-111",
+    "D-112",
+    "D-113",
+    "D-114"
   ],
-  "masterDecisions": [],
-  "masterFeedback": [],
+  "masterDecisions": [
+    "D-108 C축 Ace 종속 제거",
+    "D-110 Zero 3스킬+페르소나 유지·Ace 지원 미션 제거",
+    "D-112 Sage 신설",
+    "G-1 Zero Cut Riki/Nova 면제",
+    "G-3 Zero Audit 주1회+gradeMismatch"
+  ],
+  "masterFeedback": [
+    "에이스가 편향되게 왜곡해서 답변을 비트네 (s138 Ace 패턴 진단 — Riki Q5 적중)"
+  ],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "decisionsAdded": [
-    "D-106"
+    "D-107",
+    "D-108",
+    "D-109",
+    "D-110",
+    "D-111",
+    "D-112",
+    "D-113",
+    "D-114"
   ],
   "notes": [
-    "session_128에서 파이프라인 진단 완료 (Arki·Riki 발언)",
-    "페르소나 hook 구현 완료 상태 — hook 로직 + 셀프 점수 평가 로직 점검이 이번 세션 목표",
-    "Dev 발견: post-tool-use-task.js extractSelfScores가 tool_response 파싱 — session_129 이후 7세션 0건",
-    "Riki R-1: parseYamlBlocks [ROLE:xxx] 마커 전용, frontmatter role: 미인식 → Option A 기각",
-    "구현: _common.md Self-Score 계약에 [ROLE:xxx] 마커 + 채팅 응답 의무화 2개 지시 추가",
-    "에디 응답에서 [ROLE:edi] 마커 + # self-scores 블록 채팅 응답 출력 즉시 확인 (수정 효과 검증)"
+    "S grade 선언 — Master 명시. 10+ 세션 예상.",
+    "목표: 전체 방향 Draft 수립 (시스템 명 개편, 역할 재정립, grade 재정의)",
+    "참조 URL: https://ecc.tools/, https://goddaehee.tistory.com/575",
+    "Riki Ace 발화 패턴 진단(추상화 격상·결정 압력) → E-017 evidence",
+    "G-2 보류 유지 (R-2 monitoring 결과로 후속 결정)",
+    "C-2 Nexus C축 신규 정의는 후속 세션",
+    "C-4 Zero 미션 2개로 단순화 (하드코딩 섬멸+코드 다이어트)",
+    "Phase 분해 10→5단계 단순화 (Master 권고, s138 종료 직전): P2=페르소나 / P3=Nexus골격+Hook+dispatch / P4=학습·정책시스템 / P5=통합마이그레이션",
+    "**다음 세션(s139) = Big Bang 방향성 연장 검토** (P2 페르소나 박제 진행 아님). 본 세션 결정 8건의 방향성·잔여 미합의(Nexus C축 정의 / G-2 / R-2 잔존 경로) 재점검 우선."
   ],
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 0,
-    "output_tokens": 0,
-    "cache_creation_input_tokens": 0,
-    "cache_read_input_tokens": 0,
-    "messageCount": 0,
-    "masterTurns": 3,
-    "total_billable": 0
+    "input_tokens": 16831,
+    "output_tokens": 239099,
+    "cache_creation_input_tokens": 765476,
+    "cache_read_input_tokens": 17843685,
+    "messageCount": 127,
+    "masterTurns": 14,
+    "total_billable": 18865091
   }
 }

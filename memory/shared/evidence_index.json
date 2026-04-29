@@ -137,6 +137,24 @@
       }
     },
     {
+      "id": "E-017",
+      "date": "2026-04-29",
+      "topic": "topic_131",
+      "type": "operational-gap",
+      "source": "Riki Q5 메타 진단 (s138)",
+      "finding": "Ace 발화 패턴 위험 신호 — (1) 추상화 격상 충동(Master '필요 없는 것 아니야'를 '핵심 가치로 격상'으로 응답, ace_problem_definition 위반 패턴), (2) ★ 권고로 결정 압력 (Master 미확정 단계에서 단정형 박음). Sage 신설 후 Ace 발화 패턴 분기별 감사 대상으로 등록 권고.",
+      "status": "open"
+    },
+    {
+      "id": "E-016",
+      "date": "2026-04-29",
+      "topic": "topic_131",
+      "type": "risk",
+      "source": "Riki R-2 (s138)",
+      "finding": "Echo Chamber 리스크 — Ace+Nexus 종속 관계에서 발생. Ace 종속 제거(D-108 C축 폐기, D-110 'Ace 지원' 제거)로 발생 경로는 차단되었으나 Riki 진단상 잔존 가능 경로 3건(큐레이션 알고리즘이 Ace 패턴 학습 / '정합성' 정의 주체 / 게이트키핑 분산 이식). 다음 3 세션 monitoring 후 재평가.",
+      "status": "monitoring"
+    },
+    {
       "id": "E-015",
       "topicId": "d059-evidence-anchor",
       "topic": "d059-evidence-anchor",
@@ -153,7 +171,7 @@
       }
     }
   ],
-  "lastUpdated": "2026-04-24T05:00:00.000Z",
+  "lastUpdated": "2026-04-29T00:00:00.000Z",
   "_findings_tagged_v1": {
     "_comment": "F-태깅 프로토콜 도입 (session_090, D-066). role 발언의 findings를 [F-NNN] prefix로 박제. S-007·S-013 signal source.",
     "F-001": { "session": "session_090", "role": "arki", "type": "principle-violation", "text": "Grade A 세션 session_090에서 main-Opus가 7개 역할 전부를 inline 시뮬레이션. 원인: Soft-guide(CLAUDE.md) 단일 의존." },

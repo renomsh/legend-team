@@ -56,7 +56,10 @@
       "Bash(python -c \"import json,sys; data=json.load\\(sys.stdin\\); print\\('Last session:', data[-1]['sessionId'] if data else 'none'\\)\")",
       "Bash(node -e \"const fs=require\\('fs'\\);const p='memory/shared/topic_index.json';const j=JSON.parse\\(fs.readFileSync\\(p,'utf8'\\)\\);const t=j.topics.find\\(x=>x.id==='topic_127'\\);if\\(t\\){t.grade='S';fs.writeFileSync\\(p,JSON.stringify\\(j,null,2\\)\\);console.log\\('grade=S applied'\\);}else{console.log\\('topic_127 not found'\\);}\")",
       "Bash(node scripts/auto-push.js \"session end: persona-structure-redesign\")",
-      "Bash(node scripts/auto-push.js \"session end: system-state-debug\")"
+      "Bash(node scripts/auto-push.js \"session end: system-state-debug\")",
+      "Read(//c/Projects/legend-team/topics/topic_131//**)",
+      "Read(//c/Projects/legend-team/memory/sessions/**)",
+      "Bash(node scripts/auto-push.js \"session end: big-bang-legend-nexus-p1\")"
     ]
   }
 }

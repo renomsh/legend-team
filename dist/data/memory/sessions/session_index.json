@@ -5766,8 +5766,100 @@
       "decisionsAdded": [
         "D-106"
       ]
+    },
+    {
+      "sessionId": "session_138",
+      "topicSlug": "big-bang-legend-nenux",
+      "topic": "Big Bang — Legend Nexus 시스템 개편 및 역할 재정립",
+      "startedAt": "2026-04-29T02:00:00.000Z",
+      "closedAt": "2026-04-29T05:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "decisions": [
+        "D-108 C축 Ace 종속 제거",
+        "D-110 Zero 3스킬+페르소나 유지·Ace 지원 미션 제거",
+        "D-112 Sage 신설",
+        "G-1 Zero Cut Riki/Nova 면제",
+        "G-3 Zero Audit 주1회+gradeMismatch"
+      ],
+      "agentsCompleted": [
+        "ace",
+        "ace",
+        "arki",
+        "nova",
+        "riki",
+        "ace",
+        "ace",
+        "riki",
+        "riki",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "source": "agent"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 1,
+          "source": "agent"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 2,
+          "source": "agent"
+        },
+        {
+          "role": "nova",
+          "turnIdx": 3,
+          "source": "agent"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 4,
+          "source": "agent"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 5,
+          "source": "agent"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 6,
+          "source": "agent"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 7,
+          "source": "agent"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 8,
+          "source": "agent"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 9,
+          "source": "agent"
+        }
+      ],
+      "grade": "S",
+      "note": "S grade 선언 — Master 명시. 10+ 세션 예상. | 목표: 전체 방향 Draft 수립 (시스템 명 개편, 역할 재정립, grade 재정의) | 참조 URL: https://ecc.tools/, https://goddaehee.tistory.com/575 | Riki Ace 발화 패턴 진단(추상화 격상·결정 압력) → E-017 evidence | G-2 보류 유지 (R-2 monitoring 결과로 후속 결정) | C-2 Nexus C축 신규 정의는 후속 세션 | C-4 Zero 미션 2개로 단순화 (하드코딩 섬멸+코드 다이어트) | Phase 분해 10→5단계 단순화 (Master 권고, s138 종료 직전): P2=페르소나 / P3=Nexus골격+Hook+dispatch / P4=학습·정책시스템 / P5=통합마이그레이션 | **다음 세션(s139) = Big Bang 방향성 연장 검토** (P2 페르소나 박제 진행 아님). 본 세션 결정 8건의 방향성·잔여 미합의(Nexus C축 정의 / G-2 / R-2 잔존 경로) 재점검 우선.",
+      "oneLineSummary": "Big Bang P1 — 시스템명 Legend Nexus ver.0.0 + 9→10인(Sage 신설) + Nexus 3축(C 폐기) + Zero 원본 보존(Ace 지원 제거) + Phase 분해 5단계 + Affaan 4 도그마 prime directive",
+      "decisionsAdded": [
+        "D-107",
+        "D-108",
+        "D-109",
+        "D-110",
+        "D-111",
+        "D-112",
+        "D-113",
+        "D-114"
+      ]
     }
   ],
-  "lastUpdated": "2026-04-28T23:48:06.922Z",
+  "lastUpdated": "2026-04-29T04:49:50.268Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

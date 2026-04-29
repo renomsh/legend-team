@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-28T23:48:29.730Z",
-  "totalSessions": 135,
+  "generatedAt": "2026-04-29T04:50:12.096Z",
+  "totalSessions": 136,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.76,
-    "avgCacheHitRate": 0.9318,
-    "cacheSampleSize": 109,
-    "cacheSampleTotal": 135,
+    "avgMasterTurns": 16.74,
+    "avgCacheHitRate": 0.9319,
+    "cacheSampleSize": 110,
+    "cacheSampleTotal": 136,
     "avgAdoptionRate": 0,
-    "totalDecisions": 107,
+    "totalDecisions": 115,
     "gradeDistribution": {
-      "S": 56,
+      "S": 57,
       "A": 27,
       "B": 38,
       "C": 14
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 90,
-    "totalCostUSD": 1427.0624,
-    "avgCostPerSession": 10.9774,
-    "costSampleSize": 130
+    "turnBasedSessions": 91,
+    "totalCostUSD": 1438.923,
+    "avgCostPerSession": 10.9841,
+    "costSampleSize": 131
   },
   "sessions": [
     {
@@ -5130,12 +5130,64 @@
         "messageCount": 89
       },
       "sessionCostUSD": 3.9627
+    },
+    {
+      "sessionId": "session_138",
+      "topicSlug": "big-bang-legend-nenux",
+      "topic": "Big Bang — Legend Nexus 시스템 개편 및 역할 재정립",
+      "startedAt": "2026-04-29T02:00:00.000Z",
+      "closedAt": "2026-04-29T05:00:00.000Z",
+      "decisionCount": 8,
+      "decisionAxes": 8,
+      "decisions": [
+        "D-114",
+        "D-113",
+        "D-112",
+        "D-111",
+        "D-110",
+        "D-109",
+        "D-108",
+        "D-107"
+      ],
+      "rolesCalled": 10,
+      "rolesRecalled": 5,
+      "sessionsSpanned": 1,
+      "size": 39,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 14,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "ace",
+        "arki",
+        "nova",
+        "riki",
+        "ace",
+        "ace",
+        "riki",
+        "riki",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 18865091,
+        "ioTokens": 255930,
+        "inputTokens": 16831,
+        "outputTokens": 239099,
+        "cacheCreate": 765476,
+        "cacheRead": 17843685,
+        "cacheHitRate": 0.945857351019404,
+        "messageCount": 127
+      },
+      "sessionCostUSD": 11.8606
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 146,
+      "count": 150,
       "sessions": [
         "session_047",
         "session_048",
@@ -5207,12 +5259,13 @@
         "session_130",
         "session_134",
         "session_136",
-        "session_137"
+        "session_137",
+        "session_138"
       ]
     },
     {
       "role": "arki",
-      "count": 99,
+      "count": 100,
       "sessions": [
         "session_048",
         "session_049",
@@ -5262,12 +5315,13 @@
         "session_128",
         "session_129",
         "session_130",
-        "session_134"
+        "session_134",
+        "session_138"
       ]
     },
     {
       "role": "edi",
-      "count": 92,
+      "count": 93,
       "sessions": [
         "session_050",
         "session_051",
@@ -5355,7 +5409,8 @@
         "session_134",
         "session_135",
         "session_136",
-        "session_137"
+        "session_137",
+        "session_138"
       ]
     },
     {
@@ -5424,7 +5479,7 @@
     },
     {
       "role": "riki",
-      "count": 50,
+      "count": 53,
       "sessions": [
         "session_049",
         "session_053",
@@ -5468,7 +5523,8 @@
         "session_129",
         "session_130",
         "session_134",
-        "session_137"
+        "session_137",
+        "session_138"
       ]
     },
     {
@@ -5511,11 +5567,12 @@
     },
     {
       "role": "nova",
-      "count": 3,
+      "count": 4,
       "sessions": [
         "session_066",
         "session_077",
-        "session_082"
+        "session_082",
+        "session_138"
       ]
     }
   ],
@@ -9035,6 +9092,72 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_138",
+      "topic": "Big Bang — Legend Nexus 시스템 개편 및 역할 재정립",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "nova",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 6,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 7,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 8,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 9,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -9052,6 +9175,26 @@
     }
   ],
   "feedbackRecurrences": [
+    {
+      "keyword": "에이스가",
+      "occurrences": [
+        {
+          "date": "2026-04-29",
+          "feedbackId": "MF-103",
+          "summary": "에이스가 편향되게 왜곡해서 답변을 비트네"
+        },
+        {
+          "date": "2026-04-20",
+          "feedbackId": "MF-036",
+          "summary": "기본 전제가 D3였어. 그래야 에이스가 학습하고 패턴 읽고 호출하니까. 연속된 대답은 Claude Code가"
+        },
+        {
+          "date": "2026-04-24",
+          "feedbackId": "MF-077",
+          "summary": "왜 에이스가 아키의 응답을 전달하지? 라우터 역할을 하는 건가?"
+        }
+      ]
+    },
     {
       "keyword": "최대",
       "occurrences": [
@@ -9744,21 +9887,6 @@
           "date": "2026-04-25",
           "feedbackId": "MF-095",
           "summary": "세션 사이드 메뉴에 흐름 있잖아. 그건 어떻게 할껀데?"
-        }
-      ]
-    },
-    {
-      "keyword": "에이스가",
-      "occurrences": [
-        {
-          "date": "2026-04-20",
-          "feedbackId": "MF-036",
-          "summary": "기본 전제가 D3였어. 그래야 에이스가 학습하고 패턴 읽고 호출하니까. 연속된 대답은 Claude Code가"
-        },
-        {
-          "date": "2026-04-24",
-          "feedbackId": "MF-077",
-          "summary": "왜 에이스가 아키의 응답을 전달하지? 라우터 역할을 하는 건가?"
         }
       ]
     },

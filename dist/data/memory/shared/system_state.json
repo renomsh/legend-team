@@ -1,9 +1,15 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_137",
-  "nextSessionId": "session_138",
-  "currentVersion": "v1.86",
+  "lastSessionId": "session_138",
+  "nextSessionId": "session_139",
+  "currentVersion": "v1.96",
   "openTopics": [
+    {
+      "id": "topic_131",
+      "title": "Big Bang — Legend Nexus 시스템 개편 및 역할 재정립",
+      "status": "in-progress",
+      "reportPath": "reports/2026-04-29_big-bang-legend-nenux"
+    },
     {
       "id": "topic_044",
       "title": "COPD 논문 ver3.4 최종화 — canonical 재분석 + (e) 프레임 확정",
@@ -21,37 +27,53 @@
   ],
   "recentDecisions": [
     {
-      "id": "D-106",
+      "id": "D-114",
       "date": "2026-04-29",
-      "axis": "extractSelfScores tool_response 의존 결함 / Option A(파일 스캔) 기각 / Option B(_common.md 2개 지시 추가) 채택",
-      "summary": "수정 범위 최소화(파일 1개) + 기존 parseYamlBlocks 재사용. R-2·R-3 없음. turns[].selfScores 단일 경로 유지. session_129 이후 누락된 자가평가 적재 복구."
+      "axis": "Big Bang 마이그레이션 = Phase 분해 5단계 (10→5 단순화, Master 권고)",
+      "summary": "10단계 과세분화 회피 (Riki 메타 진단 — 추상화 격상 충동 적발 후 단순화). 자연스러운 의존 게이트(페르소나→인프라→학습·정책→통합). 토픽 총 8~11세션 예상."
     },
     {
-      "id": "D-105",
-      "date": "2026-04-28",
-      "axis": "trigger 어휘 분리(D-E) / topic_index SOT + topic_meta mirror 정책(D-F) / transition checkpoint 적용 범위 + 활성화 조건(D-G)",
-      "summary": "D-104-s130에서 동결된 D-E·D-F·D-G 결정을 CLAUDE.md에 정책으로 공식 박제. topic-status.ts 헬퍼로 SOT 표류(D-F) 구조적 방지. trigger 어휘 혼용 방지(D-E)로 D-020과 충돌 차단. 활성화 조건 명시(D-G)로 false-sense-of-security 방지."
+      "id": "D-113",
+      "date": "2026-04-29",
+      "axis": "Affaan 4 도그마 → Legend Nexus prime directive",
+      "summary": "Riki adversarial 분석 + Zero 정제의 보안 기반. 시스템 진화 시 prompt injection·tool poisoning 등 외부 위협 모델 명시."
     },
     {
-      "id": "D-104-s130",
-      "date": "2026-04-28",
-      "axis": "hook v3 buildPersonaLayer + evaluateTransitionCheckpoint 두 함수 분리 / status enum 7종 확정 / trigger 어휘 분리 / SOT·mirror 정의 / Grade 적용 범위 + PD-052 dependency",
-      "summary": "P2 hook v3 완료 — 3층 persona compose + transition checkpoint 알림 메커니즘. Riki 5건 리스크 모두 흡수(R-1은 finalize 사후 적발 + PD-052 의존). D-F·D-G는 SOT 표류와 Grade 범위 명시로 향후 정책 혼선 방지. 활성화 시점을 PD-052 dependency로 명시하여 false-sense-of-security 방지."
+      "id": "D-112",
+      "date": "2026-04-29",
+      "axis": "Sage 신설 — 메타 진화·자기성찰·시스템 자체 학습 페르소나",
+      "summary": "메타 진화 책임을 단일 페르소나에 집중. 3층 분리(라우팅/정제/진화) 명확화. Master 승인 게이트 유지로 자율 폭주 방지."
     },
     {
-      "id": "D-104",
-      "date": "2026-04-28",
-      "axis": "버전 업그레이드 기준 개편 — 트리거 확장 + 세션당 +0.1 캡 + R1 임계값 통일",
-      "summary": "버전 업그레이드 기준 개편 — 트리거 확장 + 세션당 +0.1 캡 + R1 임계값 통일"
+      "id": "D-111",
+      "date": "2026-04-29",
+      "axis": "Star 토폴로지 + Nexus first-speaker override",
+      "summary": "Nexus 라우팅 자동화 + Ace orchestrator 권한 보호 양립. R-3(Ace 권한 침식) 방어."
     },
     {
-      "id": "D-103",
-      "date": "2026-04-28",
-      "axis": "PreToolUse(Task) hook 기반 토픽×세션 2축 자동 prompt inject + role 식별 강화 + 사칭 검증 hook + dispatch 규약 박제",
-      "summary": "Master 비전 'meeting needs continuity' 직역. 다중 호출이 monologue 집합이 아닌 누적 회의로 작동. 인프라 신설 5건 + 규약 1건으로 PD-033/043/044 동시 해소. K6 PASS 직접 증거 위에 박제. PreToolUse hook 첫 실 fire 즉시 검증."
+      "id": "D-110",
+      "date": "2026-04-29",
+      "axis": "Zero — 3 스킬(Cut/Refine/Audit) + 0수렴 페르소나 모두 원본 유지. 'Ace 지원' 미션 제거",
+      "summary": "Zero 정체성 원본 보존(스킬 통합 격상 거부) + Ace 종속 제거(R-2 echo chamber 발생 경로 차단). G-1로 Riki/Nova 창조성 보호."
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_138",
+      "topicSlug": "big-bang-legend-nenux",
+      "closedAt": "2026-04-29T05:00:00.000Z",
+      "oneLineSummary": "Big Bang P1 — 시스템명 Legend Nexus ver.0.0 + 9→10인(Sage 신설) + Nexus 3축(C 폐기) + Zero 원본 보존(Ace 지원 제거) + Phase 분해 5단계 + Affaan 4 도그마 prime directive",
+      "decisionsAdded": [
+        "D-107",
+        "D-108",
+        "D-109",
+        "D-110",
+        "D-111",
+        "D-112",
+        "D-113",
+        "D-114"
+      ]
+    },
     {
       "sessionId": "session_137",
       "topicSlug": "score-update-bug",
@@ -66,13 +88,6 @@
       "topicSlug": "auto-mode-policy-redesign",
       "closedAt": "2026-04-28T18:55:00.000Z",
       "oneLineSummary": "Task 훅 permissionDecision 제거 — 페르소나 주입 유지하면서 auto/bypass mode 인터셉트 차단",
-      "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_135",
-      "topicSlug": "system-state-debug",
-      "closedAt": "2026-04-28T18:20:00.000Z",
-      "oneLineSummary": "system-state 3버그 수정: PD-052 resolved 전파 누락·currentVersion 고착·hookRate 측정 오류",
       "decisionsAdded": []
     }
   ],
@@ -579,5 +594,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-28T23:48:22.917Z"
+  "lastUpdated": "2026-04-29T04:50:05.257Z"
 }
