@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_139",
-  "nextSessionId": "session_140",
-  "currentVersion": "v1.96",
+  "lastSessionId": "session_140",
+  "nextSessionId": "session_141",
+  "currentVersion": "v2.06",
   "openTopics": [
     {
       "id": "topic_131",
@@ -27,37 +27,52 @@
   ],
   "recentDecisions": [
     {
-      "id": "D-114",
+      "id": "D-121",
       "date": "2026-04-29",
-      "axis": "Big Bang 마이그레이션 = Phase 분해 5단계 (10→5 단순화, Master 권고)",
-      "summary": "10단계 과세분화 회피 (Riki 메타 진단 — 추상화 격상 충동 적발 후 단순화). 자연스러운 의존 게이트(페르소나→인프라→학습·정책→통합). 토픽 총 8~11세션 예상."
+      "axis": "발언 순서 grade × topic 매트릭스 운영 (D-019 강화)",
+      "summary": "발언 순서 grade × topic 매트릭스 운영 (D-019 강화)"
     },
     {
-      "id": "D-113",
+      "id": "D-120",
       "date": "2026-04-29",
-      "axis": "Affaan 4 도그마 → Legend Nexus prime directive",
-      "summary": "Riki adversarial 분석 + Zero 정제의 보안 기반. 시스템 진화 시 prompt injection·tool poisoning 등 외부 위협 모델 명시."
+      "axis": "prime directive(Affaan 4) + Phase A enforcement",
+      "summary": "prime directive(Affaan 4) + Phase A enforcement"
     },
     {
-      "id": "D-112",
+      "id": "D-119",
       "date": "2026-04-29",
-      "axis": "Sage 신설 — 메타 진화·자기성찰·시스템 자체 학습 페르소나",
-      "summary": "메타 진화 책임을 단일 페르소나에 집중. 3층 분리(라우팅/정제/진화) 명확화. Master 승인 게이트 유지로 자율 폭주 방지."
+      "axis": "Zero = 정제 페르소나 (D-110 supersede)",
+      "summary": "Zero = 정제 페르소나 (D-110 supersede)"
     },
     {
-      "id": "D-111",
+      "id": "D-118",
       "date": "2026-04-29",
-      "axis": "Star 토폴로지 + Nexus first-speaker override",
-      "summary": "Nexus 라우팅 자동화 + Ace orchestrator 권한 보호 양립. R-3(Ace 권한 침식) 방어."
+      "axis": "Star + Nexus first-speaker 토폴로지 (D-111 보강)",
+      "summary": "Star + Nexus first-speaker 토폴로지 (D-111 보강)"
     },
     {
-      "id": "D-110",
+      "id": "D-117",
       "date": "2026-04-29",
-      "axis": "Zero — 3 스킬(Cut/Refine/Audit) + 0수렴 페르소나 모두 원본 유지. 'Ace 지원' 미션 제거",
-      "summary": "Zero 정체성 원본 보존(스킬 통합 격상 거부) + Ace 종속 제거(R-2 echo chamber 발생 경로 차단). G-1로 Riki/Nova 창조성 보호."
+      "axis": "Big Bang 5 Phase 순서 (D-114 supersede)",
+      "summary": "Big Bang 5 Phase 순서 (D-114 supersede)"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_140",
+      "topicSlug": "big-bang-legend-nexus-p3",
+      "closedAt": "2026-04-29T12:04:12.862219Z",
+      "oneLineSummary": "[summary 없음 — big-bang-legend-nexus-p3]",
+      "decisionsAdded": [
+        "D-115",
+        "D-116",
+        "D-117",
+        "D-118",
+        "D-119",
+        "D-120",
+        "D-121"
+      ]
+    },
     {
       "sessionId": "session_139",
       "topicSlug": "big-bang-legend-nexus-p2",
@@ -79,15 +94,6 @@
         "D-112",
         "D-113",
         "D-114"
-      ]
-    },
-    {
-      "sessionId": "session_137",
-      "topicSlug": "score-update-bug",
-      "closedAt": "2026-04-29T01:30:00.000Z",
-      "oneLineSummary": "_common.md [ROLE:xxx] 마커 + 채팅 응답 의무화 — self-score 7세션 0건 적재 결함 수정, D-106 박제",
-      "decisionsAdded": [
-        "D-106"
       ]
     }
   ],
@@ -594,5 +600,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-29T08:21:02.092Z"
+  "lastUpdated": "2026-04-29T12:08:15.285Z"
 }

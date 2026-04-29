@@ -1265,6 +1265,33 @@
       "feedback": "버전 1.65.",
       "status": "resolved",
       "statusNote": "system_state.json currentVersion v1.54 → v1.65 정정 박제."
+    },
+    {
+      "id": "MF-108",
+      "date": "2026-04-29",
+      "session": "session_140",
+      "topic": "big-bang-legend-nexus-p3",
+      "feedback": "Riki R-5/R-7 차단 수용 — D-119(Zero supersede)·D-120(prime directive enforcement) 보류 후 재구성",
+      "status": "resolved",
+      "statusNote": "D-119(Zero=정제 페르소나, 3 영역) + D-120(Affaan 4 + Phase A enforcement) 박제 완료. Phase B는 P4 데이터 후 결정."
+    },
+    {
+      "id": "MF-109",
+      "date": "2026-04-29",
+      "session": "session_140",
+      "topic": "big-bang-legend-nexus-p3",
+      "feedback": "Big Bang 5 Phase 세션 계획 재설계 (s141~s149) + 3세션 캡 해제 + dual-log 의무",
+      "status": "resolved",
+      "statusNote": "D-117 supersede D-114, 세션 계획 첨부, Phase별 G1~G4 게이트, rollback 태그 의무."
+    },
+    {
+      "id": "MF-110",
+      "date": "2026-04-29",
+      "session": "session_140",
+      "topic": "big-bang-legend-nexus-p3",
+      "feedback": "발언 순서 grade × topic 매트릭스 운영 — Nexus 셀 결정 + Master 승인",
+      "status": "resolved",
+      "statusNote": "D-121 박제. 매트릭스는 실측 누적 시 점진 박제 (과투자 회피)."
     }
   ],
   "statusValues": [
@@ -1273,5 +1300,5 @@
     "resolved"
   ],
   "statusUpdatedBy": "Claude Code at session end — based on topic status and implementation evidence",
-  "lastUpdated": "2026-04-25T18:00:00.000Z"
+  "lastUpdated": "2026-04-29T12:05:46.496599Z"
 }

@@ -4,7 +4,7 @@
   "topic": "Big Bang — Legend Nexus 시스템 개편 및 역할 재정립",
   "topicSlug": "big-bang-legend-nexus-p3",
   "reportPath": "reports/2026-04-29_big-bang-legend-nexus-p3",
-  "status": "open",
+  "status": "closed",
   "startedAt": "2026-04-29T09:00:00.000Z",
   "mode": "observation",
   "grade": "S",
@@ -14,7 +14,21 @@
   "topicType": "framing",
   "parentTopicId": null,
   "childTopicIds": [],
-  "agentsCompleted": [],
+  "agentsCompleted": [
+    "ace",
+    "riki",
+    "riki",
+    "riki",
+    "arki",
+    "arki",
+    "arki",
+    "arki",
+    "riki",
+    "ace",
+    "fin",
+    "riki",
+    "edi"
+  ],
   "turns": [
     {
       "role": "ace",
@@ -35,28 +49,152 @@
       "role": "riki",
       "turnIdx": 3,
       "source": "agent"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 4,
+      "source": "agent"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 5,
+      "source": "agent"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 6,
+      "source": "agent"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 7,
+      "source": "agent"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 8,
+      "source": "agent"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 9,
+      "source": "agent"
+    },
+    {
+      "role": "fin",
+      "turnIdx": 10,
+      "source": "agent"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 11,
+      "source": "agent"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 12,
+      "phase": "compile"
     }
   ],
-  "decisions": [],
+  "decisions": [
+    "D-115",
+    "D-116",
+    "D-117",
+    "D-118",
+    "D-119",
+    "D-120",
+    "D-121"
+  ],
   "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
-  "decisionsAdded": [],
+  "decisionsAdded": [
+    "D-115",
+    "D-116",
+    "D-117",
+    "D-118",
+    "D-119",
+    "D-120",
+    "D-121"
+  ],
   "notes": [
     "s140 = Big Bang P3 — NCL(Nexus Contribution Ledger) + 학습효과 3루트 적용 검토",
     "Master 제안: B축(Data Bus) 산출물 하단 메타데이터 블록 강제 박제 + 학습효과 누적 3루트",
     "이전 s139: echo chamber 실증 → 결정 박제 0건 → 세션 중단",
     "Open Issues 인계: Nexus 2축/3축 확정 미완 / C-2·G-2·R-2 미해결 / P2 페르소나 박제 미착수"
   ],
-  "gaps": [],
+  "gaps": [
+    {
+      "type": "missing-report",
+      "role": "arki",
+      "turnIdx": 4,
+      "reportPath": "reports/2026-04-29_big-bang-legend-nexus-p3",
+      "detectedAt": "2026-04-29T10:25:38.668Z",
+      "note": "arki turn4 완료 후 reports/arki_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p3/ace_rev1.md",
+      "expected": "ace",
+      "actualInTurns": "arki",
+      "turnId": 5
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p3/arki_rev1.md",
+      "expected": "arki",
+      "actualInTurns": "riki",
+      "turnId": 1
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p3/arki_rev2.md",
+      "expected": "arki",
+      "actualInTurns": "riki",
+      "turnId": 2
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p3/arki_rev3.md",
+      "expected": "arki",
+      "actualInTurns": "riki",
+      "turnId": 3
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p3/fin_rev1.md",
+      "expected": "fin",
+      "actualInTurns": "arki",
+      "turnId": 6
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p3/riki_rev4.md",
+      "expected": "riki",
+      "actualInTurns": "arki",
+      "turnId": 4
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p3/riki_rev5.md",
+      "expected": "riki",
+      "actualInTurns": "arki",
+      "turnId": 7
+    }
+  ],
   "tokenUsage": {
-    "input_tokens": 81,
-    "output_tokens": 36616,
-    "cache_creation_input_tokens": 450003,
-    "cache_read_input_tokens": 2205774,
-    "messageCount": 35,
-    "masterTurns": 9,
-    "total_billable": 2692474
+    "input_tokens": 421,
+    "output_tokens": 120658,
+    "cache_creation_input_tokens": 969460,
+    "cache_read_input_tokens": 8446184,
+    "messageCount": 89,
+    "masterTurns": 23,
+    "total_billable": 9536723
+  },
+  "closedAt": "2026-04-29T12:04:12.862219Z",
+  "versionBump": {
+    "value": 0.1,
+    "reason": "3-Layer 합의 + 5 Phase 확정 + Star 토폴로지 + Zero 정제 페르소나 정의 + prime directive 박제"
   }
 }

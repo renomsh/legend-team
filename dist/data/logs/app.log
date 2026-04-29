@@ -1446,3 +1446,13 @@
 [2026-04-29T08:21:02.093Z] [sync-system-state] lastSession=session_139 openTopics=3 recentDecisions=5 recentSummaries=3 deferrals=49
 [2026-04-29T08:21:08.913Z] [compute-dashboard] 완료 — 137개 세션, 2개 경보
 [2026-04-29T10:23:16.394Z] [compute-dashboard] 완료 — 137개 세션, 2개 경보
+[2026-04-29T12:07:50.710Z] [checklist] [INFO] reports: 11 file(s) on disk, none registered in topic_index
+[2026-04-29T12:07:50.713Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-04-29T12:07:50.713Z] [checklist] [WARN] topic_index: topic not found in topic_index.json
+[2026-04-29T12:07:50.714Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-29T12:07:50.714Z] [checklist] [INFO] master_feedback: 3 feedback entry(ies) recorded
+[2026-04-29T12:07:50.714Z] [session-log] [INFO] END session_140 | topic: big-bang-legend-nexus-p3 | duration: 188m
+[2026-04-29T12:08:01.889Z] [L2-writer] skip (already exists): C:\Projects\legend-team\topics\topic_131\session_contributions\session_140.md
+[2026-04-29T12:08:04.062Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_131\context_brief.md | sessions=4 size=1959B
+[2026-04-29T12:08:15.286Z] [sync-system-state] lastSession=session_140 openTopics=3 recentDecisions=5 recentSummaries=3 deferrals=49
+[2026-04-29T12:08:22.802Z] [compute-dashboard] 완료 — 138개 세션, 2개 경보

@@ -1621,7 +1621,63 @@
       "axis": "버전 업그레이드 기준 개편 — 트리거 확장 + 세션당 +0.1 캡 + R1 임계값 통일",
       "summary": "버전 bump 트리거를 Decision 전용에서 구현·디버그·역할 강화·정책 추가로 확장. Ace 수동 선언 + session-end-finalize.js 자동 전파. 증분 +0.1/+0.01/+0.001, 세션당 최대 +0.1 캡. 경고 없음 (캡이 구조적 안전장치). R1 역할 과호출 임계값 Grade 구분 없이 ≥11 단일 통일. legacy-gap 태그로 v1.65~v1.75 공백 마킹.",
       "status": "active"
+    },
+    {
+      "id": "D-115",
+      "date": "2026-04-29",
+      "session": "session_140",
+      "topic": "topic_131",
+      "axis": "NCL 4항목 + 규칙 기반 fix + violation flag 페르소나 노출 차단",
+      "summary": "NCL(Nexus Contribution Ledger) 4항목(Origin Trace / Influence Score / Diversity Index / Anchor vs Synth) 인프라 박제. 규칙 기반 영수증 발행만, 자동 해석·요약·판단 금지(C-3 영구 차단). violation flag 포함. NCL raw 점수와 violation flag는 페르소나 컨텍스트 노출 차단(Goodhart's Law mitigation, 1975 Bank of England 통화정책 비판 외부 anchor)."
+    },
+    {
+      "id": "D-116",
+      "date": "2026-04-29",
+      "session": "session_140",
+      "topic": "topic_131",
+      "axis": "self-scores YAML 병행 유지 (D-092 호환)",
+      "summary": "기존 self-scores YAML(D-092)을 폐기하지 않고 Sage 외부 채점과 병행 운영. 자가 채점(발언자)과 외부 채점(Sage)이 양립 작동. cross-check를 통한 편향 상쇄."
+    },
+    {
+      "id": "D-117",
+      "date": "2026-04-29",
+      "session": "session_140",
+      "topic": "topic_131",
+      "axis": "Big Bang 5 Phase 순서 (D-114 supersede)",
+      "summary": "P1=종합 설계 박제(s140 종료)/P2=페르소나·정책 박제(prime directive + Sage + Zero + Ace/Riki)/P3=Nexus 골격+Hook+dispatch/P4=NCL 인프라+Sage 파이프라인/P5=마이그레이션. 각 Phase 게이트(G1~G4) 통과 후 진행. D-114 5단계 분해 구체화."
+    },
+    {
+      "id": "D-118",
+      "date": "2026-04-29",
+      "session": "session_140",
+      "topic": "topic_131",
+      "axis": "Star + Nexus first-speaker 토폴로지 (D-111 보강)",
+      "summary": "토폴로지 = Star (Nexus 중심) + Nexus first-speaker override. prime directive 최상위 메타 제약. 페르소나→NCL 단방향 produce, NCL→Sage 단방향 read, Sage→NCL 자기 채점 영수증화(R-4 mitigation)."
+    },
+    {
+      "id": "D-119",
+      "date": "2026-04-29",
+      "session": "session_140",
+      "topic": "topic_131",
+      "axis": "Zero = 정제 페르소나 (D-110 supersede)",
+      "summary": "Zero = 정제(refinement) 페르소나, 산출물 레이어 정제. 포함 영역 3개: ① 부채 정리(tech-debt) ② 보안 리뷰(security-review, 하드코딩 secrets 포함) ③ simplify(재사용·품질·효율, 코드 다이어트). Cut/Refine/Audit 3 스킬은 페르소나 내부 도구로 격하. 별칭: 하드코딩 섬멸 + 코드 다이어트. D-110(원본 유지) supersede. 매핑 1턴 작업은 P2 진입 시 수행."
+    },
+    {
+      "id": "D-120",
+      "date": "2026-04-29",
+      "session": "session_140",
+      "topic": "topic_131",
+      "axis": "prime directive(Affaan 4) + Phase A enforcement",
+      "summary": "Affaan 4 도그마(악의 텍스트 컨텍스트 유입 전제 / 도구 설명 거짓말 전제 / 저장소 오염 전제 / 모델 설득당해도 시스템 안전)를 CLAUDE.md prime directive 섹션 신설하여 박제. enforcement Phase A: NCL violation flag append-only + Master 대시보드 정기 점검 알림 hook. 판정 주체는 P2(s141)에서 결정. Phase B(실시간 통보+게이트) 보류, P4 데이터 본 후 결정. 외부 anchor: NIST SP 800-160 Vol.2 Defense in Depth + Wingspread 1998 Precautionary Principle."
+    },
+    {
+      "id": "D-121",
+      "date": "2026-04-29",
+      "session": "session_140",
+      "topic": "topic_131",
+      "axis": "발언 순서 grade × topic 매트릭스 운영 (D-019 강화)",
+      "summary": "발언 순서는 grade × topic 유형 매트릭스로 관리. 셀 미정 시 Nexus(오케스트레이션 허브)가 결정 → Master 승인 → 진행. 동일 셀 반복 패턴 발생 시 매트릭스 셀 정책으로 점진 박제. 매트릭스 본체는 미리 채우지 않고 실측 누적 시 박제(과투자 회피)."
     }
   ],
-  "lastUpdated": "2026-04-28T00:00:00.000Z"
+  "lastUpdated": "2026-04-29T12:03:47.111104Z"
 }

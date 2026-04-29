@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-29T10:23:16.390Z",
-  "totalSessions": 137,
+  "generatedAt": "2026-04-29T12:08:22.797Z",
+  "totalSessions": 138,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.86,
-    "avgCacheHitRate": 0.9318,
-    "cacheSampleSize": 111,
-    "cacheSampleTotal": 137,
+    "avgMasterTurns": 16.97,
+    "avgCacheHitRate": 0.9313,
+    "cacheSampleSize": 112,
+    "cacheSampleTotal": 138,
     "avgAdoptionRate": 0,
-    "totalDecisions": 115,
+    "totalDecisions": 122,
     "gradeDistribution": {
-      "S": 58,
+      "S": 59,
       "A": 27,
       "B": 38,
       "C": 14
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 92,
-    "totalCostUSD": 1458.2709,
-    "avgCostPerSession": 11.0475,
-    "costSampleSize": 132
+    "turnBasedSessions": 93,
+    "totalCostUSD": 1469.1501,
+    "avgCostPerSession": 11.0462,
+    "costSampleSize": 133
   },
   "sessions": [
     {
@@ -5220,12 +5220,66 @@
         "messageCount": 95
       },
       "sessionCostUSD": 7.4023
+    },
+    {
+      "sessionId": "session_140",
+      "topicSlug": "big-bang-legend-nexus-p3",
+      "topic": "Big Bang — Legend Nexus 시스템 개편 및 역할 재정립",
+      "startedAt": "2026-04-29T09:00:00.000Z",
+      "closedAt": "2026-04-29T12:04:12.862219Z",
+      "decisionCount": 7,
+      "decisionAxes": 7,
+      "decisions": [
+        "D-115",
+        "D-116",
+        "D-117",
+        "D-118",
+        "D-119",
+        "D-120",
+        "D-121"
+      ],
+      "rolesCalled": 13,
+      "rolesRecalled": 8,
+      "sessionsSpanned": 1,
+      "size": 46,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 32,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "riki",
+        "riki",
+        "riki",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "riki",
+        "ace",
+        "fin",
+        "riki",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 12229197,
+        "ioTokens": 157776,
+        "inputTokens": 502,
+        "outputTokens": 157274,
+        "cacheCreate": 1419463,
+        "cacheRead": 10651958,
+        "cacheHitRate": 0.8710267730579531,
+        "messageCount": 124
+      },
+      "sessionCostUSD": 10.8792
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 151,
+      "count": 153,
       "sessions": [
         "session_047",
         "session_048",
@@ -5299,12 +5353,13 @@
         "session_136",
         "session_137",
         "session_138",
-        "session_139"
+        "session_139",
+        "session_140"
       ]
     },
     {
       "role": "arki",
-      "count": 102,
+      "count": 106,
       "sessions": [
         "session_048",
         "session_049",
@@ -5356,12 +5411,13 @@
         "session_130",
         "session_134",
         "session_138",
-        "session_139"
+        "session_139",
+        "session_140"
       ]
     },
     {
       "role": "edi",
-      "count": 94,
+      "count": 95,
       "sessions": [
         "session_050",
         "session_051",
@@ -5451,7 +5507,8 @@
         "session_136",
         "session_137",
         "session_138",
-        "session_139"
+        "session_139",
+        "session_140"
       ]
     },
     {
@@ -5520,7 +5577,7 @@
     },
     {
       "role": "riki",
-      "count": 55,
+      "count": 60,
       "sessions": [
         "session_049",
         "session_053",
@@ -5566,12 +5623,13 @@
         "session_134",
         "session_137",
         "session_138",
-        "session_139"
+        "session_139",
+        "session_140"
       ]
     },
     {
       "role": "fin",
-      "count": 21,
+      "count": 22,
       "sessions": [
         "session_053",
         "session_054",
@@ -5591,7 +5649,8 @@
         "session_094",
         "session_098",
         "session_104",
-        "session_127"
+        "session_127",
+        "session_140"
       ]
     },
     {
@@ -9242,6 +9301,90 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_140",
+      "topic": "Big Bang — Legend Nexus 시스템 개편 및 역할 재정립",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 6,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 7,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 8,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 9,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": null,
+          "turnIdx": 10,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 11,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 12,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -9366,6 +9509,11 @@
           "date": "2026-04-25",
           "feedbackId": "MF-095",
           "summary": "세션 사이드 메뉴에 흐름 있잖아. 그건 어떻게 할껀데?"
+        },
+        {
+          "date": "2026-04-29",
+          "feedbackId": "MF-109",
+          "summary": "Big Bang 5 Phase 세션 계획 재설계 (s141~s149) + 3세션 캡 해제 + dual-log"
         }
       ]
     },
@@ -9445,6 +9593,11 @@
         {
           "date": "2026-04-19",
           "summary": "Riki R-02 기각 — Master 주관 판정 최우선. Master 동의 없이는 실행 불가. 레전드팀=M"
+        },
+        {
+          "date": "2026-04-29",
+          "feedbackId": "MF-108",
+          "summary": "Riki R-5/R-7 차단 수용 — D-119(Zero supersede)·D-120(prime direc"
         }
       ]
     },
@@ -9729,6 +9882,11 @@
           "date": "2026-04-21",
           "feedbackId": "MF-046",
           "summary": "Editor를 '에디'(Edi)로 호칭하라. 발언 맥락에선 에디/Edi, 스키마·코드 식별자에만 editor"
+        },
+        {
+          "date": "2026-04-29",
+          "feedbackId": "MF-110",
+          "summary": "발언 순서 grade × topic 매트릭스 운영 — Nexus 셀 결정 + Master 승인"
         }
       ]
     },
@@ -9991,6 +10149,21 @@
           "date": "2026-04-24",
           "feedbackId": "MF-079",
           "summary": "구현은 3세션 이내 원칙으로 진행."
+        }
+      ]
+    },
+    {
+      "keyword": "grade",
+      "occurrences": [
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-042",
+          "summary": "grade 선언 의도 확인 원칙: Master가 grade를 명시해도 Ace가 실제 토픽을 분석해서 더 낮은"
+        },
+        {
+          "date": "2026-04-29",
+          "feedbackId": "MF-110",
+          "summary": "발언 순서 grade × topic 매트릭스 운영 — Nexus 셀 결정 + Master 승인"
         }
       ]
     },
