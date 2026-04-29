@@ -1,0 +1,47 @@
+{
+  "$schema": "internal://dispatch-config-v0.1",
+  "version": "0.1.0",
+  "introducedBy": "D-126/D-127/D-128 (session_142, topic_131, 2026-04-29)",
+  "comment": "역할 호출 트리거·격리 정책·NCL 배출 권한 단일 출처. pre-tool-use-task-sage-gate.js가 sage 격리 read.",
+  "rules": {
+    "sage": {
+      "trigger": {
+        "explicit": ["/sage", "세이지", "sage 호출"],
+        "natural_language_suggest_only": [
+          "평가",
+          "성장",
+          "회고",
+          "채점",
+          "지표",
+          "self-scores"
+        ]
+      },
+      "session_isolation": "exclusive",
+      "first_speaker_override": true,
+      "auto_hook": false,
+      "ace_reject_window_turns": 1,
+      "ace_reject_requires_reason": true,
+      "ace_reject_reason_min_chars": 50,
+      "ncl_emission": {
+        "allowed": false,
+        "reason": "Riki R-5 — Sage NCL produce 0건. 분석 결과 박제는 Edi 위임 (D-125 anchor governance)."
+      },
+      "write_permission": "none",
+      "supersedes": ["D-112"]
+    },
+    "zero": {
+      "scope_areas": ["tech-debt", "security-review", "simplify"],
+      "excludedAssets": [
+        "memory/shared/ncl_violations.jsonl",
+        "memory/shared/violations/*"
+      ],
+      "session_isolation": "shared",
+      "auto_hook": false,
+      "ncl_emission": {
+        "allowed": true
+      },
+      "internal_tools": ["Cut", "Refine", "Audit"],
+      "supersedes": ["D-110"]
+    }
+  }
+}

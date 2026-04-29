@@ -1,51 +1,48 @@
 {
-  "sessionId": "session_141",
+  "sessionId": "session_142",
   "topicId": "topic_131",
   "topic": "Big Bang — Legend Nexus 시스템 개편 및 역할 재정립",
   "topicSlug": "big-bang-legend-nexus-p2-1of3",
   "reportPath": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3",
   "status": "closed",
-  "closedAt": "2026-04-29T12:50:00.000Z",
-  "oneLineSummary": "P2(1/3): Affaan 4 prime directive CLAUDE.md+해시 hook 박제, NCL violation 4조건식+판정주체 확정, Zero 매핑. D-122~D-125 박제, D-120 종결.",
-  "startedAt": "2026-04-29T12:10:00.000Z",
+  "startedAt": "2026-04-29T13:10:00.000Z",
+  "closedAt": "2026-04-29T14:30:00.000Z",
+  "oneLineSummary": "P2(2/3): Sage 신설 + Zero 갱신 + sage-gate hook 별도파일 + R-2 부분 카오 자백. D-126~D-128 박제, 9파일.",
   "mode": "observation",
   "grade": "S",
   "gradeDeclared": "S",
   "framingLevel": 2,
-  "framingSkipped": false,
+  "framingSkipped": true,
   "topicType": "framing",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
-    "ace",
-    "ace",
     "arki",
     "riki",
-    "ace",
+    "riki",
     "fin",
+    "ace",
     "dev",
     "edi"
   ],
   "turns": [
     {
-      "turnIdx": 0,
-      "role": "ace",
-      "phase": "framing",
-      "chars": 1200,
-      "reportPath": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/ace_rev1.md"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 1,
-      "source": "agent"
-    },
-    {
       "role": "arki",
-      "turnIdx": 2,
+      "turnIdx": 0,
       "source": "agent"
     },
     {
       "role": "riki",
+      "turnIdx": 1,
+      "source": "agent"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 2,
+      "source": "agent"
+    },
+    {
+      "role": "fin",
       "turnIdx": 3,
       "source": "agent"
     },
@@ -55,58 +52,119 @@
       "source": "agent"
     },
     {
-      "role": "fin",
+      "role": "dev",
       "turnIdx": 5,
       "source": "agent"
     },
     {
-      "role": "dev",
-      "turnIdx": 6,
-      "source": "agent"
-    },
-    {
       "role": "edi",
-      "turnIdx": 7,
+      "turnIdx": 6,
       "source": "agent"
     }
   ],
   "decisions": [
-    "D-122",
-    "D-123",
-    "D-124",
-    "D-125"
+    "D-126",
+    "D-127",
+    "D-128"
   ],
   "masterDecisions": [
-    "Q1=조건식 완결, Q2=Rules bullet 추가, 최대 진행 (s141 turn1)",
-    "Fin C안 묶음 진행 승인 — '진행해' (s141 turn5 후)"
+    "Sage 호출 = Master + Nexus 명시만, grade B+ 자동 hook 폐기",
+    "Sage R&R = read-only + 자가채점 정합성 cross-check (NCL 평가 주체 X)",
+    "축A 정합성 검증 + 축B 차단 hook 별도 파일 분리 (Riki·Fin 권고 수용)",
+    "R-2 (α) 코드 차단은 규칙 영역 — Riki framing 부분 카테고리 오류 인정",
+    "Phase 1~3 동시 진입 + R-1 paradox는 P3 hook 인프라 진입 전 topic_138 처리"
   ],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "decisionsAdded": [
-    "D-122",
-    "D-123",
-    "D-124",
-    "D-125"
+    "D-126",
+    "D-127",
+    "D-128"
   ],
   "versionBump": {
     "value": 0.1,
-    "reason": "Affaan 4 prime directive CLAUDE.md 박제 + 해시 무결성 hook + NCL 4조건식 동결 + 판정주체 확정(D-120 종결) + Zero 운영 매핑"
+    "reason": "Sage 페르소나 신설 + Zero 갱신(D-119/D-125 본문 박제) + sage-gate hook 별도 파일(SRP+Defense in Depth) — P2 2/3 핵심 인프라 동결"
   },
   "notes": [
-    "s141 = Big Bang P2(1/3): prime directive(Affaan 4) CLAUDE.md 박제 + violation 판정 주체 결정 + Zero 미션×스킬 매핑",
-    "이전 s140: 7결정 박제(D-115~D-121) — 3-Layer + Star 토폴로지 + Zero 정제 페르소나 + Affaan 4 prime directive",
-    "D-120 violation 판정 주체 미결 — 이번 세션 핵심 결정 대상",
-    "첫 3세션(s141~s143) dual-log 의무 + 각 Phase rollback 태그 의무"
+    "s142 = P2(2/3) Sage 신설 + Zero 갱신 + sage-gate hook 별도 파일",
+    "Riki R-2 부분 카테고리 오류 자백(α 철회/β 잔존 분해) — Master 직접 지적이 카오 적출",
+    "Fin ROI >100x 정량 + 현 hook 522 LOC SRP 4번째 책임 진입 차단 근거",
+    "후속 토픽: topic_138(R-1 paradox 차단, P3 hook 인프라 진입 전 필수), topic_132~137(NCL hook/anchor 분류기/ackReason/외부 anchor hook/Master-first/prime directive 표 정합)",
+    "Big Bang 다음 슬롯: s143 P2(3/3) Ace+Riki 미세 갱신 + 페르소나 cross-reference 검증 (G1)"
   ],
-  "gaps": [],
+  "gaps": [
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/ace_rev1.md",
+      "expected": "ace",
+      "actualInTurns": "arki",
+      "turnId": 0
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/ace_rev3.md",
+      "expected": "ace",
+      "actualInTurns": "dev",
+      "turnId": 5
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/arki_rev1.md",
+      "expected": "arki",
+      "actualInTurns": "riki",
+      "turnId": 2
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/arki_rev2.md",
+      "expected": "arki",
+      "actualInTurns": "riki",
+      "turnId": 1
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/dev_rev1.md",
+      "expected": "dev",
+      "actualInTurns": "edi",
+      "turnId": 6
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/fin_rev1.md",
+      "expected": "fin",
+      "actualInTurns": "dev",
+      "turnId": 5
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/fin_rev2.md",
+      "expected": "fin",
+      "actualInTurns": "ace",
+      "turnId": 4
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/riki_rev1.md",
+      "expected": "riki",
+      "actualInTurns": "fin",
+      "turnId": 3
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/riki_rev3.md",
+      "expected": "riki",
+      "actualInTurns": "fin",
+      "turnId": 3
+    }
+  ],
   "tokenUsage": {
-    "input_tokens": 149,
-    "output_tokens": 79074,
-    "cache_creation_input_tokens": 578859,
-    "cache_read_input_tokens": 5683948,
-    "messageCount": 66,
-    "masterTurns": 11,
-    "total_billable": 6342030
+    "input_tokens": 247,
+    "output_tokens": 85070,
+    "cache_creation_input_tokens": 377202,
+    "cache_read_input_tokens": 8779558,
+    "messageCount": 74,
+    "masterTurns": 14,
+    "total_billable": 9242077
   }
 }

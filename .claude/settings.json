@@ -24,6 +24,10 @@
           {
             "type": "command",
             "command": "node .claude/hooks/pre-tool-use-task.js"
+          },
+          {
+            "type": "command",
+            "command": "node .claude/hooks/pre-tool-use-task-sage-gate.js"
           }
         ]
       }

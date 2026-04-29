@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_141",
-  "nextSessionId": "session_142",
+  "lastSessionId": "session_142",
+  "nextSessionId": "session_143",
   "currentVersion": "v2.06",
   "openTopics": [
     {
@@ -27,6 +27,24 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-128",
+      "date": "2026-04-29",
+      "axis": "Sage 격리 enforcement = pre-tool-use-task-sage-gate.js 별도 hook (SRP + Defense in Depth)",
+      "summary": "Fin SRP anchor (Martin 2003 'Agile Software Development') + NIST SP 800-160 Vol.2 §3.4.5 Defense in Depth 정합. ROI 비대칭 — 분리 비용 ~45 LOC vs FN 1건 회피 가치(D-122 자기충실성 무력화 회피). hook chain 직렬 실행, 장애 격리, 후속 페르소나 게이트 재사용 패턴 박제."
+    },
+    {
+      "id": "D-127",
+      "date": "2026-04-29",
+      "axis": "Zero 페르소나 = 정제 산출물 레이어, 3 영역 한정 + Cut/Refine/Audit 내부 흡수",
+      "summary": "D-119 supersede D-110 본문 박제 완결. 산출물 레이어 정제 단일 책임 명문화. Goodhart's Law 회피로 violation flag 자기검열 우회 차단."
+    },
+    {
+      "id": "D-126",
+      "date": "2026-04-29",
+      "axis": "Sage 페르소나 = Master/Nexus 명시 호출 read-only 메타 분석가, same-session isolation exclusive",
+      "summary": "echo chamber·anchor 의존·페르소나 drift 사후 적출 + 자가채점 inflation 차단. Goodhart's Law(Strathern 1997) 회피 — Sage가 NCL violation flag direct read하여 자기검열 우회하는 경로 차단. NIST RBAC SoD(Sandhu 1996) 정합 — read·write·route·anchor·escalate 5축 권한 분리."
+    },
+    {
       "id": "D-125",
       "date": "2026-04-29",
       "axis": "Zero 정제 페르소나 운영 정의",
@@ -37,27 +55,20 @@
       "date": "2026-04-29",
       "axis": "판정 주체(D-120 미결) + Ace ack 누수 차단",
       "summary": "D-120 미결 종결. R-3 silent dismiss 3 누수 경로(보고 누락·stale·자가 우선순위 강등) 모두 차단. echo chamber(s139) 회귀 차단. 외부 anchor: ITIL 4 + Google SRE Book Ch.6."
-    },
-    {
-      "id": "D-123",
-      "date": "2026-04-29",
-      "axis": "판정 조건식 동결 + release 단계 분리",
-      "summary": "모순(R-5: P2 후속 hook이 v0에 들어가 있던 것) 해소. 부분 가동의 정직 선언으로 false sense of security 차단. 임계 튜닝 경로 확보."
-    },
-    {
-      "id": "D-122",
-      "date": "2026-04-29",
-      "axis": "CLAUDE.md 박제 형식 + 변조 차단 메커니즘",
-      "summary": "prime directive를 텍스트 단일점 박제에 두지 않고 코드+해시 이중화로 D4 자기 충실. R-1 single point of compromise 차단. 외부 anchor: NIST SP 800-53 SI-7."
-    },
-    {
-      "id": "D-121",
-      "date": "2026-04-29",
-      "axis": "발언 순서 grade × topic 매트릭스 운영 (D-019 강화)",
-      "summary": "발언 순서 grade × topic 매트릭스 운영 (D-019 강화)"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_142",
+      "topicSlug": "big-bang-legend-nexus-p2-1of3",
+      "closedAt": "2026-04-29T14:30:00.000Z",
+      "oneLineSummary": "P2(2/3): Sage 신설 + Zero 갱신 + sage-gate hook 별도파일 + R-2 부분 카오 자백. D-126~D-128 박제, 9파일.",
+      "decisionsAdded": [
+        "D-126",
+        "D-127",
+        "D-128"
+      ]
+    },
     {
       "sessionId": "session_141",
       "topicSlug": "big-bang-legend-nexus-p2-1of3",
@@ -84,13 +95,6 @@
         "D-120",
         "D-121"
       ]
-    },
-    {
-      "sessionId": "session_139",
-      "topicSlug": "big-bang-legend-nexus-p2",
-      "closedAt": "2026-04-29T07:30:00.000Z",
-      "oneLineSummary": "세션 중단 — echo chamber 실증(Arki/Riki/Claude Code 모두 Master 발언 anchor, 의견 회전). 결정 박제 0건. 신뢰 회복 후 재개",
-      "decisionsAdded": []
     }
   ],
   "pendingDeferrals": [
@@ -596,5 +600,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-29T13:03:23.837Z"
+  "lastUpdated": "2026-04-29T14:20:21.209Z"
 }

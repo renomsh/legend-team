@@ -1,0 +1,5 @@
+{"ts":"2026-04-29T14:14:18.173Z","phase":"sage-gate-pass","role":"sage","turnRolesCount":0}
+{"ts":"2026-04-29T14:14:18.299Z","phase":"sage-gate-reject","role":"sage","turnRoles":["arki","fin"],"reason":"Sage same-session isolation violation: existing roles=[arki,fin]. Open separate session via /sage. (D-128, dispatch_config.sage.session_isolation=exclusive)"}
+{"ts":"2026-04-29T14:14:18.425Z","phase":"sage-gate-reject","role":"arki","lastTurnRole":"sage","reason":"Cannot dispatch role='arki' after Sage turn. Sage requires session isolation. (D-128)"}
+{"ts":"2026-04-29T14:14:18.549Z","phase":"sage-gate-pass","role":"sage","turnRolesCount":1}
+{"ts":"2026-04-29T14:17:00.096Z","phase":"sage-gate-pass","role":"edi","turnRolesCount":6}
