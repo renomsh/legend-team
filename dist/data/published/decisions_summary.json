@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-29T12:08:24.169Z",
+  "generatedAt": "2026-04-29T13:03:41.057Z",
   "decisions": [
     {
       "id": "D-114",
@@ -1669,7 +1669,10 @@
       "session": "session_140",
       "topic": "topic_131",
       "axis": "prime directive(Affaan 4) + Phase A enforcement",
-      "summary": "Affaan 4 도그마(악의 텍스트 컨텍스트 유입 전제 / 도구 설명 거짓말 전제 / 저장소 오염 전제 / 모델 설득당해도 시스템 안전)를 CLAUDE.md prime directive 섹션 신설하여 박제. enforcement Phase A: NCL violation flag append-only + Master 대시보드 정기 점검 알림 hook. 판정 주체는 P2(s141)에서 결정. Phase B(실시간 통보+게이트) 보류, P4 데이터 본 후 결정. 외부 anchor: NIST SP 800-160 Vol.2 Defense in Depth + Wingspread 1998 Precautionary Principle."
+      "summary": "Affaan 4 도그마(악의 텍스트 컨텍스트 유입 전제 / 도구 설명 거짓말 전제 / 저장소 오염 전제 / 모델 설득당해도 시스템 안전)를 CLAUDE.md prime directive 섹션 신설하여 박제. enforcement Phase A: NCL violation flag append-only + Master 대시보드 정기 점검 알림 hook. 판정 주체는 P2(s141)에서 결정. Phase B(실시간 통보+게이트) 보류, P4 데이터 본 후 결정. 외부 anchor: NIST SP 800-160 Vol.2 Defense in Depth + Wingspread 1998 Precautionary Principle.",
+      "statusNote": "P2 1/3(session_141)에서 판정 주체 = 코드 자동 flag + Master 점검 + Ace ack-only 확정. D-124로 supersede.",
+      "supersededBy": "D-124",
+      "status": "resolved"
     },
     {
       "id": "D-121",
@@ -1678,6 +1681,53 @@
       "topic": "topic_131",
       "axis": "발언 순서 grade × topic 매트릭스 운영 (D-019 강화)",
       "summary": "발언 순서는 grade × topic 유형 매트릭스로 관리. 셀 미정 시 Nexus(오케스트레이션 허브)가 결정 → Master 승인 → 진행. 동일 셀 반복 패턴 발생 시 매트릭스 셀 정책으로 점진 박제. 매트릭스 본체는 미리 채우지 않고 실측 누적 시 박제(과투자 회피)."
+    },
+    {
+      "id": "D-122",
+      "date": "2026-04-29",
+      "session": "session_141",
+      "topic": "topic_131",
+      "owningTopicId": "topic_131",
+      "scopeCheck": "Affaan 4 prime directive를 CLAUDE.md 박제 + 해시 무결성 hook 이중화 — P2 1/3 핵심 인프라",
+      "axis": "CLAUDE.md 박제 형식 + 변조 차단 메커니즘",
+      "decision": "Affaan 4 도그마(D1~D4)를 CLAUDE.md Rules 블록 최상단 4 bullet으로 박제하고 직후 구분선·주석 1줄로 운영 절차와 시각적 분리. 동시에 4 bullet의 SHA-256 해시를 memory/shared/prime_directive.lock.json에 git-track하고 scripts/validate-prime-directive.ts를 auto-push.js hook chain에 추가하여 mismatch 시 push 차단.",
+      "value": "prime directive를 텍스트 단일점 박제에 두지 않고 코드+해시 이중화로 D4 자기 충실. R-1 single point of compromise 차단. 외부 anchor: NIST SP 800-53 SI-7."
+    },
+    {
+      "id": "D-123",
+      "date": "2026-04-29",
+      "session": "session_141",
+      "topic": "topic_131",
+      "owningTopicId": "topic_131",
+      "scopeCheck": "NCL violation 4항목 판정 조건식 동결 + Phase A v0/v0.1 release 분기",
+      "axis": "판정 조건식 동결 + release 단계 분리",
+      "decision": "Origin Trace / Influence Score / Diversity Index / Anchor vs Synth 4항목 조건식을 Arki rev1 §2.1~2.4 의사코드로 동결. Phase A v0는 앞 3항목만 가동(현 자산으로 산출 가능), Anchor vs Synth는 v0.1로 분리(synth 분류기 hook 구현 후). v0/v0.1 사이 anchor_synth는 Edi 세션 종료 시 random 1 turn 수동 spot-check로 임시 통제. self_citation role exclusion = edi 상시 + ace (synthesis phase 한정). 모든 flag severity는 Phase A 동안 warn only(D-120 append-only 충실).",
+      "value": "모순(R-5: P2 후속 hook이 v0에 들어가 있던 것) 해소. 부분 가동의 정직 선언으로 false sense of security 차단. 임계 튜닝 경로 확보."
+    },
+    {
+      "id": "D-124",
+      "date": "2026-04-29",
+      "session": "session_141",
+      "topic": "topic_131",
+      "owningTopicId": "topic_131",
+      "scopeCheck": "NCL violation 판정 주체 확정 + Ace ack 권한 강제 제약 (D-120 미결 종결)",
+      "axis": "판정 주체(D-120 미결) + Ace ack 누수 차단",
+      "decision": "flag 발생 trigger는 코드 hook 단독(PostToolUse(Task) + SessionEnd finalize 2단). 모델 자율 판단 0%. Master 부재 시 Ace는 Acknowledge 만 가능, 단 (i) ackReason 50자 이상 의무(미작성 시 hook 거부), (ii) ack TTL = 2 세션, 미resolve 시 severity 무관 openMasterAlerts 강제 prepend, (iii) Ace의 우선순위 자가 분류 권한 제거(severity는 코드 산출값만, Ace는 시간순 list 표시만), (iv) 주간 dashboard ackedButUnresolved 패널 별도. resolve/dismiss 권한은 Master 전권 유지. 기록 위치: memory/shared/ncl_violations.jsonl (raw, append-only) + memory/master/master_feedback_log.json (가시 요약).",
+      "value": "D-120 미결 종결. R-3 silent dismiss 3 누수 경로(보고 누락·stale·자가 우선순위 강등) 모두 차단. echo chamber(s139) 회귀 차단. 외부 anchor: ITIL 4 + Google SRE Book Ch.6.",
+      "supersedes": [
+        "D-120"
+      ]
+    },
+    {
+      "id": "D-125",
+      "date": "2026-04-29",
+      "session": "session_141",
+      "topic": "topic_131",
+      "owningTopicId": "topic_131",
+      "scopeCheck": "Zero 정제 페르소나 미션×스킬 매핑 + NCL 페르소나 노출 차단",
+      "axis": "Zero 정제 페르소나 운영 정의",
+      "decision": "Zero 3 미션 영역 × 도구 매핑 — ① 부채 정리: Audit→Cut, ② 보안 리뷰(secrets): Audit 단독(발견 시 Master 보고+Dev 토픽 분리), ③ Simplify: Refine→Cut. 동일 turn 내 중복 호출 시 우선순위 = Audit > Refine > Cut. NCL raw 영역(memory/shared/ncl_violations.jsonl)은 Zero 페르소나 prompt에서 hard-exclude(dispatch_config.json[persona.zero.excludedAssets] 등록). Zero 첫 호출(P3 이후)은 dry-run 의무, Master 사후 승인 후 production 전환.",
+      "value": "D-115 페르소나 노출 차단 정합. Zero가 violation flag 직접 read해 자기 검열·자기 조작하는 경로 차단. anchor governance 책임은 Edi(R-2 mitigation)로 분담 — Zero는 청소·검증, Edi는 anchor 거버넌스로 권한 분리."
     }
   ]
 }

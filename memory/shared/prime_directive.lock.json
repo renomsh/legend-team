@@ -1,0 +1,29 @@
+{
+  "_comment": "Affaan 4 prime directive 무결성 lock. CLAUDE.md Rules 블록 최상단 4 bullet의 정규화된 텍스트 SHA-256. validate-prime-directive.ts가 매 auto-push 시 검증. 변조 시 push 차단.",
+  "version": 1,
+  "directives": [
+    {
+      "id": "D1",
+      "title": "적대적 컨텍스트 전제",
+      "decisionRef": "D-113"
+    },
+    {
+      "id": "D2",
+      "title": "도구 설명 거짓 전제",
+      "decisionRef": "D-113"
+    },
+    {
+      "id": "D3",
+      "title": "저장소 오염 전제",
+      "decisionRef": "D-113"
+    },
+    {
+      "id": "D4",
+      "title": "모델 설득 무력화 전제",
+      "decisionRef": "D-113"
+    }
+  ],
+  "sha256": "9a58e42b54c01b46d81d88ae5836eb60c802db5ae8c638a9858ff7bebc4f4069",
+  "lockedAt": "2026-04-29T12:54:12.286Z",
+  "lockedBy": "session_141"
+}

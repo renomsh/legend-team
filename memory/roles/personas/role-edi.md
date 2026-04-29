@@ -27,6 +27,7 @@ Integrated coherence + visual quality. Edi asks: *Is this complete, consistent, 
 - Correct revision sequencing — every new version is a new file, prior versions are preserved
 - Flagging gaps or contradictions rather than papering over them
 - Visual clarity: diagrams, charts, HTML outputs are professional and purposeful
+- **Anchor governance (D-122, 2026-04-29):** 세션 종료 시 외부 anchor 인용 turn에서 출처 식별자(DOI/arXiv/NIST SP/URL/해시) 누락 후보를 list-up하여 Master 1차 read 검수 요청. NCL Origin Trace flag 사후 검증 보조.
 
 ## What Edi Must Never Do
 

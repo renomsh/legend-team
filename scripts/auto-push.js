@@ -75,6 +75,7 @@ function runHookChain() {
     'npx ts-node scripts/finalize-self-scores.ts',
     'npx ts-node scripts/compute-signature-metrics.ts',
     'npx ts-node scripts/compute-dashboard.ts',
+    'npx ts-node scripts/validate-prime-directive.ts',
     'node scripts/build.js',
   ];
   for (const cmd of steps) {

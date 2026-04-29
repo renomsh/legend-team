@@ -770,6 +770,82 @@ function applyVersionBump(sess) {
   }
 }
 
+/**
+ * D-124 (session_141): Ace ack TTL escalate stub.
+ *
+ * master_feedback_log.json에서 status='pending' AND acknowledgedBy='ace' 항목 중
+ * (현재 sessionId - ackedSessionId) >= TTL_SESSIONS 인 entry를
+ * system_state.json.openMasterAlerts 배열에 prepend (중복 제거).
+ *
+ * Phase A v0 (본 세션 박제): TTL=2 세션. 단순 문자열 비교 (session_141 - session_139 = 2).
+ * 누락 필드는 graceful skip (zombie data 방지). ackReason 50자 의무는 별도 hook(P2 후속).
+ */
+function escalateAceAcksWithTTL(sess) {
+  const TTL_SESSIONS = 2;
+  const STATE_PATH = path.join(CWD, 'memory', 'shared', 'system_state.json');
+  const FEEDBACK_PATH = path.join(CWD, 'memory', 'master', 'master_feedback_log.json');
+
+  if (!fs.existsSync(STATE_PATH)) {
+    log('system_state.json 없음, openMasterAlerts 스킵');
+    return;
+  }
+  const state = readJson(STATE_PATH, null);
+  if (!state) return;
+  if (!Array.isArray(state.openMasterAlerts)) state.openMasterAlerts = [];
+
+  if (!fs.existsSync(FEEDBACK_PATH)) {
+    // 빈 alerts 배열 보존, write back skip
+    writeJson(STATE_PATH, state);
+    log('master_feedback_log.json 없음, openMasterAlerts 빈 배열 유지');
+    return;
+  }
+  const feedback = readJson(FEEDBACK_PATH, null);
+  if (!feedback) return;
+
+  const entries = Array.isArray(feedback) ? feedback : (feedback.entries || feedback.feedback || []);
+  if (!Array.isArray(entries) || entries.length === 0) {
+    writeJson(STATE_PATH, state);
+    return;
+  }
+
+  const currentSid = sess.sessionId || state.lastSessionId;
+  if (!currentSid) return;
+  const currentN = parseInt(String(currentSid).replace(/[^0-9]/g, ''), 10);
+  if (!Number.isFinite(currentN)) return;
+
+  const stale = [];
+  for (const e of entries) {
+    if (!e || typeof e !== 'object') continue;
+    if (e.status !== 'pending') continue;
+    if (e.acknowledgedBy !== 'ace') continue;
+    const ackedSid = e.ackedSessionId;
+    if (!ackedSid) continue;
+    const ackedN = parseInt(String(ackedSid).replace(/[^0-9]/g, ''), 10);
+    if (!Number.isFinite(ackedN)) continue;
+    if (currentN - ackedN >= TTL_SESSIONS) {
+      stale.push({
+        type: 'ace_ack_stale',
+        feedbackId: e.id || null,
+        ackedSessionId: ackedSid,
+        currentSessionId: currentSid,
+        ttl: TTL_SESSIONS,
+        escalatedAt: new Date().toISOString(),
+      });
+    }
+  }
+
+  // prepend + dedup by feedbackId (keep newest escalatedAt)
+  if (stale.length > 0) {
+    const existingIds = new Set(state.openMasterAlerts.map(a => a && a.feedbackId).filter(Boolean));
+    const toPrepend = stale.filter(s => !existingIds.has(s.feedbackId));
+    state.openMasterAlerts = [...toPrepend, ...state.openMasterAlerts];
+    log(`Ace ack TTL escalate: +${toPrepend.length} entries to openMasterAlerts`);
+  }
+
+  state.lastUpdated = new Date().toISOString();
+  writeJson(STATE_PATH, state);
+}
+
 function runSyncSystemState() {
   const tsPath = path.join(CWD, 'scripts', 'sync-system-state.ts');
   if (!fs.existsSync(tsPath)) {
@@ -837,6 +913,7 @@ function runSyncSystemState() {
     runChecklistDeltaCheck(sess);
     applyPendingDeferralsResolved(sess);
     applyVersionBump(sess);
+    escalateAceAcksWithTTL(sess);
     runSyncSystemState();
 
     log(`완료 — ${sess.sessionId} (turns=${(sess.turns || []).length}, agents=${(sess.agentsCompleted || []).length}, decisions=${(sess.masterDecisions || []).length})`);

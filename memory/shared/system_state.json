@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_140",
-  "nextSessionId": "session_141",
+  "lastSessionId": "session_141",
+  "nextSessionId": "session_142",
   "currentVersion": "v2.06",
   "openTopics": [
     {
@@ -27,37 +27,49 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-125",
+      "date": "2026-04-29",
+      "axis": "Zero 정제 페르소나 운영 정의",
+      "summary": "D-115 페르소나 노출 차단 정합. Zero가 violation flag 직접 read해 자기 검열·자기 조작하는 경로 차단. anchor governance 책임은 Edi(R-2 mitigation)로 분담 — Zero는 청소·검증, Edi는 anchor 거버넌스로 권한 분리."
+    },
+    {
+      "id": "D-124",
+      "date": "2026-04-29",
+      "axis": "판정 주체(D-120 미결) + Ace ack 누수 차단",
+      "summary": "D-120 미결 종결. R-3 silent dismiss 3 누수 경로(보고 누락·stale·자가 우선순위 강등) 모두 차단. echo chamber(s139) 회귀 차단. 외부 anchor: ITIL 4 + Google SRE Book Ch.6."
+    },
+    {
+      "id": "D-123",
+      "date": "2026-04-29",
+      "axis": "판정 조건식 동결 + release 단계 분리",
+      "summary": "모순(R-5: P2 후속 hook이 v0에 들어가 있던 것) 해소. 부분 가동의 정직 선언으로 false sense of security 차단. 임계 튜닝 경로 확보."
+    },
+    {
+      "id": "D-122",
+      "date": "2026-04-29",
+      "axis": "CLAUDE.md 박제 형식 + 변조 차단 메커니즘",
+      "summary": "prime directive를 텍스트 단일점 박제에 두지 않고 코드+해시 이중화로 D4 자기 충실. R-1 single point of compromise 차단. 외부 anchor: NIST SP 800-53 SI-7."
+    },
+    {
       "id": "D-121",
       "date": "2026-04-29",
       "axis": "발언 순서 grade × topic 매트릭스 운영 (D-019 강화)",
       "summary": "발언 순서 grade × topic 매트릭스 운영 (D-019 강화)"
-    },
-    {
-      "id": "D-120",
-      "date": "2026-04-29",
-      "axis": "prime directive(Affaan 4) + Phase A enforcement",
-      "summary": "prime directive(Affaan 4) + Phase A enforcement"
-    },
-    {
-      "id": "D-119",
-      "date": "2026-04-29",
-      "axis": "Zero = 정제 페르소나 (D-110 supersede)",
-      "summary": "Zero = 정제 페르소나 (D-110 supersede)"
-    },
-    {
-      "id": "D-118",
-      "date": "2026-04-29",
-      "axis": "Star + Nexus first-speaker 토폴로지 (D-111 보강)",
-      "summary": "Star + Nexus first-speaker 토폴로지 (D-111 보강)"
-    },
-    {
-      "id": "D-117",
-      "date": "2026-04-29",
-      "axis": "Big Bang 5 Phase 순서 (D-114 supersede)",
-      "summary": "Big Bang 5 Phase 순서 (D-114 supersede)"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_141",
+      "topicSlug": "big-bang-legend-nexus-p2-1of3",
+      "closedAt": "2026-04-29T12:50:00.000Z",
+      "oneLineSummary": "P2(1/3): Affaan 4 prime directive CLAUDE.md+해시 hook 박제, NCL violation 4조건식+판정주체 확정, Zero 매핑. D-122~D-125 박제, D-120 종결.",
+      "decisionsAdded": [
+        "D-122",
+        "D-123",
+        "D-124",
+        "D-125"
+      ]
+    },
     {
       "sessionId": "session_140",
       "topicSlug": "big-bang-legend-nexus-p3",
@@ -79,22 +91,6 @@
       "closedAt": "2026-04-29T07:30:00.000Z",
       "oneLineSummary": "세션 중단 — echo chamber 실증(Arki/Riki/Claude Code 모두 Master 발언 anchor, 의견 회전). 결정 박제 0건. 신뢰 회복 후 재개",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_138",
-      "topicSlug": "big-bang-legend-nenux",
-      "closedAt": "2026-04-29T05:00:00.000Z",
-      "oneLineSummary": "Big Bang P1 — 시스템명 Legend Nexus ver.0.0 + 9→10인(Sage 신설) + Nexus 3축(C 폐기) + Zero 원본 보존(Ace 지원 제거) + Phase 분해 5단계 + Affaan 4 도그마 prime directive",
-      "decisionsAdded": [
-        "D-107",
-        "D-108",
-        "D-109",
-        "D-110",
-        "D-111",
-        "D-112",
-        "D-113",
-        "D-114"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -600,5 +596,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-29T12:08:15.285Z"
+  "lastUpdated": "2026-04-29T13:03:23.837Z"
 }
