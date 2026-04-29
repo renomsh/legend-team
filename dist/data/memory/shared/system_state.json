@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_142",
-  "nextSessionId": "session_143",
+  "lastSessionId": "session_143",
+  "nextSessionId": "session_144",
   "currentVersion": "v2.06",
   "openTopics": [
     {
@@ -59,6 +59,16 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_143",
+      "topicSlug": "persona-structure-redesign",
+      "closedAt": "2026-04-30T00:30:00.000Z",
+      "oneLineSummary": "topic_127 재오픈 검증 — P3 인계 작업 이미 완료 상태 확인, 즉시 재종결. topic_138(R-1 paradox) 별도 분기.",
+      "decisionsAdded": [
+        "topic_127 재종결 — P3(잔여 5역할 분리 + scaffold-role.ts) 이미 완료 상태",
+        "topic_138(R-1 paradox 차단) 분기 가능 항목으로 보존"
+      ]
+    },
+    {
       "sessionId": "session_142",
       "topicSlug": "big-bang-legend-nexus-p2-1of3",
       "closedAt": "2026-04-29T14:30:00.000Z",
@@ -79,21 +89,6 @@
         "D-123",
         "D-124",
         "D-125"
-      ]
-    },
-    {
-      "sessionId": "session_140",
-      "topicSlug": "big-bang-legend-nexus-p3",
-      "closedAt": "2026-04-29T12:04:12.862219Z",
-      "oneLineSummary": "[summary 없음 — big-bang-legend-nexus-p3]",
-      "decisionsAdded": [
-        "D-115",
-        "D-116",
-        "D-117",
-        "D-118",
-        "D-119",
-        "D-120",
-        "D-121"
       ]
     }
   ],
@@ -600,5 +595,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-29T22:38:20.731Z"
+  "lastUpdated": "2026-04-29T23:01:32.144Z"
 }

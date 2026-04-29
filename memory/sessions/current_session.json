@@ -1,13 +1,13 @@
 {
-  "sessionId": "session_142",
-  "topicId": "topic_131",
-  "topic": "Big Bang — Legend Nexus 시스템 개편 및 역할 재정립",
-  "topicSlug": "big-bang-legend-nexus-p2-1of3",
-  "reportPath": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3",
+  "sessionId": "session_143",
+  "topicId": "topic_127",
+  "topic": "S 페르소나 구조 재수립",
+  "topicSlug": "persona-structure-redesign",
+  "reportPath": "reports/2026-04-30_persona-structure-redesign",
   "status": "closed",
-  "startedAt": "2026-04-29T13:10:00.000Z",
-  "closedAt": "2026-04-29T14:30:00.000Z",
-  "oneLineSummary": "P2(2/3): Sage 신설 + Zero 갱신 + sage-gate hook 별도파일 + R-2 부분 카오 자백. D-126~D-128 박제, 9파일.",
+  "startedAt": "2026-04-30T00:00:00.000Z",
+  "closedAt": "2026-04-30T00:30:00.000Z",
+  "oneLineSummary": "topic_127 재오픈 검증 — P3 인계 작업 이미 완료 상태 확인, 즉시 재종결. topic_138(R-1 paradox) 별도 분기.",
   "mode": "observation",
   "grade": "S",
   "gradeDeclared": "S",
@@ -17,217 +17,50 @@
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
-    "arki",
-    "riki",
-    "riki",
-    "fin",
     "ace",
-    "dev",
     "edi"
   ],
   "turns": [
     {
-      "role": "arki",
+      "role": "ace",
       "turnIdx": 0,
       "source": "agent"
     },
     {
-      "role": "riki",
-      "turnIdx": 1,
-      "source": "agent"
-    },
-    {
-      "role": "riki",
-      "turnIdx": 2,
-      "source": "agent"
-    },
-    {
-      "role": "fin",
-      "turnIdx": 3,
-      "source": "agent"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 4,
-      "source": "agent"
-    },
-    {
-      "role": "dev",
-      "turnIdx": 5,
-      "source": "agent"
-    },
-    {
       "role": "edi",
-      "turnIdx": 6,
-      "source": "agent"
+      "turnIdx": 1,
+      "phase": "compile"
     }
   ],
-  "decisions": [
-    "D-126",
-    "D-127",
-    "D-128"
-  ],
+  "decisions": [],
   "masterDecisions": [
-    "Sage 호출 = Master + Nexus 명시만, grade B+ 자동 hook 폐기",
-    "Sage R&R = read-only + 자가채점 정합성 cross-check (NCL 평가 주체 X)",
-    "축A 정합성 검증 + 축B 차단 hook 별도 파일 분리 (Riki·Fin 권고 수용)",
-    "R-2 (α) 코드 차단은 규칙 영역 — Riki framing 부분 카테고리 오류 인정",
-    "Phase 1~3 동시 진입 + R-1 paradox는 P3 hook 인프라 진입 전 topic_138 처리"
+    "topic_127 재종결 — P3(잔여 5역할 분리 + scaffold-role.ts) 이미 완료 상태",
+    "topic_138(R-1 paradox 차단) 분기 가능 항목으로 보존"
   ],
-  "masterFeedback": [],
+  "masterFeedback": [
+    "Ace 프레이밍 불필요 — 인계 명확한 경우 framing skip"
+  ],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
-  "decisionsAdded": [
-    "D-126",
-    "D-127",
-    "D-128"
-  ],
-  "versionBump": {
-    "value": 0.1,
-    "reason": "Sage 페르소나 신설 + Zero 갱신(D-119/D-125 본문 박제) + sage-gate hook 별도 파일(SRP+Defense in Depth) — P2 2/3 핵심 인프라 동결"
-  },
+  "decisionsAdded": [],
   "notes": [
-    "s142 = P2(2/3) Sage 신설 + Zero 갱신 + sage-gate hook 별도 파일",
-    "Riki R-2 부분 카테고리 오류 자백(α 철회/β 잔존 분해) — Master 직접 지적이 카오 적출",
-    "Fin ROI >100x 정량 + 현 hook 522 LOC SRP 4번째 책임 진입 차단 근거",
-    "후속 토픽: topic_138(R-1 paradox 차단, P3 hook 인프라 진입 전 필수), topic_132~137(NCL hook/anchor 분류기/ackReason/외부 anchor hook/Master-first/prime directive 표 정합)",
-    "Big Bang 다음 슬롯: s143 P2(3/3) Ace+Riki 미세 갱신 + 페르소나 cross-reference 검증 (G1)"
+    "Ace 서브에이전트 1회 호출 후 Master '프레이밍 안해도 된다' 정정 — 인계 P3가 실측상 이미 완료(persona/policy 5역할 분리 + scaffold-role.ts G3 PASS) 발견이 핵심 산출",
+    "후속 분기 후보: topic_138(R-1 paradox 차단)",
+    "ace_rev1.md 1건 생성됨 (Master 사후 정정으로 무효화)"
   ],
   "gaps": [
     {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/ace_rev1.md",
-      "expected": "ace",
-      "actualInTurns": "arki",
-      "turnId": 0
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/ace_rev3.md",
-      "expected": "ace",
-      "actualInTurns": "dev",
-      "turnId": 5
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/arki_rev1.md",
-      "expected": "arki",
-      "actualInTurns": "riki",
-      "turnId": 2
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/arki_rev2.md",
-      "expected": "arki",
-      "actualInTurns": "riki",
-      "turnId": 1
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/dev_rev1.md",
-      "expected": "dev",
-      "actualInTurns": "edi",
-      "turnId": 6
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/fin_rev1.md",
-      "expected": "fin",
-      "actualInTurns": "dev",
-      "turnId": 5
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/fin_rev2.md",
-      "expected": "fin",
-      "actualInTurns": "ace",
-      "turnId": 4
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/riki_rev1.md",
-      "expected": "riki",
-      "actualInTurns": "fin",
-      "turnId": 3
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/riki_rev3.md",
-      "expected": "riki",
-      "actualInTurns": "fin",
-      "turnId": 3
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/ace_rev1.md",
-      "expected": "ace",
-      "actualInTurns": "arki",
-      "turnId": 0
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/ace_rev3.md",
-      "expected": "ace",
-      "actualInTurns": "dev",
-      "turnId": 5
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/arki_rev1.md",
-      "expected": "arki",
-      "actualInTurns": "riki",
-      "turnId": 2
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/arki_rev2.md",
-      "expected": "arki",
-      "actualInTurns": "riki",
-      "turnId": 1
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/dev_rev1.md",
-      "expected": "dev",
-      "actualInTurns": "edi",
-      "turnId": 6
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/fin_rev1.md",
-      "expected": "fin",
-      "actualInTurns": "dev",
-      "turnId": 5
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/fin_rev2.md",
-      "expected": "fin",
-      "actualInTurns": "ace",
-      "turnId": 4
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/riki_rev1.md",
-      "expected": "riki",
-      "actualInTurns": "fin",
-      "turnId": 3
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-29_big-bang-legend-nexus-p2-1of3/riki_rev3.md",
-      "expected": "riki",
-      "actualInTurns": "fin",
-      "turnId": 3
+      "type": "premature-framing",
+      "description": "Master 의도(인계 직행) 확인 전 Ace framing 호출. 다음부터 인계 명확 시 framing skip 검토."
     }
   ],
   "tokenUsage": {
-    "input_tokens": 249,
-    "output_tokens": 86250,
-    "cache_creation_input_tokens": 384884,
-    "cache_read_input_tokens": 9124224,
-    "messageCount": 76,
-    "masterTurns": 14,
-    "total_billable": 9595607
+    "input_tokens": 112,
+    "output_tokens": 21295,
+    "cache_creation_input_tokens": 207025,
+    "cache_read_input_tokens": 3182053,
+    "messageCount": 30,
+    "masterTurns": 8,
+    "total_billable": 3410485
   }
 }
