@@ -251,15 +251,43 @@
       "expected": "riki",
       "actualInTurns": "arki",
       "turnId": 1
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-01_big-bang-legend-nexus-p3-1of2/ace_rev1.md",
+      "expected": "ace",
+      "actualInTurns": "riki",
+      "turnId": 4
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-01_big-bang-legend-nexus-p3-1of2/arki_rev1.md",
+      "expected": "arki",
+      "actualInTurns": "jobs",
+      "turnId": 0
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-01_big-bang-legend-nexus-p3-1of2/arki_rev2.md",
+      "expected": "arki",
+      "actualInTurns": "zero",
+      "turnId": 15
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-01_big-bang-legend-nexus-p3-1of2/riki_rev1.md",
+      "expected": "riki",
+      "actualInTurns": "arki",
+      "turnId": 1
     }
   ],
   "tokenUsage": {
-    "input_tokens": 1301,
-    "output_tokens": 135542,
-    "cache_creation_input_tokens": 1042352,
-    "cache_read_input_tokens": 17455564,
-    "messageCount": 136,
+    "input_tokens": 1303,
+    "output_tokens": 137520,
+    "cache_creation_input_tokens": 1052374,
+    "cache_read_input_tokens": 17882806,
+    "messageCount": 138,
     "masterTurns": 24,
-    "total_billable": 18634759
+    "total_billable": 19074003
   }
 }
