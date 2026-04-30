@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-30T04:40:29.110Z",
-  "totalSessions": 143,
+  "generatedAt": "2026-04-30T04:53:58.926Z",
+  "totalSessions": 144,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.96,
-    "avgCacheHitRate": 0.9316,
-    "cacheSampleSize": 117,
-    "cacheSampleTotal": 143,
+    "avgMasterTurns": 16.88,
+    "avgCacheHitRate": 0.9315,
+    "cacheSampleSize": 118,
+    "cacheSampleTotal": 144,
     "avgAdoptionRate": 0,
     "totalDecisions": 131,
     "gradeDistribution": {
-      "S": 62,
-      "A": 28,
-      "B": 39,
+      "S": 63,
+      "A": 29,
+      "B": 38,
       "C": 14
     },
     "gradeMismatchCount": 2,
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 98,
-    "totalCostUSD": 1510.1707,
-    "avgCostPerSession": 10.9433,
-    "costSampleSize": 138
+    "turnBasedSessions": 99,
+    "totalCostUSD": 1518.5855,
+    "avgCostPerSession": 10.9251,
+    "costSampleSize": 139
   },
   "sessions": [
     {
@@ -5456,10 +5456,10 @@
       ],
       "rolesCalled": 2,
       "rolesRecalled": 0,
-      "sessionsSpanned": 1,
-      "size": 7,
-      "gradeDeclared": "B",
-      "gradeActual": "B",
+      "sessionsSpanned": 2,
+      "size": 10,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 19,
@@ -5479,6 +5479,48 @@
         "messageCount": 162
       },
       "sessionCostUSD": 17.8966
+    },
+    {
+      "sessionId": "session_146",
+      "topicSlug": "big-bang-legend-nexus-p2-3of3",
+      "topic": "Big Bang — Legend Nexus 시스템 개편 및 역할 재정립",
+      "startedAt": "2026-04-30T04:50:00.000Z",
+      "closedAt": "2026-04-30T05:30:00.000Z",
+      "decisionCount": 7,
+      "decisionAxes": 7,
+      "decisions": [
+        "Jobs 페르소나·정책·메모리 3축 s145 박제 양호 — 이슈 없음",
+        "jobs-framing skill 신설 (Step 0~9 + 인지편향 표 + Grade override)",
+        "dispatch_config.json v0.2.0 — jobs entry 추가 (session_isolation=shared, ownership: framing/grade ✓, version_bump/orchestration/synthesis ✗)",
+        "session-end-finalize.js detectVersionBump() 함수 신설 — git status 기반 3 카테고리 자동 감지 → versionBumpSuggested 박제",
+        "Edi policy §6 versionBump 확정 step 박제 — 입력·확정절차·override·부재시·캡 5 sub-section",
+        "ace-framing skill DEPRECATED 확인 (s145에서 이미 처리됨)",
+        "다음 토픽 분기: PD-053 (8역할 페르소나·정책·메모리 3축 Master 직접 검토) 트리거"
+      ],
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 2,
+      "size": 21,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 6,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 12751084,
+        "ioTokens": 67080,
+        "inputTokens": 156,
+        "outputTokens": 66924,
+        "cacheCreate": 1045012,
+        "cacheRead": 11638992,
+        "cacheHitRate": 0.9127845130657127,
+        "messageCount": 83
+      },
+      "sessionCostUSD": 8.4148
     }
   ],
   "roleFrequency": [
@@ -5628,7 +5670,7 @@
     },
     {
       "role": "edi",
-      "count": 100,
+      "count": 101,
       "sessions": [
         "session_050",
         "session_051",
@@ -5724,7 +5766,8 @@
         "session_142",
         "session_143",
         "session_144",
-        "session_145"
+        "session_145",
+        "session_146"
       ]
     },
     {
@@ -9782,6 +9825,18 @@
           "role": "edi",
           "phase": "compile",
           "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_146",
+      "topic": "Big Bang — Legend Nexus 시스템 개편 및 역할 재정립",
+      "sequence": [
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 0,
           "recallReason": null
         }
       ]

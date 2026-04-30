@@ -721,6 +721,120 @@ function applyPendingDeferralsResolved(sess) {
 }
 
 /**
+ * D-130 (session_146, topic_131, 2026-04-30): versionBump 자동 감지.
+ *
+ * Nexus 자동 감지 → versionBumpSuggested 박제 → Edi 세션 종료 시 확정 (D-130 책임 분배).
+ *
+ * 감지 카테고리 (CLAUDE.md D-130 매핑):
+ *   - structural (+0.1): persona/policy/skill SKILL.md / CLAUDE.md / role *_memory.json
+ *   - capacity (+0.01): decision_ledger.json / dispatch_config.json / .claude/hooks (paths)
+ *   - bugfix (+0.001): scripts (paths) OR .ts/.js files, Grade C/D 한정
+ *
+ * 인정 임계값: 변경 파일 ≥ 1건 + reason 자동 생성. 세션당 최대 +0.1 캡.
+ *
+ * 출력: sess.versionBumpSuggested = { value, type, reason, autoDetectedAt, changedFiles, changedFilesCount, cappedAt }
+ *
+ * Edi가 확정 시: sess.versionBump = { value, reason, ... } 박제 (별도 turn 책임).
+ *               이미 sess.versionBump가 있으면 auto-detect skip (Edi 수동 박제 우선).
+ */
+function detectVersionBump(sess) {
+  if (sess.versionBump && (sess.versionBump.value || sess.versionBump.to)) {
+    log('detectVersionBump skip: versionBump 이미 박제됨 (Edi 수동 우선)');
+    return;
+  }
+
+  const result = spawnSync('git', ['status', '--porcelain'], {
+    cwd: CWD,
+    encoding: 'utf8',
+  });
+  if (result.status !== 0) {
+    log(`detectVersionBump skip: git status 실패 (code ${result.status})`);
+    return;
+  }
+
+  const lines = (result.stdout || '').split('\n').filter(Boolean);
+  const files = lines
+    .map(l => l.slice(3).trim().replace(/\\/g, '/'))
+    .filter(Boolean);
+
+  if (files.length === 0) {
+    log('detectVersionBump: 변경 파일 0건 — bump 없음');
+    return;
+  }
+
+  const categories = { structural: [], capacity: [], bugfix: [] };
+
+  for (const f of files) {
+    if (
+      f.startsWith('memory/roles/personas/') ||
+      f.startsWith('memory/roles/policies/') ||
+      (f.startsWith('.claude/skills/') && f.endsWith('SKILL.md')) ||
+      f === 'CLAUDE.md' ||
+      (f.startsWith('memory/roles/') && f.endsWith('_memory.json'))
+    ) {
+      categories.structural.push(f);
+    } else if (
+      f === 'memory/shared/decision_ledger.json' ||
+      f === 'memory/shared/dispatch_config.json' ||
+      f.startsWith('.claude/hooks/')
+    ) {
+      categories.capacity.push(f);
+    } else if (
+      f.startsWith('scripts/') ||
+      (f.endsWith('.ts') || f.endsWith('.js'))
+    ) {
+      categories.bugfix.push(f);
+    }
+  }
+
+  let bumpValue = 0;
+  let bumpType = 'none';
+  if (categories.structural.length > 0) {
+    bumpValue = 0.1;
+    bumpType = 'structural';
+  } else if (categories.capacity.length > 0) {
+    bumpValue = 0.01;
+    bumpType = 'capacity';
+  } else if (
+    categories.bugfix.length > 0 &&
+    (sess.grade === 'C' || sess.grade === 'D')
+  ) {
+    bumpValue = 0.001;
+    bumpType = 'bugfix';
+  }
+
+  if (bumpValue === 0) {
+    log('detectVersionBump: 인정 카테고리 매칭 없음 — bump 없음');
+    return;
+  }
+
+  const sample = categories[bumpType].slice(0, 3).join(', ');
+  const more = categories[bumpType].length > 3 ? ' …' : '';
+  let reason;
+  if (bumpType === 'structural') {
+    reason = `구조 변경 자동 감지: persona/policy/skill/CLAUDE.md ${categories.structural.length}건 (${sample}${more})`;
+  } else if (bumpType === 'capacity') {
+    reason = `역량 확장 자동 감지: ledger/dispatch_config/hooks ${categories.capacity.length}건 (${sample}${more})`;
+  } else {
+    reason = `버그·패치 자동 감지 (Grade ${sess.grade || 'unknown'}): ${categories.bugfix.length}건 (${sample}${more})`;
+  }
+
+  sess.versionBumpSuggested = {
+    value: bumpValue,
+    type: bumpType,
+    reason,
+    autoDetectedAt: new Date().toISOString(),
+    changedFiles: files.slice(0, 20),
+    changedFilesCount: files.length,
+    cappedAt: 0.1,
+    confirmedBy: null,
+  };
+
+  writeJson(CURRENT_SESSION_PATH, sess);
+  log(`versionBumpSuggested = +${bumpValue} (${bumpType}) | ${categories.structural.length}/${categories.capacity.length}/${categories.bugfix.length} files | Edi 확정 대기`);
+}
+
+/**
  * D-104 (2026-04-28): versionBump 자동 전파.
  * current_session.json에 versionBump 필드가 있으면 project_charter.json에 반영.
  * 없으면 pass (경고 없음).
@@ -912,6 +1026,7 @@ function runSyncSystemState() {
     runResolvePDDryRun();
     runChecklistDeltaCheck(sess);
     applyPendingDeferralsResolved(sess);
+    detectVersionBump(sess); // D-130: Nexus 자동 감지 → versionBumpSuggested 박제
     applyVersionBump(sess);
     escalateAceAcksWithTTL(sess);
     runSyncSystemState();

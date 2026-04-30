@@ -1,9 +1,41 @@
 {
   "$schema": "internal://dispatch-config-v0.1",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "introducedBy": "D-126/D-127/D-128 (session_142, topic_131, 2026-04-29)",
+  "lastUpdatedBy": "D-130 (session_146, topic_131, 2026-04-30) — jobs entry 추가",
   "comment": "역할 호출 트리거·격리 정책·NCL 배출 권한 단일 출처. pre-tool-use-task-sage-gate.js가 sage 격리 read.",
   "rules": {
+    "jobs": {
+      "trigger": {
+        "explicit": ["/jobs-framing", "jobs", "잡스", "Jobs framing"],
+        "natural_language_suggest_only": [
+          "프레이밍",
+          "framing",
+          "본질",
+          "frame",
+          "기획",
+          "Why",
+          "What",
+          "Focus",
+          "saying no",
+          "인지편향"
+        ]
+      },
+      "session_isolation": "shared",
+      "first_speaker_override": true,
+      "auto_hook": false,
+      "ncl_emission": {
+        "allowed": true
+      },
+      "ownership": {
+        "framing_subject": true,
+        "grade_override": true,
+        "version_bump": false,
+        "orchestration": false,
+        "synthesis": false
+      },
+      "introducedBy": "D-130 (session_145·146, topic_131, 2026-04-30)"
+    },
     "sage": {
       "trigger": {
         "explicit": ["/sage", "세이지", "sage 호출"],
