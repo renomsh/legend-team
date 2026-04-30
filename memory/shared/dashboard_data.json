@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-30T15:07:24.208Z",
-  "totalSessions": 149,
+  "generatedAt": "2026-04-30T15:37:32.805Z",
+  "totalSessions": 150,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.13,
-    "avgCacheHitRate": 0.9319,
-    "cacheSampleSize": 123,
-    "cacheSampleTotal": 149,
+    "avgMasterTurns": 17.04,
+    "avgCacheHitRate": 0.9317,
+    "cacheSampleSize": 124,
+    "cacheSampleTotal": 150,
     "avgAdoptionRate": 0,
-    "totalDecisions": 132,
+    "totalDecisions": 133,
     "gradeDistribution": {
       "S": 65,
-      "A": 31,
+      "A": 32,
       "B": 39,
       "C": 14
     },
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 104,
-    "totalCostUSD": 1591.0025,
-    "avgCostPerSession": 11.0486,
-    "costSampleSize": 144
+    "turnBasedSessions": 105,
+    "totalCostUSD": 1595.3408,
+    "avgCostPerSession": 11.0024,
+    "costSampleSize": 145
   },
   "sessions": [
     {
@@ -5696,6 +5696,46 @@
         "messageCount": 420
       },
       "sessionCostUSD": 32.029
+    },
+    {
+      "sessionId": "session_152",
+      "topicSlug": "sage-r1-paradox-block-hook",
+      "topic": "Sage R-1 자기참조 paradox 차단 hook",
+      "startedAt": "2026-05-01T00:00:00.000Z",
+      "closedAt": "2026-05-01T06:00:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-132"
+      ],
+      "rolesCalled": 5,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 10,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 5,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "jobs",
+        "dev",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 5811064,
+        "ioTokens": 69493,
+        "inputTokens": 3498,
+        "outputTokens": 65995,
+        "cacheCreate": 468232,
+        "cacheRead": 5273339,
+        "cacheHitRate": 0.9074653109998444,
+        "messageCount": 56
+      },
+      "sessionCostUSD": 4.3383
     }
   ],
   "roleFrequency": [
@@ -5785,7 +5825,7 @@
     },
     {
       "role": "arki",
-      "count": 109,
+      "count": 110,
       "sessions": [
         "session_048",
         "session_049",
@@ -5841,12 +5881,13 @@
         "session_140",
         "session_141",
         "session_142",
-        "session_144"
+        "session_144",
+        "session_152"
       ]
     },
     {
       "role": "edi",
-      "count": 106,
+      "count": 107,
       "sessions": [
         "session_050",
         "session_051",
@@ -5948,12 +5989,13 @@
         "session_148",
         "session_149",
         "session_150",
-        "session_151"
+        "session_151",
+        "session_152"
       ]
     },
     {
       "role": "dev",
-      "count": 75,
+      "count": 76,
       "sessions": [
         "session_047",
         "session_048",
@@ -6015,12 +6057,13 @@
         "session_137",
         "session_141",
         "session_142",
-        "session_144"
+        "session_144",
+        "session_152"
       ]
     },
     {
       "role": "riki",
-      "count": 69,
+      "count": 70,
       "sessions": [
         "session_049",
         "session_053",
@@ -6073,7 +6116,8 @@
         "session_144",
         "session_145",
         "session_147",
-        "session_151"
+        "session_151",
+        "session_152"
       ]
     },
     {
@@ -6130,9 +6174,10 @@
     },
     {
       "role": "jobs",
-      "count": 1,
+      "count": 2,
       "sessions": [
-        "session_151"
+        "session_151",
+        "session_152"
       ]
     }
   ],
@@ -10128,6 +10173,42 @@
         {
           "role": "edi",
           "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_152",
+      "topic": "Sage R-1 자기참조 paradox 차단 hook",
+      "sequence": [
+        {
+          "role": "arki",
+          "phase": "structure",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "risk",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "jobs",
+          "phase": "framing",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": "output",
           "turnIdx": 4,
           "recallReason": null
         }

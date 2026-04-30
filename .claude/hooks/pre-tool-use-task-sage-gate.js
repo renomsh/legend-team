@@ -14,10 +14,10 @@
  *
  * dispatch_config.json `rules.sage.session_isolation: "exclusive"` read해 활성화.
  *
- * R-1 자기참조 paradox 잔존 (caveat):
- *   - extractRole()이 ## ROLE: 마커 우선이라 마커 위조 시 우회 가능.
- *   - 후속 토픽 (topic_138 후보)에서 subagent_type AND marker 이중 검증 + PostToolUse 재검증 강화 예정.
- *   - 본 시점은 "honest best-effort" — D4 부분 정합, 자기참조 paradox는 정직 박제 (D-126 본문).
+ * Phase 2 이중 검증 (topic_135, 2026-05-01):
+ *   - Sage 호출 시 `## ROLE: sage` 마커 AND `subagent_type === 'role-sage'` 양쪽 일치 요구.
+ *   - 불일치 = dispatch 계약 위반 → process.exit(2) 차단 (Jobs §4: 계약 위반 호출은 올바른 Sage 호출 아님).
+ *   - 케이스 C (컨텐츠 레벨 자기참조)는 hook 차단 불가 — role-sage.md caveat 정책 박제로 봉인.
  *
  * 로그: logs/sage-gate.log (jsonl)
  * 안전: 에러 시 silent pass — 원본 호출 보호 (단, role==='sage' 명시 위반은 hard block).
@@ -28,7 +28,11 @@ const path = require('path');
 
 const TARGET_TOOL_NAMES = ['Task', 'Agent'];
 const ROLE_AGENT_PREFIX = 'role-';
-const KNOWN_ROLES = ['ace', 'arki', 'fin', 'riki', 'nova', 'dev', 'edi', 'designer', 'vera', 'sage', 'zero'];
+// ⚠ SYNC RULE (topic_135, 2026-05-01): 역할 추가 시 아래 3파일 KNOWN_ROLES 동시 업데이트 필수:
+//   1. .claude/hooks/post-tool-use-task.js
+//   2. .claude/hooks/pre-tool-use-task-sage-gate.js (이 파일)
+//   3. .claude/hooks/pre-tool-use-task.js
+const KNOWN_ROLES = ['ace', 'arki', 'fin', 'riki', 'nova', 'dev', 'edi', 'designer', 'vera', 'sage', 'zero', 'jobs'];
 
 function readStdin() {
   return new Promise((resolve) => {
@@ -113,6 +117,32 @@ function reject(cwd, ts, payload, reason) {
 
     const toolInput = input.tool_input || input.toolInput || {};
     const role = extractRole(toolInput);
+
+    // Phase 2 이중 검증 (topic_135, 2026-05-01):
+    // dispatch 계약: 올바른 Sage 호출 = `## ROLE: sage` 마커 AND subagent_type === 'role-sage' 양쪽 일치.
+    // 마커가 sage인데 subagent_type이 다른 역할 → 계약 위반 → 차단.
+    // subagent_type이 role-sage인데 마커가 다른 역할 → 계약 위반 → 차단.
+    // 목적: 마커 위조(케이스 B) 차단 + 비정상 dispatch 감지.
+    if (role === 'sage' || (toolInput.subagent_type || '').toLowerCase() === 'role-sage') {
+      const promptHead = (toolInput.prompt || '').slice(0, 500);
+      const markerMatch = promptHead.match(/(?:##\s+ROLE:|\[ROLE:)\s*([a-zA-Z]+)\s*\]?/i);
+      const markerRole = markerMatch ? markerMatch[1].toLowerCase() : null;
+      const subagentType = (toolInput.subagent_type || toolInput.subagentType || '').toLowerCase();
+      const subagentRole = subagentType.startsWith(ROLE_AGENT_PREFIX)
+        ? subagentType.slice(ROLE_AGENT_PREFIX.length)
+        : subagentType;
+
+      // 마커가 sage인데 subagent_type이 role-sage가 아님 → 위조 의심
+      if (markerRole === 'sage' && subagentRole !== 'sage') {
+        reject(cwd, ts, { role, markerRole, subagentRole },
+          `Sage dispatch contract violation: marker=sage but subagent_type='${subagentType}'. Both must be sage. (topic_135 Phase 2, D-128)`);
+      }
+      // subagent_type이 role-sage인데 마커가 sage가 아님 → 비정상 호출
+      if (subagentRole === 'sage' && markerRole !== 'sage') {
+        reject(cwd, ts, { role, markerRole, subagentRole },
+          `Sage dispatch contract violation: subagent_type=role-sage but marker='${markerRole || 'none'}'. Both must be sage. (topic_135 Phase 2, D-128)`);
+      }
+    }
 
     // dispatch_config 정책 확인 (옵션 — 파일 없어도 default sage isolation 동작)
     const cfgPath = path.join(cwd, 'memory', 'shared', 'dispatch_config.json');

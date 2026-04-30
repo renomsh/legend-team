@@ -6490,8 +6490,61 @@
       "note": "session_150 이어서 — Jobs/Zero/Sage Master 직접 검토 + Ace Top 0.1% + edi stale 점검 | 9역할 upgrade ver1.1 본체 완결 — 4역할(Zero/Jobs/Sage/Ace) 본 세션 처리 | metrics_registry 41→49 (+8 metrics: Zero 3 + Jobs 5) | count 스케일 신설 — session-end-finalize.js 0-100 검증 면제 처리 | Jobs 한 줄 정의 자기 작성 (5안 → 안 2 채택) | PD-054 등록: hitRateRubric 구조 자체 재검토 (topic_131 후속) | Sage same-session 격리(D-128) 작동 확인 — 한 줄 정의 자기 작성 시도 차단됨, Master가 추가 안 하기로 결정 | Master 운영 결정 (D-XXX 박제 아닌 세션 운영 결정): Zero 카운팅 채택, Jobs callerScope=master|nexus, Jobs 한 줄 정의 안 2, Jobs 지표 2개 추가, Sage 한 줄 정의 미추가, Sage R-1만 적용, Ace Top 0.1% 추가, hitRateRubric→PD-054 이연",
       "oneLineSummary": "9Agent ver1.1 완결 — Zero/Jobs/Sage/Ace upgrade + PD-054(hitRateRubric) topic_131 이연",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_152",
+      "topicSlug": "sage-r1-paradox-block-hook",
+      "topic": "Sage R-1 자기참조 paradox 차단 hook",
+      "startedAt": "2026-05-01T00:00:00.000Z",
+      "closedAt": "2026-05-01T06:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "jobs",
+        "dev",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "arki",
+          "turnIdx": 0,
+          "source": "agent",
+          "phase": "structure"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 1,
+          "source": "agent",
+          "phase": "risk"
+        },
+        {
+          "role": "jobs",
+          "turnIdx": 2,
+          "source": "agent",
+          "phase": "framing"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 3,
+          "source": "agent",
+          "phase": "implementation"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 4,
+          "source": "agent",
+          "phase": "output"
+        }
+      ],
+      "grade": "B",
+      "note": "topic_131 Big Bang P3 선행 필수 조건 | session_142 Edi R-1 spec: subagent_type=role-sage AND marker 이중 검증 + PostToolUse 재검증 hook + marker 위조 탐지 | Riki rev3 §2.1: R-1 🔴 미해소 상태로 이연됨 | Ace §3 단일 권고: P3 진입 전 처리",
+      "oneLineSummary": "sage-gate Phase 1+2 구현 완료: KNOWN_ROLES 결함 해소 + 이중 마커 검증 차단, D-132 박제",
+      "decisionsAdded": [
+        "D-132"
+      ]
     }
   ],
-  "lastUpdated": "2026-04-30T15:06:58.740Z",
+  "lastUpdated": "2026-04-30T15:36:49.933Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

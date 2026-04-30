@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-team",
-    "version": "2.06",
+    "version": "2.16",
     "purpose": "Memory-first, topic-based strategy and implementation system. Master receives structured analysis from role-separated agents on any strategic or implementation topic, with all outputs preserved in inspectable, revisionable files.",
     "principles": [
       "Memory first: all agent outputs, decisions, and session state are written to files immediately. No analysis lives only in conversation context.",
@@ -170,7 +170,13 @@
       "date": "2026-04-29",
       "summary": "Big Bang P1 — Legend Nexus ver.0.0 시스템명 + 9→10인(Sage 신설) + Nexus 3축(C 폐기) + Zero 원본 보존(Ace 종속 제거) + Phase 분해 5단계 + Affaan 4 도그마 prime directive (D-107~D-114, 8건 동시 박제). 다음 세션=방향성 연장 검토.",
       "sessionId": "session_138"
+    },
+    {
+      "version": "2.16",
+      "date": "2026-05-01",
+      "summary": "sage-gate Phase 1+2 구현 완료(topic_135, session_152). KNOWN_ROLES 불일치 구조적 결함 해소(post-tool-use-task.js sage/zero/vera/jobs 추가) + 이중 마커 검증 강화(불일치=process.exit(2) 차단) + role-sage.md caveat 정책 봉인. D-132 박제. D-128 same-session 격리 원칙 실질 보장.",
+      "sessionId": "session_152"
     }
   ],
-  "lastUpdated": "2026-04-29"
+  "lastUpdated": "2026-05-01"
 }

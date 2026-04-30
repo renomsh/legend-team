@@ -1,6 +1,20 @@
 {
-  "generatedAt": "2026-04-30T15:07:31.321Z",
+  "generatedAt": "2026-04-30T15:37:38.711Z",
   "decisions": [
+    {
+      "id": "D-132",
+      "date": "2026-05-01",
+      "session": "session_152",
+      "topic": "topic_135",
+      "owningTopicId": "topic_135",
+      "scopeCheck": "Sage R-1 자기참조 paradox 차단 hook — Phase 2 이중 마커 검증 불일치 동작 결정",
+      "axis": "sage-gate 이중 마커 검증 불일치 = 차단(process.exit(2))",
+      "decision": "dispatch 계약 위반 호출은 올바른 Sage 호출이 아님. pre-tool-use-task-sage-gate.js에서 `## ROLE: sage` 마커와 `subagent_type: role-sage` 불일치 시 경보가 아닌 process.exit(2) 차단 적용. 논거: '악의적 공격 방어'가 아닌 'dispatch 계약 준수 강제' — 계약에 맞지 않는 호출은 올바른 Sage 호출이 아니므로 통과시킬 근거 없음(Jobs §4 프레임). 동시에 post-tool-use-task.js KNOWN_ROLES에 sage/zero/vera/jobs 추가 완료(Phase 1) — sage-gate Case 1/2/3 turns 기반 차단이 실질 작동하도록 구조적 결함 해소.",
+      "value": "D-128 same-session 격리 원칙의 실질 작동 보장. sage-gate KNOWN_ROLES 불일치로 인한 turns 박제 누락 → 차단 무력화 구조적 결함(Riki R-1 🔴) 해소. 이중 마커 검증으로 마커 위조 시도 차단. 케이스 C(컨텐츠 레벨 자기참조)는 hook 불가 → role-sage.md 정책 박제로 봉인.",
+      "externalAnchors": [],
+      "supersedes": null,
+      "caveat": "케이스 C(Sage가 자신의 이전 분석을 근거로 현재 분석 수행 — 컨텐츠 레벨 자기참조 루프)는 hook 레벨 완전 차단 불가. role-sage.md caveat에 '3축 교차 근거 의무 + 단일 자기참조 루프 형성 시 신뢰도 0' 정책 박제로 봉인."
+    },
     {
       "id": "D-131",
       "date": "2026-04-30",

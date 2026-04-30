@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_151",
-  "nextSessionId": "session_152",
-  "currentVersion": "v2.06",
+  "lastSessionId": "session_152",
+  "nextSessionId": "session_153",
+  "currentVersion": "v2.16",
   "openTopics": [
     {
       "id": "topic_044",
@@ -20,6 +20,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-132",
+      "date": "2026-05-01",
+      "axis": "sage-gate 이중 마커 검증 불일치 = 차단(process.exit(2))",
+      "summary": "D-128 same-session 격리 원칙의 실질 작동 보장. sage-gate KNOWN_ROLES 불일치로 인한 turns 박제 누락 → 차단 무력화 구조적 결함(Riki R-1 🔴) 해소. 이중 마커 검증으로 마커 위조 시도 차단. 케이스 C(컨텐츠 레벨 자기참조)는 hook 불가 → role-sage.md 정책 박제로 봉인."
+    },
     {
       "id": "D-131",
       "date": "2026-04-30",
@@ -43,15 +49,18 @@
       "date": "2026-04-29",
       "axis": "Sage 격리 enforcement = pre-tool-use-task-sage-gate.js 별도 hook (SRP + Defense in Depth)",
       "summary": "Fin SRP anchor (Martin 2003 'Agile Software Development') + NIST SP 800-160 Vol.2 §3.4.5 Defense in Depth 정합. ROI 비대칭 — 분리 비용 ~45 LOC vs FN 1건 회피 가치(D-122 자기충실성 무력화 회피). hook chain 직렬 실행, 장애 격리, 후속 페르소나 게이트 재사용 패턴 박제."
-    },
-    {
-      "id": "D-127",
-      "date": "2026-04-29",
-      "axis": "Zero 페르소나 = 정제 산출물 레이어, 3 영역 한정 + Cut/Refine/Audit 내부 흡수",
-      "summary": "D-119 supersede D-110 본문 박제 완결. 산출물 레이어 정제 단일 책임 명문화. Goodhart's Law 회피로 violation flag 자기검열 우회 차단."
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_152",
+      "topicSlug": "sage-r1-paradox-block-hook",
+      "closedAt": "2026-05-01T06:00:00.000Z",
+      "oneLineSummary": "sage-gate Phase 1+2 구현 완료: KNOWN_ROLES 결함 해소 + 이중 마커 검증 차단, D-132 박제",
+      "decisionsAdded": [
+        "D-132"
+      ]
+    },
     {
       "sessionId": "session_151",
       "topicSlug": "9agent-persona-policy-upgrade-v1.1",
@@ -64,13 +73,6 @@
       "topicSlug": "9agent-persona-policy-upgrade-v1.1",
       "closedAt": "2026-04-30T16:30:00.000Z",
       "oneLineSummary": "Vera 6건+Edi 3건 편집, 전체 stale 스캔 clean, Jobs/Zero/Sage 다음 세션 Master 직접 검토",
-      "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_149",
-      "topicSlug": "9agent-persona-policy-upgrade-v1.1",
-      "closedAt": "2026-04-30T14:00:00.000Z",
-      "oneLineSummary": "Arki/Fin/Riki/Dev 편집 완료, Nexus 참조 6곳, Top 0.1% 4역할 추가 — Vera 이후 다음 세션",
       "decisionsAdded": []
     }
   ],
@@ -594,5 +596,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-30T15:07:16.255Z"
+  "lastUpdated": "2026-04-30T15:37:20.751Z"
 }

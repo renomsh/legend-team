@@ -250,5 +250,15 @@
   "applicableTopicTypes": [
     "implementation",
     "standalone"
-  ]
+  ],
+  "sessionLearnings_session152": {
+    "session": "session_152",
+    "date": "2026-05-01",
+    "topic": "sage-r1-paradox-block-hook",
+    "findings": [
+      "hook KNOWN_ROLES 불일치는 game-over 결함이다: post-tool-use-task.js의 role 추출 실패 → turns 박제 누락 → sage-gate의 turns 기반 차단 전면 무력화. 새 역할 추가 시 SYNC RULE — 3파일(pre-tool-use-task.js / sage-gate.js / post-tool-use-task.js) 동시 업데이트 필수.",
+      "이중 마커 검증 패턴: `## ROLE: X` + `subagent_type: role-X` 두 필드가 모두 일치해야 올바른 역할 호출. 하나라도 불일치 시 process.exit(2) 차단이 계약 준수 강제(보안 조치가 아닌 dispatch 규약 강제).",
+      "hook 시나리오 테스트 설계: 정상 케이스 2개(sage/arki) + 마커 위조 2개(sage마커+arki타입, arki마커+sage타입) + 엣지 2개(타입만 role-sage, 마커만 sage) = 6케이스 기본 커버리지."
+    ]
+  }
 }

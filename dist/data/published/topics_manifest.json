@@ -1,6 +1,24 @@
 {
-  "generatedAt": "2026-04-30T15:07:31.312Z",
+  "generatedAt": "2026-04-30T15:37:38.699Z",
   "topics": [
+    {
+      "id": "topic_135",
+      "title": "Sage R-1 자기참조 paradox 차단 hook",
+      "status": "completed",
+      "created": "2026-05-01",
+      "reportPath": "reports/2026-05-01_sage-r1-paradox-block-hook",
+      "reportFiles": [
+        "arki_rev1.md",
+        "riki_rev1.md",
+        "jobs_rev1.md",
+        "dev_rev1.md",
+        "edi_rev1.md"
+      ],
+      "published": false,
+      "outcome": "sage-gate Phase 1+2 구현 완료. KNOWN_ROLES 통일(post-tool-use-task.js sage/zero/vera/jobs 추가) + 이중 마커 검증(불일치=process.exit(2)). 케이스 C는 role-sage.md 정책 봉인. D-132 박제.",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_134",
       "title": "9Agent 역할/정책/페르소나 upgrade ver1.1",
