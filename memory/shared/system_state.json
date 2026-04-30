@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_149",
-  "nextSessionId": "session_150",
+  "lastSessionId": "session_150",
+  "nextSessionId": "session_151",
   "currentVersion": "v2.06",
   "openTopics": [
     {
@@ -59,6 +59,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_150",
+      "topicSlug": "9agent-persona-policy-upgrade-v1.1",
+      "closedAt": "2026-04-30T16:30:00.000Z",
+      "oneLineSummary": "Vera 6건+Edi 3건 편집, 전체 stale 스캔 clean, Jobs/Zero/Sage 다음 세션 Master 직접 검토",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_149",
       "topicSlug": "9agent-persona-policy-upgrade-v1.1",
       "closedAt": "2026-04-30T14:00:00.000Z",
@@ -71,15 +78,6 @@
       "closedAt": "2026-04-30T11:00:00.000Z",
       "oneLineSummary": "PD-044+PD-053 resolved: 11개 memory 정제, Sage/Zero policy 신설, Ace persona stale 제거, .old 7개 삭제",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_147",
-      "topicSlug": "pd053-10roles-3axes-master-review",
-      "closedAt": "2026-04-30T09:00:00.000Z",
-      "oneLineSummary": "D-131 Hybrid C 구현: Edi 자동기록 진단 + 3파일 수정(finalize/close/edi-policy). 10역할 검토 Edi+Ace 완료, 8역할 대기",
-      "decisionsAdded": [
-        "D-131"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -591,5 +589,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-30T10:20:53.078Z"
+  "lastUpdated": "2026-04-30T11:40:53.907Z"
 }

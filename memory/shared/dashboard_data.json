@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-04-30T10:21:00.797Z",
-  "totalSessions": 147,
+  "generatedAt": "2026-04-30T11:41:01.525Z",
+  "totalSessions": 148,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.94,
-    "avgCacheHitRate": 0.9313,
-    "cacheSampleSize": 121,
-    "cacheSampleTotal": 147,
+    "avgMasterTurns": 16.92,
+    "avgCacheHitRate": 0.9316,
+    "cacheSampleSize": 122,
+    "cacheSampleTotal": 148,
     "avgAdoptionRate": 0,
     "totalDecisions": 132,
     "gradeDistribution": {
       "S": 63,
-      "A": 30,
-      "B": 39,
-      "C": 15
+      "A": 31,
+      "B": 40,
+      "C": 14
     },
     "gradeMismatchCount": 2,
     "gradeMismatchSessions": [
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 102,
-    "totalCostUSD": 1550.3666,
-    "avgCostPerSession": 10.9181,
-    "costSampleSize": 142
+    "turnBasedSessions": 103,
+    "totalCostUSD": 1558.9735,
+    "avgCostPerSession": 10.9019,
+    "costSampleSize": 143
   },
   "sessions": [
     {
@@ -5602,10 +5602,10 @@
       "decisionAxes": 0,
       "rolesCalled": 1,
       "rolesRecalled": 0,
-      "sessionsSpanned": 1,
-      "size": 4,
-      "gradeDeclared": "C",
-      "gradeActual": "C",
+      "sessionsSpanned": 2,
+      "size": 7,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 30,
@@ -5624,12 +5624,47 @@
         "messageCount": 241
       },
       "sessionCostUSD": 16.596
+    },
+    {
+      "sessionId": "session_150",
+      "topicSlug": "9agent-persona-policy-upgrade-v1.1",
+      "topic": "9Agent 역할/정책/페르소나 upgrade ver1.1",
+      "startedAt": "2026-04-30T14:30:00.000Z",
+      "closedAt": "2026-04-30T16:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 2,
+      "size": 11,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 15,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "ace",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 17684515,
+        "ioTokens": 116899,
+        "inputTokens": 26607,
+        "outputTokens": 90292,
+        "cacheCreate": 551418,
+        "cacheRead": 17016198,
+        "cacheHitRate": 0.9622089155399512,
+        "messageCount": 148
+      },
+      "sessionCostUSD": 8.6069
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 158,
+      "count": 160,
       "sessions": [
         "session_047",
         "session_048",
@@ -5707,7 +5742,8 @@
         "session_140",
         "session_141",
         "session_142",
-        "session_143"
+        "session_143",
+        "session_150"
       ]
     },
     {
@@ -5773,7 +5809,7 @@
     },
     {
       "role": "edi",
-      "count": 104,
+      "count": 105,
       "sessions": [
         "session_050",
         "session_051",
@@ -5873,7 +5909,8 @@
         "session_146",
         "session_147",
         "session_148",
-        "session_149"
+        "session_149",
+        "session_150"
       ]
     },
     {
@@ -9989,6 +10026,30 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_150",
+      "topic": "9Agent 역할/정책/페르소나 upgrade ver1.1",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -10006,6 +10067,66 @@
     }
   ],
   "feedbackRecurrences": [
+    {
+      "keyword": "요청",
+      "occurrences": [
+        {
+          "date": "2026-04-30",
+          "feedbackId": "MF-105",
+          "summary": "요청 없이 Ace 서브에이전트 호출 금지 — Master가 명시 지시할 때만 역할 서브에이전트 호출"
+        },
+        {
+          "date": "2026-04-04",
+          "feedbackId": "MF-003",
+          "summary": "모바일 호환 확인 요청 → origin/main 분기 발견. 브랜치 일원화 지시. 일원화 완료 후 세션 종료"
+        }
+      ]
+    },
+    {
+      "keyword": "없이",
+      "occurrences": [
+        {
+          "date": "2026-04-30",
+          "feedbackId": "MF-105",
+          "summary": "요청 없이 Ace 서브에이전트 호출 금지 — Master가 명시 지시할 때만 역할 서브에이전트 호출"
+        },
+        {
+          "date": "2026-04-17",
+          "feedbackId": "MF-018",
+          "summary": "무응답 = 묵시적 채택. 개입 없이 다음 단계로 넘어간 것은 통과 신호."
+        }
+      ]
+    },
+    {
+      "keyword": "Ace",
+      "occurrences": [
+        {
+          "date": "2026-04-30",
+          "feedbackId": "MF-105",
+          "summary": "요청 없이 Ace 서브에이전트 호출 금지 — Master가 명시 지시할 때만 역할 서브에이전트 호출"
+        },
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-050",
+          "summary": "Ace 프레이밍 Step 0에 Master 대답 없으면 그냥 진행. Close도 동일하게 별말 없으면 승인."
+        },
+        {
+          "date": "2026-04-10",
+          "feedbackId": "MF-006",
+          "summary": "Ace = Master의 판단 대리인. 후행 통합기→선행 제안기 진화. 종합+자기판단 필수. Master 미"
+        },
+        {
+          "date": "2026-04-10",
+          "feedbackId": "MF-007",
+          "summary": "1) Ace=Master 동일화. 2) 학습 대상은 선택 흔적. 3) 정형/비정형 분리 리스크 → 내장으로."
+        },
+        {
+          "date": "2026-04-17",
+          "feedbackId": "MF-024",
+          "summary": "Ace 이번에 잘 주관했어."
+        }
+      ]
+    },
     {
       "keyword": "에이스가",
       "occurrences": [
@@ -10585,31 +10706,6 @@
           "date": "2026-04-17",
           "feedbackId": "MF-025",
           "summary": "토큰 8.9M이 이상한데. 누적 아래에 세션당 평균 토큰수도 표기해줘."
-        }
-      ]
-    },
-    {
-      "keyword": "Ace",
-      "occurrences": [
-        {
-          "date": "2026-04-21",
-          "feedbackId": "MF-050",
-          "summary": "Ace 프레이밍 Step 0에 Master 대답 없으면 그냥 진행. Close도 동일하게 별말 없으면 승인."
-        },
-        {
-          "date": "2026-04-10",
-          "feedbackId": "MF-006",
-          "summary": "Ace = Master의 판단 대리인. 후행 통합기→선행 제안기 진화. 종합+자기판단 필수. Master 미"
-        },
-        {
-          "date": "2026-04-10",
-          "feedbackId": "MF-007",
-          "summary": "1) Ace=Master 동일화. 2) 학습 대상은 선택 흔적. 3) 정형/비정형 분리 리스크 → 내장으로."
-        },
-        {
-          "date": "2026-04-17",
-          "feedbackId": "MF-024",
-          "summary": "Ace 이번에 잘 주관했어."
         }
       ]
     },

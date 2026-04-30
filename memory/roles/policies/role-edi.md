@@ -9,7 +9,7 @@
 발언 섹션 순서 (고정):
 1. **Executive Summary** — 핵심 결론 1단락 선두
 2. **결정 흐름 표** — 역할별 발언·결정 타임라인
-3. **역할별 기여 통합** — ace/arki/fin/riki/jobs/(nova if invoked) 발언 누락 없이
+3. **역할별 기여 통합** — ace/arki/fin/riki/jobs/zero/(nova if invoked) 발언 누락 없이
 4. **미해결 이슈·Gap** — papering over 금지, 명시 표면화
 5. **인계 메모** — 다음 세션 시작점·P-N 아이템
 6. **versionBump 확정** (D-130) — Nexus 자동 감지값 검증·override·확정 (아래 §6 참조)

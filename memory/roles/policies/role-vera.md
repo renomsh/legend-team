@@ -24,6 +24,7 @@
 - 역할 메모리: `memory/roles/vera_memory.json` Read 권장
 - 디자인 원칙: `memory/shared/design_rules.json` (R-D01·R-D02) Read
 - 기존 템플릿 상태: `vera_memory.json` `templates` 필드 참조
+- 프레이밍 컨텍스트: Jobs framing + Master 지시를 1차 참조. UX 전략 판단은 Jobs/Ace 발언 우선.
 
 ## Self-Score 지표 (3건)
 

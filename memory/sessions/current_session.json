@@ -1,13 +1,13 @@
 {
-  "sessionId": "session_149",
+  "sessionId": "session_150",
   "topicId": "topic_134",
   "topic": "9Agent 역할/정책/페르소나 upgrade ver1.1",
   "topicSlug": "9agent-persona-policy-upgrade-v1.1",
   "reportPath": "reports/2026-04-30_9agent-persona-policy-upgrade-v1.1",
   "status": "closed",
-  "closedAt": "2026-04-30T14:00:00.000Z",
-  "oneLineSummary": "Arki/Fin/Riki/Dev 편집 완료, Nexus 참조 6곳, Top 0.1% 4역할 추가 — Vera 이후 다음 세션",
-  "startedAt": "2026-04-30T11:30:00.000Z",
+  "startedAt": "2026-04-30T14:30:00.000Z",
+  "closedAt": "2026-04-30T16:30:00.000Z",
+  "oneLineSummary": "Vera 6건+Edi 3건 편집, 전체 stale 스캔 clean, Jobs/Zero/Sage 다음 세션 Master 직접 검토",
   "mode": "observation",
   "grade": "A",
   "gradeDeclared": "A",
@@ -17,45 +17,85 @@
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
+    "ace",
+    "ace",
     "edi"
   ],
   "turns": [
     {
-      "role": "edi",
+      "role": "ace",
       "turnIdx": 0,
+      "source": "agent"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 1,
+      "source": "agent"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 2,
       "source": "agent"
     }
   ],
   "decisions": [],
   "masterDecisions": [],
-  "masterFeedback": [],
+  "masterFeedback": [
+    {
+      "id": "MF-105",
+      "summary": "요청 없이 Ace 서브에이전트 호출 금지"
+    }
+  ],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "decisionsAdded": [],
   "notes": [
-    "PD-053 resolved(session_148) 후 후속 — ver1.1 upgrade 토픽. 9역할 페르소나/정책/메모리 실질 내용 개선.",
-    "session_148에서 구조 정합(canonical 분리) 완료. 본 세션은 내용 품질 upgrade.",
-    "완료 역할: Arki(페르소나/정책/메모리), Fin(페르소나/정책/메모리), Riki(페르소나/정책), Dev(페르소나). Nova/Dev pass.",
-    "전역 변경: Nexus 참조 6곳(Vera/Zero 포함), Top 0.1% 절대금지 추가 4역할(Arki/Fin/Riki/Dev).",
-    "미완료: Vera(페르소나 upgrade), Ace, Jobs, Edi, Zero, Sage — 다음 세션(session_150)에서 이어서."
+    "session_149 이어서 — Vera 6건+Edi 3건 편집 완료",
+    "전체 9역할 stale Ace 참조 스캔: vera_memory.json 2곳 수정 완료, 나머지 clean",
+    "dispatch_config.json ace_reject_* 3개: P3 ackReason scope 이연",
+    "Jobs/Zero/Sage: 다음 세션 Master 직접 검토 예정",
+    "edi_memory.json hitRateRubric stale 항목: 다음 세션 범위"
   ],
   "gaps": [
-    "Vera 이후 역할(Ace/Jobs/Edi/Zero/Sage) upgrade 미완 — topic_134 in-progress 유지, session_150 계속"
+    {
+      "type": "missing-report",
+      "role": "ace",
+      "turnIdx": 0,
+      "note": "ace turn0 미요청 호출 — Master 피드백 MF-105로 기록"
+    },
+    {
+      "type": "incomplete",
+      "note": "Jobs/Zero/Sage persona/policy 미검토 — topic_134 in-progress 유지"
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-30_9agent-persona-policy-upgrade-v1.1/edi_rev1.md",
+      "expected": "edi",
+      "actualInTurns": "ace",
+      "turnId": 0
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-30_9agent-persona-policy-upgrade-v1.1/edi_rev2.md",
+      "expected": "edi",
+      "actualInTurns": "ace",
+      "turnId": 0
+    }
   ],
   "tokenUsage": {
-    "input_tokens": 217,
-    "output_tokens": 110138,
-    "cache_creation_input_tokens": 651950,
-    "cache_read_input_tokens": 14074951,
-    "messageCount": 121,
+    "input_tokens": 26607,
+    "output_tokens": 90292,
+    "cache_creation_input_tokens": 551418,
+    "cache_read_input_tokens": 17016198,
+    "messageCount": 148,
     "masterTurns": 15,
-    "total_billable": 14837256
+    "total_billable": 17684515
   },
   "versionBumpSuggested": {
     "value": 0.1,
     "type": "structural",
-    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 12건 (memory/roles/arki_memory.json, memory/roles/fin_memory.json, memory/roles/personas/role-arki.md …)",
-    "autoDetectedAt": "2026-04-30T07:53:38.923Z",
+    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 6건 (memory/roles/edi_memory.json, memory/roles/personas/role-edi.md, memory/roles/personas/role-vera.md …)",
+    "autoDetectedAt": "2026-04-30T11:40:51.576Z",
     "changedFiles": [
       "AGENTS.md",
       "CONTEXT.md",
@@ -71,14 +111,14 @@
       "logs/master-first.log",
       "logs/pre-tool-use-task.log",
       "logs/sage-gate.log",
-      "memory/roles/arki_memory.json",
-      "memory/roles/fin_memory.json",
-      "memory/roles/personas/role-arki.md",
-      "memory/roles/personas/role-dev.md",
-      "memory/roles/personas/role-fin.md",
-      "memory/roles/personas/role-riki.md"
+      "memory/master/master_feedback_log.json",
+      "memory/roles/edi_memory.json",
+      "memory/roles/personas/role-edi.md",
+      "memory/roles/personas/role-vera.md",
+      "memory/roles/policies/role-edi.md",
+      "memory/roles/policies/role-vera.md"
     ],
-    "changedFilesCount": 130,
+    "changedFilesCount": 125,
     "cappedAt": 0.1,
     "confirmedBy": null
   }
