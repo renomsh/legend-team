@@ -112,16 +112,51 @@
       "expected": "riki",
       "actualInTurns": "edi",
       "turnId": 4
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-30_9agent-persona-policy-upgrade-v1.1/ace_rev1.md",
+      "expected": "ace",
+      "actualInTurns": "riki",
+      "turnId": 1
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-30_9agent-persona-policy-upgrade-v1.1/edi_rev1.md",
+      "expected": "edi",
+      "actualInTurns": "riki",
+      "turnId": 0
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-30_9agent-persona-policy-upgrade-v1.1/edi_rev2.md",
+      "expected": "edi",
+      "actualInTurns": "riki",
+      "turnId": 0
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-30_9agent-persona-policy-upgrade-v1.1/edi_rev3.md",
+      "expected": "edi",
+      "actualInTurns": "riki",
+      "turnId": 0
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-30_9agent-persona-policy-upgrade-v1.1/riki_rev4.md",
+      "expected": "riki",
+      "actualInTurns": "edi",
+      "turnId": 4
     }
   ],
   "tokenUsage": {
-    "input_tokens": 455,
-    "output_tokens": 165422,
-    "cache_creation_input_tokens": 950368,
-    "cache_read_input_tokens": 32900216,
-    "messageCount": 209,
+    "input_tokens": 457,
+    "output_tokens": 167146,
+    "cache_creation_input_tokens": 956038,
+    "cache_read_input_tokens": 33395474,
+    "messageCount": 211,
     "masterTurns": 23,
-    "total_billable": 34016461
+    "total_billable": 34519115
   },
   "versionBumpSuggested": {
     "value": 0.1,
