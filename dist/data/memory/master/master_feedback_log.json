@@ -1292,6 +1292,18 @@
       "feedback": "발언 순서 grade × topic 매트릭스 운영 — Nexus 셀 결정 + Master 승인",
       "status": "resolved",
       "statusNote": "D-121 박제. 매트릭스는 실측 누적 시 점진 박제 (과투자 회피)."
+    },
+    {
+      "id": "MF-AUTO-session_147-edi",
+      "date": "2026-04-30",
+      "session": "session_147",
+      "sessionId": "session_147",
+      "topic": "topic_133",
+      "type": "edi-llm-skipped",
+      "severity": "high",
+      "source": "hook",
+      "feedback": "Grade A 세션 session_147에서 Edi LLM 미호출 — mechanical fallback(edi_auto_rev1.md) 박제됨. role-edi.md §6.4 검토 필요.",
+      "status": "pending"
     }
   ],
   "statusValues": [

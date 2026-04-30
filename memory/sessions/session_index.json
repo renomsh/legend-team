@@ -6330,8 +6330,39 @@
         "ace-framing skill DEPRECATED 확인 (s145에서 이미 처리됨)",
         "다음 토픽 분기: PD-053 (8역할 페르소나·정책·메모리 3축 Master 직접 검토) 트리거"
       ]
+    },
+    {
+      "sessionId": "session_147",
+      "topicSlug": "pd053-10roles-3axes-master-review",
+      "topic": "PD-053 — 10역할 3축 Master 직접 검토 + Edi 자동기록 진단",
+      "startedAt": "2026-04-30T05:35:00.000Z",
+      "closedAt": "2026-04-30T09:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "riki",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "riki",
+          "turnIdx": 0,
+          "source": "agent"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 1,
+          "source": "nexus",
+          "note": "D-131 close checklist execution — no LLM Edi invoked (hook will generate edi_auto_rev1.md)"
+        }
+      ],
+      "grade": "A",
+      "note": "PD-053 트리거 — 10역할(8역할 + Sage + Zero) × 3축(persona/policy/memory) Master 직접 검토. | 추가 과제: /close 시 Edi 자동기록 부재 원인 진단 + 대안 수립. | 각 역할 1:1 직접 검토 — 분리·간결화 작업 동반. | D-131 Hybrid C 구현 완료: session-end-finalize.js + close.md + role-edi.md 3파일 수정. | Edi 진단 + Ace 검토 완료. 잔여 8역할(Arki/Fin/Riki/Nova/Dev/Vera/Jobs/Sage/Zero) 다음 세션. | 다음세션에 해당 토픽 이어서 진행.",
+      "oneLineSummary": "D-131 Hybrid C 구현: Edi 자동기록 진단 + 3파일 수정(finalize/close/edi-policy). 10역할 검토 Edi+Ace 완료, 8역할 대기",
+      "decisionsAdded": [
+        "D-131"
+      ]
     }
   ],
-  "lastUpdated": "2026-04-30T04:53:37.410Z",
+  "lastUpdated": "2026-04-30T05:32:11.964Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

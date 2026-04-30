@@ -77,9 +77,11 @@ Edi는 다음 경우 자동 감지값을 override할 수 있다:
 
 Override 시 **사유 필수** (1줄 이상). 사유 없는 override 금지.
 
-### 6.4 versionBumpSuggested 부재 시
+### 6.4 versionBumpSuggested 부재 시 + Edi LLM 미호출 처리 (D-131, 2026-04-30)
 
-자동 감지가 0건(매칭 카테고리 없음 또는 변경 파일 0건)이면 Edi는 확정 step 자체를 생략하거나 "변경 없음 — bump 0" 1줄 명시. 임의 박제 금지.
+**케이스 1 — suggested 부재**: 자동 감지가 0건(매칭 카테고리 없음 또는 변경 파일 0건)이면 Edi는 확정 step 자체를 생략하거나 "변경 없음 — bump 0" 1줄 명시. 임의 박제 금지.
+
+**케이스 2 — suggested 존재 + Edi LLM 미호출 (D-131 Hybrid C L1)**: Grade A/B/S 세션에서 Edi LLM 미호출이면 hook(`session-end-finalize.js#synthesizeMechanicalEdiReport`)이 `edi_auto_rev1.md` mechanical fallback을 박제하지만, **`current_session.versionBump` 필드는 박제하지 않는다** (참조 인용만). `applyVersionBump`에 `confirmedBy === 'edi'` AND `confirmedAt` 가드가 있어 LLM 검증 미통과 시 `project_charter.json` 자동 전파 차단 + gaps `version-bump-unverified` 박제. Edi LLM 호출이 다음 세션에 이루어지면 그때 확정.
 
 ### 6.5 세션당 +0.1 캡
 

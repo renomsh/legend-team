@@ -1,65 +1,100 @@
 {
-  "sessionId": "session_146",
-  "topicId": "topic_131",
-  "topic": "Big Bang — Legend Nexus 시스템 개편 및 역할 재정립",
-  "topicSlug": "big-bang-legend-nexus-p2-3of3",
-  "reportPath": "reports/2026-04-30_big-bang-legend-nexus-p2-3of3",
+  "sessionId": "session_147",
+  "topicId": "topic_133",
+  "topic": "PD-053 — 10역할 3축 Master 직접 검토 + Edi 자동기록 진단",
+  "topicSlug": "pd053-10roles-3axes-master-review",
+  "reportPath": "reports/2026-04-30_pd053-10roles-3axes-master-review",
   "status": "closed",
-  "startedAt": "2026-04-30T04:50:00.000Z",
-  "closedAt": "2026-04-30T05:30:00.000Z",
-  "oneLineSummary": "D-130 잔여 박제 6건 완결: Jobs 검토·jobs-framing skill·dispatch_config jobs entry·versionBump 자동감지 hook·Edi 확정 step.",
+  "startedAt": "2026-04-30T05:35:00.000Z",
+  "closedAt": "2026-04-30T09:00:00.000Z",
+  "oneLineSummary": "D-131 Hybrid C 구현: Edi 자동기록 진단 + 3파일 수정(finalize/close/edi-policy). 10역할 검토 Edi+Ace 완료, 8역할 대기",
   "mode": "observation",
-  "grade": "S",
-  "gradeDeclared": "S",
+  "grade": "A",
+  "gradeDeclared": "A",
   "framingLevel": 2,
-  "framingSkipped": true,
+  "framingSkipped": false,
   "topicType": "framing",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
+    "riki",
     "edi"
   ],
   "turns": [
     {
-      "role": "edi",
+      "role": "riki",
       "turnIdx": 0,
-      "phase": "compile"
+      "source": "agent"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 1,
+      "source": "nexus",
+      "note": "D-131 close checklist execution — no LLM Edi invoked (hook will generate edi_auto_rev1.md)"
     }
   ],
   "decisions": [],
-  "masterDecisions": [
-    "Jobs 페르소나·정책·메모리 3축 s145 박제 양호 — 이슈 없음",
-    "jobs-framing skill 신설 (Step 0~9 + 인지편향 표 + Grade override)",
-    "dispatch_config.json v0.2.0 — jobs entry 추가 (session_isolation=shared, ownership: framing/grade ✓, version_bump/orchestration/synthesis ✗)",
-    "session-end-finalize.js detectVersionBump() 함수 신설 — git status 기반 3 카테고리 자동 감지 → versionBumpSuggested 박제",
-    "Edi policy §6 versionBump 확정 step 박제 — 입력·확정절차·override·부재시·캡 5 sub-section",
-    "ace-framing skill DEPRECATED 확인 (s145에서 이미 처리됨)",
-    "다음 토픽 분기: PD-053 (8역할 페르소나·정책·메모리 3축 Master 직접 검토) 트리거"
-  ],
+  "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
-  "decisionsAdded": [],
+  "decisionsAdded": [
+    "D-131"
+  ],
   "notes": [
-    "D-130 (s145 박제) 잔여 구현 6건 모두 완결. versionBump 자동 감지 hook은 본 세션 종료 시 첫 실가동 — versionBumpSuggested 박제 결과는 system_state·next session에서 확인.",
-    "다음 토픽: PD-053 트리거 — 8역할(또는 10역할) × 3축(persona/policy/memory) Master 직접 검토. 진행 방식 (α 일괄 / β 역할별 / γ 그룹별) 미결.",
-    "Sage·Zero policy 파일 부재 — PD-053 토픽에서 신설 여부 결정."
+    "PD-053 트리거 — 10역할(8역할 + Sage + Zero) × 3축(persona/policy/memory) Master 직접 검토.",
+    "추가 과제: /close 시 Edi 자동기록 부재 원인 진단 + 대안 수립.",
+    "각 역할 1:1 직접 검토 — 분리·간결화 작업 동반.",
+    "D-131 Hybrid C 구현 완료: session-end-finalize.js + close.md + role-edi.md 3파일 수정.",
+    "Edi 진단 + Ace 검토 완료. 잔여 8역할(Arki/Fin/Riki/Nova/Dev/Vera/Jobs/Sage/Zero) 다음 세션.",
+    "다음세션에 해당 토픽 이어서 진행."
   ],
   "gaps": [
     {
+      "type": "edi-llm-not-invoked",
+      "reason": "D-131 첫 live test — Grade A지만 Edi LLM 미호출. hook이 edi_auto_rev1.md 생성 예정.",
+      "severity": "info",
+      "source": "close-checklist-step-1.5"
+    },
+    {
       "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-30_big-bang-legend-nexus-p2-3of3/riki_rev1.md",
+      "file": "reports/2026-04-30_pd053-10roles-3axes-master-review/riki_rev1.md",
       "expected": "riki",
       "actualInTurns": "edi",
-      "turnId": 0
+      "turnId": 1
+    },
+    {
+      "type": "edi-llm-skipped",
+      "sessionId": "session_147",
+      "grade": "A",
+      "severity": "high",
+      "detectedAt": "2026-04-30T05:32:11.951Z",
+      "note": "Grade A/B/S 세션에서 Edi LLM 미호출 — mechanical fallback 박제됨"
+    },
+    {
+      "type": "edi-llm-report-absent",
+      "sessionId": "session_147",
+      "reportPath": "reports/2026-04-30_pd053-10roles-3axes-master-review",
+      "grade": "A",
+      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
     }
   ],
+  "tokenUsage": {
+    "input_tokens": 270,
+    "output_tokens": 75908,
+    "cache_creation_input_tokens": 767206,
+    "cache_read_input_tokens": 8279573,
+    "messageCount": 72,
+    "masterTurns": 12,
+    "total_billable": 9122957
+  },
   "versionBumpSuggested": {
     "value": 0.1,
     "type": "structural",
     "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 1건 (memory/roles/policies/role-edi.md)",
-    "autoDetectedAt": "2026-04-30T04:53:50.338Z",
+    "autoDetectedAt": "2026-04-30T05:32:24.547Z",
     "changedFiles": [
+      ".claude/commands/close.md",
       ".claude/hooks/session-end-finalize.js",
       "AGENTS.md",
       "CONTEXT.md",
@@ -73,25 +108,15 @@
       "logs/app.log",
       "logs/hook-diagnostics.log",
       "logs/master-first.log",
+      "logs/pre-tool-use-task.log",
+      "logs/sage-gate.log",
+      "memory/master/master_feedback_log.json",
       "memory/roles/policies/role-edi.md",
       "memory/sessions/current_session.json",
-      "memory/sessions/session_index.json",
-      "memory/sessions/token_log.json",
-      "memory/shared/dispatch_config.json",
-      "memory/shared/master_first_state.json",
-      "memory/shared/topic_index.json"
+      "memory/sessions/session_index.json"
     ],
-    "changedFilesCount": 98,
+    "changedFilesCount": 123,
     "cappedAt": 0.1,
     "confirmedBy": null
-  },
-  "tokenUsage": {
-    "input_tokens": 156,
-    "output_tokens": 66924,
-    "cache_creation_input_tokens": 1045012,
-    "cache_read_input_tokens": 11638992,
-    "messageCount": 83,
-    "masterTurns": 6,
-    "total_billable": 12751084
   }
 }

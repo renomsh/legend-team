@@ -587,7 +587,7 @@ function copyEdiReportToSessionContributions(sess) {
     return;
   }
 
-  // Edi 최신 rev 파일 찾기
+  // Edi 최신 rev 파일 찾기 — LLM 작성 edi_rev*.md만 (auto-compiled 제외) [R-1, R-8 mitigation]
   const reportsDir = path.join(CWD, reportPath);
   if (!fs.existsSync(reportsDir)) {
     log(`copyEdiReport skip: reportsDir 없음 (${reportPath})`);
@@ -597,14 +597,31 @@ function copyEdiReportToSessionContributions(sess) {
   let ediFiles = [];
   try {
     ediFiles = fs.readdirSync(reportsDir)
-      .filter(f => f.startsWith('edi_rev') && f.endsWith('.md'));
+      .filter(f => /^edi_rev\d+\.md$/.test(f)); // edi_auto_rev*.md 제외
   } catch {
     log('copyEdiReport skip: reportsDir read 실패');
     return;
   }
 
+  // auto-compiled frontmatter 가진 파일 추가 제외 (R-1: 파일명 분리 우회 방어)
+  ediFiles = ediFiles.filter(f => {
+    try {
+      const head = fs.readFileSync(path.join(reportsDir, f), 'utf8').slice(0, 500);
+      return !/^auto-compiled:\s*true/m.test(head);
+    } catch { return true; }
+  });
+
   if (ediFiles.length === 0) {
-    log('copyEdiReport skip: edi 보고서 없음');
+    sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
+    sess.gaps.push({
+      type: 'edi-llm-report-absent',
+      sessionId,
+      reportPath,
+      grade: sess.grade || null,
+      note: 'LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip',
+    });
+    writeJson(CURRENT_SESSION_PATH, sess);
+    log('copyEdiReport skip: LLM Edi 보고서 없음 (auto-compiled 파일 제외) → gaps 박제');
     return;
   }
 
@@ -627,7 +644,6 @@ function copyEdiReportToSessionContributions(sess) {
   const destName = `${sessionId}_edi_report.md`;
   const destPath = path.join(scDir, destName);
 
-  // 이미 존재하면 덮어쓰기 (세션 재-close 시 최신 내용 반영)
   try {
     const content = fs.readFileSync(srcPath, 'utf8');
     fs.writeFileSync(destPath, content, 'utf8');
@@ -635,6 +651,302 @@ function copyEdiReportToSessionContributions(sess) {
   } catch (e) {
     log(`copyEdiReport 실패: ${e && e.message}`);
   }
+}
+
+/**
+ * D-131 (PD-053, session_147, topic_133, 2026-04-30) — Hybrid C L1 mechanical compile.
+ *
+ * Edi LLM 미호출 세션의 fallback 보고서 자동 생성. LLM 호출 X (current_session.json fields만 사용).
+ *
+ * 출력: reports/{reportPath}/edi_auto_rev1.md  (네임스페이스 분리 — R-1 mitigation)
+ * frontmatter `auto-compiled: true` 마킹.
+ *
+ * versionBump 필드는 박제하지 않음 (참조 인용만 — R-4 mitigation).
+ *
+ * 작동 조건:
+ *   - reportPath 존재
+ *   - LLM 작성 edi_rev*.md 부재 (auto-compiled 아닌 것)
+ * 그렇지 않으면 skip (LLM 산출물 보존).
+ */
+function synthesizeMechanicalEdiReport(sess) {
+  const reportPath = sess.reportPath;
+  if (!reportPath) {
+    log('synthesizeMechanicalEdi skip: reportPath 없음');
+    return;
+  }
+  if (sess.legacy) {
+    log(`synthesizeMechanicalEdi skip: legacy 세션 (${sess.sessionId})`);
+    return;
+  }
+
+  const reportsDir = path.join(CWD, reportPath);
+  try { fs.mkdirSync(reportsDir, { recursive: true }); } catch {}
+
+  // LLM Edi 보고서 존재 검사 (auto-compiled 제외)
+  let llmEdiExists = false;
+  try {
+    const files = fs.readdirSync(reportsDir).filter(f => /^edi_rev\d+\.md$/.test(f));
+    for (const f of files) {
+      try {
+        const head = fs.readFileSync(path.join(reportsDir, f), 'utf8').slice(0, 500);
+        if (!/^auto-compiled:\s*true/m.test(head)) { llmEdiExists = true; break; }
+      } catch {}
+    }
+  } catch {}
+
+  if (llmEdiExists) {
+    log('synthesizeMechanicalEdi skip: LLM Edi 보고서 존재 — 보존');
+    return;
+  }
+
+  const turns = Array.isArray(sess.turns) ? sess.turns : [];
+  const masterDecisions = Array.isArray(sess.masterDecisions) ? sess.masterDecisions : [];
+  const notes = Array.isArray(sess.notes) ? sess.notes : [];
+  const gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
+  const pdAdded = Array.isArray(sess.pendingDeferralsAdded) ? sess.pendingDeferralsAdded : [];
+  const pdResolved = Array.isArray(sess.pendingDeferralsResolved) ? sess.pendingDeferralsResolved : [];
+
+  // 신규 D-NNN — decisions ledger와 cross-ref
+  const newDecisions = [];
+  try {
+    const ledgerPath = path.join(CWD, 'memory', 'shared', 'decision_ledger.json');
+    const ledger = readJson(ledgerPath, { decisions: [] });
+    const ledgerIds = new Set((ledger.decisions || []).map(d => d.id));
+    const candidates = [...(sess.decisions || []), ...masterDecisions];
+    for (const c of candidates) {
+      const id = (c && c.id) || (typeof c === 'string' && /^D-\d+$/.test(c) ? c : null);
+      if (id && ledgerIds.has(id)) newDecisions.push(id);
+    }
+  } catch {}
+
+  const turnsTable = turns.length > 0
+    ? '| # | role | phase | recallReason | source |\n|---|---|---|---|---|\n' +
+      turns.map((t, i) => `| ${i} | ${t.role || '-'} | ${t.phase || '-'} | ${t.recallReason || '-'} | ${t.source || '-'} |`).join('\n')
+    : '_turns 없음_';
+
+  const masterDecList = masterDecisions.length > 0
+    ? masterDecisions.map((d, i) => `${i + 1}. ${typeof d === 'string' ? d : (d.id || JSON.stringify(d))}`).join('\n')
+    : '_없음_';
+
+  const newDecList = newDecisions.length > 0 ? newDecisions.map(id => `- ${id}`).join('\n') : '_없음_';
+  const notesBlock = notes.length > 0 ? notes.map(n => `- ${n}`).join('\n') : '_없음_';
+  const gapsBlock = gaps.length > 0 ? gaps.map(g => `- ${g.type || 'unknown'}: ${JSON.stringify(g)}`).join('\n') : '_없음_';
+  const pdAddedStr = pdAdded.length > 0 ? pdAdded.join(', ') : '없음';
+  const pdResolvedStr = pdResolved.length > 0 ? pdResolved.join(', ') : '없음';
+
+  const vbs = sess.versionBumpSuggested;
+  const vbBlock = vbs
+    ? `- 자동 감지: +${vbs.value} (${vbs.type})\n- 사유: ${vbs.reason}\n- 변경 파일: ${vbs.changedFilesCount || (vbs.changedFiles || []).length}건\n- ⚠ **Edi LLM 미호출 — 본 mechanical은 \`versionBump\` 필드를 박제하지 않습니다** (role-edi.md §6.4 + R-4 mitigation).`
+    : '_변경 없음 — bump 0_';
+
+  const inheritance = (sess.nextAction || notes[0] || '_없음_');
+
+  const turnIdx = turns.length;
+  const date = (sess.startedAt || '').slice(0, 10);
+
+  const body = `---
+role: edi
+session: ${sess.sessionId}
+topic: ${sess.topicId || '-'}
+topicSlug: ${sess.topicSlug || '-'}
+date: ${date}
+turnId: ${turnIdx}
+rev: 1
+auto-compiled: true
+auto-compiled-at: ${new Date().toISOString()}
+authorship: hook:session-end-finalize.js
+---
+
+# Edi (auto-compiled) — ${sess.topicSlug || '-'}
+
+> ⚠ **AUTO-COMPILED** — turns=${turns.length}, masterDecisions=${masterDecisions.length}, gaps=${gaps.length}, decisionsAdded=${newDecisions.length}.
+> **Edi LLM 미호출 → mechanical fallback** (D-131 Hybrid C L1). authorship: hook (\`session-end-finalize.js#synthesizeMechanicalEdiReport\`).
+> 본 보고서는 LLM 합성 없이 \`current_session.json\` 필드를 기계 컴파일한 결과입니다. 의미 해석·우선순위 판단은 부재합니다.
+
+## 1. Executive Summary
+
+${sess.oneLineSummary || `[summary 없음 — ${sess.topicSlug || '?'}]`}
+
+## 2. 결정 흐름 (turns)
+
+${turnsTable}
+
+## 3. Master 결정
+
+${masterDecList}
+
+## 4. 신규 D-NNN 박제 (decision_ledger 신규 항목)
+
+${newDecList}
+
+## 5. PD 변동
+
+- 추가: ${pdAddedStr}
+- 해소: ${pdResolvedStr}
+
+## 6. Notes & Gaps
+
+### Notes
+${notesBlock}
+
+### Gaps
+${gapsBlock}
+
+## 7. versionBump (참조 인용 — 미확정)
+
+${vbBlock}
+
+## 8. 인계 메모
+
+${inheritance}
+
+## 9. 세션 종결 readiness
+
+\`logs/hook-diagnostics.log\`의 \`checklist delta-check\` 항목 참조.
+`;
+
+  const destPath = path.join(reportsDir, 'edi_auto_rev1.md');
+  try {
+    fs.writeFileSync(destPath, body, 'utf8');
+    log(`synthesizeMechanicalEdi 완료 — ${reportPath}/edi_auto_rev1.md (${body.length} chars)`);
+  } catch (e) {
+    log(`synthesizeMechanicalEdi 실패: ${e && e.message}`);
+  }
+}
+
+/**
+ * D-131 (PD-053, session_147, topic_133, 2026-04-30) — Hybrid C L2 enforcement.
+ *
+ * Edi LLM 호출 검증 + 다축 5신호 박제 (R-2, R-5 mitigation).
+ *
+ * Detection:
+ *   - turns에 {role:'edi', source:'agent'} 있으면 LLM 호출됨
+ *   - 또는 reports/.../edi_rev*.md 중 auto-compiled 아닌 것 존재
+ *
+ * Grade D는 enforcement 면제 (info-level만, R-6 mitigation).
+ * Grade A/B/S에서 LLM 미호출 시:
+ *   1. gaps 'edi-llm-skipped' 박제
+ *   2. system_state.openMasterAlerts prepend
+ *   3. master_feedback_log auto-entry severity=high
+ *   4. log 출력 (dashboard 카운터 source)
+ */
+function auditEdiLlmInvocation(sess) {
+  const grade = (sess.grade || '').toUpperCase();
+  const isEnforced = grade === 'A' || grade === 'B' || grade === 'S';
+
+  // LLM Edi 호출 검출
+  const turns = Array.isArray(sess.turns) ? sess.turns : [];
+  const llmEdiTurn = turns.some(t => t && t.role === 'edi' && t.source === 'agent');
+
+  let llmEdiFile = false;
+  if (sess.reportPath) {
+    const reportsDir = path.join(CWD, sess.reportPath);
+    if (fs.existsSync(reportsDir)) {
+      try {
+        const files = fs.readdirSync(reportsDir).filter(f => /^edi_rev\d+\.md$/.test(f));
+        for (const f of files) {
+          try {
+            const head = fs.readFileSync(path.join(reportsDir, f), 'utf8').slice(0, 500);
+            if (!/^auto-compiled:\s*true/m.test(head)) { llmEdiFile = true; break; }
+          } catch {}
+        }
+      } catch {}
+    }
+  }
+
+  const llmEdiPresent = llmEdiTurn || llmEdiFile;
+
+  if (llmEdiPresent) {
+    log(`auditEdiLlm OK — LLM Edi 검출 (turn=${llmEdiTurn}, file=${llmEdiFile})`);
+    return;
+  }
+
+  if (!isEnforced) {
+    log(`auditEdiLlm info — Grade ${grade || 'unknown'} (enforcement 면제), mechanical fallback만 박제`);
+    sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
+    sess.gaps.push({
+      type: 'mechanical-fallback-graded',
+      sessionId: sess.sessionId,
+      grade: grade || null,
+      severity: 'info',
+    });
+    writeJson(CURRENT_SESSION_PATH, sess);
+    return;
+  }
+
+  // Grade A/B/S — 다축 5신호 박제
+  const ts = new Date().toISOString();
+
+  // 신호 1: gaps 박제
+  sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
+  sess.gaps.push({
+    type: 'edi-llm-skipped',
+    sessionId: sess.sessionId,
+    grade,
+    severity: 'high',
+    detectedAt: ts,
+    note: 'Grade A/B/S 세션에서 Edi LLM 미호출 — mechanical fallback 박제됨',
+  });
+  writeJson(CURRENT_SESSION_PATH, sess);
+
+  // 신호 2: openMasterAlerts prepend
+  try {
+    const statePath = path.join(CWD, 'memory', 'shared', 'system_state.json');
+    if (fs.existsSync(statePath)) {
+      const state = readJson(statePath, null);
+      if (state) {
+        if (!Array.isArray(state.openMasterAlerts)) state.openMasterAlerts = [];
+        const dup = state.openMasterAlerts.some(a => a && a.type === 'edi-llm-skipped' && a.sessionId === sess.sessionId);
+        if (!dup) {
+          state.openMasterAlerts.unshift({
+            type: 'edi-llm-skipped',
+            sessionId: sess.sessionId,
+            topicId: sess.topicId || null,
+            grade,
+            severity: 'high',
+            detectedAt: ts,
+          });
+          state.lastUpdated = ts;
+          writeJson(statePath, state);
+        }
+      }
+    }
+  } catch (e) {
+    log(`auditEdiLlm openMasterAlerts 실패: ${e && e.message}`);
+  }
+
+  // 신호 3: master_feedback_log auto-entry
+  try {
+    const mfPath = path.join(CWD, 'memory', 'master', 'master_feedback_log.json');
+    if (fs.existsSync(mfPath)) {
+      const mf = readJson(mfPath, { feedbackLog: [] });
+      const arr = mf.feedbackLog || mf.feedback || mf.entries;
+      if (Array.isArray(arr)) {
+        const dup = arr.some(e => e && e.source === 'hook' && e.sessionId === sess.sessionId && e.type === 'edi-llm-skipped');
+        if (!dup) {
+          const nextId = `MF-AUTO-${sess.sessionId}-edi`;
+          arr.push({
+            id: nextId,
+            date: ts.slice(0, 10),
+            session: sess.sessionId,
+            sessionId: sess.sessionId,
+            topic: sess.topicId || null,
+            type: 'edi-llm-skipped',
+            severity: 'high',
+            source: 'hook',
+            feedback: `Grade ${grade} 세션 ${sess.sessionId}에서 Edi LLM 미호출 — mechanical fallback(edi_auto_rev1.md) 박제됨. role-edi.md §6.4 검토 필요.`,
+            status: 'pending',
+          });
+          writeJson(mfPath, mf);
+        }
+      }
+    }
+  } catch (e) {
+    log(`auditEdiLlm master_feedback_log 실패: ${e && e.message}`);
+  }
+
+  // 신호 4: 로그 (dashboard 카운터 소스)
+  log(`⚠ auditEdiLlm — Grade ${grade} 세션에서 Edi LLM 미호출 → 다축 4신호 박제 (gaps + openMasterAlerts + master_feedback_log + 본 로그). frontmatter auto-compiled:true는 synthesizeMechanicalEdiReport에서 박제.`);
 }
 
 /**
@@ -845,6 +1157,19 @@ function applyVersionBump(sess) {
     log('versionBump 없음 — project_charter 업데이트 skip');
     return;
   }
+  // R-4 mitigation (D-131, PD-053): Edi LLM 확정만 인정
+  if (bump.confirmedBy !== 'edi' || !bump.confirmedAt) {
+    log(`applyVersionBump skip: confirmedBy='${bump.confirmedBy}' (edi 아님) 또는 confirmedAt 부재 — Edi LLM 검증 미통과`);
+    sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
+    sess.gaps.push({
+      type: 'version-bump-unverified',
+      sessionId: sess.sessionId,
+      attempted: bump,
+      note: 'confirmedBy !== edi 또는 confirmedAt 부재 — project_charter 미반영',
+    });
+    writeJson(CURRENT_SESSION_PATH, sess);
+    return;
+  }
 
   const charterPath = path.join(CWD, 'memory', 'shared', 'project_charter.json');
   if (!fs.existsSync(charterPath)) {
@@ -1015,6 +1340,8 @@ function runSyncSystemState() {
     filterAgentsCompletedByDualSatisfaction(sess);
     validateInlineRoleHeaders(sess);
     auditRoleImpersonation(sess); // PD-052
+    auditEdiLlmInvocation(sess); // D-131 (PD-053): L2 enforcement — 다축 5신호
+    synthesizeMechanicalEdiReport(sess); // D-131 (PD-053): L1 mechanical fallback (LLM 미호출 시 edi_auto_rev1.md 박제)
     copyEdiReportToSessionContributions(sess);
     writeJson(CURRENT_SESSION_PATH, sess);
     appendOrUpdateSessionIndex(sess);

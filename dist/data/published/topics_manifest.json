@@ -1,6 +1,20 @@
 {
-  "generatedAt": "2026-04-30T04:54:01.984Z",
+  "generatedAt": "2026-04-30T05:32:37.776Z",
   "topics": [
+    {
+      "id": "topic_133",
+      "title": "PD-053 — 10역할 3축 Master 직접 검토 + Edi 자동기록 진단",
+      "status": "suspended",
+      "created": "2026-04-30",
+      "reportPath": "reports/2026-04-30_pd053-10roles-3axes-master-review",
+      "reportFiles": [
+        "riki_rev1.md"
+      ],
+      "published": false,
+      "outcome": "D-131 Hybrid C 구현 완료. Edi 진단 + 3파일 수정. 잔여: 8역할 persona/policy/memory 검토",
+      "note": null,
+      "masterDecisions": []
+    },
     {
       "id": "topic_132",
       "title": "Master-first 모드 (echo chamber 실시간 자기감사 부재 보완)",

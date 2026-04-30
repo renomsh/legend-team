@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-30T04:53:58.926Z",
-  "totalSessions": 144,
+  "generatedAt": "2026-04-30T05:32:34.495Z",
+  "totalSessions": 145,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.88,
-    "avgCacheHitRate": 0.9315,
-    "cacheSampleSize": 118,
-    "cacheSampleTotal": 144,
+    "avgMasterTurns": 16.84,
+    "avgCacheHitRate": 0.9313,
+    "cacheSampleSize": 119,
+    "cacheSampleTotal": 145,
     "avgAdoptionRate": 0,
-    "totalDecisions": 131,
+    "totalDecisions": 132,
     "gradeDistribution": {
       "S": 63,
       "A": 29,
-      "B": 38,
+      "B": 39,
       "C": 14
     },
     "gradeMismatchCount": 2,
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 99,
-    "totalCostUSD": 1518.5855,
-    "avgCostPerSession": 10.9251,
-    "costSampleSize": 139
+    "turnBasedSessions": 100,
+    "totalCostUSD": 1525.0858,
+    "avgCostPerSession": 10.8935,
+    "costSampleSize": 140
   },
   "sessions": [
     {
@@ -5521,6 +5521,43 @@
         "messageCount": 83
       },
       "sessionCostUSD": 8.4148
+    },
+    {
+      "sessionId": "session_147",
+      "topicSlug": "pd053-10roles-3axes-master-review",
+      "topic": "PD-053 — 10역할 3축 Master 직접 검토 + Edi 자동기록 진단",
+      "startedAt": "2026-04-30T05:35:00.000Z",
+      "closedAt": "2026-04-30T09:00:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-131"
+      ],
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 7,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 12,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "riki",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 9122957,
+        "ioTokens": 76178,
+        "inputTokens": 270,
+        "outputTokens": 75908,
+        "cacheCreate": 767206,
+        "cacheRead": 8279573,
+        "cacheHitRate": 0.907553658314952,
+        "messageCount": 72
+      },
+      "sessionCostUSD": 6.5003
     }
   ],
   "roleFrequency": [
@@ -5670,7 +5707,7 @@
     },
     {
       "role": "edi",
-      "count": 101,
+      "count": 102,
       "sessions": [
         "session_050",
         "session_051",
@@ -5767,7 +5804,8 @@
         "session_143",
         "session_144",
         "session_145",
-        "session_146"
+        "session_146",
+        "session_147"
       ]
     },
     {
@@ -5839,7 +5877,7 @@
     },
     {
       "role": "riki",
-      "count": 65,
+      "count": 66,
       "sessions": [
         "session_049",
         "session_053",
@@ -5890,7 +5928,8 @@
         "session_141",
         "session_142",
         "session_144",
-        "session_145"
+        "session_145",
+        "session_147"
       ]
     },
     {
@@ -9840,6 +9879,24 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_147",
+      "topic": "PD-053 — 10역할 3축 Master 직접 검토 + Edi 자동기록 진단",
+      "sequence": [
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -9969,6 +10026,11 @@
           "date": "2026-04-29",
           "feedbackId": "MF-109",
           "summary": "Big Bang 5 Phase 세션 계획 재설계 (s141~s149) + 3세션 캡 해제 + dual-log"
+        },
+        {
+          "date": "2026-04-30",
+          "feedbackId": "MF-AUTO-session_147-edi",
+          "summary": "Grade A 세션 session_147에서 Edi LLM 미호출 — mechanical fallback(e"
         }
       ]
     },
@@ -10362,6 +10424,11 @@
           "date": "2026-04-19",
           "feedbackId": "MF-S036-3",
           "summary": "Grade 조정권은 Ace가 가져. 선언 grade와 실제 gap 발생 시 Ace가 조정."
+        },
+        {
+          "date": "2026-04-30",
+          "feedbackId": "MF-AUTO-session_147-edi",
+          "summary": "Grade A 세션 session_147에서 Edi LLM 미호출 — mechanical fallback(e"
         }
       ]
     },
@@ -10554,6 +10621,21 @@
           "date": "2026-04-21",
           "feedbackId": "MF-038",
           "summary": "에디터는 역할명이지 이름이 아니다. 에디(Edi)가 이름. Dev 작업도 에디가 기록해야 한다 — repor"
+        }
+      ]
+    },
+    {
+      "keyword": "Edi",
+      "occurrences": [
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-046",
+          "summary": "Editor를 '에디'(Edi)로 호칭하라. 발언 맥락에선 에디/Edi, 스키마·코드 식별자에만 editor"
+        },
+        {
+          "date": "2026-04-30",
+          "feedbackId": "MF-AUTO-session_147-edi",
+          "summary": "Grade A 세션 session_147에서 Edi LLM 미호출 — mechanical fallback(e"
         }
       ]
     },

@@ -1,6 +1,25 @@
 {
   "decisions": [
     {
+      "id": "D-131",
+      "date": "2026-04-30",
+      "session": "session_147",
+      "topic": "topic_133",
+      "owningTopicId": "topic_133",
+      "scopeCheck": "PD-053 — Edi 자동기록 진단 + Hybrid C 구현 (D-131)",
+      "axis": "Edi LLM 미호출 세션 대응 체계 (Hybrid C: L1 mechanical fallback + L2 enforcement + L3 namespace separation)",
+      "decision": "(1) L1 — `synthesizeMechanicalEdiReport()`: Grade A/B/S에서 Edi LLM 미호출 시 hook(`session-end-finalize.js`)이 `edi_auto_rev1.md` 자동 생성. frontmatter `auto-compiled: true` + `authorship: hook:session-end-finalize.js` 박제. 9섹션 mechanical compile (turns·masterDecisions·D-NNN·Notes/Gaps·versionBump ref·인계메모). versionBump 필드는 미박제 (Edi LLM 확정 위임). (2) L2 — `auditEdiLlmInvocation()`: Grade A/B/S 미호출 감지 시 4축 신호 박제 — gaps(edi-llm-skipped, severity:high) + system_state.openMasterAlerts prepend + master_feedback_log auto-entry(severity:high) + log. Grade D: info-level `mechanical-fallback-graded`만. (3) L3 — `copyEdiReportToSessionContributions()`: edi_auto_rev*.md 복사 대상 제외, 무시 silent skip 제거 → gaps 박제. (4) `applyVersionBump()` 가드: `confirmedBy !== 'edi'` || `!confirmedAt` 시 skip + gaps `version-bump-unverified`. (5) `close.md` Step 1.5 신설: Grade A/B/S Edi 미호출 감지 → Edi 서브에이전트 호출 권고 (skill 차원 권고, hook enforcement 별도). (6) `role-edi.md` §6.4 업데이트: Case 2 (suggested 존재 + Edi LLM 미호출) — mechanical fallback versionBump 미박제 + applyVersionBump 가드 + 다음 세션 Edi LLM 확정 경로 명시.",
+      "value": "Edi 자동기록 근본 원인 해소(silent skip → multi-axis enforcement). D2 Prime Directive 정합 — edi_auto_rev*.md 네임스페이스 분리로 LLM authorship 사칭 차단. D4 Prime Directive 정합 — model 자율 판단 의존 0, hook 코드 박제로 강제. versionBump confirmedBy 가드로 미검증 자동 전파 차단. Grade-based enforcement로 alarm fatigue 방지.",
+      "externalAnchors": [
+        "NIST SP 800-160 Vol.2 §3.4.5 — Defense in Depth (L1/L2/L3 layered enforcement)",
+        "Robert C. Martin (2003) — Single Responsibility Principle (namespace separation: edi_auto_rev vs edi_rev)",
+        "Prime Directive D2 (D-113): description vs behavior gap — authorship frontmatter separation",
+        "Prime Directive D4 (D-113): model persuasion nullification — hook enforcement over model judgment"
+      ],
+      "supersedes": [],
+      "caveat": "D-131 첫 live test: 본 세션 /close 후 edi_auto_rev1.md 생성 + 4축 신호 박제 확인 필요. jobs-framing skill 신설, 10역할 PD-053 검토 잔여 8역할은 다음 세션."
+    },
+    {
       "id": "D-130",
       "date": "2026-04-30",
       "session": "session_145",

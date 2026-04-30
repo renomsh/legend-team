@@ -1,9 +1,15 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_146",
-  "nextSessionId": "session_147",
+  "lastSessionId": "session_147",
+  "nextSessionId": "session_148",
   "currentVersion": "v2.06",
   "openTopics": [
+    {
+      "id": "topic_133",
+      "title": "PD-053 — 10역할 3축 Master 직접 검토 + Edi 자동기록 진단",
+      "status": "suspended",
+      "reportPath": "reports/2026-04-30_pd053-10roles-3axes-master-review"
+    },
     {
       "id": "topic_044",
       "title": "COPD 논문 ver3.4 최종화 — canonical 재분석 + (e) 프레임 확정",
@@ -20,6 +26,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-131",
+      "date": "2026-04-30",
+      "axis": "Edi LLM 미호출 세션 대응 체계 (Hybrid C: L1 mechanical fallback + L2 enforcement + L3 namespace separation)",
+      "summary": "Edi 자동기록 근본 원인 해소(silent skip → multi-axis enforcement). D2 Prime Directive 정합 — edi_auto_rev*.md 네임스페이스 분리로 LLM authorship 사칭 차단. D4 Prime Directive 정합 — model 자율 판단 의존 0, hook 코드 박제로 강제. versionBump confirmedBy 가드로 미검증 자동 전파 차단. Grade-based enforcement로 alarm fatigue 방지."
+    },
     {
       "id": "D-130",
       "date": "2026-04-30",
@@ -43,15 +55,18 @@
       "date": "2026-04-29",
       "axis": "Zero 페르소나 = 정제 산출물 레이어, 3 영역 한정 + Cut/Refine/Audit 내부 흡수",
       "summary": "D-119 supersede D-110 본문 박제 완결. 산출물 레이어 정제 단일 책임 명문화. Goodhart's Law 회피로 violation flag 자기검열 우회 차단."
-    },
-    {
-      "id": "D-126",
-      "date": "2026-04-29",
-      "axis": "Sage 페르소나 = Master/Nexus 명시 호출 read-only 메타 분석가, same-session isolation exclusive",
-      "summary": "echo chamber·anchor 의존·페르소나 drift 사후 적출 + 자가채점 inflation 차단. Goodhart's Law(Strathern 1997) 회피 — Sage가 NCL violation flag direct read하여 자기검열 우회하는 경로 차단. NIST RBAC SoD(Sandhu 1996) 정합 — read·write·route·anchor·escalate 5축 권한 분리."
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_147",
+      "topicSlug": "pd053-10roles-3axes-master-review",
+      "closedAt": "2026-04-30T09:00:00.000Z",
+      "oneLineSummary": "D-131 Hybrid C 구현: Edi 자동기록 진단 + 3파일 수정(finalize/close/edi-policy). 10역할 검토 Edi+Ace 완료, 8역할 대기",
+      "decisionsAdded": [
+        "D-131"
+      ]
+    },
     {
       "sessionId": "session_146",
       "topicSlug": "big-bang-legend-nexus-p2-3of3",
@@ -74,15 +89,6 @@
       "oneLineSummary": "Ace 전략(Porter+Keynes) + Jobs 기획(Steve Jobs+Kahneman) 분리 + framing/orchestration/versionBump/Grade 책임 재분배. D-130 박제, 11파일.",
       "decisionsAdded": [
         "D-130"
-      ]
-    },
-    {
-      "sessionId": "session_144",
-      "topicSlug": "master-first-mode",
-      "closedAt": "2026-04-30T01:30:00.000Z",
-      "oneLineSummary": "Master-first 모드 옵션 2 (hook 박제) 채택, MVP P1~P3 warn-only 구현 6 파일 8/8 PASS, D-129 박제.",
-      "decisionsAdded": [
-        "D-129"
       ]
     }
   ],
@@ -589,5 +595,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-30T04:53:52.342Z"
+  "lastUpdated": "2026-04-30T05:32:26.840Z"
 }

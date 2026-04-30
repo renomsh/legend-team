@@ -1,8 +1,10 @@
 {
-  "lastMasterUtterance": "/close",
+  "lastMasterUtterance": "/close 다음세션에 해당 토픽 이어서 진행",
   "echoTriggerDetected": false,
-  "intentReconfirmRequested": false,
-  "matchedKeywords": [],
-  "sessionId": "62e67822-59e9-4759-b052-6d96d6e4c0f4",
-  "updatedAt": "2026-04-30T04:53:11.474Z"
+  "intentReconfirmRequested": true,
+  "matchedKeywords": [
+    "다음"
+  ],
+  "sessionId": "fe543fb0-d752-4e34-bbb3-e28f3c046b4d",
+  "updatedAt": "2026-04-30T05:28:28.258Z"
 }
