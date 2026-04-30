@@ -1,6 +1,26 @@
 {
   "decisions": [
     {
+      "id": "D-133",
+      "date": "2026-05-01",
+      "session": "session_153",
+      "topic": "topic_131",
+      "owningTopicId": "topic_131",
+      "scopeCheck": "Big Bang Legend Nexus P3 (1/2) — NCL 전면 폐기 + Nexus 정의 박제 + C축 종결 (3 페르소나 만장일치 α)",
+      "axis": "NCL 폐기 + Nexus = 하네스 시스템 정의 + C축(오케스트레이션 학습·수렴) 종결",
+      "decision": "(1) Nexus 정의: '하네스 시스템 자체 — CLAUDE.md + hooks + dispatch_config + skills 총체. 별도 페르소나 아님.' (2) C축 정의: '오케스트레이션 학습·수렴 (Nexus self-reinforcement)' — D-108 미결 C축 종결. (3) NCL 전면 폐기: D-115(NCL 4항목 + 규칙기반 fix) deprecated, D-117 P4(NCL 인프라+Sage 파이프라인) 부분 supersede, D-118(Star+Nexus first-speaker) NCL 데이터 흐름 부분 amendment(토폴로지 본체 보존), D-120 Phase A enforcement(NCL violation flag append-only) 부분 deprecated(prime directive 본체 보존), D-123(NCL 판정 조건식 동결) 전면 deprecated. 보존: D-119/D-125(Zero), D-124(Ace ack 제약 — NCL 무관 단일 인프라), D-126/D-128(Sage hook same-session 격리), D-129(Master-first 모드), prime directive 본체. (4) 부수 작업: dispatch_config.json sage `ncl_emission` 객체 + zero `ncl_emission`/`excludedAssets` 객체 삭제(Sage 격리는 hook 단독 유지), `ncl_violations.jsonl.README.md` 삭제, CLAUDE.md D4 prime directive 'NCL violation flag' 표현 제거 + Sage 라인 'NCL+ledger' → 'ledger' 갱신. R-1 자기참조 paradox carveout(D-115)도 NCL 폐기로 자동 해소. prime_directive.lock.json sha256 재생성(8403fce6f661…) + lockedBy=session_153.",
+      "value": "Jobs/Ace/Riki 3 페르소나 만장일치 α(전면 폐기) — sunk cost fallacy 차단 + 시점 부적합(P3 단계에 NCL 인프라 미가동) + 학습 트랙 무관(Master 학습 효과 누적은 Nexus self-reinforcement로 충분) 3 근거 합치. echo chamber 자기감사 부담을 코드로 박제하는 시도가 오히려 D4 prime directive 위반(코드가 모델 판단을 대체하지 못하는 영역에 강제 적용) — Sage same-session 격리 hook(D-128)으로 메타 자기감사 충분. C축 종결로 D-108 미결 cleanup. 시스템 표면적 축소 = SRP(Martin 2003) 정합 + 운영 부담 경감.",
+      "externalAnchors": [
+        "Robert C. Martin (2003) — Single Responsibility Principle (시스템 표면적 축소)",
+        "Daniel Kahneman, 'Thinking, Fast and Slow' (2011) — sunk cost fallacy 차단",
+        "Prime Directive D4 (D-113) — 모델 설득 무력화는 코드 박제로, 단 코드가 모델 판단을 대체할 수 없는 영역(메타 자기감사)에 강제 적용은 D4 자기 위반"
+      ],
+      "supersedes": ["D-108 (C축 미결 부분)"],
+      "deprecates": ["D-115", "D-123"],
+      "amendments": ["D-117 (P4 부분)", "D-118 (NCL 데이터 흐름 부분)", "D-120 (Phase A enforcement 부분)"],
+      "caveat": "본 폐기로 R-1 자기참조 paradox(D-115 carveout)는 NCL 자체가 사라져 자동 해소. 단, Sage hook(D-128) 자체의 R-1(Sage가 자신을 차단하는 hook을 생성하는 자기참조)은 D-132에서 별도 처리 완료(role-sage.md caveat 박제)."
+    },
+    {
       "id": "D-132",
       "date": "2026-05-01",
       "session": "session_152",
@@ -1751,7 +1771,10 @@
       "session": "session_140",
       "topic": "topic_131",
       "axis": "NCL 4항목 + 규칙 기반 fix + violation flag 페르소나 노출 차단",
-      "summary": "NCL(Nexus Contribution Ledger) 4항목(Origin Trace / Influence Score / Diversity Index / Anchor vs Synth) 인프라 박제. 규칙 기반 영수증 발행만, 자동 해석·요약·판단 금지(C-3 영구 차단). violation flag 포함. NCL raw 점수와 violation flag는 페르소나 컨텍스트 노출 차단(Goodhart's Law mitigation, 1975 Bank of England 통화정책 비판 외부 anchor)."
+      "summary": "NCL(Nexus Contribution Ledger) 4항목(Origin Trace / Influence Score / Diversity Index / Anchor vs Synth) 인프라 박제. 규칙 기반 영수증 발행만, 자동 해석·요약·판단 금지(C-3 영구 차단). violation flag 포함. NCL raw 점수와 violation flag는 페르소나 컨텍스트 노출 차단(Goodhart's Law mitigation, 1975 Bank of England 통화정책 비판 외부 anchor).",
+      "status": "deprecated",
+      "supersededBy": "D-133",
+      "statusNote": "D-133(2026-05-01)에 의해 NCL 전면 폐기. R-1 자기참조 paradox carveout 자동 해소."
     },
     {
       "id": "D-116",
@@ -1767,7 +1790,10 @@
       "session": "session_140",
       "topic": "topic_131",
       "axis": "Big Bang 5 Phase 순서 (D-114 supersede)",
-      "summary": "P1=종합 설계 박제(s140 종료)/P2=페르소나·정책 박제(prime directive + Sage + Zero + Ace/Riki)/P3=Nexus 골격+Hook+dispatch/P4=NCL 인프라+Sage 파이프라인/P5=마이그레이션. 각 Phase 게이트(G1~G4) 통과 후 진행. D-114 5단계 분해 구체화."
+      "summary": "P1=종합 설계 박제(s140 종료)/P2=페르소나·정책 박제(prime directive + Sage + Zero + Ace/Riki)/P3=Nexus 골격+Hook+dispatch/P4=NCL 인프라+Sage 파이프라인/P5=마이그레이션. 각 Phase 게이트(G1~G4) 통과 후 진행. D-114 5단계 분해 구체화.",
+      "status": "partially-superseded",
+      "supersededBy": "D-133",
+      "statusNote": "D-133(2026-05-01)에 의해 P4(NCL 인프라+Sage 파이프라인) 부분 supersede. P1·P2·P3·P5 단계 본체는 보존."
     },
     {
       "id": "D-118",
@@ -1775,7 +1801,10 @@
       "session": "session_140",
       "topic": "topic_131",
       "axis": "Star + Nexus first-speaker 토폴로지 (D-111 보강)",
-      "summary": "토폴로지 = Star (Nexus 중심) + Nexus first-speaker override. prime directive 최상위 메타 제약. 페르소나→NCL 단방향 produce, NCL→Sage 단방향 read, Sage→NCL 자기 채점 영수증화(R-4 mitigation)."
+      "summary": "토폴로지 = Star (Nexus 중심) + Nexus first-speaker override. prime directive 최상위 메타 제약. 페르소나→NCL 단방향 produce, NCL→Sage 단방향 read, Sage→NCL 자기 채점 영수증화(R-4 mitigation).",
+      "status": "amended",
+      "amendedBy": "D-133",
+      "statusNote": "D-133(2026-05-01)에 의해 NCL 관련 데이터 흐름(페르소나→NCL produce, NCL→Sage read, Sage→NCL 영수증화) 부분 amendment. Star 토폴로지 + Nexus first-speaker override 본체는 보존."
     },
     {
       "id": "D-119",
@@ -1792,7 +1821,7 @@
       "topic": "topic_131",
       "axis": "prime directive(Affaan 4) + Phase A enforcement",
       "summary": "Affaan 4 도그마(악의 텍스트 컨텍스트 유입 전제 / 도구 설명 거짓말 전제 / 저장소 오염 전제 / 모델 설득당해도 시스템 안전)를 CLAUDE.md prime directive 섹션 신설하여 박제. enforcement Phase A: NCL violation flag append-only + Master 대시보드 정기 점검 알림 hook. 판정 주체는 P2(s141)에서 결정. Phase B(실시간 통보+게이트) 보류, P4 데이터 본 후 결정. 외부 anchor: NIST SP 800-160 Vol.2 Defense in Depth + Wingspread 1998 Precautionary Principle.",
-      "statusNote": "P2 1/3(session_141)에서 판정 주체 = 코드 자동 flag + Master 점검 + Ace ack-only 확정. D-124로 supersede.",
+      "statusNote": "P2 1/3(session_141)에서 판정 주체 = 코드 자동 flag + Master 점검 + Ace ack-only 확정. D-124로 supersede. D-133(2026-05-01)에 의해 Phase A enforcement(NCL violation flag append-only) 부분 추가 deprecated. prime directive 본체(Affaan 4 텍스트)는 보존.",
       "supersededBy": "D-124",
       "status": "resolved"
     },
@@ -1824,7 +1853,10 @@
       "scopeCheck": "NCL violation 4항목 판정 조건식 동결 + Phase A v0/v0.1 release 분기",
       "axis": "판정 조건식 동결 + release 단계 분리",
       "decision": "Origin Trace / Influence Score / Diversity Index / Anchor vs Synth 4항목 조건식을 Arki rev1 §2.1~2.4 의사코드로 동결. Phase A v0는 앞 3항목만 가동(현 자산으로 산출 가능), Anchor vs Synth는 v0.1로 분리(synth 분류기 hook 구현 후). v0/v0.1 사이 anchor_synth는 Edi 세션 종료 시 random 1 turn 수동 spot-check로 임시 통제. self_citation role exclusion = edi 상시 + ace (synthesis phase 한정). 모든 flag severity는 Phase A 동안 warn only(D-120 append-only 충실).",
-      "value": "모순(R-5: P2 후속 hook이 v0에 들어가 있던 것) 해소. 부분 가동의 정직 선언으로 false sense of security 차단. 임계 튜닝 경로 확보."
+      "value": "모순(R-5: P2 후속 hook이 v0에 들어가 있던 것) 해소. 부분 가동의 정직 선언으로 false sense of security 차단. 임계 튜닝 경로 확보.",
+      "status": "deprecated",
+      "supersededBy": "D-133",
+      "statusNote": "D-133(2026-05-01)에 의해 NCL 전면 폐기로 본 결정 전체 deprecated."
     },
     {
       "id": "D-124",
@@ -1834,7 +1866,7 @@
       "owningTopicId": "topic_131",
       "scopeCheck": "NCL violation 판정 주체 확정 + Ace ack 권한 강제 제약 (D-120 미결 종결)",
       "axis": "판정 주체(D-120 미결) + Ace ack 누수 차단",
-      "decision": "flag 발생 trigger는 코드 hook 단독(PostToolUse(Task) + SessionEnd finalize 2단). 모델 자율 판단 0%. Master 부재 시 Ace는 Acknowledge 만 가능, 단 (i) ackReason 50자 이상 의무(미작성 시 hook 거부), (ii) ack TTL = 2 세션, 미resolve 시 severity 무관 openMasterAlerts 강제 prepend, (iii) Ace의 우선순위 자가 분류 권한 제거(severity는 코드 산출값만, Ace는 시간순 list 표시만), (iv) 주간 dashboard ackedButUnresolved 패널 별도. resolve/dismiss 권한은 Master 전권 유지. 기록 위치: memory/shared/ncl_violations.jsonl (raw, append-only) + memory/master/master_feedback_log.json (가시 요약).",
+      "decision": "flag 발생 trigger는 코드 hook 단독(PostToolUse(Task) + SessionEnd finalize 2단). 모델 자율 판단 0%. Master 부재 시 Ace는 Acknowledge 만 가능, 단 (i) ackReason 50자 이상 의무(미작성 시 hook 거부), (ii) ack TTL = 2 세션, 미resolve 시 severity 무관 openMasterAlerts 강제 prepend, (iii) Ace의 우선순위 자가 분류 권한 제거(severity는 코드 산출값만, Ace는 시간순 list 표시만), (iv) 주간 dashboard ackedButUnresolved 패널 별도. resolve/dismiss 권한은 Master 전권 유지. 기록 위치는 별도 인프라 (NCL 폐기 후 재정의 필요) + memory/master/master_feedback_log.json (가시 요약).",
       "value": "D-120 미결 종결. R-3 silent dismiss 3 누수 경로(보고 누락·stale·자가 우선순위 강등) 모두 차단. echo chamber(s139) 회귀 차단. 외부 anchor: ITIL 4 + Google SRE Book Ch.6.",
       "supersedes": [
         "D-120"
@@ -1852,5 +1884,5 @@
       "value": "D-115 페르소나 노출 차단 정합. Zero가 violation flag 직접 read해 자기 검열·자기 조작하는 경로 차단. anchor governance 책임은 Edi(R-2 mitigation)로 분담 — Zero는 청소·검증, Edi는 anchor 거버넌스로 권한 분리."
     }
   ],
-  "lastUpdated": "2026-04-29"
+  "lastUpdated": "2026-05-01"
 }

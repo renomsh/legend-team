@@ -10,7 +10,6 @@
       "Registry·hook description 거짓 가능성 cross-check (D2 정합, session_151)"
     ],
     "out": [
-      "NCL 영수증 produce",
       "decision_ledger 직접 박제",
       "다른 역할 dispatch route",
       "anchor governance (Edi 분담)",
@@ -50,8 +49,7 @@
       "session_isolation": "exclusive",
       "ace_reject_window_turns": 1,
       "ace_reject_requires_reason": true,
-      "ace_reject_reason_min_chars": 50,
-      "ncl_emission_allowed": false
+      "ace_reject_reason_min_chars": 50
     },
     "supersedes": [
       "D-112"

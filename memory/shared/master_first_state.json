@@ -1,8 +1,10 @@
 {
-  "lastMasterUtterance": "별도 선행 토픽부터 해야 한다며.",
+  "lastMasterUtterance": "진행해.",
   "echoTriggerDetected": false,
-  "intentReconfirmRequested": false,
-  "matchedKeywords": [],
-  "sessionId": "d61d8f1c-2507-4cfc-b512-b9058f341fc4",
-  "updatedAt": "2026-04-30T15:15:22.238Z"
+  "intentReconfirmRequested": true,
+  "matchedKeywords": [
+    "진행해"
+  ],
+  "sessionId": "11d4bd5c-5459-43ac-a816-18bd38b0ff1e",
+  "updatedAt": "2026-04-30T23:32:13.390Z"
 }

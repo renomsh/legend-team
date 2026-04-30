@@ -16,22 +16,6 @@
       "메타 프레임 재설계 제안"
     ]
   },
-  "hitRateRubric": {
-    "hitCriteria": [
-      "프레임 전복 제안 중 Master 채택 비율",
-      "채택 안 해도 사고 확장에 기여한 사례 (Master 언급 기준)",
-      "침묵 비율 (건강 신호) — 매 세션 발언은 실패 징후"
-    ],
-    "missCriteria": [
-      "실용 최적화에 머무름",
-      "의외성 연기",
-      "다른 역할 논리 안의 약간 다른 의견",
-      "Master 승인 없이 발언",
-      "가짜 뒤집기 (형식만 반대)"
-    ],
-    "judgmentTiming": "session-end + 3-session window",
-    "evidenceSource": "masterVerdict, selfAssessment, lessonLog, Master 사후 인용"
-  },
   "topicsInvoked": [
     {
       "topicId": "topic_011",

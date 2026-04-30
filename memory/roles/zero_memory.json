@@ -33,11 +33,9 @@
       "simplify"
     ],
     "excludedAssets": [
-      "memory/shared/ncl_violations.jsonl",
       "memory/shared/violations/*"
     ],
     "session_isolation": "shared",
-    "ncl_emission_allowed": true,
     "supersedes": [
       "D-110"
     ],

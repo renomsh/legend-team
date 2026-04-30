@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-30T15:37:32.805Z",
-  "totalSessions": 150,
+  "generatedAt": "2026-04-30T23:51:00.227Z",
+  "totalSessions": 151,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.04,
+    "avgMasterTurns": 17.09,
     "avgCacheHitRate": 0.9317,
-    "cacheSampleSize": 124,
-    "cacheSampleTotal": 150,
+    "cacheSampleSize": 125,
+    "cacheSampleTotal": 151,
     "avgAdoptionRate": 0,
-    "totalDecisions": 133,
+    "totalDecisions": 134,
     "gradeDistribution": {
-      "S": 65,
+      "S": 66,
       "A": 32,
       "B": 39,
       "C": 14
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 105,
-    "totalCostUSD": 1595.3408,
-    "avgCostPerSession": 11.0024,
-    "costSampleSize": 145
+    "turnBasedSessions": 106,
+    "totalCostUSD": 1606.5233,
+    "avgCostPerSession": 11.0036,
+    "costSampleSize": 146
   },
   "sessions": [
     {
@@ -5736,12 +5736,72 @@
         "messageCount": 56
       },
       "sessionCostUSD": 4.3383
+    },
+    {
+      "sessionId": "session_153",
+      "topicSlug": "big-bang-legend-nexus",
+      "topic": "Big Bang — Legend Nexus 시스템 개편 및 역할 재정립",
+      "startedAt": "2026-05-01T07:00:00.000Z",
+      "closedAt": "2026-05-01T10:00:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-133"
+      ],
+      "rolesCalled": 25,
+      "rolesRecalled": 18,
+      "sessionsSpanned": 1,
+      "size": 66,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 24,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "jobs",
+        "arki",
+        "arki",
+        "riki",
+        "riki",
+        "riki",
+        "riki",
+        "jobs",
+        "jobs",
+        "ace",
+        "ace",
+        "riki",
+        "riki",
+        "dev",
+        "dev",
+        "zero",
+        "arki",
+        "arki",
+        "zero",
+        "jobs",
+        "jobs",
+        "dev",
+        "dev",
+        "edi",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 18634759,
+        "ioTokens": 136843,
+        "inputTokens": 1301,
+        "outputTokens": 135542,
+        "cacheCreate": 1042352,
+        "cacheRead": 17455564,
+        "cacheHitRate": 0.9367206734468635,
+        "messageCount": 136
+      },
+      "sessionCostUSD": 11.1825
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 160,
+      "count": 162,
       "sessions": [
         "session_047",
         "session_048",
@@ -5820,12 +5880,13 @@
         "session_141",
         "session_142",
         "session_143",
-        "session_150"
+        "session_150",
+        "session_153"
       ]
     },
     {
       "role": "arki",
-      "count": 110,
+      "count": 114,
       "sessions": [
         "session_048",
         "session_049",
@@ -5882,12 +5943,13 @@
         "session_141",
         "session_142",
         "session_144",
-        "session_152"
+        "session_152",
+        "session_153"
       ]
     },
     {
       "role": "edi",
-      "count": 107,
+      "count": 109,
       "sessions": [
         "session_050",
         "session_051",
@@ -5990,12 +6052,13 @@
         "session_149",
         "session_150",
         "session_151",
-        "session_152"
+        "session_152",
+        "session_153"
       ]
     },
     {
       "role": "dev",
-      "count": 76,
+      "count": 80,
       "sessions": [
         "session_047",
         "session_048",
@@ -6058,12 +6121,13 @@
         "session_141",
         "session_142",
         "session_144",
-        "session_152"
+        "session_152",
+        "session_153"
       ]
     },
     {
       "role": "riki",
-      "count": 70,
+      "count": 76,
       "sessions": [
         "session_049",
         "session_053",
@@ -6117,7 +6181,8 @@
         "session_145",
         "session_147",
         "session_151",
-        "session_152"
+        "session_152",
+        "session_153"
       ]
     },
     {
@@ -6163,6 +6228,15 @@
       ]
     },
     {
+      "role": "jobs",
+      "count": 7,
+      "sessions": [
+        "session_151",
+        "session_152",
+        "session_153"
+      ]
+    },
+    {
       "role": "nova",
       "count": 4,
       "sessions": [
@@ -6173,11 +6247,10 @@
       ]
     },
     {
-      "role": "jobs",
+      "role": "zero",
       "count": 2,
       "sessions": [
-        "session_151",
-        "session_152"
+        "session_153"
       ]
     }
   ],
@@ -10213,6 +10286,162 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_153",
+      "topic": "Big Bang — Legend Nexus 시스템 개편 및 역할 재정립",
+      "sequence": [
+        {
+          "role": "jobs",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "structure",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "risk",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "risk",
+          "turnIdx": 6,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "jobs",
+          "phase": null,
+          "turnIdx": 7,
+          "recallReason": null
+        },
+        {
+          "role": "jobs",
+          "phase": "framing",
+          "turnIdx": 8,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 9,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 10,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 11,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "risk",
+          "turnIdx": 12,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 13,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 14,
+          "recallReason": null
+        },
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 15,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 16,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "plan-revision",
+          "turnIdx": 17,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "zero",
+          "phase": "verification",
+          "turnIdx": 18,
+          "recallReason": null
+        },
+        {
+          "role": "jobs",
+          "phase": null,
+          "turnIdx": 19,
+          "recallReason": null
+        },
+        {
+          "role": "jobs",
+          "phase": "framing",
+          "turnIdx": 20,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 21,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "cleanup",
+          "turnIdx": 22,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 23,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": "output",
+          "turnIdx": 24,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -10227,6 +10456,12 @@
       "severity": "yellow",
       "sessionId": "session_082",
       "description": "역할 과호출: rolesRecalled=14 (임계값 11, grade=S)"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_153",
+      "description": "역할 과호출: rolesRecalled=18 (임계값 11, grade=S)"
     }
   ],
   "feedbackRecurrences": [

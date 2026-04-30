@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_152",
-  "nextSessionId": "session_153",
+  "lastSessionId": "session_153",
+  "nextSessionId": "session_154",
   "currentVersion": "v2.16",
   "openTopics": [
     {
@@ -20,6 +20,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-133",
+      "date": "2026-05-01",
+      "axis": "NCL 폐기 + Nexus = 하네스 시스템 정의 + C축(오케스트레이션 학습·수렴) 종결",
+      "summary": "Jobs/Ace/Riki 3 페르소나 만장일치 α(전면 폐기) — sunk cost fallacy 차단 + 시점 부적합(P3 단계에 NCL 인프라 미가동) + 학습 트랙 무관(Master 학습 효과 누적은 Nexus self-reinforcement로 충분) 3 근거 합치. echo chamber 자기감사 부담을 코드로 박제하는 시도가 오히려 D4 prime directive 위반(코드가 모델 판단을 대체하지 못하는 영역에 강제 적용) — Sage same-session 격리 hook(D-128)으로 메타 자기감사 충분. C축 종결로 D-108 미결 cleanup. 시스템 표면적 축소 = SRP(Martin 2003) 정합 + 운영 부담 경감."
+    },
     {
       "id": "D-132",
       "date": "2026-05-01",
@@ -43,15 +49,18 @@
       "date": "2026-04-30",
       "axis": "Master-first 모드 = 옵션 2 (hook 박제) + 6조건",
       "summary": "Sage(D-126) 다음 세션 채점 시점 미스매치 보완. 세션 내 실시간 자기감사로 echo chamber 회귀 차단. D4 prime directive(모델 설득 무력화 전제) 정합 — 코드 hook 박제로 Claude 자율 우회 차단. 비용: 초기 ~500 LOC + 세션당 $0.06~$0.40 (LLM 2차 사용 시) < 회피 가치 (s139 echo chamber 1회 = 1.5~2 세션 회귀)."
-    },
-    {
-      "id": "D-128",
-      "date": "2026-04-29",
-      "axis": "Sage 격리 enforcement = pre-tool-use-task-sage-gate.js 별도 hook (SRP + Defense in Depth)",
-      "summary": "Fin SRP anchor (Martin 2003 'Agile Software Development') + NIST SP 800-160 Vol.2 §3.4.5 Defense in Depth 정합. ROI 비대칭 — 분리 비용 ~45 LOC vs FN 1건 회피 가치(D-122 자기충실성 무력화 회피). hook chain 직렬 실행, 장애 격리, 후속 페르소나 게이트 재사용 패턴 박제."
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_153",
+      "topicSlug": "big-bang-legend-nexus",
+      "closedAt": "2026-05-01T10:00:00.000Z",
+      "oneLineSummary": "P3 1/2 — D-133 박제(NCL 전면 폐기 + Nexus 정의 + C축 종결). 3 페르소나 만장일치 α. topic_131 종결.",
+      "decisionsAdded": [
+        "D-133"
+      ]
+    },
     {
       "sessionId": "session_152",
       "topicSlug": "sage-r1-paradox-block-hook",
@@ -66,13 +75,6 @@
       "topicSlug": "9agent-persona-policy-upgrade-v1.1",
       "closedAt": "2026-04-30T19:00:00.000Z",
       "oneLineSummary": "9Agent ver1.1 완결 — Zero/Jobs/Sage/Ace upgrade + PD-054(hitRateRubric) topic_131 이연",
-      "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_150",
-      "topicSlug": "9agent-persona-policy-upgrade-v1.1",
-      "closedAt": "2026-04-30T16:30:00.000Z",
-      "oneLineSummary": "Vera 6건+Edi 3건 편집, 전체 stale 스캔 clean, Jobs/Zero/Sage 다음 세션 Master 직접 검토",
       "decisionsAdded": []
     }
   ],
@@ -589,12 +591,15 @@
       "fromSession": "session_151",
       "fromTopic": "9agent-persona-policy-upgrade-v1.1",
       "item": "hitRateRubric 구조 자체 재검토 — 8역할(Ace·Arki·Fin·Riki·Nova·Dev·Edi·Vera) memory에 박제된 hitRateRubric이 D-092 자가평가 단순화 정책(metrics_registry.json 단일 출처)과 정합한지 결정. 폐기/유지/통합 3옵션 + Jobs·Sage·Zero 3 신규 역할 미박제 패턴 의미 해석.",
-      "status": "pending",
+      "status": "resolved",
       "note": "topic_131(빅뱅) 후속. session_151에서 Edi hitRateRubric 점검 중 발견. Ace→Nexus 갱신은 이미 완료(stale 해소). 구조 자체 정책은 빅뱅 토픽 범위.",
       "resolveCondition": "8역할 hitRateRubric 정책 결정 박제 (D-xxx) + 결과에 따라 일괄 갱신/폐기/유지 수행",
       "relatedTopic": "topic_131",
-      "dependsOn": []
+      "dependsOn": [],
+      "resolvedInSession": "session_153",
+      "resolvedAt": "2026-05-01",
+      "resolvedNote": "hitRateRubric = D-041(session_037, persona-top01-redefinition) 잔재. Big Bang 설계 범위 외. D-092 단순화 이후 pipeline 연결 없음(hooks/scripts 참조 0건). 8역할 memory.json에서 일괄 삭제 완료. Jobs·Sage·Zero 미박제는 설계적으로 정상. PD-054 resolved."
     }
   ],
-  "lastUpdated": "2026-04-30T15:37:20.751Z"
+  "lastUpdated": "2026-04-30T23:50:52.538Z"
 }

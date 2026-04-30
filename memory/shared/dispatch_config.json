@@ -1,9 +1,9 @@
 {
   "$schema": "internal://dispatch-config-v0.1",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "introducedBy": "D-126/D-127/D-128 (session_142, topic_131, 2026-04-29)",
-  "lastUpdatedBy": "D-130 (session_146, topic_131, 2026-04-30) — jobs entry 추가",
-  "comment": "역할 호출 트리거·격리 정책·NCL 배출 권한 단일 출처. pre-tool-use-task-sage-gate.js가 sage 격리 read.",
+  "lastUpdatedBy": "D-133 (session_153, topic_131, 2026-05-01) — NCL 전면 폐기로 ncl_emission 필드 제거",
+  "comment": "역할 호출 트리거·격리 정책 단일 출처. pre-tool-use-task-sage-gate.js가 sage 격리 read. NCL 전면 폐기(D-133)로 ncl_emission 필드 deprecated.",
   "rules": {
     "jobs": {
       "trigger": {
@@ -24,9 +24,6 @@
       "session_isolation": "shared",
       "first_speaker_override": true,
       "auto_hook": false,
-      "ncl_emission": {
-        "allowed": true
-      },
       "ownership": {
         "framing_subject": true,
         "grade_override": true,
@@ -54,24 +51,13 @@
       "ace_reject_window_turns": 1,
       "ace_reject_requires_reason": true,
       "ace_reject_reason_min_chars": 50,
-      "ncl_emission": {
-        "allowed": false,
-        "reason": "Riki R-5 — Sage NCL produce 0건. 분석 결과 박제는 Edi 위임 (D-125 anchor governance)."
-      },
       "write_permission": "none",
       "supersedes": ["D-112"]
     },
     "zero": {
       "scope_areas": ["tech-debt", "security-review", "simplify"],
-      "excludedAssets": [
-        "memory/shared/ncl_violations.jsonl",
-        "memory/shared/violations/*"
-      ],
       "session_isolation": "shared",
       "auto_hook": false,
-      "ncl_emission": {
-        "allowed": true
-      },
       "internal_tools": ["Cut", "Refine", "Audit"],
       "supersedes": ["D-110"]
     }

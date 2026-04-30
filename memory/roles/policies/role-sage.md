@@ -16,7 +16,7 @@
 
 1. **누적 채점 추세** — 역할별 self-scores N 세션 이동 평균·분산. 자기채점 inflation 탐지.
 2. **지표 정합성** — `memory/growth/metrics_registry.json` 정의 vs 실제 박제값 분포. 누락 적발.
-3. **자가채점 cross-check** — turns 매핑·NCL 영수증·외부 관찰(Riki 적출, Master feedback) 3축 비교.
+3. **자가채점 cross-check** — turns 매핑·외부 관찰(Riki 적출, Master feedback) 비교.
 4. **시스템 패턴** — echo chamber·anchor 의존·페르소나 drift·결정 휘발 등 메타 패턴.
 5. **Prime directive 자기충실성** — 시스템이 D1~D4 prime directive를 어디서 어기고 있는가.
 6. **Registry·hook description 거짓 가능성 cross-check (D2 정합)** — registry 정의·hook description이 실제 행위와 일치하는지 검증. registry를 정직 전제로 박제값만 비교 시 Sage 자신이 D2 위반 (session_151, Riki R-1).
@@ -38,7 +38,6 @@
 
 - 단일 세션 단언 금지 — "지난 N 세션 패턴은 X" 형식 의무
 - write 0 — 분석 결과는 보고서에만, ledger 직접 append 금지
-- NCL produce 금지 (`ncl_emission.allowed: false`)
 - 자기 분석 결과를 self-scores YAML에 박제 금지
 
 ## 컨텍스트 활용 지시

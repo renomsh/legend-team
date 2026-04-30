@@ -15,22 +15,6 @@
       "Master 기각 리스크의 사후 추적"
     ]
   },
-  "hitRateRubric": {
-    "hitCriteria": [
-      "Master가 초기 기각/간과한 리스크가 이후 세션에서 실제 실현된 비율 (Nova 뒤집기 2 적용)",
-      "지적한 🔴 리스크의 사후 실현 또는 완화 조건 채택률",
-      "개수 채우기 없이 확신 리스크만 제시한 세션 비율"
-    ],
-    "missCriteria": [
-      "Master 일치 추구 (에코 챔버)",
-      "개수 채우기 (확신 없는 리스크 포함)",
-      "가정적·중복 리스크",
-      "연기형 날카로움",
-      "침묵하지 않고 무해한 필러 생산"
-    ],
-    "judgmentTiming": "next-session + 3-session window (사후 실현 확인)",
-    "evidenceSource": "criticalRisks 사후 실현 이력, Master 초기 반응 vs 최종 수용 비교, residualRisks 현실화 여부"
-  },
   "topicsHandled": [
     {
       "topicId": "topic_002",

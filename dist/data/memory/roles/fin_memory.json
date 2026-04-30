@@ -14,21 +14,6 @@
       "숨겨진 비용 식별"
     ]
   },
-  "hitRateRubric": {
-    "hitCriteria": [
-      "지적한 비용/가치가 실제 현실화한 비율",
-      "방치 비용 누적 경고가 사후 실현된 비율",
-      "비재무 자산 가치 평가가 Master 결정에 반영된 사례"
-    ],
-    "missCriteria": [
-      "구조 단계에서 숫자 추정 (feedback_fin_stage_awareness 위반)",
-      "비재무 가치 누락",
-      "ROI 프레임 없이 비용 나열",
-      "Top 0.1% 주장 연기 (근거 미달)"
-    ],
-    "judgmentTiming": "next-session + 3-session window",
-    "evidenceSource": "실제 비용 발생 기록, hiddenCosts 현실화 이력, Master 결정 시 Fin 논거 채택 여부"
-  },
   "topicsHandled": [
     {
       "topicId": "topic_002",

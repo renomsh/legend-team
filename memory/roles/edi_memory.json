@@ -21,22 +21,6 @@
       "리포트 파일 경로·명명"
     ]
   },
-  "hitRateRubric": {
-    "hitCriteria": [
-      "포맷·구조 오류 0건 세션 비율",
-      "Nexus 지시 준수율 100%",
-      "validate-output.ts 통과율",
-      "선행 제안·독립 판단 사례 0건"
-    ],
-    "missCriteria": [
-      "독립 합성·판단·제안 발생",
-      "포맷 오류",
-      "프론트매터 누락",
-      "Vera 템플릿 변형"
-    ],
-    "judgmentTiming": "session-end",
-    "evidenceSource": "validate-output 결과, Arki gapsFound 이력, Master 포맷 피드백"
-  },
   "topicsHandled": [
     {
       "topicId": "topic_002",

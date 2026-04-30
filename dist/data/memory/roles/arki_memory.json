@@ -16,21 +16,6 @@
       "구조적 진단"
     ]
   },
-  "hitRateRubric": {
-    "hitCriteria": [
-      "설계한 구조가 Dev 재작업 없이 구현된 비율",
-      "짓지 않음 권고 채택 사례",
-      "에스컬레이션된 구조 결함의 실제 결함 확정 비율"
-    ],
-    "missCriteria": [
-      "Dev가 구조 변경 에스컬레이션",
-      "금지어 사용",
-      "Dev 피드백 무시 후 재설계",
-      "아름다운 구조 유혹 (연기형)"
-    ],
-    "judgmentTiming": "next-session",
-    "evidenceSource": "Dev 에스컬레이션 이력, gapsFound 해소율, structuralPatterns 재사용률"
-  },
   "topicsHandled": [
     {
       "topicId": "topic_002",

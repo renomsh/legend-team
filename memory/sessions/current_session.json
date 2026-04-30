@@ -1,103 +1,265 @@
 {
-  "sessionId": "session_152",
-  "topicId": "topic_135",
-  "topic": "Sage R-1 자기참조 paradox 차단 hook",
-  "topicSlug": "sage-r1-paradox-block-hook",
-  "reportPath": "reports/2026-05-01_sage-r1-paradox-block-hook",
+  "sessionId": "session_153",
+  "topicId": "topic_131",
+  "topic": "Big Bang — Legend Nexus 시스템 개편 및 역할 재정립",
+  "topicSlug": "big-bang-legend-nexus",
+  "reportPath": "reports/2026-05-01_big-bang-legend-nexus-p3-1of2",
   "status": "closed",
-  "startedAt": "2026-05-01T00:00:00.000Z",
-  "closedAt": "2026-05-01T06:00:00.000Z",
-  "oneLineSummary": "sage-gate Phase 1+2 구현 완료: KNOWN_ROLES 결함 해소 + 이중 마커 검증 차단, D-132 박제",
+  "startedAt": "2026-05-01T07:00:00.000Z",
+  "closedAt": "2026-05-01T10:00:00.000Z",
+  "oneLineSummary": "P3 1/2 — D-133 박제(NCL 전면 폐기 + Nexus 정의 + C축 종결). 3 페르소나 만장일치 α. topic_131 종결.",
   "mode": "observation",
-  "grade": "B",
-  "gradeDeclared": "B",
+  "grade": "S",
+  "gradeDeclared": "S",
   "framingLevel": 2,
   "framingSkipped": false,
-  "topicType": "implementation",
-  "parentTopicId": "topic_131",
+  "topicType": "framing",
+  "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
+    "jobs",
+    "arki",
     "arki",
     "riki",
+    "riki",
+    "riki",
+    "riki",
+    "jobs",
+    "jobs",
+    "ace",
+    "ace",
+    "riki",
+    "riki",
+    "dev",
+    "dev",
+    "zero",
+    "arki",
+    "arki",
+    "zero",
+    "jobs",
     "jobs",
     "dev",
+    "dev",
+    "edi",
     "edi"
   ],
   "turns": [
     {
-      "role": "arki",
+      "role": "jobs",
       "turnIdx": 0,
+      "source": "agent"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 1,
+      "source": "agent"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 2,
       "source": "agent",
       "phase": "structure"
     },
     {
       "role": "riki",
-      "turnIdx": 1,
+      "turnIdx": 3,
+      "source": "agent"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 4,
       "source": "agent",
       "phase": "risk"
     },
     {
-      "role": "jobs",
-      "turnIdx": 2,
+      "role": "riki",
+      "turnIdx": 5,
+      "source": "agent"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 6,
       "source": "agent",
-      "phase": "framing"
+      "phase": "risk",
+      "recallReason": "post-master"
+    },
+    {
+      "role": "jobs",
+      "turnIdx": 7,
+      "source": "agent"
+    },
+    {
+      "role": "jobs",
+      "turnIdx": 8,
+      "source": "agent",
+      "phase": "framing",
+      "recallReason": "post-master"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 9,
+      "source": "agent"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 10,
+      "source": "agent",
+      "phase": "synthesis",
+      "recallReason": "post-master"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 11,
+      "source": "agent"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 12,
+      "source": "agent",
+      "phase": "risk",
+      "recallReason": "post-master"
     },
     {
       "role": "dev",
-      "turnIdx": 3,
+      "turnIdx": 13,
+      "source": "agent"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 14,
       "source": "agent",
       "phase": "implementation"
     },
     {
+      "role": "zero",
+      "turnIdx": 15,
+      "source": "agent"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 16,
+      "source": "agent"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 17,
+      "source": "agent",
+      "phase": "plan-revision",
+      "recallReason": "post-master"
+    },
+    {
+      "role": "zero",
+      "turnIdx": 18,
+      "source": "agent",
+      "phase": "verification"
+    },
+    {
+      "role": "jobs",
+      "turnIdx": 19,
+      "source": "agent"
+    },
+    {
+      "role": "jobs",
+      "turnIdx": 20,
+      "source": "agent",
+      "phase": "framing",
+      "recallReason": "post-master"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 21,
+      "source": "agent"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 22,
+      "source": "agent",
+      "phase": "cleanup",
+      "recallReason": "post-master"
+    },
+    {
       "role": "edi",
-      "turnIdx": 4,
+      "turnIdx": 23,
+      "source": "agent"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 24,
       "source": "agent",
       "phase": "output"
     }
   ],
-  "versionBumpSuggested": {
-    "value": 0.1,
-    "type": "structural",
-    "reason": "구조 변경 자동 감지: hook 2파일(post-tool-use-task.js, pre-tool-use-task-sage-gate.js) + persona 1파일(role-sage.md) 변경",
-    "autoDetectedAt": "2026-05-01T00:00:00.000Z",
-    "changedFiles": [
-      ".claude/hooks/post-tool-use-task.js",
-      ".claude/hooks/pre-tool-use-task-sage-gate.js",
-      "memory/roles/personas/role-sage.md"
-    ],
-    "changedFilesCount": 3,
-    "cappedAt": 0.1,
-    "confirmedBy": null
-  },
-  "versionBump": {
-    "value": 0.1,
-    "reason": "sage-gate Phase 1+2 구현: KNOWN_ROLES 구조적 결함 해소(post-tool-use-task.js) + 이중 마커 검증 강화(sage-gate.js) + role-sage.md caveat 정책 봉인. hook/persona 변경 = structural(+0.1). D-132 박제.",
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-01T00:00:00.000Z",
-    "basedOn": "versionBumpSuggested"
-  },
   "decisions": [],
   "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [],
+  "pendingDeferralsResolved": [
+    "PD-054"
+  ],
   "decisionsAdded": [
-    "D-132"
+    "D-133"
   ],
+  "versionBump": {
+    "value": 0.1,
+    "type": "structural",
+    "reason": "D-133 박제(Nexus 정의 + C축 종결 + NCL 전면 폐기, 11 결정 supersede/deprecate/amendment) + 페르소나/정책/CLAUDE.md/decision_ledger/dispatch_config 동시 갱신. s146 carry-over(+0.1 structural) 흡수 — D-130 책임 재분배의 연속 구현. 세션당 +0.1 cap 도달.",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-01T00:00:00.000Z",
+    "basedOn": "versionBumpSuggested + s146-carry-over-absorbed",
+    "absorbedCarryOver": {
+      "fromSession": "session_146",
+      "value": 0.1,
+      "reason": "D-130 책임 재분배 후속 구현으로 의미 연속, 캡 위반 회피"
+    }
+  },
   "notes": [
-    "topic_131 Big Bang P3 선행 필수 조건",
-    "session_142 Edi R-1 spec: subagent_type=role-sage AND marker 이중 검증 + PostToolUse 재검증 hook + marker 위조 탐지",
-    "Riki rev3 §2.1: R-1 🔴 미해소 상태로 이연됨",
-    "Ace §3 단일 권고: P3 진입 전 처리"
+    "P3 1/2: Nexus 역할 정의 · NCL Phase A 설계 · hook chain 아키텍처 결정",
+    "선행: sage-gate R-1 해소 완료 (session_152, D-132)",
+    "Edi s146 인계: versionBump carry-over (s146 +0.1 미확정), PD-054 hitRateRubric 재검토",
+    "context_brief 없음 — topic_131 활성 context_brief 미생성 상태",
+    "PD-054 resolved: hitRateRubric 잔재 확인(D-041 origin) + 8역할 일괄 삭제 완료",
+    "D-133 박제: NCL 전면 폐기 (3 페르소나 만장일치 α) + Nexus 정의 + C축(D-108) 종결",
+    "D-115/D-123 deprecated, D-117/D-118/D-120 부분 supersede·amendment, prime directive 본체+D-119/D-124/D-125/D-126/D-128/D-129 보존",
+    "R-1 자기참조 paradox carveout(D-115)는 NCL 폐기로 자동 해소",
+    "prime_directive.lock.json sha256 재생성: 8403fce6f661… (D4 텍스트 'NCL violation flag' 제거 반영, lockedBy=session_153)"
   ],
-  "gaps": [],
+  "gaps": [
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-01_big-bang-legend-nexus-p3-1of2/ace_rev1.md",
+      "expected": "ace",
+      "actualInTurns": "riki",
+      "turnId": 4
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-01_big-bang-legend-nexus-p3-1of2/arki_rev1.md",
+      "expected": "arki",
+      "actualInTurns": "jobs",
+      "turnId": 0
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-01_big-bang-legend-nexus-p3-1of2/arki_rev2.md",
+      "expected": "arki",
+      "actualInTurns": "zero",
+      "turnId": 15
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-01_big-bang-legend-nexus-p3-1of2/riki_rev1.md",
+      "expected": "riki",
+      "actualInTurns": "arki",
+      "turnId": 1
+    }
+  ],
   "tokenUsage": {
-    "input_tokens": 3498,
-    "output_tokens": 65995,
-    "cache_creation_input_tokens": 468232,
-    "cache_read_input_tokens": 5273339,
-    "messageCount": 56,
-    "masterTurns": 5,
-    "total_billable": 5811064
+    "input_tokens": 1301,
+    "output_tokens": 135542,
+    "cache_creation_input_tokens": 1042352,
+    "cache_read_input_tokens": 17455564,
+    "messageCount": 136,
+    "masterTurns": 24,
+    "total_billable": 18634759
   }
 }

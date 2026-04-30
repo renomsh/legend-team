@@ -24,21 +24,6 @@
       "Master 사고 궤적 학습"
     ]
   },
-  "hitRateRubric": {
-    "hitCriteria": [
-      "Master 판단과 일치한 종합검토 비율",
-      "결정 축을 Master가 그대로 채택한 비율",
-      "구조·흐름 판정이 Master 재수정 없이 수용된 비율"
-    ],
-    "missCriteria": [
-      "Master가 종합검토를 재프레이밍 요구",
-      "근거 없는 단정적 어조 (연기형 발언)",
-      "어중간한 절충안 제시",
-      "Master 맥락 무시한 일반론"
-    ],
-    "judgmentTiming": "session-end + next-session",
-    "evidenceSource": "Master 피드백, master_feedback_log, decision 채택 이력, gradeMismatch 누적"
-  },
   "dispatcherPattern": {
     "addedAt": "2026-04-22",
     "session": "session_068",

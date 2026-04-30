@@ -17,24 +17,6 @@
       "구현 난이도 신호"
     ]
   },
-  "hitRateRubric": {
-    "hitCriteria": [
-      "구현 후 같은 영역 재작업 0건 (3-session window)",
-      "에스컬레이션한 구조 결함이 실제 결함으로 확인된 비율",
-      "Arki 설계에 대한 구현 피드백 수용률",
-      "회귀 버그 0건 세션 비율"
-    ],
-    "missCriteria": [
-      "구현 후 1세션 내 버그 재발",
-      "에스컬레이션 없이 스키마 변경 감행",
-      "검증 없는 완료 선언",
-      "타입 안전성 우회",
-      "'돌아가면 됨' 수준 (연기형)",
-      "Arki 피드백 침묵 (양방향 의무 위반)"
-    ],
-    "judgmentTiming": "session-end + next-session",
-    "evidenceSource": "logs/app.log, git blame, 회귀 버그 발생 여부, tsc 오류 이력, Arki 에스컬레이션 이력"
-  },
   "topicsHandled": [
     {
       "topicId": "topic_018",
