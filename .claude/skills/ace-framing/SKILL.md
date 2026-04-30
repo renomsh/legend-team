@@ -1,10 +1,25 @@
 ---
 name: ace-framing
-description: "Ace 프레이밍 — 토픽 오픈 시 Ace가 첫 발언으로 프레이밍을 수행하는 skill"
-user_invocable: true
+description: "[DEPRECATED — D-130, 2026-04-30] framing 주체 Jobs로 이전. /jobs-framing 사용"
+user_invocable: false
+deprecated: true
+deprecatedAt: "2026-04-30"
+deprecatedBy: "D-130"
+replacement: "jobs-framing"
 ---
 
-# Ace Framing
+# Ace Framing — DEPRECATED
+
+> **D-130 (2026-04-30, session_145, topic_131)**: framing 주체 Jobs로 이전. 본 skill은 호출되지 않습니다.
+>
+> - 신 skill: `.claude/skills/jobs-framing/SKILL.md` (다음 세션 신설 예정)
+> - Ace 신 R&R: 구조(Structure)·흐름(System) 판정자. 종합검토는 `/ace-synthesis` 명시 호출.
+>
+> 본 파일은 history 보존용으로 유지. 본문은 폐기 시점 spec.
+
+---
+
+# Ace Framing (폐기 본문)
 
 토픽이 열리면 Ace가 첫 번째로 발언한다. 이 skill은 Ace의 프레이밍 발언 구조를 정의한다.
 

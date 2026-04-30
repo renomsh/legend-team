@@ -1,96 +1,89 @@
 {
-  "sessionId": "session_144",
-  "topicId": "topic_132",
-  "topic": "Master-first 모드 (echo chamber 실시간 자기감사 부재 보완)",
-  "topicSlug": "master-first-mode",
-  "reportPath": "reports/2026-04-30_master-first-mode",
+  "sessionId": "session_145",
+  "topicId": "topic_131",
+  "topic": "Big Bang — Legend Nexus 시스템 개편 및 역할 재정립",
+  "topicSlug": "big-bang-legend-nexus-p2-3of3",
+  "reportPath": "reports/2026-04-30_big-bang-legend-nexus-p2-3of3",
   "status": "closed",
-  "startedAt": "2026-04-30T00:35:00.000Z",
-  "closedAt": "2026-04-30T01:30:00.000Z",
-  "oneLineSummary": "Master-first 모드 옵션 2 (hook 박제) 채택, MVP P1~P3 warn-only 구현 6 파일 8/8 PASS, D-129 박제.",
+  "startedAt": "2026-04-30T01:50:00.000Z",
+  "closedAt": "2026-04-30T03:30:00.000Z",
+  "oneLineSummary": "Ace 전략(Porter+Keynes) + Jobs 기획(Steve Jobs+Kahneman) 분리 + framing/orchestration/versionBump/Grade 책임 재분배. D-130 박제, 11파일.",
   "mode": "observation",
-  "grade": "A",
-  "gradeDeclared": "A",
+  "grade": "S",
+  "gradeDeclared": "S",
   "framingLevel": 2,
   "framingSkipped": true,
   "topicType": "framing",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
-    "fin",
-    "arki",
     "riki",
-    "dev",
     "edi"
   ],
   "turns": [
     {
-      "role": "fin",
+      "role": "riki",
       "turnIdx": 0,
       "source": "agent"
     },
     {
-      "role": "arki",
-      "turnIdx": 1,
-      "source": "agent"
-    },
-    {
-      "role": "riki",
-      "turnIdx": 2,
-      "source": "agent"
-    },
-    {
-      "role": "dev",
-      "turnIdx": 3,
-      "source": "agent"
-    },
-    {
       "role": "edi",
-      "turnIdx": 4,
-      "source": "agent"
+      "turnIdx": 1,
+      "phase": "compile"
     }
   ],
   "decisions": [
-    "D-129"
+    "D-130"
   ],
   "masterDecisions": [
-    "Ace framing skip (Master 명시)",
-    "옵션 2 (hook 박제) 채택 + Fin 3조건 + Riki 3조건 = 6조건 박제",
-    "Dev MVP P1~P3 warn-only 진입 (P4 LLM 2차 / P5 enforce / P6 dual-trigger 별도 세션)"
+    "Ace framing skip (Master 명시) — P2(2/3) s142 인계 직접 활용",
+    "본 슬롯 = Ace·Riki 페르소나 갱신 + G1 cross-reference 검증",
+    "Ace 페르소나 모델 = Porter + Keynes 합성 (Master 명시: 케인즈 추가)",
+    "Ace·Jobs 2 페르소나 분리 (전략·기획 cross-칼질)",
+    "framing 자동 트리거 폐기 → /jobs-framing 명시 호출 (skill 다음 세션 신설)",
+    "ace-synthesis 명시 호출 (자동 종합검토 폐기)",
+    "Orchestration = Nexus 단일 책임",
+    "versionBump = Nexus 자동 감지 + Edi 확정 (D-104 supersede)",
+    "Grade 조정권 = Nexus default + Jobs override (Riki 권고 채택)",
+    "settings.local.json Write 권한 4 entry 추가 (memory/.claude/reports/topics)",
+    "D-130 박제 + Jobs 검토는 다음 세션 같은 토픽으로 이어감"
   ],
   "masterFeedback": [
-    "Ace framing 인계 명확 시 skip — 비용 평가부터 직행"
+    "페르소나 파일과 역할 파일 구분 확인 + 일정·공수·담당 라인 제거 + 중복 정리 + grade 평가 jobs로 이관",
+    "Step 6 역할 호출 설계 + orc_hit 제거",
+    "versionBump 박제 주체 — Ace가 아니라 Nexus가 못하나 (Q)",
+    "Orchestration은 Nexus가 진행",
+    "권한 띄어쓰기 되어있는데 왜 권한 요청? (settings 점검 트리거)",
+    "Grade 조정권 — Riki 의견 요청 → (B) Nexus + Jobs override 채택"
   ],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "decisionsAdded": [
-    "D-129"
+    "D-130"
   ],
   "versionBump": {
     "value": 0.1,
-    "reason": "Master-first 모드 hook 2건 신설 — UserPromptSubmit 슬롯 신규 자기감사 + PreToolUse(Task) chain 3단 확장. echo chamber 실시간 차단 인프라 동결."
+    "reason": "Ace 페르소나 재정의(Porter+Keynes) + Jobs 페르소나 신설(8th persona, Sage 포함 9) + framing/orchestration/versionBump/Grade 4 책임 재분배 + ace-synthesis skill 신설 + ace-framing DEPRECATED. 8 파일 신규/재작성, 3 파일 갱신, 1 settings entry. 구조 변경 1회 +0.1 cap 도달."
   },
   "notes": [
-    "Big Bang 후속 7토픽(topic_132~138) 중 Master-first 트랙. s142 notes 기반.",
-    "P4 LLM 2차 / P5 enforce(process.exit(2)) / P6 dual-trigger 자동 알림 = 후속 3 토픽 후보",
-    "F-205/R-301 자기감사 LLM 메타 회귀 잔존 — warn-only 단계 데이터 누적 후 측정 인프라 (P6)"
+    "Big Bang P2(3/3): Ace 전략·Jobs 기획 페르소나 분리 박제. Master Jobs 검토는 다음 세션 같은 토픽으로 이어감.",
+    "다음 세션 잔여: jobs-framing skill 신설 / dispatch_config.json jobs entry / session-end-finalize.js versionBump 자동 감지 hook 확장 / Edi policy versionBump 확정 step.",
+    "본 세션은 versionBump 박제 주체 변경(D-104 supersede) 결정만 박제, 구현은 다음 세션."
   ],
   "gaps": [
     {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-30_master-first-mode/fin_rev1.md",
-      "expected": "fin",
-      "actualInTurns": "edi",
-      "turnId": 4
+      "type": "deferred-implementation",
+      "item": "jobs-framing skill / dispatch_config jobs entry / session-end-finalize.js hook 확장 / Edi policy versionBump step",
+      "reason": "Master 'Jobs는 다음 세션에 같은 토픽으로 이어서 검토' 지시 — 구현 박제는 검토 후"
     }
   ],
   "tokenUsage": {
-    "input_tokens": 4561,
-    "output_tokens": 57559,
-    "cache_creation_input_tokens": 298181,
-    "cache_read_input_tokens": 10717918,
-    "messageCount": 80,
-    "masterTurns": 17,
-    "total_billable": 11078219
+    "input_tokens": 415,
+    "output_tokens": 177193,
+    "cache_creation_input_tokens": 1493667,
+    "cache_read_input_tokens": 32120660,
+    "messageCount": 162,
+    "masterTurns": 19,
+    "total_billable": 33791935
   }
 }

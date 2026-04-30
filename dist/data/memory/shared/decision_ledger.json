@@ -1,6 +1,28 @@
 {
   "decisions": [
     {
+      "id": "D-130",
+      "date": "2026-04-30",
+      "session": "session_145",
+      "topic": "topic_131",
+      "owningTopicId": "topic_131",
+      "scopeCheck": "Big Bang P2(3/3) — Ace 페르소나 재정의 + Jobs 신설 + framing/synthesis/orchestration 분리",
+      "axis": "Ace 전략 페르소나 재정의 + Jobs 기획 페르소나 신설 + framing/orchestration/versionBump/Grade 책임 재분배",
+      "decision": "(1) Ace 페르소나 재정의: 'Master 판단 대리인'(D-015) 폐기 → 외부 시각 전략가 (Porter+Keynes 합성). 미시적 산업 구조(Porter)·거시 시스템 흐름·불확실성 대응(Keynes)으로 frame 지속 가능성 판정. R&R = 구조(Structure)·흐름(System) 판정 + 결정축 설계 + `/ace-synthesis` 명시 호출 시 종합검토. (2) Jobs 기획 페르소나 신설 (8번째 페르소나, Sage 포함 9): Steve Jobs(focus·saying no) + Daniel Kahneman(인지편향·프레이밍 효과) 합성. R&R = framing(Why·What·결정축·Scope·전제·인지편향 적출·Focus 설계). (3) framing 주체 = Jobs (Ace에서 이전, ace-framing skill DEPRECATED → /jobs-framing 다음 세션 신설). (4) Orchestration = Nexus (Ace·Jobs 모두 비주체). (5) versionBump = Nexus 자동 감지(session-end-finalize.js hook) + Edi 확정 (D-104 supersede, 종합검토 비박제). (6) Grade 조정권 = Nexus 자동 판정 default + Jobs override (D-040 Ace owner 폐기, NIST SP 800-160 Vol.2 Defense in Depth 정합). (7) ace-synthesis skill 신설 (자동 종합검토 폐기, 명시 호출만). (8) ace.orchestration_hit_rate(orc_hit) 지표 deprecated.",
+      "value": "echo chamber 차단 (단일 Ace self-validate 구조 → 전략·기획 cross-칼질). framing 부산물(Grade·orchestration·versionBump)을 자동 시스템(Nexus)·확정 책임자(Edi)로 분산해 'Ace 미호출 세션 누락' 방지. D4 prime directive 정합 — 코드/hook 박제로 모델 자율 우회 차단. Ace 책임 축소·집중(전략 판정 단일 영역) + Jobs 책임 명료화(framing 단일 영역) = 단일 책임 원칙(Martin 2003) 정합.",
+      "externalAnchors": [
+        "Michael Porter, 'Competitive Strategy' (1980) + 'Competitive Advantage' (1985) — Trade-off 의무·산업 구조 분석",
+        "John Maynard Keynes, 'General Theory' (1936) — 불확실성(uncertainty) vs 리스크(risk) 구분, 적응적 사고",
+        "Steve Jobs, Stanford Commencement (2005) — Focus·saying no",
+        "Daniel Kahneman, 'Thinking, Fast and Slow' (2011) — 인지편향·프레이밍 효과·System 1/2",
+        "Robert C. Martin, 'Agile Software Development' (2003) — Single Responsibility Principle",
+        "NIST SP 800-160 Vol.2 §3.4.5 — Defense in Depth (Nexus default + Jobs override)",
+        "Marilyn Strathern (1997) — Goodhart's Law (자동 키워드 매칭 단독 무력화 회피)"
+      ],
+      "supersedes": ["D-015 (Ace 정의 부분)", "D-040 (Grade 조정권 owner)", "D-104 (versionBump 박제 주체 부분)"],
+      "caveat": "Jobs persona/policy/memory 신설은 본 세션 박제 완료, jobs-framing skill 신설 + dispatch_config jobs entry 본격 박제 + CLAUDE.md Topic Grade 표 갱신은 다음 세션 (Master Jobs 검토 후) 같은 토픽으로 이어감. 중간 상태 — Ace는 자동 트리거 폐기 되었으나 jobs-framing 미신설 시점이므로 framing이 필요한 토픽은 Master 명시 호출 또는 신설 전까지 인라인 진행."
+    },
+    {
       "id": "D-129",
       "date": "2026-04-30",
       "session": "session_144",

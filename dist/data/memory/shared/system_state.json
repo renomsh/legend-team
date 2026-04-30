@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_144",
-  "nextSessionId": "session_145",
+  "lastSessionId": "session_145",
+  "nextSessionId": "session_146",
   "currentVersion": "v2.06",
   "openTopics": [
     {
@@ -27,6 +27,12 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-130",
+      "date": "2026-04-30",
+      "axis": "Ace 전략 페르소나 재정의 + Jobs 기획 페르소나 신설 + framing/orchestration/versionBump/Grade 책임 재분배",
+      "summary": "echo chamber 차단 (단일 Ace self-validate 구조 → 전략·기획 cross-칼질). framing 부산물(Grade·orchestration·versionBump)을 자동 시스템(Nexus)·확정 책임자(Edi)로 분산해 'Ace 미호출 세션 누락' 방지. D4 prime directive 정합 — 코드/hook 박제로 모델 자율 우회 차단. Ace 책임 축소·집중(전략 판정 단일 영역) + Jobs 책임 명료화(framing 단일 영역) = 단일 책임 원칙(Martin 2003) 정합."
+    },
+    {
       "id": "D-129",
       "date": "2026-04-30",
       "axis": "Master-first 모드 = 옵션 2 (hook 박제) + 6조건",
@@ -49,15 +55,18 @@
       "date": "2026-04-29",
       "axis": "Sage 페르소나 = Master/Nexus 명시 호출 read-only 메타 분석가, same-session isolation exclusive",
       "summary": "echo chamber·anchor 의존·페르소나 drift 사후 적출 + 자가채점 inflation 차단. Goodhart's Law(Strathern 1997) 회피 — Sage가 NCL violation flag direct read하여 자기검열 우회하는 경로 차단. NIST RBAC SoD(Sandhu 1996) 정합 — read·write·route·anchor·escalate 5축 권한 분리."
-    },
-    {
-      "id": "D-125",
-      "date": "2026-04-29",
-      "axis": "Zero 정제 페르소나 운영 정의",
-      "summary": "D-115 페르소나 노출 차단 정합. Zero가 violation flag 직접 read해 자기 검열·자기 조작하는 경로 차단. anchor governance 책임은 Edi(R-2 mitigation)로 분담 — Zero는 청소·검증, Edi는 anchor 거버넌스로 권한 분리."
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_145",
+      "topicSlug": "big-bang-legend-nexus-p2-3of3",
+      "closedAt": "2026-04-30T03:30:00.000Z",
+      "oneLineSummary": "Ace 전략(Porter+Keynes) + Jobs 기획(Steve Jobs+Kahneman) 분리 + framing/orchestration/versionBump/Grade 책임 재분배. D-130 박제, 11파일.",
+      "decisionsAdded": [
+        "D-130"
+      ]
+    },
     {
       "sessionId": "session_144",
       "topicSlug": "master-first-mode",
@@ -75,17 +84,6 @@
       "decisionsAdded": [
         "topic_127 재종결 — P3(잔여 5역할 분리 + scaffold-role.ts) 이미 완료 상태",
         "topic_138(R-1 paradox 차단) 분기 가능 항목으로 보존"
-      ]
-    },
-    {
-      "sessionId": "session_142",
-      "topicSlug": "big-bang-legend-nexus-p2-1of3",
-      "closedAt": "2026-04-29T14:30:00.000Z",
-      "oneLineSummary": "P2(2/3): Sage 신설 + Zero 갱신 + sage-gate hook 별도파일 + R-2 부분 카오 자백. D-126~D-128 박제, 9파일.",
-      "decisionsAdded": [
-        "D-126",
-        "D-127",
-        "D-128"
       ]
     }
   ],
@@ -592,5 +590,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-29T23:46:46.411Z"
+  "lastUpdated": "2026-04-30T04:40:22.519Z"
 }

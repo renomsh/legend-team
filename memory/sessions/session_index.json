@@ -6248,8 +6248,51 @@
       "decisionsAdded": [
         "D-129"
       ]
+    },
+    {
+      "sessionId": "session_145",
+      "topicSlug": "big-bang-legend-nexus-p2-3of3",
+      "topic": "Big Bang — Legend Nexus 시스템 개편 및 역할 재정립",
+      "startedAt": "2026-04-30T01:50:00.000Z",
+      "closedAt": "2026-04-30T03:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "decisions": [
+        "Ace framing skip (Master 명시) — P2(2/3) s142 인계 직접 활용",
+        "본 슬롯 = Ace·Riki 페르소나 갱신 + G1 cross-reference 검증",
+        "Ace 페르소나 모델 = Porter + Keynes 합성 (Master 명시: 케인즈 추가)",
+        "Ace·Jobs 2 페르소나 분리 (전략·기획 cross-칼질)",
+        "framing 자동 트리거 폐기 → /jobs-framing 명시 호출 (skill 다음 세션 신설)",
+        "ace-synthesis 명시 호출 (자동 종합검토 폐기)",
+        "Orchestration = Nexus 단일 책임",
+        "versionBump = Nexus 자동 감지 + Edi 확정 (D-104 supersede)",
+        "Grade 조정권 = Nexus default + Jobs override (Riki 권고 채택)",
+        "settings.local.json Write 권한 4 entry 추가 (memory/.claude/reports/topics)",
+        "D-130 박제 + Jobs 검토는 다음 세션 같은 토픽으로 이어감"
+      ],
+      "agentsCompleted": [
+        "riki",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "riki",
+          "turnIdx": 0,
+          "source": "agent"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 1,
+          "phase": "compile"
+        }
+      ],
+      "grade": "S",
+      "note": "Big Bang P2(3/3): Ace 전략·Jobs 기획 페르소나 분리 박제. Master Jobs 검토는 다음 세션 같은 토픽으로 이어감. | 다음 세션 잔여: jobs-framing skill 신설 / dispatch_config.json jobs entry / session-end-finalize.js versionBump 자동 감지 hook 확장 / Edi policy versionBump 확정 step. | 본 세션은 versionBump 박제 주체 변경(D-104 supersede) 결정만 박제, 구현은 다음 세션.",
+      "oneLineSummary": "Ace 전략(Porter+Keynes) + Jobs 기획(Steve Jobs+Kahneman) 분리 + framing/orchestration/versionBump/Grade 책임 재분배. D-130 박제, 11파일.",
+      "decisionsAdded": [
+        "D-130"
+      ]
     }
   ],
-  "lastUpdated": "2026-04-29T23:46:29.982Z",
+  "lastUpdated": "2026-04-30T04:40:07.066Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
