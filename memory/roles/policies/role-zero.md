@@ -4,7 +4,7 @@
 
 ## 호출 조건
 
-- on-demand. 매 세션 호출 X. 정제 필요 시 Master/Ace 호출.
+- on-demand. 매 세션 호출 X. 정제 필요 시 Master/Nexus 호출.
 - `session_isolation: "shared"` — Sage와 달리 다른 페르소나와 공존 가능
 - `dispatch_config.json` `rules.zero.excludedAssets` 준수 (violation flag direct read 차단)
 

@@ -6383,8 +6383,30 @@
       "note": "session_147 후속 — PD-053 잔여 9역할(Arki/Fin/Riki/Nova/Dev/Vera/Jobs/Sage/Zero) persona×policy×memory 3축 Master 직접 검토. | session_147에서 Edi(+ Ace) 검토 완료. 본 세션 잔여 처리. | Master 입력: 'Arki/Fin/Riki/Nova/Dev/Vera/Jobs/Sage/Zero' — 9역할 (Master 입력엔 10이라 적었으나 실제 9).",
       "oneLineSummary": "PD-044+PD-053 resolved: 11개 memory 정제, Sage/Zero policy 신설, Ace persona stale 제거, .old 7개 삭제",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_149",
+      "topicSlug": "9agent-persona-policy-upgrade-v1.1",
+      "topic": "9Agent 역할/정책/페르소나 upgrade ver1.1",
+      "startedAt": "2026-04-30T11:30:00.000Z",
+      "closedAt": "2026-04-30T14:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "edi",
+          "turnIdx": 0,
+          "source": "agent"
+        }
+      ],
+      "grade": "A",
+      "note": "PD-053 resolved(session_148) 후 후속 — ver1.1 upgrade 토픽. 9역할 페르소나/정책/메모리 실질 내용 개선. | session_148에서 구조 정합(canonical 분리) 완료. 본 세션은 내용 품질 upgrade. | 완료 역할: Arki(페르소나/정책/메모리), Fin(페르소나/정책/메모리), Riki(페르소나/정책), Dev(페르소나). Nova/Dev pass. | 전역 변경: Nexus 참조 6곳(Vera/Zero 포함), Top 0.1% 절대금지 추가 4역할(Arki/Fin/Riki/Dev). | 미완료: Vera(페르소나 upgrade), Ace, Jobs, Edi, Zero, Sage — 다음 세션(session_150)에서 이어서.",
+      "oneLineSummary": "Arki/Fin/Riki/Dev 편집 완료, Nexus 참조 6곳, Top 0.1% 4역할 추가 — Vera 이후 다음 세션",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-04-30T06:13:42.420Z",
+  "lastUpdated": "2026-04-30T07:53:23.825Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

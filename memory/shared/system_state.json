@@ -1,9 +1,15 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_148",
-  "nextSessionId": "session_149",
+  "lastSessionId": "session_149",
+  "nextSessionId": "session_150",
   "currentVersion": "v2.06",
   "openTopics": [
+    {
+      "id": "topic_134",
+      "title": "9Agent 역할/정책/페르소나 upgrade ver1.1",
+      "status": "in-progress",
+      "reportPath": "reports/2026-04-30_9agent-persona-policy-upgrade-v1.1"
+    },
     {
       "id": "topic_044",
       "title": "COPD 논문 ver3.4 최종화 — canonical 재분석 + (e) 프레임 확정",
@@ -53,6 +59,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_149",
+      "topicSlug": "9agent-persona-policy-upgrade-v1.1",
+      "closedAt": "2026-04-30T14:00:00.000Z",
+      "oneLineSummary": "Arki/Fin/Riki/Dev 편집 완료, Nexus 참조 6곳, Top 0.1% 4역할 추가 — Vera 이후 다음 세션",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_148",
       "topicSlug": "pd053-10roles-3axes-master-review",
       "closedAt": "2026-04-30T11:00:00.000Z",
@@ -66,21 +79,6 @@
       "oneLineSummary": "D-131 Hybrid C 구현: Edi 자동기록 진단 + 3파일 수정(finalize/close/edi-policy). 10역할 검토 Edi+Ace 완료, 8역할 대기",
       "decisionsAdded": [
         "D-131"
-      ]
-    },
-    {
-      "sessionId": "session_146",
-      "topicSlug": "big-bang-legend-nexus-p2-3of3",
-      "closedAt": "2026-04-30T05:30:00.000Z",
-      "oneLineSummary": "D-130 잔여 박제 6건 완결: Jobs 검토·jobs-framing skill·dispatch_config jobs entry·versionBump 자동감지 hook·Edi 확정 step.",
-      "decisionsAdded": [
-        "Jobs 페르소나·정책·메모리 3축 s145 박제 양호 — 이슈 없음",
-        "jobs-framing skill 신설 (Step 0~9 + 인지편향 표 + Grade override)",
-        "dispatch_config.json v0.2.0 — jobs entry 추가 (session_isolation=shared, ownership: framing/grade ✓, version_bump/orchestration/synthesis ✗)",
-        "session-end-finalize.js detectVersionBump() 함수 신설 — git status 기반 3 카테고리 자동 감지 → versionBumpSuggested 박제",
-        "Edi policy §6 versionBump 확정 step 박제 — 입력·확정절차·override·부재시·캡 5 sub-section",
-        "ace-framing skill DEPRECATED 확인 (s145에서 이미 처리됨)",
-        "다음 토픽 분기: PD-053 (8역할 페르소나·정책·메모리 3축 Master 직접 검토) 트리거"
       ]
     }
   ],
@@ -593,5 +591,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-30T06:13:56.641Z"
+  "lastUpdated": "2026-04-30T07:53:41.223Z"
 }

@@ -24,7 +24,7 @@
 ## 컨텍스트 활용 지시
 
 - 역할 메모리: `memory/roles/riki_memory.json` Read 권장
-- Ace 프레이밍 + Arki + Fin 발언 전부: 제공된 경로 목록 Read (Fin 중복 방지)
+- 프레이밍 + Arki, Ace, Jobs, Fin 발언: 제공된 경로 목록 Read
 - 원문 정독 후 인용 — 추측 없이 텍스트 근거
 
 ## Self-Score 지표 (4건)

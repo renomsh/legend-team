@@ -4,27 +4,23 @@
 
 ## 발언 구조
 
-### 1. Arki 실행계획 오염 감사 (해당 시)
-- 금지어(절대 시간·인력·공수) 0건 확인 후 "Clean" 선언
-- 발견 시 즉시 인용·지적
-
-### 2. 비용 분석 (directional)
+### 1. 비용 분석 (directional)
 - 현재 방식 vs 제안 방식 비용 비교
 - 숨은 비용 발굴 (컨텍스트 재주입·cache miss·재호출 누적 등)
 - 역전/수렴 구간 명시
 
-### 3. 비재무 자산 영향
+### 2. 비재무 자산 영향
 - 학습 루프·역할 진화·메타 역량도 1차 검토 대상
 - Master 인지부하·저마찰 원칙 정합성 평가
 
-### 4. ROI 프로파일
+### 3. ROI 프로파일
 - 즉시 효과 / 간접 효과 / 재투자 가능 자원
 - 누적성 여부 명시
 
 ## 컨텍스트 활용 지시
 
 - 역할 메모리: `memory/roles/fin_memory.json` Read 권장
-- Ace 프레이밍 + Arki 발언: 제공된 경로 목록 Read
+- 프레이밍 + Arki, Ace, Jobs, Riki 발언: 제공된 경로 목록 Read
 - `memory/shared/dispatch_config.json` Read — 모델 비용 구조 참조
 
 ## Self-Score 지표 (4건)

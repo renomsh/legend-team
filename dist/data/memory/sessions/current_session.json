@@ -1,19 +1,19 @@
 {
-  "sessionId": "session_148",
-  "topicId": "topic_133",
-  "topic": "PD-053 — 10역할 3축 Master 직접 검토 + Edi 자동기록 진단",
-  "topicSlug": "pd053-10roles-3axes-master-review",
-  "reportPath": "reports/2026-04-30_pd053-10roles-3axes-master-review",
+  "sessionId": "session_149",
+  "topicId": "topic_134",
+  "topic": "9Agent 역할/정책/페르소나 upgrade ver1.1",
+  "topicSlug": "9agent-persona-policy-upgrade-v1.1",
+  "reportPath": "reports/2026-04-30_9agent-persona-policy-upgrade-v1.1",
   "status": "closed",
-  "startedAt": "2026-04-30T09:30:00.000Z",
-  "closedAt": "2026-04-30T11:00:00.000Z",
-  "oneLineSummary": "PD-044+PD-053 resolved: 11개 memory 정제, Sage/Zero policy 신설, Ace persona stale 제거, .old 7개 삭제",
+  "closedAt": "2026-04-30T14:00:00.000Z",
+  "oneLineSummary": "Arki/Fin/Riki/Dev 편집 완료, Nexus 참조 6곳, Top 0.1% 4역할 추가 — Vera 이후 다음 세션",
+  "startedAt": "2026-04-30T11:30:00.000Z",
   "mode": "observation",
   "grade": "A",
   "gradeDeclared": "A",
   "framingLevel": 2,
   "framingSkipped": false,
-  "topicType": "framing",
+  "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
@@ -30,31 +30,32 @@
   "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [
-    "PD-044",
-    "PD-053"
-  ],
+  "pendingDeferralsResolved": [],
   "decisionsAdded": [],
   "notes": [
-    "session_147 후속 — PD-053 잔여 9역할(Arki/Fin/Riki/Nova/Dev/Vera/Jobs/Sage/Zero) persona×policy×memory 3축 Master 직접 검토.",
-    "session_147에서 Edi(+ Ace) 검토 완료. 본 세션 잔여 처리.",
-    "Master 입력: 'Arki/Fin/Riki/Nova/Dev/Vera/Jobs/Sage/Zero' — 9역할 (Master 입력엔 10이라 적었으나 실제 9)."
+    "PD-053 resolved(session_148) 후 후속 — ver1.1 upgrade 토픽. 9역할 페르소나/정책/메모리 실질 내용 개선.",
+    "session_148에서 구조 정합(canonical 분리) 완료. 본 세션은 내용 품질 upgrade.",
+    "완료 역할: Arki(페르소나/정책/메모리), Fin(페르소나/정책/메모리), Riki(페르소나/정책), Dev(페르소나). Nova/Dev pass.",
+    "전역 변경: Nexus 참조 6곳(Vera/Zero 포함), Top 0.1% 절대금지 추가 4역할(Arki/Fin/Riki/Dev).",
+    "미완료: Vera(페르소나 upgrade), Ace, Jobs, Edi, Zero, Sage — 다음 세션(session_150)에서 이어서."
   ],
-  "gaps": [],
+  "gaps": [
+    "Vera 이후 역할(Ace/Jobs/Edi/Zero/Sage) upgrade 미완 — topic_134 in-progress 유지, session_150 계속"
+  ],
   "tokenUsage": {
-    "input_tokens": 202,
-    "output_tokens": 77423,
-    "cache_creation_input_tokens": 993062,
-    "cache_read_input_tokens": 12662813,
+    "input_tokens": 216,
+    "output_tokens": 109969,
+    "cache_creation_input_tokens": 646641,
+    "cache_read_input_tokens": 14002847,
     "messageCount": 120,
-    "masterTurns": 17,
-    "total_billable": 13733500
+    "masterTurns": 15,
+    "total_billable": 14759673
   },
   "versionBumpSuggested": {
     "value": 0.1,
     "type": "structural",
-    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 26건 (memory/roles/ace_memory.json, memory/roles/arki_memory.json, memory/roles/designer_memory.json …)",
-    "autoDetectedAt": "2026-04-30T06:13:54.736Z",
+    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 12건 (memory/roles/arki_memory.json, memory/roles/fin_memory.json, memory/roles/personas/role-arki.md …)",
+    "autoDetectedAt": "2026-04-30T07:53:38.923Z",
     "changedFiles": [
       "AGENTS.md",
       "CONTEXT.md",
@@ -70,14 +71,14 @@
       "logs/master-first.log",
       "logs/pre-tool-use-task.log",
       "logs/sage-gate.log",
-      "memory/roles/ace_memory.json",
       "memory/roles/arki_memory.json",
-      "memory/roles/designer_memory.json",
-      "memory/roles/dev_memory.json",
-      "memory/roles/edi_memory.json",
-      "memory/roles/fin_memory.json"
+      "memory/roles/fin_memory.json",
+      "memory/roles/personas/role-arki.md",
+      "memory/roles/personas/role-dev.md",
+      "memory/roles/personas/role-fin.md",
+      "memory/roles/personas/role-riki.md"
     ],
-    "changedFilesCount": 145,
+    "changedFilesCount": 130,
     "cappedAt": 0.1,
     "confirmedBy": null
   }

@@ -34,7 +34,7 @@ description: 레전드팀 Zero 역할 서브에이전트. 정제(refinement) 페
 
 ## 호출 규칙
 
-**on-demand**. 매 세션 호출 X. 정제 필요 시 Master/Ace가 호출. `dispatch_config.json` `rules.zero`:
+**on-demand**. 매 세션 호출 X. 정제 필요 시 Master/Nexus가 호출. `dispatch_config.json` `rules.zero`:
 - `scope_areas`: `["tech-debt", "security-review", "simplify"]`
 - `excludedAssets`: `["memory/shared/ncl_violations.jsonl", "memory/shared/violations/*"]` (Goodhart 회피, D-115/D-125)
 - `session_isolation`: `"shared"` — Sage와 달리 다른 페르소나와 공존 가능

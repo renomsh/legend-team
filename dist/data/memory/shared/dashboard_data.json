@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-04-30T06:14:02.698Z",
-  "totalSessions": 146,
+  "generatedAt": "2026-04-30T07:53:49.634Z",
+  "totalSessions": 147,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.84,
-    "avgCacheHitRate": 0.9312,
-    "cacheSampleSize": 120,
-    "cacheSampleTotal": 146,
+    "avgMasterTurns": 16.83,
+    "avgCacheHitRate": 0.9313,
+    "cacheSampleSize": 121,
+    "cacheSampleTotal": 147,
     "avgAdoptionRate": 0,
     "totalDecisions": 132,
     "gradeDistribution": {
       "S": 63,
       "A": 30,
       "B": 39,
-      "C": 14
+      "C": 15
     },
     "gradeMismatchCount": 2,
     "gradeMismatchSessions": [
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 101,
-    "totalCostUSD": 1533.7706,
-    "avgCostPerSession": 10.8778,
-    "costSampleSize": 141
+    "turnBasedSessions": 102,
+    "totalCostUSD": 1542.0465,
+    "avgCostPerSession": 10.8595,
+    "costSampleSize": 142
   },
   "sessions": [
     {
@@ -5591,6 +5591,39 @@
         "messageCount": 120
       },
       "sessionCostUSD": 8.6848
+    },
+    {
+      "sessionId": "session_149",
+      "topicSlug": "9agent-persona-policy-upgrade-v1.1",
+      "topic": "9Agent 역할/정책/페르소나 upgrade ver1.1",
+      "startedAt": "2026-04-30T11:30:00.000Z",
+      "closedAt": "2026-04-30T14:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 15,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 14759673,
+        "ioTokens": 110185,
+        "inputTokens": 216,
+        "outputTokens": 109969,
+        "cacheCreate": 646641,
+        "cacheRead": 14002847,
+        "cacheHitRate": 0.9487233897390546,
+        "messageCount": 120
+      },
+      "sessionCostUSD": 8.2759
     }
   ],
   "roleFrequency": [
@@ -5740,7 +5773,7 @@
     },
     {
       "role": "edi",
-      "count": 103,
+      "count": 104,
       "sessions": [
         "session_050",
         "session_051",
@@ -5839,7 +5872,8 @@
         "session_145",
         "session_146",
         "session_147",
-        "session_148"
+        "session_148",
+        "session_149"
       ]
     },
     {
@@ -9935,6 +9969,18 @@
     {
       "sessionId": "session_148",
       "topic": "PD-053 — 10역할 3축 Master 직접 검토 + Edi 자동기록 진단",
+      "sequence": [
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_149",
+      "topic": "9Agent 역할/정책/페르소나 upgrade ver1.1",
       "sequence": [
         {
           "role": "edi",
