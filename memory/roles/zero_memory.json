@@ -43,6 +43,28 @@
     ],
     "introducedBy": "D-127 (session_142, 2026-04-29, D-119 본문 박제)"
   },
-  "metrics": [],
-  "selfScoreShortKeys": []
+  "metrics": [
+    {
+      "id": "zero.ref_count",
+      "shortKey": "ref_cnt",
+      "scale": "count",
+      "axis": "execution-transfer",
+      "construct": "Cut/Refine/Audit 3 도구로 실제 처리한 항목 합계"
+    },
+    {
+      "id": "zero.hc_found",
+      "shortKey": "hc_found",
+      "scale": "count",
+      "axis": "quality",
+      "construct": "Audit 도구로 발견한 하드코딩·secret·credential·절대경로 건수"
+    },
+    {
+      "id": "zero.clean_rate",
+      "shortKey": "cln_rt",
+      "scale": "ratio",
+      "axis": "quality",
+      "construct": "정제 결과물이 빌드·검증을 통과한 비율 (전량 통과=1.0)"
+    }
+  ],
+  "selfScoreShortKeys": ["ref_cnt", "hc_found", "cln_rt"]
 }

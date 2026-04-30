@@ -1,13 +1,13 @@
 {
-  "sessionId": "session_150",
+  "sessionId": "session_151",
   "topicId": "topic_134",
   "topic": "9Agent 역할/정책/페르소나 upgrade ver1.1",
   "topicSlug": "9agent-persona-policy-upgrade-v1.1",
   "reportPath": "reports/2026-04-30_9agent-persona-policy-upgrade-v1.1",
   "status": "closed",
-  "startedAt": "2026-04-30T14:30:00.000Z",
-  "closedAt": "2026-04-30T16:30:00.000Z",
-  "oneLineSummary": "Vera 6건+Edi 3건 편집, 전체 stale 스캔 clean, Jobs/Zero/Sage 다음 세션 Master 직접 검토",
+  "startedAt": "2026-04-30T17:00:00.000Z",
+  "closedAt": "2026-04-30T19:00:00.000Z",
+  "oneLineSummary": "9Agent ver1.1 완결 — Zero/Jobs/Sage/Ace upgrade + PD-054(hitRateRubric) topic_131 이연",
   "mode": "observation",
   "grade": "A",
   "gradeDeclared": "A",
@@ -17,86 +17,119 @@
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
-    "ace",
-    "ace",
+    "riki",
+    "riki",
+    "jobs",
+    "riki",
     "edi"
   ],
   "turns": [
     {
-      "role": "ace",
+      "role": "riki",
       "turnIdx": 0,
-      "source": "agent"
+      "source": "agent",
+      "note": "Zero 지표 설계 검토 — count 타입 R-3 식별"
     },
     {
-      "role": "ace",
+      "role": "riki",
       "turnIdx": 1,
-      "source": "agent"
+      "source": "agent",
+      "note": "Jobs upgrade 5건 검토 — R-1~R-5 식별, 한 줄 정의 수정 권고"
+    },
+    {
+      "role": "jobs",
+      "turnIdx": 2,
+      "source": "agent",
+      "note": "한 줄 정의 자기 작성 — 5안 + 안 2 추천 ('인지편향을 적출하고 결정축을 단 하나로 좁힌다.')"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 3,
+      "source": "agent",
+      "note": "Sage 3종 점검 — R-1 D2 누락, R-3 한 줄 정의, R-6 자기진단 paradox"
     },
     {
       "role": "edi",
-      "turnIdx": 2,
-      "source": "agent"
+      "turnIdx": 4,
+      "source": "agent",
+      "note": "session_151 종결 보고서 — edi_rev3.md"
     }
   ],
   "decisions": [],
   "masterDecisions": [],
-  "masterFeedback": [
-    {
-      "id": "MF-105",
-      "summary": "요청 없이 Ace 서브에이전트 호출 금지"
-    }
+  "masterFeedback": [],
+  "pendingDeferralsAdded": [
+    "PD-054"
   ],
-  "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "decisionsAdded": [],
   "notes": [
-    "session_149 이어서 — Vera 6건+Edi 3건 편집 완료",
-    "전체 9역할 stale Ace 참조 스캔: vera_memory.json 2곳 수정 완료, 나머지 clean",
-    "dispatch_config.json ace_reject_* 3개: P3 ackReason scope 이연",
-    "Jobs/Zero/Sage: 다음 세션 Master 직접 검토 예정",
-    "edi_memory.json hitRateRubric stale 항목: 다음 세션 범위"
+    "session_150 이어서 — Jobs/Zero/Sage Master 직접 검토 + Ace Top 0.1% + edi stale 점검",
+    "9역할 upgrade ver1.1 본체 완결 — 4역할(Zero/Jobs/Sage/Ace) 본 세션 처리",
+    "metrics_registry 41→49 (+8 metrics: Zero 3 + Jobs 5)",
+    "count 스케일 신설 — session-end-finalize.js 0-100 검증 면제 처리",
+    "Jobs 한 줄 정의 자기 작성 (5안 → 안 2 채택)",
+    "PD-054 등록: hitRateRubric 구조 자체 재검토 (topic_131 후속)",
+    "Sage same-session 격리(D-128) 작동 확인 — 한 줄 정의 자기 작성 시도 차단됨, Master가 추가 안 하기로 결정",
+    "Master 운영 결정 (D-XXX 박제 아닌 세션 운영 결정): Zero 카운팅 채택, Jobs callerScope=master|nexus, Jobs 한 줄 정의 안 2, Jobs 지표 2개 추가, Sage 한 줄 정의 미추가, Sage R-1만 적용, Ace Top 0.1% 추가, hitRateRubric→PD-054 이연"
   ],
   "gaps": [
     {
-      "type": "missing-report",
-      "role": "ace",
-      "turnIdx": 0,
-      "note": "ace turn0 미요청 호출 — Master 피드백 MF-105로 기록"
+      "type": "deferred",
+      "note": "G-7 dispatch_config.json ace_reject_* 3개 필드 — P3 ackReason scope (hook 미연결, 별도 세션)"
     },
     {
-      "type": "incomplete",
-      "note": "Jobs/Zero/Sage persona/policy 미검토 — topic_134 in-progress 유지"
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-30_9agent-persona-policy-upgrade-v1.1/ace_rev1.md",
+      "expected": "ace",
+      "actualInTurns": "riki",
+      "turnId": 1
     },
     {
       "type": "inline-role-header-mismatch",
       "file": "reports/2026-04-30_9agent-persona-policy-upgrade-v1.1/edi_rev1.md",
       "expected": "edi",
-      "actualInTurns": "ace",
+      "actualInTurns": "riki",
       "turnId": 0
     },
     {
       "type": "inline-role-header-mismatch",
       "file": "reports/2026-04-30_9agent-persona-policy-upgrade-v1.1/edi_rev2.md",
       "expected": "edi",
-      "actualInTurns": "ace",
+      "actualInTurns": "riki",
       "turnId": 0
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-30_9agent-persona-policy-upgrade-v1.1/edi_rev3.md",
+      "expected": "edi",
+      "actualInTurns": "riki",
+      "turnId": 0
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-04-30_9agent-persona-policy-upgrade-v1.1/riki_rev4.md",
+      "expected": "riki",
+      "actualInTurns": "edi",
+      "turnId": 4
     }
   ],
   "tokenUsage": {
-    "input_tokens": 26607,
-    "output_tokens": 90292,
-    "cache_creation_input_tokens": 551418,
-    "cache_read_input_tokens": 17016198,
-    "messageCount": 148,
-    "masterTurns": 15,
-    "total_billable": 17684515
+    "input_tokens": 455,
+    "output_tokens": 165422,
+    "cache_creation_input_tokens": 950368,
+    "cache_read_input_tokens": 32900216,
+    "messageCount": 209,
+    "masterTurns": 23,
+    "total_billable": 34016461
   },
   "versionBumpSuggested": {
     "value": 0.1,
     "type": "structural",
-    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 6건 (memory/roles/edi_memory.json, memory/roles/personas/role-edi.md, memory/roles/personas/role-vera.md …)",
-    "autoDetectedAt": "2026-04-30T11:40:51.576Z",
+    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 9건 (memory/roles/jobs_memory.json, memory/roles/personas/role-ace.md, memory/roles/personas/role-jobs.md …)",
+    "autoDetectedAt": "2026-04-30T14:09:14.293Z",
     "changedFiles": [
+      ".claude/hooks/session-end-finalize.js",
       "AGENTS.md",
       "CONTEXT.md",
       "agents/ace.md",
@@ -111,14 +144,13 @@
       "logs/master-first.log",
       "logs/pre-tool-use-task.log",
       "logs/sage-gate.log",
-      "memory/master/master_feedback_log.json",
-      "memory/roles/edi_memory.json",
-      "memory/roles/personas/role-edi.md",
-      "memory/roles/personas/role-vera.md",
-      "memory/roles/policies/role-edi.md",
-      "memory/roles/policies/role-vera.md"
+      "memory/growth/metrics_registry.json",
+      "memory/roles/jobs_memory.json",
+      "memory/roles/personas/role-ace.md",
+      "memory/roles/personas/role-jobs.md",
+      "memory/roles/personas/role-sage.md"
     ],
-    "changedFilesCount": 125,
+    "changedFilesCount": 132,
     "cappedAt": 0.1,
     "confirmedBy": null
   }

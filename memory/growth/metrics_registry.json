@@ -1,12 +1,12 @@
 {
   "registryVersion": "v1.0",
-  "compiledAt": "2026-04-25T04:19:38.441Z",
+  "compiledAt": "2026-04-30T13:41:34.606Z",
   "sourceHash": "dfa76f91086c39c8",
   "axisDistribution": {
     "learning": 5,
-    "quality": 17,
-    "judgment-consistency": 11,
-    "execution-transfer": 8
+    "quality": 21,
+    "judgment-consistency": 13,
+    "execution-transfer": 10
   },
   "aggregationViews": [
     "all",
@@ -1670,6 +1670,312 @@
       "participationExpectedTopicTypes": [
         "framing",
         "implementation",
+        "standalone"
+      ]
+    },
+    {
+      "id": "zero.ref_count",
+      "shortKey": "ref_cnt",
+      "role": "zero",
+      "scope": "role",
+      "axis": "execution-transfer",
+      "type": "base",
+      "scale": "count",
+      "polarity": "higher-better",
+      "construct": "세션 내 Cut/Refine/Audit 3 도구로 실제 처리한 항목 합계",
+      "externalAnchor": [
+        "git diff --stat 변경 건수"
+      ],
+      "validityCheck": "session",
+      "rater": {
+        "type": "self",
+        "by": "zero"
+      },
+      "raterWeights": {
+        "zero": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 5,
+      "lifecycleState": "active",
+      "inputPriority": "core",
+      "defaultStrategy": "explicit-only",
+      "missingPenalty": "silent",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "implementation",
+        "standalone"
+      ],
+      "scaleNote": "count — 상한 없는 양의 정수. 0-100 범위 검증 면제."
+    },
+    {
+      "id": "zero.hc_found",
+      "shortKey": "hc_found",
+      "role": "zero",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "count",
+      "polarity": "higher-better",
+      "construct": "Audit 도구로 발견한 하드코딩·secret·credential·절대경로 건수",
+      "externalAnchor": [
+        "git grep 하드코딩 패턴 탐색 결과"
+      ],
+      "validityCheck": "session",
+      "rater": {
+        "type": "self",
+        "by": "zero"
+      },
+      "raterWeights": {
+        "zero": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 5,
+      "lifecycleState": "active",
+      "inputPriority": "core",
+      "defaultStrategy": "explicit-only",
+      "missingPenalty": "silent",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "implementation",
+        "standalone"
+      ],
+      "scaleNote": "count — 상한 없는 양의 정수. 0-100 범위 검증 면제."
+    },
+    {
+      "id": "zero.clean_rate",
+      "shortKey": "cln_rt",
+      "role": "zero",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "ratio",
+      "polarity": "higher-better",
+      "construct": "정제 결과물이 빌드·검증을 통과한 비율 (전량 통과=1.0, 오류 1건 이상=0.0)",
+      "externalAnchor": [
+        "build 통과 여부 (npm run build 또는 tsc 오류 0건)"
+      ],
+      "validityCheck": "session",
+      "rater": {
+        "type": "self",
+        "by": "zero"
+      },
+      "raterWeights": {
+        "zero": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 5,
+      "lifecycleState": "active",
+      "inputPriority": "core",
+      "defaultStrategy": "explicit-only",
+      "missingPenalty": "silent",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "implementation",
+        "standalone"
+      ]
+    },
+    {
+      "id": "jobs.frame_decision_link",
+      "shortKey": "frm_dec",
+      "role": "jobs",
+      "scope": "role",
+      "axis": "judgment-consistency",
+      "type": "base",
+      "scale": "Y/N",
+      "polarity": "higher-better",
+      "construct": "Jobs frame이 decision_ledger 신규 박제(D-xxx)로 이어졌는지. 침묵=N (R-3 회피).",
+      "externalAnchor": [
+        "decision_ledger D-xxx 신규 박제 + Jobs frame 인용 일치"
+      ],
+      "validityCheck": "session",
+      "rater": {
+        "type": "external",
+        "by": "master"
+      },
+      "raterWeights": {
+        "master": 1
+      },
+      "timing": "deferred",
+      "aggregation": "all-sessions",
+      "baselineSessions": 5,
+      "lifecycleState": "active",
+      "inputPriority": "core",
+      "defaultStrategy": "explicit-only",
+      "missingPenalty": "silent",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "jobs.bias_hit",
+      "shortKey": "bias_hit",
+      "role": "jobs",
+      "scope": "role",
+      "axis": "judgment-consistency",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "higher-better",
+      "construct": "적출한 인지편향 N개 중 Master/팀 결정에 실제 영향을 준 개수 (0~5)",
+      "externalAnchor": [
+        "Master 명시 인용 또는 decision_ledger D-xxx 변경 사유에 편향 명칭 포함"
+      ],
+      "validityCheck": "session",
+      "rater": {
+        "type": "external",
+        "by": "master"
+      },
+      "raterWeights": {
+        "master": 1
+      },
+      "timing": "deferred",
+      "aggregation": "all-sessions",
+      "baselineSessions": 5,
+      "lifecycleState": "active",
+      "inputPriority": "core",
+      "defaultStrategy": "explicit-only",
+      "missingPenalty": "silent",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "jobs.focus_sharpness",
+      "shortKey": "focus_sharp",
+      "role": "jobs",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "higher-better",
+      "construct": "saying no 구체성 — 객관 체크리스트 (R-5 회피). 글머리표 분리(Y) + out-of-scope 명시(Y) 둘 다=5 / 하나만=3 / 둘 다 N=0",
+      "externalAnchor": [
+        "Jobs framing 발언 본문 saying no 항목 표기 형식 검사"
+      ],
+      "validityCheck": "session",
+      "rater": {
+        "type": "self",
+        "by": "jobs"
+      },
+      "raterWeights": {
+        "jobs": 1
+      },
+      "timing": "immediate",
+      "aggregation": "all-sessions",
+      "baselineSessions": 5,
+      "lifecycleState": "active",
+      "inputPriority": "core",
+      "defaultStrategy": "explicit-only",
+      "missingPenalty": "silent",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "jobs.legacy_log",
+      "shortKey": "legacy_log",
+      "role": "jobs",
+      "scope": "role",
+      "axis": "execution-transfer",
+      "type": "base",
+      "scale": "Y/N",
+      "polarity": "higher-better",
+      "construct": "학습 누적 — Master가 Jobs frame을 시스템 지식으로 채택 기록(memory·persona·policy·charter 갱신)했는지. 침묵=N.",
+      "externalAnchor": [
+        "memory/roles/* 또는 CLAUDE.md 또는 project_charter.json 갱신 + Jobs frame 인용"
+      ],
+      "validityCheck": "session",
+      "rater": {
+        "type": "external",
+        "by": "master"
+      },
+      "raterWeights": {
+        "master": 1
+      },
+      "timing": "deferred",
+      "aggregation": "all-sessions",
+      "baselineSessions": 5,
+      "lifecycleState": "active",
+      "inputPriority": "core",
+      "defaultStrategy": "explicit-only",
+      "missingPenalty": "silent",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
+        "standalone"
+      ]
+    },
+    {
+      "id": "jobs.bloat_index",
+      "shortKey": "bloat_idx",
+      "role": "jobs",
+      "scope": "role",
+      "axis": "quality",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "lower-better",
+      "construct": "산출물 군더더기 지수 — 예외 조항·불필요한 안전장치·조건부 분기 개수. 0=극단적 단순화 성공.",
+      "externalAnchor": [
+        "Master 외부 평가 — 산출물 내 예외/조건부/안전장치 카운트"
+      ],
+      "validityCheck": "session",
+      "rater": {
+        "type": "external",
+        "by": "master"
+      },
+      "raterWeights": {
+        "master": 1
+      },
+      "timing": "deferred",
+      "aggregation": "all-sessions",
+      "baselineSessions": 5,
+      "lifecycleState": "active",
+      "inputPriority": "core",
+      "defaultStrategy": "explicit-only",
+      "missingPenalty": "silent",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing",
         "standalone"
       ]
     }

@@ -12,13 +12,14 @@
 
 ## 발언 구조
 
-### 분석 5축 (읽기 전용)
+### 분석 6축 (읽기 전용)
 
 1. **누적 채점 추세** — 역할별 self-scores N 세션 이동 평균·분산. 자기채점 inflation 탐지.
 2. **지표 정합성** — `memory/growth/metrics_registry.json` 정의 vs 실제 박제값 분포. 누락 적발.
 3. **자가채점 cross-check** — turns 매핑·NCL 영수증·외부 관찰(Riki 적출, Master feedback) 3축 비교.
 4. **시스템 패턴** — echo chamber·anchor 의존·페르소나 drift·결정 휘발 등 메타 패턴.
 5. **Prime directive 자기충실성** — 시스템이 D1~D4 prime directive를 어디서 어기고 있는가.
+6. **Registry·hook description 거짓 가능성 cross-check (D2 정합)** — registry 정의·hook description이 실제 행위와 일치하는지 검증. registry를 정직 전제로 박제값만 비교 시 Sage 자신이 D2 위반 (session_151, Riki R-1).
 
 ### 발언 포맷
 

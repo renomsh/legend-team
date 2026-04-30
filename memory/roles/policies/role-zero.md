@@ -51,9 +51,15 @@ After:
 
 ## Self-Score 지표
 
-_미정의 (신규 역할, metrics_registry.json 등록 전)_
+(D-092: `memory/growth/metrics_registry.json` 단일 출처. session_151 등록 완료.)
 
-(D-092: 등록 시 `memory/growth/metrics_registry.json` 단일 출처)
+| shortKey | 명칭 | scale | 채점 기준 |
+|---|---|---|---|
+| `ref_cnt` | 정제 처리 건수 | count | Cut/Refine/Audit 처리 항목 합계 (정수, 상한 없음) |
+| `hc_found` | 하드코딩 적발 건수 | count | Audit 발견 건수 (정수, 상한 없음) |
+| `cln_rt` | 정제 후 미오류율 | ratio | 빌드·검증 전량 통과=1.0 / 오류 1건 이상=0.0 |
+
+**count 스케일 주의**: `ref_cnt`, `hc_found`는 100 초과 가능. finalize 파서 면제 처리됨 (Riki R-3, session_151).
 
 ## 컨텍스트 활용 지시
 

@@ -1,12 +1,12 @@
 {
-  "computedAt": "2026-04-30T11:40:59.033Z",
+  "computedAt": "2026-04-30T14:09:21.471Z",
   "registryVersion": "v1.0",
-  "durationMs": 2,
+  "durationMs": 1,
   "slaWarnMs": 3000,
   "slaBreached": false,
   "sourceJsonl": "memory\\growth\\self_scores.jsonl",
   "recordCount": 52,
-  "metricCount": 41,
+  "metricCount": 49,
   "aggregates": [
     {
       "metricId": "ace.angle_novelty",
@@ -1064,6 +1064,222 @@
     {
       "metricId": "edi.retroactive_gap_discovery",
       "role": "edi",
+      "view": "recent3",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "zero.ref_count",
+      "role": "zero",
+      "view": "all",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "zero.ref_count",
+      "role": "zero",
+      "view": "recent10",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "zero.ref_count",
+      "role": "zero",
+      "view": "recent3",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "zero.hc_found",
+      "role": "zero",
+      "view": "all",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "zero.hc_found",
+      "role": "zero",
+      "view": "recent10",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "zero.hc_found",
+      "role": "zero",
+      "view": "recent3",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "zero.clean_rate",
+      "role": "zero",
+      "view": "all",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "zero.clean_rate",
+      "role": "zero",
+      "view": "recent10",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "zero.clean_rate",
+      "role": "zero",
+      "view": "recent3",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "jobs.frame_decision_link",
+      "role": "jobs",
+      "view": "all",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "jobs.frame_decision_link",
+      "role": "jobs",
+      "view": "recent10",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "jobs.frame_decision_link",
+      "role": "jobs",
+      "view": "recent3",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "jobs.bias_hit",
+      "role": "jobs",
+      "view": "all",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "jobs.bias_hit",
+      "role": "jobs",
+      "view": "recent10",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "jobs.bias_hit",
+      "role": "jobs",
+      "view": "recent3",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "jobs.focus_sharpness",
+      "role": "jobs",
+      "view": "all",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "jobs.focus_sharpness",
+      "role": "jobs",
+      "view": "recent10",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "jobs.focus_sharpness",
+      "role": "jobs",
+      "view": "recent3",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "jobs.legacy_log",
+      "role": "jobs",
+      "view": "all",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "jobs.legacy_log",
+      "role": "jobs",
+      "view": "recent10",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "jobs.legacy_log",
+      "role": "jobs",
+      "view": "recent3",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "jobs.bloat_index",
+      "role": "jobs",
+      "view": "all",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "jobs.bloat_index",
+      "role": "jobs",
+      "view": "recent10",
+      "mean": null,
+      "n": 0,
+      "std": 0,
+      "ci95": null
+    },
+    {
+      "metricId": "jobs.bloat_index",
+      "role": "jobs",
       "view": "recent3",
       "mean": null,
       "n": 0,

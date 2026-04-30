@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-30T11:41:01.525Z",
-  "totalSessions": 148,
+  "generatedAt": "2026-04-30T14:09:24.169Z",
+  "totalSessions": 149,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 16.92,
-    "avgCacheHitRate": 0.9316,
-    "cacheSampleSize": 122,
-    "cacheSampleTotal": 148,
+    "avgMasterTurns": 16.97,
+    "avgCacheHitRate": 0.9319,
+    "cacheSampleSize": 123,
+    "cacheSampleTotal": 149,
     "avgAdoptionRate": 0,
     "totalDecisions": 132,
     "gradeDistribution": {
-      "S": 63,
+      "S": 65,
       "A": 31,
-      "B": 40,
+      "B": 39,
       "C": 14
     },
     "gradeMismatchCount": 2,
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 103,
-    "totalCostUSD": 1558.9735,
-    "avgCostPerSession": 10.9019,
-    "costSampleSize": 143
+    "turnBasedSessions": 104,
+    "totalCostUSD": 1574.8901,
+    "avgCostPerSession": 10.9367,
+    "costSampleSize": 144
   },
   "sessions": [
     {
@@ -5602,10 +5602,10 @@
       "decisionAxes": 0,
       "rolesCalled": 1,
       "rolesRecalled": 0,
-      "sessionsSpanned": 2,
-      "size": 7,
-      "gradeDeclared": "B",
-      "gradeActual": "B",
+      "sessionsSpanned": 3,
+      "size": 10,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 30,
@@ -5635,10 +5635,10 @@
       "decisionAxes": 0,
       "rolesCalled": 3,
       "rolesRecalled": 1,
-      "sessionsSpanned": 2,
-      "size": 11,
-      "gradeDeclared": "A",
-      "gradeActual": "A",
+      "sessionsSpanned": 3,
+      "size": 14,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 15,
@@ -5659,6 +5659,43 @@
         "messageCount": 148
       },
       "sessionCostUSD": 8.6069
+    },
+    {
+      "sessionId": "session_151",
+      "topicSlug": "9agent-persona-policy-upgrade-v1.1",
+      "topic": "9Agent 역할/정책/페르소나 upgrade ver1.1",
+      "startedAt": "2026-04-30T17:00:00.000Z",
+      "closedAt": "2026-04-30T19:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 5,
+      "rolesRecalled": 2,
+      "sessionsSpanned": 3,
+      "size": 18,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 23,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "riki",
+        "riki",
+        "jobs",
+        "riki",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 34016461,
+        "ioTokens": 165877,
+        "inputTokens": 455,
+        "outputTokens": 165422,
+        "cacheCreate": 950368,
+        "cacheRead": 32900216,
+        "cacheHitRate": 0.967185151918067,
+        "messageCount": 209
+      },
+      "sessionCostUSD": 15.9166
     }
   ],
   "roleFrequency": [
@@ -5809,7 +5846,7 @@
     },
     {
       "role": "edi",
-      "count": 105,
+      "count": 106,
       "sessions": [
         "session_050",
         "session_051",
@@ -5910,7 +5947,8 @@
         "session_147",
         "session_148",
         "session_149",
-        "session_150"
+        "session_150",
+        "session_151"
       ]
     },
     {
@@ -5982,7 +6020,7 @@
     },
     {
       "role": "riki",
-      "count": 66,
+      "count": 69,
       "sessions": [
         "session_049",
         "session_053",
@@ -6034,7 +6072,8 @@
         "session_142",
         "session_144",
         "session_145",
-        "session_147"
+        "session_147",
+        "session_151"
       ]
     },
     {
@@ -6087,6 +6126,13 @@
         "session_077",
         "session_082",
         "session_138"
+      ]
+    },
+    {
+      "role": "jobs",
+      "count": 1,
+      "sessions": [
+        "session_151"
       ]
     }
   ],
@@ -10047,6 +10093,42 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_151",
+      "topic": "9Agent 역할/정책/페르소나 upgrade ver1.1",
+      "sequence": [
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "jobs",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 4,
           "recallReason": null
         }
       ]

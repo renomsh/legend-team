@@ -1,15 +1,9 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_150",
-  "nextSessionId": "session_151",
+  "lastSessionId": "session_151",
+  "nextSessionId": "session_152",
   "currentVersion": "v2.06",
   "openTopics": [
-    {
-      "id": "topic_134",
-      "title": "9Agent 역할/정책/페르소나 upgrade ver1.1",
-      "status": "in-progress",
-      "reportPath": "reports/2026-04-30_9agent-persona-policy-upgrade-v1.1"
-    },
     {
       "id": "topic_044",
       "title": "COPD 논문 ver3.4 최종화 — canonical 재분석 + (e) 프레임 확정",
@@ -59,6 +53,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_151",
+      "topicSlug": "9agent-persona-policy-upgrade-v1.1",
+      "closedAt": "2026-04-30T19:00:00.000Z",
+      "oneLineSummary": "9Agent ver1.1 완결 — Zero/Jobs/Sage/Ace upgrade + PD-054(hitRateRubric) topic_131 이연",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_150",
       "topicSlug": "9agent-persona-policy-upgrade-v1.1",
       "closedAt": "2026-04-30T16:30:00.000Z",
@@ -70,13 +71,6 @@
       "topicSlug": "9agent-persona-policy-upgrade-v1.1",
       "closedAt": "2026-04-30T14:00:00.000Z",
       "oneLineSummary": "Arki/Fin/Riki/Dev 편집 완료, Nexus 참조 6곳, Top 0.1% 4역할 추가 — Vera 이후 다음 세션",
-      "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_148",
-      "topicSlug": "pd053-10roles-3axes-master-review",
-      "closedAt": "2026-04-30T11:00:00.000Z",
-      "oneLineSummary": "PD-044+PD-053 resolved: 11개 memory 정제, Sage/Zero policy 신설, Ace persona stale 제거, .old 7개 삭제",
       "decisionsAdded": []
     }
   ],
@@ -587,7 +581,18 @@
       "resolvedInSession": "session_106",
       "resolvedNote": "vr-infra-spec.md image 핀 v1.59.1-jammy 정정 완료. vr:capture --add-host+VR_BASE_URL 갱신. session_106 docker pull → vr-capture 24/24 PASS. D-099 박제.",
       "dependsOn": []
+    },
+    {
+      "id": "PD-054",
+      "fromSession": "session_151",
+      "fromTopic": "9agent-persona-policy-upgrade-v1.1",
+      "item": "hitRateRubric 구조 자체 재검토 — 8역할(Ace·Arki·Fin·Riki·Nova·Dev·Edi·Vera) memory에 박제된 hitRateRubric이 D-092 자가평가 단순화 정책(metrics_registry.json 단일 출처)과 정합한지 결정. 폐기/유지/통합 3옵션 + Jobs·Sage·Zero 3 신규 역할 미박제 패턴 의미 해석.",
+      "status": "pending",
+      "note": "topic_131(빅뱅) 후속. session_151에서 Edi hitRateRubric 점검 중 발견. Ace→Nexus 갱신은 이미 완료(stale 해소). 구조 자체 정책은 빅뱅 토픽 범위.",
+      "resolveCondition": "8역할 hitRateRubric 정책 결정 박제 (D-xxx) + 결과에 따라 일괄 갱신/폐기/유지 수행",
+      "relatedTopic": "topic_131",
+      "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-30T11:40:53.907Z"
+  "lastUpdated": "2026-04-30T14:09:16.537Z"
 }

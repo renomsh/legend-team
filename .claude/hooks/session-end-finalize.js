@@ -517,8 +517,19 @@ function validateInlineRoleHeaders(sess) {
  * R-6 (topic_127 P4, 2026-04-28) — turns[].selfScores 스케일 검증.
  * selfScores 값이 [0, 100] 범위를 벗어나거나 숫자가 아닌 경우 gaps 박제. 차단 X.
  * D-092: selfScores: {shortKey: value} 포맷. 유효 범위 0~100.
+ * count 스케일 면제 (Riki R-3, session_151): metrics_registry.json scale=count 지표는 상한 없음.
  */
 function checkSelfScoreScale(sess) {
+  // count 스케일 shortKey 목록 — metrics_registry.json에서 로드
+  let countScaleKeys = new Set();
+  try {
+    const regPath = path.join(__dirname, '../../memory/growth/metrics_registry.json');
+    const reg = JSON.parse(fs.readFileSync(regPath, 'utf8'));
+    for (const m of reg.metrics || []) {
+      if (m.scale === 'count') countScaleKeys.add(m.shortKey);
+    }
+  } catch (e) { /* 로드 실패 시 면제 목록 없음 — 기존 동작 유지 */ }
+
   const turns = Array.isArray(sess.turns) ? sess.turns : [];
   const violations = [];
 
@@ -528,6 +539,7 @@ function checkSelfScoreScale(sess) {
       if (val === 'deferred' || val === null || val === undefined) continue;
       const num = Number(val);
       if (isNaN(num)) continue; // Y/N 등 비숫자 값은 스케일 검증 대상 아님
+      if (countScaleKeys.has(key)) continue; // count 스케일은 상한 없음 — 면제
       if (num < 0 || num > 100) {
         violations.push({ role: turn.role, turnIdx: turn.turnIdx, key, val, reason: 'out-of-range' });
       }

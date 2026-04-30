@@ -38,9 +38,11 @@
       "auto_hook": false,
       "first_speaker_override": true,
       "session_isolation": "shared",
-      "ncl_emission_allowed": true
+      "ncl_emission_allowed": true,
+      "callerScope": "master | nexus"
     },
-    "introducedBy": "D-130 (session_145, 2026-04-30)"
+    "introducedBy": "D-130 (session_145, 2026-04-30)",
+    "callerScopeUpdated": "session_151 (2026-04-30) — Riki R-2: orchestration single-책임 정합"
   },
   "framePatterns": [
     "시스템 자체를 토픽으로 삼을 때: 현재 상태 진단 → 목표 상태 정의 → 결정 축 도출",
@@ -51,16 +53,56 @@
   ],
   "framePatternsTransferredFrom": "ace_memory.json (D-130, 2026-04-30) — framing 주체 이전과 함께 패턴 이관",
   "framingStructure": {
-    "step0_topicLifecycle": "topicType (framing|implementation|standalone) + parentTopicId 후보 선언",
-    "step1_what": "핵심 질문 1문장 + 배경 (왜 지금)",
-    "step2_decisionAxes": "Master가 내려야 할 선택지 + 양극단 + trade-off 간결히 (Ace가 후속 진단)",
-    "step3_scope": "In (반드시 다룰 것) / Out (명시 제외)",
-    "step4_assumptions": "논의 성립 전제. 틀리면 무효화되는 것은 🔴",
-    "step5_executionPlanMode": "plan | conditional | none",
-    "note": "기존 ace-framing 발언 구조에서 이전 (D-130). Jobs는 frame 생성, Ace는 frame 판정. Orchestration은 Nexus 담당."
+    "required": ["step1_why", "step2_what", "step3_decisionAxes", "step4_scope"],
+    "conditional": ["step0_topicLifecycle", "step5_assumptions", "step6_biasAudit", "step7_executionPlanMode"],
+    "step0_topicLifecycle": "topicType (framing|implementation|standalone) + parentTopicId 후보 선언 — lifecycle 판정 필요시",
+    "step1_why": "본질 정의 — 왜 지금 이 토픽인가 1문장 + 사용자에게 해결되는 진짜 문제 (필수)",
+    "step2_what": "결과물 정의 — 토픽 종료 시 결과물 1줄 + 사용자가 어떤 frame에서 매력을 느낄지 (필수)",
+    "step3_decisionAxes": "Master가 내려야 할 선택지 + 양극단 + trade-off 간결히 (Ace가 후속 정밀 진단) (필수)",
+    "step4_scope": "In (반드시 다룰 것) / Out (명시 제외 — saying no 핵심) (필수)",
+    "step5_assumptions": "핵심 전제. 틀리면 무효화되는 것은 🔴 (조건부 — 전제 명시 필요시)",
+    "step6_biasAudit": "본 framing이 빠질 수 있는 인지편향 자가 점검 (anchoring·availability·framing effect·loss aversion 등). 발견 시 명시 (조건부 — 적출 대상 있을 시)",
+    "step7_executionPlanMode": "plan | conditional | none (조건부 — Arki 실행계획 필요 토픽에서만)",
+    "note": "D-130 정합 8단계 (session_151 갱신). 필수 4 + 조건부 4. Riki R-1 완화 — Grade B/C 토픽 framing 회피 방지. Orchestration은 Nexus 담당."
   },
-  "metrics": [],
-  "selfScoreShortKeys": [],
+  "metrics": [
+    {
+      "id": "jobs.frame_decision_link",
+      "shortKey": "frm_dec",
+      "scale": "Y/N",
+      "axis": "judgment-consistency",
+      "construct": "Jobs frame이 decision_ledger 신규 박제로 이어졌는지"
+    },
+    {
+      "id": "jobs.bias_hit",
+      "shortKey": "bias_hit",
+      "scale": "0-5",
+      "axis": "judgment-consistency",
+      "construct": "적출한 인지편향 중 결정에 영향을 준 개수"
+    },
+    {
+      "id": "jobs.focus_sharpness",
+      "shortKey": "focus_sharp",
+      "scale": "0-5",
+      "axis": "quality",
+      "construct": "saying no 구체성 — 글머리표 분리 + out-of-scope 명시 체크리스트"
+    },
+    {
+      "id": "jobs.legacy_log",
+      "shortKey": "legacy_log",
+      "scale": "Y/N",
+      "axis": "execution-transfer",
+      "construct": "Master가 frame을 시스템 지식(memory/persona/policy/charter)으로 채택 기록했는지"
+    },
+    {
+      "id": "jobs.bloat_index",
+      "shortKey": "bloat_idx",
+      "scale": "0-5",
+      "axis": "quality",
+      "construct": "산출물에 남은 군더더기·예외조항·안전장치 개수 (lower-better)"
+    }
+  ],
+  "selfScoreShortKeys": ["frm_dec", "bias_hit", "focus_sharp", "legacy_log", "bloat_idx"],
   "topicsHandled": [],
   "lessonLog": [],
   "introducedAt": {

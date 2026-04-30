@@ -1528,3 +1528,13 @@
 [2026-04-30T11:40:41.311Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_134\context_brief.md | sessions=4 size=335B
 [2026-04-30T11:40:53.908Z] [sync-system-state] lastSession=session_150 openTopics=3 recentDecisions=5 recentSummaries=3 deferrals=49
 [2026-04-30T11:41:01.531Z] [compute-dashboard] 완료 — 148개 세션, 2개 경보
+[2026-04-30T14:08:30.988Z] [checklist] [INFO] reports: 7 file(s) on disk, none registered in topic_index
+[2026-04-30T14:08:30.991Z] [checklist] [WARN] decision_ledger: masterDecisions noted but none found in ledger for session_151
+[2026-04-30T14:08:30.992Z] [checklist] [INFO] topic_index: topic found: topic_134 (completed)
+[2026-04-30T14:08:30.993Z] [checklist] [INFO] current_session: will be set to closed
+[2026-04-30T14:08:30.993Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-04-30T14:08:30.994Z] [session-log] [INFO] END session_151 | topic: 9agent-persona-policy-upgrade-v1.1 | duration: unknown (startedAt in future)
+[2026-04-30T14:09:01.736Z] [L2-writer] wrote C:\Projects\legend-team\topics\topic_134\session_contributions\session_151.md | turns=4 decisions=0
+[2026-04-30T14:09:04.308Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_134\context_brief.md | sessions=6 size=335B
+[2026-04-30T14:09:16.538Z] [sync-system-state] lastSession=session_151 openTopics=2 recentDecisions=5 recentSummaries=3 deferrals=50
+[2026-04-30T14:09:24.174Z] [compute-dashboard] 완료 — 149개 세션, 2개 경보
