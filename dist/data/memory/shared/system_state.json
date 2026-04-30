@@ -1,15 +1,9 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_147",
-  "nextSessionId": "session_148",
+  "lastSessionId": "session_148",
+  "nextSessionId": "session_149",
   "currentVersion": "v2.06",
   "openTopics": [
-    {
-      "id": "topic_133",
-      "title": "PD-053 — 10역할 3축 Master 직접 검토 + Edi 자동기록 진단",
-      "status": "suspended",
-      "reportPath": "reports/2026-04-30_pd053-10roles-3axes-master-review"
-    },
     {
       "id": "topic_044",
       "title": "COPD 논문 ver3.4 최종화 — canonical 재분석 + (e) 프레임 확정",
@@ -59,6 +53,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_148",
+      "topicSlug": "pd053-10roles-3axes-master-review",
+      "closedAt": "2026-04-30T11:00:00.000Z",
+      "oneLineSummary": "PD-044+PD-053 resolved: 11개 memory 정제, Sage/Zero policy 신설, Ace persona stale 제거, .old 7개 삭제",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_147",
       "topicSlug": "pd053-10roles-3axes-master-review",
       "closedAt": "2026-04-30T09:00:00.000Z",
@@ -81,15 +82,6 @@
         "ace-framing skill DEPRECATED 확인 (s145에서 이미 처리됨)",
         "다음 토픽 분기: PD-053 (8역할 페르소나·정책·메모리 3축 Master 직접 검토) 트리거"
       ]
-    },
-    {
-      "sessionId": "session_145",
-      "topicSlug": "big-bang-legend-nexus-p2-3of3",
-      "closedAt": "2026-04-30T03:30:00.000Z",
-      "oneLineSummary": "Ace 전략(Porter+Keynes) + Jobs 기획(Steve Jobs+Kahneman) 분리 + framing/orchestration/versionBump/Grade 책임 재분배. D-130 박제, 11파일.",
-      "decisionsAdded": [
-        "D-130"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -98,9 +90,12 @@
       "fromSession": "session_131",
       "fromTopic": "persona-structure-redesign",
       "item": "역할별 캐릭터 정비 — persona(정체성)·policy(발언규칙)·memory(누적학습) 3축을 역할별로 Master와 1:1 검토. 각 역할 파일 내용 점검 + 불일치·누락·중복 정리.",
-      "status": "pending",
+      "status": "resolved",
       "resolveCondition": "8역할 전부 Master 직접 검토 완료 + 필요 시 수정 반영",
-      "dependsOn": []
+      "dependsOn": [],
+      "resolvedAt": "2026-04-30",
+      "resolvedInSession": "session_148",
+      "resolvedNote": "10역할×3축 직검 완료 — persona/policy/memory 구조 정합. Sage/Zero policy 신설, designer 아카이브, Ace persona stale D-104 제거, personas/.old 7개 삭제."
     },
     {
       "id": "PD-052",
@@ -119,9 +114,12 @@
       "fromSession": "session_103",
       "fromTopic": "pd040-schema-governance-pd041-test-regression",
       "item": "역할 정책의 페르소나 박제 — selfAuditProtocol(arki) 등 '발언 시 강제 적용' 정책이 *_memory.json에만 있고 personas/role-*.md에 미박제. 서브에이전트 호출 시 페르소나만 prompt에 주입되므로 정책 무용. canonical 분리 원칙 박제: 정책=persona / 누적학습=memory. 8역할 페르소나 점검 + 정책성 항목 본문 이전.",
-      "status": "pending",
+      "status": "resolved",
       "resolveCondition": "8역할 페르소나에 정책 블록 박제 완료 + canonical 분리 원칙 CLAUDE.md 또는 D-09x로 박제 + 1세션 dry-run에서 정책 작동 확인",
-      "dependsOn": []
+      "dependsOn": [],
+      "resolvedAt": "2026-04-30",
+      "resolvedInSession": "session_148",
+      "resolvedNote": "canonical 분리 완료 — 11개 memory 파일 표준 키만 잔존, policy 블록 role-*.md 이동, signatureMetrics D-092 단일 출처 정합."
     },
     {
       "id": "PD-043",
@@ -595,5 +593,5 @@
       "dependsOn": []
     }
   ],
-  "lastUpdated": "2026-04-30T05:32:26.840Z"
+  "lastUpdated": "2026-04-30T06:13:56.641Z"
 }

@@ -6,7 +6,7 @@ description: 레전드팀 Zero 역할 서브에이전트. 정제(refinement) 페
 # Zero — 레전드팀 정제 페르소나 서브에이전트
 
 > 본 문서는 **페르소나(정체성)** 만 박제. 발언 구조·지표·공통 계약은:
-> - 역할 정책: `memory/roles/policies/role-zero.md` (P3 작성 예정)
+> - 역할 정책: `memory/roles/policies/role-zero.md`
 > - 공통 정책: `memory/roles/policies/_common.md`
 
 > **canonical raterId**: `zero`. D-127 신설 (D-119 본문 박제).

@@ -1,6 +1,7 @@
 # 공통 정책 (모든 역할 서브에이전트 공통)
 
-> 이 문서는 8개 역할(Ace/Arki/Dev/Edi/Fin/Riki/Nova/Vera) 모든 서브에이전트가 공유하는 공통 계약·프로토콜이다.
+> 이 문서는 10개 역할(Ace/Arki/Dev/Edi/Fin/Jobs/Nova/Riki/Vera/Zero) 모든 서브에이전트가 공유하는 공통 계약·프로토콜이다.
+> Sage는 write 0 예외 — Self-Score YAML 출력 계약 적용 안 됨 (`policies/role-sage.md` 참조).
 > persona(정체성)와 role-policy(역할별 발언구조·지표)와 분리되며, hook v3가 자동 prepend한다.
 > 100줄 cap (Riki R-7 mitigation).
 

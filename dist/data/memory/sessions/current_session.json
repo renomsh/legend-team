@@ -1,13 +1,13 @@
 {
-  "sessionId": "session_147",
+  "sessionId": "session_148",
   "topicId": "topic_133",
   "topic": "PD-053 — 10역할 3축 Master 직접 검토 + Edi 자동기록 진단",
   "topicSlug": "pd053-10roles-3axes-master-review",
   "reportPath": "reports/2026-04-30_pd053-10roles-3axes-master-review",
   "status": "closed",
-  "startedAt": "2026-04-30T05:35:00.000Z",
-  "closedAt": "2026-04-30T09:00:00.000Z",
-  "oneLineSummary": "D-131 Hybrid C 구현: Edi 자동기록 진단 + 3파일 수정(finalize/close/edi-policy). 10역할 검토 Edi+Ace 완료, 8역할 대기",
+  "startedAt": "2026-04-30T09:30:00.000Z",
+  "closedAt": "2026-04-30T11:00:00.000Z",
+  "oneLineSummary": "PD-044+PD-053 resolved: 11개 memory 정제, Sage/Zero policy 신설, Ace persona stale 제거, .old 7개 삭제",
   "mode": "observation",
   "grade": "A",
   "gradeDeclared": "A",
@@ -17,85 +17,45 @@
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
-    "riki",
     "edi"
   ],
   "turns": [
     {
-      "role": "riki",
+      "role": "edi",
       "turnIdx": 0,
       "source": "agent"
-    },
-    {
-      "role": "edi",
-      "turnIdx": 1,
-      "source": "nexus",
-      "note": "D-131 close checklist execution — no LLM Edi invoked (hook will generate edi_auto_rev1.md)"
     }
   ],
   "decisions": [],
   "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [],
-  "decisionsAdded": [
-    "D-131"
+  "pendingDeferralsResolved": [
+    "PD-044",
+    "PD-053"
   ],
+  "decisionsAdded": [],
   "notes": [
-    "PD-053 트리거 — 10역할(8역할 + Sage + Zero) × 3축(persona/policy/memory) Master 직접 검토.",
-    "추가 과제: /close 시 Edi 자동기록 부재 원인 진단 + 대안 수립.",
-    "각 역할 1:1 직접 검토 — 분리·간결화 작업 동반.",
-    "D-131 Hybrid C 구현 완료: session-end-finalize.js + close.md + role-edi.md 3파일 수정.",
-    "Edi 진단 + Ace 검토 완료. 잔여 8역할(Arki/Fin/Riki/Nova/Dev/Vera/Jobs/Sage/Zero) 다음 세션.",
-    "다음세션에 해당 토픽 이어서 진행."
+    "session_147 후속 — PD-053 잔여 9역할(Arki/Fin/Riki/Nova/Dev/Vera/Jobs/Sage/Zero) persona×policy×memory 3축 Master 직접 검토.",
+    "session_147에서 Edi(+ Ace) 검토 완료. 본 세션 잔여 처리.",
+    "Master 입력: 'Arki/Fin/Riki/Nova/Dev/Vera/Jobs/Sage/Zero' — 9역할 (Master 입력엔 10이라 적었으나 실제 9)."
   ],
-  "gaps": [
-    {
-      "type": "edi-llm-not-invoked",
-      "reason": "D-131 첫 live test — Grade A지만 Edi LLM 미호출. hook이 edi_auto_rev1.md 생성 예정.",
-      "severity": "info",
-      "source": "close-checklist-step-1.5"
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-04-30_pd053-10roles-3axes-master-review/riki_rev1.md",
-      "expected": "riki",
-      "actualInTurns": "edi",
-      "turnId": 1
-    },
-    {
-      "type": "edi-llm-skipped",
-      "sessionId": "session_147",
-      "grade": "A",
-      "severity": "high",
-      "detectedAt": "2026-04-30T05:32:11.951Z",
-      "note": "Grade A/B/S 세션에서 Edi LLM 미호출 — mechanical fallback 박제됨"
-    },
-    {
-      "type": "edi-llm-report-absent",
-      "sessionId": "session_147",
-      "reportPath": "reports/2026-04-30_pd053-10roles-3axes-master-review",
-      "grade": "A",
-      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
-    }
-  ],
+  "gaps": [],
   "tokenUsage": {
-    "input_tokens": 270,
-    "output_tokens": 75908,
-    "cache_creation_input_tokens": 767206,
-    "cache_read_input_tokens": 8279573,
-    "messageCount": 72,
-    "masterTurns": 12,
-    "total_billable": 9122957
+    "input_tokens": 202,
+    "output_tokens": 77423,
+    "cache_creation_input_tokens": 993062,
+    "cache_read_input_tokens": 12662813,
+    "messageCount": 120,
+    "masterTurns": 17,
+    "total_billable": 13733500
   },
   "versionBumpSuggested": {
     "value": 0.1,
     "type": "structural",
-    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 1건 (memory/roles/policies/role-edi.md)",
-    "autoDetectedAt": "2026-04-30T05:32:24.547Z",
+    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 26건 (memory/roles/ace_memory.json, memory/roles/arki_memory.json, memory/roles/designer_memory.json …)",
+    "autoDetectedAt": "2026-04-30T06:13:54.736Z",
     "changedFiles": [
-      ".claude/commands/close.md",
-      ".claude/hooks/session-end-finalize.js",
       "AGENTS.md",
       "CONTEXT.md",
       "agents/ace.md",
@@ -110,12 +70,14 @@
       "logs/master-first.log",
       "logs/pre-tool-use-task.log",
       "logs/sage-gate.log",
-      "memory/master/master_feedback_log.json",
-      "memory/roles/policies/role-edi.md",
-      "memory/sessions/current_session.json",
-      "memory/sessions/session_index.json"
+      "memory/roles/ace_memory.json",
+      "memory/roles/arki_memory.json",
+      "memory/roles/designer_memory.json",
+      "memory/roles/dev_memory.json",
+      "memory/roles/edi_memory.json",
+      "memory/roles/fin_memory.json"
     ],
-    "changedFilesCount": 123,
+    "changedFilesCount": 145,
     "cappedAt": 0.1,
     "confirmedBy": null
   }

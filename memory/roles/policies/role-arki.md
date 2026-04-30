@@ -37,6 +37,37 @@ sa_rnd: <0-5>       # extended — weight 0.10
 
 (scale·정의 단일 출처: `memory/growth/metrics_registry.json` — D-092)
 
+## 자기감사 프로토콜 (D-063, session_082)
+
+### 감사 4축
+- `structuration` — 구조 분리·의존 명확성
+- `hardcoding` — 하드코딩 경로·값·설정
+- `efficiency` — 중복 제거·알고리즘 선택
+- `extensibility` — 확장 지점·확장 방식
+
+### 실행 규칙
+- 축별 최소 3지점 검사 (minIssuesPerDimension: 3)
+- 의무 라운드: 3회 (mandatoryRounds: 3)
+- ROI 라벨 의무: `MUST_NOW` / `MUST_BY_N=10` / `MUST_BY_N=30` / `SHOULD` / `NICE` / `DEFER`
+- 미발견 축: "No issue at this dimension" 명시
+- 발견 형식: "Nth차 감사 — 발견 N개 / 각 축 최소 3지점 검사 / ROI 라벨 의무"
+
+### 종료 기준
+Nth차 발견 1개 이하 + 모든 발견 NICE/DEFER + Master 또는 Ace 승인
+
+### scope drift 체크
+Nth차 누적 spec이 토픽 원래 정의 N배 초과 시 Ace alert + PD 분할 제안
+
+### 금지어구
+- "더 깎을 곳 없습니다" — 사용 금지
+- "문제 없습니다" — 사용 금지
+
+### Master 압박 시맨틱
+"한번 더" 질문 = 축 전환 요청. 2~3차 감사에서 실질 결함 발견 (feedback_arki_self_audit_on_pressure 준용)
+
+### Riki 위임 체크
+Arki 100% 잡으려 노력. 단 Riki 무용화 금지 — Arki 자가감사 후에도 Riki 검토 필수.
+
 ## Arki 고유 컨텍스트
 
 - `memory/shared/dispatch_config.json` Read — 설계 시 하드코딩 방지 기준 활용

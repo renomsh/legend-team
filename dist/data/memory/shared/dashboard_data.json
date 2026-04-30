@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-30T05:32:34.495Z",
-  "totalSessions": 145,
+  "generatedAt": "2026-04-30T06:14:02.698Z",
+  "totalSessions": 146,
   "autoDataFrom": "session_027",
   "metrics": {
     "avgMasterTurns": 16.84,
-    "avgCacheHitRate": 0.9313,
-    "cacheSampleSize": 119,
-    "cacheSampleTotal": 145,
+    "avgCacheHitRate": 0.9312,
+    "cacheSampleSize": 120,
+    "cacheSampleTotal": 146,
     "avgAdoptionRate": 0,
     "totalDecisions": 132,
     "gradeDistribution": {
       "S": 63,
-      "A": 29,
+      "A": 30,
       "B": 39,
       "C": 14
     },
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 100,
-    "totalCostUSD": 1525.0858,
-    "avgCostPerSession": 10.8935,
-    "costSampleSize": 140
+    "turnBasedSessions": 101,
+    "totalCostUSD": 1533.7706,
+    "avgCostPerSession": 10.8778,
+    "costSampleSize": 141
   },
   "sessions": [
     {
@@ -5535,10 +5535,10 @@
       ],
       "rolesCalled": 2,
       "rolesRecalled": 0,
-      "sessionsSpanned": 1,
-      "size": 7,
-      "gradeDeclared": "B",
-      "gradeActual": "B",
+      "sessionsSpanned": 2,
+      "size": 10,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 12,
@@ -5558,6 +5558,39 @@
         "messageCount": 72
       },
       "sessionCostUSD": 6.5003
+    },
+    {
+      "sessionId": "session_148",
+      "topicSlug": "pd053-10roles-3axes-master-review",
+      "topic": "PD-053 — 10역할 3축 Master 직접 검토 + Edi 자동기록 진단",
+      "startedAt": "2026-04-30T09:30:00.000Z",
+      "closedAt": "2026-04-30T11:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 2,
+      "size": 7,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 17,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 13733500,
+        "ioTokens": 77625,
+        "inputTokens": 202,
+        "outputTokens": 77423,
+        "cacheCreate": 993062,
+        "cacheRead": 12662813,
+        "cacheHitRate": 0.9220383005060618,
+        "messageCount": 120
+      },
+      "sessionCostUSD": 8.6848
     }
   ],
   "roleFrequency": [
@@ -5707,7 +5740,7 @@
     },
     {
       "role": "edi",
-      "count": 102,
+      "count": 103,
       "sessions": [
         "session_050",
         "session_051",
@@ -5805,7 +5838,8 @@
         "session_144",
         "session_145",
         "session_146",
-        "session_147"
+        "session_147",
+        "session_148"
       ]
     },
     {
@@ -9894,6 +9928,18 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_148",
+      "topic": "PD-053 — 10역할 3축 Master 직접 검토 + Edi 자동기록 진단",
+      "sequence": [
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 0,
           "recallReason": null
         }
       ]
