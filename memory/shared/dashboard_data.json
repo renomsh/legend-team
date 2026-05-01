@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-05-01T13:53:25.628Z",
-  "totalSessions": 158,
+  "generatedAt": "2026-05-01T14:07:51.474Z",
+  "totalSessions": 159,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 18.33,
-    "avgCacheHitRate": 0.9313,
-    "cacheSampleSize": 132,
-    "cacheSampleTotal": 158,
+    "avgMasterTurns": 18.23,
+    "avgCacheHitRate": 0.931,
+    "cacheSampleSize": 133,
+    "cacheSampleTotal": 159,
     "avgAdoptionRate": 0,
-    "totalDecisions": 138,
+    "totalDecisions": 139,
     "gradeDistribution": {
-      "S": 69,
-      "A": 34,
+      "S": 71,
+      "A": 33,
       "B": 41,
       "C": 14
     },
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 113,
-    "totalCostUSD": 1800.284,
-    "avgCostPerSession": 11.7666,
-    "costSampleSize": 153
+    "turnBasedSessions": 114,
+    "totalCostUSD": 1802.1426,
+    "avgCostPerSession": 11.7022,
+    "costSampleSize": 154
   },
   "sessions": [
     {
@@ -5992,10 +5992,10 @@
       ],
       "rolesCalled": 1,
       "rolesRecalled": 0,
-      "sessionsSpanned": 2,
-      "size": 11,
-      "gradeDeclared": "A",
-      "gradeActual": "A",
+      "sessionsSpanned": 3,
+      "size": 14,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 16,
@@ -6028,8 +6028,8 @@
       ],
       "rolesCalled": 7,
       "rolesRecalled": 2,
-      "sessionsSpanned": 2,
-      "size": 19,
+      "sessionsSpanned": 3,
+      "size": 22,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -6056,12 +6056,52 @@
         "messageCount": 69
       },
       "sessionCostUSD": 4.5611
+    },
+    {
+      "sessionId": "session_161",
+      "topicSlug": "bigbang-completion-review",
+      "topic": "BigBang 완료 검토",
+      "startedAt": "2026-05-01T17:00:00.000Z",
+      "closedAt": "2026-05-01T17:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-138"
+      ],
+      "rolesCalled": 5,
+      "rolesRecalled": 2,
+      "sessionsSpanned": 3,
+      "size": 20,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 3,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "ace",
+        "dev",
+        "dev",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 2386238,
+        "ioTokens": 18223,
+        "inputTokens": 116,
+        "outputTokens": 18107,
+        "cacheCreate": 253976,
+        "cacheRead": 2114039,
+        "cacheHitRate": 0.8859296516106105,
+        "messageCount": 28
+      },
+      "sessionCostUSD": 1.8586
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 167,
+      "count": 169,
       "sessions": [
         "session_047",
         "session_048",
@@ -6145,12 +6185,13 @@
         "session_154",
         "session_155",
         "session_156",
-        "session_160"
+        "session_160",
+        "session_161"
       ]
     },
     {
       "role": "edi",
-      "count": 118,
+      "count": 119,
       "sessions": [
         "session_050",
         "session_051",
@@ -6261,7 +6302,8 @@
         "session_157",
         "session_158",
         "session_159",
-        "session_160"
+        "session_160",
+        "session_161"
       ]
     },
     {
@@ -6331,7 +6373,7 @@
     },
     {
       "role": "dev",
-      "count": 85,
+      "count": 87,
       "sessions": [
         "session_047",
         "session_048",
@@ -6400,7 +6442,8 @@
         "session_156",
         "session_157",
         "session_158",
-        "session_160"
+        "session_160",
+        "session_161"
       ]
     },
     {
@@ -10919,6 +10962,42 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 6,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_161",
+      "topic": "BigBang 완료 검토",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 4,
           "recallReason": null
         }
       ]

@@ -7015,8 +7015,59 @@
       "decisionsAdded": [
         "D-137"
       ]
+    },
+    {
+      "sessionId": "session_161",
+      "topicSlug": "bigbang-completion-review",
+      "topic": "BigBang 완료 검토",
+      "startedAt": "2026-05-01T17:00:00.000Z",
+      "closedAt": "2026-05-01T17:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "ace",
+        "ace",
+        "dev",
+        "dev",
+        "edi"
+      ],
+      "turns": [
+        {
+          "turnIdx": 0,
+          "role": "ace",
+          "phase": "framing",
+          "chars": 1800,
+          "reportPath": "reports/2026-05-01_bigbang-completion-review/ace_rev3.md"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 1,
+          "source": "agent"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 2,
+          "source": "agent",
+          "phase": "implementation"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 3,
+          "source": "agent"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 4,
+          "source": "agent",
+          "phase": "compile"
+        }
+      ],
+      "grade": "B",
+      "oneLineSummary": "enforceEdiAgentSource hook 신규 추가 — D4 enforcement 역량 신설. Grade A/B/S Edi 미호출 재발 방지. D-138 박제.",
+      "decisionsAdded": [
+        "D-138"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-01T13:53:00.666Z",
+  "lastUpdated": "2026-05-01T14:07:27.424Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-team",
-    "version": "현재버전 + 0.001",
+    "version": "2.181",
     "purpose": "Memory-first, topic-based strategy and implementation system. Master receives structured analysis from role-separated agents on any strategic or implementation topic, with all outputs preserved in inspectable, revisionable files.",
     "principles": [
       "Memory first: all agent outputs, decisions, and session state are written to files immediately. No analysis lives only in conversation context.",
@@ -184,10 +184,16 @@
       "sessionId": "session_155"
     },
     {
-      "version": "현재버전 + 0.001",
+      "version": "2.171",
       "date": "2026-05-01",
       "summary": "synthesizeMechanicalEdiReport Grade C/D early-return 추가 (bugfix/patch) — CLAUDE.md 설계 의도와 코드 정합 회복",
       "sessionId": "session_160"
+    },
+    {
+      "version": "2.181",
+      "date": "2026-05-01",
+      "summary": "enforceEdiAgentSource 신규 추가 — Grade A/B/S 세션 Edi LLM turn 없으면 hard warning + gaps 박제. D4 Prime Directive enforcement 역량 신설. D-138 박제.",
+      "sessionId": "session_161"
     }
   ],
   "lastUpdated": "2026-05-01"

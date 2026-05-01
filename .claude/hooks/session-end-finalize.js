@@ -969,6 +969,56 @@ function auditEdiLlmInvocation(sess) {
 }
 
 /**
+ * D-138 (session_161, topic_141, 2026-05-01): Grade A/B/S 세션 종결 시
+ * Edi Agent 툴 호출 강제 검증 (turns[].source === 'agent' 체크).
+ *
+ * Ace 권고 옵션 B 구현:
+ *   - Grade A/B/S 세션에서 turns[] 중 role==='edi' && source==='agent' turn 없으면
+ *     hard warning 출력 (D-066 위반 경보)
+ *   - Grade C/D/undefined → skip (D-137로 이미 Grade C/D는 Edi 생략이 설계 의도)
+ *   - 기존 auditEdiLlmInvocation은 llmEdiFile(2신호) 포함 — 본 함수는 turns 단신호 전용
+ *
+ * D4 Prime Directive 정합: enforcement는 코드(hook)에 박제, 모델 자율 판단에 의존 안 함.
+ * SRP 준수: auditEdiLlmInvocation(탐지+다축 박제) vs enforceEdiAgentSource(turns 단신호 차단형 경보).
+ */
+function enforceEdiAgentSource(sess) {
+  const grade = (sess.grade || '').toUpperCase();
+
+  // Grade C/D/undefined → skip
+  if (grade !== 'A' && grade !== 'B' && grade !== 'S') {
+    log(`enforceEdiAgentSource skip: Grade ${grade || 'undefined'} (A/B/S 아님)`);
+    return;
+  }
+
+  const turns = Array.isArray(sess.turns) ? sess.turns : [];
+  const hasEdiAgentTurn = turns.some(t => t && t.role === 'edi' && t.source === 'agent');
+
+  if (hasEdiAgentTurn) {
+    log('enforceEdiAgentSource OK — Edi agent turn 확인됨 (D-066 정상)');
+    return;
+  }
+
+  // Hard warning — Grade A/B/S에 Edi agent turn 없음
+  log(`⚠ [edi-agent-enforce] Grade ${grade} 세션에 Edi LLM turn(source:agent) 없음 — D-066 위반`);
+
+  // gaps 박제 (추적 목적)
+  sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
+  const alreadyGapped = sess.gaps.some(g => g && g.type === 'edi-agent-source-missing' && g.sessionId === sess.sessionId);
+  if (!alreadyGapped) {
+    sess.gaps.push({
+      type: 'edi-agent-source-missing',
+      sessionId: sess.sessionId,
+      grade,
+      severity: 'high',
+      detectedAt: new Date().toISOString(),
+      note: 'turns[]에 role=edi && source=agent turn 없음 — D-066(Grade A/S 서브에이전트 강제) + D4(hook 박제) 위반',
+      ref: 'D-138',
+    });
+    writeJson(CURRENT_SESSION_PATH, sess);
+  }
+}
+
+/**
  * PD-052 (2026-04-28): 역할 사칭 사후 탐지 — source 마킹 기반.
  *
  * post-tool-use-task.js가 Agent 툴 경유 turns에 source='agent'를 박제한다.
@@ -1458,6 +1508,7 @@ function runSyncSystemState() {
     validateInlineRoleHeaders(sess);
     auditRoleImpersonation(sess); // PD-052
     auditEdiLlmInvocation(sess); // D-131 (PD-053): L2 enforcement — 다축 5신호
+    enforceEdiAgentSource(sess); // D-138 (session_161): Grade A/B/S turns[].source=agent 체크 — hard warning (차단형)
     synthesizeMechanicalEdiReport(sess); // D-131 (PD-053): L1 mechanical fallback (LLM 미호출 시 edi_auto_rev1.md 박제)
     copyEdiReportToSessionContributions(sess);
     writeJson(CURRENT_SESSION_PATH, sess);

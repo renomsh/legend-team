@@ -1,16 +1,14 @@
 {
-  "sessionId": "session_160",
+  "sessionId": "session_161",
   "topicId": "topic_141",
   "topic": "BigBang 완료 검토",
   "topicSlug": "bigbang-completion-review",
   "reportPath": "reports/2026-05-01_bigbang-completion-review",
   "status": "closed",
-  "startedAt": "2026-05-01T15:00:00.000Z",
-  "closedAt": "2026-05-01T16:30:00.000Z",
-  "oneLineSummary": "Edi mechanical fallback C/D early-return 구현 — 설계·코드 정합 회복, D-137 박제",
+  "startedAt": "2026-05-01T17:00:00.000Z",
   "mode": "observation",
-  "grade": "A",
-  "gradeDeclared": "A",
+  "grade": "B",
+  "gradeDeclared": "B",
   "framingLevel": 2,
   "framingSkipped": false,
   "topicType": "standalone",
@@ -18,107 +16,108 @@
   "childTopicIds": [],
   "agentsCompleted": [
     "ace",
-    "arki",
-    "riki",
     "ace",
     "dev",
-    "edi",
+    "dev",
     "edi"
   ],
   "turns": [
     {
-      "role": "ace",
       "turnIdx": 0,
-      "source": "agent",
-      "phase": "framing"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 1,
-      "source": "agent",
-      "phase": "analysis"
-    },
-    {
-      "role": "riki",
-      "turnIdx": 2,
-      "source": "agent",
-      "phase": "risk-audit"
+      "role": "ace",
+      "phase": "framing",
+      "chars": 1800,
+      "reportPath": "reports/2026-05-01_bigbang-completion-review/ace_rev3.md"
     },
     {
       "role": "ace",
-      "turnIdx": 3,
-      "source": "agent",
-      "phase": "synthesis",
-      "recallReason": "post-intervention"
+      "turnIdx": 1,
+      "source": "agent"
     },
     {
       "role": "dev",
-      "turnIdx": 4,
+      "turnIdx": 2,
       "source": "agent",
       "phase": "implementation"
     },
     {
-      "role": "edi",
-      "turnIdx": 5,
-      "source": "agent",
-      "phase": "compile"
+      "role": "dev",
+      "turnIdx": 3,
+      "source": "agent"
     },
     {
       "role": "edi",
-      "turnIdx": 6,
-      "source": "agent"
+      "turnIdx": 4,
+      "source": "agent",
+      "phase": "compile"
     }
   ],
-  "decisions": [
-    "D-137"
-  ],
+  "decisions": [],
   "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "decisionsAdded": [
-    "D-137"
+    "D-138"
   ],
   "notes": [],
   "gaps": [
     {
       "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-01_bigbang-completion-review/ace_rev2.md",
+      "expected": "ace",
+      "actualInTurns": "dev",
+      "turnId": 3
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-01_bigbang-completion-review/arki_rev1.md",
+      "expected": "arki",
+      "actualInTurns": "ace",
+      "turnId": 1
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-01_bigbang-completion-review/dev_rev1.md",
+      "expected": "dev",
+      "actualInTurns": "edi",
+      "turnId": 4
+    },
+    {
+      "type": "inline-role-header-mismatch",
       "file": "reports/2026-05-01_bigbang-completion-review/edi_auto_rev1.md",
       "expected": "edi",
-      "actualInTurns": "arki",
+      "actualInTurns": "ace",
       "turnId": 1
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-01_bigbang-completion-review/riki_rev1.md",
+      "expected": "riki",
+      "actualInTurns": "dev",
+      "turnId": 2
     }
   ],
-  "versionBumpSuggested": {
-    "value": 0.001,
-    "type": "bugfix",
-    "reason": "synthesizeMechanicalEdiReport Grade C/D early-return 추가 — 설계 의도와 코드 정합 보정",
-    "autoDetectedAt": "2026-05-01T16:00:00.000Z",
-    "changedFiles": [
-      ".claude/hooks/session-end-finalize.js"
-    ],
-    "changedFilesCount": 1,
-    "cappedAt": 0.1,
-    "confirmedBy": "edi"
-  },
+  "closedAt": "2026-05-01T17:30:00.000Z",
+  "oneLineSummary": "enforceEdiAgentSource hook 신규 추가 — D4 enforcement 역량 신설. Grade A/B/S Edi 미호출 재발 방지. D-138 박제.",
   "versionBump": {
-    "value": 0.001,
-    "from": "현재버전",
-    "to": "현재버전 + 0.001",
-    "reason": "synthesizeMechanicalEdiReport Grade C/D early-return 추가 (bugfix/patch) — CLAUDE.md 설계 의도와 코드 정합 회복",
+    "value": 0.01,
+    "from": "2.171",
+    "to": "2.181",
+    "reason": "enforceEdiAgentSource 신규 추가 — D4 enforcement 역량 신설 (hook capacity 확장). session_160 placeholder 2.171 확정 포함.",
     "confirmedBy": "edi",
-    "confirmedAt": "2026-05-01T16:00:00.000Z",
+    "confirmedAt": "2026-05-01T17:30:00.000Z",
     "basedOn": "edi-override",
-    "overrideReason": null
+    "overrideReason": "자동 감지 +0.01 그대로 동의. session_160 unresolved placeholder(2.171) 명시 포함."
   },
   "tokenUsage": {
-    "input_tokens": 103,
-    "output_tokens": 51993,
-    "cache_creation_input_tokens": 516536,
-    "cache_read_input_tokens": 6146378,
-    "messageCount": 69,
-    "masterTurns": 12,
-    "total_billable": 6715010
+    "input_tokens": 116,
+    "output_tokens": 18107,
+    "cache_creation_input_tokens": 253976,
+    "cache_read_input_tokens": 2114039,
+    "messageCount": 28,
+    "masterTurns": 3,
+    "total_billable": 2386238
   },
-  "finalizedAt": "2026-05-01T13:53:17.750Z"
+  "finalizedAt": "2026-05-01T14:07:44.277Z"
 }

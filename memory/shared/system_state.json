@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_160",
-  "nextSessionId": "session_161",
-  "currentVersion": "v현재버전 + 0.001",
+  "lastSessionId": "session_161",
+  "nextSessionId": "session_162",
+  "currentVersion": "v2.181",
   "openTopics": [
     {
       "id": "topic_044",
@@ -20,6 +20,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-138",
+      "date": "2026-05-01",
+      "axis": "Edi Agent 툴 호출 강제 메커니즘 구현 — enforceEdiAgentSource hook 추가",
+      "summary": "D4 Prime Directive 이행 — enforcement를 코드에 박제, 모델 자율 판단 의존 제거. Grade A/B/S 세션에서 Edi LLM turn 없으면 hard warning + gaps 박제. Dev 6케이스 검증 완료."
+    },
     {
       "id": "D-137",
       "date": "2026-05-01",
@@ -44,14 +50,15 @@
       "axis": "D-129 부분 supersede — P4/P5 layer 분리 deprecate, P3 단일 운영 + P6 = P3 충분성 측정 게이트 (P3 운영 규칙 흡수)",
       "summary": "Jobs/Ace/Riki 3 페르소나 만장일치 B(부분 supersede). D-129 P1~P3 sunk cost는 보존, P4/P5/P6 분리만 매몰비용 차단 — 박제는 신성하지 않음 원칙. NIST SP 800-160 Vol.2 정합 (marginal value 미입증 layer 제거 = false-sense-of-security 차단). Keynes 1936 정합 (불확실성에는 적응력으로 대응, 사전 layer 과적화 금지). Master 메모리 정합 — `feedback_simple_growth_not_measurement.md` (측정 위한 측정 금지) + `feedback_pragmatic_weapon_not_art.md` (효과 대비 비용 낮으면 즉시 기각). 시스템 표면적 축소 = SRP(Martin 2003) 정합."
     },
-    {
-      "id": "D-133",
-      "date": "2026-05-01",
-      "axis": "NCL 폐기 + Nexus = 하네스 시스템 정의 + C축(오케스트레이션 학습·수렴) 종결",
-      "summary": "Jobs/Ace/Riki 3 페르소나 만장일치 α(전면 폐기) — sunk cost fallacy 차단 + 시점 부적합(P3 단계에 NCL 인프라 미가동) + 학습 트랙 무관(Master 학습 효과 누적은 Nexus self-reinforcement로 충분) 3 근거 합치. echo chamber 자기감사 부담을 코드로 박제하는 시도가 오히려 D4 prime directive 위반(코드가 모델 판단을 대체하지 못하는 영역에 강제 적용) — Sage same-session 격리 hook(D-128)으로 메타 자기감사 충분. C축 종결로 D-108 미결 cleanup. 시스템 표면적 축소 = SRP(Martin 2003) 정합 + 운영 부담 경감."
-    }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_161",
+      "topicSlug": "bigbang-completion-review",
+      "closedAt": "2026-05-01T17:30:00.000Z",
+      "oneLineSummary": "enforceEdiAgentSource hook 신규 추가 — D4 enforcement 역량 신설. Grade A/B/S Edi 미호출 재발 방지. D-138 박제. versionBump +0.01 확정 (v2.171→v2.181).",
+      "decisionsAdded": ["D-138"]
+    },
     {
       "sessionId": "session_156",
       "topicSlug": "big-bang-part3",
