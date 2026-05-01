@@ -74,104 +74,17 @@
       "reportPath": "reports/2026-05-01_master-first-sink-expansion",
       "grade": "C",
       "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
-    },
-    {
-      "type": "version-bump-edi-unconfirmed",
-      "severity": "warn",
-      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
-      "addedBy": "checkVersionBumpConfirmation",
-      "suggestedValue": 0.01
-    },
-    {
-      "type": "mechanical-fallback-graded",
-      "sessionId": "session_157",
-      "grade": "C",
-      "severity": "info"
-    },
-    {
-      "type": "edi-llm-report-absent",
-      "sessionId": "session_157",
-      "reportPath": "reports/2026-05-01_master-first-sink-expansion",
-      "grade": "C",
-      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
-    },
-    {
-      "type": "version-bump-edi-unconfirmed",
-      "severity": "warn",
-      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
-      "addedBy": "checkVersionBumpConfirmation",
-      "suggestedValue": 0.01
-    },
-    {
-      "type": "mechanical-fallback-graded",
-      "sessionId": "session_157",
-      "grade": "C",
-      "severity": "info"
-    },
-    {
-      "type": "edi-llm-report-absent",
-      "sessionId": "session_157",
-      "reportPath": "reports/2026-05-01_master-first-sink-expansion",
-      "grade": "C",
-      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
-    },
-    {
-      "type": "version-bump-edi-unconfirmed",
-      "severity": "warn",
-      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
-      "addedBy": "checkVersionBumpConfirmation",
-      "suggestedValue": 0.01
-    },
-    {
-      "type": "mechanical-fallback-graded",
-      "sessionId": "session_157",
-      "grade": "C",
-      "severity": "info"
-    },
-    {
-      "type": "edi-llm-report-absent",
-      "sessionId": "session_157",
-      "reportPath": "reports/2026-05-01_master-first-sink-expansion",
-      "grade": "C",
-      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
-    },
-    {
-      "type": "version-bump-edi-unconfirmed",
-      "severity": "warn",
-      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
-      "addedBy": "checkVersionBumpConfirmation",
-      "suggestedValue": 0.01
-    },
-    {
-      "type": "mechanical-fallback-graded",
-      "sessionId": "session_157",
-      "grade": "C",
-      "severity": "info"
-    },
-    {
-      "type": "edi-llm-report-absent",
-      "sessionId": "session_157",
-      "reportPath": "reports/2026-05-01_master-first-sink-expansion",
-      "grade": "C",
-      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
-    },
-    {
-      "type": "version-bump-edi-unconfirmed",
-      "severity": "warn",
-      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
-      "addedBy": "checkVersionBumpConfirmation",
-      "suggestedValue": 0.1
     }
   ],
   "oneLineSummary": "HookA audit-emit 추가(UserPromptSubmit) + settings.json 권한 7개 — 검증 3/3 PASS.",
   "tokenUsage": {
-    "input_tokens": 980,
-    "output_tokens": 74535,
-    "cache_creation_input_tokens": 785021,
-    "cache_read_input_tokens": 12596437,
-    "messageCount": 114,
-    "masterTurns": 10,
-    "total_billable": 13456973
+    "input_tokens": 989,
+    "output_tokens": 81319,
+    "cache_creation_input_tokens": 801571,
+    "cache_read_input_tokens": 13660094,
+    "messageCount": 121,
+    "masterTurns": 12,
+    "total_billable": 14543973
   },
   "versionBumpSuggested": {
     "value": 0.1,
@@ -204,36 +117,14 @@
     "cappedAt": 0.1,
     "confirmedBy": null
   },
-  "openMasterAlerts": [
-    {
-      "severity": "warn",
-      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.1)",
-      "addedBy": "checkVersionBumpConfirmation"
-    },
-    {
-      "severity": "warn",
-      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.01)",
-      "addedBy": "checkVersionBumpConfirmation"
-    },
-    {
-      "severity": "warn",
-      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.01)",
-      "addedBy": "checkVersionBumpConfirmation"
-    },
-    {
-      "severity": "warn",
-      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.01)",
-      "addedBy": "checkVersionBumpConfirmation"
-    },
-    {
-      "severity": "warn",
-      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.01)",
-      "addedBy": "checkVersionBumpConfirmation"
-    },
-    {
-      "severity": "warn",
-      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.01)",
-      "addedBy": "checkVersionBumpConfirmation"
-    }
-  ]
+  "openMasterAlerts": [],
+  "versionBump": {
+    "value": null,
+    "type": "skip",
+    "reason": "Grade C 패치 세션. dev_memory.json 업데이트가 structural로 오분류 — false positive. 실질 변경(HookA emit + bug fix)은 +0.001 미만 수준.",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-01T12:33:22.149Z",
+    "basedOn": "edi-direct",
+    "skip": true
+  }
 }
