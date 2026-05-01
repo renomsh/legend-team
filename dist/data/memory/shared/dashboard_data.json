@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-05-01T12:15:30.761Z",
+  "generatedAt": "2026-05-01T12:25:53.494Z",
   "totalSessions": 155,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 18.27,
+    "avgMasterTurns": 18.33,
     "avgCacheHitRate": 0.9312,
     "cacheSampleSize": 129,
     "cacheSampleTotal": 155,
@@ -22,8 +22,8 @@
     ],
     "framingSkippedCount": 0,
     "turnBasedSessions": 110,
-    "totalCostUSD": 1754.6896,
-    "avgCostPerSession": 11.6979,
+    "totalCostUSD": 1762.1345,
+    "avgCostPerSession": 11.7476,
     "costSampleSize": 150
   },
   "sessions": [
@@ -5926,23 +5926,23 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 38,
+      "masterTurns": 46,
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
         "edi"
       ],
       "tokenUsage": {
-        "totalBillable": 48241003,
-        "ioTokens": 346737,
-        "inputTokens": 22405,
-        "outputTokens": 324332,
-        "cacheCreate": 3780732,
-        "cacheRead": 44113534,
-        "cacheHitRate": 0.9144406470984859,
-        "messageCount": 391
+        "totalBillable": 60678784,
+        "ioTokens": 418273,
+        "inputTokens": 23370,
+        "outputTokens": 394903,
+        "cacheCreate": 4555683,
+        "cacheRead": 55704828,
+        "cacheHitRate": 0.9180280870493384,
+        "messageCount": 498
       },
-      "sessionCostUSD": 32.344
+      "sessionCostUSD": 39.7889
     }
   ],
   "roleFrequency": [
@@ -10938,6 +10938,21 @@
           "date": "2026-04-03",
           "feedbackId": "MF-001",
           "summary": "5개 결정 항목에 대한 Master 결정 확정"
+        }
+      ]
+    },
+    {
+      "keyword": "claude",
+      "occurrences": [
+        {
+          "date": "2026-04-28",
+          "feedbackId": "MF-102",
+          "summary": "(Q1~Q3 답) `.claude/agents/` 비움은 의도 — Ace 추천으로 한 폴더 통합. 분리 1차"
+        },
+        {
+          "date": "2026-05-01",
+          "feedbackId": "MF-106",
+          "summary": "권한 건너뛰기인데 왜 자꾸 요청해? — .claude/hooks/*.js 편집 시 sensitive file"
         }
       ]
     },

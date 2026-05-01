@@ -7,13 +7,13 @@ date: 2026-05-01
 turnId: 2
 rev: 1
 auto-compiled: true
-auto-compiled-at: 2026-05-01T12:15:03.764Z
+auto-compiled-at: 2026-05-01T12:25:27.015Z
 authorship: hook:session-end-finalize.js
 ---
 
 # Edi (auto-compiled) — master-first-sink-expansion
 
-> ⚠ **AUTO-COMPILED** — turns=2, masterDecisions=0, gaps=10, decisionsAdded=0.
+> ⚠ **AUTO-COMPILED** — turns=2, masterDecisions=0, gaps=13, decisionsAdded=0.
 > **Edi LLM 미호출 → mechanical fallback** (D-131 Hybrid C L1). authorship: hook (`session-end-finalize.js#synthesizeMechanicalEdiReport`).
 > 본 보고서는 LLM 합성 없이 `current_session.json` 필드를 기계 컴파일한 결과입니다. 의미 해석·우선순위 판단은 부재합니다.
 
@@ -58,12 +58,15 @@ _없음_
 - edi-llm-report-absent: {"type":"edi-llm-report-absent","sessionId":"session_157","reportPath":"reports/2026-05-01_master-first-sink-expansion","grade":"C","note":"LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"}
 - version-bump-edi-unconfirmed: {"type":"version-bump-edi-unconfirmed","severity":"warn","detail":"versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록","addedBy":"checkVersionBumpConfirmation","suggestedValue":0.01}
 - mechanical-fallback-graded: {"type":"mechanical-fallback-graded","sessionId":"session_157","grade":"C","severity":"info"}
+- edi-llm-report-absent: {"type":"edi-llm-report-absent","sessionId":"session_157","reportPath":"reports/2026-05-01_master-first-sink-expansion","grade":"C","note":"LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"}
+- version-bump-edi-unconfirmed: {"type":"version-bump-edi-unconfirmed","severity":"warn","detail":"versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록","addedBy":"checkVersionBumpConfirmation","suggestedValue":0.01}
+- mechanical-fallback-graded: {"type":"mechanical-fallback-graded","sessionId":"session_157","grade":"C","severity":"info"}
 
 ## 7. versionBump (참조 인용 — 미확정)
 
 - 자동 감지: +0.01 (capacity)
 - 사유: 역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/session-end-finalize.js)
-- 변경 파일: 121건
+- 변경 파일: 124건
 - ⚠ **Edi LLM 미호출 — 본 mechanical은 `versionBump` 필드를 박제하지 않습니다** (role-edi.md §6.4 + R-4 mitigation).
 
 ## 8. 인계 메모
