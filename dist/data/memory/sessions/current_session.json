@@ -47,6 +47,11 @@
       "turnIdx": 4,
       "source": "agent",
       "phase": "compile"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 5,
+      "source": "agent"
     }
   ],
   "decisions": [
@@ -120,6 +125,13 @@
       "expected": "edi",
       "actualInTurns": "jobs",
       "turnId": 0
+    },
+    {
+      "type": "duplicate-agent-turn",
+      "role": "edi",
+      "note": "same role agent turn already exists in session — warn only (may be legitimate recall: D-048)",
+      "severity": "warn",
+      "detectedAt": "2026-05-01T15:11:54.444Z"
     }
   ],
   "versionBump": {
@@ -134,13 +146,13 @@
   },
   "closedAt": "2026-05-01T19:50:00.000Z",
   "tokenUsage": {
-    "input_tokens": 380,
-    "output_tokens": 51827,
-    "cache_creation_input_tokens": 355640,
-    "cache_read_input_tokens": 5325123,
-    "messageCount": 57,
+    "input_tokens": 387,
+    "output_tokens": 53956,
+    "cache_creation_input_tokens": 375728,
+    "cache_read_input_tokens": 6195618,
+    "messageCount": 64,
     "masterTurns": 2,
-    "total_billable": 5732970
+    "total_billable": 6625689
   },
   "finalizedAt": "2026-05-01T15:10:59.668Z"
 }
