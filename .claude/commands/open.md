@@ -30,7 +30,7 @@
    - 제안이 있으면 Master에게 리스트업. 저마찰 원칙: 무응답=보류 (적용하려면 --apply 재호출)
    - 제안 0건이면 조용히 스킵
 4. `memory/sessions/session_index.json` 읽기 — 마지막 session ID 확인하여 다음 ID 생성
-5. **Grade 판정** (아래 Grade 판정 규칙 참조) — `grade` 결정 후 Framing Level 선택
+5. **Grade 판정** (아래 Grade 판정 규칙 참조)
 6. `current_session.json`을 새 세션 정보로 업데이트:
    - 새 sessionId (session_NNN)
    - topic, topicSlug
@@ -38,8 +38,8 @@
    - startedAt: 현재 시각 (ISO 8601)
    - mode: 확인된 모드 (기본값: observation)
    - grade: 판정된 grade (S/A/B/C)
-   - framingLevel: 0/1/2
-   - framingSkipped: true/false
+   - framingLevel: 0 (고정 — 자동 프레이밍 없음, D-130)
+   - framingSkipped: true
 7. **[토픽 ID 명시 감지 → 분기]**
 
    **분기 A — 기존 토픽 재사용** (`/open topic_NNN ...` 패턴으로 토픽 ID 명시 시):
@@ -65,7 +65,7 @@
      - `topics/{topicId}/session_contributions/` 디렉토리 자동 생성
      - Claude가 별도로 파일 생성할 필요 없음
 
-8. 세션 오픈 완료 보고 후, **Framing Level에 따라 첫 주자 결정**
+8. 세션 오픈 완료 보고 후, **Grade에 따라 첫 주자 결정** (프레이밍 자동 트리거 없음 — `/jobs-framing` 명시 호출 시에만 Jobs 발동)
 
 ---
 
@@ -92,18 +92,21 @@
 | 역할 도입, 시스템 개편, 전면 재설계, 핵심 결정 | S | 최고 복잡도 |
 | 그 외 | A | 안전 방향 기본값 |
 
-### 3. Grade → Framing Level 매핑
+### 3. Grade → 첫 주자 결정 (D-130: 자동 프레이밍 폐기)
 
-| Grade | Level | Framing 방식 | 첫 주자 |
-|---|---|---|---|
-| S | L2 | `ace-framing` 스킬 전체 | Ace |
-| A | L2 | `ace-framing` 스킬 전체 | Ace |
-| B | L2 | `ace-framing` 스킬 전체 | Ace |
-| C | L0 | 프레이밍 없음 | Dev 직행 (또는 최소 역할) |
+**모든 Grade: framingLevel = 0, framingSkipped = true.** `/jobs-framing` 명시 호출 시에만 Jobs 발동.
+
+| Grade | 첫 주자 | 비고 |
+|---|---|---|
+| S | Master | `/jobs-framing` 호출 시 Jobs 발동 |
+| A | Arki | `/jobs-framing` 호출 시 Jobs 발동 |
+| B | Arki | `/jobs-framing` 호출 시 Jobs 발동 |
+| C | Dev | 최소 역할 직행 |
+| D | Dev | Edi 생략, hook 자동 기록 |
 
 ### 4. C/B grade Dev 판정 스텝 (필수)
 C/B grade로 진행 중 Dev 또는 Riki가 "구조적 문제"로 판정 시:
-→ `framingSkipped: true`였더라도 Ace 즉시 재소집 → L2로 전환
+→ Ace 즉시 재소집. `/jobs-framing` 필요 시 Master 명시 호출.
 
 ---
 

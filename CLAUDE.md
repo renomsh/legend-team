@@ -41,15 +41,15 @@ Rules:
 
 토픽 난이도·성격 등급. `/open` 시 선언, `compute-dashboard.ts`가 실측 Size로 사후 검증.
 
-| Grade | Size | 성격 | Ace 프레이밍 | 첫 주자 | 기본 역할 구성 | 선택 역할 |
+| Grade | Size | 성격 | 프레이밍 (D-130: 자동 트리거 없음) | 첫 주자 | 기본 역할 구성 | 선택 역할 |
 |---|---|---|---|---|---|---|
-| **S** | 무관 | 오픈 탐색형 (Master 선언 전용) | 자동 프레이밍 미발동, Master 또는 `/jobs-framing` 호출 시 Jobs 발동 | Master 또는 Jobs (호출 시) | Jobs(framing)→Ace(구조·흐름 판정)→Arki·Riki 꼬리물기, Edi | Fin, Dev, Nova, Vera |
-| **A** | 11+ | 닫힌 실행형 (기본값) | Master 또는 `/jobs-framing` 호출 시 Jobs 발동 | Master 또는 Jobs (호출 시) → Arki | Jobs(framing)→Arki→Fin→Riki→Ace(`/ace-synthesis` 시)→Dev→Edi | Nova, Vera |
-| **B** | 6~10 | 명확 결정건 (Nova 추천 없음) | Master 또는 `/jobs-framing` 호출 시 Jobs 발동 | Master 또는 Jobs (호출 시) → Arki | Jobs(framing)→Arki→Riki→Ace(`/ace-synthesis` 시)→Edi | Fin, Dev, Vera |
-| **C** | ≤5 | 경량 + 판단 여지 있음 | 인라인 1~2줄 (Jobs 미호출 가능) | Dev 또는 Jobs(호출 시) | Dev→Arki 검토→Dev 수정→Edi | — |
+| **S** | 무관 | 오픈 탐색형 (Master 선언 전용) | `/jobs-framing` 명시 호출 시에만 Jobs 발동 | Master | Jobs(framing)→Ace(구조·흐름 판정)→Arki·Riki 꼬리물기, Edi | Fin, Dev, Nova, Vera |
+| **A** | 11+ | 닫힌 실행형 (기본값) | `/jobs-framing` 명시 호출 시에만 Jobs 발동 | Arki | Jobs(framing)→Arki→Fin→Riki→Ace(`/ace-synthesis` 시)→Dev→Edi | Nova, Vera |
+| **B** | 6~10 | 명확 결정건 (Nova 추천 없음) | `/jobs-framing` 명시 호출 시에만 Jobs 발동 | Arki | Jobs(framing)→Arki→Riki→Ace(`/ace-synthesis` 시)→Edi | Fin, Dev, Vera |
+| **C** | ≤5 | 경량 + 판단 여지 있음 | 없음 (`/jobs-framing` 호출 시만) | Dev | Dev→Arki 검토→Dev 수정→Edi | — |
 | **D** | ≤5 | 명백 단순 작업 | 없음 | Dev | Dev 직행 (Edi 생략, hook 자동 기록) | — |
 
-> **D-130 (2026-04-30)**: framing 자동 트리거 폐기. Master 또는 `/jobs-framing` 명시 호출만. `jobs-framing` skill 신설은 다음 세션 (topic_131 이어서). 그때까지 framing 필요 시 Master 명시 호출 또는 인라인 진행.
+> **D-130 (2026-04-30, 구현 완료 2026-05-01)**: framing 자동 트리거 완전 폐기. Master 또는 `/jobs-framing` 명시 호출만. `jobs-framing` skill 존재. `open.md` Grade→Framing Level 매핑 제거, `CLAUDE.md` Ace Step 0 deprecated 처리 완료.
 
 ### Grade 선언 규칙
 - **S**: Master 명시 선언 전용. Ace는 "S 승격 검토" 추천 후 Master 승인.
@@ -81,8 +81,8 @@ Rules:
 - `/open` step 3.6: 동일 dry-run 배치 실행, Master에게 제안 브리핑
 - 저마찰 원칙: 무응답=보류. 적용하려면 `--apply` 재호출.
 
-### Ace Step 0 (ace-framing)
-프레이밍 첫 발언 최상단에서 topicType 판정 + parentTopicId 후보 제안. Grade A/B/S는 전체 블록. Grade C는 1줄 인라인. Grade D는 생략.
+### Ace Step 0 (ace-framing) — DEPRECATED (D-130, 2026-04-30)
+자동 프레이밍 트리거 폐기. `/jobs-framing` 명시 호출 시에만 Jobs 발동. 모든 Grade에서 자동 프레이밍 없음.
 
 ### 레거시 호환
 기존 토픽 중 topic_062/066 2건만 소급(테스트 케이스). 나머지 68개는 topicType undefined 유지 — 자동 종결 로직의 영향권 밖.
