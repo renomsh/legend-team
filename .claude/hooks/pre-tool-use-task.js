@@ -249,11 +249,21 @@ function buildSessionLayer(cwd, sess) {
   parts.push(`### 세션 내 이전 발언 전문 (${sess.sessionId}, 총 ${turns.length} turns)`);
   parts.push(`> 아래 내용을 파악한 후 발언하세요. 이전 발언자들의 결론과 충돌하거나 중복되지 않게 하세요.\n`);
 
+  // Phase 1 필터 (topic_141, session_163): source=N/A turn 중복 inject 방지.
+  // source=N/A(또는 source 필드 없음) turn이 있고, 동일 역할 source=agent turn도 존재하면
+  // source=N/A turn은 inject 제외 (동일 보고서 2회 inject 방지).
+  const agentTurnRoles = new Set(
+    turns.filter(t => t && t.source === 'agent').map(t => t.role || '?')
+  );
+
   // 역할별 최신 rev만 추출 (같은 역할이 여러 번 발언해도 최신 1건)
   const seenRoles = new Map(); // role -> { turnIdx, reportFile }
   for (const t of turns) {
     const role = t.role || '?';
     const turnIdx = t.turnIdx ?? '?';
+    // Phase 1: source=N/A turn이고 동일 역할의 agent turn이 존재하면 inject 제외
+    const isInlineWithAgentDuplicate = (!t.source || t.source !== 'agent') && agentTurnRoles.has(role);
+    if (isInlineWithAgentDuplicate) continue;
     const reportFile = findLatestReport(cwd, reportPath, role);
     if (reportFile) {
       // 동일 역할 복수 발언 시 모두 포함 (rev 번호로 구분됨)

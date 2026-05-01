@@ -1,83 +1,146 @@
 {
-  "sessionId": "session_162",
+  "sessionId": "session_163",
   "topicId": "topic_141",
   "topic": "BigBang 완료 검토",
   "topicSlug": "bigbang-completion-review",
   "reportPath": "reports/2026-05-01_bigbang-completion-review",
   "status": "closed",
-  "startedAt": "2026-05-01T18:00:00.000Z",
-  "closedAt": "2026-05-01T19:00:00.000Z",
+  "startedAt": "2026-05-01T19:30:00.000Z",
   "mode": "observation",
-  "grade": "B",
-  "gradeDeclared": "B",
+  "grade": "S",
+  "gradeDeclared": "S",
   "framingLevel": 0,
   "framingSkipped": true,
   "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
+    "jobs",
+    "arki",
+    "riki",
+    "dev",
     "edi"
   ],
   "turns": [
     {
-      "role": "edi",
+      "role": "jobs",
       "turnIdx": 0,
-      "phase": "compile",
       "source": "agent"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 1,
+      "source": "agent"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 2,
+      "source": "agent"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 3,
+      "source": "agent"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 4,
+      "source": "agent",
+      "phase": "compile"
     }
   ],
   "decisions": [
-    "D-139",
-    "D-140"
+    "D-141"
   ],
-  "masterDecisions": [
-    "D-139",
-    "D-140"
-  ],
+  "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "decisionsAdded": [
-    "D-139",
-    "D-140"
+    "D-141"
   ],
   "notes": [
-    "Nexus 전환 미결 사항 3건 전부 해소: master-first Skill 경로, G-1 hard enforcement, session_index sync 자연해소"
+    "part5 — Nexus 구조 전환 미결사항 검토. /jobs-framing 명시 호출.",
+    "dispatch_config Edi rule: 후속 토픽 등록 필요 (pre-tool-use-task.js enforce hook 구현 선행 조건) — 현재 ghost rule 위험으로 이번 세션 구현 불가 (D-138 caveat)"
   ],
   "gaps": [
+    {
+      "type": "missing-report",
+      "role": "jobs",
+      "turnIdx": 0,
+      "reportPath": "reports/2026-05-01_bigbang-completion-review",
+      "detectedAt": "2026-05-01T14:54:49.237Z",
+      "note": "jobs turn0 완료 후 reports/jobs_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
     {
       "type": "inline-role-header-mismatch",
       "file": "reports/2026-05-01_bigbang-completion-review/ace_rev1.md",
       "expected": "ace",
-      "actualInTurns": "edi",
+      "actualInTurns": "jobs",
       "turnId": 0
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-01_bigbang-completion-review/ace_rev2.md",
+      "expected": "ace",
+      "actualInTurns": "dev",
+      "turnId": 3
     },
     {
       "type": "inline-role-header-mismatch",
       "file": "reports/2026-05-01_bigbang-completion-review/ace_rev3.md",
       "expected": "ace",
+      "actualInTurns": "jobs",
+      "turnId": 0
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-01_bigbang-completion-review/dev_rev1.md",
+      "expected": "dev",
       "actualInTurns": "edi",
+      "turnId": 4
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-01_bigbang-completion-review/dev_rev2.md",
+      "expected": "dev",
+      "actualInTurns": "riki",
+      "turnId": 2
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-01_bigbang-completion-review/edi_auto_rev1.md",
+      "expected": "edi",
+      "actualInTurns": "arki",
+      "turnId": 1
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-01_bigbang-completion-review/edi_session162_rev1.md",
+      "expected": "edi",
+      "actualInTurns": "jobs",
       "turnId": 0
     }
   ],
-  "oneLineSummary": "Nexus 전환 미결 해소: jobs-framing Skill 경로(D-139 완결), G-1 hard enforcement D-140 박제",
   "versionBump": {
     "value": 0.01,
-    "type": "capacity",
+    "from": "v2.19",
+    "to": "v2.20",
+    "reason": "D-141: turns 중복 기록 패턴 해소 — pre-tool-use-task.js Phase 1 필터 + post-tool-use-task.js Phase 2 warn gap 구현. hook 구조 변경(+0.01 capacity 기준).",
     "confirmedBy": "edi",
-    "confirmedAt": "2026-05-01T19:00:00.000Z",
-    "reason": "Nexus Skill 경로 jobs-framing 활성화 hook 신설 + G-1 hard enforcement 구현",
-    "to": "2.19",
-    "from": "2.181"
+    "confirmedAt": "2026-05-01T19:50:00.000Z",
+    "basedOn": "edi-override",
+    "overrideReason": "자동 감지 versionBumpSuggested 미박제 상태 — Edi가 변경 파일 2건(.claude/hooks/*.js) 기준 capacity 카테고리로 직접 판단. decision_ledger 신규 1건(D-141) 포함."
   },
+  "closedAt": "2026-05-01T19:50:00.000Z",
   "tokenUsage": {
-    "input_tokens": 1219,
-    "output_tokens": 124249,
-    "cache_creation_input_tokens": 875862,
-    "cache_read_input_tokens": 23953671,
-    "messageCount": 227,
-    "masterTurns": 11,
-    "total_billable": 24955001
+    "input_tokens": 380,
+    "output_tokens": 51827,
+    "cache_creation_input_tokens": 355640,
+    "cache_read_input_tokens": 5325123,
+    "messageCount": 57,
+    "masterTurns": 2,
+    "total_billable": 5732970
   },
-  "finalizedAt": "2026-05-01T14:46:47.728Z"
+  "finalizedAt": "2026-05-01T15:10:59.668Z"
 }

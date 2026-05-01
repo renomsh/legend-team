@@ -255,6 +255,27 @@ function log(msg) {
       log(`selfScores 추출: role=${role} keys=[${Object.keys(selfScores).join(',')}]`);
     }
 
+    // Phase 2: duplicate-agent-turn warn-only gap (topic_141, session_163).
+    // 동일 세션 내 같은 역할 source=agent turn이 이미 존재하면 warn gap 박제.
+    // 차단 없음, 자동 경보 연동 없음 (Riki R-3: recallReason 로직 미구현 → false positive 위험).
+    const existingAgentTurn = turns.some(t => t && t.role === role && t.source === 'agent');
+    if (existingAgentTurn) {
+      sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
+      const alreadyWarned = sess.gaps.some(
+        g => g.type === 'duplicate-agent-turn' && g.role === role
+      );
+      if (!alreadyWarned) {
+        sess.gaps.push({
+          type: 'duplicate-agent-turn',
+          role,
+          note: `same role agent turn already exists in session — warn only (may be legitimate recall: D-048)`,
+          severity: 'warn',
+          detectedAt: new Date().toISOString(),
+        });
+        log(`⚠ duplicate-agent-turn warn gap 기록: role=${role} (warn-only, not blocking)`);
+      }
+    }
+
     turns.push(newTurn);
     sess.turns = turns;
 

@@ -2011,6 +2011,23 @@
       "axis": "grade별 자동 프레이밍 완전 제거 — open.md Grade→Framing Level 매핑 삭제, CLAUDE.md Ace Step 0 deprecated",
       "summary": "D-130(framing 자동 트리거 폐기) 선언만 있고 open.md 코드에 S/A/B→L2 ace-framing 매핑이 잔존하여 세션마다 자동 프레이밍 발동. open.md Grade→Framing Level 테이블 제거 + 모든 Grade framingLevel=0 고정 + CLAUDE.md Grade System 테이블 열명/내용 정정 + Ace Step 0 DEPRECATED 박제. 이제 /jobs-framing 명시 호출만이 유일 트리거.",
       "status": "confirmed"
+    },
+    {
+      "id": "D-141",
+      "date": "2026-05-01",
+      "session": "session_163",
+      "topic": "topic_141",
+      "topicSlug": "bigbang-completion-review",
+      "axis": "turns 중복 기록 패턴 해소 — buildSessionLayer inline 필터 + duplicate-agent-turn warn gap",
+      "summary": "타입B(inline 선기록 + agent 후기록) 중복 inject 제거: pre-tool-use-task.js buildSessionLayer에 Phase 1 필터 추가(source=N/A turn 중 동일 역할 source=agent turn 존재 시 inject 제외). 타입A/B 탐지: post-tool-use-task.js에 Phase 2 warn-only gap 박제(duplicate-agent-turn). recallReason 미추출 상태에서 차단형 불가 → warn-only 채택. dispatch_config Edi rule은 enforce hook 미구현으로 ghost rule 위험 — 후속 토픽으로 이연.",
+      "decision": "1. Phase 1 (pre-tool-use-task.js buildSessionLayer): source=N/A turn + 동일 역할 source=agent turn 공존 시 N/A turn inject 제외. G1 4케이스 통과. 2. Phase 2 (post-tool-use-task.js): 동일 역할 source=agent turn 이미 존재 시 duplicate-agent-turn warn-only gap 박제. 차단 없음, 자동 경보 연동 없음. 3. dispatch_config Edi rule: 이번 세션 구현 불가 확인 — 후속 토픽 등록.",
+      "value": "R-2(🔴) 직접 해소: 동일 보고서 2회 inject 제거, 서브에이전트 컨텍스트 토큰 낭비 방지. 추적 경로 불일치(open_issues vs decision_ledger caveats) 근본 원인 표면화. Riki R-1/R-3 반영으로 false positive 위험 회피.",
+      "caveats": [
+        "Riki R-1: recallReason 추출 로직 post-tool-use-task.js에 없음 → 재호출과 진짜 중복 구분 불가 → Phase 2 warn-only 유지",
+        "dispatch_config Edi rule 미박제 상태 유지 — pre-tool-use-task.js enforce hook 구현(별도 토픽) 선행 필요"
+      ],
+      "status": "active",
+      "confirmedAt": "2026-05-01T19:50:00.000Z"
     }
   ],
   "lastUpdated": "2026-05-01"

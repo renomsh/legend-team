@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-team",
-    "version": "2.19",
+    "version": "v2.20",
     "purpose": "Memory-first, topic-based strategy and implementation system. Master receives structured analysis from role-separated agents on any strategic or implementation topic, with all outputs preserved in inspectable, revisionable files.",
     "principles": [
       "Memory first: all agent outputs, decisions, and session state are written to files immediately. No analysis lives only in conversation context.",
@@ -200,6 +200,12 @@
       "date": "2026-05-01",
       "summary": "Nexus Skill 경로 jobs-framing 활성화 hook 신설 + G-1 hard enforcement 구현",
       "sessionId": "session_162"
+    },
+    {
+      "version": "v2.20",
+      "date": "2026-05-01",
+      "summary": "D-141: turns 중복 기록 패턴 해소 — pre-tool-use-task.js Phase 1 필터 + post-tool-use-task.js Phase 2 warn gap 구현. hook 구조 변경(+0.01 capacity 기준).",
+      "sessionId": "session_163"
     }
   ],
   "lastUpdated": "2026-05-01"

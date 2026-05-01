@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_162",
-  "nextSessionId": "session_163",
-  "currentVersion": "v2.19",
+  "lastSessionId": "session_163",
+  "nextSessionId": "session_164",
+  "currentVersion": "v2.20",
   "openTopics": [
     {
       "id": "topic_044",
@@ -20,6 +20,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-141",
+      "date": "2026-05-01",
+      "axis": "turns 중복 기록 패턴 해소 — buildSessionLayer inline 필터 + duplicate-agent-turn warn gap",
+      "summary": "R-2(🔴) 직접 해소: 동일 보고서 2회 inject 제거, 서브에이전트 컨텍스트 토큰 낭비 방지. 추적 경로 불일치(open_issues vs decision_ledger caveats) 근본 원인 표면화. Riki R-1/R-3 반영으로 false positive 위험 회피."
+    },
     {
       "id": "D-140",
       "date": "2026-05-01"
@@ -41,15 +47,18 @@
       "date": "2026-05-01",
       "axis": "Grade C/D 세션에서 Edi mechanical fallback 생성 제거 — synthesizeMechanicalEdiReport early-return 추가",
       "summary": "Riki 확인: dispatch_config rule 추가(R-1) + CLAUDE.md 재기술(R-2)은 현재 hook 구조에서 무효. 코드 수정만 실효성 있음. Dev 6케이스 검증 완료. SRP(Martin 2003) 정합 — hook 단일 책임 강화. CLAUDE.md 설계 의도와 코드 정합은 장기 유지보수성 향상."
-    },
-    {
-      "id": "D-136",
-      "date": "2026-05-01",
-      "axis": "D-111/D-118 deprecated — Star + Nexus first-speaker 토폴로지는 D-133 정합으로 무의미",
-      "summary": "D-133 정합 일관성 확보. 박제는 신성하지 않다(D-134 정신). 미구현 박제 잔존 = 미래 세션 혼란 위험 → 명시적 deprecated 처리."
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_163",
+      "topicSlug": "bigbang-completion-review",
+      "closedAt": "2026-05-01T19:50:00.000Z",
+      "oneLineSummary": "[summary 없음 — bigbang-completion-review]",
+      "decisionsAdded": [
+        "D-141"
+      ]
+    },
     {
       "sessionId": "session_162",
       "topicSlug": "bigbang-completion-review",
@@ -67,15 +76,6 @@
       "oneLineSummary": "D-129 부분 supersede 박제(D-134) — P4/P5 layer 분리 폐기, P6는 P3 충분성 측정 게이트로 의미 재정의. 3 페르소나 만장일치 B.",
       "decisionsAdded": [
         "D-134"
-      ]
-    },
-    {
-      "sessionId": "session_161",
-      "topicSlug": "bigbang-completion-review",
-      "closedAt": "2026-05-01T17:30:00.000Z",
-      "oneLineSummary": "enforceEdiAgentSource hook 신규 추가 — D4 enforcement 역량 신설. Grade A/B/S Edi 미호출 재발 방지. D-138 박제.",
-      "decisionsAdded": [
-        "D-138"
       ]
     }
   ],
@@ -602,5 +602,5 @@
       "resolvedNote": "hitRateRubric = D-041(session_037, persona-top01-redefinition) 잔재. Big Bang 설계 범위 외. D-092 단순화 이후 pipeline 연결 없음(hooks/scripts 참조 0건). 8역할 memory.json에서 일괄 삭제 완료. Jobs·Sage·Zero 미박제는 설계적으로 정상. PD-054 resolved."
     }
   ],
-  "lastUpdated": "2026-05-01T14:46:47.611Z"
+  "lastUpdated": "2026-05-01T15:10:59.550Z"
 }
