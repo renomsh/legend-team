@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-05-01T07:54:31.651Z",
-  "totalSessions": 153,
+  "generatedAt": "2026-05-01T09:32:23.918Z",
+  "totalSessions": 154,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 18.15,
-    "avgCacheHitRate": 0.9313,
-    "cacheSampleSize": 127,
-    "cacheSampleTotal": 153,
+    "avgMasterTurns": 18.14,
+    "avgCacheHitRate": 0.9314,
+    "cacheSampleSize": 128,
+    "cacheSampleTotal": 154,
     "avgAdoptionRate": 0,
-    "totalDecisions": 134,
+    "totalDecisions": 135,
     "gradeDistribution": {
-      "S": 67,
+      "S": 68,
       "A": 33,
       "B": 39,
       "C": 14
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 108,
-    "totalCostUSD": 1712.4008,
-    "avgCostPerSession": 11.5703,
-    "costSampleSize": 148
+    "turnBasedSessions": 109,
+    "totalCostUSD": 1722.3456,
+    "avgCostPerSession": 11.5594,
+    "costSampleSize": 149
   },
   "sessions": [
     {
@@ -5868,12 +5868,53 @@
         "messageCount": 104
       },
       "sessionCostUSD": 7.9426
+    },
+    {
+      "sessionId": "session_156",
+      "topicSlug": "big-bang-part3",
+      "topic": "BigBang Part3 — jobs-framing/ace-synthesis skill 신설 + versionBump hook 확장 + Master-first P4/P5/P6",
+      "startedAt": "2026-05-01T17:00:00.000Z",
+      "closedAt": "2026-05-01T17:35:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-134"
+      ],
+      "rolesCalled": 6,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 17,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "riki",
+        "jobs",
+        "jobs",
+        "ace",
+        "dev",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 16082083,
+        "ioTokens": 147728,
+        "inputTokens": 19561,
+        "outputTokens": 128167,
+        "cacheCreate": 922694,
+        "cacheRead": 15011661,
+        "cacheHitRate": 0.9334400898192106,
+        "messageCount": 115
+      },
+      "sessionCostUSD": 9.9448
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 164,
+      "count": 165,
       "sessions": [
         "session_047",
         "session_048",
@@ -5955,7 +5996,8 @@
         "session_150",
         "session_153",
         "session_154",
-        "session_155"
+        "session_155",
+        "session_156"
       ]
     },
     {
@@ -6024,7 +6066,7 @@
     },
     {
       "role": "edi",
-      "count": 112,
+      "count": 113,
       "sessions": [
         "session_050",
         "session_051",
@@ -6130,12 +6172,13 @@
         "session_152",
         "session_153",
         "session_154",
-        "session_155"
+        "session_155",
+        "session_156"
       ]
     },
     {
       "role": "dev",
-      "count": 81,
+      "count": 82,
       "sessions": [
         "session_047",
         "session_048",
@@ -6200,12 +6243,13 @@
         "session_144",
         "session_152",
         "session_153",
-        "session_155"
+        "session_155",
+        "session_156"
       ]
     },
     {
       "role": "riki",
-      "count": 77,
+      "count": 78,
       "sessions": [
         "session_049",
         "session_053",
@@ -6261,7 +6305,8 @@
         "session_151",
         "session_152",
         "session_153",
-        "session_155"
+        "session_155",
+        "session_156"
       ]
     },
     {
@@ -6308,11 +6353,12 @@
     },
     {
       "role": "jobs",
-      "count": 7,
+      "count": 9,
       "sessions": [
         "session_151",
         "session_152",
-        "session_153"
+        "session_153",
+        "session_156"
       ]
     },
     {
@@ -10570,6 +10616,48 @@
         },
         {
           "role": "edi",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_156",
+      "topic": "BigBang Part3 — jobs-framing/ace-synthesis skill 신설 + versionBump hook 확장 + Master-first P4/P5/P6",
+      "sequence": [
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "jobs",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "jobs",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
           "phase": null,
           "turnIdx": 4,
           "recallReason": null

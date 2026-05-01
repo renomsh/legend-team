@@ -6810,8 +6810,62 @@
       "note": "Nexus 구조 현황 점검 및 ver1.0 정의 토픽",
       "oneLineSummary": "Nexus ver1.0 골격 완료 확인 + G-1 versionBump Edi 확정 hook 강제 구현(session-end-finalize.js)",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_156",
+      "topicSlug": "big-bang-part3",
+      "topic": "BigBang Part3 — jobs-framing/ace-synthesis skill 신설 + versionBump hook 확장 + Master-first P4/P5/P6",
+      "startedAt": "2026-05-01T17:00:00.000Z",
+      "closedAt": "2026-05-01T17:35:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "riki",
+        "jobs",
+        "jobs",
+        "ace",
+        "dev",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "riki",
+          "turnIdx": 0,
+          "source": "agent"
+        },
+        {
+          "role": "jobs",
+          "turnIdx": 1,
+          "source": "agent"
+        },
+        {
+          "role": "jobs",
+          "turnIdx": 2,
+          "source": "agent"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 3,
+          "source": "agent"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 4,
+          "source": "agent"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 5,
+          "source": "agent"
+        }
+      ],
+      "grade": "S",
+      "note": "BigBang Part3: jobs-framing skill 신설, ace-synthesis skill 신설, versionBump hook 확장 + Edi 확정 step, Master-first P4/P5/P6",
+      "oneLineSummary": "D-129 부분 supersede 박제(D-134) — P4/P5 layer 분리 폐기, P6는 P3 충분성 측정 게이트로 의미 재정의. 3 페르소나 만장일치 B.",
+      "decisionsAdded": [
+        "D-134"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-01T07:54:07.256Z",
+  "lastUpdated": "2026-05-01T09:32:01.377Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

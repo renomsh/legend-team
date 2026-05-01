@@ -1,6 +1,27 @@
 {
   "decisions": [
     {
+      "id": "D-134",
+      "date": "2026-05-01",
+      "session": "session_156",
+      "topic": "topic_138",
+      "owningTopicId": "topic_138",
+      "scopeCheck": "BigBang Part3 — D-129 부분 supersede (Master-first 모드 P4/P5 폐기, P6 의미 재정의)",
+      "axis": "D-129 부분 supersede — P4/P5 layer 분리 deprecate, P3 단일 운영 + P6 = P3 충분성 측정 게이트 (P3 운영 규칙 흡수)",
+      "decision": "운영 데이터 0건 + P3 인프라(stderr+`logs/master-first-audit.md`+`/open` 자동 브리핑)가 이미 D4 prime directive 만족 (Jobs/Ace/Riki 3 페르소나 만장일치 B). NIST SP 800-160 Vol.2 marginal value 미입증 layer는 false-sense-of-security로 해악. Keynes 시각: 데이터 0건은 측정 sink 협소(PreToolUse Task만)라 layer 추가도 동일 결과 — 측정 범위 확장이 우선. (1) P1~P3 운영 보존 (D-129 본체). (2) P4(LLM 2차 검증) 분리 deprecate — 운영 데이터 0, marginal value 미입증, R-2(dispatch inject 무시 가능)/R-3(서브에이전트 input 편향)/R-6(PD-052 미해결 dependency) 함정. (3) P5(enforce 차단) 분리 deprecate — P4 dependency. PreToolUse 차단 hook 패턴(D-128 sage-gate 동형) 필요해지면 별도 토픽 재진입. (4) P6(30세션 게이트) 의미 재정의 — 'P3 충분성 측정 게이트'로 흡수: FP≥10% OR 누적 5건 dual-trigger 발생 시 Master에게 재설계 요청. 별도 layer 아닌 P3 운영 규칙. (5) saying no는 D-129 박제 자체에 적용 — 박제는 신성하지 않음, sunk cost(P1~P3 MVP)는 회수 완료, P4/P5/P6 분리만 매몰비용 차단. (6) 후속 — 측정 sink 범위 확장(UserPromptSubmit 시점 audit-emit 평가)은 별도 child 토픽(Grade C, Dev 직행) 권고.",
+      "value": "Jobs/Ace/Riki 3 페르소나 만장일치 B(부분 supersede). D-129 P1~P3 sunk cost는 보존, P4/P5/P6 분리만 매몰비용 차단 — 박제는 신성하지 않음 원칙. NIST SP 800-160 Vol.2 정합 (marginal value 미입증 layer 제거 = false-sense-of-security 차단). Keynes 1936 정합 (불확실성에는 적응력으로 대응, 사전 layer 과적화 금지). Master 메모리 정합 — `feedback_simple_growth_not_measurement.md` (측정 위한 측정 금지) + `feedback_pragmatic_weapon_not_art.md` (효과 대비 비용 낮으면 즉시 기각). 시스템 표면적 축소 = SRP(Martin 2003) 정합.",
+      "externalAnchors": [
+        "NIST SP 800-160 Vol.2 §3.4.5 — Defense in Depth (각 layer marginal value 입증 의무)",
+        "John Maynard Keynes, 'General Theory' (1936) — 불확실성(uncertainty) vs 리스크(risk) 구분, 사전 layer 과적화 회피",
+        "Robert C. Martin (2003) — Single Responsibility Principle (시스템 표면적 축소)",
+        "Steve Jobs, Stanford Commencement (2005) — Focus·saying no (D-129 박제 자체에 적용)",
+        "Prime Directive D4 (D-113) — 모델 설득 무력화는 코드 박제로, P3 stderr+audit.md+/open 브리핑 누적 압력으로 충분"
+      ],
+      "supersedes": ["D-129 (P4/P5/P6 분리 부분)"],
+      "amendments": ["D-129 (P1~P3 본체 보존)"],
+      "caveat": "측정 sink 범위 확장(UserPromptSubmit 시점 audit-emit 트리거 평가)은 별도 child 토픽 권고 — 본 결정 범위 외. P5 enforce 차단 hook 패턴은 미래 echo chamber 패턴 발견 시 별도 토픽으로 재진입 가능."
+    },
+    {
       "id": "D-133",
       "date": "2026-05-01",
       "session": "session_153",
@@ -90,7 +111,10 @@
         "Wingspread Statement (1998) — Precautionary Principle (false sense of security 차단)",
         "Robert C. Martin (2003) — Single Responsibility Principle (hook 2건 분리)"
       ],
-      "caveat": "F-205/R-301 (자가검사 LLM 메타 회귀) 잔존 — false-negative 게이트 + dual-trigger로 측정. 30세션 후 재설계 조건부."
+      "caveat": "F-205/R-301 (자가검사 LLM 메타 회귀) 잔존 — false-negative 게이트 + dual-trigger로 측정. 30세션 후 재설계 조건부.",
+      "status": "partially-superseded",
+      "supersededBy": ["D-134"],
+      "supersedeNote": "D-134(2026-05-01, topic_138 / session_156)에 의해 P4(LLM 2차)·P5(enforce) layer 분리 폐기, P6(30세션 게이트)는 'P3 충분성 측정 게이트'로 의미 재정의되어 P3 운영 규칙으로 흡수. P1~P3 본체 보존."
     },
     {
       "id": "D-128",

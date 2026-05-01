@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_155",
-  "nextSessionId": "session_156",
+  "lastSessionId": "session_156",
+  "nextSessionId": "session_157",
   "currentVersion": "v2.17",
   "openTopics": [
     {
@@ -20,6 +20,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-134",
+      "date": "2026-05-01",
+      "axis": "D-129 부분 supersede — P4/P5 layer 분리 deprecate, P3 단일 운영 + P6 = P3 충분성 측정 게이트 (P3 운영 규칙 흡수)",
+      "summary": "Jobs/Ace/Riki 3 페르소나 만장일치 B(부분 supersede). D-129 P1~P3 sunk cost는 보존, P4/P5/P6 분리만 매몰비용 차단 — 박제는 신성하지 않음 원칙. NIST SP 800-160 Vol.2 정합 (marginal value 미입증 layer 제거 = false-sense-of-security 차단). Keynes 1936 정합 (불확실성에는 적응력으로 대응, 사전 layer 과적화 금지). Master 메모리 정합 — `feedback_simple_growth_not_measurement.md` (측정 위한 측정 금지) + `feedback_pragmatic_weapon_not_art.md` (효과 대비 비용 낮으면 즉시 기각). 시스템 표면적 축소 = SRP(Martin 2003) 정합."
+    },
     {
       "id": "D-133",
       "date": "2026-05-01",
@@ -43,15 +49,18 @@
       "date": "2026-04-30",
       "axis": "Ace 전략 페르소나 재정의 + Jobs 기획 페르소나 신설 + framing/orchestration/versionBump/Grade 책임 재분배",
       "summary": "echo chamber 차단 (단일 Ace self-validate 구조 → 전략·기획 cross-칼질). framing 부산물(Grade·orchestration·versionBump)을 자동 시스템(Nexus)·확정 책임자(Edi)로 분산해 'Ace 미호출 세션 누락' 방지. D4 prime directive 정합 — 코드/hook 박제로 모델 자율 우회 차단. Ace 책임 축소·집중(전략 판정 단일 영역) + Jobs 책임 명료화(framing 단일 영역) = 단일 책임 원칙(Martin 2003) 정합."
-    },
-    {
-      "id": "D-129",
-      "date": "2026-04-30",
-      "axis": "Master-first 모드 = 옵션 2 (hook 박제) + 6조건",
-      "summary": "Sage(D-126) 다음 세션 채점 시점 미스매치 보완. 세션 내 실시간 자기감사로 echo chamber 회귀 차단. D4 prime directive(모델 설득 무력화 전제) 정합 — 코드 hook 박제로 Claude 자율 우회 차단. 비용: 초기 ~500 LOC + 세션당 $0.06~$0.40 (LLM 2차 사용 시) < 회피 가치 (s139 echo chamber 1회 = 1.5~2 세션 회귀)."
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_156",
+      "topicSlug": "big-bang-part3",
+      "closedAt": "2026-05-01T17:35:00.000Z",
+      "oneLineSummary": "D-129 부분 supersede 박제(D-134) — P4/P5 layer 분리 폐기, P6는 P3 충분성 측정 게이트로 의미 재정의. 3 페르소나 만장일치 B.",
+      "decisionsAdded": [
+        "D-134"
+      ]
+    },
     {
       "sessionId": "session_155",
       "topicSlug": "nexus-structure-v1",
@@ -65,15 +74,6 @@
       "closedAt": "2026-05-01T15:00:00.000Z",
       "oneLineSummary": "HookB stale state 수정 + audit.md 리포트 + D-020 전체 역할 override + settings defaultMode 제거",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_153",
-      "topicSlug": "big-bang-legend-nexus",
-      "closedAt": "2026-05-01T10:00:00.000Z",
-      "oneLineSummary": "P3 1/2 — D-133 박제(NCL 전면 폐기 + Nexus 정의 + C축 종결). 3 페르소나 만장일치 α. topic_131 종결.",
-      "decisionsAdded": [
-        "D-133"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -599,5 +599,5 @@
       "resolvedNote": "hitRateRubric = D-041(session_037, persona-top01-redefinition) 잔재. Big Bang 설계 범위 외. D-092 단순화 이후 pipeline 연결 없음(hooks/scripts 참조 0건). 8역할 memory.json에서 일괄 삭제 완료. Jobs·Sage·Zero 미박제는 설계적으로 정상. PD-054 resolved."
     }
   ],
-  "lastUpdated": "2026-05-01T07:54:24.211Z"
+  "lastUpdated": "2026-05-01T09:32:16.831Z"
 }

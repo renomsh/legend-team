@@ -10,5 +10,5 @@
   "logPath": "logs/master-first.log",
   "auditReportPath": "logs/master-first-audit.md",
   "statePath": "memory/shared/master_first_state.json",
-  "_doc": "D-129 (topic_132 / session_144). MVP P1~P3 warn-only. P4 LLM 2차 / P5 enforce / P6 30세션 게이트는 별도 세션."
+  "_doc": "D-129 + D-134 (topic_138 / session_156). P1~P3 운영. P4/P5 폐기. P6 = P3 충분성 측정 게이트(P3 운영 규칙 흡수). dualTrigger 필드는 P6 의미 재정의 후에도 보존 — FP≥10% OR 누적 5건 발생 시 Master 재설계 요청 트리거."
 }
