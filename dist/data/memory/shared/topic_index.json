@@ -3,17 +3,18 @@
     {
       "id": "topic_136",
       "title": "Master-first 모드",
-      "status": "open",
-      "phase": "framing",
+      "status": "completed",
+      "phase": "implementation",
       "hold": null,
       "created": "2026-04-30",
       "controlPath": "topics/topic_136",
       "reportPath": "reports/2026-04-30_master-first-mode",
       "reportFiles": [],
       "published": false,
-      "closedInSession": null,
+      "closedInSession": "session_154",
       "path": "topics/topic_136",
-      "grade": "A"
+      "grade": "A",
+      "outcome": "HookB stale state 수정, audit.md 리포트 기능 추가, D-020 전체 역할 override 갱신, settings.json defaultMode 제거. warn-only MVP 운영 중."
     },
     {
       "id": "topic_135",
@@ -2662,5 +2663,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-04-30T23:54:59.576Z"
+  "lastUpdated": "2026-05-01T01:14:55.169Z"
 }

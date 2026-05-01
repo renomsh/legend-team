@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-05-01T00:30:31.169Z",
-  "totalSessions": 151,
+  "generatedAt": "2026-05-01T01:15:11.241Z",
+  "totalSessions": 152,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 17.25,
-    "avgCacheHitRate": 0.9317,
-    "cacheSampleSize": 125,
-    "cacheSampleTotal": 151,
+    "avgMasterTurns": 17.29,
+    "avgCacheHitRate": 0.9315,
+    "cacheSampleSize": 126,
+    "cacheSampleTotal": 152,
     "avgAdoptionRate": 0,
     "totalDecisions": 134,
     "gradeDistribution": {
-      "S": 66,
+      "S": 67,
       "A": 32,
       "B": 39,
       "C": 14
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 106,
-    "totalCostUSD": 1617.9013,
-    "avgCostPerSession": 11.0815,
-    "costSampleSize": 146
+    "turnBasedSessions": 107,
+    "totalCostUSD": 1635.069,
+    "avgCostPerSession": 11.1229,
+    "costSampleSize": 147
   },
   "sessions": [
     {
@@ -5416,10 +5416,10 @@
       ],
       "rolesCalled": 5,
       "rolesRecalled": 0,
-      "sessionsSpanned": 1,
-      "size": 10,
-      "gradeDeclared": "A",
-      "gradeActual": "A",
+      "sessionsSpanned": 2,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 17,
@@ -5796,12 +5796,46 @@
         "messageCount": 274
       },
       "sessionCostUSD": 22.5605
+    },
+    {
+      "sessionId": "session_154",
+      "topicSlug": "master-first-mode",
+      "topic": "Master-first 모드",
+      "startedAt": "2026-05-01T10:30:00.000Z",
+      "closedAt": "2026-05-01T15:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 2,
+      "size": 8,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 23,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 24785578,
+        "ioTokens": 164215,
+        "inputTokens": 615,
+        "outputTokens": 163600,
+        "cacheCreate": 2123315,
+        "cacheRead": 22498048,
+        "cacheHitRate": 0.9077072158656134,
+        "messageCount": 228
+      },
+      "sessionCostUSD": 17.1677
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 162,
+      "count": 163,
       "sessions": [
         "session_047",
         "session_048",
@@ -5881,7 +5915,8 @@
         "session_142",
         "session_143",
         "session_150",
-        "session_153"
+        "session_153",
+        "session_154"
       ]
     },
     {
@@ -5949,7 +5984,7 @@
     },
     {
       "role": "edi",
-      "count": 109,
+      "count": 110,
       "sessions": [
         "session_050",
         "session_051",
@@ -6053,7 +6088,8 @@
         "session_150",
         "session_151",
         "session_152",
-        "session_153"
+        "session_153",
+        "session_154"
       ]
     },
     {
@@ -10439,6 +10475,24 @@
           "role": "edi",
           "phase": "output",
           "turnIdx": 24,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_154",
+      "topic": "Master-first 모드",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 1,
           "recallReason": null
         }
       ]

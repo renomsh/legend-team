@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_153",
-  "nextSessionId": "session_154",
+  "lastSessionId": "session_154",
+  "nextSessionId": "session_155",
   "currentVersion": "v2.16",
   "openTopics": [
     {
@@ -53,6 +53,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_154",
+      "topicSlug": "master-first-mode",
+      "closedAt": "2026-05-01T15:00:00.000Z",
+      "oneLineSummary": "HookB stale state 수정 + audit.md 리포트 + D-020 전체 역할 override + settings defaultMode 제거",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_153",
       "topicSlug": "big-bang-legend-nexus",
       "closedAt": "2026-05-01T10:00:00.000Z",
@@ -69,13 +76,6 @@
       "decisionsAdded": [
         "D-132"
       ]
-    },
-    {
-      "sessionId": "session_151",
-      "topicSlug": "9agent-persona-policy-upgrade-v1.1",
-      "closedAt": "2026-04-30T19:00:00.000Z",
-      "oneLineSummary": "9Agent ver1.1 완결 — Zero/Jobs/Sage/Ace upgrade + PD-054(hitRateRubric) topic_131 이연",
-      "decisionsAdded": []
     }
   ],
   "pendingDeferrals": [
@@ -601,5 +601,5 @@
       "resolvedNote": "hitRateRubric = D-041(session_037, persona-top01-redefinition) 잔재. Big Bang 설계 범위 외. D-092 단순화 이후 pipeline 연결 없음(hooks/scripts 참조 0건). 8역할 memory.json에서 일괄 삭제 완료. Jobs·Sage·Zero 미박제는 설계적으로 정상. PD-054 resolved."
     }
   ],
-  "lastUpdated": "2026-04-30T23:52:58.830Z"
+  "lastUpdated": "2026-05-01T01:15:02.895Z"
 }

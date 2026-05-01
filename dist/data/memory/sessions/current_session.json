@@ -4,8 +4,9 @@
   "topic": "Master-first 모드",
   "topicSlug": "master-first-mode",
   "reportPath": "reports/2026-05-01_master-first-mode",
-  "status": "open",
+  "status": "closed",
   "startedAt": "2026-05-01T10:30:00.000Z",
+  "closedAt": "2026-05-01T15:00:00.000Z",
   "mode": "observation",
   "grade": "A",
   "gradeDeclared": "A",
@@ -14,11 +15,19 @@
   "topicType": "implementation",
   "parentTopicId": "topic_131",
   "childTopicIds": [],
-  "agentsCompleted": [],
+  "agentsCompleted": [
+    "ace",
+    "edi"
+  ],
   "turns": [
     {
       "role": "ace",
       "turnIdx": 0,
+      "source": "agent"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 1,
       "source": "agent"
     }
   ],
@@ -28,18 +37,24 @@
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "decisionsAdded": [],
+  "oneLineSummary": "HookB stale state 수정 + audit.md 리포트 + D-020 전체 역할 override + settings defaultMode 제거",
+  "versionBump": {
+    "value": 0.1,
+    "type": "structural",
+    "confirmedBy": "edi"
+  },
   "notes": [
     "D-129 Master-first 모드 구현 토픽 (topic_131 Big-Bang child)",
     "HookA=user-prompt-submit-master-first.js, HookB=pre-tool-use-task-master-first.js MVP P1~P3 구현 대상"
   ],
   "gaps": [],
   "tokenUsage": {
-    "input_tokens": 199,
-    "output_tokens": 25779,
-    "cache_creation_input_tokens": 540800,
-    "cache_read_input_tokens": 3807522,
-    "messageCount": 49,
-    "masterTurns": 5,
-    "total_billable": 4374300
+    "input_tokens": 416,
+    "output_tokens": 137821,
+    "cache_creation_input_tokens": 1582515,
+    "cache_read_input_tokens": 18690526,
+    "messageCount": 179,
+    "masterTurns": 18,
+    "total_billable": 20411278
   }
 }

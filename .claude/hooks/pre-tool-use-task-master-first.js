@@ -15,6 +15,7 @@ const path = require('path');
 
 const TARGET_TOOL_NAMES = ['Task', 'Agent'];
 const CONFIG_REL = 'memory/shared/master_first_config.json';
+const SESSION_REL = 'memory/sessions/current_session.json';
 
 function readStdin() {
   return new Promise((resolve) => {
@@ -60,6 +61,27 @@ function buildAuditMessage(state) {
   return `[master-first] WARN: ${flags.join('+')} 감지 (matched: ${matched}). Master 의도 재확인 권고. (D-129, warn-only)`;
 }
 
+/**
+ * audit 발생 시 logs/master-first-audit.md 갱신 — /open 브리핑용.
+ */
+function appendAuditReport(cwd, auditPath, { ts, sessionId, toolName, flags, matched, utterance }) {
+  try {
+    const p = path.isAbsolute(auditPath) ? auditPath : path.join(cwd, auditPath);
+    const dir = path.dirname(p);
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    const line = `| ${ts.slice(0, 19).replace('T', ' ')} | ${sessionId || '-'} | ${toolName} | ${flags} | \`${matched}\` | ${utterance ? utterance.slice(0, 60) : '-'} |\n`;
+    if (!fs.existsSync(p)) {
+      fs.writeFileSync(p,
+        '# Master-first Audit Log\n\n' +
+        '> /open 브리핑 자동 포함. echo-trigger / intent-reconfirm 감지 기록. (D-129)\n\n' +
+        '| 시각 | 세션 | 도구 | 플래그 | 키워드 | 발언(60자) |\n' +
+        '|---|---|---|---|---|---|\n' + line, 'utf8');
+    } else {
+      fs.appendFileSync(p, line, 'utf8');
+    }
+  } catch { /* silent */ }
+}
+
 async function run() {
   const startedAt = Date.now();
   const cwd = process.cwd();
@@ -78,14 +100,33 @@ async function run() {
     const statePath = path.join(cwd, (config && config.statePath) || 'memory/shared/master_first_state.json');
     const state = readJsonFile(statePath);
 
+    // stale state 방지: 현재 세션 ID와 state의 sessionId 비교
+    const sess = readJsonFile(path.join(cwd, SESSION_REL));
+    const currentSessionId = input.session_id || input.sessionId || (sess && sess.sessionId) || null;
+    if (state && currentSessionId && state.sessionId !== currentSessionId) {
+      appendLog(cwd, (config && config.logPath) || 'logs/master-first.log', {
+        ts, phase: 'stale-state-skip', toolName,
+        stateSessionId: state.sessionId, currentSessionId
+      });
+      process.exit(0);
+    }
+
     const auditMsg = buildAuditMessage(state);
     if (auditMsg) {
-      process.stderr.write(auditMsg + '\n');
+      const flags = [];
+      if (state.echoTriggerDetected) flags.push('echo-trigger');
+      if (state.intentReconfirmRequested) flags.push('intent-reconfirm');
       appendLog(cwd, (config && config.logPath) || 'logs/master-first.log', {
         ts, phase: 'audit-emit', toolName,
         echoTriggerDetected: state.echoTriggerDetected,
         intentReconfirmRequested: state.intentReconfirmRequested,
         matchedKeywords: state.matchedKeywords
+      });
+      appendAuditReport(cwd, (config && config.auditReportPath) || 'logs/master-first-audit.md', {
+        ts, sessionId: currentSessionId, toolName,
+        flags: flags.join('+'),
+        matched: Array.isArray(state.matchedKeywords) ? state.matchedKeywords.join(', ') : '',
+        utterance: state.lastMasterUtterance || ''
       });
     } else {
       appendLog(cwd, (config && config.logPath) || 'logs/master-first.log', {
@@ -109,7 +150,7 @@ async function run() {
   }
 }
 
-module.exports = { buildAuditMessage };
+module.exports = { buildAuditMessage, appendAuditReport };
 
 if (require.main === module) {
   run();

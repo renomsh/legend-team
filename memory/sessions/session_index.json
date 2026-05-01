@@ -6730,8 +6730,36 @@
       "decisionsAdded": [
         "D-133"
       ]
+    },
+    {
+      "sessionId": "session_154",
+      "topicSlug": "master-first-mode",
+      "topic": "Master-first 모드",
+      "startedAt": "2026-05-01T10:30:00.000Z",
+      "closedAt": "2026-05-01T15:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "ace",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "source": "agent"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 1,
+          "source": "agent"
+        }
+      ],
+      "grade": "A",
+      "note": "D-129 Master-first 모드 구현 토픽 (topic_131 Big-Bang child) | HookA=user-prompt-submit-master-first.js, HookB=pre-tool-use-task-master-first.js MVP P1~P3 구현 대상",
+      "oneLineSummary": "HookB stale state 수정 + audit.md 리포트 + D-020 전체 역할 override + settings defaultMode 제거",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-04-30T23:52:42.984Z",
+  "lastUpdated": "2026-05-01T01:14:44.799Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

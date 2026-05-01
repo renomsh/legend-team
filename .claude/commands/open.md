@@ -20,6 +20,10 @@
    - `system_state.json`의 `recentSessionSummaries[]` 배열을 읽어 Master에게 브리핑:
      - 각 항목: `{sessionId}: {topicSlug} — {oneLineSummary} (결정: {decisionsAdded.join(', ')})`
    - 배열이 비어있거나 필드 없으면 "최근 세션 요약 없음 (oneLineSummary 미기록)" 출력 후 진행
+3.5-d. **[Master-first audit 브리핑]** (D-129, 2026-05-01)
+   - `logs/master-first-audit.md` 존재 시: 마지막 5행을 읽어 Master에게 브리핑
+   - 파일 없으면 조용히 스킵
+   - 브리핑 형식: "⚠ Master-first audit 기록 {N}건 — 최근: {마지막 항목 요약}" 1줄
 3.6. **[자동 종결 dry-run 배치]** (D-057, session_067)
    - `npx ts-node scripts/auto-close-topics.ts` — framing 토픽 중 모든 children이 completed면 종결 제안 출력 (무변경)
    - `npx ts-node scripts/resolve-pending-deferrals.ts` — resolveCondition 매칭 PD 전이 제안 + stale 리포트

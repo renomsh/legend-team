@@ -16,7 +16,7 @@ Rules:
 - Never start from UI
 - Never generate JSX, React pages, dashboards, or mockups first
 - Preserve structured topic state and revision history
-- Master feedback is authoritative — but Ace validates before accepting. If a decision conflicts with prior decisions or core principles, Ace asks a clarifying question before proceeding. Master can override with "진행해". See `ace-learning-loop` skill. (D-020, 2026-04-16)
+- Master feedback is authoritative — but Ace validates before accepting. If a decision conflicts with prior decisions or core principles, Ace asks a clarifying question before proceeding. Master can override with "진행해" / "구현해" / "실행해" (전체 역할 대상 — Ace 한정 아님). See `ace-learning-loop` skill. (D-020, 2026-04-16)
 - Keep role separation: ace, arki, fin, riki, designer/vera, edi, nova, sage, zero
 - Nova is optional and speculative unless explicitly promoted
 - Designer (Vera) handles visual system: color, typography, spacing, gradient, component spec. Receives direction from Ace, delivers spec to Edi. Does NOT make UX strategy or data decisions. (D-029, 2026-04-17)
@@ -94,7 +94,7 @@ Rules:
 - **status enum 7종 (D-B):** `open` | `framing` | `design-approved` | `implementing` | `completed` | `suspended` | `cancelled`
 
 ### Transition Checkpoint 정책 (D-C·D-E·D-G / D-104-s130, 2026-04-28)
-- **trigger 어휘 (D-E):** 구현 단계 진입 승인 = `"구현 진입"` 또는 `"approve-impl"`. `"진행해"`는 D-020(Ace validate override) 전용 — 혼용 금지.
+- **trigger 어휘 (D-E):** 구현 단계 진입 승인 = `"구현 진입"` 또는 `"approve-impl"`. `"진행해"` / `"구현해"` / `"실행해"`는 전체 역할 override 명령어(D-020 갱신, 2026-05-01) — Ace 한정 아님, master-first intentReconfirm 대상 제외.
 - **checkpoint 동작 (D-C):** 1회 알림만. tool blocker 아님 (Edit/Write/Bash 직접 차단 없음).
 - **적용 범위 (D-G):** Grade A/B/S framing 토픽만. Grade C/D는 optional.
 - **활성화 조건 (D-G):** PD-052(사칭 차단 hook) resolved 이후. 미해결 시 warn-only 모드.
