@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_163",
-  "nextSessionId": "session_164",
+  "lastSessionId": "session_164",
+  "nextSessionId": "session_165",
   "currentVersion": "v2.20",
   "openTopics": [
     {
@@ -20,6 +20,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-142",
+      "date": "2026-05-02",
+      "axis": "ace-framing skill DEPRECATED 해제 + 명시 호출 전용 재활성화 + D-119/D-136 운영 잔재 정리",
+      "summary": "Nexus 전환 잔여 cleanup 일괄 해소. ace-framing은 폐기 대신 명시 호출 skill로 보존 — Jobs와 다른 시각 제공. 시스템명 운영 정합 회복(legend-nexus). D4 Prime Directive 정합(자가 우회 방지: 동일 역할 감시 자체 금지로 자동화 시도 차단)."
+    },
     {
       "id": "D-141",
       "date": "2026-05-01",
@@ -41,15 +47,18 @@
       "date": "2026-05-01",
       "axis": "Edi Agent 툴 호출 강제 메커니즘 구현 — enforceEdiAgentSource hook 추가",
       "summary": "D4 Prime Directive 이행 — enforcement를 코드에 박제, 모델 자율 판단 의존 제거. Riki R-1 준수(pre-tool-use-task.js 미수정). Dev 6케이스 검증 완료. 27.8% Edi 미호출률의 구조적 재발 방지 메커니즘 완성."
-    },
-    {
-      "id": "D-137",
-      "date": "2026-05-01",
-      "axis": "Grade C/D 세션에서 Edi mechanical fallback 생성 제거 — synthesizeMechanicalEdiReport early-return 추가",
-      "summary": "Riki 확인: dispatch_config rule 추가(R-1) + CLAUDE.md 재기술(R-2)은 현재 hook 구조에서 무효. 코드 수정만 실효성 있음. Dev 6케이스 검증 완료. SRP(Martin 2003) 정합 — hook 단일 책임 강화. CLAUDE.md 설계 의도와 코드 정합은 장기 유지보수성 향상."
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_164",
+      "topicSlug": "bigbang-completion-review",
+      "closedAt": "2026-05-02T00:30:00.000Z",
+      "oneLineSummary": "Nexus 전환 잔여 cleanup: ace-framing 재활성화, package.json·role-sage stale 정리, D-142 박제",
+      "decisionsAdded": [
+        "D-142"
+      ]
+    },
     {
       "sessionId": "session_163",
       "topicSlug": "bigbang-completion-review",
@@ -67,15 +76,6 @@
       "decisionsAdded": [
         "D-139",
         "D-140"
-      ]
-    },
-    {
-      "sessionId": "session_156",
-      "topicSlug": "big-bang-part3",
-      "closedAt": "2026-05-01T17:35:00.000Z",
-      "oneLineSummary": "D-129 부분 supersede 박제(D-134) — P4/P5 layer 분리 폐기, P6는 P3 충분성 측정 게이트로 의미 재정의. 3 페르소나 만장일치 B.",
-      "decisionsAdded": [
-        "D-134"
       ]
     }
   ],
@@ -602,5 +602,5 @@
       "resolvedNote": "hitRateRubric = D-041(session_037, persona-top01-redefinition) 잔재. Big Bang 설계 범위 외. D-092 단순화 이후 pipeline 연결 없음(hooks/scripts 참조 0건). 8역할 memory.json에서 일괄 삭제 완료. Jobs·Sage·Zero 미박제는 설계적으로 정상. PD-054 resolved."
     }
   ],
-  "lastUpdated": "2026-05-01T15:10:59.550Z"
+  "lastUpdated": "2026-05-01T15:37:08.646Z"
 }

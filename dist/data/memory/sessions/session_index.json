@@ -7145,8 +7145,36 @@
       "decisionsAdded": [
         "D-141"
       ]
+    },
+    {
+      "sessionId": "session_164",
+      "topicSlug": "bigbang-completion-review",
+      "topic": "BigBang 완료 검토",
+      "startedAt": "2026-05-02T00:00:00.000Z",
+      "closedAt": "2026-05-02T00:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "decisions": [
+        "동일 역할 다회 호출 자동 감시·차단 금지 (Master 직접 보고 의도적 재호출도 함)",
+        "ace-framing skill DEPRECATED 해제 — Jobs framing과 다른 시각, 명시 호출 시만 사용"
+      ],
+      "agentsCompleted": [
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "edi",
+          "turnIdx": 0,
+          "phase": "compile"
+        }
+      ],
+      "grade": "S",
+      "note": "Part6 — Nexus 전환 잔여 cleanup. dispatch_config Edi rule + recallReason 추출은 Master args로 범위 밖 확정. | D-119 운영 미반영 해소: package.json name → legend-nexus. | D-136 stale 정리: role-sage.md first-speaker override 줄 삭제. | ace-framing skill 재활성화 + commands/ 중복 파일 삭제 + 정교화 protocol 병합. | Grade S 세션이나 역할 agent 호출 0건 — Master 직접 결정 + Nexus 인라인 실행. Edi LLM gate skip (mechanical fallback 박제 예상).",
+      "oneLineSummary": "Nexus 전환 잔여 cleanup: ace-framing 재활성화, package.json·role-sage stale 정리, D-142 박제",
+      "decisionsAdded": [
+        "D-142"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-01T15:10:43.866Z",
+  "lastUpdated": "2026-05-01T15:36:49.768Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

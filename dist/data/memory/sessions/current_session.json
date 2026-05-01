@@ -1,11 +1,12 @@
 {
-  "sessionId": "session_163",
+  "sessionId": "session_164",
   "topicId": "topic_141",
   "topic": "BigBang 완료 검토",
   "topicSlug": "bigbang-completion-review",
-  "reportPath": "reports/2026-05-01_bigbang-completion-review",
+  "reportPath": "reports/2026-05-02_bigbang-completion-review",
   "status": "closed",
-  "startedAt": "2026-05-01T19:30:00.000Z",
+  "startedAt": "2026-05-02T00:00:00.000Z",
+  "closedAt": "2026-05-02T00:30:00.000Z",
   "mode": "observation",
   "grade": "S",
   "gradeDeclared": "S",
@@ -15,144 +16,102 @@
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
-    "jobs",
-    "arki",
-    "riki",
-    "dev",
     "edi"
   ],
   "turns": [
     {
-      "role": "jobs",
+      "role": "edi",
       "turnIdx": 0,
-      "source": "agent"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 1,
-      "source": "agent"
-    },
-    {
-      "role": "riki",
-      "turnIdx": 2,
-      "source": "agent"
-    },
-    {
-      "role": "dev",
-      "turnIdx": 3,
-      "source": "agent"
-    },
-    {
-      "role": "edi",
-      "turnIdx": 4,
-      "source": "agent",
       "phase": "compile"
-    },
-    {
-      "role": "edi",
-      "turnIdx": 5,
-      "source": "agent"
     }
   ],
   "decisions": [
-    "D-141"
+    "D-142"
   ],
-  "masterDecisions": [],
-  "masterFeedback": [],
+  "decisionsAdded": [
+    "D-142"
+  ],
+  "masterDecisions": [
+    "동일 역할 다회 호출 자동 감시·차단 금지 (Master 직접 보고 의도적 재호출도 함)",
+    "ace-framing skill DEPRECATED 해제 — Jobs framing과 다른 시각, 명시 호출 시만 사용"
+  ],
+  "masterFeedback": [
+    "1번(타입A 재발 방지) 폐기 — 여러번 호출하면 볼 수 있고 의도적 재호출도 함",
+    "2,3번(package.json + role-sage.md cleanup) 진행 + 메모리 박제",
+    "framing 스타일이 ace와 jobs 달라서 둘다 유용"
+  ],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
-  "decisionsAdded": [
-    "D-141"
-  ],
   "notes": [
-    "part5 — Nexus 구조 전환 미결사항 검토. /jobs-framing 명시 호출.",
-    "dispatch_config Edi rule: 후속 토픽 등록 필요 (pre-tool-use-task.js enforce hook 구현 선행 조건) — 현재 ghost rule 위험으로 이번 세션 구현 불가 (D-138 caveat)"
+    "Part6 — Nexus 전환 잔여 cleanup. dispatch_config Edi rule + recallReason 추출은 Master args로 범위 밖 확정.",
+    "D-119 운영 미반영 해소: package.json name → legend-nexus.",
+    "D-136 stale 정리: role-sage.md first-speaker override 줄 삭제.",
+    "ace-framing skill 재활성화 + commands/ 중복 파일 삭제 + 정교화 protocol 병합.",
+    "Grade S 세션이나 역할 agent 호출 0건 — Master 직접 결정 + Nexus 인라인 실행. Edi LLM gate skip (mechanical fallback 박제 예상)."
   ],
   "gaps": [
     {
-      "type": "missing-report",
-      "role": "jobs",
-      "turnIdx": 0,
-      "reportPath": "reports/2026-05-01_bigbang-completion-review",
-      "detectedAt": "2026-05-01T14:54:49.237Z",
-      "note": "jobs turn0 완료 후 reports/jobs_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+      "type": "edi-agent-call-skipped",
+      "severity": "info",
+      "note": "Grade S이나 cleanup 위주 세션으로 역할 agent 호출 0건. Edi LLM 호출 skip — hook이 mechanical fallback 박제 예상."
     },
     {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-01_bigbang-completion-review/ace_rev1.md",
-      "expected": "ace",
-      "actualInTurns": "jobs",
-      "turnId": 0
+      "type": "edi-llm-skipped",
+      "sessionId": "session_164",
+      "grade": "S",
+      "severity": "high",
+      "detectedAt": "2026-05-01T15:36:49.745Z",
+      "note": "Grade A/B/S 세션에서 Edi LLM 미호출 — mechanical fallback 박제됨"
     },
     {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-01_bigbang-completion-review/ace_rev2.md",
-      "expected": "ace",
-      "actualInTurns": "dev",
-      "turnId": 3
+      "type": "edi-agent-source-missing",
+      "sessionId": "session_164",
+      "grade": "S",
+      "severity": "high",
+      "detectedAt": "2026-05-01T15:36:49.754Z",
+      "note": "turns[]에 role=edi && source=agent turn 없음 — D-066(Grade A/S 서브에이전트 강제) + D4(hook 박제) 위반",
+      "ref": "D-138"
     },
     {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-01_bigbang-completion-review/ace_rev3.md",
-      "expected": "ace",
-      "actualInTurns": "jobs",
-      "turnId": 0
+      "type": "edi-llm-report-absent",
+      "sessionId": "session_164",
+      "reportPath": "reports/2026-05-02_bigbang-completion-review",
+      "grade": "S",
+      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
     },
     {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-01_bigbang-completion-review/dev_rev1.md",
-      "expected": "dev",
-      "actualInTurns": "edi",
-      "turnId": 4
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-01_bigbang-completion-review/dev_rev2.md",
-      "expected": "dev",
-      "actualInTurns": "riki",
-      "turnId": 2
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-01_bigbang-completion-review/edi_auto_rev1.md",
-      "expected": "edi",
-      "actualInTurns": "arki",
-      "turnId": 1
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-01_bigbang-completion-review/edi_session162_rev1.md",
-      "expected": "edi",
-      "actualInTurns": "jobs",
-      "turnId": 0
-    },
-    {
-      "type": "duplicate-agent-turn",
-      "role": "edi",
-      "note": "same role agent turn already exists in session — warn only (may be legitimate recall: D-048)",
-      "severity": "warn",
-      "detectedAt": "2026-05-01T15:11:54.444Z"
+      "type": "version-bump-unverified",
+      "sessionId": "session_164",
+      "attempted": {
+        "value": 0.01,
+        "from": "v2.20",
+        "to": "v2.21",
+        "reason": "D-142: ace-framing skill 재활성화(deprecated 해제) + 정교화 protocol skill 병합 — 페르소나/정책 capacity 확장.",
+        "confirmedBy": "nexus",
+        "confirmedAt": "2026-05-02T00:30:00.000Z",
+        "basedOn": "nexus-direct"
+      },
+      "note": "confirmedBy !== edi 또는 confirmedAt 부재 — project_charter 미반영"
     }
   ],
+  "oneLineSummary": "Nexus 전환 잔여 cleanup: ace-framing 재활성화, package.json·role-sage stale 정리, D-142 박제",
   "versionBump": {
     "value": 0.01,
-    "from": "v2.19",
-    "to": "v2.20",
-    "reason": "D-141: turns 중복 기록 패턴 해소 — pre-tool-use-task.js Phase 1 필터 + post-tool-use-task.js Phase 2 warn gap 구현. hook 구조 변경(+0.01 capacity 기준).",
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-01T19:50:00.000Z",
-    "basedOn": "edi-override",
-    "overrideReason": "자동 감지 versionBumpSuggested 미박제 상태 — Edi가 변경 파일 2건(.claude/hooks/*.js) 기준 capacity 카테고리로 직접 판단. decision_ledger 신규 1건(D-141) 포함."
+    "from": "v2.20",
+    "to": "v2.21",
+    "reason": "D-142: ace-framing skill 재활성화(deprecated 해제) + 정교화 protocol skill 병합 — 페르소나/정책 capacity 확장.",
+    "confirmedBy": "nexus",
+    "confirmedAt": "2026-05-02T00:30:00.000Z",
+    "basedOn": "nexus-direct"
   },
-  "closedAt": "2026-05-01T19:50:00.000Z",
   "tokenUsage": {
-    "input_tokens": 387,
-    "output_tokens": 53956,
-    "cache_creation_input_tokens": 375728,
-    "cache_read_input_tokens": 6195618,
-    "messageCount": 64,
-    "masterTurns": 2,
-    "total_billable": 6625689
+    "input_tokens": 1914,
+    "output_tokens": 63581,
+    "cache_creation_input_tokens": 631747,
+    "cache_read_input_tokens": 12293620,
+    "messageCount": 84,
+    "masterTurns": 10,
+    "total_billable": 12990862
   },
-  "finalizedAt": "2026-05-01T15:10:59.668Z"
+  "finalizedAt": "2026-05-01T15:37:08.767Z"
 }

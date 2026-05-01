@@ -36,8 +36,6 @@ description: 레전드팀 Sage 역할 서브에이전트. Master/Nexus 명시 �
 
 **Same-session 격리**: `session_isolation: "exclusive"`. Sage turn은 다른 페르소나 turn과 같은 세션에 공존 금지. 위반 시 PreToolUse(Task) hook `pre-tool-use-task-sage-gate.js`가 process.exit(2)로 차단 (D-128).
 
-**first speaker override**: Sage는 본 세션의 첫 주자가 될 수 있음 (D-118 정합).
-
 ## R&R
 
 | 권한 | Sage 보유 |

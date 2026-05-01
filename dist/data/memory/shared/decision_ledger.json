@@ -1,6 +1,18 @@
 {
   "decisions": [
     {
+      "id": "D-142",
+      "date": "2026-05-02",
+      "session": "session_164",
+      "topic": "topic_141",
+      "owningTopicId": "topic_141",
+      "scopeCheck": "BigBang 완료 검토 Part6 — Nexus 전환 잔여 cleanup",
+      "axis": "ace-framing skill DEPRECATED 해제 + 명시 호출 전용 재활성화 + D-119/D-136 운영 잔재 정리",
+      "decision": "(1) ace-framing skill DEPRECATED 해제. user_invocable=true, 자동 트리거 0건, /ace-framing 명시 호출만. Jobs framing(Why·What)과 별도 axis(Structure·Porter / System·Keynes) — 둘 다 유용. (2) .claude/commands/ace-framing.md 삭제 — skill 중복 등록 해소. 정교화 protocol(질문/추천 근거/자가검토)은 SKILL.md로 병합. (3) D-119 운영 미반영 해소: package.json name=legend-team → legend-nexus. (4) D-136 stale: role-sage.md first-speaker override 줄 삭제. (5) 메모리 박제: 동일 역할 다회 호출 자동 감시·차단 금지 (Master 직접 보고 의도적 재호출도 함, ROI 0).",
+      "value": "Nexus 전환 잔여 cleanup 일괄 해소. ace-framing은 폐기 대신 명시 호출 skill로 보존 — Jobs와 다른 시각 제공. 시스템명 운영 정합 회복(legend-nexus). D4 Prime Directive 정합(자가 우회 방지: 동일 역할 감시 자체 금지로 자동화 시도 차단).",
+      "caveats": "ace-framing의 Step 0/0b(topicType 판정·PD 교차검증) 본문은 Jobs framing과 책임 영역 중복 가능성 — 향후 운영 시 Jobs↔Ace 호출 분리 가이드 별도 박제 검토."
+    },
+    {
       "id": "D-140",
       "date": "2026-05-01",
       "session": "session_162",

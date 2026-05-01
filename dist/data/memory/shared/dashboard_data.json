@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-05-01T15:12:13.669Z",
-  "totalSessions": 161,
+  "generatedAt": "2026-05-01T15:37:16.854Z",
+  "totalSessions": 162,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 18.16,
-    "avgCacheHitRate": 0.9312,
-    "cacheSampleSize": 135,
-    "cacheSampleTotal": 161,
+    "avgMasterTurns": 18.11,
+    "avgCacheHitRate": 0.9313,
+    "cacheSampleSize": 136,
+    "cacheSampleTotal": 162,
     "avgAdoptionRate": 0,
-    "totalDecisions": 142,
+    "totalDecisions": 143,
     "gradeDistribution": {
-      "S": 73,
+      "S": 74,
       "A": 33,
       "B": 41,
       "C": 14
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 116,
-    "totalCostUSD": 1836.6366,
-    "avgCostPerSession": 11.7733,
-    "costSampleSize": 156
+    "turnBasedSessions": 117,
+    "totalCostUSD": 1843.6532,
+    "avgCostPerSession": 11.743,
+    "costSampleSize": 157
   },
   "sessions": [
     {
@@ -5992,8 +5992,8 @@
       ],
       "rolesCalled": 1,
       "rolesRecalled": 0,
-      "sessionsSpanned": 5,
-      "size": 20,
+      "sessionsSpanned": 6,
+      "size": 23,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -6028,8 +6028,8 @@
       ],
       "rolesCalled": 7,
       "rolesRecalled": 2,
-      "sessionsSpanned": 5,
-      "size": 28,
+      "sessionsSpanned": 6,
+      "size": 31,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -6070,8 +6070,8 @@
       ],
       "rolesCalled": 5,
       "rolesRecalled": 2,
-      "sessionsSpanned": 5,
-      "size": 26,
+      "sessionsSpanned": 6,
+      "size": 29,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -6110,8 +6110,8 @@
       ],
       "rolesCalled": 1,
       "rolesRecalled": 0,
-      "sessionsSpanned": 5,
-      "size": 18,
+      "sessionsSpanned": 6,
+      "size": 21,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -6146,8 +6146,8 @@
       ],
       "rolesCalled": 5,
       "rolesRecalled": 0,
-      "sessionsSpanned": 5,
-      "size": 22,
+      "sessionsSpanned": 6,
+      "size": 25,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -6172,6 +6172,42 @@
         "messageCount": 121
       },
       "sessionCostUSD": 7.7879
+    },
+    {
+      "sessionId": "session_164",
+      "topicSlug": "bigbang-completion-review",
+      "topic": "BigBang 완료 검토",
+      "startedAt": "2026-05-02T00:00:00.000Z",
+      "closedAt": "2026-05-02T00:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-142"
+      ],
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 6,
+      "size": 21,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 10,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 12990862,
+        "ioTokens": 65495,
+        "inputTokens": 1914,
+        "outputTokens": 63581,
+        "cacheCreate": 631747,
+        "cacheRead": 12293620,
+        "cacheHitRate": 0.9463282729044462,
+        "messageCount": 84
+      },
+      "sessionCostUSD": 7.0166
     }
   ],
   "roleFrequency": [
@@ -6267,7 +6303,7 @@
     },
     {
       "role": "edi",
-      "count": 121,
+      "count": 122,
       "sessions": [
         "session_050",
         "session_051",
@@ -6381,7 +6417,8 @@
         "session_160",
         "session_161",
         "session_162",
-        "session_163"
+        "session_163",
+        "session_164"
       ]
     },
     {
@@ -11131,6 +11168,18 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_164",
+      "topic": "BigBang 완료 검토",
+      "sequence": [
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 0,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -11336,6 +11385,11 @@
           "date": "2026-05-01",
           "feedbackId": "MF-AUTO-session_159-edi",
           "summary": "Grade B 세션 session_159에서 Edi LLM 미호출 — mechanical fallback(e"
+        },
+        {
+          "date": "2026-05-01",
+          "feedbackId": "MF-AUTO-session_164-edi",
+          "summary": "Grade S 세션 session_164에서 Edi LLM 미호출 — mechanical fallback(e"
         }
       ]
     },
@@ -11754,6 +11808,11 @@
           "date": "2026-05-01",
           "feedbackId": "MF-AUTO-session_159-edi",
           "summary": "Grade B 세션 session_159에서 Edi LLM 미호출 — mechanical fallback(e"
+        },
+        {
+          "date": "2026-05-01",
+          "feedbackId": "MF-AUTO-session_164-edi",
+          "summary": "Grade S 세션 session_164에서 Edi LLM 미호출 — mechanical fallback(e"
         }
       ]
     },
@@ -11941,6 +12000,11 @@
           "date": "2026-05-01",
           "feedbackId": "MF-AUTO-session_159-edi",
           "summary": "Grade B 세션 session_159에서 Edi LLM 미호출 — mechanical fallback(e"
+        },
+        {
+          "date": "2026-05-01",
+          "feedbackId": "MF-AUTO-session_164-edi",
+          "summary": "Grade S 세션 session_164에서 Edi LLM 미호출 — mechanical fallback(e"
         }
       ]
     },
@@ -12399,6 +12463,11 @@
           "date": "2026-05-01",
           "feedbackId": "MF-AUTO-session_159-edi",
           "summary": "Grade B 세션 session_159에서 Edi LLM 미호출 — mechanical fallback(e"
+        },
+        {
+          "date": "2026-05-01",
+          "feedbackId": "MF-AUTO-session_164-edi",
+          "summary": "Grade S 세션 session_164에서 Edi LLM 미호출 — mechanical fallback(e"
         }
       ]
     }

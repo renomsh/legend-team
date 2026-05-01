@@ -1,42 +1,28 @@
 ---
 name: ace-framing
-description: "[DEPRECATED — D-130, 2026-04-30] framing 주체 Jobs로 이전. /jobs-framing 사용"
-user_invocable: false
-deprecated: true
-deprecatedAt: "2026-04-30"
-deprecatedBy: "D-130"
-replacement: "jobs-framing"
+description: "Ace 프레이밍 — 구조(Structure·Porter)·흐름(System·Keynes) 시각의 전략 프레이밍. Master 명시 호출 시만 발동. 자동 트리거 0건 (D-130/D-164 정합)."
+user_invocable: true
 ---
 
-# Ace Framing — DEPRECATED
+# Ace Framing — 전략 프레이밍 (명시 호출 전용)
 
-> **D-130 (2026-04-30, session_145, topic_131)**: framing 주체 Jobs로 이전. 본 skill은 호출되지 않습니다.
->
-> - 신 skill: `.claude/skills/jobs-framing/SKILL.md` (다음 세션 신설 예정)
-> - Ace 신 R&R: 구조(Structure)·흐름(System) 판정자. 종합검토는 `/ace-synthesis` 명시 호출.
->
-> 본 파일은 history 보존용으로 유지. 본문은 폐기 시점 spec.
-
----
-
-# Ace Framing (폐기 본문)
-
-토픽이 열리면 Ace가 첫 번째로 발언한다. 이 skill은 Ace의 프레이밍 발언 구조를 정의한다.
+Ace는 D-130 이후 **구조·흐름 판정자**다. 본 skill은 Master가 framing 부산물 외에 **전략적 시각의 추가 프레이밍**을 원할 때 명시 호출한다. 기본 framing은 `/jobs-framing` (Jobs 주체).
 
 ## 트리거
 
-- `/ace-framing` 명시 호출
-- `/open` 으로 토픽 오픈 후 Ace 첫 발언 시 자동 참조
+- `/ace-framing` 명시 호출만
+- 자동 트리거 0건. `/open` 시 자동 발동 없음 (D-130 정합)
+- Jobs framing과 병용 가능 — Jobs(Why·What) → Ace(Structure·System) 순서
 
-## Grade별 발동 규칙 (D-074)
+## Grade별 발동 강도
 
-| Grade | 프레이밍 방식 |
+| Grade | 발동 방식 |
 |---|---|
-| **S** | 스킬 미발동. Ace가 Master에게 scope 확인 질문만 (열린 주제 탐색형) |
-| **A** | 이 스킬 전체 발동 |
-| **B** | 이 스킬 전체 발동 |
-| **C** | Ace 인라인 1~2줄 요약만 (스킬 섹션 생략) |
-| **D** | 없음 (Dev 직행) |
+| **S** | 호출 시 전체 블록 발동 |
+| **A** | 호출 시 전체 블록 발동 |
+| **B** | 호출 시 전체 블록 발동 |
+| **C** | 호출 시 인라인 1~2줄 요약만 |
+| **D** | 호출되어도 미발동 (Dev 직행 보존) |
 
 ## Vera 호출 키워드 (A/B grade, Ace 판단 기준)
 
@@ -99,14 +85,41 @@ replacement: "jobs-framing"
   - `conditional`: 종합검토 후 결정 시 Arki 재호출
   - `none`: 구조 논의만, 실행계획 불필요
 
-### 6. 역할 호출 설계 (Orchestration Plan)
-Ace는 오케스트레이터로서 이 토픽에 맞는 역할 호출 계획을 선언한다:
-- **호출 순서**: 기본 스캐폴드(Arki→Fin→Riki)를 따를지, 재배치할지
-- **Vera 포함 여부**: 키워드 매칭 시 포함 제안 → Master OK 대기
-- **Fin 포함 여부**: 주제 보고 Ace 판단 → Master OK 대기 (manual 모드) or Ace 자동 판단 (auto 모드)
-- **질문 범위 명시**: 각 역할에게 "무엇을 보고 무엇을 보지 말라"는 경계
-- **함정 사전 고지**: 해당 역할이 과거에 놓쳤던 패턴을 먼저 짚어줌
-- **스킵/재호출 예고**: 불필요한 역할 스킵 또는 결정 후 재호출 가능성 명시
+### 6. 구조·흐름 판정 (Structure·System Diagnosis)
+Ace 신 R&R(D-130). 본 toptic의 구조·흐름 단일 판정:
+- **구조(Structure·Porter)**: 경쟁우위·포지셔닝·경계조건·자원배분 시각의 판정
+- **흐름(System·Keynes)**: 시간 축 동학·피드백 루프·기대 형성·임계 전환 시각의 판정
+- **종합 한 줄**: 위 두 시각 합성 후 *지속 가능성* 단일 판정 (sustain / fragile / collapse)
+- 역할 호출 설계는 Ace 영역 아님 (Nexus 책임, D-130/D-133)
+
+## 정교화 프로토콜 (호출 시 적용)
+
+### 1. 정교화 질문
+- 한 번에 한 질문만. 여러 질문 묶음 금지.
+- 객관식(A/B/C) 우선. 열린 질문은 선택지를 줄 수 없을 때만.
+- 집중 축: **목적**(왜) / **제약**(피할 것) / **성공기준**(완료 조건).
+- 범위 초과 감지 시 질문 전에 분해 플래그: *"이 토픽은 [A], [B] 두 독립 서브시스템 포함. 먼저 분해? 통합 진행?"*
+
+### 2. 추천 근거 필수화
+Ace가 결정축에 추천 제시 시 반드시:
+```
+추천: [선택지]
+이유: [구체 근거]
+기각 이유: [나머지 선택지를 왜 선택 안 하는가]
+```
+"권고합니다" 한 줄 종결 금지.
+
+### 3. 프레이밍 자가검토
+1차 발언 직후 내부 점검 (걸린 항목만 표시, "4개 통과" 보고 금지):
+
+| 항목 | 점검 |
+|---|---|
+| 전제 누락 | 미확인 전제·미정의 용어·불완전 결정축 있는가? |
+| 결정축 모순 | 축 간 충돌·분석↔추천 불일치 있는가? |
+| 범위 적정성 | 단일 토픽 처리 가능 크기인가? |
+| 모호성 | 이중 해석 가능 표현 있는가? |
+
+걸린 항목은 발언 내 즉시 수정 + 수정 사실 한 줄 표시.
 
 ## 원칙
 
