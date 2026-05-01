@@ -1222,6 +1222,74 @@ function applyVersionBump(sess) {
 }
 
 /**
+ * G-1 검사 (topic_137, session_155, 2026-05-01):
+ * versionBumpSuggested가 박제되었으나 Edi 확정(versionBump.confirmedBy === 'edi')이
+ * 없는 경우 gaps + openMasterAlerts에 경고를 기록한다.
+ *
+ * Riki R-1 mitigation: changedFiles에 session-end-finalize.js만 포함 시 severity 'info' 강등.
+ * Riki R-2 mitigation: gaps에 'version-bump-unverified' 이미 존재 시 early return (이중 박제 방지).
+ * Arki legacy guard: sess.legacy === true 시 skip.
+ */
+function checkVersionBumpConfirmation(sess) {
+  const suggested = sess.versionBumpSuggested;
+
+  // trigger 조건 1: versionBumpSuggested 없음 → skip
+  if (!suggested || !suggested.value || suggested.value <= 0) {
+    return;
+  }
+
+  // trigger 조건 2: legacy 세션 → skip
+  if (sess.legacy === true) {
+    log('checkVersionBumpConfirmation skip: legacy 세션');
+    return;
+  }
+
+  // R-2 mitigation: applyVersionBump가 이미 'version-bump-unverified' 박제 시 early return
+  sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
+  if (sess.gaps.some(g => g.type === 'version-bump-unverified')) {
+    log('checkVersionBumpConfirmation skip: version-bump-unverified 이미 박제됨 (R-2 이중 박제 방지)');
+    return;
+  }
+
+  // Edi 확정 여부 검사
+  const bump = sess.versionBump;
+  const confirmed = bump && bump.confirmedBy === 'edi' && bump.confirmedAt;
+  if (confirmed) {
+    log('checkVersionBumpConfirmation: Edi 확정 확인됨 — 경고 없음');
+    return;
+  }
+
+  // R-1 mitigation: session-end-finalize.js 단독 변경 세션 → severity 'info' 강등
+  const changedFiles = suggested.changedFiles || [];
+  const isSingleHookSelf =
+    changedFiles.length === 1 &&
+    changedFiles[0] === '.claude/hooks/session-end-finalize.js';
+  const severity = isSingleHookSelf ? 'info' : 'warn';
+
+  // gaps 박제
+  sess.gaps.push({
+    type: 'version-bump-edi-unconfirmed',
+    severity,
+    detail: 'versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록',
+    addedBy: 'checkVersionBumpConfirmation',
+    suggestedValue: suggested.value,
+  });
+
+  // openMasterAlerts prepend
+  sess.openMasterAlerts = Array.isArray(sess.openMasterAlerts) ? sess.openMasterAlerts : [];
+  sess.openMasterAlerts.unshift({
+    severity,
+    message: `versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: ${suggested.value})`,
+    addedBy: 'checkVersionBumpConfirmation',
+  });
+
+  console.warn('⚠ [finalize] versionBumpSuggested 미확정 — Edi 확정 필요');
+  log(`checkVersionBumpConfirmation: ${severity} — versionBump confirmedBy 없음 (suggested +${suggested.value})`);
+
+  writeJson(CURRENT_SESSION_PATH, sess);
+}
+
+/**
  * D-124 (session_141): Ace ack TTL escalate stub.
  *
  * master_feedback_log.json에서 status='pending' AND acknowledgedBy='ace' 항목 중
@@ -1367,6 +1435,7 @@ function runSyncSystemState() {
     applyPendingDeferralsResolved(sess);
     detectVersionBump(sess); // D-130: Nexus 자동 감지 → versionBumpSuggested 박제
     applyVersionBump(sess);
+    checkVersionBumpConfirmation(sess); // G-1: Edi 확정 미기록 시 경고 (topic_137, session_155)
     escalateAceAcksWithTTL(sess);
     runSyncSystemState();
 

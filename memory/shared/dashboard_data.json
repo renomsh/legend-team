@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-05-01T01:22:43.078Z",
-  "totalSessions": 152,
+  "generatedAt": "2026-05-01T07:52:42.585Z",
+  "totalSessions": 153,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 18.22,
-    "avgCacheHitRate": 0.9317,
-    "cacheSampleSize": 126,
-    "cacheSampleTotal": 152,
+    "avgMasterTurns": 18.12,
+    "avgCacheHitRate": 0.9312,
+    "cacheSampleSize": 127,
+    "cacheSampleTotal": 153,
     "avgAdoptionRate": 0,
     "totalDecisions": 134,
     "gradeDistribution": {
       "S": 67,
-      "A": 32,
+      "A": 33,
       "B": 39,
       "C": 14
     },
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 107,
-    "totalCostUSD": 1704.4582,
-    "avgCostPerSession": 11.595,
-    "costSampleSize": 147
+    "turnBasedSessions": 108,
+    "totalCostUSD": 1708.0706,
+    "avgCostPerSession": 11.541,
+    "costSampleSize": 148
   },
   "sessions": [
     {
@@ -5830,12 +5830,49 @@
         "messageCount": 1088
       },
       "sessionCostUSD": 86.5569
+    },
+    {
+      "sessionId": "session_155",
+      "topicSlug": "nexus-structure-v1",
+      "topic": "Nexus structure ver1.0",
+      "startedAt": "2026-05-01T15:30:00.000Z",
+      "closedAt": "2026-05-01T16:45:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 5,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 8,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 3,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "dev",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 4057687,
+        "ioTokens": 43651,
+        "inputTokens": 62,
+        "outputTokens": 43589,
+        "cacheCreate": 508452,
+        "cacheRead": 3505584,
+        "cacheHitRate": 0.8639365234430354,
+        "messageCount": 44
+      },
+      "sessionCostUSD": 3.6124
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 163,
+      "count": 164,
       "sessions": [
         "session_047",
         "session_048",
@@ -5916,12 +5953,13 @@
         "session_143",
         "session_150",
         "session_153",
-        "session_154"
+        "session_154",
+        "session_155"
       ]
     },
     {
       "role": "arki",
-      "count": 114,
+      "count": 115,
       "sessions": [
         "session_048",
         "session_049",
@@ -5979,12 +6017,13 @@
         "session_142",
         "session_144",
         "session_152",
-        "session_153"
+        "session_153",
+        "session_155"
       ]
     },
     {
       "role": "edi",
-      "count": 110,
+      "count": 111,
       "sessions": [
         "session_050",
         "session_051",
@@ -6089,12 +6128,13 @@
         "session_151",
         "session_152",
         "session_153",
-        "session_154"
+        "session_154",
+        "session_155"
       ]
     },
     {
       "role": "dev",
-      "count": 80,
+      "count": 81,
       "sessions": [
         "session_047",
         "session_048",
@@ -6158,12 +6198,13 @@
         "session_142",
         "session_144",
         "session_152",
-        "session_153"
+        "session_153",
+        "session_155"
       ]
     },
     {
       "role": "riki",
-      "count": 76,
+      "count": 77,
       "sessions": [
         "session_049",
         "session_053",
@@ -6218,7 +6259,8 @@
         "session_147",
         "session_151",
         "session_152",
-        "session_153"
+        "session_153",
+        "session_155"
       ]
     },
     {
@@ -10493,6 +10535,42 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_155",
+      "topic": "Nexus structure ver1.0",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 4,
           "recallReason": null
         }
       ]

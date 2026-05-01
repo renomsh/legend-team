@@ -1,6 +1,27 @@
 {
   "topics": [
     {
+      "id": "topic_137",
+      "title": "Nexus structure ver1.0",
+      "status": "completed",
+      "phase": "implementation",
+      "hold": null,
+      "created": "2026-05-01",
+      "controlPath": "topics/topic_137",
+      "reportPath": "reports/2026-05-01_nexus-structure-v1",
+      "reportFiles": [
+        "arki_rev1.md",
+        "riki_rev1.md",
+        "dev_rev1.md",
+        "edi_rev1.md"
+      ],
+      "published": false,
+      "closedInSession": "session_155",
+      "path": "topics/topic_137",
+      "grade": "A",
+      "outcome": "Nexus ver1.0 골격 현황 확인 완료. G-1(versionBump Edi 확정 미강제) 처리: checkVersionBumpConfirmation hook 함수 추가 + role-edi.md §6.6 정책 박제. 5케이스 ALL PASS."
+    },
+    {
       "id": "topic_136",
       "title": "Master-first 모드",
       "status": "completed",
@@ -2663,5 +2684,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-01T01:22:29.617Z"
+  "lastUpdated": "2026-05-01T07:52:26.780Z"
 }

@@ -6758,8 +6758,54 @@
       "note": "D-129 Master-first 모드 구현 토픽 (topic_131 Big-Bang child) | HookA=user-prompt-submit-master-first.js, HookB=pre-tool-use-task-master-first.js MVP P1~P3 구현 대상",
       "oneLineSummary": "HookB stale state 수정 + audit.md 리포트 + D-020 전체 역할 override + settings defaultMode 제거",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_155",
+      "topicSlug": "nexus-structure-v1",
+      "topic": "Nexus structure ver1.0",
+      "startedAt": "2026-05-01T15:30:00.000Z",
+      "closedAt": "2026-05-01T16:45:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "dev",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "source": "agent"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "source": "agent"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 2,
+          "source": "agent"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 3,
+          "source": "agent"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 4,
+          "source": "agent"
+        }
+      ],
+      "grade": "A",
+      "note": "Nexus 구조 현황 점검 및 ver1.0 정의 토픽",
+      "oneLineSummary": "Nexus ver1.0 골격 완료 확인 + G-1 versionBump Edi 확정 hook 강제 구현(session-end-finalize.js)",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-01T01:22:20.547Z",
+  "lastUpdated": "2026-05-01T07:52:16.040Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

@@ -87,6 +87,32 @@ Override 시 **사유 필수** (1줄 이상). 사유 없는 override 금지.
 
 단일 세션의 확정값은 +0.1을 초과할 수 없다 (CLAUDE.md D-130). 여러 카테고리가 동시 발생해도 +0.1로 캡.
 
+### 6.6 G-1 확정 의무 (topic_137, session_155, 2026-05-01)
+
+`session-end-finalize.js#checkVersionBumpConfirmation` 함수가 세션 종료 시 자동으로 Edi 확정 여부를 검사한다.
+
+**Edi 확정 필수 조건** (`current_session.json.versionBump` 박제 시 반드시 포함):
+- `confirmedBy: "edi"` — 값 정확히 소문자 `"edi"` (대소문자 구분)
+- `confirmedAt: "<ISO timestamp>"` — 확정 시각 필수. 누락 시 `applyVersionBump`가 project_charter 갱신 차단
+
+**누락 시 발생하는 경고:**
+- `versionBumpSuggested` 존재 + Edi 확정 미기록 → `gaps: [{type: 'version-bump-edi-unconfirmed', severity: 'warn'}]` 박제
+- `openMasterAlerts`에 warn 수준 경고 prepend
+
+**박제 구조 (필수 필드):**
+```json
+{
+  "value": <확정값>,
+  "from": "<현재 버전>",
+  "to": "<확정 버전>",
+  "reason": "<확정 근거 1줄 이상>",
+  "confirmedBy": "edi",
+  "confirmedAt": "<ISO timestamp>",
+  "overrideReason": null
+}
+```
+`from` / `to` 필드 누락 시 `applyVersionBump`가 `bump.to` 부재로 skip함 — 필수 포함.
+
 ## Shared Asset Protocol (Edi 필수)
 
 발언 전 반드시 Read:

@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_154",
-  "nextSessionId": "session_155",
-  "currentVersion": "v2.16",
+  "lastSessionId": "session_155",
+  "nextSessionId": "session_156",
+  "currentVersion": "v2.17",
   "openTopics": [
     {
       "id": "topic_044",
@@ -53,6 +53,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_155",
+      "topicSlug": "nexus-structure-v1",
+      "closedAt": "2026-05-01T16:45:00.000Z",
+      "oneLineSummary": "Nexus ver1.0 골격 완료 확인 + G-1 versionBump Edi 확정 hook 강제 구현(session-end-finalize.js)",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_154",
       "topicSlug": "master-first-mode",
       "closedAt": "2026-05-01T15:00:00.000Z",
@@ -66,15 +73,6 @@
       "oneLineSummary": "P3 1/2 — D-133 박제(NCL 전면 폐기 + Nexus 정의 + C축 종결). 3 페르소나 만장일치 α. topic_131 종결.",
       "decisionsAdded": [
         "D-133"
-      ]
-    },
-    {
-      "sessionId": "session_152",
-      "topicSlug": "sage-r1-paradox-block-hook",
-      "closedAt": "2026-05-01T06:00:00.000Z",
-      "oneLineSummary": "sage-gate Phase 1+2 구현 완료: KNOWN_ROLES 결함 해소 + 이중 마커 검증 차단, D-132 박제",
-      "decisionsAdded": [
-        "D-132"
       ]
     }
   ],
@@ -601,5 +599,5 @@
       "resolvedNote": "hitRateRubric = D-041(session_037, persona-top01-redefinition) 잔재. Big Bang 설계 범위 외. D-092 단순화 이후 pipeline 연결 없음(hooks/scripts 참조 0건). 8역할 memory.json에서 일괄 삭제 완료. Jobs·Sage·Zero 미박제는 설계적으로 정상. PD-054 resolved."
     }
   ],
-  "lastUpdated": "2026-05-01T01:22:36.295Z"
+  "lastUpdated": "2026-05-01T07:52:34.607Z"
 }

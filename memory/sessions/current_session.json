@@ -1,22 +1,25 @@
 {
-  "sessionId": "session_154",
-  "topicId": "topic_136",
-  "topic": "Master-first 모드",
-  "topicSlug": "master-first-mode",
-  "reportPath": "reports/2026-05-01_master-first-mode",
+  "sessionId": "session_155",
+  "topicId": "topic_137",
+  "topic": "Nexus structure ver1.0",
+  "topicSlug": "nexus-structure-v1",
+  "reportPath": "reports/2026-05-01_nexus-structure-v1",
   "status": "closed",
-  "startedAt": "2026-05-01T10:30:00.000Z",
-  "closedAt": "2026-05-01T15:00:00.000Z",
+  "startedAt": "2026-05-01T15:30:00.000Z",
+  "closedAt": "2026-05-01T16:45:00.000Z",
   "mode": "observation",
   "grade": "A",
   "gradeDeclared": "A",
   "framingLevel": 2,
   "framingSkipped": false,
-  "topicType": "implementation",
-  "parentTopicId": "topic_131",
+  "topicType": "standalone",
+  "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
     "ace",
+    "arki",
+    "riki",
+    "dev",
     "edi"
   ],
   "turns": [
@@ -26,8 +29,23 @@
       "source": "agent"
     },
     {
-      "role": "edi",
+      "role": "arki",
       "turnIdx": 1,
+      "source": "agent"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 2,
+      "source": "agent"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 3,
+      "source": "agent"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 4,
       "source": "agent"
     }
   ],
@@ -37,24 +55,41 @@
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "decisionsAdded": [],
-  "oneLineSummary": "HookB stale state 수정 + audit.md 리포트 + D-020 전체 역할 override + settings defaultMode 제거",
-  "versionBump": {
-    "value": 0.1,
-    "type": "structural",
-    "confirmedBy": "edi"
-  },
+  "oneLineSummary": "Nexus ver1.0 골격 완료 확인 + G-1 versionBump Edi 확정 hook 강제 구현(session-end-finalize.js)",
   "notes": [
-    "D-129 Master-first 모드 구현 토픽 (topic_131 Big-Bang child)",
-    "HookA=user-prompt-submit-master-first.js, HookB=pre-tool-use-task-master-first.js MVP P1~P3 구현 대상"
+    "Nexus 구조 현황 점검 및 ver1.0 정의 토픽"
   ],
   "gaps": [],
+  "versionBumpSuggested": {
+    "value": 0.01,
+    "type": "capacity",
+    "reason": "session-end-finalize.js 함수 추가(checkVersionBumpConfirmation) + role-edi.md 정책 박제",
+    "autoDetectedAt": "2026-05-01T16:44:00.000Z",
+    "changedFiles": [
+      ".claude/hooks/session-end-finalize.js",
+      "memory/roles/policies/role-edi.md"
+    ],
+    "changedFilesCount": 2,
+    "cappedAt": 0.1,
+    "confirmedBy": null
+  },
+  "versionBump": {
+    "value": 0.01,
+    "from": "2.16",
+    "to": "2.17",
+    "reason": "G-1 versionBump Edi 확정 hook 강제 추가 — capacity 레이어 확장(checkVersionBumpConfirmation 함수 + role-edi.md §6.6 정책 박제)",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-01T16:45:00.000Z",
+    "overrideReason": null,
+    "basedOn": "versionBumpSuggested"
+  },
   "tokenUsage": {
-    "input_tokens": 1303,
-    "output_tokens": 137520,
-    "cache_creation_input_tokens": 1052374,
-    "cache_read_input_tokens": 17882806,
-    "messageCount": 138,
-    "masterTurns": 24,
-    "total_billable": 19074003
+    "input_tokens": 62,
+    "output_tokens": 43589,
+    "cache_creation_input_tokens": 508452,
+    "cache_read_input_tokens": 3505584,
+    "messageCount": 44,
+    "masterTurns": 3,
+    "total_billable": 4057687
   }
 }
