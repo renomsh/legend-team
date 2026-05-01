@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_156",
-  "nextSessionId": "session_157",
+  "lastSessionId": "session_157",
+  "nextSessionId": "session_158",
   "currentVersion": "v2.17",
   "openTopics": [
     {
@@ -53,6 +53,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_157",
+      "topicSlug": "master-first-sink-expansion",
+      "closedAt": "2026-05-01T17:42:00.000Z",
+      "oneLineSummary": "topic_139 child 토픽 오픈 직후 Master 즉시 종료 지시 — 작업 0건. topic_139 cancelled 처리.",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_156",
       "topicSlug": "big-bang-part3",
       "closedAt": "2026-05-01T17:35:00.000Z",
@@ -66,13 +73,6 @@
       "topicSlug": "nexus-structure-v1",
       "closedAt": "2026-05-01T16:45:00.000Z",
       "oneLineSummary": "Nexus ver1.0 골격 완료 확인 + G-1 versionBump Edi 확정 hook 강제 구현(session-end-finalize.js)",
-      "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_154",
-      "topicSlug": "master-first-mode",
-      "closedAt": "2026-05-01T15:00:00.000Z",
-      "oneLineSummary": "HookB stale state 수정 + audit.md 리포트 + D-020 전체 역할 override + settings defaultMode 제거",
       "decisionsAdded": []
     }
   ],
@@ -599,5 +599,5 @@
       "resolvedNote": "hitRateRubric = D-041(session_037, persona-top01-redefinition) 잔재. Big Bang 설계 범위 외. D-092 단순화 이후 pipeline 연결 없음(hooks/scripts 참조 0건). 8역할 memory.json에서 일괄 삭제 완료. Jobs·Sage·Zero 미박제는 설계적으로 정상. PD-054 resolved."
     }
   ],
-  "lastUpdated": "2026-05-01T09:32:16.831Z"
+  "lastUpdated": "2026-05-01T11:53:29.886Z"
 }

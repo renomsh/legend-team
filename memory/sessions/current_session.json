@@ -1,58 +1,28 @@
 {
-  "sessionId": "session_156",
-  "topicId": "topic_138",
-  "topic": "BigBang Part3 — jobs-framing/ace-synthesis skill 신설 + versionBump hook 확장 + Master-first P4/P5/P6",
-  "topicSlug": "big-bang-part3",
-  "reportPath": "reports/2026-05-01_big-bang-part3",
+  "sessionId": "session_157",
+  "topicId": "topic_139",
+  "topic": "Master-first 측정 sink 확장 — UserPromptSubmit audit-emit 평가",
+  "topicSlug": "master-first-sink-expansion",
+  "reportPath": "reports/2026-05-01_master-first-sink-expansion",
   "status": "closed",
-  "startedAt": "2026-05-01T17:00:00.000Z",
-  "closedAt": "2026-05-01T17:35:00.000Z",
+  "startedAt": "2026-05-01T17:40:00.000Z",
+  "closedAt": "2026-05-01T17:42:00.000Z",
   "mode": "observation",
-  "grade": "S",
-  "gradeDeclared": "S",
-  "framingLevel": 2,
+  "grade": "C",
+  "gradeDeclared": "C",
+  "framingLevel": 0,
   "framingSkipped": true,
-  "topicType": "standalone",
-  "parentTopicId": null,
+  "topicType": "implementation",
+  "parentTopicId": "topic_138",
   "childTopicIds": [],
   "agentsCompleted": [
-    "riki",
-    "jobs",
-    "jobs",
-    "ace",
-    "dev",
     "edi"
   ],
   "turns": [
     {
-      "role": "riki",
-      "turnIdx": 0,
-      "source": "agent"
-    },
-    {
-      "role": "jobs",
-      "turnIdx": 1,
-      "source": "agent"
-    },
-    {
-      "role": "jobs",
-      "turnIdx": 2,
-      "source": "agent"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 3,
-      "source": "agent"
-    },
-    {
-      "role": "dev",
-      "turnIdx": 4,
-      "source": "agent"
-    },
-    {
       "role": "edi",
-      "turnIdx": 5,
-      "source": "agent"
+      "turnIdx": 0,
+      "phase": "compile"
     }
   ],
   "decisions": [],
@@ -60,30 +30,34 @@
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
-  "decisionsAdded": [
-    "D-134"
-  ],
+  "decisionsAdded": [],
   "notes": [
-    "BigBang Part3: jobs-framing skill 신설, ace-synthesis skill 신설, versionBump hook 확장 + Edi 확정 step, Master-first P4/P5/P6"
+    "topic_138 child. Master-first audit 측정 sink가 PreToolUse Task만 — UserPromptSubmit에도 audit-emit 추가 평가/구현.",
+    "Master 즉시 종료 지시 — 작업 0건, 새 세션으로 전환. topic_139 cancelled."
   ],
-  "gaps": [],
-  "versionBump": {
-    "value": 0.01,
-    "type": "capacity",
-    "reason": "D-134 신규 결정 박제 (D-129 부분 supersede). master_first_config.json _doc 갱신 + CLAUDE.md L27 후미 1줄 정정은 D-134 박제 반영으로 흡수. 변경 파일 4건 중 가산 대상은 decision_ledger.json 1건.",
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-01T09:30:50.060Z",
-    "basedOn": "edi-direct",
-    "overrideReason": null
-  },
-  "oneLineSummary": "D-129 부분 supersede 박제(D-134) — P4/P5 layer 분리 폐기, P6는 P3 충분성 측정 게이트로 의미 재정의. 3 페르소나 만장일치 B.",
+  "gaps": [
+    {
+      "type": "mechanical-fallback-graded",
+      "sessionId": "session_157",
+      "grade": "C",
+      "severity": "info"
+    },
+    {
+      "type": "edi-llm-report-absent",
+      "sessionId": "session_157",
+      "reportPath": "reports/2026-05-01_master-first-sink-expansion",
+      "grade": "C",
+      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
+    }
+  ],
+  "oneLineSummary": "topic_139 child 토픽 오픈 직후 Master 즉시 종료 지시 — 작업 0건. topic_139 cancelled 처리.",
   "tokenUsage": {
-    "input_tokens": 19561,
-    "output_tokens": 128167,
-    "cache_creation_input_tokens": 922694,
-    "cache_read_input_tokens": 15011661,
-    "messageCount": 115,
-    "masterTurns": 17,
-    "total_billable": 16082083
+    "input_tokens": 19618,
+    "output_tokens": 139693,
+    "cache_creation_input_tokens": 1526308,
+    "cache_read_input_tokens": 17824165,
+    "messageCount": 132,
+    "masterTurns": 20,
+    "total_billable": 19509784
   }
 }

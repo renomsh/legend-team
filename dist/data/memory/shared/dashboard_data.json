@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-05-01T09:32:23.918Z",
-  "totalSessions": 154,
+  "generatedAt": "2026-05-01T11:53:38.523Z",
+  "totalSessions": 155,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 18.14,
-    "avgCacheHitRate": 0.9314,
-    "cacheSampleSize": 128,
-    "cacheSampleTotal": 154,
+    "avgMasterTurns": 18.15,
+    "avgCacheHitRate": 0.9312,
+    "cacheSampleSize": 129,
+    "cacheSampleTotal": 155,
     "avgAdoptionRate": 0,
     "totalDecisions": 135,
     "gradeDistribution": {
       "S": 68,
       "A": 33,
       "B": 39,
-      "C": 14
+      "C": 15
     },
     "gradeMismatchCount": 2,
     "gradeMismatchSessions": [
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 109,
-    "totalCostUSD": 1722.3456,
-    "avgCostPerSession": 11.5594,
-    "costSampleSize": 149
+    "turnBasedSessions": 110,
+    "totalCostUSD": 1735.5708,
+    "avgCostPerSession": 11.5705,
+    "costSampleSize": 150
   },
   "sessions": [
     {
@@ -5909,6 +5909,39 @@
         "messageCount": 115
       },
       "sessionCostUSD": 9.9448
+    },
+    {
+      "sessionId": "session_157",
+      "topicSlug": "master-first-sink-expansion",
+      "topic": "Master-first 측정 sink 확장 — UserPromptSubmit audit-emit 평가",
+      "startedAt": "2026-05-01T17:40:00.000Z",
+      "closedAt": "2026-05-01T17:42:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 20,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 19509784,
+        "ioTokens": 159311,
+        "inputTokens": 19618,
+        "outputTokens": 139693,
+        "cacheCreate": 1526308,
+        "cacheRead": 17824165,
+        "cacheHitRate": 0.9136013499688157,
+        "messageCount": 132
+      },
+      "sessionCostUSD": 13.2252
     }
   ],
   "roleFrequency": [
@@ -6066,7 +6099,7 @@
     },
     {
       "role": "edi",
-      "count": 113,
+      "count": 114,
       "sessions": [
         "session_050",
         "session_051",
@@ -6173,7 +6206,8 @@
         "session_153",
         "session_154",
         "session_155",
-        "session_156"
+        "session_156",
+        "session_157"
       ]
     },
     {
@@ -10666,6 +10700,18 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_157",
+      "topic": "Master-first 측정 sink 확장 — UserPromptSubmit audit-emit 평가",
+      "sequence": [
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 0,
           "recallReason": null
         }
       ]

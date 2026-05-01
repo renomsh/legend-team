@@ -6864,8 +6864,30 @@
       "decisionsAdded": [
         "D-134"
       ]
+    },
+    {
+      "sessionId": "session_157",
+      "topicSlug": "master-first-sink-expansion",
+      "topic": "Master-first 측정 sink 확장 — UserPromptSubmit audit-emit 평가",
+      "startedAt": "2026-05-01T17:40:00.000Z",
+      "closedAt": "2026-05-01T17:42:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "edi",
+          "turnIdx": 0,
+          "phase": "compile"
+        }
+      ],
+      "grade": "C",
+      "note": "topic_138 child. Master-first audit 측정 sink가 PreToolUse Task만 — UserPromptSubmit에도 audit-emit 추가 평가/구현. | Master 즉시 종료 지시 — 작업 0건, 새 세션으로 전환. topic_139 cancelled.",
+      "oneLineSummary": "topic_139 child 토픽 오픈 직후 Master 즉시 종료 지시 — 작업 0건. topic_139 cancelled 처리.",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-01T09:32:01.377Z",
+  "lastUpdated": "2026-05-01T11:53:10.423Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
