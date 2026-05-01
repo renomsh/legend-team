@@ -6870,24 +6870,30 @@
       "topicSlug": "master-first-sink-expansion",
       "topic": "Master-first 측정 sink 확장 — UserPromptSubmit audit-emit 평가",
       "startedAt": "2026-05-01T17:40:00.000Z",
-      "closedAt": "2026-05-01T17:42:00.000Z",
+      "closedAt": "2026-05-01T12:09:30.297Z",
       "cwd": "C:\\Projects\\legend-team",
       "agentsCompleted": [
+        "dev",
         "edi"
       ],
       "turns": [
         {
-          "role": "edi",
+          "role": "dev",
           "turnIdx": 0,
+          "phase": "implementation"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 1,
           "phase": "compile"
         }
       ],
       "grade": "C",
-      "note": "topic_138 child. Master-first audit 측정 sink가 PreToolUse Task만 — UserPromptSubmit에도 audit-emit 추가 평가/구현. | Master 즉시 종료 지시 — 작업 0건, 새 세션으로 전환. topic_139 cancelled.",
-      "oneLineSummary": "topic_139 child 토픽 오픈 직후 Master 즉시 종료 지시 — 작업 0건. topic_139 cancelled 처리.",
+      "note": "topic_138 child. Ace rev1 §7 (c)가설: 측정 sink 협소 → HookA(UserPromptSubmit)에 audit-emit 추가. | 권한 allowlist 7개 추가(.claude/settings.json) — .claude/hooks/*.js 편집 프롬프트 제거 포함.",
+      "oneLineSummary": "HookA audit-emit 추가(UserPromptSubmit) + settings.json 권한 7개 — 검증 3/3 PASS.",
       "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-01T11:53:10.423Z",
+  "lastUpdated": "2026-05-01T12:10:05.079Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

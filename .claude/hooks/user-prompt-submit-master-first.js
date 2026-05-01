@@ -1,15 +1,21 @@
 #!/usr/bin/env node
 /**
  * UserPromptSubmit hook — Master-first mode HookA (D-129, topic_132).
+ * audit-emit 확장 (topic_139, session_157).
  *
  * 단일 책임 (SRP):
  *   - Master 발언(prompt)에서 echo trigger / intent reconfirm 키워드 매칭
  *   - master_first_state.json 박제
  *   - logs/master-first.log append
+ *   - echo/intent 감지 시 logs/master-first-audit.md emit (source: UserPromptSubmit)
  *
- * 모드: warn-only (MVP P1~P3). LLM 호출 없음 (HookA는 키워드 1차만, LLM 2차는 P4 별도 hook).
+ * 모드: warn-only (MVP P1~P3). LLM 호출 없음.
  * Grade C/D 또는 non-framing topic → no-op.
  * 항상 exit 0 (warn-only).
+ *
+ * 측정 sink 확장 이유: HookB(PreToolUse Task)만으로는 Task 미호출 경로에서
+ * audit-emit 0건 발생. UserPromptSubmit 시점 emit으로 보완. (Ace rev1 §7 (c)가설)
+ * source 필드로 HookA/HookB 발원 구분 — 중복 허용, 의미적으로 별개.
  */
 
 const fs = require('fs');
@@ -52,6 +58,24 @@ function appendLog(cwd, logRel, payload) {
     const dir = path.dirname(logPath);
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
     fs.appendFileSync(logPath, JSON.stringify(payload) + '\n', 'utf8');
+  } catch { /* silent */ }
+}
+
+function appendAuditReport(cwd, auditPath, { ts, sessionId, toolName, flags, matched, utterance }) {
+  try {
+    const p = path.isAbsolute(auditPath) ? auditPath : path.join(cwd, auditPath);
+    const dir = path.dirname(p);
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    const line = `| ${ts.slice(0, 19).replace('T', ' ')} | ${sessionId || '-'} | ${toolName} | ${flags} | \`${matched}\` | ${utterance ? utterance.slice(0, 60) : '-'} |\n`;
+    if (!fs.existsSync(p)) {
+      fs.writeFileSync(p,
+        '# Master-first Audit Log\n\n' +
+        '> /open 브리핑 자동 포함. echo-trigger / intent-reconfirm 감지 기록. (D-129)\n\n' +
+        '| 시각 | 세션 | 도구 | 플래그 | 키워드 | 발언(60자) |\n' +
+        '|---|---|---|---|---|---|\n' + line, 'utf8');
+    } else {
+      fs.appendFileSync(p, line, 'utf8');
+    }
   } catch { /* silent */ }
 }
 
@@ -168,6 +192,27 @@ async function run() {
       matchedKeywords: newState.matchedKeywords,
       elapsedMs
     });
+
+    // audit-emit at UserPromptSubmit (topic_139: sink 확장)
+    // HookB(PreToolUse Task)가 Task 미호출 경로에서 emit 0 되는 gap 보완.
+    // source: 'UserPromptSubmit' 로 HookB emit과 구분.
+    if (newState.echoTriggerDetected || newState.intentReconfirmRequested) {
+      const flags = [];
+      if (newState.echoTriggerDetected) flags.push('echo-trigger');
+      if (newState.intentReconfirmRequested) flags.push('intent-reconfirm');
+      appendAuditReport(cwd, config.auditReportPath || 'logs/master-first-audit.md', {
+        ts, sessionId, toolName: 'UserPromptSubmit',
+        flags: flags.join('+'),
+        matched: newState.matchedKeywords.join(', '),
+        utterance: newState.lastMasterUtterance || ''
+      });
+      appendLog(cwd, config.logPath || 'logs/master-first.log', {
+        ts, phase: 'audit-emit', source: 'UserPromptSubmit',
+        echoTriggerDetected: newState.echoTriggerDetected,
+        intentReconfirmRequested: newState.intentReconfirmRequested,
+        matchedKeywords: newState.matchedKeywords
+      });
+    }
 
     if (elapsedMs > (config.timeoutMs || 2000)) {
       appendLog(cwd, config.logPath || 'logs/master-first.log', {

@@ -6,7 +6,7 @@
   "reportPath": "reports/2026-05-01_master-first-sink-expansion",
   "status": "closed",
   "startedAt": "2026-05-01T17:40:00.000Z",
-  "closedAt": "2026-05-01T17:42:00.000Z",
+  "closedAt": "2026-05-01T12:09:30.297Z",
   "mode": "observation",
   "grade": "C",
   "gradeDeclared": "C",
@@ -16,12 +16,18 @@
   "parentTopicId": "topic_138",
   "childTopicIds": [],
   "agentsCompleted": [
+    "dev",
     "edi"
   ],
   "turns": [
     {
-      "role": "edi",
+      "role": "dev",
       "turnIdx": 0,
+      "phase": "implementation"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 1,
       "phase": "compile"
     }
   ],
@@ -32,8 +38,8 @@
   "pendingDeferralsResolved": [],
   "decisionsAdded": [],
   "notes": [
-    "topic_138 child. Master-first audit 측정 sink가 PreToolUse Task만 — UserPromptSubmit에도 audit-emit 추가 평가/구현.",
-    "Master 즉시 종료 지시 — 작업 0건, 새 세션으로 전환. topic_139 cancelled."
+    "topic_138 child. Ace rev1 §7 (c)가설: 측정 sink 협소 → HookA(UserPromptSubmit)에 audit-emit 추가.",
+    "권한 allowlist 7개 추가(.claude/settings.json) — .claude/hooks/*.js 편집 프롬프트 제거 포함."
   ],
   "gaps": [
     {
@@ -48,16 +54,61 @@
       "reportPath": "reports/2026-05-01_master-first-sink-expansion",
       "grade": "C",
       "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
+    },
+    {
+      "type": "version-bump-edi-unconfirmed",
+      "severity": "warn",
+      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
+      "addedBy": "checkVersionBumpConfirmation",
+      "suggestedValue": 0.01
     }
   ],
-  "oneLineSummary": "topic_139 child 토픽 오픈 직후 Master 즉시 종료 지시 — 작업 0건. topic_139 cancelled 처리.",
+  "oneLineSummary": "HookA audit-emit 추가(UserPromptSubmit) + settings.json 권한 7개 — 검증 3/3 PASS.",
   "tokenUsage": {
-    "input_tokens": 19618,
-    "output_tokens": 139693,
-    "cache_creation_input_tokens": 1526308,
-    "cache_read_input_tokens": 17824165,
-    "messageCount": 132,
-    "masterTurns": 20,
-    "total_billable": 19509784
-  }
+    "input_tokens": 910,
+    "output_tokens": 55794,
+    "cache_creation_input_tokens": 742867,
+    "cache_read_input_tokens": 7112045,
+    "messageCount": 74,
+    "masterTurns": 5,
+    "total_billable": 7911616
+  },
+  "versionBumpSuggested": {
+    "value": 0.01,
+    "type": "capacity",
+    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/user-prompt-submit-master-first.js)",
+    "autoDetectedAt": "2026-05-01T12:10:21.404Z",
+    "changedFiles": [
+      ".claude/hooks/user-prompt-submit-master-first.js",
+      ".claude/settings.json",
+      "AGENTS.md",
+      "CONTEXT.md",
+      "agents/ace.md",
+      "agents/arki.md",
+      "agents/dev.md",
+      "agents/editor.md",
+      "agents/fin.md",
+      "agents/nova.md",
+      "agents/riki.md",
+      "logs/app.log",
+      "logs/hook-diagnostics.log",
+      "logs/master-first.log",
+      "memory/sessions/current_session.json",
+      "memory/sessions/session_index.json",
+      "memory/sessions/token_log.json",
+      "memory/shared/master_first_state.json",
+      "memory/shared/topic_index.json",
+      "node_modules/.package-lock.json"
+    ],
+    "changedFilesCount": 126,
+    "cappedAt": 0.1,
+    "confirmedBy": null
+  },
+  "openMasterAlerts": [
+    {
+      "severity": "warn",
+      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.01)",
+      "addedBy": "checkVersionBumpConfirmation"
+    }
+  ]
 }

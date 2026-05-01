@@ -196,3 +196,9 @@
 {"ts":"2026-05-01T10:57:16.410Z","phase":"classified","sessionId":"dd470739-a4b7-4863-b6ed-56ea3d308e90","grade":"S","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":13}
 {"ts":"2026-05-01T11:51:32.576Z","phase":"no-op","reason":"grade-mismatch","grade":"C"}
 {"ts":"2026-05-01T11:52:23.225Z","phase":"no-op","reason":"grade-mismatch","grade":"C"}
+{"ts":"2026-05-01T12:06:42.469Z","phase":"no-op","reason":"grade-mismatch","grade":"C"}
+{"ts":"2026-05-01T12:07:09.765Z","phase":"jobs-framing-activated","sessionId":"test_session","grade":"A"}
+{"ts":"2026-05-01T12:07:18.299Z","phase":"jobs-framing-activated","sessionId":"test_session","grade":"A"}
+{"ts":"2026-05-01T12:07:18.508Z","phase":"classified","sessionId":"test_session","grade":"A","echoTriggerDetected":true,"intentReconfirmRequested":true,"matchedKeywords":["좋아","다음","계속"],"elapsedMs":16}
+{"ts":"2026-05-01T12:07:18.508Z","phase":"audit-emit","source":"UserPromptSubmit","echoTriggerDetected":true,"intentReconfirmRequested":true,"matchedKeywords":["좋아","다음","계속"]}
+{"ts":"2026-05-01T12:08:29.049Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"31875f32-2f76-4cfb-9146-eb899f2e54b5","grade":"A"}

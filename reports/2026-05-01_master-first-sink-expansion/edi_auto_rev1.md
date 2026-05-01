@@ -4,28 +4,29 @@ session: session_157
 topic: topic_139
 topicSlug: master-first-sink-expansion
 date: 2026-05-01
-turnId: 1
+turnId: 2
 rev: 1
 auto-compiled: true
-auto-compiled-at: 2026-05-01T11:53:10.411Z
+auto-compiled-at: 2026-05-01T12:10:05.071Z
 authorship: hook:session-end-finalize.js
 ---
 
 # Edi (auto-compiled) — master-first-sink-expansion
 
-> ⚠ **AUTO-COMPILED** — turns=1, masterDecisions=0, gaps=1, decisionsAdded=0.
+> ⚠ **AUTO-COMPILED** — turns=2, masterDecisions=0, gaps=1, decisionsAdded=0.
 > **Edi LLM 미호출 → mechanical fallback** (D-131 Hybrid C L1). authorship: hook (`session-end-finalize.js#synthesizeMechanicalEdiReport`).
 > 본 보고서는 LLM 합성 없이 `current_session.json` 필드를 기계 컴파일한 결과입니다. 의미 해석·우선순위 판단은 부재합니다.
 
 ## 1. Executive Summary
 
-topic_139 child 토픽 오픈 직후 Master 즉시 종료 지시 — 작업 0건. topic_139 cancelled 처리.
+HookA audit-emit 추가(UserPromptSubmit) + settings.json 권한 7개 — 검증 3/3 PASS.
 
 ## 2. 결정 흐름 (turns)
 
 | # | role | phase | recallReason | source |
 |---|---|---|---|---|
-| 0 | edi | compile | - | - |
+| 0 | dev | implementation | - | - |
+| 1 | edi | compile | - | - |
 
 ## 3. Master 결정
 
@@ -43,8 +44,8 @@ _없음_
 ## 6. Notes & Gaps
 
 ### Notes
-- topic_138 child. Master-first audit 측정 sink가 PreToolUse Task만 — UserPromptSubmit에도 audit-emit 추가 평가/구현.
-- Master 즉시 종료 지시 — 작업 0건, 새 세션으로 전환. topic_139 cancelled.
+- topic_138 child. Ace rev1 §7 (c)가설: 측정 sink 협소 → HookA(UserPromptSubmit)에 audit-emit 추가.
+- 권한 allowlist 7개 추가(.claude/settings.json) — .claude/hooks/*.js 편집 프롬프트 제거 포함.
 
 ### Gaps
 - mechanical-fallback-graded: {"type":"mechanical-fallback-graded","sessionId":"session_157","grade":"C","severity":"info"}
@@ -55,7 +56,7 @@ _변경 없음 — bump 0_
 
 ## 8. 인계 메모
 
-topic_138 child. Master-first audit 측정 sink가 PreToolUse Task만 — UserPromptSubmit에도 audit-emit 추가 평가/구현.
+topic_138 child. Ace rev1 §7 (c)가설: 측정 sink 협소 → HookA(UserPromptSubmit)에 audit-emit 추가.
 
 ## 9. 세션 종결 readiness
 
