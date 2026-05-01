@@ -1,6 +1,16 @@
 {
   "decisions": [
     {
+      "id": "D-140",
+      "date": "2026-05-01",
+      "session": "session_162",
+      "topic": "topic_141",
+      "title": "G-1 versionBump Edi 확정 hard enforcement",
+      "description": "checkVersionBumpConfirmation warn-only → hard enforcement: severity warn→high, Grade A/B/S 한정, console.warn→console.error(⛔), ref D-140 박제. R-1(single-hook-self→info 강등) 유지. Grade C/D skip 추가.",
+      "status": "active",
+      "supersedes": null
+    },
+    {
       "id": "D-138",
       "date": "2026-05-01",
       "session": "session_161",

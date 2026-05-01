@@ -1304,12 +1304,13 @@ function applyVersionBump(sess) {
 }
 
 /**
- * G-1 검사 (topic_137, session_155, 2026-05-01):
+ * G-1 hard enforcement (D-140, topic_141, session_162):
  * versionBumpSuggested가 박제되었으나 Edi 확정(versionBump.confirmedBy === 'edi')이
- * 없는 경우 gaps + openMasterAlerts에 경고를 기록한다.
+ * 없는 경우 gaps(severity: 'high') + openMasterAlerts + stderr error 발령.
  *
- * Riki R-1 mitigation: changedFiles에 session-end-finalize.js만 포함 시 severity 'info' 강등.
- * Riki R-2 mitigation: gaps에 'version-bump-unverified' 이미 존재 시 early return (이중 박제 방지).
+ * 적용 범위: Grade A/B/S만. Grade C/D는 versionBump Edi 확정 대상 아님.
+ * Riki R-1 mitigation: changedFiles에 session-end-finalize.js만 포함 시 severity 'info' 강등 (유지).
+ * Riki R-2 mitigation: 이미 'version-bump-edi-unconfirmed' gap 존재 시 early return (이중 박제 방지).
  * Arki legacy guard: sess.legacy === true 시 skip.
  */
 function checkVersionBumpConfirmation(sess) {
@@ -1320,16 +1321,23 @@ function checkVersionBumpConfirmation(sess) {
     return;
   }
 
-  // trigger 조건 2: legacy 세션 → skip
+  // trigger 조건 2: Grade A/B/S만 — C/D는 skip
+  const grade = (sess.grade || '').toUpperCase();
+  if (grade !== 'A' && grade !== 'B' && grade !== 'S') {
+    log(`checkVersionBumpConfirmation skip: Grade ${grade || 'undefined'} (A/B/S 아님)`);
+    return;
+  }
+
+  // trigger 조건 3: legacy 세션 → skip
   if (sess.legacy === true) {
     log('checkVersionBumpConfirmation skip: legacy 세션');
     return;
   }
 
-  // R-2 mitigation: applyVersionBump가 이미 'version-bump-unverified' 박제 시 early return
+  // R-2 mitigation: 이미 'version-bump-edi-unconfirmed' 박제 시 early return
   sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
-  if (sess.gaps.some(g => g.type === 'version-bump-unverified')) {
-    log('checkVersionBumpConfirmation skip: version-bump-unverified 이미 박제됨 (R-2 이중 박제 방지)');
+  if (sess.gaps.some(g => g.type === 'version-bump-edi-unconfirmed')) {
+    log('checkVersionBumpConfirmation skip: version-bump-edi-unconfirmed 이미 박제됨 (R-2 이중 박제 방지)');
     return;
   }
 
@@ -1346,7 +1354,7 @@ function checkVersionBumpConfirmation(sess) {
   const isSingleHookSelf =
     changedFiles.length === 1 &&
     changedFiles[0] === '.claude/hooks/session-end-finalize.js';
-  const severity = isSingleHookSelf ? 'info' : 'warn';
+  const severity = isSingleHookSelf ? 'info' : 'high';
 
   // gaps 박제
   sess.gaps.push({
@@ -1354,6 +1362,7 @@ function checkVersionBumpConfirmation(sess) {
     severity,
     detail: 'versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록',
     addedBy: 'checkVersionBumpConfirmation',
+    ref: 'D-140',
     suggestedValue: suggested.value,
   });
 
@@ -1363,9 +1372,10 @@ function checkVersionBumpConfirmation(sess) {
     severity,
     message: `versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: ${suggested.value})`,
     addedBy: 'checkVersionBumpConfirmation',
+    ref: 'D-140',
   });
 
-  console.warn('⚠ [finalize] versionBumpSuggested 미확정 — Edi 확정 필요');
+  console.error(`⛔ [finalize] versionBumpSuggested 미확정 — Edi confirmedBy: 'edi' 박제 필요 (suggested +${suggested.value}) [D-140]`);
   log(`checkVersionBumpConfirmation: ${severity} — versionBump confirmedBy 없음 (suggested +${suggested.value})`);
 
   writeJson(CURRENT_SESSION_PATH, sess);

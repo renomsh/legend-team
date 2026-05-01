@@ -50,6 +50,15 @@
             "command": "node .claude/hooks/pre-tool-use-task-master-first.js"
           }
         ]
+      },
+      {
+        "matcher": "Skill",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/pre-tool-use-skill-jobs-framing.js"
+          }
+        ]
       }
     ],
     "PostToolUse": [

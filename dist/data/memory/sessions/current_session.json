@@ -4,8 +4,9 @@
   "topic": "BigBang 완료 검토",
   "topicSlug": "bigbang-completion-review",
   "reportPath": "reports/2026-05-01_bigbang-completion-review",
-  "status": "open",
+  "status": "closed",
   "startedAt": "2026-05-01T18:00:00.000Z",
+  "closedAt": "2026-05-01T19:00:00.000Z",
   "mode": "observation",
   "grade": "B",
   "gradeDeclared": "B",
@@ -14,23 +15,69 @@
   "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
-  "agentsCompleted": [],
-  "turns": [],
-  "decisions": [],
-  "masterDecisions": [],
+  "agentsCompleted": [
+    "edi"
+  ],
+  "turns": [
+    {
+      "role": "edi",
+      "turnIdx": 0,
+      "phase": "compile",
+      "source": "agent"
+    }
+  ],
+  "decisions": [
+    "D-139",
+    "D-140"
+  ],
+  "masterDecisions": [
+    "D-139",
+    "D-140"
+  ],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
-  "decisionsAdded": [],
-  "notes": [],
-  "gaps": [],
+  "decisionsAdded": [
+    "D-139",
+    "D-140"
+  ],
+  "notes": [
+    "Nexus 전환 미결 사항 3건 전부 해소: master-first Skill 경로, G-1 hard enforcement, session_index sync 자연해소"
+  ],
+  "gaps": [
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-01_bigbang-completion-review/ace_rev1.md",
+      "expected": "ace",
+      "actualInTurns": "edi",
+      "turnId": 0
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-01_bigbang-completion-review/ace_rev3.md",
+      "expected": "ace",
+      "actualInTurns": "edi",
+      "turnId": 0
+    }
+  ],
+  "oneLineSummary": "Nexus 전환 미결 해소: jobs-framing Skill 경로(D-139 완결), G-1 hard enforcement D-140 박제",
+  "versionBump": {
+    "value": 0.01,
+    "type": "capacity",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-01T19:00:00.000Z",
+    "reason": "Nexus Skill 경로 jobs-framing 활성화 hook 신설 + G-1 hard enforcement 구현",
+    "to": "2.19",
+    "from": "2.181"
+  },
   "tokenUsage": {
-    "input_tokens": 137,
-    "output_tokens": 63959,
-    "cache_creation_input_tokens": 390965,
-    "cache_read_input_tokens": 12101187,
-    "messageCount": 111,
-    "masterTurns": 5,
-    "total_billable": 12556248
-  }
+    "input_tokens": 1219,
+    "output_tokens": 124249,
+    "cache_creation_input_tokens": 875862,
+    "cache_read_input_tokens": 23953671,
+    "messageCount": 227,
+    "masterTurns": 11,
+    "total_billable": 24955001
+  },
+  "finalizedAt": "2026-05-01T14:46:47.728Z"
 }

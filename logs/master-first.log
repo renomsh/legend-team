@@ -244,3 +244,8 @@
 {"ts":"2026-05-01T14:23:45.270Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"910e48f3-c71f-411f-a06a-c807f3a8fda1","grade":"B"}
 {"ts":"2026-05-01T14:26:15.528Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"910e48f3-c71f-411f-a06a-c807f3a8fda1","grade":"B"}
 {"ts":"2026-05-01T14:26:36.084Z","phase":"stale-state-skip","toolName":"Agent","stateSessionId":"test_session","currentSessionId":"910e48f3-c71f-411f-a06a-c807f3a8fda1"}
+{"ts":"2026-05-01T14:31:51.255Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"910e48f3-c71f-411f-a06a-c807f3a8fda1","grade":"B"}
+{"ts":"2026-05-01T14:39:42.909Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"910e48f3-c71f-411f-a06a-c807f3a8fda1","grade":"B"}
+{"ts":"2026-05-01T14:41:55.483Z","phase":"jobs-framing-activated","sessionId":"session_162","grade":"B","source":"Nexus-Skill"}
+{"ts":"2026-05-01T14:42:34.363Z","phase":"no-op","reason":"grade-mismatch","grade":"C"}
+{"ts":"2026-05-01T14:45:14.250Z","phase":"no-op","reason":"grade-mismatch","grade":"C"}

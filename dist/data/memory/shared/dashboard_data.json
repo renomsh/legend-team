@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-05-01T14:30:43.895Z",
-  "totalSessions": 159,
+  "generatedAt": "2026-05-01T14:46:55.461Z",
+  "totalSessions": 160,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 18.23,
-    "avgCacheHitRate": 0.931,
-    "cacheSampleSize": 133,
-    "cacheSampleTotal": 159,
+    "avgMasterTurns": 18.25,
+    "avgCacheHitRate": 0.9312,
+    "cacheSampleSize": 134,
+    "cacheSampleTotal": 160,
     "avgAdoptionRate": 0,
-    "totalDecisions": 140,
+    "totalDecisions": 141,
     "gradeDistribution": {
-      "S": 71,
+      "S": 72,
       "A": 33,
       "B": 41,
       "C": 14
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 114,
-    "totalCostUSD": 1802.1426,
-    "avgCostPerSession": 11.7022,
-    "costSampleSize": 154
+    "turnBasedSessions": 115,
+    "totalCostUSD": 1828.8487,
+    "avgCostPerSession": 11.799,
+    "costSampleSize": 155
   },
   "sessions": [
     {
@@ -5992,8 +5992,8 @@
       ],
       "rolesCalled": 1,
       "rolesRecalled": 0,
-      "sessionsSpanned": 3,
-      "size": 14,
+      "sessionsSpanned": 4,
+      "size": 17,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -6028,8 +6028,8 @@
       ],
       "rolesCalled": 7,
       "rolesRecalled": 2,
-      "sessionsSpanned": 3,
-      "size": 22,
+      "sessionsSpanned": 4,
+      "size": 25,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -6070,8 +6070,8 @@
       ],
       "rolesCalled": 5,
       "rolesRecalled": 2,
-      "sessionsSpanned": 3,
-      "size": 20,
+      "sessionsSpanned": 4,
+      "size": 23,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -6096,6 +6096,42 @@
         "messageCount": 28
       },
       "sessionCostUSD": 1.8586
+    },
+    {
+      "sessionId": "session_162",
+      "topicSlug": "bigbang-completion-review",
+      "topic": "BigBang 완료 검토",
+      "startedAt": "2026-05-01T18:00:00.000Z",
+      "closedAt": "2026-05-01T19:00:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-140"
+      ],
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 4,
+      "size": 15,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 22,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 53364194,
+        "ioTokens": 278336,
+        "inputTokens": 1541,
+        "outputTokens": 276795,
+        "cacheCreate": 1919933,
+        "cacheRead": 51165925,
+        "cacheHitRate": 0.9588062924739386,
+        "messageCount": 495
+      },
+      "sessionCostUSD": 26.7061
     }
   ],
   "roleFrequency": [
@@ -6191,7 +6227,7 @@
     },
     {
       "role": "edi",
-      "count": 119,
+      "count": 120,
       "sessions": [
         "session_050",
         "session_051",
@@ -6303,7 +6339,8 @@
         "session_158",
         "session_159",
         "session_160",
-        "session_161"
+        "session_161",
+        "session_162"
       ]
     },
     {
@@ -10998,6 +11035,18 @@
           "role": "edi",
           "phase": "compile",
           "turnIdx": 4,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_162",
+      "topic": "BigBang 완료 검토",
+      "sequence": [
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 0,
           "recallReason": null
         }
       ]

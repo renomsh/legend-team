@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-team",
-    "version": "2.181",
+    "version": "2.19",
     "purpose": "Memory-first, topic-based strategy and implementation system. Master receives structured analysis from role-separated agents on any strategic or implementation topic, with all outputs preserved in inspectable, revisionable files.",
     "principles": [
       "Memory first: all agent outputs, decisions, and session state are written to files immediately. No analysis lives only in conversation context.",
@@ -194,6 +194,12 @@
       "date": "2026-05-01",
       "summary": "enforceEdiAgentSource 신규 추가 — Grade A/B/S 세션 Edi LLM turn 없으면 hard warning + gaps 박제. D4 Prime Directive enforcement 역량 신설. D-138 박제.",
       "sessionId": "session_161"
+    },
+    {
+      "version": "2.19",
+      "date": "2026-05-01",
+      "summary": "Nexus Skill 경로 jobs-framing 활성화 hook 신설 + G-1 hard enforcement 구현",
+      "sessionId": "session_162"
     }
   ],
   "lastUpdated": "2026-05-01"
