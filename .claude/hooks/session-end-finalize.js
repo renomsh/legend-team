@@ -1165,7 +1165,7 @@ function detectVersionBump(sess) {
  */
 function applyVersionBump(sess) {
   const bump = sess.versionBump;
-  if (!bump || !bump.to || !bump.reason) {
+  if (!bump || !bump.reason) {
     log('versionBump 없음 — project_charter 업데이트 skip');
     return;
   }
@@ -1197,7 +1197,22 @@ function applyVersionBump(sess) {
     return;
   }
 
-  const prevVersion = charter.charter && charter.charter.version;
+  const prevVersion = (charter.charter && charter.charter.version) || '0.00';
+
+  // bump.to 미설정 시 value + 현재 버전으로 계산 (Edi가 from/to를 비워둔 경우 대응)
+  if (!bump.to && bump.value) {
+    const prev = parseFloat(prevVersion) || 0;
+    const next = (prev + bump.value).toFixed(2);
+    bump.to = next;
+    bump.from = prevVersion;
+    log(`applyVersionBump: bump.to 미설정 → 계산으로 보완 ${prevVersion} + ${bump.value} = ${next}`);
+  }
+
+  if (!bump.to) {
+    log('applyVersionBump skip: bump.to 및 bump.value 모두 없음');
+    return;
+  }
+
   charter.charter.version = bump.to;
   charter.lastUpdated = new Date().toISOString().slice(0, 10);
 
