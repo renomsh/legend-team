@@ -1,19 +1,19 @@
 {
-  "sessionId": "session_157",
-  "topicId": "topic_139",
-  "topic": "Master-first 측정 sink 확장 — UserPromptSubmit audit-emit 평가",
-  "topicSlug": "master-first-sink-expansion",
-  "reportPath": "reports/2026-05-01_master-first-sink-expansion",
+  "sessionId": "session_158",
+  "topicId": "topic_140",
+  "topic": "hook 중복 실행 패치 — auto-push.js session-end-finalize.js 반복 실행 차단",
+  "topicSlug": "hook-duplicate-execution-patch",
+  "reportPath": "reports/2026-05-01_hook-duplicate-execution-patch",
   "status": "closed",
-  "startedAt": "2026-05-01T17:40:00.000Z",
-  "closedAt": "2026-05-01T12:09:30.297Z",
+  "startedAt": "2026-05-01T12:40:00.000Z",
+  "closedAt": "2026-05-01T12:50:00.000Z",
   "mode": "observation",
   "grade": "C",
   "gradeDeclared": "C",
   "framingLevel": 0,
   "framingSkipped": true,
-  "topicType": "implementation",
-  "parentTopicId": "topic_138",
+  "topicType": "standalone",
+  "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
     "dev",
@@ -38,20 +38,19 @@
   "pendingDeferralsResolved": [],
   "decisionsAdded": [],
   "notes": [
-    "topic_138 child. Ace rev1 §7 (c)가설: 측정 sink 협소 → HookA(UserPromptSubmit)에 audit-emit 추가.",
-    "권한 allowlist 7개 추가(.claude/settings.json) — .claude/hooks/*.js 편집 프롬프트 제거 포함."
+    "session-end-finalize.js에 finalizedAt 멱등성 가드 추가. auto-push.js 반복 호출 시 gaps 중복 누적 차단."
   ],
   "gaps": [
     {
       "type": "mechanical-fallback-graded",
-      "sessionId": "session_157",
+      "sessionId": "session_158",
       "grade": "C",
       "severity": "info"
     },
     {
       "type": "edi-llm-report-absent",
-      "sessionId": "session_157",
-      "reportPath": "reports/2026-05-01_master-first-sink-expansion",
+      "sessionId": "session_158",
+      "reportPath": "reports/2026-05-01_hook-duplicate-execution-patch",
       "grade": "C",
       "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
     },
@@ -61,37 +60,25 @@
       "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
       "addedBy": "checkVersionBumpConfirmation",
       "suggestedValue": 0.01
-    },
-    {
-      "type": "mechanical-fallback-graded",
-      "sessionId": "session_157",
-      "grade": "C",
-      "severity": "info"
-    },
-    {
-      "type": "edi-llm-report-absent",
-      "sessionId": "session_157",
-      "reportPath": "reports/2026-05-01_master-first-sink-expansion",
-      "grade": "C",
-      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
     }
   ],
-  "oneLineSummary": "HookA audit-emit 추가(UserPromptSubmit) + settings.json 권한 7개 — 검증 3/3 PASS.",
+  "oneLineSummary": "session-end-finalize.js finalizedAt 가드 추가 — auto-push.js 반복 호출 시 gaps 중복 차단.",
   "tokenUsage": {
-    "input_tokens": 989,
-    "output_tokens": 81319,
-    "cache_creation_input_tokens": 801571,
-    "cache_read_input_tokens": 13660094,
-    "messageCount": 121,
-    "masterTurns": 12,
-    "total_billable": 14543973
+    "input_tokens": 325,
+    "output_tokens": 21507,
+    "cache_creation_input_tokens": 349779,
+    "cache_read_input_tokens": 4896861,
+    "messageCount": 51,
+    "masterTurns": 5,
+    "total_billable": 5268472
   },
   "versionBumpSuggested": {
-    "value": 0.1,
-    "type": "structural",
-    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 1건 (memory/roles/dev_memory.json)",
-    "autoDetectedAt": "2026-05-01T12:31:03.557Z",
+    "value": 0.01,
+    "type": "capacity",
+    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/session-end-finalize.js)",
+    "autoDetectedAt": "2026-05-01T12:40:36.507Z",
     "changedFiles": [
+      ".claude/hooks/session-end-finalize.js",
       "AGENTS.md",
       "CONTEXT.md",
       "agents/ace.md",
@@ -104,7 +91,6 @@
       "logs/app.log",
       "logs/hook-diagnostics.log",
       "logs/master-first.log",
-      "memory/roles/dev_memory.json",
       "memory/sessions/current_session.json",
       "memory/sessions/session_index.json",
       "memory/sessions/token_log.json",
@@ -113,18 +99,16 @@
       "package-lock.json",
       "package.json"
     ],
-    "changedFilesCount": 123,
+    "changedFilesCount": 124,
     "cappedAt": 0.1,
     "confirmedBy": null
   },
-  "openMasterAlerts": [],
-  "versionBump": {
-    "value": null,
-    "type": "skip",
-    "reason": "Grade C 패치 세션. dev_memory.json 업데이트가 structural로 오분류 — false positive. 실질 변경(HookA emit + bug fix)은 +0.001 미만 수준.",
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-01T12:33:22.149Z",
-    "basedOn": "edi-direct",
-    "skip": true
-  }
+  "openMasterAlerts": [
+    {
+      "severity": "warn",
+      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.01)",
+      "addedBy": "checkVersionBumpConfirmation"
+    }
+  ],
+  "finalizedAt": "2026-05-01T12:40:38.868Z"
 }

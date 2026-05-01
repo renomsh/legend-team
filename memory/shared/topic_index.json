@@ -1,6 +1,22 @@
 {
   "topics": [
     {
+      "id": "topic_140",
+      "title": "hook 중복 실행 패치 — auto-push.js session-end-finalize.js 반복 실행 차단",
+      "status": "completed",
+      "phase": "completed",
+      "hold": null,
+      "created": "2026-05-01",
+      "controlPath": "topics/topic_140",
+      "reportPath": "reports/2026-05-01_hook-duplicate-execution-patch",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_158",
+      "path": "topics/topic_140",
+      "grade": "C",
+      "outcome": "session-end-finalize.js finalizedAt 멱등성 가드 추가 — auto-push.js 반복 호출 시 gaps 중복 누적 차단"
+    },
+    {
       "id": "topic_139",
       "title": "Master-first 측정 sink 확장 — UserPromptSubmit audit-emit 평가",
       "status": "cancelled",
@@ -2721,5 +2737,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-01T12:33:41.662Z"
+  "lastUpdated": "2026-05-01T12:40:30.356Z"
 }

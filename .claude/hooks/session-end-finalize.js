@@ -1424,6 +1424,11 @@ function runSyncSystemState() {
       process.exit(0);
     }
 
+    if (sess.finalizedAt) {
+      log(`이미 finalized (finalizedAt=${sess.finalizedAt}) — 중복 실행 스킵`);
+      process.exit(0);
+    }
+
     if (!sess.sessionId || !sess.topicSlug || !sess.startedAt) {
       log('필수 필드 누락, 스킵');
       process.exit(0);
@@ -1453,6 +1458,9 @@ function runSyncSystemState() {
     checkVersionBumpConfirmation(sess); // G-1: Edi 확정 미기록 시 경고 (topic_137, session_155)
     escalateAceAcksWithTTL(sess);
     runSyncSystemState();
+
+    sess.finalizedAt = new Date().toISOString();
+    writeJson(CURRENT_SESSION_PATH, sess);
 
     log(`완료 — ${sess.sessionId} (turns=${(sess.turns || []).length}, agents=${(sess.agentsCompleted || []).length}, decisions=${(sess.masterDecisions || []).length})`);
     process.exit(0);

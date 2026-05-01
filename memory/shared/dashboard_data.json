@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-05-01T12:33:57.811Z",
-  "totalSessions": 155,
+  "generatedAt": "2026-05-01T12:40:46.101Z",
+  "totalSessions": 156,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 18.47,
+    "avgMasterTurns": 18.38,
     "avgCacheHitRate": 0.9313,
-    "cacheSampleSize": 129,
-    "cacheSampleTotal": 155,
+    "cacheSampleSize": 130,
+    "cacheSampleTotal": 156,
     "avgAdoptionRate": 0,
     "totalDecisions": 135,
     "gradeDistribution": {
       "S": 68,
       "A": 33,
-      "B": 40,
+      "B": 41,
       "C": 14
     },
     "gradeMismatchCount": 2,
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 110,
-    "totalCostUSD": 1778.3049,
-    "avgCostPerSession": 11.8554,
-    "costSampleSize": 150
+    "turnBasedSessions": 111,
+    "totalCostUSD": 1781.4092,
+    "avgCostPerSession": 11.7974,
+    "costSampleSize": 151
   },
   "sessions": [
     {
@@ -5943,6 +5943,40 @@
         "messageCount": 733
       },
       "sessionCostUSD": 55.9593
+    },
+    {
+      "sessionId": "session_158",
+      "topicSlug": "hook-duplicate-execution-patch",
+      "topic": "hook 중복 실행 패치 — auto-push.js session-end-finalize.js 반복 실행 차단",
+      "startedAt": "2026-05-01T12:40:00.000Z",
+      "closedAt": "2026-05-01T12:50:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 5,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "dev",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 5268472,
+        "ioTokens": 21832,
+        "inputTokens": 325,
+        "outputTokens": 21507,
+        "cacheCreate": 349779,
+        "cacheRead": 4896861,
+        "cacheHitRate": 0.9294651276499144,
+        "messageCount": 51
+      },
+      "sessionCostUSD": 3.1043
     }
   ],
   "roleFrequency": [
@@ -6100,7 +6134,7 @@
     },
     {
       "role": "edi",
-      "count": 114,
+      "count": 115,
       "sessions": [
         "session_050",
         "session_051",
@@ -6208,12 +6242,13 @@
         "session_154",
         "session_155",
         "session_156",
-        "session_157"
+        "session_157",
+        "session_158"
       ]
     },
     {
       "role": "dev",
-      "count": 83,
+      "count": 84,
       "sessions": [
         "session_047",
         "session_048",
@@ -6280,7 +6315,8 @@
         "session_153",
         "session_155",
         "session_156",
-        "session_157"
+        "session_157",
+        "session_158"
       ]
     },
     {
@@ -10709,6 +10745,24 @@
     {
       "sessionId": "session_157",
       "topic": "Master-first 측정 sink 확장 — UserPromptSubmit audit-emit 평가",
+      "sequence": [
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_158",
+      "topic": "hook 중복 실행 패치 — auto-push.js session-end-finalize.js 반복 실행 차단",
       "sequence": [
         {
           "role": "dev",

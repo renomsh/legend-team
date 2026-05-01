@@ -6892,8 +6892,36 @@
       "note": "topic_138 child. Ace rev1 §7 (c)가설: 측정 sink 협소 → HookA(UserPromptSubmit)에 audit-emit 추가. | 권한 allowlist 7개 추가(.claude/settings.json) — .claude/hooks/*.js 편집 프롬프트 제거 포함.",
       "oneLineSummary": "HookA audit-emit 추가(UserPromptSubmit) + settings.json 권한 7개 — 검증 3/3 PASS.",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_158",
+      "topicSlug": "hook-duplicate-execution-patch",
+      "topic": "hook 중복 실행 패치 — auto-push.js session-end-finalize.js 반복 실행 차단",
+      "startedAt": "2026-05-01T12:40:00.000Z",
+      "closedAt": "2026-05-01T12:50:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "dev",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "dev",
+          "turnIdx": 0,
+          "phase": "implementation"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 1,
+          "phase": "compile"
+        }
+      ],
+      "grade": "C",
+      "note": "session-end-finalize.js에 finalizedAt 멱등성 가드 추가. auto-push.js 반복 호출 시 gaps 중복 누적 차단.",
+      "oneLineSummary": "session-end-finalize.js finalizedAt 가드 추가 — auto-push.js 반복 호출 시 gaps 중복 차단.",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-01T12:33:31.381Z",
+  "lastUpdated": "2026-05-01T12:40:19.821Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
