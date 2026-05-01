@@ -1,6 +1,18 @@
 {
   "decisions": [
     {
+      "id": "D-137",
+      "date": "2026-05-01",
+      "session": "session_160",
+      "topic": "topic_141",
+      "owningTopicId": "topic_141",
+      "scopeCheck": "BigBang 완료 검토 part2 — Edi LLM 미호출 패턴 해소 (Ace/Arki/Riki/Dev 합의)",
+      "axis": "Grade C/D 세션에서 Edi mechanical fallback 생성 제거 — synthesizeMechanicalEdiReport early-return 추가",
+      "decision": "CLAUDE.md 설계 의도(Grade D = Dev 직행 Edi 생략, Grade C = 경량 Edi 선택)와 코드 간 불일치 해소. `synthesizeMechanicalEdiReport` 함수 진입부에 Grade C/D early-return 분기 추가 — Grade C/D 세션에서 edi_auto_rev1.md 생성 건너뜀, info log('grade C/D: edi mechanical fallback skipped by design')만 남김. Grade A/B/S는 현행 유지. 3효과: (1) 설계 의도와 코드 정합 회복, (2) Grade A/B/S auditEdiLlmInvocation 신호 노이즈 제거, (3) C/D 세션 파일 오염 제거.",
+      "value": "Riki 확인: dispatch_config rule 추가(R-1) + CLAUDE.md 재기술(R-2)은 현재 hook 구조에서 무효. 코드 수정만 실효성 있음. Dev 6케이스 검증 완료. SRP(Martin 2003) 정합 — hook 단일 책임 강화. CLAUDE.md 설계 의도와 코드 정합은 장기 유지보수성 향상.",
+      "caveats": "Edi Agent 툴 호출 강제 메커니즘(근본 원인 재발 방지)은 이번 결정 범위 외 — 다음 세션 P-1 항목. 이번 조치는 C/D 세션 오염 제거 + A/B/S 감사 노이즈 제거에 한정."
+    },
+    {
       "id": "D-135",
       "date": "2026-05-01",
       "session": "session_159",

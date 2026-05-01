@@ -681,6 +681,13 @@ function copyEdiReportToSessionContributions(sess) {
  * 그렇지 않으면 skip (LLM 산출물 보존).
  */
 function synthesizeMechanicalEdiReport(sess) {
+  // Grade C/D: Edi 생략이 설계 의도 (CLAUDE.md: Grade D = "Edi 생략", Grade C = 경량 선택)
+  const gradeUpper = (sess.grade || '').toUpperCase();
+  if (gradeUpper === 'C' || gradeUpper === 'D') {
+    log('grade C/D: edi mechanical fallback skipped by design');
+    return { skipped: true, reason: 'grade-cd-by-design' };
+  }
+
   const reportPath = sess.reportPath;
   if (!reportPath) {
     log('synthesizeMechanicalEdi skip: reportPath 없음');

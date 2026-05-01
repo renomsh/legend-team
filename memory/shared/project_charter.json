@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-team",
-    "version": "2.18",
+    "version": "현재버전 + 0.001",
     "purpose": "Memory-first, topic-based strategy and implementation system. Master receives structured analysis from role-separated agents on any strategic or implementation topic, with all outputs preserved in inspectable, revisionable files.",
     "principles": [
       "Memory first: all agent outputs, decisions, and session state are written to files immediately. No analysis lives only in conversation context.",
@@ -182,6 +182,12 @@
       "date": "2026-05-01",
       "summary": "G-1 versionBump Edi 확정 hook 강제 추가 — capacity 레이어 확장(checkVersionBumpConfirmation 함수 + role-edi.md §6.6 정책 박제)",
       "sessionId": "session_155"
+    },
+    {
+      "version": "현재버전 + 0.001",
+      "date": "2026-05-01",
+      "summary": "synthesizeMechanicalEdiReport Grade C/D early-return 추가 (bugfix/patch) — CLAUDE.md 설계 의도와 코드 정합 회복",
+      "sessionId": "session_160"
     }
   ],
   "lastUpdated": "2026-05-01"

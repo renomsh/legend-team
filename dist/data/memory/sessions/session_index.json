@@ -6949,8 +6949,74 @@
         "D-135",
         "D-136"
       ]
+    },
+    {
+      "sessionId": "session_160",
+      "topicSlug": "bigbang-completion-review",
+      "topic": "BigBang 완료 검토",
+      "startedAt": "2026-05-01T15:00:00.000Z",
+      "closedAt": "2026-05-01T16:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "ace",
+        "dev",
+        "edi",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "source": "agent",
+          "phase": "framing"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "source": "agent",
+          "phase": "analysis"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 2,
+          "source": "agent",
+          "phase": "risk-audit"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 3,
+          "source": "agent",
+          "phase": "synthesis",
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 4,
+          "source": "agent",
+          "phase": "implementation"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 5,
+          "source": "agent",
+          "phase": "compile"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 6,
+          "source": "agent"
+        }
+      ],
+      "grade": "A",
+      "oneLineSummary": "Edi mechanical fallback C/D early-return 구현 — 설계·코드 정합 회복, D-137 박제",
+      "decisionsAdded": [
+        "D-137"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-01T13:26:00.835Z",
+  "lastUpdated": "2026-05-01T13:53:00.666Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

@@ -1,119 +1,124 @@
 {
-  "sessionId": "session_159",
+  "sessionId": "session_160",
   "topicId": "topic_141",
   "topic": "BigBang 완료 검토",
   "topicSlug": "bigbang-completion-review",
   "reportPath": "reports/2026-05-01_bigbang-completion-review",
   "status": "closed",
-  "startedAt": "2026-05-01T13:00:00.000Z",
-  "closedAt": "2026-05-01T14:30:00.000Z",
-  "oneLineSummary": "BigBang 완료 검토 1차 — 점검 12건(fix 6, 박제 D-135·D-136, deferred 4). Master-first dormant 진단. 다음 세션 이어서.",
+  "startedAt": "2026-05-01T15:00:00.000Z",
+  "closedAt": "2026-05-01T16:30:00.000Z",
+  "oneLineSummary": "Edi mechanical fallback C/D early-return 구현 — 설계·코드 정합 회복, D-137 박제",
   "mode": "observation",
-  "grade": "B",
-  "gradeDeclared": "B",
+  "grade": "A",
+  "gradeDeclared": "A",
   "framingLevel": 2,
   "framingSkipped": false,
   "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
+    "ace",
+    "arki",
+    "riki",
+    "ace",
+    "dev",
+    "edi",
     "edi"
   ],
   "turns": [
     {
-      "role": "edi",
+      "role": "ace",
       "turnIdx": 0,
+      "source": "agent",
+      "phase": "framing"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 1,
+      "source": "agent",
+      "phase": "analysis"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 2,
+      "source": "agent",
+      "phase": "risk-audit"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 3,
+      "source": "agent",
+      "phase": "synthesis",
+      "recallReason": "post-intervention"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 4,
+      "source": "agent",
+      "phase": "implementation"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 5,
+      "source": "agent",
       "phase": "compile"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 6,
+      "source": "agent"
     }
   ],
   "decisions": [
-    "D-135",
-    "D-136"
+    "D-137"
   ],
-  "masterDecisions": [
-    "D-135",
-    "D-136"
-  ],
+  "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "decisionsAdded": [
-    "D-135",
-    "D-136"
+    "D-137"
   ],
-  "notes": [
-    "BigBang 완료 검토 — 7개 점검 진행. fix 4건(versionBump Grade C/D skip, CLAUDE.md Nexus 정의 정정, decisions.html sort, D-110/D-112 status). deferred 2건(session_index sync, master-first dormant — Nexus reset 후). 박제 2건(D-135 D-122 폐기, D-136 D-111/D-118 deprecated). D-107 statusNote 갱신."
-  ],
+  "notes": [],
   "gaps": [
     {
-      "type": "edi-llm-skipped",
-      "sessionId": "session_159",
-      "grade": "B",
-      "severity": "high",
-      "detectedAt": "2026-05-01T13:26:00.817Z",
-      "note": "Grade A/B/S 세션에서 Edi LLM 미호출 — mechanical fallback 박제됨"
-    },
-    {
-      "type": "edi-llm-report-absent",
-      "sessionId": "session_159",
-      "reportPath": "reports/2026-05-01_bigbang-completion-review",
-      "grade": "B",
-      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
-    },
-    {
-      "type": "version-bump-edi-unconfirmed",
-      "severity": "warn",
-      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
-      "addedBy": "checkVersionBumpConfirmation",
-      "suggestedValue": 0.1
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-01_bigbang-completion-review/edi_auto_rev1.md",
+      "expected": "edi",
+      "actualInTurns": "arki",
+      "turnId": 1
     }
   ],
-  "tokenUsage": {
-    "input_tokens": 460,
-    "output_tokens": 165798,
-    "cache_creation_input_tokens": 1155303,
-    "cache_read_input_tokens": 24976446,
-    "messageCount": 173,
-    "masterTurns": 16,
-    "total_billable": 26298007
-  },
   "versionBumpSuggested": {
-    "value": 0.1,
-    "type": "structural",
-    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 1건 (CLAUDE.md)",
-    "autoDetectedAt": "2026-05-01T13:26:15.530Z",
+    "value": 0.001,
+    "type": "bugfix",
+    "reason": "synthesizeMechanicalEdiReport Grade C/D early-return 추가 — 설계 의도와 코드 정합 보정",
+    "autoDetectedAt": "2026-05-01T16:00:00.000Z",
     "changedFiles": [
-      ".claude/hooks/session-end-finalize.js",
-      "AGENTS.md",
-      "CLAUDE.md",
-      "CONTEXT.md",
-      "agents/ace.md",
-      "agents/arki.md",
-      "agents/dev.md",
-      "agents/editor.md",
-      "agents/fin.md",
-      "agents/nova.md",
-      "agents/riki.md",
-      "app/decisions.html",
-      "app/feedback.html",
-      "logs/app.log",
-      "logs/hook-diagnostics.log",
-      "logs/master-first.log",
-      "memory/master/master_feedback_log.json",
-      "memory/sessions/current_session.json",
-      "memory/sessions/session_index.json",
-      "memory/sessions/token_log.json"
+      ".claude/hooks/session-end-finalize.js"
     ],
-    "changedFilesCount": 131,
+    "changedFilesCount": 1,
     "cappedAt": 0.1,
-    "confirmedBy": null
+    "confirmedBy": "edi"
   },
-  "openMasterAlerts": [
-    {
-      "severity": "warn",
-      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.1)",
-      "addedBy": "checkVersionBumpConfirmation"
-    }
-  ],
-  "finalizedAt": "2026-05-01T13:26:17.932Z"
+  "versionBump": {
+    "value": 0.001,
+    "from": "현재버전",
+    "to": "현재버전 + 0.001",
+    "reason": "synthesizeMechanicalEdiReport Grade C/D early-return 추가 (bugfix/patch) — CLAUDE.md 설계 의도와 코드 정합 회복",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-01T16:00:00.000Z",
+    "basedOn": "edi-override",
+    "overrideReason": null
+  },
+  "tokenUsage": {
+    "input_tokens": 103,
+    "output_tokens": 51993,
+    "cache_creation_input_tokens": 516536,
+    "cache_read_input_tokens": 6146378,
+    "messageCount": 69,
+    "masterTurns": 12,
+    "total_billable": 6715010
+  },
+  "finalizedAt": "2026-05-01T13:53:17.750Z"
 }
