@@ -194,7 +194,17 @@
       "reusable": true
     }
   ],
-  "lastUpdated": "2026-04-28",
+  "lastUpdated": "2026-05-01",
+  "sessionLearnings_session157": {
+    "session": "session_157",
+    "date": "2026-05-01",
+    "topic": "master-first-sink-expansion",
+    "findings": [
+      "hook 간 헬퍼 공유 패턴: appendAuditReport() 같은 공통 함수는 import 없이 각 hook 파일에 복사. Node.js 단독 실행 hook은 require()로 다른 hook을 불러올 수 없음(CWD 의존, 경로 불안정). 복사가 명시적이고 안전.",
+      "applyVersionBump 버그 패턴: bump.to 필드 미설정 시 silent skip. Edi 역할 설계에서 from/to를 hook이 채운다 했으나, hook은 bump.to를 기대함 — 설계 불일치. 수정: bump.value 있으면 parseFloat(prevVersion) + value로 to 자동 계산.",
+      "audit-emit 타이밍 전략: PreToolUse Task(HookB)만으로는 Task 미호출 경로에서 audit 0건. UserPromptSubmit(HookA)에 emit 추가하면 발언 시점 즉시 기록 가능. source 필드로 HookA/HookB 발원 구분."
+    ]
+  },
   "sessionLearnings_session130": {
     "session": "session_130",
     "date": "2026-04-28",

@@ -141,25 +141,44 @@
       "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
       "addedBy": "checkVersionBumpConfirmation",
       "suggestedValue": 0.01
+    },
+    {
+      "type": "mechanical-fallback-graded",
+      "sessionId": "session_157",
+      "grade": "C",
+      "severity": "info"
+    },
+    {
+      "type": "edi-llm-report-absent",
+      "sessionId": "session_157",
+      "reportPath": "reports/2026-05-01_master-first-sink-expansion",
+      "grade": "C",
+      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
+    },
+    {
+      "type": "version-bump-edi-unconfirmed",
+      "severity": "warn",
+      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
+      "addedBy": "checkVersionBumpConfirmation",
+      "suggestedValue": 0.1
     }
   ],
   "oneLineSummary": "HookA audit-emit 추가(UserPromptSubmit) + settings.json 권한 7개 — 검증 3/3 PASS.",
   "tokenUsage": {
-    "input_tokens": 965,
-    "output_tokens": 70571,
-    "cache_creation_input_tokens": 774951,
-    "cache_read_input_tokens": 11591294,
-    "messageCount": 107,
-    "masterTurns": 8,
-    "total_billable": 12437781
+    "input_tokens": 980,
+    "output_tokens": 74535,
+    "cache_creation_input_tokens": 785021,
+    "cache_read_input_tokens": 12596437,
+    "messageCount": 114,
+    "masterTurns": 10,
+    "total_billable": 13456973
   },
   "versionBumpSuggested": {
-    "value": 0.01,
-    "type": "capacity",
-    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/session-end-finalize.js)",
-    "autoDetectedAt": "2026-05-01T12:15:19.962Z",
+    "value": 0.1,
+    "type": "structural",
+    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 1건 (memory/roles/dev_memory.json)",
+    "autoDetectedAt": "2026-05-01T12:31:03.557Z",
     "changedFiles": [
-      ".claude/hooks/session-end-finalize.js",
       "AGENTS.md",
       "CONTEXT.md",
       "agents/ace.md",
@@ -172,19 +191,25 @@
       "logs/app.log",
       "logs/hook-diagnostics.log",
       "logs/master-first.log",
+      "memory/roles/dev_memory.json",
       "memory/sessions/current_session.json",
       "memory/sessions/session_index.json",
       "memory/sessions/token_log.json",
-      "memory/shared/system_state.json",
       "memory/shared/topic_index.json",
       "node_modules/.package-lock.json",
-      "package-lock.json"
+      "package-lock.json",
+      "package.json"
     ],
-    "changedFilesCount": 124,
+    "changedFilesCount": 123,
     "cappedAt": 0.1,
     "confirmedBy": null
   },
   "openMasterAlerts": [
+    {
+      "severity": "warn",
+      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.1)",
+      "addedBy": "checkVersionBumpConfirmation"
+    },
     {
       "severity": "warn",
       "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.01)",
