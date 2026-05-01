@@ -106,28 +106,63 @@ async function run() {
 
     const sess = readJsonFile(path.join(cwd, SESSION_REL));
     const grade = sess && sess.grade ? sess.grade : null;
-    const topicType = sess && sess.topicType ? sess.topicType : null;
     const sessionId = sessionIdInput || (sess && sess.sessionId) || null;
 
-    // Trigger gate: grade + topicType
+    // Trigger gate: grade
     const gradeOk = !grade || (config.triggerGrades || []).includes(grade);
-    const typeOk = !topicType || (config.triggerTopicTypes || []).includes(topicType);
-    if (!gradeOk || !typeOk) {
+    if (!gradeOk) {
       appendLog(cwd, config.logPath || 'logs/master-first.log', {
-        ts, phase: 'no-op', reason: 'grade-or-type-mismatch', grade, topicType
+        ts, phase: 'no-op', reason: 'grade-mismatch', grade
+      });
+      process.exit(0);
+    }
+
+    // jobs-framing 감지 기반 활성화
+    const statePath = path.join(cwd, config.statePath || 'memory/shared/master_first_state.json');
+    const existingState = readJsonFile(statePath) || {};
+
+    // sessionId 달라지면 state 리셋 (stale state 방지)
+    const stateSessionId = existingState.sessionId || null;
+    const jobsFramingActive = (stateSessionId === sessionId) ? (existingState.jobsFramingActive || false) : false;
+
+    // /jobs-framing 호출 감지
+    const isJobsFramingCall = typeof prompt === 'string' && /\/jobs-framing\b/i.test(prompt);
+    if (isJobsFramingCall) {
+      // jobs-framing 활성화 — echo 분류 없이 flag만 박제
+      const activationState = {
+        jobsFramingActive: true,
+        sessionId,
+        activatedAt: ts,
+        lastMasterUtterance: null,
+        echoTriggerDetected: false,
+        intentReconfirmRequested: false,
+        matchedKeywords: [],
+        updatedAt: ts
+      };
+      writeJsonFile(statePath, activationState);
+      appendLog(cwd, config.logPath || 'logs/master-first.log', {
+        ts, phase: 'jobs-framing-activated', sessionId, grade
+      });
+      process.exit(0);
+    }
+
+    // jobs-framing가 이 세션에서 활성화되지 않았으면 no-op
+    if (!jobsFramingActive) {
+      appendLog(cwd, config.logPath || 'logs/master-first.log', {
+        ts, phase: 'no-op', reason: 'jobs-framing-not-active', sessionId, grade
       });
       process.exit(0);
     }
 
     // 분류 + state write
     const newState = classifyPrompt(prompt, sessionId, config);
-    const statePath = path.join(cwd, config.statePath || 'memory/shared/master_first_state.json');
+    newState.jobsFramingActive = true;
     writeJsonFile(statePath, newState);
 
     const elapsedMs = Date.now() - startedAt;
     appendLog(cwd, config.logPath || 'logs/master-first.log', {
       ts, phase: 'classified',
-      sessionId, grade, topicType,
+      sessionId, grade,
       echoTriggerDetected: newState.echoTriggerDetected,
       intentReconfirmRequested: newState.intentReconfirmRequested,
       matchedKeywords: newState.matchedKeywords,

@@ -1,10 +1,13 @@
 {
-  "lastMasterUtterance": "진행해.",
-  "echoTriggerDetected": false,
+  "lastMasterUtterance": "좋아 그대로 진행해",
+  "echoTriggerDetected": true,
   "intentReconfirmRequested": true,
   "matchedKeywords": [
+    "좋아",
+    "그대로",
     "진행해"
   ],
-  "sessionId": "11d4bd5c-5459-43ac-a816-18bd38b0ff1e",
-  "updatedAt": "2026-04-30T23:32:13.390Z"
+  "sessionId": "session_154",
+  "updatedAt": "2026-05-01T00:13:53.761Z",
+  "jobsFramingActive": true
 }

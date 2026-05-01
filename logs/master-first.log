@@ -140,3 +140,12 @@
 {"ts":"2026-04-30T23:32:13.383Z","phase":"classified","sessionId":"11d4bd5c-5459-43ac-a816-18bd38b0ff1e","grade":"S","topicType":"framing","echoTriggerDetected":false,"intentReconfirmRequested":true,"matchedKeywords":["진행해"],"elapsedMs":7}
 {"ts":"2026-04-30T23:32:51.060Z","phase":"audit-emit","toolName":"Agent","echoTriggerDetected":false,"intentReconfirmRequested":true,"matchedKeywords":["진행해"]}
 {"ts":"2026-04-30T23:46:37.118Z","phase":"audit-emit","toolName":"Agent","echoTriggerDetected":false,"intentReconfirmRequested":true,"matchedKeywords":["진행해"]}
+{"ts":"2026-04-30T23:54:26.188Z","phase":"classified","sessionId":"43dabb09-89d9-4fbb-a5b6-1728ebeaab76","grade":"S","topicType":"framing","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":9}
+{"ts":"2026-04-30T23:55:48.748Z","phase":"no-audit","toolName":"Agent"}
+{"ts":"2026-05-01T00:07:33.369Z","phase":"no-op","reason":"grade-or-type-mismatch","grade":"A","topicType":"implementation"}
+{"ts":"2026-05-01T00:10:01.213Z","phase":"no-op","reason":"grade-or-type-mismatch","grade":"A","topicType":"implementation"}
+{"ts":"2026-05-01T00:13:39.720Z","phase":"jobs-framing-activated","sessionId":"session_154","grade":"A"}
+{"ts":"2026-05-01T00:13:41.160Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"session_999","grade":"A"}
+{"ts":"2026-05-01T00:13:48.525Z","phase":"classified","sessionId":"session_154","grade":"A","echoTriggerDetected":true,"intentReconfirmRequested":true,"matchedKeywords":["좋아","그대로","진행해"],"elapsedMs":13}
+{"ts":"2026-05-01T00:13:53.751Z","phase":"classified","sessionId":"session_154","grade":"A","echoTriggerDetected":true,"intentReconfirmRequested":true,"matchedKeywords":["좋아","그대로","진행해"],"elapsedMs":11}
+{"ts":"2026-05-01T00:22:54.990Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"43dabb09-89d9-4fbb-a5b6-1728ebeaab76","grade":"A"}

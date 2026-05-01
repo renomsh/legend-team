@@ -2,7 +2,7 @@
   "version": "v0",
   "mode": "warn-only",
   "triggerGrades": ["B", "A", "S"],
-  "triggerTopicTypes": ["framing"],
+  "triggerOnJobsFraming": true,
   "echoTriggerKeywords": ["좋아", "맞아", "동의", "그대로", "OK", "ok", "확정", "박제해"],
   "intentReconfirmKeywords": ["진행해", "다음", "계속"],
   "dualTrigger": { "sessionCountThreshold": 30, "fpCountThreshold": 5 },
