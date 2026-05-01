@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-05-01T07:52:42.585Z",
+  "generatedAt": "2026-05-01T07:54:31.651Z",
   "totalSessions": 153,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 18.12,
-    "avgCacheHitRate": 0.9312,
+    "avgMasterTurns": 18.15,
+    "avgCacheHitRate": 0.9313,
     "cacheSampleSize": 127,
     "cacheSampleTotal": 153,
     "avgAdoptionRate": 0,
@@ -22,8 +22,8 @@
     ],
     "framingSkippedCount": 0,
     "turnBasedSessions": 108,
-    "totalCostUSD": 1708.0706,
-    "avgCostPerSession": 11.541,
+    "totalCostUSD": 1712.4008,
+    "avgCostPerSession": 11.5703,
     "costSampleSize": 148
   },
   "sessions": [
@@ -5839,34 +5839,35 @@
       "closedAt": "2026-05-01T16:45:00.000Z",
       "decisionCount": 0,
       "decisionAxes": 0,
-      "rolesCalled": 5,
-      "rolesRecalled": 0,
+      "rolesCalled": 6,
+      "rolesRecalled": 1,
       "sessionsSpanned": 1,
-      "size": 8,
+      "size": 11,
       "gradeDeclared": "A",
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 3,
+      "masterTurns": 7,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "arki",
         "riki",
         "dev",
+        "edi",
         "edi"
       ],
       "tokenUsage": {
-        "totalBillable": 4057687,
-        "ioTokens": 43651,
-        "inputTokens": 62,
-        "outputTokens": 43589,
-        "cacheCreate": 508452,
-        "cacheRead": 3505584,
-        "cacheHitRate": 0.8639365234430354,
-        "messageCount": 44
+        "totalBillable": 10004109,
+        "ioTokens": 91921,
+        "inputTokens": 148,
+        "outputTokens": 91773,
+        "cacheCreate": 1041145,
+        "cacheRead": 8871043,
+        "cacheHitRate": 0.886739938559246,
+        "messageCount": 104
       },
-      "sessionCostUSD": 3.6124
+      "sessionCostUSD": 7.9426
     }
   ],
   "roleFrequency": [
@@ -6023,7 +6024,7 @@
     },
     {
       "role": "edi",
-      "count": 111,
+      "count": 112,
       "sessions": [
         "session_050",
         "session_051",
@@ -10571,6 +10572,12 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 5,
           "recallReason": null
         }
       ]
