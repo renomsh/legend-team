@@ -1323,6 +1323,18 @@
       "feedback": "권한 건너뛰기인데 왜 자꾸 요청해? — .claude/hooks/*.js 편집 시 sensitive file 권한 프롬프트가 반복 발생.",
       "resolution": ".claude/settings.json permissions.allow에 Edit(.claude/hooks/*.js) 등 7개 패턴 추가.",
       "status": "resolved"
+    },
+    {
+      "id": "MF-AUTO-session_159-edi",
+      "date": "2026-05-01",
+      "session": "session_159",
+      "sessionId": "session_159",
+      "topic": "topic_141",
+      "type": "edi-llm-skipped",
+      "severity": "high",
+      "source": "hook",
+      "feedback": "Grade B 세션 session_159에서 Edi LLM 미호출 — mechanical fallback(edi_auto_rev1.md) 박제됨. role-edi.md §6.4 검토 필요.",
+      "status": "pending"
     }
   ],
   "statusValues": [

@@ -1,57 +1,63 @@
 {
-  "sessionId": "session_158",
-  "topicId": "topic_140",
-  "topic": "hook 중복 실행 패치 — auto-push.js session-end-finalize.js 반복 실행 차단",
-  "topicSlug": "hook-duplicate-execution-patch",
-  "reportPath": "reports/2026-05-01_hook-duplicate-execution-patch",
+  "sessionId": "session_159",
+  "topicId": "topic_141",
+  "topic": "BigBang 완료 검토",
+  "topicSlug": "bigbang-completion-review",
+  "reportPath": "reports/2026-05-01_bigbang-completion-review",
   "status": "closed",
-  "startedAt": "2026-05-01T12:40:00.000Z",
-  "closedAt": "2026-05-01T12:50:00.000Z",
+  "startedAt": "2026-05-01T13:00:00.000Z",
+  "closedAt": "2026-05-01T14:30:00.000Z",
+  "oneLineSummary": "BigBang 완료 검토 1차 — 점검 12건(fix 6, 박제 D-135·D-136, deferred 4). Master-first dormant 진단. 다음 세션 이어서.",
   "mode": "observation",
-  "grade": "C",
-  "gradeDeclared": "C",
-  "framingLevel": 0,
-  "framingSkipped": true,
+  "grade": "B",
+  "gradeDeclared": "B",
+  "framingLevel": 2,
+  "framingSkipped": false,
   "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
-    "dev",
     "edi"
   ],
   "turns": [
     {
-      "role": "dev",
-      "turnIdx": 0,
-      "phase": "implementation"
-    },
-    {
       "role": "edi",
-      "turnIdx": 1,
+      "turnIdx": 0,
       "phase": "compile"
     }
   ],
-  "decisions": [],
-  "masterDecisions": [],
+  "decisions": [
+    "D-135",
+    "D-136"
+  ],
+  "masterDecisions": [
+    "D-135",
+    "D-136"
+  ],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
-  "decisionsAdded": [],
+  "decisionsAdded": [
+    "D-135",
+    "D-136"
+  ],
   "notes": [
-    "session-end-finalize.js에 finalizedAt 멱등성 가드 추가. auto-push.js 반복 호출 시 gaps 중복 누적 차단."
+    "BigBang 완료 검토 — 7개 점검 진행. fix 4건(versionBump Grade C/D skip, CLAUDE.md Nexus 정의 정정, decisions.html sort, D-110/D-112 status). deferred 2건(session_index sync, master-first dormant — Nexus reset 후). 박제 2건(D-135 D-122 폐기, D-136 D-111/D-118 deprecated). D-107 statusNote 갱신."
   ],
   "gaps": [
     {
-      "type": "mechanical-fallback-graded",
-      "sessionId": "session_158",
-      "grade": "C",
-      "severity": "info"
+      "type": "edi-llm-skipped",
+      "sessionId": "session_159",
+      "grade": "B",
+      "severity": "high",
+      "detectedAt": "2026-05-01T13:26:00.817Z",
+      "note": "Grade A/B/S 세션에서 Edi LLM 미호출 — mechanical fallback 박제됨"
     },
     {
       "type": "edi-llm-report-absent",
-      "sessionId": "session_158",
-      "reportPath": "reports/2026-05-01_hook-duplicate-execution-patch",
-      "grade": "C",
+      "sessionId": "session_159",
+      "reportPath": "reports/2026-05-01_bigbang-completion-review",
+      "grade": "B",
       "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
     },
     {
@@ -59,27 +65,27 @@
       "severity": "warn",
       "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
       "addedBy": "checkVersionBumpConfirmation",
-      "suggestedValue": 0.01
+      "suggestedValue": 0.1
     }
   ],
-  "oneLineSummary": "session-end-finalize.js finalizedAt 가드 추가 — auto-push.js 반복 호출 시 gaps 중복 차단.",
   "tokenUsage": {
-    "input_tokens": 325,
-    "output_tokens": 21507,
-    "cache_creation_input_tokens": 349779,
-    "cache_read_input_tokens": 4896861,
-    "messageCount": 51,
-    "masterTurns": 5,
-    "total_billable": 5268472
+    "input_tokens": 460,
+    "output_tokens": 165798,
+    "cache_creation_input_tokens": 1155303,
+    "cache_read_input_tokens": 24976446,
+    "messageCount": 173,
+    "masterTurns": 16,
+    "total_billable": 26298007
   },
   "versionBumpSuggested": {
-    "value": 0.01,
-    "type": "capacity",
-    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/session-end-finalize.js)",
-    "autoDetectedAt": "2026-05-01T12:40:36.507Z",
+    "value": 0.1,
+    "type": "structural",
+    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 1건 (CLAUDE.md)",
+    "autoDetectedAt": "2026-05-01T13:26:15.530Z",
     "changedFiles": [
       ".claude/hooks/session-end-finalize.js",
       "AGENTS.md",
+      "CLAUDE.md",
       "CONTEXT.md",
       "agents/ace.md",
       "agents/arki.md",
@@ -88,27 +94,26 @@
       "agents/fin.md",
       "agents/nova.md",
       "agents/riki.md",
+      "app/decisions.html",
+      "app/feedback.html",
       "logs/app.log",
       "logs/hook-diagnostics.log",
       "logs/master-first.log",
+      "memory/master/master_feedback_log.json",
       "memory/sessions/current_session.json",
       "memory/sessions/session_index.json",
-      "memory/sessions/token_log.json",
-      "memory/shared/topic_index.json",
-      "node_modules/.package-lock.json",
-      "package-lock.json",
-      "package.json"
+      "memory/sessions/token_log.json"
     ],
-    "changedFilesCount": 124,
+    "changedFilesCount": 131,
     "cappedAt": 0.1,
     "confirmedBy": null
   },
   "openMasterAlerts": [
     {
       "severity": "warn",
-      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.01)",
+      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.1)",
       "addedBy": "checkVersionBumpConfirmation"
     }
   ],
-  "finalizedAt": "2026-05-01T12:40:38.868Z"
+  "finalizedAt": "2026-05-01T13:26:17.932Z"
 }

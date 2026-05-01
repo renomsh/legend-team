@@ -123,7 +123,7 @@ When processing a topic, each role speaks in sequence. Master sees each role's o
 
 Do NOT merge all roles into a single response. Do NOT skip to Edi unless Master requests it.
 
-Speaking order (default scaffold — Nexus orchestrates per D-130; reordering/re-call by Nexus or Master):
+Speaking order (default scaffold — **Nexus = Main Claude Code 본체(하네스 시스템) 자체**, 별도 페르소나/Agent 아님 (D-133, 2026-05-01 정정). orchestration 주체이며, 코드 레이어는 hooks(session-end-finalize.js 등)로 운영. reordering/re-call은 Nexus 또는 Master 판단):
 1. **Jobs** (D-130) — framing 주체. Why·What·decision axes·scope (in/out)·key assumptions·인지편향 적출·Focus(saying no). Sets `executionPlanMode: plan | conditional | none`. (Master 또는 `/jobs-framing` 명시 호출 시 발동. 자동 트리거 0건. jobs-framing skill 신설은 다음 세션 — 그때까지 인라인.)
 1-b. **Ace** — Jobs framing 직후 또는 결정축 검토 시점에 호출 시 발동. 구조(Structure·Porter)·흐름(System·Keynes) 판정 + 지속 가능성 단일 판정. 종합검토는 `/ace-synthesis` 명시 호출 시.
 2. **Arki** — structural analysis, dependencies, design constraints. **If `executionPlanMode = plan`**, extends with 4th section: 구조적 실행계획 (Phase 분해·의존 그래프·검증 게이트·롤백·전제·중단 조건). Time/owner/effort are out of scope — see Schedule-on-Demand principle.
@@ -177,7 +177,7 @@ Master may switch modes at any time by stating the mode name.
 - **`/ace-synthesis` 명시 호출 시만 발동** (자동 트리거 폐기, D-130 2026-04-30)
 - Ace cross-references all role outputs, resolves conflicts, and delivers final recommendation to Master
 - Ace's comprehensive review is the authoritative synthesis (subject to Master override)
-- Ace focuses on **구조(Structure)·흐름(System) 판정 + 종합검토** — framing은 Jobs 영역, orchestration은 Nexus.
+- Ace focuses on **구조(Structure)·흐름(System) 판정 + 종합검토** — framing은 Jobs 영역, orchestration은 Nexus(= Main Claude Code 본체 = 하네스).
 - **버전 업데이트 트리거 (D-104 → D-130 supersede):** versionBump는 **Nexus 자동 감지 + Edi 확정**. Ace 종합검토에서 박제하지 않음. `session-end-finalize.js` hook이 변경 종류(페르소나/정책 신규=+0.1, decision_ledger 신규=+0.01, Grade C+버그=+0.001) 자동 감지 → `versionBumpSuggested` current_session 박제 → Edi 세션 종료 시 확정 → `project_charter.json` 자동 전파.
   - 증분: +0.1(구조 변경) / +0.01(역량 확장) / +0.001(버그·패치). **세션당 최대 +0.1 캡.**
   - 인정 임계값: 파일 변경 1건 이상 + `versionBump.reason` 작성 필수.

@@ -1067,6 +1067,16 @@ function detectVersionBump(sess) {
     return;
   }
 
+  // session_159 (topic_141, 2026-05-01): Grade C/D는 versionBump 자동 감지 skip.
+  // 사유: Grade C/D는 D-074 Matrix상 Edi 호출 생략 → 자동 감지 시 confirmedBy:null deadlock.
+  // Master 메모리(feedback_simple_growth_not_measurement, feedback_pragmatic_weapon_not_art,
+  // feedback_cd_no_subagent) 정합. 진짜 구조 변경은 Grade B+ 토픽에서 처리.
+  const grade = (sess.grade || '').toUpperCase();
+  if (grade === 'C' || grade === 'D') {
+    log(`detectVersionBump skip: Grade ${grade} 세션 — 자동 감지 비활성화 (Edi 미호출 deadlock 방지)`);
+    return;
+  }
+
   const result = spawnSync('git', ['status', '--porcelain'], {
     cwd: CWD,
     encoding: 'utf8',

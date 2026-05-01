@@ -198,7 +198,15 @@ function onStatusFilter(v) { state.status = v; state.page = 1; renderList(); }
 
 async function init() {
   const data = await DataLoader.getDecisionLedger();
-  const list = (data?.decisions || []).slice().reverse();
+  // session_159 (topic_141, 2026-05-01) — ledger가 prepend 구조이므로 .reverse()만으로는
+  // 시간순 정렬 불가. date desc + id desc 명시 정렬로 D-126+ 누락 방지.
+  const list = (data?.decisions || []).slice().sort((a, b) => {
+    const da = (a.date || '').localeCompare(b.date || '');
+    if (da !== 0) return -da;
+    const na = parseInt(String(a.id||'').replace(/^D-/, ''), 10) || 0;
+    const nb = parseInt(String(b.id||'').replace(/^D-/, ''), 10) || 0;
+    return nb - na;
+  });
   state.all = list;
 
   document.getElementById('decCount').textContent = list.length;

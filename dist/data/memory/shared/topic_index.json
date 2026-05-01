@@ -1,6 +1,23 @@
 {
   "topics": [
     {
+      "id": "topic_141",
+      "title": "BigBang 완료 검토",
+      "status": "in-progress",
+      "phase": "framing",
+      "hold": null,
+      "created": "2026-05-01",
+      "controlPath": "topics/topic_141",
+      "reportPath": "reports/2026-05-01_bigbang-completion-review",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_159",
+      "path": "topics/topic_141",
+      "grade": "B",
+      "lastUpdated": "2026-05-01",
+      "outcome": "대규모 BigBang 업그레이드(topic_131·138) 완료 검토 1차 — 점검 12건(fix 6, 박제 2건 D-135·D-136, deferred 4). Nexus = Claude Code 본체 정의 정합 확인. Master-first dormant 진단(D-129↔D-130 의존 충돌). 다음 세션 이어서 진행 (Edi 자동화·CLAUDE.md stale·feedback 무결성·Nexus reset 준비)."
+    },
+    {
       "id": "topic_140",
       "title": "hook 중복 실행 패치 — auto-push.js session-end-finalize.js 반복 실행 차단",
       "status": "completed",
@@ -2737,5 +2754,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-01T12:40:30.356Z"
+  "lastUpdated": "2026-05-01T13:26:10.378Z"
 }

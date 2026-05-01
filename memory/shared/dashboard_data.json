@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-05-01T12:40:46.101Z",
-  "totalSessions": 156,
+  "generatedAt": "2026-05-01T13:26:25.441Z",
+  "totalSessions": 157,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 18.38,
-    "avgCacheHitRate": 0.9313,
-    "cacheSampleSize": 130,
-    "cacheSampleTotal": 156,
+    "avgMasterTurns": 18.37,
+    "avgCacheHitRate": 0.9314,
+    "cacheSampleSize": 131,
+    "cacheSampleTotal": 157,
     "avgAdoptionRate": 0,
-    "totalDecisions": 135,
+    "totalDecisions": 137,
     "gradeDistribution": {
       "S": 68,
-      "A": 33,
+      "A": 34,
       "B": 41,
       "C": 14
     },
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 111,
-    "totalCostUSD": 1781.4092,
-    "avgCostPerSession": 11.7974,
-    "costSampleSize": 151
+    "turnBasedSessions": 112,
+    "totalCostUSD": 1795.7229,
+    "avgCostPerSession": 11.814,
+    "costSampleSize": 152
   },
   "sessions": [
     {
@@ -5977,6 +5977,43 @@
         "messageCount": 51
       },
       "sessionCostUSD": 3.1043
+    },
+    {
+      "sessionId": "session_159",
+      "topicSlug": "bigbang-completion-review",
+      "topic": "BigBang 완료 검토",
+      "startedAt": "2026-05-01T13:00:00.000Z",
+      "closedAt": "2026-05-01T14:30:00.000Z",
+      "decisionCount": 2,
+      "decisionAxes": 2,
+      "decisions": [
+        "D-135",
+        "D-136"
+      ],
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 8,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 16,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 26298007,
+        "ioTokens": 166258,
+        "inputTokens": 460,
+        "outputTokens": 165798,
+        "cacheCreate": 1155303,
+        "cacheRead": 24976446,
+        "cacheHitRate": 0.9497467241528987,
+        "messageCount": 173
+      },
+      "sessionCostUSD": 14.3137
     }
   ],
   "roleFrequency": [
@@ -6069,72 +6106,8 @@
       ]
     },
     {
-      "role": "arki",
-      "count": 115,
-      "sessions": [
-        "session_048",
-        "session_049",
-        "session_053",
-        "session_054",
-        "session_059",
-        "session_060",
-        "session_061",
-        "session_063",
-        "session_066",
-        "session_067",
-        "session_068",
-        "session_069",
-        "session_071",
-        "session_075",
-        "session_077",
-        "session_078",
-        "session_081",
-        "session_082",
-        "session_086",
-        "session_087",
-        "session_089",
-        "session_090",
-        "session_091",
-        "session_092",
-        "session_093",
-        "session_094",
-        "session_095",
-        "session_097",
-        "session_098",
-        "session_100",
-        "session_101",
-        "session_103",
-        "session_104",
-        "session_105",
-        "session_106",
-        "session_107",
-        "session_108",
-        "session_109",
-        "session_111",
-        "session_112",
-        "session_119",
-        "session_120",
-        "session_123",
-        "session_125",
-        "session_127",
-        "session_128",
-        "session_129",
-        "session_130",
-        "session_134",
-        "session_138",
-        "session_139",
-        "session_140",
-        "session_141",
-        "session_142",
-        "session_144",
-        "session_152",
-        "session_153",
-        "session_155"
-      ]
-    },
-    {
       "role": "edi",
-      "count": 115,
+      "count": 116,
       "sessions": [
         "session_050",
         "session_051",
@@ -6243,7 +6216,72 @@
         "session_155",
         "session_156",
         "session_157",
-        "session_158"
+        "session_158",
+        "session_159"
+      ]
+    },
+    {
+      "role": "arki",
+      "count": 115,
+      "sessions": [
+        "session_048",
+        "session_049",
+        "session_053",
+        "session_054",
+        "session_059",
+        "session_060",
+        "session_061",
+        "session_063",
+        "session_066",
+        "session_067",
+        "session_068",
+        "session_069",
+        "session_071",
+        "session_075",
+        "session_077",
+        "session_078",
+        "session_081",
+        "session_082",
+        "session_086",
+        "session_087",
+        "session_089",
+        "session_090",
+        "session_091",
+        "session_092",
+        "session_093",
+        "session_094",
+        "session_095",
+        "session_097",
+        "session_098",
+        "session_100",
+        "session_101",
+        "session_103",
+        "session_104",
+        "session_105",
+        "session_106",
+        "session_107",
+        "session_108",
+        "session_109",
+        "session_111",
+        "session_112",
+        "session_119",
+        "session_120",
+        "session_123",
+        "session_125",
+        "session_127",
+        "session_128",
+        "session_129",
+        "session_130",
+        "session_134",
+        "session_138",
+        "session_139",
+        "session_140",
+        "session_141",
+        "session_142",
+        "session_144",
+        "session_152",
+        "session_153",
+        "session_155"
       ]
     },
     {
@@ -10777,6 +10815,18 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_159",
+      "topic": "BigBang 완료 검토",
+      "sequence": [
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 0,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -10977,6 +11027,11 @@
           "date": "2026-04-30",
           "feedbackId": "MF-AUTO-session_147-edi",
           "summary": "Grade A 세션 session_147에서 Edi LLM 미호출 — mechanical fallback(e"
+        },
+        {
+          "date": "2026-05-01",
+          "feedbackId": "MF-AUTO-session_159-edi",
+          "summary": "Grade B 세션 session_159에서 Edi LLM 미호출 — mechanical fallback(e"
         }
       ]
     },
@@ -11390,6 +11445,11 @@
           "date": "2026-04-30",
           "feedbackId": "MF-AUTO-session_147-edi",
           "summary": "Grade A 세션 session_147에서 Edi LLM 미호출 — mechanical fallback(e"
+        },
+        {
+          "date": "2026-05-01",
+          "feedbackId": "MF-AUTO-session_159-edi",
+          "summary": "Grade B 세션 session_159에서 Edi LLM 미호출 — mechanical fallback(e"
         }
       ]
     },
@@ -11572,6 +11632,11 @@
           "date": "2026-04-30",
           "feedbackId": "MF-AUTO-session_147-edi",
           "summary": "Grade A 세션 session_147에서 Edi LLM 미호출 — mechanical fallback(e"
+        },
+        {
+          "date": "2026-05-01",
+          "feedbackId": "MF-AUTO-session_159-edi",
+          "summary": "Grade B 세션 session_159에서 Edi LLM 미호출 — mechanical fallback(e"
         }
       ]
     },
@@ -12015,6 +12080,21 @@
           "date": "2026-04-25",
           "feedbackId": "MF-090",
           "summary": "구현은 후속 child토픽으로 분화해도 되는데 일단 해보고. 분화하면 제대로 진행이 안돼."
+        }
+      ]
+    },
+    {
+      "keyword": "LLM",
+      "occurrences": [
+        {
+          "date": "2026-04-30",
+          "feedbackId": "MF-AUTO-session_147-edi",
+          "summary": "Grade A 세션 session_147에서 Edi LLM 미호출 — mechanical fallback(e"
+        },
+        {
+          "date": "2026-05-01",
+          "feedbackId": "MF-AUTO-session_159-edi",
+          "summary": "Grade B 세션 session_159에서 Edi LLM 미호출 — mechanical fallback(e"
         }
       ]
     }

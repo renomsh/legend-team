@@ -209,7 +209,13 @@ function onStatusFilter(v) { state.status = v; state.page = 1; renderList(); }
 
 async function init() {
   const data = await DataLoader.getMasterFeedback();
-  const list = (data?.feedbackLog || []).slice().reverse();
+  // session_159 (topic_141, 2026-05-01) — feedback_log 정렬 깨짐(MF-AUTO·MF-110 등 mixed order)
+  // 보완. date desc + id desc 명시 정렬. 데이터 무결성(중복 MF-105 등)은 별도 토픽.
+  const list = (data?.feedbackLog || []).slice().sort((a, b) => {
+    const da = (a.date || '').localeCompare(b.date || '');
+    if (da !== 0) return -da;
+    return String(b.id || '').localeCompare(String(a.id || ''));
+  });
   state.all = list;
 
   document.getElementById('fbCount').textContent = list.length;
