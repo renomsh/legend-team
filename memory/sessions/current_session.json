@@ -61,17 +61,37 @@
       "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
       "addedBy": "checkVersionBumpConfirmation",
       "suggestedValue": 0.01
+    },
+    {
+      "type": "mechanical-fallback-graded",
+      "sessionId": "session_157",
+      "grade": "C",
+      "severity": "info"
+    },
+    {
+      "type": "edi-llm-report-absent",
+      "sessionId": "session_157",
+      "reportPath": "reports/2026-05-01_master-first-sink-expansion",
+      "grade": "C",
+      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
+    },
+    {
+      "type": "version-bump-edi-unconfirmed",
+      "severity": "warn",
+      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
+      "addedBy": "checkVersionBumpConfirmation",
+      "suggestedValue": 0.01
     }
   ],
   "oneLineSummary": "HookA audit-emit 추가(UserPromptSubmit) + settings.json 권한 7개 — 검증 3/3 PASS.",
   "tokenUsage": {
-    "input_tokens": 910,
-    "output_tokens": 55794,
-    "cache_creation_input_tokens": 742867,
-    "cache_read_input_tokens": 7112045,
-    "messageCount": 74,
-    "masterTurns": 5,
-    "total_billable": 7911616
+    "input_tokens": 926,
+    "output_tokens": 60558,
+    "cache_creation_input_tokens": 749628,
+    "cache_read_input_tokens": 8701206,
+    "messageCount": 86,
+    "masterTurns": 6,
+    "total_billable": 9512318
   },
   "versionBumpSuggested": {
     "value": 0.01,
@@ -105,6 +125,11 @@
     "confirmedBy": null
   },
   "openMasterAlerts": [
+    {
+      "severity": "warn",
+      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.01)",
+      "addedBy": "checkVersionBumpConfirmation"
+    },
     {
       "severity": "warn",
       "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.01)",

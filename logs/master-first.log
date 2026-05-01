@@ -202,3 +202,4 @@
 {"ts":"2026-05-01T12:07:18.508Z","phase":"classified","sessionId":"test_session","grade":"A","echoTriggerDetected":true,"intentReconfirmRequested":true,"matchedKeywords":["좋아","다음","계속"],"elapsedMs":16}
 {"ts":"2026-05-01T12:07:18.508Z","phase":"audit-emit","source":"UserPromptSubmit","echoTriggerDetected":true,"intentReconfirmRequested":true,"matchedKeywords":["좋아","다음","계속"]}
 {"ts":"2026-05-01T12:08:29.049Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"31875f32-2f76-4cfb-9146-eb899f2e54b5","grade":"A"}
+{"ts":"2026-05-01T12:11:44.413Z","phase":"no-op","reason":"grade-mismatch","grade":"C"}
