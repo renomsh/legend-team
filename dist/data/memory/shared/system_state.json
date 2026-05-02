@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_172",
-  "nextSessionId": "session_173",
+  "lastSessionId": "session_173",
+  "nextSessionId": "session_174",
   "currentVersion": "v0.01",
   "openTopics": [
     {
@@ -20,6 +20,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-146",
+      "date": "2026-05-02",
+      "axis": "신규 페르소나 도입 12-axes 인벤토리 점검 SOP",
+      "summary": "신규 페르소나 도입 12-axes 인벤토리 점검 SOP"
+    },
     {
       "id": "D-145",
       "date": "2026-05-02",
@@ -43,15 +49,18 @@
       "date": "2026-05-02",
       "axis": "ace-framing skill DEPRECATED 해제 + 명시 호출 전용 재활성화 + D-119/D-136 운영 잔재 정리",
       "summary": "Nexus 전환 잔여 cleanup 일괄 해소. ace-framing은 폐기 대신 명시 호출 skill로 보존 — Jobs와 다른 시각 제공. 시스템명 운영 정합 회복(legend-nexus). D4 Prime Directive 정합(자가 우회 방지: 동일 역할 감시 자체 금지로 자동화 시도 차단)."
-    },
-    {
-      "id": "D-141",
-      "date": "2026-05-01",
-      "axis": "turns 중복 기록 패턴 해소 — buildSessionLayer inline 필터 + duplicate-agent-turn warn gap",
-      "summary": "R-2(🔴) 직접 해소: 동일 보고서 2회 inject 제거, 서브에이전트 컨텍스트 토큰 낭비 방지. 추적 경로 불일치(open_issues vs decision_ledger caveats) 근본 원인 표면화. Riki R-1/R-3 반영으로 false positive 위험 회피."
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_173",
+      "topicSlug": "zero-logic-inefficiency-audit",
+      "closedAt": "2026-05-02T16:30:00.000Z",
+      "oneLineSummary": "Zero footprint 12 axes 인벤토리·정리: A1~A6 6건 처리(self-exclusion SOT 통합·D-146 SOP 신설·PD 3건). 후속 B1·B2 분리.",
+      "decisionsAdded": [
+        "D-146"
+      ]
+    },
     {
       "sessionId": "session_172",
       "topicSlug": "dashboard-layout-ratio-fix",
@@ -64,13 +73,6 @@
       "topicSlug": "dashboard-topic-count-graph-mismatch",
       "closedAt": "2026-05-02T13:10:00.000Z",
       "oneLineSummary": "grade null 7건 소급 할당(legacy topics) → grade합계=전체 144건 일치",
-      "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_170",
-      "topicSlug": "dashboard-upgrade-character-add",
-      "closedAt": "2026-05-02T12:45:00.000Z",
-      "oneLineSummary": "Grade D 버그 3건 수정: D카운팅·ROLE_ORDER(jobs/sage/zero)·topics grade 컬럼+필터",
       "decisionsAdded": []
     }
   ],
@@ -639,7 +641,46 @@
       "resolvedInSession": "session_153",
       "resolvedAt": "2026-05-01",
       "resolvedNote": "hitRateRubric = D-041(session_037, persona-top01-redefinition) 잔재. Big Bang 설계 범위 외. D-092 단순화 이후 pipeline 연결 없음(hooks/scripts 참조 0건). 8역할 memory.json에서 일괄 삭제 완료. Jobs·Sage·Zero 미박제는 설계적으로 정상. PD-054 resolved."
+    },
+    {
+      "id": "PD-058",
+      "fromSession": "session_173",
+      "fromTopic": "topic_150 (zero-logic-inefficiency-audit)",
+      "item": "C3 — scope_areas 4중 박제(persona/policy/memory/dispatch_config) prose 참조형 단축. 운영 효익 낮음으로 본 토픽 DEFER. Jobs 권고: 신규 페르소나 N번째 도입 시 또는 SOP 갱신 시 재검토.",
+      "status": "pending",
+      "resolveCondition": "신규 페르소나(11번째 이상) 도입 OR D-146 SOP 갱신 토픽 발생 OR Master 명시 재오픈",
+      "dependsOn": [],
+      "relatedDecisions": [
+        "D-146"
+      ],
+      "relatedTopic": "topic_150"
+    },
+    {
+      "id": "PD-059",
+      "fromSession": "session_173",
+      "fromTopic": "topic_150 (zero-logic-inefficiency-audit)",
+      "item": "C6 — KNOWN_ROLES 배열 hook 2개(post-tool-use-task.js + pre-tool-use-task-sage-gate.js) 중복 박제. 공통 모듈 추출. ROI 낮음으로 본 토픽 DEFER. Jobs 권고: hook 신설·개편 토픽 발생 시 재검토.",
+      "status": "pending",
+      "resolveCondition": "hook 신설·개편 토픽 발생 OR KNOWN_ROLES 동기화 누락 사고 1건 발생 OR Master 명시 재오픈",
+      "dependsOn": [],
+      "relatedDecisions": [
+        "D-146"
+      ],
+      "relatedTopic": "topic_150"
+    },
+    {
+      "id": "PD-060",
+      "fromSession": "session_173",
+      "fromTopic": "topic_150 (zero-logic-inefficiency-audit)",
+      "item": "C7 — dispatch_config.rules.zero.internal_tools 배열([Cut,Refine,Audit]) 코드 read 0건. 정보적 의의만. 저비용으로 본 토픽 DEFER. Jobs 권고: dispatch_config 표준화 토픽 발생 시 재검토.",
+      "status": "pending",
+      "resolveCondition": "dispatch_config rule 표준화 토픽 발생 OR Master 명시 재오픈",
+      "dependsOn": [],
+      "relatedDecisions": [
+        "D-146"
+      ],
+      "relatedTopic": "topic_150"
     }
   ],
-  "lastUpdated": "2026-05-02T10:07:36.728Z"
+  "lastUpdated": "2026-05-02T12:18:02.440Z"
 }

@@ -6,7 +6,7 @@
 
 - on-demand. 매 세션 호출 X. 정제 필요 시 Master/Nexus 호출.
 - `session_isolation: "shared"` — Sage와 달리 다른 페르소나와 공존 가능
-- `dispatch_config.json` `rules.zero.excludedAssets` 준수 (violation flag direct read 차단)
+- Self-exclusion 일반 원칙은 `memory/roles/personas/role-zero.md` SOT 참조 (D-146)
 
 ## 발언 구조
 
@@ -46,8 +46,7 @@ After:
 
 - 3 영역(tech-debt / security-review / simplify) 외 발언 금지
 - 정량 근거 (카운트·빈도·위치) 없이 cut/refine 판단 금지
-- violation flag (`excludedAssets`) direct read 금지 — 자기 판단으로 정제, flag는 사후 검증용
-- Goodhart 회피: flag 카운트 최소화를 목표로 삼지 않음
+- Self-exclusion 의무: 메타-자산(violation flag·audit trail·self-scores log) 자기 정제 회피 — persona SOT (D-146) 참조
 
 ## Self-Score 지표
 
@@ -65,4 +64,4 @@ After:
 
 - `memory/roles/zero_memory.json` Read 권장
 - 정제 대상: 제공된 코드/문서 경로 목록
-- `dispatch_config.json` `rules.zero.excludedAssets` 확인 후 해당 경로 Read 금지
+- Self-exclusion: persona SOT (D-146) 참조하여 메타-자산 Read 회피

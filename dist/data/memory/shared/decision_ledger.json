@@ -2098,7 +2098,9 @@
       "scopeCheck": "Zero 정제 페르소나 미션×스킬 매핑 + NCL 페르소나 노출 차단",
       "axis": "Zero 정제 페르소나 운영 정의",
       "decision": "Zero 3 미션 영역 × 도구 매핑 — ① 부채 정리: Audit→Cut, ② 보안 리뷰(secrets): Audit 단독(발견 시 Master 보고+Dev 토픽 분리), ③ Simplify: Refine→Cut. 동일 turn 내 중복 호출 시 우선순위 = Audit > Refine > Cut. NCL raw 영역(memory/shared/ncl_violations.jsonl)은 Zero 페르소나 prompt에서 hard-exclude(dispatch_config.json[persona.zero.excludedAssets] 등록). Zero 첫 호출(P3 이후)은 dry-run 의무, Master 사후 승인 후 production 전환.",
-      "value": "D-115 페르소나 노출 차단 정합. Zero가 violation flag 직접 read해 자기 검열·자기 조작하는 경로 차단. anchor governance 책임은 Edi(R-2 mitigation)로 분담 — Zero는 청소·검증, Edi는 anchor 거버넌스로 권한 분리."
+      "value": "D-115 페르소나 노출 차단 정합. Zero가 violation flag 직접 read해 자기 검열·자기 조작하는 경로 차단. anchor governance 책임은 Edi(R-2 mitigation)로 분담 — Zero는 청소·검증, Edi는 anchor 거버넌스로 권한 분리.",
+      "statusNote": "D-133(2026-05-01) NCL 전면 폐기 후 본문 \"memory/shared/ncl_violations.jsonl\" 명시는 dead pointer (보호 대상 부재). self-exclusion 일반 원칙은 D-146(session_173) Zero persona SOT로 이전. 본 결정 본문은 보존(D-134 정신).",
+      "amendedBy": "D-146"
     },
     {
       "id": "D-139",
@@ -2144,6 +2146,27 @@
       "decision": "Jobs↔Ace↔Nexus 호출 분리. Step 0/0b는 Nexus 영역으로 이전, jobs/ace skill 본문은 옵션 B 1줄 위임으로 보존. CLAUDE.md가 Nexus topicType 판정 SOT.",
       "caveats": [
         "D-138 enforcement·D-143 enforcement는 별도 토픽 — 본 결정 범위 외"
+      ],
+      "status": "active",
+      "caveatsMeta": {
+        "acked": false,
+        "ackedBySession": null,
+        "ackedAt": null,
+        "resolvedAt": null,
+        "resolvedBySession": null
+      }
+    },
+    {
+      "id": "D-146",
+      "date": "2026-05-02",
+      "session": "session_173",
+      "topic": "topic_150",
+      "axis": "신규 페르소나 도입 12-axes 인벤토리 점검 SOP",
+      "summary": "신규 페르소나 도입 시 12 axes 전수 점검 의무: (1) CLAUDE.md 역할 분리+페르소나 정의 (2) memory/roles/personas/role-{r}.md (3) memory/roles/policies/role-{r}.md (4) memory/roles/{r}_memory.json (5) memory/shared/dispatch_config.json rules.{r} (6) .claude/skills/{r}-* 또는 내부 흡수 명문화 (7) .claude/hooks/post-tool-use-task.js + pre-tool-use-task-sage-gate.js KNOWN_ROLES 배열 (8) scripts/ alias 매핑 (9) memory/growth/metrics_registry.json {r}.* 지표 (10) memory/shared/role_registry.json roles 배열 (11) memory/shared/role_palette.json + app/css/tokens.css --c-{r} + app/js/role-colors.js (12) memory/shared/topic_load_manifest.json typeRules. topic_150(Zero) footprint 검진을 첫 케이스 스터디로 박제. 누락 1건 = drift.",
+      "decision": "신규 페르소나 도입 또는 기존 페르소나 정체성 갱신 시 12 axes 전수 점검을 SOP로 박제. 점검 시점: 도입 결정 박제 직전 + 도입 N세션 후 footprint 검진 1회. Sage·Jobs·Zero 도입 시 발견된 SOT 분열(role_registry/palette vs tokens.css)·manifest 결손·hook KNOWN_ROLES 비대칭 사고 패턴 재발 방지 목적.",
+      "caveats": [
+        "viewer SOT 분열(role_palette.json vs tokens.css) 본질 진단은 별도 후속 토픽",
+        "12 axes는 운영 누적에 따라 갱신 가능 — 본 SOP는 v1 기준선"
       ],
       "status": "active",
       "caveatsMeta": {

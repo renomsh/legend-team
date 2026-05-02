@@ -1,60 +1,164 @@
 {
-  "sessionId": "session_172",
-  "topicId": "topic_149",
-  "topic": "대시보드 좌우 비율 5:5 높이 정렬",
-  "topicSlug": "dashboard-layout-ratio-fix",
-  "reportPath": "reports/2026-05-02_dashboard-layout-ratio-fix",
+  "sessionId": "session_173",
+  "topicId": "topic_150",
+  "topic": "Zero 전체 로직 비효율 점검 — 제거/정제 후보 식별",
+  "topicSlug": "zero-logic-inefficiency-audit",
+  "reportPath": "reports/2026-05-02_zero-logic-inefficiency-audit",
   "status": "closed",
-  "startedAt": "2026-05-02T14:00:00.000Z",
-  "closedAt": "2026-05-02T14:10:00.000Z",
-  "oneLineSummary": "section-grid-2col 1.7fr→1fr 1fr 변경, 좌우 5:5 비율 + 높이 정렬 완료",
+  "startedAt": "2026-05-02T15:00:00.000Z",
+  "closedAt": "2026-05-02T16:30:00.000Z",
   "mode": "observation",
-  "grade": "D",
+  "grade": "S",
   "framingLevel": 0,
   "framingSkipped": true,
   "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
+  "oneLineSummary": "Zero footprint 12 axes 인벤토리·정리: A1~A6 6건 처리(self-exclusion SOT 통합·D-146 SOP 신설·PD 3건). 후속 B1·B2 분리.",
   "agentsCompleted": [
+    "arki",
+    "riki",
+    "dev",
+    "ace",
+    "jobs",
+    "fin",
+    "arki",
+    "edi",
     "edi"
   ],
   "turns": [
     {
-      "role": "edi",
+      "role": "arki",
       "turnIdx": 0,
-      "phase": "compile"
-    }
-  ],
-  "decisions": [],
-  "decisionsAdded": [],
-  "masterDecisions": [],
-  "masterFeedback": [],
-  "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [],
-  "notes": [],
-  "gaps": [
-    {
-      "type": "mechanical-fallback-graded",
-      "sessionId": "session_172",
-      "grade": "D",
-      "severity": "info"
+      "source": "agent"
     },
     {
-      "type": "edi-llm-report-absent",
-      "sessionId": "session_172",
-      "reportPath": "reports/2026-05-02_dashboard-layout-ratio-fix",
-      "grade": "D",
-      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
+      "role": "riki",
+      "turnIdx": 1,
+      "source": "agent"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 2,
+      "source": "agent"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 3,
+      "source": "agent"
+    },
+    {
+      "role": "jobs",
+      "turnIdx": 4,
+      "source": "agent"
+    },
+    {
+      "role": "fin",
+      "turnIdx": 5,
+      "source": "agent"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 6,
+      "source": "agent",
+      "recallReason": "post-master-decision"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 7,
+      "source": "agent",
+      "phase": "compile"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 8,
+      "source": "agent"
+    }
+  ],
+  "decisions": [
+    "D-146"
+  ],
+  "decisionsAdded": [
+    "D-146"
+  ],
+  "masterDecisions": [
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "A6"
+  ],
+  "masterFeedback": [],
+  "pendingDeferralsAdded": [
+    "PD-058",
+    "PD-059",
+    "PD-060"
+  ],
+  "pendingDeferralsResolved": [],
+  "notes": [
+    "Master 명시 S grade. Scope: Zero 페르소나 전체 로직 점검 — 비효율 요소 식별 + 정리만. 제거는 영향 점검 후 후속.",
+    "Zero (D-127): 정제 페르소나 — tech-debt / security-review / simplify 3 영역 한정. Cut/Refine/Audit 도구 내부 흡수.",
+    "executionPlanMode: conditional 발동 — Arki rev2 실행계획 후 Master 결정 6건 직접 실행. 정리 실행 본 세션 완결.",
+    "후속 토픽 분리: B1 (role_registry/palette 3 페르소나 결손, PD-058) / B2 (Zero 3 영역 경계 정량화, PD-059). Dev W1은 PD-060으로 이연."
+  ],
+  "gaps": [
+    {
+      "type": "version-bump-edi-unconfirmed",
+      "severity": "high",
+      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
+      "addedBy": "checkVersionBumpConfirmation",
+      "ref": "D-140",
+      "suggestedValue": 0.1
     }
   ],
   "tokenUsage": {
-    "input_tokens": 86,
-    "output_tokens": 15861,
-    "cache_creation_input_tokens": 225051,
-    "cache_read_input_tokens": 5475479,
-    "messageCount": 63,
-    "masterTurns": 3,
-    "total_billable": 5716477
+    "input_tokens": 281,
+    "output_tokens": 91184,
+    "cache_creation_input_tokens": 982971,
+    "cache_read_input_tokens": 19606297,
+    "messageCount": 115,
+    "masterTurns": 16,
+    "total_billable": 20680733
   },
-  "finalizedAt": "2026-05-02T10:07:36.856Z"
+  "versionBumpSuggested": {
+    "value": 0.1,
+    "type": "structural",
+    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 4건 (CLAUDE.md, memory/roles/personas/role-zero.md, memory/roles/policies/role-zero.md …)",
+    "autoDetectedAt": "2026-05-02T12:18:00.350Z",
+    "changedFiles": [
+      "AGENTS.md",
+      "CLAUDE.md",
+      "CONTEXT.md",
+      "agents/ace.md",
+      "agents/arki.md",
+      "agents/dev.md",
+      "agents/editor.md",
+      "agents/fin.md",
+      "agents/nova.md",
+      "agents/riki.md",
+      "docs/publish-contract.md",
+      "logs/app.log",
+      "logs/hook-diagnostics.log",
+      "logs/master-first.log",
+      "logs/pre-tool-use-task.log",
+      "logs/sage-gate.log",
+      "memory/roles/personas/role-zero.md",
+      "memory/roles/policies/role-zero.md",
+      "memory/roles/zero_memory.json",
+      "memory/sessions/current_session.json"
+    ],
+    "changedFilesCount": 144,
+    "cappedAt": 0.1,
+    "confirmedBy": null
+  },
+  "openMasterAlerts": [
+    {
+      "severity": "high",
+      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.1)",
+      "addedBy": "checkVersionBumpConfirmation",
+      "ref": "D-140"
+    }
+  ],
+  "finalizedAt": "2026-05-02T12:18:02.542Z"
 }

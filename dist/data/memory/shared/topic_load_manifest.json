@@ -27,6 +27,12 @@
       "loadMemory": ["ace_memory", "fin_memory"]
     },
     {
+      "type": "refinement",
+      "description": "산출물 정제·tech-debt·simplify·security-review 토픽 (Zero 영역)",
+      "keywords": ["정제", "tech-debt", "기술부채", "simplify", "security-review", "하드코딩", "리팩터", "다이어트", "zero", "비효율"],
+      "loadMemory": ["ace_memory", "zero_memory"]
+    },
+    {
       "type": "meta-review",
       "description": "시스템 메타 점검·효율화·업그레이드 토픽",
       "keywords": ["효율화", "업그레이드", "메타", "프로토콜", "역할", "세션", "점검", "저장", "기준"],

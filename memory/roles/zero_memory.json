@@ -32,14 +32,11 @@
       "security-review",
       "simplify"
     ],
-    "excludedAssets": [
-      "memory/shared/violations/*"
-    ],
     "session_isolation": "shared",
     "supersedes": [
       "D-110"
     ],
-    "introducedBy": "D-127 (session_142, 2026-04-29, D-119 본문 박제)"
+    "introducedBy": "D-127 (session_142, 2026-04-29, D-119 본문 박제) / D-146 (session_173, self-exclusion SOT=persona로 통합, excludedAssets 키 제거)"
   },
   "metrics": [
     {

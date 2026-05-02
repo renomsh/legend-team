@@ -7414,8 +7414,90 @@
       "grade": "D",
       "oneLineSummary": "section-grid-2col 1.7fr→1fr 1fr 변경, 좌우 5:5 비율 + 높이 정렬 완료",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_173",
+      "topicSlug": "zero-logic-inefficiency-audit",
+      "topic": "Zero 전체 로직 비효율 점검 — 제거/정제 후보 식별",
+      "startedAt": "2026-05-02T15:00:00.000Z",
+      "closedAt": "2026-05-02T16:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "decisions": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "dev",
+        "ace",
+        "jobs",
+        "fin",
+        "arki",
+        "edi",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "arki",
+          "turnIdx": 0,
+          "source": "agent"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 1,
+          "source": "agent"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 2,
+          "source": "agent"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 3,
+          "source": "agent"
+        },
+        {
+          "role": "jobs",
+          "turnIdx": 4,
+          "source": "agent"
+        },
+        {
+          "role": "fin",
+          "turnIdx": 5,
+          "source": "agent"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 6,
+          "source": "agent",
+          "recallReason": "post-master-decision"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 7,
+          "source": "agent",
+          "phase": "compile"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 8,
+          "source": "agent"
+        }
+      ],
+      "grade": "S",
+      "note": "Master 명시 S grade. Scope: Zero 페르소나 전체 로직 점검 — 비효율 요소 식별 + 정리만. 제거는 영향 점검 후 후속. | Zero (D-127): 정제 페르소나 — tech-debt / security-review / simplify 3 영역 한정. Cut/Refine/Audit 도구 내부 흡수. | executionPlanMode: conditional 발동 — Arki rev2 실행계획 후 Master 결정 6건 직접 실행. 정리 실행 본 세션 완결. | 후속 토픽 분리: B1 (role_registry/palette 3 페르소나 결손, PD-058) / B2 (Zero 3 영역 경계 정량화, PD-059). Dev W1은 PD-060으로 이연.",
+      "oneLineSummary": "Zero footprint 12 axes 인벤토리·정리: A1~A6 6건 처리(self-exclusion SOT 통합·D-146 SOP 신설·PD 3건). 후속 B1·B2 분리.",
+      "decisionsAdded": [
+        "D-146"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-02T10:07:17.699Z",
+  "lastUpdated": "2026-05-02T12:17:45.495Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
