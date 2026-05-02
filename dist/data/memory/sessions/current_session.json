@@ -1,123 +1,40 @@
 {
-  "sessionId": "session_168",
-  "topicId": "topic_145",
-  "topic": "PD-056 ackedButUnresolved 본체 구현 — caveatsMeta 집계 + dashboard 패널 + 5건 caveats 분류",
-  "topicSlug": "pd056-ackedbutunresolved-impl",
-  "reportPath": "reports/2026-05-02_pd056-ackedbutunresolved-impl",
+  "sessionId": "session_169",
+  "topicId": "topic_146",
+  "topic": "Dashboard 버전 표기 vv0.01 중복 v 제거",
+  "topicSlug": "dashboard-version-double-v-fix",
+  "reportPath": "reports/2026-05-02_dashboard-version-double-v-fix",
   "status": "open",
-  "startedAt": "2026-05-02T07:05:00.000Z",
+  "startedAt": "2026-05-02T09:05:00.000Z",
   "mode": "observation",
-  "grade": "B",
-  "gradeDeclared": "B",
+  "grade": "D",
+  "gradeDeclared": "C",
   "framingLevel": 0,
   "framingSkipped": true,
-  "topicType": "implementation",
-  "parentTopicId": "topic_144",
+  "topicType": "standalone",
+  "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [],
-  "turns": [
-    {
-      "role": "arki",
-      "turnIdx": 0,
-      "source": "agent"
-    },
-    {
-      "role": "jobs",
-      "turnIdx": 1,
-      "source": "agent"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 2,
-      "source": "agent"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 3,
-      "source": "agent"
-    },
-    {
-      "role": "dev",
-      "turnIdx": 4,
-      "source": "agent"
-    },
-    {
-      "role": "zero",
-      "turnIdx": 5,
-      "source": "agent"
-    },
-    {
-      "role": "edi",
-      "turnIdx": 6,
-      "source": "agent"
-    },
-    {
-      "role": "zero",
-      "turnIdx": 7,
-      "source": "agent"
-    }
-  ],
-  "decisions": [
-    "D-145"
-  ],
-  "decisionsAdded": [
-    "D-145"
-  ],
-  "masterDecisions": [
-    {
-      "session": "session_168",
-      "topic": "topic_145",
-      "date": "2026-05-02",
-      "decisions": [
-        "spec 5건→실측 6건으로 진행",
-        "caveats string[] 통일",
-        "caveatsMeta entry 단위",
-        "ack TTL=2 고정",
-        "6건 inline 분류 1턴",
-        "분류 결과: D-137·D-141·D-142·D-144 resolved / D-138·D-143 acked-잔존",
-        "duplicate-agent-turn warn gap 폐기 (방안 4)",
-        "Jobs↔Ace 분리 원칙 박제 + skill 옵션 B + Nexus topicType CLAUDE.md SOT",
-        "Ace 종합검토 권고 (a) 일괄 진행 채택",
-        "Zero 정제 2건 인라인 적용"
-      ]
-    }
-  ],
+  "turns": [],
+  "decisions": [],
+  "decisionsAdded": [],
+  "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [
-    "PD-056"
-  ],
+  "pendingDeferralsResolved": [],
   "notes": [
-    "PD-056 child 토픽 — topic_144(Legend Nexus 표면 정체성) framing 후속 implementation",
-    "caveatsMeta 집계 함수 + dashboard 패널 신설 본체 구현"
+    "Master 'C수정' 호출 — 토픽 키워드 '수정'으로 D 자동 분기 (CLAUDE.md Grade 판정 §2). gradeDeclared=C 보존, grade=D 실측.",
+    "원인: project_charter.json version='v0.01' (이미 v 포함) + 클라이언트 3곳(nav.js, index.html, dashboard-upgrade.html)이 v 재 prepend → vv0.01.",
+    "수정: 3곳 모두 startsWith('v') 체크 후 prepend. sync-system-state.ts:163의 .replace(/^vv/, 'v') 방어 로직과 정합."
   ],
-  "gaps": [
-    {
-      "type": "duplicate-agent-turn",
-      "role": "arki",
-      "note": "same role agent turn already exists in session — warn only (may be legitimate recall: D-048)",
-      "severity": "warn",
-      "detectedAt": "2026-05-02T08:02:20.128Z"
-    }
-  ],
-  "versionBump": {
-    "value": 0.01,
-    "from": "v0.00",
-    "to": "v0.01",
-    "reason": "PD-056 본체 7 Phase 완결 + D-145(Jobs↔Ace↔Nexus 분리 원칙) 신규 결정 박제. capacity 확장 단일 정책. skill 본문은 옵션 B 1줄 위임으로 보존, CLAUDE.md Nexus Open Protocol 섹션은 D-145의 mirror. 세션당 +0.1 캡 미돌파.",
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-02",
-    "basedOn": "edi-pd056-impl-completion",
-    "overrideReason": null
-  },
-  "oneLineSummary": "PD-056 본체 7 Phase 일괄 완결 — caveatsMeta schema + computeAckedButUnresolved 함수 + dashboard 패널 + Jobs↔Ace 분리 원칙(D-145) + skill 옵션 B + Nexus topicType SOT + warn gap 폐기. 6건 caveat 분류(resolved 4 / acked 2).",
+  "gaps": [],
   "tokenUsage": {
-    "input_tokens": 626,
-    "output_tokens": 96227,
-    "cache_creation_input_tokens": 562895,
-    "cache_read_input_tokens": 20134713,
-    "messageCount": 134,
-    "masterTurns": 37,
-    "total_billable": 20794461
+    "input_tokens": 1407,
+    "output_tokens": 46802,
+    "cache_creation_input_tokens": 691394,
+    "cache_read_input_tokens": 8132025,
+    "messageCount": 73,
+    "masterTurns": 4,
+    "total_billable": 8871628
   }
 }

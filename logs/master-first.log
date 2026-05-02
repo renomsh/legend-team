@@ -341,3 +341,6 @@
 {"ts":"2026-05-02T08:34:59.627Z","phase":"no-audit","toolName":"Agent"}
 {"ts":"2026-05-02T08:40:02.446Z","phase":"no-audit","toolName":"Agent"}
 {"ts":"2026-05-02T08:45:15.911Z","phase":"classified","sessionId":"f47eb771-462c-4156-854a-f6662893eb2c","grade":"B","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":10}
+{"ts":"2026-05-02T08:49:16.264Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"ee9b513c-780a-407c-b56d-dd1619eeff17","grade":"B"}
+{"ts":"2026-05-02T08:52:00.449Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"ee9b513c-780a-407c-b56d-dd1619eeff17","grade":"B"}
+{"ts":"2026-05-02T08:55:41.292Z","phase":"no-op","reason":"grade-mismatch","grade":"D"}

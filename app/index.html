@@ -39,7 +39,7 @@
               <div class="hm-v" id="kpiDecisions">—</div>
             </div>
             <div>
-              <div class="hm-k">Version</div>
+              <div class="hm-k">Legend Nexus</div>
               <div class="hm-v" id="heroVersion">—</div>
             </div>
           </div>
@@ -149,13 +149,13 @@
         <div class="role-desc">Artifact compiler. Formats, organizes, and outputs final documents.</div>
         <div class="role-status"><span class="status-dot dot-active"></span><span class="auth-badge auth-domain">domain</span></div>
       </div>
-      <div class="role-card" style="--card-color:#F472B6;background:linear-gradient(145deg,rgba(244,114,182,.16) 0%,rgba(244,114,182,.04) 50%,#0B0B0D 100%)">
+      <div class="role-card" style="--card-color:#D946EF;background:linear-gradient(145deg,rgba(217,70,239,.16) 0%,rgba(217,70,239,.04) 50%,#0B0B0D 100%)">
         <div class="role-phase">On-Demand</div>
         <div class="role-mono">V</div>
         <div class="role-name">VERA</div>
         <div class="role-domain">Visual Design</div>
         <div class="role-desc">Visual system designer. Color, typography, components. Delivers spec to Editor. Top 0.1% aesthetic standard.</div>
-        <div class="role-status"><span class="status-dot dot-active"></span><span class="auth-badge" style="background:rgba(244,114,182,.15);color:#FBCFE8">design</span></div>
+        <div class="role-status"><span class="status-dot dot-active"></span><span class="auth-badge" style="background:rgba(217,70,239,.15);color:#F5D0FE">design</span></div>
       </div>
       <div class="role-card" style="--card-color:#10B981;background:linear-gradient(145deg,rgba(16,185,129,.10) 0%,rgba(16,185,129,.03) 50%,#0B0B0D 100%);opacity:0.75;border-style:dashed">
         <div class="role-phase">Optional</div>
@@ -164,6 +164,30 @@
         <div class="role-domain">Speculation</div>
         <div class="role-desc">Speculative thinker. Advisory only. Master request only.</div>
         <div class="role-status"><span class="status-dot dot-off"></span><span class="auth-badge auth-advisory">advisory</span></div>
+      </div>
+      <div class="role-card" style="--card-color:#F97316;background:linear-gradient(145deg,rgba(249,115,22,.16) 0%,rgba(249,115,22,.04) 50%,#0B0B0D 100%);opacity:0.75;border-style:dashed">
+        <div class="role-phase">Framing</div>
+        <div class="role-mono">J</div>
+        <div class="role-name">JOBS</div>
+        <div class="role-domain">Planning</div>
+        <div class="role-desc">기획 페르소나. Why·What·결정축·인지편향 적출·Focus 설계. Steve Jobs + Kahneman 합성. 명시 호출 전용.</div>
+        <div class="role-status"><span class="status-dot dot-off"></span><span class="auth-badge" style="background:rgba(249,115,22,.15);color:#FED7AA">framing</span></div>
+      </div>
+      <div class="role-card" style="--card-color:#818CF8;background:linear-gradient(145deg,rgba(129,140,248,.12) 0%,rgba(129,140,248,.03) 50%,#0B0B0D 100%);opacity:0.75;border-style:dashed">
+        <div class="role-phase">Meta</div>
+        <div class="role-mono">Sg</div>
+        <div class="role-name">SAGE</div>
+        <div class="role-domain">Self-Reflection</div>
+        <div class="role-desc">메타 진화·자기성찰 read-only 분석. 누적 패턴·성장축 cross-check. Meadows + Taleb. 명시 호출·same-session exclusive.</div>
+        <div class="role-status"><span class="status-dot dot-off"></span><span class="auth-badge" style="background:rgba(129,140,248,.15);color:#C7D2FE">meta</span></div>
+      </div>
+      <div class="role-card" style="--card-color:#14B8A6;background:linear-gradient(145deg,rgba(20,184,166,.12) 0%,rgba(20,184,166,.03) 50%,#0B0B0D 100%);opacity:0.75;border-style:dashed">
+        <div class="role-phase">Refine</div>
+        <div class="role-mono">Z</div>
+        <div class="role-name">ZERO</div>
+        <div class="role-domain">Refinement</div>
+        <div class="role-desc">정제 페르소나. tech-debt · security-review · simplify 3 영역. 군더더기·부채·하드코딩 제거. Kondo + Stroustrup.</div>
+        <div class="role-status"><span class="status-dot dot-off"></span><span class="auth-badge" style="background:rgba(20,184,166,.15);color:#99F6E4">refine</span></div>
       </div>
     </div>
 
@@ -294,7 +318,10 @@
       // Charter version → hero meta only
       if (charter?.charter) {
         const hv = document.getElementById('heroVersion');
-        if (hv) hv.textContent = `v${charter.charter.version}`;
+        if (hv) {
+          const cv = charter.charter.version;
+          hv.textContent = String(cv).startsWith('v') ? cv : `v${cv}`;
+        }
       }
     }
 

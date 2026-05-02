@@ -99,8 +99,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const charter = await fetch('./data/memory/shared/project_charter.json').then(r => r.json());
     const ver = charter?.charter?.version ?? charter?.version;
     if (ver) {
+      const label = String(ver).startsWith('v') ? ver : `v${ver}`;
       document.querySelectorAll('#sidebarVersion').forEach(el => {
-        el.textContent = `v${ver}`;
+        el.textContent = label;
       });
     }
   } catch (_) {}

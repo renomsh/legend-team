@@ -395,8 +395,9 @@ async function init() {
   const heroN = maxSessionN || total;
   document.getElementById('heroNum').textContent = heroN;
   const ver = charter?.charter?.version ?? '1.11';
-  document.getElementById('heroLabel').textContent = `${heroN} sessions · v${ver} · Legend Nexus`;
-  document.querySelectorAll('#sidebarVersion').forEach(el => el.textContent = `v${ver}`);
+  const verLabel = String(ver).startsWith('v') ? ver : `v${ver}`;
+  document.getElementById('heroLabel').textContent = `${heroN} sessions · ${verLabel} · Legend Nexus`;
+  document.querySelectorAll('#sidebarVersion').forEach(el => el.textContent = verLabel);
   // hero-meta는 applyFilter()에서 카드와 동일한 filtered 값으로 채움 (단일 출처)
 
   const slider = document.getElementById('sessionSlider');
