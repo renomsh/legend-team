@@ -28,7 +28,10 @@ window.ROLE_COLORS = new Proxy({
   nova:         '#10B981',
   edi:          '#9CA3AF',
   dev:          '#3B82F6',
-  vera:         '#F472B6'
+  vera:         '#F472B6',
+  jobs:         '#FB923C',
+  sage:         '#A3E635',
+  zero:         '#64748B'
 }, {
   get(target, prop) {
     if (typeof prop !== 'string') return target[prop];
@@ -53,5 +56,8 @@ window.ROLE_LABELS = {
   nova:         'nova',
   edi:          'edi',
   dev:          'dev',
-  vera:         'vera'
+  vera:         'vera',
+  jobs:         'jobs',
+  sage:         'sage',
+  zero:         'zero'
 };

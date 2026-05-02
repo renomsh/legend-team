@@ -137,6 +137,7 @@ function buildTopicsManifest() {
     id: t.id,
     title: t.title,
     status: t.status,
+    grade: t.grade ?? null,
     created: t.created,
     reportPath: t.reportPath ?? null,
     reportFiles: t.reportFiles ?? [],

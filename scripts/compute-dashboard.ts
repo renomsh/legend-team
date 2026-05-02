@@ -48,6 +48,7 @@ interface SessionIndexEntry {
   retroactive?: boolean;
   agentsCompleted?: string[];
   masterTurns?: number;
+  grade?: string;
   gradeDeclared?: 'S' | 'A' | 'B' | 'C' | 'D';
   gradeActual?: 'S' | 'A' | 'B' | 'C' | 'D';
   gradeMismatch?: boolean;
@@ -315,7 +316,9 @@ function main() {
 
     const size = computeSize(decisionAxes, rolesCalled, rolesRecalled, sessionsSpanned);
     const gradeActual = sizeToGrade(size);
-    const gradeDeclared = (s.gradeDeclared ?? gradeActual) as 'S' | 'A' | 'B' | 'C' | 'D';
+    // s.grade='D' is the canonical D signal (keyword-matched at /open). s.gradeDeclared may be absent.
+    const rawDeclared = s.grade === 'D' ? 'D' : s.gradeDeclared;
+    const gradeDeclared = (rawDeclared ?? gradeActual) as 'S' | 'A' | 'B' | 'C' | 'D';
     const gradeMismatch = gradeDeclared !== gradeActual;
     const framingSkipped = s.framingSkipped ?? false;
 
@@ -377,7 +380,7 @@ function main() {
   let framingSkippedCount = 0;
   const mismatchSessions: string[] = [];
   for (const s of sessions) {
-    gradeCount[s.gradeActual]++;
+    gradeCount[s.gradeDeclared === 'D' ? 'D' : s.gradeActual]++;
     if (s.gradeMismatch) { gradeMismatchCount++; mismatchSessions.push(s.sessionId); }
     if (s.framingSkipped) framingSkippedCount++;
   }

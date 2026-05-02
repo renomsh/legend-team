@@ -1,65 +1,35 @@
 {
-  "sessionId": "session_169",
-  "topicId": "topic_146",
-  "topic": "Dashboard 버전 표기 vv0.01 중복 v 제거",
-  "topicSlug": "dashboard-version-double-v-fix",
-  "reportPath": "reports/2026-05-02_dashboard-version-double-v-fix",
-  "status": "closed",
-  "startedAt": "2026-05-02T09:05:00.000Z",
-  "closedAt": "2026-05-02T11:30:00.000Z",
-  "oneLineSummary": "dashboard-version-double-v-fix 완료: vv0.01 수정·에이전트 카드 3종 추가·EDI 색상·사이드바 브랜드명",
+  "sessionId": "session_170",
+  "topicId": "topic_147",
+  "topic": "대시보드 업그레이드 페이지 캐릭터 추가",
+  "topicSlug": "dashboard-upgrade-character-add",
+  "reportPath": "reports/2026-05-02_dashboard-upgrade-character-add",
+  "status": "open",
+  "startedAt": "2026-05-02T12:00:00.000Z",
   "mode": "observation",
   "grade": "D",
-  "gradeDeclared": "C",
   "framingLevel": 0,
   "framingSkipped": true,
   "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
-  "agentsCompleted": [
-    "edi"
-  ],
-  "turns": [
-    {
-      "role": "edi",
-      "turnIdx": 0,
-      "phase": "compile"
-    }
-  ],
+  "agentsCompleted": [],
+  "turns": [],
   "decisions": [],
   "decisionsAdded": [],
   "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
-  "notes": [
-    "Master 'C수정' 호출 — 토픽 키워드 '수정'으로 D 자동 분기 (CLAUDE.md Grade 판정 §2). gradeDeclared=C 보존, grade=D 실측.",
-    "원인: project_charter.json version='v0.01' (이미 v 포함) + 클라이언트 3곳(nav.js, index.html, dashboard-upgrade.html)이 v 재 prepend → vv0.01.",
-    "수정: 3곳 모두 startsWith('v') 체크 후 prepend. sync-system-state.ts:163의 .replace(/^vv/, 'v') 방어 로직과 정합."
-  ],
-  "gaps": [
-    {
-      "type": "mechanical-fallback-graded",
-      "sessionId": "session_169",
-      "grade": "D",
-      "severity": "info"
-    },
-    {
-      "type": "edi-llm-report-absent",
-      "sessionId": "session_169",
-      "reportPath": "reports/2026-05-02_dashboard-version-double-v-fix",
-      "grade": "D",
-      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
-    }
-  ],
+  "notes": [],
+  "gaps": [],
   "tokenUsage": {
-    "input_tokens": 1533,
-    "output_tokens": 92640,
-    "cache_creation_input_tokens": 1543919,
-    "cache_read_input_tokens": 17470612,
-    "messageCount": 149,
-    "masterTurns": 9,
-    "total_billable": 19108704
-  },
-  "finalizedAt": "2026-05-02T09:17:39.111Z"
+    "input_tokens": 264,
+    "output_tokens": 57225,
+    "cache_creation_input_tokens": 719227,
+    "cache_read_input_tokens": 20616694,
+    "messageCount": 186,
+    "masterTurns": 3,
+    "total_billable": 21393410
+  }
 }

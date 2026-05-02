@@ -355,7 +355,7 @@ a{color:inherit;text-decoration:none}
 <script src="js/data-loader.js"></script>
 <script>
 const ROLE_COLORS = window.ROLE_COLORS;
-const ROLE_ORDER = ['ace','arki','fin','riki','edi','dev','nova','vera'];
+const ROLE_ORDER = ['ace','arki','fin','riki','edi','dev','nova','vera','jobs','sage','zero'];
 
 function fmtPct(v) {
   if (v === null || v === undefined || isNaN(v)) return '—';
@@ -741,7 +741,7 @@ function renderGradeDist() {
   const el = document.getElementById('gradeDistPanel');
   if (!el) return;
   const count = {S:0,A:0,B:0,C:0,D:0};
-  for (const s of filteredSessions) count[s.gradeActual ?? s.gradeDeclared ?? 'C']++;
+  for (const s of filteredSessions) count[s.gradeDeclared === 'D' ? 'D' : (s.gradeActual ?? s.gradeDeclared ?? 'C')]++;
   const total = filteredSessions.length || 1;
   const rows = ['S','A','B','C','D'].map(g => {
     const n = count[g];

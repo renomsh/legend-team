@@ -41,6 +41,15 @@
 .pbtn.active{color:#fff;background:#8B5CF6;border-color:#8B5CF6;font-weight:600}
 .pbtn.disabled{opacity:0.35;cursor:not-allowed}
 .pdot{padding:0 4px;color:var(--text-3);font-size:12px}
+.grade-badge{display:inline-block;padding:1px 7px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:.06em}
+.grade-badge.S{background:rgba(139,92,246,0.15);color:#A78BFA}
+.grade-badge.A{background:rgba(6,182,212,0.13);color:#22D3EE}
+.grade-badge.B{background:rgba(245,158,11,0.13);color:#FBBF24}
+.grade-badge.C{background:rgba(110,110,120,0.15);color:#9CA3AF}
+.grade-badge.D{background:rgba(148,163,184,0.13);color:#94A3B8}
+.grade-badge.none{background:transparent;color:var(--text-3)}
+.topic-grade-col{width:52px;text-align:center}
+.fpill-grade.active{background:rgba(139,92,246,0.18);border-color:#8B5CF6;color:#fff}
 </style>
 <body>
 <a href="#main-content" class="skip-link">본문으로 건너뛰기</a>
@@ -68,11 +77,17 @@
 <script src="js/md-renderer.js"></script>
 <script src="js/nav.js"></script>
 <script>
+  function gradeBadge(g) {
+    if (!g) return `<span class="grade-badge none">—</span>`;
+    return `<span class="grade-badge ${g}">${g}</span>`;
+  }
+
   function applyTopicFilters() {
     const s = window.__topicsList;
     const q = (s.search || '').trim().toLowerCase();
     return s.all.filter(t => {
       if (s.status !== 'all' && t.status !== s.status) return false;
+      if (s.grade !== 'all' && (t.grade || '') !== s.grade) return false;
       if (q && !(t.id.toLowerCase().includes(q) || (t.title||'').toLowerCase().includes(q))) return false;
       return true;
     });
@@ -91,11 +106,12 @@
         <td class="topic-id">${escHtml(t.id)}</td>
         <td class="topic-title-cell">${escHtml(t.title)}</td>
         <td>${statusBadge(t.status)}</td>
+        <td class="topic-grade-col">${gradeBadge(t.grade)}</td>
         <td>${escHtml(t.created || '—')}</td>
       </tr>`).join('');
     document.getElementById('topicTableWrap').innerHTML = total > 0
       ? `<table class="topic-table">
-          <thead><tr><th>ID</th><th>Title</th><th>Status</th><th>Created</th></tr></thead>
+          <thead><tr><th>ID</th><th>Title</th><th>Status</th><th class="topic-grade-col">Grade</th><th>Created</th></tr></thead>
           <tbody>${rows}</tbody>
         </table>`
       : '<div class="empty-state">No topics match the current filter</div>';
@@ -147,6 +163,14 @@
     renderTopicList();
   }
 
+  function onGradeFilter(grade, btn) {
+    window.__topicsList.grade = grade;
+    window.__topicsList.page = 1;
+    btn.parentElement.querySelectorAll('.fpill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderTopicList();
+  }
+
   let _topicSearchTimer;
   function onTopicSearch(v) {
     clearTimeout(_topicSearchTimer);
@@ -183,15 +207,25 @@
         `<span class="meta-pill done">Completed ${completed}</span>` +
         `<span class="meta-pill susp">Suspended ${suspended}</span>`;
       document.querySelector('.tab-bar').style.display = 'none';
-      window.__topicsList = { all: topics, page: 1, pageSize: 50, status: 'all', search: '' };
+      const gradeCounts = {};
+      ['S','A','B','C','D'].forEach(g => gradeCounts[g] = topics.filter(t => t.grade === g).length);
+      window.__topicsList = { all: topics, page: 1, pageSize: 50, status: 'all', grade: 'all', search: '' };
       document.getElementById('tab-reports').innerHTML = `
         <div class="list-toolbar">
           <input type="search" id="topicSearch" class="list-search" placeholder="Search by ID or title…" oninput="onTopicSearch(this.value)">
-          <div class="filter-pills" role="tablist">
-            <button class="fpill active" data-status="all" onclick="onTopicFilter('all', this)">All <span>${topics.length}</span></button>
-            <button class="fpill" data-status="open" onclick="onTopicFilter('open', this)">Open <span>${open}</span></button>
-            <button class="fpill" data-status="completed" onclick="onTopicFilter('completed', this)">Completed <span>${completed}</span></button>
-            <button class="fpill" data-status="suspended" onclick="onTopicFilter('suspended', this)">Suspended <span>${suspended}</span></button>
+          <div style="display:flex;flex-direction:column;gap:6px;width:100%">
+            <div class="filter-pills" role="tablist" aria-label="Status filter">
+              <span style="font-size:10px;color:var(--text-3);font-weight:600;align-self:center;min-width:40px">Status</span>
+              <button class="fpill active" data-status="all" onclick="onTopicFilter('all', this)">All <span>${topics.length}</span></button>
+              <button class="fpill" data-status="open" onclick="onTopicFilter('open', this)">Open <span>${open}</span></button>
+              <button class="fpill" data-status="completed" onclick="onTopicFilter('completed', this)">Completed <span>${completed}</span></button>
+              <button class="fpill" data-status="suspended" onclick="onTopicFilter('suspended', this)">Suspended <span>${suspended}</span></button>
+            </div>
+            <div class="filter-pills" role="tablist" aria-label="Grade filter">
+              <span style="font-size:10px;color:var(--text-3);font-weight:600;align-self:center;min-width:40px">Grade</span>
+              <button class="fpill active" onclick="onGradeFilter('all', this)">All</button>
+              ${['S','A','B','C','D'].map(g => `<button class="fpill" onclick="onGradeFilter('${g}', this)">${g} <span>${gradeCounts[g]}</span></button>`).join('')}
+            </div>
           </div>
         </div>
         <div id="topicTableWrap"></div>
