@@ -80,6 +80,17 @@
   ],
   "pendingDeferrals": [
     {
+      "id": "PD-055",
+      "fromSession": "session_165",
+      "fromTopic": "dispatch-config-edi-enforce-hook",
+      "item": "서브에이전트 turnId 자가 추정 오류 — Riki·Dev 병렬 dispatch 시 Riki가 frontmatter에 turnId:3 박제했으나 실 turns[]에서 turnId:2 (turnIdx 3은 dev). 서브에이전트가 다른 역할 진행 상황 모르므로 turnId 자가 추정에 한계. inline-role-header-mismatch gap 발생. Hook이 frontmatter turnId↔turns[] role 자동 정합 검증·정정하는 enforcement 또는 dispatch prompt에 turnId 명시 주입 메커니즘 박제 필요.",
+      "status": "pending",
+      "resolveCondition": "(a) Hook이 frontmatter↔turns[] 자동 정정 또는 (b) 서브에이전트 dispatch prompt에 turnId 주입 메커니즘 구현 + 1세션 dry-run에서 mismatch 0건 확인",
+      "dependsOn": [],
+      "relatedDecisions": ["D-143"],
+      "relatedGap": "inline-role-header-mismatch (session_165, riki_rev1.md)"
+    },
+    {
       "id": "PD-053",
       "fromSession": "session_131",
       "fromTopic": "persona-structure-redesign",
