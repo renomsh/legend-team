@@ -1,6 +1,26 @@
 {
   "decisions": [
     {
+      "id": "D-147",
+      "date": "2026-05-02",
+      "session": "session_174",
+      "topic": "topic_044",
+      "owningTopicId": "topic_044",
+      "scopeCheck": "COPD ver3.5_E cohort 정의 정합성 회복 — Methods ↔ 코드 불일치 해소",
+      "axis": "Job=29 무직 EXCLUDE in primary cohort + Job=NaN KEEP+S8 sensitivity + Patch Table 3 α₁ 부호 정정 + Cohort rebuild n=2,712",
+      "decision": "(1) 00_build_cohort.py F3 갱신: KO1_Job [27,28] → [27,28,29] (군인·주부·무직). (2) Job=NaN(직업 결손, 93명)은 primary 유지, S8 sensitivity 신설 exclude. (3) Cohort n: 2,779 → 2,712 (−67). (4) 모든 downstream 분석 재실행: Table 1·2·3·4·followup_sweep·evalue. (5) Patch Table 3 α₁ 4셀 부호 정정 (음수 표기 → 양수, 분석은 정확했음 표시 오류). (6) Submission bundle 저장: Data/ver2.0/submission_session174_2026-05-02/ (5폴더 30파일). (7) Sister paper 자가인용 후보 확정: Kwon 2026 Respir Res, DOI 10.1186/s12931-026-03677-4.",
+      "value": "(a) Methods ↔ 코드 정합성 회복 — reviewer cohort 정의 공격 봉쇄. (b) Y3 p-trend 0.0125→0.0084 강화, Y1 NIE 거의 불변(robustness 입증). (c) α₁ 표시 오류 정정으로 manuscript 신뢰성 회복. (d) S8 sensitivity로 missingness robust 추가 입증. (e) 원본·신규 분석·코드·patch 모두 ver2.0 하위 단일 폴더 박제 — 재현성 + Master 검토 가능 상태.",
+      "caveats": [
+        "(1) Sweep(07) vs 02 스크립트 OR 차이 1.711 vs 1.776 (동일 n=1,352, GEE seed/정렬 노이즈) — patch v2 disambiguation note 박제. (2) Windows cp949 인코딩 버그 (스크립트 05/06/07 em-dash) — PYTHONIOENCODING=utf-8 우회 필수, 기존 bug. (3) ver3.5_E full manuscript 합본·refs·figures·Korean·투고 메타 잔여 8건 — 후속 세션 이연. (4) Edi LLM 게이트 미경유 (D-131): mechanical fallback (edi_auto_rev1.md). 사유: Master /close 직호출 + 작업 완결성 충분."
+      ],
+      "relatedDecisions": ["D-045", "D-046"],
+      "relatedTopics": ["topic_044"],
+      "caveatsMeta": {
+        "acked": false,
+        "resolvedAt": null
+      }
+    },
+    {
       "id": "D-144",
       "date": "2026-05-02",
       "session": "session_167",

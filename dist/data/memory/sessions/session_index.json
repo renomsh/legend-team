@@ -7496,8 +7496,66 @@
       "decisionsAdded": [
         "D-146"
       ]
+    },
+    {
+      "sessionId": "session_174",
+      "topicSlug": "copd-paper-ver34-finalization",
+      "topic": "COPD 논문 ver3.4 최종화 — canonical 재분석 + (e) 프레임 확정",
+      "startedAt": "2026-05-02T16:35:00.000Z",
+      "closedAt": "2026-05-02T18:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "decisions": [
+        "Sister paper PubMed 검색 후 자가인용 후보 확정",
+        "Framing B 유지 (sunk cost 우선, +4%p cascade 차이 < 재작업 부담)",
+        "Cohort rebuild 옵션 B 채택 — Job=29 무직 EXCLUDE, Job=NaN KEEP+S8 sensitivity",
+        "Submission bundle 생성: Data/ver2.0/submission_session174_2026-05-02/"
+      ],
+      "agentsCompleted": [
+        "jobs",
+        "jobs",
+        "jobs",
+        "dev",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "jobs",
+          "turnIdx": 0,
+          "source": "agent",
+          "phase": "framing"
+        },
+        {
+          "role": "jobs",
+          "turnIdx": 1,
+          "source": "agent",
+          "phase": "cascade-estimate"
+        },
+        {
+          "role": "jobs",
+          "turnIdx": 2,
+          "source": "agent",
+          "phase": "cascade-percent"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 3,
+          "source": "agent",
+          "phase": "cohort-rebuild-execution"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 4,
+          "phase": "compile"
+        }
+      ],
+      "grade": "A",
+      "note": "Master 명시 재오픈 — topic_044 (suspended → open). | Sister paper 신규 등재 확정: Kwon E et al. 2026 Respir Res, DOI 10.1186/s12931-026-03677-4 (KOCOSS COTE index nationwide linked cohort). | Jobs framing — 단일 무기 reframe 권고 → Master pushback 후 B 유지 전환. | Cascade % 추정: A 81% / B 77%. B 우위 = Chest 1.71 기대값 (표 최고). | 원본 데이터 P0 결함 발견: (1) Job=29 무직 67명 canonical 잔존 (Methods wage 이질 정의 위반), (2) Patch Table 3 α₁ 4셀 부호 오류 (분석 정확, 표시만 corrupted). | Cohort rebuild 완료 (Dev): n=2,779 → 2,712. Y1 NIE 1.115→1.122 거의 불변. Y3 OR 1.717→1.806, p-trend 0.0125→0.0084 강화. α₁ 4셀 모두 양수 정정. S8 (Job=NaN exclude) 신설, robust. | Dev 의외 발견: sweep(07) vs 02 OR 차이 1.711 vs 1.776 (GEE seed 노이즈). Windows cp949 인코딩 버그 (em-dash) PYTHONIOENCODING=utf-8 우회 필수. | Submission bundle 저장: C:/Projects/COPD/Data/ver2.0/submission_session174_2026-05-02/ (5폴더 30파일 + README). | 잔여 작업 8건: full manuscript 합본 / sister paper refs / refs 37편 / Figures (Vera) / Supp Table S2 / Korean ver3.5_K / 투고 메타 (Master) / Cover letter.",
+      "oneLineSummary": "ver3.5_E cohort rebuild — Job=29 무직 정확 제외, n=2,712, α₁ 부호 정정, S8 sensitivity 신설, p-trend 강화. submission bundle 생성.",
+      "decisionsAdded": [
+        "D-147"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-02T12:17:45.495Z",
+  "lastUpdated": "2026-05-02T13:32:40.948Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

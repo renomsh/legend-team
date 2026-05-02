@@ -1356,6 +1356,18 @@
       "status": "resolved",
       "statusNote": "본 세션 결정 10건 모두 inline 결정 + 산출물 박제 완료",
       "feedback": "Master 결정 10건 압축: (1) spec 5건→실측 6건으로 진행 (2) caveats string[] 통일 (3) caveatsMeta entry 단위 (4) ack TTL=2 고정 (5) 6건 inline 분류 1턴 (6) 분류 결과: D-137·D-141·D-142·D-144 resolved / D-138·D-143 acked-잔존 (7) duplicate-agent-turn warn gap 폐기 (방안 4) (8) Jobs↔Ace 분리 원칙 박제 + skill 옵션 B + Nexus topicType CLAUDE.md SOT (9) Ace 종합검토 권고 (a) 일괄 진행 채택 (10) Zero 정제 2건 인라인 적용."
+    },
+    {
+      "id": "MF-AUTO-session_174-edi",
+      "date": "2026-05-02",
+      "session": "session_174",
+      "sessionId": "session_174",
+      "topic": "topic_044",
+      "type": "edi-llm-skipped",
+      "severity": "high",
+      "source": "hook",
+      "feedback": "Grade A 세션 session_174에서 Edi LLM 미호출 — mechanical fallback(edi_auto_rev1.md) 박제됨. role-edi.md §6.4 검토 필요.",
+      "status": "pending"
     }
   ],
   "statusValues": [

@@ -1,134 +1,139 @@
 {
-  "sessionId": "session_173",
-  "topicId": "topic_150",
-  "topic": "Zero 전체 로직 비효율 점검 — 제거/정제 후보 식별",
-  "topicSlug": "zero-logic-inefficiency-audit",
-  "reportPath": "reports/2026-05-02_zero-logic-inefficiency-audit",
+  "sessionId": "session_174",
+  "topicId": "topic_044",
+  "topic": "COPD 논문 ver3.4 최종화 — canonical 재분석 + (e) 프레임 확정",
+  "topicSlug": "copd-paper-ver34-finalization",
+  "reportPath": "reports/2026-05-02_copd-paper-ver34-finalization",
   "status": "closed",
-  "startedAt": "2026-05-02T15:00:00.000Z",
-  "closedAt": "2026-05-02T16:30:00.000Z",
+  "startedAt": "2026-05-02T16:35:00.000Z",
+  "closedAt": "2026-05-02T18:30:00.000Z",
   "mode": "observation",
-  "grade": "S",
+  "grade": "A",
   "framingLevel": 0,
-  "framingSkipped": true,
-  "topicType": "standalone",
+  "framingSkipped": false,
+  "topicType": "implementation",
   "parentTopicId": null,
   "childTopicIds": [],
-  "oneLineSummary": "Zero footprint 12 axes 인벤토리·정리: A1~A6 6건 처리(self-exclusion SOT 통합·D-146 SOP 신설·PD 3건). 후속 B1·B2 분리.",
+  "oneLineSummary": "ver3.5_E cohort rebuild — Job=29 무직 정확 제외, n=2,712, α₁ 부호 정정, S8 sensitivity 신설, p-trend 강화. submission bundle 생성.",
   "agentsCompleted": [
-    "arki",
-    "riki",
-    "dev",
-    "ace",
     "jobs",
-    "fin",
-    "arki",
-    "edi",
+    "jobs",
+    "jobs",
+    "dev",
     "edi"
   ],
   "turns": [
     {
-      "role": "arki",
+      "role": "jobs",
       "turnIdx": 0,
-      "source": "agent"
-    },
-    {
-      "role": "riki",
-      "turnIdx": 1,
-      "source": "agent"
-    },
-    {
-      "role": "dev",
-      "turnIdx": 2,
-      "source": "agent"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 3,
-      "source": "agent"
+      "source": "agent",
+      "phase": "framing"
     },
     {
       "role": "jobs",
+      "turnIdx": 1,
+      "source": "agent",
+      "phase": "cascade-estimate"
+    },
+    {
+      "role": "jobs",
+      "turnIdx": 2,
+      "source": "agent",
+      "phase": "cascade-percent"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 3,
+      "source": "agent",
+      "phase": "cohort-rebuild-execution"
+    },
+    {
+      "role": "edi",
       "turnIdx": 4,
-      "source": "agent"
-    },
-    {
-      "role": "fin",
-      "turnIdx": 5,
-      "source": "agent"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 6,
-      "source": "agent",
-      "recallReason": "post-master-decision"
-    },
-    {
-      "role": "edi",
-      "turnIdx": 7,
-      "source": "agent",
       "phase": "compile"
-    },
-    {
-      "role": "edi",
-      "turnIdx": 8,
-      "source": "agent"
     }
   ],
   "decisions": [
-    "D-146"
+    "D-147"
   ],
   "decisionsAdded": [
-    "D-146"
+    "D-147"
   ],
   "masterDecisions": [
-    "A1",
-    "A2",
-    "A3",
-    "A4",
-    "A5",
-    "A6"
+    "Sister paper PubMed 검색 후 자가인용 후보 확정",
+    "Framing B 유지 (sunk cost 우선, +4%p cascade 차이 < 재작업 부담)",
+    "Cohort rebuild 옵션 B 채택 — Job=29 무직 EXCLUDE, Job=NaN KEEP+S8 sensitivity",
+    "Submission bundle 생성: Data/ver2.0/submission_session174_2026-05-02/"
   ],
-  "masterFeedback": [],
-  "pendingDeferralsAdded": [
-    "PD-058",
-    "PD-059",
-    "PD-060"
+  "masterFeedback": [
+    "원본 데이터와 정합성 검증 요청 → Methods ↔ 코드 불일치 발견",
+    "Chest 모수 검토 요청 → Job=29 무직 누락 발견",
+    "토큰↔% 정합 정정 요청 (Chest B \"중\" → 18% 정정)",
+    "거의 완성된 B 왜 reframe? → A 권고 철회"
   ],
+  "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "notes": [
-    "Master 명시 S grade. Scope: Zero 페르소나 전체 로직 점검 — 비효율 요소 식별 + 정리만. 제거는 영향 점검 후 후속.",
-    "Zero (D-127): 정제 페르소나 — tech-debt / security-review / simplify 3 영역 한정. Cut/Refine/Audit 도구 내부 흡수.",
-    "executionPlanMode: conditional 발동 — Arki rev2 실행계획 후 Master 결정 6건 직접 실행. 정리 실행 본 세션 완결.",
-    "후속 토픽 분리: B1 (role_registry/palette 3 페르소나 결손, PD-058) / B2 (Zero 3 영역 경계 정량화, PD-059). Dev W1은 PD-060으로 이연."
+    "Master 명시 재오픈 — topic_044 (suspended → open).",
+    "Sister paper 신규 등재 확정: Kwon E et al. 2026 Respir Res, DOI 10.1186/s12931-026-03677-4 (KOCOSS COTE index nationwide linked cohort).",
+    "Jobs framing — 단일 무기 reframe 권고 → Master pushback 후 B 유지 전환.",
+    "Cascade % 추정: A 81% / B 77%. B 우위 = Chest 1.71 기대값 (표 최고).",
+    "원본 데이터 P0 결함 발견: (1) Job=29 무직 67명 canonical 잔존 (Methods wage 이질 정의 위반), (2) Patch Table 3 α₁ 4셀 부호 오류 (분석 정확, 표시만 corrupted).",
+    "Cohort rebuild 완료 (Dev): n=2,779 → 2,712. Y1 NIE 1.115→1.122 거의 불변. Y3 OR 1.717→1.806, p-trend 0.0125→0.0084 강화. α₁ 4셀 모두 양수 정정. S8 (Job=NaN exclude) 신설, robust.",
+    "Dev 의외 발견: sweep(07) vs 02 OR 차이 1.711 vs 1.776 (GEE seed 노이즈). Windows cp949 인코딩 버그 (em-dash) PYTHONIOENCODING=utf-8 우회 필수.",
+    "Submission bundle 저장: C:/Projects/COPD/Data/ver2.0/submission_session174_2026-05-02/ (5폴더 30파일 + README).",
+    "잔여 작업 8건: full manuscript 합본 / sister paper refs / refs 37편 / Figures (Vera) / Supp Table S2 / Korean ver3.5_K / 투고 메타 (Master) / Cover letter."
   ],
   "gaps": [
+    "Edi LLM 게이트 미경유 (D-131): Grade A이나 Edi 서브에이전트 호출 없이 mechanical fallback (edi_auto_rev1.md). 사유: Master /close 직호출 + 작업 완결성 충분 + 잔여 작업 후속 세션 이연.",
+    "topic_044 status: suspended → in-progress (completed 아님). 잔여 8건 작업 후속 세션 필요.",
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-02_copd-paper-ver34-finalization/dev_rev1.md",
+      "expected": "dev",
+      "actualInTurns": "edi",
+      "turnId": 4
+    },
+    {
+      "type": "edi-llm-skipped",
+      "sessionId": "session_174",
+      "grade": "A",
+      "severity": "high",
+      "detectedAt": "2026-05-02T13:32:40.930Z",
+      "note": "Grade A/B/S 세션에서 Edi LLM 미호출 — mechanical fallback 박제됨"
+    },
+    {
+      "type": "edi-agent-source-missing",
+      "sessionId": "session_174",
+      "grade": "A",
+      "severity": "high",
+      "detectedAt": "2026-05-02T13:32:40.939Z",
+      "note": "turns[]에 role=edi && source=agent turn 없음 — D-066(Grade A/S 서브에이전트 강제) + D4(hook 박제) 위반",
+      "ref": "D-138"
+    },
+    {
+      "type": "edi-llm-report-absent",
+      "sessionId": "session_174",
+      "reportPath": "reports/2026-05-02_copd-paper-ver34-finalization",
+      "grade": "A",
+      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
+    },
     {
       "type": "version-bump-edi-unconfirmed",
       "severity": "high",
       "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
       "addedBy": "checkVersionBumpConfirmation",
       "ref": "D-140",
-      "suggestedValue": 0.1
+      "suggestedValue": 0.01
     }
   ],
-  "tokenUsage": {
-    "input_tokens": 281,
-    "output_tokens": 91184,
-    "cache_creation_input_tokens": 982971,
-    "cache_read_input_tokens": 19606297,
-    "messageCount": 115,
-    "masterTurns": 16,
-    "total_billable": 20680733
-  },
   "versionBumpSuggested": {
-    "value": 0.1,
-    "type": "structural",
-    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 4건 (CLAUDE.md, memory/roles/personas/role-zero.md, memory/roles/policies/role-zero.md …)",
-    "autoDetectedAt": "2026-05-02T12:18:00.350Z",
+    "value": 0.01,
+    "type": "capacity",
+    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (memory/shared/decision_ledger.json)",
+    "autoDetectedAt": "2026-05-02T13:32:56.368Z",
     "changedFiles": [
       "AGENTS.md",
-      "CLAUDE.md",
       "CONTEXT.md",
       "agents/ace.md",
       "agents/arki.md",
@@ -143,22 +148,32 @@
       "logs/master-first.log",
       "logs/pre-tool-use-task.log",
       "logs/sage-gate.log",
-      "memory/roles/personas/role-zero.md",
-      "memory/roles/policies/role-zero.md",
-      "memory/roles/zero_memory.json",
-      "memory/sessions/current_session.json"
+      "memory/master/master_feedback_log.json",
+      "memory/sessions/current_session.json",
+      "memory/sessions/session_index.json",
+      "memory/sessions/token_log.json",
+      "memory/shared/decision_ledger.json"
     ],
     "changedFilesCount": 144,
     "cappedAt": 0.1,
     "confirmedBy": null
   },
+  "tokenUsage": {
+    "input_tokens": 511,
+    "output_tokens": 116667,
+    "cache_creation_input_tokens": 594772,
+    "cache_read_input_tokens": 24624275,
+    "messageCount": 136,
+    "masterTurns": 21,
+    "total_billable": 25336225
+  },
   "openMasterAlerts": [
     {
       "severity": "high",
-      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.1)",
+      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.01)",
       "addedBy": "checkVersionBumpConfirmation",
       "ref": "D-140"
     }
   ],
-  "finalizedAt": "2026-05-02T12:18:02.542Z"
+  "finalizedAt": "2026-05-02T13:32:58.799Z"
 }

@@ -1,15 +1,15 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_173",
-  "nextSessionId": "session_174",
+  "lastSessionId": "session_174",
+  "nextSessionId": "session_175",
   "currentVersion": "v0.01",
   "openTopics": [
     {
       "id": "topic_044",
       "title": "COPD 논문 ver3.4 최종화 — canonical 재분석 + (e) 프레임 확정",
-      "status": "suspended",
+      "status": "in-progress",
       "reportPath": "reports/2026-04-19_copd-paper-ver34-finalization",
-      "note": "세션 범위 의도치 않게 초과 — P0 데이터 미스 발견이 주원인. Arki 구조 진단(D-046): Statistical Anchor Registry 필요성 도출. Dev 역할 Python 실집행(9개 스크립트). Ace (e) 프레임 합성. Riki 데이터 오류 원인 분석 + Y1-Y3 HARKing 방어. Nova N1 계기만(5-window sweep), N2 기각. Master 피드백: 자가인용 수용/ERJ 철회 요구/Thorax 해제/3년 확장 프레임 정당화/(e) 소유권 지적."
+      "note": "session_043 P0 결함(Table 1·Table 2 CI·PM 35.8%) → canonical ver3.5 + (e) 프레임 채택(D-045). session_174 추가 결함 발견(Job=29 무직 누락 + α₁ 부호 표시 오류) 해소. Cohort 정의 reviewer 공격 봉쇄."
     },
     {
       "id": "topic_012",
@@ -20,6 +20,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-147",
+      "date": "2026-05-02",
+      "axis": "Job=29 무직 EXCLUDE in primary cohort + Job=NaN KEEP+S8 sensitivity + Patch Table 3 α₁ 부호 정정 + Cohort rebuild n=2,712",
+      "summary": "(a) Methods ↔ 코드 정합성 회복 — reviewer cohort 정의 공격 봉쇄. (b) Y3 p-trend 0.0125→0.0084 강화, Y1 NIE 거의 불변(robustness 입증). (c) α₁ 표시 오류 정정으로 manuscript 신뢰성 회복. (d) S8 sensitivity로 missingness robust 추가 입증. (e) 원본·신규 분석·코드·patch 모두 ver2.0 하위 단일 폴더 박제 — 재현성 + Master 검토 가능 상태."
+    },
     {
       "id": "D-146",
       "date": "2026-05-02",
@@ -43,15 +49,18 @@
       "date": "2026-05-02",
       "axis": "rules.edi 신설(정책 일관성만) + finalize.js 미변경(D-138 인라인 유지) + Opt-α 단일 권고",
       "summary": "(a) 8역할 정책 비대칭 해소 — dispatch_config 정책 단일 출처 원칙 정합 회복. (b) D-142(자동 감시 ROI 0) 정신 양립 — enforcement를 config로 영구 박제하지 않음으로써 향후 해체 자유도 보존(Riki R-1 mitigation). (c) chain fragility 0 — config read 추가 안 함으로 D-008 hook chain 5단계 안정성 유지(Riki R-3 회피). (d) over-engineering 차단 — helper·try/catch·G1 게이트 0건, 변경 LoC ~10. (e) D4 Prime Directive 정합 — Master 자가 우회 방지(중간 frame 회피, 어중간한 절충안 금지)."
-    },
-    {
-      "id": "D-142",
-      "date": "2026-05-02",
-      "axis": "ace-framing skill DEPRECATED 해제 + 명시 호출 전용 재활성화 + D-119/D-136 운영 잔재 정리",
-      "summary": "Nexus 전환 잔여 cleanup 일괄 해소. ace-framing은 폐기 대신 명시 호출 skill로 보존 — Jobs와 다른 시각 제공. 시스템명 운영 정합 회복(legend-nexus). D4 Prime Directive 정합(자가 우회 방지: 동일 역할 감시 자체 금지로 자동화 시도 차단)."
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_174",
+      "topicSlug": "copd-paper-ver34-finalization",
+      "closedAt": "2026-05-02T18:30:00.000Z",
+      "oneLineSummary": "ver3.5_E cohort rebuild — Job=29 무직 정확 제외, n=2,712, α₁ 부호 정정, S8 sensitivity 신설, p-trend 강화. submission bundle 생성.",
+      "decisionsAdded": [
+        "D-147"
+      ]
+    },
     {
       "sessionId": "session_173",
       "topicSlug": "zero-logic-inefficiency-audit",
@@ -66,13 +75,6 @@
       "topicSlug": "dashboard-layout-ratio-fix",
       "closedAt": "2026-05-02T14:10:00.000Z",
       "oneLineSummary": "section-grid-2col 1.7fr→1fr 1fr 변경, 좌우 5:5 비율 + 높이 정렬 완료",
-      "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_171",
-      "topicSlug": "dashboard-topic-count-graph-mismatch",
-      "closedAt": "2026-05-02T13:10:00.000Z",
-      "oneLineSummary": "grade null 7건 소급 할당(legacy topics) → grade합계=전체 144건 일치",
       "decisionsAdded": []
     }
   ],
@@ -682,5 +684,5 @@
       "relatedTopic": "topic_150"
     }
   ],
-  "lastUpdated": "2026-05-02T12:18:02.440Z"
+  "lastUpdated": "2026-05-02T13:32:58.694Z"
 }
