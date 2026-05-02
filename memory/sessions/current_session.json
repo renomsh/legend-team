@@ -102,16 +102,7 @@
     "executionPlanMode: conditional 발동 — Arki rev2 실행계획 후 Master 결정 6건 직접 실행. 정리 실행 본 세션 완결.",
     "후속 토픽 분리: B1 (role_registry/palette 3 페르소나 결손, PD-058) / B2 (Zero 3 영역 경계 정량화, PD-059). Dev W1은 PD-060으로 이연."
   ],
-  "gaps": [
-    {
-      "type": "version-bump-edi-unconfirmed",
-      "severity": "high",
-      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140",
-      "suggestedValue": 0.1
-    }
-  ],
+  "gaps": [],
   "tokenUsage": {
     "input_tokens": 281,
     "output_tokens": 91184,
@@ -150,15 +141,10 @@
     ],
     "changedFilesCount": 144,
     "cappedAt": 0.1,
-    "confirmedBy": null
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-02T12:18:36.993Z",
+    "confirmNote": "Edi 확정 — auto-detect structural +0.1 채택. Edi rev1 권고(+0.01)는 decision count 기준이었으나 persona/policy/CLAUDE.md 변경 동시 발생으로 structural 정합."
   },
-  "openMasterAlerts": [
-    {
-      "severity": "high",
-      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.1)",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140"
-    }
-  ],
+  "openMasterAlerts": [],
   "finalizedAt": "2026-05-02T12:18:02.542Z"
 }
