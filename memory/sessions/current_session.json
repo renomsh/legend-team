@@ -1,172 +1,71 @@
 {
-  "sessionId": "session_165",
-  "topicId": "topic_142",
-  "topic": "dispatch_config Edi rule: enforce hook 구현",
-  "topicSlug": "dispatch-config-edi-enforce-hook",
-  "reportPath": "reports/2026-05-02_topic_142",
+  "sessionId": "session_166",
+  "topicId": "topic_143",
+  "topic": "CLAUDE.md Edi Protocol update",
+  "topicSlug": "claudemd-edi-protocol-update",
+  "reportPath": "reports/2026-05-02_claudemd-edi-protocol-update",
   "status": "closed",
-  "startedAt": "2026-05-02T00:35:00.000Z",
-  "closedAt": "2026-05-02T03:00:00.000Z",
+  "startedAt": "2026-05-02T03:20:00.000Z",
+  "closedAt": "2026-05-02T03:35:00.000Z",
   "mode": "observation",
-  "grade": "A",
-  "gradeDeclared": "A",
+  "grade": "C",
+  "gradeDeclared": "C",
   "framingLevel": 0,
   "framingSkipped": true,
   "topicType": "implementation",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
-    "ace",
-    "arki",
-    "riki",
     "dev",
-    "ace",
     "edi"
   ],
   "turns": [
     {
-      "role": "ace",
-      "turnIdx": 0,
-      "source": "agent"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 1,
-      "source": "agent"
-    },
-    {
-      "role": "riki",
-      "turnIdx": 2,
-      "source": "agent"
-    },
-    {
       "role": "dev",
-      "turnIdx": 3,
-      "source": "agent"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 4,
-      "source": "agent",
-      "phase": "synthesis",
-      "recallReason": "post-master"
+      "turnIdx": 0,
+      "source": "inline",
+      "phase": "implementation"
     },
     {
       "role": "edi",
-      "turnIdx": 5,
-      "source": "agent",
+      "turnIdx": 1,
       "phase": "compile"
     }
   ],
-  "decisions": [
-    "D-143"
-  ],
-  "decisionsAdded": [
-    "D-143"
-  ],
-  "masterDecisions": [
-    "Opt-α 단일 권고 채택 — rules.edi 박제만, finalize.js 미변경 (Master 통찰 '에디만 추가하면 되는 문제 아니야?' 적출 → Arki Opt-1 over-engineered 폐기)"
-  ],
-  "masterFeedback": [
-    "에디만 추가하면 되는 문제 아니야? — Arki Opt-1 over-engineering 적출",
-    "enforcement API 사용하는거? — enforcement 실체(로컬 JSON 기록만, 차단력 0) 표면화 요청"
-  ],
+  "decisions": [],
+  "decisionsAdded": [],
+  "masterDecisions": [],
+  "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "notes": [
-    "Master scope: dispatch_config에 Edi rule 추가 → enforce hook 구현.",
-    "Master scope 제외: recallReason 추출 로직은 미구현 — Phase 2 warn-only 수준으로 잔존 수용.",
-    "Opt-α 단일 권고: rules.edi 박제만, finalize.js 미변경. Arki Opt-1(helper·try/catch·G1) 폐기.",
-    "변경 1 파일: dispatch_config.json v0.3.0 → v0.3.1 (rules.edi 7필드 신설 + enforcement_note 명문화)",
-    "Riki R-1 mitigation: enforcement_note로 'config는 read되지 않음' 명문화 → D-138 surveillance 영구 박제 회피.",
-    "D-143 박제."
+    "session_165 Edi 보고서 section 4 '명시 미적용' 항목: CLAUDE.md Edi Protocol update — 별도 토픽 권고 이행.",
+    "변경 1파일: CLAUDE.md line 190 추가. D-143 rules.edi 내용(session_isolation/ownership/auto_hook/enforcement_note) CLAUDE.md Edi Protocol 섹션에 박제."
   ],
   "gaps": [
     {
-      "type": "duplicate-agent-turn",
-      "role": "ace",
-      "note": "Ace 1차 판정(turnIdx 0) + Ace 종합검토(turnIdx 4) — legitimate recall: post-master synthesis (D-048)",
-      "severity": "warn",
-      "detectedAt": "2026-05-02T02:31:16.989Z"
+      "type": "mechanical-fallback-graded",
+      "sessionId": "session_166",
+      "grade": "C",
+      "severity": "info"
     },
     {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-02_topic_142/riki_rev1.md",
-      "expected": "riki",
-      "actualInTurns": "dev",
-      "turnId": 3
-    },
-    {
-      "type": "version-bump-edi-unconfirmed",
-      "severity": "high",
-      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140",
-      "suggestedValue": 0.01
+      "type": "edi-llm-report-absent",
+      "sessionId": "session_166",
+      "reportPath": "reports/2026-05-02_claudemd-edi-protocol-update",
+      "grade": "C",
+      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
     }
   ],
-  "oneLineSummary": "topic_142: dispatch_config rules.edi 신설 (Opt-α — finalize.js 미변경, enforcement 영구 박제 회피). D-143 박제.",
+  "oneLineSummary": "CLAUDE.md Edi Protocol 섹션에 D-143 rules.edi 정책 박제 완료 (session_165 scope-out 이행)",
   "tokenUsage": {
-    "input_tokens": 223,
-    "output_tokens": 70362,
-    "cache_creation_input_tokens": 660848,
-    "cache_read_input_tokens": 12481203,
-    "messageCount": 87,
-    "masterTurns": 15,
-    "total_billable": 13212636
+    "input_tokens": 65,
+    "output_tokens": 15823,
+    "cache_creation_input_tokens": 790381,
+    "cache_read_input_tokens": 3571586,
+    "messageCount": 42,
+    "masterTurns": 7,
+    "total_billable": 4377855
   },
-  "versionBump": {
-    "value": 0.001,
-    "from": "v2.20",
-    "to": "v2.201",
-    "reason": "D-143: rules.edi 박제만(정책 일관성). 신규 페르소나·역량 확장 아님 — 패치 레벨로 하향 override (Edi 확정).",
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-02T03:14:00.000Z",
-    "basedOn": "edi-override",
-    "overrideOf": {
-      "autoSuggested": 0.01,
-      "autoType": "capacity",
-      "overrideRationale": "자동 감지는 dispatch_config 변경을 capacity로 분류했으나, rules.edi는 finalize.js read 안 됨 → 실효 capacity 0. 정책 일관성 박제만 = 패치 레벨."
-    }
-  },
-  "versionBumpSuggested": {
-    "value": 0.01,
-    "type": "capacity",
-    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 2건 (memory/shared/decision_ledger.json, memory/shared/dispatch_config.json)",
-    "autoDetectedAt": "2026-05-02T03:13:19.553Z",
-    "changedFiles": [
-      "AGENTS.md",
-      "CONTEXT.md",
-      "agents/ace.md",
-      "agents/arki.md",
-      "agents/dev.md",
-      "agents/editor.md",
-      "agents/fin.md",
-      "agents/nova.md",
-      "agents/riki.md",
-      "logs/app.log",
-      "logs/hook-diagnostics.log",
-      "logs/master-first.log",
-      "logs/pre-tool-use-task.log",
-      "logs/sage-gate.log",
-      "memory/sessions/current_session.json",
-      "memory/sessions/session_index.json",
-      "memory/sessions/token_log.json",
-      "memory/shared/decision_ledger.json",
-      "memory/shared/dispatch_config.json",
-      "memory/shared/master_first_state.json"
-    ],
-    "changedFilesCount": 130,
-    "cappedAt": 0.1,
-    "confirmedBy": null
-  },
-  "openMasterAlerts": [
-    {
-      "severity": "high",
-      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.01)",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140"
-    }
-  ],
-  "finalizedAt": "2026-05-02T03:13:21.783Z"
+  "finalizedAt": "2026-05-02T05:32:52.617Z"
 }

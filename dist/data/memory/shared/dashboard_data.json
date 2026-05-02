@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-05-02T03:30:45.495Z",
-  "totalSessions": 163,
+  "generatedAt": "2026-05-02T05:33:01.497Z",
+  "totalSessions": 164,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 18.25,
-    "avgCacheHitRate": 0.9313,
-    "cacheSampleSize": 137,
-    "cacheSampleTotal": 163,
+    "avgMasterTurns": 18.18,
+    "avgCacheHitRate": 0.9305,
+    "cacheSampleSize": 138,
+    "cacheSampleTotal": 164,
     "avgAdoptionRate": 0,
     "totalDecisions": 144,
     "gradeDistribution": {
       "S": 75,
       "A": 33,
-      "B": 41,
+      "B": 42,
       "C": 14
     },
     "gradeMismatchCount": 2,
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 118,
-    "totalCostUSD": 1863.6398,
-    "avgCostPerSession": 11.7952,
-    "costSampleSize": 158
+    "turnBasedSessions": 119,
+    "totalCostUSD": 1867.9127,
+    "avgCostPerSession": 11.7479,
+    "costSampleSize": 159
   },
   "sessions": [
     {
@@ -6249,6 +6249,40 @@
         "messageCount": 233
       },
       "sessionCostUSD": 19.9866
+    },
+    {
+      "sessionId": "session_166",
+      "topicSlug": "claudemd-edi-protocol-update",
+      "topic": "CLAUDE.md Edi Protocol update",
+      "startedAt": "2026-05-02T03:20:00.000Z",
+      "closedAt": "2026-05-02T03:35:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 7,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "dev",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 4377855,
+        "ioTokens": 15888,
+        "inputTokens": 65,
+        "outputTokens": 15823,
+        "cacheCreate": 790381,
+        "cacheRead": 3571586,
+        "cacheHitRate": 0.8158301268543613,
+        "messageCount": 42
+      },
+      "sessionCostUSD": 4.2729
     }
   ],
   "roleFrequency": [
@@ -6345,7 +6379,7 @@
     },
     {
       "role": "edi",
-      "count": 123,
+      "count": 124,
       "sessions": [
         "session_050",
         "session_051",
@@ -6461,7 +6495,8 @@
         "session_162",
         "session_163",
         "session_164",
-        "session_165"
+        "session_165",
+        "session_166"
       ]
     },
     {
@@ -6533,7 +6568,7 @@
     },
     {
       "role": "dev",
-      "count": 89,
+      "count": 90,
       "sessions": [
         "session_047",
         "session_048",
@@ -6605,7 +6640,8 @@
         "session_160",
         "session_161",
         "session_163",
-        "session_165"
+        "session_165",
+        "session_166"
       ]
     },
     {
@@ -11265,6 +11301,24 @@
           "role": "edi",
           "phase": "compile",
           "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_166",
+      "topic": "CLAUDE.md Edi Protocol update",
+      "sequence": [
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 1,
           "recallReason": null
         }
       ]

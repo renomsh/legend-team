@@ -282,3 +282,7 @@
 {"ts":"2026-05-02T03:07:02.740Z","phase":"no-audit","toolName":"Agent"}
 {"ts":"2026-05-02T03:17:53.014Z","phase":"classified","sessionId":"aaf9bd14-0ed5-4782-ae47-8a3857d362ff","grade":"A","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":10}
 {"ts":"2026-05-02T03:29:36.758Z","phase":"classified","sessionId":"aaf9bd14-0ed5-4782-ae47-8a3857d362ff","grade":"A","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":21}
+{"ts":"2026-05-02T03:44:23.280Z","phase":"classified","sessionId":"aaf9bd14-0ed5-4782-ae47-8a3857d362ff","grade":"A","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":10}
+{"ts":"2026-05-02T03:45:05.359Z","phase":"classified","sessionId":"aaf9bd14-0ed5-4782-ae47-8a3857d362ff","grade":"A","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":10}
+{"ts":"2026-05-02T03:46:08.338Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"31287d75-5039-4460-bf86-13fa4e228d43","grade":"A"}
+{"ts":"2026-05-02T03:47:33.333Z","phase":"no-op","reason":"grade-mismatch","grade":"C"}

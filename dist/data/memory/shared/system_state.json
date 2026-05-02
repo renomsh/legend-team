@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_165",
-  "nextSessionId": "session_166",
-  "currentVersion": "v2.20",
+  "lastSessionId": "session_166",
+  "nextSessionId": "session_167",
+  "currentVersion": "v2.201",
   "openTopics": [
     {
       "id": "topic_044",
@@ -51,6 +51,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_166",
+      "topicSlug": "claudemd-edi-protocol-update",
+      "closedAt": "2026-05-02T03:35:00.000Z",
+      "oneLineSummary": "CLAUDE.md Edi Protocol 섹션에 D-143 rules.edi 정책 박제 완료 (session_165 scope-out 이행)",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_165",
       "topicSlug": "dispatch-config-edi-enforce-hook",
       "closedAt": "2026-05-02T03:00:00.000Z",
@@ -67,15 +74,6 @@
       "decisionsAdded": [
         "D-142"
       ]
-    },
-    {
-      "sessionId": "session_163",
-      "topicSlug": "bigbang-completion-review",
-      "closedAt": "2026-05-01T19:50:00.000Z",
-      "oneLineSummary": "[summary 없음 — bigbang-completion-review]",
-      "decisionsAdded": [
-        "D-141"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -87,7 +85,9 @@
       "status": "pending",
       "resolveCondition": "(a) Hook이 frontmatter↔turns[] 자동 정정 또는 (b) 서브에이전트 dispatch prompt에 turnId 주입 메커니즘 구현 + 1세션 dry-run에서 mismatch 0건 확인",
       "dependsOn": [],
-      "relatedDecisions": ["D-143"],
+      "relatedDecisions": [
+        "D-143"
+      ],
       "relatedGap": "inline-role-header-mismatch (session_165, riki_rev1.md)"
     },
     {
@@ -612,5 +612,5 @@
       "resolvedNote": "hitRateRubric = D-041(session_037, persona-top01-redefinition) 잔재. Big Bang 설계 범위 외. D-092 단순화 이후 pipeline 연결 없음(hooks/scripts 참조 0건). 8역할 memory.json에서 일괄 삭제 완료. Jobs·Sage·Zero 미박제는 설계적으로 정상. PD-054 resolved."
     }
   ],
-  "lastUpdated": "2026-05-02T03:13:21.682Z"
+  "lastUpdated": "2026-05-02T05:32:52.489Z"
 }

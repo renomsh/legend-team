@@ -187,6 +187,7 @@ Master may switch modes at any time by stating the mode name.
 - Edi speaks last in Observation Mode, after Ace's comprehensive review (or directly after roles if `/ace-synthesis` not invoked, D-130)
 - Edi compiles, formats, and outputs final artifacts — does not perform independent synthesis or judgment
 - **versionBump 확정 책임자 (D-130, 2026-04-30):** Edi가 세션 종료 시 Nexus가 박제한 `versionBumpSuggested`를 검증·override·확정. anchor governance(D-125)와 정합.
+- **dispatch_config rules.edi 박제 (D-143, 2026-05-02):** `memory/shared/dispatch_config.json`의 `rules.edi`가 정책 단일 출처. session_isolation: `"shared"` (Sage `"exclusive"`와 대비 — Edi는 다른 페르소나와 공존 가능). ownership 3종: `artifact_compile` · `version_bump_confirm` · `anchor_governance` = true. framing·grade·orchestration·synthesis = false. auto_hook: true (finalize.js 미호출 시 mechanical fallback). config는 hook에서 read되지 않음 — enforcement 인라인 유지(enforcement_note 명문화).
 
 ### Nova Protocol
 - Never invoked unless Master explicitly requests it

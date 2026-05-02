@@ -1,6 +1,22 @@
 {
   "topics": [
     {
+      "id": "topic_143",
+      "title": "CLAUDE.md Edi Protocol update",
+      "status": "completed",
+      "grade": "C",
+      "phase": "framing",
+      "hold": null,
+      "created": "2026-05-02",
+      "controlPath": "topics/topic_143",
+      "reportPath": "reports/2026-05-02_claudemd-edi-protocol-update",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_166",
+      "path": "topics/topic_143",
+      "outcome": "CLAUDE.md Edi Protocol 섹션에 D-143 rules.edi 내용 박제 완료"
+    },
+    {
       "id": "topic_142",
       "title": "dispatch_config Edi rule: enforce hook 구현",
       "status": "completed",
@@ -2770,5 +2786,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-02T03:13:14.715Z"
+  "lastUpdated": "2026-05-02T05:32:42.379Z"
 }

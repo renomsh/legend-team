@@ -7233,8 +7233,37 @@
       "decisionsAdded": [
         "D-143"
       ]
+    },
+    {
+      "sessionId": "session_166",
+      "topicSlug": "claudemd-edi-protocol-update",
+      "topic": "CLAUDE.md Edi Protocol update",
+      "startedAt": "2026-05-02T03:20:00.000Z",
+      "closedAt": "2026-05-02T03:35:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "dev",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "dev",
+          "turnIdx": 0,
+          "source": "inline",
+          "phase": "implementation"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 1,
+          "phase": "compile"
+        }
+      ],
+      "grade": "C",
+      "note": "session_165 Edi 보고서 section 4 '명시 미적용' 항목: CLAUDE.md Edi Protocol update — 별도 토픽 권고 이행. | 변경 1파일: CLAUDE.md line 190 추가. D-143 rules.edi 내용(session_isolation/ownership/auto_hook/enforcement_note) CLAUDE.md Edi Protocol 섹션에 박제.",
+      "oneLineSummary": "CLAUDE.md Edi Protocol 섹션에 D-143 rules.edi 정책 박제 완료 (session_165 scope-out 이행)",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-02T03:13:04.794Z",
+  "lastUpdated": "2026-05-02T05:32:23.981Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
