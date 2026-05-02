@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_170",
-  "nextSessionId": "session_171",
+  "lastSessionId": "session_171",
+  "nextSessionId": "session_172",
   "currentVersion": "v0.01",
   "openTopics": [
     {
@@ -53,6 +53,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_171",
+      "topicSlug": "dashboard-topic-count-graph-mismatch",
+      "closedAt": "2026-05-02T13:10:00.000Z",
+      "oneLineSummary": "grade null 7건 소급 할당(legacy topics) → grade합계=전체 144건 일치",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_170",
       "topicSlug": "dashboard-upgrade-character-add",
       "closedAt": "2026-05-02T12:45:00.000Z",
@@ -65,15 +72,6 @@
       "closedAt": "2026-05-02T11:30:00.000Z",
       "oneLineSummary": "dashboard-version-double-v-fix 완료: vv0.01 수정·에이전트 카드 3종 추가·EDI 색상·사이드바 브랜드명",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_167",
-      "topicSlug": "dashboard-upgrade-v2-legend-nexus",
-      "closedAt": "2026-05-02T07:00:00.000Z",
-      "oneLineSummary": "Legend Nexus 표면 정체성 회복 (v0.00 리셋 + brand swap 18 file + Grade D enum 6 site + ackedButUnresolved schema spec). child 분화 1건 (PD-056).",
-      "decisionsAdded": [
-        "D-144"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -643,5 +641,5 @@
       "resolvedNote": "hitRateRubric = D-041(session_037, persona-top01-redefinition) 잔재. Big Bang 설계 범위 외. D-092 단순화 이후 pipeline 연결 없음(hooks/scripts 참조 0건). 8역할 memory.json에서 일괄 삭제 완료. Jobs·Sage·Zero 미박제는 설계적으로 정상. PD-054 resolved."
     }
   ],
-  "lastUpdated": "2026-05-02T09:43:27.282Z"
+  "lastUpdated": "2026-05-02T09:54:04.546Z"
 }

@@ -7372,8 +7372,29 @@
       "grade": "D",
       "oneLineSummary": "Grade D 버그 3건 수정: D카운팅·ROLE_ORDER(jobs/sage/zero)·topics grade 컬럼+필터",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_171",
+      "topicSlug": "dashboard-topic-count-graph-mismatch",
+      "topic": "대시보드 그래프-토픽 숫자 불일치 수정",
+      "startedAt": "2026-05-02T13:00:00.000Z",
+      "closedAt": "2026-05-02T13:10:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "edi",
+          "turnIdx": 0,
+          "phase": "compile"
+        }
+      ],
+      "grade": "D",
+      "oneLineSummary": "grade null 7건 소급 할당(legacy topics) → grade합계=전체 144건 일치",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-02T09:43:04.028Z",
+  "lastUpdated": "2026-05-02T09:53:45.803Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

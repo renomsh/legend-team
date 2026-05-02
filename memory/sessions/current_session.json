@@ -4,8 +4,10 @@
   "topic": "대시보드 그래프-토픽 숫자 불일치 수정",
   "topicSlug": "dashboard-topic-count-graph-mismatch",
   "reportPath": "reports/2026-05-02_dashboard-topic-count-graph-mismatch",
-  "status": "open",
+  "status": "closed",
   "startedAt": "2026-05-02T13:00:00.000Z",
+  "closedAt": "2026-05-02T13:10:00.000Z",
+  "oneLineSummary": "grade null 7건 소급 할당(legacy topics) → grade합계=전체 144건 일치",
   "mode": "observation",
   "grade": "D",
   "framingLevel": 0,
@@ -13,8 +15,16 @@
   "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
-  "agentsCompleted": [],
-  "turns": [],
+  "agentsCompleted": [
+    "edi"
+  ],
+  "turns": [
+    {
+      "role": "edi",
+      "turnIdx": 0,
+      "phase": "compile"
+    }
+  ],
   "decisions": [],
   "decisionsAdded": [],
   "masterDecisions": [],
@@ -22,14 +32,22 @@
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "notes": [],
-  "gaps": [],
+  "gaps": [
+    {
+      "type": "mechanical-fallback-graded",
+      "sessionId": "session_171",
+      "grade": "D",
+      "severity": "info"
+    }
+  ],
   "tokenUsage": {
-    "input_tokens": 49,
-    "output_tokens": 16242,
-    "cache_creation_input_tokens": 208096,
-    "cache_read_input_tokens": 3328677,
-    "messageCount": 41,
-    "masterTurns": 1,
-    "total_billable": 3553064
-  }
+    "input_tokens": 59,
+    "output_tokens": 17390,
+    "cache_creation_input_tokens": 214535,
+    "cache_read_input_tokens": 4096330,
+    "messageCount": 49,
+    "masterTurns": 2,
+    "total_billable": 4328314
+  },
+  "finalizedAt": "2026-05-02T09:54:04.648Z"
 }
