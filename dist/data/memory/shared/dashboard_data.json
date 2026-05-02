@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-05-02T09:13:12.939Z",
-  "totalSessions": 165,
+  "generatedAt": "2026-05-02T09:17:49.529Z",
+  "totalSessions": 166,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "metrics": {
-    "avgMasterTurns": 18.14,
-    "avgCacheHitRate": 0.9307,
-    "cacheSampleSize": 139,
-    "cacheSampleTotal": 165,
+    "avgMasterTurns": 18.23,
+    "avgCacheHitRate": 0.9306,
+    "cacheSampleSize": 140,
+    "cacheSampleTotal": 166,
     "avgAdoptionRate": 0,
     "totalDecisions": 146,
     "gradeDistribution": {
       "S": 76,
       "A": 33,
       "B": 42,
-      "C": 14,
+      "C": 15,
       "D": 0
     },
     "gradeMismatchCount": 2,
@@ -23,10 +23,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 120,
-    "totalCostUSD": 1873.3013,
-    "avgCostPerSession": 11.7081,
-    "costSampleSize": 160
+    "turnBasedSessions": 121,
+    "totalCostUSD": 1928.6748,
+    "avgCostPerSession": 11.9793,
+    "costSampleSize": 161
   },
   "sessions": [
     {
@@ -6327,6 +6327,39 @@
         "messageCount": 75
       },
       "sessionCostUSD": 5.3886
+    },
+    {
+      "sessionId": "session_169",
+      "topicSlug": "dashboard-version-double-v-fix",
+      "topic": "Dashboard 버전 표기 vv0.01 중복 v 제거",
+      "startedAt": "2026-05-02T09:05:00.000Z",
+      "closedAt": "2026-05-02T11:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 33,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 81604546,
+        "ioTokens": 450086,
+        "inputTokens": 8787,
+        "outputTokens": 441299,
+        "cacheCreate": 7067053,
+        "cacheRead": 74087407,
+        "cacheHitRate": 0.9078833304213224,
+        "messageCount": 641
+      },
+      "sessionCostUSD": 55.3735
     }
   ],
   "roleFrequency": [
@@ -6424,7 +6457,7 @@
     },
     {
       "role": "edi",
-      "count": 126,
+      "count": 127,
       "sessions": [
         "session_050",
         "session_051",
@@ -6542,7 +6575,8 @@
         "session_164",
         "session_165",
         "session_166",
-        "session_167"
+        "session_167",
+        "session_169"
       ]
     },
     {
@@ -11417,6 +11451,18 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 6,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_169",
+      "topic": "Dashboard 버전 표기 vv0.01 중복 v 제거",
+      "sequence": [
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 0,
           "recallReason": null
         }
       ]

@@ -3,16 +3,19 @@
     {
       "id": "topic_146",
       "title": "Dashboard 버전 표기 vv0.01 중복 v 제거",
-      "status": "open",
+      "status": "completed",
       "grade": "D",
-      "phase": "framing",
+      "phase": "completed",
       "hold": null,
       "created": "2026-05-02",
       "controlPath": "topics/topic_146",
       "reportPath": "reports/2026-05-02_dashboard-version-double-v-fix",
-      "reportFiles": [],
+      "reportFiles": [
+        "dev_rev1.md"
+      ],
       "published": false,
-      "closedInSession": null,
+      "closedInSession": "session_169",
+      "outcome": "vv0.01 중복 v 수정 + 에이전트 카드 3종 추가(JOBS·SAGE·ZERO) + EDI 색상 정합 + 사이드바 브랜드명 Legend Nexus 반영",
       "path": "topics/topic_146"
     },
     {
@@ -2852,5 +2855,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-02T08:53:57.891Z"
+  "lastUpdated": "2026-05-02T09:17:31.146Z"
 }

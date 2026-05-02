@@ -7329,8 +7329,30 @@
       "decisionsAdded": [
         "D-144"
       ]
+    },
+    {
+      "sessionId": "session_169",
+      "topicSlug": "dashboard-version-double-v-fix",
+      "topic": "Dashboard 버전 표기 vv0.01 중복 v 제거",
+      "startedAt": "2026-05-02T09:05:00.000Z",
+      "closedAt": "2026-05-02T11:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "edi",
+          "turnIdx": 0,
+          "phase": "compile"
+        }
+      ],
+      "grade": "D",
+      "note": "Master 'C수정' 호출 — 토픽 키워드 '수정'으로 D 자동 분기 (CLAUDE.md Grade 판정 §2). gradeDeclared=C 보존, grade=D 실측. | 원인: project_charter.json version='v0.01' (이미 v 포함) + 클라이언트 3곳(nav.js, index.html, dashboard-upgrade.html)이 v 재 prepend → vv0.01. | 수정: 3곳 모두 startsWith('v') 체크 후 prepend. sync-system-state.ts:163의 .replace(/^vv/, 'v') 방어 로직과 정합.",
+      "oneLineSummary": "dashboard-version-double-v-fix 완료: vv0.01 수정·에이전트 카드 3종 추가·EDI 색상·사이드바 브랜드명",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-02T06:45:34.481Z",
+  "lastUpdated": "2026-05-02T09:17:21.108Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
