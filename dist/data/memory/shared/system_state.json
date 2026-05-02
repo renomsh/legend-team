@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_169",
-  "nextSessionId": "session_170",
+  "lastSessionId": "session_170",
+  "nextSessionId": "session_171",
   "currentVersion": "v0.01",
   "openTopics": [
     {
@@ -53,6 +53,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_170",
+      "topicSlug": "dashboard-upgrade-character-add",
+      "closedAt": "2026-05-02T12:45:00.000Z",
+      "oneLineSummary": "Grade D 버그 3건 수정: D카운팅·ROLE_ORDER(jobs/sage/zero)·topics grade 컬럼+필터",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_169",
       "topicSlug": "dashboard-version-double-v-fix",
       "closedAt": "2026-05-02T11:30:00.000Z",
@@ -67,13 +74,6 @@
       "decisionsAdded": [
         "D-144"
       ]
-    },
-    {
-      "sessionId": "session_166",
-      "topicSlug": "claudemd-edi-protocol-update",
-      "closedAt": "2026-05-02T03:35:00.000Z",
-      "oneLineSummary": "CLAUDE.md Edi Protocol 섹션에 D-143 rules.edi 정책 박제 완료 (session_165 scope-out 이행)",
-      "decisionsAdded": []
     }
   ],
   "pendingDeferrals": [
@@ -643,5 +643,5 @@
       "resolvedNote": "hitRateRubric = D-041(session_037, persona-top01-redefinition) 잔재. Big Bang 설계 범위 외. D-092 단순화 이후 pipeline 연결 없음(hooks/scripts 참조 0건). 8역할 memory.json에서 일괄 삭제 완료. Jobs·Sage·Zero 미박제는 설계적으로 정상. PD-054 resolved."
     }
   ],
-  "lastUpdated": "2026-05-02T09:17:38.975Z"
+  "lastUpdated": "2026-05-02T09:43:27.282Z"
 }

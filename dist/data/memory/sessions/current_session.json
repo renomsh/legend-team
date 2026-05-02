@@ -4,8 +4,10 @@
   "topic": "대시보드 업그레이드 페이지 캐릭터 추가",
   "topicSlug": "dashboard-upgrade-character-add",
   "reportPath": "reports/2026-05-02_dashboard-upgrade-character-add",
-  "status": "open",
+  "status": "closed",
   "startedAt": "2026-05-02T12:00:00.000Z",
+  "closedAt": "2026-05-02T12:45:00.000Z",
+  "oneLineSummary": "Grade D 버그 3건 수정: D카운팅·ROLE_ORDER(jobs/sage/zero)·topics grade 컬럼+필터",
   "mode": "observation",
   "grade": "D",
   "framingLevel": 0,
@@ -13,8 +15,16 @@
   "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
-  "agentsCompleted": [],
-  "turns": [],
+  "agentsCompleted": [
+    "edi"
+  ],
+  "turns": [
+    {
+      "role": "edi",
+      "turnIdx": 0,
+      "phase": "compile"
+    }
+  ],
   "decisions": [],
   "decisionsAdded": [],
   "masterDecisions": [],
@@ -22,14 +32,36 @@
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "notes": [],
-  "gaps": [],
+  "gaps": [
+    {
+      "type": "edi-llm-report-absent",
+      "sessionId": "session_170",
+      "reportPath": "reports/2026-05-02_dashboard-upgrade-character-add",
+      "grade": "D",
+      "note": "Grade D — Edi 생략 정상. mechanical fallback만 적용"
+    },
+    {
+      "type": "mechanical-fallback-graded",
+      "sessionId": "session_170",
+      "grade": "D",
+      "severity": "info"
+    },
+    {
+      "type": "edi-llm-report-absent",
+      "sessionId": "session_170",
+      "reportPath": "reports/2026-05-02_dashboard-upgrade-character-add",
+      "grade": "D",
+      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
+    }
+  ],
   "tokenUsage": {
-    "input_tokens": 264,
-    "output_tokens": 57225,
-    "cache_creation_input_tokens": 719227,
-    "cache_read_input_tokens": 20616694,
-    "messageCount": 186,
-    "masterTurns": 3,
-    "total_billable": 21393410
-  }
+    "input_tokens": 281,
+    "output_tokens": 60277,
+    "cache_creation_input_tokens": 728830,
+    "cache_read_input_tokens": 22831134,
+    "messageCount": 201,
+    "masterTurns": 4,
+    "total_billable": 23620522
+  },
+  "finalizedAt": "2026-05-02T09:43:27.485Z"
 }
