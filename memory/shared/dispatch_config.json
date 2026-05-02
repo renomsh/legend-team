@@ -1,9 +1,9 @@
 {
   "$schema": "internal://dispatch-config-v0.1",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "introducedBy": "D-126/D-127/D-128 (session_142, topic_131, 2026-04-29)",
-  "lastUpdatedBy": "D-133 (session_153, topic_131, 2026-05-01) — NCL 전면 폐기로 ncl_emission 필드 제거",
-  "comment": "역할 호출 트리거·격리 정책 단일 출처. pre-tool-use-task-sage-gate.js가 sage 격리 read. NCL 전면 폐기(D-133)로 ncl_emission 필드 deprecated.",
+  "lastUpdatedBy": "topic_142 (session_165, 2026-05-02) — rules.edi 신설 (8역할 정책 일관성). D-138 enforcement는 finalize.js 인라인 유지, 본 박제는 정책 단일 출처 비대칭 해소만 — finalize.js 미변경.",
+  "comment": "역할 호출 트리거·격리 정책 단일 출처. pre-tool-use-task-sage-gate.js가 sage 격리 read. NCL 전면 폐기(D-133)로 ncl_emission 필드 deprecated. rules.edi는 정책 박제용으로 hook이 read하지 않음(Opt-α, session_165) — D-138 surveillance 영구 박제 회피(Riki R-1).",
   "rules": {
     "jobs": {
       "trigger": {
@@ -60,6 +60,34 @@
       "auto_hook": false,
       "internal_tools": ["Cut", "Refine", "Audit"],
       "supersedes": ["D-110"]
+    },
+    "edi": {
+      "trigger": {
+        "explicit": ["edi", "에디", "/close"],
+        "natural_language_suggest_only": [
+          "산출물",
+          "compile",
+          "박제",
+          "정리",
+          "report",
+          "리포트",
+          "마감"
+        ]
+      },
+      "session_isolation": "shared",
+      "first_speaker_override": false,
+      "auto_hook": true,
+      "ownership": {
+        "artifact_compile": true,
+        "version_bump_confirm": true,
+        "anchor_governance": true,
+        "framing_subject": false,
+        "grade_override": false,
+        "orchestration": false,
+        "synthesis": false
+      },
+      "enforcement_note": "D-138 enforcement(enforceEdiAgentSource·auditEdiLlmInvocation·copyEdiReportToSessionContributions)는 .claude/hooks/session-end-finalize.js에 인라인 박제됨. 본 rule은 정책 일관성 박제용으로 hook이 read하지 않음 — Opt-α (session_165, topic_142). config로 enforcement 영구 박제 회피로 D-142 'ROI 0 자동 감시 금지' 정신과 양립.",
+      "introducedBy": "topic_142 (session_165, 2026-05-02) — 8역할 정책 비대칭 해소"
     }
   }
 }

@@ -1,6 +1,20 @@
 {
   "decisions": [
     {
+      "id": "D-143",
+      "date": "2026-05-02",
+      "session": "session_165",
+      "topic": "topic_142",
+      "owningTopicId": "topic_142",
+      "scopeCheck": "dispatch_config Edi rule 박제 + 8역할 정책 일관성 + enforcement 영구 박제 회피",
+      "axis": "rules.edi 신설(정책 일관성만) + finalize.js 미변경(D-138 인라인 유지) + Opt-α 단일 권고",
+      "decision": "(1) memory/shared/dispatch_config.json v0.3.0 → v0.3.1. rules.edi 신설 — 7필드(trigger·session_isolation·first_speaker_override·auto_hook=true·ownership·enforcement_note·introducedBy). (2) session-end-finalize.js 미변경 — D-138 enforceEdiAgentSource·auditEdiLlmInvocation·copyEdiReportToSessionContributions 인라인 그대로 유지. (3) enforcement_note 명문화: rules.edi는 정책 박제용이며 hook이 read하지 않음 — config로 enforcement 영구 박제 회피로 D-142 'ROI 0 자동 감시 금지' 정신과 양립. (4) Arki Opt-1(config-driven refactor·helper·try/catch·G1) 폐기 — over-engineered. Master 통찰('에디만 추가하면 되는 문제 아니야?') 직접 적출. (5) recallReason 추출 로직 미구현 잔존(Phase 2 warn-only) — Master scope out 명시.",
+      "value": "(a) 8역할 정책 비대칭 해소 — dispatch_config 정책 단일 출처 원칙 정합 회복. (b) D-142(자동 감시 ROI 0) 정신 양립 — enforcement를 config로 영구 박제하지 않음으로써 향후 해체 자유도 보존(Riki R-1 mitigation). (c) chain fragility 0 — config read 추가 안 함으로 D-008 hook chain 5단계 안정성 유지(Riki R-3 회피). (d) over-engineering 차단 — helper·try/catch·G1 게이트 0건, 변경 LoC ~10. (e) D4 Prime Directive 정합 — Master 자가 우회 방지(중간 frame 회피, 어중간한 절충안 금지).",
+      "caveats": "rules.edi가 hook에 의해 read되지 않으므로 정책 토글 기능 0(예: enforcement_grade 변경으로 enforcement 끄기 불가). 향후 D-138 enforcement 폐기 결정 시 finalize.js line 1521 직접 삭제 + rules.edi.enforcement_note 갱신 필요. Riki R-2(session_164 5 gap false positive 의심)는 미해소 — PD로 이연.",
+      "relatedDecisions": ["D-138", "D-142"],
+      "relatedTopics": ["topic_141"]
+    },
+    {
       "id": "D-142",
       "date": "2026-05-02",
       "session": "session_164",

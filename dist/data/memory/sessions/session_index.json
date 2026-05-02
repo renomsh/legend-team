@@ -7173,8 +7173,68 @@
       "decisionsAdded": [
         "D-142"
       ]
+    },
+    {
+      "sessionId": "session_165",
+      "topicSlug": "dispatch-config-edi-enforce-hook",
+      "topic": "dispatch_config Edi rule: enforce hook 구현",
+      "startedAt": "2026-05-02T00:35:00.000Z",
+      "closedAt": "2026-05-02T03:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "decisions": [
+        "Opt-α 단일 권고 채택 — rules.edi 박제만, finalize.js 미변경 (Master 통찰 '에디만 추가하면 되는 문제 아니야?' 적출 → Arki Opt-1 over-engineered 폐기)"
+      ],
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "dev",
+        "ace",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "source": "agent"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "source": "agent"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 2,
+          "source": "agent"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 3,
+          "source": "agent"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 4,
+          "source": "agent",
+          "phase": "synthesis",
+          "recallReason": "post-master"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 5,
+          "source": "agent",
+          "phase": "compile"
+        }
+      ],
+      "grade": "A",
+      "note": "Master scope: dispatch_config에 Edi rule 추가 → enforce hook 구현. | Master scope 제외: recallReason 추출 로직은 미구현 — Phase 2 warn-only 수준으로 잔존 수용. | Opt-α 단일 권고: rules.edi 박제만, finalize.js 미변경. Arki Opt-1(helper·try/catch·G1) 폐기. | 변경 1 파일: dispatch_config.json v0.3.0 → v0.3.1 (rules.edi 7필드 신설 + enforcement_note 명문화) | Riki R-1 mitigation: enforcement_note로 'config는 read되지 않음' 명문화 → D-138 surveillance 영구 박제 회피. | D-143 박제.",
+      "oneLineSummary": "topic_142: dispatch_config rules.edi 신설 (Opt-α — finalize.js 미변경, enforcement 영구 박제 회피). D-143 박제.",
+      "decisionsAdded": [
+        "D-143"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-01T15:36:49.768Z",
+  "lastUpdated": "2026-05-02T03:13:04.794Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

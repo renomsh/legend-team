@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_164",
-  "nextSessionId": "session_165",
+  "lastSessionId": "session_165",
+  "nextSessionId": "session_166",
   "currentVersion": "v2.20",
   "openTopics": [
     {
@@ -20,6 +20,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-143",
+      "date": "2026-05-02",
+      "axis": "rules.edi 신설(정책 일관성만) + finalize.js 미변경(D-138 인라인 유지) + Opt-α 단일 권고",
+      "summary": "(a) 8역할 정책 비대칭 해소 — dispatch_config 정책 단일 출처 원칙 정합 회복. (b) D-142(자동 감시 ROI 0) 정신 양립 — enforcement를 config로 영구 박제하지 않음으로써 향후 해체 자유도 보존(Riki R-1 mitigation). (c) chain fragility 0 — config read 추가 안 함으로 D-008 hook chain 5단계 안정성 유지(Riki R-3 회피). (d) over-engineering 차단 — helper·try/catch·G1 게이트 0건, 변경 LoC ~10. (e) D4 Prime Directive 정합 — Master 자가 우회 방지(중간 frame 회피, 어중간한 절충안 금지)."
+    },
     {
       "id": "D-142",
       "date": "2026-05-02",
@@ -41,15 +47,18 @@
       "date": "2026-05-01",
       "axis": "grade별 자동 프레이밍 완전 제거 — open.md Grade→Framing Level 매핑 삭제, CLAUDE.md Ace Step 0 deprecated",
       "summary": "grade별 자동 프레이밍 완전 제거 — open.md Grade→Framing Level 매핑 삭제, CLAUDE.md Ace Step 0 deprecated"
-    },
-    {
-      "id": "D-138",
-      "date": "2026-05-01",
-      "axis": "Edi Agent 툴 호출 강제 메커니즘 구현 — enforceEdiAgentSource hook 추가",
-      "summary": "D4 Prime Directive 이행 — enforcement를 코드에 박제, 모델 자율 판단 의존 제거. Riki R-1 준수(pre-tool-use-task.js 미수정). Dev 6케이스 검증 완료. 27.8% Edi 미호출률의 구조적 재발 방지 메커니즘 완성."
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_165",
+      "topicSlug": "dispatch-config-edi-enforce-hook",
+      "closedAt": "2026-05-02T03:00:00.000Z",
+      "oneLineSummary": "topic_142: dispatch_config rules.edi 신설 (Opt-α — finalize.js 미변경, enforcement 영구 박제 회피). D-143 박제.",
+      "decisionsAdded": [
+        "D-143"
+      ]
+    },
     {
       "sessionId": "session_164",
       "topicSlug": "bigbang-completion-review",
@@ -66,16 +75,6 @@
       "oneLineSummary": "[summary 없음 — bigbang-completion-review]",
       "decisionsAdded": [
         "D-141"
-      ]
-    },
-    {
-      "sessionId": "session_162",
-      "topicSlug": "bigbang-completion-review",
-      "closedAt": "2026-05-01T19:00:00.000Z",
-      "oneLineSummary": "Nexus 전환 미결 해소: jobs-framing Skill 경로(D-139 완결), G-1 hard enforcement D-140 박제",
-      "decisionsAdded": [
-        "D-139",
-        "D-140"
       ]
     }
   ],
@@ -602,5 +601,5 @@
       "resolvedNote": "hitRateRubric = D-041(session_037, persona-top01-redefinition) 잔재. Big Bang 설계 범위 외. D-092 단순화 이후 pipeline 연결 없음(hooks/scripts 참조 0건). 8역할 memory.json에서 일괄 삭제 완료. Jobs·Sage·Zero 미박제는 설계적으로 정상. PD-054 resolved."
     }
   ],
-  "lastUpdated": "2026-05-01T15:37:08.646Z"
+  "lastUpdated": "2026-05-02T03:13:21.682Z"
 }

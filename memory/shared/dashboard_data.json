@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-05-01T15:37:16.854Z",
-  "totalSessions": 162,
+  "generatedAt": "2026-05-02T03:13:28.682Z",
+  "totalSessions": 163,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 18.11,
+    "avgMasterTurns": 18.08,
     "avgCacheHitRate": 0.9313,
-    "cacheSampleSize": 136,
-    "cacheSampleTotal": 162,
+    "cacheSampleSize": 137,
+    "cacheSampleTotal": 163,
     "avgAdoptionRate": 0,
-    "totalDecisions": 143,
+    "totalDecisions": 144,
     "gradeDistribution": {
-      "S": 74,
+      "S": 75,
       "A": 33,
       "B": 41,
       "C": 14
@@ -21,10 +21,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 117,
-    "totalCostUSD": 1843.6532,
-    "avgCostPerSession": 11.743,
-    "costSampleSize": 157
+    "turnBasedSessions": 118,
+    "totalCostUSD": 1849.6939,
+    "avgCostPerSession": 11.7069,
+    "costSampleSize": 158
   },
   "sessions": [
     {
@@ -6208,12 +6208,53 @@
         "messageCount": 84
       },
       "sessionCostUSD": 7.0166
+    },
+    {
+      "sessionId": "session_165",
+      "topicSlug": "dispatch-config-edi-enforce-hook",
+      "topic": "dispatch_config Edi rule: enforce hook 구현",
+      "startedAt": "2026-05-02T00:35:00.000Z",
+      "closedAt": "2026-05-02T03:00:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-143"
+      ],
+      "rolesCalled": 6,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 13,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "dev",
+        "ace",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 9679228,
+        "ioTokens": 63405,
+        "inputTokens": 189,
+        "outputTokens": 63216,
+        "cacheCreate": 639749,
+        "cacheRead": 8976074,
+        "cacheHitRate": 0.9273543303246912,
+        "messageCount": 68
+      },
+      "sessionCostUSD": 6.0407
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 169,
+      "count": 171,
       "sessions": [
         "session_047",
         "session_048",
@@ -6298,12 +6339,13 @@
         "session_155",
         "session_156",
         "session_160",
-        "session_161"
+        "session_161",
+        "session_165"
       ]
     },
     {
       "role": "edi",
-      "count": 122,
+      "count": 123,
       "sessions": [
         "session_050",
         "session_051",
@@ -6418,12 +6460,13 @@
         "session_161",
         "session_162",
         "session_163",
-        "session_164"
+        "session_164",
+        "session_165"
       ]
     },
     {
       "role": "arki",
-      "count": 117,
+      "count": 118,
       "sessions": [
         "session_048",
         "session_049",
@@ -6484,12 +6527,13 @@
         "session_153",
         "session_155",
         "session_160",
-        "session_163"
+        "session_163",
+        "session_165"
       ]
     },
     {
       "role": "dev",
-      "count": 88,
+      "count": 89,
       "sessions": [
         "session_047",
         "session_048",
@@ -6560,12 +6604,13 @@
         "session_158",
         "session_160",
         "session_161",
-        "session_163"
+        "session_163",
+        "session_165"
       ]
     },
     {
       "role": "riki",
-      "count": 80,
+      "count": 81,
       "sessions": [
         "session_049",
         "session_053",
@@ -6624,7 +6669,8 @@
         "session_155",
         "session_156",
         "session_160",
-        "session_163"
+        "session_163",
+        "session_165"
       ]
     },
     {
@@ -11177,6 +11223,48 @@
           "role": "edi",
           "phase": "compile",
           "turnIdx": 0,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_165",
+      "topic": "dispatch_config Edi rule: enforce hook 구현",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 4,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 5,
           "recallReason": null
         }
       ]
