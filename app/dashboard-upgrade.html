@@ -321,7 +321,7 @@ a{color:inherit;text-decoration:none}
         <div class="card-h">
           <div>
             <div class="card-title">Grade 분포 · Topic Complexity</div>
-            <div class="card-sub">선언 등급 기준 · S/A/B/C</div>
+            <div class="card-sub">토픽 기준 · 총 토픽 수 대비 grade 분포</div>
           </div>
         </div>
         <div id="gradeDistPanel"></div>
@@ -740,11 +740,10 @@ function lvLabel(g) { return `Lv. ${g}`; }
 function renderGradeDist() {
   const el = document.getElementById('gradeDistPanel');
   if (!el) return;
-  const count = {S:0,A:0,B:0,C:0,D:0};
-  for (const s of filteredSessions) count[s.gradeDeclared === 'D' ? 'D' : (s.gradeActual ?? s.gradeDeclared ?? 'C')]++;
-  const total = filteredSessions.length || 1;
+  const count = globalMetrics.topicGradeDistribution ?? {S:0,A:0,B:0,C:0,D:0};
+  const total = Object.values(count).reduce((a,b) => a + b, 0) || 1;
   const rows = ['S','A','B','C','D'].map(g => {
-    const n = count[g];
+    const n = count[g] ?? 0;
     const pct = (n/total*100).toFixed(0);
     const bar = `<div style="flex:1;background:var(--panel-2);border-radius:4px;height:8px;overflow:hidden">
       <div style="width:${pct}%;height:100%;background:${GRADE_COLORS[g]};border-radius:4px;transition:width .4s"></div></div>`;
@@ -755,10 +754,8 @@ function renderGradeDist() {
       <span style="font-size:11px;color:var(--text-3);width:30px">${pct}%</span>
     </div>`;
   }).join('');
-  const skipped = filteredSessions.filter(s=>s.framingSkipped).length;
   el.innerHTML = rows + `<div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--line);font-size:11px;color:var(--text-3)">
-    프레이밍 생략 세션: <strong style="color:var(--text-2)">${skipped}건</strong>
-    &nbsp;·&nbsp; ace-framing 발동: <strong style="color:var(--text-2)">${filteredSessions.length - skipped}건</strong>
+    총 토픽: <strong style="color:var(--text-2)">${total}건</strong>
   </div>`;
 }
 
