@@ -1,7 +1,27 @@
 {
   "charter": {
-    "name": "legend-team",
-    "version": "v2.201",
+    "name": "legend-nexus",
+    "version": "v0.00",
+    "era_history": [
+      {
+        "era": "Legend Team",
+        "versionStart": "v0.1.0",
+        "versionEnd": "v2.201",
+        "transitionedAt": "2026-05-02",
+        "transitionTopic": "topic_144",
+        "transitionSession": "session_167",
+        "summary": "Legend Team era 표기 종료 — Big Bang(D-107~D-114) 이후 Legend Nexus로 표기 전환. 디렉토리·data SOT는 unified, 표기만 전환 (D=b 정합)."
+      },
+      {
+        "era": "Legend Nexus",
+        "versionStart": "v0.00",
+        "versionEnd": null,
+        "transitionedAt": "2026-05-02",
+        "transitionTopic": "topic_144",
+        "transitionSession": "session_167",
+        "summary": "Legend Nexus era 진입 — versionAtSession 과거 entry 불변(E=a), 현 세션부터 v0.00 baseline."
+      }
+    ],
     "purpose": "Memory-first, topic-based strategy and implementation system. Master receives structured analysis from role-separated agents on any strategic or implementation topic, with all outputs preserved in inspectable, revisionable files.",
     "principles": [
       "Memory first: all agent outputs, decisions, and session state are written to files immediately. No analysis lives only in conversation context.",

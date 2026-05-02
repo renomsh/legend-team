@@ -1,6 +1,6 @@
 /**
  * Lightweight Markdown → HTML renderer
- * Legend Team — read-only viewer
+ * Legend Nexus — read-only viewer
  */
 
 function escHtml(s) {

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Upgrade Dashboard — Legend Team</title>
+<title>Upgrade Dashboard — Legend Nexus</title>
 <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/components.css">
@@ -116,7 +116,7 @@ a{color:inherit;text-decoration:none}
         <div>
           <div class="h-eyebrow"><span class="blip"></span>Total sessions accumulated</div>
           <div class="hero-number" id="heroNum">—</div>
-          <div class="hero-label" id="heroLabel">Legend Team Strategy OS</div>
+          <div class="hero-label" id="heroLabel">Legend Nexus Strategy OS</div>
           <div class="hero-meta">
             <div>
               <div class="hm-k">Decisions</div>
@@ -385,7 +385,7 @@ async function init() {
   const heroN = maxSessionN || total;
   document.getElementById('heroNum').textContent = heroN;
   const ver = charter?.charter?.version ?? '1.11';
-  document.getElementById('heroLabel').textContent = `${heroN} sessions · v${ver} · Legend Team`;
+  document.getElementById('heroLabel').textContent = `${heroN} sessions · v${ver} · Legend Nexus`;
   document.querySelectorAll('#sidebarVersion').forEach(el => el.textContent = `v${ver}`);
   // hero-meta는 applyFilter()에서 카드와 동일한 filtered 값으로 채움 (단일 출처)
 
@@ -721,17 +721,17 @@ function renderLine() {
   window.addEventListener('resize',()=>chart.resize());
 }
 
-const GRADE_COLORS = { S:'#8B5CF6', A:'#06B6D4', B:'#F59E0B', C:'#6E6E78' };
-const GRADE_LABELS = { S:'Lv. S — 최고 복잡도 (Size 12+)', A:'Lv. A — 고복잡도 (Size 8~11)', B:'Lv. B — 중복잡도 (Size 5~7)', C:'Lv. C — 단순 (Size 4)' };
+const GRADE_COLORS = { S:'#8B5CF6', A:'#06B6D4', B:'#F59E0B', C:'#6E6E78', D:'#94A3B8' };
+const GRADE_LABELS = { S:'Lv. S — 최고 복잡도 (Size 12+)', A:'Lv. A — 고복잡도 (Size 8~11)', B:'Lv. B — 중복잡도 (Size 5~7)', C:'Lv. C — 단순 (Size 4)', D:'Lv. D — 명백 단순 (bug/fix/patch)' };
 function lvLabel(g) { return `Lv. ${g}`; }
 
 function renderGradeDist() {
   const el = document.getElementById('gradeDistPanel');
   if (!el) return;
-  const count = {S:0,A:0,B:0,C:0};
+  const count = {S:0,A:0,B:0,C:0,D:0};
   for (const s of filteredSessions) count[s.gradeActual ?? s.gradeDeclared ?? 'C']++;
   const total = filteredSessions.length || 1;
-  const rows = ['S','A','B','C'].map(g => {
+  const rows = ['S','A','B','C','D'].map(g => {
     const n = count[g];
     const pct = (n/total*100).toFixed(0);
     const bar = `<div style="flex:1;background:var(--panel-2);border-radius:4px;height:8px;overflow:hidden">
@@ -761,7 +761,7 @@ function renderGradeMismatch() {
   const rows = mismatches.map(s => {
     const dc = GRADE_COLORS[s.gradeDeclared] ?? '#6E6E78';
     const ac = GRADE_COLORS[s.gradeActual] ?? '#6E6E78';
-    const arrow = ['S','A','B','C'].indexOf(s.gradeActual) < ['S','A','B','C'].indexOf(s.gradeDeclared) ? '⬆ 실제 더 복잡' : '⬇ 실제 더 단순';
+    const arrow = ['S','A','B','C','D'].indexOf(s.gradeActual) < ['S','A','B','C','D'].indexOf(s.gradeDeclared) ? '⬆ 실제 더 복잡' : '⬇ 실제 더 단순';
     return `<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:12px">
       <span style="color:var(--text-3);width:78px">${s.sessionId}</span>
       <span style="color:${dc};font-weight:700">Lv. ${s.gradeDeclared}</span>
@@ -771,7 +771,7 @@ function renderGradeMismatch() {
       <span style="margin-left:auto;font-size:10px;color:var(--text-3)">${arrow}</span>
     </div>`;
   }).join('');
-  const upCount = mismatches.filter(s => ['S','A','B','C'].indexOf(s.gradeActual) < ['S','A','B','C'].indexOf(s.gradeDeclared)).length;
+  const upCount = mismatches.filter(s => ['S','A','B','C','D'].indexOf(s.gradeActual) < ['S','A','B','C','D'].indexOf(s.gradeDeclared)).length;
   el.innerHTML = rows + `<div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--line);font-size:11px;color:var(--text-3)">
     총 ${mismatches.length}건 불일치 · 과소 선언(실제 더 복잡): <strong style="color:#F59E0B">${upCount}건</strong>
     &nbsp;·&nbsp; 과대 선언: <strong style="color:var(--text-2)">${mismatches.length - upCount}건</strong>

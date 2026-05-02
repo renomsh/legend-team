@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_166",
-  "nextSessionId": "session_167",
-  "currentVersion": "v2.201",
+  "lastSessionId": "session_167",
+  "nextSessionId": "session_168",
+  "currentVersion": "v0.00",
   "openTopics": [
     {
       "id": "topic_044",
@@ -20,6 +20,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-144",
+      "date": "2026-05-02",
+      "axis": "Master 5+1축 결정 (A.a / B.a / C.a / 버전 v0.00 / D.b / E.a) — 표기만 전환·디렉토리 unified·history[] 28 entry 불변",
+      "summary": "(a) Legend Nexus 표면 정체성 회복 — Big Bang 시스템 변경이 표기에도 반영됨. (b) era_history 박제로 과거 시점(history[] 28 entry) 보존 + 현재 표기 분리 = revisionable + non-destructive. (c) Grade D 카운트 dashboard 노출로 D-130 'D 키워드 자동 분기' 운영 가시화. (d) ackedButUnresolved schema 박제로 caveats 누적 추적 가능 (본체는 child)."
+    },
     {
       "id": "D-143",
       "date": "2026-05-02",
@@ -41,15 +47,18 @@
     {
       "id": "D-140",
       "date": "2026-05-01"
-    },
-    {
-      "id": "D-139",
-      "date": "2026-05-01",
-      "axis": "grade별 자동 프레이밍 완전 제거 — open.md Grade→Framing Level 매핑 삭제, CLAUDE.md Ace Step 0 deprecated",
-      "summary": "grade별 자동 프레이밍 완전 제거 — open.md Grade→Framing Level 매핑 삭제, CLAUDE.md Ace Step 0 deprecated"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_167",
+      "topicSlug": "dashboard-upgrade-v2-legend-nexus",
+      "closedAt": "2026-05-02T07:00:00.000Z",
+      "oneLineSummary": "Legend Nexus 표면 정체성 회복 (v0.00 리셋 + brand swap 18 file + Grade D enum 6 site + ackedButUnresolved schema spec). child 분화 1건 (PD-056).",
+      "decisionsAdded": [
+        "D-144"
+      ]
+    },
     {
       "sessionId": "session_166",
       "topicSlug": "claudemd-edi-protocol-update",
@@ -65,18 +74,37 @@
       "decisionsAdded": [
         "D-143"
       ]
-    },
-    {
-      "sessionId": "session_164",
-      "topicSlug": "bigbang-completion-review",
-      "closedAt": "2026-05-02T00:30:00.000Z",
-      "oneLineSummary": "Nexus 전환 잔여 cleanup: ace-framing 재활성화, package.json·role-sage stale 정리, D-142 박제",
-      "decisionsAdded": [
-        "D-142"
-      ]
     }
   ],
   "pendingDeferrals": [
+    {
+      "id": "PD-057",
+      "fromSession": "session_167",
+      "fromTopic": "topic_144 (dashboard-upgrade-v2-legend-nexus)",
+      "item": "Grade 임계 자체 재검토 — Master Q3 Scope OUT 박제. C/D 자동 분기 키워드 매칭(bug·fix·patch 등)이 적절한지 누적 데이터로 검증. gradeMismatch 충분 시 재오픈.",
+      "status": "pending",
+      "resolveCondition": "gradeMismatch ≥ 10건 누적 OR Master 명시 재오픈",
+      "dependsOn": [],
+      "relatedDecisions": [
+        "D-074",
+        "D-130",
+        "D-144"
+      ],
+      "relatedTopic": "topic_144"
+    },
+    {
+      "id": "PD-056",
+      "fromSession": "session_167",
+      "fromTopic": "topic_144 (dashboard-upgrade-v2-legend-nexus)",
+      "item": "ackedButUnresolved 본체 구현 — compute-dashboard.ts caveatsMeta 집계 확장 + dashboard 패널 신설. 본 세션은 schema spec(docs/dashboard-upgrade-v2-spec.md)만 박제, 본체 구현 child 토픽 분화 필요. 5건 caveats acked/resolved 분류 Master 1회 결정 포함.",
+      "status": "pending",
+      "resolveCondition": "child 토픽 1건 신규 오픈 + caveatsMeta 집계 함수 구현 + dashboard 패널 노출 + Master 5건 caveats 분류 결정 1건",
+      "dependsOn": [],
+      "relatedDecisions": [
+        "D-144"
+      ],
+      "relatedTopic": "topic_144"
+    },
     {
       "id": "PD-055",
       "fromSession": "session_165",
@@ -612,5 +640,5 @@
       "resolvedNote": "hitRateRubric = D-041(session_037, persona-top01-redefinition) 잔재. Big Bang 설계 범위 외. D-092 단순화 이후 pipeline 연결 없음(hooks/scripts 참조 0건). 8역할 memory.json에서 일괄 삭제 완료. Jobs·Sage·Zero 미박제는 설계적으로 정상. PD-054 resolved."
     }
   ],
-  "lastUpdated": "2026-05-02T05:32:52.489Z"
+  "lastUpdated": "2026-05-02T06:46:48.328Z"
 }

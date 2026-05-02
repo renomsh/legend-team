@@ -1,6 +1,6 @@
 /**
  * Data Loader — fetches JSON/MD files from deployed data directory
- * Legend Team — read-only viewer (v0.3.0)
+ * Legend Nexus — read-only viewer (v0.3.0)
  *
  * Loading priority:
  *   getTopicIndex() → tries published manifest first, falls back to raw topic_index

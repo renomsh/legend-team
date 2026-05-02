@@ -1,6 +1,28 @@
 {
   "topics": [
     {
+      "id": "topic_144",
+      "title": "Dashboard Upgrade ver2.0 — Legend Nexus 반영",
+      "status": "completed",
+      "grade": "S",
+      "phase": "framing",
+      "hold": null,
+      "created": "2026-05-02",
+      "controlPath": "topics/topic_144",
+      "reportPath": "reports/2026-05-02_dashboard-upgrade-v2-legend-nexus",
+      "reportFiles": [
+        "arki_rev1.md",
+        "riki_rev1.md",
+        "dev_g0_rev1.md",
+        "dev_rev1.md",
+        "edi_rev1.md"
+      ],
+      "published": false,
+      "closedInSession": "session_167",
+      "path": "topics/topic_144",
+      "outcome": "Legend Nexus 표면 정체성 회복 (charter v0.00 + era_history + brand swap 18 file + Grade D enum 6 site + ackedButUnresolved schema spec). 본체 구현은 PD-056 child 분화."
+    },
+    {
       "id": "topic_143",
       "title": "CLAUDE.md Edi Protocol update",
       "status": "completed",
@@ -2786,5 +2808,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-02T05:32:42.379Z"
+  "lastUpdated": "2026-05-02T06:46:16.029Z"
 }

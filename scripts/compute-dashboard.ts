@@ -48,8 +48,8 @@ interface SessionIndexEntry {
   retroactive?: boolean;
   agentsCompleted?: string[];
   masterTurns?: number;
-  gradeDeclared?: 'S' | 'A' | 'B' | 'C';
-  gradeActual?: 'S' | 'A' | 'B' | 'C';
+  gradeDeclared?: 'S' | 'A' | 'B' | 'C' | 'D';
+  gradeActual?: 'S' | 'A' | 'B' | 'C' | 'D';
   gradeMismatch?: boolean;
   framingSkipped?: boolean;
   turns?: Turn[];
@@ -121,8 +121,8 @@ interface SessionData {
   rolesRecalled: number;
   sessionsSpanned: number;
   size: number;
-  gradeDeclared: 'S' | 'A' | 'B' | 'C';
-  gradeActual: 'S' | 'A' | 'B' | 'C';
+  gradeDeclared: 'S' | 'A' | 'B' | 'C' | 'D';
+  gradeActual: 'S' | 'A' | 'B' | 'C' | 'D';
   gradeMismatch: boolean;
   framingSkipped: boolean;
   masterTurns: number;
@@ -263,7 +263,7 @@ function main() {
 
     const size = computeSize(decisionAxes, rolesCalled, rolesRecalled, sessionsSpanned);
     const gradeActual = sizeToGrade(size);
-    const gradeDeclared = (s.gradeDeclared ?? gradeActual) as 'S' | 'A' | 'B' | 'C';
+    const gradeDeclared = (s.gradeDeclared ?? gradeActual) as 'S' | 'A' | 'B' | 'C' | 'D';
     const gradeMismatch = gradeDeclared !== gradeActual;
     const framingSkipped = s.framingSkipped ?? false;
 
@@ -320,7 +320,7 @@ function main() {
   });
 
   // ── grade 통계 ───────────────────────────────────────────────────────────
-  const gradeCount = { S: 0, A: 0, B: 0, C: 0 };
+  const gradeCount = { S: 0, A: 0, B: 0, C: 0, D: 0 };
   let gradeMismatchCount = 0;
   let framingSkippedCount = 0;
   const mismatchSessions: string[] = [];

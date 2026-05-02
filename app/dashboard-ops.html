@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>과제 운영 뷰 — Legend Team</title>
+  <title>과제 운영 뷰 — Legend Nexus</title>
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/components.css">
@@ -235,14 +235,19 @@
         list.innerHTML = '<div class="empty-state">No suspended topics</div>';
         return;
       }
-      list.innerHTML = suspended.map(t =>
-        `<a class="pipeline-item" href="topic.html?id=${t.id}" style="text-decoration:none;color:inherit">
+      // Grade badge color tokens (D-144, session_167) — tokens.css 정합 fallback
+      const GRADE_BADGE = { S:'#8B5CF6', A:'#06B6D4', B:'#F59E0B', C:'#6E6E78', D:'#94A3B8' };
+      list.innerHTML = suspended.map(t => {
+        const gradeBadge = t.grade
+          ? `<span class="topic-grade-badge" style="display:inline-block;padding:1px 6px;border-radius:3px;font-size:10px;font-weight:700;color:#fff;background:${GRADE_BADGE[t.grade] || '#6E6E78'};margin-right:6px">${t.grade}</span>`
+          : '';
+        return `<a class="pipeline-item" href="topic.html?id=${t.id}" style="text-decoration:none;color:inherit">
           <span class="pipeline-type">${t.type ?? 'general'}</span>
-          <span class="pipeline-title">${t.title}</span>
+          <span class="pipeline-title">${gradeBadge}${t.title}</span>
           <span class="pipeline-status status-suspended">suspended</span>
           <span class="pipeline-session">${t.id}${t.created?` · ${t.created}`:''}</span>
-        </a>`
-      ).join('');
+        </a>`;
+      }).join('');
     }
 
     // ── O3: Active Alarms ─────────────────────────────────────────

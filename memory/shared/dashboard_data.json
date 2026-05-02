@@ -1,19 +1,20 @@
 {
-  "generatedAt": "2026-05-02T05:33:01.497Z",
-  "totalSessions": 164,
+  "generatedAt": "2026-05-02T06:47:17.674Z",
+  "totalSessions": 165,
   "autoDataFrom": "session_027",
   "metrics": {
-    "avgMasterTurns": 18.18,
-    "avgCacheHitRate": 0.9305,
-    "cacheSampleSize": 138,
-    "cacheSampleTotal": 164,
+    "avgMasterTurns": 18.14,
+    "avgCacheHitRate": 0.9307,
+    "cacheSampleSize": 139,
+    "cacheSampleTotal": 165,
     "avgAdoptionRate": 0,
-    "totalDecisions": 144,
+    "totalDecisions": 145,
     "gradeDistribution": {
-      "S": 75,
+      "S": 76,
       "A": 33,
       "B": 42,
-      "C": 14
+      "C": 14,
+      "D": 0
     },
     "gradeMismatchCount": 2,
     "gradeMismatchSessions": [
@@ -21,10 +22,10 @@
       "session_057"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 119,
-    "totalCostUSD": 1867.9127,
-    "avgCostPerSession": 11.7479,
-    "costSampleSize": 159
+    "turnBasedSessions": 120,
+    "totalCostUSD": 1873.3013,
+    "avgCostPerSession": 11.7081,
+    "costSampleSize": 160
   },
   "sessions": [
     {
@@ -6283,12 +6284,54 @@
         "messageCount": 42
       },
       "sessionCostUSD": 4.2729
+    },
+    {
+      "sessionId": "session_167",
+      "topicSlug": "dashboard-upgrade-v2-legend-nexus",
+      "topic": "Dashboard Upgrade ver2.0 — Legend Nexus 반영",
+      "startedAt": "2026-05-02T05:45:00.000Z",
+      "closedAt": "2026-05-02T07:00:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-144"
+      ],
+      "rolesCalled": 7,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 14,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 11,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "jobs",
+        "ace",
+        "arki",
+        "riki",
+        "dev",
+        "edi",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 10402011,
+        "ioTokens": 77029,
+        "inputTokens": 210,
+        "outputTokens": 76819,
+        "cacheCreate": 329912,
+        "cacheRead": 9995070,
+        "cacheHitRate": 0.9608786224125315,
+        "messageCount": 75
+      },
+      "sessionCostUSD": 5.3886
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 171,
+      "count": 172,
       "sessions": [
         "session_047",
         "session_048",
@@ -6374,12 +6417,13 @@
         "session_156",
         "session_160",
         "session_161",
-        "session_165"
+        "session_165",
+        "session_167"
       ]
     },
     {
       "role": "edi",
-      "count": 124,
+      "count": 126,
       "sessions": [
         "session_050",
         "session_051",
@@ -6496,12 +6540,13 @@
         "session_163",
         "session_164",
         "session_165",
-        "session_166"
+        "session_166",
+        "session_167"
       ]
     },
     {
       "role": "arki",
-      "count": 118,
+      "count": 119,
       "sessions": [
         "session_048",
         "session_049",
@@ -6563,12 +6608,13 @@
         "session_155",
         "session_160",
         "session_163",
-        "session_165"
+        "session_165",
+        "session_167"
       ]
     },
     {
       "role": "dev",
-      "count": 90,
+      "count": 91,
       "sessions": [
         "session_047",
         "session_048",
@@ -6641,12 +6687,13 @@
         "session_161",
         "session_163",
         "session_165",
-        "session_166"
+        "session_166",
+        "session_167"
       ]
     },
     {
       "role": "riki",
-      "count": 81,
+      "count": 82,
       "sessions": [
         "session_049",
         "session_053",
@@ -6706,7 +6753,8 @@
         "session_156",
         "session_160",
         "session_163",
-        "session_165"
+        "session_165",
+        "session_167"
       ]
     },
     {
@@ -6753,13 +6801,14 @@
     },
     {
       "role": "jobs",
-      "count": 10,
+      "count": 11,
       "sessions": [
         "session_151",
         "session_152",
         "session_153",
         "session_156",
-        "session_163"
+        "session_163",
+        "session_167"
       ]
     },
     {
@@ -11319,6 +11368,54 @@
           "role": "edi",
           "phase": "compile",
           "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_167",
+      "topic": "Dashboard Upgrade ver2.0 — Legend Nexus 반영",
+      "sequence": [
+        {
+          "role": "jobs",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 6,
           "recallReason": null
         }
       ]

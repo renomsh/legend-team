@@ -1,6 +1,6 @@
 /**
  * Navigation helper
- * Legend Team — read-only viewer
+ * Legend Nexus — read-only viewer
  */
 
 // ── Drawer (mobile off-canvas) — D-095 1024 single breakpoint

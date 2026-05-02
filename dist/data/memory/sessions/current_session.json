@@ -1,71 +1,132 @@
 {
-  "sessionId": "session_166",
-  "topicId": "topic_143",
-  "topic": "CLAUDE.md Edi Protocol update",
-  "topicSlug": "claudemd-edi-protocol-update",
-  "reportPath": "reports/2026-05-02_claudemd-edi-protocol-update",
+  "sessionId": "session_167",
+  "topicId": "topic_144",
+  "topic": "Dashboard Upgrade ver2.0 — Legend Nexus 반영",
+  "topicSlug": "dashboard-upgrade-v2-legend-nexus",
+  "reportPath": "reports/2026-05-02_dashboard-upgrade-v2-legend-nexus",
   "status": "closed",
-  "startedAt": "2026-05-02T03:20:00.000Z",
-  "closedAt": "2026-05-02T03:35:00.000Z",
+  "startedAt": "2026-05-02T05:45:00.000Z",
+  "closedAt": "2026-05-02T07:00:00.000Z",
   "mode": "observation",
-  "grade": "C",
-  "gradeDeclared": "C",
+  "grade": "S",
+  "gradeDeclared": "S",
   "framingLevel": 0,
   "framingSkipped": true,
-  "topicType": "implementation",
+  "topicType": "framing",
   "parentTopicId": null,
   "childTopicIds": [],
   "agentsCompleted": [
+    "jobs",
+    "ace",
+    "arki",
+    "riki",
     "dev",
+    "edi",
     "edi"
   ],
   "turns": [
     {
-      "role": "dev",
+      "role": "jobs",
       "turnIdx": 0,
-      "source": "inline",
-      "phase": "implementation"
+      "source": "agent"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 1,
+      "source": "agent"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 2,
+      "source": "agent"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 3,
+      "source": "agent"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 4,
+      "source": "agent"
     },
     {
       "role": "edi",
-      "turnIdx": 1,
-      "phase": "compile"
+      "turnIdx": 5,
+      "source": "agent"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 6,
+      "source": "agent"
     }
   ],
-  "decisions": [],
-  "decisionsAdded": [],
-  "masterDecisions": [],
+  "decisions": [
+    "D-144"
+  ],
+  "decisionsAdded": [
+    "D-144"
+  ],
+  "masterDecisions": [
+    {
+      "axis": "Master 5+1축 결정",
+      "values": "A.a / B.a / C.a / version=v0.00 / D.b / E.a",
+      "scope": "표기만 전환·디렉토리 unified·history[] 28 entry 불변·era_history 신설"
+    }
+  ],
   "masterFeedback": [],
-  "pendingDeferralsAdded": [],
+  "pendingDeferralsAdded": [
+    "PD-056",
+    "PD-057"
+  ],
   "pendingDeferralsResolved": [],
+  "versionBump": {
+    "value": 0,
+    "from": "v2.201",
+    "to": "v0.00",
+    "reason": "Legend Team era(v2.201) → Legend Nexus era(v0.00) era reset (Master 5+1축 결정 E=a). R-1 1회용 skip 가드 작동 — hook 자동 감지 정상 차단됨. era_history 신설 1건은 era 전환 산출물(D=b)이며 자동 versionBump 트리거 아님.",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-02T06:30:00.000Z",
+    "overrideReason": null,
+    "basedOn": "edi-era-reset-confirmation"
+  },
+  "oneLineSummary": "Legend Nexus 표면 정체성 회복 (v0.00 리셋 + brand swap 18 file + Grade D enum 6 site + ackedButUnresolved schema spec). child 분화 1건 (PD-056).",
   "notes": [
-    "session_165 Edi 보고서 section 4 '명시 미적용' 항목: CLAUDE.md Edi Protocol update — 별도 토픽 권고 이행.",
-    "변경 1파일: CLAUDE.md line 190 추가. D-143 rules.edi 내용(session_isolation/ownership/auto_hook/enforcement_note) CLAUDE.md Edi Protocol 섹션에 박제."
+    "본 세션은 Big Bang(topic_131) 후속 표면 정체성 회복",
+    "ackedButUnresolved 본체 구현은 PD-056로 child 토픽 분화 필요",
+    "Master Q3 (Grade 임계 자체 재검토) Scope OUT → PD-057 조건부 재오픈"
   ],
   "gaps": [
     {
-      "type": "mechanical-fallback-graded",
-      "sessionId": "session_166",
-      "grade": "C",
-      "severity": "info"
+      "type": "duplicate-agent-turn",
+      "role": "edi",
+      "note": "same role agent turn already exists in session — warn only (may be legitimate recall: D-048)",
+      "severity": "warn",
+      "detectedAt": "2026-05-02T06:45:06.412Z"
     },
     {
-      "type": "edi-llm-report-absent",
-      "sessionId": "session_166",
-      "reportPath": "reports/2026-05-02_claudemd-edi-protocol-update",
-      "grade": "C",
-      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-02_dashboard-upgrade-v2-legend-nexus/dev_g0_rev1.md",
+      "expected": "dev",
+      "actualInTurns": "edi",
+      "turnId": 5
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-02_dashboard-upgrade-v2-legend-nexus/dev_rev1.md",
+      "expected": "dev",
+      "actualInTurns": "edi",
+      "turnId": 6
     }
   ],
-  "oneLineSummary": "CLAUDE.md Edi Protocol 섹션에 D-143 rules.edi 정책 박제 완료 (session_165 scope-out 이행)",
   "tokenUsage": {
-    "input_tokens": 65,
-    "output_tokens": 15823,
-    "cache_creation_input_tokens": 790381,
-    "cache_read_input_tokens": 3571586,
-    "messageCount": 42,
-    "masterTurns": 7,
-    "total_billable": 4377855
+    "input_tokens": 210,
+    "output_tokens": 76819,
+    "cache_creation_input_tokens": 329912,
+    "cache_read_input_tokens": 9995070,
+    "messageCount": 75,
+    "masterTurns": 11,
+    "total_billable": 10402011
   },
-  "finalizedAt": "2026-05-02T05:32:52.617Z"
+  "finalizedAt": "2026-05-02T06:46:48.650Z"
 }

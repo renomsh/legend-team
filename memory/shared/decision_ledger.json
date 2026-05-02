@@ -1,6 +1,20 @@
 {
   "decisions": [
     {
+      "id": "D-144",
+      "date": "2026-05-02",
+      "session": "session_167",
+      "topic": "topic_144",
+      "owningTopicId": "topic_144",
+      "scopeCheck": "Big Bang topic_131 후속 — 표면 정체성(표기) Legend Nexus로 회복 + ackedButUnresolved schema 박제",
+      "axis": "Master 5+1축 결정 (A.a / B.a / C.a / 버전 v0.00 / D.b / E.a) — 표기만 전환·디렉토리 unified·history[] 28 entry 불변",
+      "decision": "(1) charter.version v2.201 → v0.00 + era_history 1 entry 신설(legend-team era 종료 박제). (2) system_state.currentVersion v0.00 mirror. (3) brand swap 18 file 'Legend Team' → 'Legend Nexus' (app/ 16 + docs/publish-contract.md + docs/dashboard-upgrade-v2-spec.md 신규). (4) Grade D enum 6 site 박제 (compute-dashboard.ts·dashboard-upgrade.html·dashboard-ops.html). (5) ackedButUnresolved schema spec 박제 — 본체 구현은 child 토픽 분화 (PD-056). (6) R-1 mitigation: session-end-finalize.js에 1회용 skip 가드(versionBumpHookSkipNextSession) 추가 — v0.00 리셋이 hook 자동 감지로 침식되지 않도록.",
+      "value": "(a) Legend Nexus 표면 정체성 회복 — Big Bang 시스템 변경이 표기에도 반영됨. (b) era_history 박제로 과거 시점(history[] 28 entry) 보존 + 현재 표기 분리 = revisionable + non-destructive. (c) Grade D 카운트 dashboard 노출로 D-130 'D 키워드 자동 분기' 운영 가시화. (d) ackedButUnresolved schema 박제로 caveats 누적 추적 가능 (본체는 child).",
+      "caveats": "(1) ackedButUnresolved 본체 구현 보류 — PD-056 child 토픽 분화 필요. (2) 5건 caveats acked/resolved 분류 Master 1회 결정 필요(child 토픽 처리). (3) Grade 임계 자체 재검토(Master Q3) Scope OUT — gradeMismatch 누적 시 PD-057 재오픈 후보. (4) 본 세션 commit 후 R-1 skip flag consume 정합성 다음 세션 시작 시 검증 필요.",
+      "relatedDecisions": ["D-114", "D-119", "D-130", "D-142"],
+      "relatedTopics": ["topic_131", "topic_144"]
+    },
+    {
       "id": "D-143",
       "date": "2026-05-02",
       "session": "session_165",

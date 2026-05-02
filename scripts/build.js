@@ -1,5 +1,5 @@
 /**
- * Build script for Legend Team static viewer
+ * Build script for Legend Nexus static viewer
  * Copies app/ source + memory/ + reports/ + logs/ into dist/
  * Generates:
  *   dist/data/manifest.json              — raw file inventory

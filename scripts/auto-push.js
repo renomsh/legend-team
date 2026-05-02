@@ -1,5 +1,5 @@
 /**
- * Auto-push script for Legend Team
+ * Auto-push script for Legend Nexus
  * Called at session end to commit and push changes to GitHub
  *
  * Usage: node scripts/auto-push.js [commit-message]

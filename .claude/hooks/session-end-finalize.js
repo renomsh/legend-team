@@ -1118,7 +1118,52 @@ function applyPendingDeferralsResolved(sess) {
  * Edi가 확정 시: sess.versionBump = { value, reason, ... } 박제 (별도 turn 책임).
  *               이미 sess.versionBump가 있으면 auto-detect skip (Edi 수동 박제 우선).
  */
+/**
+ * Riki R-1 mitigation (session_167, topic_144, 2026-05-02):
+ * v0.00 era 진입 세션에서 versionBump hook 1회 skip 가드.
+ * project_charter.charter.versionBumpHookSkipNextSession === sess.sessionId 이면
+ * detectVersionBump/applyVersionBump/checkVersionBumpConfirmation 모두 skip.
+ * 사용 후 자동으로 flag 제거.
+ */
+function isVersionBumpHookSkipped(sess) {
+  try {
+    const charterPath = path.join(CWD, 'memory', 'shared', 'project_charter.json');
+    if (!fs.existsSync(charterPath)) return false;
+    const charter = JSON.parse(fs.readFileSync(charterPath, 'utf8'));
+    const flag = charter && charter.charter && charter.charter.versionBumpHookSkipNextSession;
+    if (flag && flag === sess.sessionId) {
+      log(`versionBump hook skip: charter.versionBumpHookSkipNextSession === ${sess.sessionId} (R-1 mitigation, 1회용 가드)`);
+      return true;
+    }
+  } catch (e) {
+    log(`isVersionBumpHookSkipped read error: ${e && e.message}`);
+  }
+  return false;
+}
+
+/**
+ * R-1 mitigation 1회용 가드 자동 제거 (session_167).
+ * 본 세션에서 hook 3종이 모두 skip 처리되었다면 charter flag를 제거하여
+ * 다음 세션부터는 정상 동작하도록 한다.
+ */
+function consumeVersionBumpHookSkipFlag(sess) {
+  try {
+    const charterPath = path.join(CWD, 'memory', 'shared', 'project_charter.json');
+    if (!fs.existsSync(charterPath)) return;
+    const charter = JSON.parse(fs.readFileSync(charterPath, 'utf8'));
+    const flag = charter && charter.charter && charter.charter.versionBumpHookSkipNextSession;
+    if (flag && flag === sess.sessionId) {
+      delete charter.charter.versionBumpHookSkipNextSession;
+      writeJson(charterPath, charter);
+      log(`consumeVersionBumpHookSkipFlag: 1회용 가드(${flag}) 사용 후 자동 제거 — 다음 세션부터 정상 동작`);
+    }
+  } catch (e) {
+    log(`consumeVersionBumpHookSkipFlag error: ${e && e.message}`);
+  }
+}
+
 function detectVersionBump(sess) {
+  if (isVersionBumpHookSkipped(sess)) return;
   if (sess.versionBump && (sess.versionBump.value || sess.versionBump.to)) {
     log('detectVersionBump skip: versionBump 이미 박제됨 (Edi 수동 우선)');
     return;
@@ -1231,6 +1276,7 @@ function detectVersionBump(sess) {
  * 없으면 pass (경고 없음).
  */
 function applyVersionBump(sess) {
+  if (isVersionBumpHookSkipped(sess)) return;
   const bump = sess.versionBump;
   if (!bump || !bump.reason) {
     log('versionBump 없음 — project_charter 업데이트 skip');
@@ -1314,6 +1360,7 @@ function applyVersionBump(sess) {
  * Arki legacy guard: sess.legacy === true 시 skip.
  */
 function checkVersionBumpConfirmation(sess) {
+  if (isVersionBumpHookSkipped(sess)) return;
   const suggested = sess.versionBumpSuggested;
 
   // trigger 조건 1: versionBumpSuggested 없음 → skip
@@ -1534,6 +1581,7 @@ function runSyncSystemState() {
     detectVersionBump(sess); // D-130: Nexus 자동 감지 → versionBumpSuggested 박제
     applyVersionBump(sess);
     checkVersionBumpConfirmation(sess); // G-1: Edi 확정 미기록 시 경고 (topic_137, session_155)
+    consumeVersionBumpHookSkipFlag(sess); // R-1 mitigation (session_167): 1회용 가드 사용 후 자동 제거
     escalateAceAcksWithTTL(sess);
     runSyncSystemState();
 
