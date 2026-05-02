@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "v0.00",
+    "version": "v0.01",
     "era_history": [
       {
         "era": "Legend Team",
@@ -226,7 +226,13 @@
       "date": "2026-05-01",
       "summary": "D-141: turns 중복 기록 패턴 해소 — pre-tool-use-task.js Phase 1 필터 + post-tool-use-task.js Phase 2 warn gap 구현. hook 구조 변경(+0.01 capacity 기준).",
       "sessionId": "session_163"
+    },
+    {
+      "version": "v0.01",
+      "date": "2026-05-02",
+      "summary": "D-145: PD-056 본체 7 Phase 완결 + Jobs↔Ace↔Nexus 호출 분리 원칙 신설. capacity 확장(+0.01).",
+      "sessionId": "session_168"
     }
   ],
-  "lastUpdated": "2026-05-01"
+  "lastUpdated": "2026-05-02"
 }

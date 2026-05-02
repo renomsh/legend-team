@@ -33,6 +33,8 @@ Ace는 D-130 이후 **구조·흐름 판정자**다. 본 skill은 Master가 fram
 
 ### Step 0. 토픽 생명주기 판정 (D-057, session_067)
 
+> **D-145 (2026-05-02): 본 Step은 Nexus 영역으로 이전. /open 시 Nexus가 자동 수행. 아래 본문은 history 보존용.**
+
 첫 발언 **최상단**에 다음 판정을 포함한다:
 
 - **topicType 판정** (Grade A/B: 전체 블록 / Grade C: 1줄 인라인)
@@ -48,6 +50,8 @@ Ace는 D-130 이후 **구조·흐름 판정자**다. 본 skill은 Master가 fram
 이 판정 결과는 `create-topic.ts --topicType ... --parentTopicId ...` 인자로 전달된다.
 
 ### Step 0b. PD 교차검증 (D-065, session_089)
+
+> **D-145 (2026-05-02): 본 Step은 Nexus 영역으로 이전. /open 시 Nexus가 자동 수행. 아래 본문은 history 보존용.**
 
 **PD(pendingDeferral)를 이행하는 토픽이면 첫 발언 Step 0 블록 내에 반드시 아래 교차검증 3행을 포함한다.**
 

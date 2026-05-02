@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_167",
-  "nextSessionId": "session_168",
-  "currentVersion": "v0.00",
+  "lastSessionId": "session_168",
+  "nextSessionId": "session_169",
+  "currentVersion": "v0.01",
   "openTopics": [
     {
       "id": "topic_044",
@@ -20,6 +20,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-145",
+      "date": "2026-05-02",
+      "axis": "Jobs↔Ace 호출 분리 원칙 + skill Step 0/0b 1줄 위임 + Nexus topicType 판정 SOT + history forbid 표현 정정",
+      "summary": "(a) Step 0(PD 교차검증·topicType 판정)·Step 1(주제 구체화 질문) = Nexus 영역(/open 자동). Step 2 jobs-framing = 명시 호출. Step 3 ace-framing = jobs 후 명시 호출. (b) jobs-framing/ace-framing SKILL.md Step 0·0b는 옵션 B(1줄 DEPRECATED 위임)로 본문 보존 + 번호 재정렬 안 함. (c) Nexus topicType 판정 SOT = CLAUDE.md Topic Lifecycle System 섹션. open.md는 mirror 1줄. (d) project_charter history forbid 표현 정정 — '28 불변' anchoring 오류, 실측 단조 증가 26 → '단조 증가 보존, era 발생 시에만 +1'."
+    },
     {
       "id": "D-144",
       "date": "2026-05-02",
@@ -43,13 +49,16 @@
       "date": "2026-05-01",
       "axis": "turns 중복 기록 패턴 해소 — buildSessionLayer inline 필터 + duplicate-agent-turn warn gap",
       "summary": "R-2(🔴) 직접 해소: 동일 보고서 2회 inject 제거, 서브에이전트 컨텍스트 토큰 낭비 방지. 추적 경로 불일치(open_issues vs decision_ledger caveats) 근본 원인 표면화. Riki R-1/R-3 반영으로 false positive 위험 회피."
-    },
-    {
-      "id": "D-140",
-      "date": "2026-05-01"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_168",
+      "topicId": "topic_145",
+      "closedAt": "2026-05-02",
+      "oneLineSummary": "PD-056 본체 7 Phase 일괄 완결 — caveatsMeta schema + computeAckedButUnresolved + dashboard 패널 + D-145(Jobs↔Ace↔Nexus 분리) + skill 옵션 B + Nexus topicType SOT + warn gap 폐기. 6건 caveat 분류(resolved 4 / acked 2).",
+      "versionBump": "+0.01 (v0.00→v0.01)"
+    },
     {
       "sessionId": "session_167",
       "topicSlug": "dashboard-upgrade-v2-legend-nexus",
@@ -97,13 +106,16 @@
       "fromSession": "session_167",
       "fromTopic": "topic_144 (dashboard-upgrade-v2-legend-nexus)",
       "item": "ackedButUnresolved 본체 구현 — compute-dashboard.ts caveatsMeta 집계 확장 + dashboard 패널 신설. 본 세션은 schema spec(docs/dashboard-upgrade-v2-spec.md)만 박제, 본체 구현 child 토픽 분화 필요. 5건 caveats acked/resolved 분류 Master 1회 결정 포함.",
-      "status": "pending",
+      "status": "resolved",
       "resolveCondition": "child 토픽 1건 신규 오픈 + caveatsMeta 집계 함수 구현 + dashboard 패널 노출 + Master 5건 caveats 분류 결정 1건",
       "dependsOn": [],
       "relatedDecisions": [
         "D-144"
       ],
-      "relatedTopic": "topic_144"
+      "relatedTopic": "topic_144",
+      "resolvedInSession": "session_168",
+      "resolvedAt": "2026-05-02",
+      "resolvedNote": "topic_145 본 세션에서 4 Phase 본체 + 확장 Phase 5~7 일괄 완결. caveatsMeta schema 박제, 6건 caveat 분류, computeAckedButUnresolved 함수, dashboard 패널, D-145 결정. resolveCondition 4조건 모두 충족."
     },
     {
       "id": "PD-055",
@@ -640,5 +652,5 @@
       "resolvedNote": "hitRateRubric = D-041(session_037, persona-top01-redefinition) 잔재. Big Bang 설계 범위 외. D-092 단순화 이후 pipeline 연결 없음(hooks/scripts 참조 0건). 8역할 memory.json에서 일괄 삭제 완료. Jobs·Sage·Zero 미박제는 설계적으로 정상. PD-054 resolved."
     }
   ],
-  "lastUpdated": "2026-05-02T06:46:48.328Z"
+  "lastUpdated": "2026-05-02"
 }

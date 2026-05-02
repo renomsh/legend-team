@@ -190,9 +190,19 @@
       "source": "s140 Riki R-5/R-7 차단",
       "status": "open",
       "finding": "Riki adversarial 차단 메커니즘 작동 실증. s139 echo chamber 패턴이 본 세션에서 부분 발생했으나, Riki rev5 4안 검토와 R-7(Zero 카테고리 오류)이 즉결을 막고 D-119/D-120 재구성 유도. 다층 방어(NIST SP 800-160 Vol.2) 1층 검출 가치 입증."
+    },
+    {
+      "id": "E-020",
+      "date": "2026-05-02",
+      "topic": "topic_145",
+      "session": "session_168",
+      "type": "principle-violation",
+      "source": "jobs_rev1.md (Step 6 인지편향 자가 점검)",
+      "finding": "spec docs/dashboard-upgrade-v2-spec.md \"5건\" anchor가 PD-056 resolveCondition 본문까지 오염시킴. Arki rev1 실측 결과 6건(D-137·138·141·142·143·144) 정정. anchoring 편향 적출.",
+      "status": "resolved-session_168"
     }
   ],
-  "lastUpdated": "2026-04-29T00:00:00.000Z",
+  "lastUpdated": "2026-05-02",
   "_findings_tagged_v1": {
     "_comment": "F-태깅 프로토콜 도입 (session_090, D-066). role 발언의 findings를 [F-NNN] prefix로 박제. S-007·S-013 signal source.",
     "F-001": {

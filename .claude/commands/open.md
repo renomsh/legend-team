@@ -2,6 +2,8 @@
 
 사용자가 토픽 오픈을 요청했습니다. 아래 Session Start 체크리스트를 순서대로 실행하세요.
 
+> **D-145 (2026-05-02)**: Nexus(= Main Claude Code 본체)가 topicType 자동 판정. SOT는 CLAUDE.md `Nexus topicType 판정` 섹션. Jobs/Ace skill에서는 본 Step이 deprecated.
+
 ## 체크리스트
 
 1. `memory/sessions/current_session.json` 읽기 — 이전 세션이 열려있는지 확인. 열려있으면 먼저 닫아야 한다고 Master에게 알림.

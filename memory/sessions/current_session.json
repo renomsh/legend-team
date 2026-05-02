@@ -1,37 +1,28 @@
 {
-  "sessionId": "session_167",
-  "topicId": "topic_144",
-  "topic": "Dashboard Upgrade ver2.0 — Legend Nexus 반영",
-  "topicSlug": "dashboard-upgrade-v2-legend-nexus",
-  "reportPath": "reports/2026-05-02_dashboard-upgrade-v2-legend-nexus",
-  "status": "closed",
-  "startedAt": "2026-05-02T05:45:00.000Z",
-  "closedAt": "2026-05-02T07:00:00.000Z",
+  "sessionId": "session_168",
+  "topicId": "topic_145",
+  "topic": "PD-056 ackedButUnresolved 본체 구현 — caveatsMeta 집계 + dashboard 패널 + 5건 caveats 분류",
+  "topicSlug": "pd056-ackedbutunresolved-impl",
+  "reportPath": "reports/2026-05-02_pd056-ackedbutunresolved-impl",
+  "status": "open",
+  "startedAt": "2026-05-02T07:05:00.000Z",
   "mode": "observation",
-  "grade": "S",
-  "gradeDeclared": "S",
+  "grade": "B",
+  "gradeDeclared": "B",
   "framingLevel": 0,
   "framingSkipped": true,
-  "topicType": "framing",
-  "parentTopicId": null,
+  "topicType": "implementation",
+  "parentTopicId": "topic_144",
   "childTopicIds": [],
-  "agentsCompleted": [
-    "jobs",
-    "ace",
-    "arki",
-    "riki",
-    "dev",
-    "edi",
-    "edi"
-  ],
+  "agentsCompleted": [],
   "turns": [
     {
-      "role": "jobs",
+      "role": "arki",
       "turnIdx": 0,
       "source": "agent"
     },
     {
-      "role": "ace",
+      "role": "jobs",
       "turnIdx": 1,
       "source": "agent"
     },
@@ -41,7 +32,7 @@
       "source": "agent"
     },
     {
-      "role": "riki",
+      "role": "ace",
       "turnIdx": 3,
       "source": "agent"
     },
@@ -51,7 +42,7 @@
       "source": "agent"
     },
     {
-      "role": "edi",
+      "role": "zero",
       "turnIdx": 5,
       "source": "agent"
     },
@@ -59,74 +50,74 @@
       "role": "edi",
       "turnIdx": 6,
       "source": "agent"
+    },
+    {
+      "role": "zero",
+      "turnIdx": 7,
+      "source": "agent"
     }
   ],
   "decisions": [
-    "D-144"
+    "D-145"
   ],
   "decisionsAdded": [
-    "D-144"
+    "D-145"
   ],
   "masterDecisions": [
     {
-      "axis": "Master 5+1축 결정",
-      "values": "A.a / B.a / C.a / version=v0.00 / D.b / E.a",
-      "scope": "표기만 전환·디렉토리 unified·history[] 28 entry 불변·era_history 신설"
+      "session": "session_168",
+      "topic": "topic_145",
+      "date": "2026-05-02",
+      "decisions": [
+        "spec 5건→실측 6건으로 진행",
+        "caveats string[] 통일",
+        "caveatsMeta entry 단위",
+        "ack TTL=2 고정",
+        "6건 inline 분류 1턴",
+        "분류 결과: D-137·D-141·D-142·D-144 resolved / D-138·D-143 acked-잔존",
+        "duplicate-agent-turn warn gap 폐기 (방안 4)",
+        "Jobs↔Ace 분리 원칙 박제 + skill 옵션 B + Nexus topicType CLAUDE.md SOT",
+        "Ace 종합검토 권고 (a) 일괄 진행 채택",
+        "Zero 정제 2건 인라인 적용"
+      ]
     }
   ],
   "masterFeedback": [],
-  "pendingDeferralsAdded": [
-    "PD-056",
-    "PD-057"
+  "pendingDeferralsAdded": [],
+  "pendingDeferralsResolved": [
+    "PD-056"
   ],
-  "pendingDeferralsResolved": [],
-  "versionBump": {
-    "value": 0,
-    "from": "v2.201",
-    "to": "v0.00",
-    "reason": "Legend Team era(v2.201) → Legend Nexus era(v0.00) era reset (Master 5+1축 결정 E=a). R-1 1회용 skip 가드 작동 — hook 자동 감지 정상 차단됨. era_history 신설 1건은 era 전환 산출물(D=b)이며 자동 versionBump 트리거 아님.",
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-02T06:30:00.000Z",
-    "overrideReason": null,
-    "basedOn": "edi-era-reset-confirmation"
-  },
-  "oneLineSummary": "Legend Nexus 표면 정체성 회복 (v0.00 리셋 + brand swap 18 file + Grade D enum 6 site + ackedButUnresolved schema spec). child 분화 1건 (PD-056).",
   "notes": [
-    "본 세션은 Big Bang(topic_131) 후속 표면 정체성 회복",
-    "ackedButUnresolved 본체 구현은 PD-056로 child 토픽 분화 필요",
-    "Master Q3 (Grade 임계 자체 재검토) Scope OUT → PD-057 조건부 재오픈"
+    "PD-056 child 토픽 — topic_144(Legend Nexus 표면 정체성) framing 후속 implementation",
+    "caveatsMeta 집계 함수 + dashboard 패널 신설 본체 구현"
   ],
   "gaps": [
     {
       "type": "duplicate-agent-turn",
-      "role": "edi",
+      "role": "arki",
       "note": "same role agent turn already exists in session — warn only (may be legitimate recall: D-048)",
       "severity": "warn",
-      "detectedAt": "2026-05-02T06:45:06.412Z"
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-02_dashboard-upgrade-v2-legend-nexus/dev_g0_rev1.md",
-      "expected": "dev",
-      "actualInTurns": "edi",
-      "turnId": 5
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-02_dashboard-upgrade-v2-legend-nexus/dev_rev1.md",
-      "expected": "dev",
-      "actualInTurns": "edi",
-      "turnId": 6
+      "detectedAt": "2026-05-02T08:02:20.128Z"
     }
   ],
-  "tokenUsage": {
-    "input_tokens": 210,
-    "output_tokens": 76819,
-    "cache_creation_input_tokens": 329912,
-    "cache_read_input_tokens": 9995070,
-    "messageCount": 75,
-    "masterTurns": 11,
-    "total_billable": 10402011
+  "versionBump": {
+    "value": 0.01,
+    "from": "v0.00",
+    "to": "v0.01",
+    "reason": "PD-056 본체 7 Phase 완결 + D-145(Jobs↔Ace↔Nexus 분리 원칙) 신규 결정 박제. capacity 확장 단일 정책. skill 본문은 옵션 B 1줄 위임으로 보존, CLAUDE.md Nexus Open Protocol 섹션은 D-145의 mirror. 세션당 +0.1 캡 미돌파.",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-02",
+    "basedOn": "edi-pd056-impl-completion",
+    "overrideReason": null
   },
-  "finalizedAt": "2026-05-02T06:46:48.650Z"
+  "oneLineSummary": "PD-056 본체 7 Phase 일괄 완결 — caveatsMeta schema + computeAckedButUnresolved 함수 + dashboard 패널 + Jobs↔Ace 분리 원칙(D-145) + skill 옵션 B + Nexus topicType SOT + warn gap 폐기. 6건 caveat 분류(resolved 4 / acked 2).",
+  "tokenUsage": {
+    "input_tokens": 626,
+    "output_tokens": 96227,
+    "cache_creation_input_tokens": 562895,
+    "cache_read_input_tokens": 20134713,
+    "messageCount": 134,
+    "masterTurns": 37,
+    "total_billable": 20794461
+  }
 }

@@ -1,6 +1,32 @@
 {
   "topics": [
     {
+      "id": "topic_145",
+      "title": "PD-056 ackedButUnresolved 본체 구현 — caveatsMeta 집계 + dashboard 패널 + 5건 caveats 분류",
+      "status": "completed",
+      "phase": "completed",
+      "hold": null,
+      "created": "2026-05-02",
+      "controlPath": "topics/topic_145",
+      "reportPath": "reports/2026-05-02_pd056-ackedbutunresolved-impl",
+      "reportFiles": [
+        "arki_rev1.md",
+        "jobs_rev1.md",
+        "arki_rev2.md",
+        "ace_rev1.md",
+        "dev_rev1.md",
+        "zero_rev1.md",
+        "edi_rev1.md"
+      ],
+      "published": false,
+      "closedInSession": "session_168",
+      "path": "topics/topic_145",
+      "grade": "B",
+      "parentTopicId": "topic_144",
+      "topicType": "implementation",
+      "outcome": "PD-056 본체 7 Phase 일괄 완결 — caveatsMeta schema(6 entry × 5 필드) + computeAckedButUnresolved 함수 + dashboard 패널 + Jobs↔Ace 분리 원칙(D-145) + skill 옵션 B + Nexus topicType SOT + warn gap 폐기. 6건 caveat 분류(resolved 4 / acked 2 — D-138·D-143 잔존)."
+    },
+    {
       "id": "topic_144",
       "title": "Dashboard Upgrade ver2.0 — Legend Nexus 반영",
       "status": "completed",
@@ -20,7 +46,10 @@
       "published": false,
       "closedInSession": "session_167",
       "path": "topics/topic_144",
-      "outcome": "Legend Nexus 표면 정체성 회복 (charter v0.00 + era_history + brand swap 18 file + Grade D enum 6 site + ackedButUnresolved schema spec). 본체 구현은 PD-056 child 분화."
+      "outcome": "Legend Nexus 표면 정체성 회복 (charter v0.00 + era_history + brand swap 18 file + Grade D enum 6 site + ackedButUnresolved schema spec). 본체 구현은 PD-056 child 분화.",
+      "childTopicIds": [
+        "topic_145"
+      ]
     },
     {
       "id": "topic_143",
@@ -2808,5 +2837,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-02T06:46:16.029Z"
+  "lastUpdated": "2026-05-02"
 }

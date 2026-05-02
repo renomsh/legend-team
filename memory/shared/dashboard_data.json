@@ -1,14 +1,15 @@
 {
-  "generatedAt": "2026-05-02T06:47:17.674Z",
+  "generatedAt": "2026-05-02T08:46:55.419Z",
   "totalSessions": 165,
   "autoDataFrom": "session_027",
+  "ackedButUnresolved": [],
   "metrics": {
     "avgMasterTurns": 18.14,
     "avgCacheHitRate": 0.9307,
     "cacheSampleSize": 139,
     "cacheSampleTotal": 165,
     "avgAdoptionRate": 0,
-    "totalDecisions": 145,
+    "totalDecisions": 146,
     "gradeDistribution": {
       "S": 76,
       "A": 33,
@@ -11644,6 +11645,11 @@
           "date": "2026-04-03",
           "feedbackId": "MF-001",
           "summary": "5개 결정 항목에 대한 Master 결정 확정"
+        },
+        {
+          "date": "2026-05-02",
+          "feedbackId": "F-session_168",
+          "summary": "Master 결정 10건 압축: (1) spec 5건→실측 6건으로 진행 (2) caveats string["
         }
       ]
     },
@@ -12164,6 +12170,11 @@
         {
           "date": "2026-04-19",
           "summary": "Riki R-02 기각 — Master 주관 판정 최우선. Master 동의 없이는 실행 불가. 레전드팀=M"
+        },
+        {
+          "date": "2026-05-02",
+          "feedbackId": "F-session_168",
+          "summary": "Master 결정 10건 압축: (1) spec 5건→실측 6건으로 진행 (2) caveats string["
         }
       ]
     },

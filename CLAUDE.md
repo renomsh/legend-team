@@ -87,6 +87,17 @@ Rules:
 ### 레거시 호환
 기존 토픽 중 topic_062/066 2건만 소급(테스트 케이스). 나머지 68개는 topicType undefined 유지 — 자동 종결 로직의 영향권 밖.
 
+### Nexus topicType 판정 (D-145, 2026-05-02)
+
+**주체:** Nexus(= Main Claude Code 본체) — `/open` 단계 자동 수행. Jobs/Ace skill에서 분리.
+
+**판정 알고리즘:**
+- parentTopicId 명시 시 → `implementation`
+- 키워드 매칭 (`framing`/`전략`/`설계`/`정의`) + parentTopicId null → `framing`
+- 둘 다 아니면 → `standalone`
+
+**주제 구체화 질문 (Step 1):** 토픽 모호 시 Nexus가 직접 질문. Master-first 모드(D-129) 정합. Jobs framing은 명시 호출 시(Step 2)만.
+
 ### Topic Status SOT 정책 (D-F / D-104-s130, 2026-04-28)
 - **SOT:** `memory/shared/topic_index.json` — 모든 status 변경의 단일 출처
 - **mirror:** `topics/{topicId}/topic_meta.json` — SOT를 따라가는 복사본

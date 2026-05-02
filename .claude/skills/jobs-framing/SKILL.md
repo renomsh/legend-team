@@ -37,6 +37,8 @@ Jobs는 D-130 이후 **framing 주체**다. 토픽의 본질(Why)과 결과물(W
 
 ### Step 0. 토픽 생명주기 판정 (D-057 승계)
 
+> **D-145 (2026-05-02): 본 Step은 Nexus 영역으로 이전. /open 시 Nexus가 자동 수행. 아래 본문은 history 보존용.**
+
 첫 발언 **최상단**:
 
 - **topicType**: `framing` | `implementation` | `standalone`
@@ -44,6 +46,8 @@ Jobs는 D-130 이후 **framing 주체**다. 토픽의 본질(Why)과 결과물(W
 - 판정 애매하면 1줄 질문, 명확하면 선언만
 
 ### Step 0b. PD 교차검증 (D-065 승계)
+
+> **D-145 (2026-05-02): 본 Step은 Nexus 영역으로 이전. /open 시 Nexus가 자동 수행. 아래 본문은 history 보존용.**
 
 PD를 이행하는 토픽이면 다음 3행 포함:
 

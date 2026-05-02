@@ -73,6 +73,58 @@ interface DecisionEntry {
   session: string;
   topic: string;
   axis: string;
+  caveats?: string[];
+  caveatsMeta?: {
+    acked: boolean;
+    ackedBySession: string | null;
+    ackedAt: string | null;
+    resolvedAt: string | null;
+    resolvedBySession: string | null;
+  };
+}
+
+// PD-056 ackedButUnresolved 항목 (D-145, topic_145)
+export interface AckedButUnresolvedItem {
+  decisionId: string;
+  caveat: string;
+  ackedBySession: string | null;
+  ackedAt: string | null;
+  ageInSessions: number;
+}
+
+/**
+ * 단일 출처 SOT: decision_ledger.json 의 caveatsMeta.
+ * acked=true && resolvedAt=null && (currentSession - ackedBySession) >= ttl 인 caveat을 항목별로 평탄화.
+ *
+ * @param decisions decision_ledger.decisions
+ * @param currentSessionNum 현재 세션 정수 (예: session_168 → 168)
+ * @param ttl ack 후 미해결 노출 TTL (세션 수, default 2 — D-145 Master 결정)
+ */
+export function computeAckedButUnresolved(
+  decisions: DecisionEntry[],
+  currentSessionNum: number,
+  ttl: number = 2
+): AckedButUnresolvedItem[] {
+  const out: AckedButUnresolvedItem[] = [];
+  for (const d of decisions) {
+    const m = d.caveatsMeta;
+    if (!m || !m.acked || m.resolvedAt) continue;
+    const ackedSess = m.ackedBySession ?? '';
+    const ackedNum = parseInt(ackedSess.replace('session_', ''), 10);
+    if (isNaN(ackedNum)) continue;
+    const age = currentSessionNum - ackedNum;
+    if (age < ttl) continue;
+    for (const caveat of d.caveats ?? []) {
+      out.push({
+        decisionId: d.id,
+        caveat,
+        ackedBySession: m.ackedBySession,
+        ackedAt: m.ackedAt,
+        ageInSessions: age,
+      });
+    }
+  }
+  return out;
 }
 
 interface TokenEntry {
@@ -424,11 +476,23 @@ function main() {
       })),
     }));
 
+  // ── ackedButUnresolved (D-145, PD-056) ──────────────────────────────────
+  // 현재 세션 번호 = session_index 마지막 entry 기준
+  const lastSessionEntry = sessionIndex.sessions[sessionIndex.sessions.length - 1];
+  const lastSessionId = lastSessionEntry ? lastSessionEntry.sessionId : 'session_0';
+  const currentSessionNum = parseInt(lastSessionId.replace('session_', ''), 10) || 0;
+  const ackedButUnresolved = computeAckedButUnresolved(
+    decisionLedger.decisions,
+    currentSessionNum,
+    2 // TTL=2 (Master 결정, D-145)
+  );
+
   // ── 출력 ─────────────────────────────────────────────────────────────────
   const output = {
     generatedAt: new Date().toISOString(),
     totalSessions,
     autoDataFrom: AUTO_START_SESSION,
+    ackedButUnresolved,
     metrics: {
       avgMasterTurns: parseFloat(avgMasterTurns.toFixed(2)),
       avgCacheHitRate: parseFloat(avgCacheHitRate.toFixed(4)),
