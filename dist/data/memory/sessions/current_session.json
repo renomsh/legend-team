@@ -107,13 +107,27 @@
   ],
   "oneLineSummary": "topic_142: dispatch_config rules.edi 신설 (Opt-α — finalize.js 미변경, enforcement 영구 박제 회피). D-143 박제.",
   "tokenUsage": {
-    "input_tokens": 189,
-    "output_tokens": 63216,
-    "cache_creation_input_tokens": 639749,
-    "cache_read_input_tokens": 8976074,
-    "messageCount": 68,
+    "input_tokens": 199,
+    "output_tokens": 66150,
+    "cache_creation_input_tokens": 650421,
+    "cache_read_input_tokens": 10784461,
+    "messageCount": 78,
     "masterTurns": 13,
-    "total_billable": 9679228
+    "total_billable": 11501231
+  },
+  "versionBump": {
+    "value": 0.001,
+    "from": "v2.20",
+    "to": "v2.201",
+    "reason": "D-143: rules.edi 박제만(정책 일관성). 신규 페르소나·역량 확장 아님 — 패치 레벨로 하향 override (Edi 확정).",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-02T03:14:00.000Z",
+    "basedOn": "edi-override",
+    "overrideOf": {
+      "autoSuggested": 0.01,
+      "autoType": "capacity",
+      "overrideRationale": "자동 감지는 dispatch_config 변경을 capacity로 분류했으나, rules.edi는 finalize.js read 안 됨 → 실효 capacity 0. 정책 일관성 박제만 = 패치 레벨."
+    }
   },
   "versionBumpSuggested": {
     "value": 0.01,
