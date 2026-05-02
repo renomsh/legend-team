@@ -1,13 +1,13 @@
 {
-  "sessionId": "session_171",
-  "topicId": "topic_148",
-  "topic": "대시보드 그래프-토픽 숫자 불일치 수정",
-  "topicSlug": "dashboard-topic-count-graph-mismatch",
-  "reportPath": "reports/2026-05-02_dashboard-topic-count-graph-mismatch",
+  "sessionId": "session_172",
+  "topicId": "topic_149",
+  "topic": "대시보드 좌우 비율 5:5 높이 정렬",
+  "topicSlug": "dashboard-layout-ratio-fix",
+  "reportPath": "reports/2026-05-02_dashboard-layout-ratio-fix",
   "status": "closed",
-  "startedAt": "2026-05-02T13:00:00.000Z",
-  "closedAt": "2026-05-02T13:10:00.000Z",
-  "oneLineSummary": "grade null 7건 소급 할당(legacy topics) → grade합계=전체 144건 일치",
+  "startedAt": "2026-05-02T14:00:00.000Z",
+  "closedAt": "2026-05-02T14:10:00.000Z",
+  "oneLineSummary": "section-grid-2col 1.7fr→1fr 1fr 변경, 좌우 5:5 비율 + 높이 정렬 완료",
   "mode": "observation",
   "grade": "D",
   "framingLevel": 0,
@@ -35,19 +35,26 @@
   "gaps": [
     {
       "type": "mechanical-fallback-graded",
-      "sessionId": "session_171",
+      "sessionId": "session_172",
       "grade": "D",
       "severity": "info"
+    },
+    {
+      "type": "edi-llm-report-absent",
+      "sessionId": "session_172",
+      "reportPath": "reports/2026-05-02_dashboard-layout-ratio-fix",
+      "grade": "D",
+      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
     }
   ],
   "tokenUsage": {
-    "input_tokens": 155,
-    "output_tokens": 35570,
-    "cache_creation_input_tokens": 248347,
-    "cache_read_input_tokens": 11122275,
-    "messageCount": 113,
+    "input_tokens": 86,
+    "output_tokens": 15861,
+    "cache_creation_input_tokens": 225051,
+    "cache_read_input_tokens": 5475479,
+    "messageCount": 63,
     "masterTurns": 3,
-    "total_billable": 11406347
+    "total_billable": 5716477
   },
-  "finalizedAt": "2026-05-02T09:54:04.648Z"
+  "finalizedAt": "2026-05-02T10:07:36.856Z"
 }

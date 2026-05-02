@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_171",
-  "nextSessionId": "session_172",
+  "lastSessionId": "session_172",
+  "nextSessionId": "session_173",
   "currentVersion": "v0.01",
   "openTopics": [
     {
@@ -53,6 +53,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_172",
+      "topicSlug": "dashboard-layout-ratio-fix",
+      "closedAt": "2026-05-02T14:10:00.000Z",
+      "oneLineSummary": "section-grid-2col 1.7fr→1fr 1fr 변경, 좌우 5:5 비율 + 높이 정렬 완료",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_171",
       "topicSlug": "dashboard-topic-count-graph-mismatch",
       "closedAt": "2026-05-02T13:10:00.000Z",
@@ -64,13 +71,6 @@
       "topicSlug": "dashboard-upgrade-character-add",
       "closedAt": "2026-05-02T12:45:00.000Z",
       "oneLineSummary": "Grade D 버그 3건 수정: D카운팅·ROLE_ORDER(jobs/sage/zero)·topics grade 컬럼+필터",
-      "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_169",
-      "topicSlug": "dashboard-version-double-v-fix",
-      "closedAt": "2026-05-02T11:30:00.000Z",
-      "oneLineSummary": "dashboard-version-double-v-fix 완료: vv0.01 수정·에이전트 카드 3종 추가·EDI 색상·사이드바 브랜드명",
       "decisionsAdded": []
     }
   ],
@@ -641,5 +641,5 @@
       "resolvedNote": "hitRateRubric = D-041(session_037, persona-top01-redefinition) 잔재. Big Bang 설계 범위 외. D-092 단순화 이후 pipeline 연결 없음(hooks/scripts 참조 0건). 8역할 memory.json에서 일괄 삭제 완료. Jobs·Sage·Zero 미박제는 설계적으로 정상. PD-054 resolved."
     }
   ],
-  "lastUpdated": "2026-05-02T09:54:04.546Z"
+  "lastUpdated": "2026-05-02T10:07:36.728Z"
 }

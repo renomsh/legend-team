@@ -7393,8 +7393,29 @@
       "grade": "D",
       "oneLineSummary": "grade null 7건 소급 할당(legacy topics) → grade합계=전체 144건 일치",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_172",
+      "topicSlug": "dashboard-layout-ratio-fix",
+      "topic": "대시보드 좌우 비율 5:5 높이 정렬",
+      "startedAt": "2026-05-02T14:00:00.000Z",
+      "closedAt": "2026-05-02T14:10:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "edi",
+          "turnIdx": 0,
+          "phase": "compile"
+        }
+      ],
+      "grade": "D",
+      "oneLineSummary": "section-grid-2col 1.7fr→1fr 1fr 변경, 좌우 5:5 비율 + 높이 정렬 완료",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-02T09:53:45.803Z",
+  "lastUpdated": "2026-05-02T10:07:17.699Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

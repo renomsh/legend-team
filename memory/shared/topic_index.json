@@ -1,6 +1,23 @@
 {
   "topics": [
     {
+      "id": "topic_149",
+      "title": "대시보드 좌우 비율 5:5 높이 정렬",
+      "status": "completed",
+      "phase": "framing",
+      "hold": null,
+      "created": "2026-05-02",
+      "controlPath": "topics/topic_149",
+      "reportPath": "reports/2026-05-02_dashboard-layout-ratio-fix",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_172",
+      "path": "topics/topic_149",
+      "grade": "D",
+      "topicType": "standalone",
+      "outcome": "section-grid-2col grid-template-columns 1.7fr 1fr → 1fr 1fr. Session flow·Role frequency 좌우 5:5 비율, 높이 자동 정렬."
+    },
+    {
       "id": "topic_148",
       "title": "대시보드 그래프-토픽 숫자 불일치 수정",
       "status": "completed",
@@ -2894,5 +2911,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-02T09:53:56.926Z"
+  "lastUpdated": "2026-05-02T10:07:28.346Z"
 }

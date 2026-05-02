@@ -1820,3 +1820,11 @@
 [2026-05-02T09:54:12.727Z] [compute-dashboard] 완료 — 168개 세션, 3개 경보
 [2026-05-02T09:58:22.716Z] [compute-dashboard] 완료 — 168개 세션, 3개 경보
 [2026-05-02T09:59:41.192Z] [compute-dashboard] 완료 — 168개 세션, 3개 경보
+[2026-05-02T10:07:14.005Z] [checklist] [INFO] reports: 1 file(s) on disk, none registered in topic_index
+[2026-05-02T10:07:14.008Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-05-02T10:07:14.009Z] [checklist] [INFO] topic_index: topic found: topic_149 (completed)
+[2026-05-02T10:07:14.009Z] [checklist] [INFO] current_session: will be set to closed
+[2026-05-02T10:07:14.010Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-05-02T10:07:14.010Z] [session-log] [INFO] END session_172 | topic: dashboard-layout-ratio-fix | duration: unknown (startedAt in future)
+[2026-05-02T10:07:36.729Z] [sync-system-state] lastSession=session_172 openTopics=2 recentDecisions=5 recentSummaries=3 deferrals=53
+[2026-05-02T10:07:45.060Z] [compute-dashboard] 완료 — 169개 세션, 3개 경보

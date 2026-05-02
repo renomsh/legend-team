@@ -2490,7 +2490,22 @@
         "masterTurns": 6,
         "total_billable": 19287725
       }
+    },
+    {
+      "capturedAt": "2026-05-02T10:07:17.541Z",
+      "cliSessionId": null,
+      "legendSessionId": "session_172",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--projects-legend-team\\1b033a01-101f-4af6-b13b-32eb0ecb493a.jsonl",
+      "usage": {
+        "input_tokens": 86,
+        "output_tokens": 15861,
+        "cache_creation_input_tokens": 225051,
+        "cache_read_input_tokens": 5475479,
+        "messageCount": 63,
+        "masterTurns": 3,
+        "total_billable": 5716477
+      }
     }
   ],
-  "lastUpdated": "2026-05-02T09:59:32.772Z"
+  "lastUpdated": "2026-05-02T10:07:17.542Z"
 }
