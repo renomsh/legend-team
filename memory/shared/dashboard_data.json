@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-03T13:49:59.611Z",
-  "totalSessions": 175,
+  "generatedAt": "2026-05-03T14:21:16.163Z",
+  "totalSessions": 176,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [
     {
@@ -8,26 +8,26 @@
       "caveat": "rules.edi가 hook에 의해 read되지 않으므로 정책 토글 기능 0(예: enforcement_grade 변경으로 enforcement 끄기 불가). 향후 D-138 enforcement 폐기 결정 시 finalize.js line 1521 직접 삭제 + rules.edi.enforcement_note 갱신 필요. Riki R-2(session_164 5 gap false positive 의심)는 미해소 — PD로 이연.",
       "ackedBySession": "session_168",
       "ackedAt": "2026-05-02",
-      "ageInSessions": 10
+      "ageInSessions": 11
     },
     {
       "decisionId": "D-138",
       "caveat": "dispatch_config.json Edi rule 부재는 잔존 — pre-tool-use-task.js가 dispatch_config를 실제 enforce하는 hook 구현 후 rule 추가 순서 유지 필요. turns 중복 기록 패턴(이번 세션 turns[1]/[3])은 별도 점검 후보.",
       "ackedBySession": "session_168",
       "ackedAt": "2026-05-02",
-      "ageInSessions": 10
+      "ageInSessions": 11
     }
   ],
   "metrics": {
-    "avgMasterTurns": 18.29,
-    "avgCacheHitRate": 0.9323,
-    "cacheSampleSize": 149,
-    "cacheSampleTotal": 175,
+    "avgMasterTurns": 18.2,
+    "avgCacheHitRate": 0.9319,
+    "cacheSampleSize": 150,
+    "cacheSampleTotal": 176,
     "avgAdoptionRate": 0,
-    "totalDecisions": 150,
+    "totalDecisions": 151,
     "gradeDistribution": {
       "S": 79,
-      "A": 34,
+      "A": 35,
       "B": 40,
       "C": 14,
       "D": 8
@@ -35,7 +35,7 @@
     "topicGradeDistribution": {
       "S": 17,
       "A": 59,
-      "B": 42,
+      "B": 43,
       "C": 25,
       "D": 7
     },
@@ -53,10 +53,10 @@
       "session_172"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 130,
-    "totalCostUSD": 2067.9419,
-    "avgCostPerSession": 12.1644,
-    "costSampleSize": 170
+    "turnBasedSessions": 131,
+    "totalCostUSD": 2069.9161,
+    "avgCostPerSession": 12.1048,
+    "costSampleSize": 171
   },
   "sessions": [
     {
@@ -6734,6 +6734,45 @@
         "messageCount": 80
       },
       "sessionCostUSD": 4.8529
+    },
+    {
+      "sessionId": "session_179",
+      "topicSlug": "self-eval-activation-analysis",
+      "topic": "셀프 평가 가동 - 미가동 원인 분석 및 정상화",
+      "startedAt": "2026-05-03T14:00:00.000Z",
+      "closedAt": "2026-05-03T15:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-150"
+      ],
+      "rolesCalled": 4,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 9,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 3,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "dev",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 2400788,
+        "ioTokens": 23219,
+        "inputTokens": 48,
+        "outputTokens": 23171,
+        "cacheCreate": 264690,
+        "cacheRead": 2112879,
+        "cacheHitRate": 0.88007729128936,
+        "messageCount": 28
+      },
+      "sessionCostUSD": 1.9742
     }
   ],
   "roleFrequency": [
@@ -6833,7 +6872,7 @@
     },
     {
       "role": "edi",
-      "count": 139,
+      "count": 140,
       "sessions": [
         "session_050",
         "session_051",
@@ -6961,12 +7000,13 @@
         "session_175",
         "session_176",
         "session_177",
-        "session_178"
+        "session_178",
+        "session_179"
       ]
     },
     {
       "role": "arki",
-      "count": 122,
+      "count": 123,
       "sessions": [
         "session_048",
         "session_049",
@@ -7031,12 +7071,13 @@
         "session_165",
         "session_167",
         "session_173",
-        "session_175"
+        "session_175",
+        "session_179"
       ]
     },
     {
       "role": "dev",
-      "count": 97,
+      "count": 98,
       "sessions": [
         "session_047",
         "session_048",
@@ -7115,12 +7156,13 @@
         "session_174",
         "session_175",
         "session_176",
-        "session_178"
+        "session_178",
+        "session_179"
       ]
     },
     {
       "role": "riki",
-      "count": 86,
+      "count": 87,
       "sessions": [
         "session_049",
         "session_053",
@@ -7184,7 +7226,8 @@
         "session_167",
         "session_173",
         "session_175",
-        "session_178"
+        "session_178",
+        "session_179"
       ]
     },
     {
@@ -12133,6 +12176,36 @@
         },
         {
           "role": "jobs",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_179",
+      "topic": "셀프 평가 가동 - 미가동 원인 분석 및 정상화",
+      "sequence": [
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
           "phase": null,
           "turnIdx": 1,
           "recallReason": null

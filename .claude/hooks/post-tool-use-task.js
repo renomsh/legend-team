@@ -155,8 +155,16 @@ function writeTurnLogEntry(cwd, topicId, role, turnIdx, sessionId, extra = {}) {
 function extractSelfScores(toolResponse) {
   if (!toolResponse) return null;
   let text = '';
-  if (typeof toolResponse === 'string') text = toolResponse;
-  else if (typeof toolResponse === 'object') {
+  if (Array.isArray(toolResponse)) {
+    // content block array 형식: [{"type":"text","text":"..."}]
+    // JSON.stringify fallback 시 \\n 이스케이프로 split 불발 — D-155 fix (session_179)
+    text = toolResponse
+      .filter(item => item && item.type === 'text')
+      .map(item => item.text || '')
+      .join('\n');
+  } else if (typeof toolResponse === 'string') {
+    text = toolResponse;
+  } else if (typeof toolResponse === 'object') {
     text = toolResponse.content || toolResponse.result || toolResponse.text || JSON.stringify(toolResponse);
   }
   text = String(text);

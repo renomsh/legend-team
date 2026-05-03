@@ -1,6 +1,20 @@
 {
   "decisions": [
     {
+      "id": "D-150",
+      "date": "2026-05-03",
+      "session": "session_179",
+      "topic": "topic_155",
+      "axis": "extractSelfScores Array 분기 추가 — content array 형식 입력 시 \\n 이스케이프 버그 수정",
+      "summary": "post-tool-use-task.js extractSelfScores()가 tool_response를 content block array([{\"type\":\"text\",\"text\":\"...\"}]) 형식으로 수신 시, Array.isArray 분기 없어 JSON.stringify() fallback → \\n이 \\\\n으로 이스케이프 → split(/\\r?\\n/) 불발 → selfScores 파싱 0건 → turns[].selfScores 누락. session_130~178 (49세션) 연속 누락 원인. Array.isArray 분기 6줄 추가로 수정. TC1~TC4 ALL PASS 검증 완료.",
+      "decision": "Array.isArray(toolResponse) 분기를 extractSelfScores() 최상단에 추가. content block array 형식에서 type==text 항목만 추출 후 join('\\n')하여 정상 text 구성. 기존 string/object 경로 무변경(else if로 유지). 다음 세션부터 selfScores self_scores.jsonl 적재 재개.",
+      "caveats": [
+        "49세션(session_130~178) 소급 복구는 이번 범위 외 — 옵션 B(transcript 스캔) 별도 구현 검토 필요",
+        "수정 후 silent fail 위험(R-2): 단위 테스트 4건 PASS로 완화. 다음 세션 자연 검증으로 최종 확인"
+      ],
+      "status": "active"
+    },
+    {
       "id": "D-149",
       "date": "2026-05-03",
       "session": "session_178",

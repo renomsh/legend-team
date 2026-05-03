@@ -35,12 +35,14 @@
   ],
   "debuggingPatterns": [
     "로그 기반 버그 분류: app.log에서 반복 패턴(FAIL, 음수 duration, mismatch) → 3종 독립 버그로 분류",
-    "코드 읽기 순서: endSession() 흐름 → 취약 지점 → 패치 → tsc --noEmit → 실행 검증"
+    "코드 읽기 순서: endSession() 흐름 → 취약 지점 → 패치 → tsc --noEmit → 실행 검증",
+    "hook tool_response 형식 진단(session_179, D-150): Claude Code PostToolUse hook tool_response가 string | object | Array 세 형식으로 도달. Array.isArray 미확인 시 JSON.stringify fallback → \\n이 \\\\n 이스케이프 → split 불발 무음 누락. 진단 순서: typeof → Array.isArray → JSON.stringify 결과 grep"
   ],
   "implementationPatterns": [
     "session_index 업데이트: map() 단독으로는 신규 항목 추가 불가 → some() 체크 후 push() fallback 패턴",
     "duration 계산: 수동 입력 startedAt은 미래 시각 가능 → ms 부호 체크 필수",
-    "TypeScript 타입과 실제 JSON 구조 불일치는 tsc --noEmit으로만 감지 가능 (런타임은 통과)"
+    "TypeScript 타입과 실제 JSON 구조 불일치는 tsc --noEmit으로만 감지 가능 (런타임은 통과)",
+    "hook content array 처리(session_179, D-150): tool_response가 [{type:'text', text:'...'}] 형식일 때 Array.isArray 분기를 최상단에 두고 .filter(type==='text').map(.text).join('\\n') 후 파싱. 기존 string/object 분기는 else if로 보존 — 역호환 보장. 단위 테스트 TC1(array)/TC2(string)/TC3(filter)/TC4(null) 4건 필수."
   ],
   "escalationHistory": [],
   "topicsHandled_session032": {

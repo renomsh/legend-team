@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_178",
-  "nextSessionId": "session_179",
-  "currentVersion": "v0.02",
+  "lastSessionId": "session_179",
+  "nextSessionId": "session_180",
+  "currentVersion": "v0.7.150",
   "openTopics": [
     {
       "id": "topic_012",
@@ -13,6 +13,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-150",
+      "date": "2026-05-03",
+      "axis": "extractSelfScores Array 분기 추가 — content array 형식 입력 시 \\n 이스케이프 버그 수정",
+      "summary": "extractSelfScores Array 분기 추가 — content array 형식 입력 시 \\n 이스케이프 버그 수정"
+    },
     {
       "id": "D-149",
       "date": "2026-05-03",
@@ -36,15 +42,18 @@
       "date": "2026-05-02",
       "axis": "신규 페르소나 도입 12-axes 인벤토리 점검 SOP",
       "summary": "신규 페르소나 도입 12-axes 인벤토리 점검 SOP"
-    },
-    {
-      "id": "D-145",
-      "date": "2026-05-02",
-      "axis": "Jobs↔Ace 호출 분리 원칙 + skill Step 0/0b 1줄 위임 + Nexus topicType 판정 SOT + history forbid 표현 정정",
-      "summary": "Jobs↔Ace 호출 분리 원칙 + skill Step 0/0b 1줄 위임 + Nexus topicType 판정 SOT + history forbid 표현 정정"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_179",
+      "topicSlug": "self-eval-activation-analysis",
+      "closedAt": "2026-05-03T15:30:00.000Z",
+      "oneLineSummary": "[summary 없음 — self-eval-activation-analysis]",
+      "decisionsAdded": [
+        "D-150"
+      ]
+    },
     {
       "sessionId": "session_178",
       "topicSlug": "pd055-turnid-mismatch-fix",
@@ -60,18 +69,6 @@
       "closedAt": "2026-05-03T10:30:00.000Z",
       "oneLineSummary": "COPD CMA 탐색: Education→Pack-years→SGRQ(PM=12.7%)/CAT(PM=15.5%), DAG 시각화, 매개후보 전수 스크리닝",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_176",
-      "topicSlug": "copd-figure1-consort-redesign",
-      "closedAt": "2026-05-03T06:30:00.000Z",
-      "oneLineSummary": "ERJ figure 3종 v2/v3 산출 — Fig1 v3(mediation cohort), Fig2 v2(followup sweep), Fig3 v2(unified marker), COTE 제거 ICMJE 정합",
-      "decisionsAdded": [
-        "ERJ figure 3종 모두 흑백 only + Helvetica + 5 color token 통일",
-        "Fig2 재정의: COTE-stratified CV IRR forest grid → Follow-up window sweep (TE & NIE 시간 robustness)",
-        "Fig1 v3 채택: sister paper cohort (2,679/2,474/315/2,159) → 본 mediation 연구 cohort (3,228 → 2,712 → TE 1,352 / NIE 850)",
-        "Fig3 marker 통일: 모든 row ○ 동일 size(6pt), Primary는 fill solid + bold text만으로 강조"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -684,5 +681,5 @@
       "relatedTopic": "topic_150"
     }
   ],
-  "lastUpdated": "2026-05-03T13:49:50.781Z"
+  "lastUpdated": "2026-05-03T14:20:44.179Z"
 }
