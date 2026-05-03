@@ -1,6 +1,25 @@
 {
   "topics": [
     {
+      "id": "topic_153",
+      "title": "논문 리뷰",
+      "status": "completed",
+      "phase": "implementation",
+      "hold": null,
+      "created": "2026-05-03",
+      "controlPath": "topics/topic_153",
+      "reportPath": "reports/2026-05-03_erj-paper-review",
+      "reportFiles": [
+        "dev_rev1.md"
+      ],
+      "published": false,
+      "closedInSession": "session_177",
+      "closedAt": "2026-05-03",
+      "outcome": "COPD CMA 탐색 분석 완료: Education→Pack-years→SGRQ/CAT. PM=12.7%/15.5%. DAG 시각화 생성.",
+      "path": "topics/topic_153",
+      "grade": "C"
+    },
+    {
       "id": "topic_152",
       "title": "COPD 논문 Figure 1 CONSORT flowchart 디자인 고도화 — Vera",
       "status": "completed",
@@ -2966,5 +2985,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-03T05:47:29.661Z"
+  "lastUpdated": "2026-05-03T07:08:56.227Z"
 }

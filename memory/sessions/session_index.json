@@ -7720,8 +7720,30 @@
         "Fig1 v3 채택: sister paper cohort (2,679/2,474/315/2,159) → 본 mediation 연구 cohort (3,228 → 2,712 → TE 1,352 / NIE 850)",
         "Fig3 marker 통일: 모든 row ○ 동일 size(6pt), Primary는 fill solid + bold text만으로 강조"
       ]
+    },
+    {
+      "sessionId": "session_177",
+      "topicSlug": "erj-paper-review",
+      "topic": "논문 리뷰",
+      "startedAt": "2026-05-03T07:00:00.000Z",
+      "closedAt": "2026-05-03T10:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "edi",
+          "turnIdx": 0,
+          "phase": "compile"
+        }
+      ],
+      "grade": "C",
+      "note": "Grade C 명시 (Master 선언). 논문 리뷰 — COPD causal mediation 논문 ERJ 제출 패키지 관련. | 선행 토픽: topic_151 (COPD Part 2 ERJ 제출 패키지), topic_152 (Figure 재디자인). D-148 박제: ~12% honest accept odds.",
+      "oneLineSummary": "COPD CMA 탐색: Education→Pack-years→SGRQ(PM=12.7%)/CAT(PM=15.5%), DAG 시각화, 매개후보 전수 스크리닝",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-03T05:47:20.477Z",
+  "lastUpdated": "2026-05-03T07:08:47.943Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

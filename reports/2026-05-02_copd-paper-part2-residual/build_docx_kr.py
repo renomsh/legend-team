@@ -12,13 +12,15 @@ from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
 
 ROOT = Path("C:/Projects/legend-team/reports/2026-05-02_copd-paper-part2-residual")
-OUT = ROOT / "Manuscript_ver3.5_F-rev2_K.docx"
+OUT = ROOT / "Manuscript_ver3.5_F-rev3_K.docx"
 
+FIGS_V2 = "C:/Projects/legend-team/reports/2026-05-03_copd-figure1-consort-redesign/figures_v2"
 IMG = {
     "Figure 1": "C:/Projects/COPD/Fig. 1 (2).jpg",
-    "Figure 2": "C:/Projects/COPD/Fig. 2..png",
-    "Figure 3": "C:/Projects/COPD/Data/ver2.0/submission_session174_2026-05-02/02_analysis_outputs/Fig3_forest_NIE.png",
+    "Figure 2": f"{FIGS_V2}/Fig1_CONSORT_v3.png",
+    "Figure 3": f"{FIGS_V2}/Fig3_forest_NIE_v2.png",
     "Supp S1": "C:/Projects/COPD/Data/ver2.0/submission_session174_2026-05-02/02_analysis_outputs/S1_time_ordering.png",
+    "Supp S2": f"{FIGS_V2}/Fig2_followup_sweep_v2.png",
 }
 
 doc = Document()
@@ -178,7 +180,7 @@ intros = [
     "만성폐쇄성폐질환(COPD)은 전 세계 호흡기 질환 이환·사망의 주요 원인으로 지속되고 있으며, 급성악화는 질병 경과·의료이용·인구집단 부담의 주된 동인이다 [1-5]. 고소득 의료체계에서 일관되게 관찰되는 현상은, 보편적 의료보장으로 접근성이 평준화된 이후에도 낮은 교육수준이 악화 위험 증가와 연관되는 것이다 [6-9]. 그러나 이 잔여 gradient가 어떤 기전을 통해 전달되는지는 공식적으로 분해된 적이 없다.",
     "두 가지 상호 배타적이지 않은 경로 군이 제안되어 왔다. 첫째는 차등 노출(흡연량·직업적 분진·거주지 대기오염)이 낮은 사회경제적 위치를 통해 폐기능 저하 및 악화로 전이되는 채널을 강조한다 [4, 7]. 둘째는 차등 증상 경험·보고(건강 문해력·증상 인지·도움요청 임계)를 근위 lever로 강조하며, SGRQ나 COPD Assessment Test(CAT) 같은 환자보고 도구가 그 구성개념을 포착한다 [15-18, 27, 28]. 접근성이 상당히 평준화된 보편적 의료보장 체계 내에서 이 두 채널의 상대적 기여도는 직접적인 정책적 함의를 가진다: 노출이 우세하면 환경·직업 통제 확대가 lever이며, 증상 경험이 우세하면 교육 수준별 증상 모니터링 진료 경로가 실행 가능 표적이 된다.",
     "인과 매개분석은 명시적 식별 가정 하에 총효과를 직접·매개 성분으로 분할하고 매개비율을 정량화하는 공식적 framework을 제공한다 [20-22]. 본 연구는 한국 다기관 전향적 코호트(KOCOSS, 44개 병원, n=2,712)에 VanderWeele 4-way decomposition을 적용하였다. SGRQ 증상 영역을 사전에 일차 매개변수로, pack-years·SGRQ 활동·SGRQ 영향 영역을 사전 비교 매개변수로 설정하여, 한국 보편적 의료보장 체계의 잔여 교육-악화 연관에서 어느 경로가 작동 채널인지 검정하였다. 일차 종점은 위계적 단계별 순서형 추세를, 보수적 미측정 교란 시나리오 하 편향보정 자연간접효과를, 그리고 진행성 증상 질환에서의 잠재적 역인과 우려를 다루기 위한 GOLD 1–2 하위 코호트 민감도 분석을 보고한다.",
-    "본 연구는 KOCOSS 사전 계획된 두 분석 중 두 번째이다. 자매 논문 [37]은 COTE 동반질환 점수 기반 심혈관 및 악화 결과 예측 prognostic index를 개발하였다. 두 분석은 동일 코호트를 공유하지만 노출·결과·분석 framework 세 축에서 비중복 과학적 질문을 다룬다.",
+    "본 연구는 KOCOSS 사전 계획된 두 분석 중 두 번째이다. 자매 논문 [37]은 복합 동반질환 지수 기반 심혈관 및 악화 결과 예측 prognostic index를 개발하였다. 두 분석은 동일 코호트를 공유하지만 노출·결과·분석 framework 세 축에서 비중복 과학적 질문을 다룬다.",
 ]
 for txt in intros:
     add_para(txt)
@@ -326,8 +328,9 @@ doc.add_page_break()
 
 # =================== SUPPLEMENTARY ===================
 add_heading("보충 자료 (Supplementary material)", level=1)
-add_para("보충 그림 S1 — KOCOSS의 베이스라인·매개변수·결과 측정 시간 순서(아래). 보충 표 S3 — 정량적 편향 평가(E-값 sweep, ρ ∈ {0.05, 0.10, 0.15, 0.20, 0.25}); 보충 표 S4 — GOLD 1–2 하위 코호트 민감도(n=605); 보충 표 S8 — Job-NaN MAR 검정. 이 표들은 별도 파일(S3_ignorability_sensitivity, S4_gold12_subcohort, S8_mcar_test)로 JSON 및 Markdown 형식으로 제공된다.")
+add_para("보충 그림 S1 — KOCOSS의 베이스라인·매개변수·결과 측정 시간 순서(아래). 보충 그림 S2 — 추적 기간 window sweep(Y1~Y5)에 따른 총효과(TE) 및 자연간접효과(NIE) 시간 robustness. 보충 표 S3 — 정량적 편향 평가(E-값 sweep, ρ ∈ {0.05, 0.10, 0.15, 0.20, 0.25}); 보충 표 S4 — GOLD 1–2 하위 코호트 민감도(n=605); 보충 표 S8 — Job-NaN MAR 검정. 이 표들은 별도 파일(S3_ignorability_sensitivity, S4_gold12_subcohort, S8_mcar_test)로 JSON 및 Markdown 형식으로 제공된다.")
 add_image(IMG["Supp S1"], "보충 그림 S1. KOCOSS 코호트에서 베이스라인 측정(T0), 매개변수 평가, 결과 확인(일차 T+12개월; 확장 Y1–Y3 풀링 분석 T+12~T+36개월)의 시간 순서. 교육과 직업은 베이스라인에서 확인되었다. 진행성 증상 질환으로부터의 역인과는 완전히 배제할 수 없으나 GOLD 1–2 하위 코호트 민감도 분석(표 4 / 보충 표 S4)에서 다루어진다.", width=6.0)
+add_image(IMG["Supp S2"], "보충 그림 S2. 교육수준(저 vs 고)의 5개 누적 추적 window(Y1 일차~Y1–Y5)에 걸친 총효과(TE) 및 SGRQ 증상 통한 자연간접효과(NIE) follow-up window sweep. 좌측 패널: TE 오즈비(로그 척도); 우측 패널: NIE 오즈비(선형 척도). 95% 신뢰구간 포함. NIE 점추정치는 전 window에 걸쳐 안정(범위 1.056–1.122)하며, TE는 Y1–Y3에서 통계적 유의성 도달(OR 1.81, 95% CI 1.09–3.00). 출처: followup_sweep.json.", width=6.0)
 
 doc.add_page_break()
 

@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_176",
-  "nextSessionId": "session_177",
+  "lastSessionId": "session_177",
+  "nextSessionId": "session_178",
   "currentVersion": "v0.01",
   "openTopics": [
     {
@@ -46,6 +46,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_177",
+      "topicSlug": "erj-paper-review",
+      "closedAt": "2026-05-03T10:30:00.000Z",
+      "oneLineSummary": "COPD CMA 탐색: Education→Pack-years→SGRQ(PM=12.7%)/CAT(PM=15.5%), DAG 시각화, 매개후보 전수 스크리닝",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_176",
       "topicSlug": "copd-figure1-consort-redesign",
       "closedAt": "2026-05-03T06:30:00.000Z",
@@ -64,15 +71,6 @@
       "oneLineSummary": "COPD 논문 ERJ 제출 패키지 ver3.5_F-rev2 완성: 영문+한글 docx, 47 files 4MB consolidation, ~12% honest accept odds, D-148 박제",
       "decisionsAdded": [
         "D-148"
-      ]
-    },
-    {
-      "sessionId": "session_174",
-      "topicSlug": "copd-paper-ver34-finalization",
-      "closedAt": "2026-05-02T18:30:00.000Z",
-      "oneLineSummary": "ver3.5_E cohort rebuild — Job=29 무직 정확 제외, n=2,712, α₁ 부호 정정, S8 sensitivity 신설, p-trend 강화. submission bundle 생성.",
-      "decisionsAdded": [
-        "D-147"
       ]
     }
   ],
@@ -682,5 +680,5 @@
       "relatedTopic": "topic_150"
     }
   ],
-  "lastUpdated": "2026-05-03T05:47:37.209Z"
+  "lastUpdated": "2026-05-03T07:09:02.838Z"
 }

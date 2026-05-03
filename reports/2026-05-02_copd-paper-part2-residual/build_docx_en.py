@@ -13,13 +13,15 @@ from docx.oxml import OxmlElement
 
 ROOT = Path("C:/Projects/legend-team/reports/2026-05-02_copd-paper-part2-residual")
 SRC = ROOT / "full_manuscript_ver3.5_F-rev1_E.md"
-OUT = ROOT / "Manuscript_ver3.5_F-rev2_E.docx"
+OUT = ROOT / "Manuscript_ver3.5_F-rev3_E.docx"
 
+FIGS_V2 = "C:/Projects/legend-team/reports/2026-05-03_copd-figure1-consort-redesign/figures_v2"
 IMG = {
     "Figure 1": ("C:/Projects/COPD/Fig. 1 (2).jpg", "Conceptual directed acyclic graph (DAG)"),
-    "Figure 2": ("C:/Projects/COPD/Fig. 2..png", "Cohort flow diagram"),
-    "Figure 3": ("C:/Projects/COPD/Data/ver2.0/submission_session174_2026-05-02/02_analysis_outputs/Fig3_forest_NIE.png", "Forest plot of NIE"),
+    "Figure 2": (f"{FIGS_V2}/Fig1_CONSORT_v3.png", "Cohort flow diagram (CONSORT v3)"),
+    "Figure 3": (f"{FIGS_V2}/Fig3_forest_NIE_v2.png", "Forest plot of NIE (v2)"),
     "Supp S1": ("C:/Projects/COPD/Data/ver2.0/submission_session174_2026-05-02/02_analysis_outputs/S1_time_ordering.png", "Time-ordering of measurements"),
+    "Supp S2": (f"{FIGS_V2}/Fig2_followup_sweep_v2.png", "Follow-up window sweep (TE & NIE)"),
 }
 
 # ---- Document setup ----
@@ -212,7 +214,7 @@ Two non-mutually-exclusive families of pathway have been proposed. The first emp
 
 Causal mediation analysis offers a formal framework for partitioning a total effect into direct and mediated components and for quantifying the proportion mediated under explicit identifying assumptions [20-22]. We applied the VanderWeele four-way decomposition to a prospective Korean multicentre cohort (KOCOSS, 44 hospitals, n=2,712) with the SGRQ Symptoms domain designated a priori as the primary candidate mediator, and pack-years, SGRQ Activity and SGRQ Impacts as prespecified comparator mediators, to test which pathway is the operative channel of the residual education–exacerbation association in the Korean universal-coverage system. We report a hierarchical per-tier ordinal trend as the primary endpoint, a bias-adjusted natural indirect effect under a conservative unmeasured-confounding scenario, and a GOLD 1–2 sub-cohort sensitivity analysis to address potential reverse causation from advanced symptomatic disease.
 
-This work is the second of two pre-planned KOCOSS investigations; the companion paper [37] developed a predictive prognostic index based on the COTE comorbidity score for cardiovascular and exacerbation outcomes. The two analyses share the underlying cohort but address non-overlapping scientific questions on different exposure, outcome and analytic-framework axes."""
+This work is the second of two pre-planned KOCOSS investigations; the companion paper [37] developed a predictive prognostic index based on a composite comorbidity index for cardiovascular and exacerbation outcomes. The two analyses share the underlying cohort but address non-overlapping scientific questions on different exposure, outcome and analytic-framework axes."""
 
 for para in intro.split("\n\n"):
     add_md_para(para.strip())
@@ -363,9 +365,11 @@ doc.add_page_break()
 
 # =================== SUPPLEMENTARY MATERIAL ===================
 add_heading("Supplementary material", level=1)
-add_md_para("Supplementary Figure S1 — temporal ordering of baseline measurement, mediator assessment and outcome ascertainment in KOCOSS (below). Supplementary Table S3 — quantitative bias assessment (E-value sweep, ρ ∈ {0.05, 0.10, 0.15, 0.20, 0.25}); Supplementary Table S4 — GOLD 1–2 sub-cohort sensitivity (n=605); Supplementary Table S8 — Job-NaN MAR test (Little's test plus per-characteristic comparison). These tables are available as separate files (S3_ignorability_sensitivity, S4_gold12_subcohort, S8_mcar_test) in machine-readable JSON and Markdown formats.")
+add_md_para("Supplementary Figure S1 — temporal ordering of baseline measurement, mediator assessment and outcome ascertainment in KOCOSS (below). Supplementary Figure S2 — follow-up window sweep of total effect (TE) and natural indirect effect (NIE) across Y1–Y5 outcome windows (time robustness). Supplementary Table S3 — quantitative bias assessment (E-value sweep, ρ ∈ {0.05, 0.10, 0.15, 0.20, 0.25}); Supplementary Table S4 — GOLD 1–2 sub-cohort sensitivity (n=605); Supplementary Table S8 — Job-NaN MAR test (Little's test plus per-characteristic comparison). These tables are available as separate files (S3_ignorability_sensitivity, S4_gold12_subcohort, S8_mcar_test) in machine-readable JSON and Markdown formats.")
 
 add_image(IMG["Supp S1"][0], "Supplementary Figure S1. Temporal ordering of baseline measurement (T0), mediator assessment, and outcome ascertainment (T+12 months for primary; T+12 to T+36 months for extended Y1–Y3 pooled analysis) in the KOCOSS cohort. Education and occupation were ascertained at baseline; reverse causation from advanced symptomatic disease cannot be fully excluded but is addressed in the GOLD 1–2 sub-cohort sensitivity analysis (Table 4 / Supplementary Table S4).", width=6.0)
+
+add_image(IMG["Supp S2"][0], "Supplementary Figure S2. Follow-up window sweep of total effect (TE) and natural indirect effect (NIE) of education (Low vs High) through SGRQ Symptoms across five cumulative outcome windows (Y1 primary through Y1–Y5). Left panel: TE odds ratio (log scale); right panel: NIE odds ratio (linear scale). Point estimates with 95% confidence intervals. The NIE point estimate remains stable across windows (range 1.056–1.122); the TE reaches statistical significance at Y1–Y3 (OR 1.81, 95% CI 1.09–3.00). Source: followup_sweep.json.", width=6.0)
 
 doc.add_page_break()
 
