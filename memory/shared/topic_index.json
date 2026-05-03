@@ -1,6 +1,22 @@
 {
   "topics": [
     {
+      "id": "topic_156",
+      "title": "자동모드 비활성화 수정",
+      "status": "completed",
+      "phase": "completed",
+      "hold": null,
+      "created": "2026-05-03",
+      "controlPath": "topics/topic_156",
+      "reportPath": "reports/2026-05-04_automode-fix",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_180",
+      "outcome": "settings.local.json permissions 객체에 defaultMode 누락 → shallow merge로 user-level defaultMode 덮어씌워짐. local에 bypassPermissions 추가로 해결.",
+      "path": "topics/topic_156",
+      "grade": "C"
+    },
+    {
       "id": "topic_155",
       "title": "셀프 평가 가동 - 미가동 원인 분석 및 정상화",
       "status": "completed",
@@ -3024,5 +3040,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-03T14:20:12.558Z"
+  "lastUpdated": "2026-05-03T23:42:49.980Z"
 }

@@ -1899,3 +1899,19 @@
 [2026-05-03T23:19:32.471Z] [compute-dashboard] 완료 — 176개 세션, 3개 경보
 [2026-05-03T23:20:26.113Z] [compute-dashboard] 완료 — 176개 세션, 3개 경보
 [2026-05-03T23:21:00.074Z] [compute-dashboard] 완료 — 176개 세션, 3개 경보
+[2026-05-03T23:42:11.229Z] [checklist] [WARN] reports: reportPath not found on disk: reports/2026-05-04_automode-fix
+[2026-05-03T23:42:11.231Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-05-03T23:42:11.231Z] [checklist] [INFO] topic_index: topic found: topic_156 (completed)
+[2026-05-03T23:42:11.232Z] [checklist] [INFO] current_session: will be set to closed
+[2026-05-03T23:42:11.233Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-05-03T23:42:11.233Z] [session-log] [INFO] END session_180 | topic: automode-fix | duration: unknown (startedAt in future)
+[2026-05-03T23:42:37.017Z] [checklist] [INFO] reports: 1 file(s) on disk, none registered in topic_index
+[2026-05-03T23:42:37.019Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-05-03T23:42:37.019Z] [checklist] [INFO] topic_index: topic found: topic_156 (completed)
+[2026-05-03T23:42:37.020Z] [checklist] [INFO] current_session: will be set to closed
+[2026-05-03T23:42:37.022Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-05-03T23:42:37.022Z] [session-log] [INFO] END session_180 | topic: automode-fix | duration: unknown (startedAt in future)
+[2026-05-03T23:42:43.967Z] [L2-writer] wrote C:\Projects\legend-team\topics\topic_156\session_contributions\session_180.md | turns=0 decisions=0
+[2026-05-03T23:42:46.066Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_156\context_brief.md | sessions=1 size=341B
+[2026-05-03T23:42:56.304Z] [sync-system-state] lastSession=session_180 openTopics=1 recentDecisions=5 recentSummaries=3 deferrals=56
+[2026-05-03T23:43:03.092Z] [compute-dashboard] 완료 — 177개 세션, 3개 경보

@@ -7830,8 +7830,30 @@
       "decisionsAdded": [
         "D-150"
       ]
+    },
+    {
+      "sessionId": "session_180",
+      "topicSlug": "automode-fix",
+      "topic": "자동모드 비활성화 수정",
+      "startedAt": "2026-05-04T00:00:00.000Z",
+      "closedAt": "2026-05-04T10:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "edi",
+          "turnIdx": 0,
+          "phase": "compile"
+        }
+      ],
+      "grade": "C",
+      "note": "Grade C (Master 선언). 자동모드 비활성화 수정 — 재부팅 후에도 자동 모드 선택이 안됨.",
+      "oneLineSummary": "automode-fix 완료: settings.local.json permissions shallow-merge 버그 수정, bypassPermissions 박제",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-03T14:20:02.335Z",
+  "lastUpdated": "2026-05-03T23:42:42.068Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

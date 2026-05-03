@@ -1,14 +1,15 @@
 {
-  "sessionId": "session_179",
-  "topicId": "topic_155",
-  "topic": "셀프 평가 가동 - 미가동 원인 분석 및 정상화",
-  "topicSlug": "self-eval-activation-analysis",
-  "reportPath": "reports/2026-05-03_self-eval-activation-analysis",
+  "sessionId": "session_180",
+  "topicId": "topic_156",
+  "topic": "자동모드 비활성화 수정",
+  "topicSlug": "automode-fix",
+  "reportPath": "reports/2026-05-04_automode-fix",
   "status": "closed",
-  "startedAt": "2026-05-03T14:00:00.000Z",
-  "closedAt": "2026-05-03T15:30:00.000Z",
+  "startedAt": "2026-05-04T00:00:00.000Z",
+  "closedAt": "2026-05-04T10:00:00.000Z",
+  "oneLineSummary": "automode-fix 완료: settings.local.json permissions shallow-merge 버그 수정, bypassPermissions 박제",
   "mode": "observation",
-  "grade": "B",
+  "grade": "C",
   "framingLevel": 0,
   "framingSkipped": true,
   "topicType": "standalone",
@@ -16,87 +17,46 @@
   "childTopicIds": [],
   "turns": [
     {
-      "role": "arki",
+      "role": "edi",
       "turnIdx": 0,
-      "source": "agent"
-    },
-    {
-      "role": "riki",
-      "turnIdx": 1,
-      "source": "agent"
-    },
-    {
-      "role": "dev",
-      "turnIdx": 2,
-      "source": "agent"
-    },
-    {
-      "role": "edi",
-      "turnIdx": 3,
-      "source": "agent"
-    },
-    {
-      "role": "edi",
-      "turnIdx": 4,
-      "source": "agent"
+      "phase": "compile"
     }
   ],
-  "decisions": [
-    "D-150"
-  ],
-  "decisionsAdded": [
-    "D-150"
-  ],
+  "decisions": [],
+  "decisionsAdded": [],
   "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [
-    "PD-058",
-    "PD-059",
-    "PD-060"
-  ],
+  "pendingDeferralsResolved": [],
   "notes": [
-    "Grade B (Master 선언). 셀프 평가 시스템 미가동 원인 분석 및 정상화.",
-    "세션 종료 후 추가 작업: PD-058(scope_areas 4중→SOT 참조), PD-059(KNOWN_ROLES 공통 모듈 lib/known-roles.js 신설 + pre-tool-use-task.js sage/zero/jobs 누락 수정), PD-060(오진 resolved), ~/.claude/settings.json skipAutoPermissionPrompt+defaultMode:auto 추가."
+    "Grade C (Master 선언). 자동모드 비활성화 수정 — 재부팅 후에도 자동 모드 선택이 안됨."
   ],
-  "oneLineSummary": "extractSelfScores Array 버그 수정(D-150) + KNOWN_ROLES SOT 공통화(PD-059) + scope_areas 단일화(PD-058) + 자동모드 settings 적용",
+  "gaps": [
+    {
+      "type": "mechanical-fallback-graded",
+      "sessionId": "session_180",
+      "grade": "C",
+      "severity": "info"
+    },
+    {
+      "type": "edi-llm-report-absent",
+      "sessionId": "session_180",
+      "reportPath": "reports/2026-05-04_automode-fix",
+      "grade": "C",
+      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
+    }
+  ],
+  "tokenUsage": {
+    "input_tokens": 133,
+    "output_tokens": 164564,
+    "cache_creation_input_tokens": 1259644,
+    "cache_read_input_tokens": 9448693,
+    "messageCount": 101,
+    "masterTurns": 16,
+    "total_billable": 10873034
+  },
   "agentsCompleted": [
-    "arki",
-    "riki",
-    "dev",
     "edi"
   ],
-  "gaps": [],
-  "versionBumpSuggested": {
-    "value": 0.001,
-    "type": "bugfix",
-    "reason": "post-tool-use-task.js extractSelfScores() Array 분기 추가 — hook 코드 버그 수정 (Grade B)",
-    "autoDetectedAt": "2026-05-03T15:30:00.000Z",
-    "changedFiles": [
-      ".claude/hooks/post-tool-use-task.js"
-    ],
-    "changedFilesCount": 1,
-    "cappedAt": 0.1,
-    "confirmedBy": null
-  },
-  "versionBump": {
-    "value": 0.001,
-    "from": "0.7.149",
-    "to": "0.7.150",
-    "reason": "post-tool-use-task.js extractSelfScores() Array 분기 추가로 49세션 selfScores 적재 누락 버그 수정 (D-150). Grade B 버그픽스 +0.001.",
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-03T15:30:00.000Z",
-    "basedOn": "versionBumpSuggested",
-    "overrideReason": null
-  },
-  "tokenUsage": {
-    "input_tokens": 251,
-    "output_tokens": 91445,
-    "cache_creation_input_tokens": 728567,
-    "cache_read_input_tokens": 14145319,
-    "messageCount": 137,
-    "masterTurns": 18,
-    "total_billable": 14965582
-  },
-  "finalizedAt": "2026-05-03T14:20:44.498Z"
+  "finalizedAt": "2026-05-03T23:42:56.397Z"
 }

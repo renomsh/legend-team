@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_179",
-  "nextSessionId": "session_180",
+  "lastSessionId": "session_180",
+  "nextSessionId": "session_181",
   "currentVersion": "v0.7.150",
   "openTopics": [
     {
@@ -46,6 +46,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_180",
+      "topicSlug": "automode-fix",
+      "closedAt": "2026-05-04T10:00:00.000Z",
+      "oneLineSummary": "automode-fix 완료: settings.local.json permissions shallow-merge 버그 수정, bypassPermissions 박제",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_179",
       "topicSlug": "self-eval-activation-analysis",
       "closedAt": "2026-05-03T15:30:00.000Z",
@@ -62,13 +69,6 @@
       "decisionsAdded": [
         "D-149"
       ]
-    },
-    {
-      "sessionId": "session_177",
-      "topicSlug": "erj-paper-review",
-      "closedAt": "2026-05-03T10:30:00.000Z",
-      "oneLineSummary": "COPD CMA 탐색: Education→Pack-years→SGRQ(PM=12.7%)/CAT(PM=15.5%), DAG 시각화, 매개후보 전수 스크리닝",
-      "decisionsAdded": []
     }
   ],
   "pendingDeferrals": [
@@ -690,5 +690,5 @@
       "resolvedNote": "오진 — internal_tools는 Zero 인라인 처리 설계 문서화 필드. enforce 코드 없음이 정상 설계(Zero 자율 판단). Master 확인."
     }
   ],
-  "lastUpdated": "2026-05-03T14:20:44.179Z"
+  "lastUpdated": "2026-05-03T23:42:56.303Z"
 }
