@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "v0.01",
+    "version": "v0.02",
     "era_history": [
       {
         "era": "Legend Team",
@@ -232,7 +232,13 @@
       "date": "2026-05-02",
       "summary": "D-145: PD-056 본체 7 Phase 완결 + Jobs↔Ace↔Nexus 호출 분리 원칙 신설. capacity 확장(+0.01).",
       "sessionId": "session_168"
+    },
+    {
+      "version": "v0.02",
+      "date": "2026-05-03",
+      "summary": "post-tool-use-task.js hook에 patchFrontmatterTurnId() 추가 — PD-055 frontmatter turnId 자동 정정 capacity 확장. 단위 테스트 4건 PASS.",
+      "sessionId": "session_178"
     }
   ],
-  "lastUpdated": "2026-05-02"
+  "lastUpdated": "2026-05-03"
 }

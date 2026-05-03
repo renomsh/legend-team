@@ -1,6 +1,24 @@
 {
   "topics": [
     {
+      "id": "topic_154",
+      "title": "PD-055 서브에이전트 turnId 자가 추정 오류 fix",
+      "status": "completed",
+      "phase": "implementation",
+      "hold": null,
+      "created": "2026-05-03",
+      "controlPath": "topics/topic_154",
+      "reportPath": "reports/2026-05-03_pd055-turnid-mismatch-fix",
+      "reportFiles": [
+        "dev_rev1.md",
+        "edi_rev1.md"
+      ],
+      "published": false,
+      "closedInSession": "session_178",
+      "path": "topics/topic_154",
+      "grade": "B"
+    },
+    {
       "id": "topic_153",
       "title": "논문 리뷰",
       "status": "completed",
@@ -2985,5 +3003,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-03T07:08:56.227Z"
+  "lastUpdated": "2026-05-03T13:49:43.168Z"
 }

@@ -1,6 +1,26 @@
 {
   "feedbackLog": [
     {
+      "id": "MF-107",
+      "date": "2026-05-03",
+      "session": "session_178",
+      "topic": "topic_154",
+      "feedback": "세션 오픈 지연 — Master가 두 번 말해야 했음",
+      "context": "session_178 오픈 시 Nexus가 즉시 세션 시작 체크리스트를 실행하지 않아 Master가 반복 지시 필요. 저마찰 원칙 위반.",
+      "status": "pending",
+      "statusNote": "적용 필요 — 세션 오픈 시 체크리스트 즉시 자동 실행 의무화"
+    },
+    {
+      "id": "MF-106",
+      "date": "2026-05-03",
+      "session": "session_178",
+      "topic": "topic_154",
+      "feedback": "Nexus가 Grade B 선언 무시하고 Riki 인라인 발언 — 의사결정 월권",
+      "context": "topic_154 Grade B. CLAUDE.md Grade B 기본 역할: Arki→Riki→Ace(/ace-synthesis 시)→Edi. 그러나 Riki가 inline 발언(subagent 아님)으로 실행되어 Grade B 오케스트레이션 규약 위반. Master가 Riki inline을 명시적으로 승인하지 않았음.",
+      "status": "pending",
+      "statusNote": "적용 필요 — Grade B에서 Nexus가 역할 발언 방식(subagent vs inline)을 Master 명시 없이 임의 전환 금지"
+    },
+    {
       "id": "MF-105",
       "date": "2026-04-30",
       "session": "session_150",

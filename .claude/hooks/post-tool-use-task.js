@@ -201,6 +201,38 @@ function extractReportsPath(toolResponse) {
   return null;
 }
 
+/**
+ * 보고서 파일 frontmatter의 turnId를 correctTurnIdx로 패치.
+ * - frontmatter 블록(--- ... ---) 내 `turnId: N` 줄만 교체.
+ * - 이미 맞으면 no-op.
+ * - 파일 없거나 frontmatter 없으면 silent return (no throw).
+ * @returns {boolean} true=패치 성공(또는 no-op), false=실패
+ */
+function patchFrontmatterTurnId(filePath, correctTurnIdx) {
+  try {
+    if (!fs.existsSync(filePath)) return false;
+    const content = fs.readFileSync(filePath, 'utf8');
+    // frontmatter 블록 추출 (파일 시작 '---' ... '---')
+    const fmMatch = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+    if (!fmMatch) return false;
+
+    const fmText = fmMatch[1];
+    const turnIdMatch = fmText.match(/^turnId:\s*(\d+)/m);
+    if (!turnIdMatch) return false; // turnId 필드 없으면 no-op (패치 불필요)
+
+    const currentVal = parseInt(turnIdMatch[1], 10);
+    if (currentVal === correctTurnIdx) return true; // 이미 맞음 — no-op
+
+    // turnId 줄만 교체
+    const patchedFm = fmText.replace(/^turnId:\s*\d+/m, `turnId: ${correctTurnIdx}`);
+    const patchedContent = content.replace(fmMatch[0], fmMatch[0].replace(fmText, patchedFm));
+    fs.writeFileSync(filePath, patchedContent, 'utf8');
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 function log(msg) {
   console.error(`[post-tool-use-task] ${msg}`);
 }
@@ -273,6 +305,37 @@ function log(msg) {
     const sessionId = sess.sessionId;
     if (topicId && sessionId) {
       const reportsPath = extractReportsPath(input.tool_response || input.toolResponse);
+
+      // frontmatter turnId 패치 — D-067/PD-055 (session_178)
+      // 서브에이전트가 자가 추정한 turnId가 틀릴 수 있으므로 hook이 정확한 turnIdx로 교체.
+      if (reportsPath) {
+        const absReportPath = path.isAbsolute(reportsPath)
+          ? reportsPath
+          : path.join(cwd, reportsPath);
+        const patched = patchFrontmatterTurnId(absReportPath, turnIdx);
+        if (patched) {
+          log(`frontmatter turnId 패치: ${reportsPath} → turnId: ${turnIdx}`);
+        } else {
+          // 패치 실패 — gaps 기록 (turns push는 독립 실행, 차단 없음)
+          sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
+          const alreadyRecorded = sess.gaps.some(
+            g => g.type === 'frontmatter-patch-failed' && g.role === role && g.turnIdx === turnIdx
+          );
+          if (!alreadyRecorded) {
+            sess.gaps.push({
+              type: 'frontmatter-patch-failed',
+              role,
+              turnIdx,
+              reportsPath,
+              detectedAt: new Date().toISOString(),
+              note: `frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: ${reportsPath}`,
+            });
+            writeJsonFile(currentSessionPath, sess);
+            log(`⚠ frontmatter-patch-failed gap 기록: ${role} turn${turnIdx} (${reportsPath})`);
+          }
+        }
+      }
+
       const ok = writeTurnLogEntry(cwd, topicId, role, turnIdx, sessionId, {
         ...(reportsPath && { reportsPath }),
       });

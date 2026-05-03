@@ -7742,8 +7742,54 @@
       "note": "Grade C 명시 (Master 선언). 논문 리뷰 — COPD causal mediation 논문 ERJ 제출 패키지 관련. | 선행 토픽: topic_151 (COPD Part 2 ERJ 제출 패키지), topic_152 (Figure 재디자인). D-148 박제: ~12% honest accept odds.",
       "oneLineSummary": "COPD CMA 탐색: Education→Pack-years→SGRQ(PM=12.7%)/CAT(PM=15.5%), DAG 시각화, 매개후보 전수 스크리닝",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_178",
+      "topicId": "topic_154",
+      "topicSlug": "pd055-turnid-mismatch-fix",
+      "topic": "PD-055 서브에이전트 turnId 자가 추정 오류 fix",
+      "startedAt": "2026-05-03T11:00:00.000Z",
+      "closedAt": "2026-05-03T11:30:00.000Z",
+      "grade": "B",
+      "decisions": [
+        "D-149"
+      ],
+      "turns": [
+        {
+          "role": "riki",
+          "turnIdx": 0,
+          "source": "agent"
+        },
+        {
+          "role": "jobs",
+          "turnIdx": 1,
+          "source": "agent"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 2,
+          "source": "agent"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 3,
+          "source": "agent"
+        }
+      ],
+      "agentsCompleted": [
+        "riki",
+        "jobs",
+        "dev",
+        "edi"
+      ],
+      "note": "Grade B (Master 선언). PD-055 서브에이전트 turnId 자가 추정 오류 — session_165 inline-role-header-mismatch gap 재발 방지. | 핵심 선행 확인: (1) PostToolUse 순차 실행 보장 여부(R-1), (2) frontmatter turnId downstream consume 코드 존재 여부(R-2/Fin). | 구현 완료: patchFrontmatterTurnId() 추가, 단위 테스트 4건 PASS. PD-055 부분 충족 (dry-run은 다음 세션).",
+      "cwd": "C:\\Projects\\legend-team",
+      "oneLineSummary": "[summary 없음 — pd055-turnid-mismatch-fix]",
+      "decisionsAdded": [
+        "D-149"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-03T07:08:47.943Z",
+  "lastUpdated": "2026-05-03T13:49:32.676Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

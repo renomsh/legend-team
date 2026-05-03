@@ -1,6 +1,21 @@
 {
   "decisions": [
     {
+      "id": "D-149",
+      "date": "2026-05-03",
+      "session": "session_178",
+      "topic": "topic_154",
+      "axis": "post-tool-use-task.js frontmatter turnId 사후 패치 (옵션 a) 구현 — patchFrontmatterTurnId() 추가",
+      "summary": "서브에이전트 turnId 자가 추정 오류(PD-055) 수정. session-end-finalize.js consume 실존 확인 후 hook 사후 패치 방식 채택. 추가 토큰 0, race condition 없음(순차 실행 실측). 단위 테스트 4건 PASS. R-3(silent skip)은 Scope Out — 별도 토픽.",
+      "decision": "post-tool-use-task.js에 patchFrontmatterTurnId(filePath, correctTurnIdx) 함수 추가. PostToolUse 시점에 보고서 frontmatter turnId를 hook이 보유한 정확한 turns[] index로 자동 교체. 패치 실패 시 gaps frontmatter-patch-failed 기록.",
+      "caveats": [
+        "PD-055 resolveCondition 완전 충족 조건: dry-run 1세션 mismatch 0건 — 다음 Grade A/S 세션 자연 검증 예정",
+        "R-3(silent skip): 패치 실패 감지 불가 이슈 별도 토픽으로 분화 검토",
+        "Grade B 임에도 Riki inline 발언 — Nexus 오케스트레이션 월권 MF-106 박제"
+      ],
+      "status": "active"
+    },
+    {
       "id": "D-148",
       "date": "2026-05-03",
       "session": "session_175",

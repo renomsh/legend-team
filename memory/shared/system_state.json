@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_177",
-  "nextSessionId": "session_178",
-  "currentVersion": "v0.01",
+  "lastSessionId": "session_178",
+  "nextSessionId": "session_179",
+  "currentVersion": "v0.02",
   "openTopics": [
     {
       "id": "topic_012",
@@ -13,6 +13,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-149",
+      "date": "2026-05-03",
+      "axis": "post-tool-use-task.js frontmatter turnId 사후 패치 (옵션 a) 구현 — patchFrontmatterTurnId() 추가",
+      "summary": "post-tool-use-task.js frontmatter turnId 사후 패치 (옵션 a) 구현 — patchFrontmatterTurnId() 추가"
+    },
     {
       "id": "D-148",
       "date": "2026-05-03",
@@ -36,15 +42,18 @@
       "date": "2026-05-02",
       "axis": "Jobs↔Ace 호출 분리 원칙 + skill Step 0/0b 1줄 위임 + Nexus topicType 판정 SOT + history forbid 표현 정정",
       "summary": "Jobs↔Ace 호출 분리 원칙 + skill Step 0/0b 1줄 위임 + Nexus topicType 판정 SOT + history forbid 표현 정정"
-    },
-    {
-      "id": "D-144",
-      "date": "2026-05-02",
-      "axis": "Master 5+1축 결정 (A.a / B.a / C.a / 버전 v0.00 / D.b / E.a) — 표기만 전환·디렉토리 unified·history[] 28 entry 불변",
-      "summary": "(a) Legend Nexus 표면 정체성 회복 — Big Bang 시스템 변경이 표기에도 반영됨. (b) era_history 박제로 과거 시점(history[] 28 entry) 보존 + 현재 표기 분리 = revisionable + non-destructive. (c) Grade D 카운트 dashboard 노출로 D-130 'D 키워드 자동 분기' 운영 가시화. (d) ackedButUnresolved schema 박제로 caveats 누적 추적 가능 (본체는 child)."
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_178",
+      "topicSlug": "pd055-turnid-mismatch-fix",
+      "closedAt": "2026-05-03T11:30:00.000Z",
+      "oneLineSummary": "[summary 없음 — pd055-turnid-mismatch-fix]",
+      "decisionsAdded": [
+        "D-149"
+      ]
+    },
     {
       "sessionId": "session_177",
       "topicSlug": "erj-paper-review",
@@ -62,15 +71,6 @@
         "Fig2 재정의: COTE-stratified CV IRR forest grid → Follow-up window sweep (TE & NIE 시간 robustness)",
         "Fig1 v3 채택: sister paper cohort (2,679/2,474/315/2,159) → 본 mediation 연구 cohort (3,228 → 2,712 → TE 1,352 / NIE 850)",
         "Fig3 marker 통일: 모든 row ○ 동일 size(6pt), Primary는 fill solid + bold text만으로 강조"
-      ]
-    },
-    {
-      "sessionId": "session_175",
-      "topicSlug": "copd-paper-part2-residual",
-      "closedAt": "2026-05-03T03:35:00.000Z",
-      "oneLineSummary": "COPD 논문 ERJ 제출 패키지 ver3.5_F-rev2 완성: 영문+한글 docx, 47 files 4MB consolidation, ~12% honest accept odds, D-148 박제",
-      "decisionsAdded": [
-        "D-148"
       ]
     }
   ],
@@ -111,13 +111,17 @@
       "fromSession": "session_165",
       "fromTopic": "dispatch-config-edi-enforce-hook",
       "item": "서브에이전트 turnId 자가 추정 오류 — Riki·Dev 병렬 dispatch 시 Riki가 frontmatter에 turnId:3 박제했으나 실 turns[]에서 turnId:2 (turnIdx 3은 dev). 서브에이전트가 다른 역할 진행 상황 모르므로 turnId 자가 추정에 한계. inline-role-header-mismatch gap 발생. Hook이 frontmatter turnId↔turns[] role 자동 정합 검증·정정하는 enforcement 또는 dispatch prompt에 turnId 명시 주입 메커니즘 박제 필요.",
-      "status": "pending",
+      "status": "resolved",
       "resolveCondition": "(a) Hook이 frontmatter↔turns[] 자동 정정 또는 (b) 서브에이전트 dispatch prompt에 turnId 주입 메커니즘 구현 + 1세션 dry-run에서 mismatch 0건 확인",
       "dependsOn": [],
       "relatedDecisions": [
-        "D-143"
+        "D-143",
+        "D-149"
       ],
-      "relatedGap": "inline-role-header-mismatch (session_165, riki_rev1.md)"
+      "relatedGap": "inline-role-header-mismatch (session_165, riki_rev1.md)",
+      "resolvedInSession": "session_178",
+      "resolvedAt": "2026-05-03",
+      "resolvedNote": "옵션(a) 구현 완료: post-tool-use-task.js patchFrontmatterTurnId() 추가. R-2 consume 실존 확인(session-end-finalize.js:469-486). R-1 race condition 낮음(순차 실행 실측). 단위 테스트 4건 PASS. resolveCondition 완전 충족 조건: dry-run은 다음 Grade A/S 세션 자연 검증 예정."
     },
     {
       "id": "PD-053",
@@ -680,5 +684,5 @@
       "relatedTopic": "topic_150"
     }
   ],
-  "lastUpdated": "2026-05-03T07:09:02.838Z"
+  "lastUpdated": "2026-05-03T13:49:50.781Z"
 }
