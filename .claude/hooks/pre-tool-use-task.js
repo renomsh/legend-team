@@ -22,8 +22,8 @@ const path = require('path');
 
 const TARGET_TOOL_NAMES = ['Task', 'Agent'];
 const ROLE_AGENT_PREFIX = 'role-';
-// vera 추가 (P2, topic_127)
-const KNOWN_ROLES = ['ace', 'arki', 'fin', 'riki', 'nova', 'dev', 'edi', 'designer', 'vera'];
+// PD-059 resolved (session_179): KNOWN_ROLES 단일 출처 — lib/known-roles.js SOT
+const { KNOWN_ROLES } = require('./lib/known-roles');
 const INJECTION_MARKER = '[PRE-TOOL-USE-TASK-INJECTED]';
 const MAX_CHARS_PER_REPORT = 6000;   // 보고서 1개당 최대 (약 1.5K tokens)
 const MAX_CHARS_PER_EDI   = 8000;   // Edi 보고서는 좀 더 허용

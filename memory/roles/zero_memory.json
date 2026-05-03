@@ -27,11 +27,7 @@
     ]
   },
   "policy": {
-    "scope_areas": [
-      "tech-debt",
-      "security-review",
-      "simplify"
-    ],
+    "scope_areas": "dispatch_config.json rules.zero.scope_areas SOT 참조",
     "session_isolation": "shared",
     "supersedes": [
       "D-110"

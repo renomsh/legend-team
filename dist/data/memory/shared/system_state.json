@@ -646,39 +646,48 @@
       "fromSession": "session_173",
       "fromTopic": "topic_150 (zero-logic-inefficiency-audit)",
       "item": "C3 — scope_areas 4중 박제(persona/policy/memory/dispatch_config) prose 참조형 단축. 운영 효익 낮음으로 본 토픽 DEFER. Jobs 권고: 신규 페르소나 N번째 도입 시 또는 SOP 갱신 시 재검토.",
-      "status": "pending",
+      "status": "resolved",
       "resolveCondition": "신규 페르소나(11번째 이상) 도입 OR D-146 SOP 갱신 토픽 발생 OR Master 명시 재오픈",
       "dependsOn": [],
       "relatedDecisions": [
         "D-146"
       ],
-      "relatedTopic": "topic_150"
+      "relatedTopic": "topic_150",
+      "resolvedInSession": "session_179",
+      "resolvedAt": "2026-05-04",
+      "resolvedNote": "persona(role-zero.md) + memory(zero_memory.json) scope_areas를 dispatch_config.json SOT 참조 1줄로 단축. Master 명시 진행 승인."
     },
     {
       "id": "PD-059",
       "fromSession": "session_173",
       "fromTopic": "topic_150 (zero-logic-inefficiency-audit)",
       "item": "C6 — KNOWN_ROLES 배열 hook 2개(post-tool-use-task.js + pre-tool-use-task-sage-gate.js) 중복 박제. 공통 모듈 추출. ROI 낮음으로 본 토픽 DEFER. Jobs 권고: hook 신설·개편 토픽 발생 시 재검토.",
-      "status": "pending",
+      "status": "resolved",
       "resolveCondition": "hook 신설·개편 토픽 발생 OR KNOWN_ROLES 동기화 누락 사고 1건 발생 OR Master 명시 재오픈",
       "dependsOn": [],
       "relatedDecisions": [
         "D-146"
       ],
-      "relatedTopic": "topic_150"
+      "relatedTopic": "topic_150",
+      "resolvedInSession": "session_179",
+      "resolvedAt": "2026-05-04",
+      "resolvedNote": "lib/known-roles.js 공통 모듈 신설. 3개 hook require()로 전환. pre-tool-use-task.js sage·zero·jobs 누락 동기화 오류도 동시 수정."
     },
     {
       "id": "PD-060",
       "fromSession": "session_173",
       "fromTopic": "topic_150 (zero-logic-inefficiency-audit)",
       "item": "C7 — dispatch_config.rules.zero.internal_tools 배열([Cut,Refine,Audit]) 코드 read 0건. 정보적 의의만. 저비용으로 본 토픽 DEFER. Jobs 권고: dispatch_config 표준화 토픽 발생 시 재검토.",
-      "status": "pending",
+      "status": "resolved",
       "resolveCondition": "dispatch_config rule 표준화 토픽 발생 OR Master 명시 재오픈",
       "dependsOn": [],
       "relatedDecisions": [
         "D-146"
       ],
-      "relatedTopic": "topic_150"
+      "relatedTopic": "topic_150",
+      "resolvedInSession": "session_179",
+      "resolvedAt": "2026-05-04",
+      "resolvedNote": "오진 — internal_tools는 Zero 인라인 처리 설계 문서화 필드. enforce 코드 없음이 정상 설계(Zero 자율 판단). Master 확인."
     }
   ],
   "lastUpdated": "2026-05-03T14:20:44.179Z"

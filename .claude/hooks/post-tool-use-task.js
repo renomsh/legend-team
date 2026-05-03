@@ -29,11 +29,8 @@ const path = require('path');
 
 const TARGET_TOOL_NAMES = ['Task', 'Agent']; // 양쪽 모두 cover
 const ROLE_AGENT_PREFIX = 'role-';
-// ⚠ SYNC RULE (topic_135, 2026-05-01): 역할 추가 시 아래 3파일 KNOWN_ROLES 동시 업데이트 필수:
-//   1. .claude/hooks/post-tool-use-task.js (이 파일)
-//   2. .claude/hooks/pre-tool-use-task-sage-gate.js
-//   3. .claude/hooks/pre-tool-use-task.js
-const KNOWN_ROLES = ['ace', 'arki', 'fin', 'riki', 'nova', 'dev', 'edi', 'designer', 'sage', 'zero', 'vera', 'jobs'];
+// PD-059 resolved (session_179): KNOWN_ROLES 단일 출처 — lib/known-roles.js SOT
+const { KNOWN_ROLES } = require('./lib/known-roles');
 
 function readStdin() {
   return new Promise((resolve) => {

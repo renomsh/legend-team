@@ -35,7 +35,7 @@ description: 레전드팀 Zero 역할 서브에이전트. 정제(refinement) 페
 ## 호출 규칙
 
 **on-demand**. 매 세션 호출 X. 정제 필요 시 Master/Nexus가 호출. `dispatch_config.json` `rules.zero`:
-- `scope_areas`: `["tech-debt", "security-review", "simplify"]`
+- `scope_areas`: `dispatch_config.json rules.zero.scope_areas` SOT 참조
 - `session_isolation`: `"shared"` — Sage와 달리 다른 페르소나와 공존 가능
 
 **Self-exclusion 일반 원칙 (D-146 통합 SOT, D-125 supersede):** 메타-자산(violation flag·audit trail·self-scores log·decision_ledger 메타 분석 등 시스템 자기 점검용 산출물)을 정제 대상으로 삼지 않는다. NCL 폐기(D-133) 후 보호 대상은 현재 부재이나, 미래 메타-자산 재도입 시 0-cost 활성. enforce 코드 부재 — Zero **자율 판단 의무**. 사고 1건 발생 시 enforce hook 신설 + Zero 호출 동결.
