@@ -1,6 +1,31 @@
 {
   "decisions": [
     {
+      "id": "D-148",
+      "date": "2026-05-03",
+      "session": "session_175",
+      "topic": "topic_151",
+      "axis": "ERJ stretch target with full submission package despite ~12% honest acceptance probability + Nexus initial 30-40% over-estimate accountability",
+      "summary": "(a) COPD 논문 ver3.5_F-rev2 manuscript을 ERJ (IF~24, target #1) 제출 패키지로 완성. Body 3,455w / 3,500w PASS, G1-G5 모두 PASS. Authors/Affiliations/Funding/Ethics/COI sister mirror, ref [38] Mathur-VanderWeele wrong DOI → Smith-VanderWeele 2019 Mediational E-values 정정, Table 1 baseline 실측 채움 (n=2,653 valid edu), Figure 3 forest plot 재생성 (S6 drop, S2/S7 갱신), Supp S1/S3/S4/S8 박제, Cover letter ICMJE 3-axis non-overlap. (b) 영문 + 한글 docx 동시 생성 (Calibri/맑은 고딕, 표 4종 Word table 변환, 그림 4종 embed). (c) ERJ_submission_2026-05-03/ 통합 패키지 47 files / 4MB, README 권은진 박사 5단계 체크리스트. (d) 추천 reviewer 5명 + 예비 2명 (VanderWeele/Vansteelandt/Sin/Hurst/Gershon + Prescott/Imai). (e) Master 결정 = ERJ stretch 강행, 단 ~12% probability 정직 인정 후. Cascade: ERJ → Chest → IJE → Respir Med → ERJ Open Res → Int J COPD.",
+      "decision": "ERJ 제출 패키지 ver3.5_F-rev2 완성 + immediate submission (sister paper 9-day gap 방어 narrative pivot). DOI/Authors/Funding placeholder는 권은진 박사 직접 확정 (helper Master는 paper에 미표기). 거부 시 즉시 Chest cascade.",
+      "caveats": [
+        "Nexus 초기 ERJ 30-40% 추정은 over-optimism — 실제는 처음부터 10-15% 추정해야 했음. 결정이 잘못된 정보로 이뤄짐 (Master 직접 지적: '처음엔 30% 된다며 12%였으면 안 했지')",
+        "Edi rev3 background agent stalled (600s no progress) — Nexus 직접 docx 생성으로 fallback (build_docx_en/kr.py)",
+        "Jobs rev3 권고 (Abstract PM 제거 / 어순 교체 / sensitivity 8→4 압축) Master 거부 — '변화 자체 추구' 비판 정합, Nexus 0% delta 정직 추정 후 Master 거부 정당화",
+        "Authors/Funding/Ethics는 sister mirror — 권은진 박사 confirm 필요 (placeholder 박힘)",
+        "Reference [26] Linden 2020 Stata J [verify] 잔존 — Stata Journal PubMed 비등재로 자동 검증 불가",
+        "DOI mint은 권은진 박사 manual 작업 (Zenodo 5분), 5단계 가이드 README 박제"
+      ],
+      "status": "active",
+      "caveatsMeta": {
+        "acked": false,
+        "ackedBySession": null,
+        "ackedAt": null,
+        "resolvedAt": null,
+        "resolvedBySession": null
+      }
+    },
+    {
       "id": "D-147",
       "date": "2026-05-02",
       "session": "session_174",

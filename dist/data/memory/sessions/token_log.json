@@ -2535,7 +2535,37 @@
         "masterTurns": 21,
         "total_billable": 25336225
       }
+    },
+    {
+      "capturedAt": "2026-05-03T04:51:48.738Z",
+      "cliSessionId": "8c5e9c59-d8d5-4694-add6-de9772e6d3df",
+      "legendSessionId": "session_175",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--projects-legend-team\\e40067e6-8a98-4f3b-ae7d-7a90a4f43dff.jsonl",
+      "usage": {
+        "input_tokens": 742,
+        "output_tokens": 407855,
+        "cache_creation_input_tokens": 2185782,
+        "cache_read_input_tokens": 68269513,
+        "messageCount": 279,
+        "masterTurns": 39,
+        "total_billable": 70863892
+      }
+    },
+    {
+      "capturedAt": "2026-05-03T05:47:20.336Z",
+      "cliSessionId": null,
+      "legendSessionId": "session_176",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--projects-legend-team\\0e15ed4b-b935-4647-9a59-d180b430f0f9.jsonl",
+      "usage": {
+        "input_tokens": 2210,
+        "output_tokens": 213356,
+        "cache_creation_input_tokens": 1346372,
+        "cache_read_input_tokens": 30913090,
+        "messageCount": 179,
+        "masterTurns": 11,
+        "total_billable": 32475028
+      }
     }
   ],
-  "lastUpdated": "2026-05-02T13:32:40.787Z"
+  "lastUpdated": "2026-05-03T05:47:20.337Z"
 }

@@ -1,6 +1,44 @@
 {
   "topics": [
     {
+      "id": "topic_152",
+      "title": "COPD 논문 Figure 1 CONSORT flowchart 디자인 고도화 — Vera",
+      "status": "completed",
+      "phase": "implementation",
+      "hold": null,
+      "created": "2026-05-03",
+      "controlPath": "topics/topic_152",
+      "reportPath": "reports/2026-05-03_copd-figure1-consort-redesign",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_176",
+      "closedAt": "2026-05-03",
+      "path": "topics/topic_152",
+      "grade": "C",
+      "topicType": "standalone",
+      "parentTopicId": null,
+      "outcome": "ERJ figure 3종 v2/v3 산출 (Fig1_CONSORT_v3 mediation cohort + Fig2_followup_sweep_v2 + Fig3_forest_NIE_v2 unified marker). COTE 제거하여 sister paper(Kwon 2026)와의 ICMJE 3축 non-overlap 정합. 모든 figure 흑백 only + Helvetica + 5 color token, EPS/PDF/PNG 3종 산출."
+    },
+    {
+      "id": "topic_151",
+      "title": "COPD 논문 Part2 — 잔여 8건 (manuscript 합본·refs·Figures·Supp Table·Korean·메타·Cover letter)",
+      "status": "completed",
+      "phase": "implementation",
+      "hold": null,
+      "created": "2026-05-02",
+      "controlPath": "topics/topic_151",
+      "reportPath": "reports/2026-05-02_copd-paper-part2-residual",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_175",
+      "closedAt": "2026-05-03",
+      "path": "topics/topic_151",
+      "grade": "A",
+      "parentTopicId": "topic_044",
+      "topicType": "implementation",
+      "outcome": "ERJ 제출 패키지 ver3.5_F-rev2 완성 (47 files, 4MB) — C:/Projects/COPD/ERJ_submission_2026-05-03/. 영문+한글 docx, cover letter, figures 1-3 + Supp S1, Tables 1-4, code/data Zenodo bundle, README 5단계 가이드. 권은진 박사 confirm + DOI mint + portal upload 단계만 잔여."
+    },
+    {
       "id": "topic_150",
       "title": "Zero 전체 로직 비효율 점검 — 제거/정제 후보 식별",
       "status": "completed",
@@ -2041,7 +2079,7 @@
       "id": "topic_044",
       "type": "research-writing",
       "title": "COPD 논문 ver3.4 최종화 — canonical 재분석 + (e) 프레임 확정",
-      "status": "in-progress",
+      "status": "completed",
       "created": "2026-04-19",
       "sessionId": "session_043",
       "sessions": [
@@ -2055,7 +2093,8 @@
       "note": "session_043 P0 결함(Table 1·Table 2 CI·PM 35.8%) → canonical ver3.5 + (e) 프레임 채택(D-045). session_174 추가 결함 발견(Job=29 무직 누락 + α₁ 부호 표시 오류) 해소. Cohort 정의 reviewer 공격 봉쇄.",
       "phase": null,
       "legacy": true,
-      "closedInSession": "session_174"
+      "closedInSession": "session_174",
+      "closedAt": "2026-05-02"
     },
     {
       "id": "topic_043",
@@ -2927,5 +2966,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-02T13:32:50.926Z"
+  "lastUpdated": "2026-05-03T05:47:29.661Z"
 }

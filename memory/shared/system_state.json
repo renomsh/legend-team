@@ -1,16 +1,9 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_174",
-  "nextSessionId": "session_175",
+  "lastSessionId": "session_176",
+  "nextSessionId": "session_177",
   "currentVersion": "v0.01",
   "openTopics": [
-    {
-      "id": "topic_044",
-      "title": "COPD 논문 ver3.4 최종화 — canonical 재분석 + (e) 프레임 확정",
-      "status": "in-progress",
-      "reportPath": "reports/2026-04-19_copd-paper-ver34-finalization",
-      "note": "session_043 P0 결함(Table 1·Table 2 CI·PM 35.8%) → canonical ver3.5 + (e) 프레임 채택(D-045). session_174 추가 결함 발견(Job=29 무직 누락 + α₁ 부호 표시 오류) 해소. Cohort 정의 reviewer 공격 봉쇄."
-    },
     {
       "id": "topic_012",
       "title": "데이터북 Agent 설계",
@@ -20,6 +13,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-148",
+      "date": "2026-05-03",
+      "axis": "ERJ stretch target with full submission package despite ~12% honest acceptance probability + Nexus initial 30-40% over-estimate accountability",
+      "summary": "ERJ stretch target with full submission package despite ~12% honest acceptance probability + Nexus initial 30-40% over-estimate accountability"
+    },
     {
       "id": "D-147",
       "date": "2026-05-02",
@@ -43,15 +42,30 @@
       "date": "2026-05-02",
       "axis": "Master 5+1축 결정 (A.a / B.a / C.a / 버전 v0.00 / D.b / E.a) — 표기만 전환·디렉토리 unified·history[] 28 entry 불변",
       "summary": "(a) Legend Nexus 표면 정체성 회복 — Big Bang 시스템 변경이 표기에도 반영됨. (b) era_history 박제로 과거 시점(history[] 28 entry) 보존 + 현재 표기 분리 = revisionable + non-destructive. (c) Grade D 카운트 dashboard 노출로 D-130 'D 키워드 자동 분기' 운영 가시화. (d) ackedButUnresolved schema 박제로 caveats 누적 추적 가능 (본체는 child)."
-    },
-    {
-      "id": "D-143",
-      "date": "2026-05-02",
-      "axis": "rules.edi 신설(정책 일관성만) + finalize.js 미변경(D-138 인라인 유지) + Opt-α 단일 권고",
-      "summary": "(a) 8역할 정책 비대칭 해소 — dispatch_config 정책 단일 출처 원칙 정합 회복. (b) D-142(자동 감시 ROI 0) 정신 양립 — enforcement를 config로 영구 박제하지 않음으로써 향후 해체 자유도 보존(Riki R-1 mitigation). (c) chain fragility 0 — config read 추가 안 함으로 D-008 hook chain 5단계 안정성 유지(Riki R-3 회피). (d) over-engineering 차단 — helper·try/catch·G1 게이트 0건, 변경 LoC ~10. (e) D4 Prime Directive 정합 — Master 자가 우회 방지(중간 frame 회피, 어중간한 절충안 금지)."
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_176",
+      "topicSlug": "copd-figure1-consort-redesign",
+      "closedAt": "2026-05-03T06:30:00.000Z",
+      "oneLineSummary": "ERJ figure 3종 v2/v3 산출 — Fig1 v3(mediation cohort), Fig2 v2(followup sweep), Fig3 v2(unified marker), COTE 제거 ICMJE 정합",
+      "decisionsAdded": [
+        "ERJ figure 3종 모두 흑백 only + Helvetica + 5 color token 통일",
+        "Fig2 재정의: COTE-stratified CV IRR forest grid → Follow-up window sweep (TE & NIE 시간 robustness)",
+        "Fig1 v3 채택: sister paper cohort (2,679/2,474/315/2,159) → 본 mediation 연구 cohort (3,228 → 2,712 → TE 1,352 / NIE 850)",
+        "Fig3 marker 통일: 모든 row ○ 동일 size(6pt), Primary는 fill solid + bold text만으로 강조"
+      ]
+    },
+    {
+      "sessionId": "session_175",
+      "topicSlug": "copd-paper-part2-residual",
+      "closedAt": "2026-05-03T03:35:00.000Z",
+      "oneLineSummary": "COPD 논문 ERJ 제출 패키지 ver3.5_F-rev2 완성: 영문+한글 docx, 47 files 4MB consolidation, ~12% honest accept odds, D-148 박제",
+      "decisionsAdded": [
+        "D-148"
+      ]
+    },
     {
       "sessionId": "session_174",
       "topicSlug": "copd-paper-ver34-finalization",
@@ -60,22 +74,6 @@
       "decisionsAdded": [
         "D-147"
       ]
-    },
-    {
-      "sessionId": "session_173",
-      "topicSlug": "zero-logic-inefficiency-audit",
-      "closedAt": "2026-05-02T16:30:00.000Z",
-      "oneLineSummary": "Zero footprint 12 axes 인벤토리·정리: A1~A6 6건 처리(self-exclusion SOT 통합·D-146 SOP 신설·PD 3건). 후속 B1·B2 분리.",
-      "decisionsAdded": [
-        "D-146"
-      ]
-    },
-    {
-      "sessionId": "session_172",
-      "topicSlug": "dashboard-layout-ratio-fix",
-      "closedAt": "2026-05-02T14:10:00.000Z",
-      "oneLineSummary": "section-grid-2col 1.7fr→1fr 1fr 변경, 좌우 5:5 비율 + 높이 정렬 완료",
-      "decisionsAdded": []
     }
   ],
   "pendingDeferrals": [
@@ -684,5 +682,5 @@
       "relatedTopic": "topic_150"
     }
   ],
-  "lastUpdated": "2026-05-02T13:32:58.694Z"
+  "lastUpdated": "2026-05-03T05:47:37.209Z"
 }
