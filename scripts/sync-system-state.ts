@@ -171,7 +171,7 @@ function main() {
     openTopics,
     recentDecisions,
     recentSessionSummaries,
-    pendingDeferrals: currentState.pendingDeferrals || [],
+    pendingDeferrals: (currentState.pendingDeferrals || []).filter((d: PendingDeferral) => d.status === 'pending'),
     lastUpdated: new Date().toISOString(),
   };
 

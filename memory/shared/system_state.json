@@ -1,9 +1,15 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_180",
-  "nextSessionId": "session_181",
-  "currentVersion": "v0.7.150",
+  "lastSessionId": "session_181",
+  "nextSessionId": "session_182",
+  "currentVersion": "v0.7.151",
   "openTopics": [
+    {
+      "id": "topic_157",
+      "title": "오픈·클로즈 경량화 검토",
+      "status": "in-progress",
+      "reportPath": "reports/2026-05-04_open-close-lightweight"
+    },
     {
       "id": "topic_012",
       "title": "데이터북 Agent 설계",
@@ -13,6 +19,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-151",
+      "date": "2026-05-04",
+      "axis": "sync-system-state.ts pendingDeferrals pending-only 필터 — 비활성 53개 제거, system_state.json 46K→5K",
+      "summary": "sync-system-state.ts pendingDeferrals pending-only 필터 — 비활성 53개 제거, system_state.json 46K→5K"
+    },
     {
       "id": "D-150",
       "date": "2026-05-03",
@@ -36,15 +48,18 @@
       "date": "2026-05-02",
       "axis": "Job=29 무직 EXCLUDE in primary cohort + Job=NaN KEEP+S8 sensitivity + Patch Table 3 α₁ 부호 정정 + Cohort rebuild n=2,712",
       "summary": "(a) Methods ↔ 코드 정합성 회복 — reviewer cohort 정의 공격 봉쇄. (b) Y3 p-trend 0.0125→0.0084 강화, Y1 NIE 거의 불변(robustness 입증). (c) α₁ 표시 오류 정정으로 manuscript 신뢰성 회복. (d) S8 sensitivity로 missingness robust 추가 입증. (e) 원본·신규 분석·코드·patch 모두 ver2.0 하위 단일 폴더 박제 — 재현성 + Master 검토 가능 상태."
-    },
-    {
-      "id": "D-146",
-      "date": "2026-05-02",
-      "axis": "신규 페르소나 도입 12-axes 인벤토리 점검 SOP",
-      "summary": "신규 페르소나 도입 12-axes 인벤토리 점검 SOP"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_181",
+      "topicSlug": "open-close-lightweight",
+      "closedAt": "2026-05-04T12:30:00.000Z",
+      "oneLineSummary": "open-close-lightweight: pendingDeferrals 필터(D-151) 46K→5K, 서브에이전트 보고서 정제 방향 분석 — 다음 세션 이어가기",
+      "decisionsAdded": [
+        "D-151"
+      ]
+    },
     {
       "sessionId": "session_180",
       "topicSlug": "automode-fix",
@@ -59,15 +74,6 @@
       "oneLineSummary": "[summary 없음 — self-eval-activation-analysis]",
       "decisionsAdded": [
         "D-150"
-      ]
-    },
-    {
-      "sessionId": "session_178",
-      "topicSlug": "pd055-turnid-mismatch-fix",
-      "closedAt": "2026-05-03T11:30:00.000Z",
-      "oneLineSummary": "[summary 없음 — pd055-turnid-mismatch-fix]",
-      "decisionsAdded": [
-        "D-149"
       ]
     }
   ],
@@ -88,176 +94,6 @@
       "relatedTopic": "topic_144"
     },
     {
-      "id": "PD-056",
-      "fromSession": "session_167",
-      "fromTopic": "topic_144 (dashboard-upgrade-v2-legend-nexus)",
-      "item": "ackedButUnresolved 본체 구현 — compute-dashboard.ts caveatsMeta 집계 확장 + dashboard 패널 신설. 본 세션은 schema spec(docs/dashboard-upgrade-v2-spec.md)만 박제, 본체 구현 child 토픽 분화 필요. 5건 caveats acked/resolved 분류 Master 1회 결정 포함.",
-      "status": "resolved",
-      "resolveCondition": "child 토픽 1건 신규 오픈 + caveatsMeta 집계 함수 구현 + dashboard 패널 노출 + Master 5건 caveats 분류 결정 1건",
-      "dependsOn": [],
-      "relatedDecisions": [
-        "D-144"
-      ],
-      "relatedTopic": "topic_144",
-      "resolvedInSession": "session_168",
-      "resolvedAt": "2026-05-02",
-      "resolvedNote": "topic_145 본 세션에서 4 Phase 본체 + 확장 Phase 5~7 일괄 완결. caveatsMeta schema 박제, 6건 caveat 분류, computeAckedButUnresolved 함수, dashboard 패널, D-145 결정. resolveCondition 4조건 모두 충족."
-    },
-    {
-      "id": "PD-055",
-      "fromSession": "session_165",
-      "fromTopic": "dispatch-config-edi-enforce-hook",
-      "item": "서브에이전트 turnId 자가 추정 오류 — Riki·Dev 병렬 dispatch 시 Riki가 frontmatter에 turnId:3 박제했으나 실 turns[]에서 turnId:2 (turnIdx 3은 dev). 서브에이전트가 다른 역할 진행 상황 모르므로 turnId 자가 추정에 한계. inline-role-header-mismatch gap 발생. Hook이 frontmatter turnId↔turns[] role 자동 정합 검증·정정하는 enforcement 또는 dispatch prompt에 turnId 명시 주입 메커니즘 박제 필요.",
-      "status": "resolved",
-      "resolveCondition": "(a) Hook이 frontmatter↔turns[] 자동 정정 또는 (b) 서브에이전트 dispatch prompt에 turnId 주입 메커니즘 구현 + 1세션 dry-run에서 mismatch 0건 확인",
-      "dependsOn": [],
-      "relatedDecisions": [
-        "D-143",
-        "D-149"
-      ],
-      "relatedGap": "inline-role-header-mismatch (session_165, riki_rev1.md)",
-      "resolvedInSession": "session_178",
-      "resolvedAt": "2026-05-03",
-      "resolvedNote": "옵션(a) 구현 완료: post-tool-use-task.js patchFrontmatterTurnId() 추가. R-2 consume 실존 확인(session-end-finalize.js:469-486). R-1 race condition 낮음(순차 실행 실측). 단위 테스트 4건 PASS. resolveCondition 완전 충족 조건: dry-run은 다음 Grade A/S 세션 자연 검증 예정."
-    },
-    {
-      "id": "PD-053",
-      "fromSession": "session_131",
-      "fromTopic": "persona-structure-redesign",
-      "item": "역할별 캐릭터 정비 — persona(정체성)·policy(발언규칙)·memory(누적학습) 3축을 역할별로 Master와 1:1 검토. 각 역할 파일 내용 점검 + 불일치·누락·중복 정리.",
-      "status": "resolved",
-      "resolveCondition": "8역할 전부 Master 직접 검토 완료 + 필요 시 수정 반영",
-      "dependsOn": [],
-      "resolvedAt": "2026-04-30",
-      "resolvedInSession": "session_148",
-      "resolvedNote": "10역할×3축 직검 완료 — persona/policy/memory 구조 정합. Sage/Zero policy 신설, designer 아카이브, Ace persona stale D-104 제거, personas/.old 7개 삭제."
-    },
-    {
-      "id": "PD-052",
-      "fromSession": "session_129",
-      "fromTopic": "persona-structure-redesign",
-      "item": "역할 사칭 사후 차단 hook — Main이 Agent 툴 미경유 상태로 역할 인라인 발언 사칭(F-B) 차단. PD-043은 식별만 완료, enforcement 미구현. SessionEnd finalize 시 turns[].role ↔ 직전 Agent tool_use 매칭 검증 + 위반 시 자동 차단/경고 hook. topic_127 옵션 2 페르소나 구조 가치 무력화 방지(Riki R-4).",
-      "status": "resolved",
-      "resolveCondition": "사후 차단 hook 구현 + 1세션 dry-run에서 위반 적발 또는 0건 모두 정상 작동 확인",
-      "dependsOn": [
-        "PD-043"
-      ],
-      "resolvedInSession": "session_134"
-    },
-    {
-      "id": "PD-044",
-      "fromSession": "session_103",
-      "fromTopic": "pd040-schema-governance-pd041-test-regression",
-      "item": "역할 정책의 페르소나 박제 — selfAuditProtocol(arki) 등 '발언 시 강제 적용' 정책이 *_memory.json에만 있고 personas/role-*.md에 미박제. 서브에이전트 호출 시 페르소나만 prompt에 주입되므로 정책 무용. canonical 분리 원칙 박제: 정책=persona / 누적학습=memory. 8역할 페르소나 점검 + 정책성 항목 본문 이전.",
-      "status": "resolved",
-      "resolveCondition": "8역할 페르소나에 정책 블록 박제 완료 + canonical 분리 원칙 CLAUDE.md 또는 D-09x로 박제 + 1세션 dry-run에서 정책 작동 확인",
-      "dependsOn": [],
-      "resolvedAt": "2026-04-30",
-      "resolvedInSession": "session_148",
-      "resolvedNote": "canonical 분리 완료 — 11개 memory 파일 표준 키만 잔존, policy 블록 role-*.md 이동, signatureMetrics D-092 단일 출처 정합."
-    },
-    {
-      "id": "PD-043",
-      "fromSession": "session_103",
-      "fromTopic": "pd040-schema-governance-pd041-test-regression",
-      "item": "역할 사칭 검증 hook — Main 컨텍스트가 Agent 툴 미경유 상태로 '## Ace', 'Arki:', '**Riki**' 등 역할 헤더 직접 작성 차단. session-end 시 turns[].role 항목마다 직전 Agent tool_use 매칭 검증. Main inline 역할 발언 + Ace relay 패턴 자동 적발. D-066(Grade A 서브에이전트 강제) + F-005(Ace relay 금지) 박혔으나 enforcement hook 미박제 → 현재 수동 감지뿐.",
-      "status": "resolved",
-      "resolveCondition": "PD-033(서브에이전트 세션 지속성)과 함께 다룸. 검증 hook 구현 + 1세션 dry-run에서 위반 0건 또는 적발 정상 작동 확인.",
-      "resolvedInSession": "session_125",
-      "resolvedNote": "topic_123 교차검증 완료. D-103 구현: pre/post-tool-use-task.js extractRole() 3-priority (ROLE: 마커→subagent_type→description 첫 단어). CLAUDE.md dispatch 규약 박제. session_123 dry-run: 6회 hook fire, role=unknown 0건, 위반 0건 확인 (logs/pre-tool-use-task.log 직접 증거).",
-      "dependsOn": [
-        "PD-033"
-      ]
-    },
-    {
-      "id": "PD-042",
-      "fromSession": "session_100",
-      "fromTopic": "pd023-impl-status-check",
-      "item": "PD-023 후속-B — signature.html main nav 통합. P5 '배포되었으나 미운영 대기' 해소.",
-      "status": "deprecated",
-      "resolveCondition": "topic_082 closed 후 promote 트리거, nav 통합 PR merged + 1토픽 실운영",
-      "deprecatedInSession": "session_122",
-      "deprecatedNote": "signature surface는 growth.html이 이미 담당(8역할 signature_metrics_aggregate grid 표시 + 사이드바 Growth 메뉴 진입). role-signature-card.html은 standalone 임베드 템플릿(카드 1개)이라 별도 페이지 후보 아님. PD-023 본체가 D-092로 resolved되어 'main nav 별도 메뉴 승격' 명분(자동 감시 surface) 소멸. resolveCondition 트리거(topic_082 closed)도 D-092 이후 사실상 영구 미발동.",
-      "dependsOn": []
-    },
-    {
-      "id": "PD-041",
-      "fromSession": "session_100",
-      "fromTopic": "pd023-impl-status-check",
-      "item": "PD-023 후속-A — test-regression.ts 자동화(회귀 baseline 잠금). fixture는 tests/fixtures/regression/ 존재. 수동 CLI + CI 친화.",
-      "status": "resolved",
-      "resolveCondition": "구현 완료 + 회귀 fixture 5종 PASS",
-      "resolvedInSession": "session_103",
-      "resolvedNote": "MVP 합의(Master 승인): fixture 2종(01_empty·02_baseline_n3) + scripts/test-regression.ts(132 lines). 5종→2종 scope 축소는 D-092 정신 적용(placeholder 카테고리를 spec으로 오독 방지). 3단 검증 통과(PASS/의도적FAIL검출/PASS복귀). D-093 박제.",
-      "dependsOn": []
-    },
-    {
-      "id": "PD-040",
-      "fromSession": "session_100",
-      "fromTopic": "pd023-impl-status-check",
-      "item": "스키마 거버넌스 — operationalStatus·triggerType·absorbed enum·재호출 강제 원칙 박제. PD-020 거버넌스 트랙.",
-      "status": "deprecated",
-      "resolveCondition": "PD-020 거버넌스 차기 토픽에서 스키마 변경 논의 + validate-schema-lifecycle.ts 갱신 + 1회 실적용 사례",
-      "deprecatedInSession": "session_103",
-      "deprecatedNote": "Master 폐기 결정 (session_103). 사유: (1) 실 드리프트 발생 0건, (2) 작성 빈도 세션당 0~1회 — Master 육안 검출 충분, (3) D-092 폐기한 자동 감시 패턴 카테고리에 속함. 자동 검증 인프라 ROI 낮음.",
-      "dependsOn": []
-    },
-    {
-      "id": "PD-034",
-      "fromSession": "session_090",
-      "fromTopic": "pd031-topic082-parallel-integration",
-      "item": "Vera visual_regression_zero signal 추가 — 스냅샷 diff 인프라(Playwright/Percy) 구축 + signature.html·app 파일 시각 회귀 테스트 + signal_registry.json에 S-031 엔트리 추가.",
-      "status": "deprecated",
-      "resolveCondition": "스냅샷 인프라 설치 + 3세션 연속 시각 회귀 0 확인 + signal_registry v1.01 bump",
-      "deprecatedInSession": "session_122",
-      "deprecatedNote": "D-092 자가평가 단순화 정책으로 자동 감시·자동 알림·게이트 영역 폐기. PD-034의 'signal 추가 + 3세션 연속 자동 카운트'는 정확히 폐기 영역에 해당. VR diff 0은 D-089/D-099/D-102 인프라(vr-capture 24/24 PASS)로 매 세션 실측 게이트 작동 중 — signal 박제 ROI 없음(이중 기록). PD-025/026/027/028/040 동등 선례.",
-      "dependsOn": []
-    },
-    {
-      "id": "PD-033",
-      "fromSession": "session_090",
-      "fromTopic": "pd031-topic082-parallel-integration",
-      "item": "서브에이전트 세션 지속성 구현 — SendMessage 툴 미로드로 같은 세션 내 역할 서브가 매 호출 재부팅. F-001~F-013 findings가 서브 인스턴스 간 전달되지 않아 맥락 유실. 해결 방안: (1) SendMessage 툴 활성화 경로 조사, (2) shared scratchpad JSON + explicit re-inject 프로토콜, (3) 역할별 lifecycle 정의(Ace=session 상주, 타 역할=topic 상주/call 상주).",
-      "status": "resolved",
-      "resolveCondition": "같은 session 내 Arki 3회 호출 시 이전 findings F-NNN 번호 유지 확인 + scratchpad 또는 SendMessage 경로 중 택1 구현",
-      "resolvedInSession": "session_125",
-      "resolvedNote": "topic_123 교차검증 완료. D-103 구현: pre-tool-use-task.js v2 content injection (scratchpad 방식 택1 구현). session_123 로그 직접 증거: Arki 3회 연속 호출(04:29:48/04:29:54/04:30:07), 매회 74,538자 컨텍스트(토픽+세션 layer 실제 내용) inject 확인. 이전 보고서 실제 내용 prepend로 F-NNN 맥락 유지 메커니즘 성립.",
-      "dependsOn": []
-    },
-    {
-      "id": "PD-032",
-      "fromSession": "session_090",
-      "fromTopic": "pd031-topic082-parallel-integration",
-      "item": "L5 페르소나 분리 로딩 구현 — CLAUDE.md에서 역할 페르소나 서술 제거, `.claude/agents/role-*.md`만 canonical. Main 컨텍스트에 페르소나 원문 미주입 시 오케스트레이션 성립 여부 검증. Claude Agent SDK 제약 조사 선행.",
-      "status": "resolved-fiction",
-      "resolveCondition": "Claude Agent SDK에서 main 컨텍스트에 역할 페르소나 원문을 주입하지 않고도 오케스트레이션 성립 확인 + 3세션 dry-run 통과 (또는 SDK 업데이트로 페르소나 분리 로딩 API 제공)",
-      "dependsOn": [],
-      "resolvedInSession": "session_092",
-      "resolvedNote": "D-071로 D-058 분기 폐기. 격리 인프라가 fiction이었으므로 페르소나 분리 대상 자체 소멸. 미래 harness 등록 spike 통과 시 재오픈."
-    },
-    {
-      "id": "PD-031",
-      "fromSession": "session_089",
-      "fromTopic": "pd023-self-scores-mvp-impl",
-      "item": "Self-score MVP 실가동 감사 — 70 records 중 86%가 default-fallback propagation, 실제 YAML 블록 기록은 10건뿐. session_086~089 4세션 연속 YAML 미기입. 원인 진단 필요: (1) Master 관심 부족? (2) finalize hook이 YAML 블록을 역할 발언에서 자동 추출 못 함? (3) YAML 포맷 학습 장벽? (4) 역할별 메트릭 shortKey 기억 어려움? (5) 입력 도구 자체 부재 — batch-score-helper.ts가 spec §2.1에 명시됐으나 미구현. YAML 직접 타이핑만 유일 경로 → 진입장벽 형성(G6.2 ② 감사에서 발견). (6) 출력 surface staged — signature.html은 base form으로 배포 완료되었으나 main nav 통합은 topic_082(Dashboard 전면 개편, 현재 suspended) 합류 시점까지 의도적 지연. 즉 structural gap이 아닌 계획된 staging. PD-031 재활성화 protocol 설계 시 topic_082 재개를 dependency로 고려 필요. MVP 비가시성 주원인은 '미통합'이 아니라 '미운영 대기 상태'. 재활성화 protocol 설계 필요. D-065 B 조치(allowDefaultFallback=false)로 앞으로는 propagation 차단됨 → 실 기록 없으면 빈 상태로 남음.",
-      "status": "resolved",
-      "resolveCondition": "P3-supplementary 완료 + 10세션 관찰 중 8개 role 각각 yaml-block 기록률 ≥ 70% 달성",
-      "resolvedInSession": "session_100",
-      "resolvedNote": "absorbed-by-PD-023 per D-088. 실가동 감사 항목을 PD-023 P3 운영 KPI 잔여로 재정의 흡수. 원본 item 6가지 가설은 PD-023 P3 운영 KPI 트랙에서 직접 측정.",
-      "dependsOn": []
-    },
-    {
-      "id": "PD-030",
-      "fromSession": "session_089",
-      "fromTopic": "pd023-self-scores-mvp-impl",
-      "item": "구현 완료 세션의 PD status 자동 전이 훅 — resolveCondition 매칭 확장판. 현재 resolve-pending-deferrals.ts는 topicType/parentTopicId 기반 자동 전이만 처리(D-057). 추가 필요: (1) children 완료 시 부모 PD 자동 resolved 전이 (2) 구현 토픽 closed + git log에 해당 PD 키워드 commit 있을 때 suggest (3) /open 이연 브리핑에 'PD X는 이미 구현됨 (commit Y, topic Z)' 자동 교차검증 제시 (4) Ace Step 0에서 PD status 재판정 prompt.",
-      "status": "resolved",
-      "resolveCondition": "설계 토픽 1건 + 구현 토픽 1건 완료 + /open 브리핑에 교차검증 메시지 통합",
-      "resolvedInSession": "session_097",
-      "resolvedNote": "topic_102 완료. git log 스캔 축 + [git-evidence] 브리핑 섹션 구현. R-1~R-4 반영. open.md B grade 충돌 수정. resolveCondition 3조건 모두 충족.",
-      "dependsOn": []
-    },
-    {
       "id": "PD-029",
       "fromSession": "session_088",
       "fromTopic": "vera-claude-design-ai-integration",
@@ -267,428 +103,13 @@
       "dependsOn": []
     },
     {
-      "id": "PD-028",
-      "fromSession": "session_087",
-      "fromTopic": "cost-report-2025-reanalysis",
-      "item": "회사 claude code 환경에서 동일 분석 재실행 후 본 재분석(이러닝군 62.0% / 하이브리드 25.7% / 컨텐츠개발 13.6%)과 cross-check. 안분 가정·재귀속 v4 결과의 외부 앵커 검증.",
-      "status": "deprecated",
-      "resolveCondition": "회사 claude code 분석 결과 공유 + 본 리포트와 사업군 이익율 차이 ±5%p 이내 일치",
-      "deprecatedInSession": "session_103",
-      "deprecatedNote": "Master 폐기 결정 (session_103). 회사 claude code cross-check 미실행 + 효용 없음.",
-      "dependsOn": []
-    },
-    {
-      "id": "PD-023",
-      "fromSession": "session_082",
-      "fromTopic": "pd023-self-scores-thin-impl",
-      "item": "Dev 얇은 구현 — 학습축 자가평가 MVP 본체 (29지표×100점×3뷰×8역할 카드 + Tier1/2/3 dashboard + forward-compat 슬롯). canonical spec: reports/2026-04-23_pd023-self-scores-thin-impl/arki_rev1.md",
-      "status": "resolved",
-      "resolveCondition": "Quick-win 2건 done + followup-A PD 등록 + (5토픽 누적 OR fallback<30%). 단 fallback<30% 단독 트리거 시 Master 게이트 자동 발동",
-      "statusNote": "D-092 (session_101). resolveCondition 5토픽 누적 ✅ (6 distinct topics: topic_089~094). 자가평가 단순화 정책으로 운영 KPI 트랙(fallback<30%·자동 감시) 폐기.",
-      "resolvedInSession": "session_101",
-      "resolvedNote": "D-092로 자가평가 자동 감시 인프라 전부 폐기. 점수 기록 + Master 수동 대시보드 열람으로 단순화. PD-023 close.",
-      "dependsOn": []
-    },
-    {
-      "id": "PD-025",
-      "fromSession": "session_082",
-      "fromTopic": "pd023-self-scores-thin-impl",
-      "item": "Self-rating 품질 + Goodhart 방어 (quarantine enforcement / inflation·anchoring·Goodhart detector / retroactive cascade / causal DAG / registry diff viewer)",
-      "status": "deprecated",
-      "resolveCondition": "PD-023 G6 통과 + 10세션 누적 self_scores.jsonl + Master inflation/anchoring 신호 1건 이상 감지",
-      "deprecatedInSession": "session_101",
-      "deprecatedNote": "D-092: 자동 감시 영역 폐기. Master 수동 대시보드 열람으로 대체. inflation/anchoring/Goodhart 신호는 Master가 직접 판단.",
-      "dependsOn": [
-        "PD-023"
-      ]
-    },
-    {
-      "id": "PD-026",
-      "fromSession": "session_082",
-      "fromTopic": "pd023-self-scores-thin-impl",
-      "item": "운영 hygiene + Validity (validity matrix / retirement suggestor / rater reliability / axis balance enforcement)",
-      "status": "deprecated",
-      "resolveCondition": "PD-025 통과 + 30세션 누적 + (4축 중 추가 축 지표 도입 토픽 발생 OR Master가 retirement 후보 검토 요청)",
-      "deprecatedInSession": "session_101",
-      "deprecatedNote": "D-092: 자동 검증 도구 영역 폐기. Master 수동 판단으로 대체.",
-      "dependsOn": [
-        "PD-023",
-        "PD-025"
-      ]
-    },
-    {
-      "id": "PD-027",
-      "fromSession": "session_082",
-      "fromTopic": "pd023-self-scores-thin-impl",
-      "item": "Compute incremental layer / cache (Fin 권고)",
-      "status": "deprecated",
-      "resolveCondition": "self_scores.jsonl ≥ 100세션 + compute SLA > 2초 3회 발생",
-      "deprecatedInSession": "session_101",
-      "deprecatedNote": "D-092: 자동 SLA 감시 영역 폐기. computeSlaWarnMs flag 동시 제거.",
-      "dependsOn": [
-        "PD-023"
-      ]
-    },
-    {
       "id": "PD-004",
       "fromSession": "session_015",
       "fromTopic": "databook-agent-design",
       "item": "데이터북 Agent 프로토타입 구현: 7개 팀 파일 전수 투입 → canonical 스키마 → normalize.py + merge.py + validate.py",
       "status": "pending",
       "note": "다음 주 진행 예정 (Master 확인 session_024)"
-    },
-    {
-      "id": "PD-006",
-      "fromSession": "session_027",
-      "fromTopic": "dashboard-upgrade",
-      "item": "SessionEnd Hook Windows 경로 이스케이프 검증 — 실제 세션 종료 시 hook 발동 확인 + transcript_path 형식 점검",
-      "status": "resolved",
-      "resolvedInSession": "session_035",
-      "note": "hook-diagnostics.log 분석으로 확인: 훅 정상 발동, transcript_path 형식 정상. masterTurns 파서 버그는 session_034에서 별도 수정 완료."
-    },
-    {
-      "id": "PD-007",
-      "fromSession": "session_030",
-      "fromTopic": "dashboard-upgrade-v3",
-      "item": "디자이너 역할 도입 검토 — 역할 정의(비주얼 시스템·색상·컴포넌트 스펙), 이름, 발언 스타일, Editor와 역할 경계 확정. PD-005(Figma MCP)와 병행 진행 권장.",
-      "status": "resolved",
-      "resolvedInSession": "session_030",
-      "note": "Vera(Designer) session_030에서 도입 완료. Vera Design System v1.0.0 전면 적용. CLAUDE.md에 역할 정의 등재(D-029 참조)."
-    },
-    {
-      "id": "PD-008",
-      "fromSession": "session_030",
-      "fromTopic": "dashboard-upgrade-v3",
-      "item": "데이터 구조 개선 — session_index 엔트리에 agentsCompleted 영구 저장",
-      "status": "resolved",
-      "resolvedInSession": "session_031",
-      "note": "append-session.ts agentsCompleted 파라미터 추가. backfill-agents.ts로 22개 소급. compute-dashboard roleFrequency 집계 추가. session.html Current|History 탭 구현."
-    },
-    {
-      "id": "PD-009",
-      "fromSession": "session_032",
-      "fromTopic": "agents-completed-hook",
-      "item": "SessionEnd hook 체인에 session-end-finalize.js 추가 — current_session → session_index 자동 전파, sync-system-state 자동 재계산. hook 발동 진단 로그(logs/hook-diagnostics.log) 추가.",
-      "status": "resolved",
-      "resolvedInSession": "session_032",
-      "note": "session-end-finalize.js + sync-system-state.ts 구현 완료. hook 발동 진단 로그 추가."
-    },
-    {
-      "id": "PD-010",
-      "fromSession": "session_033",
-      "fromTopic": "dashboard-bug-ace-framing",
-      "item": "SessionEnd token hook 미캡처 진단 — session_028~032 token_log 누락. hook-diagnostics.log 공백. session-end-tokens.js 발동 여부 + transcript_path 형식 검증 필요.",
-      "status": "resolved",
-      "resolvedInSession": "session_034",
-      "note": "3개 버그 수정: worktree fallback 경로 탐색 / ABORT exit / total_billable 계산. 검증: total=4038118 msg=75."
-    },
-    {
-      "id": "PD-011",
-      "fromSession": "session_034",
-      "fromTopic": "bug",
-      "item": "역할 재호출 측정 구조 신설 — agentsCompleted를 중복 허용 배열로 변경 + compute-dashboard의 seen.has(role) 제거. 현재 Set 의미로 저장돼 재호출 카운트 불가능.",
-      "status": "resolved",
-      "resolvedInSession": "session_045",
-      "note": "D-048 확정. 단순 '중복 허용 배열' 넘어 Turn[] 구조화 + plannedSequence + 4조건 판정 프로토콜 + phase_catalog + legacy 플래그 + Size 경보 억제까지 포함된 종합안으로 해소. 실구현은 session_046+ Phase 1부터."
-    },
-    {
-      "id": "PD-013",
-      "fromSession": "session_036",
-      "fromTopic": "legend-team-upgrade-v2",
-      "item": "페르소나 Top 0.1% 재정의 — 7개 역할(Ace/Arki/Fin/Riki/Nova/Dev/Vera) 각각 날카롭고 정밀한 전문가 페르소나로 업그레이드. memory/roles/*_memory.json responsibility 필드 갱신 포함.",
-      "status": "resolved",
-      "resolvedInSession": "session_037",
-      "note": "D-041 확정. 8개 역할(Editor 포함) 페르소나/scope/hitRateRubric 3필드 반영. 실존 인물 레퍼런스 채용. 3층 구조 확정. Riki 특례 + Dev-Arki 양방향 협의."
-    },
-    {
-      "id": "PD-014",
-      "fromSession": "session_036",
-      "fromTopic": "legend-team-upgrade-v2",
-      "item": "역할별 필요 스킬·오픈소스 참조 매핑 — PD-013 완료 후 각 역할 페르소나 기준으로 보강 필요 역량 도출.",
-      "status": "resolved",
-      "resolvedInSession": "session_038",
-      "note": "D-042 확정. 8개 역할 skills 필드 신설 완료."
-    },
-    {
-      "id": "PD-015",
-      "fromSession": "session_036",
-      "fromTopic": "legend-team-upgrade-v2",
-      "item": "성장지표 정의 프레임 확정 + Board 계측 구조 설계 — 학습누적→적중률→자율성 인과체인 기반. 역할별 성장 정의(Ace: 오케스트레이션 적중률, Riki: 리스크 리콜 등) + 현재 계측 가능 지표 구현.",
-      "status": "resolved",
-      "resolvedInSession": "session_077",
-      "note": "D-060 확정. 공통 3층 + signature 8 + 교차채점 + Registry/Versioning + 지연채점 + Provenance + QA + Multi-scale + Percentile + Regime marker/transition zone. Growth Board 메인(안 β). 구현은 child 토픽(topic_082 재개 시 병합)."
-    },
-    {
-      "id": "PD-016",
-      "fromSession": "session_036",
-      "fromTopic": "legend-team-upgrade-v2",
-      "item": "Hook transcript_path=MISSING 방어 — cliSessionId 기반 ~/.claude/projects/*/ 역탐색 fallback 추가. session_029, 032 같은 손실 재발 방지.",
-      "status": "resolved",
-      "resolvedInSession": "session_044",
-      "note": "resolveTranscriptPath() 구현 확인 (.claude/hooks/session-end-tokens.js:65). PD-016 v2 (cwd-based .jsonl) 포함. 효율성 board 토큰 집계 정상 동작으로 간접 검증."
-    },
-    {
-      "id": "PD-017",
-      "fromSession": "session_038",
-      "fromTopic": "global-skill-role-mapping",
-      "item": "auto-model-switch 스킬 파일 생성 — Grade A/S 시 /fast(Opus) 자동 트리거. opusplan 패턴 기반. /open grade 판정 직후 1회 실행. writing-skills 스킬로 생성.",
-      "status": "resolved",
-      "resolvedInSession": "session_044",
-      "note": ".claude/skills/auto-model-switch/SKILL.md 존재 확인. D-043으로 발동 규칙 확정된 상태."
-    },
-    {
-      "id": "PD-018",
-      "fromSession": "session_039",
-      "fromTopic": "cost-efficiency-version-bug",
-      "item": "실 비용($) 계산 패널 신설 — token_log.json의 input/output/cache_creation/cache_read 분류 기반으로 Sonnet 4.6 단가 적용($3/$15/$3.75/$0.30 per MTok). 세션별 $ 비용 + 누적 합계 + 평균 표시. dashboard-upgrade.html KPI 영역 또는 별도 패널.",
-      "status": "resolved",
-      "resolvedInSession": "session_072",
-      "note": "cost-row 3패널+sparkCost 구현(session_071). KPI I/O Tokens 전환+Secondary 레이블+raw 접기 패널(session_072). topic_073 closed."
-    },
-    {
-      "id": "PD-019",
-      "fromSession": "session_045",
-      "fromTopic": "role-recall-measurement-structure",
-      "item": "토픽 중심 전체 개편 — 현재 세션 중심 아키텍처에서 토픽 중심으로 전환. 세션은 토픽 진행의 하위 단위로 재정의. session_index·current_session·agentsCompleted·대시보드 KPI 모두 토픽 축으로 재설계.",
-      "status": "resolved",
-      "resolvedInSession": "session_053",
-      "note": "D-051 확정. A1~A8 결정축 완성 (N:1 단방향 + phase×hold 직교화 + 3층 context 누적). Riki 공격 4개 운영규칙 흡수. 실제 구현은 PD-020a/b/c 3개 Grade A 토픽으로 분해."
-    },
-    {
-      "id": "PD-020a",
-      "fromSession": "session_053",
-      "fromTopic": "topic-centric-architecture",
-      "item": "스키마 + phase×hold 기반 구현 — topic_index/current_session/session_index/decision_ledger 스키마 개편. topic.sessions[] N:1 단방향, phase(framing/design/implementation/validated) × hold(active/heldAt/heldAtPhase/reason) 2차원. append-session.ts·create-topic.ts 갱신. legacy:true 52세션 소급 마이그레이션.",
-      "status": "resolved",
-      "note": "Grade A. D-051 A1+A2+A4+A5 구현. PD-020b/c의 기반. P1~P5 전 단계 완료(session_054~058). PD-020b/c 진행 가능.",
-      "resolvedInSession": "session_058"
-    },
-    {
-      "id": "PD-020b",
-      "fromSession": "session_053",
-      "fromTopic": "topic-centric-architecture",
-      "item": "Context 3층 누적 구현 — topics/{id}/turn_log.jsonl + session_contributions/*.md + context_brief.md 신설. /close 훅 체인에 session-contribution-writer + regenerate-context-brief 추가. /open step 3.5에 context_brief 자동 로드 추가 (hold=false 토픽만).",
-      "status": "resolved",
-      "note": "Grade A. D-051 A7+A8 구현. Master save01~05 수동 관행 시스템 흡수. PD-020a 선행 필요.",
-      "resolvedInSession": "session_062",
-      "resolvedNote": "topic_063(P0+P1) + topic_064(P2~P5) + topic_065(P6) 전 구간 완료. session_065에서 topic_062 공식 종결 처리."
-    },
-    {
-      "id": "PD-020c",
-      "fromSession": "session_053",
-      "fromTopic": "topic-centric-architecture",
-      "item": "결정 소유권 + 운영규칙 구현 — decision_ledger에 owningTopicId + scopeCheck 필드. topic_lifecycle_rules.json 신설 (maxSessions 5·lastActivity 30일, hold 제외). context_brief 출처 앵커 규칙. Ace 실시간 PD append 프로토콜.",
-      "status": "resolved",
-      "note": "Grade A. D-051 A6 + RK-1~4 대응 구현. PD-020a/b 이후.",
-      "resolvedInSession": "session_064",
-      "resolvedNote": "P1(스키마+백필+검증) + P2(lifecycle/anchor 경고) + P3(실시간 PD append + Editor 역검사) 전 완료."
-    },
-    {
-      "id": "PD-022",
-      "fromSession": "session_066",
-      "fromTopic": "topic-closure-declaration",
-      "item": "토픽 생명주기 시스템 구현 — D-056 스키마 3종(topicType·parentTopicId·resolveCondition) + auto-close dry-run 2단 + PD 자동 전이 + /reclassify-topic + validate-topic-closure + Ace Step 0 스킬 확장 + 레거시 백필.",
-      "status": "resolved",
-      "resolvedInSession": "session_067",
-      "note": "Grade A. D-057 확정. Master 지침으로 소급 범위 2건(topic_062/066) 한정, 레거시 68개 undefined 유지. 전 Phase·게이트 통과."
-    },
-    {
-      "id": "PD-021",
-      "fromSession": "session_059",
-      "fromTopic": "pd-020b-context-3layer",
-      "item": "auto-model-switch 스킬 재구현 — 현재 단순 /model 타이핑 안내 방식을 폐기하고, Grade A/S 시 Sonnet이 오케스트레이터로 유지되면서 역할 발언(Ace·Arki·Fin·Riki·Nova)을 Agent(model: opus) 서브에이전트로 호출하는 구조로 재설계. dispatching-parallel-agents 패턴 참조.",
-      "status": "resolved",
-      "resolvedInSession": "session_068",
-      "note": "D-058 확정. opus-dispatcher 스킬 + dispatch_config.json + 에이전트 정의 4종(role-ace/arki/fin/riki.md) 구현. G1(write 계약)·G3(RED→GREEN) 통과. auto-model-switch 스킬 폐기."
-    },
-    {
-      "id": "PD-035",
-      "fromSession": "session_094",
-      "fromTopic": "pd023-resume-self-scores-mvp",
-      "item": "PD-023 P3-supplementary 구현 — 8역할 페르소나/서브에이전트 프롬프트에 YAML 블록 생성 instruction 편입",
-      "status": "resolved",
-      "resolveCondition": "다음 세션 완료 + 3세션 관찰 시 8역할 yaml-block 기록률 ≥ 70%",
-      "resolvedInSession": "session_100",
-      "resolvedNote": "8/8 persona mention 확인 (C7). 행동 변화 검증(yaml-block 기록률)은 PD-023 P3 운영 KPI 트랙에서 후속 관찰.",
-      "dependsOn": []
-    },
-    {
-      "id": "PD-036",
-      "fromSession": "session_094",
-      "fromTopic": "pd023-resume-self-scores-mvp",
-      "item": "3세션 summary 자동 로드 시스템 구현 (D-077 후속) — session_index 2필드 + topic_index closedInSession + sync-system-state 확장",
-      "status": "resolved",
-      "resolveCondition": "구현 완료 + 3세션 자동 summary 생성 확인 + /open step 3.5 브리핑 동작",
-      "dependsOn": [],
-      "resolvedInSession": "session_097",
-      "resolvedNote": "session_097(pd036-3session-summary-autoload)에서 구현 완료. system_state.json recentSessionSummaries 3건 자동 생성 확인. /open step 3.5-b 브리핑 동작 확인(session_102)."
-    },
-    {
-      "id": "PD-037",
-      "fromSession": "session_094",
-      "fromTopic": "pd023-resume-self-scores-mvp",
-      "item": "Vera 페르소나 신규 생성 — memory/roles/personas/role-vera.md 작성. D-029 Vera 역할 정의 기반",
-      "status": "resolved",
-      "resolveCondition": "파일 생성 + 1토픽 이상 실사용 확인",
-      "dependsOn": [],
-      "resolvedInSession": "session_099",
-      "resolvedNote": "memory/roles/personas/role-vera.md 존재 확인. pd037-vera-signature-review 세션에서 실사용 확인(git commit f238672). 두 조건 모두 충족."
-    },
-    {
-      "id": "PD-038",
-      "fromSession": "session_094",
-      "fromTopic": "pd023-resume-self-scores-mvp",
-      "item": "옵션 (3) .claude/agents/ 재활성화 falsification probe 재설계 — \"YAML 블록 생성률\" 신호로 재테스트 (장기 보류)",
-      "status": "deprecated",
-      "resolveCondition": "D-071 재오픈 조건 정의 + 신규 probe 2주 가동 통과",
-      "deprecatedInSession": "session_122",
-      "deprecatedNote": "트리거 신호('YAML 블록 생성률')가 D-092 자가평가 단순화로 폐기 영역에 진입 — probe 신호 자체가 무효. D-071 분기 폐기 결정 후 재오픈 조건 미정의 상태로 다수 세션 무진척. 미래 harness 등록 spike 통과 시 신규 PD로 재발의.",
-      "dependsOn": []
-    },
-    {
-      "id": "PD-039",
-      "fromSession": "session_094",
-      "fromTopic": "pd023-resume-self-scores-mvp",
-      "item": "자동 close vs 수동 /close 스킬 차이 검토 — CLAUDE.md \"자동 close 규칙\"과 Master 수동 /close 실행 결과가 어떻게 다른지 비교 (Master 요청 session_094)",
-      "status": "resolved",
-      "resolveCondition": "두 경로의 산출물 diff 분석 + 일관성 확보 방안 박제",
-      "resolvedInSession": "session_119",
-      "resolvedNote": "topic_118에서 두 경로 산출물 diff 분석 완료(Dev 실측 + Riki 동일 슬러그 commit 4건 직접 증거). delta-check WARN 게이트 D-101 박제로 일관성 확보 방안 박제.",
-      "dependsOn": []
-    },
-    {
-      "id": "PD-045",
-      "fromSession": "session_104",
-      "fromTopic": "dashboard-redesign-ux-responsive",
-      "item": "레이아웃 인라인 :root{} 정리 — G1 lint(--c-* 색 토큰만) 결정의 부수 작업. --panel/--text/--line 등 레이아웃 토큰을 페이지별 :root{}에서 app/css/tokens.css 단일 출처로 이전. 13 페이지 dump 인벤토리(G0-5 산출물) 기반.",
-      "status": "deprecated",
-      "note": "topic_082 spec lock D-098 부수 PD",
-      "deprecatedInSession": "session_104",
-      "deprecatedNote": "Dev G0-5 실측 결과 명분 약화: active 페이지 9개 중 레이아웃 토큰 인라인 페이지 0건, 색 토큰 인라인은 dashboard-upgrade.html 1건만. legacy 4 페이지는 archive 이동 대상으로 무관. 정리 대상 사실상 0건 — Master 폐기 결정 (session_104)."
-    },
-    {
-      "id": "PD-046",
-      "fromSession": "session_104",
-      "fromTopic": "dashboard-redesign-ux-responsive",
-      "item": "dashboard-ops 컴포넌트 흡수 — .command-grid 등 ops 자체 클래스를 dashboard-upgrade canonical 카탈로그(.kpi-row/.section-grid/.card 등) 형태로 흡수. D-090 dashboard-upgrade canonical 결정 부수.",
-      "status": "resolved",
-      "resolvedInSession": "session_109",
-      "resolvedNote": "topic_112 Phase 1에서 .command-grid → .section-grid 매핑 완료. dashboard-ops.html:11 인라인 정의 제거 + line 117 class 치환. G0.5 PASS, grep 잔존 0건. .kpi-row 후보는 ops 카드의 자체 토큰 사용으로 부적합하여 .section-grid 1택.",
-      "note": "topic_082 Phase 4 후속"
-    },
-    {
-      "id": "PD-047",
-      "fromSession": "session_104",
-      "fromTopic": "dashboard-redesign-ux-responsive",
-      "item": "Playwright docker image 갱신 주기 정책 — mcr.microsoft.com/playwright:v1.45.0-jammy 핀 이후 보안 패치·Chromium 메이저 업데이트 시 갱신 검토 프로토콜 박제. 환경 핀 vs 최신 보안의 trade-off 정책.",
-      "status": "deprecated",
-      "note": "D-089 VR 인프라 부수 정책",
-      "deprecatedInSession": "session_125",
-      "deprecatedNote": "incident 0건. 갱신 필요 시 그때 판단으로 충분 — 별도 정책 ROI 없음. Master 결정."
-    },
-    {
-      "id": "PD-048",
-      "fromSession": "session_104",
-      "fromTopic": "dashboard-redesign-ux-responsive",
-      "item": "VR baseline dpr 2 (retina) 추가 — 현 24 baseline은 dpr 1만 캡처. Master 또는 미래 협업자가 retina 디스플레이 사용 시 픽셀 차이 false-positive 가능성. dpr 2 baseline 추가 시 48 baseline 부담 vs 정확도 trade-off.",
-      "status": "deprecated",
-      "note": "D-089 후속 검토",
-      "deprecatedInSession": "session_125",
-      "deprecatedNote": "Master retina 미사용, false-positive 발생 0건. resolveCondition 미정의 상태로 트리거 없음. 실제 문제 발생 시 신규 등록. Master 결정."
-    },
-    {
-      "id": "PD-049",
-      "fromSession": "session_104",
-      "fromTopic": "dashboard-redesign-ux-responsive",
-      "item": "동적 색 주입 case 처리 — 차트 라이브러리(ECharts) 등이 런타임에 색을 주입하는 경우 G1 lint 우회 가능성. tokens.css 단일 출처 원칙 위반 검출 패턴 박제 필요.",
-      "status": "resolved",
-      "resolvedInSession": "session_121",
-      "resolvedNote": "D-102 Phase 1~4 구현 완결. acorn 부분 AST 기반 scan/lint-echarts-gradient.ts 신설 + tokens.css 6종 + chart-tokens.js helper + 호출부 5건 swap + lint chain ERROR 승격. G4 양방향(post=0, pre=4 sites) PASS.",
-      "note": "D-091 G1 lint 후속"
-    },
-    {
-      "id": "PD-050",
-      "fromSession": "session_104",
-      "fromTopic": "dashboard-redesign-ux-responsive",
-      "item": "ECharts label fixture — VR mock fixture에서 ECharts 차트 label 텍스트(축·범례·tooltip) 결정점 확장. 현 mock fixture 10항목은 KPI 숫자 위주, 차트 내부 label 변동 시 false-positive 가능성.",
-      "status": "resolved",
-      "resolvedInSession": "session_121",
-      "resolvedNote": "D-102 Phase 5~7 구현 완결. dashboard.mock.json _meta freeze + verify-fixture-stability.ts(4 invariant) + verify-axis-label-stability.ts + axis-labels.json baseline + 24 PNG 재캡처 (max diff 0.00%).",
-      "note": "D-089 mock fixture 후속"
-    },
-    {
-      "id": "PD-051",
-      "fromSession": "session_105",
-      "fromTopic": "dashboard-redesign-ux-responsive-phase2",
-      "item": "vr-infra-spec image 핀 정정 — D-096 박제값 mcr.microsoft.com/playwright:v1.45.0-jammy ↔ 실설치 @playwright/test v1.59.1 mismatch. session_106 docker pull 시 v1.59.1-jammy로 fallback하여 baseline lock 성공했으나 spec 박제값과 어긋남. vr-infra-spec.md image 핀 갱신 또는 D-096 정정 결정 필요.",
-      "status": "resolved",
-      "resolveCondition": "vr-infra-spec.md image 핀 갱신(또는 D-096 정정 D-099 박제) + session_106 dry-run에서 docker pull → vr-capture 24/24 PASS",
-      "resolvedInSession": "session_106",
-      "resolvedNote": "vr-infra-spec.md image 핀 v1.59.1-jammy 정정 완료. vr:capture --add-host+VR_BASE_URL 갱신. session_106 docker pull → vr-capture 24/24 PASS. D-099 박제.",
-      "dependsOn": []
-    },
-    {
-      "id": "PD-054",
-      "fromSession": "session_151",
-      "fromTopic": "9agent-persona-policy-upgrade-v1.1",
-      "item": "hitRateRubric 구조 자체 재검토 — 8역할(Ace·Arki·Fin·Riki·Nova·Dev·Edi·Vera) memory에 박제된 hitRateRubric이 D-092 자가평가 단순화 정책(metrics_registry.json 단일 출처)과 정합한지 결정. 폐기/유지/통합 3옵션 + Jobs·Sage·Zero 3 신규 역할 미박제 패턴 의미 해석.",
-      "status": "resolved",
-      "note": "topic_131(빅뱅) 후속. session_151에서 Edi hitRateRubric 점검 중 발견. Ace→Nexus 갱신은 이미 완료(stale 해소). 구조 자체 정책은 빅뱅 토픽 범위.",
-      "resolveCondition": "8역할 hitRateRubric 정책 결정 박제 (D-xxx) + 결과에 따라 일괄 갱신/폐기/유지 수행",
-      "relatedTopic": "topic_131",
-      "dependsOn": [],
-      "resolvedInSession": "session_153",
-      "resolvedAt": "2026-05-01",
-      "resolvedNote": "hitRateRubric = D-041(session_037, persona-top01-redefinition) 잔재. Big Bang 설계 범위 외. D-092 단순화 이후 pipeline 연결 없음(hooks/scripts 참조 0건). 8역할 memory.json에서 일괄 삭제 완료. Jobs·Sage·Zero 미박제는 설계적으로 정상. PD-054 resolved."
-    },
-    {
-      "id": "PD-058",
-      "fromSession": "session_173",
-      "fromTopic": "topic_150 (zero-logic-inefficiency-audit)",
-      "item": "C3 — scope_areas 4중 박제(persona/policy/memory/dispatch_config) prose 참조형 단축. 운영 효익 낮음으로 본 토픽 DEFER. Jobs 권고: 신규 페르소나 N번째 도입 시 또는 SOP 갱신 시 재검토.",
-      "status": "resolved",
-      "resolveCondition": "신규 페르소나(11번째 이상) 도입 OR D-146 SOP 갱신 토픽 발생 OR Master 명시 재오픈",
-      "dependsOn": [],
-      "relatedDecisions": [
-        "D-146"
-      ],
-      "relatedTopic": "topic_150",
-      "resolvedInSession": "session_179",
-      "resolvedAt": "2026-05-04",
-      "resolvedNote": "persona(role-zero.md) + memory(zero_memory.json) scope_areas를 dispatch_config.json SOT 참조 1줄로 단축. Master 명시 진행 승인."
-    },
-    {
-      "id": "PD-059",
-      "fromSession": "session_173",
-      "fromTopic": "topic_150 (zero-logic-inefficiency-audit)",
-      "item": "C6 — KNOWN_ROLES 배열 hook 2개(post-tool-use-task.js + pre-tool-use-task-sage-gate.js) 중복 박제. 공통 모듈 추출. ROI 낮음으로 본 토픽 DEFER. Jobs 권고: hook 신설·개편 토픽 발생 시 재검토.",
-      "status": "resolved",
-      "resolveCondition": "hook 신설·개편 토픽 발생 OR KNOWN_ROLES 동기화 누락 사고 1건 발생 OR Master 명시 재오픈",
-      "dependsOn": [],
-      "relatedDecisions": [
-        "D-146"
-      ],
-      "relatedTopic": "topic_150",
-      "resolvedInSession": "session_179",
-      "resolvedAt": "2026-05-04",
-      "resolvedNote": "lib/known-roles.js 공통 모듈 신설. 3개 hook require()로 전환. pre-tool-use-task.js sage·zero·jobs 누락 동기화 오류도 동시 수정."
-    },
-    {
-      "id": "PD-060",
-      "fromSession": "session_173",
-      "fromTopic": "topic_150 (zero-logic-inefficiency-audit)",
-      "item": "C7 — dispatch_config.rules.zero.internal_tools 배열([Cut,Refine,Audit]) 코드 read 0건. 정보적 의의만. 저비용으로 본 토픽 DEFER. Jobs 권고: dispatch_config 표준화 토픽 발생 시 재검토.",
-      "status": "resolved",
-      "resolveCondition": "dispatch_config rule 표준화 토픽 발생 OR Master 명시 재오픈",
-      "dependsOn": [],
-      "relatedDecisions": [
-        "D-146"
-      ],
-      "relatedTopic": "topic_150",
-      "resolvedInSession": "session_179",
-      "resolvedAt": "2026-05-04",
-      "resolvedNote": "오진 — internal_tools는 Zero 인라인 처리 설계 문서화 필드. enforce 코드 없음이 정상 설계(Zero 자율 판단). Master 확인."
     }
   ],
-  "lastUpdated": "2026-05-03T23:42:56.303Z"
+  "lastUpdated": "2026-05-04T01:46:04.956Z"
 }

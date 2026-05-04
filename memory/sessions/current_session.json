@@ -1,15 +1,15 @@
 {
-  "sessionId": "session_180",
-  "topicId": "topic_156",
-  "topic": "자동모드 비활성화 수정",
-  "topicSlug": "automode-fix",
-  "reportPath": "reports/2026-05-04_automode-fix",
+  "sessionId": "session_181",
+  "topicId": "topic_157",
+  "topic": "오픈·클로즈 경량화 검토",
+  "topicSlug": "open-close-lightweight",
+  "reportPath": "reports/2026-05-04_open-close-lightweight",
   "status": "closed",
-  "startedAt": "2026-05-04T00:00:00.000Z",
-  "closedAt": "2026-05-04T10:00:00.000Z",
-  "oneLineSummary": "automode-fix 완료: settings.local.json permissions shallow-merge 버그 수정, bypassPermissions 박제",
+  "closedAt": "2026-05-04T12:30:00.000Z",
+  "oneLineSummary": "open-close-lightweight: pendingDeferrals 필터(D-151) 46K→5K, 서브에이전트 보고서 정제 방향 분석 — 다음 세션 이어가기",
+  "startedAt": "2026-05-04T11:00:00.000Z",
   "mode": "observation",
-  "grade": "C",
+  "grade": "B",
   "framingLevel": 0,
   "framingSkipped": true,
   "topicType": "standalone",
@@ -17,46 +17,87 @@
   "childTopicIds": [],
   "turns": [
     {
-      "role": "edi",
+      "role": "arki",
       "turnIdx": 0,
-      "phase": "compile"
+      "source": "agent"
+    },
+    {
+      "role": "jobs",
+      "turnIdx": 1,
+      "source": "agent"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 2,
+      "source": "agent"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 3,
+      "source": "agent"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 4,
+      "source": "agent"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 5,
+      "source": "agent"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 6,
+      "source": "agent"
     }
   ],
   "decisions": [],
-  "decisionsAdded": [],
+  "decisionsAdded": [
+    "D-151"
+  ],
   "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "notes": [
-    "Grade C (Master 선언). 자동모드 비활성화 수정 — 재부팅 후에도 자동 모드 선택이 안됨."
+    "Grade B (Master 선언). /open 컨텍스트 90K → 50K 경량화 목표."
   ],
   "gaps": [
     {
-      "type": "mechanical-fallback-graded",
-      "sessionId": "session_180",
-      "grade": "C",
-      "severity": "info"
-    },
-    {
-      "type": "edi-llm-report-absent",
-      "sessionId": "session_180",
-      "reportPath": "reports/2026-05-04_automode-fix",
-      "grade": "C",
-      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-04_open-close-lightweight/riki_rev2.md",
+      "expected": "riki",
+      "actualInTurns": "edi",
+      "turnId": 5
     }
   ],
+  "versionBump": {
+    "value": 0.001,
+    "from": "0.7.150",
+    "to": "0.7.151",
+    "reason": "sync-system-state.ts pendingDeferrals pending filter 추가 (버그성 누락 수정). 자동 감지 미매칭으로 Edi override 박제.",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-04T12:00:00.000Z",
+    "overrideReason": "versionBumpSuggested 부재 — 실질 코드 변경 1건 Edi 직접 식별"
+  },
   "tokenUsage": {
-    "input_tokens": 133,
-    "output_tokens": 164564,
-    "cache_creation_input_tokens": 1259644,
-    "cache_read_input_tokens": 9448693,
-    "messageCount": 101,
-    "masterTurns": 16,
-    "total_billable": 10873034
+    "input_tokens": 207,
+    "output_tokens": 65131,
+    "cache_creation_input_tokens": 449735,
+    "cache_read_input_tokens": 10669168,
+    "messageCount": 102,
+    "masterTurns": 23,
+    "total_billable": 11184241
   },
   "agentsCompleted": [
+    "arki",
+    "jobs",
+    "arki",
+    "riki",
+    "riki",
+    "edi",
     "edi"
   ],
-  "finalizedAt": "2026-05-03T23:42:56.397Z"
+  "finalizedAt": "2026-05-04T01:46:05.054Z"
 }

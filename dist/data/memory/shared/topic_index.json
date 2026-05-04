@@ -1,6 +1,22 @@
 {
   "topics": [
     {
+      "id": "topic_157",
+      "title": "오픈·클로즈 경량화 검토",
+      "status": "in-progress",
+      "phase": "framing",
+      "hold": null,
+      "created": "2026-05-04",
+      "controlPath": "topics/topic_157",
+      "reportPath": "reports/2026-05-04_open-close-lightweight",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_181",
+      "path": "topics/topic_157",
+      "grade": "B",
+      "outcome": "서브에이전트 프롬프트 정제 방향 분석 완료. sync-system-state.ts pendingDeferrals 필터 구현(D-151). 보고서 내용 정제 방향은 다음 세션 이어가기."
+    },
+    {
       "id": "topic_156",
       "title": "자동모드 비활성화 수정",
       "status": "completed",
@@ -3040,5 +3056,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-03T23:42:49.980Z"
+  "lastUpdated": "2026-05-04T01:45:58.475Z"
 }

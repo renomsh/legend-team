@@ -1,9 +1,13 @@
 {
-  "lastMasterUtterance": "에디 기록하고 종료해.",
-  "echoTriggerDetected": false,
-  "intentReconfirmRequested": false,
-  "matchedKeywords": [],
-  "sessionId": "94d58746-f89d-4bc9-950a-8676a482a30d",
-  "updatedAt": "2026-05-03T13:46:00.368Z",
+  "lastMasterUtterance": "OK. 좋은 지적이였어.\n다음 세션에 다시 주제 이어가자.\n/close",
+  "echoTriggerDetected": true,
+  "intentReconfirmRequested": true,
+  "matchedKeywords": [
+    "OK",
+    "ok",
+    "다음"
+  ],
+  "sessionId": "59d54e15-141d-4cb3-af9e-23432095757f",
+  "updatedAt": "2026-05-04T01:42:07.578Z",
   "jobsFramingActive": true
 }

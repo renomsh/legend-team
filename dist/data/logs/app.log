@@ -1915,3 +1915,14 @@
 [2026-05-03T23:42:46.066Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_156\context_brief.md | sessions=1 size=341B
 [2026-05-03T23:42:56.304Z] [sync-system-state] lastSession=session_180 openTopics=1 recentDecisions=5 recentSummaries=3 deferrals=56
 [2026-05-03T23:43:03.092Z] [compute-dashboard] 완료 — 177개 세션, 3개 경보
+[2026-05-04T00:59:11.315Z] [sync-system-state] lastSession=session_180 openTopics=1 recentDecisions=5 recentSummaries=3 deferrals=3
+[2026-05-04T01:45:47.127Z] [checklist] [INFO] reports: 4 file(s) on disk, none registered in topic_index
+[2026-05-04T01:45:47.130Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-05-04T01:45:47.130Z] [checklist] [INFO] topic_index: topic found: topic_157 (in-progress)
+[2026-05-04T01:45:47.131Z] [checklist] [INFO] current_session: will be set to closed
+[2026-05-04T01:45:47.131Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-05-04T01:45:47.132Z] [session-log] [INFO] END session_181 | topic: open-close-lightweight | duration: unknown (startedAt in future)
+[2026-05-04T01:45:52.499Z] [L2-writer] wrote C:\Projects\legend-team\topics\topic_157\session_contributions\session_181.md | turns=6 decisions=1
+[2026-05-04T01:45:54.534Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_157\context_brief.md | sessions=2 size=538B
+[2026-05-04T01:46:04.957Z] [sync-system-state] lastSession=session_181 openTopics=2 recentDecisions=5 recentSummaries=3 deferrals=3
+[2026-05-04T01:46:11.455Z] [compute-dashboard] 완료 — 178개 세션, 3개 경보

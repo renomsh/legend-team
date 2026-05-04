@@ -67,8 +67,13 @@
       "caveats": [
         "(1) Sweep(07) vs 02 스크립트 OR 차이 1.711 vs 1.776 (동일 n=1,352, GEE seed/정렬 노이즈) — patch v2 disambiguation note 박제. (2) Windows cp949 인코딩 버그 (스크립트 05/06/07 em-dash) — PYTHONIOENCODING=utf-8 우회 필수, 기존 bug. (3) ver3.5_E full manuscript 합본·refs·figures·Korean·투고 메타 잔여 8건 — 후속 세션 이연. (4) Edi LLM 게이트 미경유 (D-131): mechanical fallback (edi_auto_rev1.md). 사유: Master /close 직호출 + 작업 완결성 충분."
       ],
-      "relatedDecisions": ["D-045", "D-046"],
-      "relatedTopics": ["topic_044"],
+      "relatedDecisions": [
+        "D-045",
+        "D-046"
+      ],
+      "relatedTopics": [
+        "topic_044"
+      ],
       "caveatsMeta": {
         "acked": false,
         "resolvedAt": null
@@ -2250,6 +2255,19 @@
         "resolvedAt": null,
         "resolvedBySession": null
       }
+    },
+    {
+      "id": "D-151",
+      "date": "2026-05-04",
+      "session": "session_181",
+      "topicId": "topic_157",
+      "axis": "sync-system-state.ts pendingDeferrals pending-only 필터 — 비활성 53개 제거, system_state.json 46K→5K",
+      "summary": "sync-system-state.ts L174: currentState.pendingDeferrals 전량 carry-over → .filter(d => d.status === pending) 1줄 수정. system_state.json 46,743 bytes → 4,938 bytes (-90%). /open step 2 토큰 ~10,500 절감.",
+      "tags": [
+        "context-optimization",
+        "sync-system-state",
+        "pendingDeferrals"
+      ]
     }
   ],
   "lastUpdated": "2026-05-02"
