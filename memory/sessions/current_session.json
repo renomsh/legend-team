@@ -59,25 +59,16 @@
     "Sequential Thinking MCP CLI 추가",
     "MCP ~8개 사용자 직접 삭제"
   ],
-  "gaps": [
-    {
-      "type": "version-bump-edi-unconfirmed",
-      "severity": "high",
-      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140",
-      "suggestedValue": 0.01
-    }
-  ],
+  "gaps": [],
   "oneLineSummary": "nexus-efficiency-p1 완료: 57K 토큰 원인 분석·MCP 정리·MEMORY 경감·D-154 intentConfirm 박제",
   "tokenUsage": {
-    "input_tokens": 1973,
-    "output_tokens": 141508,
-    "cache_creation_input_tokens": 532049,
-    "cache_read_input_tokens": 25883430,
-    "messageCount": 247,
+    "input_tokens": 1976,
+    "output_tokens": 142317,
+    "cache_creation_input_tokens": 535464,
+    "cache_read_input_tokens": 26077688,
+    "messageCount": 250,
     "masterTurns": 41,
-    "total_billable": 26558960
+    "total_billable": 26757445
   },
   "agentsCompleted": [
     "arki",
@@ -116,15 +107,8 @@
     ],
     "changedFilesCount": 153,
     "cappedAt": 0.1,
-    "confirmedBy": null
+    "confirmedBy": "edi"
   },
-  "openMasterAlerts": [
-    {
-      "severity": "high",
-      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.01)",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140"
-    }
-  ],
+  "openMasterAlerts": [],
   "finalizedAt": "2026-05-04T13:47:23.900Z"
 }
