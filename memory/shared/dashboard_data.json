@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-04T07:28:11.121Z",
-  "totalSessions": 182,
+  "generatedAt": "2026-05-04T08:39:59.900Z",
+  "totalSessions": 183,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [
     {
@@ -8,26 +8,26 @@
       "caveat": "rules.edi가 hook에 의해 read되지 않으므로 정책 토글 기능 0(예: enforcement_grade 변경으로 enforcement 끄기 불가). 향후 D-138 enforcement 폐기 결정 시 finalize.js line 1521 직접 삭제 + rules.edi.enforcement_note 갱신 필요. Riki R-2(session_164 5 gap false positive 의심)는 미해소 — PD로 이연.",
       "ackedBySession": "session_168",
       "ackedAt": "2026-05-02",
-      "ageInSessions": 17
+      "ageInSessions": 18
     },
     {
       "decisionId": "D-138",
       "caveat": "dispatch_config.json Edi rule 부재는 잔존 — pre-tool-use-task.js가 dispatch_config를 실제 enforce하는 hook 구현 후 rule 추가 순서 유지 필요. turns 중복 기록 패턴(이번 세션 turns[1]/[3])은 별도 점검 후보.",
       "ackedBySession": "session_168",
       "ackedAt": "2026-05-02",
-      "ageInSessions": 17
+      "ageInSessions": 18
     }
   ],
   "metrics": {
-    "avgMasterTurns": 18.81,
-    "avgCacheHitRate": 0.9323,
-    "cacheSampleSize": 156,
-    "cacheSampleTotal": 182,
+    "avgMasterTurns": 18.93,
+    "avgCacheHitRate": 0.9321,
+    "cacheSampleSize": 157,
+    "cacheSampleTotal": 183,
     "avgAdoptionRate": 0,
     "totalDecisions": 154,
     "gradeDistribution": {
       "S": 83,
-      "A": 35,
+      "A": 36,
       "B": 41,
       "C": 15,
       "D": 8
@@ -35,7 +35,7 @@
     "topicGradeDistribution": {
       "S": 17,
       "A": 59,
-      "B": 45,
+      "B": 46,
       "C": 26,
       "D": 7
     },
@@ -53,10 +53,10 @@
       "session_172"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 137,
-    "totalCostUSD": 2161.9894,
-    "avgCostPerSession": 12.2146,
-    "costSampleSize": 177
+    "turnBasedSessions": 138,
+    "totalCostUSD": 2171.5408,
+    "avgCostPerSession": 12.1997,
+    "costSampleSize": 178
   },
   "sessions": [
     {
@@ -6998,6 +6998,41 @@
         "messageCount": 188
       },
       "sessionCostUSD": 10.2563
+    },
+    {
+      "sessionId": "session_186",
+      "topicSlug": "nexus-enhancement",
+      "topic": "Nexus 고도화",
+      "startedAt": "2026-05-04T20:45:00.000Z",
+      "closedAt": "2026-05-04T21:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 8,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 40,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "zero",
+        "zero",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 13895705,
+        "ioTokens": 99671,
+        "inputTokens": 327,
+        "outputTokens": 99344,
+        "cacheCreate": 1136651,
+        "cacheRead": 12659383,
+        "cacheHitRate": 0.9110284796633205,
+        "messageCount": 115
+      },
+      "sessionCostUSD": 9.5514
     }
   ],
   "roleFrequency": [
@@ -7097,7 +7132,7 @@
     },
     {
       "role": "edi",
-      "count": 147,
+      "count": 148,
       "sessions": [
         "session_050",
         "session_051",
@@ -7232,7 +7267,8 @@
         "session_182",
         "session_183",
         "session_184",
-        "session_185"
+        "session_185",
+        "session_186"
       ]
     },
     {
@@ -7530,13 +7566,14 @@
     },
     {
       "role": "zero",
-      "count": 10,
+      "count": 12,
       "sessions": [
         "session_153",
         "session_175",
         "session_182",
         "session_183",
-        "session_184"
+        "session_184",
+        "session_186"
       ]
     },
     {
@@ -12633,6 +12670,30 @@
         },
         {
           "role": "riki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_186",
+      "topic": "Nexus 고도화",
+      "sequence": [
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "zero",
           "phase": null,
           "turnIdx": 1,
           "recallReason": null

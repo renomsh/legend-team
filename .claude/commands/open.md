@@ -1,116 +1,42 @@
 # /open — 레전드팀 토픽 오픈
 
-사용자가 토픽 오픈을 요청했습니다. 아래 Session Start 체크리스트를 순서대로 실행하세요.
-
-> **D-145 (2026-05-02)**: Nexus(= Main Claude Code 본체)가 topicType 자동 판정. SOT는 CLAUDE.md `Nexus topicType 판정` 섹션. Jobs/Ace skill에서는 본 Step이 deprecated.
+Session Start 체크리스트 순서대로 실행.
 
 ## 체크리스트
 
-1. `memory/sessions/current_session.json` 읽기 — 이전 세션이 열려있는지 확인. 열려있으면 먼저 닫아야 한다고 Master에게 알림.
-2. `memory/shared/system_state.json` 읽기 (fast-path) — nextSessionId, openTopics, recentDecisions, pendingDeferrals 추출
-2-b. `memory/shared/nexus_memory_open.json` 읽기 — Nexus 오케���트레이션 지침 (grade dispatch, antiPatterns, autoModelSwitch)
-3. **이연 항목 List-up** — openTopics + pendingDeferrals를 Master에게 브리핑
-3.5. **[context_brief 자동 로드]** `npx ts-node scripts/load-context-briefs.ts` 실행.
-   - hold=null인 openTopics의 context_brief.md를 자동 로드해 Master에게 요약 브리핑
-   - 파일 없는 토픽은 스킵 (오류 아님) — 신규 토픽도 context_brief 미생성 상태이므로 자동 스킵
-   - 출력이 비어있으면 "활성 context_brief 없음"으로 보고 후 진행
-3.5-c. **[이전 세션 Edi 보고서 브리핑]** — 기존 토픽 재오픈 시 (분기 A 경로) 또는 openTopics에 이미 진행 중인 토픽이 있을 때:
-   - `topics/{topicId}/session_contributions/*_edi_report.md` 파일 중 최신 1~2건을 Read하여 Master에게 핵심 요약 브리핑
-   - 파일 없으면 "(이전 세션 Edi 기록 없음)" 출력 후 진행
-   - 신규 토픽 생성 시(분기 B)는 skip (이전 세션 없음)
+1. `memory/sessions/current_session.json` — 이전 세션 미종결 시 Master에게 알림
+2. `memory/shared/system_state.json` (fast-path) — nextSessionId, openTopics, recentDecisions, pendingDeferrals
+2-b. `memory/shared/nexus_memory_open.json` — Nexus 오케스트레이션 지침 (gradeDispatch, antiPatterns, autoModelSwitch)
+3. **이연 항목 List-up** — openTopics + pendingDeferrals 브리핑
+3-a. `npx ts-node scripts/load-context-briefs.ts` — hold=null 토픽의 context_brief.md 자동 로드
+3-b. **이전 세션 Edi 보고서** (분기 A 또는 진행중 토픽 존재 시) — `topics/{topicId}/session_contributions/*_edi_report.md` 최신 1~2건 요약
+3-c. **최근 3세션 요약** — `system_state.recentSessionSummaries[]` 브리핑
+3-d. **Master-first audit** — `logs/master-first-audit.md` 마지막 5행 (없으면 스킵)
+4. `memory/sessions/session_index.json` — 다음 sessionId
+5. **Grade 판정** — CLAUDE.md `Topic Grade System` 참조. 기본값 A.
+6. `current_session.json` 갱신: sessionId, topic, topicSlug, status="open", startedAt(ISO), mode="observation", grade, framingLevel=0, framingSkipped=true
+7. **토픽 ID 분기**
 
-3.5-b. **[최근 3세션 요약 브리핑]**
-   - `system_state.json`의 `recentSessionSummaries[]` 배열을 읽어 Master에게 브리핑:
-     - 각 항목: `{sessionId}: {topicSlug} — {oneLineSummary} (결정: {decisionsAdded.join(', ')})`
-   - 배열이 비어있거나 필드 없으면 "최근 세션 요약 없음 (oneLineSummary 미기록)" 출력 후 진행
-3.5-d. **[Master-first audit 브리핑]** (D-129, 2026-05-01)
-   - `logs/master-first-audit.md` 존재 시: 마지막 5행을 읽어 Master에게 브리핑
-   - 파일 없으면 스킵
-   - 브리핑 형식: "⚠ Master-first audit 기록 {N}건 — 최근: {마지막 항목 요약}" 1줄
-4. `memory/sessions/session_index.json` 읽기 — 마지막 session ID 확인하여 다음 ID 생성
-5. **Grade 판정** (아래 Grade 판정 규칙 참조)
-6. `current_session.json`을 새 세션 정보로 업데이트:
-   - 새 sessionId (session_NNN)
-   - topic, topicSlug
-   - status: "open"
-   - startedAt: 현재 시각 (ISO 8601)
-   - mode: 확인된 모드 (기본값: observation)
-   - grade: 판정된 grade (S/A/B/C)
-   - framingLevel: 0 (고정 — 자동 프레이밍 없음, D-130)
-   - framingSkipped: true
-7. **[토픽 ID 명시 감지 → 분기]**
+   **분기 A — 기존 토픽 재사용** (`/open topic_NNN ...`):
+   - topic_index에서 엔트리 확인 (없으면 오류)
+   - current_session.topicId/topic/topicSlug = 기존 값, reportPath = 새 날짜 반영
+   - topic_index 해당 엔트리 status를 `"open"`으로 갱신 (Edit)
+   - `create-topic.ts` 실행 금지
 
-   **분기 A — 기존 토픽 재사용** (`/open topic_NNN ...` 패턴으로 토픽 ID 명시 시):
-   - `memory/shared/topic_index.json`에서 `topic_NNN` 엔트리 확인
-   - 엔트리 없으면 오류 → Master에게 알림 후 중단
-   - 엔트리 있으면:
-     - `current_session.json.topicId` = `"topic_NNN"` (기존 그대로)
-     - `current_session.json.topic` = topic_index 엔트리의 title
-     - `current_session.json.topicSlug` = topic_index 엔트리의 기존 slug
-     - `current_session.json.reportPath` = `reports/{오늘날짜}_{topicSlug}` (새 세션의 날짜 반영)
-     - topic_index.json 해당 엔트리의 `status`를 `"open"`으로 갱신 (Edit 도구 사용)
-     - `create-topic.ts` 실행 금지
-   - 세션 오픈 완료 보고: **"기존 토픽 topic_NNN — {title}에 session_NNN 추가"**
+   **분기 B — 신규 토픽 생성** (토픽 ID 미명시):
+   - `npx ts-node scripts/create-topic.ts "<title>" <slug>` 실행 (topic_index 등록·정렬·Asset #4 init 자동)
+   - 출력 topic_id를 current_session.topicId에 기록
+   - 별도 Edit으로 해당 엔트리에 `grade: "<S|A|B|C>"` 추가
 
-   **분기 B — 신규 토픽 생성** (토픽 ID 미명시 시):
-   - `npx ts-node scripts/create-topic.ts "<topic title>" <topicSlug>` 실행 — topic_index.json에 새 엔트리 자동 등록. Edit 도구로 수동 추가 금지. (D-047, 재발 방지 — session_036~041의 topic_index 등록 누락 사고 원인 해소)
-   - 실행 후 출력된 topic_id를 `current_session.json.topicId`에 기록
-   - grade 필드는 create-topic.ts가 topic_index 기록 후, 별도 Edit으로 해당 엔트리에 `grade: "<S|A|B|C>"` 추가
-   - topic_index.json은 `compareTopicDesc` 기준 desc 정렬 상태로 유지됨 (create-topic.ts가 자동 정렬)
-   - **[Asset #4 — context layer init]** `create-topic.ts`가 자동으로 처리함 (2026-04-28 코드화):
-     - `topics/{topicId}/turn_log.jsonl` 빈 파일 자동 생성
-     - `topics/{topicId}/context_brief.md` stub 자동 생성
-     - `topics/{topicId}/session_contributions/` 디렉토리 자동 생성
-     - Claude가 별도로 파일 생성할 필요 없음
+8. 세션 오픈 보고 후 Grade에 따라 첫 주자 진입 (자동 framing 없음 — `/jobs-framing` 명시 호출 시만 Jobs 발동)
 
-8. 세션 오픈 완료 보고 후, **Grade에 따라 첫 주자 결정** (프레이밍 자동 트리거 없음 — `/jobs-framing` 명시 호출 시에만 Jobs 발동)
+## Grade 명시 파싱
 
----
-
-## Grade 판정 규칙
-
-### 0. 토픽 ID 명시 감지 (최우선)
-`/open topic_NNN ...` 패턴이면 **기존 토픽 재사용** 경로 진입 (7번 분기 A).
-- 토픽 ID + grade: `/open topic_NNN B 추가 작업` → 기존 topic_NNN, grade: B
-- 토픽 ID만: `/open topic_NNN` → 기존 topic_NNN, grade는 topic_index 엔트리의 grade 유지
-
-### 1. Master 명시 우선
-토픽 앞에 단일 문자 `S` `A` `B` `C` 중 하나가 오면 grade로 인식:
-- `/open B 대시보드 버그` → grade: B
-- `/open A 전략 설계` → grade: A
-- 앞에 grade 문자 없으면 키워드 자동 추론 (아래 표 참고)
-
-### 2. 키워드 자동 추론 (명시 없을 때)
-
-| 토픽 키워드 | 추론 grade | 비고 |
-|---|---|---|
-| bug, fix, 버그, 수정, 오류, 배포, deploy, patch | C | ops/data-fix도 포함 |
-| ops, 운영, 점검, 확인, 로그 | C | |
-| 신규 기능, 설계, 아키텍처, 프로토콜, 전략 | A | 기본 전략 |
-| 역할 도입, 시스템 개편, 전면 재설계, 핵심 결정 | S | 최고 복잡도 |
-| 그 외 | A | 안전 방향 기본값 |
-
-### 3. Grade → 첫 주자 결정 (D-130: 자동 프레이밍 폐기)
-
-**모든 Grade: framingLevel = 0, framingSkipped = true.** `/jobs-framing` 명시 호출 시에만 Jobs 발동.
-
-| Grade | 첫 주자 | 비고 |
-|---|---|---|
-| S | Master | `/jobs-framing` 호출 시 Jobs 발동 |
-| A | Arki | `/jobs-framing` 호출 시 Jobs 발동 |
-| B | Arki | `/jobs-framing` 호출 시 Jobs 발동 |
-| C | Dev | 최소 역할 직행 |
-| D | Dev | Edi 생략, hook 자동 기록 |
-
-### 4. C/B grade Dev 판정 스텝 (필수)
-C/B grade로 진행 중 Dev 또는 Riki가 "구조적 문제"로 판정 시:
-→ Nexus 즉시 재소집. `/jobs-framing` 필요 시 Master 명시 호출.
-
----
+- `/open topic_NNN [grade] ...` 또는 `/open [grade] <title>` — 단일 문자 S/A/B/C 선두 시 grade로 인식
+- 미명시 시 키워드 추론 (CLAUDE.md `Grade 선언 규칙` 참조)
 
 ## 규칙
-- 기본 grade: A (키워드 매칭 실패 시)
-- 기본 모드: Observation Mode
-- 사용자가 "$argument"에 토픽 제목을 포함했으면 그대로 사용
-- 이전 세션이 닫히지 않았으면 경고 후 Master 판단 대기
-- grade 판정 결과를 세션 오픈 보고 시 명시 (예: "Grade: C → L0, Dev 직행")
+
+- 기본 모드: Observation
+- 이전 세션 미종결 시 경고 후 Master 판단 대기
+- grade 판정 결과를 오픈 보고에 명시

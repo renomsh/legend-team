@@ -1,13 +1,13 @@
 {
-  "sessionId": "session_185",
-  "topicId": "topic_158",
-  "topic": "시스템 효율화",
-  "topicSlug": "system-efficiency",
-  "reportPath": "reports/2026-05-04_system-efficiency",
+  "sessionId": "session_186",
+  "topicId": "topic_159",
+  "topic": "Nexus 고도화",
+  "topicSlug": "nexus-enhancement",
+  "reportPath": "reports/2026-05-04_nexus-enhancement",
   "status": "closed",
-  "closedAt": "2026-05-04T20:30:00.000Z",
-  "oneLineSummary": "시스템 효율화: CLAUDE.md -3,080B, nexus_memory_open Nexus 전용 교체(-2,629B), open.md Step 3.6 제거, child 토픽 미사용 확정",
-  "startedAt": "2026-05-04T19:45:00.000Z",
+  "closedAt": "2026-05-04T21:30:00.000Z",
+  "oneLineSummary": "Nexus 고도화: D-002(UI 미생성) 폐기, CLAUDE.md/MEMORY.md/open.md -26%(-10,339B), MCP/Skill 정리",
+  "startedAt": "2026-05-04T20:45:00.000Z",
   "mode": "observation",
   "grade": "B",
   "framingLevel": 0,
@@ -17,12 +17,12 @@
   "childTopicIds": [],
   "turns": [
     {
-      "role": "arki",
+      "role": "zero",
       "turnIdx": 0,
       "source": "agent"
     },
     {
-      "role": "riki",
+      "role": "zero",
       "turnIdx": 1,
       "source": "agent"
     },
@@ -39,32 +39,72 @@
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "notes": [
-    "CLAUDE.md 27,475B→24,395B: child 스키마·deprecated 섹션·Session checklist 축소",
-    "nexus_memory_open.json 4,211B→1,582B: Ace 전용→Nexus 오케스트레이션으로 교체, /open Step 2-b에 명시",
-    "open.md Step 3.6 (auto-close+PD dry-run) 제거 — 302KB 파싱하지만 제안 0건 확률 95%+",
-    "child 토픽 미사용 확정 — parent context inject 경로 0개, 같은 토픽 재오픈으로 운영",
-    "topic_load_manifest 사실상 사문화 확인 — hook이 persona inject 이미 처리"
+    "D-002 (UI 미생성 정책) 폐기 — CLAUDE.md Viewer Policy 섹션 재작성, JSX/React 허용",
+    "CLAUDE.md 24,395→19,969B (-18%): Sage·Zero·Same-session·Ace·Jobs·Master-first 불렛 압축, Turn Push Protocol/Asset Protocols/Script Status 압축",
+    "MEMORY.md 8,329→7,207B (-13%): COPD·Ace 학습·역할 페르소나 등 7개 deprecated 인덱스 제거 (DB매핑 유지)",
+    "open.md 7,230→2,439B (-66%): Grade 판정 규칙(CLAUDE.md 중복) 삭제, 분기 A/B 압축",
+    "MCP OFF: claude-in-chrome, ccd_session_mgmt 세트, biorxiv, slack, PubMed, ChEMBL, c-trials (와이프 논문 재연결 시 복구)",
+    "Skill OFF: anthropic-skills 中 brand-guidelines, algorithmic-art, slack-gif-creator",
+    "topic_200 실무 투입 선언 (D-154 박제는 Master가 불요로 결정)",
+    "CLAUDE.md 추가 축소(15KB 목표)는 품질 우선 보류"
   ],
-  "gaps": [],
-  "tokenUsage": {
-    "input_tokens": 158,
-    "output_tokens": 48912,
-    "cache_creation_input_tokens": 421284,
-    "cache_read_input_tokens": 9911210,
-    "messageCount": 97,
-    "masterTurns": 11,
-    "total_billable": 10381564
-  },
+  "gaps": [
+    {
+      "type": "missing-report",
+      "role": "zero",
+      "turnIdx": 0,
+      "reportPath": "reports/2026-05-04_nexus-enhancement",
+      "detectedAt": "2026-05-04T08:37:07.600Z",
+      "note": "zero turn0 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "missing-report",
+      "role": "zero",
+      "turnIdx": 1,
+      "reportPath": "reports/2026-05-04_nexus-enhancement",
+      "detectedAt": "2026-05-04T08:38:05.665Z",
+      "note": "zero turn1 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-04_nexus-enhancement/condensed.md"
+    },
+    {
+      "type": "version-bump-edi-unconfirmed",
+      "severity": "high",
+      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
+      "addedBy": "checkVersionBumpConfirmation",
+      "ref": "D-140",
+      "suggestedValue": 0.1
+    }
+  ],
   "agentsCompleted": [
-    "arki",
-    "riki",
+    "zero",
+    "zero",
     "edi"
   ],
+  "openMasterAlerts": [
+    {
+      "severity": "high",
+      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.1)",
+      "addedBy": "checkVersionBumpConfirmation",
+      "ref": "D-140"
+    }
+  ],
+  "tokenUsage": {
+    "input_tokens": 327,
+    "output_tokens": 99344,
+    "cache_creation_input_tokens": 1136651,
+    "cache_read_input_tokens": 12659383,
+    "messageCount": 115,
+    "masterTurns": 40,
+    "total_billable": 13895705
+  },
   "versionBumpSuggested": {
-    "value": 0.01,
-    "type": "capacity",
-    "reason": "CLAUDE.md·open.md·nexus_memory_open.json 정리 — 정책 텍스트 축소·교체, 구조 신규 아님",
-    "autoDetectedAt": "2026-05-04T07:26:38.790Z",
+    "value": 0.1,
+    "type": "structural",
+    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 1건 (CLAUDE.md)",
+    "autoDetectedAt": "2026-05-04T08:39:49.270Z",
     "changedFiles": [
       ".claude/commands/open.md",
       "AGENTS.md",
@@ -89,18 +129,7 @@
     ],
     "changedFilesCount": 149,
     "cappedAt": 0.1,
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-04T20:30:00.000Z"
+    "confirmedBy": null
   },
-  "versionBump": {
-    "value": 0.01,
-    "from": "0.8.171",
-    "to": "0.8.181",
-    "reason": "CLAUDE.md·open.md·nexus_memory_open.json 정리 — 정책 텍스트 축소·교체, 구조 신규 아님",
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-04T20:30:00.000Z",
-    "overrideReason": "hook이 +0.1(structural) 감지했으나 실제 변경은 텍스트 축소/교체, 구조 신규가 아니므로 +0.01로 override"
-  },
-  "openMasterAlerts": [],
-  "finalizedAt": "2026-05-04T07:26:44.165Z"
+  "finalizedAt": "2026-05-04T08:39:51.933Z"
 }

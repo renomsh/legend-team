@@ -13,18 +13,16 @@ Rules:
 
 - Auto-close sessions: 구현 검증 완료(빌드 통과·경보 없음·Master 미결 질문 없음) 시 `/close` 명령 없이 자동으로 close 스킬을 호출한다. Master가 명시적으로 닫으면 중복 호출은 무시. (2026-04-22)
 - **Agent dispatch 규약 (PD-033 / topic_121, 2026-04-28):** Agent(Task) 툴 호출 시 prompt 본문 첫 줄 또는 메타 영역에 `## ROLE: <name>` 표준 마커를 박는다. description 자유 형식 허용 (substring 매칭 오분류 방지). PreToolUse/PostToolUse hook이 마커 우선 → subagent_type → description 첫 단어 순으로 role 식별. session_123 turn 6 "Riki risk audit Ace direction" 오분류 사고 재발 방지.
-- Never start from UI
-- Never generate JSX, React pages, dashboards, or mockups first
 - Preserve structured topic state and revision history
 - Master feedback is authoritative — but Ace validates before accepting. If a decision conflicts with prior decisions or core principles, Ace asks a clarifying question before proceeding. Master can override with "진행해" / "구현해" / "실행해" (전체 역할 대상 — Ace 한정 아님). See `ace-learning-loop` skill. (D-020, 2026-04-16)
 - Keep role separation: jobs, ace, arki, fin, riki, designer/vera, edi, nova, sage, zero
 - Nova is optional and speculative unless explicitly promoted
 - Designer (Vera) handles visual system: color, typography, spacing, gradient, component spec. Receives direction from Ace, delivers spec to Edi. Does NOT make UX strategy or data decisions. (D-029, 2026-04-17)
-- **Sage (D-126, 2026-04-29 / D-133 갱신 2026-05-01):** 메타 진화·자기성찰 read-only 페르소나. Master/Nexus 명시 호출 한정 — 자동 hook 폐기. ledger+self-scores read-only 분석 + 자가채점 정합성 cross-check. Same-session isolation `exclusive` (D-128 hook `pre-tool-use-task-sage-gate.js`로 강제). write 권한 0 — 분석 결과 박제는 Edi 위임 (D-125). Caveat: 자기참조 paradox 잔존(R-1, 후속 토픽 처리).
-- **Zero (D-127 supersede D-119 supersede D-110, 2026-04-29 / D-133 NCL 폐기 갱신 2026-05-01 / D-146 self-exclusion SOT 통합 2026-05-02):** 정제 페르소나 — 산출물 레이어, 3 영역 한정: ① tech-debt ② security-review(하드코딩 secrets) ③ simplify(재사용·품질·효율). Cut/Refine/Audit 3 도구 내부 흡수. anchor governance는 Edi 분담 (D-125). Self-exclusion 일반 원칙 = persona SOT (D-146).
-- **Same-session 격리 (D-128, 2026-04-29):** Sage 호출 세션은 다른 페르소나와 공존 금지. `.claude/hooks/pre-tool-use-task-sage-gate.js`가 `dispatch_config.json` `rules.sage.session_isolation: "exclusive"` read하여 PreToolUse(Task)에서 process.exit(2)로 차단. 별도 hook 분리 = SRP(Martin 2003) + Defense in Depth(NIST SP 800-160 Vol.2).
-- **Ace·Jobs 페르소나 분리 (D-130, 2026-04-30):** Ace = 전략 페르소나(Porter+Keynes 합성). 'Master 판단 대리인'(D-015) 폐기, 외부 시각 전략가로 재정의. R&R = 구조(Structure)·흐름(System) 판정 + 결정축 설계 + `/ace-synthesis` 명시 호출 시 종합검토. **Jobs 신설 = 기획 페르소나(Steve Jobs+Kahneman 합성)** — framing 주체(Why·What·결정축·Scope·전제·인지편향 적출·Focus 설계). framing 자동 트리거 폐기 → `/jobs-framing` 명시 호출. Orchestration = Nexus 단일 책임. versionBump = Nexus 자동 감지(`session-end-finalize.js`) + Edi 확정 (D-104 supersede). Grade 조정권 = Nexus default + Jobs override (D-040 Ace owner 폐기, NIST SP 800-160 Vol.2 Defense in Depth). ace-framing skill DEPRECATED, ace-synthesis skill 신설. ace.orchestration_hit_rate(orc_hit) 지표 deprecated.
-- **Master-first 모드 (D-129, 2026-04-30 / D-139 갱신 2026-05-01):** 주제 모호 시 Nexus가 질문해서 내용을 명확히 확인. **Nexus 역할.** Grade S/A/B 대상, C/D 제외. HookA=`user-prompt-submit-master-first.js` (UserPromptSubmit, 키워드 1차 분류 + state 박제), HookB=`pre-tool-use-task-master-first.js` (PreToolUse Task, state read + audit 메시지 inject, LLM-free, 2초 timeout cap). MVP P1~P3 warn-only. P4/P5 분리 폐기 (D-134, 2026-05-01). P6는 'P3 충분성 측정 게이트'로 의미 재정의되어 P3 운영 규칙으로 흡수 — FP≥10% OR 누적 5건 dual-trigger 발생 시 Master에게 재설계 요청. Config: `memory/shared/master_first_config.json`.
+- **Sage (D-126/D-133):** 메타 진화·자기성찰 read-only 페르소나. Master/Nexus 명시 호출 한정. write 권한 0(박제는 Edi). same-session `exclusive`. 상세 → `agents/role-sage.md`.
+- **Zero (D-127/D-146):** 정제 페르소나, 3 영역(tech-debt·security-review·simplify). anchor governance는 Edi(D-125). 상세 → `agents/role-zero.md`.
+- **Same-session 격리 (D-128):** Sage는 다른 페르소나 공존 금지. `pre-tool-use-task-sage-gate.js`가 강제.
+- **Ace·Jobs 분리 (D-130):** Ace=전략(구조·흐름 판정 + `/ace-synthesis`). Jobs=기획(framing 주체, `/jobs-framing` 명시 호출). Orchestration=Nexus. versionBump=Nexus 자동 감지+Edi 확정. ace-framing DEPRECATED.
+- **Master-first 모드 (D-129/D-139):** 주제 모호 시 Nexus가 질문. Grade S/A/B 대상, C/D 제외. HookA(UserPromptSubmit)+HookB(PreToolUse Task) warn-only. Config → `memory/shared/master_first_config.json`.
 - Prefer explicit, inspectable, file-based structure
 - Use Node.js + TypeScript + file-based JSON/Markdown storage
 - Before creating any chart or dashboard, ask which type to use:
@@ -99,12 +97,9 @@ Rules:
 - `scripts/validate-schema-lifecycle.ts` — drift 감시
 - `scripts/validate-topic-closure.ts` — Edi 역검사용
 
-## Viewer Policy (updated 2026-04-04, Decision D-003 revised)
-- `app/` directory is a read-only multi-page static viewer for file-based outputs
-- Read interactions (navigation, filtering, search, expand/collapse) are permitted
-- Write interactions (forms, input fields, state-changing buttons) are strictly prohibited
-- All data changes must go through Claude Code only (D-002)
-- JSX, React, and framework-based UI remain strictly out of scope
+## Viewer Policy (updated 2026-05-04, D-002 revised)
+- `app/` directory is a multi-page static viewer for file-based outputs
+- JSX, React 허용. UI 변경은 Claude Code 경유. (D-002 revised 2026-05-04)
 - Deployed via Cloudflare Pages (D-006), authenticated via Cloudflare Access
 
 ## Operating Protocol
@@ -196,33 +191,9 @@ Master may switch modes at any time by stating the mode name.
 - Replace Riki's adversarial analysis
 - Speak unless Master says so — even if the above signals are present
 
-### Turn Push Protocol (C1) (D-048, 2026-04-20)
+### Turn Push Protocol (C1) (D-048)
 
-역할 발언이 완료될 때마다 `current_session.json.turns`에 Turn 항목을 **즉시** 기록한다. 세션 종료를 기다리지 않는다.
-
-**기록 주체:** Claude Code (역할 발언 직후 자동)
-
-**필수 필드:**
-- `role` — 발언 역할 (ace, arki, fin, riki, nova, dev, edi 등)
-- `turnIdx` — 현재 turns 배열 길이 기준 0-based 자동 부여
-
-**선택 필드 (해당 시 기록):**
-- `phase` — `memory/shared/phase_catalog.json` enum 참조
-- `recallReason` — `turn-types.ts` RecallReason 참조 (재호출인 경우)
-- `splitReason` — 분리 사유 (조건 3 phase 전환 시)
-- `chars` / `segments` — 출력 크기 (선택)
-
-**orchestrationMode 기록:**
-- `/auto` 입력 시 `current_session.orchestrationMode: "auto"` + `orchestrationTransitions[]` 항목 즉시 기록
-- `/master` 또는 자연어 개입 시 `"manual"` 복귀 기록
-
-**분리/병합 4조건:**
-1. 다른 역할 개입 후 복귀 → 자동 분리, `recallReason: "post-intervention"`
-2. Master 개입 후 재발언 → 자동 분리, `recallReason: "post-master"`
-3. phase 전환 → 자동 분리, `recallReason: "phase-transition"`, `splitReason` 기록
-4. 같은 phase 내 연속 발언 → 병합 (단일 Turn)
-
-**C2 검증:** 세션 종료 시 `session-end-finalize.js`가 turns를 session_index로 전파. `validate-session-turns.ts`가 구조 검증.
+역할 발언 직후 `current_session.json.turns`에 즉시 기록 (필수: `role`, `turnIdx`. 선택: `phase`, `recallReason`, `splitReason`, `chars`/`segments`). 분리/병합 4조건: ①다른 역할 개입 후 복귀 ②Master 개입 후 재발언 ③phase 전환 ④같은 phase 연속=병합. `/auto`·`/master` 전환은 `orchestrationTransitions[]` 즉시 기록. 세션 종료 시 `session-end-finalize.js`가 session_index 전파, `validate-session-turns.ts` 구조 검증. 타입 → `scripts/lib/turn-types.ts`.
 
 ### Session Protocol
 
@@ -230,46 +201,15 @@ Master may switch modes at any time by stating the mode name.
 
 **Session End checklist:** → `/close` 명령이 실행. 상세 절차는 `.claude/skills/close/SKILL.md` 참조. 체크리스트 누락 시 `current_session.json`에 gap 기록.
 
-### Asset Protocols (v0.4.0, D-012)
+### Asset Protocols (D-012)
 
-**evidence_index.json 운용 규칙:**
-- 기록 주체: 주로 Riki(리스크), Arki(구조 진단), 세션 정비 시 운영자
-- 기록 시점: 역할 발언 중 핵심 발견(finding)이 있을 때. 세션 종료 후 소급 기록도 허용
-- 필수 필드: id (E-NNN), date, topic, type, source, finding, status
-- type 값: structural-diagnosis | principle-violation | risk | assumption | data-error | operational-gap | legacy-ambiguity
-- status 값: open | resolved-{context} | accepted-residual-risk
-- 삭제 금지: status를 변경하되 엔트리를 삭제하지 않음
-- 스크립트: `ts-node scripts/log-evidence.ts` 사용 가능 (수동 기록도 허용)
+- **evidence_index.json**: Riki/Arki 발견 기록. 필드 `id(E-NNN)·date·topic·type·source·finding·status`. type ∈ {structural-diagnosis, principle-violation, risk, assumption, data-error, operational-gap, legacy-ambiguity}. status ∈ {open, resolved-{context}, accepted-residual-risk}. 삭제 금지(status만 변경). 스크립트 `scripts/log-evidence.ts`.
+- **glossary.json**: 모든 역할 추가 가능. 필드 `term·definition·addedBy·date`. 정의 변경 시 덮어쓰기 허용(최신=canonical). 삭제 가능. 한국어 우선·영어 병기.
+- **master_feedback_log.json**: status ∈ {pending, in-progress, resolved}. 세션 종료 시 Claude Code 자동 판정. 삭제 금지.
 
-**glossary.json 운용 규칙:**
-- 기록 주체: 모든 역할. 새 용어를 처음 사용하거나 정의가 필요할 때 추가
-- 필수 필드: term, definition, addedBy, date
-- 갱신: 정의가 변경되면 기존 엔트리를 업데이트 (덮어쓰기 허용 — glossary는 최신 정의가 canonical)
-- 삭제: 더 이상 사용하지 않는 용어는 삭제 가능
-- 용어는 한국어 우선, 영어 병기 허용
+### Script Status
 
-**master_feedback_log.json 운용 규칙 (v0.5.0):**
-- status 값: pending | in-progress | resolved
-- 갱신 주체: Claude Code가 세션 종료 시 자동 판정 (토픽 상태 및 구현 증거 기준)
-- statusNote: 이행 상태에 대한 간단한 설명
-- 삭제 금지: status를 변경하되 엔트리를 삭제하지 않음
-
-### Script Status (v0.5.0)
-
-**Active:**
-- `session-log.ts` — 세션 시작/종료 + 체크리스트 검증 (H-01)
-- `validate-output.ts` — 리포트 frontmatter 검증
-- `auto-push.js` — 세션 종료 시 hook chain 실행 (tokens→finalize→compute→build→push) (D-008)
-- `build.js` — CF Pages 빌드 (canonical)
-- `validate-session-turns.ts` — Turn[] 구조 검증. `npx ts-node scripts/validate-session-turns.ts [sessionId|--all]` (D-048, session_047)
-
-**Hook Chain (auto-push.js 내부):**
-1. `.claude/hooks/session-end-tokens.js` — transcript 파싱, token_log.json 집계
-2. `.claude/hooks/session-end-finalize.js` — turns/plannedSequence/grade를 session_index로 전파 (D-048)
-3. `scripts/compute-dashboard.ts` — dashboard_data.json 재계산
-4. `scripts/build.js` — CF Pages dist/ 빌드
-
-**Utility:**
-- `create-topic.ts`, `apply-feedback.ts`, `log-evidence.ts` — 사용 가능
-- `scripts/lib/turn-types.ts` — Turn[] 타입 정의 (D-048)
+- **Active**: `auto-push.js`(세션 종료 hook chain, D-008), `build.js`(CF Pages canonical), `session-log.ts`, `validate-output.ts`, `validate-session-turns.ts`(D-048)
+- **Hook Chain (auto-push.js)**: ①`session-end-tokens.js` ②`session-end-finalize.js`(turns→session_index) ③`compute-dashboard.ts` ④`build.js`
+- **Utility**: `create-topic.ts`, `apply-feedback.ts`, `log-evidence.ts`, `scripts/lib/turn-types.ts`
 

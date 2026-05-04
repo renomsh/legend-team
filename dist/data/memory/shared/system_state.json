@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_185",
-  "nextSessionId": "session_186",
+  "lastSessionId": "session_186",
+  "nextSessionId": "session_187",
   "currentVersion": "v0.8.171",
   "openTopics": [
     {
@@ -46,6 +46,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_186",
+      "topicSlug": "nexus-enhancement",
+      "closedAt": "2026-05-04T21:30:00.000Z",
+      "oneLineSummary": "Nexus 고도화: D-002(UI 미생성) 폐기, CLAUDE.md/MEMORY.md/open.md -26%(-10,339B), MCP/Skill 정리",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_185",
       "topicSlug": "system-efficiency",
       "closedAt": "2026-05-04T20:30:00.000Z",
@@ -59,15 +66,6 @@
       "oneLineSummary": "open-close-lightweight 4차: Zero D.Condense Phase A+B 실실행·구현(inject -57%, ~7,285 tokens), G-1·G-9 완료, PD-058/059 인계",
       "decisionsAdded": [
         "D-153"
-      ]
-    },
-    {
-      "sessionId": "session_183",
-      "topicSlug": "open-close-lightweight",
-      "closedAt": "2026-05-04T17:30:00.000Z",
-      "oneLineSummary": "open-lightweight 3차: Zero Condense Gate 구현(hook v4 BLOCK 강제, D-152) — 실측은 다음 세션",
-      "decisionsAdded": [
-        "D-152"
       ]
     }
   ],
@@ -130,5 +128,5 @@
       ]
     }
   ],
-  "lastUpdated": "2026-05-04T07:26:43.919Z"
+  "lastUpdated": "2026-05-04T08:39:51.810Z"
 }
