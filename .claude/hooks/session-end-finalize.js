@@ -1315,7 +1315,7 @@ function applyVersionBump(sess) {
   // bump.to 미설정 시 value + 현재 버전으로 계산 (Edi가 from/to를 비워둔 경우 대응)
   if (!bump.to && bump.value) {
     const prev = parseFloat(prevVersion) || 0;
-    const next = (prev + bump.value).toFixed(2);
+    const next = (prev + bump.value).toFixed(3);
     bump.to = next;
     bump.from = prevVersion;
     log(`applyVersionBump: bump.to 미설정 → 계산으로 보완 ${prevVersion} + ${bump.value} = ${next}`);

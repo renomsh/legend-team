@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "0.7.151",
+    "version": "0.851",
     "era_history": [
       {
         "era": "Legend Team",
@@ -240,13 +240,13 @@
       "sessionId": "session_178"
     },
     {
-      "version": "0.7.150",
+      "version": "0.850",
       "date": "2026-05-03",
       "summary": "post-tool-use-task.js extractSelfScores() Array 분기 추가로 49세션 selfScores 적재 누락 버그 수정 (D-150). Grade B 버그픽스 +0.001.",
       "sessionId": "session_179"
     },
     {
-      "version": "0.7.151",
+      "version": "0.851",
       "date": "2026-05-04",
       "summary": "sync-system-state.ts pendingDeferrals pending filter 추가 (버그성 누락 수정). 자동 감지 미매칭으로 Edi override 박제.",
       "sessionId": "session_181"

@@ -631,3 +631,7 @@
 {"ts":"2026-05-04T01:42:07.570Z","phase":"classified","sessionId":"59d54e15-141d-4cb3-af9e-23432095757f","grade":"B","echoTriggerDetected":true,"intentReconfirmRequested":true,"matchedKeywords":["OK","ok","다음"],"elapsedMs":9}
 {"ts":"2026-05-04T01:42:07.570Z","phase":"audit-emit","source":"UserPromptSubmit","echoTriggerDetected":true,"intentReconfirmRequested":true,"matchedKeywords":["OK","ok","다음"]}
 {"ts":"2026-05-04T01:42:47.484Z","phase":"audit-emit","toolName":"Agent","echoTriggerDetected":true,"intentReconfirmRequested":true,"matchedKeywords":["OK","ok","다음"]}
+{"ts":"2026-05-04T01:58:08.398Z","phase":"classified","sessionId":"59d54e15-141d-4cb3-af9e-23432095757f","grade":"B","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":9}
+{"ts":"2026-05-04T02:00:18.529Z","phase":"classified","sessionId":"59d54e15-141d-4cb3-af9e-23432095757f","grade":"B","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":8}
+{"ts":"2026-05-04T02:02:53.825Z","phase":"classified","sessionId":"59d54e15-141d-4cb3-af9e-23432095757f","grade":"B","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":7}
+{"ts":"2026-05-04T02:30:43.529Z","phase":"classified","sessionId":"59d54e15-141d-4cb3-af9e-23432095757f","grade":"B","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":7}

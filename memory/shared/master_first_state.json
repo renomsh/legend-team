@@ -1,13 +1,9 @@
 {
-  "lastMasterUtterance": "OK. 좋은 지적이였어.\n다음 세션에 다시 주제 이어가자.\n/close",
-  "echoTriggerDetected": true,
-  "intentReconfirmRequested": true,
-  "matchedKeywords": [
-    "OK",
-    "ok",
-    "다음"
-  ],
+  "lastMasterUtterance": "큰 의미 없으니까 지금 바로 수정해. 우리 내부적으로 사용하는 버전이까.",
+  "echoTriggerDetected": false,
+  "intentReconfirmRequested": false,
+  "matchedKeywords": [],
   "sessionId": "59d54e15-141d-4cb3-af9e-23432095757f",
-  "updatedAt": "2026-05-04T01:42:07.578Z",
+  "updatedAt": "2026-05-04T02:30:43.535Z",
   "jobsFramingActive": true
 }
