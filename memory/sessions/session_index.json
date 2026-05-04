@@ -8249,8 +8249,70 @@
       "decisionsAdded": [
         "D-156"
       ]
+    },
+    {
+      "sessionId": "session_190",
+      "topicSlug": "persona-layer-refine-p2",
+      "topic": "persona Layer 정제 2차",
+      "startedAt": "2026-05-05T00:00:00.000Z",
+      "closedAt": "2026-05-05T11:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "decisions": [
+        {
+          "content": "Riki 부분 GO 채택, #2(zero policy self-exclusion 자기참조)만 적용",
+          "appliedTo": "memory/roles/policies/role-zero.md",
+          "status": "resolved"
+        }
+      ],
+      "agentsCompleted": [
+        "zero",
+        "riki",
+        "dev",
+        "zero",
+        "zero",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "zero",
+          "turnIdx": 0,
+          "source": "agent"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 1,
+          "source": "agent"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 2,
+          "source": "main",
+          "phase": "implement"
+        },
+        {
+          "role": "zero",
+          "turnIdx": 3,
+          "source": "agent"
+        },
+        {
+          "role": "zero",
+          "turnIdx": 4,
+          "source": "agent"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 5,
+          "source": "agent"
+        }
+      ],
+      "grade": "B",
+      "note": "Master 토픽 메모: PD-061 해결 후 판단 — PD-061은 session_189에서 resolved. 이번 토픽은 PD-058(_common.md + role-{role}.md 절삭 검토)에 해당. session_188(p2, D-155)은 다른 각도였고 PD-058은 여전히 pending.",
+      "oneLineSummary": "persona Layer 2차: Zero 4건→Riki KILL 1·부분 GO 3→Master #2만 적용 -91B, D-157, PD-058 resolved",
+      "decisionsAdded": [
+        "D-157"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-04T23:17:51.731Z",
+  "lastUpdated": "2026-05-04T23:40:32.263Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

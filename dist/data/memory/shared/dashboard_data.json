@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-04T23:18:30.395Z",
-  "totalSessions": 186,
+  "generatedAt": "2026-05-04T23:40:58.547Z",
+  "totalSessions": 187,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [
     {
@@ -8,25 +8,25 @@
       "caveat": "rules.edi가 hook에 의해 read되지 않으므로 정책 토글 기능 0(예: enforcement_grade 변경으로 enforcement 끄기 불가). 향후 D-138 enforcement 폐기 결정 시 finalize.js line 1521 직접 삭제 + rules.edi.enforcement_note 갱신 필요. Riki R-2(session_164 5 gap false positive 의심)는 미해소 — PD로 이연.",
       "ackedBySession": "session_168",
       "ackedAt": "2026-05-02",
-      "ageInSessions": 21
+      "ageInSessions": 22
     },
     {
       "decisionId": "D-138",
       "caveat": "dispatch_config.json Edi rule 부재는 잔존 — pre-tool-use-task.js가 dispatch_config를 실제 enforce하는 hook 구현 후 rule 추가 순서 유지 필요. turns 중복 기록 패턴(이번 세션 turns[1]/[3])은 별도 점검 후보.",
       "ackedBySession": "session_168",
       "ackedAt": "2026-05-02",
-      "ageInSessions": 21
+      "ageInSessions": 22
     }
   ],
   "metrics": {
-    "avgMasterTurns": 20.05,
+    "avgMasterTurns": 19.98,
     "avgCacheHitRate": 0.9328,
-    "cacheSampleSize": 160,
-    "cacheSampleTotal": 186,
+    "cacheSampleSize": 161,
+    "cacheSampleTotal": 187,
     "avgAdoptionRate": 0,
-    "totalDecisions": 157,
+    "totalDecisions": 158,
     "gradeDistribution": {
-      "S": 85,
+      "S": 86,
       "A": 36,
       "B": 42,
       "C": 15,
@@ -35,7 +35,7 @@
     "topicGradeDistribution": {
       "S": 17,
       "A": 59,
-      "B": 48,
+      "B": 49,
       "C": 27,
       "D": 7
     },
@@ -53,10 +53,10 @@
       "session_172"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 141,
-    "totalCostUSD": 2250.138,
-    "avgCostPerSession": 12.4317,
-    "costSampleSize": 181
+    "turnBasedSessions": 142,
+    "totalCostUSD": 2253.8668,
+    "avgCostPerSession": 12.3839,
+    "costSampleSize": 182
   },
   "sessions": [
     {
@@ -7152,6 +7152,47 @@
         "messageCount": 109
       },
       "sessionCostUSD": 4.5128
+    },
+    {
+      "sessionId": "session_190",
+      "topicSlug": "persona-layer-refine-p2",
+      "topic": "persona Layer 정제 2차",
+      "startedAt": "2026-05-05T00:00:00.000Z",
+      "closedAt": "2026-05-05T11:00:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-157"
+      ],
+      "rolesCalled": 6,
+      "rolesRecalled": 2,
+      "sessionsSpanned": 1,
+      "size": 15,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 8,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "zero",
+        "riki",
+        "dev",
+        "zero",
+        "zero",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 6534102,
+        "ioTokens": 38015,
+        "inputTokens": 554,
+        "outputTokens": 37461,
+        "cacheCreate": 352592,
+        "cacheRead": 6143495,
+        "cacheHitRate": 0.9402202475565885,
+        "messageCount": 70
+      },
+      "sessionCostUSD": 3.7288
     }
   ],
   "roleFrequency": [
@@ -7251,7 +7292,7 @@
     },
     {
       "role": "edi",
-      "count": 151,
+      "count": 152,
       "sessions": [
         "session_050",
         "session_051",
@@ -7390,7 +7431,8 @@
         "session_186",
         "session_187",
         "session_188",
-        "session_189"
+        "session_189",
+        "session_190"
       ]
     },
     {
@@ -7471,7 +7513,7 @@
     },
     {
       "role": "dev",
-      "count": 99,
+      "count": 100,
       "sessions": [
         "session_047",
         "session_048",
@@ -7552,12 +7594,13 @@
         "session_176",
         "session_178",
         "session_179",
-        "session_189"
+        "session_189",
+        "session_190"
       ]
     },
     {
       "role": "riki",
-      "count": 95,
+      "count": 96,
       "sessions": [
         "session_049",
         "session_053",
@@ -7627,7 +7670,8 @@
         "session_182",
         "session_185",
         "session_187",
-        "session_188"
+        "session_188",
+        "session_190"
       ]
     },
     {
@@ -7679,7 +7723,7 @@
     },
     {
       "role": "zero",
-      "count": 16,
+      "count": 19,
       "sessions": [
         "session_153",
         "session_175",
@@ -7688,7 +7732,8 @@
         "session_184",
         "session_186",
         "session_187",
-        "session_188"
+        "session_188",
+        "session_190"
       ]
     },
     {
@@ -12933,6 +12978,48 @@
           "role": "edi",
           "phase": "compile",
           "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_190",
+      "topic": "persona Layer 정제 2차",
+      "sequence": [
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implement",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 5,
           "recallReason": null
         }
       ]

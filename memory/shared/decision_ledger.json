@@ -1,6 +1,20 @@
 {
   "decisions": [
     {
+      "id": "D-157",
+      "date": "2026-05-05",
+      "session": "session_190",
+      "topic": "topic_163",
+      "axis": "Persona Layer 2차 정제 — Zero·Riki 협업 부분 적용",
+      "summary": "PD-058 2차: Zero가 cut 4건(~1,030B) 제안, Riki 적대적 검토로 #1(edi §6.4↔§6.6) KILL(분기 다름·실체 다름), #3·#4(배합의 묘미) 부분 GO(둘째 문장은 페르소나 합성 메커니즘 — 통문장 cut 시 drift 위험), #2(zero policy self-exclusion 자기참조) 단독 적용. role-zero.md 호출조건 §의 D-146 cross-ref 1줄 제거(line 114 강제제약 §이 enforcement 형태로 동일 정보 cover, line 130 컨텍스트 지시 보존). -91B.",
+      "decision": "memory/roles/policies/role-zero.md 호출조건 § self-exclusion bullet 제거",
+      "caveats": [
+        "Zero 청구 1,030B 대비 9% 적용 — Riki 적대적 검토가 페르소나 drift 위험 차단",
+        "PD-058 resolved (1차 D-155 -5,407B + 2차 D-157 -91B)"
+      ],
+      "status": "active"
+    },
+    {
       "id": "D-156",
       "date": "2026-05-05",
       "session": "session_189",

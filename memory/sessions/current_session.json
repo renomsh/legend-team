@@ -1,79 +1,162 @@
 {
-  "sessionId": "session_189",
-  "topicId": "topic_162",
-  "topic": "C 버전 형식 정규화",
-  "topicSlug": "version-format-normalize",
-  "reportPath": "reports/2026-05-05_version-format-normalize",
+  "sessionId": "session_190",
+  "topicId": "topic_163",
+  "topic": "persona Layer 정제 2차",
+  "topicSlug": "persona-layer-refine-p2",
+  "reportPath": "reports/2026-05-05_persona-layer-refine-p2",
   "status": "closed",
   "startedAt": "2026-05-05T00:00:00.000Z",
-  "closedAt": "2026-05-05T10:00:00.000Z",
+  "closedAt": "2026-05-05T11:00:00.000Z",
+  "oneLineSummary": "persona Layer 2차: Zero 4건→Riki KILL 1·부분 GO 3→Master #2만 적용 -91B, D-157, PD-058 resolved",
   "mode": "observation",
-  "grade": "C",
+  "grade": "B",
   "framingLevel": 0,
   "framingSkipped": true,
   "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
-  "relatedPD": "PD-061",
+  "relatedPD": "PD-058",
   "turns": [
     {
-      "role": "dev",
+      "role": "zero",
       "turnIdx": 0,
+      "source": "agent"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 1,
+      "source": "agent"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 2,
+      "source": "main",
       "phase": "implement"
     },
     {
+      "role": "zero",
+      "turnIdx": 3,
+      "source": "agent"
+    },
+    {
+      "role": "zero",
+      "turnIdx": 4,
+      "source": "agent"
+    },
+    {
       "role": "edi",
-      "turnIdx": 1,
-      "phase": "compile"
+      "turnIdx": 5,
+      "source": "agent"
     }
   ],
   "decisions": [],
   "decisionsAdded": [
-    "D-156"
+    "D-157"
   ],
-  "masterDecisions": [],
-  "masterFeedback": [
+  "masterDecisions": [
     {
-      "id": "MF-189-01",
-      "content": "버전 형식은 0.917처럼 점 하나짜리 3자리 소수여야 함. 0.9.171 같은 점 두 개 형식 오류.",
-      "appliedTo": "project_charter.json history 오기 정정 + versionSchema 명문화",
+      "content": "Riki 부분 GO 채택, #2(zero policy self-exclusion 자기참조)만 적용",
+      "appliedTo": "memory/roles/policies/role-zero.md",
       "status": "resolved"
     }
   ],
+  "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [
-    "PD-061"
+    "PD-058"
   ],
-  "notes": [],
+  "notes": [
+    "Master 토픽 메모: PD-061 해결 후 판단 — PD-061은 session_189에서 resolved. 이번 토픽은 PD-058(_common.md + role-{role}.md 절삭 검토)에 해당. session_188(p2, D-155)은 다른 각도였고 PD-058은 여전히 pending."
+  ],
   "gaps": [
     {
-      "type": "mechanical-fallback-graded",
-      "sessionId": "session_189",
-      "grade": "C",
-      "severity": "info"
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-05_persona-layer-refine-p2/dev_condensed.md"
     },
     {
-      "type": "edi-llm-report-absent",
-      "sessionId": "session_189",
-      "reportPath": "reports/2026-05-05_version-format-normalize",
-      "grade": "C",
-      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-05_persona-layer-refine-p2/dev_rev1.md"
+    },
+    {
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-05_persona-layer-refine-p2/riki_condensed.md"
+    },
+    {
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-05_persona-layer-refine-p2/riki_rev1.md"
+    },
+    {
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-05_persona-layer-refine-p2/zero_condensed.md"
+    },
+    {
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-05_persona-layer-refine-p2/zero_rev1.md"
+    },
+    {
+      "type": "version-bump-edi-unconfirmed",
+      "severity": "high",
+      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
+      "addedBy": "checkVersionBumpConfirmation",
+      "ref": "D-140",
+      "suggestedValue": 0.1
     }
   ],
-  "openMasterAlerts": [],
-  "oneLineSummary": "버전 형식 X.YYY 확정: 점 두 개 오기 4건 정정(0.716~0.917), D-156 박제, PD-061 resolved",
-  "tokenUsage": {
-    "input_tokens": 131,
-    "output_tokens": 68644,
-    "cache_creation_input_tokens": 212744,
-    "cache_read_input_tokens": 8949791,
-    "messageCount": 109,
-    "masterTurns": 5,
-    "total_billable": 9231310
-  },
+  "openMasterAlerts": [
+    {
+      "severity": "high",
+      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.1)",
+      "addedBy": "checkVersionBumpConfirmation",
+      "ref": "D-140"
+    }
+  ],
   "agentsCompleted": [
+    "zero",
+    "riki",
     "dev",
+    "zero",
+    "zero",
     "edi"
   ],
-  "finalizedAt": "2026-05-04T23:18:17.821Z"
+  "tokenUsage": {
+    "input_tokens": 554,
+    "output_tokens": 37461,
+    "cache_creation_input_tokens": 352592,
+    "cache_read_input_tokens": 6143495,
+    "messageCount": 70,
+    "masterTurns": 8,
+    "total_billable": 6534102
+  },
+  "versionBumpSuggested": {
+    "value": 0.1,
+    "type": "structural",
+    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 1건 (memory/roles/policies/role-zero.md)",
+    "autoDetectedAt": "2026-05-04T23:40:47.472Z",
+    "changedFiles": [
+      "AGENTS.md",
+      "CONTEXT.md",
+      "agents/ace.md",
+      "agents/arki.md",
+      "agents/dev.md",
+      "agents/editor.md",
+      "agents/fin.md",
+      "agents/nova.md",
+      "agents/riki.md",
+      "docs/publish-contract.md",
+      "logs/app.log",
+      "logs/hook-diagnostics.log",
+      "logs/master-first.log",
+      "logs/pre-tool-use-task.log",
+      "logs/sage-gate.log",
+      "memory/roles/policies/role-zero.md",
+      "memory/sessions/current_session.json",
+      "memory/sessions/session_index.json",
+      "memory/sessions/token_log.json",
+      "memory/shared/decision_ledger.json"
+    ],
+    "changedFilesCount": 154,
+    "cappedAt": 0.1,
+    "confirmedBy": null
+  },
+  "finalizedAt": "2026-05-04T23:40:49.946Z"
 }

@@ -4,7 +4,6 @@
 
 - on-demand. 매 세션 호출 X. 정제 필요 시 Master/Nexus 호출.
 - `session_isolation: "shared"` — Sage와 달리 다른 페르소나와 공존 가능
-- Self-exclusion 일반 원칙은 `memory/roles/personas/role-zero.md` SOT 참조 (D-146)
 
 ## 발언 구조
 

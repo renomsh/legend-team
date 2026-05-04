@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_189",
-  "nextSessionId": "session_190",
+  "lastSessionId": "session_190",
+  "nextSessionId": "session_191",
   "currentVersion": "v0.917",
   "openTopics": [
     {
@@ -13,6 +13,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-157",
+      "date": "2026-05-05",
+      "axis": "Persona Layer 2차 정제 — Zero·Riki 협업 부분 적용",
+      "summary": "Persona Layer 2차 정제 — Zero·Riki 협업 부분 적용"
+    },
     {
       "id": "D-156",
       "date": "2026-05-05",
@@ -36,15 +42,18 @@
       "date": "2026-05-04",
       "axis": "Zero D.Condense Phase B 구현 — Edi 보고서 cross-role 중복 제거 + buildTopicLayer condensed 우선 체크",
       "summary": "Zero D.Condense Phase B 구현 — Edi 보고서 cross-role 중복 제거 + buildTopicLayer condensed 우선 체크"
-    },
-    {
-      "id": "D-152",
-      "date": "2026-05-04",
-      "axis": "Zero Condense Gate 설계·구현 — pre-tool-use-task.js v4 Edi BLOCK 강제 + role-zero.md D.Condense 4번째 도구 추가",
-      "summary": "Zero Condense Gate 설계·구현 — pre-tool-use-task.js v4 Edi BLOCK 강제 + role-zero.md D.Condense 4번째 도구 추가"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_190",
+      "topicSlug": "persona-layer-refine-p2",
+      "closedAt": "2026-05-05T11:00:00.000Z",
+      "oneLineSummary": "persona Layer 2차: Zero 4건→Riki KILL 1·부분 GO 3→Master #2만 적용 -91B, D-157, PD-058 resolved",
+      "decisionsAdded": [
+        "D-157"
+      ]
+    },
     {
       "sessionId": "session_189",
       "topicSlug": "version-format-normalize",
@@ -62,13 +71,6 @@
       "decisionsAdded": [
         "D-155"
       ]
-    },
-    {
-      "sessionId": "session_186",
-      "topicSlug": "nexus-enhancement",
-      "closedAt": "2026-05-04T21:30:00.000Z",
-      "oneLineSummary": "Nexus 고도화: D-002(UI 미생성) 폐기, CLAUDE.md/MEMORY.md/open.md -26%(-10,339B), MCP/Skill 정리",
-      "decisionsAdded": []
     }
   ],
   "pendingDeferrals": [
@@ -105,19 +107,6 @@
       "note": "다음 주 진행 예정 (Master 확인 session_024)"
     },
     {
-      "id": "PD-058",
-      "fromSession": "session_184",
-      "fromTopic": "topic_157 (open-close-lightweight)",
-      "item": "Persona Layer 정제 — _common.md(3,753B) + role-{role}.md 절삭 검토. 별도 토픽으로 진행.",
-      "status": "pending",
-      "resolveCondition": "별도 토픽 오픈 후 구현 완료",
-      "dependsOn": [],
-      "relatedDecisions": [
-        "D-151",
-        "D-152"
-      ]
-    },
-    {
       "id": "PD-059",
       "fromSession": "session_184",
       "fromTopic": "topic_157 (open-close-lightweight)",
@@ -138,5 +127,5 @@
       "note": "Zero R3 (session_188). 별도 토픽으로 분리. 페르소나 레이어 2차 정제."
     }
   ],
-  "lastUpdated": "2026-05-04T23:18:17.648Z"
+  "lastUpdated": "2026-05-04T23:40:49.841Z"
 }
