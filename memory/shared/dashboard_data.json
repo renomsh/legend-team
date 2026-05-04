@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-04T03:58:58.737Z",
-  "totalSessions": 179,
+  "generatedAt": "2026-05-04T04:50:05.732Z",
+  "totalSessions": 180,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [
     {
@@ -8,25 +8,25 @@
       "caveat": "rules.edi가 hook에 의해 read되지 않으므로 정책 토글 기능 0(예: enforcement_grade 변경으로 enforcement 끄기 불가). 향후 D-138 enforcement 폐기 결정 시 finalize.js line 1521 직접 삭제 + rules.edi.enforcement_note 갱신 필요. Riki R-2(session_164 5 gap false positive 의심)는 미해소 — PD로 이연.",
       "ackedBySession": "session_168",
       "ackedAt": "2026-05-02",
-      "ageInSessions": 14
+      "ageInSessions": 15
     },
     {
       "decisionId": "D-138",
       "caveat": "dispatch_config.json Edi rule 부재는 잔존 — pre-tool-use-task.js가 dispatch_config를 실제 enforce하는 hook 구현 후 rule 추가 순서 유지 필요. turns 중복 기록 패턴(이번 세션 turns[1]/[3])은 별도 점검 후보.",
       "ackedBySession": "session_168",
       "ackedAt": "2026-05-02",
-      "ageInSessions": 14
+      "ageInSessions": 15
     }
   ],
   "metrics": {
-    "avgMasterTurns": 18.84,
+    "avgMasterTurns": 18.83,
     "avgCacheHitRate": 0.9321,
-    "cacheSampleSize": 153,
-    "cacheSampleTotal": 179,
+    "cacheSampleSize": 154,
+    "cacheSampleTotal": 180,
     "avgAdoptionRate": 0,
-    "totalDecisions": 152,
+    "totalDecisions": 153,
     "gradeDistribution": {
-      "S": 81,
+      "S": 82,
       "A": 35,
       "B": 40,
       "C": 15,
@@ -53,10 +53,10 @@
       "session_172"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 134,
-    "totalCostUSD": 2131.5352,
-    "avgCostPerSession": 12.2502,
-    "costSampleSize": 174
+    "turnBasedSessions": 135,
+    "totalCostUSD": 2141.8264,
+    "avgCostPerSession": 12.239,
+    "costSampleSize": 175
   },
   "sessions": [
     {
@@ -6820,8 +6820,8 @@
       ],
       "rolesCalled": 7,
       "rolesRecalled": 3,
-      "sessionsSpanned": 2,
-      "size": 21,
+      "sessionsSpanned": 3,
+      "size": 24,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -6859,8 +6859,8 @@
       "decisionAxes": 0,
       "rolesCalled": 8,
       "rolesRecalled": 4,
-      "sessionsSpanned": 2,
-      "size": 22,
+      "sessionsSpanned": 3,
+      "size": 25,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -6888,6 +6888,43 @@
         "messageCount": 94
       },
       "sessionCostUSD": 6.1873
+    },
+    {
+      "sessionId": "session_183",
+      "topicSlug": "open-close-lightweight",
+      "topic": "오픈·클로즈 경량화 검토",
+      "startedAt": "2026-05-04T16:00:00.000Z",
+      "closedAt": "2026-05-04T17:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-152"
+      ],
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 3,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 18,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "zero",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 17041736,
+        "ioTokens": 186039,
+        "inputTokens": 50809,
+        "outputTokens": 135230,
+        "cacheCreate": 885110,
+        "cacheRead": 15970587,
+        "cacheHitRate": 0.9371455466743529,
+        "messageCount": 151
+      },
+      "sessionCostUSD": 10.2912
     }
   ],
   "roleFrequency": [
@@ -6987,7 +7024,7 @@
     },
     {
       "role": "edi",
-      "count": 144,
+      "count": 145,
       "sessions": [
         "session_050",
         "session_051",
@@ -7119,7 +7156,8 @@
         "session_179",
         "session_180",
         "session_181",
-        "session_182"
+        "session_182",
+        "session_183"
       ]
     },
     {
@@ -7415,11 +7453,12 @@
     },
     {
       "role": "zero",
-      "count": 7,
+      "count": 8,
       "sessions": [
         "session_153",
         "session_175",
-        "session_182"
+        "session_182",
+        "session_183"
       ]
     },
     {
@@ -12458,6 +12497,24 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 7,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_183",
+      "topic": "오픈·클로즈 경량화 검토",
+      "sequence": [
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 1,
           "recallReason": null
         }
       ]

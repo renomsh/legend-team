@@ -1,6 +1,20 @@
 {
   "decisions": [
     {
+      "id": "D-152",
+      "date": "2026-05-04",
+      "session": "session_183",
+      "topic": "topic_157",
+      "axis": "Zero Condense Gate 설계·구현 — pre-tool-use-task.js v4 Edi BLOCK 강제 + role-zero.md D.Condense 4번째 도구 추가",
+      "summary": "Zero Condense Gate: Edi 호출 시 `_zero_condense.json` 마커 부재 → 프롬프트 BLOCK으로 mutate. Zero가 먼저 역할 보고서 정제(60~70% 압축 목표) + 마커 작성 → Edi 재호출 시 통과. findLatestReport()가 condensed.md 우선 체크하여 압축본을 inject에 활용. 검증 2건(BLOCK 동작 / 정상 통과) 로그 확인. 목표: 극 절감이 아닌 품질 보장 + 일부 절감.",
+      "decision": "① pre-tool-use-task.js v4: evaluateZeroCondenseGate() 신규(role===edi 시 마커 체크), findLatestReport() condensed 우선, main flow condenseBlock BLOCK 분기. ② role-zero.md: D.Condense 4번째 도구 추가(제거 패턴 4종+마커 규격+7단계 강제 흐름+Edi 제외 원칙). 마커: reports/{reportPath}/_zero_condense.json.",
+      "caveats": [
+        "Zero D.Condense 실제 실행 효과(condensed.md 크기 절감) 미실측 — 다음 세션 G-8",
+        "_zero_condense.json 마커 자동 생성 end-to-end 흐름 미검증 — BLOCK만 확인됨 (G-9)"
+      ],
+      "status": "active"
+    },
+    {
       "id": "D-150",
       "date": "2026-05-03",
       "session": "session_179",

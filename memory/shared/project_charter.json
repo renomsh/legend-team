@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "0.7.161",
+    "version": "0.8.161",
     "era_history": [
       {
         "era": "Legend Team",
@@ -256,6 +256,12 @@
       "date": "2026-05-04",
       "summary": "nexus_memory_open.json 신규 + ace_memory archive 분리 + auto-memory 9파일 변경 — capability extension. structural(+0.1) 미달, bugfix(+0.001) 초과로 +0.01 판단.",
       "sessionId": "session_182"
+    },
+    {
+      "version": "0.8.161",
+      "date": "2026-05-04",
+      "summary": "Zero Condense Gate 구현 — pre-tool-use-task.js v4 evaluateZeroCondenseGate() 신규(마커 부재 시 Edi BLOCK), role-zero.md D.Condense 4번째 도구 추가. 검증 2건 통과.",
+      "sessionId": "session_183"
     }
   ],
   "lastUpdated": "2026-05-04"

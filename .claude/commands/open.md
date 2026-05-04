@@ -11,7 +11,7 @@
 3. **이연 항목 List-up** — openTopics + pendingDeferrals를 Master에게 브리핑
 3.5. **[context_brief 자동 로드]** `npx ts-node scripts/load-context-briefs.ts` 실행.
    - hold=null인 openTopics의 context_brief.md를 자동 로드해 Master에게 요약 브리핑
-   - 파일 없는 토픽은 조용히 스킵 (오류 아님) — 신규 토픽도 context_brief 미생성 상태이므로 자동 스킵
+   - 파일 없는 토픽은 스킵 (오류 아님) — 신규 토픽도 context_brief 미생성 상태이므로 자동 스킵
    - 출력이 비어있으면 "활성 context_brief 없음"으로 보고 후 진행
 3.5-c. **[이전 세션 Edi 보고서 브리핑]** — 기존 토픽 재오픈 시 (분기 A 경로) 또는 openTopics에 이미 진행 중인 토픽이 있을 때:
    - `topics/{topicId}/session_contributions/*_edi_report.md` 파일 중 최신 1~2건을 Read하여 Master에게 핵심 요약 브리핑
@@ -24,13 +24,13 @@
    - 배열이 비어있거나 필드 없으면 "최근 세션 요약 없음 (oneLineSummary 미기록)" 출력 후 진행
 3.5-d. **[Master-first audit 브리핑]** (D-129, 2026-05-01)
    - `logs/master-first-audit.md` 존재 시: 마지막 5행을 읽어 Master에게 브리핑
-   - 파일 없으면 조용히 스킵
+   - 파일 없으면 스킵
    - 브리핑 형식: "⚠ Master-first audit 기록 {N}건 — 최근: {마지막 항목 요약}" 1줄
 3.6. **[자동 종결 dry-run 배치]** (D-057, session_067)
    - `npx ts-node scripts/auto-close-topics.ts` — framing 토픽 중 모든 children이 completed면 종결 제안 출력 (무변경)
    - `npx ts-node scripts/resolve-pending-deferrals.ts` — resolveCondition 매칭 PD 전이 제안 + stale 리포트
    - 제안이 있으면 Master에게 리스트업. 저마찰 원칙: 무응답=보류 (적용하려면 --apply 재호출)
-   - 제안 0건이면 조용히 스킵
+   - 제안 0건이면 스킵
 4. `memory/sessions/session_index.json` 읽기 — 마지막 session ID 확인하여 다음 ID 생성
 5. **Grade 판정** (아래 Grade 판정 규칙 참조)
 6. `current_session.json`을 새 세션 정보로 업데이트:
@@ -108,7 +108,7 @@
 
 ### 4. C/B grade Dev 판정 스텝 (필수)
 C/B grade로 진행 중 Dev 또는 Riki가 "구조적 문제"로 판정 시:
-→ Ace 즉시 재소집. `/jobs-framing` 필요 시 Master 명시 호출.
+→ Nexus 즉시 재소집. `/jobs-framing` 필요 시 Master 명시 호출.
 
 ---
 

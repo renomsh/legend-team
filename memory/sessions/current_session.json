@@ -1,13 +1,12 @@
 {
-  "sessionId": "session_182",
+  "sessionId": "session_183",
   "topicId": "topic_157",
   "topic": "오픈·클로즈 경량화 검토",
   "topicSlug": "open-close-lightweight",
   "reportPath": "reports/2026-05-04_open-close-lightweight",
   "status": "closed",
-  "startedAt": "2026-05-04T13:00:00.000Z",
-  "closedAt": "2026-05-04T15:00:00.000Z",
-  "oneLineSummary": "open-lightweight 2차: nexus_memory_open 분리, ace_memory -96%, auto-memory -12% (단 토큰 효과 미실증, dispatch-context가 진짜 레버)",
+  "startedAt": "2026-05-04T16:00:00.000Z",
+  "closedAt": "2026-05-04T17:30:00.000Z",
   "mode": "observation",
   "grade": "B",
   "framingLevel": 0,
@@ -17,138 +16,69 @@
   "childTopicIds": [],
   "turns": [
     {
-      "role": "arki",
+      "role": "zero",
       "turnIdx": 0,
       "source": "agent"
     },
     {
-      "role": "riki",
-      "turnIdx": 1,
-      "source": "agent"
-    },
-    {
-      "role": "zero",
-      "turnIdx": 2,
-      "source": "agent"
-    },
-    {
-      "role": "zero",
-      "turnIdx": 3,
-      "source": "agent"
-    },
-    {
-      "role": "zero",
-      "turnIdx": 4,
-      "source": "agent"
-    },
-    {
-      "role": "riki",
-      "turnIdx": 5,
-      "source": "agent"
-    },
-    {
-      "role": "zero",
-      "turnIdx": 6,
-      "source": "agent"
-    },
-    {
       "role": "edi",
-      "turnIdx": 7,
+      "turnIdx": 1,
       "source": "agent"
     }
   ],
-  "decisions": [],
-  "decisionsAdded": [],
+  "decisions": [
+    "D-152"
+  ],
+  "decisionsAdded": [
+    "D-152"
+  ],
   "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
-  "notes": [
-    "topic_157 이어가기 2차. /open 토큰 75K 원인 재조사.",
-    "역설적 발견: ace_memory.json은 /open 시 자동 로드된 적 없었음 (topic_load_manifest.loadMemory가 dead spec). 본 세션 분리·정제 작업의 토큰 절감 효과 미실증.",
-    "변경 4건: (1) CLAUDE.md step 2-b 신설 — nexus_memory_open Read 명시 (2) nexus_memory_open.json 신규 4,211B (3) ace_memory.json 26,858→1,119B + archive 분리 (4) auto-memory 78,662→69,133B (-12.1%, 6 Cut + Riki 3→1 Merge)",
-    "다음 세션 진짜 레버: dispatch-context inject 레이어 (역할 policy + 이전 발언 prepend) 경량화. /open SKILL.md 본문 자체 측정."
-  ],
+  "oneLineSummary": "open-lightweight 3차: Zero Condense Gate 구현(hook v4 BLOCK 강제, D-152) — 실측은 다음 세션",
   "versionBump": {
-    "value": 0.01,
-    "from": "0.7.151",
-    "to": "0.7.161",
-    "reason": "nexus_memory_open.json 신규 + ace_memory archive 분리 + auto-memory 9파일 변경 — capability extension. structural(+0.1) 미달, bugfix(+0.001) 초과로 +0.01 판단.",
+    "value": 0.1,
+    "from": "0.7.161",
+    "to": "0.8.161",
+    "reason": "Zero Condense Gate 구현 — pre-tool-use-task.js v4 evaluateZeroCondenseGate() 신규(마커 부재 시 Edi BLOCK), role-zero.md D.Condense 4번째 도구 추가. 검증 2건 통과.",
     "confirmedBy": "edi",
-    "confirmedAt": "2026-05-04T15:00:00.000Z",
-    "overrideReason": "versionBumpSuggested 부재 — Edi 직접 식별 (코드 변경 0건이나 정책·구조 신규 4건)"
+    "confirmedAt": "2026-05-04T17:30:00.000Z"
   },
+  "notes": [
+    "topic_157 이어가기 3차. 이전 세션(session_182) 역설 결론: dispatch-context inject가 진짜 레버. G-1(dispatch-context 경량화), G-2(/open SKILL.md 측정) 착수 예정.",
+    "session_183: Zero Condense Gate 설계·구현 완료. 다음 세션 G-1(Zero D.Condense 실실행) 착수 우선."
+  ],
   "gaps": [
-    {
-      "type": "missing-report",
-      "role": "zero",
-      "turnIdx": 2,
-      "reportPath": "reports/2026-05-04_open-close-lightweight",
-      "detectedAt": "2026-05-04T03:13:29.850Z",
-      "note": "zero turn2 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "missing-report",
-      "role": "zero",
-      "turnIdx": 3,
-      "reportPath": "reports/2026-05-04_open-close-lightweight",
-      "detectedAt": "2026-05-04T03:22:51.647Z",
-      "note": "zero turn3 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
+    "G-8: Zero D.Condense 실제 실행 효과(condensed.md 크기) 미실측",
+    "G-9: _zero_condense.json 마커 생성 end-to-end 흐름 미검증",
     {
       "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-04_open-close-lightweight/arki_rev1.md",
+      "file": "reports/2026-05-04_open-close-lightweight/arki_rev2.md",
       "expected": "arki",
       "actualInTurns": "zero",
-      "turnId": 2
+      "turnId": 0
     },
     {
       "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-04_open-close-lightweight/dev_rev1.md",
-      "expected": "dev",
-      "actualInTurns": "zero",
-      "turnId": 2
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-04_open-close-lightweight/dev_rev2.md",
-      "expected": "dev",
-      "actualInTurns": "zero",
-      "turnId": 6
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-04_open-close-lightweight/edi_rev1.md",
-      "expected": "edi",
-      "actualInTurns": "riki",
-      "turnId": 5
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-04_open-close-lightweight/riki_rev1.md",
+      "file": "reports/2026-05-04_open-close-lightweight/riki_rev3.md",
       "expected": "riki",
-      "actualInTurns": "zero",
-      "turnId": 4
+      "actualInTurns": "edi",
+      "turnId": 1
     }
   ],
   "tokenUsage": {
-    "input_tokens": 2530,
-    "output_tokens": 91407,
-    "cache_creation_input_tokens": 582973,
-    "cache_read_input_tokens": 8741677,
-    "messageCount": 94,
+    "input_tokens": 50809,
+    "output_tokens": 135230,
+    "cache_creation_input_tokens": 885110,
+    "cache_read_input_tokens": 15970587,
+    "messageCount": 151,
     "masterTurns": 18,
-    "total_billable": 9418587
+    "total_billable": 17041736
   },
   "agentsCompleted": [
-    "arki",
-    "riki",
-    "zero",
-    "zero",
-    "zero",
-    "riki",
     "zero",
     "edi"
   ],
-  "finalizedAt": "2026-05-04T03:58:51.297Z"
+  "finalizedAt": "2026-05-04T04:49:55.019Z"
 }

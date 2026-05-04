@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_182",
-  "nextSessionId": "session_183",
-  "currentVersion": "v0.7.161",
+  "lastSessionId": "session_183",
+  "nextSessionId": "session_184",
+  "currentVersion": "v0.8.161",
   "openTopics": [
     {
       "id": "topic_157",
@@ -19,6 +19,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-152",
+      "date": "2026-05-04",
+      "axis": "Zero Condense Gate 설계·구현 — pre-tool-use-task.js v4 Edi BLOCK 강제 + role-zero.md D.Condense 4번째 도구 추가",
+      "summary": "Zero Condense Gate 설계·구현 — pre-tool-use-task.js v4 Edi BLOCK 강제 + role-zero.md D.Condense 4번째 도구 추가"
+    },
     {
       "id": "D-151",
       "date": "2026-05-04",
@@ -42,15 +48,18 @@
       "date": "2026-05-03",
       "axis": "ERJ stretch target with full submission package despite ~12% honest acceptance probability + Nexus initial 30-40% over-estimate accountability",
       "summary": "ERJ stretch target with full submission package despite ~12% honest acceptance probability + Nexus initial 30-40% over-estimate accountability"
-    },
-    {
-      "id": "D-147",
-      "date": "2026-05-02",
-      "axis": "Job=29 무직 EXCLUDE in primary cohort + Job=NaN KEEP+S8 sensitivity + Patch Table 3 α₁ 부호 정정 + Cohort rebuild n=2,712",
-      "summary": "(a) Methods ↔ 코드 정합성 회복 — reviewer cohort 정의 공격 봉쇄. (b) Y3 p-trend 0.0125→0.0084 강화, Y1 NIE 거의 불변(robustness 입증). (c) α₁ 표시 오류 정정으로 manuscript 신뢰성 회복. (d) S8 sensitivity로 missingness robust 추가 입증. (e) 원본·신규 분석·코드·patch 모두 ver2.0 하위 단일 폴더 박제 — 재현성 + Master 검토 가능 상태."
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_183",
+      "topicSlug": "open-close-lightweight",
+      "closedAt": "2026-05-04T17:30:00.000Z",
+      "oneLineSummary": "open-lightweight 3차: Zero Condense Gate 구현(hook v4 BLOCK 강제, D-152) — 실측은 다음 세션",
+      "decisionsAdded": [
+        "D-152"
+      ]
+    },
     {
       "sessionId": "session_182",
       "topicSlug": "open-close-lightweight",
@@ -66,13 +75,6 @@
       "decisionsAdded": [
         "D-151"
       ]
-    },
-    {
-      "sessionId": "session_180",
-      "topicSlug": "automode-fix",
-      "closedAt": "2026-05-04T10:00:00.000Z",
-      "oneLineSummary": "automode-fix 완료: settings.local.json permissions shallow-merge 버그 수정, bypassPermissions 박제",
-      "decisionsAdded": []
     }
   ],
   "pendingDeferrals": [
@@ -109,5 +111,5 @@
       "note": "다음 주 진행 예정 (Master 확인 session_024)"
     }
   ],
-  "lastUpdated": "2026-05-04T03:58:51.183Z"
+  "lastUpdated": "2026-05-04T04:49:54.863Z"
 }

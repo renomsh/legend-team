@@ -1,6 +1,12 @@
 #!/usr/bin/env node
 /**
- * PreToolUse(Task) hook — Asset #1 v3 (topic_127, 2026-04-28 P2 구현).
+ * PreToolUse(Task) hook — Asset #1 v4 (topic_157, session_183).
+ *
+ * v3 → v4 (+ Zero 정제 게이트 자동 강제):
+ *   - findLatestReport(): {role}_condensed.md 우선 체크. 있으면 condensed 사용, 없으면 최신 rev fallback.
+ *   - evaluateZeroCondenseGate(): role==='edi' 호출 시 _zero_condense.json 마커 체크.
+ *     마커 없으면 Edi 프롬프트를 BLOCK 응답으로 mutate → Nexus가 Zero 먼저 dispatch하도록 유도.
+ *   - 마커 파일: reports/{reportPath}/_zero_condense.json — Zero가 D.Condense 완료 시 생성.
  *
  * v2 (topic+session layer inject) → v3 (+ persona 3층 compose + transition checkpoint):
  *   - buildPersonaLayer: _common.md + policies/role-{r}.md + personas/role-{r}.md concat
@@ -110,13 +116,21 @@ function extractRole(toolInput) {
 }
 
 /**
- * 역할별 최신 보고서 파일 찾기 (mtime 기준)
+ * 역할별 최신 보고서 파일 찾기.
+ * Zero 정제 게이트 output({role}_condensed.md) 우선 사용. 없으면 최신 rev fallback.
  */
 function findLatestReport(cwd, reportPath, role) {
   if (!reportPath || !role) return null;
   try {
     const dir = path.join(cwd, reportPath);
     if (!fs.existsSync(dir)) return null;
+
+    // Zero 정제 게이트 output 우선 (topic_157, session_183)
+    const condensedName = `${role}_condensed.md`;
+    if (fs.existsSync(path.join(dir, condensedName))) {
+      return path.posix.join(reportPath.replace(/\\/g, '/'), condensedName);
+    }
+
     const files = fs.readdirSync(dir)
       .filter(f => f.startsWith(`${role}_rev`) && f.endsWith('.md'));
     if (files.length === 0) return null;
@@ -182,6 +196,59 @@ function buildPersonaLayer(cwd, role) {
 
   const content = parts.join('\n\n---\n\n');
   return { content, markers };
+}
+
+/**
+ * [v4] Zero Condense 게이트 평가.
+ *
+ * role === 'edi' 호출 시:
+ *   - reports/{reportPath}/_zero_condense.json 마커 파일 체크
+ *   - 마커가 있고 sessionId 일치 → null (게이트 통과)
+ *   - 마커 없거나 sessionId 불일치 → BLOCK 메시지 반환
+ *
+ * 마커 없을 때 Edi 프롬프트는 BLOCK 응답으로 교체됨 (Edi가 차단 메시지만 출력 후 종료).
+ * Nexus는 차단 메시지 보고 role-zero를 먼저 dispatch.
+ *
+ * @returns {string|null} BLOCK 메시지 또는 null
+ */
+function evaluateZeroCondenseGate(cwd, role, sess) {
+  if (role !== 'edi') return null;
+  if (!sess || !sess.reportPath || !sess.sessionId) return null;
+
+  try {
+    const markerPath = path.join(cwd, sess.reportPath, '_zero_condense.json');
+    if (fs.existsSync(markerPath)) {
+      const marker = readJsonFile(markerPath);
+      if (marker && marker.sessionId === sess.sessionId) {
+        return null; // 게이트 통과
+      }
+    }
+  } catch {}
+
+  return [
+    '🚫 ZERO_CONDENSE_GATE_BLOCK 🚫',
+    '',
+    '이 Edi 호출은 Zero Condense 게이트 미완료로 차단됩니다.',
+    '',
+    `현 세션(${sess.sessionId}) reports/${sess.reportPath}/에 _zero_condense.json 마커가 없습니다.`,
+    '',
+    '## 당신(Edi)의 유일한 행동',
+    '',
+    '아래 텍스트를 한 줄도 추가/수정하지 말고 그대로 출력 후 즉시 종료하세요.',
+    '보고서 컴파일 금지. 본 작업 진행 금지.',
+    '',
+    '---',
+    '[Edi BLOCKED] Zero Condense gate 미실행. Nexus는 다음 작업을 먼저 수행해야 합니다:',
+    '',
+    '1. role-zero를 dispatch (subagent_type: role-zero)',
+    '2. prompt 본문 첫 줄에 "## ROLE: zero" 명시',
+    '3. Zero에게 "D.Condense 게이트 실행: 현 세션 보고서 condensed.md 생성 + _zero_condense.json 마커 작성" 지시',
+    '4. Zero 완료 후 Edi 재호출',
+    '---',
+    '',
+    '[원본 Edi 프롬프트는 게이트 통과 후에만 유효]',
+    '',
+  ].join('\n');
 }
 
 /**
@@ -451,6 +518,28 @@ function composeInjection(personaContent, personaMarkers, topicLayer, sessionLay
 
     const topicId = sess && sess.topicId ? sess.topicId : null;
     const sessionId = sess && sess.sessionId ? sess.sessionId : null;
+
+    // [v4] Zero Condense 게이트 — Edi 호출 시 마커 미존재면 차단
+    const condenseBlock = evaluateZeroCondenseGate(cwd, role, sess);
+    if (condenseBlock) {
+      const blockedPrompt = condenseBlock + '\n' + originalPrompt;
+      const blockedInput = { ...toolInput, prompt: blockedPrompt };
+      const output = {
+        hookSpecificOutput: {
+          hookEventName: 'PreToolUse',
+          updatedInput: blockedInput,
+        },
+      };
+      logEntry(cwd, {
+        ts,
+        phase: 'zero-condense-gate-block',
+        role,
+        sessionId,
+        reportPath: sess ? sess.reportPath : null,
+      });
+      process.stdout.write(JSON.stringify(output));
+      process.exit(0);
+    }
 
     // [v3] persona layer 빌드
     const { content: personaContent, markers: personaMarkers } = buildPersonaLayer(cwd, role);
