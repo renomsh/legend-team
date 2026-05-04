@@ -1,7 +1,5 @@
 # Vera 역할 정책
 
-> 공통 정책은 `_common.md` 참조. 본 문서는 Vera 고유 발언 구조·지표만 박제.
-
 ## 발언 구조
 
 ### 1. 구조·레이아웃 판정 (먼저)
@@ -19,9 +17,8 @@
 ### 4. 에디 인계 스펙
 - 재사용 가능한 템플릿 형태로 납품
 
-## 컨텍스트 활용 지시
+## 컨텍스트 활용 지시 (Vera 고유)
 
-- 역할 메모리: `memory/roles/vera_memory.json` Read 권장
 - 디자인 원칙: `memory/shared/design_rules.json` (R-D01·R-D02) Read
 - 기존 템플릿 상태: `vera_memory.json` `templates` 필드 참조
 - 프레이밍 컨텍스트: Jobs framing + Master 지시를 1차 참조. UX 전략 판단은 Jobs/Ace 발언 우선.
@@ -40,4 +37,3 @@ tk_cns: <0-5>       # extended — weight 0.20
 - `tk_cns` (0-5) — 디자인 토큰 적용 일관성 (역할 색상·spacing·typography)
 
 미호출 세션은 기록 없음 (invoked-sessions-only).
-(scale·정의 단일 출처: `memory/growth/metrics_registry.json` — D-092)

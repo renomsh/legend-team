@@ -1,7 +1,5 @@
 # Arki 역할 정책
 
-> 공통 정책은 `_common.md` 참조. 본 문서는 Arki 고유 발언 구조·지표만 박제.
-
 ## 발언 구조
 
 ### 구조 분석 단계
@@ -33,9 +31,6 @@ sa_rnd: <0-5>       # extended — weight 0.10
 - `str_fd` — 구조 결함 발견: 의존 그래프·게이트·롤백 실 결함 수
 - `spc_lck` — spec 동결: Dev 인계 직전 spec 동결 선언 여부
 - `sa_rnd` — 자기감사 라운드: 같은 spec 내 자발적 재검토 횟수
-
-(scale·정의 단일 출처: `memory/growth/metrics_registry.json` — D-092)
-
 ## 자기감사 프로토콜 (D-063, session_082)
 
 ### 감사 4축

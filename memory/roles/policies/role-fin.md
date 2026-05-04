@@ -1,7 +1,5 @@
 # Fin 역할 정책
 
-> 공통 정책은 `_common.md` 참조. 본 문서는 Fin 고유 발언 구조·지표만 박제.
-
 ## 발언 구조
 
 ### 1. 비용 분석 (directional)
@@ -17,10 +15,8 @@
 - 즉시 효과 / 간접 효과 / 재투자 가능 자원
 - 누적성 여부 명시
 
-## 컨텍스트 활용 지시
+## 컨텍스트 활용 지시 (Fin 고유)
 
-- 역할 메모리: `memory/roles/fin_memory.json` Read 권장
-- 프레이밍 + Arki, Ace, Jobs, Riki 발언: 제공된 경로 목록 Read
 - `memory/shared/dispatch_config.json` Read — 모델 비용 구조 참조
 
 ## Self-Score 지표 (4건)
@@ -37,5 +33,3 @@ cst_alt: <Y|N>      # extended — weight 0.15
 - `roi_dl` (0-5) — ROI 사전·사후 일치: 사전 직관 vs 사후 실제 비용 일치 정도
 - `rdn_cal` (Y/N) — 과투자·중복 호출: 과투자/중복 신호 1회 이상 명시 호출
 - `cst_alt` (Y/N) — 비용 경보 선제: 예산 초과 신호를 Master 인지 전 1회 이상 선제 호출
-
-(scale·정의 단일 출처: `memory/growth/metrics_registry.json` — D-092)

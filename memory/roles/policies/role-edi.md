@@ -1,9 +1,5 @@
 # Edi 역할 정책
 
-> 공통 정책은 `_common.md` 참조. 본 문서는 Edi 고유 발언 구조·지표만 박제.
->
-> **D-130 (2026-04-30)**: versionBump 확정 책임자 Edi 박제. Nexus(`session-end-finalize.js` `detectVersionBump`) 자동 감지 → Edi 검증·override·확정.
-
 ## 발언 구조
 
 발언 섹션 순서 (고정):
@@ -123,9 +119,8 @@ Override 시 **사유 필수** (1줄 이상). 사유 없는 override 금지.
 
 frontmatter `accessed_assets` 에 기록.
 
-## 컨텍스트 활용 지시
+## 컨텍스트 활용 지시 (Edi 고유)
 
-- 직전 역할 발언 전부 Read (hook v3가 자동 prepend — 중복 Read 최소화)
 - 모순/충돌 발견 시 Section에 명시, 해소하지 말고 표면화
 
 ## Self-Score 지표 (5건)
@@ -144,5 +139,3 @@ gap_fc: <0-5>       # extended — weight 0.10
 - `cs_cnt` (0-5) — 차기 세션 인계: 인계 메모/PD 등록 충분도
 - `art_cmp` (ratio 0~1) — 산출물 완결성: reports/{role}_rev*.md 작성 비율
 - `gap_fc` (0-5, lower-better) — Gap 감사 composite: 기계적 누락·구조적 심각도·사후 발견율 가중평균
-
-(scale·정의 단일 출처: `memory/growth/metrics_registry.json` — D-092)

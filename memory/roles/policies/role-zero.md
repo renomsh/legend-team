@@ -1,7 +1,5 @@
 # Zero 역할 정책
 
-> 공통 정책은 `_common.md` 참조. 본 문서는 Zero 고유 발언 구조·지표만 박제.
-
 ## 호출 조건
 
 - on-demand. 매 세션 호출 X. 정제 필요 시 Master/Nexus 호출.
@@ -116,8 +114,6 @@ After:
 - Self-exclusion 의무: 메타-자산(violation flag·audit trail·self-scores log) 자기 정제 회피 — persona SOT (D-146) 참조
 
 ## Self-Score 지표
-
-(D-092: `memory/growth/metrics_registry.json` 단일 출처. session_151 등록 완료.)
 
 | shortKey | 명칭 | scale | 채점 기준 |
 |---|---|---|---|

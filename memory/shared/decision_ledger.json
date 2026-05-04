@@ -1,6 +1,20 @@
 {
   "decisions": [
     {
+      "id": "D-155",
+      "date": "2026-05-05",
+      "session": "session_188",
+      "topic": "topic_161",
+      "axis": "Persona Layer 절삭 — role policy/persona 파일 중복·boilerplate 제거로 inject 비용 절감",
+      "summary": "PD-058 1차 실행: 헤더 blockquote 11파일, _common.md 22.6% 압축(Shared Asset Protocol 1줄화 — 서브에이전트 CLAUDE.md 미수신 반영), policy 파일 10개 중복 제거. 총 -5,407B(-6.6%). Ace §4 폐기 발언 구조 HOLD(negative-instruction drift 차단). PD-060 등록.",
+      "decision": "memory/roles/policies/_common.md + role-{ace,arki,dev,edi,fin,jobs,nova,riki,vera,zero}.md + memory/roles/personas/role-*.md(11개) 중복 제거 실행",
+      "caveats": [
+        "Ace §4 폐기 발언 구조는 LLM drift 차단 목적으로 HOLD — 제거 금지",
+        "PD-060: Self-Score 표 형식 통일은 별도 토픽"
+      ],
+      "status": "active"
+    },
+    {
       "id": "D-154",
       "date": "2026-05-04",
       "session": "session_187",

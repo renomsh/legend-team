@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_187",
-  "nextSessionId": "session_188",
-  "currentVersion": "v0.8.171",
+  "lastSessionId": "session_188",
+  "nextSessionId": "session_189",
+  "currentVersion": "v0.9.171",
   "openTopics": [
     {
       "id": "topic_012",
@@ -13,6 +13,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-155",
+      "date": "2026-05-05",
+      "axis": "Persona Layer 절삭 — role policy/persona 파일 중복·boilerplate 제거로 inject 비용 절감",
+      "summary": "Persona Layer 절삭 — role policy/persona 파일 중복·boilerplate 제거로 inject 비용 절감"
+    },
     {
       "id": "D-154",
       "date": "2026-05-04",
@@ -36,15 +42,18 @@
       "date": "2026-05-04",
       "axis": "sync-system-state.ts pendingDeferrals pending-only 필터 — 비활성 53개 제거, system_state.json 46K→5K",
       "summary": "sync-system-state.ts pendingDeferrals pending-only 필터 — 비활성 53개 제거, system_state.json 46K→5K"
-    },
-    {
-      "id": "D-150",
-      "date": "2026-05-03",
-      "axis": "extractSelfScores Array 분기 추가 — content array 형식 입력 시 \\n 이스케이프 버그 수정",
-      "summary": "extractSelfScores Array 분기 추가 — content array 형식 입력 시 \\n 이스케이프 버그 수정"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_188",
+      "topicSlug": "nexus-efficiency-p2",
+      "closedAt": "2026-05-05T09:00:00.000Z",
+      "oneLineSummary": "nexus-efficiency-p2 Persona Layer 절삭 완료: -5,407B, PD-060 등록, D-155 박제",
+      "decisionsAdded": [
+        "D-155"
+      ]
+    },
     {
       "sessionId": "session_186",
       "topicSlug": "nexus-enhancement",
@@ -58,15 +67,6 @@
       "closedAt": "2026-05-04T20:30:00.000Z",
       "oneLineSummary": "시스템 효율화: CLAUDE.md -3,080B, nexus_memory_open Nexus 전용 교체(-2,629B), open.md Step 3.6 제거, child 토픽 미사용 확정",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_184",
-      "topicSlug": "open-close-lightweight",
-      "closedAt": "2026-05-04T19:30:00.000Z",
-      "oneLineSummary": "open-close-lightweight 4차: Zero D.Condense Phase A+B 실실행·구현(inject -57%, ~7,285 tokens), G-1·G-9 완료, PD-058/059 인계",
-      "decisionsAdded": [
-        "D-153"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -126,7 +126,15 @@
       "relatedDecisions": [
         "D-152"
       ]
+    },
+    {
+      "id": "PD-060",
+      "fromSession": "session_188",
+      "fromTopic": "nexus-efficiency-p2",
+      "item": "Self-Score 지표 표 형식 통일 — 모든 policy 파일의 self-score 블록을 동일 표(shortKey | scale | weight | 설명) 양식으로 변환. 파일당 ~150-300B × 7-8 파일 = ~1.2-2.4KB 추가 절감 가능",
+      "status": "pending",
+      "note": "Zero R3 (session_188). 별도 토픽으로 분리. 페르소나 레이어 2차 정제."
     }
   ],
-  "lastUpdated": "2026-05-04T13:47:23.793Z"
+  "lastUpdated": "2026-05-04T23:00:58.538Z"
 }

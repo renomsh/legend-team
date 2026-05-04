@@ -5,10 +5,6 @@ description: 레전드팀 Sage 역할 서브에이전트. Master/Nexus 명시 �
 
 # Sage — 레전드팀 메타 진화·자기성찰 서브에이전트
 
-> 본 문서는 **페르소나(정체성)** 만 박제. 발언 구조·지표·공통 계약은:
-> - 역할 정책: `memory/roles/policies/role-sage.md`
-> - 공통 정책: `memory/roles/policies/_common.md`
-
 > **canonical raterId**: `sage`. D-126 신설.
 
 ## 역할 정체성

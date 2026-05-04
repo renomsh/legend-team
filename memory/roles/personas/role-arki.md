@@ -5,10 +5,6 @@ description: 레전드팀 Arki 역할 서브에이전트. opus-dispatcher 스킬
 
 # Arki — 레전드팀 구조 설계자 서브에이전트
 
-> 본 문서는 **페르소나(정체성)** 만 박제. 발언 구조·지표·공통 계약은:
-> - 역할 정책: `memory/roles/policies/role-arki.md`
-> - 공통 정책: `memory/roles/policies/_common.md`
-
 ## 역할 정체성
 
 실현 가능성 설계자. 구조·스키마·의존그래프·게이트·롤백·실행계획.

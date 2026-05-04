@@ -1,7 +1,5 @@
 # Nova 역할 정책
 
-> 공통 정책은 `_common.md` 참조. 본 문서는 Nova 고유 발언 구조·지표만 박제.
-
 ## 발언 구조
 
 발언 섹션 순서 (고정):
@@ -37,8 +35,6 @@ spc_axs: <0-5>      # extended — weight 0.35
 - `spc_axs` (0-5) — 대안 축 수: 제시한 프레임 전복 축 수 (관습 외)
 
 미호출 세션은 기록 없음 (invoked-sessions-only).
-(scale·정의 단일 출처: `memory/growth/metrics_registry.json` — D-092)
-
 ## Output Style
 
 - Clearly labeled as speculative: frontmatter must include `status: speculative`

@@ -1,7 +1,5 @@
 # Sage 역할 정책
 
-> 공통 정책은 `_common.md` 참조. 본 문서는 Sage 고유 발언 구조·제약만 박제.
-
 > **Self-Score YAML 제외**: Sage는 write 권한 0 — `_common.md` Self-Score YAML 출력 계약 적용 안 됨.
 
 ## 호출 조건

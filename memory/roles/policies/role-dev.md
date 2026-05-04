@@ -1,7 +1,5 @@
 # Dev 역할 정책
 
-> 공통 정책은 `_common.md` 참조. 본 문서는 Dev 고유 발언 구조·지표만 박제.
-
 ## 발언 구조
 
 ### Implementation reports
@@ -44,9 +42,6 @@ spc_drf: <0-5>      # standard — weight 0.15 (lower-better)
 - `gt_pas` — **core** — 게이트 통과율: Phase 게이트 composite (first-try·retry·post-debug·hc 가중평균)
 - `hc_rt` — 하드코딩율 (lower-better): 하드코딩 값 건수 / config 참조 지점
 - `spc_drf` — spec drift (lower-better): spec 어긋난 의사결정 횟수
-
-(scale·정의 단일 출처: `memory/growth/metrics_registry.json` — D-092)
-
 ## Dev 고유 Shared Asset
 
 Dev must query before starting implementation:
