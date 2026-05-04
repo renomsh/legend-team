@@ -45,24 +45,15 @@
     "child 토픽 미사용 확정 — parent context inject 경로 0개, 같은 토픽 재오픈으로 운영",
     "topic_load_manifest 사실상 사문화 확인 — hook이 persona inject 이미 처리"
   ],
-  "gaps": [
-    {
-      "type": "version-bump-edi-unconfirmed",
-      "severity": "high",
-      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140",
-      "suggestedValue": 0.1
-    }
-  ],
+  "gaps": [],
   "tokenUsage": {
-    "input_tokens": 152,
-    "output_tokens": 47433,
-    "cache_creation_input_tokens": 408791,
-    "cache_read_input_tokens": 9080050,
-    "messageCount": 91,
+    "input_tokens": 158,
+    "output_tokens": 48912,
+    "cache_creation_input_tokens": 421284,
+    "cache_read_input_tokens": 9911210,
+    "messageCount": 97,
     "masterTurns": 11,
-    "total_billable": 9536426
+    "total_billable": 10381564
   },
   "agentsCompleted": [
     "arki",
@@ -70,9 +61,9 @@
     "edi"
   ],
   "versionBumpSuggested": {
-    "value": 0.1,
-    "type": "structural",
-    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 1건 (CLAUDE.md)",
+    "value": 0.01,
+    "type": "capacity",
+    "reason": "CLAUDE.md·open.md·nexus_memory_open.json 정리 — 정책 텍스트 축소·교체, 구조 신규 아님",
     "autoDetectedAt": "2026-05-04T07:26:38.790Z",
     "changedFiles": [
       ".claude/commands/open.md",
@@ -98,15 +89,18 @@
     ],
     "changedFilesCount": 149,
     "cappedAt": 0.1,
-    "confirmedBy": null
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-04T20:30:00.000Z"
   },
-  "openMasterAlerts": [
-    {
-      "severity": "high",
-      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.1)",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140"
-    }
-  ],
+  "versionBump": {
+    "value": 0.01,
+    "from": "0.8.171",
+    "to": "0.8.181",
+    "reason": "CLAUDE.md·open.md·nexus_memory_open.json 정리 — 정책 텍스트 축소·교체, 구조 신규 아님",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-04T20:30:00.000Z",
+    "overrideReason": "hook이 +0.1(structural) 감지했으나 실제 변경은 텍스트 축소/교체, 구조 신규가 아니므로 +0.01로 override"
+  },
+  "openMasterAlerts": [],
   "finalizedAt": "2026-05-04T07:26:44.165Z"
 }
