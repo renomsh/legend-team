@@ -92,13 +92,13 @@
     }
   ],
   "tokenUsage": {
-    "input_tokens": 327,
-    "output_tokens": 99344,
-    "cache_creation_input_tokens": 1136651,
-    "cache_read_input_tokens": 12659383,
-    "messageCount": 115,
+    "input_tokens": 332,
+    "output_tokens": 101291,
+    "cache_creation_input_tokens": 1145541,
+    "cache_read_input_tokens": 13633491,
+    "messageCount": 120,
     "masterTurns": 40,
-    "total_billable": 13895705
+    "total_billable": 14880655
   },
   "versionBumpSuggested": {
     "value": 0.1,
@@ -129,7 +129,17 @@
     ],
     "changedFilesCount": 149,
     "cappedAt": 0.1,
-    "confirmedBy": null
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-04T21:35:00.000Z"
+  },
+  "versionBump": {
+    "value": 0.01,
+    "from": "0.8.171",
+    "to": "0.8.181",
+    "reason": "D-002 폐기 + CLAUDE.md/MEMORY.md/open.md 정리 — 정책 제거·텍스트 축소, 구조 신규 아님",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-04T21:35:00.000Z",
+    "overrideReason": "hook이 +0.1(structural) 감지했으나 변경 실체는 정책 제거·축소이므로 +0.01로 override (s185 전례)"
   },
   "finalizedAt": "2026-05-04T08:39:51.933Z"
 }
