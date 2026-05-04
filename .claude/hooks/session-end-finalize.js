@@ -1313,6 +1313,7 @@ function applyVersionBump(sess) {
   const prevVersion = (charter.charter && charter.charter.version) || '0.00';
 
   // bump.to 미설정 시 value + 현재 버전으로 계산 (Edi가 from/to를 비워둔 경우 대응)
+  // 형식: X.YYY (3자리 소수 float). 점 하나만 허용.
   if (!bump.to && bump.value) {
     const prev = parseFloat(prevVersion) || 0;
     const next = (prev + bump.value).toFixed(3);

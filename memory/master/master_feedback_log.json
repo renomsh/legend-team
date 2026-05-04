@@ -1,6 +1,16 @@
 {
   "feedbackLog": [
     {
+      "id": "MF-109",
+      "date": "2026-05-05",
+      "session": "session_189",
+      "topic": "topic_162",
+      "feedback": "버전 형식은 0.917처럼 점 하나짜리 3자리 소수여야 함. +0.1/+0.01/+0.001 단순 합산.",
+      "context": "Dev가 MAJOR.MINOR.PATCH 3-segment 방식으로 잘못 구현. Master 정정으로 원본 parseFloat+toFixed(3) 방식 복원, 오기 history 4건 수정.",
+      "status": "resolved",
+      "appliedTo": "session-end-finalize.js 복원 + project_charter.json 오기 정정"
+    },
+    {
       "id": "MF-108",
       "date": "2026-05-04",
       "session": "session_184",

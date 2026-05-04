@@ -1,6 +1,22 @@
 {
   "topics": [
     {
+      "id": "topic_162",
+      "title": "C 버전 형식 정규화",
+      "status": "completed",
+      "phase": "completed",
+      "hold": null,
+      "created": "2026-05-05",
+      "grade": "C",
+      "closedInSession": "session_189",
+      "outcome": "버전 형식 X.YYY 확정, 오기 4건 정정, D-156 박제, PD-061 resolved",
+      "controlPath": "topics/topic_162",
+      "reportPath": "reports/2026-05-05_version-format-normalize",
+      "reportFiles": [],
+      "published": false,
+      "path": "topics/topic_162"
+    },
+    {
       "id": "topic_161",
       "title": "Nexus 효율화 Part2",
       "status": "completed",
@@ -3122,5 +3138,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-04T23:00:48.518Z"
+  "lastUpdated": "2026-05-04T23:18:05.591Z"
 }

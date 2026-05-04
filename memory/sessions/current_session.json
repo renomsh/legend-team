@@ -1,109 +1,79 @@
 {
-  "sessionId": "session_188",
-  "topicId": "topic_161",
-  "topic": "Nexus 효율화 Part2",
-  "topicSlug": "nexus-efficiency-p2",
-  "reportPath": "reports/2026-05-05_nexus-efficiency-p2",
+  "sessionId": "session_189",
+  "topicId": "topic_162",
+  "topic": "C 버전 형식 정규화",
+  "topicSlug": "version-format-normalize",
+  "reportPath": "reports/2026-05-05_version-format-normalize",
   "status": "closed",
   "startedAt": "2026-05-05T00:00:00.000Z",
+  "closedAt": "2026-05-05T10:00:00.000Z",
   "mode": "observation",
-  "grade": "B",
+  "grade": "C",
   "framingLevel": 0,
   "framingSkipped": true,
   "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
+  "relatedPD": "PD-061",
   "turns": [
     {
-      "role": "arki",
+      "role": "dev",
       "turnIdx": 0,
-      "source": "agent"
-    },
-    {
-      "role": "riki",
-      "turnIdx": 1,
-      "source": "agent"
-    },
-    {
-      "role": "riki",
-      "turnIdx": 2,
-      "source": "agent"
-    },
-    {
-      "role": "zero",
-      "turnIdx": 3,
-      "source": "agent"
-    },
-    {
-      "role": "zero",
-      "turnIdx": 4,
-      "source": "agent"
+      "phase": "implement"
     },
     {
       "role": "edi",
-      "turnIdx": 5,
+      "turnIdx": 1,
       "phase": "compile"
     }
   ],
   "decisions": [],
   "decisionsAdded": [
-    "D-155"
+    "D-156"
   ],
   "masterDecisions": [],
-  "masterFeedback": [],
-  "pendingDeferralsAdded": [
-    "PD-060"
+  "masterFeedback": [
+    {
+      "id": "MF-189-01",
+      "content": "버전 형식은 0.917처럼 점 하나짜리 3자리 소수여야 함. 0.9.171 같은 점 두 개 형식 오류.",
+      "appliedTo": "project_charter.json history 오기 정정 + versionSchema 명문화",
+      "status": "resolved"
+    }
   ],
-  "pendingDeferralsResolved": [],
+  "pendingDeferralsAdded": [],
+  "pendingDeferralsResolved": [
+    "PD-061"
+  ],
   "notes": [],
   "gaps": [
     {
-      "type": "edi-agent-source-missing",
-      "sessionId": "session_188",
-      "grade": "B",
-      "severity": "high",
-      "detectedAt": "2026-05-04T23:00:36.797Z",
-      "note": "turns[]에 role=edi && source=agent turn 없음 — D-066(Grade A/S 서브에이전트 강제) + D4(hook 박제) 위반",
-      "ref": "D-138"
+      "type": "mechanical-fallback-graded",
+      "sessionId": "session_189",
+      "grade": "C",
+      "severity": "info"
+    },
+    {
+      "type": "edi-llm-report-absent",
+      "sessionId": "session_189",
+      "reportPath": "reports/2026-05-05_version-format-normalize",
+      "grade": "C",
+      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
     }
   ],
   "openMasterAlerts": [],
-  "closedAt": "2026-05-05T09:00:00.000Z",
-  "oneLineSummary": "nexus-efficiency-p2 Persona Layer 절삭 완료: -5,407B, PD-060 등록, D-155 박제",
-  "versionBumpSuggested": {
-    "value": 0.1,
-    "type": "structural",
-    "reason": "role policy/persona 파일 22개 변경 — role-*.md policies + personas",
-    "autoDetectedAt": "2026-05-05T09:00:00.000Z",
-    "changedFilesCount": 22,
-    "cappedAt": 0.1,
-    "confirmedBy": null
-  },
-  "versionBump": {
-    "value": 0.1,
-    "from": "0.8.171",
-    "to": "0.9.171",
-    "reason": "role policy/persona 파일 22개 변경 — structural 기준 충족. Persona Layer 절삭(PD-058) 1차 실행.",
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-05T09:00:00.000Z",
-    "overrideReason": null
-  },
+  "oneLineSummary": "버전 형식 X.YYY 확정: 점 두 개 오기 4건 정정(0.716~0.917), D-156 박제, PD-061 resolved",
   "tokenUsage": {
-    "input_tokens": 5655,
-    "output_tokens": 126938,
-    "cache_creation_input_tokens": 798433,
-    "cache_read_input_tokens": 19936674,
-    "messageCount": 190,
-    "masterTurns": 27,
-    "total_billable": 20867700
+    "input_tokens": 131,
+    "output_tokens": 68644,
+    "cache_creation_input_tokens": 212744,
+    "cache_read_input_tokens": 8949791,
+    "messageCount": 109,
+    "masterTurns": 5,
+    "total_billable": 9231310
   },
   "agentsCompleted": [
-    "arki",
-    "riki",
-    "riki",
-    "zero",
-    "zero",
+    "dev",
     "edi"
   ],
-  "finalizedAt": "2026-05-04T23:00:58.677Z"
+  "finalizedAt": "2026-05-04T23:18:17.821Z"
 }

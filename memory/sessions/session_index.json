@@ -8220,8 +8220,37 @@
       "decisionsAdded": [
         "D-155"
       ]
+    },
+    {
+      "sessionId": "session_189",
+      "topicSlug": "version-format-normalize",
+      "topic": "C 버전 형식 정규화",
+      "startedAt": "2026-05-05T00:00:00.000Z",
+      "closedAt": "2026-05-05T10:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "dev",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "dev",
+          "turnIdx": 0,
+          "phase": "implement"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 1,
+          "phase": "compile"
+        }
+      ],
+      "grade": "C",
+      "oneLineSummary": "버전 형식 X.YYY 확정: 점 두 개 오기 4건 정정(0.716~0.917), D-156 박제, PD-061 resolved",
+      "decisionsAdded": [
+        "D-156"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-04T23:00:36.809Z",
+  "lastUpdated": "2026-05-04T23:17:51.731Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

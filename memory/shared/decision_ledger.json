@@ -1,6 +1,17 @@
 {
   "decisions": [
     {
+      "id": "D-156",
+      "date": "2026-05-05",
+      "session": "session_189",
+      "topic": "topic_162",
+      "axis": "버전 형식 확정 — X.YYY 3자리 소수 float, 점 하나",
+      "summary": "PD-061 해소: 버전 형식을 X.YYY (parseFloat + toFixed(3), 단순 덧셈 +0.1/+0.01/+0.001)로 확정. 점 두 개짜리 오기 이력 4건 정정(session_182~188). versionSchema project_charter에 명문화.",
+      "decision": "project_charter.json versionSchema 추가 + 오기 history 정정 + system_state currentVersion 정정",
+      "caveats": [],
+      "status": "active"
+    },
+    {
       "id": "D-155",
       "date": "2026-05-05",
       "session": "session_188",
