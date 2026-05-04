@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_181",
-  "nextSessionId": "session_182",
-  "currentVersion": "0.851",
+  "lastSessionId": "session_182",
+  "nextSessionId": "session_183",
+  "currentVersion": "v0.7.161",
   "openTopics": [
     {
       "id": "topic_157",
@@ -52,6 +52,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_182",
+      "topicSlug": "open-close-lightweight",
+      "closedAt": "2026-05-04T15:00:00.000Z",
+      "oneLineSummary": "open-lightweight 2차: nexus_memory_open 분리, ace_memory -96%, auto-memory -12% (단 토큰 효과 미실증, dispatch-context가 진짜 레버)",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_181",
       "topicSlug": "open-close-lightweight",
       "closedAt": "2026-05-04T12:30:00.000Z",
@@ -66,15 +73,6 @@
       "closedAt": "2026-05-04T10:00:00.000Z",
       "oneLineSummary": "automode-fix 완료: settings.local.json permissions shallow-merge 버그 수정, bypassPermissions 박제",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_179",
-      "topicSlug": "self-eval-activation-analysis",
-      "closedAt": "2026-05-03T15:30:00.000Z",
-      "oneLineSummary": "[summary 없음 — self-eval-activation-analysis]",
-      "decisionsAdded": [
-        "D-150"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -111,5 +109,5 @@
       "note": "다음 주 진행 예정 (Master 확인 session_024)"
     }
   ],
-  "lastUpdated": "2026-05-04T01:46:04.956Z"
+  "lastUpdated": "2026-05-04T03:58:51.183Z"
 }

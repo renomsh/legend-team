@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "0.851",
+    "version": "0.7.161",
     "era_history": [
       {
         "era": "Legend Team",
@@ -250,6 +250,12 @@
       "date": "2026-05-04",
       "summary": "sync-system-state.ts pendingDeferrals pending filter 추가 (버그성 누락 수정). 자동 감지 미매칭으로 Edi override 박제.",
       "sessionId": "session_181"
+    },
+    {
+      "version": "0.7.161",
+      "date": "2026-05-04",
+      "summary": "nexus_memory_open.json 신규 + ace_memory archive 분리 + auto-memory 9파일 변경 — capability extension. structural(+0.1) 미달, bugfix(+0.001) 초과로 +0.01 판단.",
+      "sessionId": "session_182"
     }
   ],
   "lastUpdated": "2026-05-04"

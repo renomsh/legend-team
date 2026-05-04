@@ -249,6 +249,7 @@ Master may switch modes at any time by stating the mode name.
 **Session Start checklist:** (→ `/open` 명령이 이 체크리스트를 실행. 직접 실행 시 아래 순서 따름)
 1. Read `memory/sessions/current_session.json` — confirm previous session is closed
 2. Read `memory/shared/system_state.json` (fast-path) — nextSessionId, openTopics, recentDecisions(최신 5개), pendingDeferrals 추출. 파일 없으면 원본 폴백.
+2-b. Read `memory/shared/nexus_memory_open.json` — Nexus 오케스트레이션 최소 정의 (scope·gradeCProtocol·skills)
 3. **이연 항목 List-up** — openTopics + pendingDeferrals를 Master에게 브리핑
 4. Read `memory/shared/topic_load_manifest.json` — 토픽 제목 키워드로 타입 판별 → 해당 role memory만 선택 로드
 5. Update `current_session.json` with new session ID and topic if starting fresh

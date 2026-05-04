@@ -1,13 +1,13 @@
 {
-  "sessionId": "session_181",
+  "sessionId": "session_182",
   "topicId": "topic_157",
   "topic": "오픈·클로즈 경량화 검토",
   "topicSlug": "open-close-lightweight",
   "reportPath": "reports/2026-05-04_open-close-lightweight",
   "status": "closed",
-  "closedAt": "2026-05-04T12:30:00.000Z",
-  "oneLineSummary": "open-close-lightweight: pendingDeferrals 필터(D-151) 46K→5K, 서브에이전트 보고서 정제 방향 분석 — 다음 세션 이어가기",
-  "startedAt": "2026-05-04T11:00:00.000Z",
+  "startedAt": "2026-05-04T13:00:00.000Z",
+  "closedAt": "2026-05-04T15:00:00.000Z",
+  "oneLineSummary": "open-lightweight 2차: nexus_memory_open 분리, ace_memory -96%, auto-memory -12% (단 토큰 효과 미실증, dispatch-context가 진짜 레버)",
   "mode": "observation",
   "grade": "B",
   "framingLevel": 0,
@@ -22,82 +22,133 @@
       "source": "agent"
     },
     {
-      "role": "jobs",
+      "role": "riki",
       "turnIdx": 1,
       "source": "agent"
     },
     {
-      "role": "arki",
+      "role": "zero",
       "turnIdx": 2,
       "source": "agent"
     },
     {
-      "role": "riki",
+      "role": "zero",
       "turnIdx": 3,
       "source": "agent"
     },
     {
-      "role": "riki",
+      "role": "zero",
       "turnIdx": 4,
       "source": "agent"
     },
     {
-      "role": "edi",
+      "role": "riki",
       "turnIdx": 5,
       "source": "agent"
     },
     {
-      "role": "edi",
+      "role": "zero",
       "turnIdx": 6,
+      "source": "agent"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 7,
       "source": "agent"
     }
   ],
   "decisions": [],
-  "decisionsAdded": [
-    "D-151"
-  ],
+  "decisionsAdded": [],
   "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "notes": [
-    "Grade B (Master 선언). /open 컨텍스트 90K → 50K 경량화 목표."
-  ],
-  "gaps": [
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-04_open-close-lightweight/riki_rev2.md",
-      "expected": "riki",
-      "actualInTurns": "edi",
-      "turnId": 5
-    }
+    "topic_157 이어가기 2차. /open 토큰 75K 원인 재조사.",
+    "역설적 발견: ace_memory.json은 /open 시 자동 로드된 적 없었음 (topic_load_manifest.loadMemory가 dead spec). 본 세션 분리·정제 작업의 토큰 절감 효과 미실증.",
+    "변경 4건: (1) CLAUDE.md step 2-b 신설 — nexus_memory_open Read 명시 (2) nexus_memory_open.json 신규 4,211B (3) ace_memory.json 26,858→1,119B + archive 분리 (4) auto-memory 78,662→69,133B (-12.1%, 6 Cut + Riki 3→1 Merge)",
+    "다음 세션 진짜 레버: dispatch-context inject 레이어 (역할 policy + 이전 발언 prepend) 경량화. /open SKILL.md 본문 자체 측정."
   ],
   "versionBump": {
-    "value": 0.001,
-    "from": "0.7.150",
-    "to": "0.7.151",
-    "reason": "sync-system-state.ts pendingDeferrals pending filter 추가 (버그성 누락 수정). 자동 감지 미매칭으로 Edi override 박제.",
+    "value": 0.01,
+    "from": "0.7.151",
+    "to": "0.7.161",
+    "reason": "nexus_memory_open.json 신규 + ace_memory archive 분리 + auto-memory 9파일 변경 — capability extension. structural(+0.1) 미달, bugfix(+0.001) 초과로 +0.01 판단.",
     "confirmedBy": "edi",
-    "confirmedAt": "2026-05-04T12:00:00.000Z",
-    "overrideReason": "versionBumpSuggested 부재 — 실질 코드 변경 1건 Edi 직접 식별"
+    "confirmedAt": "2026-05-04T15:00:00.000Z",
+    "overrideReason": "versionBumpSuggested 부재 — Edi 직접 식별 (코드 변경 0건이나 정책·구조 신규 4건)"
   },
+  "gaps": [
+    {
+      "type": "missing-report",
+      "role": "zero",
+      "turnIdx": 2,
+      "reportPath": "reports/2026-05-04_open-close-lightweight",
+      "detectedAt": "2026-05-04T03:13:29.850Z",
+      "note": "zero turn2 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "missing-report",
+      "role": "zero",
+      "turnIdx": 3,
+      "reportPath": "reports/2026-05-04_open-close-lightweight",
+      "detectedAt": "2026-05-04T03:22:51.647Z",
+      "note": "zero turn3 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-04_open-close-lightweight/arki_rev1.md",
+      "expected": "arki",
+      "actualInTurns": "zero",
+      "turnId": 2
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-04_open-close-lightweight/dev_rev1.md",
+      "expected": "dev",
+      "actualInTurns": "zero",
+      "turnId": 2
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-04_open-close-lightweight/dev_rev2.md",
+      "expected": "dev",
+      "actualInTurns": "zero",
+      "turnId": 6
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-04_open-close-lightweight/edi_rev1.md",
+      "expected": "edi",
+      "actualInTurns": "riki",
+      "turnId": 5
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-04_open-close-lightweight/riki_rev1.md",
+      "expected": "riki",
+      "actualInTurns": "zero",
+      "turnId": 4
+    }
+  ],
   "tokenUsage": {
-    "input_tokens": 260,
-    "output_tokens": 79435,
-    "cache_creation_input_tokens": 472230,
-    "cache_read_input_tokens": 14727118,
-    "messageCount": 129,
-    "masterTurns": 28,
-    "total_billable": 15279043
+    "input_tokens": 2530,
+    "output_tokens": 91407,
+    "cache_creation_input_tokens": 582973,
+    "cache_read_input_tokens": 8741677,
+    "messageCount": 94,
+    "masterTurns": 18,
+    "total_billable": 9418587
   },
   "agentsCompleted": [
     "arki",
-    "jobs",
-    "arki",
     "riki",
+    "zero",
+    "zero",
+    "zero",
     "riki",
-    "edi",
+    "zero",
     "edi"
   ],
-  "finalizedAt": "2026-05-04T01:46:05.054Z"
+  "finalizedAt": "2026-05-04T03:58:51.297Z"
 }
