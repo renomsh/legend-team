@@ -8,6 +8,7 @@
 
 1. `memory/sessions/current_session.json` 읽기 — 이전 세션이 열려있는지 확인. 열려있으면 먼저 닫아야 한다고 Master에게 알림.
 2. `memory/shared/system_state.json` 읽기 (fast-path) — nextSessionId, openTopics, recentDecisions, pendingDeferrals 추출
+2-b. `memory/shared/nexus_memory_open.json` 읽기 — Nexus 오케���트레이션 지침 (grade dispatch, antiPatterns, autoModelSwitch)
 3. **이연 항목 List-up** — openTopics + pendingDeferrals를 Master에게 브리핑
 3.5. **[context_brief 자동 로드]** `npx ts-node scripts/load-context-briefs.ts` 실행.
    - hold=null인 openTopics의 context_brief.md를 자동 로드해 Master에게 요약 브리핑
@@ -26,11 +27,6 @@
    - `logs/master-first-audit.md` 존재 시: 마지막 5행을 읽어 Master에게 브리핑
    - 파일 없으면 스킵
    - 브리핑 형식: "⚠ Master-first audit 기록 {N}건 — 최근: {마지막 항목 요약}" 1줄
-3.6. **[자동 종결 dry-run 배치]** (D-057, session_067)
-   - `npx ts-node scripts/auto-close-topics.ts` — framing 토픽 중 모든 children이 completed면 종결 제안 출력 (무변경)
-   - `npx ts-node scripts/resolve-pending-deferrals.ts` — resolveCondition 매칭 PD 전이 제안 + stale 리포트
-   - 제안이 있으면 Master에게 리스트업. 저마찰 원칙: 무응답=보류 (적용하려면 --apply 재호출)
-   - 제안 0건이면 스킵
 4. `memory/sessions/session_index.json` 읽기 — 마지막 session ID 확인하여 다음 ID 생성
 5. **Grade 판정** (아래 Grade 판정 규칙 참조)
 6. `current_session.json`을 새 세션 정보로 업데이트:

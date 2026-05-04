@@ -8046,8 +8046,42 @@
       "decisionsAdded": [
         "D-153"
       ]
+    },
+    {
+      "sessionId": "session_185",
+      "topicSlug": "system-efficiency",
+      "topic": "시스템 효율화",
+      "startedAt": "2026-05-04T19:45:00.000Z",
+      "closedAt": "2026-05-04T20:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "arki",
+          "turnIdx": 0,
+          "source": "agent"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 1,
+          "source": "agent"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 2,
+          "source": "agent"
+        }
+      ],
+      "grade": "B",
+      "note": "CLAUDE.md 27,475B→24,395B: child 스키마·deprecated 섹션·Session checklist 축소 | nexus_memory_open.json 4,211B→1,582B: Ace 전용→Nexus 오케스트레이션으로 교체, /open Step 2-b에 명시 | open.md Step 3.6 (auto-close+PD dry-run) 제거 — 302KB 파싱하지만 제안 0건 확률 95%+ | child 토픽 미사용 확정 — parent context inject 경로 0개, 같은 토픽 재오픈으로 운영 | topic_load_manifest 사실상 사문화 확인 — hook이 persona inject 이미 처리",
+      "oneLineSummary": "시스템 효율화: CLAUDE.md -3,080B, nexus_memory_open Nexus 전용 교체(-2,629B), open.md Step 3.6 제거, child 토픽 미사용 확정",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-04T06:01:07.294Z",
+  "lastUpdated": "2026-05-04T07:26:02.287Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_184",
-  "nextSessionId": "session_185",
+  "lastSessionId": "session_185",
+  "nextSessionId": "session_186",
   "currentVersion": "v0.8.171",
   "openTopics": [
     {
@@ -46,6 +46,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_185",
+      "topicSlug": "system-efficiency",
+      "closedAt": "2026-05-04T20:30:00.000Z",
+      "oneLineSummary": "시스템 효율화: CLAUDE.md -3,080B, nexus_memory_open Nexus 전용 교체(-2,629B), open.md Step 3.6 제거, child 토픽 미사용 확정",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_184",
       "topicSlug": "open-close-lightweight",
       "closedAt": "2026-05-04T19:30:00.000Z",
@@ -62,13 +69,6 @@
       "decisionsAdded": [
         "D-152"
       ]
-    },
-    {
-      "sessionId": "session_182",
-      "topicSlug": "open-close-lightweight",
-      "closedAt": "2026-05-04T15:00:00.000Z",
-      "oneLineSummary": "open-lightweight 2차: nexus_memory_open 분리, ace_memory -96%, auto-memory -12% (단 토큰 효과 미실증, dispatch-context가 진짜 레버)",
-      "decisionsAdded": []
     }
   ],
   "pendingDeferrals": [
@@ -130,5 +130,5 @@
       ]
     }
   ],
-  "lastUpdated": "2026-05-04T06:01:21.824Z"
+  "lastUpdated": "2026-05-04T07:26:43.919Z"
 }

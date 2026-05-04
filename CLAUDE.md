@@ -49,8 +49,6 @@ Rules:
 | **C** | ≤5 | 경량 + 판단 여지 있음 | 없음 (`/jobs-framing` 호출 시만) | Dev | Dev→Arki 검토→Dev 수정→Edi | — |
 | **D** | ≤5 | 명백 단순 작업 | 없음 | Dev | Dev 직행 (Edi 생략, hook 자동 기록) | — |
 
-> **D-130 (2026-04-30, 구현 완료 2026-05-01)**: framing 자동 트리거 완전 폐기. Master 또는 `/jobs-framing` 명시 호출만. `jobs-framing` skill 존재. `open.md` Grade→Framing Level 매핑 제거, `CLAUDE.md` Ace Step 0 deprecated 처리 완료.
-
 ### Grade 선언 규칙
 - **S**: Master 명시 선언 전용. Ace는 "S 승격 검토" 추천 후 Master 승인.
 - **A/B/C/D**: Nexus 자동 추론 가능. Master 명시 우선. 기본값: **A**
@@ -71,32 +69,14 @@ Rules:
 토픽 간 프레이밍↔구현 관계 + PD 자동 전이 + 저마찰 자동 종결.
 
 ### 스키마 (topic_index.json)
-- `topicType`: `framing` | `implementation` | `standalone` | undefined(legacy)
-- `parentTopicId`: string | null — implementation 토픽이 속한 framing 토픽
-- `childTopicIds`: string[] — framing 토픽이 낳은 implementation 토픽 목록
+- `topicType`: `framing` | `standalone` | undefined(legacy). child 토픽(implementation) 미사용 — 같은 토픽 재오픈으로 운영.
 - `resolveCondition` (PD에만): 자연어 string — 매칭되는 토픽 종결 시 PD 자동 resolved
-
-### 자동 동작 (dry-run 2단)
-- 세션 종료 시(`session-end-finalize.js`): auto-close + PD 전이 **dry-run만** 실행, 제안 로그 출력
-- `/open` step 3.6: 동일 dry-run 배치 실행, Master에게 제안 브리핑
-- 저마찰 원칙: 무응답=보류. 적용하려면 `--apply` 재호출.
-
-### Ace Step 0 (ace-framing) — DEPRECATED (D-130, 2026-04-30)
-자동 프레이밍 트리거 폐기. `/jobs-framing` 명시 호출 시에만 Jobs 발동. 모든 Grade에서 자동 프레이밍 없음.
-
-### 레거시 호환
-기존 토픽 중 topic_062/066 2건만 소급(테스트 케이스). 나머지 68개는 topicType undefined 유지 — 자동 종결 로직의 영향권 밖.
 
 ### Nexus topicType 판정 (D-145, 2026-05-02)
 
-**주체:** Nexus(= Main Claude Code 본체) — `/open` 단계 자동 수행. Jobs/Ace skill에서 분리.
+**주체:** Nexus(= Main Claude Code 본체) — `/open` 단계 자동 수행.
 
-**판정 알고리즘:**
-- parentTopicId 명시 시 → `implementation`
-- 키워드 매칭 (`framing`/`전략`/`설계`/`정의`) + parentTopicId null → `framing`
-- 둘 다 아니면 → `standalone`
-
-**주제 구체화 질문 (Step 1):** 토픽 모호 시 Nexus가 직접 질문. Master-first 모드(D-129) 정합. Jobs framing은 명시 호출 시(Step 2)만.
+**판정:** 키워드 매칭 (`framing`/`전략`/`설계`/`정의`) → `framing`, 그 외 → `standalone`. 토픽 모호 시 Nexus가 직접 질문.
 
 ### Topic Status SOT 정책 (D-F / D-104-s130, 2026-04-28)
 - **SOT:** `memory/shared/topic_index.json` — 모든 status 변경의 단일 출처
@@ -246,26 +226,9 @@ Master may switch modes at any time by stating the mode name.
 
 ### Session Protocol
 
-**Session Start checklist:** (→ `/open` 명령이 이 체크리스트를 실행. 직접 실행 시 아래 순서 따름)
-1. Read `memory/sessions/current_session.json` — confirm previous session is closed
-2. Read `memory/shared/system_state.json` (fast-path) — nextSessionId, openTopics, recentDecisions(최신 5개), pendingDeferrals 추출. 파일 없으면 원본 폴백.
-2-b. Read `memory/shared/nexus_memory_open.json` — Nexus 오케스트레이션 최소 정의 (scope·gradeCProtocol·skills)
-3. **이연 항목 List-up** — openTopics + pendingDeferrals를 Master에게 브리핑
-4. Read `memory/shared/topic_load_manifest.json` — 토픽 제목 키워드로 타입 판별 → 해당 role memory만 선택 로드
-5. Update `current_session.json` with new session ID and topic if starting fresh
-- ※ topic_index 전체·decision_ledger 전체·session_index 전체 읽기는 system_state 폴백 시에만
+**Session Start checklist:** → `/open` 명령이 실행. 상세 절차는 `.claude/commands/open.md` 참조.
 
-**Session End checklist:**
-1. Save all agent outputs to `reports/{YYYY-MM-DD}_{topic-slug}/{role}_rev{n}.md`
-2. Append new decisions to `memory/shared/decision_ledger.json`
-3. Update `memory/shared/topic_index.json` with topic status change
-4. Update `memory/sessions/current_session.json` — set status to "closed", record closedAt
-5. Append master feedback to `memory/master/master_feedback_log.json` if any was given
-6. Update `memory/roles/{role}_memory.json` for roles that spoke — record new patterns, findings, or structural learnings. Roles that did not speak may be skipped (not a gap).
-7. Log session event to `logs/app.log` via `ts-node scripts/session-log.ts end <topic-slug>`
-8. Auto-push to GitHub: `node scripts/auto-push.js "session end: <topic-slug>"` (D-008)
-
-**If any checklist item is skipped, note it as a gap in `memory/sessions/current_session.json`.**
+**Session End checklist:** → `/close` 명령이 실행. 상세 절차는 `.claude/skills/close/SKILL.md` 참조. 체크리스트 누락 시 `current_session.json`에 gap 기록.
 
 ### Asset Protocols (v0.4.0, D-012)
 
@@ -310,7 +273,3 @@ Master may switch modes at any time by stating the mode name.
 - `create-topic.ts`, `apply-feedback.ts`, `log-evidence.ts` — 사용 가능
 - `scripts/lib/turn-types.ts` — Turn[] 타입 정의 (D-048)
 
-**Deprecated:**
-- `run-debate.ts` — debate_log.json 기반, 사용 중지 (session_005)
-- `generate-dashboard.ts` — build.js로 대체 (session_007)
-- `build-report.ts` — run-debate.ts 의존, 사용 중지 (session_007)
