@@ -1,15 +1,9 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_183",
-  "nextSessionId": "session_184",
-  "currentVersion": "v0.8.161",
+  "lastSessionId": "session_184",
+  "nextSessionId": "session_185",
+  "currentVersion": "v0.8.171",
   "openTopics": [
-    {
-      "id": "topic_157",
-      "title": "오픈·클로즈 경량화 검토",
-      "status": "in-progress",
-      "reportPath": "reports/2026-05-04_open-close-lightweight"
-    },
     {
       "id": "topic_012",
       "title": "데이터북 Agent 설계",
@@ -19,6 +13,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-153",
+      "date": "2026-05-04",
+      "axis": "Zero D.Condense Phase B 구현 — Edi 보고서 cross-role 중복 제거 + buildTopicLayer condensed 우선 체크",
+      "summary": "Zero D.Condense Phase B 구현 — Edi 보고서 cross-role 중복 제거 + buildTopicLayer condensed 우선 체크"
+    },
     {
       "id": "D-152",
       "date": "2026-05-04",
@@ -42,15 +42,18 @@
       "date": "2026-05-03",
       "axis": "post-tool-use-task.js frontmatter turnId 사후 패치 (옵션 a) 구현 — patchFrontmatterTurnId() 추가",
       "summary": "post-tool-use-task.js frontmatter turnId 사후 패치 (옵션 a) 구현 — patchFrontmatterTurnId() 추가"
-    },
-    {
-      "id": "D-148",
-      "date": "2026-05-03",
-      "axis": "ERJ stretch target with full submission package despite ~12% honest acceptance probability + Nexus initial 30-40% over-estimate accountability",
-      "summary": "ERJ stretch target with full submission package despite ~12% honest acceptance probability + Nexus initial 30-40% over-estimate accountability"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_184",
+      "topicSlug": "open-close-lightweight",
+      "closedAt": "2026-05-04T19:30:00.000Z",
+      "oneLineSummary": "open-close-lightweight 4차: Zero D.Condense Phase A+B 실실행·구현(inject -57%, ~7,285 tokens), G-1·G-9 완료, PD-058/059 인계",
+      "decisionsAdded": [
+        "D-153"
+      ]
+    },
     {
       "sessionId": "session_183",
       "topicSlug": "open-close-lightweight",
@@ -66,15 +69,6 @@
       "closedAt": "2026-05-04T15:00:00.000Z",
       "oneLineSummary": "open-lightweight 2차: nexus_memory_open 분리, ace_memory -96%, auto-memory -12% (단 토큰 효과 미실증, dispatch-context가 진짜 레버)",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_181",
-      "topicSlug": "open-close-lightweight",
-      "closedAt": "2026-05-04T12:30:00.000Z",
-      "oneLineSummary": "open-close-lightweight: pendingDeferrals 필터(D-151) 46K→5K, 서브에이전트 보고서 정제 방향 분석 — 다음 세션 이어가기",
-      "decisionsAdded": [
-        "D-151"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -109,7 +103,32 @@
       "item": "데이터북 Agent 프로토타입 구현: 7개 팀 파일 전수 투입 → canonical 스키마 → normalize.py + merge.py + validate.py",
       "status": "pending",
       "note": "다음 주 진행 예정 (Master 확인 session_024)"
+    },
+    {
+      "id": "PD-058",
+      "fromSession": "session_184",
+      "fromTopic": "topic_157 (open-close-lightweight)",
+      "item": "Persona Layer 정제 — _common.md(3,753B) + role-{role}.md 절삭 검토. 별도 토픽으로 진행.",
+      "status": "pending",
+      "resolveCondition": "별도 토픽 오픈 후 구현 완료",
+      "dependsOn": [],
+      "relatedDecisions": [
+        "D-151",
+        "D-152"
+      ]
+    },
+    {
+      "id": "PD-059",
+      "fromSession": "session_184",
+      "fromTopic": "topic_157 (open-close-lightweight)",
+      "item": "close 프로세스 토큰 측정 — /close SKILL.md + session-end-finalize.js + auto-push.js chain 분석. 별도 토픽으로 진행.",
+      "status": "pending",
+      "resolveCondition": "별도 토픽 오픈 후 측정·보고 완료",
+      "dependsOn": [],
+      "relatedDecisions": [
+        "D-152"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-04T04:49:54.863Z"
+  "lastUpdated": "2026-05-04T06:01:21.824Z"
 }

@@ -1,6 +1,20 @@
 {
   "decisions": [
     {
+      "id": "D-153",
+      "date": "2026-05-04",
+      "session": "session_184",
+      "topic": "topic_157",
+      "axis": "Zero D.Condense Phase B 구현 — Edi 보고서 cross-role 중복 제거 + buildTopicLayer condensed 우선 체크",
+      "summary": "Zero D.Condense 2단계 분리: Phase A(pre-Edi 개별 역할 압축, 기존) + Phase B(post-Edi Edi 최종 보고서 cross-role 중복 제거, 신규). role-zero.md Edi 제외 정책 수정(cap 8000은 inject 상한, 압축 자체 허용). buildTopicLayer: {sessionId}_edi_report_condensed.md 우선 inject. 실측: Phase A+B 합산 51,075B→21,937B (-57.0%, ~7,285 tokens).",
+      "decision": "① role-zero.md D.Condense Edi 제외 삭제 → Phase B 추가(post-Edi Edi 압축, 출력: session_contributions/{sessionId}_edi_report_condensed.md). ② pre-tool-use-task.js buildTopicLayer: condensed Edi 우선 체크 + fallback 원본. ③ _zero_condense.json 마커에 phaseB 필드 추가. MAX_CHARS_PER_EDI=8000 cap 불변.",
+      "caveats": [
+        "PD-058: Persona Layer 정제 (_common.md + role-{role}.md) → 별도 토픽",
+        "PD-059: close 프로세스 토큰 측정 → 별도 토픽"
+      ],
+      "status": "active"
+    },
+    {
       "id": "D-152",
       "date": "2026-05-04",
       "session": "session_183",

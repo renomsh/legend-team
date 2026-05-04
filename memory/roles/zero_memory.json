@@ -57,5 +57,14 @@
       "construct": "정제 결과물이 빌드·검증을 통과한 비율 (전량 통과=1.0)"
     }
   ],
-  "selfScoreShortKeys": ["ref_cnt", "hc_found", "cln_rt"]
+  "selfScoreShortKeys": ["ref_cnt", "hc_found", "cln_rt"],
+  "learnings": [
+    {
+      "session": "session_184",
+      "date": "2026-05-04",
+      "topic": "topic_157",
+      "finding": "D.Condense Phase B 구현: Edi 보고서(session_contributions/*_edi_report.md) 압축은 허용. inject cap(MAX_CHARS_PER_EDI=8000)은 그대로 유지. Phase A(pre-Edi 개별 역할) + Phase B(post-Edi Edi 보고서 cross-role 중복 제거)로 2단계 확립.",
+      "numbers": "Phase A 4파일 -73%, Phase B 3파일 -71.3%, 전체 inject -57% (~7,285 tokens/Edi dispatch)"
+    }
+  ]
 }

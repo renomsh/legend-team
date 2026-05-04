@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "0.8.161",
+    "version": "0.8.171",
     "era_history": [
       {
         "era": "Legend Team",
@@ -262,6 +262,12 @@
       "date": "2026-05-04",
       "summary": "Zero Condense Gate 구현 — pre-tool-use-task.js v4 evaluateZeroCondenseGate() 신규(마커 부재 시 Edi BLOCK), role-zero.md D.Condense 4번째 도구 추가. 검증 2건 통과.",
       "sessionId": "session_183"
+    },
+    {
+      "version": "0.8.171",
+      "date": "2026-05-04",
+      "summary": "Zero D.Condense Phase B 정책 추가(role-zero.md) + buildTopicLayer condensed 우선 체크(pre-tool-use-task.js) — D-152 구조 기능 확장",
+      "sessionId": "session_184"
     }
   ],
   "lastUpdated": "2026-05-04"

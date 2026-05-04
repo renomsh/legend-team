@@ -1,12 +1,13 @@
 {
-  "sessionId": "session_183",
+  "sessionId": "session_184",
   "topicId": "topic_157",
   "topic": "오픈·클로즈 경량화 검토",
   "topicSlug": "open-close-lightweight",
   "reportPath": "reports/2026-05-04_open-close-lightweight",
   "status": "closed",
-  "startedAt": "2026-05-04T16:00:00.000Z",
-  "closedAt": "2026-05-04T17:30:00.000Z",
+  "closedAt": "2026-05-04T19:30:00.000Z",
+  "oneLineSummary": "open-close-lightweight 4차: Zero D.Condense Phase A+B 실실행·구현(inject -57%, ~7,285 tokens), G-1·G-9 완료, PD-058/059 인계",
+  "startedAt": "2026-05-04T18:00:00.000Z",
   "mode": "observation",
   "grade": "B",
   "framingLevel": 0,
@@ -18,40 +19,60 @@
     {
       "role": "zero",
       "turnIdx": 0,
-      "source": "agent"
+      "source": "inline",
+      "phase": "implementing"
+    },
+    {
+      "role": "zero",
+      "turnIdx": 1,
+      "source": "inline",
+      "phase": "implementing",
+      "recallReason": "phase-transition",
+      "splitReason": "Phase B (Edi 보고서 압축) 별도 단계"
     },
     {
       "role": "edi",
-      "turnIdx": 1,
+      "turnIdx": 2,
       "source": "agent"
     }
   ],
   "decisions": [
-    "D-152"
+    "D-153"
   ],
   "decisionsAdded": [
-    "D-152"
+    "D-153"
   ],
   "masterDecisions": [],
-  "masterFeedback": [],
-  "pendingDeferralsAdded": [],
+  "masterFeedback": [
+    "Edi 보고서 압축 제외는 의도 오독 — 8000은 inject cap이고 압축 자체는 허용. Phase B(post-Edi cross-role 중복 제거) 추가 요청."
+  ],
+  "pendingDeferralsAdded": [
+    "PD-058",
+    "PD-059"
+  ],
   "pendingDeferralsResolved": [],
-  "oneLineSummary": "open-lightweight 3차: Zero Condense Gate 구현(hook v4 BLOCK 강제, D-152) — 실측은 다음 세션",
-  "versionBump": {
-    "value": 0.1,
-    "from": "0.7.161",
-    "to": "0.8.161",
-    "reason": "Zero Condense Gate 구현 — pre-tool-use-task.js v4 evaluateZeroCondenseGate() 신규(마커 부재 시 Edi BLOCK), role-zero.md D.Condense 4번째 도구 추가. 검증 2건 통과.",
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-04T17:30:00.000Z"
-  },
   "notes": [
-    "topic_157 이어가기 3차. 이전 세션(session_182) 역설 결론: dispatch-context inject가 진짜 레버. G-1(dispatch-context 경량화), G-2(/open SKILL.md 측정) 착수 예정.",
-    "session_183: Zero Condense Gate 설계·구현 완료. 다음 세션 G-1(Zero D.Condense 실실행) 착수 우선."
+    "topic_157 이어가기 4차. session_183 Zero Condense Gate 구현 완료(D-152).",
+    "session_184: G-1(Zero D.Condense Phase A 실실행 4개 condensed.md, 전체 -73%) + G-9(마커 end-to-end PASS 검증) 완료.",
+    "Phase B 신규 구현: role-zero.md Edi 제외 정책 수정 → Phase A(pre-Edi 개별) + Phase B(post-Edi Edi 압축). buildTopicLayer condensed Edi 우선 체크 추가.",
+    "Edi 보고서 3개 condensed 생성: inject -71.3% (23,345B→6,697B). 전체 inject -57% (51,075B→21,937B, ~7,285 tokens 절감).",
+    "나머지(G-3 Persona Layer 정제, G-7 close 측정) → PD-058/PD-059 별도 토픽 인계."
   ],
   "gaps": [
-    "G-8: Zero D.Condense 실제 실행 효과(condensed.md 크기) 미실측",
-    "G-9: _zero_condense.json 마커 생성 end-to-end 흐름 미검증",
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-04_open-close-lightweight/arki_condensed.md",
+      "expected": "arki",
+      "actualInTurns": "zero",
+      "turnId": 0
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-04_open-close-lightweight/arki_rev1.md",
+      "expected": "arki",
+      "actualInTurns": "edi",
+      "turnId": 2
+    },
     {
       "type": "inline-role-header-mismatch",
       "file": "reports/2026-05-04_open-close-lightweight/arki_rev2.md",
@@ -61,24 +82,54 @@
     },
     {
       "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-04_open-close-lightweight/dev_rev1.md",
+      "expected": "dev",
+      "actualInTurns": "edi",
+      "turnId": 2
+    },
+    {
+      "type": "inline-role-header-mismatch",
       "file": "reports/2026-05-04_open-close-lightweight/riki_rev3.md",
       "expected": "riki",
-      "actualInTurns": "edi",
+      "actualInTurns": "zero",
       "turnId": 1
     }
   ],
+  "versionBumpSuggested": {
+    "value": 0.01,
+    "type": "capacity",
+    "reason": "Zero D.Condense Phase B 정책 추가(role-zero.md) + buildTopicLayer condensed 우선 체크(pre-tool-use-task.js) — D-152 구조 기능 확장",
+    "autoDetectedAt": "2026-05-04T19:00:00.000Z",
+    "changedFiles": [
+      "memory/roles/policies/role-zero.md",
+      ".claude/hooks/pre-tool-use-task.js"
+    ],
+    "changedFilesCount": 2,
+    "cappedAt": 0.1,
+    "confirmedBy": null
+  },
+  "versionBump": {
+    "value": 0.01,
+    "from": "0.8.161",
+    "to": "0.8.171",
+    "reason": "Zero D.Condense Phase B 정책 추가(role-zero.md) + buildTopicLayer condensed 우선 체크(pre-tool-use-task.js) — D-152 구조 기능 확장",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-04T19:00:00.000Z",
+    "overrideReason": null
+  },
   "tokenUsage": {
-    "input_tokens": 50809,
-    "output_tokens": 135230,
-    "cache_creation_input_tokens": 885110,
-    "cache_read_input_tokens": 15970587,
-    "messageCount": 151,
-    "masterTurns": 18,
-    "total_billable": 17041736
+    "input_tokens": 19308,
+    "output_tokens": 166841,
+    "cache_creation_input_tokens": 827707,
+    "cache_read_input_tokens": 14141019,
+    "messageCount": 136,
+    "masterTurns": 11,
+    "total_billable": 15154875
   },
   "agentsCompleted": [
     "zero",
+    "zero",
     "edi"
   ],
-  "finalizedAt": "2026-05-04T04:49:55.019Z"
+  "finalizedAt": "2026-05-04T06:01:21.923Z"
 }

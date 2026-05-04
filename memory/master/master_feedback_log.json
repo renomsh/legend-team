@@ -1,6 +1,16 @@
 {
   "feedbackLog": [
     {
+      "id": "MF-108",
+      "date": "2026-05-04",
+      "session": "session_184",
+      "topic": "topic_157",
+      "feedback": "Edi 보고서 압축 제외는 의도 오독 — 8000은 inject cap이고 압축 자체는 허용",
+      "context": "session_183에서 Zero가 role-zero.md에 'Edi 보고서는 Condense 제외 (Edi cap 8000 유지 정책)' 기재. Master가 '8000 유지'라고 한 것은 inject cap을 유지하라는 의미였고, 압축 자체를 금지한 게 아님. 각 역할 발언 압축 후 Edi 취합 시 중복 제거(Phase B)가 핵심. D-153으로 Phase B 구현.",
+      "status": "resolved",
+      "statusNote": "session_184에서 Phase B 구현 완료. role-zero.md 정책 수정, buildTopicLayer condensed 우선 체크 추가. inject -57% 달성."
+    },
+    {
       "id": "MF-107",
       "date": "2026-05-03",
       "session": "session_178",

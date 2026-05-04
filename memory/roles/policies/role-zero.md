@@ -14,7 +14,9 @@
 
 **D. Condense (report-refinement gate)**
 
-Edi 직전, 현 세션 역할 보고서들을 압축. 정보 손실 없이 글자 수 줄이기.
+2단계 압축. Phase A는 Edi 직전, Phase B는 Edi 직후.
+
+**Phase A — 개별 역할 보고서 압축 (pre-Edi)**
 
 ```
 ### Condense — [역할명] (원본: {role}_rev{N}.md)
@@ -22,6 +24,19 @@ Edi 직전, 현 세션 역할 보고서들을 압축. 정보 손실 없이 글�
 - 보존: TL;DR · 결정 · 수치 · 리스크 · 구조적 표
 출력: reports/{reportPath}/{role}_condensed.md
 ```
+
+**Phase B — Edi 최종 보고서 cross-role 중복 제거 (post-Edi)**
+
+Edi가 여러 역할 발언을 합칠 때 생기는 cross-role 중복(동일 결론 재서술, 반복 수치 등)을 제거.
+
+```
+### Condense — edi (원본: {sessionId}_edi_report.md)
+- 제거: 역할 간 중복 결론 재서술 / 이미 표에 있는 수치 재서술 / filler
+- 보존: 결정 흐름 표 · 구현 목록 · 미해결 Gap · versionBump
+출력: topics/{topicId}/session_contributions/{sessionId}_edi_report_condensed.md
+```
+
+Phase B 완료 후 `_zero_condense.json` 마커에 `phaseB` 필드 추가.
 
 **제거 패턴 (우선순위 순):**
 1. filler 수식어 — "위에서 언급했듯이", "결론적으로", "요약하자면", "이미 확인했듯"
@@ -32,12 +47,13 @@ Edi 직전, 현 세션 역할 보고서들을 압축. 정보 손실 없이 글�
 **원칙:**
 - 제거할 게 없으면 원본 그대로 복사 (억지 압축 금지)
 - 원본 rev 파일은 보존 — condensed는 별도 파일
-- Edi 보고서는 Condense 제외 (Edi cap 8000 유지 정책)
+- hook inject cap (MAX_CHARS_PER_EDI=8000)은 그대로 유지 — 압축 자체는 항상 허용
 - 타겟: 원본 대비 60~70% 수준. 강제 목표 아님.
 
 **완료 마커 (필수):**
 
-D.Condense 완료 시 반드시 마커 파일을 작성한다. 이 파일이 없으면 `pre-tool-use-task.js` v4가 Edi 호출을 차단한다.
+Phase A 완료 시 마커 파일 작성. `pre-tool-use-task.js` v4가 이 파일 부재 시 Edi 호출을 차단한다.
+Phase B 완료 시 동일 마커에 `phaseB` 필드 추가.
 
 ```
 경로: reports/{reportPath}/_zero_condense.json
@@ -46,7 +62,11 @@ D.Condense 완료 시 반드시 마커 파일을 작성한다. 이 파일이 없
   "sessionId": "session_NNN",
   "completedAt": "ISO 8601",
   "refinedRoles": ["arki", "riki", ...],
-  "skippedRoles": ["edi"]
+  "skippedRoles": [],
+  "phaseB": {
+    "completedAt": "ISO 8601",
+    "ediCondensed": "topics/{topicId}/session_contributions/{sessionId}_edi_report_condensed.md"
+  }
 }
 ```
 

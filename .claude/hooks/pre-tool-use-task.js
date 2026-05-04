@@ -420,11 +420,15 @@ function buildTopicLayer(cwd, topicId, currentSessionId) {
   for (const f of ediFiles) {
     // 현재 세션 것은 skip (아직 작성 중)
     if (currentSessionId && f.startsWith(currentSessionId)) continue;
-    const absPath = path.join(scDir, f);
+    // Zero D.Condense Phase B: {sessionId}_edi_report_condensed.md 우선 체크
+    const condensedName = f.replace('_edi_report.md', '_edi_report_condensed.md');
+    const condensedPath = path.join(scDir, condensedName);
+    const targetFile = fs.existsSync(condensedPath) ? condensedName : f;
+    const absPath = path.join(scDir, targetFile);
     const raw = readTextFile(absPath);
     if (!raw) continue;
-    lines.push(`\n#### ${f}`);
-    lines.push(truncate(raw, MAX_CHARS_PER_EDI, f));
+    lines.push(`\n#### ${targetFile}`);
+    lines.push(truncate(raw, MAX_CHARS_PER_EDI, targetFile));
     lines.push('---');
   }
 

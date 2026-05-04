@@ -3,7 +3,7 @@
     {
       "id": "topic_157",
       "title": "오픈·클로즈 경량화 검토",
-      "status": "in-progress",
+      "status": "completed",
       "phase": "framing",
       "hold": null,
       "created": "2026-05-04",
@@ -11,10 +11,10 @@
       "reportPath": "reports/2026-05-04_open-close-lightweight",
       "reportFiles": [],
       "published": false,
-      "closedInSession": "session_183",
+      "closedInSession": "session_184",
       "path": "topics/topic_157",
       "grade": "B",
-      "outcome": "서브에이전트 프롬프트 정제 방향 분석 완료. sync-system-state.ts pendingDeferrals 필터 구현(D-151). 보고서 내용 정제 방향은 다음 세션 이어가기."
+      "outcome": "Zero D.Condense Phase A+B 구현 완료. 전체 inject -57%(51,075B→21,937B, ~7,285 tokens). G-3/G-7 → PD-058/PD-059 별도 토픽 인계."
     },
     {
       "id": "topic_156",
@@ -3056,5 +3056,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-04T04:49:42.480Z"
+  "lastUpdated": "2026-05-04T06:01:15.386Z"
 }
