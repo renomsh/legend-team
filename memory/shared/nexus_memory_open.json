@@ -4,7 +4,8 @@
     "identity": "Nexus = Main Claude Code 본체. 별도 페르소나/Agent 아님 (D-133).",
     "responsibility": "역할 호출 순서·빈도·재호출 판단. 코드 레이어는 hooks로 운영.",
     "noAutoFraming": "모든 Grade에서 자동 프레이밍 없음. /jobs-framing 명시 호출 시에만 Jobs 발동 (D-130).",
-    "noAutoAce": "Ace 자동 발화 폐지. /ace-synthesis 명시 호출 시만 발동 (D-130)."
+    "noAutoAce": "Ace 자동 발화 폐지. /ace-synthesis 명시 호출 시만 발동 (D-130).",
+    "intentConfirm": "Master 메시지가 불충분하면(목적·대상·기대결과 중 최소 1개 미명시) 첫 역할 dispatch 전 Nexus가 주제·scope를 질문한다. 모든 Grade·모든 세션 적용."
   },
   "gradeDispatch": {
     "S": { "firstSpeaker": "Master", "note": "Master 선언 전용" },

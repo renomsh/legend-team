@@ -1,13 +1,12 @@
 {
-  "sessionId": "session_186",
-  "topicId": "topic_159",
-  "topic": "Nexus 고도화",
-  "topicSlug": "nexus-enhancement",
-  "reportPath": "reports/2026-05-04_nexus-enhancement",
+  "sessionId": "session_187",
+  "topicId": "topic_160",
+  "topic": "Nexus 효율화 Part1",
+  "topicSlug": "nexus-efficiency-p1",
+  "reportPath": "reports/2026-05-04_nexus-efficiency-p1",
   "status": "closed",
-  "closedAt": "2026-05-04T21:30:00.000Z",
-  "oneLineSummary": "Nexus 고도화: D-002(UI 미생성) 폐기, CLAUDE.md/MEMORY.md/open.md -26%(-10,339B), MCP/Skill 정리",
-  "startedAt": "2026-05-04T20:45:00.000Z",
+  "startedAt": "2026-05-04T12:10:13.084Z",
+  "closedAt": "2026-05-04T14:30:00.000Z",
   "mode": "observation",
   "grade": "B",
   "framingLevel": 0,
@@ -17,19 +16,35 @@
   "childTopicIds": [],
   "turns": [
     {
-      "role": "zero",
+      "role": "arki",
       "turnIdx": 0,
       "source": "agent"
     },
     {
-      "role": "zero",
+      "role": "riki",
       "turnIdx": 1,
       "source": "agent"
     },
     {
-      "role": "edi",
+      "role": "arki",
       "turnIdx": 2,
       "source": "agent"
+    },
+    {
+      "role": "zero",
+      "turnIdx": 3,
+      "source": "agent"
+    },
+    {
+      "role": "zero",
+      "turnIdx": 4,
+      "source": "agent"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 5,
+      "source": "agent",
+      "phase": "synthesis"
     }
   ],
   "decisions": [],
@@ -39,76 +54,47 @@
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "notes": [
-    "D-002 (UI 미생성 정책) 폐기 — CLAUDE.md Viewer Policy 섹션 재작성, JSX/React 허용",
-    "CLAUDE.md 24,395→19,969B (-18%): Sage·Zero·Same-session·Ace·Jobs·Master-first 불렛 압축, Turn Push Protocol/Asset Protocols/Script Status 압축",
-    "MEMORY.md 8,329→7,207B (-13%): COPD·Ace 학습·역할 페르소나 등 7개 deprecated 인덱스 제거 (DB매핑 유지)",
-    "open.md 7,230→2,439B (-66%): Grade 판정 규칙(CLAUDE.md 중복) 삭제, 분기 A/B 압축",
-    "MCP OFF: claude-in-chrome, ccd_session_mgmt 세트, biorxiv, slack, PubMed, ChEMBL, c-trials (와이프 논문 재연결 시 복구)",
-    "Skill OFF: anthropic-skills 中 brand-guidelines, algorithmic-art, slack-gif-creator",
-    "topic_200 실무 투입 선언 (D-154 박제는 Master가 불요로 결정)",
-    "CLAUDE.md 추가 축소(15KB 목표)는 품질 우선 보류"
+    "D-154 박제: Nexus intentConfirm 규칙 신설",
+    "MEMORY.md 30개로 경감 (-21%, -386 tok 추정)",
+    "Sequential Thinking MCP CLI 추가",
+    "MCP ~8개 사용자 직접 삭제"
   ],
   "gaps": [
-    {
-      "type": "missing-report",
-      "role": "zero",
-      "turnIdx": 0,
-      "reportPath": "reports/2026-05-04_nexus-enhancement",
-      "detectedAt": "2026-05-04T08:37:07.600Z",
-      "note": "zero turn0 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "missing-report",
-      "role": "zero",
-      "turnIdx": 1,
-      "reportPath": "reports/2026-05-04_nexus-enhancement",
-      "detectedAt": "2026-05-04T08:38:05.665Z",
-      "note": "zero turn1 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-04_nexus-enhancement/condensed.md"
-    },
     {
       "type": "version-bump-edi-unconfirmed",
       "severity": "high",
       "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
       "addedBy": "checkVersionBumpConfirmation",
       "ref": "D-140",
-      "suggestedValue": 0.1
+      "suggestedValue": 0.01
     }
   ],
+  "oneLineSummary": "nexus-efficiency-p1 완료: 57K 토큰 원인 분석·MCP 정리·MEMORY 경감·D-154 intentConfirm 박제",
+  "tokenUsage": {
+    "input_tokens": 1973,
+    "output_tokens": 141508,
+    "cache_creation_input_tokens": 532049,
+    "cache_read_input_tokens": 25883430,
+    "messageCount": 247,
+    "masterTurns": 41,
+    "total_billable": 26558960
+  },
   "agentsCompleted": [
+    "arki",
+    "riki",
+    "arki",
     "zero",
     "zero",
     "edi"
   ],
-  "openMasterAlerts": [
-    {
-      "severity": "high",
-      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.1)",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140"
-    }
-  ],
-  "tokenUsage": {
-    "input_tokens": 333,
-    "output_tokens": 101674,
-    "cache_creation_input_tokens": 1148781,
-    "cache_read_input_tokens": 13830845,
-    "messageCount": 121,
-    "masterTurns": 40,
-    "total_billable": 15081633
-  },
   "versionBumpSuggested": {
-    "value": 0.1,
-    "type": "structural",
-    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 1건 (CLAUDE.md)",
-    "autoDetectedAt": "2026-05-04T08:39:49.270Z",
+    "value": 0.01,
+    "type": "capacity",
+    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (memory/shared/decision_ledger.json)",
+    "autoDetectedAt": "2026-05-04T13:47:21.505Z",
     "changedFiles": [
       ".claude/commands/open.md",
       "AGENTS.md",
-      "CLAUDE.md",
       "CONTEXT.md",
       "agents/ace.md",
       "agents/arki.md",
@@ -125,21 +111,20 @@
       "logs/sage-gate.log",
       "memory/sessions/current_session.json",
       "memory/sessions/session_index.json",
-      "memory/sessions/token_log.json"
+      "memory/sessions/token_log.json",
+      "memory/shared/decision_ledger.json"
     ],
-    "changedFilesCount": 149,
+    "changedFilesCount": 153,
     "cappedAt": 0.1,
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-04T21:35:00.000Z"
+    "confirmedBy": null
   },
-  "versionBump": {
-    "value": 0.01,
-    "from": "0.8.171",
-    "to": "0.8.181",
-    "reason": "D-002 폐기 + CLAUDE.md/MEMORY.md/open.md 정리 — 정책 제거·텍스트 축소, 구조 신규 아님",
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-04T21:35:00.000Z",
-    "overrideReason": "hook이 +0.1(structural) 감지했으나 변경 실체는 정책 제거·축소이므로 +0.01로 override (s185 전례)"
-  },
-  "finalizedAt": "2026-05-04T08:39:51.933Z"
+  "openMasterAlerts": [
+    {
+      "severity": "high",
+      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.01)",
+      "addedBy": "checkVersionBumpConfirmation",
+      "ref": "D-140"
+    }
+  ],
+  "finalizedAt": "2026-05-04T13:47:23.900Z"
 }

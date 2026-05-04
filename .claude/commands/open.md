@@ -28,7 +28,7 @@ Session Start 체크리스트 순서대로 실행.
    - 출력 topic_id를 current_session.topicId에 기록
    - 별도 Edit으로 해당 엔트리에 `grade: "<S|A|B|C>"` 추가
 
-8. 세션 오픈 보고 후 Grade에 따라 첫 주자 진입 (자동 framing 없음 — `/jobs-framing` 명시 호출 시만 Jobs 발동)
+8. 세션 오픈 보고 후 Grade에 따라 첫 주자 진입 (자동 framing 없음 — `/jobs-framing` 명시 호출 시만 Jobs 발동). 단, Master 메시지 불충분 시 의도·scope 먼저 질문 (`nexus_memory_open.json §orchestration.intentConfirm` 참조)
 
 ## Grade 명시 파싱
 
