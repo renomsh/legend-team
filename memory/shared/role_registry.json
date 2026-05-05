@@ -111,6 +111,43 @@
         "implementation",
         "standalone"
       ]
+    },
+    {
+      "id": "jobs",
+      "displayName": "Jobs",
+      "tier": 1,
+      "color": "#FBBF24",
+      "applicableTopicTypes": [
+        "framing",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": [
+        "framing"
+      ]
+    },
+    {
+      "id": "zero",
+      "displayName": "Zero",
+      "tier": 1,
+      "color": "#A1A1AA",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": []
+    },
+    {
+      "id": "sage",
+      "displayName": "Sage",
+      "tier": 2,
+      "color": "#6366F1",
+      "applicableTopicTypes": [
+        "framing",
+        "implementation",
+        "standalone"
+      ],
+      "participationExpectedTopicTypes": []
     }
   ]
 }
