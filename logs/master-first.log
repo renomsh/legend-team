@@ -848,3 +848,15 @@
 {"ts":"2026-05-05T01:37:38.680Z","phase":"no-audit","toolName":"Agent"}
 {"ts":"2026-05-05T01:40:28.786Z","phase":"no-audit","toolName":"Agent"}
 {"ts":"2026-05-05T01:49:03.936Z","phase":"classified","sessionId":"33e53998-76b4-44eb-ae51-dc44b0258977","grade":"S","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":9}
+{"ts":"2026-05-05T01:52:23.485Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"04a57115-215f-4aad-a451-b2f63d815eaa","grade":"S"}
+{"ts":"2026-05-05T01:53:24.874Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"04a57115-215f-4aad-a451-b2f63d815eaa","grade":"S"}
+{"ts":"2026-05-05T01:55:28.160Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"04a57115-215f-4aad-a451-b2f63d815eaa","grade":"B"}
+{"ts":"2026-05-05T01:55:51.591Z","phase":"stale-state-skip","toolName":"Agent","stateSessionId":"33e53998-76b4-44eb-ae51-dc44b0258977","currentSessionId":"04a57115-215f-4aad-a451-b2f63d815eaa"}
+{"ts":"2026-05-05T02:03:44.127Z","phase":"jobs-framing-activated","sessionId":"04a57115-215f-4aad-a451-b2f63d815eaa","grade":"B"}
+{"ts":"2026-05-05T02:04:07.712Z","phase":"no-audit","toolName":"Agent"}
+{"ts":"2026-05-05T02:07:25.711Z","phase":"classified","sessionId":"04a57115-215f-4aad-a451-b2f63d815eaa","grade":"B","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":7}
+{"ts":"2026-05-05T02:07:46.747Z","phase":"no-audit","toolName":"Agent"}
+{"ts":"2026-05-05T02:10:53.603Z","phase":"classified","sessionId":"04a57115-215f-4aad-a451-b2f63d815eaa","grade":"B","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":10}
+{"ts":"2026-05-05T02:11:20.308Z","phase":"no-audit","toolName":"Agent"}
+{"ts":"2026-05-05T02:11:39.815Z","phase":"no-audit","toolName":"Agent"}
+{"ts":"2026-05-05T02:14:14.040Z","phase":"no-audit","toolName":"Agent"}

@@ -1,6 +1,26 @@
 {
   "decisions": [
     {
+      "id": "D-161",
+      "date": "2026-05-05",
+      "session": "session_193",
+      "topic": "topic_166",
+      "axis": "Self-Score weight 필드 폐기 — 사용처 0 dead field",
+      "summary": "weight = dead field (코드 참조 0건, registry 본체 미존재) 실측 확정. 8 policy 컬럼 삭제(47라인). core/extended는 inputPriority로, polarity는 polarity로 보존(정보 손실 0). SOT 논쟁 대상 아님 박제.",
+      "decision": "memory/roles/policies/role-{ace,arki,dev,edi,fin,nova,riki,vera}.md의 Self-Score 표 weight 컬럼 + 0.XX (core/extended[, lower-better]) 토큰 삭제. 헤더 3컬럼화.",
+      "caveats": [
+        "core/extended는 metrics_registry inputPriority로 SOT 보존",
+        "lower-better polarity는 signature-metrics-types.ts polarity로 SOT 보존",
+        "derived 합성 가중치(`composition.inputs[].weight`)는 별도 SOT 유지 — 본 폐기 대상 아님",
+        "PD-062 resolved-cancelled — 사용처 0 필드의 SOT 논쟁은 처음부터 불성립"
+      ],
+      "supersedes": [],
+      "related": ["D-092", "D-158"],
+      "relatedTopic": "topic_166",
+      "relatedPD": "PD-062",
+      "status": "active"
+    },
+    {
       "id": "D-157",
       "date": "2026-05-05",
       "session": "session_190",

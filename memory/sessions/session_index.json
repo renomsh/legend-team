@@ -8543,8 +8543,93 @@
         "D-159",
         "D-160"
       ]
+    },
+    {
+      "sessionId": "session_193",
+      "topicSlug": "pd062-selfscore-weight-sot",
+      "topic": "PD-062 Self-Score weight 필드 SOT 정합",
+      "startedAt": "2026-05-05T16:00:00.000Z",
+      "closedAt": "2026-05-05T17:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "arki",
+        "jobs",
+        "dev",
+        "zero",
+        "edi",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "arki",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "aud_rcl": 0.8,
+            "str_fd": 3,
+            "spc_lck": "Y",
+            "sa_rnd": 1
+          }
+        },
+        {
+          "role": "jobs",
+          "turnIdx": 1,
+          "source": "agent",
+          "selfScores": {
+            "focus_sharp": 5,
+            "bloat_idx": 1,
+            "bias_cnt": 4,
+            "no_cnt": 5
+          }
+        },
+        {
+          "role": "dev",
+          "turnIdx": 2,
+          "source": "agent",
+          "selfScores": {
+            "rt_cov": 1,
+            "gt_pas": 1,
+            "hc_rt": 0,
+            "spc_drf": 0
+          }
+        },
+        {
+          "role": "zero",
+          "turnIdx": 3,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 3,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 4,
+          "source": "agent",
+          "selfScores": {
+            "art_int": 5,
+            "delta_acc": 1,
+            "gp_acc": "deferred",
+            "scc": "Y",
+            "cs_cnt": 4,
+            "art_cmp": 1,
+            "gap_fc": 4
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 5,
+          "source": "agent"
+        }
+      ],
+      "grade": "B",
+      "oneLineSummary": "PD-062 weight dead field 확정 → 8 policy 컬럼 삭제(47L) → D-161 + PD-062 resolved-cancelled + versionBump +0.01",
+      "decisionsAdded": [
+        "D-161"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-05T01:44:05.355Z",
+  "lastUpdated": "2026-05-05T02:17:06.686Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

@@ -1,11 +1,11 @@
 {
-  "computedAt": "2026-05-05T01:44:49.170Z",
+  "computedAt": "2026-05-05T02:18:20.029Z",
   "registryVersion": "v1.1",
   "durationMs": 4,
   "slaWarnMs": 3000,
   "slaBreached": false,
   "sourceJsonl": "memory\\growth\\self_scores.jsonl",
-  "recordCount": 57,
+  "recordCount": 78,
   "metricCount": 51,
   "aggregates": [
     {
@@ -13,189 +13,252 @@
       "role": "jobs",
       "view": "all",
       "mean": 100,
-      "n": 1,
+      "n": 4,
       "std": 0,
-      "ci95": null
+      "ci95": [
+        100,
+        100
+      ]
     },
     {
       "metricId": "jobs.focus_sharpness",
       "role": "jobs",
       "view": "recent10",
       "mean": 100,
-      "n": 1,
+      "n": 4,
       "std": 0,
-      "ci95": null
+      "ci95": [
+        100,
+        100
+      ]
     },
     {
       "metricId": "jobs.focus_sharpness",
       "role": "jobs",
       "view": "recent3",
       "mean": 100,
-      "n": 1,
+      "n": 3,
       "std": 0,
-      "ci95": null
+      "ci95": [
+        100,
+        100
+      ]
     },
     {
       "metricId": "jobs.bloat_index",
       "role": "jobs",
       "view": "all",
       "mean": 80,
-      "n": 1,
+      "n": 4,
       "std": 0,
-      "ci95": null
+      "ci95": [
+        80,
+        80
+      ]
     },
     {
       "metricId": "jobs.bloat_index",
       "role": "jobs",
       "view": "recent10",
       "mean": 80,
-      "n": 1,
+      "n": 4,
       "std": 0,
-      "ci95": null
+      "ci95": [
+        80,
+        80
+      ]
     },
     {
       "metricId": "jobs.bloat_index",
       "role": "jobs",
       "view": "recent3",
       "mean": 80,
-      "n": 1,
+      "n": 3,
       "std": 0,
-      "ci95": null
+      "ci95": [
+        80,
+        80
+      ]
     },
     {
       "metricId": "jobs.bias_count",
       "role": "jobs",
       "view": "all",
-      "mean": null,
-      "n": 0,
+      "mean": 80,
+      "n": 3,
       "std": 0,
-      "ci95": null
+      "ci95": [
+        80,
+        80
+      ]
     },
     {
       "metricId": "jobs.bias_count",
       "role": "jobs",
       "view": "recent10",
-      "mean": null,
-      "n": 0,
+      "mean": 80,
+      "n": 3,
       "std": 0,
-      "ci95": null
+      "ci95": [
+        80,
+        80
+      ]
     },
     {
       "metricId": "jobs.bias_count",
       "role": "jobs",
       "view": "recent3",
-      "mean": null,
-      "n": 0,
+      "mean": 80,
+      "n": 3,
       "std": 0,
-      "ci95": null
+      "ci95": [
+        80,
+        80
+      ]
     },
     {
       "metricId": "jobs.scope_no_count",
       "role": "jobs",
       "view": "all",
-      "mean": null,
-      "n": 0,
+      "mean": 100,
+      "n": 3,
       "std": 0,
-      "ci95": null
+      "ci95": [
+        100,
+        100
+      ]
     },
     {
       "metricId": "jobs.scope_no_count",
       "role": "jobs",
       "view": "recent10",
-      "mean": null,
-      "n": 0,
+      "mean": 100,
+      "n": 3,
       "std": 0,
-      "ci95": null
+      "ci95": [
+        100,
+        100
+      ]
     },
     {
       "metricId": "jobs.scope_no_count",
       "role": "jobs",
       "view": "recent3",
-      "mean": null,
-      "n": 0,
+      "mean": 100,
+      "n": 3,
       "std": 0,
-      "ci95": null
+      "ci95": [
+        100,
+        100
+      ]
     },
     {
       "metricId": "zero.ref_count",
       "role": "zero",
       "view": "all",
-      "mean": 100,
-      "n": 1,
-      "std": 0,
-      "ci95": null
+      "mean": 70,
+      "n": 4,
+      "std": 20,
+      "ci95": [
+        50.4,
+        89.6
+      ]
     },
     {
       "metricId": "zero.ref_count",
       "role": "zero",
       "view": "recent10",
-      "mean": 100,
-      "n": 1,
-      "std": 0,
-      "ci95": null
+      "mean": 70,
+      "n": 4,
+      "std": 20,
+      "ci95": [
+        50.4,
+        89.6
+      ]
     },
     {
       "metricId": "zero.ref_count",
       "role": "zero",
       "view": "recent3",
-      "mean": 100,
-      "n": 1,
+      "mean": 60,
+      "n": 3,
       "std": 0,
-      "ci95": null
+      "ci95": [
+        60,
+        60
+      ]
     },
     {
       "metricId": "zero.hc_found",
       "role": "zero",
       "view": "all",
       "mean": 0,
-      "n": 1,
+      "n": 4,
       "std": 0,
-      "ci95": null
+      "ci95": [
+        0,
+        0
+      ]
     },
     {
       "metricId": "zero.hc_found",
       "role": "zero",
       "view": "recent10",
       "mean": 0,
-      "n": 1,
+      "n": 4,
       "std": 0,
-      "ci95": null
+      "ci95": [
+        0,
+        0
+      ]
     },
     {
       "metricId": "zero.hc_found",
       "role": "zero",
       "view": "recent3",
       "mean": 0,
-      "n": 1,
+      "n": 3,
       "std": 0,
-      "ci95": null
+      "ci95": [
+        0,
+        0
+      ]
     },
     {
       "metricId": "zero.clean_rate",
       "role": "zero",
       "view": "all",
       "mean": 100,
-      "n": 1,
+      "n": 4,
       "std": 0,
-      "ci95": null
+      "ci95": [
+        100,
+        100
+      ]
     },
     {
       "metricId": "zero.clean_rate",
       "role": "zero",
       "view": "recent10",
       "mean": 100,
-      "n": 1,
+      "n": 4,
       "std": 0,
-      "ci95": null
+      "ci95": [
+        100,
+        100
+      ]
     },
     {
       "metricId": "zero.clean_rate",
       "role": "zero",
       "view": "recent3",
       "mean": 100,
-      "n": 1,
+      "n": 3,
       "std": 0,
-      "ci95": null
+      "ci95": [
+        100,
+        100
+      ]
     },
     {
       "metricId": "dev.first_try_pass_rate",

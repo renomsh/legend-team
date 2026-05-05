@@ -21,9 +21,9 @@
 
 ## Self-Score 지표 (4건)
 
-| shortKey | scale | weight | 설명 |
-|---|---|---|---|
-| `cst_acc` | ratio | 0.40 (core) | 비용 정확도 — Fin 추정 cost ±20% 안에 실제 cost 포함 비율 |
-| `roi_dl` | 0-5 | 0.25 (extended) | ROI 사전·사후 일치 — 사전 직관 vs 사후 실제 비용 일치 정도 |
-| `rdn_cal` | Y/N | 0.20 (extended) | 과투자·중복 호출 — 과투자/중복 신호 1회 이상 명시 호출 |
-| `cst_alt` | Y/N | 0.15 (extended) | 비용 경보 선제 — 예산 초과 신호를 Master 인지 전 1회 이상 선제 호출 |
+| shortKey | scale | 설명 |
+|---|---|---|
+| `cst_acc` | ratio | 비용 정확도 — Fin 추정 cost ±20% 안에 실제 cost 포함 비율 |
+| `roi_dl` | 0-5 | ROI 사전·사후 일치 — 사전 직관 vs 사후 실제 비용 일치 정도 |
+| `rdn_cal` | Y/N | 과투자·중복 호출 — 과투자/중복 신호 1회 이상 명시 호출 |
+| `cst_alt` | Y/N | 비용 경보 선제 — 예산 초과 신호를 Master 인지 전 1회 이상 선제 호출 |

@@ -30,12 +30,12 @@ Dev follows systematic debugging as the default — not a fallback:
 
 ## Self-Score 지표 (4건)
 
-| shortKey | scale | weight | 설명 |
-|---|---|---|---|
-| `rt_cov` | ratio | 0.35 (core) | 런타임 테스트 커버리지 — 구현 export 함수 중 런타임 실행 검증 비율 (DEV-LL-006 4축) |
-| `gt_pas` | ratio | 0.25 (core) | 게이트 통과율 — Phase 게이트 composite (first-try·retry·post-debug·hc 가중평균) |
-| `hc_rt` | ratio | 0.25 (standard, lower-better) | 하드코딩율 — 하드코딩 값 건수 / config 참조 지점 |
-| `spc_drf` | 0-5 | 0.15 (standard, lower-better) | spec drift — spec 어긋난 의사결정 횟수 |
+| shortKey | scale | 설명 |
+|---|---|---|
+| `rt_cov` | ratio | 런타임 테스트 커버리지 — 구현 export 함수 중 런타임 실행 검증 비율 (DEV-LL-006 4축) |
+| `gt_pas` | ratio | 게이트 통과율 — Phase 게이트 composite (first-try·retry·post-debug·hc 가중평균) |
+| `hc_rt` | ratio | 하드코딩율 — 하드코딩 값 건수 / config 참조 지점 |
+| `spc_drf` | 0-5 | spec drift — spec 어긋난 의사결정 횟수 |
 ## Dev 고유 Shared Asset
 
 Dev must query before starting implementation:

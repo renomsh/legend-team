@@ -1,0 +1,36 @@
+{
+  "sessionId": "session_193",
+  "topicId": "topic_166",
+  "completedAt": "2026-05-05T11:15:00Z",
+  "refinedRoles": ["arki", "jobs", "dev"],
+  "skippedRoles": [],
+  "files": [
+    "arki_rev1_condensed.md",
+    "jobs_rev1_condensed.md",
+    "dev_rev1_condensed.md"
+  ],
+  "originalSizes": {
+    "arki_rev1.md": 8909,
+    "jobs_rev1.md": 4713,
+    "dev_rev1.md": 5552
+  },
+  "condensedSizes": {
+    "arki_rev1_condensed.md": 3002,
+    "jobs_rev1_condensed.md": 2259,
+    "dev_rev1_condensed.md": 2140
+  },
+  "originalLines": {
+    "arki_rev1.md": 126,
+    "jobs_rev1.md": 98,
+    "dev_rev1.md": 135
+  },
+  "condensedLines": {
+    "arki_rev1_condensed.md": 63,
+    "jobs_rev1_condensed.md": 55,
+    "dev_rev1_condensed.md": 62
+  },
+  "totalOriginalBytes": 19174,
+  "totalCondensedBytes": 7401,
+  "reductionPct": 61.4,
+  "informationLoss": "0 — D 박제 후보·검증 결과·Master 지시·risk fallback 전부 보존"
+}

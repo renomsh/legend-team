@@ -1,411 +1,164 @@
 {
-  "sessionId": "session_192",
-  "topicId": "topic_165",
-  "topic": "Measurement Loop 종합 — self-score → registry → board 5겹 단절 정리",
-  "topicSlug": "pd063-signature-metrics-sot-restore",
-  "reportPath": "reports/2026-05-05_pd063-signature-metrics-sot-restore",
+  "sessionId": "session_193",
+  "topicId": "topic_166",
+  "topic": "PD-062 Self-Score weight 필드 SOT 정합",
+  "topicSlug": "pd062-selfscore-weight-sot",
+  "reportPath": "reports/2026-05-05_pd062-selfscore-weight-sot",
   "status": "closed",
-  "startedAt": "2026-05-05T13:30:00.000Z",
-  "closedAt": "2026-05-05T15:00:00.000Z",
-  "oneLineSummary": "measurement loop 5겹 단절 복구: P1~P4 PASS, registry v1.1, hidden 정책, D-159+D-160, PD-063 resolved",
+  "startedAt": "2026-05-05T16:00:00.000Z",
+  "closedAt": "2026-05-05T17:00:00.000Z",
+  "oneLineSummary": "PD-062 weight dead field 확정 → 8 policy 컬럼 삭제(47L) → D-161 + PD-062 resolved-cancelled + versionBump +0.01",
   "mode": "observation",
-  "grade": "S",
-  "gradePromotedFrom": "A",
-  "gradePromotionReason": "Riki R-2 grep으로 4겹 단절 확정 (입력·schema·렌더·로컬path). measurement loop 종합 토픽으로 Master 승격.",
+  "grade": "B",
   "framingLevel": 0,
   "framingSkipped": true,
   "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
-  "relatedPD": "PD-063",
+  "relatedPD": "PD-062",
   "turns": [
     {
       "role": "arki",
       "turnIdx": 0,
       "source": "agent",
       "selfScores": {
-        "str_fd": 4,
-        "sa_rnd": 2,
-        "aud_rcl": 0.8
-      }
-    },
-    {
-      "role": "riki",
-      "turnIdx": 1,
-      "source": "agent",
-      "selfScores": {
-        "crt_rcl": 0.85,
-        "cr_val": "Y",
-        "prd_rej": "Y",
-        "fp_rt": 0.15
+        "aud_rcl": 0.8,
+        "str_fd": 3,
+        "spc_lck": "Y",
+        "sa_rnd": 1
       }
     },
     {
       "role": "jobs",
-      "turnIdx": 2,
+      "turnIdx": 1,
       "source": "agent",
       "selfScores": {
         "focus_sharp": 5,
-        "bloat_idx": 1
+        "bloat_idx": 1,
+        "bias_cnt": 4,
+        "no_cnt": 5
       }
     },
     {
-      "role": "ace",
+      "role": "dev",
+      "turnIdx": 2,
+      "source": "agent",
+      "selfScores": {
+        "rt_cov": 1,
+        "gt_pas": 1,
+        "hc_rt": 0,
+        "spc_drf": 0
+      }
+    },
+    {
+      "role": "zero",
       "turnIdx": 3,
       "source": "agent",
       "selfScores": {
-        "rfrm_trg": "Y",
-        "ctx_car": 5,
-        "ang_nov": 3
-      }
-    },
-    {
-      "role": "arki",
-      "turnIdx": 4,
-      "source": "agent",
-      "selfScores": {
-        "str_fd": 5,
-        "sa_rnd": 1,
-        "aud_rcl": 0.9
-      }
-    },
-    {
-      "role": "dev",
-      "turnIdx": 5,
-      "source": "agent",
-      "selfScores": {
-        "rt_cov": 1,
-        "gt_pas": 1,
-        "hc_rt": 0,
-        "spc_drf": 0
-      }
-    },
-    {
-      "role": "dev",
-      "turnIdx": 6,
-      "source": "agent",
-      "selfScores": {
-        "rt_cov": 1,
-        "gt_pas": 1,
-        "hc_rt": 0,
-        "spc_drf": 0
-      }
-    },
-    {
-      "role": "dev",
-      "turnIdx": 7,
-      "source": "agent",
-      "selfScores": {
-        "rt_cov": 0.85,
-        "gt_pas": 0.95,
-        "hc_rt": 0.05,
-        "spc_drf": 0
-      }
-    },
-    {
-      "role": "dev",
-      "turnIdx": 8,
-      "source": "agent",
-      "selfScores": {
-        "rt_cov": 1,
-        "gt_pas": 1,
-        "hc_rt": 0,
-        "spc_drf": 0
-      }
-    },
-    {
-      "role": "zero",
-      "turnIdx": 9,
-      "source": "agent"
-    },
-    {
-      "role": "zero",
-      "turnIdx": 10,
-      "source": "agent",
-      "selfScores": {
-        "ref_cnt": 5,
+        "ref_cnt": 3,
         "hc_found": 0,
         "cln_rt": 1
       }
     },
     {
       "role": "edi",
-      "turnIdx": 11,
+      "turnIdx": 4,
+      "source": "agent",
+      "selfScores": {
+        "art_int": 5,
+        "delta_acc": 1,
+        "gp_acc": "deferred",
+        "scc": "Y",
+        "cs_cnt": 4,
+        "art_cmp": 1,
+        "gap_fc": 4
+      }
+    },
+    {
+      "role": "edi",
+      "turnIdx": 5,
       "source": "agent"
     }
   ],
   "decisions": [
     {
-      "id": "D-159",
-      "axis": "Self-Score Measurement Loop 5겹 단절 복구"
-    },
-    {
-      "id": "D-160",
-      "axis": "Jobs persona SOT 5→4 압축"
+      "id": "D-161",
+      "axis": "Self-Score weight 필드 폐기 — 사용처 0 dead field"
     }
   ],
   "decisionsAdded": [
-    "D-159",
-    "D-160"
+    "D-161"
   ],
-  "masterDecisions": [
-    {
-      "content": "Grade A→S 승격 — measurement loop 종합 토픽 (Riki R-2 grep 후)",
-      "status": "resolved"
-    },
-    {
-      "content": "D-092 정정 — 상호채점 금지(자가측정 단순화). 폐기 분기 차단",
-      "status": "resolved"
-    },
-    {
-      "content": "Ace 권고 A-1+B-1 → B-1' 정정(parser 복구) 후 진행",
-      "status": "resolved"
-    },
-    {
-      "content": "Hidden 정책 적용 (값 없는 ID skip)",
-      "status": "resolved"
-    },
-    {
-      "content": "Jobs persona SOT 5→4 압축",
-      "status": "resolved"
-    }
-  ],
-  "masterFeedback": [
-    {
-      "content": "측정 위한 측정 금지는 상호 채점 시스템 복잡화 금지를 의미. 자가측정으로 변경한 것이며, 자가측정 점수가 보드에 안 나오는 것은 미이행",
-      "applied": "D-092 정정, 폐기 분기 차단, feedback memory 박제"
-    },
-    {
-      "content": "Ace 권고대로 hook 안 해도 실행되나? 검증해",
-      "applied": "self_scores.jsonl session_129 이후 dead 발견 → B-1' 정정"
-    },
-    {
-      "content": "페르소나 SOT에 jobs가 부적합하면 지표 4개로 압축",
-      "applied": "D-160 박제"
-    }
-  ],
-  "pendingDeferralsAdded": [
-    "PD-064"
-  ],
+  "masterDecisions": [],
+  "masterFeedback": [],
+  "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [
-    "PD-063"
+    "PD-062"
   ],
-  "notes": [
-    "Grade A로 시작 → Riki R-2 grep 결과로 4겹 단절 확정 → Master Grade S 승격 선언",
-    "Master 결정적 정정: D-092 의미는 상호채점 금지(자가측정 단순화), 폐기 분기 차단",
-    "Ace 권고 A-1+B-1에서 B-1 검증 시 finalize chain dead 발견 → B-1' (parser 복구)로 정정",
-    "Phase 1 진단: extractSelfScores 3 bug (content[]/lastIndexOf/SCREAMING_SNAKE) — 실제 5번 단절의 정체",
-    "Phase 4: build.js 정합 검증, 코드 변경 0건",
-    "G-Final 부분 통과 — 본 세션 보드 4 role(historical), 다음 세션부터 jobs/dev/ace/arki/riki 자연 누적",
-    "Jobs SOT 압축 D-160: external-rated 3건 폐기, 자가카운트 2건 신규(bias_cnt/no_cnt)"
-  ],
+  "notes": [],
   "gaps": [
     {
       "type": "missing-report",
-      "role": "riki",
-      "turnIdx": 1,
-      "reportPath": "reports/2026-05-05_pd063-signature-metrics-sot-restore",
-      "detectedAt": "2026-05-05T00:26:52.180Z",
-      "note": "riki turn1 완료 후 reports/riki_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "missing-report",
-      "role": "jobs",
-      "turnIdx": 2,
-      "reportPath": "reports/2026-05-05_pd063-signature-metrics-sot-restore",
-      "detectedAt": "2026-05-05T00:41:52.807Z",
-      "note": "jobs turn2 완료 후 reports/jobs_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "missing-report",
-      "role": "ace",
+      "role": "zero",
       "turnIdx": 3,
-      "reportPath": "reports/2026-05-05_pd063-signature-metrics-sot-restore",
-      "detectedAt": "2026-05-05T00:48:39.864Z",
-      "note": "ace turn3 완료 후 reports/ace_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "missing-report",
-      "role": "dev",
-      "turnIdx": 5,
-      "reportPath": "reports/2026-05-05_pd063-signature-metrics-sot-restore",
-      "detectedAt": "2026-05-05T01:15:02.522Z",
-      "note": "dev turn5 완료 후 reports/dev_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "frontmatter-patch-failed",
-      "role": "dev",
-      "turnIdx": 6,
-      "reportsPath": "(no",
-      "detectedAt": "2026-05-05T01:23:27.163Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: (no"
-    },
-    {
-      "type": "missing-report",
-      "role": "dev",
-      "turnIdx": 6,
-      "reportPath": "reports/2026-05-05_pd063-signature-metrics-sot-restore",
-      "detectedAt": "2026-05-05T01:23:27.177Z",
-      "note": "dev turn6 완료 후 reports/dev_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "frontmatter-patch-failed",
-      "role": "dev",
-      "turnIdx": 7,
-      "reportsPath": "(no",
-      "detectedAt": "2026-05-05T01:30:05.500Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: (no"
-    },
-    {
-      "type": "missing-report",
-      "role": "dev",
-      "turnIdx": 7,
-      "reportPath": "reports/2026-05-05_pd063-signature-metrics-sot-restore",
-      "detectedAt": "2026-05-05T01:30:05.504Z",
-      "note": "dev turn7 완료 후 reports/dev_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "frontmatter-patch-failed",
-      "role": "dev",
-      "turnIdx": 8,
-      "reportsPath": "reports/2026-05-05_pd063-signature-metrics-sot-restore/dev_phase4.md",
-      "detectedAt": "2026-05-05T01:32:45.259Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-05_pd063-signature-metrics-sot-restore/dev_phase4.md"
-    },
-    {
-      "type": "missing-report",
-      "role": "dev",
-      "turnIdx": 8,
-      "reportPath": "reports/2026-05-05_pd063-signature-metrics-sot-restore",
-      "detectedAt": "2026-05-05T01:32:45.264Z",
-      "note": "dev turn8 완료 후 reports/dev_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "missing-report",
-      "role": "zero",
-      "turnIdx": 9,
-      "reportPath": "reports/2026-05-05_pd063-signature-metrics-sot-restore",
-      "detectedAt": "2026-05-05T01:37:24.275Z",
-      "note": "zero turn9 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "frontmatter-patch-failed",
-      "role": "zero",
-      "turnIdx": 10,
-      "reportsPath": "reports/2026-05-05_pd063-signature-metrics-sot-restore/_zero_condense.json",
-      "detectedAt": "2026-05-05T01:40:00.240Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-05_pd063-signature-metrics-sot-restore/_zero_condense.json"
-    },
-    {
-      "type": "missing-report",
-      "role": "zero",
-      "turnIdx": 10,
-      "reportPath": "reports/2026-05-05_pd063-signature-metrics-sot-restore",
-      "detectedAt": "2026-05-05T01:40:00.244Z",
-      "note": "zero turn10 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-05_pd063-signature-metrics-sot-restore/ace_rev1.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-05_pd063-signature-metrics-sot-restore/ace_rev1_condensed.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-05_pd063-signature-metrics-sot-restore/arki_rev1.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-05_pd063-signature-metrics-sot-restore/arki_rev1_condensed.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-05_pd063-signature-metrics-sot-restore/jobs_rev1.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-05_pd063-signature-metrics-sot-restore/jobs_rev1_condensed.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-05_pd063-signature-metrics-sot-restore/riki_rev1.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-05_pd063-signature-metrics-sot-restore/riki_rev1_condensed.md"
-    },
-    {
-      "type": "version-bump-edi-unconfirmed",
-      "severity": "high",
-      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140",
-      "suggestedValue": 0.1
+      "reportPath": "reports/2026-05-05_pd062-selfscore-weight-sot",
+      "detectedAt": "2026-05-05T02:11:23.437Z",
+      "note": "zero turn3 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달 (이후 turn4에서 zero_rev1.md 정상 박제됨, 해소)",
+      "resolvedAtTurn": 3
     }
   ],
   "openMasterAlerts": [
     {
-      "severity": "high",
-      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.1)",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140"
+      "severity": "medium",
+      "message": "session_192 versionBump 0.1 미확정 — confirmedBy:null 상태로 종결됨. 별도 처리 필요 (PD-064 medium 이슈와 별개).",
+      "raisedAt": "2026-05-05T17:00:00.000Z"
     }
   ],
   "agentsCompleted": [
     "arki",
-    "riki",
     "jobs",
-    "ace",
-    "arki",
-    "dev",
-    "dev",
-    "dev",
     "dev",
     "zero",
-    "zero",
+    "edi",
     "edi"
   ],
-  "tokenUsage": {
-    "input_tokens": 378,
-    "output_tokens": 151974,
-    "cache_creation_input_tokens": 478234,
-    "cache_read_input_tokens": 20935561,
-    "messageCount": 144,
-    "masterTurns": 20,
-    "total_billable": 21566147
-  },
   "versionBumpSuggested": {
     "value": 0.1,
     "type": "structural",
-    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 2건 (memory/roles/jobs_memory.json, memory/roles/policies/role-jobs.md)",
-    "autoDetectedAt": "2026-05-05T01:44:32.244Z",
+    "reason": "policy 파일(memory/roles/policies/role-*.md) 8건 변경 자동 감지 — structural 후보",
+    "autoDetectedAt": "2026-05-05T17:00:00.000Z",
     "changedFiles": [
-      ".claude/hooks/post-tool-use-task.js",
-      "AGENTS.md",
-      "CONTEXT.md",
-      "agents/ace.md",
-      "agents/arki.md",
-      "agents/dev.md",
-      "agents/editor.md",
-      "agents/fin.md",
-      "agents/nova.md",
-      "agents/riki.md",
-      "app/growth.html",
-      "app/js/metrics-utils.js",
-      "dist/data/manifest.json",
-      "dist/data/memory/sessions/current_session.json",
-      "dist/data/memory/shared/system_state.json",
-      "dist/data/memory/shared/topic_index.json",
-      "docs/publish-contract.md",
-      "logs/app.log",
-      "logs/hook-diagnostics.log",
-      "logs/master-first-audit.md"
+      "memory/roles/policies/role-ace.md",
+      "memory/roles/policies/role-arki.md",
+      "memory/roles/policies/role-dev.md",
+      "memory/roles/policies/role-edi.md",
+      "memory/roles/policies/role-fin.md",
+      "memory/roles/policies/role-nova.md",
+      "memory/roles/policies/role-riki.md",
+      "memory/roles/policies/role-vera.md"
     ],
-    "changedFilesCount": 174,
+    "changedFilesCount": 8,
     "cappedAt": 0.1,
-    "confirmedBy": null
+    "confirmedBy": "edi"
   },
-  "finalizedAt": "2026-05-05T01:44:35.706Z"
+  "versionBump": {
+    "value": 0.01,
+    "from": "v0.917",
+    "to": "v0.927",
+    "reason": "policy weight 컬럼 폐기 — 8 파일 정책 정제, dead field 제거. 정보 손실 0(inputPriority/polarity 보존).",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-05T17:00:00.000Z",
+    "overrideReason": "structural 자동 감지 → capability 하향: dead field 청소는 형식 정제, 정책 의미 변경 없음, registry/inputPriority/polarity SOT 그대로 유지. CLAUDE.md D-130 'structural' 정의 미충족.",
+    "basedOn": "edi-override"
+  },
+  "tokenUsage": {
+    "input_tokens": 128,
+    "output_tokens": 23400,
+    "cache_creation_input_tokens": 203833,
+    "cache_read_input_tokens": 3094662,
+    "messageCount": 37,
+    "masterTurns": 9,
+    "total_billable": 3322023
+  },
+  "finalizedAt": "2026-05-05T02:17:32.807Z"
 }

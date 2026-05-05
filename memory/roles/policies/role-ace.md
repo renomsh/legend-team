@@ -36,12 +36,12 @@ Master 또는 다른 역할이 명시 호출 시 (Jobs framing 직후 또는 결
 
 ## 3. Self-Score 지표 (4건 — D-130에서 orc_hit 제거)
 
-| shortKey | scale | weight | 설명 |
-|---|---|---|---|
-| `rfrm_trg` | Y/N | 0.35 (core) | 리프레임 트리거 — 결정축 재구성 또는 구조·흐름 시각으로 Master 가정 흔들기 성공 |
-| `ctx_car` | 0-5 | 0.30 (core) | 컨텍스트 승계 — 선행 발언 누락 없이 합성 정도 |
-| `mst_fr` | 0-5 | 0.20 (extended, lower-better) | Master 마찰 — 세션 내 명시 마찰(좌절·재요청·원복) 횟수 |
-| `ang_nov` | 0-5 | 0.15 (extended) | 각도 신규성 — 직전 세션 대비 신규 판정 축 수 |
+| shortKey | scale | 설명 |
+|---|---|---|
+| `rfrm_trg` | Y/N | 리프레임 트리거 — 결정축 재구성 또는 구조·흐름 시각으로 Master 가정 흔들기 성공 |
+| `ctx_car` | 0-5 | 컨텍스트 승계 — 선행 발언 누락 없이 합성 정도 |
+| `mst_fr` | 0-5 | Master 마찰 — 세션 내 명시 마찰(좌절·재요청·원복) 횟수 |
+| `ang_nov` | 0-5 | 각도 신규성 — 직전 세션 대비 신규 판정 축 수 |
 
 ## 4. 폐기된 발언 구조 (D-130 supersede)
 

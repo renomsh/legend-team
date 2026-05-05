@@ -125,10 +125,10 @@ frontmatter `accessed_assets` 에 기록.
 
 ## Self-Score 지표 (5건)
 
-| shortKey | scale | weight | 설명 |
-|---|---|---|---|
-| `gp_acc` | ratio | 0.30 (core, deferred, settlementOffset=3) | Gap 박제 정확도 — N+3 세션 내 실제 결함 확인 비율 |
-| `scc` | Y/N | 0.25 (core) | 세션 종료 컴플라이언스 — Session End 8단계 체크리스트 전 항목 통과 |
-| `cs_cnt` | 0-5 | 0.20 (extended) | 차기 세션 인계 — 인계 메모/PD 등록 충분도 |
-| `art_cmp` | ratio | 0.15 (extended) | 산출물 완결성 — reports/{role}_rev*.md 작성 비율 |
-| `gap_fc` | 0-5 | 0.10 (extended, lower-better) | Gap 감사 composite — 기계적 누락·구조적 심각도·사후 발견율 가중평균 |
+| shortKey | scale | 설명 |
+|---|---|---|
+| `gp_acc` | ratio | Gap 박제 정확도 — N+3 세션 내 실제 결함 확인 비율 (deferred, settlementOffset=3) |
+| `scc` | Y/N | 세션 종료 컴플라이언스 — Session End 8단계 체크리스트 전 항목 통과 |
+| `cs_cnt` | 0-5 | 차기 세션 인계 — 인계 메모/PD 등록 충분도 |
+| `art_cmp` | ratio | 산출물 완결성 — reports/{role}_rev*.md 작성 비율 |
+| `gap_fc` | 0-5 | Gap 감사 composite — 기계적 누락·구조적 심각도·사후 발견율 가중평균 |

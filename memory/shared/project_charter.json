@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "0.917",
+    "version": "v0.927",
     "versionSchema": {
       "format": "X.YYY (3자리 소수 float, 점 하나)",
       "incrementRules": {
@@ -283,7 +283,13 @@
       "date": "2026-05-05",
       "summary": "role policy/persona 파일 22개 변경 — structural 기준 충족. Persona Layer 절삭(PD-058) 1차 실행.",
       "sessionId": "session_188"
+    },
+    {
+      "version": "v0.927",
+      "date": "2026-05-05",
+      "summary": "policy weight 컬럼 폐기 — 8 파일 정책 정제, dead field 제거. 정보 손실 0(inputPriority/polarity 보존).",
+      "sessionId": "session_193"
     }
   ],
-  "lastUpdated": "2026-05-04"
+  "lastUpdated": "2026-05-05"
 }

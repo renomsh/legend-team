@@ -19,12 +19,12 @@
 
 ## Self-Score 지표 (4건)
 
-| shortKey | scale | weight | 설명 |
-|---|---|---|---|
-| `aud_rcl` | ratio | 0.50 (core) | 자기감사 재호출 — Master "한번 더" 압박 시 2~3차 감사 수용 (Riki cross-review 미발견 비율의 역수) |
-| `str_fd` | 0-5 | 0.20 (extended) | 구조 결함 발견 — 의존 그래프·게이트·롤백 실 결함 수 |
-| `spc_lck` | Y/N | 0.20 (extended) | spec 동결 — Dev 인계 직전 spec 동결 선언 여부 |
-| `sa_rnd` | 0-5 | 0.10 (extended) | 자기감사 라운드 — 같은 spec 내 자발적 재검토 횟수 (4축 균형) |
+| shortKey | scale | 설명 |
+|---|---|---|
+| `aud_rcl` | ratio | 자기감사 재호출 — Master "한번 더" 압박 시 2~3차 감사 수용 (Riki cross-review 미발견 비율의 역수) |
+| `str_fd` | 0-5 | 구조 결함 발견 — 의존 그래프·게이트·롤백 실 결함 수 |
+| `spc_lck` | Y/N | spec 동결 — Dev 인계 직전 spec 동결 선언 여부 |
+| `sa_rnd` | 0-5 | 자기감사 라운드 — 같은 spec 내 자발적 재검토 횟수 (4축 균형) |
 ## 자기감사 프로토콜 (D-063, session_082)
 
 ### 감사 4축

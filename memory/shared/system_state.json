@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_192",
-  "nextSessionId": "session_193",
-  "currentVersion": "v0.917",
+  "lastSessionId": "session_193",
+  "nextSessionId": "session_194",
+  "currentVersion": "v0.927",
   "openTopics": [
     {
       "id": "topic_012",
@@ -13,6 +13,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-161",
+      "date": "2026-05-05",
+      "axis": "Self-Score weight 필드 폐기 — 사용처 0 dead field",
+      "summary": "Self-Score weight 필드 폐기 — 사용처 0 dead field"
+    },
     {
       "id": "D-160",
       "date": "2026-05-05",
@@ -36,15 +42,18 @@
       "date": "2026-05-05",
       "axis": "Persona Layer 2차 정제 — Zero·Riki 협업 부분 적용",
       "summary": "Persona Layer 2차 정제 — Zero·Riki 협업 부분 적용"
-    },
-    {
-      "id": "D-156",
-      "date": "2026-05-05",
-      "axis": "버전 형식 확정 — X.YYY 3자리 소수 float, 점 하나",
-      "summary": "버전 형식 확정 — X.YYY 3자리 소수 float, 점 하나"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_193",
+      "topicSlug": "pd062-selfscore-weight-sot",
+      "closedAt": "2026-05-05T17:00:00.000Z",
+      "oneLineSummary": "PD-062 weight dead field 확정 → 8 policy 컬럼 삭제(47L) → D-161 + PD-062 resolved-cancelled + versionBump +0.01",
+      "decisionsAdded": [
+        "D-161"
+      ]
+    },
     {
       "sessionId": "session_192",
       "topicSlug": "pd063-signature-metrics-sot-restore",
@@ -62,15 +71,6 @@
       "oneLineSummary": "self-score 표 통일: 8 policy −600B, drift 5건 정정, D-158, PD-060 resolved, PD-062·PD-063(high) 신규",
       "decisionsAdded": [
         "D-158"
-      ]
-    },
-    {
-      "sessionId": "session_190",
-      "topicSlug": "persona-layer-refine-p2",
-      "closedAt": "2026-05-05T11:00:00.000Z",
-      "oneLineSummary": "persona Layer 2차: Zero 4건→Riki KILL 1·부분 GO 3→Master #2만 적용 -91B, D-157, PD-058 resolved",
-      "decisionsAdded": [
-        "D-157"
       ]
     }
   ],
@@ -120,19 +120,6 @@
       ]
     },
     {
-      "id": "PD-062",
-      "fromSession": "session_191",
-      "fromTopic": "topic_164 (self-score-table-format-unify)",
-      "item": "Self-Score weight 필드 SOT 부재 — registry에 weight 컬럼 없음, policy 파일이 사실상 SOT, silent drift 위험",
-      "status": "pending",
-      "resolveCondition": "weight drift 1건 이상 발견 OR Master 명시 재오픈",
-      "dependsOn": [],
-      "relatedDecisions": [
-        "D-092",
-        "D-158"
-      ]
-    },
-    {
       "id": "PD-065",
       "fromSession": "session_192",
       "fromTopic": "topic_165 (measurement-loop-restore)",
@@ -161,5 +148,5 @@
       ]
     }
   ],
-  "lastUpdated": "2026-05-05T01:44:35.541Z"
+  "lastUpdated": "2026-05-05T02:17:32.642Z"
 }
