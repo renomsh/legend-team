@@ -1,13 +1,11 @@
 {
-  "sessionId": "session_197",
-  "topicId": "topic_170",
-  "topic": "G3, G4 확인",
-  "topicSlug": "g3-g4-check",
-  "reportPath": "reports/2026-05-05_g3-g4-check",
-  "status": "closed",
-  "closedAt": "2026-05-05T22:00:00.000Z",
-  "oneLineSummary": "G3(feedback_log Read금지)+G4(role_memory append-only) close.md 박제+lessonLog초기화 D-165 +0.01",
-  "startedAt": "2026-05-05T21:30:00.000Z",
+  "sessionId": "session_198",
+  "topicId": "topic_171",
+  "topic": "Legend Nexus PC 환경 — 노트북 하드웨어 업그레이드",
+  "topicSlug": "nexus-pc-hardware-upgrade",
+  "reportPath": "reports/2026-05-05_nexus-pc-hardware-upgrade",
+  "status": "open",
+  "startedAt": "2026-05-05T22:30:00.000Z",
   "mode": "observation",
   "grade": "B",
   "framingLevel": 0,
@@ -15,70 +13,95 @@
   "topicType": "standalone",
   "turns": [
     {
-      "role": "arki",
+      "role": "jobs",
       "turnIdx": 0,
       "source": "agent",
       "selfScores": {
-        "str_fd": 3,
-        "aud_rcl": 0.85,
+        "focus_sharp": 5,
+        "bloat_idx": 1,
+        "bias_cnt": 3,
+        "no_cnt": 4
+      }
+    },
+    {
+      "role": "arki",
+      "turnIdx": 1,
+      "source": "agent",
+      "selfScores": {
+        "str_fd": 4,
+        "aud_rcl": 0.8,
         "spc_lck": "N",
-        "sa_rnd": 1
+        "sa_rnd": 3
       }
     },
     {
       "role": "riki",
-      "turnIdx": 1,
+      "turnIdx": 2,
       "source": "agent",
       "selfScores": {
         "crt_rcl": 0.8,
         "cr_val": "Y",
-        "prd_rej": "Y",
-        "fp_rt": 0.33
+        "prd_rej": "N",
+        "fp_rt": 0
       }
     },
     {
-      "role": "dev",
-      "turnIdx": 2,
+      "role": "fin",
+      "turnIdx": 3,
       "source": "agent",
       "selfScores": {
-        "rt_cov": 1,
-        "gt_pas": 1,
-        "hc_rt": 0,
-        "spc_drf": 0
+        "cst_acc": 0.7,
+        "roi_dl": 4,
+        "rdn_cal": "Y",
+        "cst_alt": "Y"
       }
     },
     {
-      "role": "edi",
-      "turnIdx": 3,
-      "source": "agent"
-    },
-    {
-      "role": "zero",
+      "role": "ace",
       "turnIdx": 4,
       "source": "agent",
       "selfScores": {
-        "ref_cnt": 3,
-        "hc_found": 0,
-        "cln_rt": 1
+        "rfrm_trg": "Y",
+        "ctx_car": 5,
+        "mst_fr": 0,
+        "ang_nov": 3
+      }
+    },
+    {
+      "role": "jobs",
+      "turnIdx": 5,
+      "source": "agent",
+      "selfScores": {
+        "focus_sharp": 5,
+        "bloat_idx": 1,
+        "bias_cnt": 1,
+        "no_cnt": 3
+      }
+    },
+    {
+      "role": "ace",
+      "turnIdx": 6,
+      "source": "agent",
+      "selfScores": {
+        "rfrm_trg": "Y",
+        "ctx_car": 5,
+        "mst_fr": 0,
+        "ang_nov": 2
       }
     },
     {
       "role": "edi",
-      "turnIdx": 5,
-      "source": "agent",
-      "selfScores": {
-        "gp_acc": 0.85,
-        "scc": "Y",
-        "cs_cnt": 3,
-        "art_cmp": 1,
-        "gap_fc": 4
-      }
+      "turnIdx": 7,
+      "source": "agent"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 8,
+      "source": "agent"
     }
   ],
   "decisions": [],
-  "decisionsAdded": [
-    "D-165"
-  ],
+  "decisionsAdded": [],
   "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
@@ -87,56 +110,54 @@
   "gaps": [
     {
       "type": "frontmatter-patch-failed",
-      "role": "arki",
+      "role": "jobs",
       "turnIdx": 0,
-      "reportsPath": "`reports/2026-05-05_close-g3-g4-candidates/arki_rev1.md`",
-      "detectedAt": "2026-05-05T05:45:18.247Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-05_close-g3-g4-candidates/arki_rev1.md`"
+      "reportsPath": "`C:\\Projects\\legend-team\\reports\\2026-05-05_topic171-hw-upgrade\\jobs_rev1.md`",
+      "detectedAt": "2026-05-05T11:27:07.466Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `C:\\Projects\\legend-team\\reports\\2026-05-05_topic171-hw-upgrade\\jobs_rev1.md`"
     },
     {
       "type": "frontmatter-patch-failed",
-      "role": "zero",
-      "turnIdx": 4,
-      "reportsPath": "`reports/2026-05-05_g3-g4-check/condensed.md`",
-      "detectedAt": "2026-05-05T06:01:12.602Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-05_g3-g4-check/condensed.md`"
+      "role": "fin",
+      "turnIdx": 3,
+      "reportsPath": "`C:\\Projects\\legend-team\\reports\\2026-05-05_nexus-pc-hardware-upgrade\\fin_rev1.md`",
+      "detectedAt": "2026-05-05T11:45:37.323Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `C:\\Projects\\legend-team\\reports\\2026-05-05_nexus-pc-hardware-upgrade\\fin_rev1.md`"
+    },
+    {
+      "type": "frontmatter-patch-failed",
+      "role": "ace",
+      "turnIdx": 6,
+      "reportsPath": "`reports/2026-05-05_nexus-pc-hardware-upgrade/ace_rev2.md`",
+      "detectedAt": "2026-05-05T11:58:10.964Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-05_nexus-pc-hardware-upgrade/ace_rev2.md`"
     },
     {
       "type": "missing-report",
-      "role": "zero",
-      "turnIdx": 4,
-      "reportPath": "reports/2026-05-05_g3-g4-check",
-      "detectedAt": "2026-05-05T06:01:12.609Z",
-      "note": "zero turn4 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+      "role": "edi",
+      "turnIdx": 7,
+      "reportPath": "reports/2026-05-05_nexus-pc-hardware-upgrade",
+      "detectedAt": "2026-05-05T12:19:51.798Z",
+      "note": "edi turn7 완료 후 reports/edi_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "missing-report",
+      "role": "edi",
+      "turnIdx": 8,
+      "reportPath": "reports/2026-05-05_nexus-pc-hardware-upgrade",
+      "detectedAt": "2026-05-05T12:20:23.199Z",
+      "note": "edi turn8 완료 후 reports/edi_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
     }
   ],
   "openMasterAlerts": [],
-  "agentsCompleted": [
-    "arki",
-    "riki",
-    "dev",
-    "edi",
-    "zero",
-    "edi"
-  ],
-  "versionBump": {
-    "value": 0.01,
-    "from": "v0.947",
-    "to": "v0.957",
-    "reason": "close.md G3/G4 정책 박제(Step 6/7) + 역할 lessonLog 초기화 6건 — capacity 확장",
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-05T06:05:00.000Z",
-    "overrideReason": null,
-    "basedOn": "edi-override"
-  },
+  "agentsCompleted": [],
   "tokenUsage": {
-    "input_tokens": 207,
-    "output_tokens": 58399,
-    "cache_creation_input_tokens": 230884,
-    "cache_read_input_tokens": 7005762,
-    "messageCount": 96,
-    "masterTurns": 9,
-    "total_billable": 7295252
-  },
-  "finalizedAt": "2026-05-05T06:08:30.432Z"
+    "input_tokens": 182,
+    "output_tokens": 62834,
+    "cache_creation_input_tokens": 276840,
+    "cache_read_input_tokens": 5467183,
+    "messageCount": 80,
+    "masterTurns": 19,
+    "total_billable": 5807039
+  }
 }
