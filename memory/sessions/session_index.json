@@ -8782,8 +8782,101 @@
       "decisionsAdded": [
         "D-163"
       ]
+    },
+    {
+      "sessionId": "session_196",
+      "topicSlug": "pd059-close-token-measurement",
+      "topic": "PD-059 close 프로세스 토큰 측정",
+      "startedAt": "2026-05-05T20:10:00.000Z",
+      "closedAt": "2026-05-05T21:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "arki",
+        "fin",
+        "riki",
+        "jobs",
+        "dev",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "arki",
+          "turnIdx": 0,
+          "phase": "structural-analysis",
+          "source": "agent",
+          "selfScores": {
+            "str_fd": 3,
+            "aud_rcl": 0.85,
+            "spc_lck": "N",
+            "sa_rnd": 3
+          }
+        },
+        {
+          "role": "fin",
+          "turnIdx": 1,
+          "source": "agent",
+          "selfScores": {
+            "cst_acc": 0.75,
+            "roi_dl": 4,
+            "rdn_cal": "Y",
+            "cst_alt": "Y"
+          }
+        },
+        {
+          "role": "riki",
+          "turnIdx": 2,
+          "source": "agent",
+          "selfScores": {
+            "crt_rcl": 0.75,
+            "cr_val": "Y",
+            "prd_rej": "Y",
+            "fp_rt": 0.1
+          }
+        },
+        {
+          "role": "jobs",
+          "turnIdx": 3,
+          "phase": "framing",
+          "source": "agent",
+          "selfScores": {
+            "focus_sharp": 5,
+            "bloat_idx": 1,
+            "bias_cnt": 3,
+            "no_cnt": 4
+          }
+        },
+        {
+          "role": "dev",
+          "turnIdx": 4,
+          "phase": "implementation",
+          "source": "agent",
+          "selfScores": {
+            "rt_cov": 0.75,
+            "gt_pas": 1,
+            "hc_rt": 0,
+            "spc_drf": 0
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 5,
+          "source": "agent",
+          "selfScores": {
+            "gp_acc": 0.85,
+            "scc": "Y",
+            "cs_cnt": 5,
+            "art_cmp": 0.9,
+            "gap_fc": 1
+          }
+        }
+      ],
+      "grade": "B",
+      "oneLineSummary": "PD-059 close토큰절감 G5+G2+G1 구현(close.md 3곳+get-ledger-snapshot.ts) → D-164 + PD-059 resolved +0.01",
+      "decisionsAdded": [
+        "D-164"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-05T04:46:11.103Z",
+  "lastUpdated": "2026-05-05T05:29:33.513Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

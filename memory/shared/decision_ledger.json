@@ -8,7 +8,9 @@
       "axis": "Growth 대시보드 L1 축 재정의 — learning(empty) → quality",
       "summary": "metrics_registry.json에 learning axis 지표 0개 (D-160 external-rated 폐기 후 공백). app/growth.html L1 카드를 data-axis=quality / 'L1 · Quality' / '역할 품질'로 재정의. quality axis는 43개 지표로 즉시 동작. topMetricForRole 우선순위에서 learning 필터 제거. AXIS_DEF learning→quality 교체.",
       "decision": "L1 = quality axis (역할 품질). learning axis는 지표 0개로 사실상 폐기 상태 — 스키마 enum은 legacy 호환 유지, 앱에서만 제거.",
-      "relatedDecisions": ["D-160"],
+      "relatedDecisions": [
+        "D-160"
+      ],
       "status": "active"
     },
     {
@@ -26,7 +28,16 @@
         "legacy turn(turnIdx 누락) 섞인 세션은 turns.length > 0 조건으로만 발동 — 영향 없음"
       ],
       "supersedes": [],
-      "related": ["D-028", "D-048", "D-125", "D-130", "D-131", "D-138", "D-140", "D-143"],
+      "related": [
+        "D-028",
+        "D-048",
+        "D-125",
+        "D-130",
+        "D-131",
+        "D-138",
+        "D-140",
+        "D-143"
+      ],
       "relatedTopic": "topic_167",
       "relatedPD": "PD-064",
       "status": "active"
@@ -46,7 +57,10 @@
         "PD-062 resolved-cancelled — 사용처 0 필드의 SOT 논쟁은 처음부터 불성립"
       ],
       "supersedes": [],
-      "related": ["D-092", "D-158"],
+      "related": [
+        "D-092",
+        "D-158"
+      ],
       "relatedTopic": "topic_166",
       "relatedPD": "PD-062",
       "status": "active"
@@ -2455,6 +2469,20 @@
         "PD-060"
       ],
       "status": "active"
+    },
+    {
+      "id": "D-164",
+      "date": "2026-05-05",
+      "session": "session_196",
+      "topic": "topic_169",
+      "axis": "close.md 토큰 절감 3항목 — G5(session_index 금지)+G2(topic_index 스크립트 전환)+G1(ledger 스냅샷+escape hatch)+status SOT 7종 동기화",
+      "summary": "close 프로세스 LLM 컨텍스트 점유율 74~80% → 목표 40% 이하. close.md Step 3(G1 스냅샷), Step 4(G2 전문읽기금지+SOT 7종), Step 8(G5 session_index금지) 수정. scripts/get-ledger-snapshot.ts 신규.",
+      "tags": [
+        "close-process",
+        "token-optimization",
+        "context-reduction",
+        "status-sot"
+      ]
     }
   ],
   "lastUpdated": "2026-05-05"

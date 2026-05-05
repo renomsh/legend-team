@@ -1,67 +1,76 @@
 {
-  "sessionId": "session_195",
-  "topicId": "topic_168",
-  "topic": "PD-065 signatureMetrics 잔재 위생",
-  "topicSlug": "pd065-signaturemetrics-hygiene",
-  "reportPath": "reports/2026-05-05_pd065-signaturemetrics-hygiene",
+  "sessionId": "session_196",
+  "topicId": "topic_169",
+  "topic": "PD-059 close 프로세스 토큰 측정",
+  "topicSlug": "pd059-close-token-measurement",
+  "reportPath": "reports/2026-05-05_pd059-close-token-measurement",
   "status": "closed",
-  "startedAt": "2026-05-05T19:00:00.000Z",
-  "closedAt": "2026-05-05T20:00:00.000Z",
-  "oneLineSummary": "PD-065 signatureMetrics 위생 6파일 + growth L1 재정의(D-163) → PD-065 resolved",
+  "startedAt": "2026-05-05T20:10:00.000Z",
+  "closedAt": "2026-05-05T21:00:00.000Z",
+  "oneLineSummary": "PD-059 close토큰절감 G5+G2+G1 구현(close.md 3곳+get-ledger-snapshot.ts) → D-164 + PD-059 resolved +0.01",
   "mode": "observation",
   "grade": "B",
   "framingLevel": 0,
   "framingSkipped": true,
   "topicType": "standalone",
-  "relatedPD": "PD-065",
+  "relatedPD": "PD-059",
   "turns": [
     {
       "role": "arki",
       "turnIdx": 0,
+      "phase": "structural-analysis",
       "source": "agent",
       "selfScores": {
-        "str_fd": 2,
-        "aud_rcl": 0.8,
+        "str_fd": 3,
+        "aud_rcl": 0.85,
         "spc_lck": "N",
-        "sa_rnd": 1
+        "sa_rnd": 3
+      }
+    },
+    {
+      "role": "fin",
+      "turnIdx": 1,
+      "source": "agent",
+      "selfScores": {
+        "cst_acc": 0.75,
+        "roi_dl": 4,
+        "rdn_cal": "Y",
+        "cst_alt": "Y"
       }
     },
     {
       "role": "riki",
-      "turnIdx": 1,
+      "turnIdx": 2,
       "source": "agent",
       "selfScores": {
-        "crt_rcl": 0,
+        "crt_rcl": 0.75,
         "cr_val": "Y",
         "prd_rej": "Y",
-        "fp_rt": 0
+        "fp_rt": 0.1
       }
     },
     {
-      "role": "edi",
-      "turnIdx": 2,
-      "source": "agent"
-    },
-    {
-      "role": "zero",
+      "role": "jobs",
       "turnIdx": 3,
+      "phase": "framing",
       "source": "agent",
       "selfScores": {
-        "ref_cnt": 2,
-        "hc_found": 0,
-        "cln_rt": 1
+        "focus_sharp": 5,
+        "bloat_idx": 1,
+        "bias_cnt": 3,
+        "no_cnt": 4
       }
     },
     {
-      "role": "edi",
+      "role": "dev",
       "turnIdx": 4,
+      "phase": "implementation",
       "source": "agent",
       "selfScores": {
-        "gp_acc": 0.8,
-        "scc": "Y",
-        "cs_cnt": 3,
-        "art_cmp": 0.67,
-        "gap_fc": 1
+        "rt_cov": 0.75,
+        "gt_pas": 1,
+        "hc_rt": 0,
+        "spc_drf": 0
       }
     },
     {
@@ -71,131 +80,84 @@
       "selfScores": {
         "gp_acc": 0.85,
         "scc": "Y",
-        "cs_cnt": 4,
-        "art_cmp": 0.8,
-        "gap_fc": 2
+        "cs_cnt": 5,
+        "art_cmp": 0.9,
+        "gap_fc": 1
       }
     }
   ],
   "decisions": [
-    "D-163"
+    "D-164"
   ],
   "decisionsAdded": [
-    "D-163"
+    "D-164"
   ],
   "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [
-    "PD-065"
+    "PD-059"
   ],
   "notes": [],
   "gaps": [
     {
-      "type": "missing-report",
-      "role": "edi",
-      "turnIdx": 2,
-      "reportPath": "reports/2026-05-05_pd065-signaturemetrics-hygiene",
-      "detectedAt": "2026-05-05T04:17:50.742Z",
-      "note": "edi turn2 완료 후 reports/edi_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+      "type": "ledger-gap",
+      "note": "D-161/D-162/D-163 session_index 기록 존재하나 decision_ledger.json 미등록 — 이전 세션 hook 누락 추정. 별도 위생 필요.",
+      "severity": "low"
     },
     {
-      "type": "missing-report",
-      "role": "zero",
-      "turnIdx": 3,
-      "reportPath": "reports/2026-05-05_pd065-signaturemetrics-hygiene",
-      "detectedAt": "2026-05-05T04:23:05.313Z",
-      "note": "zero turn3 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+      "type": "turn-not-found",
+      "file": "reports/2026-05-05_pd059-close-token-measurement/dev_rev1.md",
+      "turnId": 8,
+      "note": "frontmatter turnId가 turns[]에 존재하지 않음"
     },
     {
       "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-05_pd065-signaturemetrics-hygiene/arki_condensed.md",
-      "expected": "arki",
-      "actualInTurns": "zero",
+      "file": "reports/2026-05-05_pd059-close-token-measurement/fin_rev1.md",
+      "expected": "fin",
+      "actualInTurns": "jobs",
       "turnId": 3
     },
     {
-      "type": "version-bump-edi-unconfirmed",
-      "severity": "high",
-      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140",
-      "suggestedValue": 0.1
+      "type": "turn-not-found",
+      "file": "reports/2026-05-05_pd059-close-token-measurement/jobs_rev1.md",
+      "turnId": 6,
+      "note": "frontmatter turnId가 turns[]에 존재하지 않음"
     },
     {
-      "type": "frontmatter-patch-failed",
-      "role": "edi",
-      "turnIdx": 5,
-      "reportsPath": "`C:\\Projects\\legend-team\\memory\\sessions\\current_session.json`",
-      "detectedAt": "2026-05-05T04:48:03.975Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `C:\\Projects\\legend-team\\memory\\sessions\\current_session.json`"
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-05_pd059-close-token-measurement/riki_rev1.md",
+      "expected": "riki",
+      "actualInTurns": "edi",
+      "turnId": 5
     }
   ],
-  "openMasterAlerts": [
-    {
-      "severity": "high",
-      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.1)",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140"
-    }
-  ],
+  "openMasterAlerts": [],
   "agentsCompleted": [
     "arki",
+    "fin",
     "riki",
-    "edi",
-    "zero",
+    "jobs",
+    "dev",
     "edi"
   ],
-  "tokenUsage": {
-    "input_tokens": 215,
-    "output_tokens": 80628,
-    "cache_creation_input_tokens": 756902,
-    "cache_read_input_tokens": 11692230,
-    "messageCount": 145,
-    "masterTurns": 9,
-    "total_billable": 12529975
-  },
   "versionBump": {
     "value": 0.01,
     "from": "v0.937",
     "to": "v0.947",
-    "reason": "D-163 신규 결정 (growth L1 재정의) + PD-065 위생 6파일. role-vera.md는 신규 구조 아닌 annotation 교정.",
+    "reason": "close.md 토큰 절감 정책 3건(G5+G2+G1) + get-ledger-snapshot.ts 신규 — 기존 구조 내 capacity 확장",
     "type": "capacity",
     "confirmedBy": "edi",
-    "confirmedAt": "2026-05-05T05:10:00.000Z",
-    "basedOn": "edi-direct",
-    "overrideReason": "hook +0.1 과다 — role-vera.md 변경은 신규 페르소나 아닌 텍스트 annotation 교정. D-163 1건 기준 +0.01."
+    "confirmedAt": "2026-05-05T05:35:00.000Z"
   },
-  "versionBumpSuggested": {
-    "value": 0.1,
-    "type": "structural",
-    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 1건 (memory/roles/personas/role-vera.md)",
-    "autoDetectedAt": "2026-05-05T04:46:30.440Z",
-    "changedFiles": [
-      "app/growth.html",
-      "logs/app.log",
-      "logs/hook-diagnostics.log",
-      "logs/master-first.log",
-      "logs/pre-tool-use-task.log",
-      "logs/sage-gate.log",
-      "memory/growth/composite_inputs.json",
-      "memory/growth/phase_dod.json",
-      "memory/growth/rollback_playbook.md",
-      "memory/roles/personas/role-vera.md",
-      "memory/sessions/current_session.json",
-      "memory/sessions/session_index.json",
-      "memory/sessions/token_log.json",
-      "memory/shared/decision_ledger.json",
-      "memory/shared/system_state.json",
-      "memory/shared/topic_index.json",
-      "memory/specs/page-checklist/growth.md",
-      "scripts/seed-signature-metrics.ts",
-      "reports/2026-05-05_pd065-signaturemetrics-hygiene/",
-      "topics/topic_168/"
-    ],
-    "changedFilesCount": 20,
-    "cappedAt": 0.1,
-    "confirmedBy": null
+  "tokenUsage": {
+    "input_tokens": 129,
+    "output_tokens": 55614,
+    "cache_creation_input_tokens": 250100,
+    "cache_read_input_tokens": 7580411,
+    "messageCount": 89,
+    "masterTurns": 8,
+    "total_billable": 7886254
   },
-  "finalizedAt": "2026-05-05T04:46:33.328Z"
+  "finalizedAt": "2026-05-05T05:30:35.688Z"
 }

@@ -886,3 +886,14 @@
 {"ts":"2026-05-05T04:43:27.612Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"6e616ae8-045e-4d42-b1a8-5f83b375748e","grade":"B"}
 {"ts":"2026-05-05T04:44:23.616Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"6e616ae8-045e-4d42-b1a8-5f83b375748e","grade":"B"}
 {"ts":"2026-05-05T04:47:39.384Z","phase":"stale-state-skip","toolName":"Agent","stateSessionId":"04a57115-215f-4aad-a451-b2f63d815eaa","currentSessionId":"6e616ae8-045e-4d42-b1a8-5f83b375748e"}
+{"ts":"2026-05-05T04:53:01.619Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"d2cf740a-de19-4d77-a2cd-09148de5c5d0","grade":"B"}
+{"ts":"2026-05-05T04:54:27.707Z","phase":"stale-state-skip","toolName":"Agent","stateSessionId":"04a57115-215f-4aad-a451-b2f63d815eaa","currentSessionId":"d2cf740a-de19-4d77-a2cd-09148de5c5d0"}
+{"ts":"2026-05-05T05:01:01.188Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"d2cf740a-de19-4d77-a2cd-09148de5c5d0","grade":"B"}
+{"ts":"2026-05-05T05:01:37.451Z","phase":"stale-state-skip","toolName":"Agent","stateSessionId":"04a57115-215f-4aad-a451-b2f63d815eaa","currentSessionId":"d2cf740a-de19-4d77-a2cd-09148de5c5d0"}
+{"ts":"2026-05-05T05:09:31.386Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"d2cf740a-de19-4d77-a2cd-09148de5c5d0","grade":"B"}
+{"ts":"2026-05-05T05:10:10.636Z","phase":"stale-state-skip","toolName":"Agent","stateSessionId":"04a57115-215f-4aad-a451-b2f63d815eaa","currentSessionId":"d2cf740a-de19-4d77-a2cd-09148de5c5d0"}
+{"ts":"2026-05-05T05:14:55.299Z","phase":"jobs-framing-activated","sessionId":"d2cf740a-de19-4d77-a2cd-09148de5c5d0","grade":"B"}
+{"ts":"2026-05-05T05:15:21.040Z","phase":"no-audit","toolName":"Agent"}
+{"ts":"2026-05-05T05:19:18.950Z","phase":"classified","sessionId":"d2cf740a-de19-4d77-a2cd-09148de5c5d0","grade":"B","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":15}
+{"ts":"2026-05-05T05:19:57.934Z","phase":"no-audit","toolName":"Agent"}
+{"ts":"2026-05-05T05:25:22.124Z","phase":"no-audit","toolName":"Agent"}

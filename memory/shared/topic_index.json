@@ -1,6 +1,23 @@
 {
   "topics": [
     {
+      "id": "topic_169",
+      "title": "PD-059 close 프로세스 토큰 측정",
+      "status": "completed",
+      "phase": "framing",
+      "hold": null,
+      "created": "2026-05-05",
+      "controlPath": "topics/topic_169",
+      "reportPath": "reports/2026-05-05_pd059-close-token-measurement",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_196",
+      "path": "topics/topic_169",
+      "grade": "B",
+      "relatedPD": "PD-059",
+      "outcome": "close.md G5+G2+G1 토큰 절감 구현 + get-ledger-snapshot.ts 신규. PD-059 resolved."
+    },
+    {
       "id": "topic_168",
       "title": "PD-065 signatureMetrics 잔재 위생",
       "status": "completed",
@@ -3239,5 +3256,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-05T04:46:24.305Z"
+  "lastUpdated": "2026-05-05T05:30:08.458Z"
 }

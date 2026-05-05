@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_195",
-  "nextSessionId": "session_196",
-  "currentVersion": "v0.937",
+  "lastSessionId": "session_196",
+  "nextSessionId": "session_197",
+  "currentVersion": "v0.947",
   "openTopics": [
     {
       "id": "topic_012",
@@ -13,6 +13,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-164",
+      "date": "2026-05-05",
+      "axis": "close.md 토큰 절감 3항목 — G5(session_index 금지)+G2(topic_index 스크립트 전환)+G1(ledger 스냅샷+escape hatch)+status SOT 7종 동기화",
+      "summary": "close.md 토큰 절감 3항목 — G5(session_index 금지)+G2(topic_index 스크립트 전환)+G1(ledger 스냅샷+escape hatch)+status SOT 7종 동기화"
+    },
     {
       "id": "D-163",
       "date": "2026-05-05",
@@ -36,15 +42,18 @@
       "date": "2026-05-05",
       "axis": "Jobs persona SOT 5→4 압축 — external-rated 폐기, self-rateable만 유지",
       "summary": "Jobs persona SOT 5→4 압축 — external-rated 폐기, self-rateable만 유지"
-    },
-    {
-      "id": "D-159",
-      "date": "2026-05-05",
-      "axis": "Self-Score Measurement Loop 5겹 단절 복구 — A-1 aggregate SOT + B-1' parser 복구 + hidden 정책",
-      "summary": "Self-Score Measurement Loop 5겹 단절 복구 — A-1 aggregate SOT + B-1' parser 복구 + hidden 정책"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_196",
+      "topicSlug": "pd059-close-token-measurement",
+      "closedAt": "2026-05-05T21:00:00.000Z",
+      "oneLineSummary": "PD-059 close토큰절감 G5+G2+G1 구현(close.md 3곳+get-ledger-snapshot.ts) → D-164 + PD-059 resolved +0.01",
+      "decisionsAdded": [
+        "D-164"
+      ]
+    },
     {
       "sessionId": "session_195",
       "topicSlug": "pd065-signaturemetrics-hygiene",
@@ -61,15 +70,6 @@
       "oneLineSummary": "PD-064 결함 3건+G2 Riki 축소안 4단 구현·검증 PASS → D-162 + PD-064 resolved + versionBump +0.01 (v0.927→v0.937)",
       "decisionsAdded": [
         "D-162"
-      ]
-    },
-    {
-      "sessionId": "session_193",
-      "topicSlug": "pd062-selfscore-weight-sot",
-      "closedAt": "2026-05-05T17:00:00.000Z",
-      "oneLineSummary": "PD-062 weight dead field 확정 → 8 policy 컬럼 삭제(47L) → D-161 + PD-062 resolved-cancelled + versionBump +0.01",
-      "decisionsAdded": [
-        "D-161"
       ]
     }
   ],
@@ -105,19 +105,7 @@
       "item": "데이터북 Agent 프로토타입 구현: 7개 팀 파일 전수 투입 → canonical 스키마 → normalize.py + merge.py + validate.py",
       "status": "pending",
       "note": "다음 주 진행 예정 (Master 확인 session_024)"
-    },
-    {
-      "id": "PD-059",
-      "fromSession": "session_184",
-      "fromTopic": "topic_157 (open-close-lightweight)",
-      "item": "close 프로세스 토큰 측정 — /close SKILL.md + session-end-finalize.js + auto-push.js chain 분석. 별도 토픽으로 진행.",
-      "status": "pending",
-      "resolveCondition": "별도 토픽 오픈 후 측정·보고 완료",
-      "dependsOn": [],
-      "relatedDecisions": [
-        "D-152"
-      ]
     }
   ],
-  "lastUpdated": "2026-05-05T04:46:33.170Z"
+  "lastUpdated": "2026-05-05T05:31:27.585Z"
 }

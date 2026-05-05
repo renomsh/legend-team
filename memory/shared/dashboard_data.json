@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-05T04:46:42.809Z",
-  "totalSessions": 192,
+  "generatedAt": "2026-05-05T05:31:38.172Z",
+  "totalSessions": 193,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [
     {
@@ -8,26 +8,26 @@
       "caveat": "rules.edi가 hook에 의해 read되지 않으므로 정책 토글 기능 0(예: enforcement_grade 변경으로 enforcement 끄기 불가). 향후 D-138 enforcement 폐기 결정 시 finalize.js line 1521 직접 삭제 + rules.edi.enforcement_note 갱신 필요. Riki R-2(session_164 5 gap false positive 의심)는 미해소 — PD로 이연.",
       "ackedBySession": "session_168",
       "ackedAt": "2026-05-02",
-      "ageInSessions": 27
+      "ageInSessions": 28
     },
     {
       "decisionId": "D-138",
       "caveat": "dispatch_config.json Edi rule 부재는 잔존 — pre-tool-use-task.js가 dispatch_config를 실제 enforce하는 hook 구현 후 rule 추가 순서 유지 필요. turns 중복 기록 패턴(이번 세션 turns[1]/[3])은 별도 점검 후보.",
       "ackedBySession": "session_168",
       "ackedAt": "2026-05-02",
-      "ageInSessions": 27
+      "ageInSessions": 28
     }
   ],
   "metrics": {
-    "avgMasterTurns": 19.86,
-    "avgCacheHitRate": 0.933,
-    "cacheSampleSize": 166,
-    "cacheSampleTotal": 192,
+    "avgMasterTurns": 19.79,
+    "avgCacheHitRate": 0.9331,
+    "cacheSampleSize": 167,
+    "cacheSampleTotal": 193,
     "avgAdoptionRate": 0,
-    "totalDecisions": 164,
+    "totalDecisions": 165,
     "gradeDistribution": {
       "S": 90,
-      "A": 37,
+      "A": 38,
       "B": 42,
       "C": 15,
       "D": 8
@@ -35,7 +35,7 @@
     "topicGradeDistribution": {
       "S": 18,
       "A": 59,
-      "B": 53,
+      "B": 54,
       "C": 27,
       "D": 7
     },
@@ -53,10 +53,10 @@
       "session_172"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 147,
-    "totalCostUSD": 2284.8304,
-    "avgCostPerSession": 12.2183,
-    "costSampleSize": 187
+    "turnBasedSessions": 148,
+    "totalCostUSD": 2288.877,
+    "avgCostPerSession": 12.1749,
+    "costSampleSize": 188
   },
   "sessions": [
     {
@@ -7404,6 +7404,47 @@
         "messageCount": 145
       },
       "sessionCostUSD": 7.5561
+    },
+    {
+      "sessionId": "session_196",
+      "topicSlug": "pd059-close-token-measurement",
+      "topic": "PD-059 close 프로세스 토큰 측정",
+      "startedAt": "2026-05-05T20:10:00.000Z",
+      "closedAt": "2026-05-05T21:00:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-164"
+      ],
+      "rolesCalled": 6,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 11,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 8,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "arki",
+        "fin",
+        "riki",
+        "jobs",
+        "dev",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 7886254,
+        "ioTokens": 55743,
+        "inputTokens": 129,
+        "outputTokens": 55614,
+        "cacheCreate": 250100,
+        "cacheRead": 7580411,
+        "cacheHitRate": 0.9612182158981945,
+        "messageCount": 89
+      },
+      "sessionCostUSD": 4.0466
     }
   ],
   "roleFrequency": [
@@ -7504,7 +7545,7 @@
     },
     {
       "role": "edi",
-      "count": 160,
+      "count": 161,
       "sessions": [
         "session_050",
         "session_051",
@@ -7649,12 +7690,13 @@
         "session_192",
         "session_193",
         "session_194",
-        "session_195"
+        "session_195",
+        "session_196"
       ]
     },
     {
       "role": "arki",
-      "count": 136,
+      "count": 137,
       "sessions": [
         "session_048",
         "session_049",
@@ -7730,12 +7772,13 @@
         "session_192",
         "session_193",
         "session_194",
-        "session_195"
+        "session_195",
+        "session_196"
       ]
     },
     {
       "role": "dev",
-      "count": 107,
+      "count": 108,
       "sessions": [
         "session_047",
         "session_048",
@@ -7821,12 +7864,13 @@
         "session_191",
         "session_192",
         "session_193",
-        "session_194"
+        "session_194",
+        "session_196"
       ]
     },
     {
       "role": "riki",
-      "count": 100,
+      "count": 101,
       "sessions": [
         "session_049",
         "session_053",
@@ -7901,12 +7945,13 @@
         "session_191",
         "session_192",
         "session_194",
-        "session_195"
+        "session_195",
+        "session_196"
       ]
     },
     {
       "role": "fin",
-      "count": 26,
+      "count": 27,
       "sessions": [
         "session_053",
         "session_054",
@@ -7931,7 +7976,8 @@
         "session_141",
         "session_142",
         "session_144",
-        "session_173"
+        "session_173",
+        "session_196"
       ]
     },
     {
@@ -7956,7 +8002,7 @@
     },
     {
       "role": "jobs",
-      "count": 22,
+      "count": 23,
       "sessions": [
         "session_151",
         "session_152",
@@ -7971,7 +8017,8 @@
         "session_181",
         "session_191",
         "session_192",
-        "session_193"
+        "session_193",
+        "session_196"
       ]
     },
     {
@@ -13498,6 +13545,48 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 4,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_196",
+      "topic": "PD-059 close 프로세스 토큰 측정",
+      "sequence": [
+        {
+          "role": "arki",
+          "phase": "structural-analysis",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "jobs",
+          "phase": "framing",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 5,
           "recallReason": null
         }
       ]

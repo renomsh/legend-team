@@ -14,8 +14,16 @@
    - 세션 중 생성된 역할별 출력을 `reports/{YYYY-MM-DD}_{topic-slug}/{role}_rev{n}.md`에 저장
    - 이미 저장된 것은 건너뜀
    - Edi 호출됐으면 `edi_rev1.md` (LLM authorship). hook이 호출 누락 시 `edi_auto_rev1.md` 별도 박제 (D-131)
-3. `memory/shared/decision_ledger.json` — 세션 중 내려진 새 의사결정 추가
-4. `memory/shared/topic_index.json` — 토픽 status 변경. **허용 값은 `memory/shared/status_catalog.json`의 statuses[].id만** (현재: open / in-progress / completed / suspended). `closed`는 legacy alias → 반드시 `completed`로 기록. outcome 기록.
+3. `memory/shared/decision_ledger.json` — 세션 중 내려진 새 의사결정 추가.
+   - **[G1 — 전문 읽기 금지]** decision_ledger.json 전문(48K tokens) Read 금지. 대신 스냅샷만 참조:
+     ```
+     npx ts-node scripts/get-ledger-snapshot.ts <topicId>
+     ```
+     스냅샷은 "현 topicId 관련 결정 전체 + 최근 30건" 합집합. 충돌 여부 판단 시 이 범위 기준으로 결정 박제.
+   - **[escape hatch]** 결정 충돌이 의심되거나 스냅샷이 불충분하다고 판단될 경우 `memory/shared/decision_ledger.json` 전문 Read 허용. 스냅샷 우선, 전문은 예외 경로.
+4. `memory/shared/topic_index.json` — 토픽 status 변경. **허용 값은 CLAUDE.md §Topic Lifecycle의 7종 enum (D-B): `open | framing | design-approved | implementing | completed | suspended | cancelled`**. `closed`는 legacy alias → 반드시 `completed`로 기록. outcome 기록.
+   - **[G2 — 전문 읽기 금지]** `topic_index.json` 전문을 Read 도구로 읽지 말 것 (31K tokens 낭비). 현 topicId 항목만 `scripts/lib/topic-status.ts`의 `updateTopicStatus()` 헬퍼를 통해 갱신: `npx ts-node -e "import {updateTopicStatus} from './scripts/lib/topic-status'; const r=updateTopicStatus('C:/Projects/legend-team','<topicId>',{status:'completed'}); console.log(JSON.stringify(r))"`.
+   - PD resolveCondition 매칭은 hook 체인의 `resolve-pending-deferrals.ts` (dry-run) 및 `auto-close-topics.ts`가 담당 — LLM 개입 불필요.
 5. `memory/sessions/current_session.json` 업데이트:
    - status: "closed"
    - closedAt: 현재 시각 (ISO 8601)
@@ -24,6 +32,7 @@
 6. Master feedback이 있었으면 `memory/master/master_feedback_log.json`에 추가
 7. 역할별 학습사항이 있으면 `memory/roles/{role}_memory.json` 업데이트
 8. **[자동]** `memory/sessions/session_index.json` 세션 기록 추가 — `session-end-finalize.js` hook이 `current_session.json` status=closed 확인 시 자동 append (agentsCompleted·decisions·note 포함). 수동 실행 불필요. (PD-009)
+   - **[G5 — LLM 직접 Read 금지]** `session_index.json`은 hook이 전담한다. LLM이 이 파일을 Read 도구로 직접 읽는 것은 금지 — 불필요한 78K tokens 소비 방지. 참조가 필요하면 `current_session.json`의 `sessionId`로 충분하다.
 9. **[자동]** `memory/shared/system_state.json` 재계산 — `sync-system-state.ts`가 hook 체인에서 자동 실행 (lastSessionId·nextSessionId·openTopics·recentDecisions 갱신). pendingDeferrals는 수동 관리.
 10. **[자동]** `memory/sessions/token_log.json` 토큰 집계 — `session-end-tokens.js` hook이 transcript 파싱하여 append.
 11. **[자동]** `memory/shared/dashboard_data.json` 재계산 — `compute-dashboard.ts`가 hook 체인에서 자동 실행.
