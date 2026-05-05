@@ -803,3 +803,17 @@
 {"ts":"2026-05-04T23:37:34.486Z","phase":"stale-state-skip","toolName":"Agent","stateSessionId":"59d54e15-141d-4cb3-af9e-23432095757f","currentSessionId":"6feb0170-16ae-48b1-aa14-a2e88b1dc9ec"}
 {"ts":"2026-05-04T23:37:55.600Z","phase":"stale-state-skip","toolName":"Agent","stateSessionId":"59d54e15-141d-4cb3-af9e-23432095757f","currentSessionId":"6feb0170-16ae-48b1-aa14-a2e88b1dc9ec"}
 {"ts":"2026-05-04T23:39:08.110Z","phase":"stale-state-skip","toolName":"Agent","stateSessionId":"59d54e15-141d-4cb3-af9e-23432095757f","currentSessionId":"6feb0170-16ae-48b1-aa14-a2e88b1dc9ec"}
+{"ts":"2026-05-04T23:44:48.896Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"6182cad4-7a05-45dd-b36d-53c1c35d4da8","grade":"B"}
+{"ts":"2026-05-04T23:48:15.769Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"6182cad4-7a05-45dd-b36d-53c1c35d4da8","grade":"B"}
+{"ts":"2026-05-04T23:48:47.484Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"6182cad4-7a05-45dd-b36d-53c1c35d4da8","grade":"B"}
+{"ts":"2026-05-04T23:49:22.914Z","phase":"stale-state-skip","toolName":"Agent","stateSessionId":"59d54e15-141d-4cb3-af9e-23432095757f","currentSessionId":"6182cad4-7a05-45dd-b36d-53c1c35d4da8"}
+{"ts":"2026-05-04T23:55:35.993Z","phase":"jobs-framing-activated","sessionId":"6182cad4-7a05-45dd-b36d-53c1c35d4da8","grade":"B"}
+{"ts":"2026-05-04T23:59:15.759Z","phase":"classified","sessionId":"6182cad4-7a05-45dd-b36d-53c1c35d4da8","grade":"B","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":9}
+{"ts":"2026-05-04T23:59:56.054Z","phase":"no-audit","toolName":"Agent"}
+{"ts":"2026-05-05T00:03:36.453Z","phase":"classified","sessionId":"6182cad4-7a05-45dd-b36d-53c1c35d4da8","grade":"B","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":14}
+{"ts":"2026-05-05T00:04:06.386Z","phase":"no-audit","toolName":"Agent"}
+{"ts":"2026-05-05T00:08:11.418Z","phase":"classified","sessionId":"6182cad4-7a05-45dd-b36d-53c1c35d4da8","grade":"B","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":10}
+{"ts":"2026-05-05T00:08:53.276Z","phase":"classified","sessionId":"6182cad4-7a05-45dd-b36d-53c1c35d4da8","grade":"B","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":10}
+{"ts":"2026-05-05T00:09:34.152Z","phase":"no-audit","toolName":"Agent"}
+{"ts":"2026-05-05T00:09:58.619Z","phase":"no-audit","toolName":"Agent"}
+{"ts":"2026-05-05T00:11:24.531Z","phase":"no-audit","toolName":"Agent"}

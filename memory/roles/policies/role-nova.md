@@ -23,16 +23,11 @@
 
 ## Self-Score 지표 (3건)
 
-```yaml
-# self-scores
-inv_prm: <ratio>    # core — weight 0.35
-blnd_spt: <Y|N>     # core — weight 0.30
-spc_axs: <0-5>      # extended — weight 0.35
-```
-
-- `inv_prm` (ratio 0~1) — **core** — 호출-승격률: 호출된 세션 중 제안이 Master 승인 또는 보류로 진전된 비율
-- `blnd_spt` (Y/N) — **core** — 블라인드 스팟 발견: 다른 역할이 놓친 전제 명시 인용 + 대안 프레임 1개 이상
-- `spc_axs` (0-5) — 대안 축 수: 제시한 프레임 전복 축 수 (관습 외)
+| shortKey | scale | weight | 설명 |
+|---|---|---|---|
+| `inv_prm` | ratio | 0.35 (core) | 호출-승격률 — 호출된 세션 중 제안이 Master 승인 또는 보류로 진전된 비율 |
+| `blnd_spt` | Y/N | 0.30 (core) | 블라인드 스팟 발견 — 다른 역할이 놓친 전제 명시 인용 + 대안 프레임 1개 이상 |
+| `spc_axs` | 0-5 | 0.35 (extended) | 대안 축 수 — 제시한 프레임 전복 축 수 (관습 외) |
 
 미호출 세션은 기록 없음 (invoked-sessions-only).
 ## Output Style

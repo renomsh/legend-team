@@ -25,15 +25,10 @@
 
 ## Self-Score 지표 (3건)
 
-```yaml
-# self-scores
-tk_drf0: <Y|N>      # core — weight 0.45
-spc_cpl: <ratio>    # extended — weight 0.35
-tk_cns: <0-5>       # extended — weight 0.20
-```
-
-- `tk_drf0` (Y/N) — **core** — 토큰 drift 제로: 디자인 토큰 drift 0건 (신규 토큰 무단 추가·기존 값 변형 없음)
-- `spc_cpl` (ratio 0~1) — Vera Design System 적용 비율
-- `tk_cns` (0-5) — 디자인 토큰 적용 일관성 (역할 색상·spacing·typography)
+| shortKey | scale | weight | 설명 |
+|---|---|---|---|
+| `tk_drf0` | Y/N | 0.45 (core) | 토큰 drift 제로 — 디자인 토큰 drift 0건 (신규 토큰 무단 추가·기존 값 변형 없음) |
+| `spc_cpl` | ratio | 0.35 (extended) | Vera Design System 적용 비율 |
+| `tk_cns` | 0-5 | 0.20 (extended) | 디자인 토큰 적용 일관성 (역할 색상·spacing·typography) |
 
 미호출 세션은 기록 없음 (invoked-sessions-only).

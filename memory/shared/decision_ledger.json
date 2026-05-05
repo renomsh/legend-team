@@ -2346,7 +2346,28 @@
         "sync-system-state",
         "pendingDeferrals"
       ]
+    },
+    {
+      "id": "D-158",
+      "date": "2026-05-05",
+      "session": "session_191",
+      "topic": "topic_164",
+      "axis": "Self-Score 지표 표 형식 통일 — 문법 통일·컬럼 가변 (Jobs B안)",
+      "summary": "8개 policy 변환 −600B / scale drift 5건 registry SOT 정정 (ace.ctx_car·mst_fr / arki.aud_rcl / riki.crt_rcl·cr_val) / weight policy 보존 / jobs 7컬럼·zero 4컬럼·sage 면제. Master Arki A안(4컬럼 강제) 거부, Jobs B안(문법 통일·컬럼 가변) 채택. 통일 문법: 첫 컬럼=shortKey, 마지막=설명, 최소 3컬럼, 컬럼 수는 지표 정의 풍부도가 결정.",
+      "caveats": [
+        "byte 절감(−600B)은 부산물. 본질은 표 일관성·의미 보존·정의 가시성. Zero R3 추정(~1.2-2.4KB)는 비교 기준 아님 (Riki F5)",
+        "axis/polarity/rater 등 추가 컬럼 필요한 role 발생 시 jobs 7컬럼 패턴 참조 (Riki F4)",
+        "weight 필드 SOT 부재 → PD-062로 분리",
+        "{role}_memory.json[].signatureMetrics 0건 → growth registry 데이터 경로 단절 → PD-063 분리(high)"
+      ],
+      "tags": [
+        "persona-layer",
+        "self-score",
+        "policy-normalization",
+        "PD-060"
+      ],
+      "status": "active"
     }
   ],
-  "lastUpdated": "2026-05-02"
+  "lastUpdated": "2026-05-05"
 }

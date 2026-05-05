@@ -25,15 +25,9 @@
 
 ## Self-Score 지표 (4건)
 
-```yaml
-# self-scores
-crt_rcl: <Y|N>      # core — weight 0.50
-cr_val: <0-5>       # extended — weight 0.20
-prd_rej: <Y|N>      # extended — weight 0.15
-fp_rt: <ratio>      # extended — weight 0.15
-```
-
-- `crt_rcl` (Y/N) — **core** — 크리티컬 리스크 호출: Master가 놓친 🔴 리스크 1건 이상 명시 지적
-- `cr_val` (0-5) — 완화 조건 품질: 리스크별 mitigation + fallback 명시 수준
-- `prd_rej` (Y/N) — 기각 선언: 확신 없는 곁가지 리스크 의도적 제외 명시
-- `fp_rt` (ratio 0~1) — false-positive 비율: 과거 3세션 내 제기 리스크 중 미발현 비율 (lower-better)
+| shortKey | scale | weight | 설명 |
+|---|---|---|---|
+| `crt_rcl` | ratio | 0.50 (core) | 크리티컬 리스크 호출 — 사후 명시 critical risk 중 Riki가 사전 식별한 비율 (Master가 놓친 🔴 리스크 명시 지적) |
+| `cr_val` | Y/N | 0.20 (extended) | 완화 조건 품질 — Arki 자가감사가 못 잡은 항목 1건 이상 보강 (mitigation + fallback 병기) |
+| `prd_rej` | Y/N | 0.15 (extended) | 기각 선언 — 기각된 옵션 중 Master/Ace가 사후 동의한 비율 1건 이상 |
+| `fp_rt` | ratio | 0.15 (extended, lower-better) | false-positive 비율 — Riki critical 표기 중 사후 무영향 판정된 비율 |

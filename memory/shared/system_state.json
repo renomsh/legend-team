@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_190",
-  "nextSessionId": "session_191",
+  "lastSessionId": "session_191",
+  "nextSessionId": "session_192",
   "currentVersion": "v0.917",
   "openTopics": [
     {
@@ -13,6 +13,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-158",
+      "date": "2026-05-05",
+      "axis": "Self-Score 지표 표 형식 통일 — 문법 통일·컬럼 가변 (Jobs B안)",
+      "summary": "Self-Score 지표 표 형식 통일 — 문법 통일·컬럼 가변 (Jobs B안)"
+    },
     {
       "id": "D-157",
       "date": "2026-05-05",
@@ -36,15 +42,18 @@
       "date": "2026-05-04",
       "axis": "Nexus Intent Confirm 규칙 — 주제 scope 불충분 시 첫 역할 dispatch 전 질문 의무화",
       "summary": "Nexus Intent Confirm 규칙 — 주제 scope 불충분 시 첫 역할 dispatch 전 질문 의무화"
-    },
-    {
-      "id": "D-153",
-      "date": "2026-05-04",
-      "axis": "Zero D.Condense Phase B 구현 — Edi 보고서 cross-role 중복 제거 + buildTopicLayer condensed 우선 체크",
-      "summary": "Zero D.Condense Phase B 구현 — Edi 보고서 cross-role 중복 제거 + buildTopicLayer condensed 우선 체크"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_191",
+      "topicSlug": "self-score-table-format-unify",
+      "closedAt": "2026-05-05T13:00:00.000Z",
+      "oneLineSummary": "self-score 표 통일: 8 policy −600B, drift 5건 정정, D-158, PD-060 resolved, PD-062·PD-063(high) 신규",
+      "decisionsAdded": [
+        "D-158"
+      ]
+    },
     {
       "sessionId": "session_190",
       "topicSlug": "persona-layer-refine-p2",
@@ -61,15 +70,6 @@
       "oneLineSummary": "버전 형식 X.YYY 확정: 점 두 개 오기 4건 정정(0.716~0.917), D-156 박제, PD-061 resolved",
       "decisionsAdded": [
         "D-156"
-      ]
-    },
-    {
-      "sessionId": "session_188",
-      "topicSlug": "nexus-efficiency-p2",
-      "closedAt": "2026-05-05T09:00:00.000Z",
-      "oneLineSummary": "nexus-efficiency-p2 Persona Layer 절삭 완료: -5,407B, PD-060 등록, D-155 박제",
-      "decisionsAdded": [
-        "D-155"
       ]
     }
   ],
@@ -119,13 +119,32 @@
       ]
     },
     {
-      "id": "PD-060",
-      "fromSession": "session_188",
-      "fromTopic": "nexus-efficiency-p2",
-      "item": "Self-Score 지표 표 형식 통일 — 모든 policy 파일의 self-score 블록을 동일 표(shortKey | scale | weight | 설명) 양식으로 변환. 파일당 ~150-300B × 7-8 파일 = ~1.2-2.4KB 추가 절감 가능",
+      "id": "PD-062",
+      "fromSession": "session_191",
+      "fromTopic": "topic_164 (self-score-table-format-unify)",
+      "item": "Self-Score weight 필드 SOT 부재 — registry에 weight 컬럼 없음, policy 파일이 사실상 SOT, silent drift 위험",
       "status": "pending",
-      "note": "Zero R3 (session_188). 별도 토픽으로 분리. 페르소나 레이어 2차 정제."
+      "resolveCondition": "weight drift 1건 이상 발견 OR Master 명시 재오픈",
+      "dependsOn": [],
+      "relatedDecisions": [
+        "D-092",
+        "D-158"
+      ]
+    },
+    {
+      "id": "PD-063",
+      "fromSession": "session_191",
+      "fromTopic": "topic_164 (self-score-table-format-unify)",
+      "item": "{role}_memory.json[].signatureMetrics 모든 role 0건 → compile-metrics-registry.ts의 input 경로 단절. growth registry 정공 데이터 경로 끊김 (현재 composite_inputs+derived_metrics 우회로만 동작). policy self-score 표의 신규 shortKey가 registry에 자동 등록되지 않는 위험.",
+      "status": "pending",
+      "severity": "high",
+      "resolveCondition": "{role}_memory.json[].signatureMetrics 채우기 OR compile-metrics-registry.ts SOT 경로 재정의 결정",
+      "dependsOn": [],
+      "relatedDecisions": [
+        "D-092",
+        "D-158"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-04T23:40:49.841Z"
+  "lastUpdated": "2026-05-05T00:15:23.212Z"
 }

@@ -1,97 +1,137 @@
 {
-  "sessionId": "session_190",
-  "topicId": "topic_163",
-  "topic": "persona Layer 정제 2차",
-  "topicSlug": "persona-layer-refine-p2",
-  "reportPath": "reports/2026-05-05_persona-layer-refine-p2",
+  "sessionId": "session_191",
+  "topicId": "topic_164",
+  "topic": "Self-Score 지표 표 형식 통일",
+  "topicSlug": "self-score-table-format-unify",
+  "reportPath": "reports/2026-05-05_self-score-table-format-unify",
   "status": "closed",
-  "startedAt": "2026-05-05T00:00:00.000Z",
-  "closedAt": "2026-05-05T11:00:00.000Z",
-  "oneLineSummary": "persona Layer 2차: Zero 4건→Riki KILL 1·부분 GO 3→Master #2만 적용 -91B, D-157, PD-058 resolved",
+  "startedAt": "2026-05-05T12:00:00.000Z",
+  "closedAt": "2026-05-05T13:00:00.000Z",
+  "oneLineSummary": "self-score 표 통일: 8 policy −600B, drift 5건 정정, D-158, PD-060 resolved, PD-062·PD-063(high) 신규",
   "mode": "observation",
   "grade": "B",
-  "framingLevel": 0,
-  "framingSkipped": true,
+  "framingLevel": 1,
+  "framingSkipped": false,
   "topicType": "standalone",
   "parentTopicId": null,
   "childTopicIds": [],
-  "relatedPD": "PD-058",
+  "relatedPD": "PD-060",
   "turns": [
     {
-      "role": "zero",
+      "role": "arki",
       "turnIdx": 0,
       "source": "agent"
     },
     {
-      "role": "riki",
+      "role": "jobs",
       "turnIdx": 1,
-      "source": "agent"
+      "source": "main",
+      "phase": "framing",
+      "note": "/jobs-framing 명시 호출 (Master), B안 권고"
     },
     {
       "role": "dev",
       "turnIdx": 2,
-      "source": "main",
-      "phase": "implement"
+      "source": "agent"
     },
     {
-      "role": "zero",
+      "role": "riki",
       "turnIdx": 3,
       "source": "agent"
     },
     {
       "role": "zero",
       "turnIdx": 4,
-      "source": "agent"
+      "source": "agent",
+      "phase": "condense"
     },
     {
       "role": "edi",
       "turnIdx": 5,
-      "source": "agent"
+      "source": "main-inline-fallback",
+      "note": "Edi subagent 2회 zero-condense gate false positive로 차단, main inline fallback (D-131)"
     }
   ],
-  "decisions": [],
+  "decisions": [
+    {
+      "id": "D-158",
+      "axis": "Self-Score 지표 표 형식 통일 — 문법 통일·컬럼 가변 (Jobs B안)"
+    }
+  ],
   "decisionsAdded": [
-    "D-157"
+    "D-158"
   ],
   "masterDecisions": [
     {
-      "content": "Riki 부분 GO 채택, #2(zero policy self-exclusion 자기참조)만 적용",
-      "appliedTo": "memory/roles/policies/role-zero.md",
+      "content": "Jobs B안 채택: 문법만 통일, 컬럼 가변 (Arki A안 4컬럼 강제 거부)",
+      "appliedTo": "8 policy files (role-ace/arki/dev/edi/fin/nova/riki/vera.md)",
       "status": "resolved"
     }
   ],
   "masterFeedback": [],
-  "pendingDeferralsAdded": [],
+  "pendingDeferralsAdded": [
+    "PD-062",
+    "PD-063"
+  ],
   "pendingDeferralsResolved": [
-    "PD-058"
+    "PD-060"
   ],
   "notes": [
-    "Master 토픽 메모: PD-061 해결 후 판단 — PD-061은 session_189에서 resolved. 이번 토픽은 PD-058(_common.md + role-{role}.md 절삭 검토)에 해당. session_188(p2, D-155)은 다른 각도였고 PD-058은 여전히 pending."
+    "Master 토픽 메모: PD-060 — Self-Score 지표 표 형식 통일. 모든 policy 파일의 self-score 블록을 동일 표 양식으로 변환.",
+    "Master /jobs-framing 호출하여 Jobs B안 채택 (문법 통일·컬럼 가변, Arki 4컬럼 강제 거부).",
+    "Master 추가 질의로 PD-063 직접 원인 확정: signatureMetrics 0건 → compile-metrics-registry.ts input 경로 단절 = growth 데이터 정공 경로 끊김.",
+    "Persona Layer 정제 누적: D-155(-5,407B) + D-157(-91B) + D-158(-600B) = -6,098B."
   ],
   "gaps": [
     {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-05_persona-layer-refine-p2/dev_condensed.md"
+      "type": "edi-subagent-blocked-false-positive",
+      "severity": "low",
+      "detail": "Edi subagent 2회 호출 모두 zero-condense gate를 false positive로 판단하여 차단. _zero_condense.json 마커 정상 존재. main inline fallback로 edi_rev1.md 작성 (D-131 fallback 허용). agent 측 게이트 로직 점검 필요.",
+      "addedBy": "main-inline-edi"
     },
     {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-05_persona-layer-refine-p2/dev_rev1.md"
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-05_self-score-table-format-unify/arki_condensed.md",
+      "expected": "arki",
+      "actualInTurns": "jobs",
+      "turnId": 1
     },
     {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-05_persona-layer-refine-p2/riki_condensed.md"
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-05_self-score-table-format-unify/dev_condensed.md",
+      "expected": "dev",
+      "actualInTurns": "riki",
+      "turnId": 3
     },
     {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-05_persona-layer-refine-p2/riki_rev1.md"
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-05_self-score-table-format-unify/edi_rev1.md",
+      "expected": "edi",
+      "actualInTurns": "zero",
+      "turnId": 4
     },
     {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-05_persona-layer-refine-p2/zero_condensed.md"
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-05_self-score-table-format-unify/jobs_condensed.md",
+      "expected": "jobs",
+      "actualInTurns": "dev",
+      "turnId": 2
     },
     {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-05_persona-layer-refine-p2/zero_rev1.md"
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-05_self-score-table-format-unify/riki_condensed.md",
+      "expected": "riki",
+      "actualInTurns": "zero",
+      "turnId": 4
+    },
+    {
+      "type": "edi-agent-source-missing",
+      "sessionId": "session_191",
+      "grade": "B",
+      "severity": "high",
+      "detectedAt": "2026-05-05T00:14:19.371Z",
+      "note": "turns[]에 role=edi && source=agent turn 없음 — D-066(Grade A/S 서브에이전트 강제) + D4(hook 박제) 위반",
+      "ref": "D-138"
     },
     {
       "type": "version-bump-edi-unconfirmed",
@@ -111,27 +151,27 @@
     }
   ],
   "agentsCompleted": [
-    "zero",
-    "riki",
+    "arki",
+    "jobs",
     "dev",
-    "zero",
+    "riki",
     "zero",
     "edi"
   ],
   "tokenUsage": {
-    "input_tokens": 554,
-    "output_tokens": 37461,
-    "cache_creation_input_tokens": 352592,
-    "cache_read_input_tokens": 6143495,
-    "messageCount": 70,
-    "masterTurns": 8,
-    "total_billable": 6534102
+    "input_tokens": 182,
+    "output_tokens": 62904,
+    "cache_creation_input_tokens": 247382,
+    "cache_read_input_tokens": 5805460,
+    "messageCount": 60,
+    "masterTurns": 11,
+    "total_billable": 6115928
   },
   "versionBumpSuggested": {
     "value": 0.1,
     "type": "structural",
-    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 1건 (memory/roles/policies/role-zero.md)",
-    "autoDetectedAt": "2026-05-04T23:40:47.472Z",
+    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 8건 (memory/roles/policies/role-ace.md, memory/roles/policies/role-arki.md, memory/roles/policies/role-dev.md …)",
+    "autoDetectedAt": "2026-05-05T00:15:14.839Z",
     "changedFiles": [
       "AGENTS.md",
       "CONTEXT.md",
@@ -148,15 +188,15 @@
       "logs/master-first.log",
       "logs/pre-tool-use-task.log",
       "logs/sage-gate.log",
-      "memory/roles/policies/role-zero.md",
-      "memory/sessions/current_session.json",
-      "memory/sessions/session_index.json",
-      "memory/sessions/token_log.json",
-      "memory/shared/decision_ledger.json"
+      "memory/roles/policies/role-ace.md",
+      "memory/roles/policies/role-arki.md",
+      "memory/roles/policies/role-dev.md",
+      "memory/roles/policies/role-edi.md",
+      "memory/roles/policies/role-fin.md"
     ],
-    "changedFilesCount": 154,
+    "changedFilesCount": 163,
     "cappedAt": 0.1,
     "confirmedBy": null
   },
-  "finalizedAt": "2026-05-04T23:40:49.946Z"
+  "finalizedAt": "2026-05-05T00:15:23.501Z"
 }
