@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_194",
-  "nextSessionId": "session_195",
+  "lastSessionId": "session_195",
+  "nextSessionId": "session_196",
   "currentVersion": "v0.937",
   "openTopics": [
     {
@@ -13,6 +13,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-163",
+      "date": "2026-05-05",
+      "axis": "Growth 대시보드 L1 축 재정의 — learning(empty) → quality",
+      "summary": "Growth 대시보드 L1 축 재정의 — learning(empty) → quality"
+    },
     {
       "id": "D-162",
       "date": "2026-05-05",
@@ -36,15 +42,18 @@
       "date": "2026-05-05",
       "axis": "Self-Score Measurement Loop 5겹 단절 복구 — A-1 aggregate SOT + B-1' parser 복구 + hidden 정책",
       "summary": "Self-Score Measurement Loop 5겹 단절 복구 — A-1 aggregate SOT + B-1' parser 복구 + hidden 정책"
-    },
-    {
-      "id": "D-158",
-      "date": "2026-05-05",
-      "axis": "Self-Score 지표 표 형식 통일 — 문법 통일·컬럼 가변 (Jobs B안)",
-      "summary": "Self-Score 지표 표 형식 통일 — 문법 통일·컬럼 가변 (Jobs B안)"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_195",
+      "topicSlug": "pd065-signaturemetrics-hygiene",
+      "closedAt": "2026-05-05T20:00:00.000Z",
+      "oneLineSummary": "PD-065 signatureMetrics 위생 6파일 + growth L1 재정의(D-163) → PD-065 resolved",
+      "decisionsAdded": [
+        "D-163"
+      ]
+    },
     {
       "sessionId": "session_194",
       "topicSlug": "pd064-edi-subagent-hook-fp",
@@ -61,16 +70,6 @@
       "oneLineSummary": "PD-062 weight dead field 확정 → 8 policy 컬럼 삭제(47L) → D-161 + PD-062 resolved-cancelled + versionBump +0.01",
       "decisionsAdded": [
         "D-161"
-      ]
-    },
-    {
-      "sessionId": "session_192",
-      "topicSlug": "pd063-signature-metrics-sot-restore",
-      "closedAt": "2026-05-05T15:00:00.000Z",
-      "oneLineSummary": "measurement loop 5겹 단절 복구: P1~P4 PASS, registry v1.1, hidden 정책, D-159+D-160, PD-063 resolved",
-      "decisionsAdded": [
-        "D-159",
-        "D-160"
       ]
     }
   ],
@@ -118,20 +117,7 @@
       "relatedDecisions": [
         "D-152"
       ]
-    },
-    {
-      "id": "PD-065",
-      "fromSession": "session_192",
-      "fromTopic": "topic_165 (measurement-loop-restore)",
-      "item": "17 파일의 signatureMetrics historical 박제 문자열 정리 — session 보고서·docs·decision_ledger·role-vera.md 등에 잔재. 영향 없으나 명명 통일 위생 작업.",
-      "status": "pending",
-      "severity": "low",
-      "resolveCondition": "별도 위생 토픽 또는 자연 풍화",
-      "dependsOn": [],
-      "relatedDecisions": [
-        "D-159"
-      ]
     }
   ],
-  "lastUpdated": "2026-05-05T04:03:52.587Z"
+  "lastUpdated": "2026-05-05T04:46:33.170Z"
 }

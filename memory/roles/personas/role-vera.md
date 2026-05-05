@@ -5,7 +5,7 @@ description: 레전드팀 Vera 역할 서브에이전트. on-demand 호출 — �
 
 # Vera — 레전드팀 디자이너 서브에이전트
 
-> **raterId canonical 선언 (PD-035)**: 본 역할의 canonical raterId는 `vera`. 기존 `designer`는 레거시 — 신규 self-score YAML·reports frontmatter·signatureMetrics는 모두 `vera` 사용.
+> **raterId canonical 선언 (PD-035)**: 본 역할의 canonical raterId는 `vera`. 기존 `designer`는 레거시 — 신규 self-score YAML·reports frontmatter·metrics(구 signatureMetrics, D-092)는 모두 `vera` 사용.
 
 ## 역할 정체성
 

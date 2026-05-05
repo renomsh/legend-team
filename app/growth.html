@@ -103,11 +103,11 @@
 
     <!-- §1 Axis Pulse (L1/L2/L3) -->
     <section class="axis-row" id="axisRow">
-      <div class="axis-card l1" data-axis="learning">
-        <div class="axis-tag">L1 · Learning</div>
-        <div class="axis-name">누적학습</div>
-        <div class="axis-meta" id="axisMeta-learning">—</div>
-        <div class="axis-val" id="axisVal-learning">—<span class="unit">/100</span></div>
+      <div class="axis-card l1" data-axis="quality">
+        <div class="axis-tag">L1 · Quality</div>
+        <div class="axis-name">역할 품질</div>
+        <div class="axis-meta" id="axisMeta-quality">—</div>
+        <div class="axis-val" id="axisVal-quality">—<span class="unit">/100</span></div>
       </div>
       <div class="axis-card l2" data-axis="judgment-consistency">
         <div class="axis-tag">L2 · Judgment Consistency</div>
@@ -202,10 +202,9 @@ function hasData(a){ return !!(a && a.n > 0 && a.mean !== null && a.mean !== und
 
 function topMetricForRole(roleId, registry, agg, view){
   const ms = registry.metrics.filter(m => m.role === roleId);
-  // P3: 데이터 있는 metric 우선. derived → learning → active 우선순위 유지하되 데이터 없으면 다음 후보로.
+  // P3: 데이터 있는 metric 우선. derived → active 우선순위.
   const ordered = [
     ...ms.filter(m => m.type === 'derived'),
-    ...ms.filter(m => m.axis === 'learning'),
     ...ms.filter(m => m.lifecycleState === 'active'),
     ...ms,
   ];
@@ -217,13 +216,12 @@ function topMetricForRole(roleId, registry, agg, view){
   // fallback (rendering will skip card via hidden policy if no data)
   const derived = ms.find(m => m.type === 'derived');
   if (derived) return derived;
-  const learn = ms.find(m => m.axis === 'learning');
-  return learn || ms[0] || null;
+  return ms[0] || null;
 }
 
 // Axis → 3축 매핑 (D-060 안 β)
 const AXIS_DEF = [
-  { axis: 'learning',             label: 'L1', name: '누적학습' },
+  { axis: 'quality',              label: 'L1', name: '역할 품질' },
   { axis: 'judgment-consistency', label: 'L2', name: '적중률' },
   { axis: 'execution-transfer',   label: 'L3', name: '자율성' }
 ];

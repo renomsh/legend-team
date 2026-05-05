@@ -42,6 +42,8 @@ git checkout <pre-pd023-sha> -- .claude/hooks/session-end-finalize.js
 # (a) feature_flags 즉시 토글 (재배포 불필요)
 # memory/shared/feature_flags.json 편집:
 #   "signatureMetricsEnabled": false
+# NOTE: signatureMetricsEnabled / signatureMetricsCardsVisible 는 feature_flags.json 런타임 키 —
+#       app/growth.html 직접 참조 + test-p0b-smoke.ts assert 대상. rename 불가 (별도 토픽 필요).
 ```
 
 또는

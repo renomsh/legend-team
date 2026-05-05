@@ -1,6 +1,17 @@
 {
   "decisions": [
     {
+      "id": "D-163",
+      "date": "2026-05-05",
+      "session": "session_195",
+      "topic": "topic_168",
+      "axis": "Growth 대시보드 L1 축 재정의 — learning(empty) → quality",
+      "summary": "metrics_registry.json에 learning axis 지표 0개 (D-160 external-rated 폐기 후 공백). app/growth.html L1 카드를 data-axis=quality / 'L1 · Quality' / '역할 품질'로 재정의. quality axis는 43개 지표로 즉시 동작. topMetricForRole 우선순위에서 learning 필터 제거. AXIS_DEF learning→quality 교체.",
+      "decision": "L1 = quality axis (역할 품질). learning axis는 지표 0개로 사실상 폐기 상태 — 스키마 enum은 legacy 호환 유지, 앱에서만 제거.",
+      "relatedDecisions": ["D-160"],
+      "status": "active"
+    },
+    {
       "id": "D-162",
       "date": "2026-05-05",
       "session": "session_194",

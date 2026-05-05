@@ -1,6 +1,26 @@
 {
   "topics": [
     {
+      "id": "topic_168",
+      "title": "PD-065 signatureMetrics 잔재 위생",
+      "status": "completed",
+      "phase": "completed",
+      "grade": "B",
+      "hold": null,
+      "created": "2026-05-05",
+      "controlPath": "topics/topic_168",
+      "reportPath": "reports/2026-05-05_pd065-signaturemetrics-hygiene",
+      "reportFiles": [
+        "arki_rev1.md",
+        "riki_rev1.md",
+        "edi_rev1.md"
+      ],
+      "published": false,
+      "closedInSession": "session_195",
+      "outcome": "정책 문서 6개 signatureMetrics 명칭 위생 완료 + growth L1 재정의(D-163). PD-065 resolved.",
+      "path": "topics/topic_168"
+    },
+    {
       "id": "topic_167",
       "title": "PD-064 Edi subagent gate + close hook 검증 결함 3건",
       "status": "completed",
@@ -3219,5 +3239,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-05T04:03:24.670Z"
+  "lastUpdated": "2026-05-05T04:46:24.305Z"
 }

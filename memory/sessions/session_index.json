@@ -8711,8 +8711,79 @@
       "decisionsAdded": [
         "D-162"
       ]
+    },
+    {
+      "sessionId": "session_195",
+      "topicSlug": "pd065-signaturemetrics-hygiene",
+      "topic": "PD-065 signatureMetrics 잔재 위생",
+      "startedAt": "2026-05-05T19:00:00.000Z",
+      "closedAt": "2026-05-05T20:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "edi",
+        "zero",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "arki",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "str_fd": 2,
+            "aud_rcl": 0.8,
+            "spc_lck": "N",
+            "sa_rnd": 1
+          }
+        },
+        {
+          "role": "riki",
+          "turnIdx": 1,
+          "source": "agent",
+          "selfScores": {
+            "crt_rcl": 0,
+            "cr_val": "Y",
+            "prd_rej": "Y",
+            "fp_rt": 0
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 2,
+          "source": "agent"
+        },
+        {
+          "role": "zero",
+          "turnIdx": 3,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 2,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 4,
+          "source": "agent",
+          "selfScores": {
+            "gp_acc": 0.8,
+            "scc": "Y",
+            "cs_cnt": 3,
+            "art_cmp": 0.67,
+            "gap_fc": 1
+          }
+        }
+      ],
+      "grade": "B",
+      "oneLineSummary": "PD-065 signatureMetrics 위생 6파일 + growth L1 재정의(D-163) → PD-065 resolved",
+      "decisionsAdded": [
+        "D-163"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-05T04:02:48.673Z",
+  "lastUpdated": "2026-05-05T04:46:11.103Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

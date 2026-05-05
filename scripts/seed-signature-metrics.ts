@@ -1,3 +1,4 @@
+// DEPRECATED (D-092 이후): 재실행 금지. 재초기화 필요 시 memory/roles/{role}_memory.json의 metrics 키 직접 편집.
 // PD-023 P1 — seed signatureMetrics block into each role_memory.json (one-time bootstrap)
 import * as fs from "fs";
 import * as path from "path";

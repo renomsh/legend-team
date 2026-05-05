@@ -57,7 +57,7 @@ sidebar_entry:
 
 - `memory/growth/metrics_registry.json` — 지표 정의 + lifecycleState (build 시 `data/memory/growth/`로 매핑)
 - `memory/growth/signature_metrics_aggregate.json` — view별 aggregate (all/recent10/recent3)
-- `memory/shared/feature_flags.json` — `signatureMetricsEnabled` flag
+- `memory/shared/feature_flags.json` — `signatureMetricsEnabled` flag (feature_flags.json 런타임 키 — app/growth.html 직접 참조, rename 불가)
 
 ## sidebar_entry
 

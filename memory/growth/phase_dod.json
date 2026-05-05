@@ -31,7 +31,7 @@
     "P1": {
       "dispatch": "single-dev",
       "outputs": [
-        "memory/roles/{role}_memory.json signatureMetrics 8역할",
+        "memory/roles/{role}_memory.json metrics 8역할 (구 signatureMetrics, D-092)",
         "scripts/compile-metrics-registry.ts"
       ],
       "dod": [

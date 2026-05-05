@@ -1,5 +1,5 @@
 {
-  "_comment": "Composite derived metrics의 sub-metric base 정의. signatureMetrics 배열에는 미포함(surface 노출 X)이나 compile-metrics-registry가 metrics_registry.json에 포함시킴. D-065 session_089 신설.",
+  "_comment": "Composite derived metrics의 sub-metric base 정의. metrics 배열에는 미포함(surface 노출 X, 구 signatureMetrics)이나 compile-metrics-registry가 metrics_registry.json에 포함시킴. D-065 session_089 신설.",
   "inputs": [
     {
       "id": "dev.first_try_pass_rate",

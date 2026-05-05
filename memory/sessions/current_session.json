@@ -1,29 +1,27 @@
 {
-  "sessionId": "session_194",
-  "topicId": "topic_167",
-  "topic": "PD-064 Edi subagent gate + close hook 검증 결함 3건",
-  "topicSlug": "pd064-edi-subagent-hook-fp",
-  "reportPath": "reports/2026-05-05_pd064-edi-subagent-hook-fp",
+  "sessionId": "session_195",
+  "topicId": "topic_168",
+  "topic": "PD-065 signatureMetrics 잔재 위생",
+  "topicSlug": "pd065-signaturemetrics-hygiene",
+  "reportPath": "reports/2026-05-05_pd065-signaturemetrics-hygiene",
   "status": "closed",
-  "startedAt": "2026-05-05T18:00:00.000Z",
-  "closedAt": "2026-05-05T18:30:00.000Z",
-  "oneLineSummary": "PD-064 결함 3건+G2 Riki 축소안 4단 구현·검증 PASS → D-162 + PD-064 resolved + versionBump +0.01 (v0.927→v0.937)",
+  "startedAt": "2026-05-05T19:00:00.000Z",
+  "closedAt": "2026-05-05T20:00:00.000Z",
+  "oneLineSummary": "PD-065 signatureMetrics 위생 6파일 + growth L1 재정의(D-163) → PD-065 resolved",
   "mode": "observation",
   "grade": "B",
   "framingLevel": 0,
   "framingSkipped": true,
   "topicType": "standalone",
-  "parentTopicId": null,
-  "childTopicIds": [],
-  "relatedPD": "PD-064",
+  "relatedPD": "PD-065",
   "turns": [
     {
       "role": "arki",
       "turnIdx": 0,
       "source": "agent",
       "selfScores": {
-        "aud_rcl": 0.5,
-        "str_fd": 3,
+        "str_fd": 2,
+        "aud_rcl": 0.8,
         "spc_lck": "N",
         "sa_rnd": 1
       }
@@ -33,36 +31,37 @@
       "turnIdx": 1,
       "source": "agent",
       "selfScores": {
-        "crt_rcl": 0.5,
+        "crt_rcl": 0,
         "cr_val": "Y",
         "prd_rej": "Y",
         "fp_rt": 0
       }
     },
     {
-      "role": "dev",
-      "turnIdx": 2,
-      "source": "agent",
-      "selfScores": {
-        "rt_cov": 0.95,
-        "gt_pas": 1,
-        "hc_rt": 0,
-        "spc_drf": 0
-      }
-    },
-    {
       "role": "edi",
-      "turnIdx": 3,
+      "turnIdx": 2,
       "source": "agent"
     },
     {
       "role": "zero",
+      "turnIdx": 3,
+      "source": "agent",
+      "selfScores": {
+        "ref_cnt": 2,
+        "hc_found": 0,
+        "cln_rt": 1
+      }
+    },
+    {
+      "role": "edi",
       "turnIdx": 4,
       "source": "agent",
       "selfScores": {
-        "ref_cnt": 1,
-        "hc_found": 0,
-        "cln_rt": 1
+        "gp_acc": 0.8,
+        "scc": "Y",
+        "cs_cnt": 3,
+        "art_cmp": 0.67,
+        "gap_fc": 1
       }
     },
     {
@@ -70,69 +69,133 @@
       "turnIdx": 5,
       "source": "agent",
       "selfScores": {
-        "gp_acc": 1,
+        "gp_acc": 0.85,
         "scc": "Y",
         "cs_cnt": 4,
-        "art_cmp": 1,
-        "gap_fc": 1
+        "art_cmp": 0.8,
+        "gap_fc": 2
       }
     }
   ],
   "decisions": [
-    "D-162"
+    "D-163"
   ],
   "decisionsAdded": [
-    "D-162"
+    "D-163"
   ],
   "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [
-    "PD-064"
+    "PD-065"
   ],
   "notes": [],
   "gaps": [
     {
       "type": "missing-report",
       "role": "edi",
-      "turnIdx": 3,
-      "reportPath": "reports/2026-05-05_pd064-edi-subagent-hook-fp",
-      "detectedAt": "2026-05-05T03:55:56.519Z",
-      "note": "edi turn3 완료 후 reports/edi_rev*.md 미발견 — 다음 에이전트에게 내용 미전달 (이후 turn5 edi_rev1.md 박제로 해소)"
+      "turnIdx": 2,
+      "reportPath": "reports/2026-05-05_pd065-signaturemetrics-hygiene",
+      "detectedAt": "2026-05-05T04:17:50.742Z",
+      "note": "edi turn2 완료 후 reports/edi_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
     },
     {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-05_pd064-edi-subagent-hook-fp/condensed.md"
+      "type": "missing-report",
+      "role": "zero",
+      "turnIdx": 3,
+      "reportPath": "reports/2026-05-05_pd065-signaturemetrics-hygiene",
+      "detectedAt": "2026-05-05T04:23:05.313Z",
+      "note": "zero turn3 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-05_pd065-signaturemetrics-hygiene/arki_condensed.md",
+      "expected": "arki",
+      "actualInTurns": "zero",
+      "turnId": 3
+    },
+    {
+      "type": "version-bump-edi-unconfirmed",
+      "severity": "high",
+      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
+      "addedBy": "checkVersionBumpConfirmation",
+      "ref": "D-140",
+      "suggestedValue": 0.1
+    },
+    {
+      "type": "frontmatter-patch-failed",
+      "role": "edi",
+      "turnIdx": 5,
+      "reportsPath": "`C:\\Projects\\legend-team\\memory\\sessions\\current_session.json`",
+      "detectedAt": "2026-05-05T04:48:03.975Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `C:\\Projects\\legend-team\\memory\\sessions\\current_session.json`"
     }
   ],
-  "openMasterAlerts": [],
+  "openMasterAlerts": [
+    {
+      "severity": "high",
+      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.1)",
+      "addedBy": "checkVersionBumpConfirmation",
+      "ref": "D-140"
+    }
+  ],
   "agentsCompleted": [
     "arki",
     "riki",
-    "dev",
     "edi",
     "zero",
     "edi"
   ],
+  "tokenUsage": {
+    "input_tokens": 215,
+    "output_tokens": 80628,
+    "cache_creation_input_tokens": 756902,
+    "cache_read_input_tokens": 11692230,
+    "messageCount": 145,
+    "masterTurns": 9,
+    "total_billable": 12529975
+  },
   "versionBump": {
     "value": 0.01,
-    "from": "v0.927",
-    "to": "v0.937",
-    "reason": "Capability 확장: scripts/lib/zero-condense-marker.{ts,js} SOT 헬퍼 신규, scripts/lib/turn-types.ts findTurnById export, hook gap type 2종 신규(turn-not-found, version-bump-edi-not-dispatched), dispatch_config.json rules.edi.version_bump_override_requires_reason 신규, role-zero.md/role-edi.md 정책 명문화. decision_ledger 변경 1건(D-162). D-130 capacity 카테고리 +0.01.",
+    "from": "v0.937",
+    "to": "v0.947",
+    "reason": "D-163 신규 결정 (growth L1 재정의) + PD-065 위생 6파일. role-vera.md는 신규 구조 아닌 annotation 교정.",
     "type": "capacity",
     "confirmedBy": "edi",
-    "confirmedAt": "2026-05-05T18:30:00.000Z",
+    "confirmedAt": "2026-05-05T05:10:00.000Z",
     "basedOn": "edi-direct",
-    "overrideReason": null
+    "overrideReason": "hook +0.1 과다 — role-vera.md 변경은 신규 페르소나 아닌 텍스트 annotation 교정. D-163 1건 기준 +0.01."
   },
-  "tokenUsage": {
-    "input_tokens": 160,
-    "output_tokens": 54353,
-    "cache_creation_input_tokens": 365129,
-    "cache_read_input_tokens": 4226033,
-    "messageCount": 49,
-    "masterTurns": 9,
-    "total_billable": 4645675
+  "versionBumpSuggested": {
+    "value": 0.1,
+    "type": "structural",
+    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 1건 (memory/roles/personas/role-vera.md)",
+    "autoDetectedAt": "2026-05-05T04:46:30.440Z",
+    "changedFiles": [
+      "app/growth.html",
+      "logs/app.log",
+      "logs/hook-diagnostics.log",
+      "logs/master-first.log",
+      "logs/pre-tool-use-task.log",
+      "logs/sage-gate.log",
+      "memory/growth/composite_inputs.json",
+      "memory/growth/phase_dod.json",
+      "memory/growth/rollback_playbook.md",
+      "memory/roles/personas/role-vera.md",
+      "memory/sessions/current_session.json",
+      "memory/sessions/session_index.json",
+      "memory/sessions/token_log.json",
+      "memory/shared/decision_ledger.json",
+      "memory/shared/system_state.json",
+      "memory/shared/topic_index.json",
+      "memory/specs/page-checklist/growth.md",
+      "scripts/seed-signature-metrics.ts",
+      "reports/2026-05-05_pd065-signaturemetrics-hygiene/",
+      "topics/topic_168/"
+    ],
+    "changedFilesCount": 20,
+    "cappedAt": 0.1,
+    "confirmedBy": null
   },
-  "finalizedAt": "2026-05-05T04:03:52.881Z"
+  "finalizedAt": "2026-05-05T04:46:33.328Z"
 }
