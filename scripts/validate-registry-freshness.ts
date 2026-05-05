@@ -21,7 +21,8 @@ const collected: Metric[] = [];
 for (const f of fs.readdirSync(ROLES_DIR)) {
   if (!f.endsWith("_memory.json")) continue;
   const mem = JSON.parse(fs.readFileSync(path.join(ROLES_DIR, f), "utf8"));
-  if (Array.isArray(mem.signatureMetrics)) collected.push(...mem.signatureMetrics);
+  // D-092 정합: `metrics` 키 사용. signatureMetrics는 dead (PD-063 Phase 2).
+  if (Array.isArray(mem.metrics)) collected.push(...mem.metrics);
 }
 if (fs.existsSync(DERIVED_PATH)) {
   const d = JSON.parse(fs.readFileSync(DERIVED_PATH, "utf8"));

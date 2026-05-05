@@ -73,7 +73,7 @@
         },
         "causedBy": { "type": "array", "items": { "type": "string" } },
         "leadingIndicator": { "type": "boolean" },
-        "lifecycleState": { "enum": ["draft", "shadow", "candidate", "active", "deprecated", "archived"] },
+        "lifecycleState": { "enum": ["draft", "shadow", "candidate", "active", "deprecated", "archived", "historical"] },
         "deprecatedInVersion": { "type": "string" },
         "supersededBy": { "type": "string" },
         "computedBy": { "type": "string" },

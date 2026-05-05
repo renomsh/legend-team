@@ -196,8 +196,25 @@ function findAggregate(agg, metricId, view){
   return all.find(a => a.metricId === metricId && a.view === view && !a.stratum);
 }
 
-function topMetricForRole(roleId, registry){
+// P3 hidden policy (D-130/Ace§3 Keynes — Goodhart 회피):
+// 값 없는 ID(record 부재 또는 n===0 또는 mean===null)는 카드·행 미렌더.
+function hasData(a){ return !!(a && a.n > 0 && a.mean !== null && a.mean !== undefined); }
+
+function topMetricForRole(roleId, registry, agg, view){
   const ms = registry.metrics.filter(m => m.role === roleId);
+  // P3: 데이터 있는 metric 우선. derived → learning → active 우선순위 유지하되 데이터 없으면 다음 후보로.
+  const ordered = [
+    ...ms.filter(m => m.type === 'derived'),
+    ...ms.filter(m => m.axis === 'learning'),
+    ...ms.filter(m => m.lifecycleState === 'active'),
+    ...ms,
+  ];
+  const seen = new Set();
+  for (const m of ordered){
+    if (seen.has(m.id)) continue; seen.add(m.id);
+    if (agg && view && hasData(findAggregate(agg, m.id, view))) return m;
+  }
+  // fallback (rendering will skip card via hidden policy if no data)
   const derived = ms.find(m => m.type === 'derived');
   if (derived) return derived;
   const learn = ms.find(m => m.axis === 'learning');
@@ -237,12 +254,14 @@ function renderRoles(roles, registry, agg, view){
   grid.innerHTML = '';
   let shown = 0;
   for (const role of roles) {
-    const m = topMetricForRole(role.id, registry);
+    const m = topMetricForRole(role.id, registry, agg, view);
     if (!m) continue;
     const a = findAggregate(agg, m.id, view);
-    const baseline = !a || a.n === 0 || a.n < (m.baselineSessions ?? 10);
-    const score = a ? a.mean : null;
-    const ci = a && a.ci95 ? `CI95 [${fmt(a.ci95[0])}, ${fmt(a.ci95[1])}] · n=${a.n}` : `n=${a?.n ?? 0}`;
+    // P3 hidden policy: 값 없는 role은 카드 미렌더.
+    if (!hasData(a)) continue;
+    const baseline = a.n < (m.baselineSessions ?? 10);
+    const score = a.mean;
+    const ci = a.ci95 ? `CI95 [${fmt(a.ci95[0])}, ${fmt(a.ci95[1])}] · n=${a.n}` : `n=${a.n}`;
     const card = document.createElement('div');
     card.className = 'role-card';
     card.style.borderColor = baseline ? 'var(--line)' : 'rgba(139,92,246,.25)';
@@ -252,13 +271,13 @@ function renderRoles(roles, registry, agg, view){
       <div class="role-top">${m.shortKey} <span style="color:var(--text-3)">· ${m.axis}</span></div>
       <div class="role-score">${fmt(score)}<span class="unit"> /100</span></div>
       <div class="role-ci">${ci}</div>
-      ${alertBadge(a?.alert, baseline)}
+      ${alertBadge(a.alert, baseline)}
     `;
     grid.appendChild(card);
     shown++;
   }
   document.getElementById('roleCount').textContent = shown;
-  if (shown === 0) grid.innerHTML = '<div class="empty">No roles found in registry.</div>';
+  if (shown === 0) grid.innerHTML = '<div class="empty">기록 있는 role 카드가 아직 없습니다. 다음 세션 종료 후 self-score record가 누적되면 표시됩니다.</div>';
 }
 
 // §3 Drill (per-role)
@@ -266,18 +285,25 @@ function renderDrill(roleId, registry, agg, view){
   const body = document.getElementById('drillBody');
   const ms = registry.metrics.filter(m => m.role === roleId);
   if (ms.length === 0) { body.innerHTML = '<div class="empty">No metrics for this role.</div>'; return; }
+  // P3 hidden policy: 값 없는 metric 행 제외.
+  const rows = ms
+    .map(m => ({ m, a: findAggregate(agg, m.id, view) }))
+    .filter(({ a }) => hasData(a));
+  if (rows.length === 0) {
+    body.innerHTML = '<div class="empty">이 역할에 대해 기록된 self-score가 아직 없습니다.</div>';
+    return;
+  }
   let html = '<table class="table"><thead><tr><th>Metric</th><th>Axis</th><th>Mean</th><th>n</th><th>CI95</th><th>Alert</th></tr></thead><tbody>';
-  for (const m of ms) {
-    const a = findAggregate(agg, m.id, view);
-    const baseline = !a || a.n < (m.baselineSessions ?? 10);
-    const ci = a && a.ci95 ? `[${fmt(a.ci95[0])}, ${fmt(a.ci95[1])}]` : '—';
+  for (const { m, a } of rows) {
+    const baseline = a.n < (m.baselineSessions ?? 10);
+    const ci = a.ci95 ? `[${fmt(a.ci95[0])}, ${fmt(a.ci95[1])}]` : '—';
     html += `<tr>
       <td>${m.shortKey} <span style="color:var(--text-3);font-size:10px">${m.id}</span></td>
       <td>${m.axis}</td>
-      <td class="num">${fmt(a?.mean)}</td>
-      <td class="num">${a?.n ?? 0}</td>
+      <td class="num">${fmt(a.mean)}</td>
+      <td class="num">${a.n}</td>
       <td class="num">${ci}</td>
-      <td>${alertBadge(a?.alert, baseline)}</td>
+      <td>${alertBadge(a.alert, baseline)}</td>
     </tr>`;
   }
   html += '</tbody></table>';
@@ -299,7 +325,13 @@ function renderIntegrity(agg, registry){
   const warns = (agg.warnings || []).length;
   dot.style.background = agg.slaBreached || warns > 5 ? 'var(--warn)' : 'var(--ok)';
   const activeCnt = registry.metrics.filter(m => m.lifecycleState === 'active').length;
-  text.textContent = `registry ${agg.registryVersion} · ${activeCnt} active metric · ${agg.recordCount} records · ${sla} · ${warns} warning(s)`;
+  const totalCnt = registry.metrics.length;
+  // P3: 기록(데이터 있는 metricId) 수 노출 — Master 학습 신호 (정의 vs 실측 gap 가시화)
+  const allRecs = (agg.aggregates || []).concat(agg.derivedAggregates || []);
+  const withDataIds = new Set(
+    allRecs.filter(a => a.n > 0 && a.mean !== null && a.mean !== undefined).map(a => a.metricId)
+  );
+  text.textContent = `registry ${agg.registryVersion} · 정의 ${totalCnt} (active ${activeCnt}) · 기록 ${withDataIds.size} · ${agg.recordCount} records · ${sla} · ${warns} warning(s)`;
 }
 
 async function renderCurrentSession() {

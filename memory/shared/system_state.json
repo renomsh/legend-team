@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_191",
-  "nextSessionId": "session_192",
+  "lastSessionId": "session_192",
+  "nextSessionId": "session_193",
   "currentVersion": "v0.917",
   "openTopics": [
     {
@@ -13,6 +13,18 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-160",
+      "date": "2026-05-05",
+      "axis": "Jobs persona SOT 5→4 압축 — external-rated 폐기, self-rateable만 유지",
+      "summary": "Jobs persona SOT 5→4 압축 — external-rated 폐기, self-rateable만 유지"
+    },
+    {
+      "id": "D-159",
+      "date": "2026-05-05",
+      "axis": "Self-Score Measurement Loop 5겹 단절 복구 — A-1 aggregate SOT + B-1' parser 복구 + hidden 정책",
+      "summary": "Self-Score Measurement Loop 5겹 단절 복구 — A-1 aggregate SOT + B-1' parser 복구 + hidden 정책"
+    },
     {
       "id": "D-158",
       "date": "2026-05-05",
@@ -30,21 +42,19 @@
       "date": "2026-05-05",
       "axis": "버전 형식 확정 — X.YYY 3자리 소수 float, 점 하나",
       "summary": "버전 형식 확정 — X.YYY 3자리 소수 float, 점 하나"
-    },
-    {
-      "id": "D-155",
-      "date": "2026-05-05",
-      "axis": "Persona Layer 절삭 — role policy/persona 파일 중복·boilerplate 제거로 inject 비용 절감",
-      "summary": "Persona Layer 절삭 — role policy/persona 파일 중복·boilerplate 제거로 inject 비용 절감"
-    },
-    {
-      "id": "D-154",
-      "date": "2026-05-04",
-      "axis": "Nexus Intent Confirm 규칙 — 주제 scope 불충분 시 첫 역할 dispatch 전 질문 의무화",
-      "summary": "Nexus Intent Confirm 규칙 — 주제 scope 불충분 시 첫 역할 dispatch 전 질문 의무화"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_192",
+      "topicSlug": "pd063-signature-metrics-sot-restore",
+      "closedAt": "2026-05-05T15:00:00.000Z",
+      "oneLineSummary": "measurement loop 5겹 단절 복구: P1~P4 PASS, registry v1.1, hidden 정책, D-159+D-160, PD-063 resolved",
+      "decisionsAdded": [
+        "D-159",
+        "D-160"
+      ]
+    },
     {
       "sessionId": "session_191",
       "topicSlug": "self-score-table-format-unify",
@@ -61,15 +71,6 @@
       "oneLineSummary": "persona Layer 2차: Zero 4건→Riki KILL 1·부분 GO 3→Master #2만 적용 -91B, D-157, PD-058 resolved",
       "decisionsAdded": [
         "D-157"
-      ]
-    },
-    {
-      "sessionId": "session_189",
-      "topicSlug": "version-format-normalize",
-      "closedAt": "2026-05-05T10:00:00.000Z",
-      "oneLineSummary": "버전 형식 X.YYY 확정: 점 두 개 오기 4건 정정(0.716~0.917), D-156 박제, PD-061 resolved",
-      "decisionsAdded": [
-        "D-156"
       ]
     }
   ],
@@ -132,17 +133,16 @@
       ]
     },
     {
-      "id": "PD-063",
-      "fromSession": "session_191",
-      "fromTopic": "topic_164 (self-score-table-format-unify)",
-      "item": "{role}_memory.json[].signatureMetrics 모든 role 0건 → compile-metrics-registry.ts의 input 경로 단절. growth registry 정공 데이터 경로 끊김 (현재 composite_inputs+derived_metrics 우회로만 동작). policy self-score 표의 신규 shortKey가 registry에 자동 등록되지 않는 위험.",
+      "id": "PD-065",
+      "fromSession": "session_192",
+      "fromTopic": "topic_165 (measurement-loop-restore)",
+      "item": "17 파일의 signatureMetrics historical 박제 문자열 정리 — session 보고서·docs·decision_ledger·role-vera.md 등에 잔재. 영향 없으나 명명 통일 위생 작업.",
       "status": "pending",
-      "severity": "high",
-      "resolveCondition": "{role}_memory.json[].signatureMetrics 채우기 OR compile-metrics-registry.ts SOT 경로 재정의 결정",
+      "severity": "low",
+      "resolveCondition": "별도 위생 토픽 또는 자연 풍화",
       "dependsOn": [],
       "relatedDecisions": [
-        "D-092",
-        "D-158"
+        "D-159"
       ]
     },
     {
@@ -161,5 +161,5 @@
       ]
     }
   ],
-  "lastUpdated": "2026-05-05T00:15:23.212Z"
+  "lastUpdated": "2026-05-05T01:44:35.541Z"
 }

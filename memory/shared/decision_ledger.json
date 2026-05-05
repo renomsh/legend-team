@@ -2348,6 +2348,43 @@
       ]
     },
     {
+      "id": "D-160",
+      "date": "2026-05-05",
+      "session": "session_192",
+      "topic": "topic_165",
+      "axis": "Jobs persona SOT 5→4 압축 — external-rated 폐기, self-rateable만 유지",
+      "summary": "memory/roles/jobs_memory.json + memory/roles/policies/role-jobs.md 5 metrics → 4. 폐기: jobs.frame_decision_link / jobs.bias_hit / jobs.legacy_log (external rater = Master ex-post 행위 의존, self-measurement 부적합). 유지: focus_sharp / bloat_idx (self). 신규 자가카운트: bias_cnt(Step 6 적출 편향 개수) / no_cnt(Step 4 OUT 항목 개수). Master 지시 'jobs SOT 부적합하면 4개로 압축' 직접 처리.",
+      "tags": [
+        "persona-sot",
+        "self-score",
+        "jobs",
+        "metric-compression"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "D-159",
+      "date": "2026-05-05",
+      "session": "session_192",
+      "topic": "topic_165",
+      "axis": "Self-Score Measurement Loop 5겹 단절 복구 — A-1 aggregate SOT + B-1' parser 복구 + hidden 정책",
+      "summary": "Jobs framing(Why=D-092 자가측정 약속 이행) + Ace 종합(A-1 aggregate SOT, registry derived) + Master 결정. 5겹 단절: 1.입력 박제 dead(extractSelfScores 3 bug — content[]/lastIndexOf/SCREAMING_SNAKE) / 2.registry⟂aggregate ID 정합 0 / 3.렌더 join 0 / 4.로컬 path / 5.parser 미스매치. Phase 1~4 모두 PASS. registry v1.1, 51 metrics(active 15+historical 36), aggregate IDs 50⊆registry 51 정합률 100%. hidden 정책: hasData(n>0 && mean!=null). 본 세션 보드 4 role 노출(jsonl 멈춘 historical), 다음 세션부터 jobs/dev/ace/arki/riki 자연 누적.",
+      "caveats": [
+        "G-Final 부분 통과 — loop 자체는 닫혔으나 11 role 카드 만개는 시간 누적 후 자연 도달",
+        "17 파일 signatureMetrics historical 문자열 미정리 → PD-064 분리(low, 위생)",
+        "lastIndexOf 전환은 narrative 인용<실제 블록 위치 가정 — 컨벤션상 안전, false hit 발생 시 추후 PD"
+      ],
+      "tags": [
+        "measurement-loop",
+        "self-score",
+        "registry",
+        "aggregate",
+        "PD-063"
+      ],
+      "status": "active",
+      "resolvesPD": "PD-063"
+    },
+    {
       "id": "D-158",
       "date": "2026-05-05",
       "session": "session_191",

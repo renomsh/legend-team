@@ -152,34 +152,61 @@ function writeTurnLogEntry(cwd, topicId, role, turnIdx, sessionId, extra = {}) {
 function extractSelfScores(toolResponse) {
   if (!toolResponse) return null;
   let text = '';
+  // helper: flatten content-block array → joined text
+  const flattenBlocks = (arr) => arr
+    .filter(item => item && item.type === 'text')
+    .map(item => item.text || '')
+    .join('\n');
   if (Array.isArray(toolResponse)) {
     // content block array 형식: [{"type":"text","text":"..."}]
     // JSON.stringify fallback 시 \\n 이스케이프로 split 불발 — D-155 fix (session_179)
-    text = toolResponse
-      .filter(item => item && item.type === 'text')
-      .map(item => item.text || '')
-      .join('\n');
+    text = flattenBlocks(toolResponse);
   } else if (typeof toolResponse === 'string') {
     text = toolResponse;
   } else if (typeof toolResponse === 'object') {
-    text = toolResponse.content || toolResponse.result || toolResponse.text || JSON.stringify(toolResponse);
+    // PostToolUse(Task) 실제 protocol: tool_response = toolUseResult 객체
+    // (keys: status, prompt, agentId, agentType, content[], usage, ...)
+    // .content 가 content-block 배열이면 flatten — 이전엔 String(array)로 손실 (session_192 fix)
+    if (Array.isArray(toolResponse.content)) {
+      text = flattenBlocks(toolResponse.content);
+    } else if (typeof toolResponse.content === 'string') {
+      text = toolResponse.content;
+    } else if (typeof toolResponse.result === 'string') {
+      text = toolResponse.result;
+    } else if (typeof toolResponse.text === 'string') {
+      text = toolResponse.text;
+    } else {
+      text = JSON.stringify(toolResponse);
+    }
   }
   text = String(text);
-  const idx = text.indexOf('# self-scores');
+  // 실제 score 블록은 통상 응답 말미에 위치. 본문 narrative 내 marker 인용을 피하려고
+  // lastIndexOf 사용 — session_192 turn 4 (arki rev2)에서 narrative 내 spec 축 인용이
+  // 실제 블록을 가린 사례 fix.
+  const idx = text.lastIndexOf('# self-scores');
   if (idx === -1) return null;
 
   const scores = {};
-  let consecutiveNonKv = 0;
   const lines = text.slice(idx + '# self-scores'.length).split(/\r?\n/);
   for (const raw of lines) {
     const line = raw.trim();
-    // 섹션 종료 마커: 코드 펜스 닫기, 구분선, 새 헤더
+    // 섹션 종료 마커: 코드 펜스, 구분선, 새 헤더
     if (line.startsWith('```') || line.startsWith('---') || /^#{1,3} /.test(line)) break;
-    // 빈 줄 또는 순수 주석은 skip (블록 내 여백 허용)
-    if (line === '' || line.startsWith('#')) { consecutiveNonKv++; if (consecutiveNonKv >= 3) break; continue; }
+    // 빈 줄: 첫 score 수집 전엔 skip (마커 직후 여백 허용), 수집 후엔 즉시 종료 (트레일링 마커 오염 방지)
+    if (line === '') {
+      if (Object.keys(scores).length > 0) break;
+      continue;
+    }
+    // 순수 주석 줄 skip
+    if (line.startsWith('#')) continue;
+    // SCREAMING_SNAKE 패턴 (예: ACE_WRITE_DONE) — score 키 아닌 마커로 간주, 종료
+    if (/^[A-Z][A-Z0-9_]*:/.test(line)) break;
     const m = line.match(/^([\w.-]+):\s*(.+?)(?:\s+#.*)?$/);
-    if (!m) { consecutiveNonKv++; if (consecutiveNonKv >= 2) break; continue; }
-    consecutiveNonKv = 0;
+    if (!m) {
+      // 비매칭 줄 발견: score 1건 이상 수집됐으면 종료 (블록 종료 추정)
+      if (Object.keys(scores).length > 0) break;
+      continue;
+    }
     const key = m[1];
     const valRaw = m[2].trim();
     const num = Number(valRaw);
@@ -196,9 +223,27 @@ function extractReportsPath(toolResponse) {
   if (!toolResponse) return null;
   let text = '';
   if (typeof toolResponse === 'string') text = toolResponse;
-  else if (typeof toolResponse === 'object') {
-    // tool_response가 객체면 content/result/text 필드 후보
-    text = toolResponse.content || toolResponse.result || toolResponse.text || JSON.stringify(toolResponse);
+  else if (Array.isArray(toolResponse)) {
+    text = toolResponse
+      .filter(item => item && item.type === 'text')
+      .map(item => item.text || '')
+      .join('\n');
+  } else if (typeof toolResponse === 'object') {
+    // tool_response가 객체면 content/result/text 필드 후보 (content 가 배열이면 flatten — session_192 fix)
+    if (Array.isArray(toolResponse.content)) {
+      text = toolResponse.content
+        .filter(item => item && item.type === 'text')
+        .map(item => item.text || '')
+        .join('\n');
+    } else if (typeof toolResponse.content === 'string') {
+      text = toolResponse.content;
+    } else if (typeof toolResponse.result === 'string') {
+      text = toolResponse.result;
+    } else if (typeof toolResponse.text === 'string') {
+      text = toolResponse.text;
+    } else {
+      text = JSON.stringify(toolResponse);
+    }
   }
   const head = String(text).slice(0, 1000);
   const m = head.match(/[A-Z]+_WRITE_DONE:\s*([^\s\n\r]+)/);

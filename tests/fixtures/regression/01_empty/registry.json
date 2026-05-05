@@ -1,0 +1,20 @@
+{
+  "registryVersion": "fixture-v1",
+  "aggregationViews": ["all", "recent10", "recent3"],
+  "metrics": [
+    {
+      "id": "ace.angle_novelty",
+      "shortKey": "ang_nov",
+      "role": "ace",
+      "scope": "role",
+      "axis": "learning",
+      "type": "base",
+      "scale": "0-5",
+      "polarity": "higher-better",
+      "construct": "프레이밍 각도 신선도",
+      "rater": { "type": "self", "by": "ace" },
+      "raterWeights": { "ace": 1 },
+      "aggregation": "all-sessions"
+    }
+  ]
+}

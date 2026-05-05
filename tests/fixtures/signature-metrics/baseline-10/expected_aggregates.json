@@ -1,0 +1,41 @@
+{
+  "_comment": "Sample stdev (n-1). CI95 = mean ± 1.96·σ/√n. Rounded to 1 decimal per §4.2.",
+  "views": [
+    {
+      "metricId": "ace_angle_novelty",
+      "role": "ace",
+      "view": "all",
+      "mean": 72,
+      "n": 10,
+      "std": 16.9,
+      "ci95": [
+        61.5,
+        82.5
+      ]
+    },
+    {
+      "metricId": "ace_angle_novelty",
+      "role": "ace",
+      "view": "recent10",
+      "mean": 72,
+      "n": 10,
+      "std": 16.9,
+      "ci95": [
+        61.5,
+        82.5
+      ]
+    },
+    {
+      "metricId": "ace_angle_novelty",
+      "role": "ace",
+      "view": "recent3",
+      "mean": 86.7,
+      "n": 3,
+      "std": 11.5,
+      "ci95": [
+        73.6,
+        99.7
+      ]
+    }
+  ]
+}

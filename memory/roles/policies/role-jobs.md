@@ -65,20 +65,13 @@ Master 또는 다른 역할이 frame 검토 시 인지편향 적출 요청 시 �
 - 불일치는 `gradeMismatch`로 기록 (Defense in Depth — NIST SP 800-160 Vol.2)
 - Jobs 미호출 세션(C/D)은 Nexus 단독 판정으로 종결
 
-## 5. Self-Score 지표 (session_151 등록, 5개 — D-092 정합)
+## 5. Self-Score 지표 (session_192 압축, 4개 — D-092 정합)
 
-`memory/growth/metrics_registry.json` 단일 출처. Ace 패턴 정합 (mix scale + external anchor + Goodhart 회피).
+`memory/growth/metrics_registry.json` 단일 출처. **session_192 D-159 압축:** 5→4. external-rated 3건(`frm_dec`/`bias_hit`/`legacy_log`) 폐기 — Master ex-post 행위 의존이라 self-measurement 부적합. self-rateable만 유지 + 자가 카운트 2건 신규.
 
 | shortKey | 명칭 | axis | scale | polarity | rater | 채점 기준 |
 |---|---|---|---|---|---|---|
-| `frm_dec` | frame→decision 유발 | judgment-consistency | Y/N | higher-better | external (master) | decision_ledger D-xxx 신규 박제에 Jobs frame 인용 일치 시 Y. 침묵=N. |
-| `bias_hit` | 적출 편향 채택 개수 | judgment-consistency | 0-5 | higher-better | external (master) | 적출 편향 N개 중 Master 결정에 영향 준 개수 |
-| `focus_sharp` | focus 명료성 | quality | 0-5 | higher-better | self (체크리스트) | saying no 글머리표 분리(Y) + out-of-scope 명시(Y): 둘 다=5 / 하나만=3 / 둘 다 N=0 |
-| `legacy_log` | 학습 누적 기여 | execution-transfer | Y/N | higher-better | external (master) | Master가 frame을 시스템 지식(memory/persona/policy/charter)으로 채택 기록 시 Y. 침묵=N. |
-| `bloat_idx` | 군더더기 지수 | quality | 0-5 | **lower-better** | external (master) | 산출물 내 예외 조항·안전장치·조건부 분기 개수. 0=극단적 단순화 성공. |
-
-**설계 원칙 (Riki 검토 반영):**
-- R-3 회피: 침묵 만점 패턴 제거 — `frm_dec`/`legacy_log`는 명시 신호만 Y, 침묵=N
-- R-5 회피: 자가채점 편향 — 4/5 지표 external rater(master), `focus_sharp`만 self이지만 객관 체크리스트
-- R-4 회피: count 타입 미사용 — Y/N + 0-5 + ratio 기존 4 scale 내 정합
-- Ace 패턴: lower-better polarity 활용(`bloat_idx`), external anchor 모두 명시
+| `focus_sharp` | focus 명료성 | quality | 0-5 | higher-better | self | saying no 글머리표 분리(Y) + out-of-scope 명시(Y): 둘 다=5 / 하나만=3 / 둘 다 N=0 |
+| `bloat_idx` | 군더더기 지수 | quality | 0-5 | **lower-better** | self | 산출물 내 예외 조항·안전장치·조건부 분기 개수 |
+| `bias_cnt` | 적출 편향 개수 | judgment-consistency | 0-5 | higher-better | self | Step 6에서 적출한 인지편향 개수 (Master 채택 여부와 별개) |
+| `no_cnt` | saying no 항목 수 | execution-transfer | 0-5 | higher-better | self | Step 4 OUT 명시 박제한 saying no 항목 개수 (5+ 시 5 capping) |

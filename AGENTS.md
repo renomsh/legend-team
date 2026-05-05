@@ -8,7 +8,7 @@ Legend-Team is a memory-first, topic-based strategy system.
 
 - Use Node.js + TypeScript + file-based JSON/Markdown storage.
 - Treat `memory/` and `reports/` as the authoritative project state.
-- Keep role separation: Ace, Arki, Fin, Riki, Editor. Nova is optional and only invoked when Master explicitly asks.
+- Keep role separation: Ace, Arki, Fin, Riki, Edi. Nova is optional and only invoked when Master explicitly asks.
 - Preserve structured topic state, revision history, and prior decisions.
 - Do not silently overwrite decisions, reports, or memory files.
 
@@ -42,9 +42,9 @@ Default speaking order:
 3. Fin: cost, return profile, resource evaluation
 4. Riki: failure modes, assumption audit, contradictions
 5. Ace: comprehensive review and final recommendation
-6. Editor: artifact compilation and formatting only
+6. Edi: artifact compilation and formatting only
 
-Nova speaks only when Master explicitly requests it, after Riki and before Editor.
+Nova speaks only when Master explicitly requests it, after Riki and before Edi.
 
 ## Session End
 

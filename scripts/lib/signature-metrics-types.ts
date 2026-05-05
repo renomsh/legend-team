@@ -8,7 +8,8 @@ export type LifecycleState =
   | "candidate"
   | "active"
   | "deprecated"
-  | "archived";
+  | "archived"
+  | "historical";
 
 export type Axis =
   | "learning"

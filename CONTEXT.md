@@ -25,10 +25,10 @@ UI 없음. 모든 데이터는 JSON/Markdown 파일로 저장됩니다.
 | **Arki** | 구조 분석, 의존성, 설계 제약 |
 | **Fin** | 비용/수익 프로파일, 자원 평가 |
 | **Riki** | 실패 모드, 가정 감사, 리스크 플래그 |
-| **Editor** | 결과물 편집/포맷/저장 전담 (독립 판단 없음) |
+| **Edi** | 결과물 편집/포맷/저장 전담 (독립 판단 없음) |
 | **Nova** | Master 명시 요청 시만 호출. 항상 투기적으로 표시 |
 
-**발언 순서:** Ace → Arki → Fin → Riki → Ace(종합검토) → Editor
+**발언 순서:** Ace → Arki → Fin → Riki → Ace(종합검토) → Edi
 **Master**는 각 발언 후 개입 가능. Master 피드백은 권위적입니다.
 
 ---
@@ -55,7 +55,7 @@ UI 없음. 모든 데이터는 JSON/Markdown 파일로 저장됩니다.
 | D-006 | 배포: Cloudflare Pages + Cloudflare Access |
 | D-007 | 전체 배포 (memory/master/ 포함). 보안은 Cloudflare Access에 위임 |
 | D-008 | 세션 종료 시 자동 git push |
-| D-009 | Ace = 종합검토 담당. Editor = 출력 전담 (synthesis 역할 분리) |
+| D-009 | Ace = 종합검토 담당. Edi = 출력 전담 (synthesis 역할 분리) |
 
 ---
 

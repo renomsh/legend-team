@@ -66,42 +66,41 @@
   },
   "metrics": [
     {
-      "id": "jobs.frame_decision_link",
-      "shortKey": "frm_dec",
-      "scale": "Y/N",
-      "axis": "judgment-consistency",
-      "construct": "Jobs frame이 decision_ledger 신규 박제로 이어졌는지"
-    },
-    {
-      "id": "jobs.bias_hit",
-      "shortKey": "bias_hit",
-      "scale": "0-5",
-      "axis": "judgment-consistency",
-      "construct": "적출한 인지편향 중 결정에 영향을 준 개수"
-    },
-    {
       "id": "jobs.focus_sharpness",
       "shortKey": "focus_sharp",
       "scale": "0-5",
       "axis": "quality",
+      "rater": "self",
       "construct": "saying no 구체성 — 글머리표 분리 + out-of-scope 명시 체크리스트"
-    },
-    {
-      "id": "jobs.legacy_log",
-      "shortKey": "legacy_log",
-      "scale": "Y/N",
-      "axis": "execution-transfer",
-      "construct": "Master가 frame을 시스템 지식(memory/persona/policy/charter)으로 채택 기록했는지"
     },
     {
       "id": "jobs.bloat_index",
       "shortKey": "bloat_idx",
       "scale": "0-5",
       "axis": "quality",
-      "construct": "산출물에 남은 군더더기·예외조항·안전장치 개수 (lower-better)"
+      "polarity": "lower-better",
+      "rater": "self",
+      "construct": "산출물에 남은 군더더기·예외조항·안전장치 개수"
+    },
+    {
+      "id": "jobs.bias_count",
+      "shortKey": "bias_cnt",
+      "scale": "0-5",
+      "axis": "judgment-consistency",
+      "rater": "self",
+      "construct": "Step 6에서 적출한 인지편향 개수 (자가 카운트, master 채택 여부와 별개)"
+    },
+    {
+      "id": "jobs.scope_no_count",
+      "shortKey": "no_cnt",
+      "scale": "0-5",
+      "axis": "execution-transfer",
+      "rater": "self",
+      "construct": "Step 4 OUT에 명시 박제한 saying no 항목 개수 (5+이면 5로 capping)"
     }
   ],
-  "selfScoreShortKeys": ["frm_dec", "bias_hit", "focus_sharp", "legacy_log", "bloat_idx"],
+  "selfScoreShortKeys": ["focus_sharp", "bloat_idx", "bias_cnt", "no_cnt"],
+  "metricsCompressionNote": "session_192 D-159: 5→4 압축. external-rated 3건(frm_dec/legacy_log = ex-post Master 행위 의존, bias_hit = Master 채택 의존) 폐기. self-rateable만 유지 + 신규 자가 카운트 2건(bias_cnt, no_cnt) 추가. self-measurement 부적합 SOT 정정.",
   "topicsHandled": [],
   "lessonLog": [],
   "introducedAt": {

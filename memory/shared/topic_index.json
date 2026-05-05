@@ -1,6 +1,24 @@
 {
   "topics": [
     {
+      "id": "topic_165",
+      "title": "Measurement Loop 종합 — self-score → registry → board 5겹 단절 정리",
+      "status": "completed",
+      "outcome": "5겹 단절 전부 닫힘. registry v1.1 / 51 metrics(active 15+historical 36) / aggregate 정합률 100% / hidden 정책 적용 / 4 role 카드 노출. D-159 + D-160 박제. PD-063 resolved, PD-064 신규(low).",
+      "closedInSession": "session_192",
+      "phase": "completed",
+      "hold": null,
+      "grade": "S",
+      "gradePromotedFrom": "A",
+      "gradePromotionReason": "Riki R-2 grep으로 4겹 단절 확정 (입력·schema·렌더·로컬path). PD-063 단독 복구 ROI 0 — measurement loop 종합 토픽으로 승격 (Master 선언, session_192).",
+      "created": "2026-05-05",
+      "controlPath": "topics/topic_165",
+      "reportPath": "reports/2026-05-05_pd063-signature-metrics-sot-restore",
+      "reportFiles": [],
+      "published": false,
+      "path": "topics/topic_165"
+    },
+    {
       "id": "topic_164",
       "title": "Self-Score 지표 표 형식 통일",
       "status": "completed",
@@ -3169,5 +3187,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-05T00:14:55.911Z"
+  "lastUpdated": "2026-05-05T01:44:23.499Z"
 }

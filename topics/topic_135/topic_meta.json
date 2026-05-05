@@ -1,0 +1,13 @@
+{
+  "id": "topic_135",
+  "title": "Sage R-1 자기참조 paradox 차단 hook",
+  "status": "completed",
+  "phase": "implementing",
+  "hold": null,
+  "created": "2026-04-30",
+  "lastUpdated": "2026-05-01",
+  "description": "sage-gate Phase 1+2 구현 완료. KNOWN_ROLES 통일 + 이중 마커 검증(불일치=process.exit(2)). D-132 박제.",
+  "closedInSession": "session_152",
+  "grade": "B",
+  "tags": ["sage", "hook", "D-128", "D-132"]
+}

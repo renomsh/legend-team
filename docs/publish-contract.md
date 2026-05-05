@@ -1,4 +1,6 @@
-# Publish Contract — Legend Team v0.3.0
+# Publish Contract — Legend Nexus v0.4.0 (formerly Legend Team v0.3.0)
+
+> **Era transition note (D-144 / topic_144 / session_167, 2026-05-02):** 시스템명이 Legend Team → Legend Nexus로 표기 전환되었습니다. v0.3.0 시점 contract는 본 문서 내에 그대로 보존되며, v0.4.0 era는 Legend Nexus 표기 baseline + 향후 schema 확장 진입점입니다. 표기 외 contract 본문은 변경 없음.
 
 This document defines the contract between the write channel (Claude Code / local file system) and the read channel (Cloudflare Pages viewer). The viewer must only depend on fields defined here.
 

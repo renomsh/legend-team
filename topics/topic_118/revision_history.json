@@ -1,0 +1,14 @@
+{
+  "topicId": "topic_118",
+  "revisions": [
+    {
+      "rev": 1,
+      "date": "2026-04-27",
+      "session": "session_119",
+      "type": "framing",
+      "summary": "Grade B framing 토픽 오픈 — PD-039(자동 close vs 수동 /close 산출물 diff) 해소 트랙. Arki 구조진단 F-118a~f, Dev 실측 4축(commands/skills, hook chain, git log 27/30 vs 3/30, F-118e 반박), Riki R-1~R-4(동일 슬러그 close commit 2회 4건 직접 증거). Master 결정: finalize hook 4단계 delta-check WARN 게이트(D-101). PD-039 resolved.",
+      "decisionsAdded": ["D-101"],
+      "pendingDeferralsResolved": ["PD-039"]
+    }
+  ]
+}

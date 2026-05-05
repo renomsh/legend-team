@@ -1,5 +1,5 @@
 {
-  "name": "legend-team",
+  "name": "legend-nexus",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,6 +12,14 @@
     "validate": "ts-node scripts/validate-output.ts",
     "evidence": "ts-node scripts/log-evidence.ts",
     "build": "node scripts/build.js",
+    "vr:fixture:freeze": "node scripts/freeze-mock-fixture.js",
+    "vr:capture": "docker run --rm --add-host=host.docker.internal:host-gateway -v %cd%:/work -w /work -e VR_BASE_URL=http://host.docker.internal:8788 mcr.microsoft.com/playwright:v1.59.1-jammy npx ts-node scripts/vr-capture.ts",
+    "vr:capture:host": "ts-node scripts/vr-capture.ts",
+    "vr:verify:kpi": "ts-node scripts/verify-kpi-fallback.ts",
+    "lint:css": "ts-node scripts/lint-inline-root-color.ts && ts-node scripts/lint-echarts-gradient.ts && ts-node scripts/lint-contrast.ts && ts-node scripts/lint-accent-only.ts",
+    "lint:echarts": "ts-node scripts/lint-echarts-gradient.ts",
+    "vr:compare": "ts-node scripts/vr-compare.ts",
+    "vr:compare:self": "ts-node scripts/vr-compare.ts --self",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -20,8 +28,14 @@
   "type": "commonjs",
   "devDependencies": {
     "@types/node": "^25.5.0",
+    "@types/pngjs": "^6.0.5",
+    "pixelmatch": "^7.1.0",
     "playwright": "^1.59.1",
+    "pngjs": "^7.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.2"
+  },
+  "dependencies": {
+    "ajv": "^8.18.0"
   }
 }

@@ -1,0 +1,178 @@
+{
+  "_comment": "Sample stdev (n-1). CI95 = mean ± 1.96·σ/√n. Rounded to 1 decimal per §4.2. 12 tuples = 3 unstratified views + 9 stratified-by-grade views.",
+  "rawScoreFormula": "raw = 2 + (i % 4) for i = 1..30",
+  "gradeAssignment": "sessions 1-10 → A, 11-20 → B, 21-30 → C",
+  "views": [
+    {
+      "metricId": "ace_angle_novelty",
+      "role": "ace",
+      "view": "all",
+      "mean": 70,
+      "n": 30,
+      "std": 22.1,
+      "ci95": [
+        62.1,
+        77.9
+      ]
+    },
+    {
+      "metricId": "ace_angle_novelty",
+      "role": "ace",
+      "view": "recent10",
+      "mean": 70,
+      "n": 10,
+      "std": 21.6,
+      "ci95": [
+        56.6,
+        83.4
+      ]
+    },
+    {
+      "metricId": "ace_angle_novelty",
+      "role": "ace",
+      "view": "recent3",
+      "mean": 60,
+      "n": 3,
+      "std": 20,
+      "ci95": [
+        37.4,
+        82.6
+      ]
+    },
+    {
+      "metricId": "ace_angle_novelty",
+      "role": "ace",
+      "view": "all",
+      "mean": 70,
+      "n": 10,
+      "std": 21.6,
+      "ci95": [
+        56.6,
+        83.4
+      ],
+      "stratum": {
+        "grade": "A"
+      }
+    },
+    {
+      "metricId": "ace_angle_novelty",
+      "role": "ace",
+      "view": "recent10",
+      "mean": 70,
+      "n": 10,
+      "std": 21.6,
+      "ci95": [
+        56.6,
+        83.4
+      ],
+      "stratum": {
+        "grade": "A"
+      }
+    },
+    {
+      "metricId": "ace_angle_novelty",
+      "role": "ace",
+      "view": "recent3",
+      "mean": 60,
+      "n": 3,
+      "std": 20,
+      "ci95": [
+        37.4,
+        82.6
+      ],
+      "stratum": {
+        "grade": "A"
+      }
+    },
+    {
+      "metricId": "ace_angle_novelty",
+      "role": "ace",
+      "view": "all",
+      "mean": 70,
+      "n": 10,
+      "std": 25.4,
+      "ci95": [
+        54.3,
+        85.7
+      ],
+      "stratum": {
+        "grade": "B"
+      }
+    },
+    {
+      "metricId": "ace_angle_novelty",
+      "role": "ace",
+      "view": "recent10",
+      "mean": 70,
+      "n": 10,
+      "std": 25.4,
+      "ci95": [
+        54.3,
+        85.7
+      ],
+      "stratum": {
+        "grade": "B"
+      }
+    },
+    {
+      "metricId": "ace_angle_novelty",
+      "role": "ace",
+      "view": "recent3",
+      "mean": 73.3,
+      "n": 3,
+      "std": 30.6,
+      "ci95": [
+        38.8,
+        107.9
+      ],
+      "stratum": {
+        "grade": "B"
+      }
+    },
+    {
+      "metricId": "ace_angle_novelty",
+      "role": "ace",
+      "view": "all",
+      "mean": 70,
+      "n": 10,
+      "std": 21.6,
+      "ci95": [
+        56.6,
+        83.4
+      ],
+      "stratum": {
+        "grade": "C"
+      }
+    },
+    {
+      "metricId": "ace_angle_novelty",
+      "role": "ace",
+      "view": "recent10",
+      "mean": 70,
+      "n": 10,
+      "std": 21.6,
+      "ci95": [
+        56.6,
+        83.4
+      ],
+      "stratum": {
+        "grade": "C"
+      }
+    },
+    {
+      "metricId": "ace_angle_novelty",
+      "role": "ace",
+      "view": "recent3",
+      "mean": 60,
+      "n": 3,
+      "std": 20,
+      "ci95": [
+        37.4,
+        82.6
+      ],
+      "stratum": {
+        "grade": "C"
+      }
+    }
+  ]
+}

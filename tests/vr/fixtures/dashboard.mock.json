@@ -1,0 +1,7636 @@
+{
+  "_meta": {
+    "schemaVersion": "1.0.0",
+    "frozenAt": "2026-04-28T01:35:00Z",
+    "sessionsLength": 102,
+    "note": "D-102 Phase 5 freeze. PD-049/050 R-3 mitigation. Fixture is deterministic — sessions array length and ordering are immutable; verify-fixture-stability.ts checks invariants."
+  },
+  "generatedAt": "2026-01-01T00:00:00Z",
+  "totalSessions": 102,
+  "autoDataFrom": "session_027",
+  "metrics": {
+    "avgMasterTurns": 16.95,
+    "avgCacheHitRate": 0.9322,
+    "cacheSampleSize": 76,
+    "cacheSampleTotal": 102,
+    "avgAdoptionRate": 0,
+    "totalDecisions": 98,
+    "gradeDistribution": {
+      "S": 39,
+      "A": 19,
+      "B": 32,
+      "C": 12
+    },
+    "gradeMismatchCount": 2,
+    "gradeMismatchSessions": [
+      "session_013",
+      "session_057"
+    ],
+    "framingSkippedCount": 0,
+    "turnBasedSessions": 57,
+    "totalCostUSD": 889.9352,
+    "avgCostPerSession": 9.1746,
+    "costSampleSize": 97
+  },
+  "sessions": [
+    {
+      "sessionId": "session_001",
+      "topicSlug": "2026-04-02_shared-asset-protocol",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_002",
+      "topicSlug": "2026-04-03_legend-team-upgrade",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 5,
+      "decisionAxes": 5,
+      "decisions": [
+        "D-001",
+        "D-002",
+        "D-003",
+        "D-004",
+        "D-005"
+      ],
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 14,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_003",
+      "topicSlug": "2026-04-04_local-vs-server",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 4,
+      "decisionAxes": 4,
+      "decisions": [
+        "D-006",
+        "D-007",
+        "D-008",
+        "D-009"
+      ],
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 12,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_004",
+      "topicSlug": "2026-04-04_v030-upgrade-review",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 0,
+      "dataQuality": "manual"
+    },
+    {
+      "sessionId": "session_005",
+      "topicSlug": "2026-04-05_v030-debt-close",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 11,
+      "dataQuality": "manual",
+      "tokenUsage": {
+        "totalBillable": 5372893,
+        "ioTokens": 46077,
+        "inputTokens": 2832,
+        "outputTokens": 43245,
+        "cacheCreate": 203456,
+        "cacheRead": 5123360,
+        "cacheHitRate": 0.9535570501776232,
+        "messageCount": 91
+      },
+      "sessionCostUSD": 2.9571
+    },
+    {
+      "sessionId": "session_006",
+      "topicSlug": "deploy-fix-branch-unify",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 12,
+      "dataQuality": "manual",
+      "tokenUsage": {
+        "totalBillable": 3180568,
+        "ioTokens": 19555,
+        "inputTokens": 124,
+        "outputTokens": 19431,
+        "cacheCreate": 131508,
+        "cacheRead": 3029505,
+        "cacheHitRate": 0.9525043954413174,
+        "messageCount": 80
+      },
+      "sessionCostUSD": 1.6938
+    },
+    {
+      "sessionId": "session_007",
+      "topicSlug": "legend-team-upgrade-review",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 4,
+      "decisionAxes": 4,
+      "decisions": [
+        "D-010",
+        "D-011",
+        "D-012",
+        "D-013"
+      ],
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 7,
+      "dataQuality": "backfill",
+      "agentsCompleted": [
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 8579025,
+        "ioTokens": 45202,
+        "inputTokens": 5605,
+        "outputTokens": 39597,
+        "cacheCreate": 282668,
+        "cacheRead": 8251155,
+        "cacheHitRate": 0.9617823703742558,
+        "messageCount": 139
+      },
+      "sessionCostUSD": 4.1461
+    },
+    {
+      "sessionId": "session_008",
+      "topicSlug": "dailyjob-db-mapping",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 8,
+      "dataQuality": "backfill",
+      "agentsCompleted": [
+        "ace",
+        "arki"
+      ],
+      "tokenUsage": {
+        "totalBillable": 1718456,
+        "ioTokens": 13213,
+        "inputTokens": 88,
+        "outputTokens": 13125,
+        "cacheCreate": 232884,
+        "cacheRead": 1472359,
+        "cacheHitRate": 0.8567917944945929,
+        "messageCount": 42
+      },
+      "sessionCostUSD": 1.5122
+    },
+    {
+      "sessionId": "session_009",
+      "topicSlug": "storage-quality-review",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 5,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 8,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 20,
+      "dataQuality": "backfill",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 16407855,
+        "ioTokens": 55119,
+        "inputTokens": 6562,
+        "outputTokens": 48557,
+        "cacheCreate": 656058,
+        "cacheRead": 15696678,
+        "cacheHitRate": 0.9566563088228168,
+        "messageCount": 203
+      },
+      "sessionCostUSD": 7.9173
+    },
+    {
+      "sessionId": "session_010",
+      "topicSlug": "viewer-display-diagnosis",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 20,
+      "dataQuality": "backfill",
+      "agentsCompleted": [
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 16407855,
+        "ioTokens": 55119,
+        "inputTokens": 6562,
+        "outputTokens": 48557,
+        "cacheCreate": 656058,
+        "cacheRead": 15696678,
+        "cacheHitRate": 0.9566563088228168,
+        "messageCount": 203
+      },
+      "sessionCostUSD": 7.9173
+    },
+    {
+      "sessionId": "session_011",
+      "topicSlug": "upgrade-delta-pack-review",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-014"
+      ],
+      "rolesCalled": 4,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 9,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 14,
+      "dataQuality": "backfill",
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 3875975,
+        "ioTokens": 22628,
+        "inputTokens": 121,
+        "outputTokens": 22507,
+        "cacheCreate": 405680,
+        "cacheRead": 3447667,
+        "cacheHitRate": 0.8894967072801038,
+        "messageCount": 82
+      },
+      "sessionCostUSD": 2.8936
+    },
+    {
+      "sessionId": "session_012",
+      "topicSlug": "role-redefinition",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-015"
+      ],
+      "rolesCalled": 5,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 10,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 22,
+      "dataQuality": "backfill",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 6598910,
+        "ioTokens": 35581,
+        "inputTokens": 8109,
+        "outputTokens": 27472,
+        "cacheCreate": 370373,
+        "cacheRead": 6192956,
+        "cacheHitRate": 0.9384816583344825,
+        "messageCount": 111
+      },
+      "sessionCostUSD": 3.6832
+    },
+    {
+      "sessionId": "session_013",
+      "topicSlug": "ace-measurement-structure",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "C",
+      "gradeActual": "B",
+      "gradeMismatch": true,
+      "framingSkipped": false,
+      "masterTurns": 0,
+      "dataQuality": "backfill",
+      "agentsCompleted": [
+        "editor",
+        "ace",
+        "nova"
+      ]
+    },
+    {
+      "sessionId": "session_014",
+      "topicSlug": "deeptutor-review",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 18,
+      "dataQuality": "backfill",
+      "agentsCompleted": [
+        "ace",
+        "editor",
+        "nova"
+      ],
+      "tokenUsage": {
+        "totalBillable": 9332346,
+        "ioTokens": 60715,
+        "inputTokens": 6607,
+        "outputTokens": 54108,
+        "cacheCreate": 332889,
+        "cacheRead": 8938742,
+        "cacheHitRate": 0.9578236812051332,
+        "messageCount": 109
+      },
+      "sessionCostUSD": 4.7614
+    },
+    {
+      "sessionId": "session_015",
+      "topicSlug": "databook-agent-design",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 22,
+      "dataQuality": "backfill",
+      "agentsCompleted": [
+        "arki",
+        "editor",
+        "nova"
+      ],
+      "tokenUsage": {
+        "totalBillable": 21864665,
+        "ioTokens": 61965,
+        "inputTokens": 3800,
+        "outputTokens": 58165,
+        "cacheCreate": 701541,
+        "cacheRead": 21101159,
+        "cacheHitRate": 0.9650803705430657,
+        "messageCount": 216
+      },
+      "sessionCostUSD": 9.845
+    },
+    {
+      "sessionId": "session_016",
+      "topicSlug": "hybrid-scaleup300",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 5,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 8,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 24,
+      "dataQuality": "backfill",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 14757847,
+        "ioTokens": 211458,
+        "inputTokens": 7730,
+        "outputTokens": 203728,
+        "cacheCreate": 1631437,
+        "cacheRead": 12914952,
+        "cacheHitRate": 0.8751243999209369,
+        "messageCount": 120
+      },
+      "sessionCostUSD": 13.0715
+    },
+    {
+      "sessionId": "session_017",
+      "topicSlug": "superpowers-plugin-review",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 26,
+      "dataQuality": "backfill",
+      "agentsCompleted": [
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 11321676,
+        "ioTokens": 149453,
+        "inputTokens": 335,
+        "outputTokens": 149118,
+        "cacheCreate": 1720649,
+        "cacheRead": 9451574,
+        "cacheHitRate": 0.834821098925636,
+        "messageCount": 116
+      },
+      "sessionCostUSD": 11.5257
+    },
+    {
+      "sessionId": "session_018",
+      "topicSlug": "superpowers-absorption-plan",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 4,
+      "decisionAxes": 4,
+      "decisions": [
+        "D-016",
+        "D-017",
+        "D-018",
+        "D-019"
+      ],
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 14,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 10,
+      "dataQuality": "backfill",
+      "agentsCompleted": [
+        "editor",
+        "ace",
+        "arki"
+      ],
+      "tokenUsage": {
+        "totalBillable": 3687949,
+        "ioTokens": 43934,
+        "inputTokens": 131,
+        "outputTokens": 43803,
+        "cacheCreate": 411230,
+        "cacheRead": 3232785,
+        "cacheHitRate": 0.8765807227811447,
+        "messageCount": 46
+      },
+      "sessionCostUSD": 3.1694
+    },
+    {
+      "sessionId": "session_019",
+      "topicSlug": "superpowers-2",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-020"
+      ],
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 7,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 21,
+      "dataQuality": "backfill",
+      "agentsCompleted": [
+        "editor",
+        "ace"
+      ],
+      "tokenUsage": {
+        "totalBillable": 9499713,
+        "ioTokens": 25447,
+        "inputTokens": 166,
+        "outputTokens": 25281,
+        "cacheCreate": 1093883,
+        "cacheRead": 8380383,
+        "cacheHitRate": 0.8821722298347329,
+        "messageCount": 105
+      },
+      "sessionCostUSD": 6.9959
+    },
+    {
+      "sessionId": "session_020",
+      "topicSlug": "superpowers-3",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-021"
+      ],
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 7,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 48,
+      "dataQuality": "backfill",
+      "agentsCompleted": [
+        "editor",
+        "dev"
+      ],
+      "tokenUsage": {
+        "totalBillable": 28749668,
+        "ioTokens": 81248,
+        "inputTokens": 3181,
+        "outputTokens": 78067,
+        "cacheCreate": 1647520,
+        "cacheRead": 27020900,
+        "cacheHitRate": 0.9398682447393827,
+        "messageCount": 340
+      },
+      "sessionCostUSD": 15.465
+    },
+    {
+      "sessionId": "session_021",
+      "topicSlug": "dev-test",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 6,
+      "dataQuality": "backfill",
+      "agentsCompleted": [
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 6497689,
+        "ioTokens": 18549,
+        "inputTokens": 129,
+        "outputTokens": 18420,
+        "cacheCreate": 1016767,
+        "cacheRead": 5462373,
+        "cacheHitRate": 0.8406639652959691,
+        "messageCount": 93
+      },
+      "sessionCostUSD": 5.7283
+    },
+    {
+      "sessionId": "session_022",
+      "topicSlug": "dev-role-session-close",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 18,
+      "dataQuality": "backfill",
+      "agentsCompleted": [
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 7646816,
+        "ioTokens": 34977,
+        "inputTokens": 155,
+        "outputTokens": 34822,
+        "cacheCreate": 687995,
+        "cacheRead": 6923844,
+        "cacheHitRate": 0.9054545055092211,
+        "messageCount": 97
+      },
+      "sessionCostUSD": 5.1799
+    },
+    {
+      "sessionId": "session_023",
+      "topicSlug": "legend-team-efficiency",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 11,
+      "dataQuality": "backfill",
+      "agentsCompleted": [
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 10676683,
+        "ioTokens": 48681,
+        "inputTokens": 170,
+        "outputTokens": 48511,
+        "cacheCreate": 284635,
+        "cacheRead": 10343367,
+        "cacheHitRate": 0.9687809406723044,
+        "messageCount": 121
+      },
+      "sessionCostUSD": 4.8986
+    },
+    {
+      "sessionId": "session_024",
+      "topicSlug": "efficiency-test-and-deferrals",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-022"
+      ],
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 8,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 43,
+      "dataQuality": "backfill",
+      "agentsCompleted": [
+        "ace",
+        "fin",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 36066355,
+        "ioTokens": 173177,
+        "inputTokens": 643,
+        "outputTokens": 172534,
+        "cacheCreate": 1380697,
+        "cacheRead": 34512481,
+        "cacheHitRate": 0.9569162450710642,
+        "messageCount": 406
+      },
+      "sessionCostUSD": 18.1213
+    },
+    {
+      "sessionId": "session_025",
+      "topicSlug": "v090-design-upgrade",
+      "topic": "v0.9.0 업그레이드 — 디자인 시각화 강화",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-023"
+      ],
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 17,
+      "dataQuality": "backfill",
+      "agentsCompleted": [
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 7148400,
+        "ioTokens": 42201,
+        "inputTokens": 201,
+        "outputTokens": 42000,
+        "cacheCreate": 772401,
+        "cacheRead": 6333798,
+        "cacheHitRate": 0.886044149739802,
+        "messageCount": 103
+      },
+      "sessionCostUSD": 5.4272
+    },
+    {
+      "sessionId": "session_026",
+      "topicSlug": "canva-integration",
+      "topic": "캔바 적용",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 17,
+      "dataQuality": "backfill",
+      "agentsCompleted": [
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 7148400,
+        "ioTokens": 42201,
+        "inputTokens": 201,
+        "outputTokens": 42000,
+        "cacheCreate": 772401,
+        "cacheRead": 6333798,
+        "cacheHitRate": 0.886044149739802,
+        "messageCount": 103
+      },
+      "sessionCostUSD": 5.4272
+    },
+    {
+      "sessionId": "session_027",
+      "topicSlug": "dashboard-upgrade",
+      "topic": "대시보드 업그레이드 — 성장 메인 / 효율 검증 구조",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 3,
+      "decisionAxes": 3,
+      "decisions": [
+        "D-024",
+        "D-025",
+        "D-026"
+      ],
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 10,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 26,
+      "dataQuality": "auto",
+      "tokenUsage": {
+        "totalBillable": 12667688,
+        "ioTokens": 123301,
+        "inputTokens": 529,
+        "outputTokens": 122772,
+        "cacheCreate": 656925,
+        "cacheRead": 11887462,
+        "cacheHitRate": 0.9384081767722728,
+        "messageCount": 111
+      },
+      "sessionCostUSD": 7.8729
+    },
+    {
+      "sessionId": "session_028",
+      "topicSlug": "legend-team-dashboard",
+      "topic": "legend-team Dash board",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 2,
+      "decisionAxes": 2,
+      "decisions": [
+        "D-027",
+        "D-028"
+      ],
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 8,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 42,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 41400594,
+        "ioTokens": 226513,
+        "inputTokens": 885,
+        "outputTokens": 225628,
+        "cacheCreate": 2012610,
+        "cacheRead": 39161471,
+        "cacheHitRate": 0.9459156793740688,
+        "messageCount": 454
+      },
+      "sessionCostUSD": 22.6828
+    },
+    {
+      "sessionId": "session_029",
+      "topicSlug": "legend-team-dashboard-2",
+      "topic": "Legend Team Dashboard #2",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 5,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 13407225,
+        "ioTokens": 73199,
+        "inputTokens": 444,
+        "outputTokens": 72755,
+        "cacheCreate": 704934,
+        "cacheRead": 12629092,
+        "cacheHitRate": 0.9419616661911768,
+        "messageCount": 173
+      },
+      "sessionCostUSD": 7.5249
+    },
+    {
+      "sessionId": "session_030",
+      "topicSlug": "dashboard-upgrade-v3",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 26,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "vera",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 35518851,
+        "ioTokens": 368450,
+        "inputTokens": 635,
+        "outputTokens": 367815,
+        "cacheCreate": 2742954,
+        "cacheRead": 32407447,
+        "cacheHitRate": 0.9124013330273549,
+        "messageCount": 397
+      },
+      "sessionCostUSD": 25.5274
+    },
+    {
+      "sessionId": "session_031",
+      "topicSlug": "session-history-view",
+      "topic": "세션 히스토리 뷰 신설 (PD-008)",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 7,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 10,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 45,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace-review",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 69003386,
+        "ioTokens": 384514,
+        "inputTokens": 20011,
+        "outputTokens": 364503,
+        "cacheCreate": 3445218,
+        "cacheRead": 65173654,
+        "cacheHitRate": 0.9444993612342444,
+        "messageCount": 597
+      },
+      "sessionCostUSD": 37.9992
+    },
+    {
+      "sessionId": "session_032",
+      "topicSlug": "agents-completed-hook",
+      "topic": "agentsCompleted Hook 자동화",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 3,
+      "decisionAxes": 3,
+      "decisions": [
+        "D-029",
+        "D-030",
+        "D-031"
+      ],
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 10,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 39,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "Dev"
+      ],
+      "tokenUsage": {
+        "totalBillable": 52416796,
+        "ioTokens": 293865,
+        "inputTokens": 9203,
+        "outputTokens": 284662,
+        "cacheCreate": 2877844,
+        "cacheRead": 49245087,
+        "cacheHitRate": 0.9394905976321025,
+        "messageCount": 422
+      },
+      "sessionCostUSD": 29.863
+    },
+    {
+      "sessionId": "session_033",
+      "topicSlug": "dashboard-bug-ace-framing",
+      "topic": "Dashboard Bug & ace-framing 조건화",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 2,
+      "decisionAxes": 2,
+      "decisions": [
+        "D-032",
+        "D-033"
+      ],
+      "rolesCalled": 6,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 12,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "Ace",
+        "Nova",
+        "Arki",
+        "Fin",
+        "Riki",
+        "Edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 27996556,
+        "ioTokens": 121254,
+        "inputTokens": 781,
+        "outputTokens": 120473,
+        "cacheCreate": 1404034,
+        "cacheRead": 26471268,
+        "cacheHitRate": 0.9455187273748957,
+        "messageCount": 302
+      },
+      "sessionCostUSD": 15.0159
+    },
+    {
+      "sessionId": "session_034",
+      "topicSlug": "copd-project-review",
+      "topic": "COPD project review (Track B)",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 6,
+      "decisionAxes": 6,
+      "decisions": [
+        "D-034",
+        "D-035",
+        "D-036",
+        "D-037",
+        "D-038",
+        "D-039"
+      ],
+      "rolesCalled": 5,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 20,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 49,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "nova",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 60893038,
+        "ioTokens": 485527,
+        "inputTokens": 3285,
+        "outputTokens": 482242,
+        "cacheCreate": 2709606,
+        "cacheRead": 57697905,
+        "cacheHitRate": 0.9475287634688222,
+        "messageCount": 461
+      },
+      "sessionCostUSD": 34.7139
+    },
+    {
+      "sessionId": "session_035",
+      "topicSlug": "token-cost-display-fix",
+      "topic": "token cost 표시 진단 / 자율성 바닥 원인",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 15,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "Dev"
+      ],
+      "tokenUsage": {
+        "totalBillable": 16441299,
+        "ioTokens": 62508,
+        "inputTokens": 225,
+        "outputTokens": 62283,
+        "cacheCreate": 898467,
+        "cacheRead": 15480324,
+        "cacheHitRate": 0.9415511511590416,
+        "messageCount": 155
+      },
+      "sessionCostUSD": 8.9483
+    },
+    {
+      "sessionId": "session_036",
+      "topicSlug": "legend-team-upgrade-v2",
+      "topic": "레전드팀 업그레이드 — Top 0.1% 페르소나 + 성장 패턴 Board",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-040"
+      ],
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 7,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 12,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "Ace",
+        "Dev"
+      ],
+      "tokenUsage": {
+        "totalBillable": 14040801,
+        "ioTokens": 141394,
+        "inputTokens": 31887,
+        "outputTokens": 109507,
+        "cacheCreate": 943815,
+        "cacheRead": 12955592,
+        "cacheHitRate": 0.922710321156179,
+        "messageCount": 130
+      },
+      "sessionCostUSD": 9.1642
+    },
+    {
+      "sessionId": "session_037",
+      "topicSlug": "persona-top01-redefinition",
+      "topic": "페르소나 Top 0.1% 재정의",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-041"
+      ],
+      "rolesCalled": 8,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 12,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "Ace",
+        "Arki",
+        "Fin",
+        "Riki",
+        "Nova",
+        "Dev",
+        "Vera",
+        "Edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 9712667,
+        "ioTokens": 93582,
+        "inputTokens": 214,
+        "outputTokens": 93368,
+        "cacheCreate": 279775,
+        "cacheRead": 9339310,
+        "cacheHitRate": 0.9615597857931297,
+        "messageCount": 89
+      },
+      "sessionCostUSD": 5.2521
+    },
+    {
+      "sessionId": "session_038",
+      "topicSlug": "global-skill-role-mapping",
+      "topic": "전역스킬, 역할별 스킬 매핑",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-042"
+      ],
+      "rolesCalled": 6,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 11,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 8,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "Ace",
+        "Arki",
+        "Fin",
+        "Vera",
+        "Riki",
+        "Edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 11994992,
+        "ioTokens": 93369,
+        "inputTokens": 5534,
+        "outputTokens": 87835,
+        "cacheCreate": 416022,
+        "cacheRead": 11485601,
+        "cacheHitRate": 0.95753302711665,
+        "messageCount": 115
+      },
+      "sessionCostUSD": 6.3399
+    },
+    {
+      "sessionId": "session_040",
+      "topicSlug": "dashboard-bug-axis-review",
+      "topic": "대시보드 버그 — 설계축 재검토 여부 판단",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 25,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev"
+      ],
+      "tokenUsage": {
+        "totalBillable": 39843153,
+        "ioTokens": 317359,
+        "inputTokens": 605,
+        "outputTokens": 316754,
+        "cacheCreate": 2233968,
+        "cacheRead": 37291826,
+        "cacheHitRate": 0.9359657354426745,
+        "messageCount": 391
+      },
+      "sessionCostUSD": 24.3181
+    },
+    {
+      "sessionId": "session_041",
+      "topicSlug": "copd-paper-phase6-discussion",
+      "topic": "COPD 논문 Phase 6 — Discussion 초고 작성",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-043"
+      ],
+      "rolesCalled": 8,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 17,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "fin",
+        "ace-review",
+        "editor",
+        "arki-review",
+        "editor-full"
+      ],
+      "tokenUsage": {
+        "totalBillable": 15726496,
+        "ioTokens": 211101,
+        "inputTokens": 30190,
+        "outputTokens": 180911,
+        "cacheCreate": 1221853,
+        "cacheRead": 14293542,
+        "cacheHitRate": 0.9088828178889945,
+        "messageCount": 89
+      },
+      "sessionCostUSD": 11.6742
+    },
+    {
+      "sessionId": "session_042",
+      "topicSlug": "copd-discussion-review",
+      "topic": "COPD Discussion 논문 초고 리뷰",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 6,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 9,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 17,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "fin",
+        "ace-review",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 29761321,
+        "ioTokens": 290234,
+        "inputTokens": 338,
+        "outputTokens": 289896,
+        "cacheCreate": 1063963,
+        "cacheRead": 28407124,
+        "cacheHitRate": 0.9544980883073033,
+        "messageCount": 141
+      },
+      "sessionCostUSD": 16.8615
+    },
+    {
+      "sessionId": "session_043",
+      "topicSlug": "copd-paper-ver34-finalization",
+      "topic": "COPD 논문 ver3.4 최종화 — canonical 재분석 + (e) 프레임 확정",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 3,
+      "decisionAxes": 3,
+      "decisions": [
+        "D-046",
+        "D-045",
+        "D-044"
+      ],
+      "rolesCalled": 8,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 17,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 35,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "nova",
+        "dev",
+        "ace-review",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 54853620,
+        "ioTokens": 420146,
+        "inputTokens": 754,
+        "outputTokens": 419392,
+        "cacheCreate": 1047460,
+        "cacheRead": 53386014,
+        "cacheHitRate": 0.9732450474553913,
+        "messageCount": 244
+      },
+      "sessionCostUSD": 26.2369
+    },
+    {
+      "sessionId": "session_044",
+      "topicSlug": "board-sort-status-catalog",
+      "topic": "board 정렬 버그 + 상태값 카탈로그 + PD-16/17 정리",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-047"
+      ],
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 19,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "dev"
+      ],
+      "tokenUsage": {
+        "totalBillable": 19336313,
+        "ioTokens": 95793,
+        "inputTokens": 723,
+        "outputTokens": 95070,
+        "cacheCreate": 1219956,
+        "cacheRead": 18020564,
+        "cacheHitRate": 0.9319545044600799,
+        "messageCount": 181
+      },
+      "sessionCostUSD": 11.4092
+    },
+    {
+      "sessionId": "session_045",
+      "topicSlug": "role-recall-measurement-structure",
+      "topic": "역할 재호출 측정 구조 신설",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-048"
+      ],
+      "rolesCalled": 12,
+      "rolesRecalled": 5,
+      "sessionsSpanned": 1,
+      "size": 27,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 18,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "nova",
+        "arki",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "arki",
+        "editor",
+        "arki",
+        "vera",
+        "ace"
+      ],
+      "tokenUsage": {
+        "totalBillable": 10165334,
+        "ioTokens": 106895,
+        "inputTokens": 279,
+        "outputTokens": 106616,
+        "cacheCreate": 358221,
+        "cacheRead": 9700218,
+        "cacheHitRate": 0.954244887575755,
+        "messageCount": 96
+      },
+      "sessionCostUSD": 5.8535
+    },
+    {
+      "sessionId": "session_046",
+      "topicSlug": "phase1-implementation-turn-types",
+      "topic": "Phase 1 실구현: phase_catalog · turn-types · 필드 확장 · G1 게이트",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 8,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev"
+      ],
+      "tokenUsage": {
+        "totalBillable": 9202102,
+        "ioTokens": 68374,
+        "inputTokens": 3266,
+        "outputTokens": 65108,
+        "cacheCreate": 701878,
+        "cacheRead": 8431850,
+        "cacheHitRate": 0.9162960810475693,
+        "messageCount": 162
+      },
+      "sessionCostUSD": 6.148
+    },
+    {
+      "sessionId": "session_047",
+      "topicSlug": "phase2-turn-push-validate",
+      "topic": "Phase 2 — CLAUDE.md turn push 규칙 추가 + session-end-finalize.js 검증 + validate-session-turns.ts 신설",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 5,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev"
+      ],
+      "tokenUsage": {
+        "totalBillable": 14154508,
+        "ioTokens": 80879,
+        "inputTokens": 220,
+        "outputTokens": 80659,
+        "cacheCreate": 792093,
+        "cacheRead": 13281536,
+        "cacheHitRate": 0.9383255143873599,
+        "messageCount": 189
+      },
+      "sessionCostUSD": 8.1654
+    },
+    {
+      "sessionId": "session_048",
+      "topicSlug": "phase3-aggregation-validation",
+      "topic": "Phase 3 — 집계 전환 + 실측 데이터 검증",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 4,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 9,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 9,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "arki",
+        "dev"
+      ],
+      "tokenUsage": {
+        "totalBillable": 6834750,
+        "ioTokens": 44440,
+        "inputTokens": 147,
+        "outputTokens": 44293,
+        "cacheCreate": 341868,
+        "cacheRead": 6448442,
+        "cacheHitRate": 0.9434788397527342,
+        "messageCount": 101
+      },
+      "sessionCostUSD": 3.8814
+    },
+    {
+      "sessionId": "session_049",
+      "topicSlug": "phase4-ui",
+      "topic": "Phase 4 — UI",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-049"
+      ],
+      "rolesCalled": 7,
+      "rolesRecalled": 3,
+      "sessionsSpanned": 1,
+      "size": 18,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 16,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "vera",
+        "riki",
+        "ace",
+        "vera",
+        "ace",
+        "arki"
+      ],
+      "tokenUsage": {
+        "totalBillable": 14459023,
+        "ioTokens": 154353,
+        "inputTokens": 382,
+        "outputTokens": 153971,
+        "cacheCreate": 1046834,
+        "cacheRead": 13257836,
+        "cacheHitRate": 0.9169247465752008,
+        "messageCount": 121
+      },
+      "sessionCostUSD": 10.2137
+    },
+    {
+      "sessionId": "session_050",
+      "topicSlug": "editor-missing-fix",
+      "topic": "에디 누락 재발 방지 — session-end-finalize.js editor push 자동화",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 6,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 2630496,
+        "ioTokens": 22469,
+        "inputTokens": 77,
+        "outputTokens": 22392,
+        "cacheCreate": 254690,
+        "cacheRead": 2353337,
+        "cacheHitRate": 0.8946362206975415,
+        "messageCount": 52
+      },
+      "sessionCostUSD": 1.9972
+    },
+    {
+      "sessionId": "session_051",
+      "topicSlug": "edi-name-apply",
+      "topic": "에디 이름 적용",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 7,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 6683452,
+        "ioTokens": 44693,
+        "inputTokens": 156,
+        "outputTokens": 44537,
+        "cacheCreate": 265917,
+        "cacheRead": 6372842,
+        "cacheHitRate": 0.9535255134622048,
+        "messageCount": 108
+      },
+      "sessionCostUSD": 3.5776
+    },
+    {
+      "sessionId": "session_052",
+      "topicSlug": "session-history-design-change",
+      "topic": "Session History Design Change",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-050"
+      ],
+      "rolesCalled": 6,
+      "rolesRecalled": 2,
+      "sessionsSpanned": 1,
+      "size": 15,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 2,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "vera",
+        "vera",
+        "vera",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 160333,
+        "ioTokens": 1826,
+        "inputTokens": 13,
+        "outputTokens": 1813,
+        "cacheCreate": 35186,
+        "cacheRead": 123321,
+        "cacheHitRate": 0.7691554452296159,
+        "messageCount": 5
+      },
+      "sessionCostUSD": 0.1962
+    },
+    {
+      "sessionId": "session_053",
+      "topicSlug": "topic-centric-architecture",
+      "topic": "S 토픽 중심 전체 개편",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-051"
+      ],
+      "rolesCalled": 9,
+      "rolesRecalled": 4,
+      "sessionsSpanned": 1,
+      "size": 22,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 10,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "arki",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 4312254,
+        "ioTokens": 77793,
+        "inputTokens": 130,
+        "outputTokens": 77663,
+        "cacheCreate": 364691,
+        "cacheRead": 3869770,
+        "cacheHitRate": 0.897389161213602,
+        "messageCount": 48
+      },
+      "sessionCostUSD": 3.6939
+    },
+    {
+      "sessionId": "session_054",
+      "topicSlug": "pd-020a-schema-phase-hold",
+      "topic": "PD-020a 스키마 + phase×hold 기반 구현",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-052"
+      ],
+      "rolesCalled": 8,
+      "rolesRecalled": 3,
+      "sessionsSpanned": 1,
+      "size": 19,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 13,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 5138559,
+        "ioTokens": 89057,
+        "inputTokens": 202,
+        "outputTokens": 88855,
+        "cacheCreate": 498051,
+        "cacheRead": 4551451,
+        "cacheHitRate": 0.8857446221790973,
+        "messageCount": 55
+      },
+      "sessionCostUSD": 4.5666
+    },
+    {
+      "sessionId": "session_055",
+      "topicSlug": "d052-ledger-p1-catalog",
+      "topic": "D-052 ledger 등재 + P1 catalog 2개 신설",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 16,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 7320867,
+        "ioTokens": 50125,
+        "inputTokens": 171,
+        "outputTokens": 49954,
+        "cacheCreate": 445190,
+        "cacheRead": 6825552,
+        "cacheHitRate": 0.9323420299808752,
+        "messageCount": 92
+      },
+      "sessionCostUSD": 4.467
+    },
+    {
+      "sessionId": "session_056",
+      "topicSlug": "pd-020a-p3-writer-enforce",
+      "topic": "PD-020a P3 — create-topic.ts·append-session.ts writer 강제",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 9,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 6928948,
+        "ioTokens": 40056,
+        "inputTokens": 130,
+        "outputTokens": 39926,
+        "cacheCreate": 648402,
+        "cacheRead": 6240490,
+        "cacheHitRate": 0.9006403280844365,
+        "messageCount": 90
+      },
+      "sessionCostUSD": 4.9029
+    },
+    {
+      "sessionId": "session_057",
+      "topicSlug": "pd-020a-p4-migration",
+      "topic": "PD-020a P4 — 기존 56개 topic_meta.json phase/hold/legacy 추가 + 52개 세션 topicId 백필",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "C",
+      "gradeActual": "B",
+      "gradeMismatch": true,
+      "framingSkipped": false,
+      "masterTurns": 16,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 9801231,
+        "ioTokens": 84472,
+        "inputTokens": 170,
+        "outputTokens": 84302,
+        "cacheCreate": 432031,
+        "cacheRead": 9284728,
+        "cacheHitRate": 0.9473022317298715,
+        "messageCount": 146
+      },
+      "sessionCostUSD": 5.6706
+    },
+    {
+      "sessionId": "session_058",
+      "topicSlug": "pd-020a-p5-migration-verify",
+      "topic": "P5 — 마이그레이션 검증",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 9,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 4424362,
+        "ioTokens": 34201,
+        "inputTokens": 113,
+        "outputTokens": 34088,
+        "cacheCreate": 305109,
+        "cacheRead": 4085052,
+        "cacheHitRate": 0.9233087166013992,
+        "messageCount": 77
+      },
+      "sessionCostUSD": 2.8813
+    },
+    {
+      "sessionId": "session_059",
+      "topicSlug": "pd-020b-context-3layer",
+      "topic": "PD-020b — Context 3층 누적 구현",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-053"
+      ],
+      "rolesCalled": 7,
+      "rolesRecalled": 2,
+      "sessionsSpanned": 1,
+      "size": 16,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 16,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "arki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 7461024,
+        "ioTokens": 63403,
+        "inputTokens": 203,
+        "outputTokens": 63200,
+        "cacheCreate": 875618,
+        "cacheRead": 6522003,
+        "cacheHitRate": 0.874143147106885,
+        "messageCount": 96
+      },
+      "sessionCostUSD": 6.1888
+    },
+    {
+      "sessionId": "session_060",
+      "topicSlug": "pd-020b-p0p1-turns-schema",
+      "topic": "PD-020b P0+P1 — turns[] 무결성 검증 + 스키마 정의",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-054"
+      ],
+      "rolesCalled": 8,
+      "rolesRecalled": 3,
+      "sessionsSpanned": 1,
+      "size": 19,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 11,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "arki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 13280887,
+        "ioTokens": 104805,
+        "inputTokens": 235,
+        "outputTokens": 104570,
+        "cacheCreate": 593416,
+        "cacheRead": 12582666,
+        "cacheHitRate": 0.9474266289593458,
+        "messageCount": 113
+      },
+      "sessionCostUSD": 7.5694
+    },
+    {
+      "sessionId": "session_061",
+      "topicSlug": "pd-020b-p2p5-writers-hooks",
+      "topic": "PD-020b P2~P5 — L1/L2/L3 writer + 훅 편입 + L1 backfill",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 4,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 7,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 9,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 13515571,
+        "ioTokens": 73335,
+        "inputTokens": 198,
+        "outputTokens": 73137,
+        "cacheCreate": 644540,
+        "cacheRead": 12797696,
+        "cacheHitRate": 0.9468853369199126,
+        "messageCount": 146
+      },
+      "sessionCostUSD": 7.354
+    },
+    {
+      "sessionId": "session_062",
+      "topicSlug": "pd-020b-p6-open-loader",
+      "topic": "PD-020b P6 — /open 로더 통합",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 6,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 4624153,
+        "ioTokens": 36646,
+        "inputTokens": 101,
+        "outputTokens": 36545,
+        "cacheCreate": 346778,
+        "cacheRead": 4240729,
+        "cacheHitRate": 0.9170823283745153,
+        "messageCount": 76
+      },
+      "sessionCostUSD": 3.1211
+    },
+    {
+      "sessionId": "session_063",
+      "topicSlug": "pd-020c-decision-ownership",
+      "topic": "PD-020c — 결정 소유권 + 운영규칙 구현",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-055"
+      ],
+      "rolesCalled": 6,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 9,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 2889497,
+        "ioTokens": 40152,
+        "inputTokens": 104,
+        "outputTokens": 40048,
+        "cacheCreate": 213413,
+        "cacheRead": 2635932,
+        "cacheHitRate": 0.9122459722228471,
+        "messageCount": 37
+      },
+      "sessionCostUSD": 2.1921
+    },
+    {
+      "sessionId": "session_064",
+      "topicSlug": "pd-020c-p1-decision-ledger",
+      "topic": "PD-020c 구현 P1: decision_ledger 스키마 확장 + 백필",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 5,
+      "rolesRecalled": 2,
+      "sessionsSpanned": 1,
+      "size": 12,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 14,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "dev",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 24146698,
+        "ioTokens": 172162,
+        "inputTokens": 395,
+        "outputTokens": 171767,
+        "cacheCreate": 1830882,
+        "cacheRead": 22143654,
+        "cacheHitRate": 0.9170468773825722,
+        "messageCount": 301
+      },
+      "sessionCostUSD": 16.0866
+    },
+    {
+      "sessionId": "session_065",
+      "topicSlug": "pd-020b-completion-verify",
+      "topic": "PD-020b 완결 검증",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 8,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 10196911,
+        "ioTokens": 68714,
+        "inputTokens": 181,
+        "outputTokens": 68533,
+        "cacheCreate": 277620,
+        "cacheRead": 9850577,
+        "cacheHitRate": 0.9660354003285897,
+        "messageCount": 140
+      },
+      "sessionCostUSD": 5.0248
+    },
+    {
+      "sessionId": "session_066",
+      "topicSlug": "topic-closure-declaration",
+      "topic": "토픽 종료 선언 — 프레이밍 종결 + PD resolved 구조화",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-056"
+      ],
+      "rolesCalled": 7,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 14,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 15,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "nova",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 4249202,
+        "ioTokens": 48136,
+        "inputTokens": 169,
+        "outputTokens": 47967,
+        "cacheCreate": 168819,
+        "cacheRead": 4032247,
+        "cacheHitRate": 0.9489421778489232,
+        "messageCount": 48
+      },
+      "sessionCostUSD": 2.5628
+    },
+    {
+      "sessionId": "session_067",
+      "topicSlug": "topic-lifecycle-system-impl",
+      "topic": "PD-022 토픽 생명주기 시스템 구현",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-057"
+      ],
+      "rolesCalled": 8,
+      "rolesRecalled": 3,
+      "sessionsSpanned": 1,
+      "size": 19,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 11,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "arki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 18550709,
+        "ioTokens": 105904,
+        "inputTokens": 253,
+        "outputTokens": 105651,
+        "cacheCreate": 861467,
+        "cacheRead": 17583338,
+        "cacheHitRate": 0.9478526130726325,
+        "messageCount": 145
+      },
+      "sessionCostUSD": 10.091
+    },
+    {
+      "sessionId": "session_068",
+      "topicSlug": "pd-021-auto-model-switch-reimpl",
+      "topic": "PD-021 auto-model-switch 재구현 — Sonnet 메인 + Opus 서브에이전트",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-058"
+      ],
+      "rolesCalled": 6,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 34,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 20649590,
+        "ioTokens": 191710,
+        "inputTokens": 484,
+        "outputTokens": 191226,
+        "cacheCreate": 1475081,
+        "cacheRead": 18982799,
+        "cacheHitRate": 0.9192821261826506,
+        "messageCount": 225
+      },
+      "sessionCostUSD": 14.0962
+    },
+    {
+      "sessionId": "session_069",
+      "topicSlug": "grade-a-3session-measurement",
+      "topic": "3세션 Grade A 토픽에서 비용 절감률·Master 신호 감지·재호출 분포 실측",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 6,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 11,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 7,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 3359405,
+        "ioTokens": 42228,
+        "inputTokens": 81,
+        "outputTokens": 42147,
+        "cacheCreate": 232027,
+        "cacheRead": 3085150,
+        "cacheHitRate": 0.9183620313716269,
+        "messageCount": 55
+      },
+      "sessionCostUSD": 2.4281
+    },
+    {
+      "sessionId": "session_070",
+      "topicSlug": "pd-018-cost-panel",
+      "topic": "PD-018 실행 — 실 비용($) 계산 패널 신설",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 16,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 20850796,
+        "ioTokens": 102010,
+        "inputTokens": 444,
+        "outputTokens": 101566,
+        "cacheCreate": 1127144,
+        "cacheRead": 19621642,
+        "cacheHitRate": 0.941050020344547,
+        "messageCount": 288
+      },
+      "sessionCostUSD": 11.6381
+    },
+    {
+      "sessionId": "session_071",
+      "topicSlug": "token-revalidation-discrepancy",
+      "topic": "토큰 재검증 — CC 측정 vs 레전드팀 산출 간 괴리 원인 분석",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-059"
+      ],
+      "rolesCalled": 6,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 8,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 8185955,
+        "ioTokens": 73628,
+        "inputTokens": 175,
+        "outputTokens": 73453,
+        "cacheCreate": 526667,
+        "cacheRead": 7585660,
+        "cacheHitRate": 0.9266676887424864,
+        "messageCount": 82
+      },
+      "sessionCostUSD": 5.353
+    },
+    {
+      "sessionId": "session_072",
+      "topicSlug": "dashboard-kpi-redesign",
+      "topic": "PD-NEW-A/B/C: 대시보드 KPI 개편 + 캐시 효율 보조 패널 + D-059 evidence 앵커",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 12,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 17440440,
+        "ioTokens": 114638,
+        "inputTokens": 306,
+        "outputTokens": 114332,
+        "cacheCreate": 813002,
+        "cacheRead": 16512800,
+        "cacheHitRate": 0.9468109749524668,
+        "messageCount": 228
+      },
+      "sessionCostUSD": 9.7185
+    },
+    {
+      "sessionId": "session_073",
+      "topicSlug": "efficiency-dashboard-change",
+      "topic": "효율 대시보드 변경",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 6,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 6228732,
+        "ioTokens": 57490,
+        "inputTokens": 130,
+        "outputTokens": 57360,
+        "cacheCreate": 458228,
+        "cacheRead": 5713014,
+        "cacheHitRate": 0.9172033730139617,
+        "messageCount": 87
+      },
+      "sessionCostUSD": 4.293
+    },
+    {
+      "sessionId": "session_074",
+      "topicSlug": "efficiency-dashboard-token-cost-fix",
+      "topic": "효율 대시보드 토큰·비용 패널 수정",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 14,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 8849828,
+        "ioTokens": 77759,
+        "inputTokens": 192,
+        "outputTokens": 77567,
+        "cacheCreate": 634919,
+        "cacheRead": 8137150,
+        "cacheHitRate": 0.9194698473235864,
+        "messageCount": 133
+      },
+      "sessionCostUSD": 5.9862
+    },
+    {
+      "sessionId": "session_075",
+      "topicSlug": "alarm-analysis-resolution",
+      "topic": "알람 원인 분석 및 해결",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 5,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 8,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 7,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 7656904,
+        "ioTokens": 62118,
+        "inputTokens": 394,
+        "outputTokens": 61724,
+        "cacheCreate": 286498,
+        "cacheRead": 7308288,
+        "cacheHitRate": 0.9544703707921636,
+        "messageCount": 105
+      },
+      "sessionCostUSD": 4.1939
+    },
+    {
+      "sessionId": "session_076",
+      "topicSlug": "dashboard-redesign-ux-responsive",
+      "topic": "Dashboard 개편 — 인터페이스 UX + 반응형 프레임",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 4,
+      "decisionAxes": 4,
+      "decisions": [
+        "A5 viewer 전체 통일",
+        "A6 구조 먼저 → 구현 단계에서 반응형 동시 (Ace 대안: 토큰·breakpoint를 구조 단계 포함 수용)",
+        "반응형 = desktop-first + graceful shrink",
+        "Option A 채택: topic_082 hold, PD-015 선행"
+      ],
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 2,
+      "size": 16,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 8,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 2751856,
+        "ioTokens": 30548,
+        "inputTokens": 115,
+        "outputTokens": 30433,
+        "cacheCreate": 254261,
+        "cacheRead": 2467047,
+        "cacheHitRate": 0.8965029420144077,
+        "messageCount": 35
+      },
+      "sessionCostUSD": 2.1504
+    },
+    {
+      "sessionId": "session_077",
+      "topicSlug": "growth-metrics-board-design",
+      "topic": "성장지표 정의 프레임 확정 + Board 계측 구조 설계",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-060"
+      ],
+      "rolesCalled": 15,
+      "rolesRecalled": 8,
+      "sessionsSpanned": 1,
+      "size": 36,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 13,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "ace",
+        "nova",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "arki",
+        "ace",
+        "arki",
+        "arki",
+        "arki",
+        "ace",
+        "edi",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 10410196,
+        "ioTokens": 133555,
+        "inputTokens": 236,
+        "outputTokens": 133319,
+        "cacheCreate": 543650,
+        "cacheRead": 9732991,
+        "cacheHitRate": 0.9349479106829497,
+        "messageCount": 96
+      },
+      "sessionCostUSD": 6.9591
+    },
+    {
+      "sessionId": "session_078",
+      "topicSlug": "growth-metrics-phase0-scaffold",
+      "topic": "D-060 Phase 0 구현 — metrics registry 스키마 + compute-growth 초설계",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 6,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 11,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 8,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "dev",
+        "dev",
+        "edi",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 8111340,
+        "ioTokens": 95252,
+        "inputTokens": 193,
+        "outputTokens": 95059,
+        "cacheCreate": 552775,
+        "cacheRead": 7463313,
+        "cacheHitRate": 0.9201085147460223,
+        "messageCount": 80
+      },
+      "sessionCostUSD": 5.7384
+    },
+    {
+      "sessionId": "session_079",
+      "topicSlug": "growth-metrics-phase1-automatic-mvp",
+      "topic": "D-060 Phase 1 구현 — automatic 스코어러 + 훅 체인 통합 MVP",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 6,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 3,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 7551257,
+        "ioTokens": 73203,
+        "inputTokens": 120,
+        "outputTokens": 73083,
+        "cacheCreate": 324790,
+        "cacheRead": 7153264,
+        "cacheHitRate": 0.9472944703113667,
+        "messageCount": 103
+      },
+      "sessionCostUSD": 4.4605
+    },
+    {
+      "sessionId": "session_080",
+      "topicSlug": "fin-overhead-reaudit-d060",
+      "topic": "Fin 측정 오버헤드 재감사 (D-060 운영규칙 gate)",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-061"
+      ],
+      "rolesCalled": 5,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 10,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 21,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "fin",
+        "dev",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 27597952,
+        "ioTokens": 233447,
+        "inputTokens": 449,
+        "outputTokens": 232998,
+        "cacheCreate": 1451442,
+        "cacheRead": 25913063,
+        "cacheHitRate": 0.9389487669229949,
+        "messageCount": 305
+      },
+      "sessionCostUSD": 16.7131
+    },
+    {
+      "sessionId": "session_081",
+      "topicSlug": "nd060-phase2-consensus-scoring",
+      "topic": "nD-060 Phase 2 — consensus 채점 인프라 (학습축 자가평가 MVP로 전환)",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-062"
+      ],
+      "rolesCalled": 18,
+      "rolesRecalled": 11,
+      "sessionsSpanned": 1,
+      "size": 45,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 22,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "dev",
+        "fin",
+        "riki",
+        "ace",
+        "arki",
+        "riki",
+        "fin",
+        "riki",
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "dev",
+        "vera",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 16443804,
+        "ioTokens": 250053,
+        "inputTokens": 11890,
+        "outputTokens": 238163,
+        "cacheCreate": 527324,
+        "cacheRead": 15666427,
+        "cacheHitRate": 0.9527252331638105,
+        "messageCount": 114
+      },
+      "sessionCostUSD": 10.2855
+    },
+    {
+      "sessionId": "session_082",
+      "topicSlug": "pd023-self-scores-thin-impl",
+      "topic": "PD-023 Dev 얇은 구현 (self_scores.jsonl + 훅 + 대시보드 카드)",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-063"
+      ],
+      "rolesCalled": 20,
+      "rolesRecalled": 14,
+      "sessionsSpanned": 1,
+      "size": 53,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 22,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "nova",
+        "ace",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "arki",
+        "ace",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 8257411,
+        "ioTokens": 217117,
+        "inputTokens": 295,
+        "outputTokens": 216822,
+        "cacheCreate": 384848,
+        "cacheRead": 7655446,
+        "cacheHitRate": 0.9271000317169631,
+        "messageCount": 67
+      },
+      "sessionCostUSD": 6.993
+    },
+    {
+      "sessionId": "session_083",
+      "topicSlug": "pd023-dev-impl-p0a-p3",
+      "topic": "PD-023 Dev 얇은 구현 P0a~P3 (self_scores.jsonl + 훅 + 카드)",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 7,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 13513151,
+        "ioTokens": 271533,
+        "inputTokens": 205,
+        "outputTokens": 271328,
+        "cacheCreate": 1115420,
+        "cacheRead": 12126198,
+        "cacheHitRate": 0.8973627246524515,
+        "messageCount": 118
+      },
+      "sessionCostUSD": 11.8912
+    },
+    {
+      "sessionId": "session_084",
+      "topicSlug": "pd023-p4-p5-dashboard-hook",
+      "topic": "PD-023 P4/P5 — compute-signature-metrics + dashboard 3-tier + finalize hook 등록",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 5,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 13436629,
+        "ioTokens": 58354,
+        "inputTokens": 206,
+        "outputTokens": 58148,
+        "cacheCreate": 835440,
+        "cacheRead": 12542835,
+        "cacheHitRate": 0.9334807859917841,
+        "messageCount": 113
+      },
+      "sessionCostUSD": 7.7686
+    },
+    {
+      "sessionId": "session_086",
+      "topicSlug": "cost-report-2025-html",
+      "topic": "2025 비용분석 HTML 슬라이드 보고서",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 5,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 10,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 9,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 13348847,
+        "ioTokens": 99991,
+        "inputTokens": 267,
+        "outputTokens": 99724,
+        "cacheCreate": 920602,
+        "cacheRead": 12328254,
+        "cacheHitRate": 0.9235444829055274,
+        "messageCount": 124
+      },
+      "sessionCostUSD": 8.6474
+    },
+    {
+      "sessionId": "session_087",
+      "topicSlug": "cost-report-2025-reanalysis",
+      "topic": "2025 매출/비용 재분석 — 이러닝 통합 공헌이익율",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 9,
+      "rolesRecalled": 4,
+      "sessionsSpanned": 1,
+      "size": 20,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 16,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "arki",
+        "arki",
+        "fin",
+        "riki",
+        "ace",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 14402623,
+        "ioTokens": 159112,
+        "inputTokens": 433,
+        "outputTokens": 158679,
+        "cacheCreate": 732152,
+        "cacheRead": 13511359,
+        "cacheHitRate": 0.9381179386560351,
+        "messageCount": 115
+      },
+      "sessionCostUSD": 9.1805
+    },
+    {
+      "sessionId": "session_088",
+      "topicSlug": "vera-claude-design-ai-integration",
+      "topic": "Vera Claude Design AI 웹 호출 활용 방법 — T2 아키텍처 실측 + framing 박제",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-064"
+      ],
+      "rolesCalled": 4,
+      "rolesRecalled": 2,
+      "sessionsSpanned": 1,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 8,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "ace",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 6958203,
+        "ioTokens": 47345,
+        "inputTokens": 188,
+        "outputTokens": 47157,
+        "cacheCreate": 518811,
+        "cacheRead": 6392047,
+        "cacheHitRate": 0.9186347394578744,
+        "messageCount": 66
+      },
+      "sessionCostUSD": 4.5711
+    },
+    {
+      "sessionId": "session_089",
+      "topicSlug": "pd023-self-scores-mvp-impl",
+      "topic": "PD-023 학습축 자가평가 MVP 본체 구현 — 29지표×8역할×3뷰 + Tier1/2/3 대시보드",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-065"
+      ],
+      "rolesCalled": 4,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 11,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 53,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 58219382,
+        "ioTokens": 319826,
+        "inputTokens": 908,
+        "outputTokens": 318918,
+        "cacheCreate": 1475024,
+        "cacheRead": 56424532,
+        "cacheHitRate": 0.9691709197462797,
+        "messageCount": 368
+      },
+      "sessionCostUSD": 27.2452
+    },
+    {
+      "sessionId": "session_090",
+      "topicSlug": "pd031-topic082-parallel-integration",
+      "topic": "PD-031 + topic_082 병행 통합 — self-score MVP input/output 양방향 동시 활성화",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-066"
+      ],
+      "rolesCalled": 11,
+      "rolesRecalled": 8,
+      "sessionsSpanned": 1,
+      "size": 32,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 26,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "ace",
+        "ace",
+        "ace",
+        "ace",
+        "arki",
+        "ace",
+        "arki",
+        "ace",
+        "arki",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 29019835,
+        "ioTokens": 210698,
+        "inputTokens": 488,
+        "outputTokens": 210210,
+        "cacheCreate": 921431,
+        "cacheRead": 27887706,
+        "cacheHitRate": 0.9609877519979008,
+        "messageCount": 177
+      },
+      "sessionCostUSD": 14.9763
+    },
+    {
+      "sessionId": "session_091",
+      "topicSlug": "legend-team-structure-audit-subagent-persistence",
+      "topic": "S legend-team 구조 점검 — 서브에이전트 미발동·세션 단절 원인 + 상시 병행 검토",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 4,
+      "decisionAxes": 4,
+      "decisions": [
+        "D-070",
+        "D-069",
+        "D-068",
+        "D-067"
+      ],
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 12,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 20,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 18779199,
+        "ioTokens": 217649,
+        "inputTokens": 473,
+        "outputTokens": 217176,
+        "cacheCreate": 744669,
+        "cacheRead": 17816881,
+        "cacheHitRate": 0.9487561743181911,
+        "messageCount": 145
+      },
+      "sessionCostUSD": 11.3966
+    },
+    {
+      "sessionId": "session_092",
+      "topicSlug": "agent-review-progress-and-next",
+      "topic": "A Agent review — 진행 내역 점검 + 다음 액션 식별",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 3,
+      "decisionAxes": 3,
+      "decisions": [
+        "D-073",
+        "D-072",
+        "D-071"
+      ],
+      "rolesCalled": 4,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 18,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 13611239,
+        "ioTokens": 145162,
+        "inputTokens": 1627,
+        "outputTokens": 143535,
+        "cacheCreate": 912414,
+        "cacheRead": 12553663,
+        "cacheHitRate": 0.9223012688264456,
+        "messageCount": 141
+      },
+      "sessionCostUSD": 9.3456
+    },
+    {
+      "sessionId": "session_093",
+      "topicSlug": "d058-dispatcher-unwind",
+      "topic": "D-058 unwind 구현 — dispatcher 폐기 + role-*.md archive + 연쇄 코드 정리",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-074"
+      ],
+      "rolesCalled": 7,
+      "rolesRecalled": 2,
+      "sessionsSpanned": 1,
+      "size": 16,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 23,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "arki",
+        "riki",
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 16479461,
+        "ioTokens": 175157,
+        "inputTokens": 11407,
+        "outputTokens": 163750,
+        "cacheCreate": 1166119,
+        "cacheRead": 15138185,
+        "cacheHitRate": 0.918609231212113,
+        "messageCount": 166
+      },
+      "sessionCostUSD": 11.4049
+    },
+    {
+      "sessionId": "session_094",
+      "topicSlug": "pd023-resume-self-scores-mvp",
+      "topic": "PD-023 재개 — Self-scores MVP 얇은 구현 (post-D074)",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 6,
+      "decisionAxes": 6,
+      "decisions": [
+        "D-075",
+        "D-076",
+        "D-077",
+        "D-078",
+        "D-079",
+        "D-080"
+      ],
+      "rolesCalled": 9,
+      "rolesRecalled": 4,
+      "sessionsSpanned": 1,
+      "size": 32,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 17,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "arki",
+        "fin",
+        "riki",
+        "arki",
+        "arki",
+        "ace",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 13738060,
+        "ioTokens": 147002,
+        "inputTokens": 338,
+        "outputTokens": 146664,
+        "cacheCreate": 410122,
+        "cacheRead": 13180936,
+        "cacheHitRate": 0.9594466758770889,
+        "messageCount": 100
+      },
+      "sessionCostUSD": 7.6932
+    },
+    {
+      "sessionId": "session_095",
+      "topicSlug": "pd035-yaml-instruction-8roles",
+      "topic": "PD-035 P3-supplementary — 8역할 YAML instruction 보강",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 6,
+      "decisionAxes": 6,
+      "decisions": [
+        "D-081",
+        "D-082",
+        "D-083",
+        "D-084",
+        "D-085",
+        "D-086"
+      ],
+      "rolesCalled": 14,
+      "rolesRecalled": 9,
+      "sessionsSpanned": 1,
+      "size": 47,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 56,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "ace",
+        "ace",
+        "arki",
+        "ace",
+        "arki",
+        "ace",
+        "ace",
+        "riki",
+        "riki",
+        "ace",
+        "arki",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 37467519,
+        "ioTokens": 302025,
+        "inputTokens": 844,
+        "outputTokens": 301181,
+        "cacheCreate": 1395170,
+        "cacheRead": 35770324,
+        "cacheHitRate": 0.9547022315515473,
+        "messageCount": 340
+      },
+      "sessionCostUSD": 20.4832
+    },
+    {
+      "sessionId": "session_096",
+      "topicSlug": "pd037-vera-signature-review",
+      "topic": "PD-037 Vera 실사용 시범 — signature.html 시각 점검",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 4,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 7,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 15,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "vera",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 6277439,
+        "ioTokens": 34528,
+        "inputTokens": 166,
+        "outputTokens": 34362,
+        "cacheCreate": 340000,
+        "cacheRead": 5902911,
+        "cacheHitRate": 0.9403374529007769,
+        "messageCount": 81
+      },
+      "sessionCostUSD": 3.5618
+    },
+    {
+      "sessionId": "session_097",
+      "topicSlug": "pd030-pd-auto-transition-hooks",
+      "topic": "PD-030 PD 자동 전이 훅 확장 — children/git/교차검증/Step 0 재판정",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 6,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 11,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 11,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 6466344,
+        "ioTokens": 56020,
+        "inputTokens": 124,
+        "outputTokens": 55896,
+        "cacheCreate": 464607,
+        "cacheRead": 5945717,
+        "cacheHitRate": 0.9194866527360747,
+        "messageCount": 74
+      },
+      "sessionCostUSD": 4.3648
+    },
+    {
+      "sessionId": "session_098",
+      "topicSlug": "pd036-3session-summary-autoload",
+      "topic": "PD-036 3세션 summary 자동 로드 시스템 구현",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-087"
+      ],
+      "rolesCalled": 7,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 14,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 10,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "fin",
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 7502480,
+        "ioTokens": 38190,
+        "inputTokens": 145,
+        "outputTokens": 38045,
+        "cacheCreate": 420080,
+        "cacheRead": 7044210,
+        "cacheHitRate": 0.9389175312696602,
+        "messageCount": 79
+      },
+      "sessionCostUSD": 4.2597
+    },
+    {
+      "sessionId": "session_099",
+      "topicSlug": "pd037-vera-persona-status-check",
+      "topic": "PD-037 Vera 페르소나 상태 검증 — pending 해소",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 4,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 2416763,
+        "ioTokens": 16502,
+        "inputTokens": 57,
+        "outputTokens": 16445,
+        "cacheCreate": 137321,
+        "cacheRead": 2262940,
+        "cacheHitRate": 0.9363516406035677,
+        "messageCount": 41
+      },
+      "sessionCostUSD": 1.4407
+    },
+    {
+      "sessionId": "session_100",
+      "topicSlug": "pd023-impl-status-check",
+      "topic": "PD-023 구현 점검",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 4,
+      "decisionAxes": 4,
+      "decisions": [
+        "D-091",
+        "D-090",
+        "D-089",
+        "D-088"
+      ],
+      "rolesCalled": 9,
+      "rolesRecalled": 4,
+      "sessionsSpanned": 1,
+      "size": 28,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 8,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "riki",
+        "ace",
+        "arki",
+        "riki",
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 7460184,
+        "ioTokens": 70759,
+        "inputTokens": 176,
+        "outputTokens": 70583,
+        "cacheCreate": 307755,
+        "cacheRead": 7081670,
+        "cacheHitRate": 0.9492621093527988,
+        "messageCount": 69
+      },
+      "sessionCostUSD": 4.3379
+    },
+    {
+      "sessionId": "session_101",
+      "topicSlug": "pd023-ops-activation-check",
+      "topic": "PD-023 운영 가동 점검 (fallback 비율 측정 + batch-helper 실사용)",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-092"
+      ],
+      "rolesCalled": 14,
+      "rolesRecalled": 9,
+      "sessionsSpanned": 1,
+      "size": 37,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 31,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "arki",
+        "riki",
+        "dev",
+        "ace",
+        "ace",
+        "riki",
+        "arki",
+        "arki",
+        "riki",
+        "ace",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 30675149,
+        "ioTokens": 201898,
+        "inputTokens": 524,
+        "outputTokens": 201374,
+        "cacheCreate": 927038,
+        "cacheRead": 29546213,
+        "cacheHitRate": 0.9631970491814074,
+        "messageCount": 202
+      },
+      "sessionCostUSD": 15.3624
+    },
+    {
+      "sessionId": "session_102",
+      "topicSlug": "maintenance-d087-pd036-metrics-fix",
+      "topic": "D 단발 — A-1(decision_ledger D-087~D-091 sync) + A-2(PD-036 status 전이) + A-5(compile-metrics-registry schema fix)",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 3,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 4890662,
+        "ioTokens": 45398,
+        "inputTokens": 78,
+        "outputTokens": 45320,
+        "cacheCreate": 275300,
+        "cacheRead": 4569964,
+        "cacheHitRate": 0.9344264641473895,
+        "messageCount": 68
+      },
+      "sessionCostUSD": 3.0834
+    },
+    {
+      "sessionId": "session_103",
+      "topicSlug": "pd040-schema-governance-pd041-test-regression",
+      "topic": "PD-041 test-regression 자동화 — derived data 회귀 안전망",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-093"
+      ],
+      "rolesCalled": 7,
+      "rolesRecalled": 2,
+      "sessionsSpanned": 1,
+      "size": 16,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 21,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "arki",
+        "riki",
+        "arki",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 13704904,
+        "ioTokens": 105740,
+        "inputTokens": 308,
+        "outputTokens": 105432,
+        "cacheCreate": 726984,
+        "cacheRead": 12872180,
+        "cacheHitRate": 0.939238976062875,
+        "messageCount": 117
+      },
+      "sessionCostUSD": 8.1702
+    },
+    {
+      "sessionId": "session_104",
+      "topicSlug": "dashboard-redesign-ux-responsive",
+      "topic": "Dashboard 개편 — 인터페이스 UX + 반응형 프레임",
+      "startedAt": "2026-01-01T00:00:00Z",
+      "closedAt": "2026-01-01T00:00:00Z",
+      "decisionCount": 5,
+      "decisionAxes": 5,
+      "decisions": [
+        "D-094",
+        "D-095",
+        "D-096",
+        "D-097",
+        "D-098"
+      ],
+      "rolesCalled": 17,
+      "rolesRecalled": 10,
+      "sessionsSpanned": 2,
+      "size": 53,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 40,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "arki",
+        "vera",
+        "riki",
+        "fin",
+        "ace",
+        "arki",
+        "vera",
+        "ace",
+        "dev",
+        "arki",
+        "vera",
+        "ace",
+        "dev",
+        "vera",
+        "dev",
+        "editor"
+      ],
+      "tokenUsage": {
+        "totalBillable": 41025884,
+        "ioTokens": 224366,
+        "inputTokens": 713,
+        "outputTokens": 223653,
+        "cacheCreate": 1159077,
+        "cacheRead": 39642441,
+        "cacheHitRate": 0.9662787765889457,
+        "messageCount": 236
+      },
+      "sessionCostUSD": 19.5962
+    }
+  ],
+  "roleFrequency": [
+    {
+      "role": "ace",
+      "count": 107,
+      "sessions": [
+        "session_047",
+        "session_048",
+        "session_049",
+        "session_051",
+        "session_052",
+        "session_053",
+        "session_054",
+        "session_055",
+        "session_056",
+        "session_059",
+        "session_060",
+        "session_061",
+        "session_062",
+        "session_063",
+        "session_064",
+        "session_066",
+        "session_067",
+        "session_068",
+        "session_069",
+        "session_070",
+        "session_071",
+        "session_072",
+        "session_073",
+        "session_074",
+        "session_075",
+        "session_076",
+        "session_077",
+        "session_078",
+        "session_079",
+        "session_080",
+        "session_081",
+        "session_082",
+        "session_086",
+        "session_087",
+        "session_088",
+        "session_089",
+        "session_090",
+        "session_091",
+        "session_092",
+        "session_093",
+        "session_094",
+        "session_095",
+        "session_096",
+        "session_097",
+        "session_098",
+        "session_100",
+        "session_101",
+        "session_103",
+        "session_104"
+      ]
+    },
+    {
+      "role": "arki",
+      "count": 79,
+      "sessions": [
+        "session_048",
+        "session_049",
+        "session_053",
+        "session_054",
+        "session_059",
+        "session_060",
+        "session_061",
+        "session_063",
+        "session_066",
+        "session_067",
+        "session_068",
+        "session_069",
+        "session_071",
+        "session_075",
+        "session_077",
+        "session_078",
+        "session_081",
+        "session_082",
+        "session_086",
+        "session_087",
+        "session_089",
+        "session_090",
+        "session_091",
+        "session_092",
+        "session_093",
+        "session_094",
+        "session_095",
+        "session_097",
+        "session_098",
+        "session_100",
+        "session_101",
+        "session_103",
+        "session_104"
+      ]
+    },
+    {
+      "role": "editor",
+      "count": 54,
+      "sessions": [
+        "session_050",
+        "session_051",
+        "session_052",
+        "session_053",
+        "session_054",
+        "session_055",
+        "session_056",
+        "session_057",
+        "session_058",
+        "session_059",
+        "session_060",
+        "session_061",
+        "session_062",
+        "session_063",
+        "session_064",
+        "session_065",
+        "session_066",
+        "session_067",
+        "session_068",
+        "session_069",
+        "session_070",
+        "session_071",
+        "session_072",
+        "session_073",
+        "session_074",
+        "session_075",
+        "session_076",
+        "session_077",
+        "session_078",
+        "session_079",
+        "session_080",
+        "session_081",
+        "session_082",
+        "session_083",
+        "session_084",
+        "session_086",
+        "session_087",
+        "session_088",
+        "session_089",
+        "session_090",
+        "session_091",
+        "session_092",
+        "session_093",
+        "session_094",
+        "session_095",
+        "session_096",
+        "session_097",
+        "session_098",
+        "session_099",
+        "session_100",
+        "session_101",
+        "session_102",
+        "session_103",
+        "session_104"
+      ]
+    },
+    {
+      "role": "dev",
+      "count": 43,
+      "sessions": [
+        "session_047",
+        "session_048",
+        "session_050",
+        "session_051",
+        "session_052",
+        "session_055",
+        "session_056",
+        "session_057",
+        "session_058",
+        "session_061",
+        "session_062",
+        "session_064",
+        "session_065",
+        "session_070",
+        "session_072",
+        "session_073",
+        "session_074",
+        "session_075",
+        "session_078",
+        "session_079",
+        "session_080",
+        "session_081",
+        "session_083",
+        "session_084",
+        "session_091",
+        "session_093",
+        "session_095",
+        "session_096",
+        "session_097",
+        "session_098",
+        "session_100",
+        "session_101",
+        "session_102",
+        "session_103",
+        "session_104"
+      ]
+    },
+    {
+      "role": "riki",
+      "count": 35,
+      "sessions": [
+        "session_049",
+        "session_053",
+        "session_054",
+        "session_059",
+        "session_060",
+        "session_063",
+        "session_066",
+        "session_067",
+        "session_068",
+        "session_069",
+        "session_071",
+        "session_075",
+        "session_077",
+        "session_080",
+        "session_081",
+        "session_082",
+        "session_086",
+        "session_087",
+        "session_092",
+        "session_093",
+        "session_094",
+        "session_095",
+        "session_097",
+        "session_098",
+        "session_100",
+        "session_101",
+        "session_103",
+        "session_104"
+      ]
+    },
+    {
+      "role": "fin",
+      "count": 20,
+      "sessions": [
+        "session_053",
+        "session_054",
+        "session_059",
+        "session_060",
+        "session_063",
+        "session_066",
+        "session_067",
+        "session_068",
+        "session_069",
+        "session_071",
+        "session_077",
+        "session_080",
+        "session_081",
+        "session_082",
+        "session_087",
+        "session_094",
+        "session_098",
+        "session_104"
+      ]
+    },
+    {
+      "role": "vera",
+      "count": 11,
+      "sessions": [
+        "session_049",
+        "session_052",
+        "session_081",
+        "session_096",
+        "session_104"
+      ]
+    },
+    {
+      "role": "nova",
+      "count": 3,
+      "sessions": [
+        "session_066",
+        "session_077",
+        "session_082"
+      ]
+    },
+    {
+      "role": "edi",
+      "count": 2,
+      "sessions": [
+        "session_077",
+        "session_078"
+      ]
+    }
+  ],
+  "turnSequences": [
+    {
+      "sessionId": "session_047",
+      "topic": "Phase 2 — CLAUDE.md turn push 규칙 추가 + session-end-finalize.js 검증 + validate-session-turns.ts 신설",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "execution-plan",
+          "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_048",
+      "topic": "Phase 3 — 집계 전환 + 실측 데이터 검증",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "execution-plan",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "analysis",
+          "turnIdx": 2,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "dev",
+          "phase": "execution-plan",
+          "turnIdx": 3,
+          "recallReason": "post-intervention"
+        }
+      ]
+    },
+    {
+      "sessionId": "session_049",
+      "topic": "Phase 4 — UI",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "vera",
+          "phase": "analysis",
+          "turnIdx": 1,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "phase": "analysis",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 3,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "vera",
+          "phase": "analysis",
+          "turnIdx": 4,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 5,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "arki",
+          "phase": "execution-plan",
+          "turnIdx": 6,
+          "recallReason": "post-master"
+        }
+      ]
+    },
+    {
+      "sessionId": "session_050",
+      "topic": "에디 누락 재발 방지 — session-end-finalize.js editor push 자동화",
+      "sequence": [
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_051",
+      "topic": "에디 이름 적용",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_052",
+      "topic": "Session History Design Change",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "vera",
+          "phase": "analysis",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "vera",
+          "phase": "analysis",
+          "turnIdx": 2,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "vera",
+          "phase": "analysis",
+          "turnIdx": 3,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_053",
+      "topic": "S 토픽 중심 전체 개편",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "analysis",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "analysis",
+          "turnIdx": 2,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "analysis",
+          "turnIdx": 3,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "fin",
+          "phase": "analysis",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "analysis",
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 6,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 7,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 8,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_054",
+      "topic": "PD-020a 스키마 + phase×hold 기반 구현",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "analysis",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "analysis",
+          "turnIdx": 2,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "fin",
+          "phase": "analysis",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "analysis",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 5,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 6,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 7,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_055",
+      "topic": "D-052 ledger 등재 + P1 catalog 2개 신설",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "execution-plan",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_056",
+      "topic": "PD-020a P3 — create-topic.ts·append-session.ts writer 강제",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "execution-plan",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_057",
+      "topic": "PD-020a P4 — 기존 56개 topic_meta.json phase/hold/legacy 추가 + 52개 세션 topicId 백필",
+      "sequence": [
+        {
+          "role": "dev",
+          "phase": "execution-plan",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_058",
+      "topic": "P5 — 마이그레이션 검증",
+      "sequence": [
+        {
+          "role": "dev",
+          "phase": "execution-plan",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_059",
+      "topic": "PD-020b — Context 3층 누적 구현",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "analysis",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": "analysis",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "analysis",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "analysis",
+          "turnIdx": 4,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 5,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 6,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_060",
+      "topic": "PD-020b P0+P1 — turns[] 무결성 검증 + 스키마 정의",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "analysis",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": "analysis",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "analysis",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "analysis",
+          "turnIdx": 5,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 6,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 7,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_061",
+      "topic": "PD-020b P2~P5 — L1/L2/L3 writer + 훅 편입 + L1 backfill",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "analysis",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 3,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_062",
+      "topic": "PD-020b P6 — /open 로더 통합",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_063",
+      "topic": "PD-020c — 결정 소유권 + 운영규칙 구현",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "framing",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": "framing",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "framing",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 4,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_064",
+      "topic": "PD-020c 구현 P1: decision_ledger 스키마 확장 + 백필",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 2,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 3,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 4,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_065",
+      "topic": "PD-020b 완결 검증",
+      "sequence": [
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_066",
+      "topic": "토픽 종료 선언 — 프레이밍 종결 + PD resolved 구조화",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "nova",
+          "phase": "framing",
+          "turnIdx": 1,
+          "recallReason": "master-request"
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": "design",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "design",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 5,
+          "recallReason": "post-roles"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 6,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_067",
+      "topic": "PD-022 토픽 생명주기 시스템 구현",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "analysis",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": "analysis",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "analysis",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "reframe",
+          "turnIdx": 4,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "execution-plan",
+          "turnIdx": 5,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 6,
+          "recallReason": "post-roles"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 7,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_068",
+      "topic": "PD-021 auto-model-switch 재구현 — Sonnet 메인 + Opus 서브에이전트",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "analysis",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": "analysis",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "analysis",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 4,
+          "recallReason": "post-roles"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_069",
+      "topic": "3세션 Grade A 토픽에서 비용 절감률·Master 신호 감지·재호출 분포 실측",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "execution-plan",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": "analysis",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "analysis",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 4,
+          "recallReason": "post-roles"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_070",
+      "topic": "PD-018 실행 — 실 비용($) 계산 패널 신설",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_071",
+      "topic": "토큰 재검증 — CC 측정 vs 레전드팀 산출 간 괴리 원인 분석",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": "design",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "design",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 4,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_072",
+      "topic": "PD-NEW-A/B/C: 대시보드 KPI 개편 + 캐시 효율 보조 패널 + D-059 evidence 앵커",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_073",
+      "topic": "효율 대시보드 변경",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_074",
+      "topic": "효율 대시보드 토큰·비용 패널 수정",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_075",
+      "topic": "알람 원인 분석 및 해결",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "design",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 4,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_076",
+      "topic": "Dashboard 개편 — 인터페이스 UX + 반응형 프레임",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_077",
+      "topic": "성장지표 정의 프레임 확정 + Board 계측 구조 설계",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 1,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "nova",
+          "phase": "speculative",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "structural-design",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": "cost-audit",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "adversarial-audit",
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis-1",
+          "turnIdx": 6,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "structural-design",
+          "turnIdx": 7,
+          "recallReason": "post-synthesis"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis-final",
+          "turnIdx": 8,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "execution-plan",
+          "turnIdx": 9,
+          "recallReason": "conditional→plan 전환"
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 10,
+          "recallReason": "master-challenge"
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 11,
+          "recallReason": "master-challenge"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis-final",
+          "turnIdx": 12,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 13,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 14,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_078",
+      "topic": "D-060 Phase 0 구현 — metrics registry 스키마 + compute-growth 초설계",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "structural-design",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "verification",
+          "turnIdx": 3,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_079",
+      "topic": "D-060 Phase 1 구현 — automatic 스코어러 + 훅 체인 통합 MVP",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_080",
+      "topic": "Fin 측정 오버헤드 재감사 (D-060 운영규칙 gate)",
+      "sequence": [
+        {
+          "role": "fin",
+          "phase": "audit",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 2,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "phase": "risk-review",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 4,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_081",
+      "topic": "nD-060 Phase 2 — consensus 채점 인프라 (학습축 자가평가 MVP로 전환)",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "structural-analysis",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "feasibility",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": "audit",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "risk-review",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 5,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "structural-analysis",
+          "turnIdx": 6,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "phase": "risk-review",
+          "turnIdx": 7,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "fin",
+          "phase": "audit",
+          "turnIdx": 8,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "phase": "self-audit",
+          "turnIdx": 9,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 10,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "arki",
+          "phase": "self-proposal",
+          "turnIdx": 11,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "fin",
+          "phase": "self-proposal",
+          "turnIdx": 12,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "phase": "self-proposal",
+          "turnIdx": 13,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "dev",
+          "phase": "self-proposal",
+          "turnIdx": 14,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "vera",
+          "phase": "self-proposal",
+          "turnIdx": 15,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 16,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 17,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_082",
+      "topic": "PD-023 Dev 얇은 구현 (self_scores.jsonl + 훅 + 대시보드 카드)",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "nova",
+          "phase": "speculative-input",
+          "turnIdx": 1,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 2,
+          "recallReason": "post-nova"
+        },
+        {
+          "role": "arki",
+          "phase": "structural-analysis",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 4,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 5,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 6,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 7,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 8,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 9,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 10,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 11,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 12,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 13,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 14,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "self-audit",
+          "turnIdx": 15,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "fin",
+          "phase": "audit",
+          "turnIdx": 16,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "phase": "risk-review",
+          "turnIdx": 17,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 18,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 19,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_083",
+      "topic": "PD-023 Dev 얇은 구현 P0a~P3 (self_scores.jsonl + 훅 + 카드)",
+      "sequence": [
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_084",
+      "topic": "PD-023 P4/P5 — compute-signature-metrics + dashboard 3-tier + finalize hook 등록",
+      "sequence": [
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_086",
+      "topic": "2025 비용분석 HTML 슬라이드 보고서",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "framing",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "framing",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 3,
+          "recallReason": "synthesis"
+        },
+        {
+          "role": "editor",
+          "phase": "implementation",
+          "turnIdx": 4,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_087",
+      "topic": "2025 매출/비용 재분석 — 이러닝 통합 공헌이익율",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "framing",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "framing",
+          "turnIdx": 2,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": "framing",
+          "turnIdx": 3,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "fin",
+          "phase": "framing",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "framing",
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 6,
+          "recallReason": "synthesis"
+        },
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 7,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "editor",
+          "phase": "implementation",
+          "turnIdx": 8,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_088",
+      "topic": "Vera Claude Design AI 웹 호출 활용 방법 — T2 아키텍처 실측 + framing 박제",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 1,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 2,
+          "recallReason": "synthesis"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 3,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_089",
+      "topic": "PD-023 학습축 자가평가 MVP 본체 구현 — 29지표×8역할×3뷰 + Tier1/2/3 대시보드",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "framing",
+          "turnIdx": 1,
+          "recallReason": "synthesis"
+        },
+        {
+          "role": "ace",
+          "phase": "recovery",
+          "turnIdx": 2,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 3,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_090",
+      "topic": "PD-031 + topic_082 병행 통합 — self-score MVP input/output 양방향 동시 활성화",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "reframe",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "reframe",
+          "turnIdx": 2,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "phase": "role-speech",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "role-speech",
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "relay",
+          "turnIdx": 6,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "role-speech",
+          "turnIdx": 7,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 8,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "role-speech",
+          "turnIdx": 9,
+          "recallReason": "master-direct-nomination"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 10,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_091",
+      "topic": "S legend-team 구조 점검 — 서브에이전트 미발동·세션 단절 원인 + 상시 병행 검토",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "role-speech",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "role-speech",
+          "turnIdx": 2,
+          "recallReason": "master-direct-nomination"
+        },
+        {
+          "role": "arki",
+          "phase": "role-speech",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "role-speech",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "role-speech",
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "role-speech",
+          "turnIdx": 6,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 7,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 8,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 9,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_092",
+      "topic": "A Agent review — 진행 내역 점검 + 다음 액션 식별",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "diagnosis",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "cross-attack",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 4,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_093",
+      "topic": "D-058 unwind 구현 — dispatcher 폐기 + role-*.md archive + 연쇄 코드 정리",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "analysis",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "execution-plan",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "analysis",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 6,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_094",
+      "topic": "PD-023 재개 — Self-scores MVP 얇은 구현 (post-D074)",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "analysis",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "execution-plan",
+          "turnIdx": 2,
+          "recallReason": "phase-transition"
+        },
+        {
+          "role": "fin",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "re-audit",
+          "turnIdx": 5,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 6,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 7,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 8,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_095",
+      "topic": "PD-035 P3-supplementary — 8역할 YAML instruction 보강",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 6,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 7,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 8,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 9,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 10,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 11,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 12,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compilation",
+          "turnIdx": 13,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_096",
+      "topic": "PD-037 Vera 실사용 시범 — signature.html 시각 점검",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "vera",
+          "phase": "design-critique",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compilation",
+          "turnIdx": 3,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_097",
+      "topic": "PD-030 PD 자동 전이 훅 확장 — children/git/교차검증/Step 0 재판정",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "risk-audit",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 3,
+          "recallReason": "post-intervention"
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compilation",
+          "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_098",
+      "topic": "PD-036 3세션 summary 자동 로드 시스템 구현",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": null,
+          "turnIdx": 6,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_099",
+      "topic": "PD-037 Vera 페르소나 상태 검증 — pending 해소",
+      "sequence": [
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 0,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_100",
+      "topic": "PD-023 구현 점검",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 6,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 7,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": null,
+          "turnIdx": 8,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_101",
+      "topic": "PD-023 운영 가동 점검 (fallback 비율 측정 + batch-helper 실사용)",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 2,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "phase": "design",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 6,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 7,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 8,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 9,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 10,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 11,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 12,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 13,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_102",
+      "topic": "D 단발 — A-1(decision_ledger D-087~D-091 sync) + A-2(PD-036 status 전이) + A-5(compile-metrics-registry schema fix)",
+      "sequence": [
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_103",
+      "topic": "PD-041 test-regression 자동화 — derived data 회귀 안전망",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 2,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "riki",
+          "phase": "design",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 4,
+          "recallReason": "post-master"
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 6,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_104",
+      "topic": "Dashboard 개편 — 인터페이스 UX + 반응형 프레임",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": "framing",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "vera",
+          "phase": "design",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": "design",
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": "design",
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "design",
+          "turnIdx": 6,
+          "recallReason": "post-synthesis"
+        },
+        {
+          "role": "vera",
+          "phase": "design",
+          "turnIdx": 7,
+          "recallReason": "post-synthesis"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 8,
+          "recallReason": "post-master-decisions"
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 9,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": "implementation",
+          "turnIdx": 10,
+          "recallReason": "phase-0-execution"
+        },
+        {
+          "role": "vera",
+          "phase": "implementation",
+          "turnIdx": 11,
+          "recallReason": "phase-0-execution"
+        },
+        {
+          "role": "ace",
+          "phase": "synthesis",
+          "turnIdx": 12,
+          "recallReason": "phase-0-execution"
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 13,
+          "recallReason": "phase-1-g1-execution"
+        },
+        {
+          "role": "vera",
+          "phase": "implementation",
+          "turnIdx": 14,
+          "recallReason": "spec-drift-correction"
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 15,
+          "recallReason": "phase-1-g1-pass-verification"
+        },
+        {
+          "role": "editor",
+          "phase": "compile",
+          "turnIdx": 16,
+          "recallReason": "session-close-compile"
+        }
+      ]
+    }
+  ],
+  "alarms": [
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_045",
+      "description": "역할 과호출: rolesRecalled=5 (임계값 5, grade=S)"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_077",
+      "description": "역할 과호출: rolesRecalled=8 (임계값 5, grade=S)"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_081",
+      "description": "역할 과호출: rolesRecalled=11 (임계값 5, grade=S)"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_082",
+      "description": "역할 과호출: rolesRecalled=14 (임계값 5, grade=S)"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_090",
+      "description": "역할 과호출: rolesRecalled=8 (임계값 5, grade=S)"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_095",
+      "description": "역할 과호출: rolesRecalled=9 (임계값 5, grade=S)"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_101",
+      "description": "역할 과호출: rolesRecalled=9 (임계값 5, grade=S)"
+    },
+    {
+      "ruleId": "R1",
+      "severity": "yellow",
+      "sessionId": "session_104",
+      "description": "역할 과호출: rolesRecalled=10 (임계값 5, grade=S)"
+    }
+  ],
+  "feedbackRecurrences": [
+    {
+      "keyword": "과제",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-086",
+          "summary": "이 과제 자체가 의문이야 / 이게 이정도로 크게 설계해야 할 문제인가 / 아키 페르소나에 정책이 기록되어 있"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-081",
+          "summary": "긴급 과제 끼어들기 후 PD 상태 drift가 이번 재구현 오사고의 근본 원인 — 구조적 대안 검토 필요"
+        }
+      ]
+    },
+    {
+      "keyword": "측정",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-082",
+          "summary": "심플하되 성장하는 측정 — 이렇게 측정하다가 어느순간 100이 되면 그때가서 또 조정하면 돼. 한번에 모든 "
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-051",
+          "summary": "토큰 측정 체계 재검증 지시 — 이전 '맞다' 결론 의심, 가설 3+ 수립. 대시보드 표시안 반복 재조정: "
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-S036-4",
+          "summary": "페르소나 업데이트, 성장지표 측정 논의는 욕심이었나. 버그 이외는 이연과제로."
+        }
+      ]
+    },
+    {
+      "keyword": "이렇게",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-082",
+          "summary": "심플하되 성장하는 측정 — 이렇게 측정하다가 어느순간 100이 되면 그때가서 또 조정하면 돼. 한번에 모든 "
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-075",
+          "summary": "자가평가가 이렇게 어렵고 복잡한 거였어? 의미가 퇴색되는데? 성장하되 가볍게 가고 싶다고. 배가 배꼽보다 크"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-085",
+          "summary": "본질도 아닌 것에 왜 이렇게 어렵고 꼬이지 — 측정 인프라 over-engineering 회귀 신호. 점수 "
+        }
+      ]
+    },
+    {
+      "keyword": "PD",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-081",
+          "summary": "긴급 과제 끼어들기 후 PD 상태 drift가 이번 재구현 오사고의 근본 원인 — 구조적 대안 검토 필요"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-080",
+          "summary": "PD pending ≠ 구현 미완. resolveCondition은 '종결 조건'이며 '남은 일' 아님. A"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-052",
+          "summary": "(1) PD-005 삭제 — Claude Design 웹 지원 생김, Arki/Vera가 필요 시 재도입. "
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-046",
+          "summary": "PD-020b 실집행은 새 세션으로 분할 진행. 본 세션은 framing+실행계획만."
+        }
+      ]
+    },
+    {
+      "keyword": "비용",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-079",
+          "summary": "비용 분석 시 분석 축 우선순위: 사업단위 > 거래처 > 영업대표. 영업대표 중심은 책임 추궁형, 사업단위·"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-081",
+          "summary": "비용 안분(매출비율)은 사업군 진단을 통째로 왜곡한다. 안분 결과를 '평탄'하게 만들기 때문. 가능하면 비용"
+        }
+      ]
+    },
+    {
+      "keyword": "분석",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-079",
+          "summary": "비용 분석 시 분석 축 우선순위: 사업단위 > 거래처 > 영업대표. 영업대표 중심은 책임 추궁형, 사업단위·"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-079",
+          "summary": "비용 분석 시 분석 축 우선순위: 사업단위 > 거래처 > 영업대표. 영업대표 중심은 책임 추궁형, 사업단위·"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-082",
+          "summary": "분석 리포트에 액션은 빼고 진단/분석만 담을 것. 액션은 별도 의사결정 영역. 분석 신뢰도 확보가 우선."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-S034-2",
+          "summary": "데이터 분석 시 필요하면 skill 쓰라. Bash 단발 대신 data:* / bio-research:* s"
+        }
+      ]
+    },
+    {
+      "keyword": "데이터",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-080",
+          "summary": "데이터 카테고리 명칭과 실체 다를 수 있음. '강사(개인)' = 실제론 저작권료. Master 실무 감각 없"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-031",
+          "summary": "'데이터 미스가 왜 발생한거야. 아키 데이터 정확하게 검증해봐' — 구조적 원인 분석 요구"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-031",
+          "summary": "'데이터 미스가 왜 발생한거야. 아키 데이터 정확하게 검증해봐' — 구조적 원인 분석 요구"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-S034-2",
+          "summary": "데이터 분석 시 필요하면 skill 쓰라. Bash 단발 대신 data:* / bio-research:* s"
+        }
+      ]
+    },
+    {
+      "keyword": "Arki",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-075",
+          "summary": "Arki — 설계 시 구조화·하드코딩·효율성·확장성 4축 자가점검 루틴 박음. 1차 후 자가검토 수정이 기본"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-041",
+          "summary": "1) Arki 원안에 대해 '하드코딩 최소화·확장성 최선·쉬운 길 아닌가' 자가검토 강제 → Arki 6개 "
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-008",
+          "summary": "3가지 역할 피드백: 1) Arki — 아키텍처 그리는 방법론 학습, Agent 설계가 팀 과업. 2) No"
+        }
+      ]
+    },
+    {
+      "keyword": "설계",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-075",
+          "summary": "Arki — 설계 시 구조화·하드코딩·효율성·확장성 4축 자가점검 루틴 박음. 1차 후 자가검토 수정이 기본"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-009",
+          "summary": "1) 폴더 기반 설계 확정. 2) MCP 불필요. 3) 자율수정 초기엔 전건 확인. 4) 스키마부터 고정 후"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "summary": "Dev-Arki는 단방향 설계 인수가 아니라 양방향 의견 교환. Dev=0.1% 프로그래머 특별 정의."
+        }
+      ]
+    },
+    {
+      "keyword": "하드코딩",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-075",
+          "summary": "Arki — 설계 시 구조화·하드코딩·효율성·확장성 4축 자가점검 루틴 박음. 1차 후 자가검토 수정이 기본"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-041",
+          "summary": "1) Arki 원안에 대해 '하드코딩 최소화·확장성 최선·쉬운 길 아닌가' 자가검토 강제 → Arki 6개 "
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-037",
+          "summary": "Dev 검증 기본값 + 하드코딩 금지: (1) 구현 후 런타임 검증 필수 — tsc 통과만으론 부족, 실 데"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-028",
+          "summary": "하드코딩 최소화, 데이터를 호출하는 형태로. 구조설계·코딩 전반에 적용."
+        }
+      ]
+    },
+    {
+      "keyword": "Riki",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-076",
+          "summary": "Riki 의존 금지 — Arki가 100% 완벽한 산출물 구조화. 설계 재검토는 회수비용 대비 무시 가능."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "summary": "Riki R-02 기각 — Master 주관 판정 최우선. Master 동의 없이는 실행 불가. 레전드팀=M"
+        }
+      ]
+    },
+    {
+      "keyword": "금지",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-076",
+          "summary": "Riki 의존 금지 — Arki가 100% 완벽한 산출물 구조화. 설계 재검토는 회수비용 대비 무시 가능."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-037",
+          "summary": "Dev 검증 기본값 + 하드코딩 금지: (1) 구현 후 런타임 검증 필수 — tsc 통과만으론 부족, 실 데"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-S034-1",
+          "summary": "어중간한 절충안 금지. 목표(고IF 최고점수) 기준 단일 최적해만 제시. 의견 조율은 Master 몫. Ac"
+        }
+      ]
+    },
+    {
+      "keyword": "페르소나",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-077",
+          "summary": "Fin 페르소나 동의 — 자가채점은 발언 종료 시 간략히. 본업은 발언 자체."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-S036-4",
+          "summary": "페르소나 업데이트, 성장지표 측정 논의는 욕심이었나. 버그 이외는 이연과제로."
+        }
+      ]
+    },
+    {
+      "keyword": "발언",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-077",
+          "summary": "Fin 페르소나 동의 — 자가채점은 발언 종료 시 간략히. 본업은 발언 자체."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-046",
+          "summary": "Editor를 '에디'(Edi)로 호칭하라. 발언 맥락에선 에디/Edi, 스키마·코드 식별자에만 editor"
+        }
+      ]
+    },
+    {
+      "keyword": "Grade",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-078",
+          "summary": "G6 Grade 분포 의무 — 토픽 기준 우선, 안 되면 모든 등급 점검. 구현 세션은 Dev/Ace만."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-043",
+          "summary": "Grade C /open 완료 후 Ace가 \"진행 지시 주세요\"로 Master 입력 대기 — L0 프로토콜 "
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-S036-3",
+          "summary": "Grade 조정권은 Ace가 가져. 선언 grade와 실제 gap 발생 시 Ace가 조정."
+        }
+      ]
+    },
+    {
+      "keyword": "토픽",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-078",
+          "summary": "G6 Grade 분포 의무 — 토픽 기준 우선, 안 되면 모든 등급 점검. 구현 세션은 Dev/Ace만."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-040",
+          "summary": "1) 세션-토픽 다대다는 운영 복잡도 대비 비효율 — N:1 단방향(토픽 하나에 여러 세션)으로 단순화. 여"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-014",
+          "summary": "에이스 왜 반말써? 효율화라면 토픽 확인. 타입 분류 진행. 이렇게 더 자르던가."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-015",
+          "summary": "이번에 한해서 소급 적용하라고 (토픽 타입/명칭 정비)"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-089",
+          "summary": "본인 참여 프로젝트 = 발언한 토픽. 모두 발언했으면 모두 적용되어야지."
+        }
+      ]
+    },
+    {
+      "keyword": "Dev",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-053",
+          "summary": "Dev 자가검증 실행했어? — 1차 CLI 스모크만으로 완료 선언했을 때 제동. 실제 요구 깊이: expor"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-037",
+          "summary": "Dev 검증 기본값 + 하드코딩 금지: (1) 구현 후 런타임 검증 필수 — tsc 통과만으론 부족, 실 데"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "summary": "Dev-Arki는 단방향 설계 인수가 아니라 양방향 의견 교환. Dev=0.1% 프로그래머 특별 정의."
+        }
+      ]
+    },
+    {
+      "keyword": "토큰",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-051",
+          "summary": "토큰 측정 체계 재검증 지시 — 이전 '맞다' 결론 의심, 가설 3+ 수립. 대시보드 표시안 반복 재조정: "
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-025",
+          "summary": "토큰 8.9M이 이상한데. 누적 아래에 세션당 평균 토큰수도 표기해줘."
+        }
+      ]
+    },
+    {
+      "keyword": "Ace",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-050",
+          "summary": "Ace 프레이밍 Step 0에 Master 대답 없으면 그냥 진행. Close도 동일하게 별말 없으면 승인."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-006",
+          "summary": "Ace = Master의 판단 대리인. 후행 통합기→선행 제안기 진화. 종합+자기판단 필수. Master 미"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-007",
+          "summary": "1) Ace=Master 동일화. 2) 학습 대상은 선택 흔적. 3) 정형/비정형 분리 리스크 → 내장으로."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-024",
+          "summary": "Ace 이번에 잘 주관했어."
+        }
+      ]
+    },
+    {
+      "keyword": "프레이밍",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-050",
+          "summary": "Ace 프레이밍 Step 0에 Master 대답 없으면 그냥 진행. Close도 동일하게 별말 없으면 승인."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-037",
+          "summary": "r2,4,5,6은 이해되는데 3은 프레이밍 말미로 돌아갈 일이 있나? r1도 그 정도 판정은 상관없지 않나?"
+        }
+      ]
+    },
+    {
+      "keyword": "Master",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-050",
+          "summary": "Ace 프레이밍 Step 0에 Master 대답 없으면 그냥 진행. Close도 동일하게 별말 없으면 승인."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-029",
+          "summary": "Master 지적 3건 복합: (1) 'codp ver1.0 원본데이터 기반으로 재점검' (2) 'ver2."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-001",
+          "summary": "5개 결정 항목에 대한 Master 결정 확정"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-007",
+          "summary": "1) Ace=Master 동일화. 2) 학습 대상은 선택 흔적. 3) 정형/비정형 분리 리스크 → 내장으로."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "summary": "Ace만 Master 복제. 나머지는 개별 역할 발전. Master는 이 팀의 구성원으로 각자 피드백·의견을"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "summary": "Riki R-02 기각 — Master 주관 판정 최우선. Master 동의 없이는 실행 불가. 레전드팀=M"
+        }
+      ]
+    },
+    {
+      "keyword": "제안은",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-049",
+          "summary": "기본적인 제안은 Ace가 하고 Master가 조정 — 지금까지 해온 방식 유지. 세부 결정(enum 구성 등"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-038",
+          "summary": "노바의 뒤집기 제안은 역으로 나는 세션이 문제가 아니라 토픽 중심으로 전체가 개편되어야 한다고 생각해. 해당"
+        }
+      ]
+    },
+    {
+      "keyword": "Ace가",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-049",
+          "summary": "기본적인 제안은 Ace가 하고 Master가 조정 — 지금까지 해온 방식 유지. 세부 결정(enum 구성 등"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-043",
+          "summary": "Grade C /open 완료 후 Ace가 \"진행 지시 주세요\"로 Master 입력 대기 — L0 프로토콜 "
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-002",
+          "summary": "역할 혼선 지적. Ace가 종합검토를 해야 하고, Editor는 결과물 작성/정리/출력만 해야 한다."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-S036-3",
+          "summary": "Grade 조정권은 Ace가 가져. 선언 grade와 실제 gap 발생 시 Ace가 조정."
+        }
+      ]
+    },
+    {
+      "keyword": "에디",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-046",
+          "summary": "Editor를 '에디'(Edi)로 호칭하라. 발언 맥락에선 에디/Edi, 스키마·코드 식별자에만 editor"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-038",
+          "summary": "에디터는 역할명이지 이름이 아니다. 에디(Edi)가 이름. Dev 작업도 에디가 기록해야 한다 — repor"
+        }
+      ]
+    },
+    {
+      "keyword": "검증",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-047",
+          "summary": "P0 검증 범위 전수 13개. P0 불일치 발견 시 Arki 재검토 후 수정. 축③④⑤는 역할 의견 수렴하되"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-037",
+          "summary": "Dev 검증 기본값 + 하드코딩 금지: (1) 구현 후 런타임 검증 필수 — tsc 통과만으론 부족, 실 데"
+        }
+      ]
+    },
+    {
+      "keyword": "논문",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-045",
+          "summary": "topic_044(COPD 논문 ver3.4)를 hold로 변경. PD-020b 진행 중 활성 토픽 정리."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-030",
+          "summary": "한글 버전도 만들고, K/E로 논문 구분. 논문형태로 작성, 표·그래프 추가(구조 이해 쉽도록)."
+        }
+      ]
+    },
+    {
+      "keyword": "진행",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-043",
+          "summary": "Grade C /open 완료 후 Ace가 \"진행 지시 주세요\"로 Master 입력 대기 — L0 프로토콜 "
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-012",
+          "summary": "소프트웨어 구현도 향후 진행 업무. Arki 설계 + 별도 Dev 에이전트 + Editor 디자인 강화. 에"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-079",
+          "summary": "구현은 3세션 이내 원칙으로 진행."
+        }
+      ]
+    },
+    {
+      "keyword": "선언",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-042",
+          "summary": "grade 선언 의도 확인 원칙: Master가 grade를 명시해도 Ace가 실제 토픽을 분석해서 더 낮은"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-S036-3",
+          "summary": "Grade 조정권은 Ace가 가져. 선언 grade와 실제 gap 발생 시 Ace가 조정."
+        }
+      ]
+    },
+    {
+      "keyword": "확인",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-042",
+          "summary": "grade 선언 의도 확인 원칙: Master가 grade를 명시해도 Ace가 실제 토픽을 분석해서 더 낮은"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-003",
+          "summary": "모바일 호환 확인 요청 → origin/main 분기 발견. 브랜치 일원화 지시. 일원화 완료 후 세션 종료"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-014",
+          "summary": "에이스 왜 반말써? 효율화라면 토픽 확인. 타입 분류 진행. 이렇게 더 자르던가."
+        }
+      ]
+    },
+    {
+      "keyword": "원칙",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-042",
+          "summary": "grade 선언 의도 확인 원칙: Master가 grade를 명시해도 Ace가 실제 토픽을 분석해서 더 낮은"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-011",
+          "summary": "1) receiving-code-review 원칙 흡수 — 검증 후 수용. 검증 절차에서 더 깊은 학습 가능"
+        }
+      ]
+    },
+    {
+      "keyword": "최소화",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-041",
+          "summary": "1) Arki 원안에 대해 '하드코딩 최소화·확장성 최선·쉬운 길 아닌가' 자가검토 강제 → Arki 6개 "
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-028",
+          "summary": "하드코딩 최소화, 데이터를 호출하는 형태로. 구조설계·코딩 전반에 적용."
+        }
+      ]
+    },
+    {
+      "keyword": "세션",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-040",
+          "summary": "1) 세션-토픽 다대다는 운영 복잡도 대비 비효율 — N:1 단방향(토픽 하나에 여러 세션)으로 단순화. 여"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-023",
+          "summary": "세션에 버전도 안맞고, 홈에 세션 클릭하면 메뉴바가 상단으로 올라가. 박스도 흰색이라 안보이고. 베라 이번 "
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-095",
+          "summary": "세션 사이드 메뉴에 흐름 있잖아. 그건 어떻게 할껀데?"
+        }
+      ]
+    },
+    {
+      "keyword": "에이스가",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-036",
+          "summary": "기본 전제가 D3였어. 그래야 에이스가 학습하고 패턴 읽고 호출하니까. 연속된 대답은 Claude Code가"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-077",
+          "summary": "왜 에이스가 아키의 응답을 전달하지? 라우터 역할을 하는 건가?"
+        }
+      ]
+    },
+    {
+      "keyword": "노바의",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-038",
+          "summary": "노바의 뒤집기 제안은 역으로 나는 세션이 문제가 아니라 토픽 중심으로 전체가 개편되어야 한다고 생각해. 해당"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-034",
+          "summary": "'그런데 왜 갑자기 노바의 e를 들고 온거야. 에이스 너의 의견을 받아들인건데' — (e) 프레임 소유권 혼"
+        }
+      ]
+    },
+    {
+      "keyword": "아키",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-039",
+          "summary": "아키, 베라 저 UI가 최적이야? 그리고 꼭 100세션 뒤에나 유효할까?"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-031",
+          "summary": "'데이터 미스가 왜 발생한거야. 아키 데이터 정확하게 검증해봐' — 구조적 원인 분석 요구"
+        }
+      ]
+    },
+    {
+      "keyword": "스킬",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-040",
+          "summary": "베라는 스킬 모두 인식했어?"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-081",
+          "summary": "자동 close와 수동 /close 스킬 실행 결과 차이가 뭔지 검토 필요."
+        }
+      ]
+    },
+    {
+      "keyword": "ERJ",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-032",
+          "summary": "'ERJ 모수가 작은데 되겠어?' — ERJ 권고 철회 요구"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-032",
+          "summary": "'ERJ 모수가 작은데 되겠어?' — ERJ 권고 철회 요구"
+        }
+      ]
+    },
+    {
+      "keyword": "지적",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-029",
+          "summary": "Master 지적 3건 복합: (1) 'codp ver1.0 원본데이터 기반으로 재점검' (2) 'ver2."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-002",
+          "summary": "역할 혼선 지적. Ace가 종합검토를 해야 하고, Editor는 결과물 작성/정리/출력만 해야 한다."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-094",
+          "summary": "Dashboard는? (사이드바 메뉴 빠뜨림 지적)"
+        }
+      ]
+    },
+    {
+      "keyword": "역할",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-002",
+          "summary": "역할 혼선 지적. Ace가 종합검토를 해야 하고, Editor는 결과물 작성/정리/출력만 해야 한다."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-008",
+          "summary": "3가지 역할 피드백: 1) Arki — 아키텍처 그리는 방법론 학습, Agent 설계가 팀 과업. 2) No"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "summary": "각자 희망 캐릭터 벤치마킹했으니 역할 수행 시 '그 인물이라면 어떻게 했을까' 관점으로 접근할 것."
+        }
+      ]
+    },
+    {
+      "keyword": "3가지",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-005",
+          "summary": "퍼지매칭 복합검증 로직 구체화. 3가지 규칙: 1. 적합도 80%+ 2. 사업자번호 불일치=미매칭 3. 지역"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-008",
+          "summary": "3가지 역할 피드백: 1) Arki — 아키텍처 그리는 방법론 학습, Agent 설계가 팀 과업. 2) No"
+        }
+      ]
+    },
+    {
+      "keyword": "학습",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-007",
+          "summary": "1) Ace=Master 동일화. 2) 학습 대상은 선택 흔적. 3) 정형/비정형 분리 리스크 → 내장으로."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-S036-2",
+          "summary": "학습 누적 → 적중률 → 자율성 인과체인. Grade 상향 근거."
+        }
+      ]
+    },
+    {
+      "keyword": "프로젝트",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-010",
+          "summary": "1) 프로젝트 정의 수정: 스케일업300 달성을 위해 오너십 이전이 필요하다. 2) 기획 프로젝트는 목적·정"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-089",
+          "summary": "본인 참여 프로젝트 = 발언한 토픽. 모두 발언했으면 모두 적용되어야지."
+        }
+      ]
+    },
+    {
+      "keyword": "정의",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-010",
+          "summary": "1) 프로젝트 정의 수정: 스케일업300 달성을 위해 오너십 이전이 필요하다. 2) 기획 프로젝트는 목적·정"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-087",
+          "summary": "각각 측정지표들의 정의 한 곳에만 둬. 잘못 참조하지 않게."
+        }
+      ]
+    },
+    {
+      "keyword": "이번에",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-015",
+          "summary": "이번에 한해서 소급 적용하라고 (토픽 타입/명칭 정비)"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-024",
+          "summary": "Ace 이번에 잘 주관했어."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-026",
+          "summary": "8.9는 누적같아 보이네. 전거와 이번에 증가 수치 gap이 한 세션에 들어간 토큰 같은데?"
+        }
+      ]
+    },
+    {
+      "keyword": "정교화",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-017",
+          "summary": "배제 대신 정교화 — 정교화 경로가 있는 대리 지표는 배제 금지. 없는 것과 업그레이드해서 정교화해 가는 것"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-017",
+          "summary": "배제 대신 정교화 — 정교화 경로가 있는 대리 지표는 배제 금지. 없는 것과 업그레이드해서 정교화해 가는 것"
+        }
+      ]
+    },
+    {
+      "keyword": "업그레이드",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-021",
+          "summary": "베라가 주체적으로 변경하고 제안해야지. 업그레이드 페이지만 제대로 적용되고 나머지는 이야기 한 것만 변경되잖"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-093",
+          "summary": "대시보드 중 업그레이드 템플릿이 더 좋아."
+        }
+      ]
+    },
+    {
+      "keyword": "버전도",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-023",
+          "summary": "세션에 버전도 안맞고, 홈에 세션 클릭하면 메뉴바가 상단으로 올라가. 박스도 흰색이라 안보이고. 베라 이번 "
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-030",
+          "summary": "한글 버전도 만들고, K/E로 논문 구분. 논문형태로 작성, 표·그래프 추가(구조 이해 쉽도록)."
+        }
+      ]
+    },
+    {
+      "keyword": "홈에",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-023",
+          "summary": "세션에 버전도 안맞고, 홈에 세션 클릭하면 메뉴바가 상단으로 올라가. 박스도 흰색이라 안보이고. 베라 이번 "
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-092",
+          "summary": "각 캐릭터별 색상은 홈에 있는것으로 유지하고 통일해. 내가 페이지마다 통일하라고 했는데 안된것 같네."
+        }
+      ]
+    },
+    {
+      "keyword": "누적",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-025",
+          "summary": "토큰 8.9M이 이상한데. 누적 아래에 세션당 평균 토큰수도 표기해줘."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-S036-2",
+          "summary": "학습 누적 → 적중률 → 자율성 인과체인. Grade 상향 근거."
+        }
+      ]
+    },
+    {
+      "keyword": "자율성",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-S036-1",
+          "summary": "자율성 추이는 측정된 26 이후 세션에서만 볼 수 있도록 세팅."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-S036-2",
+          "summary": "학습 누적 → 적중률 → 자율성 인과체인. Grade 상향 근거."
+        }
+      ]
+    },
+    {
+      "keyword": "각자",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "summary": "각자 희망 캐릭터 벤치마킹했으니 역할 수행 시 '그 인물이라면 어떻게 했을까' 관점으로 접근할 것."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-074",
+          "summary": "각자 역할에서 중요하다고 생각하는 부분들을 협의하여 정하고 평가는 본인이 하면 좋겠어. 난 각각 모두를 믿으"
+        }
+      ]
+    },
+    {
+      "keyword": "어렵고",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-075",
+          "summary": "자가평가가 이렇게 어렵고 복잡한 거였어? 의미가 퇴색되는데? 성장하되 가볍게 가고 싶다고. 배가 배꼽보다 크"
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-085",
+          "summary": "본질도 아닌 것에 왜 이렇게 어렵고 꼬이지 — 측정 인프라 over-engineering 회귀 신호. 점수 "
+        }
+      ]
+    },
+    {
+      "keyword": "구현은",
+      "occurrences": [
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-079",
+          "summary": "구현은 3세션 이내 원칙으로 진행."
+        },
+        {
+          "date": "2026-01-01T00:00:00Z",
+          "feedbackId": "MF-090",
+          "summary": "구현은 후속 child토픽으로 분화해도 되는데 일단 해보고. 분화하면 제대로 진행이 안돼."
+        }
+      ]
+    }
+  ]
+}

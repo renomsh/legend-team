@@ -1,0 +1,45 @@
+{
+  "aggregates": [
+    {
+      "ci95": [
+        57.4,
+        102.6
+      ],
+      "mean": 80,
+      "metricId": "ace.angle_novelty",
+      "n": 3,
+      "role": "ace",
+      "std": 20,
+      "view": "all"
+    },
+    {
+      "ci95": [
+        57.4,
+        102.6
+      ],
+      "mean": 80,
+      "metricId": "ace.angle_novelty",
+      "n": 3,
+      "role": "ace",
+      "std": 20,
+      "view": "recent10"
+    },
+    {
+      "ci95": [
+        57.4,
+        102.6
+      ],
+      "mean": 80,
+      "metricId": "ace.angle_novelty",
+      "n": 3,
+      "role": "ace",
+      "std": 20,
+      "view": "recent3"
+    }
+  ],
+  "derivedAggregates": [],
+  "metricCount": 1,
+  "recordCount": 3,
+  "registryVersion": "fixture-v1",
+  "warnings": []
+}
