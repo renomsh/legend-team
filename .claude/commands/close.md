@@ -5,11 +5,13 @@
 ## 체크리스트
 
 1. `memory/sessions/current_session.json` 읽기 — 현재 열린 세션 확인. 열린 세션이 없으면 Master에게 알림.
-1.5. **[D-131 / PD-053, 2026-04-30] Edi LLM 호출 게이트 (Grade A/B/S 전용)**
-   - `current_session.json.grade`가 `A/B/S`이고 `turns[]`에 `{role:'edi', source:'agent'}`가 없으며 `reports/{reportPath}/edi_rev*.md`(auto-compiled 아닌 것) 부재 시 → **Edi 서브에이전트 호출하여 `edi_rev1.md` 작성 후 Step 2 진행**
-   - skip 시 hook(`auditEdiLlmInvocation`)이 다축 4신호(gaps + openMasterAlerts + master_feedback_log + log) 자동 박제. 그래도 진행은 가능 — fallback은 `edi_auto_rev1.md`로 별도 박제됨
-   - Grade C/D는 본 게이트 면제. mechanical fallback만 박제
-   - **참고**: hook 자체는 LLM 호출 못 하므로 본 step은 skill 차원 권고. 실제 enforcement는 hook의 다축 신호(`auditEdiLlmInvocation`)
+1.5. **[D-131 / D-166] Zero→Edi 호출 게이트 (Grade S/A/B 전용)**
+   - `current_session.json.grade`가 `S/A/B`인 경우:
+     1. **Zero 서브에이전트 먼저 호출** — D.Condense 게이트 실행: `reports/{reportPath}/condensed.md` + `_zero_condense.json` 마커 작성. prompt 첫 줄 `## ROLE: zero` 명시.
+     2. Zero 완료 후 → **Edi 서브에이전트 호출**하여 `edi_rev1.md` 작성 후 Step 2 진행.
+   - **Grade C/D는 본 게이트 면제** — Edi 직행. mechanical fallback만 박제.
+   - skip 시 hook(`auditEdiLlmInvocation`)이 다축 4신호(gaps + openMasterAlerts + master_feedback_log + log) 자동 박제. fallback은 `edi_auto_rev1.md`로 별도 박제됨.
+   - **참고**: hook 자체는 LLM 호출 못 하므로 본 step은 skill 차원 권고. 실제 enforcement는 hook의 다축 신호(`auditEdiLlmInvocation`) + Zero Condense 게이트(`evaluateZeroCondenseGate`).
 2. 에이전트 출력물 저장:
    - 세션 중 생성된 역할별 출력을 `reports/{YYYY-MM-DD}_{topic-slug}/{role}_rev{n}.md`에 저장
    - 이미 저장된 것은 건너뜀
