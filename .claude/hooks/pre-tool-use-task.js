@@ -215,22 +215,28 @@ function evaluateZeroCondenseGate(cwd, role, sess) {
   if (role !== 'edi') return null;
   if (!sess || !sess.reportPath || !sess.sessionId) return null;
 
+  // PD-064 P1 (session_194): zero-condense-marker SOT 헬퍼 사용 + legacy 키 호환 read.
+  // silent catch 제거 — 파싱 실패 시 BLOCK 메시지에 reason 포함.
+  let gateReason = null;
   try {
-    const markerPath = path.join(cwd, sess.reportPath, '_zero_condense.json');
-    if (fs.existsSync(markerPath)) {
-      const marker = readJsonFile(markerPath);
-      if (marker && marker.sessionId === sess.sessionId) {
-        return null; // 게이트 통과
-      }
+    const { readAndValidateMarker } = require('../../scripts/lib/zero-condense-marker.js');
+    const reportDir = path.join(cwd, sess.reportPath);
+    const result = readAndValidateMarker(reportDir, sess);
+    if (result.valid) {
+      return null; // 게이트 통과
     }
-  } catch {}
+    gateReason = result.reason || 'unknown validation failure';
+  } catch (e) {
+    gateReason = 'helper-error: ' + (e && e.message);
+  }
 
   return [
     '🚫 ZERO_CONDENSE_GATE_BLOCK 🚫',
     '',
     '이 Edi 호출은 Zero Condense 게이트 미완료로 차단됩니다.',
     '',
-    `현 세션(${sess.sessionId}) reports/${sess.reportPath}/에 _zero_condense.json 마커가 없습니다.`,
+    `현 세션(${sess.sessionId}) reports/${sess.reportPath}/에 _zero_condense.json 마커가 없거나 유효하지 않습니다.`,
+    `진단: ${gateReason}`,
     '',
     '## 당신(Edi)의 유일한 행동',
     '',

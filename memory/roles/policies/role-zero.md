@@ -52,20 +52,27 @@ Phase B 완료 후 `_zero_condense.json` 마커에 `phaseB` 필드 추가.
 Phase A 완료 시 마커 파일 작성. `pre-tool-use-task.js` v4가 이 파일 부재 시 Edi 호출을 차단한다.
 Phase B 완료 시 동일 마커에 `phaseB` 필드 추가.
 
+**PD-064 P1 (session_194, 2026-05-05) — SOT 헬퍼 의무:**
+마커 박제는 반드시 `scripts/lib/zero-condense-marker.{ts,js}`의 `writeMarker()` 헬퍼를 통해서만 수행한다.
+Raw `JSON.stringify` + `fs.writeFileSync` 직접 박제 금지 — 키 드리프트(session vs sessionId / executedAt vs completedAt) 재발 방지.
+
+```ts
+// canonical 사용 예
+import { writeMarker } from 'scripts/lib/zero-condense-marker';
+writeMarker(reportDir, { sessionId, topicId }, {
+  refinedRoles: ['arki', 'riki'],
+  skippedRoles: [],
+});
+```
+
+canonical schema (writeMarker가 강제):
 ```
 경로: reports/{reportPath}/_zero_condense.json
-형식:
-{
-  "sessionId": "session_NNN",
-  "completedAt": "ISO 8601",
-  "refinedRoles": ["arki", "riki", ...],
-  "skippedRoles": [],
-  "phaseB": {
-    "completedAt": "ISO 8601",
-    "ediCondensed": "topics/{topicId}/session_contributions/{sessionId}_edi_report_condensed.md"
-  }
-}
+필수 키: sessionId, topicId, completedAt, files[]
+선택 키: refinedRoles, skippedRoles, phaseB, originalSizes, condensedSizes 등
 ```
+
+레거시 키(`session`/`topic`/`executedAt`)는 `readAndValidateMarker`가 호환 read만 지원. 신규 박제에 사용 금지.
 
 **자동 강제 흐름 (Master 명시 호출 불요):**
 1. 다른 역할들 발언 완료

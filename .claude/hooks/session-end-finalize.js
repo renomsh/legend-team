@@ -437,6 +437,33 @@ function validateInlineRoleHeaders(sess) {
     return;
   }
 
+  // PD-064 P3 (session_194): findTurnById helper + role_registry.json SOT read.
+  let findTurnById;
+  try {
+    ({ findTurnById } = require(path.join(CWD, 'scripts', 'lib', 'turn-types.js')));
+  } catch (e) {
+    log(`inline-role-headers: findTurnById helper load 실패 — fallback to array index. ${e && e.message}`);
+    findTurnById = (turns, turnIdx) => (turns && turnIdx < turns.length ? turns[turnIdx] : null);
+  }
+
+  // KNOWN role 리스트 — role_registry.json SOT read (jobs/zero/sage/vera 자동 포함)
+  let KNOWN_ROLES = ['ace', 'arki', 'fin', 'riki', 'nova', 'dev', 'edi', 'designer'];
+  try {
+    const regPath = path.join(CWD, 'memory', 'shared', 'role_registry.json');
+    if (fs.existsSync(regPath)) {
+      const reg = JSON.parse(fs.readFileSync(regPath, 'utf8'));
+      if (Array.isArray(reg.roles)) {
+        KNOWN_ROLES = reg.roles.map(r => String(r.id || '').toLowerCase()).filter(Boolean);
+        // designer는 vera의 별칭 — 둘 다 KNOWN 처리
+        if (!KNOWN_ROLES.includes('designer') && KNOWN_ROLES.includes('vera')) {
+          KNOWN_ROLES.push('designer');
+        }
+      }
+    }
+  } catch (e) {
+    log(`inline-role-headers: role_registry.json load 실패, 정적 fallback. ${e && e.message}`);
+  }
+
   const turns = Array.isArray(sess.turns) ? sess.turns : [];
   const violations = [];
 
@@ -472,10 +499,11 @@ function validateInlineRoleHeaders(sess) {
 
     if (!role || turnId === null) continue; // 식별 불가 — skip
 
-    // turns[]와 cross-check
-    if (turnId < turns.length) {
-      const turnRole = turns[turnId] && turns[turnId].role;
-      if (turnRole && turnRole.toLowerCase() !== role) {
+    // PD-064 P3: turns[]와 cross-check — findTurnById 사용 (array index 직접 접근 폐기)
+    const matchedTurn = findTurnById(turns, turnId);
+    if (matchedTurn) {
+      const turnRole = matchedTurn.role;
+      if (turnRole && String(turnRole).toLowerCase() !== role) {
         violations.push({
           type: 'inline-role-header-mismatch',
           file: path.posix.join(sess.reportPath.replace(/\\/g, '/'), f),
@@ -484,14 +512,21 @@ function validateInlineRoleHeaders(sess) {
           turnId,
         });
       }
+    } else if (turns.length > 0) {
+      // turnId 박제됐으나 turns[]에 매칭 없음 — 신규 gap type
+      violations.push({
+        type: 'turn-not-found',
+        file: path.posix.join(sess.reportPath.replace(/\\/g, '/'), f),
+        turnId,
+        note: 'frontmatter turnId가 turns[]에 존재하지 않음',
+      });
     }
 
-    // 본문 H1 ↔ frontmatter role
+    // 본문 H1 ↔ frontmatter role — KNOWN은 role_registry SOT read
     const h1Match = content.match(/^#\s+(\w+)/m);
     if (h1Match) {
       const h1Role = h1Match[1].toLowerCase();
-      const KNOWN = ['ace', 'arki', 'fin', 'riki', 'nova', 'dev', 'edi', 'designer'];
-      if (KNOWN.includes(h1Role) && h1Role !== role) {
+      if (KNOWN_ROLES.includes(h1Role) && h1Role !== role) {
         violations.push({
           type: 'inline-role-header-h1-mismatch',
           file: path.posix.join(sess.reportPath.replace(/\\/g, '/'), f),
@@ -1382,10 +1417,13 @@ function checkVersionBumpConfirmation(sess) {
     return;
   }
 
-  // R-2 mitigation: 이미 'version-bump-edi-unconfirmed' 박제 시 early return
+  // R-2 mitigation: 이미 unconfirmed/not-dispatched 박제 시 early return (PD-064 P4 type 추가)
   sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
-  if (sess.gaps.some(g => g.type === 'version-bump-edi-unconfirmed')) {
-    log('checkVersionBumpConfirmation skip: version-bump-edi-unconfirmed 이미 박제됨 (R-2 이중 박제 방지)');
+  if (sess.gaps.some(g =>
+    g.type === 'version-bump-edi-unconfirmed' ||
+    g.type === 'version-bump-edi-not-dispatched'
+  )) {
+    log('checkVersionBumpConfirmation skip: version-bump 관련 gap 이미 박제됨 (R-2 이중 박제 방지)');
     return;
   }
 
@@ -1393,9 +1431,38 @@ function checkVersionBumpConfirmation(sess) {
   const bump = sess.versionBump;
   const confirmed = bump && bump.confirmedBy === 'edi' && bump.confirmedAt;
   if (confirmed) {
-    log('checkVersionBumpConfirmation: Edi 확정 확인됨 — 경고 없음');
+    // PD-064 P2 (session_194): suggested vs confirmed value 차이 감지 → info gap만 박제
+    // (자동 reconcile 룰 도입 보류 — D-130 'Edi 단일 책임' 보존, Riki 권고)
+    if (suggested.value != null && bump.value != null && suggested.value !== bump.value) {
+      const hasOverrideReason = bump.overrideReason && String(bump.overrideReason).trim();
+      if (!hasOverrideReason) {
+        sess.gaps.push({
+          type: 'version-bump-suggested-vs-confirmed-diff',
+          severity: 'info',
+          detail: `suggested=${suggested.value} vs confirmed=${bump.value} (overrideReason 없음)`,
+          suggestedValue: suggested.value,
+          confirmedValue: bump.value,
+          addedBy: 'checkVersionBumpConfirmation',
+          ref: 'PD-064-P2',
+        });
+        writeJson(CURRENT_SESSION_PATH, sess);
+        log(`checkVersionBumpConfirmation: info gap — suggested(${suggested.value}) vs confirmed(${bump.value}) overrideReason 누락`);
+      } else {
+        log(`checkVersionBumpConfirmation: suggested(${suggested.value}) vs confirmed(${bump.value}) — overrideReason 명시됨, gap 박제 skip`);
+      }
+    } else {
+      log('checkVersionBumpConfirmation: Edi 확정 확인됨 — 경고 없음');
+    }
     return;
   }
+
+  // PD-064 P4 (session_194): Edi turn 자체가 dispatch 안 된 케이스 분리.
+  // agentsCompleted 또는 turns에서 edi 부재이면 'version-bump-edi-not-dispatched' 별도 gap.
+  const agentsCompleted = Array.isArray(sess.agentsCompleted) ? sess.agentsCompleted : [];
+  const turns = Array.isArray(sess.turns) ? sess.turns : [];
+  const ediInAgents = agentsCompleted.some(a => String(a).toLowerCase() === 'edi');
+  const ediInTurns = turns.some(t => t && String(t.role || '').toLowerCase() === 'edi');
+  const ediDispatched = ediInAgents || ediInTurns;
 
   // R-1 mitigation: session-end-finalize.js 단독 변경 세션 → severity 'info' 강등
   const changedFiles = suggested.changedFiles || [];
@@ -1404,13 +1471,18 @@ function checkVersionBumpConfirmation(sess) {
     changedFiles[0] === '.claude/hooks/session-end-finalize.js';
   const severity = isSingleHookSelf ? 'info' : 'high';
 
-  // gaps 박제
+  // gaps 박제 — PD-064 P4: Edi dispatch 부재 시 별도 type
+  const gapType = ediDispatched
+    ? 'version-bump-edi-unconfirmed'
+    : 'version-bump-edi-not-dispatched';
   sess.gaps.push({
-    type: 'version-bump-edi-unconfirmed',
+    type: gapType,
     severity,
-    detail: 'versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록',
+    detail: ediDispatched
+      ? 'versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록'
+      : 'versionBumpSuggested 존재하나 Edi turn 자체가 dispatch되지 않음 (호출 부재)',
     addedBy: 'checkVersionBumpConfirmation',
-    ref: 'D-140',
+    ref: ediDispatched ? 'D-140' : 'PD-064-P4',
     suggestedValue: suggested.value,
   });
 

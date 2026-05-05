@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "v0.927",
+    "version": "v0.937",
     "versionSchema": {
       "format": "X.YYY (3자리 소수 float, 점 하나)",
       "incrementRules": {
@@ -289,6 +289,12 @@
       "date": "2026-05-05",
       "summary": "policy weight 컬럼 폐기 — 8 파일 정책 정제, dead field 제거. 정보 손실 0(inputPriority/polarity 보존).",
       "sessionId": "session_193"
+    },
+    {
+      "version": "v0.937",
+      "date": "2026-05-05",
+      "summary": "Capability 확장: scripts/lib/zero-condense-marker.{ts,js} SOT 헬퍼 신규, scripts/lib/turn-types.ts findTurnById export, hook gap type 2종 신규(turn-not-found, version-bump-edi-not-dispatched), dispatch_config.json rules.edi.version_bump_override_requires_reason 신규, role-zero.md/role-edi.md 정책 명문화. decision_ledger 변경 1건(D-162). D-130 capacity 카테고리 +0.01.",
+      "sessionId": "session_194"
     }
   ],
   "lastUpdated": "2026-05-05"

@@ -86,7 +86,8 @@
         "orchestration": false,
         "synthesis": false
       },
-      "enforcement_note": "D-138 enforcement(enforceEdiAgentSource·auditEdiLlmInvocation·copyEdiReportToSessionContributions)는 .claude/hooks/session-end-finalize.js에 인라인 박제됨. 본 rule은 정책 일관성 박제용으로 hook이 read하지 않음 — Opt-α (session_165, topic_142). config로 enforcement 영구 박제 회피로 D-142 'ROI 0 자동 감시 금지' 정신과 양립.",
+      "version_bump_override_requires_reason": true,
+      "enforcement_note": "D-138 enforcement(enforceEdiAgentSource·auditEdiLlmInvocation·copyEdiReportToSessionContributions)는 .claude/hooks/session-end-finalize.js에 인라인 박제됨. 본 rule은 정책 일관성 박제용으로 hook이 read하지 않음 — Opt-α (session_165, topic_142). config로 enforcement 영구 박제 회피로 D-142 'ROI 0 자동 감시 금지' 정신과 양립. PD-064 P2 (session_194): version_bump_override_requires_reason 필드 추가 — finalize.js#checkVersionBumpConfirmation이 suggested vs confirmed 차이 + overrideReason 부재 시 info gap 박제.",
       "introducedBy": "topic_142 (session_165, 2026-05-02) — 8역할 정책 비대칭 해소"
     }
   }

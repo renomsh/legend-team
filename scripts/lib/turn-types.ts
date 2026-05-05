@@ -84,3 +84,31 @@ export interface SessionIndexTurnFields {
   plannedSequence?: string[];
   legacy?: boolean;
 }
+
+/**
+ * PD-064 P3 (session_194, topic_167, 2026-05-05) — turnIdx → Turn lookup helper.
+ *
+ * **불변성 명문화**: `turnIdx`는 session 내 globally unique 식별자이며 array position과 무관.
+ * D-048 Turn Push C1 분리/병합 4조건에 따라 array index와 turnIdx 일치는 우발적이다.
+ *
+ * 따라서 `turns[turnIdx]` 직접 접근은 fragile — 본 헬퍼 사용 의무.
+ * 첫 매치만 반환. duplicate turnIdx 감지 시 console.warn (호출측 결정 영향 없음).
+ *
+ * @returns 매칭 Turn, 없으면 null.
+ */
+export function findTurnById(turns: Turn[] | undefined | null, turnIdx: number): Turn | null {
+  if (!Array.isArray(turns) || turns.length === 0) return null;
+  let first: Turn | null = null;
+  let dupCount = 0;
+  for (const t of turns) {
+    if (t && t.turnIdx === turnIdx) {
+      if (first === null) first = t;
+      else dupCount++;
+    }
+  }
+  if (dupCount > 0) {
+    // eslint-disable-next-line no-console
+    console.warn(`findTurnById: duplicate turnIdx=${turnIdx} 감지 (${dupCount + 1}건). 첫 매치 반환.`);
+  }
+  return first;
+}

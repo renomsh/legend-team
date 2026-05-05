@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_193",
-  "nextSessionId": "session_194",
-  "currentVersion": "v0.927",
+  "lastSessionId": "session_194",
+  "nextSessionId": "session_195",
+  "currentVersion": "v0.937",
   "openTopics": [
     {
       "id": "topic_012",
@@ -13,6 +13,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-162",
+      "date": "2026-05-05",
+      "axis": "PD-064 결함 3건+G2 수정 — Riki 축소안 채택",
+      "summary": "PD-064 결함 3건+G2 수정 — Riki 축소안 채택"
+    },
     {
       "id": "D-161",
       "date": "2026-05-05",
@@ -36,15 +42,18 @@
       "date": "2026-05-05",
       "axis": "Self-Score 지표 표 형식 통일 — 문법 통일·컬럼 가변 (Jobs B안)",
       "summary": "Self-Score 지표 표 형식 통일 — 문법 통일·컬럼 가변 (Jobs B안)"
-    },
-    {
-      "id": "D-157",
-      "date": "2026-05-05",
-      "axis": "Persona Layer 2차 정제 — Zero·Riki 협업 부분 적용",
-      "summary": "Persona Layer 2차 정제 — Zero·Riki 협업 부분 적용"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_194",
+      "topicSlug": "pd064-edi-subagent-hook-fp",
+      "closedAt": "2026-05-05T18:30:00.000Z",
+      "oneLineSummary": "PD-064 결함 3건+G2 Riki 축소안 4단 구현·검증 PASS → D-162 + PD-064 resolved + versionBump +0.01 (v0.927→v0.937)",
+      "decisionsAdded": [
+        "D-162"
+      ]
+    },
     {
       "sessionId": "session_193",
       "topicSlug": "pd062-selfscore-weight-sot",
@@ -62,15 +71,6 @@
       "decisionsAdded": [
         "D-159",
         "D-160"
-      ]
-    },
-    {
-      "sessionId": "session_191",
-      "topicSlug": "self-score-table-format-unify",
-      "closedAt": "2026-05-05T13:00:00.000Z",
-      "oneLineSummary": "self-score 표 통일: 8 policy −600B, drift 5건 정정, D-158, PD-060 resolved, PD-062·PD-063(high) 신규",
-      "decisionsAdded": [
-        "D-158"
       ]
     }
   ],
@@ -131,22 +131,7 @@
       "relatedDecisions": [
         "D-159"
       ]
-    },
-    {
-      "id": "PD-064",
-      "fromSession": "session_191",
-      "fromTopic": "topic_164 (self-score-table-format-unify)",
-      "item": "Edi subagent + close hook 검증 로직 결함 3건: (1) Edi subagent zero-condense gate false positive — _zero_condense.json 마커 정상 존재하나 2회 모두 차단, main inline fallback 강제됨. (2) inline-role-header-mismatch hook false positive — condensed.md/edi_rev1.md를 turn index 순서로 잘못 매핑, role 헤더 정상인데 5건 gap 박제. (3) versionBump 충돌 처리 — Edi inline override(0.01 capability) vs hook 자동감지(0.1 structural) 충돌 시 우선순위 미정의, confirmedBy:null 상태로 종결됨.",
-      "status": "pending",
-      "severity": "medium",
-      "resolveCondition": "Edi subagent gate 로직 점검 + inline-role-header-mismatch 매핑 알고리즘 수정 + versionBump override 우선순위 명문화",
-      "dependsOn": [],
-      "relatedDecisions": [
-        "D-131",
-        "D-138",
-        "D-140"
-      ]
     }
   ],
-  "lastUpdated": "2026-05-05T02:17:32.642Z"
+  "lastUpdated": "2026-05-05T04:03:52.587Z"
 }

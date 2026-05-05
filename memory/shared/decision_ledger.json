@@ -1,6 +1,26 @@
 {
   "decisions": [
     {
+      "id": "D-162",
+      "date": "2026-05-05",
+      "session": "session_194",
+      "topic": "topic_167",
+      "axis": "PD-064 결함 3건+G2 수정 — Riki 축소안 채택",
+      "summary": "PD-064 (Edi subagent gate + close hook 검증 FP 3건) + Riki G2 4번째 결함 = 4건 일괄 수정. (1) zero-condense gate FP: 마이그레이션 폐기, scripts/lib/zero-condense-marker.{ts,js} SOT 헬퍼(writeMarker/readAndValidateMarker) 신규 + legacy compat read만, role-zero.md 헬퍼 사용 의무 명문화. (2) inline-role-header-mismatch FP: turn-types.ts findTurnById export + role_registry.json SOT KNOWN read(designer alias 보존) + turn-not-found gap. (3) versionBump 충돌: 자동 reconcile 룰 도입 보류(D-130 Edi 단일 책임 잠식 우려), suggested ≠ confirmed + overrideReason 부재 시 info gap만, role-edi.md §6.3 + dispatch_config rules.edi.version_bump_override_requires_reason 명문화. (4) Edi 미dispatch gap type 분리: agentsCompleted/turns로 dispatch 여부 판정, version-bump-edi-not-dispatched 별도 type. 검증: hook syntax PASS, tsc 0 errors, 단위 테스트 12/12 PASS, 실제 마커 FP 제거 확인.",
+      "decision": "Riki 축소안 4단(P1~P4) 채택. legacy migrate 폐기 / versionBump 자동 reconcile 보류 / role_registry SOT KNOWN / Edi 미dispatch gap type 분리.",
+      "caveats": [
+        "legacy 마커는 read 호환만 — 신규 박제는 canonical 강제 (D-028 정신 보존)",
+        "version-bump-suggested-vs-confirmed-diff는 severity info — N세션 모니터링 후 상향 검토",
+        "findTurnById O(n) — turn 100건 미만 ROI 영향 없음, Map 캐시 보류",
+        "legacy turn(turnIdx 누락) 섞인 세션은 turns.length > 0 조건으로만 발동 — 영향 없음"
+      ],
+      "supersedes": [],
+      "related": ["D-028", "D-048", "D-125", "D-130", "D-131", "D-138", "D-140", "D-143"],
+      "relatedTopic": "topic_167",
+      "relatedPD": "PD-064",
+      "status": "active"
+    },
+    {
       "id": "D-161",
       "date": "2026-05-05",
       "session": "session_193",

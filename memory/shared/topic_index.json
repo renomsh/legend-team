@@ -1,6 +1,22 @@
 {
   "topics": [
     {
+      "id": "topic_167",
+      "title": "PD-064 Edi subagent gate + close hook 검증 결함 3건",
+      "status": "completed",
+      "outcome": "Riki 축소안 4단(P1~P4) 구현 + G2 4번째 결함 포함 — zero-condense gate FP 제거 / findTurnById + role_registry SOT / suggested-vs-confirmed-diff info gap / Edi 미dispatch gap type 분리. 검증 12/12 PASS, syntax/tsc 0 errors. D-162 박제, PD-064 resolved.",
+      "grade": "B",
+      "phase": "completed",
+      "hold": null,
+      "created": "2026-05-05",
+      "controlPath": "topics/topic_167",
+      "reportPath": "reports/2026-05-05_pd064-edi-subagent-hook-fp",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_194",
+      "path": "topics/topic_167"
+    },
+    {
       "id": "topic_166",
       "title": "PD-062 Self-Score weight 필드 SOT 정합",
       "status": "completed",
@@ -3203,5 +3219,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-05T02:17:21.180Z"
+  "lastUpdated": "2026-05-05T04:03:24.670Z"
 }

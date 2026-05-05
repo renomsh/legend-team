@@ -8628,8 +8628,91 @@
       "decisionsAdded": [
         "D-161"
       ]
+    },
+    {
+      "sessionId": "session_194",
+      "topicSlug": "pd064-edi-subagent-hook-fp",
+      "topic": "PD-064 Edi subagent gate + close hook 검증 결함 3건",
+      "startedAt": "2026-05-05T18:00:00.000Z",
+      "closedAt": "2026-05-05T18:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "dev",
+        "edi",
+        "zero",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "arki",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "aud_rcl": 0.5,
+            "str_fd": 3,
+            "spc_lck": "N",
+            "sa_rnd": 1
+          }
+        },
+        {
+          "role": "riki",
+          "turnIdx": 1,
+          "source": "agent",
+          "selfScores": {
+            "crt_rcl": 0.5,
+            "cr_val": "Y",
+            "prd_rej": "Y",
+            "fp_rt": 0
+          }
+        },
+        {
+          "role": "dev",
+          "turnIdx": 2,
+          "source": "agent",
+          "selfScores": {
+            "rt_cov": 0.95,
+            "gt_pas": 1,
+            "hc_rt": 0,
+            "spc_drf": 0
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 3,
+          "source": "agent"
+        },
+        {
+          "role": "zero",
+          "turnIdx": 4,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 1,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 5,
+          "source": "agent",
+          "selfScores": {
+            "gp_acc": 1,
+            "scc": "Y",
+            "cs_cnt": 4,
+            "art_cmp": 1,
+            "gap_fc": 1
+          }
+        }
+      ],
+      "grade": "B",
+      "oneLineSummary": "PD-064 결함 3건+G2 Riki 축소안 4단 구현·검증 PASS → D-162 + PD-064 resolved + versionBump +0.01 (v0.927→v0.937)",
+      "decisionsAdded": [
+        "D-162"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-05T02:17:06.686Z",
+  "lastUpdated": "2026-05-05T04:02:48.673Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

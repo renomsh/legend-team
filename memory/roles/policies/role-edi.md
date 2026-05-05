@@ -73,6 +73,12 @@ Edi는 다음 경우 자동 감지값을 override할 수 있다:
 
 Override 시 **사유 필수** (1줄 이상). 사유 없는 override 금지.
 
+**PD-064 P2 (session_194, 2026-05-05) — Edi 의무 절차:**
+1. `current_session.json.versionBumpSuggested`를 **먼저 read**한다.
+2. 확정값이 `versionBumpSuggested.value`와 **다르면** `versionBump.overrideReason` 필수 박제.
+3. `overrideReason` 누락 시 finalize hook이 `version-bump-suggested-vs-confirmed-diff` info gap을 박제 (severity: info — 경보 아님, 추적용).
+4. dispatch_config: `rules.edi.version_bump_override_requires_reason: true` 정합.
+
 ### 6.4 versionBumpSuggested 부재 시 + Edi LLM 미호출 처리 (D-131, 2026-04-30)
 
 **케이스 1 — suggested 부재**: 자동 감지가 0건(매칭 카테고리 없음 또는 변경 파일 0건)이면 Edi는 확정 step 자체를 생략하거나 "변경 없음 — bump 0" 1줄 명시. 임의 박제 금지.

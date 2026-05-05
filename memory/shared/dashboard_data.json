@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-05T02:18:23.633Z",
-  "totalSessions": 190,
+  "generatedAt": "2026-05-05T04:04:20.929Z",
+  "totalSessions": 191,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [
     {
@@ -8,25 +8,25 @@
       "caveat": "rules.edi가 hook에 의해 read되지 않으므로 정책 토글 기능 0(예: enforcement_grade 변경으로 enforcement 끄기 불가). 향후 D-138 enforcement 폐기 결정 시 finalize.js line 1521 직접 삭제 + rules.edi.enforcement_note 갱신 필요. Riki R-2(session_164 5 gap false positive 의심)는 미해소 — PD로 이연.",
       "ackedBySession": "session_168",
       "ackedAt": "2026-05-02",
-      "ageInSessions": 25
+      "ageInSessions": 26
     },
     {
       "decisionId": "D-138",
       "caveat": "dispatch_config.json Edi rule 부재는 잔존 — pre-tool-use-task.js가 dispatch_config를 실제 enforce하는 hook 구현 후 rule 추가 순서 유지 필요. turns 중복 기록 패턴(이번 세션 turns[1]/[3])은 별도 점검 후보.",
       "ackedBySession": "session_168",
       "ackedAt": "2026-05-02",
-      "ageInSessions": 25
+      "ageInSessions": 26
     }
   ],
   "metrics": {
-    "avgMasterTurns": 19.97,
-    "avgCacheHitRate": 0.9331,
-    "cacheSampleSize": 164,
-    "cacheSampleTotal": 190,
+    "avgMasterTurns": 19.91,
+    "avgCacheHitRate": 0.933,
+    "cacheSampleSize": 165,
+    "cacheSampleTotal": 191,
     "avgAdoptionRate": 0,
-    "totalDecisions": 162,
+    "totalDecisions": 163,
     "gradeDistribution": {
-      "S": 88,
+      "S": 89,
       "A": 37,
       "B": 42,
       "C": 15,
@@ -35,7 +35,7 @@
     "topicGradeDistribution": {
       "S": 18,
       "A": 59,
-      "B": 51,
+      "B": 52,
       "C": 27,
       "D": 7
     },
@@ -53,10 +53,10 @@
       "session_172"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 145,
-    "totalCostUSD": 2273.8215,
-    "avgCostPerSession": 12.2909,
-    "costSampleSize": 185
+    "turnBasedSessions": 146,
+    "totalCostUSD": 2277.2743,
+    "avgCostPerSession": 12.2434,
+    "costSampleSize": 186
   },
   "sessions": [
     {
@@ -7323,6 +7323,47 @@
         "messageCount": 107
       },
       "sessionCostUSD": 5.9865
+    },
+    {
+      "sessionId": "session_194",
+      "topicSlug": "pd064-edi-subagent-hook-fp",
+      "topic": "PD-064 Edi subagent gate + close hook 검증 결함 3건",
+      "startedAt": "2026-05-05T18:00:00.000Z",
+      "closedAt": "2026-05-05T18:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-162"
+      ],
+      "rolesCalled": 6,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 9,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "dev",
+        "edi",
+        "zero",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 4645675,
+        "ioTokens": 54513,
+        "inputTokens": 160,
+        "outputTokens": 54353,
+        "cacheCreate": 365129,
+        "cacheRead": 4226033,
+        "cacheHitRate": 0.9096703923541789,
+        "messageCount": 49
+      },
+      "sessionCostUSD": 3.4528
     }
   ],
   "roleFrequency": [
@@ -7423,7 +7464,7 @@
     },
     {
       "role": "edi",
-      "count": 156,
+      "count": 158,
       "sessions": [
         "session_050",
         "session_051",
@@ -7566,12 +7607,13 @@
         "session_190",
         "session_191",
         "session_192",
-        "session_193"
+        "session_193",
+        "session_194"
       ]
     },
     {
       "role": "arki",
-      "count": 134,
+      "count": 135,
       "sessions": [
         "session_048",
         "session_049",
@@ -7645,12 +7687,13 @@
         "session_188",
         "session_191",
         "session_192",
-        "session_193"
+        "session_193",
+        "session_194"
       ]
     },
     {
       "role": "dev",
-      "count": 106,
+      "count": 107,
       "sessions": [
         "session_047",
         "session_048",
@@ -7735,12 +7778,13 @@
         "session_190",
         "session_191",
         "session_192",
-        "session_193"
+        "session_193",
+        "session_194"
       ]
     },
     {
       "role": "riki",
-      "count": 98,
+      "count": 99,
       "sessions": [
         "session_049",
         "session_053",
@@ -7813,7 +7857,8 @@
         "session_188",
         "session_190",
         "session_191",
-        "session_192"
+        "session_192",
+        "session_194"
       ]
     },
     {
@@ -7848,7 +7893,7 @@
     },
     {
       "role": "zero",
-      "count": 23,
+      "count": 24,
       "sessions": [
         "session_153",
         "session_175",
@@ -7861,7 +7906,8 @@
         "session_190",
         "session_191",
         "session_192",
-        "session_193"
+        "session_193",
+        "session_194"
       ]
     },
     {
@@ -13322,6 +13368,48 @@
         },
         {
           "role": "edi",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_194",
+      "topic": "PD-064 Edi subagent gate + close hook 검증 결함 3건",
+      "sequence": [
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "zero",
           "phase": null,
           "turnIdx": 4,
           "recallReason": null
