@@ -200,11 +200,13 @@ function buildDecisionsSummary() {
 function build() {
   console.log('[build] Starting...');
 
-  // Clean dist
+  // Clean dist — folder itself is preserved to avoid EPERM on ACL-restricted directories;
+  // only contents are removed.
   if (fs.existsSync(DIST)) {
-    fs.rmSync
-      ? fs.rmSync(DIST, { recursive: true, force: true })
-      : fs.rmdirSync(DIST, { recursive: true });
+    for (const entry of fs.readdirSync(DIST, { withFileTypes: true })) {
+      const target = path.join(DIST, entry.name);
+      fs.rmSync(target, { recursive: true, force: true });
+    }
     console.log('[build] Cleaned dist/');
   }
   ensureDir(DIST);
