@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_196",
-  "nextSessionId": "session_197",
-  "currentVersion": "v0.947",
+  "lastSessionId": "session_197",
+  "nextSessionId": "session_198",
+  "currentVersion": "v0.957",
   "openTopics": [
     {
       "id": "topic_012",
@@ -13,6 +13,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-165",
+      "date": "2026-05-05",
+      "axis": "close.md G3(master_feedback_log Read 금지)+G4(role_memory append-only) 박제 + lessonLog 일괄 초기화",
+      "summary": "close.md G3(master_feedback_log Read 금지)+G4(role_memory append-only) 박제 + lessonLog 일괄 초기화"
+    },
     {
       "id": "D-164",
       "date": "2026-05-05",
@@ -36,15 +42,18 @@
       "date": "2026-05-05",
       "axis": "Self-Score weight 필드 폐기 — 사용처 0 dead field",
       "summary": "Self-Score weight 필드 폐기 — 사용처 0 dead field"
-    },
-    {
-      "id": "D-160",
-      "date": "2026-05-05",
-      "axis": "Jobs persona SOT 5→4 압축 — external-rated 폐기, self-rateable만 유지",
-      "summary": "Jobs persona SOT 5→4 압축 — external-rated 폐기, self-rateable만 유지"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_197",
+      "topicSlug": "g3-g4-check",
+      "closedAt": "2026-05-05T22:00:00.000Z",
+      "oneLineSummary": "G3(feedback_log Read금지)+G4(role_memory append-only) close.md 박제+lessonLog초기화 D-165 +0.01",
+      "decisionsAdded": [
+        "D-165"
+      ]
+    },
     {
       "sessionId": "session_196",
       "topicSlug": "pd059-close-token-measurement",
@@ -61,15 +70,6 @@
       "oneLineSummary": "PD-065 signatureMetrics 위생 6파일 + growth L1 재정의(D-163) → PD-065 resolved",
       "decisionsAdded": [
         "D-163"
-      ]
-    },
-    {
-      "sessionId": "session_194",
-      "topicSlug": "pd064-edi-subagent-hook-fp",
-      "closedAt": "2026-05-05T18:30:00.000Z",
-      "oneLineSummary": "PD-064 결함 3건+G2 Riki 축소안 4단 구현·검증 PASS → D-162 + PD-064 resolved + versionBump +0.01 (v0.927→v0.937)",
-      "decisionsAdded": [
-        "D-162"
       ]
     }
   ],
@@ -107,5 +107,5 @@
       "note": "다음 주 진행 예정 (Master 확인 session_024)"
     }
   ],
-  "lastUpdated": "2026-05-05T05:31:27.585Z"
+  "lastUpdated": "2026-05-05T06:08:30.244Z"
 }

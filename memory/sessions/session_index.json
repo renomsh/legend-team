@@ -8875,8 +8875,91 @@
       "decisionsAdded": [
         "D-164"
       ]
+    },
+    {
+      "sessionId": "session_197",
+      "topicSlug": "g3-g4-check",
+      "topic": "G3, G4 확인",
+      "startedAt": "2026-05-05T21:30:00.000Z",
+      "closedAt": "2026-05-05T22:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "dev",
+        "edi",
+        "zero",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "arki",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "str_fd": 3,
+            "aud_rcl": 0.85,
+            "spc_lck": "N",
+            "sa_rnd": 1
+          }
+        },
+        {
+          "role": "riki",
+          "turnIdx": 1,
+          "source": "agent",
+          "selfScores": {
+            "crt_rcl": 0.8,
+            "cr_val": "Y",
+            "prd_rej": "Y",
+            "fp_rt": 0.33
+          }
+        },
+        {
+          "role": "dev",
+          "turnIdx": 2,
+          "source": "agent",
+          "selfScores": {
+            "rt_cov": 1,
+            "gt_pas": 1,
+            "hc_rt": 0,
+            "spc_drf": 0
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 3,
+          "source": "agent"
+        },
+        {
+          "role": "zero",
+          "turnIdx": 4,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 3,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 5,
+          "source": "agent",
+          "selfScores": {
+            "gp_acc": 0.85,
+            "scc": "Y",
+            "cs_cnt": 3,
+            "art_cmp": 1,
+            "gap_fc": 4
+          }
+        }
+      ],
+      "grade": "B",
+      "oneLineSummary": "G3(feedback_log Read금지)+G4(role_memory append-only) close.md 박제+lessonLog초기화 D-165 +0.01",
+      "decisionsAdded": [
+        "D-165"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-05T05:29:33.513Z",
+  "lastUpdated": "2026-05-05T06:08:00.428Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

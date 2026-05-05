@@ -108,9 +108,7 @@
       "topic": "growth-metrics-phase1-automatic-mvp",
       "lesson": "registry-driven scorer 구현 시: (1) metricId switch로 automatic 구현 가능한 것과 Phase N 위임 대상을 명확히 분리. (2) 멱등성은 (sessionId, metricId, window) 3중 키 Set으로 보장. (3) lag>0 메트릭은 pendingLag 큐에 추가 후 dueAtSession 도달 시 재채점 — 즉시 기록 금지. (4) null datapoint도 기록하여 data-gap 가시화.",
       "reusable": true
-    }
-  ],
-  "lessonLog_session032": [
+    },
     {
       "id": "DEV-LL-003",
       "date": "2026-04-17",
@@ -123,6 +121,13 @@
       "date": "2026-04-17",
       "topic": "agents-completed-hook",
       "lesson": "compaction으로 동일 Legend 세션에 복수 Claude Code 세션이 생길 수 있음. legendSessionId 기준 token_log 항목은 덮어쓰기 대신 누산 처리 필요.",
+      "reusable": true
+    },
+    {
+      "id": "DEV-LL-005",
+      "date": "2026-04-20",
+      "topic": "phase1-implementation-turn-types",
+      "lesson": "session_index 대량 백필은 node inline (-e) 스크립트 패턴이 효율적. 수동 append-session.ts 먼저 실행 후 auto-push.js 실행 시 session-end-finalize.js 가 중복 실행 → session_index 중복 체크 필요.",
       "reusable": true
     }
   ],
@@ -187,15 +192,6 @@
     "escalated": false,
     "outcome": "tsc --noEmit 오류 0. G1 게이트 통과. session_046은 구현 세션이므로 turns=[] legacy=true 처리."
   },
-  "lessonLog_session046": [
-    {
-      "id": "DEV-LL-005",
-      "date": "2026-04-20",
-      "topic": "phase1-implementation-turn-types",
-      "lesson": "session_index 대량 백필은 node inline (-e) 스크립트 패턴이 효율적. 수동 append-session.ts 먼저 실행 후 auto-push.js 실행 시 session-end-finalize.js 가 중복 실행 → session_index 중복 체크 필요.",
-      "reusable": true
-    }
-  ],
   "lastUpdated": "2026-05-01",
   "sessionLearnings_session157": {
     "session": "session_157",

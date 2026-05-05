@@ -29,8 +29,22 @@
    - closedAt: 현재 시각 (ISO 8601)
    - 세션 중 발생한 notes, gaps 기록
    - **`oneLineSummary` 필드를 1줄(≤100자)로 작성하고 Edit 툴로 기록** (예: "topic-slug 구현 완료: 핵심 변경 3개, D-087 박제"). 없으면 finalize hook이 placeholder 자동 삽입 (안전장치 있음)
-6. Master feedback이 있었으면 `memory/master/master_feedback_log.json`에 추가
-7. 역할별 학습사항이 있으면 `memory/roles/{role}_memory.json` 업데이트
+6. Master feedback이 있었으면 `apply-feedback.ts` CLI로 기록:
+   - **[G3 — 전문 읽기 금지]** `master_feedback_log.json` 전문(~19K tokens) Read 금지. CLI 위임:
+     ```
+     npx ts-node scripts/apply-feedback.ts <topicId> <phase> "<feedback>" "<directive>"
+     ```
+     - 첫 인수 `topicId`는 `current_session.json.topicId` 값을 반드시 전달
+     - CLI 실행 후 exit code 0 확인. 비 0이면 escape hatch: `memory/master/master_feedback_log.json` 전문 Read 후 수동 Edit 허용
+   - Master feedback 없었으면 스킵
+7. 역할별 학습사항이 있으면 `memory/roles/{role}_memory.json`의 `lessonLog[]`에 append:
+   - **[G4 — 전문 읽기 금지]** 역할 파일 전문 Read 금지. append-only Edit 원칙:
+     기존 `"lessonLog": [` 배열 끝 `]` 직전에 아래 형태로 추가:
+     ```json
+     {"session": "<sessionId>", "learning": "<학습 내용>"}
+     ```
+   - **[escape hatch]** 역할 파일 구조 확인이 필요하거나 lessonLog 위치 불명확 시 전문 Read 허용
+   - 학습사항 없었던 역할은 스킵
 8. **[자동]** `memory/sessions/session_index.json` 세션 기록 추가 — `session-end-finalize.js` hook이 `current_session.json` status=closed 확인 시 자동 append (agentsCompleted·decisions·note 포함). 수동 실행 불필요. (PD-009)
    - **[G5 — LLM 직접 Read 금지]** `session_index.json`은 hook이 전담한다. LLM이 이 파일을 Read 도구로 직접 읽는 것은 금지 — 불필요한 78K tokens 소비 방지. 참조가 필요하면 `current_session.json`의 `sessionId`로 충분하다.
 9. **[자동]** `memory/shared/system_state.json` 재계산 — `sync-system-state.ts`가 hook 체인에서 자동 실행 (lastSessionId·nextSessionId·openTopics·recentDecisions 갱신). pendingDeferrals는 수동 관리.

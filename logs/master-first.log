@@ -897,3 +897,17 @@
 {"ts":"2026-05-05T05:19:18.950Z","phase":"classified","sessionId":"d2cf740a-de19-4d77-a2cd-09148de5c5d0","grade":"B","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":15}
 {"ts":"2026-05-05T05:19:57.934Z","phase":"no-audit","toolName":"Agent"}
 {"ts":"2026-05-05T05:25:22.124Z","phase":"no-audit","toolName":"Agent"}
+{"ts":"2026-05-05T05:34:46.708Z","phase":"classified","sessionId":"d2cf740a-de19-4d77-a2cd-09148de5c5d0","grade":"B","echoTriggerDetected":false,"intentReconfirmRequested":true,"matchedKeywords":["계속"],"elapsedMs":8}
+{"ts":"2026-05-05T05:34:46.708Z","phase":"audit-emit","source":"UserPromptSubmit","echoTriggerDetected":false,"intentReconfirmRequested":true,"matchedKeywords":["계속"]}
+{"ts":"2026-05-05T05:36:25.178Z","phase":"classified","sessionId":"d2cf740a-de19-4d77-a2cd-09148de5c5d0","grade":"B","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":12}
+{"ts":"2026-05-05T05:37:02.794Z","phase":"classified","sessionId":"d2cf740a-de19-4d77-a2cd-09148de5c5d0","grade":"B","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":8}
+{"ts":"2026-05-05T05:38:49.137Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"8b50fe06-e5d6-4047-9c6d-1ec0b7c9b6f4","grade":"B"}
+{"ts":"2026-05-05T05:41:23.705Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"8b50fe06-e5d6-4047-9c6d-1ec0b7c9b6f4","grade":"B"}
+{"ts":"2026-05-05T05:41:58.804Z","phase":"stale-state-skip","toolName":"Agent","stateSessionId":"d2cf740a-de19-4d77-a2cd-09148de5c5d0","currentSessionId":"8b50fe06-e5d6-4047-9c6d-1ec0b7c9b6f4"}
+{"ts":"2026-05-05T05:45:42.355Z","phase":"stale-state-skip","toolName":"Agent","stateSessionId":"d2cf740a-de19-4d77-a2cd-09148de5c5d0","currentSessionId":"8b50fe06-e5d6-4047-9c6d-1ec0b7c9b6f4"}
+{"ts":"2026-05-05T05:48:59.490Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"8b50fe06-e5d6-4047-9c6d-1ec0b7c9b6f4","grade":"B"}
+{"ts":"2026-05-05T05:51:09.129Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"8b50fe06-e5d6-4047-9c6d-1ec0b7c9b6f4","grade":"B"}
+{"ts":"2026-05-05T05:51:43.201Z","phase":"stale-state-skip","toolName":"Agent","stateSessionId":"d2cf740a-de19-4d77-a2cd-09148de5c5d0","currentSessionId":"8b50fe06-e5d6-4047-9c6d-1ec0b7c9b6f4"}
+{"ts":"2026-05-05T05:56:14.781Z","phase":"stale-state-skip","toolName":"Agent","stateSessionId":"d2cf740a-de19-4d77-a2cd-09148de5c5d0","currentSessionId":"8b50fe06-e5d6-4047-9c6d-1ec0b7c9b6f4"}
+{"ts":"2026-05-05T06:00:03.843Z","phase":"stale-state-skip","toolName":"Agent","stateSessionId":"d2cf740a-de19-4d77-a2cd-09148de5c5d0","currentSessionId":"8b50fe06-e5d6-4047-9c6d-1ec0b7c9b6f4"}
+{"ts":"2026-05-05T06:01:35.036Z","phase":"stale-state-skip","toolName":"Agent","stateSessionId":"d2cf740a-de19-4d77-a2cd-09148de5c5d0","currentSessionId":"8b50fe06-e5d6-4047-9c6d-1ec0b7c9b6f4"}

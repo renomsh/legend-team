@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "v0.947",
+    "version": "v0.957",
     "versionSchema": {
       "format": "X.YYY (3자리 소수 float, 점 하나)",
       "incrementRules": {
@@ -301,6 +301,12 @@
       "date": "2026-05-05",
       "summary": "close.md 토큰 절감 정책 3건(G5+G2+G1) + get-ledger-snapshot.ts 신규 — 기존 구조 내 capacity 확장",
       "sessionId": "session_196"
+    },
+    {
+      "version": "v0.957",
+      "date": "2026-05-05",
+      "summary": "close.md G3/G4 정책 박제(Step 6/7) + 역할 lessonLog 초기화 6건 — capacity 확장",
+      "sessionId": "session_197"
     }
   ],
   "lastUpdated": "2026-05-05"

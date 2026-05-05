@@ -2075,3 +2075,13 @@
 [2026-05-05T05:31:02.808Z] [compute-dashboard] 완료 — 193개 세션, 3개 경보
 [2026-05-05T05:31:27.587Z] [sync-system-state] lastSession=session_196 openTopics=1 recentDecisions=5 recentSummaries=3 deferrals=3
 [2026-05-05T05:31:38.190Z] [compute-dashboard] 완료 — 193개 세션, 3개 경보
+[2026-05-05T06:07:56.646Z] [checklist] [INFO] reports: 2 file(s) on disk, none registered in topic_index
+[2026-05-05T06:07:56.650Z] [checklist] [INFO] decision_ledger: no decisions this session — skip
+[2026-05-05T06:07:56.651Z] [checklist] [INFO] topic_index: topic found: topic_170 (completed)
+[2026-05-05T06:07:56.651Z] [checklist] [INFO] current_session: will be set to closed
+[2026-05-05T06:07:56.653Z] [checklist] [INFO] master_feedback: no feedback entries — OK if none given
+[2026-05-05T06:07:56.654Z] [session-log] [INFO] END session_197 | topic: g3-g4-check | duration: unknown (startedAt in future)
+[2026-05-05T06:08:04.865Z] [L2-writer] wrote C:\Projects\legend-team\topics\topic_170\session_contributions\session_197.md | turns=6 decisions=1
+[2026-05-05T06:08:10.192Z] [L3-regenerator] wrote C:\Projects\legend-team\topics\topic_170\context_brief.md | sessions=2 size=751B
+[2026-05-05T06:08:30.245Z] [sync-system-state] lastSession=session_197 openTopics=1 recentDecisions=5 recentSummaries=3 deferrals=3
+[2026-05-05T06:08:43.148Z] [compute-dashboard] 완료 — 194개 세션, 3개 경보

@@ -1,6 +1,22 @@
 {
   "topics": [
     {
+      "id": "topic_170",
+      "title": "G3, G4 확인",
+      "status": "completed",
+      "phase": "framing",
+      "hold": null,
+      "created": "2026-05-05",
+      "controlPath": "topics/topic_170",
+      "reportPath": "reports/2026-05-05_g3-g4-check",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_197",
+      "path": "topics/topic_170",
+      "outcome": "G3(master_feedback_log Read금지)+G4(role_memory append-only) close.md 박제 완료. lessonLog 일괄 초기화. D-165.",
+      "lastUpdated": "2026-05-05"
+    },
+    {
       "id": "topic_169",
       "title": "PD-059 close 프로세스 토큰 측정",
       "status": "completed",
@@ -3256,5 +3272,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-05T05:30:08.458Z"
+  "lastUpdated": "2026-05-05T06:08:17.870Z"
 }

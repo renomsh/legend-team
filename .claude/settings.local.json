@@ -1,6 +1,5 @@
 {
   "permissions": {
-    "defaultMode": "bypassPermissions",
     "allow": [
       "Write(memory/**)",
       "Write(.claude/**)",
@@ -64,7 +63,9 @@
       "Bash(node scripts/auto-push.js \"session end: system-state-debug\")",
       "Read(//c/Projects/legend-team/topics/topic_131//**)",
       "Read(//c/Projects/legend-team/memory/sessions/**)",
-      "Bash(node scripts/auto-push.js \"session end: big-bang-legend-nexus-p1\")"
-    ]
+      "Bash(node scripts/auto-push.js \"session end: big-bang-legend-nexus-p1\")",
+      "Bash(python3 -c ' *)"
+    ],
+    "defaultMode": "bypassPermissions"
   }
 }

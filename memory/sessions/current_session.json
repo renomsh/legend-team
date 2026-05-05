@@ -1,76 +1,65 @@
 {
-  "sessionId": "session_196",
-  "topicId": "topic_169",
-  "topic": "PD-059 close 프로세스 토큰 측정",
-  "topicSlug": "pd059-close-token-measurement",
-  "reportPath": "reports/2026-05-05_pd059-close-token-measurement",
+  "sessionId": "session_197",
+  "topicId": "topic_170",
+  "topic": "G3, G4 확인",
+  "topicSlug": "g3-g4-check",
+  "reportPath": "reports/2026-05-05_g3-g4-check",
   "status": "closed",
-  "startedAt": "2026-05-05T20:10:00.000Z",
-  "closedAt": "2026-05-05T21:00:00.000Z",
-  "oneLineSummary": "PD-059 close토큰절감 G5+G2+G1 구현(close.md 3곳+get-ledger-snapshot.ts) → D-164 + PD-059 resolved +0.01",
+  "closedAt": "2026-05-05T22:00:00.000Z",
+  "oneLineSummary": "G3(feedback_log Read금지)+G4(role_memory append-only) close.md 박제+lessonLog초기화 D-165 +0.01",
+  "startedAt": "2026-05-05T21:30:00.000Z",
   "mode": "observation",
   "grade": "B",
   "framingLevel": 0,
   "framingSkipped": true,
   "topicType": "standalone",
-  "relatedPD": "PD-059",
   "turns": [
     {
       "role": "arki",
       "turnIdx": 0,
-      "phase": "structural-analysis",
       "source": "agent",
       "selfScores": {
         "str_fd": 3,
         "aud_rcl": 0.85,
         "spc_lck": "N",
-        "sa_rnd": 3
-      }
-    },
-    {
-      "role": "fin",
-      "turnIdx": 1,
-      "source": "agent",
-      "selfScores": {
-        "cst_acc": 0.75,
-        "roi_dl": 4,
-        "rdn_cal": "Y",
-        "cst_alt": "Y"
+        "sa_rnd": 1
       }
     },
     {
       "role": "riki",
-      "turnIdx": 2,
+      "turnIdx": 1,
       "source": "agent",
       "selfScores": {
-        "crt_rcl": 0.75,
+        "crt_rcl": 0.8,
         "cr_val": "Y",
         "prd_rej": "Y",
-        "fp_rt": 0.1
-      }
-    },
-    {
-      "role": "jobs",
-      "turnIdx": 3,
-      "phase": "framing",
-      "source": "agent",
-      "selfScores": {
-        "focus_sharp": 5,
-        "bloat_idx": 1,
-        "bias_cnt": 3,
-        "no_cnt": 4
+        "fp_rt": 0.33
       }
     },
     {
       "role": "dev",
-      "turnIdx": 4,
-      "phase": "implementation",
+      "turnIdx": 2,
       "source": "agent",
       "selfScores": {
-        "rt_cov": 0.75,
+        "rt_cov": 1,
         "gt_pas": 1,
         "hc_rt": 0,
         "spc_drf": 0
+      }
+    },
+    {
+      "role": "edi",
+      "turnIdx": 3,
+      "source": "agent"
+    },
+    {
+      "role": "zero",
+      "turnIdx": 4,
+      "source": "agent",
+      "selfScores": {
+        "ref_cnt": 3,
+        "hc_found": 0,
+        "cln_rt": 1
       }
     },
     {
@@ -80,84 +69,74 @@
       "selfScores": {
         "gp_acc": 0.85,
         "scc": "Y",
-        "cs_cnt": 5,
-        "art_cmp": 0.9,
-        "gap_fc": 1
+        "cs_cnt": 3,
+        "art_cmp": 1,
+        "gap_fc": 4
       }
     }
   ],
-  "decisions": [
-    "D-164"
-  ],
+  "decisions": [],
   "decisionsAdded": [
-    "D-164"
+    "D-165"
   ],
   "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [
-    "PD-059"
-  ],
+  "pendingDeferralsResolved": [],
   "notes": [],
   "gaps": [
     {
-      "type": "ledger-gap",
-      "note": "D-161/D-162/D-163 session_index 기록 존재하나 decision_ledger.json 미등록 — 이전 세션 hook 누락 추정. 별도 위생 필요.",
-      "severity": "low"
+      "type": "frontmatter-patch-failed",
+      "role": "arki",
+      "turnIdx": 0,
+      "reportsPath": "`reports/2026-05-05_close-g3-g4-candidates/arki_rev1.md`",
+      "detectedAt": "2026-05-05T05:45:18.247Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-05_close-g3-g4-candidates/arki_rev1.md`"
     },
     {
-      "type": "turn-not-found",
-      "file": "reports/2026-05-05_pd059-close-token-measurement/dev_rev1.md",
-      "turnId": 8,
-      "note": "frontmatter turnId가 turns[]에 존재하지 않음"
+      "type": "frontmatter-patch-failed",
+      "role": "zero",
+      "turnIdx": 4,
+      "reportsPath": "`reports/2026-05-05_g3-g4-check/condensed.md`",
+      "detectedAt": "2026-05-05T06:01:12.602Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-05_g3-g4-check/condensed.md`"
     },
     {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-05_pd059-close-token-measurement/fin_rev1.md",
-      "expected": "fin",
-      "actualInTurns": "jobs",
-      "turnId": 3
-    },
-    {
-      "type": "turn-not-found",
-      "file": "reports/2026-05-05_pd059-close-token-measurement/jobs_rev1.md",
-      "turnId": 6,
-      "note": "frontmatter turnId가 turns[]에 존재하지 않음"
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-05_pd059-close-token-measurement/riki_rev1.md",
-      "expected": "riki",
-      "actualInTurns": "edi",
-      "turnId": 5
+      "type": "missing-report",
+      "role": "zero",
+      "turnIdx": 4,
+      "reportPath": "reports/2026-05-05_g3-g4-check",
+      "detectedAt": "2026-05-05T06:01:12.609Z",
+      "note": "zero turn4 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
     }
   ],
   "openMasterAlerts": [],
   "agentsCompleted": [
     "arki",
-    "fin",
     "riki",
-    "jobs",
     "dev",
+    "edi",
+    "zero",
     "edi"
   ],
   "versionBump": {
     "value": 0.01,
-    "from": "v0.937",
-    "to": "v0.947",
-    "reason": "close.md 토큰 절감 정책 3건(G5+G2+G1) + get-ledger-snapshot.ts 신규 — 기존 구조 내 capacity 확장",
-    "type": "capacity",
+    "from": "v0.947",
+    "to": "v0.957",
+    "reason": "close.md G3/G4 정책 박제(Step 6/7) + 역할 lessonLog 초기화 6건 — capacity 확장",
     "confirmedBy": "edi",
-    "confirmedAt": "2026-05-05T05:35:00.000Z"
+    "confirmedAt": "2026-05-05T06:05:00.000Z",
+    "overrideReason": null,
+    "basedOn": "edi-override"
   },
   "tokenUsage": {
-    "input_tokens": 129,
-    "output_tokens": 55614,
-    "cache_creation_input_tokens": 250100,
-    "cache_read_input_tokens": 7580411,
-    "messageCount": 89,
-    "masterTurns": 8,
-    "total_billable": 7886254
+    "input_tokens": 185,
+    "output_tokens": 53641,
+    "cache_creation_input_tokens": 216143,
+    "cache_read_input_tokens": 5575091,
+    "messageCount": 82,
+    "masterTurns": 6,
+    "total_billable": 5845060
   },
-  "finalizedAt": "2026-05-05T05:30:35.688Z"
+  "finalizedAt": "2026-05-05T06:08:30.432Z"
 }

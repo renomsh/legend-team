@@ -2483,7 +2483,34 @@
         "context-reduction",
         "status-sot"
       ]
+    },
+    {
+      "id": "D-165",
+      "date": "2026-05-05",
+      "session": "session_197",
+      "topic": "topic_170",
+      "axis": "close.md G3(master_feedback_log Read 금지)+G4(role_memory append-only) 박제 + lessonLog 일괄 초기화",
+      "summary": "close 프로세스 토큰 절감 2항목 박제. G3: master_feedback_log.json(~19K tokens) 전문 Read 금지 — apply-feedback.ts CLI 위임(인수 4개, topicId 첫 인수 강제, exit code 0 검사, escape hatch). G4: role_memory.json 전문 Read 금지 — lessonLog[] append-only Edit + escape hatch. 사전작업: 6개 역할(ace·fin·riki·sage·vera·zero) lessonLog:[] 신규 추가, dev_memory 비표준 키 정규화. Dev 4/4 PASS 검증.",
+      "decision": "close.md Step 6(G3) + Step 7(G4) 확정 박제. lessonLog 11개 역할 전수 초기화 완료.",
+      "caveats": [
+        "R-5(중복 lesson 방지 불가) residual risk — 운용 허용",
+        "close 실사용 검증은 차기 세션 close 시 확인"
+      ],
+      "relatedDecisions": [
+        "D-164"
+      ],
+      "relatedFiles": [
+        ".claude/commands/close.md",
+        "memory/roles/ace_memory.json",
+        "memory/roles/fin_memory.json",
+        "memory/roles/riki_memory.json",
+        "memory/roles/sage_memory.json",
+        "memory/roles/vera_memory.json",
+        "memory/roles/zero_memory.json",
+        "memory/roles/dev_memory.json"
+      ],
+      "status": "active"
     }
   ],
-  "lastUpdated": "2026-05-05"
+  "lastUpdated": "2026-05-05T06:05:00.000Z"
 }
