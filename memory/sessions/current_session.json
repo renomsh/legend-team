@@ -149,7 +149,19 @@
     ],
     "changedFilesCount": 14,
     "cappedAt": 0.1,
-    "confirmedBy": null
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-06T13:00:00.000Z",
+    "from": "v0.957",
+    "to": "v1.057",
+    "overrideReason": "session_202(practical-brown) +0.1 bump 미전파 흡수. 결과 v1.057 = Master 확인값."
+  },
+  "versionBump": {
+    "value": 0.1,
+    "from": "v0.957",
+    "to": "v1.057",
+    "reason": "session_202 P0 완료 bump 흡수 + arki_memory.json lessonLog 추가",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-06T13:00:00.000Z"
   },
   "finalizedAt": "2026-05-06T12:40:08.941Z"
 }
