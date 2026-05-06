@@ -24,7 +24,7 @@
      스냅샷은 "현 topicId 관련 결정 전체 + 최근 30건" 합집합. 충돌 여부 판단 시 이 범위 기준으로 결정 박제.
    - **[escape hatch]** 결정 충돌이 의심되거나 스냅샷이 불충분하다고 판단될 경우 `memory/shared/decision_ledger.json` 전문 Read 허용. 스냅샷 우선, 전문은 예외 경로.
 4. `memory/shared/topic_index.json` — 토픽 status 변경. **허용 값은 CLAUDE.md §Topic Lifecycle의 7종 enum (D-B): `open | framing | design-approved | implementing | completed | suspended | cancelled`**. `closed`는 legacy alias → 반드시 `completed`로 기록. outcome 기록.
-   - **[G2 — 전문 읽기 금지]** `topic_index.json` 전문을 Read 도구로 읽지 말 것 (31K tokens 낭비). 현 topicId 항목만 `scripts/lib/topic-status.ts`의 `updateTopicStatus()` 헬퍼를 통해 갱신: `npx ts-node -e "import {updateTopicStatus} from './scripts/lib/topic-status'; const r=updateTopicStatus('C:/Projects/legend-team','<topicId>',{status:'completed'}); console.log(JSON.stringify(r))"`.
+   - **[G2 — 전문 읽기 금지]** `topic_index.json` 전문을 Read 도구로 읽지 말 것 (31K tokens 낭비). 현 topicId 항목만 `scripts/lib/topic-status.ts`의 `updateTopicStatus()` 헬퍼를 통해 갱신: `npx ts-node -e "import {updateTopicStatus} from './scripts/lib/topic-status'; const r=updateTopicStatus(process.cwd(),'<topicId>',{status:'completed'}); console.log(JSON.stringify(r))"`.
    - PD resolveCondition 매칭은 hook 체인의 `resolve-pending-deferrals.ts` (dry-run) 및 `auto-close-topics.ts`가 담당 — LLM 개입 불필요.
 5. `memory/sessions/current_session.json` 업데이트:
    - status: "closed"
