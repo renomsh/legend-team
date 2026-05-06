@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_199",
-  "nextSessionId": "session_200",
+  "lastSessionId": "session_200",
+  "nextSessionId": "session_201",
   "currentVersion": "v0.957",
   "openTopics": [
     {
@@ -46,6 +46,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_200",
+      "topicSlug": "mac-migration-check",
+      "closedAt": "2026-05-06T02:30:00.000Z",
+      "oneLineSummary": "mac-migration-check: 이전 블로커 0건 확인, R-1 잔존(token 탐색), 이전 체크리스트 3개 수립",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_199",
       "topicSlug": "hook-macos-compat",
       "closedAt": "2026-05-06T01:00:00.000Z",
@@ -59,15 +66,6 @@
       "oneLineSummary": "G3(feedback_log Read금지)+G4(role_memory append-only) close.md 박제+lessonLog초기화 D-165 +0.01",
       "decisionsAdded": [
         "D-165"
-      ]
-    },
-    {
-      "sessionId": "session_196",
-      "topicSlug": "pd059-close-token-measurement",
-      "closedAt": "2026-05-05T21:00:00.000Z",
-      "oneLineSummary": "PD-059 close토큰절감 G5+G2+G1 구현(close.md 3곳+get-ledger-snapshot.ts) → D-164 + PD-059 resolved +0.01",
-      "decisionsAdded": [
-        "D-164"
       ]
     }
   ],
@@ -105,5 +103,5 @@
       "note": "다음 주 진행 예정 (Master 확인 session_024)"
     }
   ],
-  "lastUpdated": "2026-05-06T00:09:50.542Z"
+  "lastUpdated": "2026-05-06T00:31:29.287Z"
 }

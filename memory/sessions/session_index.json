@@ -8986,8 +8986,68 @@
       "grade": "C",
       "oneLineSummary": "hook-macos-compat: session-end-finalize.js R-2(shell:true×7)·R-3(gaps박제)·R-4(__dirname→CWD) 완료",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_200",
+      "topicSlug": "mac-migration-check",
+      "topic": "Mac 전환 점검",
+      "startedAt": "2026-05-06T02:00:00.000Z",
+      "closedAt": "2026-05-06T02:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\exciting-ride-3fb58d",
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "ace",
+        "zero",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "arki",
+          "turnIdx": 0,
+          "phase": "analysis",
+          "selfScores": {}
+        },
+        {
+          "role": "riki",
+          "turnIdx": 1,
+          "phase": "audit",
+          "selfScores": {}
+        },
+        {
+          "role": "ace",
+          "turnIdx": 2,
+          "phase": "synthesis",
+          "selfScores": {}
+        },
+        {
+          "role": "zero",
+          "turnIdx": 3,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 0,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 4,
+          "source": "agent",
+          "selfScores": {
+            "scc": "Y",
+            "cs_cnt": 4,
+            "art_cmp": 1,
+            "gap_fc": 2,
+            "gp_acc": 0.8
+          }
+        }
+      ],
+      "grade": "B",
+      "oneLineSummary": "mac-migration-check: 이전 블로커 0건 확인, R-1 잔존(token 탐색), 이전 체크리스트 3개 수립",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-06T00:09:06.879Z",
+  "lastUpdated": "2026-05-06T00:31:13.288Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
