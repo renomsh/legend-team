@@ -4,7 +4,9 @@
   "topic": "Legend Nexus PC 환경 — 노트북 하드웨어 업그레이드",
   "topicSlug": "nexus-pc-hardware-upgrade",
   "reportPath": "reports/2026-05-05_nexus-pc-hardware-upgrade",
-  "status": "open",
+  "status": "closed",
+  "closedAt": "2026-05-06T00:09:00.000Z",
+  "oneLineSummary": "MacBook Pro 16\" M5 Max 2TB 확정. RAM 64vs128 미결(Master 고민). hook 패치 R-2·R-3 선행 필요.",
   "startedAt": "2026-05-05T22:30:00.000Z",
   "mode": "observation",
   "grade": "B",
@@ -147,17 +149,35 @@
       "reportPath": "reports/2026-05-05_nexus-pc-hardware-upgrade",
       "detectedAt": "2026-05-05T12:20:23.199Z",
       "note": "edi turn8 완료 후 reports/edi_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "edi-llm-report-absent",
+      "sessionId": "session_198",
+      "reportPath": "reports/2026-05-05_nexus-pc-hardware-upgrade",
+      "grade": "B",
+      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
     }
   ],
   "openMasterAlerts": [],
-  "agentsCompleted": [],
+  "agentsCompleted": [
+    "jobs",
+    "arki",
+    "riki",
+    "fin",
+    "ace",
+    "jobs",
+    "ace",
+    "edi",
+    "edi"
+  ],
   "tokenUsage": {
-    "input_tokens": 182,
-    "output_tokens": 62834,
-    "cache_creation_input_tokens": 276840,
-    "cache_read_input_tokens": 5467183,
-    "messageCount": 80,
-    "masterTurns": 19,
-    "total_billable": 5807039
-  }
+    "input_tokens": 195,
+    "output_tokens": 70635,
+    "cache_creation_input_tokens": 604168,
+    "cache_read_input_tokens": 6192933,
+    "messageCount": 90,
+    "masterTurns": 21,
+    "total_billable": 6867931
+  },
+  "finalizedAt": "2026-05-06T00:09:23.007Z"
 }
