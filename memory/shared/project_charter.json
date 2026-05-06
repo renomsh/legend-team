@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "v0.957",
+    "version": "v0.958",
     "versionSchema": {
       "format": "X.YYY (3자리 소수 float, 점 하나)",
       "incrementRules": {
@@ -307,7 +307,13 @@
       "date": "2026-05-05",
       "summary": "close.md G3/G4 정책 박제(Step 6/7) + 역할 lessonLog 초기화 6건 — capacity 확장",
       "sessionId": "session_197"
+    },
+    {
+      "version": "v0.958",
+      "date": "2026-05-06",
+      "summary": "Growth Board §1 Axis Pulse spark-as-background 구현 + tokens.css 토큰 3개 추가 (capacity: 시각 구현 + 디자인 토큰 확장)",
+      "sessionId": "session_201"
     }
   ],
-  "lastUpdated": "2026-05-05"
+  "lastUpdated": "2026-05-06"
 }

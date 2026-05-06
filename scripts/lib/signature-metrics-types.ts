@@ -19,7 +19,7 @@ export type Axis =
 
 export type Scope = "role" | "cross-role" | "session";
 
-export type Scale = "0-5" | "Y/N" | "ratio" | "percentile";
+export type Scale = "0-5" | "Y/N" | "ratio" | "percentile" | "count";
 
 export type Polarity = "higher-better" | "lower-better" | "target-value";
 

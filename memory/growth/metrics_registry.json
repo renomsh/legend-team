@@ -169,7 +169,7 @@
     {
       "id": "zero.ref_count",
       "shortKey": "ref_cnt",
-      "scale": "0-5",
+      "scale": "count",
       "axis": "execution-transfer",
       "construct": "Cut/Refine/Audit 3 도구로 실제 처리한 항목 합계",
       "role": "zero",
@@ -207,7 +207,7 @@
     {
       "id": "zero.hc_found",
       "shortKey": "hc_found",
-      "scale": "0-5",
+      "scale": "count",
       "axis": "quality",
       "construct": "Audit 도구로 발견한 하드코딩·secret·credential·절대경로 건수",
       "role": "zero",

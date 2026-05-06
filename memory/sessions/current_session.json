@@ -166,10 +166,52 @@
       "reportsPath": "`reports/2026-05-06_vera-claude-design-pd029-review/edi_rev1.md`",
       "detectedAt": "2026-05-06T04:29:55.037Z",
       "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-06_vera-claude-design-pd029-review/edi_rev1.md`"
+    },
+    {
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-06_vera-claude-design-pd029-review/arki_rev1.md"
+    },
+    {
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-06_vera-claude-design-pd029-review/condensed.md"
+    },
+    {
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-06_vera-claude-design-pd029-review/edi_rev1.md"
+    },
+    {
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-06_vera-claude-design-pd029-review/riki_rev1.md"
+    },
+    {
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-06_vera-claude-design-pd029-review/vera_rev1.md"
+    },
+    {
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-06_vera-claude-design-pd029-review/vera_rev2.md"
+    },
+    {
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-06_vera-claude-design-pd029-review/vera_rev3.md"
+    },
+    {
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-06_vera-claude-design-pd029-review/vera_rev4.md"
     }
   ],
   "openMasterAlerts": [],
-  "agentsCompleted": [],
+  "agentsCompleted": [
+    "arki",
+    "riki",
+    "vera",
+    "vera",
+    "vera",
+    "vera",
+    "zero",
+    "edi",
+    "edi"
+  ],
   "versionBump": {
     "value": 0.01,
     "from": "v0.957",
@@ -179,5 +221,15 @@
     "confirmedAt": "2026-05-06T04:28:20Z",
     "overrideReason": null,
     "basedOn": "edi-direct"
-  }
+  },
+  "tokenUsage": {
+    "input_tokens": 229,
+    "output_tokens": 79537,
+    "cache_creation_input_tokens": 873958,
+    "cache_read_input_tokens": 8095199,
+    "messageCount": 108,
+    "masterTurns": 23,
+    "total_billable": 9048923
+  },
+  "finalizedAt": "2026-05-06T10:54:52.702Z"
 }

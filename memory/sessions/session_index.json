@@ -9059,12 +9059,117 @@
         "arki",
         "riki",
         "vera",
+        "vera",
+        "vera",
+        "vera",
         "zero",
+        "edi",
         "edi"
       ],
-      "note": "Growth Board §1·§2·§5 시각 개편 완료 (Claude Design D-064 워크플로 실증, Zero 추가)"
+      "note": "Growth Board §1·§2·§5 시각 개편 완료 (Claude Design D-064 워크플로 실증, Zero 추가)",
+      "cwd": "C:\\Projects\\legend-team",
+      "turns": [
+        {
+          "role": "arki",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "aud_rcl": 0.9,
+            "str_fd": 3,
+            "spc_lck": "N",
+            "sa_rnd": 3
+          }
+        },
+        {
+          "role": "riki",
+          "turnIdx": 1,
+          "source": "agent",
+          "selfScores": {
+            "crt_rcl": 0.8,
+            "cr_val": "Y",
+            "prd_rej": "Y",
+            "fp_rt": 0
+          }
+        },
+        {
+          "role": "vera",
+          "turnIdx": 2,
+          "source": "agent",
+          "selfScores": {
+            "tk_drf0": "Y",
+            "spc_cpl": 0.88,
+            "tk_cns": 5
+          }
+        },
+        {
+          "role": "vera",
+          "turnIdx": 3,
+          "source": "agent",
+          "selfScores": {
+            "tk_drf0": "Y",
+            "spc_cpl": 0.95,
+            "tk_cns": 5
+          }
+        },
+        {
+          "role": "vera",
+          "turnIdx": 4,
+          "source": "agent",
+          "selfScores": {
+            "tk_drf0": "Y",
+            "spc_cpl": 0.97,
+            "tk_cns": 5
+          }
+        },
+        {
+          "role": "vera",
+          "turnIdx": 5,
+          "source": "agent",
+          "selfScores": {
+            "tk_drf0": "Y",
+            "spc_cpl": 0.98,
+            "tk_cns": 5
+          }
+        },
+        {
+          "role": "zero",
+          "turnIdx": 6,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 6,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 7,
+          "source": "agent",
+          "selfScores": {
+            "gp_acc": 0.85,
+            "scc": "Y",
+            "cs_cnt": 4,
+            "art_cmp": 1,
+            "gap_fc": 4
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 8,
+          "source": "agent",
+          "selfScores": {
+            "gp_acc": 0.85,
+            "scc": "Y",
+            "cs_cnt": 4,
+            "art_cmp": 1,
+            "gap_fc": 4
+          }
+        }
+      ],
+      "oneLineSummary": "Growth Board §1·§2·§5 시각 개편 완료 (Claude Design D-064 워크플로 실증, Zero 추가)",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-06T04:44:51.453Z",
+  "lastUpdated": "2026-05-06T10:54:40.479Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

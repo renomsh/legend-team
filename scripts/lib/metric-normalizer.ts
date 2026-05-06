@@ -29,6 +29,11 @@ export function normalize(rawScore: number | string, scale: Scale): number {
       if (!Number.isFinite(n) || n < 0 || n > 100) throw makeError(`percentile out of range: ${rawScore}`);
       return n;
     }
+    case "count": {
+      const n = typeof rawScore === "number" ? rawScore : Number(rawScore);
+      if (!Number.isFinite(n) || n < 0) throw makeError(`count out of range: ${rawScore}`);
+      return n;
+    }
     default: {
       const _exhaust: never = scale;
       throw makeError(`unknown scale: ${String(_exhaust)}`);

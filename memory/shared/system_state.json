@@ -2,7 +2,7 @@
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
   "lastSessionId": "session_201",
   "nextSessionId": "session_202",
-  "currentVersion": "v0.957",
+  "currentVersion": "v0.958",
   "openTopics": [
     {
       "id": "topic_012",
@@ -46,6 +46,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_201",
+      "topicSlug": "vera-claude-design-pd029-review",
+      "closedAt": "2026-05-06T04:30:00.000Z",
+      "oneLineSummary": "Growth Board §1·§2·§5 시각 개편 완료 (Claude Design D-064 워크플로 실증, Zero 추가)",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_200",
       "topicSlug": "mac-migration-check",
       "closedAt": "2026-05-06T02:30:00.000Z",
@@ -58,15 +65,6 @@
       "closedAt": "2026-05-06T01:00:00.000Z",
       "oneLineSummary": "hook-macos-compat: session-end-finalize.js R-2(shell:true×7)·R-3(gaps박제)·R-4(__dirname→CWD) 완료",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_197",
-      "topicSlug": "g3-g4-check",
-      "closedAt": "2026-05-05T22:00:00.000Z",
-      "oneLineSummary": "G3(feedback_log Read금지)+G4(role_memory append-only) close.md 박제+lessonLog초기화 D-165 +0.01",
-      "decisionsAdded": [
-        "D-165"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -94,5 +92,5 @@
       "note": "다음 주 진행 예정 (Master 확인 session_024)"
     }
   ],
-  "lastUpdated": "2026-05-06T04:44:59.385Z"
+  "lastUpdated": "2026-05-06T10:54:52.606Z"
 }

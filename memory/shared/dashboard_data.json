@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-06T04:45:01.948Z",
+  "generatedAt": "2026-05-06T13:56:12.036Z",
   "totalSessions": 197,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [
@@ -19,15 +19,15 @@
     }
   ],
   "metrics": {
-    "avgMasterTurns": 19.83,
-    "avgCacheHitRate": 0.9332,
-    "cacheSampleSize": 170,
+    "avgMasterTurns": 19.97,
+    "avgCacheHitRate": 0.9329,
+    "cacheSampleSize": 171,
     "cacheSampleTotal": 197,
     "avgAdoptionRate": 0,
     "totalDecisions": 166,
     "gradeDistribution": {
-      "S": 91,
-      "A": 40,
+      "S": 92,
+      "A": 39,
       "B": 43,
       "C": 15,
       "D": 8
@@ -53,10 +53,10 @@
       "session_172"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 151,
-    "totalCostUSD": 2316.4192,
-    "avgCostPerSession": 12.1278,
-    "costSampleSize": 191
+    "turnBasedSessions": 152,
+    "totalCostUSD": 2330.2185,
+    "avgCostPerSession": 12.1366,
+    "costSampleSize": 192
   },
   "sessions": [
     {
@@ -7566,23 +7566,38 @@
       "closedAt": "2026-05-06T04:30:00.000Z",
       "decisionCount": 0,
       "decisionAxes": 0,
-      "rolesCalled": 5,
-      "rolesRecalled": 0,
+      "rolesCalled": 9,
+      "rolesRecalled": 4,
       "sessionsSpanned": 1,
-      "size": 8,
-      "gradeDeclared": "A",
-      "gradeActual": "A",
+      "size": 20,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 46,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
         "riki",
         "vera",
+        "vera",
+        "vera",
+        "vera",
         "zero",
+        "edi",
         "edi"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 18097846,
+        "ioTokens": 159532,
+        "inputTokens": 458,
+        "outputTokens": 159074,
+        "cacheCreate": 1747916,
+        "cacheRead": 16190398,
+        "cacheHitRate": 0.8946035898415756,
+        "messageCount": 216
+      },
+      "sessionCostUSD": 13.7993
     }
   ],
   "roleFrequency": [
@@ -7684,7 +7699,7 @@
     },
     {
       "role": "edi",
-      "count": 165,
+      "count": 167,
       "sessions": [
         "session_050",
         "session_051",
@@ -7833,12 +7848,13 @@
         "session_196",
         "session_197",
         "session_199",
-        "session_200"
+        "session_200",
+        "session_201"
       ]
     },
     {
       "role": "arki",
-      "count": 139,
+      "count": 140,
       "sessions": [
         "session_048",
         "session_049",
@@ -7917,7 +7933,8 @@
         "session_195",
         "session_196",
         "session_197",
-        "session_200"
+        "session_200",
+        "session_201"
       ]
     },
     {
@@ -8016,7 +8033,7 @@
     },
     {
       "role": "riki",
-      "count": 103,
+      "count": 104,
       "sessions": [
         "session_049",
         "session_053",
@@ -8094,7 +8111,31 @@
         "session_195",
         "session_196",
         "session_197",
-        "session_200"
+        "session_200",
+        "session_201"
+      ]
+    },
+    {
+      "role": "zero",
+      "count": 28,
+      "sessions": [
+        "session_153",
+        "session_175",
+        "session_182",
+        "session_183",
+        "session_184",
+        "session_186",
+        "session_187",
+        "session_188",
+        "session_190",
+        "session_191",
+        "session_192",
+        "session_193",
+        "session_194",
+        "session_195",
+        "session_197",
+        "session_200",
+        "session_201"
       ]
     },
     {
@@ -8129,28 +8170,6 @@
       ]
     },
     {
-      "role": "zero",
-      "count": 27,
-      "sessions": [
-        "session_153",
-        "session_175",
-        "session_182",
-        "session_183",
-        "session_184",
-        "session_186",
-        "session_187",
-        "session_188",
-        "session_190",
-        "session_191",
-        "session_192",
-        "session_193",
-        "session_194",
-        "session_195",
-        "session_197",
-        "session_200"
-      ]
-    },
-    {
       "role": "jobs",
       "count": 23,
       "sessions": [
@@ -8173,7 +8192,7 @@
     },
     {
       "role": "vera",
-      "count": 15,
+      "count": 19,
       "sessions": [
         "session_049",
         "session_052",
@@ -8182,7 +8201,8 @@
         "session_104",
         "session_106",
         "session_120",
-        "session_176"
+        "session_176",
+        "session_201"
       ]
     },
     {
@@ -13833,6 +13853,66 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 4,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_201",
+      "topic": "PD-029 해소: Vera·Arki Claude Design 통합 리뷰",
+      "sequence": [
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "vera",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "vera",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "vera",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "vera",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 6,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 7,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 8,
           "recallReason": null
         }
       ]
