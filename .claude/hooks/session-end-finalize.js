@@ -180,15 +180,18 @@ function runL2Writer(sess) {
   const args = ['ts-node', scriptPath, topicId, sessionId];
   if (nextAction) args.push(`--next-action=${nextAction}`);
 
-  const isWin = process.platform === 'win32';
-  const cmd = isWin ? 'npx.cmd' : 'npx';
-  const result = require('child_process').spawnSync(cmd, args, {
+  const cmd = 'npx';
+  const result = spawnSync(cmd, args, {
     cwd: CWD,
     encoding: 'utf8',
-    shell: isWin,
+    shell: true,
   });
-  if (result.status !== 0) {
-    log(`L2-writer 실패 (code ${result.status}): ${result.stderr || result.stdout || ''}`);
+  if (result.error || result.status !== 0) {
+    const detail = result.error ? result.error.message : (result.stderr || result.stdout || '');
+    log(`L2-writer 실패 (code ${result.status}): ${detail}`);
+    sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
+    sess.gaps.push({ type: 'spawn-failed', fn: 'runL2Writer', topicId, sessionId, detail: String(detail).slice(0, 200) });
+    writeJson(CURRENT_SESSION_PATH, sess);
   } else {
     log(`L2-writer 완료 — ${topicId}/${sessionId}`);
   }
@@ -216,15 +219,18 @@ function runL3Regenerator(sess) {
     return;
   }
 
-  const isWin = process.platform === 'win32';
-  const cmd = isWin ? 'npx.cmd' : 'npx';
-  const result = require('child_process').spawnSync(cmd, ['ts-node', scriptPath, topicId], {
+  const cmd = 'npx';
+  const result = spawnSync(cmd, ['ts-node', scriptPath, topicId], {
     cwd: CWD,
     encoding: 'utf8',
-    shell: isWin,
+    shell: true,
   });
-  if (result.status !== 0) {
-    log(`L3-regenerator 실패 (code ${result.status}): ${result.stderr || result.stdout || ''}`);
+  if (result.error || result.status !== 0) {
+    const detail = result.error ? result.error.message : (result.stderr || result.stdout || '');
+    log(`L3-regenerator 실패 (code ${result.status}): ${detail}`);
+    sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
+    sess.gaps.push({ type: 'spawn-failed', fn: 'runL3Regenerator', topicId, detail: String(detail).slice(0, 200) });
+    writeJson(CURRENT_SESSION_PATH, sess);
   } else {
     log(`L3-regenerator 완료 — ${topicId}`);
   }
@@ -240,12 +246,11 @@ function runCheckPendingDeferrals(sess) {
     log('check-pending-deferrals skip: 스크립트 없음');
     return;
   }
-  const isWin = process.platform === 'win32';
-  const cmd = isWin ? 'npx.cmd' : 'npx';
+  const cmd = 'npx';
   const result = spawnSync(cmd, ['ts-node', scriptPath], {
     cwd: CWD,
     encoding: 'utf8',
-    shell: isWin,
+    shell: true,
   });
   const output = (result.stdout || '') + (result.stderr || '');
   if (output.includes('⚠️')) {
@@ -278,16 +283,15 @@ function updateClosedInSession(sess) {
     return;
   }
 
-  const isWin = process.platform === 'win32';
-  const cmd = isWin ? 'npx.cmd' : 'npx';
+  const cmd = 'npx';
   const result = spawnSync(cmd, ['ts-node', scriptPath, '--topicId', topicId, '--sessionId', sessionId], {
     cwd: CWD,
     encoding: 'utf8',
-    shell: isWin,
+    shell: true,
   });
 
-  if (result.status !== 0) {
-    const errMsg = (result.stderr || result.stdout || '').trim();
+  if (result.error || result.status !== 0) {
+    const errMsg = result.error ? result.error.message : (result.stderr || result.stdout || '').trim();
     log(`updateClosedInSession 실패 (code ${result.status}): ${errMsg}`);
     sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
     sess.gaps.push({ type: 'topic-index-write-failed', topicId, sessionId, detail: errMsg });
@@ -308,10 +312,9 @@ function runAutoCloseDryRun() {
     log('auto-close-topics skip: 스크립트 없음');
     return;
   }
-  const isWin = process.platform === 'win32';
-  const cmd = isWin ? 'npx.cmd' : 'npx';
+  const cmd = 'npx';
   const result = spawnSync(cmd, ['ts-node', scriptPath], {
-    cwd: CWD, encoding: 'utf8', shell: isWin,
+    cwd: CWD, encoding: 'utf8', shell: true,
   });
   const out = (result.stdout || '').trim();
   if (out.includes('proposals: 0')) {
@@ -327,10 +330,9 @@ function runResolvePDDryRun() {
     log('resolve-pending-deferrals skip: 스크립트 없음');
     return;
   }
-  const isWin = process.platform === 'win32';
-  const cmd = isWin ? 'npx.cmd' : 'npx';
+  const cmd = 'npx';
   const result = spawnSync(cmd, ['ts-node', scriptPath], {
-    cwd: CWD, encoding: 'utf8', shell: isWin,
+    cwd: CWD, encoding: 'utf8', shell: true,
   });
   const out = (result.stdout || '').trim();
   if (out.includes('matches: 0') && !out.includes('⚠')) {
@@ -558,7 +560,7 @@ function checkSelfScoreScale(sess) {
   // count 스케일 shortKey 목록 — metrics_registry.json에서 로드
   let countScaleKeys = new Set();
   try {
-    const regPath = path.join(__dirname, '../../memory/growth/metrics_registry.json');
+    const regPath = path.join(CWD, 'memory', 'growth', 'metrics_registry.json');
     const reg = JSON.parse(fs.readFileSync(regPath, 'utf8'));
     for (const m of reg.metrics || []) {
       if (m.scale === 'count') countScaleKeys.add(m.shortKey);
@@ -1583,13 +1585,11 @@ function runSyncSystemState() {
     log('sync-system-state.ts 없음, 스킵');
     return;
   }
-  // npx ts-node 대신 기존 패턴 재사용
-  const isWin = process.platform === 'win32';
-  const cmd = isWin ? 'npx.cmd' : 'npx';
+  const cmd = 'npx';
   const result = spawnSync(cmd, ['ts-node', tsPath], {
     cwd: CWD,
     encoding: 'utf8',
-    shell: isWin,
+    shell: true,
   });
   if (result.status !== 0) {
     log(`sync-system-state 실패 (code ${result.status}): ${result.stderr || ''}`);

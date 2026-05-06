@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-05T23:57:53.252Z",
-  "totalSessions": 194,
+  "generatedAt": "2026-05-06T00:10:14.226Z",
+  "totalSessions": 195,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [
     {
@@ -8,27 +8,27 @@
       "caveat": "rules.edi가 hook에 의해 read되지 않으므로 정책 토글 기능 0(예: enforcement_grade 변경으로 enforcement 끄기 불가). 향후 D-138 enforcement 폐기 결정 시 finalize.js line 1521 직접 삭제 + rules.edi.enforcement_note 갱신 필요. Riki R-2(session_164 5 gap false positive 의심)는 미해소 — PD로 이연.",
       "ackedBySession": "session_168",
       "ackedAt": "2026-05-02",
-      "ageInSessions": 29
+      "ageInSessions": 31
     },
     {
       "decisionId": "D-138",
       "caveat": "dispatch_config.json Edi rule 부재는 잔존 — pre-tool-use-task.js가 dispatch_config를 실제 enforce하는 hook 구현 후 rule 추가 순서 유지 필요. turns 중복 기록 패턴(이번 세션 turns[1]/[3])은 별도 점검 후보.",
       "ackedBySession": "session_168",
       "ackedAt": "2026-05-02",
-      "ageInSessions": 29
+      "ageInSessions": 31
     }
   ],
   "metrics": {
-    "avgMasterTurns": 19.77,
-    "avgCacheHitRate": 0.9333,
-    "cacheSampleSize": 168,
-    "cacheSampleTotal": 194,
+    "avgMasterTurns": 19.68,
+    "avgCacheHitRate": 0.9334,
+    "cacheSampleSize": 169,
+    "cacheSampleTotal": 195,
     "avgAdoptionRate": 0,
     "totalDecisions": 166,
     "gradeDistribution": {
       "S": 91,
       "A": 38,
-      "B": 42,
+      "B": 43,
       "C": 15,
       "D": 8
     },
@@ -36,7 +36,7 @@
       "S": 18,
       "A": 59,
       "B": 55,
-      "C": 27,
+      "C": 28,
       "D": 7
     },
     "gradeMismatchCount": 10,
@@ -53,10 +53,10 @@
       "session_172"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 149,
-    "totalCostUSD": 2296.0094,
-    "avgCostPerSession": 12.1482,
-    "costSampleSize": 189
+    "turnBasedSessions": 150,
+    "totalCostUSD": 2300.0306,
+    "avgCostPerSession": 12.1054,
+    "costSampleSize": 190
   },
   "sessions": [
     {
@@ -7486,6 +7486,40 @@
         "messageCount": 178
       },
       "sessionCostUSD": 7.1324
+    },
+    {
+      "sessionId": "session_199",
+      "topicSlug": "hook-macos-compat",
+      "topic": "hook 패치 — macOS 전환 대비 절대경로 제거",
+      "startedAt": "2026-05-06T00:00:00.000Z",
+      "closedAt": "2026-05-06T01:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 3,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "dev",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 7152031,
+        "ioTokens": 55145,
+        "inputTokens": 115,
+        "outputTokens": 55030,
+        "cacheCreate": 309071,
+        "cacheRead": 6787815,
+        "cacheHitRate": 0.9490751648028372,
+        "messageCount": 98
+      },
+      "sessionCostUSD": 4.0212
     }
   ],
   "roleFrequency": [
@@ -7586,7 +7620,7 @@
     },
     {
       "role": "edi",
-      "count": 163,
+      "count": 164,
       "sessions": [
         "session_050",
         "session_051",
@@ -7733,7 +7767,8 @@
         "session_194",
         "session_195",
         "session_196",
-        "session_197"
+        "session_197",
+        "session_199"
       ]
     },
     {
@@ -7821,7 +7856,7 @@
     },
     {
       "role": "dev",
-      "count": 109,
+      "count": 110,
       "sessions": [
         "session_047",
         "session_048",
@@ -7909,7 +7944,8 @@
         "session_193",
         "session_194",
         "session_196",
-        "session_197"
+        "session_197",
+        "session_199"
       ]
     },
     {
@@ -13675,6 +13711,24 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 5,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_199",
+      "topic": "hook 패치 — macOS 전환 대비 절대경로 제거",
+      "sequence": [
+        {
+          "role": "dev",
+          "phase": "impl",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 1,
           "recallReason": null
         }
       ]

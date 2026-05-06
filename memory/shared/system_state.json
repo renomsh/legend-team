@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_197",
-  "nextSessionId": "session_198",
+  "lastSessionId": "session_199",
+  "nextSessionId": "session_200",
   "currentVersion": "v0.957",
   "openTopics": [
     {
@@ -46,6 +46,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_199",
+      "topicSlug": "hook-macos-compat",
+      "closedAt": "2026-05-06T01:00:00.000Z",
+      "oneLineSummary": "hook-macos-compat: session-end-finalize.js R-2(shell:true×7)·R-3(gaps박제)·R-4(__dirname→CWD) 완료",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_197",
       "topicSlug": "g3-g4-check",
       "closedAt": "2026-05-05T22:00:00.000Z",
@@ -61,15 +68,6 @@
       "oneLineSummary": "PD-059 close토큰절감 G5+G2+G1 구현(close.md 3곳+get-ledger-snapshot.ts) → D-164 + PD-059 resolved +0.01",
       "decisionsAdded": [
         "D-164"
-      ]
-    },
-    {
-      "sessionId": "session_195",
-      "topicSlug": "pd065-signaturemetrics-hygiene",
-      "closedAt": "2026-05-05T20:00:00.000Z",
-      "oneLineSummary": "PD-065 signatureMetrics 위생 6파일 + growth L1 재정의(D-163) → PD-065 resolved",
-      "decisionsAdded": [
-        "D-163"
       ]
     }
   ],
@@ -107,5 +105,5 @@
       "note": "다음 주 진행 예정 (Master 확인 session_024)"
     }
   ],
-  "lastUpdated": "2026-05-05T06:08:30.244Z"
+  "lastUpdated": "2026-05-06T00:09:50.542Z"
 }

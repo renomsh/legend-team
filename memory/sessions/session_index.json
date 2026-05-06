@@ -8958,8 +8958,36 @@
       "decisionsAdded": [
         "D-165"
       ]
+    },
+    {
+      "sessionId": "session_199",
+      "topicSlug": "hook-macos-compat",
+      "topic": "hook 패치 — macOS 전환 대비 절대경로 제거",
+      "startedAt": "2026-05-06T00:00:00.000Z",
+      "closedAt": "2026-05-06T01:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\agitated-spence-2ca91a",
+      "agentsCompleted": [
+        "dev",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "dev",
+          "turnIdx": 0,
+          "phase": "impl",
+          "selfScores": {}
+        },
+        {
+          "role": "edi",
+          "turnIdx": 1,
+          "phase": "compile"
+        }
+      ],
+      "grade": "C",
+      "oneLineSummary": "hook-macos-compat: session-end-finalize.js R-2(shell:true×7)·R-3(gaps박제)·R-4(__dirname→CWD) 완료",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-05T06:08:00.428Z",
+  "lastUpdated": "2026-05-06T00:09:06.879Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
