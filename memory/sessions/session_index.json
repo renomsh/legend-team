@@ -9298,8 +9298,132 @@
         "D-169",
         "D-170"
       ]
+    },
+    {
+      "sessionId": "session_205",
+      "topicSlug": "parallel-topic-session-design",
+      "topic": "병렬 토픽 및 세션 구조 설계",
+      "startedAt": "2026-05-06T11:00:00.000Z",
+      "closedAt": "2026-05-07T00:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\interesting-snyder-cfd82d",
+      "decisions": [
+        {
+          "axis": "topic_176 frame G안 채택 방향 — 명명 분리(N-101/N-001) + Task 병렬 호출 + 단일 프로세스 자연 직렬화. 다음 세션에서 Arki·Riki가 G안 기술 검토 후 D-NNN 박제."
+        }
+      ],
+      "agentsCompleted": [
+        "nova",
+        "arki",
+        "arki",
+        "dev",
+        "fin",
+        "riki",
+        "jobs",
+        "ace",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "nova",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "inv_prm": 0.5,
+            "blnd_spt": "Y",
+            "spc_axs": 5
+          }
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "source": "agent",
+          "selfScores": {
+            "aud_rcl": 0.6,
+            "str_fd": 4,
+            "spc_lck": "N",
+            "sa_rnd": 1
+          }
+        },
+        {
+          "role": "arki",
+          "turnIdx": 2,
+          "source": "agent",
+          "selfScores": {
+            "aud_rcl": 0.85,
+            "str_fd": 7,
+            "spc_lck": "N",
+            "sa_rnd": 2
+          }
+        },
+        {
+          "role": "dev",
+          "turnIdx": 3,
+          "source": "agent",
+          "selfScores": {
+            "build_ok": "Y",
+            "runtime_ok": "Y",
+            "hc_avoid": "Y",
+            "ci_pass": "Y"
+          }
+        },
+        {
+          "role": "fin",
+          "turnIdx": 4,
+          "source": "agent",
+          "selfScores": {
+            "cst_acc": 0.75,
+            "opp_id": "Y",
+            "nb_val": "Y",
+            "hzn_b": "단기(C 즉시)·중기(PD 실측 누적 후 B 재검토)·장기(병렬 실증 시 A)"
+          }
+        },
+        {
+          "role": "riki",
+          "turnIdx": 5,
+          "source": "agent",
+          "selfScores": {
+            "crt_rcl": 0.85,
+            "cr_val": "Y",
+            "prd_rej": "Y",
+            "fp_rt": 0.1
+          }
+        },
+        {
+          "role": "jobs",
+          "turnIdx": 6,
+          "source": "agent",
+          "selfScores": {
+            "focus_sharp": 5,
+            "bloat_idx": 1,
+            "bias_cnt": 4,
+            "no_cnt": 5
+          }
+        },
+        {
+          "role": "ace",
+          "turnIdx": 7,
+          "source": "agent",
+          "selfScores": {
+            "ctx_car": 0.95,
+            "mst_fr": "N",
+            "syn_dpt": 0.85,
+            "syn_orig": 0.7
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 8,
+          "phase": "compile"
+        }
+      ],
+      "grade": "S",
+      "note": "G안 미해결 항목 6건은 topics/topic_176/context_brief.md에 박제. 다음 세션 /open topic_176 시 Arki·Riki 검토. | Jobs framing이 anchoring + framing effect 적출 — turn 1 Arki 풀세트가 후속 5 발언자 frame 점유. 학습 가치 있음. | 에이전트 호출 1회 ≈ 수 분 (Master 직접 진술) → Jobs 전제 2(응답 지연 주원인 = subagent dispatch) 실측 통과.",
+      "oneLineSummary": "topic_176 framing draft — Master 제안 G안(명명 분리+Task 병렬+단일 프로세스 직렬화) 채택 방향, 다음 세션 Arki·Riki 검토. Jobs anchoring 적출, Fin 인지부담 단언 오류 메모리 박제.",
+      "decisionsAdded": [
+        "[object Object]"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-06T14:02:31.186Z",
+  "lastUpdated": "2026-05-06T23:15:21.157Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-06T14:14:32.150Z",
-  "totalSessions": 200,
+  "generatedAt": "2026-05-06T23:15:40.645Z",
+  "totalSessions": 201,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [
     {
@@ -8,32 +8,32 @@
       "caveat": "rules.edi가 hook에 의해 read되지 않으므로 정책 토글 기능 0(예: enforcement_grade 변경으로 enforcement 끄기 불가). 향후 D-138 enforcement 폐기 결정 시 finalize.js line 1521 직접 삭제 + rules.edi.enforcement_note 갱신 필요. Riki R-2(session_164 5 gap false positive 의심)는 미해소 — PD로 이연.",
       "ackedBySession": "session_168",
       "ackedAt": "2026-05-02",
-      "ageInSessions": 36
+      "ageInSessions": 37
     },
     {
       "decisionId": "D-138",
       "caveat": "dispatch_config.json Edi rule 부재는 잔존 — pre-tool-use-task.js가 dispatch_config를 실제 enforce하는 hook 구현 후 rule 추가 순서 유지 필요. turns 중복 기록 패턴(이번 세션 turns[1]/[3])은 별도 점검 후보.",
       "ackedBySession": "session_168",
       "ackedAt": "2026-05-02",
-      "ageInSessions": 36
+      "ageInSessions": 37
     }
   ],
   "metrics": {
-    "avgMasterTurns": 20.21,
+    "avgMasterTurns": 20.39,
     "avgCacheHitRate": 0.9329,
-    "cacheSampleSize": 171,
-    "cacheSampleTotal": 200,
+    "cacheSampleSize": 172,
+    "cacheSampleTotal": 201,
     "avgAdoptionRate": 0,
     "totalDecisions": 166,
     "gradeDistribution": {
-      "S": 93,
+      "S": 94,
       "A": 41,
       "B": 42,
       "C": 15,
       "D": 9
     },
     "topicGradeDistribution": {
-      "S": 18,
+      "S": 19,
       "A": 60,
       "B": 57,
       "C": 28,
@@ -56,10 +56,10 @@
       "session_203"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 154,
-    "totalCostUSD": 2344.0178,
-    "avgCostPerSession": 12.2084,
-    "costSampleSize": 192
+    "turnBasedSessions": 155,
+    "totalCostUSD": 2358.5395,
+    "avgCostPerSession": 12.2204,
+    "costSampleSize": 193
   },
   "sessions": [
     {
@@ -7676,12 +7676,58 @@
         "zero",
         "edi"
       ]
+    },
+    {
+      "sessionId": "session_205",
+      "topicSlug": "parallel-topic-session-design",
+      "topic": "병렬 토픽 및 세션 구조 설계",
+      "startedAt": "2026-05-06T11:00:00.000Z",
+      "closedAt": "2026-05-07T00:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        {
+          "axis": "topic_176 frame G안 채택 방향 — 명명 분리(N-101/N-001) + Task 병렬 호출 + 단일 프로세스 자연 직렬화. 다음 세션에서 Arki·Riki가 G안 기술 검토 후 D-NNN 박제."
+        }
+      ],
+      "rolesCalled": 9,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 16,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 55,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "nova",
+        "arki",
+        "arki",
+        "dev",
+        "fin",
+        "riki",
+        "jobs",
+        "ace",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 20911674,
+        "ioTokens": 236662,
+        "inputTokens": 1569,
+        "outputTokens": 235093,
+        "cacheCreate": 1387841,
+        "cacheRead": 19287171,
+        "cacheHitRate": 0.9223159752777325,
+        "messageCount": 213
+      },
+      "sessionCostUSD": 14.5217
     }
   ],
   "roleFrequency": [
     {
       "role": "ace",
-      "count": 176,
+      "count": 177,
       "sessions": [
         "session_047",
         "session_048",
@@ -7772,12 +7818,13 @@
         "session_173",
         "session_175",
         "session_192",
-        "session_200"
+        "session_200",
+        "session_205"
       ]
     },
     {
       "role": "edi",
-      "count": 169,
+      "count": 170,
       "sessions": [
         "session_050",
         "session_051",
@@ -7929,12 +7976,13 @@
         "session_200",
         "session_201",
         "session_202",
-        "session_204"
+        "session_204",
+        "session_205"
       ]
     },
     {
       "role": "arki",
-      "count": 143,
+      "count": 145,
       "sessions": [
         "session_048",
         "session_049",
@@ -8016,12 +8064,13 @@
         "session_200",
         "session_201",
         "session_202",
-        "session_204"
+        "session_204",
+        "session_205"
       ]
     },
     {
       "role": "dev",
-      "count": 110,
+      "count": 111,
       "sessions": [
         "session_047",
         "session_048",
@@ -8110,12 +8159,13 @@
         "session_194",
         "session_196",
         "session_197",
-        "session_199"
+        "session_199",
+        "session_205"
       ]
     },
     {
       "role": "riki",
-      "count": 106,
+      "count": 107,
       "sessions": [
         "session_049",
         "session_053",
@@ -8196,7 +8246,8 @@
         "session_200",
         "session_201",
         "session_202",
-        "session_204"
+        "session_204",
+        "session_205"
       ]
     },
     {
@@ -8226,7 +8277,7 @@
     },
     {
       "role": "fin",
-      "count": 27,
+      "count": 28,
       "sessions": [
         "session_053",
         "session_054",
@@ -8252,12 +8303,13 @@
         "session_142",
         "session_144",
         "session_173",
-        "session_196"
+        "session_196",
+        "session_205"
       ]
     },
     {
       "role": "jobs",
-      "count": 23,
+      "count": 24,
       "sessions": [
         "session_151",
         "session_152",
@@ -8273,7 +8325,8 @@
         "session_191",
         "session_192",
         "session_193",
-        "session_196"
+        "session_196",
+        "session_205"
       ]
     },
     {
@@ -8293,12 +8346,13 @@
     },
     {
       "role": "nova",
-      "count": 4,
+      "count": 5,
       "sessions": [
         "session_066",
         "session_077",
         "session_082",
-        "session_138"
+        "session_138",
+        "session_205"
       ]
     }
   ],
@@ -14068,6 +14122,66 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_205",
+      "topic": "병렬 토픽 및 세션 구조 설계",
+      "sequence": [
+        {
+          "role": "nova",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "jobs",
+          "phase": null,
+          "turnIdx": 6,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 7,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 8,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -14138,6 +14252,11 @@
           "date": "2026-05-02",
           "feedbackId": "MF-AUTO-session_174-edi",
           "summary": "Grade A 세션 session_174에서 Edi LLM 미호출 — mechanical fallback(e"
+        },
+        {
+          "date": "2026-05-06",
+          "feedbackId": "MF-AUTO-session_205-edi",
+          "summary": "Grade S 세션 session_205에서 Edi LLM 미호출 — mechanical fallback(e"
         }
       ]
     },
@@ -14223,6 +14342,11 @@
           "date": "2026-05-02",
           "feedbackId": "MF-AUTO-session_174-edi",
           "summary": "Grade A 세션 session_174에서 Edi LLM 미호출 — mechanical fallback(e"
+        },
+        {
+          "date": "2026-05-06",
+          "feedbackId": "MF-AUTO-session_205-edi",
+          "summary": "Grade S 세션 session_205에서 Edi LLM 미호출 — mechanical fallback(e"
         }
       ]
     },
@@ -14283,6 +14407,11 @@
           "date": "2026-05-02",
           "feedbackId": "MF-AUTO-session_174-edi",
           "summary": "Grade A 세션 session_174에서 Edi LLM 미호출 — mechanical fallback(e"
+        },
+        {
+          "date": "2026-05-06",
+          "feedbackId": "MF-AUTO-session_205-edi",
+          "summary": "Grade S 세션 session_205에서 Edi LLM 미호출 — mechanical fallback(e"
         }
       ]
     },
@@ -15471,6 +15600,11 @@
           "date": "2026-05-02",
           "feedbackId": "MF-AUTO-session_174-edi",
           "summary": "Grade A 세션 session_174에서 Edi LLM 미호출 — mechanical fallback(e"
+        },
+        {
+          "date": "2026-05-06",
+          "feedbackId": "MF-AUTO-session_205-edi",
+          "summary": "Grade S 세션 session_205에서 Edi LLM 미호출 — mechanical fallback(e"
         }
       ]
     }

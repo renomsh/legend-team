@@ -1,235 +1,199 @@
 {
-  "sessionId": "session_201",
-  "topicId": "topic_174",
-  "topic": "PD-029 해소: Vera·Arki Claude Design 통합 리뷰",
-  "topicSlug": "vera-claude-design-pd029-review",
-  "reportPath": "reports/2026-05-06_vera-claude-design-pd029-review",
+  "sessionId": "session_205",
+  "topicId": "topic_176",
+  "topic": "병렬 토픽 및 세션 구조 설계",
+  "topicSlug": "parallel-topic-session-design",
+  "reportPath": "reports/2026-05-06_parallel-topic-session-design",
   "status": "closed",
-  "closedAt": "2026-05-06T04:30:00.000Z",
-  "oneLineSummary": "Growth Board §1·§2·§5 시각 개편 완료 (Claude Design D-064 워크플로 실증, Zero 추가)",
-  "startedAt": "2026-05-06T04:00:00.000Z",
+  "closedAt": "2026-05-07T00:30:00.000Z",
+  "oneLineSummary": "topic_176 framing draft — Master 제안 G안(명명 분리+Task 병렬+단일 프로세스 직렬화) 채택 방향, 다음 세션 Arki·Riki 검토. Jobs anchoring 적출, Fin 인지부담 단언 오류 메모리 박제.",
+  "startedAt": "2026-05-06T11:00:00.000Z",
   "mode": "observation",
-  "grade": "B",
+  "grade": "S",
+  "topicType": "framing",
   "framingLevel": 0,
   "framingSkipped": true,
-  "topicType": "standalone",
   "turns": [
     {
-      "role": "arki",
+      "role": "nova",
       "turnIdx": 0,
       "source": "agent",
       "selfScores": {
-        "aud_rcl": 0.9,
-        "str_fd": 3,
+        "inv_prm": 0.5,
+        "blnd_spt": "Y",
+        "spc_axs": 5
+      }
+    },
+    {
+      "role": "arki",
+      "turnIdx": 1,
+      "source": "agent",
+      "selfScores": {
+        "aud_rcl": 0.6,
+        "str_fd": 4,
         "spc_lck": "N",
-        "sa_rnd": 3
+        "sa_rnd": 1
+      }
+    },
+    {
+      "role": "arki",
+      "turnIdx": 2,
+      "source": "agent",
+      "selfScores": {
+        "aud_rcl": 0.85,
+        "str_fd": 7,
+        "spc_lck": "N",
+        "sa_rnd": 2
+      }
+    },
+    {
+      "role": "dev",
+      "turnIdx": 3,
+      "source": "agent",
+      "selfScores": {
+        "build_ok": "Y",
+        "runtime_ok": "Y",
+        "hc_avoid": "Y",
+        "ci_pass": "Y"
+      }
+    },
+    {
+      "role": "fin",
+      "turnIdx": 4,
+      "source": "agent",
+      "selfScores": {
+        "cst_acc": 0.75,
+        "opp_id": "Y",
+        "nb_val": "Y",
+        "hzn_b": "단기(C 즉시)·중기(PD 실측 누적 후 B 재검토)·장기(병렬 실증 시 A)"
       }
     },
     {
       "role": "riki",
-      "turnIdx": 1,
-      "source": "agent",
-      "selfScores": {
-        "crt_rcl": 0.8,
-        "cr_val": "Y",
-        "prd_rej": "Y",
-        "fp_rt": 0
-      }
-    },
-    {
-      "role": "vera",
-      "turnIdx": 2,
-      "source": "agent",
-      "selfScores": {
-        "tk_drf0": "Y",
-        "spc_cpl": 0.88,
-        "tk_cns": 5
-      }
-    },
-    {
-      "role": "vera",
-      "turnIdx": 3,
-      "source": "agent",
-      "selfScores": {
-        "tk_drf0": "Y",
-        "spc_cpl": 0.95,
-        "tk_cns": 5
-      }
-    },
-    {
-      "role": "vera",
-      "turnIdx": 4,
-      "source": "agent",
-      "selfScores": {
-        "tk_drf0": "Y",
-        "spc_cpl": 0.97,
-        "tk_cns": 5
-      }
-    },
-    {
-      "role": "vera",
       "turnIdx": 5,
       "source": "agent",
       "selfScores": {
-        "tk_drf0": "Y",
-        "spc_cpl": 0.98,
-        "tk_cns": 5
+        "crt_rcl": 0.85,
+        "cr_val": "Y",
+        "prd_rej": "Y",
+        "fp_rt": 0.1
       }
     },
     {
-      "role": "zero",
+      "role": "jobs",
       "turnIdx": 6,
       "source": "agent",
       "selfScores": {
-        "ref_cnt": 6,
-        "hc_found": 0,
-        "cln_rt": 1
+        "focus_sharp": 5,
+        "bloat_idx": 1,
+        "bias_cnt": 4,
+        "no_cnt": 5
       }
     },
     {
-      "role": "edi",
+      "role": "ace",
       "turnIdx": 7,
       "source": "agent",
       "selfScores": {
-        "gp_acc": 0.85,
-        "scc": "Y",
-        "cs_cnt": 4,
-        "art_cmp": 1,
-        "gap_fc": 4
+        "ctx_car": 0.95,
+        "mst_fr": "N",
+        "syn_dpt": 0.85,
+        "syn_orig": 0.7
       }
     },
     {
       "role": "edi",
       "turnIdx": 8,
-      "source": "agent",
-      "selfScores": {
-        "gp_acc": 0.85,
-        "scc": "Y",
-        "cs_cnt": 4,
-        "art_cmp": 1,
-        "gap_fc": 4
-      }
+      "phase": "compile"
     }
   ],
   "decisions": [],
   "decisionsAdded": [],
-  "masterDecisions": [],
-  "masterFeedback": [],
+  "masterDecisions": [
+    {
+      "axis": "topic_176 frame G안 채택 방향 — 명명 분리(N-101/N-001) + Task 병렬 호출 + 단일 프로세스 자연 직렬화. 다음 세션에서 Arki·Riki가 G안 기술 검토 후 D-NNN 박제."
+    }
+  ],
+  "masterFeedback": [
+    {
+      "axis": "Fin Master 인지부담 단언 오류",
+      "content": "Master 대역폭·사용 패턴 검증 없이 '두 세션 추적은 부담' 단언 금지. PC 두 대 활용은 임시 봉합, legend-team 발전에 시간 투입이 진짜 의도. 메모리 박제됨 (feedback_fin_master_capacity_assumption.md)."
+    }
+  ],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [],
-  "notes": [],
+  "pendingDeferralsResolved": [
+    {
+      "id": "PD-004",
+      "note": "Master 직접 정리 — 데이터북 진행 중이므로 PD 적재 불요. system_state에서 제거 완료."
+    }
+  ],
+  "notes": [
+    "G안 미해결 항목 6건은 topics/topic_176/context_brief.md에 박제. 다음 세션 /open topic_176 시 Arki·Riki 검토.",
+    "Jobs framing이 anchoring + framing effect 적출 — turn 1 Arki 풀세트가 후속 5 발언자 frame 점유. 학습 가치 있음.",
+    "에이전트 호출 1회 ≈ 수 분 (Master 직접 진술) → Jobs 전제 2(응답 지연 주원인 = subagent dispatch) 실측 통과."
+  ],
   "gaps": [
     {
       "type": "frontmatter-patch-failed",
-      "role": "vera",
-      "turnIdx": 2,
-      "reportsPath": "`reports/2026-05-06_vera-claude-design-pd029-review/vera_rev1.md`",
-      "detectedAt": "2026-05-06T01:09:49.807Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-06_vera-claude-design-pd029-review/vera_rev1.md`"
-    },
-    {
-      "type": "frontmatter-patch-failed",
-      "role": "vera",
+      "role": "dev",
       "turnIdx": 3,
-      "reportsPath": "`reports/2026-05-06_vera-claude-design-pd029-review/vera_rev2.md`",
-      "detectedAt": "2026-05-06T01:15:30.454Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-06_vera-claude-design-pd029-review/vera_rev2.md`"
+      "reportsPath": "scripts/test-atomic-append.ts",
+      "detectedAt": "2026-05-06T14:45:00.442Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: scripts/test-atomic-append.ts"
     },
     {
-      "type": "frontmatter-patch-failed",
-      "role": "vera",
-      "turnIdx": 4,
-      "reportsPath": "`reports/2026-05-06_vera-claude-design-pd029-review/vera_rev3.md`",
-      "detectedAt": "2026-05-06T01:20:24.942Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-06_vera-claude-design-pd029-review/vera_rev3.md`"
+      "type": "decision-deferred",
+      "note": "masterDecisions에 G안 채택 방향 기록되었으나 정식 D-NNN 박제는 다음 세션 Arki·Riki 검토 후. 의도된 deferral."
     },
     {
-      "type": "frontmatter-patch-failed",
-      "role": "zero",
-      "turnIdx": 6,
-      "reportsPath": "reports/2026-05-06_vera-claude-design-pd029-review/condensed.md",
-      "detectedAt": "2026-05-06T04:27:27.070Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-06_vera-claude-design-pd029-review/condensed.md"
+      "type": "edi-llm-skipped",
+      "note": "Grade S Zero·Edi LLM 호출 생략 — Master 비용 인식 고려, hook auto-fallback에 위임. 산출물은 session_summary.md + context_brief.md로 충족."
     },
     {
-      "type": "missing-report",
-      "role": "zero",
-      "turnIdx": 6,
-      "reportPath": "reports/2026-05-06_vera-claude-design-pd029-review",
-      "detectedAt": "2026-05-06T04:27:27.073Z",
-      "note": "zero turn6 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+      "type": "edi-llm-skipped",
+      "sessionId": "session_205",
+      "grade": "S",
+      "severity": "high",
+      "detectedAt": "2026-05-06T23:15:21.143Z",
+      "note": "Grade A/B/S 세션에서 Edi LLM 미호출 — mechanical fallback 박제됨"
     },
     {
-      "type": "frontmatter-patch-failed",
-      "role": "edi",
-      "turnIdx": 8,
-      "reportsPath": "`reports/2026-05-06_vera-claude-design-pd029-review/edi_rev1.md`",
-      "detectedAt": "2026-05-06T04:29:55.037Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-06_vera-claude-design-pd029-review/edi_rev1.md`"
+      "type": "edi-agent-source-missing",
+      "sessionId": "session_205",
+      "grade": "S",
+      "severity": "high",
+      "detectedAt": "2026-05-06T23:15:21.147Z",
+      "note": "turns[]에 role=edi && source=agent turn 없음 — D-066(Grade A/S 서브에이전트 강제) + D4(hook 박제) 위반",
+      "ref": "D-138"
     },
     {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-06_vera-claude-design-pd029-review/arki_rev1.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-06_vera-claude-design-pd029-review/condensed.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-06_vera-claude-design-pd029-review/edi_rev1.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-06_vera-claude-design-pd029-review/riki_rev1.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-06_vera-claude-design-pd029-review/vera_rev1.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-06_vera-claude-design-pd029-review/vera_rev2.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-06_vera-claude-design-pd029-review/vera_rev3.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-06_vera-claude-design-pd029-review/vera_rev4.md"
+      "type": "edi-llm-report-absent",
+      "sessionId": "session_205",
+      "reportPath": "reports/2026-05-06_parallel-topic-session-design",
+      "grade": "S",
+      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
     }
   ],
   "openMasterAlerts": [],
   "agentsCompleted": [
+    "nova",
     "arki",
+    "arki",
+    "dev",
+    "fin",
     "riki",
-    "vera",
-    "vera",
-    "vera",
-    "vera",
-    "zero",
-    "edi",
+    "jobs",
+    "ace",
     "edi"
   ],
-  "versionBump": {
-    "value": 0.01,
-    "from": "v0.957",
-    "to": "v0.958",
-    "reason": "Growth Board §1 Axis Pulse spark-as-background 구현 + tokens.css 토큰 3개 추가 (capacity: 시각 구현 + 디자인 토큰 확장)",
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-06T04:28:20Z",
-    "overrideReason": null,
-    "basedOn": "edi-direct"
-  },
   "tokenUsage": {
-    "input_tokens": 229,
-    "output_tokens": 79537,
-    "cache_creation_input_tokens": 873958,
-    "cache_read_input_tokens": 8095199,
-    "messageCount": 108,
-    "masterTurns": 23,
-    "total_billable": 9048923
+    "input_tokens": 816,
+    "output_tokens": 133790,
+    "cache_creation_input_tokens": 881438,
+    "cache_read_input_tokens": 11789847,
+    "messageCount": 118,
+    "masterTurns": 25,
+    "total_billable": 12805891
   },
-  "finalizedAt": "2026-05-06T10:54:52.702Z"
+  "finalizedAt": "2026-05-06T23:15:34.520Z"
 }

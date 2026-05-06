@@ -1,6 +1,41 @@
 {
   "topics": [
     {
+      "id": "topic_176",
+      "title": "병렬 토픽 및 세션 구조 설계",
+      "status": "open",
+      "phase": "framing",
+      "hold": null,
+      "grade": "S",
+      "topicType": "framing",
+      "created": "2026-05-06",
+      "controlPath": "topics/topic_176",
+      "reportPath": "reports/2026-05-06_parallel-topic-session-design",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_205",
+      "path": "topics/topic_176",
+      "lastUpdated": "2026-05-06"
+    },
+    {
+      "id": "topic_175",
+      "title": "데이터북 Agent 설계",
+      "status": "suspended",
+      "phase": null,
+      "hold": null,
+      "created": "2026-05-06",
+      "controlPath": "topics/topic_175",
+      "reportPath": "reports/2026-05-06_databook-agent-design",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_204",
+      "path": "topics/topic_175",
+      "topicType": "standalone",
+      "grade": "A",
+      "outcome": "session_204 홀딩. 로드맵 Step 1~8 확정. M5·M6 확정. 다음 세션: schema 작성 즉시 착수 가능.",
+      "lastUpdated": "2026-05-06"
+    },
+    {
       "id": "topic_174",
       "title": "PD-029 해소: Vera·Arki Claude Design 통합 리뷰",
       "status": "completed",
@@ -3333,25 +3368,7 @@
       "phase": null,
       "hold": null,
       "legacy": true
-    },
-    {
-      "id": "topic_175",
-      "title": "데이터북 Agent 설계",
-      "status": "suspended",
-      "phase": null,
-      "hold": null,
-      "created": "2026-05-06",
-      "controlPath": "topics/topic_175",
-      "reportPath": "reports/2026-05-06_databook-agent-design",
-      "reportFiles": [],
-      "published": false,
-      "closedInSession": "session_204",
-      "path": "topics/topic_175",
-      "topicType": "standalone",
-      "grade": "A",
-      "outcome": "session_204 홀딩. 로드맵 Step 1~8 확정. M5·M6 확정. 다음 세션: schema 작성 즉시 착수 가능.",
-      "lastUpdated": "2026-05-06"
     }
   ],
-  "lastUpdated": "2026-05-06T14:06:58.640Z"
+  "lastUpdated": "2026-05-06T23:15:28.430Z"
 }

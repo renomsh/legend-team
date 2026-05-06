@@ -1,9 +1,15 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_201",
-  "nextSessionId": "session_202",
+  "lastSessionId": "session_205",
+  "nextSessionId": "session_206",
   "currentVersion": "v0.958",
   "openTopics": [
+    {
+      "id": "topic_175",
+      "title": "데이터북 Agent 설계",
+      "status": "suspended",
+      "reportPath": "reports/2026-05-06_databook-agent-design"
+    },
     {
       "id": "topic_012",
       "title": "데이터북 Agent 설계",
@@ -46,24 +52,29 @@
   ],
   "recentSessionSummaries": [
     {
-      "sessionId": "session_201",
-      "topicSlug": "vera-claude-design-pd029-review",
-      "closedAt": "2026-05-06T04:30:00.000Z",
-      "oneLineSummary": "Growth Board §1·§2·§5 시각 개편 완료 (Claude Design D-064 워크플로 실증, Zero 추가)",
-      "decisionsAdded": []
+      "sessionId": "session_205",
+      "topicSlug": "parallel-topic-session-design",
+      "closedAt": "2026-05-07T00:30:00.000Z",
+      "oneLineSummary": "topic_176 framing draft — Master 제안 G안(명명 분리+Task 병렬+단일 프로세스 직렬화) 채택 방향, 다음 세션 Arki·Riki 검토. Jobs anchoring 적출, Fin 인지부담 단언 오류 메모리 박제.",
+      "decisionsAdded": [
+        "[object Object]"
+      ]
     },
     {
-      "sessionId": "session_200",
-      "topicSlug": "mac-migration-check",
-      "closedAt": "2026-05-06T02:30:00.000Z",
-      "oneLineSummary": "mac-migration-check: 이전 블로커 0건 확인, R-1 잔존(token 탐색), 이전 체크리스트 3개 수립",
-      "decisionsAdded": []
+      "sessionId": "session_204",
+      "topicSlug": "databook-agent-design",
+      "closedAt": "2026-05-06T13:00:00.000Z",
+      "oneLineSummary": "topic_175 세션정리(202·203등록)+로드맵 Step1~8 확정+M5·M6 해소(as_is→현재담당자, 팀완료파일 소스)",
+      "decisionsAdded": [
+        "D-169",
+        "D-170"
+      ]
     },
     {
-      "sessionId": "session_199",
-      "topicSlug": "hook-macos-compat",
-      "closedAt": "2026-05-06T01:00:00.000Z",
-      "oneLineSummary": "hook-macos-compat: session-end-finalize.js R-2(shell:true×7)·R-3(gaps박제)·R-4(__dirname→CWD) 완료",
+      "sessionId": "session_203",
+      "topicSlug": "auto-push-log-conflict",
+      "closedAt": "2026-05-06T11:00:00.000Z",
+      "oneLineSummary": "auto-push logs/app.log 머지 충돌 버그 수정 (Grade D, 최소 세션)",
       "decisionsAdded": []
     }
   ],
@@ -82,15 +93,7 @@
         "D-144"
       ],
       "relatedTopic": "topic_144"
-    },
-    {
-      "id": "PD-004",
-      "fromSession": "session_015",
-      "fromTopic": "databook-agent-design",
-      "item": "데이터북 Agent 프로토타입 구현: 7개 팀 파일 전수 투입 → canonical 스키마 → normalize.py + merge.py + validate.py",
-      "status": "pending",
-      "note": "다음 주 진행 예정 (Master 확인 session_024)"
     }
   ],
-  "lastUpdated": "2026-05-06T10:54:52.606Z"
+  "lastUpdated": "2026-05-06T23:15:34.430Z"
 }
