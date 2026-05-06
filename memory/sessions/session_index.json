@@ -9168,8 +9168,138 @@
       ],
       "oneLineSummary": "Growth Board §1·§2·§5 시각 개편 완료 (Claude Design D-064 워크플로 실증, Zero 추가)",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_202",
+      "topicId": "topic_175",
+      "topicSlug": "pd004-databook-review",
+      "topic": "PD-004 데이터북 Agent P0 선결조사",
+      "startedAt": "2026-05-06T05:00:00.000Z",
+      "closedAt": "2026-05-06T10:55:00.000Z",
+      "grade": "A",
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "decisions": [
+        "D-166",
+        "D-167",
+        "D-168"
+      ],
+      "turns": [
+        {
+          "role": "arki",
+          "turnIdx": 0
+        },
+        {
+          "role": "riki",
+          "turnIdx": 1
+        },
+        {
+          "role": "arki",
+          "turnIdx": 2
+        },
+        {
+          "role": "zero",
+          "turnIdx": 3
+        },
+        {
+          "role": "edi",
+          "turnIdx": 4
+        }
+      ],
+      "note": "PD-004 데이터북 P0 선결조사 완료. 정책 SOT 박제(policy + handoff). 헤더 탐지·PK·필터·컬럼 정책 8건 확정. practical-brown worktree. v0.957→v1.057",
+      "oneLineSummary": "PD-004 데이터북 P0 선결조사 완료, 정책 SOT 박제(policy + handoff), D-166/167/168, v1.057",
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "arki",
+        "zero",
+        "edi"
+      ]
+    },
+    {
+      "sessionId": "session_203",
+      "topicId": "topic_175",
+      "topicSlug": "auto-push-log-conflict",
+      "topic": "auto-push 오류 확인: logs/app.log 머지 충돌",
+      "startedAt": "2026-05-06T05:00:00.000Z",
+      "closedAt": "2026-05-06T11:00:00.000Z",
+      "grade": "D",
+      "gradeDeclared": "D",
+      "gradeActual": "D",
+      "gradeMismatch": false,
+      "turns": [],
+      "note": "auto-push logs/app.log 머지 충돌 버그 수정. frosty-feistel worktree. 최소 세션 (turns 0건).",
+      "oneLineSummary": "auto-push logs/app.log 머지 충돌 버그 수정 (Grade D, 최소 세션)",
+      "agentsCompleted": []
+    },
+    {
+      "sessionId": "session_204",
+      "topicSlug": "databook-agent-design",
+      "topic": "데이터북 Agent 설계",
+      "startedAt": "2026-05-06T05:00:00.000Z",
+      "closedAt": "2026-05-06T13:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\gifted-ptolemy-40c13d",
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "zero",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "arki",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "aud_rcl": 0.85,
+            "str_fd": 4,
+            "spc_lck": "N",
+            "sa_rnd": 1
+          }
+        },
+        {
+          "role": "riki",
+          "turnIdx": 1,
+          "source": "agent",
+          "selfScores": {
+            "crt_rcl": 0.85,
+            "cr_val": "Y",
+            "prd_rej": "N",
+            "fp_rt": 0.05
+          }
+        },
+        {
+          "role": "zero",
+          "turnIdx": 2,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 2,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 3,
+          "source": "agent",
+          "selfScores": {
+            "gp_acc": 0.85,
+            "scc": "Y",
+            "cs_cnt": 4,
+            "art_cmp": 0.85,
+            "gap_fc": 4
+          }
+        }
+      ],
+      "grade": "A",
+      "oneLineSummary": "topic_175 세션정리(202·203등록)+로드맵 Step1~8 확정+M5·M6 해소(as_is→현재담당자, 팀완료파일 소스)",
+      "decisionsAdded": [
+        "D-169",
+        "D-170"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-06T10:54:40.479Z",
+  "lastUpdated": "2026-05-06T14:02:31.186Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
