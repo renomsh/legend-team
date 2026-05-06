@@ -8,73 +8,510 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/components.css">
   <style>
-    /* Page Layout (.main/.topbar/.crumb/.h1) → components.css §10 단일 출처 (D-097, topic_113) */
-    .sub{font-size:12px;color:var(--text-3);margin-top:6px}
+    /* ============================================================
+     * growth.html — page-local styles (Vera rev1, topic_174)
+     * 토큰 출처: tokens.css 단일 출처. :root{} 재정의 금지.
+     * ============================================================ */
 
-    /* Top filter — view selector (all/recent10/recent3) */
-    .view-bar{display:flex;justify-content:flex-end;gap:8px;align-items:center;margin-bottom:14px;font-size:11px;color:var(--text-3)}
-    .view-bar select{background:var(--panel-2);color:var(--text);border:1px solid var(--line);border-radius:6px;padding:4px 10px;font-size:11px}
+    /* Page sub-title */
+    .sub {
+      font-size: var(--fs-label);
+      color: var(--text-3);
+      margin-top: var(--sp-1);
+    }
+
+    /* Top filter — view selector */
+    .view-bar {
+      display: flex;
+      justify-content: flex-end;
+      gap: var(--sp-2);
+      align-items: center;
+      margin-bottom: var(--sp-3);
+      font-size: var(--fs-meta);
+      color: var(--text-3);
+    }
+    .view-bar select {
+      background: var(--panel-2);
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: var(--r-1);
+      padding: var(--sp-1) var(--sp-3);
+      font-size: var(--fs-meta);
+    }
 
     /* §1 Axis Pulse — 3 cards (L1/L2/L3) */
-    .axis-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
-    .axis-card{position:relative;padding:20px;border-radius:16px;background:var(--panel);border:1px solid var(--line);overflow:hidden}
-    .axis-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent)}
-    .axis-card.l1{--accent:var(--grad-violet)}
-    .axis-card.l2{--accent:var(--grad-teal)}
-    .axis-card.l3{--accent:var(--grad-amber)}
-    .axis-tag{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--text-3);font-weight:600}
-    .axis-name{font-size:16px;font-weight:700;margin-top:4px;letter-spacing:-.2px}
-    .axis-meta{font-size:11px;color:var(--text-3);margin-top:6px}
-    .axis-val{font-size:32px;font-weight:800;letter-spacing:-1px;margin-top:10px;line-height:1}
-    .axis-val .unit{font-size:13px;color:var(--text-3);font-weight:500;margin-left:4px}
+    .axis-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-4);
+      margin-bottom: var(--sp-4);
+    }
+    .axis-card {
+      position: relative;
+      padding: var(--sp-5);
+      border-radius: var(--r-4);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      transition: border-color var(--t-fast) var(--ease-std);
+    }
+    .axis-card:hover {
+      border-color: var(--line-2);
+    }
+    .axis-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+    }
+    .axis-card.l1 { --accent: var(--grad-violet); }
+    .axis-card.l2 { --accent: var(--grad-teal); }
+    .axis-card.l3 { --accent: var(--grad-amber); }
+    .axis-tag {
+      font-size: var(--fs-meta);
+      text-transform: uppercase;
+      letter-spacing: var(--ls-eyebrow);
+      color: var(--text-3);
+      font-weight: 600;
+    }
+    .axis-name {
+      font-size: var(--fs-h3);
+      font-weight: 700;
+      margin-top: var(--sp-1);
+      letter-spacing: var(--ls-h2);
+      color: var(--text);
+    }
+    .axis-meta {
+      font-size: var(--fs-meta);
+      color: var(--text-3);
+      margin-top: var(--sp-1);
+      line-height: var(--lh-body);
+    }
+    /* axis-val: KPI 숫자 — 40px */
+    .axis-val {
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-top: var(--sp-3);
+      line-height: var(--lh-tight);
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: 'tnum' 1;
+      color: var(--text);
+    }
+    .axis-val .unit {
+      font-size: var(--fs-label);
+      color: var(--text-3);
+      font-weight: 500;
+      margin-left: var(--sp-1);
+    }
+
+    /* §1 Axis card — spark-as-background layout (Vera rev4) */
+    .axis-card { padding-bottom: 20px; }
+    .axis-spark-bg {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 78px;
+      width: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      border-radius: 0 0 var(--r-4) var(--r-4);
+    }
+    .axis-point-labels {
+      position: absolute;
+      left: var(--sp-5); right: var(--sp-5);
+      bottom: var(--sp-3);
+      display: flex;
+      justify-content: space-between;
+      font-size: var(--fs-meta);
+      color: var(--text-3);
+      font-family: monospace;
+      letter-spacing: 0.05em;
+      z-index: 2;
+    }
+    .axis-trend-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-1);
+      font-size: var(--fs-meta);
+      color: var(--text-3);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+      border-radius: var(--r-pill);
+      padding: 2px var(--sp-3);
+      white-space: nowrap;
+    }
+    .axis-trend-chip.up   { color: #4ade80; }
+    .axis-trend-chip.down { color: #f87171; }
+    .axis-trend-chip.flat { color: var(--text-3); }
+    .axis-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: var(--sp-1);
+    }
+    .axis-kpi-block { position: relative; z-index: 2; margin-top: var(--sp-5); }
 
     /* Generic section */
-    .gx-section{margin-bottom:28px}
-    .gx-section-h{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:14px;gap:12px;flex-wrap:wrap}
-    .gx-section-h h2{font-size:14px;font-weight:700;color:var(--text);margin:0;text-transform:uppercase;letter-spacing:.08em}
-    .gx-section-h .meta{font-size:11px;color:var(--text-3)}
+    .gx-section { margin-bottom: var(--sp-8); }
+    .gx-section-h {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: var(--sp-2);
+      margin-bottom: var(--sp-3);
+      gap: var(--sp-3);
+      flex-wrap: wrap;
+    }
+    .gx-section-h h2 {
+      font-size: var(--fs-label);
+      font-weight: 700;
+      color: var(--text);
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: var(--ls-eyebrow-sm);
+    }
+    .gx-section-h .meta {
+      font-size: var(--fs-meta);
+      color: var(--text-3);
+    }
 
-    /* §2 Roles — 8 cards */
-    .role-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
-    .role-card{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;transition:border-color .15s}
-    .role-card:hover{border-color:rgba(139,92,246,.35)}
-    .role-card .role-tag{display:inline-flex;align-items:center;gap:8px;font-size:10px;color:var(--text-3);text-transform:uppercase;letter-spacing:.08em}
-    .role-card .role-dot{width:8px;height:8px;border-radius:2px}
-    .role-card .role-name{font-size:16px;font-weight:700;margin:4px 0 2px}
-    .role-card .role-top{font-size:10px;color:var(--text-2)}
-    .role-card .role-score{font-size:28px;font-weight:800;letter-spacing:-1px;margin:6px 0 2px;line-height:1}
-    .role-card .role-score .unit{font-size:12px;color:var(--text-3);font-weight:500}
-    .role-card .role-ci{font-size:10px;color:var(--text-3);margin-top:2px}
-    .role-card .badge{margin-top:6px;align-self:flex-start}
+    /* §2 Roles — cards · Approach A: Left rail (Claude Design 2026-05-06) */
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: var(--sp-3);
+    }
+    .role-card {
+      position: relative;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--r-3);
+      padding: var(--sp-3) var(--sp-4) var(--sp-3) 22px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-1);
+      overflow: hidden;
+      transition: border-color var(--t-fast) var(--ease-std), background var(--t-fast) var(--ease-std);
+    }
+    /* left rail — 3px accent stripe, same DNA as §1 top-stripe rotated 90° */
+    .role-card::before {
+      content: "";
+      position: absolute;
+      top: 14px; bottom: 14px; left: 0;
+      width: 3px;
+      border-radius: 0 3px 3px 0;
+      background: var(--card-accent, var(--line-2));
+    }
+    .role-card:hover {
+      border-color: color-mix(in srgb, var(--card-accent, var(--line-2)) 35%, var(--line));
+      background: var(--panel-2);
+    }
+    .role-card .role-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-size: var(--fs-meta);
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: var(--ls-eyebrow-sm);
+    }
+    .role-card .role-dot {
+      width: var(--sp-dot);
+      height: var(--sp-dot);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .role-card .role-name {
+      font-size: 22px;
+      font-weight: 700;
+      margin: var(--sp-1) 0 0;
+      letter-spacing: -0.01em;
+      line-height: var(--lh-tight);
+      color: var(--text);
+    }
+    .role-card .role-top {
+      font-size: var(--fs-meta);
+      color: var(--text-2);
+    }
+    /* role-score: KPI 숫자 — 36px (Claude Design Approach A) */
+    .role-card .role-score {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: var(--sp-2) 0 0;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: 'tnum' 1;
+      color: var(--text);
+    }
+    .role-card .role-score .unit {
+      font-size: 18px;
+      color: var(--text-3);
+      font-weight: 500;
+      margin-left: 4px;
+      letter-spacing: 0;
+    }
+    .role-card .role-ci {
+      font-size: var(--fs-meta);
+      color: var(--text-3);
+      margin-top: var(--sp-1);
+      line-height: var(--lh-body);
+    }
+    .role-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: var(--sp-2);
+      gap: var(--sp-2);
+    }
+    .role-card .badge { align-self: flex-start; }
 
     /* §3 Drill — table */
-    .drill-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px}
-    .drill-h .meta{font-size:11px;color:var(--text-3)}
-    select.role-select{background:var(--panel-2);color:var(--text);border:1px solid var(--line);border-radius:6px;padding:4px 10px;font-size:11px}
+    .drill-h {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--sp-3);
+      flex-wrap: wrap;
+      margin-bottom: var(--sp-2);
+    }
+    .drill-h .meta { font-size: var(--fs-meta); color: var(--text-3); }
+    select.role-select {
+      background: var(--panel-2);
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: var(--r-1);
+      padding: var(--sp-1) var(--sp-3);
+      font-size: var(--fs-meta);
+    }
 
     /* §4 Raw aggregates — collapsed by default */
-    .raw-details{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:0;overflow:hidden}
-    .raw-details > summary{cursor:pointer;list-style:none;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600;color:var(--text);user-select:none}
-    .raw-details > summary::-webkit-details-marker{display:none}
-    .raw-details > summary::after{content:"▸";font-size:11px;color:var(--text-3);transition:transform .15s}
-    .raw-details[open] > summary::after{transform:rotate(90deg)}
-    .raw-details > summary:hover{background:var(--panel-2)}
-    .raw-details .raw-body{max-height:360px;overflow-y:auto;border-top:1px solid var(--line);padding:0 6px}
-    .raw-details .raw-body .table{margin:0}
-    .raw-details .raw-meta{font-size:11px;color:var(--text-3);font-weight:400}
-
-    .empty{padding:32px 20px;text-align:center;color:var(--text-3);font-size:12px;border:1px dashed var(--line);border-radius:10px}
-
-    @media (max-width: 1023px){
-      .app{grid-template-columns:1fr}
-      .axis-row{grid-template-columns:1fr}
+    .raw-details {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--r-3);
+      padding: 0;
+      overflow: hidden;
     }
-    @media (max-width: 600px){
-      .role-grid{grid-template-columns:1fr}
+    .raw-details > summary {
+      cursor: pointer;
+      list-style: none;
+      padding: var(--sp-3) var(--sp-5);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: var(--fs-body);
+      font-weight: 600;
+      color: var(--text);
+      user-select: none;
+      transition: background var(--t-fast) var(--ease-std);
+    }
+    .raw-details > summary::-webkit-details-marker { display: none; }
+    .raw-details > summary::after {
+      content: "▸";
+      font-size: var(--fs-meta);
+      color: var(--text-3);
+      transition: transform var(--t-fast) var(--ease-std);
+    }
+    .raw-details[open] > summary::after { transform: rotate(90deg); }
+    .raw-details > summary:hover { background: var(--panel-2); }
+    .raw-details .raw-body {
+      max-height: 360px;
+      overflow-y: auto;
+      border-top: 1px solid var(--line);
+      padding: 0 var(--sp-1);
+    }
+    .raw-details .raw-body .table { margin: 0; }
+    .raw-details .raw-meta {
+      font-size: var(--fs-meta);
+      color: var(--text-3);
+      font-weight: 400;
+    }
+
+    /* Empty state */
+    .empty {
+      padding: var(--sp-8) var(--sp-5);
+      text-align: center;
+      color: var(--text-3);
+      font-size: var(--fs-label);
+      border: 1px dashed var(--line);
+      border-radius: var(--r-3);
+      line-height: var(--lh-body);
+    }
+
+    /* §5 Current Session — cards & agent progress */
+    .cur-card {
+      padding: var(--sp-3) var(--sp-4);
+      border-radius: var(--r-3);
+      border: 1px solid var(--line);
+      border-top: 3px solid var(--cur-accent, var(--line-2));
+      background: var(--panel);
+      transition: background var(--t-fast) var(--ease-std);
+    }
+    .cur-card:hover { background: var(--panel-2); }
+    .cur-card-label {
+      font-size: var(--fs-meta);
+      text-transform: uppercase;
+      letter-spacing: var(--ls-eyebrow-sm);
+      color: var(--cur-accent, var(--text-3));
+      margin-bottom: var(--sp-1);
+      font-weight: 600;
+    }
+    .cur-card-value {
+      font-size: var(--fs-body);
+      font-weight: 600;
+      color: var(--text);
+    }
+    .cur-sess-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--sp-2);
+      margin-bottom: var(--sp-3);
+    }
+
+    /* §5 Agent Progress — Approach B: Vertical Timeline (Claude Design 2026-05-06) */
+    .agent-progress-label {
+      font-size: var(--fs-meta);
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: var(--ls-eyebrow-sm);
+      margin-bottom: var(--sp-2);
+      font-weight: 600;
+    }
+    #curAgentProgress {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--r-3);
+      padding: 10px 16px 14px;
+    }
+    .agent-row {
+      display: grid;
+      grid-template-columns: 28px 1fr auto;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      padding: 9px 0;
+    }
+    /* vertical connecting line between consecutive rows */
+    .agent-row + .agent-row::before {
+      content: "";
+      position: absolute;
+      left: 13.5px; top: -9px; height: 18px;
+      width: 1.5px;
+      background: var(--line);
+    }
+    .agent-row.agent-done + .agent-row.agent-done::before {
+      background: var(--ok);
+      opacity: 0.4;
+    }
+    /* timeline node: 18px circle */
+    .agent-node {
+      width: 18px; height: 18px; border-radius: 50%;
+      border: 1.5px solid var(--text-3);
+      background: var(--bg);
+      display: grid; place-items: center;
+      position: relative; z-index: 1;
+      justify-self: center;
+      flex-shrink: 0;
+    }
+    .agent-row.agent-done .agent-node {
+      background: var(--agent-role-color);
+      border-color: var(--agent-role-color);
+    }
+    .agent-row.agent-done .agent-node::after {
+      content: "";
+      width: 5px; height: 9px;
+      border-right: 1.5px solid #0b0b0d;
+      border-bottom: 1.5px solid #0b0b0d;
+      transform: rotate(45deg) translate(-1px, -1px);
+    }
+    .agent-row.agent-skipped .agent-node {
+      border-color: var(--warn);
+      border-style: dashed;
+    }
+    .agent-row.agent-skipped { opacity: 0.55; }
+    .agent-label {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .agent-label-sub {
+      display: block;
+      font-size: 11px;
+      color: var(--text-3);
+      font-weight: 400;
+      margin-top: 1px;
+    }
+    .agent-row.agent-skipped .agent-label,
+    .agent-row:not(.agent-done):not(.agent-skipped) .agent-label { color: var(--text-2); }
+    /* Agent badges */
+    .agent-badge {
+      font-size: var(--fs-meta);
+      font-weight: 600;
+      padding: var(--sp-1) var(--sp-3);
+      border-radius: var(--r-pill);
+    }
+    .agent-badge.done {
+      color: var(--ok);
+      background: rgba(16, 185, 129, .12);
+      border: 1px solid rgba(16, 185, 129, .25);
+    }
+    .agent-badge.pending {
+      color: var(--text-3);
+      background: rgba(110, 110, 120, .10);
+      border: 1px solid rgba(110, 110, 120, .20);
+    }
+    .agent-badge.skipped {
+      color: var(--warn);
+      background: rgba(245, 158, 11, .12);
+      border: 1px solid rgba(245, 158, 11, .25);
+    }
+
+    /* Responsive */
+    @media (max-width: 1023px) {
+      .axis-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .role-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
+<!-- SVG gradient defs for axis spark-as-background (Vera rev4, topic_174) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- stroke gradients (horizontal) -->
+    <linearGradient id="gx-l1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#9333EA"/>
+    </linearGradient>
+    <linearGradient id="gx-l2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0891B2"/>
+      <stop offset="100%" stop-color="#14B8A6"/>
+    </linearGradient>
+    <linearGradient id="gx-l3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <!-- area-fill gradients (vertical, top→transparent) -->
+    <linearGradient id="gxf-l1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9333EA" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#9333EA" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="gxf-l2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#14B8A6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#14B8A6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="gxf-l3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg>
+
 <div class="app">
   <!-- @partial:sidebar -->
 
@@ -101,25 +538,43 @@
       </select>
     </div>
 
-    <!-- §1 Axis Pulse (L1/L2/L3) -->
+    <!-- §1 Axis Pulse (L1/L2/L3) — spark-as-background layout (Vera rev4) -->
     <section class="axis-row" id="axisRow">
       <div class="axis-card l1" data-axis="quality">
-        <div class="axis-tag">L1 · Quality</div>
+        <div class="axis-card-header">
+          <span class="axis-tag">L1 · Quality</span>
+          <span class="axis-trend-chip flat" id="axisTrend-quality">—</span>
+        </div>
         <div class="axis-name">역할 품질</div>
-        <div class="axis-meta" id="axisMeta-quality">—</div>
-        <div class="axis-val" id="axisVal-quality">—<span class="unit">/100</span></div>
+        <div class="axis-kpi-block">
+          <div class="axis-val" id="axisVal-quality">—<span class="unit">/100</span></div>
+          <div class="axis-meta" id="axisMeta-quality">—</div>
+        </div>
+        <div class="axis-point-labels"><span>all</span><span>recent10</span><span>recent3</span></div>
       </div>
       <div class="axis-card l2" data-axis="judgment-consistency">
-        <div class="axis-tag">L2 · Judgment Consistency</div>
+        <div class="axis-card-header">
+          <span class="axis-tag">L2 · Judgment Consistency</span>
+          <span class="axis-trend-chip flat" id="axisTrend-judgment-consistency">—</span>
+        </div>
         <div class="axis-name">적중률</div>
-        <div class="axis-meta" id="axisMeta-judgment-consistency">—</div>
-        <div class="axis-val" id="axisVal-judgment-consistency">—<span class="unit">/100</span></div>
+        <div class="axis-kpi-block">
+          <div class="axis-val" id="axisVal-judgment-consistency">—<span class="unit">/100</span></div>
+          <div class="axis-meta" id="axisMeta-judgment-consistency">—</div>
+        </div>
+        <div class="axis-point-labels"><span>all</span><span>recent10</span><span>recent3</span></div>
       </div>
       <div class="axis-card l3" data-axis="execution-transfer">
-        <div class="axis-tag">L3 · Execution Transfer</div>
+        <div class="axis-card-header">
+          <span class="axis-tag">L3 · Execution Transfer</span>
+          <span class="axis-trend-chip flat" id="axisTrend-execution-transfer">—</span>
+        </div>
         <div class="axis-name">자율성</div>
-        <div class="axis-meta" id="axisMeta-execution-transfer">—</div>
-        <div class="axis-val" id="axisVal-execution-transfer">—<span class="unit">/100</span></div>
+        <div class="axis-kpi-block">
+          <div class="axis-val" id="axisVal-execution-transfer">—<span class="unit">/100</span></div>
+          <div class="axis-meta" id="axisMeta-execution-transfer">—</div>
+        </div>
+        <div class="axis-point-labels"><span>all</span><span>recent10</span><span>recent3</span></div>
       </div>
     </section>
 
@@ -138,7 +593,7 @@
     <section class="gx-section">
       <div class="gx-section-h">
         <h2>Drill · Per-Role Metrics</h2>
-        <div class="meta">role
+        <div class="meta">역할 선택:
           <select id="roleSelect" class="role-select"></select>
         </div>
       </div>
@@ -155,13 +610,13 @@
     </details>
 
     <!-- Current Session (보조 정보 — 한 세션 스냅샷) -->
-    <section class="gx-section" id="currentSessionSection" style="margin-top:32px">
+    <section class="gx-section" id="currentSessionSection" style="margin-top:var(--sp-8)">
       <div class="gx-section-h">
         <h2>Current Session</h2>
         <span class="meta" id="curSessSub">Loading…</span>
       </div>
-      <div id="curSessGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-bottom:14px"></div>
-      <div style="font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Agent Progress</div>
+      <div class="cur-sess-grid" id="curSessGrid"></div>
+      <div class="agent-progress-label">Agent Progress</div>
       <div id="curAgentProgress"></div>
     </section>
   </main>
@@ -171,9 +626,10 @@
 <script src="js/role-colors.js" onerror="window.ROLE_COLORS=null"></script>
 <script src="js/metrics-utils.js"></script>
 <script>
+// ROLE_COLOR: role-colors.js 단일 소스. fallback은 최소한으로 유지 (ROLE_COLORS Proxy 로드 실패 시).
 const ROLE_COLOR = (window.ROLE_COLORS) || {
-  ace:'#8B5CF6', arki:'#06B6D4', fin:'#F59E0B', riki:'#EF4444',
-  nova:'#10B981', dev:'#3B82F6', vera:'#F472B6', edi:'#9CA3AF'
+  ace:'#9F75F8', arki:'#06B6D4', fin:'#F59E0B', riki:'#EF4444',
+  nova:'#10B981', dev:'#3B82F6', vera:'#F472B6', edi:'#9CA3AF', zero:'#64748B'
 };
 
 async function loadJson(p, fallback=null){
@@ -236,6 +692,58 @@ function axisMean(metrics, agg, axis, view){
   return { mean: cnt > 0 ? sum / cnt : null, n: cnt, total: ms.length };
 }
 
+// §1 Axis spark-as-background — area fill + polyline (Vera rev4, topic_174)
+// 데이터 없으면 null 반환 → 카드에 스파크라인 미삽입 (P3 hasData 정책 보존)
+const AXIS_GRAD_STROKE = { 'quality':'gx-l1', 'judgment-consistency':'gx-l2', 'execution-transfer':'gx-l3' };
+const AXIS_GRAD_FILL   = { 'quality':'gxf-l1','judgment-consistency':'gxf-l2','execution-transfer':'gxf-l3' };
+
+function buildAxisSparkSVG(axisId, metrics, agg) {
+  const views = ['all', 'recent10', 'recent3'];
+  const pts = views.map(v => axisMean(metrics, agg, axisId, v));
+  const vals = pts.map(p => p.mean);
+  const defined = vals.filter(v => v !== null);
+  if (defined.length < 2) return null;
+
+  const W = 300, H = 78;
+  const PAD_Y = 10;
+  const plotW = W, plotH = H - PAD_Y;
+  const minV = Math.min(...defined), maxV = Math.max(...defined);
+  const range = maxV - minV;
+
+  const xPos = i => (i / (views.length - 1)) * plotW;
+  const yPos = v => v === null ? null :
+    PAD_Y + plotH - ((range === 0 ? 0.5 : (v - minV) / range) * plotH * 0.7 + plotH * 0.1);
+
+  const points = vals.map((v, i) => v !== null ? { x: xPos(i), y: yPos(v) } : null);
+  const validPts = points.filter(Boolean);
+  if (validPts.length < 2) return null;
+
+  const polyPts = validPts.map(p => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
+  const first = validPts[0], last = validPts[validPts.length - 1];
+  const areaPath = `M${first.x.toFixed(1)},${first.y.toFixed(1)} ` +
+    validPts.slice(1).map(p => `L${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ') +
+    ` L${last.x.toFixed(1)},${H} L${first.x.toFixed(1)},${H} Z`;
+
+  const sg = AXIS_GRAD_STROKE[axisId] || 'gx-l1';
+  const fg = AXIS_GRAD_FILL[axisId] || 'gxf-l1';
+
+  const svg = `<svg class="axis-spark-bg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" fill="none" aria-hidden="true">
+  <path d="${areaPath}" fill="url(#${fg})"/>
+  <polyline points="${polyPts}" stroke="url(#${sg})" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+</svg>`;
+
+  // trend chip
+  const vAll = pts[0].mean, vR3 = pts[2].mean;
+  let trendClass = 'flat', trendLabel = '—';
+  if (vAll !== null && vR3 !== null) {
+    const diff = vR3 - vAll;
+    if (diff > 1)       { trendClass = 'up';   trendLabel = `↑ +${diff.toFixed(1)}`; }
+    else if (diff < -1) { trendClass = 'down';  trendLabel = `↓ ${diff.toFixed(1)}`; }
+    else                { trendClass = 'flat';  trendLabel = `→ ${diff >= 0 ? '+' : ''}${diff.toFixed(1)}`; }
+  }
+  return { svg, trendClass, trendLabel };
+}
+
 // §1 Axis
 function renderAxis(metrics, agg, view){
   for (const def of AXIS_DEF){
@@ -243,6 +751,31 @@ function renderAxis(metrics, agg, view){
     document.getElementById('axisVal-' + def.axis).innerHTML = fmt(r.mean) + '<span class="unit">/100</span>';
     document.getElementById('axisMeta-' + def.axis).textContent =
       r.n + ' / ' + r.total + ' metric · view=' + view;
+
+    // spark-as-background 삽입 (P3: 데이터 없으면 미삽입, 빈 공간 없음)
+    const spark = buildAxisSparkSVG(def.axis, metrics, agg);
+
+    const card = document.querySelector(`.axis-card[data-axis="${def.axis}"]`);
+    if (!card) continue;
+
+    // trend chip 업데이트
+    const chipEl = document.getElementById('axisTrend-' + def.axis);
+    if (chipEl) {
+      if (spark) {
+        chipEl.textContent = spark.trendLabel;
+        chipEl.className = 'axis-trend-chip ' + spark.trendClass;
+      } else {
+        chipEl.textContent = '—';
+        chipEl.className = 'axis-trend-chip flat';
+      }
+    }
+
+    if (!spark) continue;   // 유효 포인트 부족 — SVG 미삽입
+
+    // spark-bg 교체 (카드에 직접 insertAdjacentHTML)
+    const existing2 = card.querySelector('.axis-spark-bg');
+    if (existing2) existing2.remove();
+    card.insertAdjacentHTML('beforeend', spark.svg);
   }
 }
 
@@ -262,14 +795,17 @@ function renderRoles(roles, registry, agg, view){
     const ci = a.ci95 ? `CI95 [${fmt(a.ci95[0])}, ${fmt(a.ci95[1])}] · n=${a.n}` : `n=${a.n}`;
     const card = document.createElement('div');
     card.className = 'role-card';
-    card.style.borderColor = baseline ? 'var(--line)' : 'rgba(139,92,246,.25)';
+    const roleColor = ROLE_COLOR[role.id] || '#888';
+    card.style.setProperty('--card-accent', roleColor);
     card.innerHTML = `
-      <div class="role-tag"><span class="role-dot" style="background:${ROLE_COLOR[role.id] || '#888'}"></span>${role.id}</div>
+      <div class="role-tag"><span class="role-dot" style="background:${roleColor}"></span>${role.id}</div>
       <div class="role-name">${role.displayName}</div>
       <div class="role-top">${m.shortKey} <span style="color:var(--text-3)">· ${m.axis}</span></div>
-      <div class="role-score">${fmt(score)}<span class="unit"> /100</span></div>
-      <div class="role-ci">${ci}</div>
-      ${alertBadge(a.alert, baseline)}
+      <div class="role-score">${fmt(score)}<span class="unit">/100</span></div>
+      <div class="role-footer">
+        <span class="role-ci">${ci}</span>
+        ${alertBadge(a.alert, baseline)}
+      </div>
     `;
     grid.appendChild(card);
     shown++;
@@ -296,7 +832,7 @@ function renderDrill(roleId, registry, agg, view){
     const baseline = a.n < (m.baselineSessions ?? 10);
     const ci = a.ci95 ? `[${fmt(a.ci95[0])}, ${fmt(a.ci95[1])}]` : '—';
     html += `<tr>
-      <td>${m.shortKey} <span style="color:var(--text-3);font-size:10px">${m.id}</span></td>
+      <td>${m.shortKey} <span style="color:var(--text-3);font-size:var(--fs-meta)">${m.id}</span></td>
       <td>${m.axis}</td>
       <td class="num">${fmt(a.mean)}</td>
       <td class="num">${a.n}</td>
@@ -345,36 +881,38 @@ async function renderCurrentSession() {
   if (sub) sub.textContent = `${sess.sessionId} · ${sess.topicSlug || ''} · ${sess.status || ''}`;
 
   const open = sess.status === 'open' || sess.status === 'in-progress';
+  // cur-card: --cur-accent CSS custom property로 role color 주입
   const cards = [
-    ['Session', sess.sessionId, '#06B6D4'],
-    ['Topic', sess.topic || '—', '#8B5CF6'],
-    ['Status', sess.status || '—', open ? '#10B981' : '#6E6E78'],
-    ['Mode', sess.mode || 'observation', '#F59E0B'],
-    ['Grade', sess.grade || '—', '#EC4899'],
-    ['Started', sess.startedAt ? new Date(sess.startedAt).toLocaleDateString('ko-KR',{month:'short',day:'numeric',year:'numeric'}) : '—', '#10B981'],
+    ['Session', sess.sessionId,  'var(--c-arki)'],
+    ['Topic',   sess.topic || '—', 'var(--c-ace-fallback)'],
+    ['Status',  sess.status || '—', open ? 'var(--ok)' : 'var(--text-3)'],
+    ['Mode',    sess.mode || 'observation', 'var(--c-fin)'],
+    ['Grade',   sess.grade || '—', 'var(--c-vera)'],
+    ['Started', sess.startedAt ? new Date(sess.startedAt).toLocaleDateString('ko-KR',{month:'short',day:'numeric',year:'numeric'}) : '—', 'var(--c-nova)'],
   ];
-  if (grid) grid.innerHTML = cards.map(([label, val, c]) => `
-    <div style="padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--panel);border-top:3px solid ${c}">
-      <div style="font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:${c};margin-bottom:4px">${label}</div>
-      <div style="font-size:13px;font-weight:600;color:var(--text)">${val}</div>
+  if (grid) grid.innerHTML = cards.map(([label, val, accent]) => `
+    <div class="cur-card" style="--cur-accent:${accent}">
+      <div class="cur-card-label">${label}</div>
+      <div class="cur-card-value">${val}</div>
     </div>`).join('');
 
-  const AGENT_ORDER = ['ace','arki','fin','riki','dev','nova','vera','edi'];
-  const AGENT_LABELS = {ace:'Ace — Framing', arki:'Arki — Architecture', fin:'Fin — Finance', riki:'Riki — Risk', dev:'Dev — Implementation', nova:'Nova — Speculation', vera:'Vera — Design', edi:'Edi — Output'};
+  const AGENT_ORDER = ['ace','arki','fin','riki','dev','nova','vera','edi','zero'];
+  const AGENT_LABELS = {ace:'Ace', arki:'Arki', fin:'Fin', riki:'Riki', dev:'Dev', nova:'Nova', vera:'Vera', edi:'Edi', zero:'Zero'};
   const completed = sess.agentsCompleted || [];
   if (progEl) progEl.innerHTML = AGENT_ORDER.map(a => {
     const done = completed.includes(a) || (a === 'edi' && completed.includes('editor'));
     const skipped = a === 'nova' && !sess.novaInvoked;
-    const c = (window.ROLE_COLORS||{})[a] || '#6E6E78';
-    let badge;
-    if (skipped) badge = `<span style="font-size:10px;font-weight:600;color:#F59E0B;background:rgba(245,158,11,.12);padding:2px 10px;border-radius:20px;border:1px solid rgba(245,158,11,.25)">SKIPPED</span>`;
-    else if (done) badge = `<span style="font-size:10px;font-weight:600;color:#34D399;background:rgba(16,185,129,.12);padding:2px 10px;border-radius:20px;border:1px solid rgba(16,185,129,.25)">DONE</span>`;
-    else badge = `<span style="font-size:10px;font-weight:600;color:#6E6E78;background:rgba(110,110,120,.1);padding:2px 10px;border-radius:20px;border:1px solid rgba(110,110,120,.2)">PENDING</span>`;
-    return `<div style="display:flex;justify-content:space-between;align-items:center;padding:9px 14px;margin-bottom:4px;border-radius:8px;border:1px solid var(--line);border-left:3px solid ${done && !skipped ? c : '#26262D'};background:var(--panel);${skipped?'opacity:0.45;':''}">
-      <div style="display:flex;align-items:center;gap:10px">
-        <span style="width:6px;height:6px;border-radius:50%;background:${done && !skipped ? c : '#333340'}"></span>
-        <span style="font-size:12px;color:${done && !skipped ? 'var(--text)' : 'var(--text-3)'}">${AGENT_LABELS[a] || a}</span>
-      </div>${badge}</div>`;
+    const roleColor = ROLE_COLOR[a] || '#6E6E78';
+    let badgeClass, badgeText, subText;
+    if (skipped)   { badgeClass = 'skipped'; badgeText = 'SKIPPED'; subText = 'skipped'; }
+    else if (done) { badgeClass = 'done';    badgeText = 'DONE';    subText = 'finished'; }
+    else           { badgeClass = 'pending'; badgeText = 'PENDING'; subText = 'queued'; }
+    const rowClass = `agent-row${skipped ? ' agent-skipped' : done ? ' agent-done' : ''}`;
+    return `<div class="${rowClass}" style="--agent-role-color:${roleColor}">
+      <div class="agent-node"></div>
+      <div class="agent-label">${AGENT_LABELS[a] || a}<small class="agent-label-sub">${subText}</small></div>
+      <span class="agent-badge ${badgeClass}">${badgeText}</span>
+    </div>`;
   }).join('');
 }
 

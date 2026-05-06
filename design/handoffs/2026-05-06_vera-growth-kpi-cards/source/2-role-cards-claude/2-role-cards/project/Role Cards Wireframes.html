@@ -1,0 +1,934 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>§2 Role Cards — Wireframe Explorations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@400;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0B0B0D;
+    --panel: #111115;
+    --border: #26262D;
+    --text: #F5F5F7;
+    --meta: #82828C;
+    --muted: #52525C;
+    --ace:  #9F75F8;
+    --arki: #38BDF8;
+    --riki: #F87171;
+    --dev:  #60A5FA;
+    --jobs: #FB923C;
+    --vera: #F472B6;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #18181B; color: var(--text); font-family: 'Inter', system-ui, sans-serif; }
+
+  /* Page chrome — sketchy wrapper */
+  .page {
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 56px 48px 120px;
+  }
+  .page-head {
+    display: flex; align-items: baseline; gap: 24px;
+    margin-bottom: 8px;
+  }
+  .page-title {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 1;
+    color: #F5F5F7;
+    margin: 0;
+  }
+  .page-sub {
+    font-family: 'Kalam', cursive;
+    font-size: 18px;
+    color: #A1A1AA;
+  }
+  .page-note {
+    font-family: 'Kalam', cursive;
+    font-size: 15px;
+    color: #71717A;
+    max-width: 760px;
+    line-height: 1.6;
+    margin: 12px 0 40px;
+    padding: 14px 18px;
+    border: 1.5px dashed #3F3F46;
+    border-radius: 8px;
+    background: #0F0F12;
+  }
+  .page-note b { color: #D4D4D8; font-weight: 700; }
+
+  /* Approach block */
+  .approach {
+    margin-bottom: 72px;
+  }
+  .approach-head {
+    display: flex; align-items: flex-end; gap: 18px;
+    margin-bottom: 8px;
+    border-bottom: 2px solid #3F3F46;
+    padding-bottom: 10px;
+  }
+  .approach-letter {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 0.9;
+    color: #FAFAFA;
+    width: 56px;
+    flex: 0 0 56px;
+  }
+  .approach-name {
+    font-family: 'Kalam', cursive;
+    font-weight: 700;
+    font-size: 28px;
+    color: #FAFAFA;
+    margin: 0 0 4px;
+  }
+  .approach-desc {
+    font-family: 'Kalam', cursive;
+    font-size: 15px;
+    color: #A1A1AA;
+    margin: 0;
+    max-width: 720px;
+    line-height: 1.5;
+  }
+  .approach-tags {
+    margin-left: auto;
+    display: flex; gap: 6px; flex-wrap: wrap;
+    padding-bottom: 4px;
+  }
+  .approach-tag {
+    font-family: 'Kalam', cursive;
+    font-size: 13px;
+    color: #A1A1AA;
+    border: 1.5px dashed #52525C;
+    border-radius: 999px;
+    padding: 2px 10px;
+  }
+
+  /* Stage — the dark canvas where each card grid lives */
+  .stage {
+    background: var(--bg);
+    border: 1.5px solid #3F3F46;
+    border-radius: 14px;
+    padding: 32px;
+    margin-top: 20px;
+    position: relative;
+  }
+  .stage::before {
+    content: "§2 ROLE PERFORMANCE";
+    position: absolute;
+    top: -10px; left: 24px;
+    background: #18181B;
+    padding: 0 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: #71717A;
+  }
+  .ghost-prev {
+    /* faint placeholder echo of the §1 Axis Pulse strip above */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+    opacity: 0.42;
+  }
+  .ghost-card {
+    height: 70px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    padding: 10px 14px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .ghost-card::before {
+    content: "";
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--c, #9F75F8);
+  }
+  .ghost-card::after {
+    content: "";
+    position: absolute; inset: 3px 0 0 0;
+    background: linear-gradient(180deg, color-mix(in oklab, var(--c) 12%, transparent) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .ghost-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #52525C;
+    letter-spacing: 0.12em;
+  }
+  .ghost-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    color: #71717A;
+    font-variant-numeric: tabular-nums;
+  }
+  .ghost-divider {
+    text-align: center;
+    font-family: 'Kalam', cursive;
+    font-size: 12px;
+    color: #52525C;
+    margin: 4px 0 18px;
+    letter-spacing: 0.1em;
+  }
+
+  /* Grid for actual role cards */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  /* ─────────────────────────── shared card primitives ─────────────────────────── */
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    position: relative;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .eyebrow {
+    display: flex; align-items: center; gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: var(--meta);
+  }
+  .dot {
+    width: 8px; height: 8px; border-radius: 999px;
+    background: var(--c);
+    flex: 0 0 8px;
+  }
+  .role-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .metric-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--meta);
+    letter-spacing: 0.04em;
+  }
+  .kpi {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+  .kpi .denom {
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--meta);
+    margin-left: 4px;
+    letter-spacing: 0;
+  }
+  .ci {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--meta);
+  }
+  .pill {
+    display: inline-flex; align-items: center;
+    height: 20px;
+    padding: 0 8px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    color: var(--meta);
+    text-transform: uppercase;
+    background: transparent;
+    width: max-content;
+  }
+
+  /* ─────────────────────────── Approach A: LEFT RAIL ─────────────────────────── */
+  .a .card {
+    padding-left: 22px;
+  }
+  .a .card::before {
+    content: "";
+    position: absolute;
+    top: 14px; bottom: 14px; left: 0;
+    width: 3px;
+    border-radius: 0 3px 3px 0;
+    background: var(--c);
+  }
+  .a .row { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; }
+  .a .col-l { display: flex; flex-direction: column; gap: 4px; }
+  .a .ci { margin-top: 2px; }
+  .a .footer { margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+
+  /* ─────────────────────────── Approach B: DOT-LED ─────────────────────────── */
+  .b .card { /* most restrained, color only in dot */ }
+  .b .head { display: flex; flex-direction: column; gap: 6px; }
+  .b .kpi-block { display: flex; align-items: baseline; gap: 10px; }
+  .b .footer { margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+  .b .ci { display: block; }
+
+  /* ─────────────────────────── Approach C: TINTED PANEL ─────────────────────────── */
+  .c .card {
+    background:
+      linear-gradient(180deg, color-mix(in oklab, var(--c) 8%, transparent), color-mix(in oklab, var(--c) 2%, transparent)) ,
+      var(--panel);
+    border-color: color-mix(in oklab, var(--c) 28%, var(--border));
+  }
+  .c .role-name { color: #FAFAFA; }
+  .c .pill {
+    border-color: color-mix(in oklab, var(--c) 35%, var(--border));
+    color: color-mix(in oklab, var(--c) 70%, var(--meta));
+  }
+  .c .kpi-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .c .footer { margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+
+  /* ─────────────────────────── Approach D: NUMERIC HERO ─────────────────────────── */
+  .d .card {
+    padding: 20px;
+    min-height: 200px;
+  }
+  .d .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .d .name-stack { display: flex; flex-direction: column; gap: 4px; }
+  .d .kpi-hero {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 64px;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+    color: var(--c);
+    margin: 6px 0 0;
+  }
+  .d .kpi-hero .denom {
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--meta);
+    margin-left: 4px;
+    letter-spacing: 0;
+  }
+  .d .metric-label { margin-bottom: -4px; }
+  .d .footer { margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 8px; padding-top: 4px; }
+
+  /* ─────────────────────────── Decision matrix ─────────────────────────── */
+  .matrix-wrap {
+    margin-top: 80px;
+    border: 2px dashed #3F3F46;
+    border-radius: 14px;
+    padding: 28px 32px 32px;
+    background: #0F0F12;
+  }
+  .matrix-title {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 40px;
+    margin: 0 0 4px;
+  }
+  .matrix-sub {
+    font-family: 'Kalam', cursive;
+    font-size: 15px;
+    color: #A1A1AA;
+    margin: 0 0 20px;
+  }
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+  }
+  .matrix th, .matrix td {
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid #27272A;
+    vertical-align: top;
+  }
+  .matrix thead th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    color: #71717A;
+    text-transform: uppercase;
+    border-bottom: 1.5px solid #3F3F46;
+    font-weight: 500;
+  }
+  .matrix td.approach-cell {
+    font-family: 'Kalam', cursive;
+    font-size: 18px;
+    font-weight: 700;
+    white-space: nowrap;
+    color: #FAFAFA;
+  }
+  .matrix td.approach-cell .sub {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 11.5px;
+    color: #71717A;
+    letter-spacing: 0.05em;
+    margin-top: 2px;
+  }
+  .matrix td.score {
+    font-family: 'JetBrains Mono', monospace;
+    color: #D4D4D8;
+    width: 1%;
+    white-space: nowrap;
+  }
+  .meter {
+    display: inline-flex; gap: 3px; vertical-align: middle; margin-right: 6px;
+  }
+  .meter span {
+    width: 10px; height: 10px; border-radius: 2px;
+    background: #27272A;
+  }
+  .meter span.on { background: #A1A1AA; }
+  .matrix tr.rec td { background: rgba(159, 117, 248, 0.06); }
+  .matrix tr.rec td.approach-cell { color: #C4B0FB; }
+  .rec-flag {
+    display: inline-block;
+    margin-left: 8px;
+    font-family: 'Kalam', cursive;
+    font-size: 13px;
+    color: #C4B0FB;
+    transform: rotate(-3deg);
+  }
+
+  /* sketchy underlay marks */
+  .scribble {
+    font-family: 'Caveat', cursive;
+    color: #52525C;
+    font-size: 18px;
+    transform: rotate(-2deg);
+    display: inline-block;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="page-head">
+    <h1 class="page-title">§2 Role Cards</h1>
+    <span class="page-sub">— wireframe explorations · 4 approaches</span>
+  </div>
+
+  <p class="page-note">
+    Sits below <b>§1 Axis Pulse</b> (3 cards · 3 px top accent stripe · spark-as-bg gradient).
+    Goal: feel <b>related but slightly lighter</b> in visual weight. All 4 approaches share the same
+    content slots (eyebrow · name · metric label · KPI · CI/n · BASELINE pill) — only the
+    <b>emphasis &amp; color treatment</b> change.
+  </p>
+
+  <!-- ============================ APPROACH A ============================ -->
+  <section class="approach a">
+    <div class="approach-head">
+      <div class="approach-letter">A</div>
+      <div>
+        <h2 class="approach-name">Left rail</h2>
+        <p class="approach-desc">Thin 3px accent on the <i>left</i> edge — same DNA as §1's top stripe, rotated 90°. Card surface stays neutral; color reads as a quiet identifier, not a billboard.</p>
+      </div>
+      <div class="approach-tags">
+        <span class="approach-tag">restrained</span>
+        <span class="approach-tag">scannable</span>
+        <span class="approach-tag">echoes §1</span>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="ghost-prev" aria-hidden="true">
+        <div class="ghost-card" style="--c:#9F75F8"><span class="ghost-meta">§1 · AXIS_A</span><span class="ghost-num">72.4</span></div>
+        <div class="ghost-card" style="--c:#38BDF8"><span class="ghost-meta">§1 · AXIS_B</span><span class="ghost-num">58.1</span></div>
+        <div class="ghost-card" style="--c:#F472B6"><span class="ghost-meta">§1 · AXIS_C</span><span class="ghost-num">63.9</span></div>
+      </div>
+      <div class="ghost-divider">— — —  §2 begins  — — —</div>
+
+      <div class="grid">
+        <article class="card" style="--c: var(--ace)">
+          <div class="eyebrow"><span class="dot"></span>ACE</div>
+          <h3 class="role-name">Ace</h3>
+          <div class="metric-label">aud_rcl · quality</div>
+          <div class="row">
+            <div class="col-l">
+              <div class="kpi">40.0<span class="denom">/100</span></div>
+              <div class="ci">CI95 [17, 63] · n=4</div>
+            </div>
+          </div>
+          <div class="footer"><span class="pill">Baseline</span></div>
+        </article>
+
+        <article class="card" style="--c: var(--arki)">
+          <div class="eyebrow"><span class="dot"></span>ARKI</div>
+          <h3 class="role-name">Arki</h3>
+          <div class="metric-label">arch_clr · structure</div>
+          <div class="row">
+            <div class="col-l">
+              <div class="kpi">68.5<span class="denom">/100</span></div>
+              <div class="ci">CI95 [54, 81] · n=12</div>
+            </div>
+          </div>
+          <div class="footer"><span class="pill">Baseline</span></div>
+        </article>
+
+        <article class="card" style="--c: var(--riki)">
+          <div class="eyebrow"><span class="dot"></span>RIKI</div>
+          <h3 class="role-name">Riki</h3>
+          <div class="metric-label">risk_idx · stability</div>
+          <div class="row">
+            <div class="col-l">
+              <div class="kpi">22.1<span class="denom">/100</span></div>
+              <div class="ci">n=2</div>
+            </div>
+          </div>
+          <div class="footer"><span class="pill">Baseline</span></div>
+        </article>
+
+        <article class="card" style="--c: var(--dev)">
+          <div class="eyebrow"><span class="dot"></span>DEV</div>
+          <h3 class="role-name">Dev</h3>
+          <div class="metric-label">code_qty · velocity</div>
+          <div class="row">
+            <div class="col-l">
+              <div class="kpi">71.8<span class="denom">/100</span></div>
+              <div class="ci">CI95 [60, 84] · n=18</div>
+            </div>
+          </div>
+          <div class="footer"><span class="pill">Baseline</span></div>
+        </article>
+
+        <article class="card" style="--c: var(--jobs)">
+          <div class="eyebrow"><span class="dot"></span>JOBS</div>
+          <h3 class="role-name">Jobs</h3>
+          <div class="metric-label">vis_pull · clarity</div>
+          <div class="row">
+            <div class="col-l">
+              <div class="kpi">55.3<span class="denom">/100</span></div>
+              <div class="ci">CI95 [38, 72] · n=7</div>
+            </div>
+          </div>
+          <div class="footer"><span class="pill">Baseline</span></div>
+        </article>
+
+        <article class="card" style="--c: var(--vera)">
+          <div class="eyebrow"><span class="dot"></span>VERA</div>
+          <h3 class="role-name">Vera</h3>
+          <div class="metric-label">veri_chk · truth</div>
+          <div class="row">
+            <div class="col-l">
+              <div class="kpi">83.2<span class="denom">/100</span></div>
+              <div class="ci">CI95 [70, 92] · n=22</div>
+            </div>
+          </div>
+          <div class="footer"><span class="pill">Baseline</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ APPROACH B ============================ -->
+  <section class="approach b">
+    <div class="approach-head">
+      <div class="approach-letter">B</div>
+      <div>
+        <h2 class="approach-name">Dot-led</h2>
+        <p class="approach-desc">Color appears <i>only</i> in the eyebrow dot. The grid reads as a uniform table; identity is a 8 px speck. Highest density, lowest weight — pure typography.</p>
+      </div>
+      <div class="approach-tags">
+        <span class="approach-tag">most restrained</span>
+        <span class="approach-tag">tabular feel</span>
+        <span class="approach-tag">lightest weight</span>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="ghost-prev" aria-hidden="true">
+        <div class="ghost-card" style="--c:#9F75F8"><span class="ghost-meta">§1 · AXIS_A</span><span class="ghost-num">72.4</span></div>
+        <div class="ghost-card" style="--c:#38BDF8"><span class="ghost-meta">§1 · AXIS_B</span><span class="ghost-num">58.1</span></div>
+        <div class="ghost-card" style="--c:#F472B6"><span class="ghost-meta">§1 · AXIS_C</span><span class="ghost-num">63.9</span></div>
+      </div>
+      <div class="ghost-divider">— — —  §2 begins  — — —</div>
+
+      <div class="grid">
+        <article class="card" style="--c: var(--ace)">
+          <div class="head">
+            <div class="eyebrow"><span class="dot"></span>ACE</div>
+            <h3 class="role-name">Ace</h3>
+            <div class="metric-label">aud_rcl · quality</div>
+          </div>
+          <div class="kpi-block">
+            <span class="kpi">40.0<span class="denom">/100</span></span>
+          </div>
+          <div class="footer">
+            <span class="ci">CI95 [17, 63] · n=4</span>
+            <span class="pill">Baseline</span>
+          </div>
+        </article>
+
+        <article class="card" style="--c: var(--arki)">
+          <div class="head">
+            <div class="eyebrow"><span class="dot"></span>ARKI</div>
+            <h3 class="role-name">Arki</h3>
+            <div class="metric-label">arch_clr · structure</div>
+          </div>
+          <div class="kpi-block">
+            <span class="kpi">68.5<span class="denom">/100</span></span>
+          </div>
+          <div class="footer">
+            <span class="ci">CI95 [54, 81] · n=12</span>
+            <span class="pill">Baseline</span>
+          </div>
+        </article>
+
+        <article class="card" style="--c: var(--riki)">
+          <div class="head">
+            <div class="eyebrow"><span class="dot"></span>RIKI</div>
+            <h3 class="role-name">Riki</h3>
+            <div class="metric-label">risk_idx · stability</div>
+          </div>
+          <div class="kpi-block">
+            <span class="kpi">22.1<span class="denom">/100</span></span>
+          </div>
+          <div class="footer">
+            <span class="ci">n=2</span>
+            <span class="pill">Baseline</span>
+          </div>
+        </article>
+
+        <article class="card" style="--c: var(--dev)">
+          <div class="head">
+            <div class="eyebrow"><span class="dot"></span>DEV</div>
+            <h3 class="role-name">Dev</h3>
+            <div class="metric-label">code_qty · velocity</div>
+          </div>
+          <div class="kpi-block">
+            <span class="kpi">71.8<span class="denom">/100</span></span>
+          </div>
+          <div class="footer">
+            <span class="ci">CI95 [60, 84] · n=18</span>
+            <span class="pill">Baseline</span>
+          </div>
+        </article>
+
+        <article class="card" style="--c: var(--jobs)">
+          <div class="head">
+            <div class="eyebrow"><span class="dot"></span>JOBS</div>
+            <h3 class="role-name">Jobs</h3>
+            <div class="metric-label">vis_pull · clarity</div>
+          </div>
+          <div class="kpi-block">
+            <span class="kpi">55.3<span class="denom">/100</span></span>
+          </div>
+          <div class="footer">
+            <span class="ci">CI95 [38, 72] · n=7</span>
+            <span class="pill">Baseline</span>
+          </div>
+        </article>
+
+        <article class="card" style="--c: var(--vera)">
+          <div class="head">
+            <div class="eyebrow"><span class="dot"></span>VERA</div>
+            <h3 class="role-name">Vera</h3>
+            <div class="metric-label">veri_chk · truth</div>
+          </div>
+          <div class="kpi-block">
+            <span class="kpi">83.2<span class="denom">/100</span></span>
+          </div>
+          <div class="footer">
+            <span class="ci">CI95 [70, 92] · n=22</span>
+            <span class="pill">Baseline</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ APPROACH C ============================ -->
+  <section class="approach c">
+    <div class="approach-head">
+      <div class="approach-letter">C</div>
+      <div>
+        <h2 class="approach-name">Tinted panel</h2>
+        <p class="approach-desc">Card surface itself carries an ~8% role-color wash with a faintly tinted border. Color-forward — closest in weight to §1, riskiest at small scale.</p>
+      </div>
+      <div class="approach-tags">
+        <span class="approach-tag">color-forward</span>
+        <span class="approach-tag">heaviest of 4</span>
+        <span class="approach-tag">strongest identity</span>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="ghost-prev" aria-hidden="true">
+        <div class="ghost-card" style="--c:#9F75F8"><span class="ghost-meta">§1 · AXIS_A</span><span class="ghost-num">72.4</span></div>
+        <div class="ghost-card" style="--c:#38BDF8"><span class="ghost-meta">§1 · AXIS_B</span><span class="ghost-num">58.1</span></div>
+        <div class="ghost-card" style="--c:#F472B6"><span class="ghost-meta">§1 · AXIS_C</span><span class="ghost-num">63.9</span></div>
+      </div>
+      <div class="ghost-divider">— — —  §2 begins  — — —</div>
+
+      <div class="grid">
+        <article class="card" style="--c: var(--ace)">
+          <div class="eyebrow"><span class="dot"></span>ACE</div>
+          <h3 class="role-name">Ace</h3>
+          <div class="metric-label">aud_rcl · quality</div>
+          <div class="kpi-row">
+            <div class="kpi">40.0<span class="denom">/100</span></div>
+          </div>
+          <div class="ci">CI95 [17, 63] · n=4</div>
+          <div class="footer"><span class="pill">Baseline</span></div>
+        </article>
+
+        <article class="card" style="--c: var(--arki)">
+          <div class="eyebrow"><span class="dot"></span>ARKI</div>
+          <h3 class="role-name">Arki</h3>
+          <div class="metric-label">arch_clr · structure</div>
+          <div class="kpi-row">
+            <div class="kpi">68.5<span class="denom">/100</span></div>
+          </div>
+          <div class="ci">CI95 [54, 81] · n=12</div>
+          <div class="footer"><span class="pill">Baseline</span></div>
+        </article>
+
+        <article class="card" style="--c: var(--riki)">
+          <div class="eyebrow"><span class="dot"></span>RIKI</div>
+          <h3 class="role-name">Riki</h3>
+          <div class="metric-label">risk_idx · stability</div>
+          <div class="kpi-row">
+            <div class="kpi">22.1<span class="denom">/100</span></div>
+          </div>
+          <div class="ci">n=2</div>
+          <div class="footer"><span class="pill">Baseline</span></div>
+        </article>
+
+        <article class="card" style="--c: var(--dev)">
+          <div class="eyebrow"><span class="dot"></span>DEV</div>
+          <h3 class="role-name">Dev</h3>
+          <div class="metric-label">code_qty · velocity</div>
+          <div class="kpi-row">
+            <div class="kpi">71.8<span class="denom">/100</span></div>
+          </div>
+          <div class="ci">CI95 [60, 84] · n=18</div>
+          <div class="footer"><span class="pill">Baseline</span></div>
+        </article>
+
+        <article class="card" style="--c: var(--jobs)">
+          <div class="eyebrow"><span class="dot"></span>JOBS</div>
+          <h3 class="role-name">Jobs</h3>
+          <div class="metric-label">vis_pull · clarity</div>
+          <div class="kpi-row">
+            <div class="kpi">55.3<span class="denom">/100</span></div>
+          </div>
+          <div class="ci">CI95 [38, 72] · n=7</div>
+          <div class="footer"><span class="pill">Baseline</span></div>
+        </article>
+
+        <article class="card" style="--c: var(--vera)">
+          <div class="eyebrow"><span class="dot"></span>VERA</div>
+          <h3 class="role-name">Vera</h3>
+          <div class="metric-label">veri_chk · truth</div>
+          <div class="kpi-row">
+            <div class="kpi">83.2<span class="denom">/100</span></div>
+          </div>
+          <div class="ci">CI95 [70, 92] · n=22</div>
+          <div class="footer"><span class="pill">Baseline</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ APPROACH D ============================ -->
+  <section class="approach d">
+    <div class="approach-head">
+      <div class="approach-letter">D</div>
+      <div>
+        <h2 class="approach-name">Numeric hero</h2>
+        <p class="approach-desc">KPI is the visual anchor — set huge in role color. Typography <i>is</i> the chart. Skews slightly heavier than A/B but in a different axis (size, not surface).</p>
+      </div>
+      <div class="approach-tags">
+        <span class="approach-tag">data-forward</span>
+        <span class="approach-tag">scan-at-distance</span>
+        <span class="approach-tag">tallest cards</span>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="ghost-prev" aria-hidden="true">
+        <div class="ghost-card" style="--c:#9F75F8"><span class="ghost-meta">§1 · AXIS_A</span><span class="ghost-num">72.4</span></div>
+        <div class="ghost-card" style="--c:#38BDF8"><span class="ghost-meta">§1 · AXIS_B</span><span class="ghost-num">58.1</span></div>
+        <div class="ghost-card" style="--c:#F472B6"><span class="ghost-meta">§1 · AXIS_C</span><span class="ghost-num">63.9</span></div>
+      </div>
+      <div class="ghost-divider">— — —  §2 begins  — — —</div>
+
+      <div class="grid">
+        <article class="card" style="--c: var(--ace)">
+          <div class="top">
+            <div class="name-stack">
+              <div class="eyebrow"><span class="dot"></span>ACE</div>
+              <h3 class="role-name">Ace</h3>
+            </div>
+          </div>
+          <div class="metric-label">aud_rcl · quality</div>
+          <div class="kpi-hero">40.0<span class="denom">/100</span></div>
+          <div class="footer">
+            <span class="ci">CI95 [17, 63] · n=4</span>
+            <span class="pill">Baseline</span>
+          </div>
+        </article>
+
+        <article class="card" style="--c: var(--arki)">
+          <div class="top">
+            <div class="name-stack">
+              <div class="eyebrow"><span class="dot"></span>ARKI</div>
+              <h3 class="role-name">Arki</h3>
+            </div>
+          </div>
+          <div class="metric-label">arch_clr · structure</div>
+          <div class="kpi-hero">68.5<span class="denom">/100</span></div>
+          <div class="footer">
+            <span class="ci">CI95 [54, 81] · n=12</span>
+            <span class="pill">Baseline</span>
+          </div>
+        </article>
+
+        <article class="card" style="--c: var(--riki)">
+          <div class="top">
+            <div class="name-stack">
+              <div class="eyebrow"><span class="dot"></span>RIKI</div>
+              <h3 class="role-name">Riki</h3>
+            </div>
+          </div>
+          <div class="metric-label">risk_idx · stability</div>
+          <div class="kpi-hero">22.1<span class="denom">/100</span></div>
+          <div class="footer">
+            <span class="ci">n=2</span>
+            <span class="pill">Baseline</span>
+          </div>
+        </article>
+
+        <article class="card" style="--c: var(--dev)">
+          <div class="top">
+            <div class="name-stack">
+              <div class="eyebrow"><span class="dot"></span>DEV</div>
+              <h3 class="role-name">Dev</h3>
+            </div>
+          </div>
+          <div class="metric-label">code_qty · velocity</div>
+          <div class="kpi-hero">71.8<span class="denom">/100</span></div>
+          <div class="footer">
+            <span class="ci">CI95 [60, 84] · n=18</span>
+            <span class="pill">Baseline</span>
+          </div>
+        </article>
+
+        <article class="card" style="--c: var(--jobs)">
+          <div class="top">
+            <div class="name-stack">
+              <div class="eyebrow"><span class="dot"></span>JOBS</div>
+              <h3 class="role-name">Jobs</h3>
+            </div>
+          </div>
+          <div class="metric-label">vis_pull · clarity</div>
+          <div class="kpi-hero">55.3<span class="denom">/100</span></div>
+          <div class="footer">
+            <span class="ci">CI95 [38, 72] · n=7</span>
+            <span class="pill">Baseline</span>
+          </div>
+        </article>
+
+        <article class="card" style="--c: var(--vera)">
+          <div class="top">
+            <div class="name-stack">
+              <div class="eyebrow"><span class="dot"></span>VERA</div>
+              <h3 class="role-name">Vera</h3>
+            </div>
+          </div>
+          <div class="metric-label">veri_chk · truth</div>
+          <div class="kpi-hero">83.2<span class="denom">/100</span></div>
+          <div class="footer">
+            <span class="ci">CI95 [70, 92] · n=22</span>
+            <span class="pill">Baseline</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ DECISION MATRIX ============================ -->
+  <div class="matrix-wrap">
+    <h2 class="matrix-title">Decision matrix</h2>
+    <p class="matrix-sub">Heavier = more visual weight. You said §2 should feel <i>lighter</i> than §1 → bias toward A or B.</p>
+
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th>Approach</th>
+          <th>Visual weight<br><span style="font-weight:400;text-transform:none;letter-spacing:0;color:#52525C">vs. §1 above</span></th>
+          <th>Role identity<br><span style="font-weight:400;text-transform:none;letter-spacing:0;color:#52525C">at-a-glance</span></th>
+          <th>Number readability</th>
+          <th>Density / scan</th>
+          <th>Risk at small size</th>
+          <th>Best for…</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="rec">
+          <td class="approach-cell">A · Left rail<span class="sub">recommended</span><span class="rec-flag">← pick this</span></td>
+          <td class="score"><span class="meter"><span class="on"></span><span class="on"></span><span></span><span></span><span></span></span>lighter</td>
+          <td class="score"><span class="meter"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></span>good</td>
+          <td class="score"><span class="meter"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></span>strong</td>
+          <td class="score"><span class="meter"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></span>tight</td>
+          <td class="score"><span class="meter"><span class="on"></span><span></span><span></span><span></span><span></span></span>low</td>
+          <td>Default. Pairs cleanly with §1's top-stripe by rotating it 90°.</td>
+        </tr>
+        <tr>
+          <td class="approach-cell">B · Dot-led<span class="sub">most restrained</span></td>
+          <td class="score"><span class="meter"><span class="on"></span><span></span><span></span><span></span><span></span></span>lightest</td>
+          <td class="score"><span class="meter"><span class="on"></span><span></span><span></span><span></span><span></span></span>weak</td>
+          <td class="score"><span class="meter"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></span>strong</td>
+          <td class="score"><span class="meter"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></span>tightest</td>
+          <td class="score"><span class="meter"><span class="on"></span><span></span><span></span><span></span><span></span></span>low</td>
+          <td>If §3 / §4 follow and the page is already busy. Use if 6 → 12+ roles.</td>
+        </tr>
+        <tr>
+          <td class="approach-cell">C · Tinted panel<span class="sub">color-forward</span></td>
+          <td class="score"><span class="meter"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></span>heaviest</td>
+          <td class="score"><span class="meter"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></span>strongest</td>
+          <td class="score"><span class="meter"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></span>ok</td>
+          <td class="score"><span class="meter"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></span>medium</td>
+          <td class="score"><span class="meter"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></span>high</td>
+          <td>Standalone role view, or if §2 is the page's hero. <b>Conflicts</b> with the brief's "lighter" ask.</td>
+        </tr>
+        <tr>
+          <td class="approach-cell">D · Numeric hero<span class="sub">data-forward</span></td>
+          <td class="score"><span class="meter"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></span>medium</td>
+          <td class="score"><span class="meter"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></span>strong</td>
+          <td class="score"><span class="meter"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></span>strongest</td>
+          <td class="score"><span class="meter"><span class="on"></span><span class="on"></span><span></span><span></span><span></span></span>looser</td>
+          <td class="score"><span class="meter"><span class="on"></span><span class="on"></span><span></span><span></span><span></span></span>medium</td>
+          <td>Exec / read-from-across-the-room dashboards. Tallest cards; eats vertical space.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="font-family:'Kalam',cursive;font-size:14px;color:#A1A1AA;margin:18px 0 0;line-height:1.6">
+      <b style="color:#FAFAFA">Recommendation:</b> ship <b style="color:#C4B0FB">A · Left rail</b> as the default — it's the lightest treatment that still gives each role a real anchor. Keep <b>D · Numeric hero</b> available as a "focused" variant for when a single role expands. <br>
+      Avoid C unless the brief flips ("make §2 the hero"). Avoid B unless you scale to 12+ roles and need to compress.
+    </p>
+  </div>
+
+</div>
+
+</body>
+</html>

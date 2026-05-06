@@ -98,6 +98,8 @@
   --sp-8:   36px;
   --sp-9:   48px;
   --sp-10:  64px;
+  --sp-dot:    8px;   /* role-dot 크기 (role-card) */
+  --sp-dot-sm: 6px;   /* agent-dot 크기 (agent-row) */
 
   /* ── Radius (vera_rev1 §1) ─────────────────────────────────
    * 카드 12 / pill 999 / hero 20 / chip 6 */
@@ -146,6 +148,7 @@
   --ls-h2:      -0.01em;
   --ls-body:    0;
   --ls-eyebrow: 0.14em;     /* uppercase eyebrow */
+  --ls-eyebrow-sm: 0.08em;  /* compact uppercase eyebrow (section h2, role-tag, agent-label) */
   --ls-cap:     0.18em;     /* hero h-eyebrow */
 
   /* ── Container (반응형 토큰) ───────────────────────────────

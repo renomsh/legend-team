@@ -1,13 +1,13 @@
 {
-  "sessionId": "session_200",
-  "topicId": "topic_173",
-  "topic": "Mac 전환 점검",
-  "topicSlug": "mac-migration-check",
-  "reportPath": "reports/2026-05-06_mac-migration-check",
+  "sessionId": "session_201",
+  "topicId": "topic_174",
+  "topic": "PD-029 해소: Vera·Arki Claude Design 통합 리뷰",
+  "topicSlug": "vera-claude-design-pd029-review",
+  "reportPath": "reports/2026-05-06_vera-claude-design-pd029-review",
   "status": "closed",
-  "startedAt": "2026-05-06T02:00:00.000Z",
-  "closedAt": "2026-05-06T02:30:00.000Z",
-  "oneLineSummary": "mac-migration-check: 이전 블로커 0건 확인, R-1 잔존(token 탐색), 이전 체크리스트 3개 수립",
+  "closedAt": "2026-05-06T04:30:00.000Z",
+  "oneLineSummary": "Growth Board §1·§2·§5 시각 개편 완료 (Claude Design D-064 워크플로 실증, Zero 추가)",
+  "startedAt": "2026-05-06T04:00:00.000Z",
   "mode": "observation",
   "grade": "B",
   "framingLevel": 0,
@@ -17,41 +17,97 @@
     {
       "role": "arki",
       "turnIdx": 0,
-      "phase": "analysis",
-      "selfScores": {}
+      "source": "agent",
+      "selfScores": {
+        "aud_rcl": 0.9,
+        "str_fd": 3,
+        "spc_lck": "N",
+        "sa_rnd": 3
+      }
     },
     {
       "role": "riki",
       "turnIdx": 1,
-      "phase": "audit",
-      "selfScores": {}
+      "source": "agent",
+      "selfScores": {
+        "crt_rcl": 0.8,
+        "cr_val": "Y",
+        "prd_rej": "Y",
+        "fp_rt": 0
+      }
     },
     {
-      "role": "ace",
+      "role": "vera",
       "turnIdx": 2,
-      "phase": "synthesis",
-      "selfScores": {}
+      "source": "agent",
+      "selfScores": {
+        "tk_drf0": "Y",
+        "spc_cpl": 0.88,
+        "tk_cns": 5
+      }
     },
     {
-      "role": "zero",
+      "role": "vera",
       "turnIdx": 3,
       "source": "agent",
       "selfScores": {
-        "ref_cnt": 0,
+        "tk_drf0": "Y",
+        "spc_cpl": 0.95,
+        "tk_cns": 5
+      }
+    },
+    {
+      "role": "vera",
+      "turnIdx": 4,
+      "source": "agent",
+      "selfScores": {
+        "tk_drf0": "Y",
+        "spc_cpl": 0.97,
+        "tk_cns": 5
+      }
+    },
+    {
+      "role": "vera",
+      "turnIdx": 5,
+      "source": "agent",
+      "selfScores": {
+        "tk_drf0": "Y",
+        "spc_cpl": 0.98,
+        "tk_cns": 5
+      }
+    },
+    {
+      "role": "zero",
+      "turnIdx": 6,
+      "source": "agent",
+      "selfScores": {
+        "ref_cnt": 6,
         "hc_found": 0,
         "cln_rt": 1
       }
     },
     {
       "role": "edi",
-      "turnIdx": 4,
+      "turnIdx": 7,
       "source": "agent",
       "selfScores": {
+        "gp_acc": 0.85,
         "scc": "Y",
         "cs_cnt": 4,
         "art_cmp": 1,
-        "gap_fc": 2,
-        "gp_acc": 0.8
+        "gap_fc": 4
+      }
+    },
+    {
+      "role": "edi",
+      "turnIdx": 8,
+      "source": "agent",
+      "selfScores": {
+        "gp_acc": 0.85,
+        "scc": "Y",
+        "cs_cnt": 4,
+        "art_cmp": 1,
+        "gap_fc": 4
       }
     }
   ],
@@ -65,40 +121,63 @@
   "gaps": [
     {
       "type": "frontmatter-patch-failed",
-      "role": "zero",
+      "role": "vera",
+      "turnIdx": 2,
+      "reportsPath": "`reports/2026-05-06_vera-claude-design-pd029-review/vera_rev1.md`",
+      "detectedAt": "2026-05-06T01:09:49.807Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-06_vera-claude-design-pd029-review/vera_rev1.md`"
+    },
+    {
+      "type": "frontmatter-patch-failed",
+      "role": "vera",
       "turnIdx": 3,
-      "reportsPath": "reports/2026-05-06_mac-migration-check/condensed.md",
-      "detectedAt": "2026-05-06T00:28:51.741Z",
-      "note": "frontmatter turnId 패치 실패 — Zero D.Condense는 condensed.md 포맷 (frontmatter 없음)"
+      "reportsPath": "`reports/2026-05-06_vera-claude-design-pd029-review/vera_rev2.md`",
+      "detectedAt": "2026-05-06T01:15:30.454Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-06_vera-claude-design-pd029-review/vera_rev2.md`"
     },
     {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-06_mac-migration-check/condensed.md"
+      "type": "frontmatter-patch-failed",
+      "role": "vera",
+      "turnIdx": 4,
+      "reportsPath": "`reports/2026-05-06_vera-claude-design-pd029-review/vera_rev3.md`",
+      "detectedAt": "2026-05-06T01:20:24.942Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-06_vera-claude-design-pd029-review/vera_rev3.md`"
     },
     {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-06_mac-migration-check/edi_rev1.md",
-      "expected": "edi",
-      "actualInTurns": "riki",
-      "turnId": 1
+      "type": "frontmatter-patch-failed",
+      "role": "zero",
+      "turnIdx": 6,
+      "reportsPath": "reports/2026-05-06_vera-claude-design-pd029-review/condensed.md",
+      "detectedAt": "2026-05-06T04:27:27.070Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-06_vera-claude-design-pd029-review/condensed.md"
+    },
+    {
+      "type": "missing-report",
+      "role": "zero",
+      "turnIdx": 6,
+      "reportPath": "reports/2026-05-06_vera-claude-design-pd029-review",
+      "detectedAt": "2026-05-06T04:27:27.073Z",
+      "note": "zero turn6 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "frontmatter-patch-failed",
+      "role": "edi",
+      "turnIdx": 8,
+      "reportsPath": "`reports/2026-05-06_vera-claude-design-pd029-review/edi_rev1.md`",
+      "detectedAt": "2026-05-06T04:29:55.037Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-06_vera-claude-design-pd029-review/edi_rev1.md`"
     }
   ],
   "openMasterAlerts": [],
-  "agentsCompleted": [
-    "arki",
-    "riki",
-    "ace",
-    "zero",
-    "edi"
-  ],
-  "tokenUsage": {
-    "input_tokens": 229,
-    "output_tokens": 79537,
-    "cache_creation_input_tokens": 873958,
-    "cache_read_input_tokens": 8095199,
-    "messageCount": 108,
-    "masterTurns": 23,
-    "total_billable": 9048923
-  },
-  "finalizedAt": "2026-05-06T00:31:29.390Z"
+  "agentsCompleted": [],
+  "versionBump": {
+    "value": 0.01,
+    "from": "v0.957",
+    "to": "v0.958",
+    "reason": "Growth Board §1 Axis Pulse spark-as-background 구현 + tokens.css 토큰 3개 추가 (capacity: 시각 구현 + 디자인 토큰 확장)",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-06T04:28:20Z",
+    "overrideReason": null,
+    "basedOn": "edi-direct"
+  }
 }

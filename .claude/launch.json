@@ -50,6 +50,18 @@
       "port": 8096
     }
     ,{
+      "name": "upbeat-preview",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "C:/Projects/legend-team/.claude/worktrees/upbeat-bose-a08b80/dist", "-p", "8097", "-c-1"],
+      "port": 8097
+    }
+    ,{
+      "name": "wireframe-preview",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "C:/Projects/legend-team/.claude/worktrees/upbeat-bose-a08b80/design/handoffs/2026-05-06_vera-growth-kpi-cards/source/2-role-cards-claude/2-role-cards/project", "-p", "8098", "-c-1"],
+      "port": 8098
+    }
+    ,{
       "name": "vr-host",
       "runtimeExecutable": "npx",
       "runtimeArgs": ["http-server", "C:/Projects/legend-team/dist", "-p", "8788", "-c-1"],

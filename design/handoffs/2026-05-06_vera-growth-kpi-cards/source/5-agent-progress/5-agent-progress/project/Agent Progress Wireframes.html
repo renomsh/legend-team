@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>§5 Agent Progress — Wireframe Explorations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Kalam:wght@400;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0B0D; --panel:#111115; --border:#26262D;
+    --tp:#F5F5F7; --tm:#82828C; --tx:#52525C;
+    --ok:#10B981; --warn:#F59E0B;
+    --jobs:#FB923C; --ace:#9F75F8; --arki:#38BDF8; --fin:#34D399;
+    --riki:#F87171; --nova:#E879F9; --vera:#F472B6; --edi:#94A3B8;
+    --ink:#1a1a1f;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:#f6f3ec; /* sketchbook paper */
+    color:var(--ink);
+    font-family:'Kalam',ui-sans-serif,system-ui;
+    padding:48px 56px 120px;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,.03), transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(0,0,0,.025), transparent 50%);
+  }
+  h1{
+    font-family:'Caveat',cursive; font-weight:700;
+    font-size:54px; margin:0 0 4px; letter-spacing:.5px;
+  }
+  .sub{font-family:'Kalam'; color:#5a564b; max-width:760px; margin:0 0 8px; font-size:17px; line-height:1.5}
+  .meta-row{display:flex; gap:18px; align-items:center; margin-bottom:36px; font-size:14px; color:#7a7568}
+  .meta-row .pill{
+    border:1.5px dashed #b8b1a0; padding:3px 10px; border-radius:999px;
+    font-family:'Kalam'; background:#fffdf6;
+  }
+
+  /* sketchbook grid */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:36px 40px;
+  }
+  .card{
+    position:relative;
+    background:#fffdf6;
+    border:2px solid #2a2620;
+    border-radius:14px;
+    padding:22px 22px 26px;
+    box-shadow: 4px 4px 0 #2a2620, 4px 4px 0 1px #2a2620;
+    transform:rotate(-.2deg);
+  }
+  .card:nth-child(2){transform:rotate(.25deg)}
+  .card:nth-child(3){transform:rotate(.15deg)}
+  .card:nth-child(4){transform:rotate(-.18deg)}
+  .card h2{
+    font-family:'Caveat',cursive; font-weight:700;
+    font-size:36px; margin:0 0 2px; line-height:1;
+  }
+  .card .tag{
+    display:inline-block; font-family:'Kalam'; font-size:13px;
+    background:#2a2620; color:#fffdf6; padding:2px 10px;
+    border-radius:4px; margin-left:8px; vertical-align:6px;
+    transform:rotate(-1deg);
+  }
+  .card .desc{font-size:14.5px; color:#5a564b; margin:6px 0 18px; line-height:1.5; max-width:46ch}
+  .card .pros{
+    display:flex; gap:14px; font-size:13px; color:#5a564b;
+    margin-top:14px; flex-wrap:wrap;
+  }
+  .card .pros span::before{content:"+ "; color:#2f7a4d; font-weight:700}
+  .card .pros span.con::before{content:"– "; color:#a04040; font-weight:700}
+
+  /* the "screen" — actual rendered dark UI inside the sketchbook frame */
+  .screen{
+    background:var(--bg);
+    border-radius:8px;
+    padding:14px 14px 16px;
+    border:1px solid var(--border);
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--tp);
+    position:relative;
+  }
+  .screen::before{
+    /* hand-drawn label tab */
+    content:"§5 AGENT PROGRESS";
+    position:absolute; top:-14px; left:14px;
+    font-family:'Kalam'; font-size:12px; letter-spacing:1.5px;
+    background:#fffdf6; color:#2a2620;
+    padding:1px 8px; border:1.5px solid #2a2620; border-radius:4px;
+    transform:rotate(-1.5deg);
+  }
+  .panel-meta{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:2px 4px 12px; font-size:11px;
+    color:var(--tm); letter-spacing:.5px; text-transform:uppercase;
+  }
+  .panel-meta .count{color:var(--tp); font-weight:600}
+  .panel-meta .progress-mini{
+    display:flex; gap:3px; align-items:center;
+  }
+  .panel-meta .progress-mini b{
+    color:var(--ok); font-weight:600; font-variant-numeric:tabular-nums;
+  }
+
+  /* ---------- Shared atoms ---------- */
+  .dot{
+    width:6px; height:6px; border-radius:50%; flex:none;
+    background:var(--tx);
+  }
+  .pill{
+    font-size:10px; font-weight:600; letter-spacing:.6px;
+    padding:3px 8px; border-radius:999px;
+    text-transform:uppercase; font-family:'Inter';
+    border:1px solid transparent;
+  }
+  .pill.done{background:rgba(16,185,129,.12); color:var(--ok); border-color:rgba(16,185,129,.3)}
+  .pill.pend{background:rgba(130,130,140,.1); color:var(--tm); border-color:rgba(130,130,140,.25)}
+  .pill.skip{background:rgba(245,158,11,.1); color:var(--warn); border-color:rgba(245,158,11,.3)}
+
+  /* ============================================================
+     A · STACKED LIST  — left accent stripe, single row per agent
+     ============================================================ */
+  .listA{display:flex; flex-direction:column; gap:1px; background:var(--border); border-radius:6px; overflow:hidden}
+  .listA .row{
+    display:grid;
+    grid-template-columns: 3px 14px 1fr auto auto;
+    align-items:center;
+    gap:12px;
+    padding:11px 14px 11px 0;
+    background:var(--panel);
+  }
+  .listA .row .accent{
+    width:3px; height:100%; min-height:36px; align-self:stretch;
+    background:var(--tx);
+  }
+  .listA .row.done .accent{background:var(--role)}
+  .listA .row.skip{opacity:.45}
+  .listA .row .role{
+    font-family:'Inter'; font-size:13px; font-weight:500; color:var(--tp);
+    letter-spacing:.2px;
+  }
+  .listA .row.done .dot{background:var(--role)}
+  .listA .row .meta{font-size:11px; color:var(--tm); font-variant-numeric:tabular-nums}
+
+  /* ============================================================
+     B · VERTICAL TIMELINE — connected dots, sequential
+     ============================================================ */
+  .listB{
+    background:var(--panel); border:1px solid var(--border);
+    border-radius:8px; padding:10px 16px 14px;
+  }
+  .listB .row{
+    display:grid;
+    grid-template-columns: 28px 1fr auto;
+    align-items:center; gap:12px;
+    position:relative;
+    padding:9px 0;
+  }
+  .listB .row .node{
+    width:18px; height:18px; border-radius:50%;
+    border:1.5px solid var(--tx);
+    background:var(--bg);
+    display:grid; place-items:center;
+    position:relative; z-index:1;
+    justify-self:center;
+  }
+  .listB .row.done .node{
+    background:var(--role); border-color:var(--role);
+  }
+  .listB .row.done .node::after{
+    content:""; width:5px; height:9px;
+    border-right:1.5px solid #0b0b0d; border-bottom:1.5px solid #0b0b0d;
+    transform:rotate(45deg) translate(-1px,-1px);
+  }
+  .listB .row.skip .node{
+    border-color:var(--warn); border-style:dashed;
+  }
+  .listB .row.skip{opacity:.55}
+  .listB .row + .row::before{
+    content:""; position:absolute; left:13.5px; top:-9px; height:18px;
+    width:1.5px; background:var(--border);
+  }
+  .listB .row.done + .row.done::before{background:var(--ok); opacity:.4}
+  .listB .row .role{
+    font-size:13.5px; font-weight:500;
+  }
+  .listB .row .role small{
+    display:block; font-size:11px; color:var(--tm); font-weight:400; margin-top:1px;
+  }
+
+  /* ============================================================
+     C · STEPPER + DETAIL — horiz nodes on top, rows below
+     ============================================================ */
+  .stepper{
+    display:grid;
+    grid-template-columns:repeat(8, 1fr);
+    align-items:center;
+    padding:14px 6px 16px; position:relative;
+    margin-bottom:10px;
+  }
+  .stepper::before{
+    content:""; position:absolute; left:6%; right:6%; top:50%;
+    height:1.5px; background:var(--border);
+  }
+  .stepper .node{
+    position:relative; z-index:1;
+    justify-self:center;
+    width:22px; height:22px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--tx);
+    display:grid; place-items:center;
+    font-size:9px; color:var(--tm);
+    font-family:'JetBrains Mono'; font-weight:600;
+  }
+  .stepper .node.done{
+    background:var(--role); border-color:var(--role); color:#0b0b0d;
+  }
+  .stepper .node.skip{border-style:dashed; border-color:var(--warn); color:var(--warn)}
+  .stepper .node .lbl{
+    position:absolute; top:26px; left:50%; transform:translateX(-50%);
+    font-size:10px; color:var(--tm); font-family:'Inter';
+    text-transform:uppercase; letter-spacing:.5px; white-space:nowrap;
+  }
+  .stepper .node.done .lbl{color:var(--tp)}
+  .listC{
+    display:grid; grid-template-columns:1fr 1fr; gap:6px 14px;
+    padding-top:18px; border-top:1px dashed var(--border); margin-top:10px;
+  }
+  .listC .row{
+    display:flex; align-items:center; gap:10px;
+    padding:7px 10px; border-radius:6px;
+    background:rgba(255,255,255,.015);
+    border:1px solid transparent;
+  }
+  .listC .row.done{border-color:rgba(255,255,255,.04)}
+  .listC .row.skip{opacity:.45}
+  .listC .row .role{font-size:12.5px; flex:1}
+  .listC .row.done .dot{background:var(--role)}
+
+  /* ============================================================
+     D · DENSE GRID CHECKLIST — airy, monospace
+     ============================================================ */
+  .listD{
+    background:var(--panel); border:1px solid var(--border);
+    border-radius:8px; padding:18px 22px;
+    display:grid; grid-template-columns:1fr 1fr; gap:14px 32px;
+    font-family:'JetBrains Mono';
+  }
+  .listD .row{
+    display:grid;
+    grid-template-columns: 16px 14px 1fr auto;
+    align-items:center; gap:10px;
+    font-size:12px;
+    padding:4px 0;
+    border-bottom:1px dotted var(--border);
+  }
+  .listD .row:nth-last-child(-n+2){border-bottom:none}
+  .listD .check{
+    width:14px; height:14px; border-radius:3px;
+    border:1.5px solid var(--tx); display:grid; place-items:center;
+  }
+  .listD .row.done .check{
+    background:var(--role); border-color:var(--role);
+  }
+  .listD .row.done .check::after{
+    content:""; width:4px; height:7px;
+    border-right:1.5px solid #0b0b0d; border-bottom:1.5px solid #0b0b0d;
+    transform:rotate(45deg) translateY(-1px);
+  }
+  .listD .row.skip .check{
+    border-style:dashed; border-color:var(--warn);
+  }
+  .listD .row.skip .check::after{
+    content:"–"; color:var(--warn); font-size:14px; line-height:1; font-weight:700;
+  }
+  .listD .row.skip{opacity:.5}
+  .listD .row.done .dot{background:var(--role)}
+  .listD .role{
+    font-size:12px; letter-spacing:.4px; text-transform:uppercase; font-weight:500;
+  }
+  .listD .status{
+    font-size:9.5px; color:var(--tm); letter-spacing:.6px;
+  }
+  .listD .row.done .status{color:var(--ok)}
+  .listD .row.skip .status{color:var(--warn)}
+
+  /* ============================================================
+     Decision matrix
+     ============================================================ */
+  .matrix{
+    margin-top:54px;
+    background:#fffdf6;
+    border:2px solid #2a2620;
+    border-radius:14px;
+    box-shadow:5px 5px 0 #2a2620;
+    padding:26px 28px 30px;
+    transform:rotate(-.1deg);
+  }
+  .matrix h2{
+    font-family:'Caveat',cursive; font-size:42px; margin:0 0 6px;
+  }
+  .matrix p.lead{font-size:15px; color:#5a564b; margin:0 0 18px; max-width:70ch}
+  table.mtx{
+    width:100%; border-collapse:collapse;
+    font-family:'Kalam'; font-size:14.5px;
+  }
+  table.mtx th, table.mtx td{
+    padding:9px 10px; text-align:left;
+    border-bottom:1.5px dashed #b8b1a0; vertical-align:top;
+  }
+  table.mtx th{
+    font-family:'Caveat',cursive; font-weight:700;
+    font-size:22px; color:#2a2620;
+    border-bottom:2px solid #2a2620;
+  }
+  table.mtx td.col-A{background:rgba(159,117,248,.06)}
+  table.mtx td.col-B{background:rgba(56,189,248,.06)}
+  table.mtx td.col-C{background:rgba(251,146,60,.06)}
+  table.mtx td.col-D{background:rgba(52,211,153,.06)}
+  table.mtx .score{font-family:'JetBrains Mono'; font-size:13px; color:#2a2620}
+  .pick{
+    margin-top:22px; padding:16px 20px;
+    background:#2a2620; color:#fffdf6;
+    border-radius:8px;
+    font-family:'Kalam'; font-size:16px; line-height:1.55;
+    transform:rotate(.15deg);
+    box-shadow:3px 3px 0 #b8b1a0;
+  }
+  .pick b{font-family:'Caveat'; font-size:24px; color:#f5d676}
+  .pick .why{display:block; margin-top:6px; opacity:.85; font-size:14.5px}
+
+  /* annotation arrows / labels */
+  .anno{
+    position:absolute; font-family:'Caveat',cursive; font-size:18px;
+    color:#7a4a2a; transform:rotate(-3deg); pointer-events:none;
+  }
+
+  /* tweaks */
+  .tweak-toggle-hint{
+    position:fixed; right:20px; bottom:20px;
+    font-family:'Kalam'; font-size:12px; color:#7a7568;
+    background:#fffdf6; border:1.5px dashed #b8b1a0;
+    padding:5px 10px; border-radius:6px;
+  }
+</style>
+</head>
+<body>
+
+<h1>§5 Agent Progress — wireframe explorations</h1>
+<p class="sub">Four distinctly different ways to render the 8-agent run state inside the Current Session panel. Same content, same tokens, different visual logic. Decision matrix at the bottom.</p>
+<div class="meta-row">
+  <span class="pill">dark theme</span>
+  <span class="pill">8 agents · 4 done · 3 pending · 1 skipped</span>
+  <span class="pill">low-fi · structure first</span>
+</div>
+
+<div class="grid">
+
+  <!-- ============ A · STACKED LIST ============ -->
+  <div class="card">
+    <h2>A. Stacked List <span class="tag">baseline</span></h2>
+    <p class="desc">Single row per agent. 3px role-color stripe on the left tells you done-ness at a glance; status pill on the right confirms it. Most "by-the-book" — reads like a settings page.</p>
+
+    <div class="screen">
+      <div class="panel-meta">
+        <span>Agents <span class="count">8</span></span>
+        <span class="progress-mini"><b>4</b>/8 done</span>
+      </div>
+      <div class="listA">
+        <div class="row done" style="--role:var(--jobs)"><div class="accent"></div><div class="dot"></div><div class="role">Jobs</div><div class="meta">12s</div><span class="pill done">Done</span></div>
+        <div class="row done" style="--role:var(--ace)"><div class="accent"></div><div class="dot"></div><div class="role">Ace</div><div class="meta">8s</div><span class="pill done">Done</span></div>
+        <div class="row done" style="--role:var(--arki)"><div class="accent"></div><div class="dot"></div><div class="role">Arki</div><div class="meta">21s</div><span class="pill done">Done</span></div>
+        <div class="row" style="--role:var(--fin)"><div class="accent"></div><div class="dot"></div><div class="role">Fin</div><div class="meta">—</div><span class="pill pend">Pending</span></div>
+        <div class="row" style="--role:var(--riki)"><div class="accent"></div><div class="dot"></div><div class="role">Riki</div><div class="meta">—</div><span class="pill pend">Pending</span></div>
+        <div class="row skip" style="--role:var(--nova)"><div class="accent"></div><div class="dot"></div><div class="role">Nova</div><div class="meta">—</div><span class="pill skip">Skipped</span></div>
+        <div class="row done" style="--role:var(--vera)"><div class="accent"></div><div class="dot"></div><div class="role">Vera</div><div class="meta">5s</div><span class="pill done">Done</span></div>
+        <div class="row" style="--role:var(--edi)"><div class="accent"></div><div class="dot"></div><div class="role">Edi</div><div class="meta">—</div><span class="pill pend">Pending</span></div>
+      </div>
+    </div>
+
+    <div class="pros">
+      <span>matches existing Role Cards rhythm</span>
+      <span>skim left edge for done count</span>
+      <span class="con">no sense of order / time</span>
+      <span class="con">vertically tall</span>
+    </div>
+  </div>
+
+  <!-- ============ B · VERTICAL TIMELINE ============ -->
+  <div class="card">
+    <h2>B. Vertical Timeline <span class="tag">sequential</span></h2>
+    <p class="desc">Connected nodes down a rail. Done = filled checkmark in role color. Pending = empty ring. Skipped = dashed amber ring. Reads as a run log — "what happened, in order."</p>
+
+    <div class="screen">
+      <div class="panel-meta">
+        <span>Run order <span class="count">1 → 8</span></span>
+        <span class="progress-mini"><b>4</b>/8</span>
+      </div>
+      <div class="listB">
+        <div class="row done" style="--role:var(--jobs)"><div class="node"></div><div class="role">Jobs <small>finished · 12s</small></div><span class="pill done">Done</span></div>
+        <div class="row done" style="--role:var(--ace)"><div class="node"></div><div class="role">Ace <small>finished · 8s</small></div><span class="pill done">Done</span></div>
+        <div class="row done" style="--role:var(--arki)"><div class="node"></div><div class="role">Arki <small>finished · 21s</small></div><span class="pill done">Done</span></div>
+        <div class="row done" style="--role:var(--vera)"><div class="node"></div><div class="role">Vera <small>finished · 5s</small></div><span class="pill done">Done</span></div>
+        <div class="row" style="--role:var(--fin)"><div class="node"></div><div class="role">Fin <small>queued</small></div><span class="pill pend">Pending</span></div>
+        <div class="row" style="--role:var(--riki)"><div class="node"></div><div class="role">Riki <small>queued</small></div><span class="pill pend">Pending</span></div>
+        <div class="row skip" style="--role:var(--nova)"><div class="node"></div><div class="role">Nova <small>skipped — no input</small></div><span class="pill skip">Skipped</span></div>
+        <div class="row" style="--role:var(--edi)"><div class="node"></div><div class="role">Edi <small>queued</small></div><span class="pill pend">Pending</span></div>
+      </div>
+    </div>
+
+    <div class="pros">
+      <span>strong sequential metaphor</span>
+      <span>connecting line shows momentum</span>
+      <span>easy to add timestamps</span>
+      <span class="con">implies strict order even when parallel</span>
+    </div>
+  </div>
+
+  <!-- ============ C · STEPPER + DETAIL ============ -->
+  <div class="card">
+    <h2>C. Stepper + Detail <span class="tag">at-a-glance</span></h2>
+    <p class="desc">8 nodes across the top — fills in left-to-right as agents complete. Compact two-col detail rows below for who's who. Progress is felt in one sweep of the eye before any reading happens.</p>
+
+    <div class="screen">
+      <div class="panel-meta">
+        <span>Session progress</span>
+        <span class="progress-mini"><b>4</b>/8 · 50%</span>
+      </div>
+
+      <div class="stepper">
+        <div class="node done" style="--role:var(--jobs)">1<div class="lbl">Jobs</div></div>
+        <div class="node done" style="--role:var(--ace)">2<div class="lbl">Ace</div></div>
+        <div class="node done" style="--role:var(--arki)">3<div class="lbl">Arki</div></div>
+        <div class="node">4<div class="lbl">Fin</div></div>
+        <div class="node">5<div class="lbl">Riki</div></div>
+        <div class="node skip">—<div class="lbl" style="color:var(--warn)">Nova</div></div>
+        <div class="node done" style="--role:var(--vera)">7<div class="lbl">Vera</div></div>
+        <div class="node">8<div class="lbl">Edi</div></div>
+      </div>
+
+      <div class="listC">
+        <div class="row done" style="--role:var(--jobs)"><div class="dot"></div><div class="role">Jobs</div><span class="pill done">Done</span></div>
+        <div class="row done" style="--role:var(--ace)"><div class="dot"></div><div class="role">Ace</div><span class="pill done">Done</span></div>
+        <div class="row done" style="--role:var(--arki)"><div class="dot"></div><div class="role">Arki</div><span class="pill done">Done</span></div>
+        <div class="row" style="--role:var(--fin)"><div class="dot"></div><div class="role">Fin</div><span class="pill pend">Pending</span></div>
+        <div class="row" style="--role:var(--riki)"><div class="dot"></div><div class="role">Riki</div><span class="pill pend">Pending</span></div>
+        <div class="row skip" style="--role:var(--nova)"><div class="dot"></div><div class="role">Nova</div><span class="pill skip">Skipped</span></div>
+        <div class="row done" style="--role:var(--vera)"><div class="dot"></div><div class="role">Vera</div><span class="pill done">Done</span></div>
+        <div class="row" style="--role:var(--edi)"><div class="dot"></div><div class="role">Edi</div><span class="pill pend">Pending</span></div>
+      </div>
+    </div>
+
+    <div class="pros">
+      <span>fastest scan — % done is instant</span>
+      <span>headline + detail = best of both</span>
+      <span class="con">two regions to maintain</span>
+      <span class="con">stepper labels crowd at 8+</span>
+    </div>
+  </div>
+
+  <!-- ============ D · DENSE CHECKLIST ============ -->
+  <div class="card">
+    <h2>D. Dense Checklist <span class="tag">compact</span></h2>
+    <p class="desc">Two-column grid, monospace, checkboxes. Treats agents as a todo list rather than a process. Smallest vertical footprint — best when §5 sits below an already-tall stack of cards.</p>
+
+    <div class="screen">
+      <div class="panel-meta">
+        <span>Tasks <span class="count">4 / 8</span></span>
+        <span class="progress-mini"><b>50%</b></span>
+      </div>
+      <div class="listD">
+        <div class="row done" style="--role:var(--jobs)"><div class="check"></div><div class="dot"></div><div class="role">Jobs</div><span class="status">DONE · 12s</span></div>
+        <div class="row done" style="--role:var(--ace)"><div class="check"></div><div class="dot"></div><div class="role">Ace</div><span class="status">DONE · 8s</span></div>
+        <div class="row done" style="--role:var(--arki)"><div class="check"></div><div class="dot"></div><div class="role">Arki</div><span class="status">DONE · 21s</span></div>
+        <div class="row" style="--role:var(--fin)"><div class="check"></div><div class="dot"></div><div class="role">Fin</div><span class="status">PENDING</span></div>
+        <div class="row" style="--role:var(--riki)"><div class="check"></div><div class="dot"></div><div class="role">Riki</div><span class="status">PENDING</span></div>
+        <div class="row skip" style="--role:var(--nova)"><div class="check"></div><div class="dot"></div><div class="role">Nova</div><span class="status">SKIPPED</span></div>
+        <div class="row done" style="--role:var(--vera)"><div class="check"></div><div class="dot"></div><div class="role">Vera</div><span class="status">DONE · 5s</span></div>
+        <div class="row" style="--role:var(--edi)"><div class="check"></div><div class="dot"></div><div class="role">Edi</div><span class="status">PENDING</span></div>
+      </div>
+    </div>
+
+    <div class="pros">
+      <span>shortest — fits below tall §1+§2</span>
+      <span>mono numerals scan well</span>
+      <span class="con">loses the timeline feeling</span>
+      <span class="con">two-col makes order ambiguous</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- =================== DECISION MATRIX =================== -->
+<div class="matrix">
+  <h2>Which one?</h2>
+  <p class="lead">Scoring on dimensions that matter for §5 in this layout: how fast you read the run state, how clearly the three statuses separate, vertical cost (since §5 sits under two tall sections), and how well it scales if agent count grows past 8.</p>
+
+  <table class="mtx">
+    <thead>
+      <tr>
+        <th style="width:24%">Dimension</th>
+        <th style="width:19%">A · Stacked List</th>
+        <th style="width:19%">B · Timeline</th>
+        <th style="width:19%">C · Stepper+Detail</th>
+        <th style="width:19%">D · Dense Checklist</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>At-a-glance % done</td>
+        <td class="col-A">ok — count left stripes <span class="score">3/5</span></td>
+        <td class="col-B">good — chain of fills <span class="score">4/5</span></td>
+        <td class="col-C"><b>excellent</b> — single bar <span class="score">5/5</span></td>
+        <td class="col-D">ok — count checks <span class="score">3/5</span></td>
+      </tr>
+      <tr>
+        <td>State distinguishability<br>(done · pending · skipped)</td>
+        <td class="col-A">very clear <span class="score">5/5</span></td>
+        <td class="col-B">very clear <span class="score">5/5</span></td>
+        <td class="col-C">clear, but stepper "—" is subtle <span class="score">4/5</span></td>
+        <td class="col-D">clear <span class="score">4/5</span></td>
+      </tr>
+      <tr>
+        <td>Sequential / temporal sense</td>
+        <td class="col-A">none <span class="score">2/5</span></td>
+        <td class="col-B"><b>strongest</b> <span class="score">5/5</span></td>
+        <td class="col-C">strong <span class="score">4/5</span></td>
+        <td class="col-D">weak (2-col) <span class="score">2/5</span></td>
+      </tr>
+      <tr>
+        <td>Vertical cost in panel</td>
+        <td class="col-A">tall <span class="score">2/5</span></td>
+        <td class="col-B">tallest <span class="score">1/5</span></td>
+        <td class="col-C">medium <span class="score">3/5</span></td>
+        <td class="col-D"><b>shortest</b> <span class="score">5/5</span></td>
+      </tr>
+      <tr>
+        <td>Scales past 8 agents</td>
+        <td class="col-A">fine — keeps adding rows <span class="score">4/5</span></td>
+        <td class="col-B">fine — keeps adding nodes <span class="score">4/5</span></td>
+        <td class="col-C">stepper labels collide ≥10 <span class="score">2/5</span></td>
+        <td class="col-D">scales best — 3+ cols <span class="score">5/5</span></td>
+      </tr>
+      <tr>
+        <td>Fits "checklist, not table" brief</td>
+        <td class="col-A">leans table <span class="score">3/5</span></td>
+        <td class="col-B"><b>strongest checklist feel</b> <span class="score">5/5</span></td>
+        <td class="col-C">leans dashboard <span class="score">3/5</span></td>
+        <td class="col-D">literal checklist <span class="score">5/5</span></td>
+      </tr>
+      <tr>
+        <td><b>Total</b></td>
+        <td class="col-A"><b>19 / 30</b></td>
+        <td class="col-B"><b>24 / 30</b></td>
+        <td class="col-C"><b>21 / 30</b></td>
+        <td class="col-D"><b>24 / 30</b></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pick">
+    Recommendation: <b>B · Vertical Timeline</b>, with <b>D</b> as the "compact" toggle.<br>
+    <span class="why">B nails the brief — "feel like a timeline / checklist, not a table" — and the connecting rail makes a live session feel alive (the next pending node is visually the "head" of the run). It loses on vertical cost, which is exactly the gap D fills: keep D as a density toggle (Tweaks → Compact) so users with crowded boards can collapse §5 without losing state legibility. Skip A (too settings-page) and C (stepper crowds past 8 agents, which is your stated count today).</span>
+  </div>
+</div>
+
+</body>
+</html>

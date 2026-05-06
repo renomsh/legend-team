@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>KPI Card Wireframes — L1/L2/L3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Kalam:wght@400;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
+<style>
+  :root {
+    --bg-page: #f6f3ec;          /* warm paper */
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --ink-faint: #8a8580;
+    --rule: #cfc8b8;
+    --paper-grid: #e8e2d2;
+
+    /* Tokens echoed from spec (used in tiny accent strokes only) */
+    --bg-panel: #0B0B0D;
+    --border-panel: #26262D;
+    --text-primary: #F5F5F7;
+    --text-meta: #82828C;
+
+    --l1a: #4F46E5;
+    --l1b: #9333EA;
+    --l2a: #0891B2;
+    --l2b: #14B8A6;
+    --l3a: #D97706;
+    --l3b: #F59E0B;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg-page);
+    color: var(--ink);
+    font-family: 'Kalam', 'Caveat', sans-serif;
+    /* faint paper grid */
+    background-image:
+      linear-gradient(var(--paper-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-grid) 1px, transparent 1px);
+    background-size: 28px 28px;
+    background-position: -1px -1px;
+  }
+
+  .page {
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 56px 48px 96px;
+  }
+
+  /* ---------- header ---------- */
+  .masthead {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    border-bottom: 2px dashed var(--ink);
+    padding-bottom: 18px;
+    margin-bottom: 44px;
+  }
+  .masthead h1 {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 1;
+    margin: 0 0 6px;
+    letter-spacing: -0.5px;
+  }
+  .masthead .sub {
+    font-family: 'Kalam', sans-serif;
+    font-size: 16px;
+    color: var(--ink-soft);
+    max-width: 720px;
+    line-height: 1.4;
+  }
+  .stamp {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    color: #b03a2e;
+    border: 2px solid #b03a2e;
+    border-radius: 6px;
+    padding: 6px 14px;
+    transform: rotate(-4deg);
+    white-space: nowrap;
+  }
+
+  /* ---------- approach block ---------- */
+  .approach {
+    margin-bottom: 64px;
+  }
+  .approach-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 6px;
+  }
+  .approach-num {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 0.9;
+    color: var(--ink);
+    width: 64px;
+    text-align: center;
+    border: 2.5px solid var(--ink);
+    border-radius: 50%;
+    padding: 4px 0 8px;
+    transform: rotate(-3deg);
+  }
+  .approach-title {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 1;
+    margin: 0;
+  }
+  .approach-tag {
+    font-family: 'Kalam', sans-serif;
+    font-size: 14px;
+    color: var(--ink-faint);
+    margin-top: 4px;
+  }
+  .approach-desc {
+    font-family: 'Kalam', sans-serif;
+    font-size: 15px;
+    color: var(--ink-soft);
+    max-width: 900px;
+    margin: 8px 0 22px 86px;
+    line-height: 1.5;
+  }
+  .annotation {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    color: #b03a2e;
+    margin: 14px 0 0 86px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .annotation::before {
+    content: "↳";
+    font-size: 26px;
+  }
+
+  /* ---------- card row ---------- */
+  .row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-left: 0;
+  }
+  .wf-card {
+    /* dark fill so it reads as actual dark theme */
+    background: var(--bg-panel);
+    color: var(--text-primary);
+    border: 1px solid var(--border-panel);
+    border-radius: 10px;
+    padding: 20px 20px 18px;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    /* hand-drawn outer frame */
+    box-shadow:
+      0 0 0 2.5px var(--ink),
+      4px 4px 0 0 var(--ink);
+  }
+  .wf-card .stripe {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .wf-card[data-axis="l1"] .stripe { background: linear-gradient(90deg, var(--l1a), var(--l1b)); }
+  .wf-card[data-axis="l2"] .stripe { background: linear-gradient(90deg, var(--l2a), var(--l2b)); }
+  .wf-card[data-axis="l3"] .stripe { background: linear-gradient(90deg, var(--l3a), var(--l3b)); }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    color: var(--text-meta);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .wf-card[data-axis="l1"] .eyebrow-accent { color: #a78bfa; }
+  .wf-card[data-axis="l2"] .eyebrow-accent { color: #2dd4bf; }
+  .wf-card[data-axis="l3"] .eyebrow-accent { color: #fbbf24; }
+
+  .axis-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+  }
+  .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: var(--text-meta);
+    letter-spacing: 0.02em;
+  }
+  .kpi {
+    font-family: 'Inter', sans-serif;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+  .kpi .unit {
+    color: var(--text-meta);
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: var(--text-meta);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border-panel);
+    border-radius: 999px;
+    padding: 3px 9px;
+    white-space: nowrap;
+  }
+  .chip .delta-down { color: #f87171; }
+  .chip .delta-up { color: #4ade80; }
+  .chip .delta-flat { color: var(--text-meta); }
+
+  /* sparkline svg */
+  .spark { display: block; }
+  .spark-l1 { stroke: url(#g-l1); }
+  .spark-l2 { stroke: url(#g-l2); }
+  .spark-l3 { stroke: url(#g-l3); }
+
+  /* ============================================================
+     APPROACH 1 — NUMBER-FIRST, MAXIMAL
+     ============================================================ */
+  .a1 .wf-card { padding: 22px 22px 18px; min-height: 200px; }
+  .a1 .row1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 4px;
+    margin-bottom: 18px;
+  }
+  .a1 .eye-stack { display: flex; flex-direction: column; gap: 4px; }
+  .a1 .axis-name { font-size: 15px; font-weight: 500; color: #c8c8d0; }
+  .a1 .kpi { font-size: 60px; margin: 0 0 4px; }
+  .a1 .kpi .unit { font-size: 18px; }
+  .a1 .meta { margin-bottom: 14px; }
+  .a1 .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .a1 .spark { width: 100px; height: 24px; }
+
+  /* ============================================================
+     APPROACH 2 — LABEL-FIRST, EDITORIAL
+     ============================================================ */
+  .a2 .wf-card { padding: 18px 22px 20px; min-height: 230px; display: flex; flex-direction: column; }
+  .a2 .head { margin-top: 4px; margin-bottom: 18px; }
+  .a2 .eyebrow { display: block; margin-bottom: 8px; }
+  .a2 .axis-name { font-size: 22px; line-height: 1.15; }
+  .a2 .meta { margin-top: 6px; }
+  .a2 .divider { height: 1px; background: var(--border-panel); margin: 6px 0 14px; }
+  .a2 .body { flex: 1; display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; }
+  .a2 .kpi { font-size: 44px; }
+  .a2 .kpi .unit { font-size: 14px; }
+  .a2 .spark { width: 110px; height: 32px; }
+  .a2 .footer { margin-top: 14px; display: flex; justify-content: flex-end; }
+
+  /* ============================================================
+     APPROACH 3 — SPARK-AS-BACKGROUND, IMMERSIVE
+     ============================================================ */
+  .a3 .wf-card { padding: 18px 20px 18px; min-height: 200px; position: relative; }
+  .a3 .spark-bg {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 78px;
+    width: 100%;
+    pointer-events: none;
+  }
+  .a3 .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+  }
+  .a3 .axis-name { font-size: 17px; margin-top: 6px; }
+  .a3 .kpi-block { position: relative; z-index: 2; margin-top: 22px; }
+  .a3 .kpi { font-size: 52px; }
+  .a3 .kpi .unit { font-size: 16px; }
+  .a3 .meta { margin-top: 4px; }
+  .a3 .footer {
+    position: relative;
+    z-index: 2;
+    margin-top: 14px;
+  }
+  .a3 .point-labels {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    color: var(--text-meta);
+    letter-spacing: 0.05em;
+    margin-top: 4px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ============================================================
+     APPROACH 4 — SIDE BY SIDE, COMPACT (number left | spark right)
+     ============================================================ */
+  .a4 .wf-card { padding: 16px 18px; min-height: 130px; }
+  .a4 .head { display: flex; justify-content: space-between; align-items: center; margin-top: 2px; }
+  .a4 .body {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: center;
+    margin-top: 14px;
+  }
+  .a4 .left { min-width: 0; }
+  .a4 .axis-name { font-size: 14px; color: #c8c8d0; font-weight: 500; margin-bottom: 4px; }
+  .a4 .kpi { font-size: 36px; }
+  .a4 .kpi .unit { font-size: 12px; }
+  .a4 .right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+  }
+  .a4 .spark { width: 96px; height: 32px; }
+
+  /* ============================================================
+     APPROACH 5 — DATA-DENSE TABLE / TERMINAL
+     ============================================================ */
+  .a5 .wf-card { padding: 14px 18px 16px; min-height: 200px; font-family: 'JetBrains Mono', monospace; }
+  .a5 .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed var(--border-panel);
+    padding-bottom: 10px;
+    margin-top: 2px;
+  }
+  .a5 .axis-name { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; }
+  .a5 .kpi-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin: 14px 0 6px;
+  }
+  .a5 .kpi { font-family: 'JetBrains Mono', monospace; font-size: 38px; font-weight: 700; }
+  .a5 .kpi .unit { font-size: 12px; }
+  .a5 table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    font-size: 10.5px;
+  }
+  .a5 td {
+    padding: 3px 0;
+    color: var(--text-meta);
+    border-bottom: 1px dotted var(--border-panel);
+  }
+  .a5 td.k { color: #c8c8d0; width: 46%; }
+  .a5 td.v { text-align: right; color: var(--text-primary); font-variant-numeric: tabular-nums; }
+  .a5 td.delta-down { color: #f87171; }
+  .a5 td.delta-up { color: #4ade80; }
+  .a5 .spark-line { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+  .a5 .spark { width: 100%; height: 14px; flex: 1; }
+  .a5 .spark-label { font-size: 9.5px; color: var(--text-meta); white-space: nowrap; }
+
+  /* ---------- decision matrix ---------- */
+  .matrix-section {
+    margin-top: 80px;
+  }
+  .matrix-card {
+    background: #fffdf6;
+    border: 2.5px solid var(--ink);
+    border-radius: 10px;
+    box-shadow: 6px 6px 0 0 var(--ink);
+    padding: 32px 36px 36px;
+    position: relative;
+  }
+  .matrix-card::before {
+    content: "decision matrix";
+    position: absolute;
+    top: -14px; left: 28px;
+    background: var(--bg-page);
+    padding: 0 10px;
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    color: var(--ink);
+  }
+  .matrix-card h2 {
+    font-family: 'Caveat', cursive;
+    font-size: 38px;
+    margin: 0 0 6px;
+    line-height: 1;
+  }
+  .matrix-card .lede {
+    font-family: 'Kalam', sans-serif;
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin: 0 0 22px;
+    max-width: 760px;
+    line-height: 1.5;
+  }
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Kalam', sans-serif;
+    font-size: 14px;
+  }
+  .matrix th, .matrix td {
+    text-align: left;
+    padding: 12px 12px;
+    border-bottom: 1.5px dashed var(--rule);
+    vertical-align: top;
+  }
+  .matrix th {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    color: var(--ink);
+    border-bottom: 2px solid var(--ink);
+    font-weight: 700;
+  }
+  .matrix th:first-child, .matrix td:first-child {
+    width: 110px;
+  }
+  .matrix .nm {
+    font-family: 'Caveat', cursive;
+    font-size: 26px;
+    line-height: 1;
+  }
+  .matrix .pill {
+    display: inline-block;
+    font-family: 'Kalam', sans-serif;
+    font-size: 12px;
+    padding: 2px 10px;
+    border: 1.5px solid var(--ink);
+    border-radius: 999px;
+    margin: 1px 4px 1px 0;
+    background: #fff;
+  }
+  .matrix .score {
+    font-family: 'Caveat', cursive;
+    font-size: 30px;
+    line-height: 1;
+  }
+  .matrix .pros { color: #1f6f3b; }
+  .matrix .cons { color: #a23a2a; }
+  .matrix tr:last-child td { border-bottom: none; }
+
+  .recs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 26px;
+  }
+  .rec {
+    border: 2px dashed var(--ink);
+    border-radius: 8px;
+    padding: 14px 16px;
+    background: #fffdf6;
+  }
+  .rec .label {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    color: var(--ink);
+    margin-bottom: 4px;
+    line-height: 1;
+  }
+  .rec .body {
+    font-family: 'Kalam', sans-serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+  }
+  .rec .pick {
+    font-family: 'Caveat', cursive;
+    font-size: 26px;
+    color: #1f6f3b;
+    margin-top: 6px;
+  }
+
+  /* ---------- legend / tweaks ---------- */
+  .legend {
+    margin: 8px 0 36px;
+    padding: 14px 18px;
+    border: 1.5px dashed var(--ink);
+    border-radius: 8px;
+    background: #fffdf6;
+    font-family: 'Kalam', sans-serif;
+    font-size: 14px;
+    color: var(--ink-soft);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px 28px;
+    align-items: center;
+  }
+  .legend strong {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    color: var(--ink);
+    margin-right: 4px;
+  }
+  .swatch {
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .swatch i {
+    width: 22px; height: 8px; border-radius: 2px; display: inline-block;
+  }
+</style>
+</head>
+<body>
+
+<!-- shared SVG defs (gradients for sparklines, used by xlink:href) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-l1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"  stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#9333EA"/>
+    </linearGradient>
+    <linearGradient id="g-l2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"  stop-color="#0891B2"/>
+      <stop offset="100%" stop-color="#14B8A6"/>
+    </linearGradient>
+    <linearGradient id="g-l3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"  stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+
+    <!-- soft fills for spark-as-bg -->
+    <linearGradient id="gf-l1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#9333EA" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#9333EA" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="gf-l2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#14B8A6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#14B8A6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="gf-l3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#F59E0B" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<div class="page">
+
+  <!-- ============================================ MASTHEAD ============================================ -->
+  <div class="masthead">
+    <div>
+      <h1>KPI card row · wireframe explorations</h1>
+      <div class="sub">Five distinct visual approaches for the L1/L2/L3 growth-axis KPI row. Same data, same tokens — different emphasis. Compare side-by-side, then pick (or mix).</div>
+    </div>
+    <div class="stamp">draft v1 · low-fi</div>
+  </div>
+
+  <div class="legend">
+    <strong>shared rules</strong>
+    <span class="swatch"><i style="background:linear-gradient(90deg,#4F46E5,#9333EA)"></i>L1 · 역할 품질</span>
+    <span class="swatch"><i style="background:linear-gradient(90deg,#0891B2,#14B8A6)"></i>L2 · 판단 일관성</span>
+    <span class="swatch"><i style="background:linear-gradient(90deg,#D97706,#F59E0B)"></i>L3 · 실행 전이</span>
+    <span>· 3px top stripe · sparkline = all → recent10 → recent3 · tabular-nums on KPI</span>
+  </div>
+
+  <!-- ============================================ APPROACH 1 ============================================ -->
+  <section class="approach a1">
+    <div class="approach-head">
+      <div class="approach-num">1</div>
+      <div>
+        <h2 class="approach-title">Number-first, maximal</h2>
+        <div class="approach-tag">KPI is the hero — everything else is context. ~200px tall.</div>
+      </div>
+    </div>
+    <div class="approach-desc">
+      Big tabular number dominates. Eyebrow + axis name sit small in the top-left; meta line sits under the number. Sparkline + trend chip live at the bottom on one row. Best when the dashboard's job is "what's the score right now?"
+    </div>
+
+    <div class="row">
+      <!-- L1 -->
+      <div class="wf-card" data-axis="l1">
+        <span class="stripe"></span>
+        <div class="row1">
+          <div class="eye-stack">
+            <span class="eyebrow eyebrow-accent">L1 · QUALITY</span>
+            <span class="axis-name">역할 품질</span>
+          </div>
+          <span class="chip"><span class="delta-up">↑ +1.4</span> recent3 vs all</span>
+        </div>
+        <div class="kpi">78.9<span class="unit"> /100</span></div>
+        <div class="meta">7 / 7 metric · view=all</div>
+        <div class="footer">
+          <span class="meta">trend</span>
+          <svg class="spark spark-l1" viewBox="0 0 100 24" fill="none" stroke-width="1.6" stroke-linecap="round">
+            <polyline points="4,16 50,12 96,6" stroke="url(#g-l1)" />
+            <circle cx="4" cy="16" r="2" fill="#9333EA" />
+            <circle cx="50" cy="12" r="2" fill="#9333EA" />
+            <circle cx="96" cy="6" r="2.5" fill="#9333EA" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- L2 -->
+      <div class="wf-card" data-axis="l2">
+        <span class="stripe"></span>
+        <div class="row1">
+          <div class="eye-stack">
+            <span class="eyebrow eyebrow-accent">L2 · CONSISTENCY</span>
+            <span class="axis-name">판단 일관성</span>
+          </div>
+          <span class="chip"><span class="delta-down">↓ -0.2</span> recent3 vs all</span>
+        </div>
+        <div class="kpi">56.7<span class="unit"> /100</span></div>
+        <div class="meta">4 / 4 metric · view=all</div>
+        <div class="footer">
+          <span class="meta">trend</span>
+          <svg class="spark spark-l2" viewBox="0 0 100 24" fill="none" stroke-width="1.6" stroke-linecap="round">
+            <polyline points="4,8 50,10 96,11" stroke="url(#g-l2)" />
+            <circle cx="4" cy="8" r="2" fill="#14B8A6" />
+            <circle cx="50" cy="10" r="2" fill="#14B8A6" />
+            <circle cx="96" cy="11" r="2.5" fill="#14B8A6" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- L3 -->
+      <div class="wf-card" data-axis="l3">
+        <span class="stripe"></span>
+        <div class="row1">
+          <div class="eye-stack">
+            <span class="eyebrow eyebrow-accent">L3 · TRANSFER</span>
+            <span class="axis-name">실행 전이</span>
+          </div>
+          <span class="chip"><span class="delta-up">↑ +0.8</span> recent3 vs all</span>
+        </div>
+        <div class="kpi">62.1<span class="unit"> /100</span></div>
+        <div class="meta">3 / 3 metric · view=all</div>
+        <div class="footer">
+          <span class="meta">trend</span>
+          <svg class="spark spark-l3" viewBox="0 0 100 24" fill="none" stroke-width="1.6" stroke-linecap="round">
+            <polyline points="4,14 50,10 96,7" stroke="url(#g-l3)" />
+            <circle cx="4" cy="14" r="2" fill="#F59E0B" />
+            <circle cx="50" cy="10" r="2" fill="#F59E0B" />
+            <circle cx="96" cy="7" r="2.5" fill="#F59E0B" />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="annotation">number is HUGE. spark feels like a footnote — fine for a top-of-page summary.</div>
+  </section>
+
+  <!-- ============================================ APPROACH 2 ============================================ -->
+  <section class="approach a2">
+    <div class="approach-head">
+      <div class="approach-num">2</div>
+      <div>
+        <h2 class="approach-title">Label-first, editorial</h2>
+        <div class="approach-tag">Read like a magazine. Title block on top, divider, then number + spark. ~230px tall.</div>
+      </div>
+    </div>
+    <div class="approach-desc">
+      Eyebrow → axis name → meta forms a clear "title block" up top. A 1px divider creates a deliberate pause, then KPI and sparkline share a baseline. Trend chip is exiled to its own footer line, treated as supporting evidence.
+    </div>
+
+    <div class="row">
+      <!-- L1 -->
+      <div class="wf-card" data-axis="l1">
+        <span class="stripe"></span>
+        <div class="head">
+          <span class="eyebrow eyebrow-accent">L1 · QUALITY</span>
+          <div class="axis-name">역할 품질</div>
+          <div class="meta">7 / 7 metric · view=all</div>
+        </div>
+        <div class="divider"></div>
+        <div class="body">
+          <div class="kpi">78.9<span class="unit"> /100</span></div>
+          <svg class="spark spark-l1" viewBox="0 0 110 32" fill="none" stroke-width="1.7" stroke-linecap="round">
+            <polyline points="4,22 55,16 106,7" stroke="url(#g-l1)" />
+            <circle cx="4" cy="22" r="2" fill="#9333EA" />
+            <circle cx="55" cy="16" r="2" fill="#9333EA" />
+            <circle cx="106" cy="7" r="2.6" fill="#9333EA" />
+          </svg>
+        </div>
+        <div class="footer">
+          <span class="chip"><span class="delta-up">↑ +1.4</span> recent3 vs all</span>
+        </div>
+      </div>
+
+      <!-- L2 -->
+      <div class="wf-card" data-axis="l2">
+        <span class="stripe"></span>
+        <div class="head">
+          <span class="eyebrow eyebrow-accent">L2 · CONSISTENCY</span>
+          <div class="axis-name">판단 일관성</div>
+          <div class="meta">4 / 4 metric · view=all</div>
+        </div>
+        <div class="divider"></div>
+        <div class="body">
+          <div class="kpi">56.7<span class="unit"> /100</span></div>
+          <svg class="spark spark-l2" viewBox="0 0 110 32" fill="none" stroke-width="1.7" stroke-linecap="round">
+            <polyline points="4,12 55,14 106,16" stroke="url(#g-l2)" />
+            <circle cx="4" cy="12" r="2" fill="#14B8A6" />
+            <circle cx="55" cy="14" r="2" fill="#14B8A6" />
+            <circle cx="106" cy="16" r="2.6" fill="#14B8A6" />
+          </svg>
+        </div>
+        <div class="footer">
+          <span class="chip"><span class="delta-down">↓ -0.2</span> recent3 vs all</span>
+        </div>
+      </div>
+
+      <!-- L3 -->
+      <div class="wf-card" data-axis="l3">
+        <span class="stripe"></span>
+        <div class="head">
+          <span class="eyebrow eyebrow-accent">L3 · TRANSFER</span>
+          <div class="axis-name">실행 전이</div>
+          <div class="meta">3 / 3 metric · view=all</div>
+        </div>
+        <div class="divider"></div>
+        <div class="body">
+          <div class="kpi">62.1<span class="unit"> /100</span></div>
+          <svg class="spark spark-l3" viewBox="0 0 110 32" fill="none" stroke-width="1.7" stroke-linecap="round">
+            <polyline points="4,20 55,14 106,8" stroke="url(#g-l3)" />
+            <circle cx="4" cy="20" r="2" fill="#F59E0B" />
+            <circle cx="55" cy="14" r="2" fill="#F59E0B" />
+            <circle cx="106" cy="8" r="2.6" fill="#F59E0B" />
+          </svg>
+        </div>
+        <div class="footer">
+          <span class="chip"><span class="delta-up">↑ +0.8</span> recent3 vs all</span>
+        </div>
+      </div>
+    </div>
+    <div class="annotation">most "designed" feel. divider eats vertical space — beware on dense dashboards.</div>
+  </section>
+
+  <!-- ============================================ APPROACH 3 ============================================ -->
+  <section class="approach a3">
+    <div class="approach-head">
+      <div class="approach-num">3</div>
+      <div>
+        <h2 class="approach-title">Spark-as-background, immersive</h2>
+        <div class="approach-tag">Sparkline becomes the card's substrate. Number sits on top. ~200px tall.</div>
+      </div>
+    </div>
+    <div class="approach-desc">
+      Trend isn't a footnote — it IS the backdrop. Sparkline area-fills the lower half with the axis gradient at low opacity; KPI and meta ride on top. Three tick labels below clarify the time-window mapping. Highest "vibe" per pixel; risks busy-ness if cards stack on a busy page.
+    </div>
+
+    <div class="row">
+      <!-- L1 -->
+      <div class="wf-card" data-axis="l1">
+        <span class="stripe"></span>
+        <svg class="spark-bg" viewBox="0 0 300 78" preserveAspectRatio="none" fill="none">
+          <path d="M0,52 L150,40 L300,18 L300,78 L0,78 Z" fill="url(#gf-l1)"/>
+          <polyline points="0,52 150,40 300,18" stroke="url(#g-l1)" stroke-width="1.6" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+        </svg>
+        <div class="head">
+          <span class="eyebrow eyebrow-accent">L1 · QUALITY</span>
+          <span class="chip"><span class="delta-up">↑ +1.4</span> r3 vs all</span>
+        </div>
+        <div class="axis-name">역할 품질</div>
+        <div class="kpi-block">
+          <div class="kpi">78.9<span class="unit"> /100</span></div>
+          <div class="meta">7 / 7 metric · view=all</div>
+        </div>
+        <div class="point-labels"><span>all</span><span>recent10</span><span>recent3</span></div>
+      </div>
+
+      <!-- L2 -->
+      <div class="wf-card" data-axis="l2">
+        <span class="stripe"></span>
+        <svg class="spark-bg" viewBox="0 0 300 78" preserveAspectRatio="none" fill="none">
+          <path d="M0,28 L150,34 L300,40 L300,78 L0,78 Z" fill="url(#gf-l2)"/>
+          <polyline points="0,28 150,34 300,40" stroke="url(#g-l2)" stroke-width="1.6" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+        </svg>
+        <div class="head">
+          <span class="eyebrow eyebrow-accent">L2 · CONSISTENCY</span>
+          <span class="chip"><span class="delta-down">↓ -0.2</span> r3 vs all</span>
+        </div>
+        <div class="axis-name">판단 일관성</div>
+        <div class="kpi-block">
+          <div class="kpi">56.7<span class="unit"> /100</span></div>
+          <div class="meta">4 / 4 metric · view=all</div>
+        </div>
+        <div class="point-labels"><span>all</span><span>recent10</span><span>recent3</span></div>
+      </div>
+
+      <!-- L3 -->
+      <div class="wf-card" data-axis="l3">
+        <span class="stripe"></span>
+        <svg class="spark-bg" viewBox="0 0 300 78" preserveAspectRatio="none" fill="none">
+          <path d="M0,46 L150,32 L300,20 L300,78 L0,78 Z" fill="url(#gf-l3)"/>
+          <polyline points="0,46 150,32 300,20" stroke="url(#g-l3)" stroke-width="1.6" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+        </svg>
+        <div class="head">
+          <span class="eyebrow eyebrow-accent">L3 · TRANSFER</span>
+          <span class="chip"><span class="delta-up">↑ +0.8</span> r3 vs all</span>
+        </div>
+        <div class="axis-name">실행 전이</div>
+        <div class="kpi-block">
+          <div class="kpi">62.1<span class="unit"> /100</span></div>
+          <div class="meta">3 / 3 metric · view=all</div>
+        </div>
+        <div class="point-labels"><span>all</span><span>recent10</span><span>recent3</span></div>
+      </div>
+    </div>
+    <div class="annotation">trend is felt, not read. great for a hero strip; competes with everything below it.</div>
+  </section>
+
+  <!-- ============================================ APPROACH 4 ============================================ -->
+  <section class="approach a4">
+    <div class="approach-head">
+      <div class="approach-num">4</div>
+      <div>
+        <h2 class="approach-title">Compact, side-by-side</h2>
+        <div class="approach-tag">Number left, spark + chip right — single row body. ~130px tall.</div>
+      </div>
+    </div>
+    <div class="approach-desc">
+      Half the height of approach 1. Eyebrow + meta sit on the top header row; body is one tight grid row: KPI on the left, spark + trend stacked on the right. Best when this row sits above a bigger chart and the cards are <em>summary chrome</em>, not the focus.
+    </div>
+
+    <div class="row">
+      <!-- L1 -->
+      <div class="wf-card" data-axis="l1">
+        <span class="stripe"></span>
+        <div class="head">
+          <span class="eyebrow eyebrow-accent">L1 · QUALITY</span>
+          <span class="meta">7/7 · all</span>
+        </div>
+        <div class="body">
+          <div class="left">
+            <div class="axis-name">역할 품질</div>
+            <div class="kpi">78.9<span class="unit"> /100</span></div>
+          </div>
+          <div class="right">
+            <svg class="spark spark-l1" viewBox="0 0 96 32" fill="none" stroke-width="1.7" stroke-linecap="round">
+              <polyline points="4,22 48,16 92,6" stroke="url(#g-l1)" />
+              <circle cx="92" cy="6" r="2.6" fill="#9333EA" />
+            </svg>
+            <span class="chip"><span class="delta-up">↑ +1.4</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- L2 -->
+      <div class="wf-card" data-axis="l2">
+        <span class="stripe"></span>
+        <div class="head">
+          <span class="eyebrow eyebrow-accent">L2 · CONSISTENCY</span>
+          <span class="meta">4/4 · all</span>
+        </div>
+        <div class="body">
+          <div class="left">
+            <div class="axis-name">판단 일관성</div>
+            <div class="kpi">56.7<span class="unit"> /100</span></div>
+          </div>
+          <div class="right">
+            <svg class="spark spark-l2" viewBox="0 0 96 32" fill="none" stroke-width="1.7" stroke-linecap="round">
+              <polyline points="4,12 48,14 92,16" stroke="url(#g-l2)" />
+              <circle cx="92" cy="16" r="2.6" fill="#14B8A6" />
+            </svg>
+            <span class="chip"><span class="delta-down">↓ -0.2</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- L3 -->
+      <div class="wf-card" data-axis="l3">
+        <span class="stripe"></span>
+        <div class="head">
+          <span class="eyebrow eyebrow-accent">L3 · TRANSFER</span>
+          <span class="meta">3/3 · all</span>
+        </div>
+        <div class="body">
+          <div class="left">
+            <div class="axis-name">실행 전이</div>
+            <div class="kpi">62.1<span class="unit"> /100</span></div>
+          </div>
+          <div class="right">
+            <svg class="spark spark-l3" viewBox="0 0 96 32" fill="none" stroke-width="1.7" stroke-linecap="round">
+              <polyline points="4,20 48,14 92,8" stroke="url(#g-l3)" />
+              <circle cx="92" cy="8" r="2.6" fill="#F59E0B" />
+            </svg>
+            <span class="chip"><span class="delta-up">↑ +0.8</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="annotation">tight! lots of vertical real-estate left for the chart below. weakest "feel".</div>
+  </section>
+
+  <!-- ============================================ APPROACH 5 ============================================ -->
+  <section class="approach a5">
+    <div class="approach-head">
+      <div class="approach-num">5</div>
+      <div>
+        <h2 class="approach-title">Data-dense / terminal</h2>
+        <div class="approach-tag">All-mono. Mini metric breakdown table. Spark on its own row. ~200px tall.</div>
+      </div>
+    </div>
+    <div class="approach-desc">
+      For analytical / power-user surfaces. The card unfolds the underlying metric averages instead of hiding them — top contributors and detractors are inline. Sparkline runs full-width as a footer rule. This treats the KPI as <em>one row of a table</em>, not a hero.
+    </div>
+
+    <div class="row">
+      <!-- L1 -->
+      <div class="wf-card" data-axis="l1">
+        <span class="stripe"></span>
+        <div class="head">
+          <span class="eyebrow eyebrow-accent">L1 · QUALITY</span>
+          <span class="meta">view=all</span>
+        </div>
+        <div class="axis-name" style="margin-top:10px;">역할 품질 · 7 metric avg</div>
+        <div class="kpi-row">
+          <span class="kpi">78.9<span class="unit"> /100</span></span>
+          <span class="chip"><span class="delta-up">↑ +1.4</span> r3 vs all</span>
+        </div>
+        <table>
+          <tr><td class="k">top contributor</td><td class="v">judgment_fit · 84.2</td></tr>
+          <tr><td class="k">lowest</td><td class="v">handoff_q · 71.0</td></tr>
+          <tr><td class="k">σ across metrics</td><td class="v">4.3</td></tr>
+        </table>
+        <div class="spark-line">
+          <span class="spark-label">all</span>
+          <svg class="spark spark-l1" viewBox="0 0 200 14" preserveAspectRatio="none" fill="none" stroke-width="1.4" stroke-linecap="round">
+            <polyline points="2,10 100,7 198,3" stroke="url(#g-l1)" vector-effect="non-scaling-stroke"/>
+          </svg>
+          <span class="spark-label">r3</span>
+        </div>
+      </div>
+
+      <!-- L2 -->
+      <div class="wf-card" data-axis="l2">
+        <span class="stripe"></span>
+        <div class="head">
+          <span class="eyebrow eyebrow-accent">L2 · CONSISTENCY</span>
+          <span class="meta">view=all</span>
+        </div>
+        <div class="axis-name" style="margin-top:10px;">판단 일관성 · 4 metric avg</div>
+        <div class="kpi-row">
+          <span class="kpi">56.7<span class="unit"> /100</span></span>
+          <span class="chip"><span class="delta-down">↓ -0.2</span> r3 vs all</span>
+        </div>
+        <table>
+          <tr><td class="k">top contributor</td><td class="v">rubric_match · 64.1</td></tr>
+          <tr><td class="k">lowest</td><td class="v delta-down">cross_case · 48.9</td></tr>
+          <tr><td class="k">σ across metrics</td><td class="v">6.8</td></tr>
+        </table>
+        <div class="spark-line">
+          <span class="spark-label">all</span>
+          <svg class="spark spark-l2" viewBox="0 0 200 14" preserveAspectRatio="none" fill="none" stroke-width="1.4" stroke-linecap="round">
+            <polyline points="2,5 100,7 198,9" stroke="url(#g-l2)" vector-effect="non-scaling-stroke"/>
+          </svg>
+          <span class="spark-label">r3</span>
+        </div>
+      </div>
+
+      <!-- L3 -->
+      <div class="wf-card" data-axis="l3">
+        <span class="stripe"></span>
+        <div class="head">
+          <span class="eyebrow eyebrow-accent">L3 · TRANSFER</span>
+          <span class="meta">view=all</span>
+        </div>
+        <div class="axis-name" style="margin-top:10px;">실행 전이 · 3 metric avg</div>
+        <div class="kpi-row">
+          <span class="kpi">62.1<span class="unit"> /100</span></span>
+          <span class="chip"><span class="delta-up">↑ +0.8</span> r3 vs all</span>
+        </div>
+        <table>
+          <tr><td class="k">top contributor</td><td class="v">autonomy · 70.3</td></tr>
+          <tr><td class="k">lowest</td><td class="v">handoff_init · 55.9</td></tr>
+          <tr><td class="k">σ across metrics</td><td class="v">5.1</td></tr>
+        </table>
+        <div class="spark-line">
+          <span class="spark-label">all</span>
+          <svg class="spark spark-l3" viewBox="0 0 200 14" preserveAspectRatio="none" fill="none" stroke-width="1.4" stroke-linecap="round">
+            <polyline points="2,9 100,6 198,3" stroke="url(#g-l3)" vector-effect="non-scaling-stroke"/>
+          </svg>
+          <span class="spark-label">r3</span>
+        </div>
+      </div>
+    </div>
+    <div class="annotation">power-user candy. probably "too much" for an exec summary — perfect on a deep-dive page.</div>
+  </section>
+
+  <!-- ============================================ DECISION MATRIX ============================================ -->
+  <section class="matrix-section">
+    <div class="matrix-card">
+      <h2>which one for which job?</h2>
+      <p class="lede">
+        Five cards, same data. They differ on three axes that matter: how much
+        <em>vertical real estate</em> they take, what they <em>emphasize</em> first
+        (number / label / trend), and how much <em>analytical detail</em> they expose.
+        Pick by job-to-be-done — or mix (e.g. 4 on overview, 5 on detail page).
+      </p>
+
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>name</th>
+            <th>emphasis</th>
+            <th>height</th>
+            <th>density</th>
+            <th>pros</th>
+            <th>cons</th>
+            <th>fit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="nm">1</span></td>
+            <td><strong>number-first, maximal</strong></td>
+            <td><span class="pill">number</span><span class="pill">trend</span></td>
+            <td>~200</td>
+            <td><span class="score">●●○○○</span></td>
+            <td class="pros">scannable in 1s; KPI is unmistakable; minimal cognitive load.</td>
+            <td class="cons">spark feels secondary; doesn't reward closer looks.</td>
+            <td>exec / overview rows</td>
+          </tr>
+          <tr>
+            <td><span class="nm">2</span></td>
+            <td><strong>label-first, editorial</strong></td>
+            <td><span class="pill">label</span><span class="pill">number</span></td>
+            <td>~230</td>
+            <td><span class="score">●●○○○</span></td>
+            <td class="pros">most considered visual rhythm; great for hero / above-the-fold.</td>
+            <td class="cons">tallest of the five; divider costs space without adding info.</td>
+            <td>marketing dashboard, hero row</td>
+          </tr>
+          <tr>
+            <td><span class="nm">3</span></td>
+            <td><strong>spark-as-background</strong></td>
+            <td><span class="pill">trend</span><span class="pill">number</span></td>
+            <td>~200</td>
+            <td><span class="score">●●●○○</span></td>
+            <td class="pros">trend is felt instantly; most distinctive; on-brand color usage.</td>
+            <td class="cons">competes for attention if used near other charts; risks busy-ness.</td>
+            <td>standalone hero / homepage</td>
+          </tr>
+          <tr>
+            <td><span class="nm">4</span></td>
+            <td><strong>compact, side-by-side</strong></td>
+            <td><span class="pill">number</span><span class="pill">trend</span></td>
+            <td>~130</td>
+            <td><span class="score">●●○○○</span></td>
+            <td class="pros">tightest; leaves room for chart below; works on small viewports.</td>
+            <td class="cons">least "designed" feel; eyebrow + axis name fight for the same row.</td>
+            <td>summary strip above a bigger chart</td>
+          </tr>
+          <tr>
+            <td><span class="nm">5</span></td>
+            <td><strong>data-dense / terminal</strong></td>
+            <td><span class="pill">label</span><span class="pill">breakdown</span></td>
+            <td>~200</td>
+            <td><span class="score">●●●●●</span></td>
+            <td class="pros">answers "why" inside the card; mono looks tool-like / serious.</td>
+            <td class="cons">requires extra data we don't yet show; mono can feel cold.</td>
+            <td>analytics deep-dive page</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="recs">
+        <div class="rec">
+          <div class="label">if it's an exec summary →</div>
+          <div class="body">go with <strong>#1 number-first</strong>. Big number, small spark, done. People glance and move on.</div>
+          <div class="pick">pick: 1</div>
+        </div>
+        <div class="rec">
+          <div class="label">if this is THE hero →</div>
+          <div class="body">go with <strong>#3 spark-as-background</strong>. Most distinctive, trend is unmissable, color tokens earn their keep.</div>
+          <div class="pick">pick: 3</div>
+        </div>
+        <div class="rec">
+          <div class="label">if there's a chart below →</div>
+          <div class="body">go with <strong>#4 compact</strong>. Don't waste vertical space the chart needs. Cards are chrome, not focus.</div>
+          <div class="pick">pick: 4</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

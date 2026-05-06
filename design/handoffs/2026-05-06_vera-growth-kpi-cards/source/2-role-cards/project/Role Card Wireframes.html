@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Role Card Wireframes — 4 Approaches</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0B0B0D;
+    color: #F5F5F7;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    padding: 40px 32px;
+    line-height: 1.4;
+  }
+  h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+  .subtitle { color: #82828C; font-size: 13px; margin-bottom: 48px; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #82828C;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #26262D;
+  }
+  .approach { margin-bottom: 56px; }
+  .approach-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .approach-desc { font-size: 12px; color: #82828C; margin-bottom: 20px; }
+
+  /* Role color tokens */
+  :root {
+    --c-ace: #9F75F8;
+    --c-arki: #38BDF8;
+    --c-riki: #F87171;
+    --c-dev: #60A5FA;
+    --c-jobs: #FB923C;
+    --c-vera: #F472B6;
+  }
+
+  /* ─── Approach 1: Left-stripe + horizontal layout ─── */
+  .grid-1 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .c1 {
+    background: #111115;
+    border: 1px solid #26262D;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.15s;
+  }
+  .c1::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--rc);
+  }
+  .c1-left {
+    flex: 1;
+    min-width: 0;
+  }
+  .c1-tag {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #82828C;
+    margin-bottom: 4px;
+  }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--rc); flex-shrink: 0; }
+  .c1-name { font-size: 16px; font-weight: 700; margin-bottom: 3px; }
+  .c1-top { font-size: 11px; color: #82828C; }
+  .c1-right { text-align: right; flex-shrink: 0; }
+  .c1-score {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+  .c1-unit { font-size: 11px; color: #82828C; font-weight: 400; }
+  .c1-n { font-size: 10px; color: #52525C; margin-top: 3px; }
+  .c1-badge {
+    font-size: 9px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: #52525C; border: 1px solid #2A2A33; border-radius: 4px;
+    padding: 2px 5px; margin-top: 6px; display: inline-block;
+  }
+
+  /* ─── Approach 2: Score-hero, full accent top border ─── */
+  .grid-2 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .c2 {
+    background: #111115;
+    border: 1px solid #26262D;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.15s;
+  }
+  .c2-header {
+    height: 3px;
+    background: var(--rc);
+  }
+  .c2-body { padding: 14px 16px 16px; }
+  .c2-tag {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #82828C;
+    margin-bottom: 6px;
+  }
+  .c2-name { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+  .c2-top { font-size: 11px; color: #82828C; margin-bottom: 12px; }
+  .c2-score {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    color: #F5F5F7;
+    margin-bottom: 6px;
+  }
+  .c2-score .c2-unit { font-size: 13px; color: #52525C; font-weight: 400; }
+  .c2-foot {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 10px;
+  }
+  .c2-ci { font-size: 10px; color: #52525C; }
+  .c2-badge {
+    font-size: 9px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: #52525C; border: 1px solid #2A2A33; border-radius: 4px;
+    padding: 2px 5px;
+  }
+
+  /* ─── Approach 3: Progress bar + compact ─── */
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .c3 {
+    background: #111115;
+    border: 1px solid #26262D;
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .c3-top-row {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .c3-tag {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #82828C;
+  }
+  .c3-score-row {
+    display: flex; align-items: baseline; gap: 4px;
+    margin-bottom: 8px;
+  }
+  .c3-score {
+    font-size: 26px; font-weight: 800; letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+  .c3-unit { font-size: 11px; color: #52525C; }
+  .c3-name { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+  .c3-metric { font-size: 11px; color: #82828C; margin-bottom: 10px; }
+  .c3-bar-bg {
+    height: 3px; background: #1E1E24; border-radius: 2px; overflow: hidden;
+    margin-bottom: 8px;
+  }
+  .c3-bar-fill { height: 100%; border-radius: 2px; background: var(--rc); opacity: 0.7; }
+  .c3-foot { display: flex; align-items: center; justify-content: space-between; }
+  .c3-n { font-size: 10px; color: #52525C; }
+  .c3-badge {
+    font-size: 9px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: #52525C; border: 1px solid #2A2A33; border-radius: 4px;
+    padding: 2px 5px;
+  }
+
+  /* ─── Approach 4: Minimal — name + score, color glow ─── */
+  .grid-4 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .c4 {
+    background: #0F0F13;
+    border: 1px solid #26262D;
+    border-radius: 10px;
+    padding: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .c4::after {
+    content: "";
+    position: absolute;
+    bottom: -30px; right: -30px;
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: var(--rc);
+    opacity: 0.06;
+    pointer-events: none;
+  }
+  .c4-tag {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #82828C;
+    margin-bottom: 8px;
+  }
+  .c4-name { font-size: 17px; font-weight: 700; margin-bottom: 2px; }
+  .c4-metric { font-size: 11px; color: #52525C; margin-bottom: 14px; }
+  .c4-score {
+    font-size: 30px; font-weight: 800; letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums; line-height: 1;
+    color: var(--rc);
+  }
+  .c4-score .c4-unit { font-size: 12px; color: #52525C; font-weight: 400; }
+  .c4-foot { margin-top: 8px; font-size: 10px; color: #52525C; }
+  .c4-badge {
+    margin-top: 8px;
+    font-size: 9px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: #52525C; border: 1px solid #2A2A33; border-radius: 4px;
+    padding: 2px 5px; display: inline-block;
+  }
+
+  /* ─── Decision Matrix ─── */
+  .matrix {
+    background: #111115;
+    border: 1px solid #26262D;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 16px;
+  }
+  .matrix table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .matrix th {
+    background: #16161C;
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #82828C;
+    border-bottom: 1px solid #26262D;
+  }
+  .matrix td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #1A1A20;
+    vertical-align: top;
+    color: #C8C8CE;
+  }
+  .matrix tr:last-child td { border-bottom: none; }
+  .matrix td:first-child { font-weight: 600; color: #F5F5F7; white-space: nowrap; }
+  .tag-good { color: #4ade80; font-weight: 600; }
+  .tag-bad  { color: #f87171; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<h1>Role Card Wireframes</h1>
+<p class="subtitle">§2 Per-Role KPI Cards — 4 layout approaches · dark theme · 3-col grid</p>
+
+<!-- ─── Approach 1 ─── -->
+<div class="approach">
+  <div class="section-label">Approach 1 — Horizontal: left-stripe + score right</div>
+  <div class="approach-title">#1 · Horizontal Split</div>
+  <div class="approach-desc">Left accent stripe (3px). Name/metric left, score right-aligned. Compact height. Information density ↑.</div>
+  <div class="grid-1">
+    <div class="c1" style="--rc: var(--c-ace)">
+      <div class="c1-left">
+        <div class="c1-tag"><span class="dot"></span>ACE</div>
+        <div class="c1-name">Ace</div>
+        <div class="c1-top">aud_rcl · quality</div>
+        <div class="c1-badge">BASELINE</div>
+      </div>
+      <div class="c1-right">
+        <div class="c1-score">40.0<span class="c1-unit">/100</span></div>
+        <div class="c1-n">n=2</div>
+      </div>
+    </div>
+    <div class="c1" style="--rc: var(--c-arki)">
+      <div class="c1-left">
+        <div class="c1-tag"><span class="dot"></span>ARKI</div>
+        <div class="c1-name">Arki</div>
+        <div class="c1-top">str_fd · quality</div>
+        <div class="c1-badge">BASELINE</div>
+      </div>
+      <div class="c1-right">
+        <div class="c1-score">40.0<span class="c1-unit">/100</span></div>
+        <div class="c1-n">CI95 [17, 63]</div>
+      </div>
+    </div>
+    <div class="c1" style="--rc: var(--c-riki)">
+      <div class="c1-left">
+        <div class="c1-tag"><span class="dot"></span>RIKI</div>
+        <div class="c1-name">Riki</div>
+        <div class="c1-top">crt_rcl · quality</div>
+        <div class="c1-badge">BASELINE</div>
+      </div>
+      <div class="c1-right">
+        <div class="c1-score">90.0<span class="c1-unit">/100</span></div>
+        <div class="c1-n">n=2</div>
+      </div>
+    </div>
+    <div class="c1" style="--rc: var(--c-dev)">
+      <div class="c1-left">
+        <div class="c1-tag"><span class="dot"></span>DEV</div>
+        <div class="c1-name">Dev</div>
+        <div class="c1-top">gt_ftr · exec-transfer</div>
+        <div class="c1-badge">BASELINE</div>
+      </div>
+      <div class="c1-right">
+        <div class="c1-score">70.0<span class="c1-unit">/100</span></div>
+        <div class="c1-n">n=2</div>
+      </div>
+    </div>
+    <div class="c1" style="--rc: var(--c-jobs)">
+      <div class="c1-left">
+        <div class="c1-tag"><span class="dot"></span>JOBS</div>
+        <div class="c1-name">Jobs</div>
+        <div class="c1-top">focus_sharp · quality</div>
+        <div class="c1-badge">BASELINE</div>
+      </div>
+      <div class="c1-right">
+        <div class="c1-score">100<span class="c1-unit">/100</span></div>
+        <div class="c1-n">n=1</div>
+      </div>
+    </div>
+    <div class="c1" style="--rc: var(--c-vera)">
+      <div class="c1-left">
+        <div class="c1-tag"><span class="dot"></span>VERA</div>
+        <div class="c1-name">Vera</div>
+        <div class="c1-top">tk_drf0 · quality</div>
+        <div class="c1-badge">BASELINE</div>
+      </div>
+      <div class="c1-right">
+        <div class="c1-score">83.3<span class="c1-unit">/100</span></div>
+        <div class="c1-n">n=4</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── Approach 2 ─── -->
+<div class="approach">
+  <div class="section-label">Approach 2 — Score hero (§1 axis-card style, 36px number)</div>
+  <div class="approach-title">#2 · Score-Hero Vertical</div>
+  <div class="approach-desc">Top accent stripe (3px) mirrors §1 axis cards. Large score as dominant element. Footer: CI95 left, badge right.</div>
+  <div class="grid-2">
+    <div class="c2" style="--rc: var(--c-ace)">
+      <div class="c2-header"></div>
+      <div class="c2-body">
+        <div class="c2-tag"><span class="dot"></span>ACE</div>
+        <div class="c2-name">Ace</div>
+        <div class="c2-top">aud_rcl · quality</div>
+        <div class="c2-score">40.0<span class="c2-unit"> /100</span></div>
+        <div class="c2-foot">
+          <span class="c2-ci">n=2</span>
+          <span class="c2-badge">BASELINE</span>
+        </div>
+      </div>
+    </div>
+    <div class="c2" style="--rc: var(--c-arki)">
+      <div class="c2-header"></div>
+      <div class="c2-body">
+        <div class="c2-tag"><span class="dot"></span>ARKI</div>
+        <div class="c2-name">Arki</div>
+        <div class="c2-top">str_fd · quality</div>
+        <div class="c2-score">40.0<span class="c2-unit"> /100</span></div>
+        <div class="c2-foot">
+          <span class="c2-ci">CI95 [17, 63] · n=4</span>
+          <span class="c2-badge">BASELINE</span>
+        </div>
+      </div>
+    </div>
+    <div class="c2" style="--rc: var(--c-riki)">
+      <div class="c2-header"></div>
+      <div class="c2-body">
+        <div class="c2-tag"><span class="dot"></span>RIKI</div>
+        <div class="c2-name">Riki</div>
+        <div class="c2-top">crt_rcl · quality</div>
+        <div class="c2-score">90.0<span class="c2-unit"> /100</span></div>
+        <div class="c2-foot">
+          <span class="c2-ci">n=2</span>
+          <span class="c2-badge">BASELINE</span>
+        </div>
+      </div>
+    </div>
+    <div class="c2" style="--rc: var(--c-dev)">
+      <div class="c2-header"></div>
+      <div class="c2-body">
+        <div class="c2-tag"><span class="dot"></span>DEV</div>
+        <div class="c2-name">Dev</div>
+        <div class="c2-top">gt_ftr · exec-transfer</div>
+        <div class="c2-score">70.0<span class="c2-unit"> /100</span></div>
+        <div class="c2-foot">
+          <span class="c2-ci">n=2</span>
+          <span class="c2-badge">BASELINE</span>
+        </div>
+      </div>
+    </div>
+    <div class="c2" style="--rc: var(--c-jobs)">
+      <div class="c2-header"></div>
+      <div class="c2-body">
+        <div class="c2-tag"><span class="dot"></span>JOBS</div>
+        <div class="c2-name">Jobs</div>
+        <div class="c2-top">focus_sharp · quality</div>
+        <div class="c2-score">100<span class="c2-unit"> /100</span></div>
+        <div class="c2-foot">
+          <span class="c2-ci">n=1</span>
+          <span class="c2-badge">BASELINE</span>
+        </div>
+      </div>
+    </div>
+    <div class="c2" style="--rc: var(--c-vera)">
+      <div class="c2-header"></div>
+      <div class="c2-body">
+        <div class="c2-tag"><span class="dot"></span>VERA</div>
+        <div class="c2-name">Vera</div>
+        <div class="c2-top">tk_drf0 · quality</div>
+        <div class="c2-score">83.3<span class="c2-unit"> /100</span></div>
+        <div class="c2-foot">
+          <span class="c2-ci">n=4</span>
+          <span class="c2-badge">BASELINE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── Approach 3 ─── -->
+<div class="approach">
+  <div class="section-label">Approach 3 — Progress bar (score → visual bar)</div>
+  <div class="approach-title">#3 · Progress Bar</div>
+  <div class="approach-desc">Score rendered as both number and thin progress bar. Quick visual comparison across cards. Accent color fills bar. Score 26px.</div>
+  <div class="grid-3">
+    <div class="c3" style="--rc: var(--c-ace)">
+      <div class="c3-top-row">
+        <div class="c3-tag"><span class="dot"></span>ACE</div>
+      </div>
+      <div class="c3-name">Ace</div>
+      <div class="c3-metric">aud_rcl · quality</div>
+      <div class="c3-score-row">
+        <span class="c3-score">40.0</span>
+        <span class="c3-unit">/100</span>
+      </div>
+      <div class="c3-bar-bg"><div class="c3-bar-fill" style="width:40%"></div></div>
+      <div class="c3-foot">
+        <span class="c3-n">n=2</span>
+        <span class="c3-badge">BASELINE</span>
+      </div>
+    </div>
+    <div class="c3" style="--rc: var(--c-arki)">
+      <div class="c3-top-row">
+        <div class="c3-tag"><span class="dot"></span>ARKI</div>
+      </div>
+      <div class="c3-name">Arki</div>
+      <div class="c3-metric">str_fd · quality</div>
+      <div class="c3-score-row">
+        <span class="c3-score">40.0</span>
+        <span class="c3-unit">/100</span>
+      </div>
+      <div class="c3-bar-bg"><div class="c3-bar-fill" style="width:40%"></div></div>
+      <div class="c3-foot">
+        <span class="c3-n">CI95 [17, 63]</span>
+        <span class="c3-badge">BASELINE</span>
+      </div>
+    </div>
+    <div class="c3" style="--rc: var(--c-riki)">
+      <div class="c3-top-row">
+        <div class="c3-tag"><span class="dot"></span>RIKI</div>
+      </div>
+      <div class="c3-name">Riki</div>
+      <div class="c3-metric">crt_rcl · quality</div>
+      <div class="c3-score-row">
+        <span class="c3-score">90.0</span>
+        <span class="c3-unit">/100</span>
+      </div>
+      <div class="c3-bar-bg"><div class="c3-bar-fill" style="width:90%"></div></div>
+      <div class="c3-foot">
+        <span class="c3-n">n=2</span>
+        <span class="c3-badge">BASELINE</span>
+      </div>
+    </div>
+    <div class="c3" style="--rc: var(--c-dev)">
+      <div class="c3-top-row">
+        <div class="c3-tag"><span class="dot"></span>DEV</div>
+      </div>
+      <div class="c3-name">Dev</div>
+      <div class="c3-metric">gt_ftr · exec-transfer</div>
+      <div class="c3-score-row">
+        <span class="c3-score">70.0</span>
+        <span class="c3-unit">/100</span>
+      </div>
+      <div class="c3-bar-bg"><div class="c3-bar-fill" style="width:70%"></div></div>
+      <div class="c3-foot">
+        <span class="c3-n">n=2</span>
+        <span class="c3-badge">BASELINE</span>
+      </div>
+    </div>
+    <div class="c3" style="--rc: var(--c-jobs)">
+      <div class="c3-top-row">
+        <div class="c3-tag"><span class="dot"></span>JOBS</div>
+      </div>
+      <div class="c3-name">Jobs</div>
+      <div class="c3-metric">focus_sharp · quality</div>
+      <div class="c3-score-row">
+        <span class="c3-score">100</span>
+        <span class="c3-unit">/100</span>
+      </div>
+      <div class="c3-bar-bg"><div class="c3-bar-fill" style="width:100%"></div></div>
+      <div class="c3-foot">
+        <span class="c3-n">n=1</span>
+        <span class="c3-badge">BASELINE</span>
+      </div>
+    </div>
+    <div class="c3" style="--rc: var(--c-vera)">
+      <div class="c3-top-row">
+        <div class="c3-tag"><span class="dot"></span>VERA</div>
+      </div>
+      <div class="c3-name">Vera</div>
+      <div class="c3-metric">tk_drf0 · quality</div>
+      <div class="c3-score-row">
+        <span class="c3-score">83.3</span>
+        <span class="c3-unit">/100</span>
+      </div>
+      <div class="c3-bar-bg"><div class="c3-bar-fill" style="width:83%"></div></div>
+      <div class="c3-foot">
+        <span class="c3-n">n=4</span>
+        <span class="c3-badge">BASELINE</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── Approach 4 ─── -->
+<div class="approach">
+  <div class="section-label">Approach 4 — Color-score: number uses role accent color + glow</div>
+  <div class="approach-title">#4 · Colored Score</div>
+  <div class="approach-desc">Score number colored in role accent. Subtle radial glow at bottom-right. Name larger. Most visually distinctive per-role identity.</div>
+  <div class="grid-4">
+    <div class="c4" style="--rc: var(--c-ace)">
+      <div class="c4-tag"><span class="dot"></span>ACE</div>
+      <div class="c4-name">Ace</div>
+      <div class="c4-metric">aud_rcl · quality</div>
+      <div class="c4-score">40.0<span class="c4-unit"> /100</span></div>
+      <div class="c4-foot">n=2</div>
+      <div class="c4-badge">BASELINE</div>
+    </div>
+    <div class="c4" style="--rc: var(--c-arki)">
+      <div class="c4-tag"><span class="dot"></span>ARKI</div>
+      <div class="c4-name">Arki</div>
+      <div class="c4-metric">str_fd · quality</div>
+      <div class="c4-score">40.0<span class="c4-unit"> /100</span></div>
+      <div class="c4-foot">CI95 [17, 63] · n=4</div>
+      <div class="c4-badge">BASELINE</div>
+    </div>
+    <div class="c4" style="--rc: var(--c-riki)">
+      <div class="c4-tag"><span class="dot"></span>RIKI</div>
+      <div class="c4-name">Riki</div>
+      <div class="c4-metric">crt_rcl · quality</div>
+      <div class="c4-score">90.0<span class="c4-unit"> /100</span></div>
+      <div class="c4-foot">n=2</div>
+      <div class="c4-badge">BASELINE</div>
+    </div>
+    <div class="c4" style="--rc: var(--c-dev)">
+      <div class="c4-tag"><span class="dot"></span>DEV</div>
+      <div class="c4-name">Dev</div>
+      <div class="c4-metric">gt_ftr · exec-transfer</div>
+      <div class="c4-score">70.0<span class="c4-unit"> /100</span></div>
+      <div class="c4-foot">n=2</div>
+      <div class="c4-badge">BASELINE</div>
+    </div>
+    <div class="c4" style="--rc: var(--c-jobs)">
+      <div class="c4-tag"><span class="dot"></span>JOBS</div>
+      <div class="c4-name">Jobs</div>
+      <div class="c4-metric">focus_sharp · quality</div>
+      <div class="c4-score">100<span class="c4-unit"> /100</span></div>
+      <div class="c4-foot">n=1</div>
+      <div class="c4-badge">BASELINE</div>
+    </div>
+    <div class="c4" style="--rc: var(--c-vera)">
+      <div class="c4-tag"><span class="dot"></span>VERA</div>
+      <div class="c4-name">Vera</div>
+      <div class="c4-metric">tk_drf0 · quality</div>
+      <div class="c4-score">83.3<span class="c4-unit"> /100</span></div>
+      <div class="c4-foot">n=4</div>
+      <div class="c4-badge">BASELINE</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── Decision Matrix ─── -->
+<div class="approach">
+  <div class="section-label">Decision Matrix</div>
+  <div class="matrix">
+    <table>
+      <thead>
+        <tr>
+          <th>Approach</th>
+          <th>Score Size</th>
+          <th>Height</th>
+          <th>Scan Speed</th>
+          <th>§1 Coherence</th>
+          <th>Pick when…</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>#1 Horizontal</td>
+          <td>28px</td>
+          <td>최저</td>
+          <td class="tag-good">빠름</td>
+          <td class="tag-bad">낮음 (left-stripe ≠ top-stripe)</td>
+          <td>카드 수 많고 한눈 비교 우선</td>
+        </tr>
+        <tr>
+          <td>#2 Score-Hero</td>
+          <td>36px</td>
+          <td>중간</td>
+          <td>보통</td>
+          <td class="tag-good">높음 (top-stripe 동일)</td>
+          <td>§1 축 카드와 시각 언어 통일</td>
+        </tr>
+        <tr>
+          <td>#3 Progress Bar</td>
+          <td>26px</td>
+          <td>중간</td>
+          <td class="tag-good">빠름 (바 길이 직관)</td>
+          <td>중간</td>
+          <td>점수 상대 비교를 시각화하고 싶을 때</td>
+        </tr>
+        <tr>
+          <td>#4 Colored Score</td>
+          <td>30px</td>
+          <td>중간</td>
+          <td>보통</td>
+          <td>낮음 (색 체계 분산)</td>
+          <td>역할별 개성 강조, 대시보드보다 포트폴리오 느낌</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:12px;color:#52525C;margin-top:12px;">
+    추천: <strong style="color:#F5F5F7">#2 Score-Hero</strong> — §1 axis-card와 top-stripe 패턴 공유, 시각 일관성 최대. 또는 §1 대비 차별화를 원하면 <strong style="color:#F5F5F7">#3 Progress Bar</strong>.
+  </p>
+</div>
+
+</body>
+</html>
