@@ -243,6 +243,10 @@
       "session": "session_077",
       "topic": "growth-metrics-board-design",
       "lesson": "자기감사 2회로 시간축(지연채점·Provenance·QA) 결함 발견. 1차는 역할 확장성 축, 2차는 시간축. 축 순회 체크리스트 필요: 역할확장·스케일·시간축·관측자효과·내부일관성·메타·기본환경변화. 설계는 단일축 최적화 시 다른 축 사각지대 발생 — Master 반복 압박 질문으로 강제 전환 효과적."
+    },
+    {
+      "session": "session_198",
+      "learning": "메모리 추정치는 추측 명시 필수. 64GB 목표는 최소 아닌 목표치 — Master 판단 시 이 차이가 중요. 비가역성 플래그는 결정 전 반드시 명시."
     }
   ],
   "selfAuditProtocol": {

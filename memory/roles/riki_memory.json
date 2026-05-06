@@ -162,5 +162,10 @@
       "note": "hook chain 실측 증거 공격이 유효. 공격 1건이 전체 세션 value를 바꿈."
     }
   ],
-  "lessonLog": []
+  "lessonLog": [
+    {
+      "session": "session_198",
+      "learning": "macOS hook 감사에서 shell:isWin 패턴 7곳 실코드 확인. 무음 실패가 세션 기록 오염으로 전파되는 경로를 구체적으로 추적한 사례. 코드 직접 감사가 추측보다 우선."
+    }
+  ]
 }

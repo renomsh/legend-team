@@ -1,105 +1,29 @@
 {
-  "sessionId": "session_198",
-  "topicId": "topic_171",
-  "topic": "Legend Nexus PC 환경 — 노트북 하드웨어 업그레이드",
-  "topicSlug": "nexus-pc-hardware-upgrade",
-  "reportPath": "reports/2026-05-05_nexus-pc-hardware-upgrade",
+  "sessionId": "session_199",
+  "topicId": "topic_172",
+  "topic": "hook 패치 — macOS 전환 대비 절대경로 제거",
+  "topicSlug": "hook-macos-compat",
+  "reportPath": "reports/2026-05-06_hook-macos-compat",
   "status": "closed",
-  "closedAt": "2026-05-06T00:09:00.000Z",
-  "oneLineSummary": "MacBook Pro 16\" M5 Max 2TB 확정. RAM 64vs128 미결(Master 고민). hook 패치 R-2·R-3 선행 필요.",
-  "startedAt": "2026-05-05T22:30:00.000Z",
+  "startedAt": "2026-05-06T00:00:00.000Z",
+  "closedAt": "2026-05-06T01:00:00.000Z",
+  "oneLineSummary": "hook-macos-compat: session-end-finalize.js R-2(shell:true×7)·R-3(gaps박제)·R-4(__dirname→CWD) 완료",
   "mode": "observation",
-  "grade": "B",
+  "grade": "C",
   "framingLevel": 0,
   "framingSkipped": true,
   "topicType": "standalone",
   "turns": [
     {
-      "role": "jobs",
+      "role": "dev",
       "turnIdx": 0,
-      "source": "agent",
-      "selfScores": {
-        "focus_sharp": 5,
-        "bloat_idx": 1,
-        "bias_cnt": 3,
-        "no_cnt": 4
-      }
+      "phase": "impl",
+      "selfScores": {}
     },
     {
-      "role": "arki",
+      "role": "edi",
       "turnIdx": 1,
-      "source": "agent",
-      "selfScores": {
-        "str_fd": 4,
-        "aud_rcl": 0.8,
-        "spc_lck": "N",
-        "sa_rnd": 3
-      }
-    },
-    {
-      "role": "riki",
-      "turnIdx": 2,
-      "source": "agent",
-      "selfScores": {
-        "crt_rcl": 0.8,
-        "cr_val": "Y",
-        "prd_rej": "N",
-        "fp_rt": 0
-      }
-    },
-    {
-      "role": "fin",
-      "turnIdx": 3,
-      "source": "agent",
-      "selfScores": {
-        "cst_acc": 0.7,
-        "roi_dl": 4,
-        "rdn_cal": "Y",
-        "cst_alt": "Y"
-      }
-    },
-    {
-      "role": "ace",
-      "turnIdx": 4,
-      "source": "agent",
-      "selfScores": {
-        "rfrm_trg": "Y",
-        "ctx_car": 5,
-        "mst_fr": 0,
-        "ang_nov": 3
-      }
-    },
-    {
-      "role": "jobs",
-      "turnIdx": 5,
-      "source": "agent",
-      "selfScores": {
-        "focus_sharp": 5,
-        "bloat_idx": 1,
-        "bias_cnt": 1,
-        "no_cnt": 3
-      }
-    },
-    {
-      "role": "ace",
-      "turnIdx": 6,
-      "source": "agent",
-      "selfScores": {
-        "rfrm_trg": "Y",
-        "ctx_car": 5,
-        "mst_fr": 0,
-        "ang_nov": 2
-      }
-    },
-    {
-      "role": "edi",
-      "turnIdx": 7,
-      "source": "agent"
-    },
-    {
-      "role": "edi",
-      "turnIdx": 8,
-      "source": "agent"
+      "phase": "compile"
     }
   ],
   "decisions": [],
@@ -111,73 +35,32 @@
   "notes": [],
   "gaps": [
     {
-      "type": "frontmatter-patch-failed",
-      "role": "jobs",
-      "turnIdx": 0,
-      "reportsPath": "`C:\\Projects\\legend-team\\reports\\2026-05-05_topic171-hw-upgrade\\jobs_rev1.md`",
-      "detectedAt": "2026-05-05T11:27:07.466Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `C:\\Projects\\legend-team\\reports\\2026-05-05_topic171-hw-upgrade\\jobs_rev1.md`"
-    },
-    {
-      "type": "frontmatter-patch-failed",
-      "role": "fin",
-      "turnIdx": 3,
-      "reportsPath": "`C:\\Projects\\legend-team\\reports\\2026-05-05_nexus-pc-hardware-upgrade\\fin_rev1.md`",
-      "detectedAt": "2026-05-05T11:45:37.323Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `C:\\Projects\\legend-team\\reports\\2026-05-05_nexus-pc-hardware-upgrade\\fin_rev1.md`"
-    },
-    {
-      "type": "frontmatter-patch-failed",
-      "role": "ace",
-      "turnIdx": 6,
-      "reportsPath": "`reports/2026-05-05_nexus-pc-hardware-upgrade/ace_rev2.md`",
-      "detectedAt": "2026-05-05T11:58:10.964Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-05_nexus-pc-hardware-upgrade/ace_rev2.md`"
-    },
-    {
-      "type": "missing-report",
-      "role": "edi",
-      "turnIdx": 7,
-      "reportPath": "reports/2026-05-05_nexus-pc-hardware-upgrade",
-      "detectedAt": "2026-05-05T12:19:51.798Z",
-      "note": "edi turn7 완료 후 reports/edi_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "missing-report",
-      "role": "edi",
-      "turnIdx": 8,
-      "reportPath": "reports/2026-05-05_nexus-pc-hardware-upgrade",
-      "detectedAt": "2026-05-05T12:20:23.199Z",
-      "note": "edi turn8 완료 후 reports/edi_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+      "type": "mechanical-fallback-graded",
+      "sessionId": "session_199",
+      "grade": "C",
+      "severity": "info"
     },
     {
       "type": "edi-llm-report-absent",
-      "sessionId": "session_198",
-      "reportPath": "reports/2026-05-05_nexus-pc-hardware-upgrade",
-      "grade": "B",
+      "sessionId": "session_199",
+      "reportPath": "reports/2026-05-06_hook-macos-compat",
+      "grade": "C",
       "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
     }
   ],
   "openMasterAlerts": [],
   "agentsCompleted": [
-    "jobs",
-    "arki",
-    "riki",
-    "fin",
-    "ace",
-    "jobs",
-    "ace",
-    "edi",
+    "dev",
     "edi"
   ],
   "tokenUsage": {
-    "input_tokens": 195,
-    "output_tokens": 70635,
-    "cache_creation_input_tokens": 604168,
-    "cache_read_input_tokens": 6192933,
-    "messageCount": 90,
-    "masterTurns": 21,
-    "total_billable": 6867931
+    "input_tokens": 115,
+    "output_tokens": 55030,
+    "cache_creation_input_tokens": 309071,
+    "cache_read_input_tokens": 6787815,
+    "messageCount": 98,
+    "masterTurns": 3,
+    "total_billable": 7152031
   },
-  "finalizedAt": "2026-05-06T00:09:23.007Z"
+  "finalizedAt": "2026-05-06T00:09:50.810Z"
 }

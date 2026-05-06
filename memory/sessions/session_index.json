@@ -8960,117 +8960,34 @@
       ]
     },
     {
-      "sessionId": "session_198",
-      "topicSlug": "nexus-pc-hardware-upgrade",
-      "topic": "Legend Nexus PC 환경 — 노트북 하드웨어 업그레이드",
-      "startedAt": "2026-05-05T22:30:00.000Z",
-      "closedAt": "2026-05-06T00:09:00.000Z",
-      "cwd": "C:\\Projects\\legend-team",
+      "sessionId": "session_199",
+      "topicSlug": "hook-macos-compat",
+      "topic": "hook 패치 — macOS 전환 대비 절대경로 제거",
+      "startedAt": "2026-05-06T00:00:00.000Z",
+      "closedAt": "2026-05-06T01:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\agitated-spence-2ca91a",
       "agentsCompleted": [
-        "jobs",
-        "arki",
-        "riki",
-        "fin",
-        "ace",
-        "jobs",
-        "ace",
-        "edi",
+        "dev",
         "edi"
       ],
       "turns": [
         {
-          "role": "jobs",
+          "role": "dev",
           "turnIdx": 0,
-          "source": "agent",
-          "selfScores": {
-            "focus_sharp": 5,
-            "bloat_idx": 1,
-            "bias_cnt": 3,
-            "no_cnt": 4
-          }
+          "phase": "impl",
+          "selfScores": {}
         },
         {
-          "role": "arki",
+          "role": "edi",
           "turnIdx": 1,
-          "source": "agent",
-          "selfScores": {
-            "str_fd": 4,
-            "aud_rcl": 0.8,
-            "spc_lck": "N",
-            "sa_rnd": 3
-          }
-        },
-        {
-          "role": "riki",
-          "turnIdx": 2,
-          "source": "agent",
-          "selfScores": {
-            "crt_rcl": 0.8,
-            "cr_val": "Y",
-            "prd_rej": "N",
-            "fp_rt": 0
-          }
-        },
-        {
-          "role": "fin",
-          "turnIdx": 3,
-          "source": "agent",
-          "selfScores": {
-            "cst_acc": 0.7,
-            "roi_dl": 4,
-            "rdn_cal": "Y",
-            "cst_alt": "Y"
-          }
-        },
-        {
-          "role": "ace",
-          "turnIdx": 4,
-          "source": "agent",
-          "selfScores": {
-            "rfrm_trg": "Y",
-            "ctx_car": 5,
-            "mst_fr": 0,
-            "ang_nov": 3
-          }
-        },
-        {
-          "role": "jobs",
-          "turnIdx": 5,
-          "source": "agent",
-          "selfScores": {
-            "focus_sharp": 5,
-            "bloat_idx": 1,
-            "bias_cnt": 1,
-            "no_cnt": 3
-          }
-        },
-        {
-          "role": "ace",
-          "turnIdx": 6,
-          "source": "agent",
-          "selfScores": {
-            "rfrm_trg": "Y",
-            "ctx_car": 5,
-            "mst_fr": 0,
-            "ang_nov": 2
-          }
-        },
-        {
-          "role": "edi",
-          "turnIdx": 7,
-          "source": "agent"
-        },
-        {
-          "role": "edi",
-          "turnIdx": 8,
-          "source": "agent"
+          "phase": "compile"
         }
       ],
-      "grade": "B",
-      "oneLineSummary": "MacBook Pro 16\" M5 Max 2TB 확정. RAM 64vs128 미결(Master 고민). hook 패치 R-2·R-3 선행 필요.",
+      "grade": "C",
+      "oneLineSummary": "hook-macos-compat: session-end-finalize.js R-2(shell:true×7)·R-3(gaps박제)·R-4(__dirname→CWD) 완료",
       "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-06T00:08:58.112Z",
+  "lastUpdated": "2026-05-06T00:09:06.879Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

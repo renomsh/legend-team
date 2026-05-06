@@ -52,8 +52,18 @@
   ],
   "framePatternsTransferredFrom": "ace_memory.json (D-130, 2026-04-30) — framing 주체 이전과 함께 패턴 이관",
   "framingStructure": {
-    "required": ["step1_why", "step2_what", "step3_decisionAxes", "step4_scope"],
-    "conditional": ["step0_topicLifecycle", "step5_assumptions", "step6_biasAudit", "step7_executionPlanMode"],
+    "required": [
+      "step1_why",
+      "step2_what",
+      "step3_decisionAxes",
+      "step4_scope"
+    ],
+    "conditional": [
+      "step0_topicLifecycle",
+      "step5_assumptions",
+      "step6_biasAudit",
+      "step7_executionPlanMode"
+    ],
     "step0_topicLifecycle": "topicType (framing|implementation|standalone) + parentTopicId 후보 선언 — lifecycle 판정 필요시",
     "step1_why": "본질 정의 — 왜 지금 이 토픽인가 1문장 + 사용자에게 해결되는 진짜 문제 (필수)",
     "step2_what": "결과물 정의 — 토픽 종료 시 결과물 1줄 + 사용자가 어떤 frame에서 매력을 느낄지 (필수)",
@@ -99,10 +109,20 @@
       "construct": "Step 4 OUT에 명시 박제한 saying no 항목 개수 (5+이면 5로 capping)"
     }
   ],
-  "selfScoreShortKeys": ["focus_sharp", "bloat_idx", "bias_cnt", "no_cnt"],
+  "selfScoreShortKeys": [
+    "focus_sharp",
+    "bloat_idx",
+    "bias_cnt",
+    "no_cnt"
+  ],
   "metricsCompressionNote": "session_192 D-159: 5→4 압축. external-rated 3건(frm_dec/legacy_log = ex-post Master 행위 의존, bias_hit = Master 채택 의존) 폐기. self-rateable만 유지 + 신규 자가 카운트 2건(bias_cnt, no_cnt) 추가. self-measurement 부적합 SOT 정정.",
   "topicsHandled": [],
-  "lessonLog": [],
+  "lessonLog": [
+    {
+      "session": "session_198",
+      "learning": "현재 워크로드 기준 과투자 판단은 정적 시스템에만 유효. 성장 중인 시스템에서 Fin의 현재 기준 논거는 anchoring 편향. 예산 무제한+성장 확인 시 미래 여유 보존이 ROI 최대."
+    }
+  ],
   "introducedAt": {
     "session": "session_145",
     "date": "2026-04-30",
