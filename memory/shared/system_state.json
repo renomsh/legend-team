@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_200",
-  "nextSessionId": "session_201",
+  "lastSessionId": "session_201",
+  "nextSessionId": "session_202",
   "currentVersion": "v0.957",
   "openTopics": [
     {
@@ -86,15 +86,6 @@
       "relatedTopic": "topic_144"
     },
     {
-      "id": "PD-029",
-      "fromSession": "session_088",
-      "fromTopic": "vera-claude-design-ai-integration",
-      "item": "Claude Design 실사용 3~5 토픽 누적 후 Vera/Arki SKILL.md 통합 + 프롬프트 template 파일화(design/prompts/wireframe-exploration.md) + Vera Design System 패턴 흡수 리뷰",
-      "status": "pending",
-      "resolveCondition": "Vera 또는 Arki의 Claude Design 호출 실사례 3건 이상 누적 + Master 리뷰 요청",
-      "dependsOn": []
-    },
-    {
       "id": "PD-004",
       "fromSession": "session_015",
       "fromTopic": "databook-agent-design",
@@ -103,5 +94,5 @@
       "note": "다음 주 진행 예정 (Master 확인 session_024)"
     }
   ],
-  "lastUpdated": "2026-05-06T00:31:29.287Z"
+  "lastUpdated": "2026-05-06T04:44:59.385Z"
 }
