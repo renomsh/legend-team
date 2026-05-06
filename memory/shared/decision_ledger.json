@@ -2510,6 +2510,46 @@
         "memory/roles/dev_memory.json"
       ],
       "status": "active"
+    },
+    {
+      "id": "D-166",
+      "date": "2026-05-06",
+      "session": "session_202",
+      "topic": "topic_175",
+      "axis": "PD-004 Phase 0 완료 + 정책 SOT 박제",
+      "summary": "PD-004 데이터북 Agent P0 선결조사 완료. policy_databook_agent.md + handoff_p0_complete.md SOT 박제. 헤더 동적 탐지·PK 자연키·필터·컬럼 변동 정책 8건 확정."
+    },
+    {
+      "id": "D-167",
+      "date": "2026-05-06",
+      "session": "session_202",
+      "topic": "topic_175",
+      "axis": "Arki 로드맵 확정 (P0/P1/P2 분할 + 검증 게이트 9개)",
+      "summary": "P0 선결조사 → P1 개인→팀 자동화 → P2 팀→전체 자동화. 검증 게이트 G1.a(박정규 117건), G2(7팀 완료), G3(취합본 100% 일치) 확정."
+    },
+    {
+      "id": "D-168",
+      "date": "2026-05-06",
+      "session": "session_202",
+      "topic": "topic_175",
+      "axis": "(사용안함) 행 필터 정책 — 25/26년 매출 모두 0인 경우만 제외",
+      "summary": "취합본 (사용안함) 행 11건 중 25년·26년 매출 합계 모두 0인 7건만 제외. 매출 있는 4건은 포함. filterRules.excludeUnused 외재화."
+    },
+    {
+      "id": "D-169",
+      "date": "2026-05-06",
+      "session": "session_204",
+      "topic": "topic_175",
+      "axis": "M5 확정 — 에이전트 소스 = 팀 완료 파일 (개인 파일 불사용)",
+      "summary": "개인 제출 파일은 변경건만 포함(박정규 47건). 팀 완료 파일이 전체 행 포함(박정규 117건). G1.a 기준값 117건 확정. normalize 소스 = 팀 완료 파일."
+    },
+    {
+      "id": "D-170",
+      "date": "2026-05-06",
+      "session": "session_204",
+      "topic": "topic_175",
+      "axis": "M6 확정 — G열 필터 기준 as_is → 취합본 현재담당자 매핑",
+      "summary": "취합본 실측: col7(현재담당자) 사용, col8(변경전)·col9(To_be) 0건. 팀 파일 as_is(col6) → 취합본 현재담당자(col7) 매핑. rep_column_key=as_is, rep_output_col=현재담당자 policy SOT 박제."
     }
   ],
   "lastUpdated": "2026-05-05T06:05:00.000Z"

@@ -1,9 +1,15 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_201",
-  "nextSessionId": "session_202",
+  "lastSessionId": "session_204",
+  "nextSessionId": "session_205",
   "currentVersion": "v0.957",
   "openTopics": [
+    {
+      "id": "topic_175",
+      "title": "데이터북 Agent 설계",
+      "status": "suspended",
+      "reportPath": "reports/2026-05-06_databook-agent-design"
+    },
     {
       "id": "topic_012",
       "title": "데이터북 Agent 설계",
@@ -14,37 +20,47 @@
   ],
   "recentDecisions": [
     {
-      "id": "D-165",
-      "date": "2026-05-05",
-      "axis": "close.md G3(master_feedback_log Read 금지)+G4(role_memory append-only) 박제 + lessonLog 일괄 초기화",
-      "summary": "close.md G3(master_feedback_log Read 금지)+G4(role_memory append-only) 박제 + lessonLog 일괄 초기화"
+      "id": "D-170",
+      "date": "2026-05-06",
+      "axis": "M6 확정 — G열 필터 기준 as_is → 취합본 현재담당자 매핑",
+      "summary": "M6 확정 — G열 필터 기준 as_is → 취합본 현재담당자 매핑"
     },
     {
-      "id": "D-164",
-      "date": "2026-05-05",
-      "axis": "close.md 토큰 절감 3항목 — G5(session_index 금지)+G2(topic_index 스크립트 전환)+G1(ledger 스냅샷+escape hatch)+status SOT 7종 동기화",
-      "summary": "close.md 토큰 절감 3항목 — G5(session_index 금지)+G2(topic_index 스크립트 전환)+G1(ledger 스냅샷+escape hatch)+status SOT 7종 동기화"
+      "id": "D-169",
+      "date": "2026-05-06",
+      "axis": "M5 확정 — 에이전트 소스 = 팀 완료 파일 (개인 파일 불사용)",
+      "summary": "M5 확정 — 에이전트 소스 = 팀 완료 파일 (개인 파일 불사용)"
     },
     {
-      "id": "D-163",
-      "date": "2026-05-05",
-      "axis": "Growth 대시보드 L1 축 재정의 — learning(empty) → quality",
-      "summary": "Growth 대시보드 L1 축 재정의 — learning(empty) → quality"
+      "id": "D-168",
+      "date": "2026-05-06",
+      "axis": "(사용안함) 행 필터 정책 — 25/26년 매출 모두 0인 경우만 제외",
+      "summary": "(사용안함) 행 필터 정책 — 25/26년 매출 모두 0인 경우만 제외"
     },
     {
-      "id": "D-162",
-      "date": "2026-05-05",
-      "axis": "PD-064 결함 3건+G2 수정 — Riki 축소안 채택",
-      "summary": "PD-064 결함 3건+G2 수정 — Riki 축소안 채택"
+      "id": "D-167",
+      "date": "2026-05-06",
+      "axis": "Arki 로드맵 확정 (P0/P1/P2 분할 + 검증 게이트 9개)",
+      "summary": "Arki 로드맵 확정 (P0/P1/P2 분할 + 검증 게이트 9개)"
     },
     {
-      "id": "D-161",
-      "date": "2026-05-05",
-      "axis": "Self-Score weight 필드 폐기 — 사용처 0 dead field",
-      "summary": "Self-Score weight 필드 폐기 — 사용처 0 dead field"
+      "id": "D-166",
+      "date": "2026-05-06",
+      "axis": "PD-004 Phase 0 완료 + 정책 SOT 박제",
+      "summary": "PD-004 Phase 0 완료 + 정책 SOT 박제"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_204",
+      "topicSlug": "databook-agent-design",
+      "closedAt": "2026-05-06T13:00:00.000Z",
+      "oneLineSummary": "topic_175 세션정리(202·203등록)+로드맵 Step1~8 확정+M5·M6 해소(as_is→현재담당자, 팀완료파일 소스)",
+      "decisionsAdded": [
+        "D-169",
+        "D-170"
+      ]
+    },
     {
       "sessionId": "session_200",
       "topicSlug": "mac-migration-check",
@@ -58,15 +74,6 @@
       "closedAt": "2026-05-06T01:00:00.000Z",
       "oneLineSummary": "hook-macos-compat: session-end-finalize.js R-2(shell:true×7)·R-3(gaps박제)·R-4(__dirname→CWD) 완료",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_197",
-      "topicSlug": "g3-g4-check",
-      "closedAt": "2026-05-05T22:00:00.000Z",
-      "oneLineSummary": "G3(feedback_log Read금지)+G4(role_memory append-only) close.md 박제+lessonLog초기화 D-165 +0.01",
-      "decisionsAdded": [
-        "D-165"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -94,5 +101,5 @@
       "note": "다음 주 진행 예정 (Master 확인 session_024)"
     }
   ],
-  "lastUpdated": "2026-05-06T04:44:59.385Z"
+  "lastUpdated": "2026-05-06T12:40:08.828Z"
 }

@@ -1,15 +1,15 @@
 {
-  "sessionId": "session_201",
-  "topicId": "topic_174",
-  "topic": "PD-029 해소: Vera·Arki Claude Design 통합 리뷰",
-  "topicSlug": "vera-claude-design-pd029-review",
-  "reportPath": "reports/2026-05-06_vera-claude-design-pd029-review",
+  "sessionId": "session_204",
+  "topicId": "topic_175",
+  "topic": "데이터북 Agent 설계",
+  "topicSlug": "databook-agent-design",
+  "reportPath": "reports/2026-05-06_databook-agent-design",
   "status": "closed",
-  "closedAt": "2026-05-06T04:30:00.000Z",
-  "oneLineSummary": "Growth Board §1·§2·§5 시각 개편 완료 (Claude Design D-064 워크플로 실증, Zero 추가)",
-  "startedAt": "2026-05-06T04:00:00.000Z",
+  "closedAt": "2026-05-06T13:00:00.000Z",
+  "oneLineSummary": "topic_175 세션정리(202·203등록)+로드맵 Step1~8 확정+M5·M6 해소(as_is→현재담당자, 팀완료파일 소스)",
+  "startedAt": "2026-05-06T05:00:00.000Z",
   "mode": "observation",
-  "grade": "B",
+  "grade": "A",
   "framingLevel": 0,
   "framingSkipped": true,
   "topicType": "standalone",
@@ -19,10 +19,10 @@
       "turnIdx": 0,
       "source": "agent",
       "selfScores": {
-        "aud_rcl": 0.9,
-        "str_fd": 3,
+        "aud_rcl": 0.85,
+        "str_fd": 4,
         "spc_lck": "N",
-        "sa_rnd": 3
+        "sa_rnd": 1
       }
     },
     {
@@ -30,89 +30,40 @@
       "turnIdx": 1,
       "source": "agent",
       "selfScores": {
-        "crt_rcl": 0.8,
+        "crt_rcl": 0.85,
         "cr_val": "Y",
-        "prd_rej": "Y",
-        "fp_rt": 0
-      }
-    },
-    {
-      "role": "vera",
-      "turnIdx": 2,
-      "source": "agent",
-      "selfScores": {
-        "tk_drf0": "Y",
-        "spc_cpl": 0.88,
-        "tk_cns": 5
-      }
-    },
-    {
-      "role": "vera",
-      "turnIdx": 3,
-      "source": "agent",
-      "selfScores": {
-        "tk_drf0": "Y",
-        "spc_cpl": 0.95,
-        "tk_cns": 5
-      }
-    },
-    {
-      "role": "vera",
-      "turnIdx": 4,
-      "source": "agent",
-      "selfScores": {
-        "tk_drf0": "Y",
-        "spc_cpl": 0.97,
-        "tk_cns": 5
-      }
-    },
-    {
-      "role": "vera",
-      "turnIdx": 5,
-      "source": "agent",
-      "selfScores": {
-        "tk_drf0": "Y",
-        "spc_cpl": 0.98,
-        "tk_cns": 5
+        "prd_rej": "N",
+        "fp_rt": 0.05
       }
     },
     {
       "role": "zero",
-      "turnIdx": 6,
+      "turnIdx": 2,
       "source": "agent",
       "selfScores": {
-        "ref_cnt": 6,
+        "ref_cnt": 2,
         "hc_found": 0,
         "cln_rt": 1
       }
     },
     {
       "role": "edi",
-      "turnIdx": 7,
+      "turnIdx": 3,
       "source": "agent",
       "selfScores": {
         "gp_acc": 0.85,
         "scc": "Y",
         "cs_cnt": 4,
-        "art_cmp": 1,
-        "gap_fc": 4
-      }
-    },
-    {
-      "role": "edi",
-      "turnIdx": 8,
-      "source": "agent",
-      "selfScores": {
-        "gp_acc": 0.85,
-        "scc": "Y",
-        "cs_cnt": 4,
-        "art_cmp": 1,
+        "art_cmp": 0.85,
         "gap_fc": 4
       }
     }
   ],
   "decisions": [],
-  "decisionsAdded": [],
+  "decisionsAdded": [
+    "D-169",
+    "D-170"
+  ],
   "masterDecisions": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
@@ -121,63 +72,84 @@
   "gaps": [
     {
       "type": "frontmatter-patch-failed",
-      "role": "vera",
-      "turnIdx": 2,
-      "reportsPath": "`reports/2026-05-06_vera-claude-design-pd029-review/vera_rev1.md`",
-      "detectedAt": "2026-05-06T01:09:49.807Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-06_vera-claude-design-pd029-review/vera_rev1.md`"
-    },
-    {
-      "type": "frontmatter-patch-failed",
-      "role": "vera",
-      "turnIdx": 3,
-      "reportsPath": "`reports/2026-05-06_vera-claude-design-pd029-review/vera_rev2.md`",
-      "detectedAt": "2026-05-06T01:15:30.454Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-06_vera-claude-design-pd029-review/vera_rev2.md`"
-    },
-    {
-      "type": "frontmatter-patch-failed",
-      "role": "vera",
-      "turnIdx": 4,
-      "reportsPath": "`reports/2026-05-06_vera-claude-design-pd029-review/vera_rev3.md`",
-      "detectedAt": "2026-05-06T01:20:24.942Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-06_vera-claude-design-pd029-review/vera_rev3.md`"
-    },
-    {
-      "type": "frontmatter-patch-failed",
-      "role": "zero",
-      "turnIdx": 6,
-      "reportsPath": "reports/2026-05-06_vera-claude-design-pd029-review/condensed.md",
-      "detectedAt": "2026-05-06T04:27:27.070Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-06_vera-claude-design-pd029-review/condensed.md"
+      "role": "arki",
+      "turnIdx": 0,
+      "reportsPath": "`reports/2026-05-06_topic175-arki/arki_rev1.md`",
+      "detectedAt": "2026-05-06T11:43:22.729Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-06_topic175-arki/arki_rev1.md`"
     },
     {
       "type": "missing-report",
       "role": "zero",
-      "turnIdx": 6,
-      "reportPath": "reports/2026-05-06_vera-claude-design-pd029-review",
-      "detectedAt": "2026-05-06T04:27:27.073Z",
-      "note": "zero turn6 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+      "turnIdx": 2,
+      "reportPath": "reports/2026-05-06_databook-agent-design",
+      "detectedAt": "2026-05-06T12:36:00.371Z",
+      "note": "zero turn2 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
     },
     {
       "type": "frontmatter-patch-failed",
       "role": "edi",
-      "turnIdx": 8,
-      "reportsPath": "`reports/2026-05-06_vera-claude-design-pd029-review/edi_rev1.md`",
-      "detectedAt": "2026-05-06T04:29:55.037Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-06_vera-claude-design-pd029-review/edi_rev1.md`"
+      "turnIdx": 3,
+      "reportsPath": "`reports/2026-05-06_databook-agent-design/edi_rev1.md`",
+      "detectedAt": "2026-05-06T12:38:04.371Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-06_databook-agent-design/edi_rev1.md`"
+    },
+    {
+      "type": "version-bump-edi-unconfirmed",
+      "severity": "high",
+      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
+      "addedBy": "checkVersionBumpConfirmation",
+      "ref": "D-140",
+      "suggestedValue": 0.1
     }
   ],
-  "openMasterAlerts": [],
-  "agentsCompleted": [],
-  "versionBump": {
-    "value": 0.01,
-    "from": "v0.957",
-    "to": "v0.958",
-    "reason": "Growth Board §1 Axis Pulse spark-as-background 구현 + tokens.css 토큰 3개 추가 (capacity: 시각 구현 + 디자인 토큰 확장)",
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-06T04:28:20Z",
-    "overrideReason": null,
-    "basedOn": "edi-direct"
-  }
+  "openMasterAlerts": [
+    {
+      "severity": "high",
+      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.1)",
+      "addedBy": "checkVersionBumpConfirmation",
+      "ref": "D-140"
+    }
+  ],
+  "agentsCompleted": [
+    "arki",
+    "riki",
+    "zero",
+    "edi"
+  ],
+  "tokenUsage": {
+    "input_tokens": 312,
+    "output_tokens": 98969,
+    "cache_creation_input_tokens": 293001,
+    "cache_read_input_tokens": 15468147,
+    "messageCount": 167,
+    "masterTurns": 8,
+    "total_billable": 15860429
+  },
+  "versionBumpSuggested": {
+    "value": 0.1,
+    "type": "structural",
+    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 1건 (memory/roles/arki_memory.json)",
+    "autoDetectedAt": "2026-05-06T12:40:06.856Z",
+    "changedFiles": [
+      "logs/master-first.log",
+      "logs/pre-tool-use-task.log",
+      "logs/sage-gate.log",
+      "memory/roles/arki_memory.json",
+      "memory/sessions/current_session.json",
+      "memory/sessions/session_index.json",
+      "memory/sessions/token_log.json",
+      "memory/shared/decision_ledger.json",
+      "memory/shared/system_state.json",
+      "memory/shared/topic_index.json",
+      "reports/2026-05-06_databook-agent-design/",
+      "reports/2026-05-06_topic175-arki/",
+      "reports/2026-05-06_topic175-riki/",
+      "topics/topic_175/"
+    ],
+    "changedFilesCount": 14,
+    "cappedAt": 0.1,
+    "confirmedBy": null
+  },
+  "finalizedAt": "2026-05-06T12:40:08.941Z"
 }
