@@ -1,11 +1,11 @@
 {
-  "computedAt": "2026-05-06T14:12:41.547Z",
+  "computedAt": "2026-05-06T14:14:29.728Z",
   "registryVersion": "v1.1",
-  "durationMs": 3,
+  "durationMs": 1,
   "slaWarnMs": 3000,
   "slaBreached": false,
   "sourceJsonl": "memory\\growth\\self_scores.jsonl",
-  "recordCount": 117,
+  "recordCount": 120,
   "metricCount": 51,
   "aggregates": [
     {
@@ -156,24 +156,24 @@
       "metricId": "zero.ref_count",
       "role": "zero",
       "view": "all",
-      "mean": 36.8,
-      "n": 13,
-      "std": 32.3,
+      "mean": 34.6,
+      "n": 14,
+      "std": 32.1,
       "ci95": [
-        19.2,
-        54.3
+        17.7,
+        51.4
       ]
     },
     {
       "metricId": "zero.ref_count",
       "role": "zero",
       "view": "recent10",
-      "mean": 25.8,
+      "mean": 20.4,
       "n": 10,
-      "std": 26.4,
+      "std": 24,
       "ci95": [
-        9.5,
-        42.1
+        5.5,
+        35.3
       ]
     },
     {
@@ -193,7 +193,7 @@
       "role": "zero",
       "view": "all",
       "mean": 0,
-      "n": 13,
+      "n": 14,
       "std": 0,
       "ci95": [
         0,
@@ -229,7 +229,7 @@
       "role": "zero",
       "view": "all",
       "mean": 100,
-      "n": 13,
+      "n": 14,
       "std": 0,
       "ci95": [
         100,
