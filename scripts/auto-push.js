@@ -68,6 +68,46 @@ function syncClaudeDir(mainRoot) {
   console.log('[auto-push] Synced .claude/ worktree → main repo');
 }
 
+const STATE_PATH_IN_MAIN = (mainRoot) => path.join(mainRoot, 'memory', 'shared', 'system_state.json');
+
+function writeMergeFailureAlert(mainRoot, branch, message) {
+  try {
+    const p = STATE_PATH_IN_MAIN(mainRoot);
+    if (!fs.existsSync(p)) return;
+    const state = JSON.parse(fs.readFileSync(p, 'utf8'));
+    if (!Array.isArray(state.worktreeMergeFailures)) state.worktreeMergeFailures = [];
+    if (!state.worktreeMergeFailures.some(f => f.branch === branch)) {
+      state.worktreeMergeFailures.push({
+        branch,
+        detectedAt: new Date().toISOString(),
+        message: String(message).slice(0, 300),
+      });
+      state.lastUpdated = new Date().toISOString();
+      fs.writeFileSync(p, JSON.stringify(state, null, 2) + '\n', 'utf8');
+      console.error(`[auto-push] ⚠ merge 실패 경보 기록 → system_state.worktreeMergeFailures (${branch})`);
+    }
+  } catch (e) {
+    console.error('[auto-push] merge 실패 경보 기록 오류:', e.message);
+  }
+}
+
+function clearMergeFailureAlert(mainRoot, branch) {
+  try {
+    const p = STATE_PATH_IN_MAIN(mainRoot);
+    if (!fs.existsSync(p)) return;
+    const state = JSON.parse(fs.readFileSync(p, 'utf8'));
+    if (!Array.isArray(state.worktreeMergeFailures)) return;
+    const before = state.worktreeMergeFailures.length;
+    state.worktreeMergeFailures = state.worktreeMergeFailures.filter(f => f.branch !== branch);
+    if (state.worktreeMergeFailures.length < before) {
+      state.lastUpdated = new Date().toISOString();
+      fs.writeFileSync(p, JSON.stringify(state, null, 2) + '\n', 'utf8');
+    }
+  } catch (e) {
+    console.error('[auto-push] merge 경보 해제 오류:', e.message);
+  }
+}
+
 function runHookChain() {
   const steps = [
     'node .claude/hooks/session-end-tokens.js',
@@ -151,11 +191,13 @@ function autoPush() {
     }
 
     // Merge from the main repo's working directory (where main is checked out)
+    let mergeOk = false;
     try {
       execSync(`git merge ${currentBranch} --ff-only`, {
         cwd: mainRoot, encoding: 'utf8', stdio: 'pipe'
       });
       console.log(`[auto-push] Merged ${currentBranch} into main.`);
+      mergeOk = true;
     } catch {
       // ff 불가(sync commit으로 diverged) → --no-ff로 재시도
       try {
@@ -163,12 +205,17 @@ function autoPush() {
           cwd: mainRoot, encoding: 'utf8', stdio: 'pipe'
         });
         console.log(`[auto-push] Merged ${currentBranch} into main (no-ff).`);
+        mergeOk = true;
       } catch (e2) {
         console.error(`[auto-push] Merge failed. Manual merge required.`);
         console.error(e2.stderr || e2.message);
+        writeMergeFailureAlert(mainRoot, currentBranch, e2.stderr || e2.message || 'merge failed');
         return;
       }
     }
+
+    // 머지 성공 시 이전 실패 경보 해제
+    if (mergeOk) clearMergeFailureAlert(mainRoot, currentBranch);
 
     // Push main from the main repo root
     try {

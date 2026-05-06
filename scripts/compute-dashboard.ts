@@ -22,6 +22,7 @@ const DECISION_LEDGER_PATH = process.env.COMPUTE_DECISION_LEDGER ?? path.join(RO
 const TOKEN_LOG_PATH      = process.env.COMPUTE_TOKEN_LOG       ?? path.join(ROOT, 'memory', 'sessions', 'token_log.json');
 const FEEDBACK_LOG_PATH   = process.env.COMPUTE_FEEDBACK_LOG    ?? path.join(ROOT, 'memory', 'master', 'master_feedback_log.json');
 const PROPOSAL_LOG_PATH   = process.env.COMPUTE_PROPOSAL_LOG    ?? path.join(ROOT, 'memory', 'sessions', 'proposal_log.json');
+const SYSTEM_STATE_PATH   = process.env.COMPUTE_SYSTEM_STATE    ?? path.join(ROOT, 'memory', 'shared', 'system_state.json');
 const OUTPUT_PATH         = process.env.COMPUTE_OUTPUT_PATH     ?? path.join(ROOT, 'memory', 'shared', 'dashboard_data.json');
 
 // Sonnet 4.6 단가 ($ per 1M tokens)
@@ -265,6 +266,9 @@ function main() {
   const proposalLog = readJson<{ proposals: ProposalEntry[] }>(
     PROPOSAL_LOG_PATH, { proposals: [] }
   );
+  const systemState = readJson<{ worktreeMergeFailures?: Array<{ branch: string; detectedAt: string; message: string }> }>(
+    SYSTEM_STATE_PATH, {}
+  );
 
   // 토픽별 세션 수 (sessionsSpanned 계산용)
   const topicSlugToSessions = new Map<string, number>();
@@ -434,6 +438,15 @@ function main() {
     if (s.dataQuality === 'auto' && s.tokenUsage && s.tokenUsage.cacheHitRate < 0.5) {
       alarms.push({ ruleId: 'R3', severity: 'yellow', sessionId: s.sessionId, description: `저캐시 히트율: ${(s.tokenUsage.cacheHitRate * 100).toFixed(1)}%` });
     }
+  }
+
+  // R-MERGE: worktree merge 실패 경보 (system_state.worktreeMergeFailures)
+  for (const f of systemState.worktreeMergeFailures ?? []) {
+    alarms.push({
+      ruleId: 'R-MERGE',
+      severity: 'red',
+      description: `worktree merge 실패: ${f.branch} (${f.detectedAt?.slice(0, 10)}) — 수동 머지 필요`,
+    });
   }
 
   // feedbackRecurrences: 경보 분리 보존 (alarms에 포함하지 않음)
