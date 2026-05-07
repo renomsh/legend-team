@@ -9422,8 +9422,115 @@
       "decisionsAdded": [
         "[object Object]"
       ]
+    },
+    {
+      "sessionId": "session_206",
+      "topicSlug": "parallel-topic-session-design",
+      "topic": "병렬 토픽 및 세션 구조 설계 — G안 기술 검토",
+      "startedAt": "2026-05-07T00:00:00.000Z",
+      "closedAt": "2026-05-07T04:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\friendly-clarke-04f26f",
+      "decisions": [
+        {
+          "axis": "G안 채택 — 단일 Claude Code 프로세스 + Task 병렬, turns push는 append-only JSONL (`turns_append.jsonl`) 별도 파일 1줄 append, 세션 종료 시 finalize가 합산. file-lock 폐기 (append는 race 자체 없음). spike R-6 결과 S4·S5에서 race 양성 → lock-free 자연 직렬화 가정 반증, append-only로 우회."
+        },
+        {
+          "axis": "병렬 토픽 명명 = `mtopic_NNN` 독립 카운터 namespace. topic_NNN과 평면 분리, 부모-자식 관계 없음. D-NNN 박제 시 단일 귀속(topicId | mtopicId)."
+        },
+        {
+          "axis": "Arki rev1 plan 단순화 — Phase P3(lock 인프라) 삭제, P4 단순화(append-only 전환 + grep 분기), N=1 fallback 폐기. 변경 사유: append-only가 lock·fallback 의존을 자연 해소."
+        },
+        {
+          "axis": "현 세션 framing 종결, 구현은 다음 세션 위임. 이유: 현 시스템에 부분 구현 0 → silent corruption 위험 0 (R-D-15 미발생)."
+        }
+      ],
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "ace",
+        "riki",
+        "arki",
+        "dev",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "arki",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "aud_rcl": 1,
+            "str_fd": 4,
+            "spc_lck": "N",
+            "sa_rnd": 2
+          }
+        },
+        {
+          "role": "riki",
+          "turnIdx": 1,
+          "source": "agent",
+          "selfScores": {
+            "crt_rcl": 0.85,
+            "cr_val": "Y",
+            "prd_rej": "Y",
+            "fp_rt": 0.1
+          }
+        },
+        {
+          "role": "ace",
+          "turnIdx": 2,
+          "source": "agent",
+          "selfScores": {
+            "ctx_car": 5,
+            "mst_fr": 0,
+            "syn_dpt": 4,
+            "syn_orig": 3
+          }
+        },
+        {
+          "role": "riki",
+          "turnIdx": 3,
+          "source": "agent",
+          "selfScores": {
+            "crt_rcl": 0.85,
+            "cr_val": "Y",
+            "prd_rej": "Y",
+            "fp_rt": 0.1
+          }
+        },
+        {
+          "role": "arki",
+          "turnIdx": 4,
+          "source": "agent",
+          "selfScores": {
+            "aud_rcl": 1,
+            "str_fd": 5,
+            "spc_lck": "N",
+            "sa_rnd": 2
+          }
+        },
+        {
+          "role": "dev",
+          "turnIdx": 5,
+          "source": "agent"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 6,
+          "phase": "compile"
+        }
+      ],
+      "grade": "S",
+      "note": "session_205 G안 채택 방향 후속. Master 의뢰: Arki 메커니즘 명세+자가감사, Riki 단일 프로세스 자연 직렬화 가정 분쇄+G안 한정 실패 모드. | 핸드오프 자료: reports/2026-05-06_parallel-topic-session-design/session_summary.md, MEMORY 인덱스의 feedback_fin_master_capacity_assumption. | 주의: 핸드오프에 명시된 topics/topic_176/context_brief.md는 디스크에 부재 — session_summary.md G안 통찰 + master_decisions로 대체 진행. | spike R-6 결과: S1·S2·S3(2개·5개 동시·계단식) race 0, S4(적대적 10개 → 5 손실)·S5(외부 write 충돌 → 1 손실) race 양성. 자연 직렬화는 인위적 부하·외부 충돌 시 깨짐. | Arki+Riki 병렬 dispatch 실측: 본 세션 turn 0+1 동시 호출 → 둘 다 정상 push, 손실 0 (실제 in-session N=2는 안전). 단 N≥5는 미검증. | 임시 박제: post-tool-use-task.js `SPIKE-R6 START/END` 마커. SPIKE_R6_LOG env 미설정 시 no-op (운영 영향 0). 다음 세션 cleanup.",
+      "oneLineSummary": "topic_176 G안 채택(append-only JSONL+mtopic_NNN), spike R-6 race 양성 → lock-free 가정 폐기, 구현 다음 세션 위임 (D-166~D-169 박제)",
+      "decisionsAdded": [
+        "D-166",
+        "D-167",
+        "D-168",
+        "D-169"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-06T23:15:21.157Z",
+  "lastUpdated": "2026-05-07T03:56:28.497Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

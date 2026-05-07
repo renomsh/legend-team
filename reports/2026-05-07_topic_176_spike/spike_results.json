@@ -1,0 +1,289 @@
+{
+  "spike": "R-6 PostToolUse(Task) race detection",
+  "topic": "topic_176",
+  "session": "session_206",
+  "runAt": "2026-05-07T03:17:58.136Z",
+  "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\friendly-clarke-04f26f",
+  "hookPath": "C:\\Projects\\legend-team\\.claude\\worktrees\\friendly-clarke-04f26f\\.claude\\hooks\\post-tool-use-task.js",
+  "scenarios": [
+    {
+      "id": "S1",
+      "description": "Task 2개 동시 dispatch",
+      "concurrent": 2,
+      "expectedDelta": 2,
+      "observedDelta": 2,
+      "duplicateTurnIdx": [],
+      "lostWrites": 0,
+      "raceDetected": false,
+      "raceReason": [],
+      "durationMs": 115,
+      "timingOverlaps": 0,
+      "spawnResults": [
+        {
+          "pid": 19960,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=5\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn5 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=5 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123876725,
+          "endMs": 1778123876826
+        },
+        {
+          "pid": 15952,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=6\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn6 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=6 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123876741,
+          "endMs": 1778123876840
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "description": "Task 5개 동시 dispatch",
+      "concurrent": 5,
+      "expectedDelta": 5,
+      "observedDelta": 5,
+      "duplicateTurnIdx": [],
+      "lostWrites": 0,
+      "raceDetected": false,
+      "raceReason": [],
+      "durationMs": 143,
+      "timingOverlaps": 0,
+      "spawnResults": [
+        {
+          "pid": 7392,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=5\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn5 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=5 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123876843,
+          "endMs": 1778123876940
+        },
+        {
+          "pid": 15280,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=6\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn6 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=6 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123876852,
+          "endMs": 1778123876955
+        },
+        {
+          "pid": 9692,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=7\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn7 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=7 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123876861,
+          "endMs": 1778123876972
+        },
+        {
+          "pid": 5652,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=8\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn8 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=8 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123876874,
+          "endMs": 1778123876979
+        },
+        {
+          "pid": 8028,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=9\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn9 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=9 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123876889,
+          "endMs": 1778123876985
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "description": "계단식 5회 (100ms 간격)",
+      "concurrent": 5,
+      "expectedDelta": 5,
+      "observedDelta": 5,
+      "duplicateTurnIdx": [],
+      "lostWrites": 0,
+      "raceDetected": false,
+      "raceReason": [],
+      "durationMs": 567,
+      "timingOverlaps": 0,
+      "spawnResults": [
+        {
+          "pid": 2380,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=5\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn5 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=5 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123876988,
+          "endMs": 1778123877062
+        },
+        {
+          "pid": 19932,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=6\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn6 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=6 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123877111,
+          "endMs": 1778123877186
+        },
+        {
+          "pid": 19212,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=7\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn7 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=7 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123877236,
+          "endMs": 1778123877308
+        },
+        {
+          "pid": 1068,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=8\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn8 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=8 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123877358,
+          "endMs": 1778123877431
+        },
+        {
+          "pid": 24364,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=9\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn9 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=9 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123877482,
+          "endMs": 1778123877555
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "description": "적대적 10개 동시 dispatch",
+      "concurrent": 10,
+      "expectedDelta": 10,
+      "observedDelta": 5,
+      "duplicateTurnIdx": [],
+      "lostWrites": 5,
+      "raceDetected": true,
+      "raceReason": [
+        "lost_writes=5",
+        "timing_overlap_pairs=7"
+      ],
+      "durationMs": 278,
+      "timingOverlaps": 7,
+      "spawnResults": [
+        {
+          "pid": 18120,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=5\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn5 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=5 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123877557,
+          "endMs": 1778123877742
+        },
+        {
+          "pid": 16180,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=5\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn5 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=5 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123877567,
+          "endMs": 1778123877742
+        },
+        {
+          "pid": 22920,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=5\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn5 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=5 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123877577,
+          "endMs": 1778123877747
+        },
+        {
+          "pid": 13552,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=5\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn5 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=5 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123877590,
+          "endMs": 1778123877742
+        },
+        {
+          "pid": 24432,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=6\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn6 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=6 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123877604,
+          "endMs": 1778123877767
+        },
+        {
+          "pid": 12528,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=6\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn6 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=6 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123877619,
+          "endMs": 1778123877768
+        },
+        {
+          "pid": 6036,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=7\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn7 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=7 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123877635,
+          "endMs": 1778123877804
+        },
+        {
+          "pid": 13700,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] current_session.json 파싱 실패, silent pass\n",
+          "startMs": 1778123877652,
+          "endMs": 1778123877803
+        },
+        {
+          "pid": 20708,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=8\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn8 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=8 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123877668,
+          "endMs": 1778123877818
+        },
+        {
+          "pid": 7264,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=9\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn9 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=9 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123877685,
+          "endMs": 1778123877835
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "description": "hook 5개 + 외부 write 병렬",
+      "concurrent": 5,
+      "expectedDelta": 5,
+      "observedDelta": 4,
+      "duplicateTurnIdx": [],
+      "lostWrites": 1,
+      "raceDetected": true,
+      "raceReason": [
+        "lost_writes=1",
+        "timing_overlap_pairs=1"
+      ],
+      "durationMs": 296,
+      "timingOverlaps": 1,
+      "spawnResults": [
+        {
+          "pid": 16508,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=5\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn5 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=5 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123877837,
+          "endMs": 1778123877939
+        },
+        {
+          "pid": 23356,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=6\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn6 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=6 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123877846,
+          "endMs": 1778123877954
+        },
+        {
+          "pid": 7940,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=6\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn6 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=6 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123877856,
+          "endMs": 1778123877954
+        },
+        {
+          "pid": 21428,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=7\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn7 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=7 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123877868,
+          "endMs": 1778123877974
+        },
+        {
+          "pid": 10248,
+          "exitCode": 0,
+          "stderr": "[post-tool-use-task] selfScores 추출: role=dev keys=[spike_marker]\n[post-tool-use-task] turn push: role=dev turnIdx=8\n[post-tool-use-task] ⚠ frontmatter-patch-failed gap 기록: dev turn8 (reports/spike/dev_rev1.md)\n[post-tool-use-task] turn_log append: topic_176 turn=8 role=dev reportsPath=reports/spike/dev_rev1.md\n",
+          "startMs": 1778123877879,
+          "endMs": 1778123877981
+        }
+      ]
+    }
+  ],
+  "verdict": "POSITIVE — 2/5 시나리오에서 race 관측. lock 필요",
+  "positiveCount": 2,
+  "totalCount": 5,
+  "note": [
+    "본 spike는 외부 child_process spawn으로 hook 다회 동시 호출 시뮬레이트.",
+    "Claude Code 본체가 PostToolUse hook spawn을 자연 직렬화한다면 운영 환경에선 race 0.",
+    "본 spike에서 race 관측 시: 동시성이 가능해질 때(향후 변경·외부 트리거) 즉시 위험.",
+    "본 spike에서 race 미관측 시: 운영 환경에서 충분 가능성, 다만 OS 스케줄러 영향 여지 잔존."
+  ]
+}
