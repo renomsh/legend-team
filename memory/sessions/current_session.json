@@ -193,11 +193,14 @@
       "suggestedValue": 0.1
     }
   ],
-  "openMasterAlerts": [
+  "openMasterAlerts": [],
+  "resolvedMasterAlerts": [
     {
       "severity": "high",
       "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.1)",
-      "addedBy": "checkVersionBumpConfirmation",
+      "resolvedBy": "edi",
+      "resolvedAt": "2026-05-07T12:42:00.000Z",
+      "resolution": "Edi override 0.01(capacity) 박제 — heuristic 오판(role memory lessonLog append을 persona 신규로 오감지). 본문 §version_bump 정합.",
       "ref": "D-140"
     }
   ],
@@ -211,13 +214,13 @@
     "edi"
   ],
   "tokenUsage": {
-    "input_tokens": 1408,
-    "output_tokens": 126480,
-    "cache_creation_input_tokens": 1396262,
-    "cache_read_input_tokens": 11512946,
-    "messageCount": 104,
+    "input_tokens": 1415,
+    "output_tokens": 133721,
+    "cache_creation_input_tokens": 1417293,
+    "cache_read_input_tokens": 12750753,
+    "messageCount": 111,
     "masterTurns": 12,
-    "total_billable": 13037096
+    "total_billable": 14303182
   },
   "versionBumpSuggested": {
     "value": 0.1,
@@ -248,7 +251,11 @@
     ],
     "changedFilesCount": 21,
     "cappedAt": 0.1,
-    "confirmedBy": null
+    "confirmedBy": "edi",
+    "confirmedValue": 0.01,
+    "confirmedType": "capacity",
+    "confirmedAt": "2026-05-07T12:42:00.000Z",
+    "overrideReason": "auto-detected 0.1(structural) heuristic은 role memory lessonLog append을 페르소나 신규로 오판. 실제 변경: lessonLog 누적 3건(append-only) + plan rev2 박제 + PD-065 신설 + 신규 spike 스크립트. 페르소나/정책 본체 변경 0건이므로 capacity(+0.01)이 정확. (D-130 / D-140 정합)"
   },
   "finalizedAt": "2026-05-07T12:40:05.257Z"
 }
