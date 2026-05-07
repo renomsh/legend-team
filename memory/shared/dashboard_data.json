@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T13:55:47.288Z",
+  "generatedAt": "2026-05-07T14:16:33.571Z",
   "totalSessions": 203,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [
@@ -19,7 +19,7 @@
     }
   ],
   "metrics": {
-    "avgMasterTurns": 20.63,
+    "avgMasterTurns": 20.74,
     "avgCacheHitRate": 0.9327,
     "cacheSampleSize": 174,
     "cacheSampleTotal": 203,
@@ -57,8 +57,8 @@
     ],
     "framingSkippedCount": 0,
     "turnBasedSessions": 157,
-    "totalCostUSD": 2399.8498,
-    "avgCostPerSession": 12.3069,
+    "totalCostUSD": 2406.7494,
+    "avgCostPerSession": 12.3423,
     "costSampleSize": 195
   },
   "sessions": [
@@ -7784,7 +7784,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 47,
+      "masterTurns": 70,
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
@@ -7796,16 +7796,16 @@
         "edi"
       ],
       "tokenUsage": {
-        "totalBillable": 36389201,
-        "ioTokens": 342790,
-        "inputTokens": 3052,
-        "outputTokens": 339738,
-        "cacheCreate": 3687513,
-        "cacheRead": 32358898,
-        "cacheHitRate": 0.8892445316400325,
-        "messageCount": 323
+        "totalBillable": 45438124,
+        "ioTokens": 422556,
+        "inputTokens": 3281,
+        "outputTokens": 419275,
+        "cacheCreate": 4561471,
+        "cacheRead": 40454097,
+        "cacheHitRate": 0.8903117787169206,
+        "messageCount": 431
       },
-      "sessionCostUSD": 28.6411
+      "sessionCostUSD": 35.5407
     }
   ],
   "roleFrequency": [
@@ -14392,6 +14392,11 @@
       "severity": "yellow",
       "sessionId": "session_153",
       "description": "역할 과호출: rolesRecalled=18 (임계값 11, grade=S)"
+    },
+    {
+      "ruleId": "R-MERGE",
+      "severity": "red",
+      "description": "worktree merge 실패: claude/elated-benz-5839c5 (2026-05-07) — 수동 머지 필요"
     }
   ],
   "feedbackRecurrences": [

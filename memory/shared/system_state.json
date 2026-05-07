@@ -97,5 +97,12 @@
       "relatedTopic": "topic_144"
     }
   ],
-  "lastUpdated": "2026-05-07T12:40:05.155Z"
+  "lastUpdated": "2026-05-07T14:16:29.106Z",
+  "worktreeMergeFailures": [
+    {
+      "branch": "claude/elated-benz-5839c5",
+      "detectedAt": "2026-05-07T14:16:29.105Z",
+      "message": "warning: in the working copy of 'memory/sessions/token_log.json', LF will be replaced by CRLF the next time Git touches it\nerror: Your local changes to the following files would be overwritten by merge:\n\tmemory/sessions/token_log.json\nPlease commit your changes or stash them before you merge.\nAborti"
+    }
+  ]
 }
