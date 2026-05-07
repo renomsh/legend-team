@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_206",
-  "nextSessionId": "session_207",
+  "lastSessionId": "session_207",
+  "nextSessionId": "session_208",
   "currentVersion": "v0.958",
   "openTopics": [
     {
@@ -52,6 +52,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_207",
+      "topicSlug": "parallel-topic-session-design",
+      "closedAt": "2026-05-07T12:30:00.000Z",
+      "oneLineSummary": "topic_176 Case A/B 분리 frame 확립, P1 atomic spike PASS(47K line 0%), Arki rev2 Case B 한정 plan 박제, PD-065(Case A 분리) 신설, P2~P3 다음 세션 안전 분리",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_206",
       "topicSlug": "parallel-topic-session-design",
       "closedAt": "2026-05-07T04:00:00.000Z",
@@ -70,16 +77,6 @@
       "oneLineSummary": "topic_176 framing draft — Master 제안 G안(명명 분리+Task 병렬+단일 프로세스 직렬화) 채택 방향, 다음 세션 Arki·Riki 검토. Jobs anchoring 적출, Fin 인지부담 단언 오류 메모리 박제.",
       "decisionsAdded": [
         "[object Object]"
-      ]
-    },
-    {
-      "sessionId": "session_204",
-      "topicSlug": "databook-agent-design",
-      "closedAt": "2026-05-06T13:00:00.000Z",
-      "oneLineSummary": "topic_175 세션정리(202·203등록)+로드맵 Step1~8 확정+M5·M6 해소(as_is→현재담당자, 팀완료파일 소스)",
-      "decisionsAdded": [
-        "D-169",
-        "D-170"
       ]
     }
   ],
@@ -100,5 +97,5 @@
       "relatedTopic": "topic_144"
     }
   ],
-  "lastUpdated": "2026-05-07T03:56:42.412Z"
+  "lastUpdated": "2026-05-07T12:40:05.155Z"
 }

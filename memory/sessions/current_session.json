@@ -1,13 +1,13 @@
 {
-  "sessionId": "session_206",
+  "sessionId": "session_207",
   "topicId": "topic_176",
-  "topic": "병렬 토픽 및 세션 구조 설계 — G안 기술 검토",
+  "topic": "병렬 토픽 및 세션 구조 설계 — G안 구현",
   "topicSlug": "parallel-topic-session-design",
   "reportPath": "reports/2026-05-07_parallel-topic-session-design",
   "status": "closed",
-  "closedAt": "2026-05-07T04:00:00.000Z",
-  "oneLineSummary": "topic_176 G안 채택(append-only JSONL+mtopic_NNN), spike R-6 race 양성 → lock-free 가정 폐기, 구현 다음 세션 위임 (D-166~D-169 박제)",
-  "startedAt": "2026-05-07T00:00:00.000Z",
+  "closedAt": "2026-05-07T12:30:00.000Z",
+  "oneLineSummary": "topic_176 Case A/B 분리 frame 확립, P1 atomic spike PASS(47K line 0%), Arki rev2 Case B 한정 plan 박제, PD-065(Case A 분리) 신설, P2~P3 다음 세션 안전 분리",
+  "startedAt": "2026-05-07T04:30:00.000Z",
   "mode": "observation",
   "grade": "S",
   "topicType": "framing",
@@ -15,8 +15,24 @@
   "framingSkipped": true,
   "turns": [
     {
-      "role": "arki",
+      "role": "dev",
       "turnIdx": 0,
+      "source": "agent"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 1,
+      "source": "agent",
+      "selfScores": {
+        "crt_rcl": 0.7,
+        "cr_val": "Y",
+        "prd_rej": "N",
+        "fp_rt": 0.1
+      }
+    },
+    {
+      "role": "arki",
+      "turnIdx": 2,
       "source": "agent",
       "selfScores": {
         "aud_rcl": 1,
@@ -26,150 +42,147 @@
       }
     },
     {
-      "role": "riki",
-      "turnIdx": 1,
-      "source": "agent",
-      "selfScores": {
-        "crt_rcl": 0.85,
-        "cr_val": "Y",
-        "prd_rej": "Y",
-        "fp_rt": 0.1
-      }
-    },
-    {
-      "role": "ace",
-      "turnIdx": 2,
-      "source": "agent",
-      "selfScores": {
-        "ctx_car": 5,
-        "mst_fr": 0,
-        "syn_dpt": 4,
-        "syn_orig": 3
-      }
-    },
-    {
-      "role": "riki",
+      "role": "dev",
       "turnIdx": 3,
       "source": "agent",
       "selfScores": {
-        "crt_rcl": 0.85,
-        "cr_val": "Y",
-        "prd_rej": "Y",
-        "fp_rt": 0.1
+        "rt_cov": 1,
+        "gt_pas": 1,
+        "hc_rt": 0,
+        "spc_drf": 0
       }
     },
     {
-      "role": "arki",
+      "role": "zero",
       "turnIdx": 4,
-      "source": "agent",
-      "selfScores": {
-        "aud_rcl": 1,
-        "str_fd": 5,
-        "spc_lck": "N",
-        "sa_rnd": 2
-      }
+      "source": "agent"
     },
     {
-      "role": "dev",
+      "role": "zero",
       "turnIdx": 5,
       "source": "agent"
     },
     {
       "role": "edi",
       "turnIdx": 6,
-      "phase": "compile"
+      "source": "agent",
+      "selfScores": {
+        "art_qly": 0.85,
+        "ver_acc": 0.9,
+        "anc_drf": 0,
+        "gp_acc": 0.8,
+        "scc": "Y",
+        "cs_cnt": 4,
+        "art_cmp": 1,
+        "gap_fc": 4
+      }
     }
   ],
-  "decisions": [
-    "D-166",
-    "D-167",
-    "D-168",
-    "D-169"
-  ],
-  "decisionsAdded": [
-    "D-166",
-    "D-167",
-    "D-168",
-    "D-169"
-  ],
-  "masterDecisions": [
+  "decisions": [],
+  "decisionsAdded": [],
+  "masterDecisions": [],
+  "masterFeedback": [
     {
-      "axis": "G안 채택 — 단일 Claude Code 프로세스 + Task 병렬, turns push는 append-only JSONL (`turns_append.jsonl`) 별도 파일 1줄 append, 세션 종료 시 finalize가 합산. file-lock 폐기 (append는 race 자체 없음). spike R-6 결과 S4·S5에서 race 양성 → lock-free 자연 직렬화 가정 반증, append-only로 우회."
+      "phase": "design",
+      "feedback": "Edi 호출 안 된 이유는 비용 인식 아니라 Nexus가 Master 발언 verbatim 전달 위해 Zero를 의도적 skip한 것. Edi mechanical 기록은 됨. gap reason에 'Master 비용 인식' narrative 자가 생성한 것이 잘못.",
+      "directive": "Master가 명시적으로 말하지 않은 reason은 박제 금지. Zero 정제 시 Master 표현 변질 위험. 결정 전달 비중 큰 세션 Zero default skip + 명시 승인",
+      "savedTo": "user-memory: feedback_nexus_verbatim_transmission.md"
     },
     {
-      "axis": "병렬 토픽 명명 = `mtopic_NNN` 독립 카운터 namespace. topic_NNN과 평면 분리, 부모-자식 관계 없음. D-NNN 박제 시 단일 귀속(topicId | mtopicId)."
-    },
-    {
-      "axis": "Arki rev1 plan 단순화 — Phase P3(lock 인프라) 삭제, P4 단순화(append-only 전환 + grep 분기), N=1 fallback 폐기. 변경 사유: append-only가 lock·fallback 의존을 자연 해소."
-    },
-    {
-      "axis": "현 세션 framing 종결, 구현은 다음 세션 위임. 이유: 현 시스템에 부분 구현 0 → silent corruption 위험 0 (R-D-15 미발생)."
+      "phase": "design",
+      "feedback": "두 안건이 섞임 — 별도 세션·별도 토픽 동시(Case A) vs 같은 세션 병렬 호출(Case B). mtopic_NNN namespace는 Case A 영역. 분리해서 봐야 함. Case A도 같은 race? — 표면이 다름(공유 SOT race).",
+      "directive": "Case B 한정으로 plan 재작성. Case A는 별도 PD/토픽으로 분리. namespace 분리만으론 Case A race 본질 미해결",
+      "appliedAs": "PD-065 신설 + Arki rev2 Case B 한정 plan"
     }
   ],
-  "masterFeedback": [],
   "pendingDeferralsAdded": [
     {
-      "item": "topic_176 G안 구현 — P0 grep 조사(`^topic_\\d+` hardcode 위치) → P4(append-only turns push 전환 + mtopic counter + grep 분기 박제) → P5(mtopic_001 첫 발급, Master 명시 승인 필수) → P6(운영 모니터 1주기). 다음 세션에서 Riki append-only 구조 자체 리스크 1차 검토 추가 필요(finalize jsonl 합산 race-free 여부 등). 임시 spike 박제(`SPIKE-R6` 마커 in post-tool-use-task.js) cleanup 동반.",
-      "resolveCondition": "topic_176 재오픈 후 P0~P6 완료 + spike 마커 제거 PR merge",
+      "id": "PD-065",
+      "item": "Case A 분리 토픽 신설 — 별도 세션·별도 Claude Code 프로세스 동시 실행 시 공유 SOT(mtopic_counter.json·topic_index.json·decision_ledger.json·system_state.json·master_feedback_log.json) read-modify-write race 동기화 정책 설계. session_id 격리(turns_append jsonl 세션별 분리) + 공유 파일 보호 메커니즘(file-lock·atomic rename·event log 변환 등) 비교. mtopic_NNN namespace 분리(D-167)는 평면 충돌만 해소, race 본질은 미해결. session_207 D-166 scope 재해석(Case B 한정) + 본 PD가 Case A 본격 영역.",
+      "resolveCondition": "Case A 토픽 신규 오픈 후 동기화 정책 결정 박제 + mtopic_counter·topic_index·ledger 보호 구현 PR merge",
       "relatedTopic": "topic_176",
-      "relatedDecisions": []
+      "relatedDecisions": [
+        "D-166",
+        "D-167"
+      ]
     }
   ],
   "pendingDeferralsResolved": [],
   "notes": [
-    "session_205 G안 채택 방향 후속. Master 의뢰: Arki 메커니즘 명세+자가감사, Riki 단일 프로세스 자연 직렬화 가정 분쇄+G안 한정 실패 모드.",
-    "핸드오프 자료: reports/2026-05-06_parallel-topic-session-design/session_summary.md, MEMORY 인덱스의 feedback_fin_master_capacity_assumption.",
-    "주의: 핸드오프에 명시된 topics/topic_176/context_brief.md는 디스크에 부재 — session_summary.md G안 통찰 + master_decisions로 대체 진행.",
-    "spike R-6 결과: S1·S2·S3(2개·5개 동시·계단식) race 0, S4(적대적 10개 → 5 손실)·S5(외부 write 충돌 → 1 손실) race 양성. 자연 직렬화는 인위적 부하·외부 충돌 시 깨짐.",
-    "Arki+Riki 병렬 dispatch 실측: 본 세션 turn 0+1 동시 호출 → 둘 다 정상 push, 손실 0 (실제 in-session N=2는 안전). 단 N≥5는 미검증.",
-    "임시 박제: post-tool-use-task.js `SPIKE-R6 START/END` 마커. SPIKE_R6_LOG env 미설정 시 no-op (운영 영향 0). 다음 세션 cleanup."
+    "session_206 후속: D-166~D-169 박제, G안 채택 + append-only JSONL + mtopic_NNN 확정.",
+    "PD 인계: P0 grep 조사 → P4(append-only turns push + mtopic counter + grep 분기) → P5(mtopic_001 첫 발급, Master 명시 승인 필수) → P6(운영 모니터). Riki append-only 구조 1차 검토 추가 필요.",
+    "임시 박제 cleanup 필요: post-tool-use-task.js SPIKE-R6 START/END 마커.",
+    "이월 alert: session_206 versionBumpSuggested(0.01) Edi 미확정 — 다음 Edi 호출 시 검증·확정 필요(D-140).",
+    "context_brief 부재(topics/topic_176/): session_summary.md(reports/2026-05-07_parallel-topic-session-design)가 통찰 단일 출처.",
+    "Case A vs Case B 분리: mtopic_NNN/counter/공유 SOT 보호는 Case A → PD-065, append-only turns push만 Case B → 본 세션 plan rev2.",
+    "P1 spike Windows 47K line corrupt 0건/loss 0건 — atomicity 가정 통과. POSIX 후속 round 의무.",
+    "P2(post-tool-use-task append) + P3(finalize merge+fail-soft+archive) 다음 세션 분리 — Master 안전 명시.",
+    "apply-feedback.ts CLI failure (utils.ts:36 undefined id) — masterFeedback은 current_session.json 본문에 인라인 박제, master_feedback_log.json 자동 갱신은 escape hatch 필요."
   ],
   "gaps": [
     {
-      "type": "context-brief-missing",
-      "topicId": "topic_176",
-      "expectedPath": "topics/topic_176/context_brief.md",
-      "detectedAt": "2026-05-07T00:00:00.000Z",
-      "note": "session_205 종료 시 박제 누락. session_summary.md가 G안 정의와 미해결 6건의 단일 출처. 본 세션 종료 시 context_brief 생성 또는 PD 등록 필요."
+      "type": "missing-report",
+      "role": "dev",
+      "turnIdx": 0,
+      "reportPath": "reports/2026-05-07_parallel-topic-session-design",
+      "detectedAt": "2026-05-07T06:11:18.615Z",
+      "note": "dev turn0 완료 후 reports/dev_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "missing-report",
+      "role": "riki",
+      "turnIdx": 1,
+      "reportPath": "reports/2026-05-07_parallel-topic-session-design",
+      "detectedAt": "2026-05-07T06:14:22.778Z",
+      "note": "riki turn1 완료 후 reports/riki_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "missing-report",
+      "role": "arki",
+      "turnIdx": 2,
+      "reportPath": "reports/2026-05-07_parallel-topic-session-design",
+      "detectedAt": "2026-05-07T06:38:15.274Z",
+      "note": "arki turn2 완료 후 reports/arki_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "missing-report",
+      "role": "dev",
+      "turnIdx": 3,
+      "reportPath": "reports/2026-05-07_parallel-topic-session-design",
+      "detectedAt": "2026-05-07T11:40:30.964Z",
+      "note": "dev turn3 완료 후 reports/dev_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
     },
     {
       "type": "frontmatter-patch-failed",
-      "role": "riki",
-      "turnIdx": 3,
-      "reportsPath": "reports/2026-05-07_topic_176_design_risk/riki_rev1.md",
-      "detectedAt": "2026-05-07T03:04:38.472Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음"
+      "role": "zero",
+      "turnIdx": 4,
+      "reportsPath": "-",
+      "detectedAt": "2026-05-07T12:34:12.620Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: -"
     },
     {
-      "type": "edi-llm-skipped",
-      "sessionId": "session_206",
-      "grade": "S",
-      "severity": "high",
-      "note": "Grade S Zero·Edi LLM 호출 생략 — Master 비용 인식, session_205 선례 따름. hook auto-fallback(edi_auto_rev1.md) 위임. 핵심 산출물은 dev_rev1.md, arki_rev1.md, riki_rev1.md, ace_rev1.md로 충족."
-    },
-    {
-      "type": "edi-llm-skipped",
-      "sessionId": "session_206",
-      "grade": "S",
-      "severity": "high",
-      "detectedAt": "2026-05-07T03:56:28.482Z",
-      "note": "Grade A/B/S 세션에서 Edi LLM 미호출 — mechanical fallback 박제됨"
-    },
-    {
-      "type": "edi-agent-source-missing",
-      "sessionId": "session_206",
-      "grade": "S",
-      "severity": "high",
-      "detectedAt": "2026-05-07T03:56:28.487Z",
-      "note": "turns[]에 role=edi && source=agent turn 없음 — D-066(Grade A/S 서브에이전트 강제) + D4(hook 박제) 위반",
-      "ref": "D-138"
-    },
-    {
-      "type": "edi-llm-report-absent",
-      "sessionId": "session_206",
+      "type": "missing-report",
+      "role": "zero",
+      "turnIdx": 4,
       "reportPath": "reports/2026-05-07_parallel-topic-session-design",
-      "grade": "S",
-      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
+      "detectedAt": "2026-05-07T12:34:12.623Z",
+      "note": "zero turn4 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "missing-report",
+      "role": "zero",
+      "turnIdx": 5,
+      "reportPath": "reports/2026-05-07_parallel-topic-session-design",
+      "detectedAt": "2026-05-07T12:34:45.390Z",
+      "note": "zero turn5 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-07_parallel-topic-session-design/edi_auto_rev1.md"
+    },
+    {
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-07_parallel-topic-session-design/session_summary.md"
     },
     {
       "type": "version-bump-edi-unconfirmed",
@@ -177,61 +190,65 @@
       "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
       "addedBy": "checkVersionBumpConfirmation",
       "ref": "D-140",
-      "suggestedValue": 0.01
+      "suggestedValue": 0.1
     }
   ],
   "openMasterAlerts": [
     {
       "severity": "high",
-      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.01)",
+      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.1)",
       "addedBy": "checkVersionBumpConfirmation",
       "ref": "D-140"
     }
   ],
   "agentsCompleted": [
-    "arki",
-    "riki",
-    "ace",
+    "dev",
     "riki",
     "arki",
     "dev",
+    "zero",
+    "zero",
     "edi"
   ],
   "tokenUsage": {
-    "input_tokens": 255,
-    "output_tokens": 81727,
-    "cache_creation_input_tokens": 444375,
-    "cache_read_input_tokens": 9588257,
-    "messageCount": 85,
-    "masterTurns": 17,
-    "total_billable": 10114614
+    "input_tokens": 1408,
+    "output_tokens": 126480,
+    "cache_creation_input_tokens": 1396262,
+    "cache_read_input_tokens": 11512946,
+    "messageCount": 104,
+    "masterTurns": 12,
+    "total_billable": 13037096
   },
   "versionBumpSuggested": {
-    "value": 0.01,
-    "type": "capacity",
-    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 2건 (.claude/hooks/post-tool-use-task.js, memory/shared/decision_ledger.json)",
-    "autoDetectedAt": "2026-05-07T03:56:40.573Z",
+    "value": 0.1,
+    "type": "structural",
+    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 3건 (memory/roles/arki_memory.json, memory/roles/dev_memory.json, memory/roles/riki_memory.json)",
+    "autoDetectedAt": "2026-05-07T12:40:03.168Z",
     "changedFiles": [
-      ".claude/hooks/post-tool-use-task.js",
       "logs/master-first.log",
       "logs/pre-tool-use-task.log",
       "logs/sage-gate.log",
-      "memory/master/master_feedback_log.json",
+      "memory/roles/arki_memory.json",
+      "memory/roles/dev_memory.json",
+      "memory/roles/riki_memory.json",
       "memory/sessions/current_session.json",
       "memory/sessions/session_index.json",
       "memory/sessions/token_log.json",
-      "memory/shared/decision_ledger.json",
-      "memory/shared/system_state.json",
       "memory/shared/topic_index.json",
-      "reports/2026-05-07_parallel-topic-session-design/",
-      "reports/2026-05-07_topic_176_arki/",
-      "reports/2026-05-07_topic_176_spike/",
-      "scripts/spike-r6-task-race.ts",
-      "topics/topic_176/"
+      "reports/2026-05-07_parallel-topic-session-design/_zero_condense.json",
+      "reports/2026-05-07_parallel-topic-session-design/condensed.md",
+      "reports/2026-05-07_parallel-topic-session-design/edi_rev1.md",
+      "reports/2026-05-07_topic_176_arki/arki_rev2.md",
+      "reports/2026-05-07_topic_176_arki/grep_topic_hardcode.json",
+      "reports/2026-05-07_topic_176_arki/grep_topic_hardcode_summary.md",
+      "reports/2026-05-07_topic_176_arki/spike_p1_appendfile_atomic.json",
+      "reports/2026-05-07_topic_176_arki/spike_p1_appendfile_atomic_summary.md",
+      "reports/2026-05-07_topic_176_design_risk/",
+      "scripts/spike-p1-appendfile-atomic.ts"
     ],
-    "changedFilesCount": 16,
+    "changedFilesCount": 21,
     "cappedAt": 0.1,
     "confirmedBy": null
   },
-  "finalizedAt": "2026-05-07T03:56:42.507Z"
+  "finalizedAt": "2026-05-07T12:40:05.257Z"
 }

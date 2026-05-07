@@ -232,6 +232,13 @@
   "lastUpdated": "2026-04-24",
   "lessonLog": [
     {
+      "date": "2026-05-07",
+      "session": "session_207",
+      "topic": "topic_176",
+      "lesson": "Case A(별도 세션·프로세스) vs Case B(같은 세션 Task 병렬) 분리 frame이 plan 단순화의 핵심. rev1에서 두 케이스를 한 catalog에 합산해 Phase·lock·counter·grep 분기를 합성 패키지로 묶었지만 Master 정정으로 분리 → rev2에서 Case A 4 Phase(P0·P4·GATE β·P5) PD-065 이전, Case B만 5 Phase로 단순화 + 비가역 게이트 0건. Riki R-D 카탈로그도 영역별 분류 의무.",
+      "actionRule": "race·동기화 토픽에서 단일 frame 가정 금지. (a) 격리 단위(같은 프로세스 vs 별도 프로세스), (b) 충돌 자원(같은 객체 vs 공유 SOT) 두 축으로 먼저 분리. 분리 후 한 축에 한정한 plan부터 박제. 다른 축은 PD로 명시 이전. 합성 패키지가 보이면 self-audit 1차에서 분해 의무."
+    },
+    {
       "date": "2026-04-25",
       "session": "session_103",
       "topic": "pd040-schema-governance-pd041-test-regression",

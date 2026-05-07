@@ -164,6 +164,10 @@
   ],
   "lessonLog": [
     {
+      "session": "session_207",
+      "learning": "race·동기화 risk catalog 작성 시 영역 분류 의무. R-D-22~32을 한 catalog에 합산했더니 Master가 'Case A(별도 프로세스 공유 SOT) vs Case B(같은 세션 Task 병렬) 두 케이스가 섞임'으로 정정. 결과: G안 채택 자체가 ambiguity처럼 보였고 mtopic_counter race(R-D-24)가 append-only로 안 풀린다는 사실이 G안 결함처럼 오해됨. 단일 frame 가정이 위험을 부풀린 사례."
+    },
+    {
       "session": "session_198",
       "learning": "macOS hook 감사에서 shell:isWin 패턴 7곳 실코드 확인. 무음 실패가 세션 기록 오염으로 전파되는 경로를 구체적으로 추적한 사례. 코드 직접 감사가 추측보다 우선."
     }

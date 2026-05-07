@@ -9529,8 +9529,94 @@
         "D-168",
         "D-169"
       ]
+    },
+    {
+      "sessionId": "session_207",
+      "topicSlug": "parallel-topic-session-design",
+      "topic": "병렬 토픽 및 세션 구조 설계 — G안 구현",
+      "startedAt": "2026-05-07T04:30:00.000Z",
+      "closedAt": "2026-05-07T12:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\strange-jang-93f44a",
+      "agentsCompleted": [
+        "dev",
+        "riki",
+        "arki",
+        "dev",
+        "zero",
+        "zero",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "dev",
+          "turnIdx": 0,
+          "source": "agent"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 1,
+          "source": "agent",
+          "selfScores": {
+            "crt_rcl": 0.7,
+            "cr_val": "Y",
+            "prd_rej": "N",
+            "fp_rt": 0.1
+          }
+        },
+        {
+          "role": "arki",
+          "turnIdx": 2,
+          "source": "agent",
+          "selfScores": {
+            "aud_rcl": 1,
+            "str_fd": 4,
+            "spc_lck": "N",
+            "sa_rnd": 2
+          }
+        },
+        {
+          "role": "dev",
+          "turnIdx": 3,
+          "source": "agent",
+          "selfScores": {
+            "rt_cov": 1,
+            "gt_pas": 1,
+            "hc_rt": 0,
+            "spc_drf": 0
+          }
+        },
+        {
+          "role": "zero",
+          "turnIdx": 4,
+          "source": "agent"
+        },
+        {
+          "role": "zero",
+          "turnIdx": 5,
+          "source": "agent"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 6,
+          "source": "agent",
+          "selfScores": {
+            "art_qly": 0.85,
+            "ver_acc": 0.9,
+            "anc_drf": 0,
+            "gp_acc": 0.8,
+            "scc": "Y",
+            "cs_cnt": 4,
+            "art_cmp": 1,
+            "gap_fc": 4
+          }
+        }
+      ],
+      "grade": "S",
+      "note": "session_206 후속: D-166~D-169 박제, G안 채택 + append-only JSONL + mtopic_NNN 확정. | PD 인계: P0 grep 조사 → P4(append-only turns push + mtopic counter + grep 분기) → P5(mtopic_001 첫 발급, Master 명시 승인 필수) → P6(운영 모니터). Riki append-only 구조 1차 검토 추가 필요. | 임시 박제 cleanup 필요: post-tool-use-task.js SPIKE-R6 START/END 마커. | 이월 alert: session_206 versionBumpSuggested(0.01) Edi 미확정 — 다음 Edi 호출 시 검증·확정 필요(D-140). | context_brief 부재(topics/topic_176/): session_summary.md(reports/2026-05-07_parallel-topic-session-design)가 통찰 단일 출처. | Case A vs Case B 분리: mtopic_NNN/counter/공유 SOT 보호는 Case A → PD-065, append-only turns push만 Case B → 본 세션 plan rev2. | P1 spike Windows 47K line corrupt 0건/loss 0건 — atomicity 가정 통과. POSIX 후속 round 의무. | P2(post-tool-use-task append) + P3(finalize merge+fail-soft+archive) 다음 세션 분리 — Master 안전 명시. | apply-feedback.ts CLI failure (utils.ts:36 undefined id) — masterFeedback은 current_session.json 본문에 인라인 박제, master_feedback_log.json 자동 갱신은 escape hatch 필요.",
+      "oneLineSummary": "topic_176 Case A/B 분리 frame 확립, P1 atomic spike PASS(47K line 0%), Arki rev2 Case B 한정 plan 박제, PD-065(Case A 분리) 신설, P2~P3 다음 세션 안전 분리",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-07T03:56:28.497Z",
+  "lastUpdated": "2026-05-07T12:39:50.085Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

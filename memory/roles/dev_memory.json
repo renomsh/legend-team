@@ -75,6 +75,10 @@
   },
   "lessonLog": [
     {
+      "session": "session_207",
+      "learning": "P1 appendFile atomic spike — Windows 6 셀 매트릭스(0.5KB·1KB·5KB × 5·10 child) × 5 round 약 47K line 누적, corrupt 0%·loss 0%. fs.appendFileSync atomicity 가정 실측 통과. POSIX(WSL/Mac) 후속 round 의무. spike 매트릭스를 atomicity 검증 + line 크기 ceiling 권고를 분리해서 잡음으로써 GATE α' 판정과 운용 권고를 동시 산출."
+    },
+    {
       "id": "DEV-LL-001",
       "date": "2026-04-16",
       "topic": "dev-test",

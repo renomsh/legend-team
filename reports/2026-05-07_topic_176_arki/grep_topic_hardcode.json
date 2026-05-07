@@ -1,0 +1,350 @@
+{
+  "generatedAt": "2026-05-07",
+  "session": "session_207",
+  "topic": "topic_176",
+  "phase": "P0-grep-investigation",
+  "scopeNote": "코드 레이어(scripts/, .claude/hooks/, app/, src/, tests/)만. memory/·topics/·reports/ 데이터/문서는 제외. JSDoc 주석에 박힌 'topic_NNN, session_NNN' 출처 라벨은 mtopic 분기 무관(주석)이므로 제외.",
+  "entries": [
+    {
+      "file": "scripts/migrate-topic-index.ts",
+      "line": 32,
+      "matched": "/^topic_(\\d+)([a-z]*)$/i",
+      "context": "parseTopicId(id): exec해서 num/suffix 추출. 정렬 헬퍼 (compareTopicDesc, normalize).",
+      "category": "regex",
+      "mtopicAction": "needs-branch",
+      "reason": "topic_NNN 평면 정렬·파싱 헬퍼 — mtopic_index.json도 동일 정렬 필요할 가능성 높음. Arki rev1 §6 권고 'scripts/lib/topic-id.ts 단일 정규식 export' 적용 시 여기서 import하도록 리팩터 + mtopic 정규식 별도 export."
+    },
+    {
+      "file": "scripts/migrate-p4-phase-hold-legacy.js",
+      "line": 29,
+      "matched": "topics/topic_001/topic_meta.json",
+      "context": "const topicMetaPath = path.join(ROOT, 'topics/topic_001/topic_meta.json'); — legacy 일회성 마이그레이션.",
+      "category": "literal",
+      "mtopicAction": "topic-only",
+      "reason": "legacy migrate 스크립트(이미 실행 완료). 특정 topic_001 fixed target. mtopic 무관."
+    },
+    {
+      "file": "scripts/spike-r6-task-race.ts",
+      "line": 30,
+      "matched": "'2026-05-07_topic_176_spike'",
+      "context": "REPORT_DIR — 본 토픽(176) spike 산출 디렉토리 literal.",
+      "category": "literal",
+      "mtopicAction": "topic-only",
+      "reason": "spike-only fixed target. cleanup 대상."
+    },
+    {
+      "file": "scripts/spike-r6-task-race.ts",
+      "line": 328,
+      "matched": "topic: 'topic_176'",
+      "context": "spike report metadata literal.",
+      "category": "literal",
+      "mtopicAction": "topic-only",
+      "reason": "spike-only fixed metadata. cleanup 대상."
+    },
+    {
+      "file": "scripts/lib/topic-resolver.ts",
+      "line": 21,
+      "matched": "`topics/${topicId}`",
+      "context": "resolveTopicPaths fallback — entry 없을 때 controlPath 추정.",
+      "category": "path",
+      "mtopicAction": "needs-branch",
+      "reason": "id shape 무관 fallback이지만 mtopic_NNN id가 들어오면 'topics/mtopic_NNN' 디렉토리 추정 → 잘못된 path. mtopic은 'mtopics/${id}' 별도 분기 필요(또는 fallback 제거하고 entry 의무화)."
+    },
+    {
+      "file": "scripts/lib/topic-resolver.ts",
+      "line": 22,
+      "matched": "`topics/${topicId}/reports`",
+      "context": "resolveTopicPaths reportPath fallback.",
+      "category": "path",
+      "mtopicAction": "needs-branch",
+      "reason": "동일 — mtopic 분기 필요."
+    },
+    {
+      "file": "scripts/create-topic.ts",
+      "line": "94, 194, 201, 223, 229",
+      "matched": "topics/${id}",
+      "context": "신규 topic 디렉토리 생성·등록. controlPath/path 필드 채움.",
+      "category": "path",
+      "mtopicAction": "needs-branch",
+      "reason": "토픽 생성 핵심 경로. mtopic_NNN 발급 시 별도 'mtopics/' 디렉토리 또는 동일 'topics/' 공유 결정 필요. P4 mtopic counter 도입 시 본 스크립트 분기 필수."
+    },
+    {
+      "file": "scripts/lib/topic-status.ts",
+      "line": 82,
+      "matched": "path.join(root, 'topics', topicId, 'topic_meta.json')",
+      "context": "updateTopicStatus mirror 갱신 — topic_meta.json 경로.",
+      "category": "path",
+      "mtopicAction": "needs-branch",
+      "reason": "SOT(topic_index)+mirror(topic_meta) 동시 갱신 헬퍼. mtopic은 별도 mtopic_index.json + mtopic_meta.json 또는 동일 구조 어느 쪽이든 분기 필요. Arki rev1 §6 mtopic_index.json 평면 분리안 채택 시 SOT 경로도 분기."
+    },
+    {
+      "file": "scripts/lib/topic-status.ts",
+      "line": 59,
+      "matched": "memory/shared/topic_index.json",
+      "context": "SOT 경로 const indexPath.",
+      "category": "path",
+      "mtopicAction": "needs-branch",
+      "reason": "동일 — mtopic 진입 시 mtopic_index.json 분기."
+    },
+    {
+      "file": "scripts/build.js",
+      "line": 127,
+      "matched": "memory/shared/topic_index.json",
+      "context": "viewer build 시 published topic_index 생성 입력.",
+      "category": "path",
+      "mtopicAction": "needs-branch",
+      "reason": "viewer가 mtopic도 표시할지 정책 필요. 표시 시 mtopic_index.json 추가 read 분기."
+    },
+    {
+      "file": "scripts/init-project.ts",
+      "line": 24,
+      "matched": "memory/shared/topic_index.json",
+      "context": "초기 셋업 시 빈 index 생성.",
+      "category": "path",
+      "mtopicAction": "needs-branch",
+      "reason": "mtopic_index.json도 init 시 생성 분기 필요."
+    },
+    {
+      "file": "scripts/migrate-topic-index.ts",
+      "line": 15,
+      "matched": "memory/shared/topic_index.json",
+      "context": "TOPIC_INDEX const.",
+      "category": "path",
+      "mtopicAction": "topic-only",
+      "reason": "기존 topic_index 일회성 정렬·status 정규화. mtopic은 별도 마이그레이션 스크립트 필요(분기 아님, 새 스크립트)."
+    },
+    {
+      "file": "scripts/lib/topic-resolver.ts",
+      "line": 9,
+      "matched": "memory/shared/topic_index.json",
+      "context": "TOPIC_INDEX_PATH const.",
+      "category": "path",
+      "mtopicAction": "needs-branch",
+      "reason": "resolver에 mtopic 분기 추가 필요(또는 별도 mtopic-resolver.ts)."
+    },
+    {
+      "file": "scripts/backfill-grades.ts",
+      "line": "23, 72",
+      "matched": "memory/shared/topic_index.json",
+      "context": "grade 소급 — read+write.",
+      "category": "path",
+      "mtopicAction": "needs-branch",
+      "reason": "mtopic도 grade 부여 정책 결정 필요. backfill 시 분기."
+    },
+    {
+      "file": "scripts/backfill-decision-ownership.ts",
+      "line": 17,
+      "matched": "memory/shared/topic_index.json",
+      "context": "TOPIC_INDEX_PATH const.",
+      "category": "path",
+      "mtopicAction": "needs-branch",
+      "reason": "decision ownership이 mtopic으로도 흘러가면 분기."
+    },
+    {
+      "file": "scripts/validate-decision-ownership.ts",
+      "line": 20,
+      "matched": "memory/shared/topic_index.json",
+      "context": "TOPIC_INDEX_PATH const — validate 입력.",
+      "category": "path",
+      "mtopicAction": "needs-branch",
+      "reason": "decision_ledger의 owningTopicId가 mtopic_NNN일 수 있음 → mtopic_index lookup 분기."
+    },
+    {
+      "file": "scripts/migrate-editor-pass3.ts",
+      "line": 14,
+      "matched": "memory/shared/topic_index.json",
+      "context": "editor→edi 일회성 migration target list.",
+      "category": "path",
+      "mtopicAction": "topic-only",
+      "reason": "legacy 일회성. mtopic 무관."
+    },
+    {
+      "file": "scripts/migrate-editor-pass4.ts",
+      "line": 11,
+      "matched": "memory/shared/topic_index.json",
+      "context": "동일 legacy migration.",
+      "category": "path",
+      "mtopicAction": "topic-only",
+      "reason": "legacy 일회성."
+    },
+    {
+      "file": "scripts/migrate-editor-to-edi.ts",
+      "line": 21,
+      "matched": "memory/shared/topic_index.json",
+      "context": "동일 legacy migration.",
+      "category": "path",
+      "mtopicAction": "topic-only",
+      "reason": "legacy 일회성."
+    },
+    {
+      "file": "scripts/_archived/run-debate.ts",
+      "line": 23,
+      "matched": "memory/shared/topic_index.json",
+      "context": "_archived — 미사용.",
+      "category": "path",
+      "mtopicAction": "agnostic",
+      "reason": "_archived 디렉토리(런타임 무관). 분기 불요."
+    },
+    {
+      "file": "scripts/_archived/build-report.ts",
+      "line": 20,
+      "matched": "memory/shared/topic_index.json",
+      "context": "_archived — 미사용.",
+      "category": "path",
+      "mtopicAction": "agnostic",
+      "reason": "_archived. 분기 불요."
+    },
+    {
+      "file": "scripts/_archived/generate-dashboard.ts",
+      "line": 198,
+      "matched": "memory/shared/topic_index.json",
+      "context": "_archived — 미사용.",
+      "category": "path",
+      "mtopicAction": "agnostic",
+      "reason": "_archived. 분기 불요."
+    },
+    {
+      "file": "scripts/_archived/generate-dashboard.ts",
+      "line": 127,
+      "matched": "topics/topic_001 (주석)",
+      "context": "주석 예시. _archived.",
+      "category": "comment",
+      "mtopicAction": "agnostic",
+      "reason": "주석. _archived."
+    },
+    {
+      "file": "scripts/_archived/run-debate.ts",
+      "line": 50,
+      "matched": "`topics/${topicId}`",
+      "context": "_archived legacy fallback.",
+      "category": "path",
+      "mtopicAction": "agnostic",
+      "reason": "_archived. 분기 불요."
+    },
+    {
+      "file": "src/types/index.ts",
+      "line": 200,
+      "matched": "// e.g. \"topics/topic_001\"",
+      "context": "controlPath 필드 JSDoc 예시 주석.",
+      "category": "comment",
+      "mtopicAction": "agnostic",
+      "reason": "주석 예시. mtopic_NNN도 동일 controlPath 필드 사용 가능."
+    },
+    {
+      "file": "src/types/index.ts",
+      "line": 261,
+      "matched": "// topic: topic_003 (주석)",
+      "context": "frontmatter 예시 주석.",
+      "category": "comment",
+      "mtopicAction": "agnostic",
+      "reason": "주석."
+    },
+    {
+      "file": "app/js/nav.js",
+      "line": 144,
+      "matched": "/^topic_(\\d+)/",
+      "context": "최신 topicId 추출 — sidebar pill용 maxN 계산.",
+      "category": "regex",
+      "mtopicAction": "needs-branch",
+      "reason": "topic_index에서 최신 추출. mtopic도 별도 maxN 추출하거나 통합 표시할지 정책 결정 후 분기. 평면 분리(Arki rev1) 채택 시 mtopic용 별도 fetch+regex 추가."
+    },
+    {
+      "file": "app/js/nav.js",
+      "line": 211,
+      "matched": "/^topic_(\\d+)([a-z]*)$/i",
+      "context": "compareTopicIdDesc — sidebar 정렬 비교 함수.",
+      "category": "regex",
+      "mtopicAction": "needs-branch",
+      "reason": "정렬 함수. mtopic도 동일 정렬 패턴 필요 → mtopic regex 분기 또는 prefix 무시 정렬 일반화."
+    },
+    {
+      "file": "app/js/data-loader.js",
+      "line": 74,
+      "matched": "memory/shared/topic_index.json",
+      "context": "viewer fetchJSON fallback.",
+      "category": "path",
+      "mtopicAction": "needs-branch",
+      "reason": "viewer 데이터 로더. mtopic_index.json 별도 fetch 분기 또는 통합 manifest."
+    },
+    {
+      "file": "app/index.html",
+      "line": 232,
+      "matched": "/^topic_(\\d+)/",
+      "context": "Hero hero-number — 최신 토픽 ID 산출.",
+      "category": "regex",
+      "mtopicAction": "needs-branch",
+      "reason": "최신 토픽 ID = max(topic_NNN). mtopic 포함/제외 정책 결정 후 분기. (제외가 자연스러움 — 운영 메인 라인 표시.)"
+    },
+    {
+      "file": "app/decisions.html",
+      "line": 129,
+      "matched": "/^topic_\\d+$/.test(topicId)",
+      "context": "decision row의 topicLink 생성 — 'topic_NNN' 포맷 검증 후 anchor 생성.",
+      "category": "regex",
+      "mtopicAction": "needs-branch",
+      "reason": "owningTopicId가 mtopic_NNN이어도 topic.html?id=mtopic_... anchor 만들어야 함. regex를 /^(m)?topic_\\d+$/ 또는 OR 분기."
+    },
+    {
+      "file": "app/decisions.html",
+      "line": 148,
+      "matched": "/^topic_\\d+$/.test(topicId)",
+      "context": "동일 — dec-body 안 anchor link.",
+      "category": "regex",
+      "mtopicAction": "needs-branch",
+      "reason": "동일."
+    },
+    {
+      "file": ".claude/hooks/post-tool-use-task.js",
+      "line": 290,
+      "matched": "SPIKE-R6 START — race detection instrumentation (topic_176, ...)",
+      "context": "spike 임시 박제 마커 + spikeLog 함수 + 5개 호출 지점.",
+      "category": "literal",
+      "mtopicAction": "topic-only",
+      "reason": "spike-only(SPIKE_R6_LOG env 미설정 시 no-op). PD에 cleanup 대상 명시."
+    },
+    {
+      "file": ".claude/hooks/pre-tool-use-task.js",
+      "line": 457,
+      "matched": "v3 (topic_127, ...)",
+      "context": "context header literal — pre-tool-use-task가 dispatch-context block 첫 줄에 박는 라벨.",
+      "category": "literal",
+      "mtopicAction": "agnostic",
+      "reason": "버전 라벨. id shape 무관."
+    }
+  ],
+  "spikeR6Markers": {
+    "file": ".claude/hooks/post-tool-use-task.js",
+    "rangeStart": 290,
+    "rangeEnd": 307,
+    "callsites": [311, 345, 348, 369, 372, 375],
+    "note": "마커 사이 17줄(290~307) + 6개 호출 지점. SPIKE_R6_LOG env 미설정 시 no-op 검증 완료(reports/2026-05-07_topic_176_spike/dev_rev1.md). cleanup: 마커 블록 제거 + spikeLog() 호출 6개 제거."
+  },
+  "summary": {
+    "totalEntries": 34,
+    "byCategory": {
+      "regex": 6,
+      "path": 18,
+      "literal": 5,
+      "comment": 3,
+      "startsWith": 0
+    },
+    "byMtopicAction": {
+      "needs-branch": 19,
+      "topic-only": 8,
+      "agnostic": 7
+    },
+    "hotFiles": [
+      { "file": "scripts/lib/topic-resolver.ts", "needsBranchHits": 2 },
+      { "file": "scripts/lib/topic-status.ts", "needsBranchHits": 2 },
+      { "file": "scripts/create-topic.ts", "needsBranchHits": 5 },
+      { "file": "app/js/nav.js", "needsBranchHits": 2 },
+      { "file": "app/decisions.html", "needsBranchHits": 2 }
+    ]
+  },
+  "scopeCaveat": [
+    "memory/shared/decision_ledger.json·topic_index.json·session_index.json 등 데이터 파일은 entry 제외(코드 레이어가 read·write할 때만 분기 대상).",
+    "topics/topic_NNN/* JSDoc 주석에 출처 라벨로 박힌 topic_NNN, session_NNN 문자열은 코드 동작 영향 0 → 제외.",
+    "tests/topic-status-finalize-r6.test.ts의 'topic_127'·'topic_999'는 fixture id literal — 테스트라 mtopic 무관. agnostic.",
+    "_archived/* 는 런타임 import path 없음 확인 → agnostic."
+  ]
+}

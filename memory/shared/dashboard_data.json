@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-07T03:56:48.857Z",
-  "totalSessions": 202,
+  "generatedAt": "2026-05-07T12:40:11.774Z",
+  "totalSessions": 203,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [
     {
@@ -8,25 +8,25 @@
       "caveat": "rules.edi가 hook에 의해 read되지 않으므로 정책 토글 기능 0(예: enforcement_grade 변경으로 enforcement 끄기 불가). 향후 D-138 enforcement 폐기 결정 시 finalize.js line 1521 직접 삭제 + rules.edi.enforcement_note 갱신 필요. Riki R-2(session_164 5 gap false positive 의심)는 미해소 — PD로 이연.",
       "ackedBySession": "session_168",
       "ackedAt": "2026-05-02",
-      "ageInSessions": 38
+      "ageInSessions": 39
     },
     {
       "decisionId": "D-138",
       "caveat": "dispatch_config.json Edi rule 부재는 잔존 — pre-tool-use-task.js가 dispatch_config를 실제 enforce하는 hook 구현 후 rule 추가 순서 유지 필요. turns 중복 기록 패턴(이번 세션 turns[1]/[3])은 별도 점검 후보.",
       "ackedBySession": "session_168",
       "ackedAt": "2026-05-02",
-      "ageInSessions": 38
+      "ageInSessions": 39
     }
   ],
   "metrics": {
-    "avgMasterTurns": 20.49,
-    "avgCacheHitRate": 0.9329,
-    "cacheSampleSize": 173,
-    "cacheSampleTotal": 202,
+    "avgMasterTurns": 20.45,
+    "avgCacheHitRate": 0.9326,
+    "cacheSampleSize": 174,
+    "cacheSampleTotal": 203,
     "avgAdoptionRate": 0,
     "totalDecisions": 170,
     "gradeDistribution": {
-      "S": 95,
+      "S": 96,
       "A": 41,
       "B": 42,
       "C": 15,
@@ -56,10 +56,10 @@
       "session_203"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 156,
-    "totalCostUSD": 2371.2087,
-    "avgCostPerSession": 12.2227,
-    "costSampleSize": 194
+    "turnBasedSessions": 157,
+    "totalCostUSD": 2381.8,
+    "avgCostPerSession": 12.2144,
+    "costSampleSize": 195
   },
   "sessions": [
     {
@@ -7692,8 +7692,8 @@
       ],
       "rolesCalled": 9,
       "rolesRecalled": 1,
-      "sessionsSpanned": 2,
-      "size": 19,
+      "sessionsSpanned": 3,
+      "size": 22,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -7739,8 +7739,8 @@
       ],
       "rolesCalled": 7,
       "rolesRecalled": 2,
-      "sessionsSpanned": 2,
-      "size": 25,
+      "sessionsSpanned": 3,
+      "size": 28,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -7767,6 +7767,45 @@
         "messageCount": 85
       },
       "sessionCostUSD": 5.7696
+    },
+    {
+      "sessionId": "session_207",
+      "topicSlug": "parallel-topic-session-design",
+      "topic": "병렬 토픽 및 세션 구조 설계 — G안 구현",
+      "startedAt": "2026-05-07T04:30:00.000Z",
+      "closedAt": "2026-05-07T12:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 7,
+      "rolesRecalled": 2,
+      "sessionsSpanned": 3,
+      "size": 20,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 12,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "dev",
+        "riki",
+        "arki",
+        "dev",
+        "zero",
+        "zero",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 13037096,
+        "ioTokens": 127888,
+        "inputTokens": 1408,
+        "outputTokens": 126480,
+        "cacheCreate": 1396262,
+        "cacheRead": 11512946,
+        "cacheHitRate": 0.8830912957916395,
+        "messageCount": 104
+      },
+      "sessionCostUSD": 10.5913
     }
   ],
   "roleFrequency": [
@@ -7870,7 +7909,7 @@
     },
     {
       "role": "edi",
-      "count": 171,
+      "count": 172,
       "sessions": [
         "session_050",
         "session_051",
@@ -8024,12 +8063,13 @@
         "session_202",
         "session_204",
         "session_205",
-        "session_206"
+        "session_206",
+        "session_207"
       ]
     },
     {
       "role": "arki",
-      "count": 147,
+      "count": 148,
       "sessions": [
         "session_048",
         "session_049",
@@ -8113,12 +8153,13 @@
         "session_202",
         "session_204",
         "session_205",
-        "session_206"
+        "session_206",
+        "session_207"
       ]
     },
     {
       "role": "dev",
-      "count": 112,
+      "count": 114,
       "sessions": [
         "session_047",
         "session_048",
@@ -8209,12 +8250,13 @@
         "session_197",
         "session_199",
         "session_205",
-        "session_206"
+        "session_206",
+        "session_207"
       ]
     },
     {
       "role": "riki",
-      "count": 109,
+      "count": 110,
       "sessions": [
         "session_049",
         "session_053",
@@ -8297,12 +8339,13 @@
         "session_202",
         "session_204",
         "session_205",
-        "session_206"
+        "session_206",
+        "session_207"
       ]
     },
     {
       "role": "zero",
-      "count": 30,
+      "count": 32,
       "sessions": [
         "session_153",
         "session_175",
@@ -8322,7 +8365,8 @@
         "session_200",
         "session_201",
         "session_202",
-        "session_204"
+        "session_204",
+        "session_207"
       ]
     },
     {
@@ -14276,6 +14320,54 @@
         {
           "role": "edi",
           "phase": "compile",
+          "turnIdx": 6,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_207",
+      "topic": "병렬 토픽 및 세션 구조 설계 — G안 구현",
+      "sequence": [
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
           "turnIdx": 6,
           "recallReason": null
         }
