@@ -1420,6 +1420,18 @@
       "source": "hook",
       "feedback": "Grade S 세션 session_205에서 Edi LLM 미호출 — mechanical fallback(edi_auto_rev1.md) 박제됨. role-edi.md §6.4 검토 필요.",
       "status": "pending"
+    },
+    {
+      "id": "MF-AUTO-session_206-edi",
+      "date": "2026-05-07",
+      "session": "session_206",
+      "sessionId": "session_206",
+      "topic": "topic_176",
+      "type": "edi-llm-skipped",
+      "severity": "high",
+      "source": "hook",
+      "feedback": "Grade S 세션 session_206에서 Edi LLM 미호출 — mechanical fallback(edi_auto_rev1.md) 박제됨. role-edi.md §6.4 검토 필요.",
+      "status": "pending"
     }
   ],
   "statusValues": [

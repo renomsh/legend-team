@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_205",
-  "nextSessionId": "session_206",
+  "lastSessionId": "session_206",
+  "nextSessionId": "session_207",
   "currentVersion": "v0.958",
   "openTopics": [
     {
@@ -20,37 +20,49 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-169",
+      "date": "2026-05-07",
+      "axis": "현 세션 framing 종결, 구현은 다음 세션 위임",
+      "summary": "현 세션 framing 종결, 구현은 다음 세션 위임"
+    },
+    {
+      "id": "D-168",
+      "date": "2026-05-07",
+      "axis": "Arki rev1 plan 단순화 — P3(lock 인프라) 삭제, N=1 fallback 폐기",
+      "summary": "Arki rev1 plan 단순화 — P3(lock 인프라) 삭제, N=1 fallback 폐기"
+    },
+    {
+      "id": "D-167",
+      "date": "2026-05-07",
+      "axis": "병렬 토픽 명명 = mtopic_NNN 독립 카운터 namespace",
+      "summary": "병렬 토픽 명명 = mtopic_NNN 독립 카운터 namespace"
+    },
+    {
+      "id": "D-166",
+      "date": "2026-05-07",
+      "axis": "G안 채택 — 단일 프로세스 + Task 병렬 + append-only JSONL turns push (file-lock 폐기)",
+      "summary": "G안 채택 — 단일 프로세스 + Task 병렬 + append-only JSONL turns push (file-lock 폐기)"
+    },
+    {
       "id": "D-165",
       "date": "2026-05-05",
       "axis": "close.md G3(master_feedback_log Read 금지)+G4(role_memory append-only) 박제 + lessonLog 일괄 초기화",
       "summary": "close.md G3(master_feedback_log Read 금지)+G4(role_memory append-only) 박제 + lessonLog 일괄 초기화"
-    },
-    {
-      "id": "D-164",
-      "date": "2026-05-05",
-      "axis": "close.md 토큰 절감 3항목 — G5(session_index 금지)+G2(topic_index 스크립트 전환)+G1(ledger 스냅샷+escape hatch)+status SOT 7종 동기화",
-      "summary": "close.md 토큰 절감 3항목 — G5(session_index 금지)+G2(topic_index 스크립트 전환)+G1(ledger 스냅샷+escape hatch)+status SOT 7종 동기화"
-    },
-    {
-      "id": "D-163",
-      "date": "2026-05-05",
-      "axis": "Growth 대시보드 L1 축 재정의 — learning(empty) → quality",
-      "summary": "Growth 대시보드 L1 축 재정의 — learning(empty) → quality"
-    },
-    {
-      "id": "D-162",
-      "date": "2026-05-05",
-      "axis": "PD-064 결함 3건+G2 수정 — Riki 축소안 채택",
-      "summary": "PD-064 결함 3건+G2 수정 — Riki 축소안 채택"
-    },
-    {
-      "id": "D-161",
-      "date": "2026-05-05",
-      "axis": "Self-Score weight 필드 폐기 — 사용처 0 dead field",
-      "summary": "Self-Score weight 필드 폐기 — 사용처 0 dead field"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_206",
+      "topicSlug": "parallel-topic-session-design",
+      "closedAt": "2026-05-07T04:00:00.000Z",
+      "oneLineSummary": "topic_176 G안 채택(append-only JSONL+mtopic_NNN), spike R-6 race 양성 → lock-free 가정 폐기, 구현 다음 세션 위임 (D-166~D-169 박제)",
+      "decisionsAdded": [
+        "D-166",
+        "D-167",
+        "D-168",
+        "D-169"
+      ]
+    },
     {
       "sessionId": "session_205",
       "topicSlug": "parallel-topic-session-design",
@@ -69,13 +81,6 @@
         "D-169",
         "D-170"
       ]
-    },
-    {
-      "sessionId": "session_203",
-      "topicSlug": "auto-push-log-conflict",
-      "closedAt": "2026-05-06T11:00:00.000Z",
-      "oneLineSummary": "auto-push logs/app.log 머지 충돌 버그 수정 (Grade D, 최소 세션)",
-      "decisionsAdded": []
     }
   ],
   "pendingDeferrals": [
@@ -95,5 +100,5 @@
       "relatedTopic": "topic_144"
     }
   ],
-  "lastUpdated": "2026-05-06T23:15:34.430Z"
+  "lastUpdated": "2026-05-07T03:56:42.412Z"
 }

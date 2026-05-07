@@ -287,8 +287,28 @@ function log(msg) {
   console.error(`[post-tool-use-task] ${msg}`);
 }
 
+// SPIKE-R6 START — race detection instrumentation (topic_176, 2026-05-07)
+// 환경변수 SPIKE_R6_LOG=<경로> 설정 시 hook 진입/turns read/turns write 3 시점을
+// JSONL append. 운영 시 미설정 → no-op. spike 종료 후 본 블록 제거 가능.
+function spikeLog(phase, extra = {}) {
+  const logPath = process.env.SPIKE_R6_LOG;
+  if (!logPath) return;
+  try {
+    const entry = {
+      ts: process.hrtime.bigint().toString(),
+      iso: new Date().toISOString(),
+      pid: process.pid,
+      phase,
+      ...extra,
+    };
+    fs.appendFileSync(logPath, JSON.stringify(entry) + '\n', 'utf8');
+  } catch {}
+}
+// SPIKE-R6 END
+
 (async () => {
   try {
+    spikeLog('hook-entry'); // SPIKE-R6
     const raw = await readStdin();
     const input = safeParseJson(raw) || {};
     const toolName = input.tool_name || input.toolName || '';
@@ -322,8 +342,10 @@ function log(msg) {
       process.exit(0);
     }
 
+    spikeLog('turns-read-before', { sessionPath: currentSessionPath }); // SPIKE-R6
     const turns = Array.isArray(sess.turns) ? sess.turns : [];
     const turnIdx = turns.length;
+    spikeLog('turns-read-after', { turnsLen: turns.length, plannedTurnIdx: turnIdx }); // SPIKE-R6
     const newTurn = {
       role,
       turnIdx,
@@ -344,10 +366,13 @@ function log(msg) {
     turns.push(newTurn);
     sess.turns = turns;
 
+    spikeLog('turns-write-before', { turnIdx, role }); // SPIKE-R6
     if (writeJsonFile(currentSessionPath, sess)) {
       log(`turn push: role=${role} turnIdx=${turnIdx}`);
+      spikeLog('turns-write-after', { turnIdx, role, ok: true }); // SPIKE-R6
     } else {
       log('current_session.json write 실패, silent pass');
+      spikeLog('turns-write-after', { turnIdx, role, ok: false }); // SPIKE-R6
     }
 
     // Asset #3 (Arki rev4 Sec 2.2) — turn_log.jsonl 자동 append

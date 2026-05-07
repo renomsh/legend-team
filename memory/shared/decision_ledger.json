@@ -2510,6 +2510,81 @@
         "memory/roles/dev_memory.json"
       ],
       "status": "active"
+    },
+    {
+      "id": "D-166",
+      "date": "2026-05-07",
+      "session": "session_206",
+      "topic": "topic_176",
+      "axis": "G안 채택 — 단일 프로세스 + Task 병렬 + append-only JSONL turns push (file-lock 폐기)",
+      "summary": "spike R-6 결과 S4(적대적 10개→5 손실)·S5(외부 write→1 손실) race 양성으로 자연 직렬화 가정 반증. file-lock 대신 turns push를 turns_append.jsonl 별도 파일 1줄 append로 전환, 세션 종료 시 finalize가 합산하여 current_session.json + session_index.json 갱신. append는 race 자체 없음. S1·S2·S3(2/5/계단식)는 race 0, 실제 in-session N=2(Arki+Riki 병렬) 정상 → 일반 사용은 안전, 부하·외부 충돌만 위험.",
+      "decision": "G안 채택 + append-only 구조. lock·N=1 fallback 폐기.",
+      "caveats": [
+        "실제 in-session N≥5 미검증 — Master 비용 인식으로 추가 spike 생략",
+        "spike 결과는 인위적 child_process.spawn 조건 — Claude Code 본체 dispatch 모델은 미공개",
+        "임시 spike 박제(post-tool-use-task.js SPIKE-R6 마커) 다음 세션 cleanup 필요"
+      ],
+      "relatedDecisions": [],
+      "relatedFiles": [
+        "scripts/spike-r6-task-race.ts",
+        "reports/2026-05-07_topic_176_spike/spike_results.json",
+        ".claude/hooks/post-tool-use-task.js"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "D-167",
+      "date": "2026-05-07",
+      "session": "session_206",
+      "topic": "topic_176",
+      "axis": "병렬 토픽 명명 = mtopic_NNN 독립 카운터 namespace",
+      "summary": "topic_NNN과 평면 분리, 부모-자식 관계 없음. mtopic_001부터 독립 일련번호. D-NNN 박제 시 topicId 또는 mtopicId 단일 귀속(FK 분리). Master 원안 Topic_N-NNN(대문자+N-NNN)은 Arki 권고로 기각 — Windows NTFS 일관성·정규식 분기 명확성 사유. mtopic_NNN 단순 형태 채택.",
+      "decision": "mtopic_NNN 독립 namespace, mtopic_index.json + mtopic_counter.json 신규 자료 구조.",
+      "caveats": [
+        "mtopic 첫 발급(mtopic_001) = 준-비가역 D-day — D-NNN·세션 로그 영구 잔존",
+        "발급 시점은 다음 세션 P5에서 Master 명시 승인 필수"
+      ],
+      "relatedDecisions": [
+        "D-166"
+      ],
+      "relatedFiles": [],
+      "status": "active"
+    },
+    {
+      "id": "D-168",
+      "date": "2026-05-07",
+      "session": "session_206",
+      "topic": "topic_176",
+      "axis": "Arki rev1 plan 단순화 — P3(lock 인프라) 삭제, N=1 fallback 폐기",
+      "summary": "append-only 채택으로 lock 의존 자연 해소. 잔여 Phase: P0(grep 조사) → P4(append-only 전환 + mtopic counter + grep 분기) → P5(mtopic_001 발급, Master 승인) → P6(운영 모니터). 자가감사 MUST_NOW 6건 중 lock 관련 4건 무효화, 잔여 2건만 다음 세션 검토.",
+      "decision": "Arki rev2는 다음 세션 박제. 본 결정으로 plan 단순화 확정.",
+      "caveats": [
+        "append-only 구조 자체의 새 리스크(finalize jsonl 합산 race-free 여부 등)는 다음 세션 Riki 1차 검토 필요"
+      ],
+      "relatedDecisions": [
+        "D-166"
+      ],
+      "relatedFiles": [
+        "reports/2026-05-07_topic_176_arki/arki_rev1.md"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "D-169",
+      "date": "2026-05-07",
+      "session": "session_206",
+      "topic": "topic_176",
+      "axis": "현 세션 framing 종결, 구현은 다음 세션 위임",
+      "summary": "부분 구현 0 → silent corruption 위험 0 (R-D-15 미발생). 결정만 ledger 박제, 다음 세션에서 P0~P6 실행. 임시 spike 박제(SPIKE-R6 마커) 동반 cleanup.",
+      "decision": "topic_176 status = design-approved, 다음 세션 재오픈 시 implementing 진입.",
+      "caveats": [],
+      "relatedDecisions": [
+        "D-166",
+        "D-167",
+        "D-168"
+      ],
+      "relatedFiles": [],
+      "status": "active"
     }
   ],
   "lastUpdated": "2026-05-05T06:05:00.000Z"
