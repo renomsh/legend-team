@@ -2585,7 +2585,113 @@
       ],
       "relatedFiles": [],
       "status": "active"
+    },
+    {
+      "id": "D-170",
+      "date": "2026-05-07",
+      "session": "session_208",
+      "topic": "topic_176",
+      "axis": "토픽 운영 유형 enum 추가 — structured(default) / discussion. Grade와 직교, 별도 명령어로 세션 중 전환 가능",
+      "summary": "Master frame '자유 주제일수록 anchoring 편향 강해진다' 채택. 토픽 속성에 운영 유형 enum 1개 추가. default=structured(현재 모든 토픽 호환). discussion 진입은 별도 명령어(명칭 추후, 후보 /discussion·/parallel). 세션 중 전환 가능, 가역. Grade(난이도·성격) 축과 직교 유지 — Grade S/A 모두 양 유형 가능. Jobs rev1 결정축 (1)(2)(4) 통합 해소. 결정축 (3) 격리 강도는 후속 결정.",
+      "decision": "topic_index.json 스키마에 operationMode enum 추가, default 'structured'. 전환 명령어와 격리 강도(prompt prepend만 vs role memory까지)는 Riki 감사 + Ace synthesis 후 별도 박제.",
+      "caveats": [
+        "명령어 명칭·5단계 prompt 형식 정밀화는 메커니즘 결정 후 (Jobs OUT 5·6과 정합)",
+        "격리 강도(결정축 3)는 본 결정에 포함되지 않음 — 후속 결정 의무",
+        "Case A(PD-065 mtopic_NNN 다중 인스턴스)는 본 결정과 직교 — 별도 trajectory"
+      ],
+      "relatedDecisions": [
+        "D-130",
+        "D-074"
+      ],
+      "relatedFiles": [
+        "reports/2026-05-07_topic_176_jobs/jobs_rev1.md",
+        "reports/2026-05-07_topic_176_arki/arki_rev3.md",
+        "reports/2026-05-07_topic_176_riki/riki_rev1.md",
+        "reports/2026-05-07_topic_176_ace/ace_rev1.md"
+      ],
+      "status": "active",
+      "amendments": [
+        {
+          "id": "D-170-A2",
+          "date": "2026-05-07",
+          "session": "session_208",
+          "axis": "토론형 (5)종합 단계 = Edi 단일 호출 (Ace synthesis 호출 X, 양립 의견 보존)",
+          "rule": "discussion operationMode 토픽의 (5)종합 단계는 Edi 단일 호출로 박제. Ace `/ace-synthesis`는 토론형에서 호출하지 않는다 — Ace 단일 권고 강제는 양립 의견을 하나로 합치는 위험이 있어 토론형 frame 본질(다양한 시각 박제)과 충돌.",
+          "scope": "토론형 토픽 한정. structured 토픽의 Ace synthesis 호출 정책은 변경 없음(D-130 기존).",
+          "verbatim": "5단계는 Edi 단일 호출로 해보자. 에이스 종합결론으로 가면 양립된 의견도 하나로 합칠테니",
+          "rationale": "Master 통찰 — Ace는 단일 최적해 도출 의무(D-130, ace-synthesis SKILL.md '절충안 금지'). 토론형 본질(양립 보존)과 정면 충돌. Edi는 박제만 수행, 합치지 않음. Jobs OUT 5번 IN 이동 + Jobs OUT 4번(Ace synthesis 호출 정책) 토론형 한정 정정.",
+          "supersededBy": null
+        },
+        {
+          "id": "D-170-A1",
+          "date": "2026-05-07",
+          "session": "session_208",
+          "axis": "운영 정책 공백 3 sub-축 박제 (Riki R-1·R-2·R-4 + Ace M2 권고)",
+          "subAxes": {
+            "a_blindIsolation": {
+              "rule": "blind 단계 박제 turn은 해당 phase 동안 다른 dispatch에 prompt prepend 차단. open/debate phase 진입 시 일괄 공개(prepend 재개) → 서로 본문 보면서 토론. structured 복귀 또는 phase 변경 시에는 평소 정책 따름.",
+              "rationale": "Master 정정 흡수: 격리는 phase 한정, 영구 아님. blind 의미(서로 못 봄)는 단계 한정 보존, 이후 토론은 정상 진행."
+            },
+            "b_priorityMatrix": {
+              "rule": "phase > operationMode > grade",
+              "examples": {
+                "blind-parallel + discussion + grade A": "병렬 dispatch (phase 우선, grade 순차 정책 무력화)",
+                "framing + discussion + grade A": "Jobs framing 정책 우선 (phase=framing)",
+                "open + discussion + grade A": "grade 순서 + 전체 prepend",
+                "any + structured + any": "grade 순서 (현 default)"
+              }
+            },
+            "c_isolationDefault": {
+              "rule": "Jobs 결정축 (3) 후속 결정 전까지 임시 default = prompt prepend 차단만 (A극)",
+              "rationale": "role memory 격리는 구현 복잡도·persona 학습 영향. prepend 차단만으로도 LLM 컨텍스트 제외 효과 충분. 후속 결정에서 강도 상향 가능, 하향은 마찰."
+            },
+            "d_convergenceDebate": {
+              "rule": "토론형 5단계 (4) 수렴 토론 phase는 의견 수렴까지 N round 반복. Nexus가 매 round 발언자 분배. Master는 anytime interrupt 가능. 종료 조건 = (i) 의견 수렴 Nexus 판정 또는 (ii) Master 선언.",
+              "structure": "(1) framing → (2) blind 동시 제출 → (3) 공개 → (4) 수렴 토론(N round, Nexus 발언 분배) → (5) 종합",
+              "resolvedSubPolicies": {
+                "roundLimit": "상한 없음 — Nexus 자율 진행. 단 진전 정체·수렴 어려움 인지 시 Master에게 질의 (continue / 양립 박제 / 강제 종료 중 선택).",
+                "speakerDispatch": "Nexus 자율 — round별 상황 판단 (반대 강도·미발언·핵심 쟁점 등 상황 적응).",
+                "convergenceJudgment": "(a)+(c) 혼합 — Nexus 자연어 판정으로 수렴 시 종료. 수렴 어려움 인지 시 Master에게 질의 → Master 답변에 따라 추가 round / 양립 박제 / 종료. Master interrupt anytime 유지."
+              },
+              "rationale": "Master 정정 흡수 — 토론 단발 아닌 수렴까지 반복. Nexus 분배 = 발언 권한 단일 출처. Master interrupt = 자율 운영 + 통제권 유지."
+            }
+          },
+          "verbatim": [
+            "1-3동의하고 각자 발언하고 나서는 서로 내용을 보면서 토론을 해야지. b는 OK / c는 default = prompt prepend 차단만",
+            "공개하고 나서 한번만 이야기하는게 아니라 서로 의견이 좁혀질때까지 이야기를 주고 받는거야. 토론형태가 끝나는게 아니라. 발언권은 Nexus가 분배할꺼고. 나는 언제든 끼어들고 싶을때 끼어들테니. 너희끼리 의견을 맞춰보라는 거야."
+          ],
+          "supersededBy": null
+        }
+      ]
+    },
+    {
+      "id": "D-171",
+      "date": "2026-05-07",
+      "session": "session_208",
+      "topic": "topic_176",
+      "axis": "Case B Phase 진입 게이트 강제 (M3+M4 통합) — Arki rev4 spc_lck=Y + PD-066 resolved 3건 코드 박제",
+      "summary": "Ace synthesis M3+M4 권고 채택. Phase P0(D-NNN 박제) 진입 전 다음 3건 모두 충족 강제: (1) D-170-A1·A2 박제 완료(M2·M5), (2) Arki rev4 spc_lck=Y(M3 통합 11건 — Riki R-3·R-7·R-8 + Arki MUST_NOW 6건 + R-5 옵션B 병행 spike), (3) PD-066 resolved(Nexus crash recovery 복구 코드). warn-only 아님 — 코드 박제 게이트.",
+      "decision": "Arki rev4 dispatch → spc_lck=Y → PD-066 신설+resolved → Phase 진입 게이트 코드 박제 → P0 진입.",
+      "caveats": [
+        "PD-066 미해결 시 turnPushMode='hook' fallback 자동 박제 (legacy 동작 보존, race risk 잔존)",
+        "M3-(ii)·(iii)는 D-170-A1 sub-axis (d) 박제로 부분 자동 해소 — Arki rev4 부담 일부 경감",
+        "P1 spike는 옵션 A·B 동시 검증 의무 (R-3·R-5). marker fallback 폐기 (D1 vector 차단)",
+        "Phase 진입 게이트 코드 박제 위치는 Arki rev4에서 명시 (finalize hook 또는 별도 validator)"
+      ],
+      "relatedDecisions": [
+        "D-166",
+        "D-167",
+        "D-168",
+        "D-169",
+        "D-170"
+      ],
+      "relatedFiles": [
+        "reports/2026-05-07_topic_176_arki/arki_rev3.md",
+        "reports/2026-05-07_topic_176_riki/riki_rev1.md",
+        "reports/2026-05-07_topic_176_ace/ace_rev1.md"
+      ],
+      "status": "active"
     }
   ],
-  "lastUpdated": "2026-05-05T06:05:00.000Z"
+  "lastUpdated": "2026-05-07T16:00:00.000Z"
 }

@@ -170,6 +170,10 @@
     {
       "session": "session_198",
       "learning": "macOS hook 감사에서 shell:isWin 패턴 7곳 실코드 확인. 무음 실패가 세션 기록 오염으로 전파되는 경로를 구체적으로 추적한 사례. 코드 직접 감사가 추측보다 우선."
+    },
+    {
+      "session": "session_208",
+      "learning": "Jobs Focus(saying no) 강도가 강하면 frame 본질 직결 항목까지 OUT으로 잘리는 risk. R-7(blind 영역 모호)·R-8((4)반박 형식 미박제)는 토론형 frame 가치 직접 결정 — Jobs OUT 박제는 saying no 과도. 해법: OUT 항목 중 frame 본질 vs 정밀화 구분 → 본질은 IN 강제, 정밀화만 OUT 유지. fallback fallback 검토 시 D1 vector(prompt marker injection) 추가 발견 — fallback도 적대적 감사 대상. 'fallback이니 안전' 가정 금지."
     }
   ]
 }

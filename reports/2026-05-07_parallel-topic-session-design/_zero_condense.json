@@ -1,14 +1,29 @@
 {
-  "sessionId": "session_207",
+  "sessionId": "session_208",
   "topicId": "topic_176",
-  "completedAt": "2026-05-07T12:00:00.000Z",
+  "completedAt": "2026-05-08T02:01:48.464Z",
   "files": [
     "condensed.md"
   ],
-  "sourceReports": [
-    "riki_rev2",
-    "arki_rev2",
-    "grep_topic_hardcode_summary",
-    "spike_p1_appendfile_atomic_summary"
+  "refinedRoles": [
+    "arki",
+    "jobs",
+    "riki",
+    "ace"
+  ],
+  "skippedRoles": [],
+  "verbatimPreserved": true,
+  "prsv": "Y",
+  "masterVerbatimCount": 6,
+  "decisionVerbatimCount": 4,
+  "redundancyReduction": 0.55,
+  "ds_qly": 0.95,
+  "tampering": "none",
+  "sourcesCompressed": [
+    "arki_rev3",
+    "jobs_rev1",
+    "riki_rev1",
+    "ace_rev1",
+    "arki_rev4"
   ]
 }

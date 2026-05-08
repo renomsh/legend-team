@@ -254,6 +254,10 @@
     {
       "session": "session_198",
       "learning": "메모리 추정치는 추측 명시 필수. 64GB 목표는 최소 아닌 목표치 — Master 판단 시 이 차이가 중요. 비가역성 플래그는 결정 전 반드시 명시."
+    },
+    {
+      "session": "session_208",
+      "learning": "spc_lck=Y 패턴 — rev3 자가감사 MUST_NOW 6건 자가박제만으론 spc_lck=N 유지가 정상. 외부 감사(Riki R-1·R-2·R-3·R-7·R-8) + Master 결정 박제(D-170 amendment·D-170-A2·D-171) 흡수 후 rev4 통합 11건이 spc_lck=Y 진입 조건. 자가감사 단일 round로 spc_lck=Y 단언은 sunk cost·confirmation bias risk."
     }
   ],
   "selfAuditProtocol": {

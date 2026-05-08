@@ -9615,8 +9615,169 @@
       "note": "session_206 후속: D-166~D-169 박제, G안 채택 + append-only JSONL + mtopic_NNN 확정. | PD 인계: P0 grep 조사 → P4(append-only turns push + mtopic counter + grep 분기) → P5(mtopic_001 첫 발급, Master 명시 승인 필수) → P6(운영 모니터). Riki append-only 구조 1차 검토 추가 필요. | 임시 박제 cleanup 필요: post-tool-use-task.js SPIKE-R6 START/END 마커. | 이월 alert: session_206 versionBumpSuggested(0.01) Edi 미확정 — 다음 Edi 호출 시 검증·확정 필요(D-140). | context_brief 부재(topics/topic_176/): session_summary.md(reports/2026-05-07_parallel-topic-session-design)가 통찰 단일 출처. | Case A vs Case B 분리: mtopic_NNN/counter/공유 SOT 보호는 Case A → PD-065, append-only turns push만 Case B → 본 세션 plan rev2. | P1 spike Windows 47K line corrupt 0건/loss 0건 — atomicity 가정 통과. POSIX 후속 round 의무. | P2(post-tool-use-task append) + P3(finalize merge+fail-soft+archive) 다음 세션 분리 — Master 안전 명시. | apply-feedback.ts CLI failure (utils.ts:36 undefined id) — masterFeedback은 current_session.json 본문에 인라인 박제, master_feedback_log.json 자동 갱신은 escape hatch 필요.",
       "oneLineSummary": "topic_176 Case A/B 분리 frame 확립, P1 atomic spike PASS(47K line 0%), Arki rev2 Case B 한정 plan 박제, PD-065(Case A 분리) 신설, P2~P3 다음 세션 안전 분리",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_208",
+      "topicSlug": "parallel-topic-session-design",
+      "topic": "병렬 토픽 및 세션 구조 설계 — G안 구현",
+      "startedAt": "2026-05-07T14:30:00.000Z",
+      "closedAt": "2026-05-08T02:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\priceless-mestorf-e5be09",
+      "decisions": [
+        {
+          "phase": "framing",
+          "decision": "토픽 운영 유형 enum 추가 — structured(default)/discussion. Grade와 직교, 별도 명령어로 세션 중 전환 가능. 명령어 명칭·격리 강도는 후속 결정.",
+          "verbatim": "OK. 진행해",
+          "context": "Nexus 권고 (Grade=유형 결합 거부, 별도 명령어+세션 중 전환, 정책 골격은 지금 박제) → Master 'OK. 진행해' override.",
+          "ledgerId": "D-170"
+        },
+        {
+          "phase": "framing",
+          "decision": "M1 frame 본질 확정: 편향=본질, 시간=Case A 동시 토픽으로 trajectory.",
+          "verbatim": "맞아. 시간은 동시 토픽으로 해결할꺼야. 본질은 편향이야.",
+          "context": "Ace synthesis M1 권고에 대한 Master 답변. Jobs rev1 frame 본질 검증 통과."
+        },
+        {
+          "phase": "framing",
+          "decision": "M2 D-170 amendment 5번째 축 박제 — (a) blind 격리 phase 한정 / (b) phase>operationMode>grade / (c) 격리 강도 임시 default = prepend 차단만",
+          "verbatim": "1-3동의하고 각자 발언하고 나서는 서로 내용을 보면서 토론을 해야지. b는 OK / c는 default = prompt prepend 차단만",
+          "context": "Nexus M2 풀이 후 Master 정정: (a) 영구 차단 아닌 phase 한정. blind 후 open/debate 진입 시 일괄 공개 → 토론. (b)(c) Nexus 권고 그대로.",
+          "ledgerId": "D-170-A1"
+        },
+        {
+          "phase": "framing",
+          "decision": "(4) 수렴 토론 phase 정밀화 — N round 반복(의견 수렴까지) / Nexus 발언자 분배 / Master anytime interrupt / 종료 = 수렴 Nexus 판정 또는 Master 선언",
+          "verbatim": "공개하고 나서 한번만 이야기하는게 아니라 서로 의견이 좁혀질때까지 이야기를 주고 받는거야. 토론형태가 끝나는게 아니라. 발언권은 Nexus가 분배할꺼고. 나는 언제든 끼어들고 싶을때 끼어들테니. 너희끼리 의견을 맞춰보라는 거야.",
+          "context": "Nexus 가정(공개 후 1회 반박)의 정정. Jobs 5단계 (4) 형식 명시. R-8(반박 형식 미박제) 일부 자동 해소.",
+          "ledgerId": "D-170-A1 sub-axis (d)"
+        },
+        {
+          "phase": "framing",
+          "decision": "(d) sub-policy 3건 박제 — round 상한 없음 / 발언자 분배 Nexus 자율 / 수렴 판정 = Nexus 자연어 + 어려움 시 Master 질의(continue/양립/종료)",
+          "verbatim": "(a) 기준으로 하되, 의견이 좁혀지지 않는 것을 나에게 묻는 형태로. a와 c 혼합",
+          "context": "Q1·Q2·Q3 통합 답변. Nexus 자율 진행 + Master 선택지 제공형 escalation. 무한 루프 방지는 Nexus 인지·Master 질의로 보장.",
+          "ledgerId": "D-170-A1 sub-axis (d) resolvedSubPolicies"
+        },
+        {
+          "phase": "design",
+          "decision": "M5 — 토론형 (5)종합 = Edi 단일 호출. Ace synthesis 토론형에서 호출 X (양립 의견 보존, frame 본질 정합)",
+          "verbatim": "5단계는 Edi 단일 호출로 해보자. 에이스 종합결론으로 가면 양립된 의견도 하나로 합칠테니",
+          "context": "Master 통찰 — Ace 단일 권고 강제(D-130)가 토론형 양립 보존 frame과 충돌. Edi는 박제만 수행. Jobs OUT 4·5번 토론형 한정 정정.",
+          "ledgerId": "D-170-A2"
+        },
+        {
+          "phase": "design",
+          "decision": "M3+M4 — Case B Phase 진입 게이트 강제. Arki rev4 spc_lck=Y + PD-066 resolved + D-170 amendment 3건 코드 박제 후 P0 진입. warn-only 아님",
+          "verbatim": "M3 OK / M4 pd-066 resolved",
+          "context": "Ace synthesis 권고 일괄 채택. PD-066(Nexus crash recovery)은 fallback 아닌 resolved 강제 — 운영 무결성 우위.",
+          "ledgerId": "D-171"
+        }
+      ],
+      "agentsCompleted": [
+        "arki",
+        "jobs",
+        "riki",
+        "ace",
+        "arki",
+        "zero",
+        "zero",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "arki",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "aud_rcl": 1,
+            "str_fd": 5,
+            "spc_lck": "N",
+            "sa_rnd": 2
+          }
+        },
+        {
+          "role": "jobs",
+          "turnIdx": 1,
+          "source": "agent",
+          "selfScores": {
+            "focus_sharp": 5,
+            "bloat_idx": 1,
+            "bias_cnt": 5,
+            "no_cnt": 5
+          }
+        },
+        {
+          "role": "riki",
+          "turnIdx": 2,
+          "source": "agent",
+          "selfScores": {
+            "crt_rcl": 0.83,
+            "cr_val": "Y",
+            "prd_rej": "Y",
+            "fp_rt": 0
+          }
+        },
+        {
+          "role": "ace",
+          "turnIdx": 3,
+          "source": "agent",
+          "selfScores": {
+            "rfrm_trg": "Y",
+            "ctx_car": 5,
+            "mst_fr": 0,
+            "ang_nov": 4
+          }
+        },
+        {
+          "role": "arki",
+          "turnIdx": 4,
+          "source": "agent",
+          "selfScores": {
+            "aud_rcl": 1,
+            "str_fd": 5,
+            "spc_lck": "Y",
+            "sa_rnd": 3
+          }
+        },
+        {
+          "role": "zero",
+          "turnIdx": 5,
+          "source": "agent"
+        },
+        {
+          "role": "zero",
+          "turnIdx": 6,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 5,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 7,
+          "source": "agent",
+          "selfScores": {
+            "art_cmp": 1,
+            "gp_acc": 1,
+            "scc": "Y",
+            "cs_cnt": 5,
+            "gap_fc": 4
+          }
+        }
+      ],
+      "grade": "S",
+      "note": "session_207 인계: P2(post-tool-use append) + P3(finalize merge) 회귀 위험으로 별도 세션 분리 종결. | 다음 작업 후보: P-1 P2 구현 / P-2 P3 구현 / P-3 GATE β' 검증 / P-4 POSIX round / P-5 PD-065 신규 토픽 / P-6 D-166 보강 박제 / P-7 Arki rev2 MUST_NOW 5건 / P-8 GATE α' Riki cross-review.",
+      "oneLineSummary": "topic_176 토론형 frame 박제 — D-170/A1/A2/D-171 + Arki rev4 spc_lck=Y + PD-066 신설, 코드 박제 다음 세션 분리",
+      "decisionsAdded": [
+        "D-170",
+        "D-170-A1",
+        "D-170-A2",
+        "D-171"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-07T12:39:50.085Z",
+  "lastUpdated": "2026-05-08T02:10:54.481Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

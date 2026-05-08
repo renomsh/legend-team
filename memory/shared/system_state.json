@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_207",
-  "nextSessionId": "session_208",
-  "currentVersion": "v0.958",
+  "lastSessionId": "session_208",
+  "nextSessionId": "session_209",
+  "currentVersion": "v0.968",
   "openTopics": [
     {
       "id": "topic_175",
@@ -20,6 +20,18 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-171",
+      "date": "2026-05-07",
+      "axis": "Case B Phase 진입 게이트 강제 (M3+M4 통합) — Arki rev4 spc_lck=Y + PD-066 resolved 3건 코드 박제",
+      "summary": "Case B Phase 진입 게이트 강제 (M3+M4 통합) — Arki rev4 spc_lck=Y + PD-066 resolved 3건 코드 박제"
+    },
+    {
+      "id": "D-170",
+      "date": "2026-05-07",
+      "axis": "토픽 운영 유형 enum 추가 — structured(default) / discussion. Grade와 직교, 별도 명령어로 세션 중 전환 가능",
+      "summary": "토픽 운영 유형 enum 추가 — structured(default) / discussion. Grade와 직교, 별도 명령어로 세션 중 전환 가능"
+    },
+    {
       "id": "D-169",
       "date": "2026-05-07",
       "axis": "현 세션 framing 종결, 구현은 다음 세션 위임",
@@ -36,21 +48,21 @@
       "date": "2026-05-07",
       "axis": "병렬 토픽 명명 = mtopic_NNN 독립 카운터 namespace",
       "summary": "병렬 토픽 명명 = mtopic_NNN 독립 카운터 namespace"
-    },
-    {
-      "id": "D-166",
-      "date": "2026-05-07",
-      "axis": "G안 채택 — 단일 프로세스 + Task 병렬 + append-only JSONL turns push (file-lock 폐기)",
-      "summary": "G안 채택 — 단일 프로세스 + Task 병렬 + append-only JSONL turns push (file-lock 폐기)"
-    },
-    {
-      "id": "D-165",
-      "date": "2026-05-05",
-      "axis": "close.md G3(master_feedback_log Read 금지)+G4(role_memory append-only) 박제 + lessonLog 일괄 초기화",
-      "summary": "close.md G3(master_feedback_log Read 금지)+G4(role_memory append-only) 박제 + lessonLog 일괄 초기화"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_208",
+      "topicSlug": "parallel-topic-session-design",
+      "closedAt": "2026-05-08T02:00:00.000Z",
+      "oneLineSummary": "topic_176 토론형 frame 박제 — D-170/A1/A2/D-171 + Arki rev4 spc_lck=Y + PD-066 신설, 코드 박제 다음 세션 분리",
+      "decisionsAdded": [
+        "D-170",
+        "D-170-A1",
+        "D-170-A2",
+        "D-171"
+      ]
+    },
     {
       "sessionId": "session_207",
       "topicSlug": "parallel-topic-session-design",
@@ -68,15 +80,6 @@
         "D-167",
         "D-168",
         "D-169"
-      ]
-    },
-    {
-      "sessionId": "session_205",
-      "topicSlug": "parallel-topic-session-design",
-      "closedAt": "2026-05-07T00:30:00.000Z",
-      "oneLineSummary": "topic_176 framing draft — Master 제안 G안(명명 분리+Task 병렬+단일 프로세스 직렬화) 채택 방향, 다음 세션 Arki·Riki 검토. Jobs anchoring 적출, Fin 인지부담 단언 오류 메모리 박제.",
-      "decisionsAdded": [
-        "[object Object]"
       ]
     }
   ],
@@ -97,12 +100,5 @@
       "relatedTopic": "topic_144"
     }
   ],
-  "lastUpdated": "2026-05-07T14:16:29.106Z",
-  "worktreeMergeFailures": [
-    {
-      "branch": "claude/elated-benz-5839c5",
-      "detectedAt": "2026-05-07T14:16:29.105Z",
-      "message": "warning: in the working copy of 'memory/sessions/token_log.json', LF will be replaced by CRLF the next time Git touches it\nerror: Your local changes to the following files would be overwritten by merge:\n\tmemory/sessions/token_log.json\nPlease commit your changes or stash them before you merge.\nAborti"
-    }
-  ]
+  "lastUpdated": "2026-05-08T02:11:16.392Z"
 }
