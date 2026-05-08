@@ -455,7 +455,10 @@ function buildTopicLayer(cwd, topicId, currentSessionId) {
  * operationMode !== 'blind-parallel' → null 반환 (조용히 pass).
  */
 function buildBlindParallelDomainMarker(cwd, role, sess) {
-  if (!sess || sess.operationMode !== 'blind-parallel') return null;
+  if (!sess) return null;
+  const isBlindParallel =
+    sess.operationMode === 'blind-parallel' || sess.phase === 'blind-parallel';
+  if (!isBlindParallel) return null;
   if (!role || role === 'unknown') return null;
 
   try {
@@ -483,6 +486,41 @@ function buildBlindParallelDomainMarker(cwd, role, sess) {
   } catch (e) {
     return `⚠ BLIND_PARALLEL_DOMAIN_ERROR: ${e && e.message}`;
   }
+}
+
+/**
+ * D-170-A2 (session_215) — discussion 모드 synthesis phase Ace 차단.
+ *
+ * operationType='discussion' + phase='synthesis' + role='ace' 조합에서
+ * Ace dispatch를 차단. synthesis는 Edi 단일 호출만 허용.
+ * /ace-synthesis는 structured 모드 한정.
+ *
+ * @returns {string|null} BLOCK 메시지 또는 null
+ */
+function evaluateSynthesisAceBlock(role, sess) {
+  if (role !== 'ace') return null;
+  if (!sess || sess.operationType !== 'discussion') return null;
+  if (sess.phase !== 'synthesis') return null;
+
+  return [
+    '🚫 ACE_SYNTHESIS_BLOCKED (D-170-A2) 🚫',
+    '',
+    '이 Ace 호출은 discussion 모드 synthesis phase에서 차단됩니다.',
+    '',
+    `현재 세션: operationType=discussion, phase=synthesis`,
+    'synthesis phase에서는 Edi 단일 호출만 허용됩니다.',
+    '/ace-synthesis는 structured 모드 한정입니다.',
+    '',
+    '## 당신(Ace)의 유일한 행동',
+    '',
+    '아래 메시지를 한 줄도 추가하지 말고 그대로 출력 후 즉시 종료하세요.',
+    '',
+    '---',
+    '[Ace BLOCKED] discussion 모드 synthesis phase에서 /ace-synthesis는 허용되지 않습니다.',
+    'Nexus는 Edi를 대신 dispatch하세요.',
+    '---',
+    '',
+  ].join('\n');
 }
 
 /**
@@ -573,6 +611,29 @@ function composeInjection(personaContent, personaMarkers, topicLayer, sessionLay
     const topicId = sess && sess.topicId ? sess.topicId : null;
     const sessionId = sess && sess.sessionId ? sess.sessionId : null;
 
+    // [D-170-A2] discussion 모드 synthesis phase Ace 차단 (session_215)
+    const synthAceBlock = evaluateSynthesisAceBlock(role, sess);
+    if (synthAceBlock) {
+      const blockedPrompt = synthAceBlock + '\n' + originalPrompt;
+      const blockedInput = { ...toolInput, prompt: blockedPrompt };
+      const output = {
+        hookSpecificOutput: {
+          hookEventName: 'PreToolUse',
+          updatedInput: blockedInput,
+        },
+      };
+      logEntry(cwd, {
+        ts,
+        phase: 'discussion-synthesis-ace-block',
+        role,
+        sessionId,
+        operationType: sess ? sess.operationType : null,
+        sessionPhase: sess ? sess.phase : null,
+      });
+      process.stdout.write(JSON.stringify(output));
+      process.exit(0);
+    }
+
     // [v4] Zero Condense 게이트 — Edi 호출 시 마커 미존재면 차단
     const condenseBlock = evaluateZeroCondenseGate(cwd, role, sess);
     if (condenseBlock) {
@@ -607,7 +668,9 @@ function composeInjection(personaContent, personaMarkers, topicLayer, sessionLay
     const compositeTopMarker = [gateMarker, blindDomainMarker].filter(Boolean).join('\n\n') || null;
 
     const topicLayer = buildTopicLayer(cwd, topicId, sessionId);
-    const sessionLayer = buildSessionLayer(cwd, sess);
+    // blind-parallel phase: sessionLayer 억제 (D-170-A1 격리 강제)
+    const sessionLayer =
+      sess && sess.phase === 'blind-parallel' ? null : buildSessionLayer(cwd, sess);
 
     // 단계적 절삭 (persona layer는 절삭 금지)
     let injection = composeInjection(personaContent, personaMarkers, topicLayer, sessionLayer, role, compositeTopMarker);

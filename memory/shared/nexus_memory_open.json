@@ -25,5 +25,17 @@
     "rule": "Grade S/A/B → /model claude-opus-4-7. Grade C/D 또는 이미 Opus 4.7 → 생략.",
     "note": "세션당 1회. 실패 시 modelSwitchFailed:true 기록 (D-043)."
   },
-  "lastUpdated": "2026-05-04"
+  "discussionMode": {
+    "_introducedBy": "D-170/A1/A2 (session_215, topic_182, 2026-05-08)",
+    "operationType": "structured | discussion — current_session.json.operationType 필드",
+    "defaultOperationType": "structured",
+    "switchCommands": "/discussion — discussion으로 전환, /structured — structured으로 복귀",
+    "phaseField": "current_session.json.phase — framing(초기값) | blind-parallel | open | debate | synthesis",
+    "phaseTransition": "Nexus가 판단해서 current_session.json.phase 갱신. Master 개입 가능.",
+    "blindParallelRule": "phase=blind-parallel 시 hook이 sessionLayer 억제 + domain marker inject. 다른 역할 발언 미열람 보장.",
+    "synthesisRule": "operationType=discussion + phase=synthesis → Edi 단일 호출. Ace dispatch hook 차단 (D-170-A2).",
+    "aceSynthesisRestriction": "/ace-synthesis는 structured 모드 한정. discussion 모드에서 /ace-synthesis 호출 금지.",
+    "priorityAxisOrder": "phase > operationMode > grade"
+  },
+  "lastUpdated": "2026-05-08"
 }
