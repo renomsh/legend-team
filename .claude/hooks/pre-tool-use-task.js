@@ -442,6 +442,50 @@ function buildTopicLayer(cwd, topicId, currentSessionId) {
 }
 
 /**
+ * D-170-A1 P6 (session_209, topic_176, 2026-05-08) — blind-parallel 도메인 범위 prepend.
+ *
+ * operationMode='blind-parallel' 인 세션에서 Task/Agent 툴 dispatch 시
+ * dispatch_config.json.role_domain_template[role] 을 읽어 프롬프트 최상단에 주입.
+ *
+ * 목적:
+ *   - blind-parallel phase에서 각 역할이 자신의 분석 범위를 명시적으로 인지
+ *   - 다른 역할 발언 미열람(격리) 상태에서 도메인 오버랩 방지
+ *
+ * 역할이 role_domain_template에 없으면 경고 마커 반환 (role_domain_map 검증).
+ * operationMode !== 'blind-parallel' → null 반환 (조용히 pass).
+ */
+function buildBlindParallelDomainMarker(cwd, role, sess) {
+  if (!sess || sess.operationMode !== 'blind-parallel') return null;
+  if (!role || role === 'unknown') return null;
+
+  try {
+    const configPath = path.join(cwd, 'memory', 'shared', 'dispatch_config.json');
+    const config = readJsonFile(configPath);
+    if (!config || !config.role_domain_template) {
+      return `⚠ BLIND_PARALLEL_DOMAIN_MISSING: dispatch_config.role_domain_template 없음 — 도메인 범위 주입 불가 (D-170-A1)`;
+    }
+
+    const domain = config.role_domain_template[role];
+    if (!domain) {
+      return `⚠ BLIND_PARALLEL_DOMAIN_UNDEFINED: role='${role}'이 role_domain_template에 없음 — 도메인 범위 미지정 (D-170-A1)`;
+    }
+
+    return [
+      `## 🔲 blind-parallel 도메인 범위 (D-170-A1)`,
+      ``,
+      `역할: **${role}**`,
+      `담당 도메인: **${domain}**`,
+      ``,
+      `이 분석은 위 도메인 범위 내에서만 수행하세요.`,
+      `다른 역할의 도메인을 침범하지 말고, 위 범위에 집중하세요.`,
+      `phase: blind-parallel — 다른 역할의 발언을 볼 수 없습니다 (격리 실행).`,
+    ].join('\n');
+  } catch (e) {
+    return `⚠ BLIND_PARALLEL_DOMAIN_ERROR: ${e && e.message}`;
+  }
+}
+
+/**
  * [v3] composeInjection — persona layer 포함 최종 합성.
  *
  * 절삭 계층 (외부에서 단계적 호출):
@@ -557,33 +601,38 @@ function composeInjection(personaContent, personaMarkers, topicLayer, sessionLay
     // [v3] transition gate 평가
     const gateMarker = evaluateTransitionCheckpoint(cwd, topicId);
 
+    // [P6] blind-parallel 도메인 범위 마커 (D-170-A1)
+    const blindDomainMarker = buildBlindParallelDomainMarker(cwd, role, sess);
+    // gateMarker + blindDomainMarker 합성 → composeInjection에 단일 파라미터로 전달
+    const compositeTopMarker = [gateMarker, blindDomainMarker].filter(Boolean).join('\n\n') || null;
+
     const topicLayer = buildTopicLayer(cwd, topicId, sessionId);
     const sessionLayer = buildSessionLayer(cwd, sess);
 
     // 단계적 절삭 (persona layer는 절삭 금지)
-    let injection = composeInjection(personaContent, personaMarkers, topicLayer, sessionLayer, role, gateMarker);
+    let injection = composeInjection(personaContent, personaMarkers, topicLayer, sessionLayer, role, compositeTopMarker);
 
     // Level 1: session turns 절삭 (최근 5건)
     if (injection.length > TOTAL_CAP_CHARS) {
       const truncatedSess = sess ? { ...sess, turns: (sess.turns || []).slice(-5) } : sess;
       const sessionLayerShort = buildSessionLayer(cwd, truncatedSess);
-      injection = composeInjection(personaContent, personaMarkers, topicLayer, sessionLayerShort, role, gateMarker);
+      injection = composeInjection(personaContent, personaMarkers, topicLayer, sessionLayerShort, role, compositeTopMarker);
     }
 
     // Level 2: session layer 전체 drop
     if (injection.length > TOTAL_CAP_CHARS) {
-      injection = composeInjection(personaContent, personaMarkers, topicLayer, null, role, gateMarker);
+      injection = composeInjection(personaContent, personaMarkers, topicLayer, null, role, compositeTopMarker);
     }
 
     // Level 3: topic layer drop
     if (injection.length > TOTAL_CAP_CHARS) {
-      injection = composeInjection(personaContent, personaMarkers, null, null, role, gateMarker);
+      injection = composeInjection(personaContent, personaMarkers, null, null, role, compositeTopMarker);
     }
 
     // Level 4: 여전히 초과 → PERSONA_OVER_CAP (persona layer는 절삭 불가)
     if (injection.length > TOTAL_CAP_CHARS) {
       const overCapMarkers = [...(personaMarkers || []), '⚠ PERSONA_OVER_CAP: 페르소나 크기가 cap을 초과합니다. 이 서브에이전트 발언을 진행하기 전에 Master에게 보고하세요.'];
-      injection = composeInjection(personaContent, overCapMarkers, null, null, role, gateMarker);
+      injection = composeInjection(personaContent, overCapMarkers, null, null, role, compositeTopMarker);
       logEntry(cwd, { ts, phase: 'persona-over-cap', role, topicId, injectionLen: injection.length });
     }
 
@@ -612,6 +661,8 @@ function composeInjection(personaContent, personaMarkers, topicLayer, sessionLay
       topicId,
       sessionId,
       gateTriggered: !!gateMarker,
+      blindParallelDomain: !!blindDomainMarker,
+      operationMode: sess ? (sess.operationMode || null) : null,
       personaMarkers,
       originalPromptLen: originalPrompt.length,
       injectionLen: injection.length,
@@ -620,6 +671,9 @@ function composeInjection(personaContent, personaMarkers, topicLayer, sessionLay
 
     if (gateMarker) {
       logEntry(cwd, { ts, phase: 'gate-triggered', topicId, role, gateMarker });
+    }
+    if (blindDomainMarker) {
+      logEntry(cwd, { ts, phase: 'blind-parallel-domain-prepend', role, operationMode: sess ? sess.operationMode : null, blindDomainMarker });
     }
 
     process.stdout.write(JSON.stringify(output));

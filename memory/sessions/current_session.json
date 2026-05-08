@@ -1,139 +1,335 @@
 {
-  "sessionId": "session_209",
+  "sessionId": "session_208",
   "topicId": "topic_176",
   "topic": "병렬 토픽 및 세션 구조 설계 — G안 구현",
   "topicSlug": "parallel-topic-session-design",
-  "reportPath": "reports/2026-05-08_parallel-topic-session-design",
+  "reportPath": "reports/2026-05-07_parallel-topic-session-design",
   "status": "closed",
-  "closedAt": "2026-05-08T12:00:00.000Z",
-  "startedAt": "2026-05-08T03:00:00.000Z",
+  "closedAt": "2026-05-08T02:00:00.000Z",
+  "oneLineSummary": "topic_176 토론형 frame 박제 — D-170/A1/A2/D-171 + Arki rev4 spc_lck=Y + PD-066 신설, 코드 박제 다음 세션 분리",
+  "startedAt": "2026-05-07T14:30:00.000Z",
   "mode": "observation",
   "grade": "S",
   "topicType": "framing",
   "framingLevel": 0,
   "framingSkipped": true,
-  "turnPushMode": "hook",
   "turns": [
     {
-      "role": "edi",
+      "role": "arki",
       "turnIdx": 0,
-      "phase": "compile"
+      "source": "agent",
+      "selfScores": {
+        "aud_rcl": 1,
+        "str_fd": 5,
+        "spc_lck": "N",
+        "sa_rnd": 2
+      }
+    },
+    {
+      "role": "jobs",
+      "turnIdx": 1,
+      "source": "agent",
+      "selfScores": {
+        "focus_sharp": 5,
+        "bloat_idx": 1,
+        "bias_cnt": 5,
+        "no_cnt": 5
+      }
+    },
+    {
+      "role": "riki",
+      "turnIdx": 2,
+      "source": "agent",
+      "selfScores": {
+        "crt_rcl": 0.83,
+        "cr_val": "Y",
+        "prd_rej": "Y",
+        "fp_rt": 0
+      }
+    },
+    {
+      "role": "ace",
+      "turnIdx": 3,
+      "source": "agent",
+      "selfScores": {
+        "rfrm_trg": "Y",
+        "ctx_car": 5,
+        "mst_fr": 0,
+        "ang_nov": 4
+      }
+    },
+    {
+      "role": "arki",
+      "turnIdx": 4,
+      "source": "agent",
+      "selfScores": {
+        "aud_rcl": 1,
+        "str_fd": 5,
+        "spc_lck": "Y",
+        "sa_rnd": 3
+      }
+    },
+    {
+      "role": "zero",
+      "turnIdx": 5,
+      "source": "agent"
+    },
+    {
+      "role": "zero",
+      "turnIdx": 6,
+      "source": "agent",
+      "selfScores": {
+        "ref_cnt": 5,
+        "hc_found": 0,
+        "cln_rt": 1
+      }
+    },
+    {
+      "role": "edi",
+      "turnIdx": 7,
+      "source": "agent",
+      "selfScores": {
+        "art_cmp": 1,
+        "gp_acc": 1,
+        "scc": "Y",
+        "cs_cnt": 5,
+        "gap_fc": 4
+      }
+    },
+    {
+      "role": "jobs",
+      "turnIdx": 8,
+      "source": "agent",
+      "selfScores": {
+        "focus_sharp": 5,
+        "bloat_idx": 1,
+        "bias_cnt": 2,
+        "no_cnt": 3
+      }
+    },
+    {
+      "role": "arki",
+      "turnIdx": 9,
+      "source": "agent",
+      "selfScores": {
+        "aud_rcl": 0.8,
+        "str_fd": 3,
+        "spc_lck": "N",
+        "sa_rnd": 2
+      }
     }
   ],
   "decisions": [],
   "masterDecisions": [
     {
-      "phase": "gate-alpha",
-      "decision": "옵션 A 채택 — hook → pending_turns_{sessionId}.jsonl append → Nexus agentId join. D1 sentinel __hook_origin 코드 박제 가능. 옵션 B는 sentinel 구조 없음.",
-      "verbatim": "A",
-      "context": "Jobs(옵션 B 권고) vs Arki(D1 sentinel 구조 차이 명시) 토론 후 Master 직접 결정. 혼합 금지.",
-      "ledgerId": "GATE-α"
+      "phase": "framing",
+      "decision": "토픽 운영 유형 enum 추가 — structured(default)/discussion. Grade와 직교, 별도 명령어로 세션 중 전환 가능. 명령어 명칭·격리 강도는 후속 결정.",
+      "verbatim": "OK. 진행해",
+      "context": "Nexus 권고 (Grade=유형 결합 거부, 별도 명령어+세션 중 전환, 정책 골격은 지금 박제) → Master 'OK. 진행해' override.",
+      "ledgerId": "D-170"
+    },
+    {
+      "phase": "framing",
+      "decision": "M1 frame 본질 확정: 편향=본질, 시간=Case A 동시 토픽으로 trajectory.",
+      "verbatim": "맞아. 시간은 동시 토픽으로 해결할꺼야. 본질은 편향이야.",
+      "context": "Ace synthesis M1 권고에 대한 Master 답변. Jobs rev1 frame 본질 검증 통과."
+    },
+    {
+      "phase": "framing",
+      "decision": "M2 D-170 amendment 5번째 축 박제 — (a) blind 격리 phase 한정 / (b) phase>operationMode>grade / (c) 격리 강도 임시 default = prepend 차단만",
+      "verbatim": "1-3동의하고 각자 발언하고 나서는 서로 내용을 보면서 토론을 해야지. b는 OK / c는 default = prompt prepend 차단만",
+      "context": "Nexus M2 풀이 후 Master 정정: (a) 영구 차단 아닌 phase 한정. blind 후 open/debate 진입 시 일괄 공개 → 토론. (b)(c) Nexus 권고 그대로.",
+      "ledgerId": "D-170-A1"
+    },
+    {
+      "phase": "framing",
+      "decision": "(4) 수렴 토론 phase 정밀화 — N round 반복(의견 수렴까지) / Nexus 발언자 분배 / Master anytime interrupt / 종료 = 수렴 Nexus 판정 또는 Master 선언",
+      "verbatim": "공개하고 나서 한번만 이야기하는게 아니라 서로 의견이 좁혀질때까지 이야기를 주고 받는거야. 토론형태가 끝나는게 아니라. 발언권은 Nexus가 분배할꺼고. 나는 언제든 끼어들고 싶을때 끼어들테니. 너희끼리 의견을 맞춰보라는 거야.",
+      "context": "Nexus 가정(공개 후 1회 반박)의 정정. Jobs 5단계 (4) 형식 명시. R-8(반박 형식 미박제) 일부 자동 해소.",
+      "ledgerId": "D-170-A1 sub-axis (d)"
+    },
+    {
+      "phase": "framing",
+      "decision": "(d) sub-policy 3건 박제 — round 상한 없음 / 발언자 분배 Nexus 자율 / 수렴 판정 = Nexus 자연어 + 어려움 시 Master 질의(continue/양립/종료)",
+      "verbatim": "(a) 기준으로 하되, 의견이 좁혀지지 않는 것을 나에게 묻는 형태로. a와 c 혼합",
+      "context": "Q1·Q2·Q3 통합 답변. Nexus 자율 진행 + Master 선택지 제공형 escalation. 무한 루프 방지는 Nexus 인지·Master 질의로 보장.",
+      "ledgerId": "D-170-A1 sub-axis (d) resolvedSubPolicies"
+    },
+    {
+      "phase": "design",
+      "decision": "M5 — 토론형 (5)종합 = Edi 단일 호출. Ace synthesis 토론형에서 호출 X (양립 의견 보존, frame 본질 정합)",
+      "verbatim": "5단계는 Edi 단일 호출로 해보자. 에이스 종합결론으로 가면 양립된 의견도 하나로 합칠테니",
+      "context": "Master 통찰 — Ace 단일 권고 강제(D-130)가 토론형 양립 보존 frame과 충돌. Edi는 박제만 수행. Jobs OUT 4·5번 토론형 한정 정정.",
+      "ledgerId": "D-170-A2"
+    },
+    {
+      "phase": "design",
+      "decision": "M3+M4 — Case B Phase 진입 게이트 강제. Arki rev4 spc_lck=Y + PD-066 resolved + D-170 amendment 3건 코드 박제 후 P0 진입. warn-only 아님",
+      "verbatim": "M3 OK / M4 pd-066 resolved",
+      "context": "Ace synthesis 권고 일괄 채택. PD-066(Nexus crash recovery)은 fallback 아닌 resolved 강제 — 운영 무결성 우위.",
+      "ledgerId": "D-171"
     }
   ],
   "decisionsAdded": [
+    "D-170",
     "D-170-A1",
     "D-170-A2",
-    "D-169-P0"
+    "D-171"
   ],
   "masterFeedback": [],
-  "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [],
-  "openMasterAlerts": [
+  "pendingDeferralsAdded": [
     {
-      "severity": "high",
-      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.1)",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140"
+      "id": "PD-066",
+      "fromSession": "session_208",
+      "fromTopic": "topic_176",
+      "title": "Nexus crash 시 pending_turns 영구 손실 방지 복구",
+      "status": "open",
+      "resolveCondition": "복구 알고리즘 코드 박제 + GATE β 통과(crash 시뮬레이션 turn 손실 0건) + Phase 진입 게이트 G-FINALIZE 통과",
+      "fallback": "turnPushMode='hook' 강제",
+      "relatedDecisions": [
+        "D-166",
+        "D-170-A1",
+        "D-171"
+      ],
+      "relatedTopic": "topic_176"
     }
   ],
-  "agentsCompleted": [
-    "edi"
+  "pendingDeferralsResolved": [],
+  "versionBump": {
+    "value": 0.01,
+    "from": "v0.958",
+    "to": "v0.968",
+    "reason": "session_208 framing 박제 — D-170(operationMode enum)·D-170-A1(5번째 축)·D-170-A2(토론형 5종합 Edi 단일)·D-171(Case B Phase 진입 게이트) decision_ledger 신설 4건 + Arki rev4 spc_lck=Y plan 박제 + PD-066 신설. 코드 박제는 다음 세션 분리(structural 0건). capacity 범주.",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-08T00:00:00.000Z",
+    "overrideReason": null,
+    "basedOn": "edi-direct-confirm"
+  },
+  "notes": [
+    "session_207 인계: P2(post-tool-use append) + P3(finalize merge) 회귀 위험으로 별도 세션 분리 종결.",
+    "다음 작업 후보: P-1 P2 구현 / P-2 P3 구현 / P-3 GATE β' 검증 / P-4 POSIX round / P-5 PD-065 신규 토픽 / P-6 D-166 보강 박제 / P-7 Arki rev2 MUST_NOW 5건 / P-8 GATE α' Riki cross-review."
   ],
-  "oneLineSummary": "topic_176 G안 구현 완료: P1-P9 전체 PASS, nexus push/crash recovery/blind-parallel domain/dispatch_config SOT 박제. PD-066 /open scan 잔여.",
   "gaps": [
     {
-      "type": "pd-066-open",
-      "detail": "PD-066: 세션 오픈 시 pending_turns orphan scan 미구현. 다음 세션에서 해소 후 topic_176 종료.",
-      "severity": "low"
+      "type": "missing-report",
+      "role": "arki",
+      "turnIdx": 0,
+      "reportPath": "reports/2026-05-07_parallel-topic-session-design",
+      "detectedAt": "2026-05-07T14:47:58.273Z",
+      "note": "arki turn0 완료 후 reports/arki_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
     },
     {
-      "type": "zero-condense-skipped",
-      "detail": "순수 코딩 세션 — 역할 서브에이전트 미호출, 역할 보고서 없음. Zero condense 스킵.",
-      "severity": "info"
+      "type": "missing-report",
+      "role": "jobs",
+      "turnIdx": 1,
+      "reportPath": "reports/2026-05-07_parallel-topic-session-design",
+      "detectedAt": "2026-05-07T14:51:58.484Z",
+      "note": "jobs turn1 완료 후 reports/jobs_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
     },
     {
-      "type": "edi-agent-source-missing",
-      "sessionId": "session_209",
-      "grade": "S",
-      "severity": "high",
-      "detectedAt": "2026-05-08T05:16:30.732Z",
-      "note": "turns[]에 role=edi && source=agent turn 없음 — D-066(Grade A/S 서브에이전트 강제) + D4(hook 박제) 위반",
-      "ref": "D-138"
+      "type": "missing-report",
+      "role": "riki",
+      "turnIdx": 2,
+      "reportPath": "reports/2026-05-07_parallel-topic-session-design",
+      "detectedAt": "2026-05-07T23:59:28.322Z",
+      "note": "riki turn2 완료 후 reports/riki_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
     },
     {
-      "type": "version-bump-edi-unconfirmed",
-      "severity": "high",
-      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140",
-      "suggestedValue": 0.1
+      "type": "missing-report",
+      "role": "ace",
+      "turnIdx": 3,
+      "reportPath": "reports/2026-05-07_parallel-topic-session-design",
+      "detectedAt": "2026-05-08T00:11:03.941Z",
+      "note": "ace turn3 완료 후 reports/ace_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "missing-report",
+      "role": "arki",
+      "turnIdx": 4,
+      "reportPath": "reports/2026-05-07_parallel-topic-session-design",
+      "detectedAt": "2026-05-08T01:36:17.571Z",
+      "note": "arki turn4 완료 후 reports/arki_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "missing-report",
+      "role": "zero",
+      "turnIdx": 5,
+      "reportPath": "reports/2026-05-07_parallel-topic-session-design",
+      "detectedAt": "2026-05-08T01:51:28.762Z",
+      "note": "zero turn5 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "frontmatter-patch-failed",
+      "role": "zero",
+      "turnIdx": 6,
+      "reportsPath": "reports/2026-05-07_parallel-topic-session-design/condensed.md",
+      "detectedAt": "2026-05-08T02:01:56.555Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-07_parallel-topic-session-design/condensed.md"
+    },
+    {
+      "type": "missing-report",
+      "role": "zero",
+      "turnIdx": 6,
+      "reportPath": "reports/2026-05-07_parallel-topic-session-design",
+      "detectedAt": "2026-05-08T02:01:56.559Z",
+      "note": "zero turn6 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-07_parallel-topic-session-design/edi_auto_rev1.md"
+    },
+    {
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-07_parallel-topic-session-design/edi_rev1.md"
+    },
+    {
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-07_parallel-topic-session-design/session_summary.md"
+    },
+    {
+      "type": "missing-report",
+      "role": "jobs",
+      "turnIdx": 8,
+      "reportPath": "reports/2026-05-07_parallel-topic-session-design",
+      "detectedAt": "2026-05-08T03:02:30.735Z",
+      "note": "jobs turn8 완료 후 reports/jobs_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "frontmatter-patch-failed",
+      "role": "arki",
+      "turnIdx": 9,
+      "reportsPath": "`reports/2026-05-08_parallel-topic-session-design/arki_session209_rev1.md`",
+      "detectedAt": "2026-05-08T03:06:01.687Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-08_parallel-topic-session-design/arki_session209_rev1.md`"
+    },
+    {
+      "type": "missing-report",
+      "role": "arki",
+      "turnIdx": 9,
+      "reportPath": "reports/2026-05-07_parallel-topic-session-design",
+      "detectedAt": "2026-05-08T03:06:01.690Z",
+      "note": "arki turn9 완료 후 reports/arki_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
     }
   ],
-  "notes": [
-    "session_208 인계: G-PRE 검증 → P0 진입 세션",
-    "G-PRE PASS (2026-05-08): C1(spc_lck=Y) C2(D-170-A1·A2 박제) C3(turnPushMode=hook fallback) 모두 충족",
-    "P0 완료: D-169 갱신 (D-166 부분 supersede + turnPushMode frame), scripts/validate-phase-gate.ts 신설, D-170-A1·A2 decision_ledger 박제, dispatch_config.json D-170 amendment 박제",
-    "P1 완료: spike GATE α PASS (A 100%·B 0% truncation). Master → 옵션 A 채택 (D1 sentinel 구조 우위)",
-    "다음 작업: P2 — turnPushMode 플래그 + scripts/lib/turn-push-mode.ts 신설",
-    "turnPushMode='hook' 박제 — PD-066 미해결 fallback (Arki rev4 §7.1 정합)"
+  "openMasterAlerts": [],
+  "agentsCompleted": [
+    "arki",
+    "jobs",
+    "riki",
+    "ace",
+    "arki",
+    "zero",
+    "zero",
+    "edi"
   ],
   "tokenUsage": {
-    "input_tokens": 229,
-    "output_tokens": 79537,
-    "cache_creation_input_tokens": 873958,
-    "cache_read_input_tokens": 8095199,
-    "messageCount": 108,
-    "masterTurns": 23,
-    "total_billable": 9048923
+    "input_tokens": 628,
+    "output_tokens": 270800,
+    "cache_creation_input_tokens": 2252588,
+    "cache_read_input_tokens": 33468754,
+    "messageCount": 317,
+    "masterTurns": 21,
+    "total_billable": 35992770
   },
-  "versionBumpSuggested": {
-    "value": 0.1,
-    "type": "structural",
-    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 1건 (.claude/skills/dispatching-parallel-agents/SKILL.md)",
-    "autoDetectedAt": "2026-05-08T05:16:44.034Z",
-    "changedFiles": [
-      ".claude/hooks/post-tool-use-task.js",
-      ".claude/hooks/pre-tool-use-task.js",
-      ".claude/hooks/session-end-finalize.js",
-      ".claude/skills/dispatching-parallel-agents/SKILL.md",
-      "memory/sessions/current_session.json",
-      "memory/sessions/session_index.json",
-      "memory/sessions/token_log.json",
-      "memory/shared/dashboard_data.json",
-      "memory/shared/decision_ledger.json",
-      "memory/shared/dispatch_config.json",
-      "memory/shared/topic_index.json",
-      "scripts/compute-dashboard.ts",
-      "topics/topic_174/context_brief.md",
-      "\"Data/Databook/01_2026/353/205/204_databook_/354/267/250/355/225/251_260507_/354/231/204/353/243/214.xlsx\"",
-      "Data/Databook/20260507/",
-      "\"Data/Databook/FS1/355/214/200.zip\"",
-      "Data/Databook/data_inv2.json",
-      "Data/Databook/fs1_preview.json",
-      "Data/Databook/header_check.json",
-      "Data/Databook/p0_3_4.json"
-    ],
-    "changedFilesCount": 42,
-    "cappedAt": 0.1,
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-08T12:05:00.000Z",
-    "overrideReason": null
-  },
-  "versionBump": {
-    "value": 0.1,
-    "type": "structural",
-    "confirmedBy": "edi",
-    "reason": "G안 구현: hook 3종 + nexus-turn-push lib + dispatch_config SOT 9키 + SKILL.md 발언자 분배 인터페이스 신설"
-  },
-  "finalizedAt": "2026-05-08T05:16:46.394Z"
+  "finalizedAt": "2026-05-08T02:11:16.571Z"
 }

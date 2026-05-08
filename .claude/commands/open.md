@@ -5,6 +5,7 @@ Session Start 체크리스트 순서대로 실행.
 ## 체크리스트
 
 1. `memory/sessions/current_session.json` — 이전 세션 미종결 시 Master에게 알림
+1-a. **pending_turns orphan scan** — `memory/sessions/pending_turns_*.jsonl` 파일 열거. 직전 세션ID(`system_state.lastSessionId`)와 다른 파일명 = orphan. 발견 시: `memory/sessions/pending_turns_archive/`로 이동 + Master에게 "orphan detected: {파일명}, {lines}줄" 알림. 없으면 스킵.
 2. `memory/shared/system_state.json` (fast-path) — nextSessionId, openTopics, recentDecisions, pendingDeferrals
 2-b. `memory/shared/nexus_memory_open.json` — Nexus 오케스트레이션 지침 (gradeDispatch, antiPatterns, autoModelSwitch)
 3. **이연 항목 List-up** — openTopics + pendingDeferrals 브리핑
