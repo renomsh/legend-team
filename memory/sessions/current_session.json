@@ -125,7 +125,15 @@
     ],
     "changedFilesCount": 42,
     "cappedAt": 0.1,
-    "confirmedBy": null
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-08T12:05:00.000Z",
+    "overrideReason": null
+  },
+  "versionBump": {
+    "value": 0.1,
+    "type": "structural",
+    "confirmedBy": "edi",
+    "reason": "G안 구현: hook 3종 + nexus-turn-push lib + dispatch_config SOT 9키 + SKILL.md 발언자 분배 인터페이스 신설"
   },
   "finalizedAt": "2026-05-08T05:16:46.394Z"
 }
