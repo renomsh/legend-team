@@ -70,8 +70,8 @@
   "versionBump": {
     "value": 0.1,
     "from": "0.210",
-    "to": "0.310",
-    "reason": "Discussion 모드 D-170/A1/A2 구조 박제 — operationType enum, 5단계 phase 메커니즘, /ace-synthesis structured 한정 정책이 CLAUDE.md + 신규 명령어 2건으로 확정",
+    "to": "v1.379",
+    "reason": "Discussion 모드 D-170/A1/A2 구조 박제 — operationType enum, 5단계 phase 메커니즘, /ace-synthesis structured 한정 정책이 CLAUDE.md + 신규 명령어 2건으로 확정 [정정: session_212 리셋 버그 수정으로 올바른 누적 버전 반영]",
     "confirmedBy": "edi",
     "confirmedAt": "2026-05-08T15:00:00.000Z",
     "overrideReason": null
@@ -103,13 +103,13 @@
     }
   ],
   "tokenUsage": {
-    "input_tokens": 133,
-    "output_tokens": 86442,
-    "cache_creation_input_tokens": 583842,
-    "cache_read_input_tokens": 7114395,
-    "messageCount": 94,
-    "masterTurns": 7,
-    "total_billable": 7784812
+    "input_tokens": 192,
+    "output_tokens": 118849,
+    "cache_creation_input_tokens": 634375,
+    "cache_read_input_tokens": 12329654,
+    "messageCount": 135,
+    "masterTurns": 10,
+    "total_billable": 13083070
   },
   "finalizedAt": "2026-05-08T14:06:40.332Z"
 }
