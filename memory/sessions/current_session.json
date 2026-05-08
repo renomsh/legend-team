@@ -76,6 +76,15 @@
     "masterTurns": 23,
     "total_billable": 9048923
   },
+  "versionBump": {
+    "value": 0.1,
+    "type": "structural",
+    "reason": "구조 변경: verification-before-completion 스킬 TDD 원칙 추가",
+    "from": "0.110",
+    "to": "0.210",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-08T13:10:00.000Z"
+  },
   "versionBumpSuggested": {
     "value": 0.1,
     "type": "structural",
