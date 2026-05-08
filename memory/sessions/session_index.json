@@ -9811,8 +9811,30 @@
         "D-170-A2",
         "D-169-P0"
       ]
+    },
+    {
+      "sessionId": "session_210",
+      "topicSlug": "ops-dashboard-hook-fix",
+      "topic": "ops 대시보드 hook 0% 오류 수정",
+      "startedAt": "2026-05-08T00:00:00.000Z",
+      "closedAt": "2026-05-08T06:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\nostalgic-khayyam-6125a7",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "edi",
+          "turnIdx": 0,
+          "phase": "compile"
+        }
+      ],
+      "grade": "C",
+      "note": "원인: session-end-tokens.js가 main project cwd에 hook-diagnostics.log 씀. build.js는 worktree logs/ 복사 → 파일 없어서 0% | 수정: runHookChain에 syncHookDiagnosticsFromMain() 추가 — build.js 직전 main→worktree 복사",
+      "oneLineSummary": "topic_177 ops 대시보드 hook 0% 수정: auto-push.js에 main→worktree log sync 추가",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-08T05:16:30.743Z",
+  "lastUpdated": "2026-05-08T05:44:22.594Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
