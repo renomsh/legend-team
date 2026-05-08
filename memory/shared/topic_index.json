@@ -1,6 +1,25 @@
 {
   "topics": [
     {
+      "id": "topic_177",
+      "title": "ops 대시보드 hook 0% 오류 수정",
+      "status": "completed",
+      "phase": "completed",
+      "hold": null,
+      "grade": "C",
+      "topicType": "standalone",
+      "created": "2026-05-08",
+      "controlPath": "topics/topic_177",
+      "reportPath": "reports/2026-05-08_ops-dashboard-hook-fix",
+      "reportFiles": [
+        "dev_rev1.md"
+      ],
+      "published": false,
+      "closedInSession": "session_210",
+      "outcome": "ops 대시보드 hook 0% 원인 확인 및 auto-push.js sync 로직 추가로 수정 완료",
+      "path": "topics/topic_177"
+    },
+    {
       "id": "topic_176",
       "title": "병렬 토픽 및 세션 구조 설계",
       "status": "implementing",
@@ -3371,5 +3390,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-08T05:16:39.265Z"
+  "lastUpdated": "2026-05-08T05:44:30.855Z"
 }

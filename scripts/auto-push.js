@@ -108,17 +108,32 @@ function clearMergeFailureAlert(mainRoot, branch) {
   }
 }
 
-function runHookChain() {
-  const steps = [
+function syncHookDiagnosticsFromMain(mainRoot) {
+  // session-end-tokens.js always writes to input.cwd (= main project root, not worktree).
+  // build.js copies from worktree/logs/ → so we need to mirror the file before build runs.
+  if (!mainRoot || path.resolve(mainRoot) === path.resolve(ROOT)) return;
+  const src = path.join(mainRoot, 'logs', 'hook-diagnostics.log');
+  const dst = path.join(ROOT, 'logs', 'hook-diagnostics.log');
+  if (!fs.existsSync(src)) return;
+  try {
+    fs.mkdirSync(path.dirname(dst), { recursive: true });
+    fs.copyFileSync(src, dst);
+    console.log('[auto-push] Synced hook-diagnostics.log: main → worktree');
+  } catch (e) {
+    console.error('[auto-push] hook-diagnostics.log sync failed:', e.message);
+  }
+}
+
+function runHookChain(mainRoot) {
+  const preSteps = [
     'node .claude/hooks/session-end-tokens.js',
     'node .claude/hooks/session-end-finalize.js',
     'npx ts-node scripts/finalize-self-scores.ts',
     'npx ts-node scripts/compute-signature-metrics.ts',
     'npx ts-node scripts/compute-dashboard.ts',
     'npx ts-node scripts/validate-prime-directive.ts',
-    'node scripts/build.js',
   ];
-  for (const cmd of steps) {
+  for (const cmd of preSteps) {
     try {
       execSync(cmd, { cwd: ROOT, stdio: 'inherit' });
     } catch (e) {
@@ -127,14 +142,24 @@ function runHookChain() {
       return false;
     }
   }
+  // Mirror hook-diagnostics.log from main project before build copies worktree/logs/
+  syncHookDiagnosticsFromMain(mainRoot);
+  try {
+    execSync('node scripts/build.js', { cwd: ROOT, stdio: 'inherit' });
+  } catch (e) {
+    console.error('[auto-push] Hook chain step failed: node scripts/build.js');
+    console.error(e.message);
+    return false;
+  }
   return true;
 }
 
 function autoPush() {
   const message = process.argv[2] || `session update: ${new Date().toISOString().split('T')[0]}`;
+  const mainRoot = getMainRepoRoot();
 
   console.log('[auto-push] Running hook chain (finalize → compute → build)...');
-  if (!runHookChain()) {
+  if (!runHookChain(mainRoot)) {
     console.error('[auto-push] Aborting: hook chain failed.');
     process.exit(1);
   }
@@ -172,7 +197,6 @@ function autoPush() {
     // Running in a worktree — merge into main before pushing
     console.log(`[auto-push] Worktree detected. Merging ${currentBranch} → main...`);
 
-    const mainRoot = getMainRepoRoot();
     if (!mainRoot) {
       console.error('[auto-push] Could not resolve main repo root. Manual merge required.');
       return;
