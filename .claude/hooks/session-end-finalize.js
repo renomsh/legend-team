@@ -1323,15 +1323,7 @@ function detectVersionBump(sess) {
     return;
   }
 
-  // session_159 (topic_141, 2026-05-01): Grade C/D는 versionBump 자동 감지 skip.
-  // 사유: Grade C/D는 D-074 Matrix상 Edi 호출 생략 → 자동 감지 시 confirmedBy:null deadlock.
-  // Master 메모리(feedback_simple_growth_not_measurement, feedback_pragmatic_weapon_not_art,
-  // feedback_cd_no_subagent) 정합. 진짜 구조 변경은 Grade B+ 토픽에서 처리.
   const grade = (sess.grade || '').toUpperCase();
-  if (grade === 'C' || grade === 'D') {
-    log(`detectVersionBump skip: Grade ${grade} 세션 — 자동 감지 비활성화 (Edi 미호출 deadlock 방지)`);
-    return;
-  }
 
   const result = spawnSync('git', ['status', '--porcelain'], {
     cwd: CWD,
@@ -1420,6 +1412,25 @@ function detectVersionBump(sess) {
     confirmedBy: null,
   };
 
+  // Grade C/D: Edi LLM 미호출 → Nexus가 직접 확정 (Edi deadlock 없음)
+  if (grade === 'C' || grade === 'D') {
+    const now = new Date().toISOString();
+    sess.versionBump = {
+      value: bumpValue,
+      type: bumpType,
+      reason,
+      from: null,
+      to: null,
+      confirmedBy: 'nexus',
+      confirmedAt: now,
+      autoDetectedAt: sess.versionBumpSuggested.autoDetectedAt,
+    };
+    sess.versionBumpSuggested.confirmedBy = 'nexus';
+    writeJson(CURRENT_SESSION_PATH, sess);
+    log(`versionBump Nexus 확정 (Grade ${grade}) = +${bumpValue} (${bumpType}) | ${categories.structural.length}/${categories.capacity.length}/${categories.bugfix.length} files`);
+    return;
+  }
+
   writeJson(CURRENT_SESSION_PATH, sess);
   log(`versionBumpSuggested = +${bumpValue} (${bumpType}) | ${categories.structural.length}/${categories.capacity.length}/${categories.bugfix.length} files | Edi 확정 대기`);
 }
@@ -1436,15 +1447,16 @@ function applyVersionBump(sess) {
     log('versionBump 없음 — project_charter 업데이트 skip');
     return;
   }
-  // R-4 mitigation (D-131, PD-053): Edi LLM 확정만 인정
-  if (bump.confirmedBy !== 'edi' || !bump.confirmedAt) {
-    log(`applyVersionBump skip: confirmedBy='${bump.confirmedBy}' (edi 아님) 또는 confirmedAt 부재 — Edi LLM 검증 미통과`);
+  // R-4 mitigation (D-131, PD-053): Edi LLM 또는 Nexus(Grade C/D) 확정만 인정
+  const validConfirmers = ['edi', 'nexus'];
+  if (!validConfirmers.includes(bump.confirmedBy) || !bump.confirmedAt) {
+    log(`applyVersionBump skip: confirmedBy='${bump.confirmedBy}' (edi/nexus 아님) 또는 confirmedAt 부재 — 검증 미통과`);
     sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
     sess.gaps.push({
       type: 'version-bump-unverified',
       sessionId: sess.sessionId,
       attempted: bump,
-      note: 'confirmedBy !== edi 또는 confirmedAt 부재 — project_charter 미반영',
+      note: 'confirmedBy !== edi/nexus 또는 confirmedAt 부재 — project_charter 미반영',
     });
     writeJson(CURRENT_SESSION_PATH, sess);
     return;
@@ -1523,8 +1535,15 @@ function checkVersionBumpConfirmation(sess) {
     return;
   }
 
-  // trigger 조건 2: Grade A/B/S만 — C/D는 skip
   const grade = (sess.grade || '').toUpperCase();
+
+  // trigger 조건 2: Grade C/D + nexus 확정이면 skip (이미 자동 확정됨)
+  if ((grade === 'C' || grade === 'D') && sess.versionBump && sess.versionBump.confirmedBy === 'nexus') {
+    log(`checkVersionBumpConfirmation skip: Grade ${grade} + nexus 확정됨`);
+    return;
+  }
+
+  // Grade A/B/S가 아니고 nexus 확정도 아니면 skip
   if (grade !== 'A' && grade !== 'B' && grade !== 'S') {
     log(`checkVersionBumpConfirmation skip: Grade ${grade || 'undefined'} (A/B/S 아님)`);
     return;
@@ -1546,9 +1565,9 @@ function checkVersionBumpConfirmation(sess) {
     return;
   }
 
-  // Edi 확정 여부 검사
+  // Edi 또는 Nexus(Grade C/D) 확정 여부 검사
   const bump = sess.versionBump;
-  const confirmed = bump && bump.confirmedBy === 'edi' && bump.confirmedAt;
+  const confirmed = bump && ['edi', 'nexus'].includes(bump.confirmedBy) && bump.confirmedAt;
   if (confirmed) {
     // PD-064 P2 (session_194): suggested vs confirmed value 차이 감지 → info gap만 박제
     // (자동 reconcile 룰 도입 보류 — D-130 'Edi 단일 책임' 보존, Riki 권고)
