@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "0.310",
+    "version": "1.379",
     "versionSchema": {
       "format": "X.YYY (3자리 소수 float, 점 하나)",
       "incrementRules": {
@@ -321,21 +321,39 @@
       "sessionId": "session_208"
     },
     {
-      "version": "0.010",
+      "version": "v1.068",
       "date": "2026-05-08",
-      "summary": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (memory/shared/decision_ledger.json)",
+      "summary": "parallel-topic-session-design G안 구현 완료 — P1-P9 전체 PASS, nexus push/crash recovery/blind-parallel domain/dispatch_config SOT 박제. D-170-A1·A2·D-169-P0 decision 3건. structural +0.1. [정정: session_212 리셋 버그로 누락됐던 항목 복원]",
+      "sessionId": "session_209"
+    },
+    {
+      "version": "v1.069",
+      "date": "2026-05-08",
+      "summary": "ops-dashboard-hook-fix — auto-push.js main→worktree log sync 추가. bug patch +0.001. [정정: 누락 항목 복원]",
+      "sessionId": "session_210"
+    },
+    {
+      "version": "v1.079",
+      "date": "2026-05-08",
+      "summary": "D-138·D-143 caveat resolve 처리 — decision_ledger 변경 1건. capacity +0.01. [정정: from 값 v0.00 오산으로 0.010 기록됐던 것 v1.079로 수정]",
       "sessionId": "session_212"
     },
     {
-      "version": "0.110",
+      "version": "v1.179",
       "date": "2026-05-08",
-      "summary": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 1건 (memory/roles/dev_memory.json)",
+      "summary": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 1건 (memory/roles/dev_memory.json). structural +0.1. [정정: 0.110 → v1.179]",
       "sessionId": "session_213"
     },
     {
-      "version": "0.310",
+      "version": "v1.279",
       "date": "2026-05-08",
-      "summary": "Discussion 모드 D-170/A1/A2 구조 박제 — operationType enum, 5단계 phase 메커니즘, /ace-synthesis structured 한정 정책이 CLAUDE.md + 신규 명령어 2건으로 확정",
+      "summary": "manage-pd.ts 신규 생성 + PD-057 migrate + verification-before-completion TDD 원칙 흡수. structural +0.1. [정정: charter 누락 항목 복원]",
+      "sessionId": "session_214"
+    },
+    {
+      "version": "v1.379",
+      "date": "2026-05-08",
+      "summary": "Discussion 모드 D-170/A1/A2 구조 박제 — operationType enum, 5단계 phase 메커니즘, /ace-synthesis structured 한정 정책이 CLAUDE.md + 신규 명령어 2건으로 확정. structural +0.1. [정정: 0.310 → v1.379]",
       "sessionId": "session_215"
     }
   ],
