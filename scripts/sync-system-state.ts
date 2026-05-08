@@ -23,6 +23,7 @@ const SESSION_INDEX_PATH = path.join(ROOT, 'memory', 'sessions', 'session_index.
 const TOPIC_INDEX_PATH = path.join(ROOT, 'memory', 'shared', 'topic_index.json');
 const DECISION_LEDGER_PATH = path.join(ROOT, 'memory', 'shared', 'decision_ledger.json');
 const SYSTEM_STATE_PATH = path.join(ROOT, 'memory', 'shared', 'system_state.json');
+const PENDING_DEFERRALS_PATH = path.join(ROOT, 'memory', 'shared', 'pending_deferrals.json');
 
 interface SessionEntry {
   sessionId: string;
@@ -93,6 +94,7 @@ function main() {
   const topicIndex = readJson<{ topics: TopicEntry[] }>(TOPIC_INDEX_PATH, { topics: [] });
   const decisionLedger = readJson<{ decisions: DecisionEntry[] }>(DECISION_LEDGER_PATH, { decisions: [] });
   const charter = readJson<{ charter?: { version?: string } }>(CHARTER_PATH, {});
+  const pendingDeferralsFile = readJson<{ items: PendingDeferral[] }>(PENDING_DEFERRALS_PATH, { items: [] });
   const currentState = readJson<SystemState>(SYSTEM_STATE_PATH, {
     lastSessionId: 'session_000',
     nextSessionId: 'session_001',
@@ -171,7 +173,7 @@ function main() {
     openTopics,
     recentDecisions,
     recentSessionSummaries,
-    pendingDeferrals: (currentState.pendingDeferrals || []).filter((d: PendingDeferral) => d.status === 'pending'),
+    pendingDeferrals: (pendingDeferralsFile.items || []).filter((d: PendingDeferral) => d.status === 'pending'),
     lastUpdated: new Date().toISOString(),
   };
 

@@ -2,7 +2,7 @@
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
   "lastSessionId": "session_214",
   "nextSessionId": "session_215",
-  "currentVersion": "v0.110",
+  "currentVersion": "v0.210",
   "openTopics": [
     {
       "id": "topic_175",
@@ -81,7 +81,9 @@
     {
       "id": "PD-057",
       "fromSession": "session_167",
-      "fromTopic": "topic_144 (dashboard-upgrade-v2-legend-nexus)",
+      "fromTopic": "topic_144",
+      "createdAt": "2026-04-28",
+      "title": "Grade 임계 자체 재검토",
       "item": "Grade 임계 자체 재검토 — Master Q3 Scope OUT 박제. C/D 자동 분기 키워드 매칭(bug·fix·patch 등)이 적절한지 누적 데이터로 검증. gradeMismatch 충분 시 재오픈.",
       "status": "pending",
       "resolveCondition": "gradeMismatch ≥ 10건 누적 OR Master 명시 재오픈",
@@ -92,7 +94,23 @@
         "D-144"
       ],
       "relatedTopic": "topic_144"
+    },
+    {
+      "id": "PD-068",
+      "fromSession": "session_213",
+      "fromTopic": "pd-deferred-skill",
+      "createdAt": "2026-05-08",
+      "item": "프롬프트 입력 시 스킬을 훅으로 자동 발동 구현",
+      "status": "pending"
+    },
+    {
+      "id": "PD-069",
+      "fromSession": "session_214",
+      "fromTopic": "pd-skill-bug-fix",
+      "createdAt": "2026-05-08",
+      "item": "병행세션 병행토픽 시스템 검토 caseB",
+      "status": "pending"
     }
   ],
-  "lastUpdated": "2026-05-08T13:04:54.995Z"
+  "lastUpdated": "2026-05-08T13:11:24.570Z"
 }
