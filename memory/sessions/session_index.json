@@ -9877,8 +9877,36 @@
       "note": "D-138 caveat resolvedAt: 2026-05-08 — D-143(session_165)에서 rules.edi 신설로 이미 해소 | D-143 caveat resolvedAt: 2026-05-08 — Opt-α 의도적 설계로 accepted",
       "oneLineSummary": "D-138·D-143 caveat resolve 처리 — ackedButUnresolved 0건",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_213",
+      "topicSlug": "pd-deferred-skill",
+      "topic": "\"/pd\" 이연스킬 생성",
+      "startedAt": "2026-05-08T10:00:00.000Z",
+      "closedAt": "2026-05-08T11:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "dev",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "dev",
+          "turnIdx": 0,
+          "phase": "implement"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 1,
+          "phase": "compile"
+        }
+      ],
+      "grade": "C",
+      "note": "PD-058: 프롬프트 입력 시 스킬을 훅으로 자동 발동 구현 (등록됨) | PD-059: 대시보드 훅 성공율 0% 표시 문제 — logs/ gitignore 예외 수정으로 해소, PD 삭제 불필요",
+      "oneLineSummary": "/pd 커맨드 생성(manage-pd.ts + pd.md) + 대시보드 훅 성공율 0% 원인(logs/ gitignore) 수정",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-08T08:31:56.237Z",
+  "lastUpdated": "2026-05-08T09:08:33.704Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

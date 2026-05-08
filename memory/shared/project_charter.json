@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "0.010",
+    "version": "0.110",
     "versionSchema": {
       "format": "X.YYY (3자리 소수 float, 점 하나)",
       "incrementRules": {
@@ -325,6 +325,12 @@
       "date": "2026-05-08",
       "summary": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (memory/shared/decision_ledger.json)",
       "sessionId": "session_212"
+    },
+    {
+      "version": "0.110",
+      "date": "2026-05-08",
+      "summary": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 1건 (memory/roles/dev_memory.json)",
+      "sessionId": "session_213"
     }
   ],
   "lastUpdated": "2026-05-08"

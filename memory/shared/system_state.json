@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_212",
-  "nextSessionId": "session_213",
-  "currentVersion": "v0.010",
+  "lastSessionId": "session_213",
+  "nextSessionId": "session_214",
+  "currentVersion": "v0.110",
   "openTopics": [
     {
       "id": "topic_175",
@@ -63,17 +63,17 @@
       ]
     },
     {
+      "sessionId": "session_213",
+      "topicSlug": "pd-deferred-skill",
+      "closedAt": "2026-05-08T11:00:00.000Z",
+      "oneLineSummary": "/pd 커맨드 생성(manage-pd.ts + pd.md) + 대시보드 훅 성공율 0% 원인(logs/ gitignore) 수정",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_212",
       "topicSlug": "d-evasion-check",
       "closedAt": "2026-05-08T09:30:00.000Z",
       "oneLineSummary": "D-138·D-143 caveat resolve 처리 — ackedButUnresolved 0건",
-      "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_211",
-      "topicSlug": "pd-066-status-check",
-      "closedAt": "2026-05-08T08:00:00.000Z",
-      "oneLineSummary": "topic_178 PD-066 상태 확인: 3조건 충족 confirmed, resolved 박제 + topic_176 completed 종료",
       "decisionsAdded": []
     }
   ],
@@ -94,5 +94,5 @@
       "relatedTopic": "topic_144"
     }
   ],
-  "lastUpdated": "2026-05-08T08:32:11.065Z"
+  "lastUpdated": "2026-05-08T09:08:48.172Z"
 }

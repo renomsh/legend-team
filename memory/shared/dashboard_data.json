@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-08T08:32:17.565Z",
-  "totalSessions": 208,
+  "generatedAt": "2026-05-08T09:08:54.329Z",
+  "totalSessions": 209,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 208
+      "undefined": 209
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -16,16 +16,16 @@
     "archiveCount": 0
   },
   "metrics": {
-    "avgMasterTurns": 20.97,
-    "avgCacheHitRate": 0.9324,
-    "cacheSampleSize": 178,
-    "cacheSampleTotal": 208,
+    "avgMasterTurns": 20.98,
+    "avgCacheHitRate": 0.9322,
+    "cacheSampleSize": 179,
+    "cacheSampleTotal": 209,
     "avgAdoptionRate": 0,
     "totalDecisions": 174,
     "gradeDistribution": {
       "S": 98,
       "A": 41,
-      "B": 42,
+      "B": 43,
       "C": 18,
       "D": 9
     },
@@ -33,7 +33,7 @@
       "S": 19,
       "A": 60,
       "B": 57,
-      "C": 31,
+      "C": 32,
       "D": 7
     },
     "gradeMismatchCount": 13,
@@ -53,10 +53,10 @@
       "session_203"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 162,
-    "totalCostUSD": 2468.4535,
-    "avgCostPerSession": 12.4043,
-    "costSampleSize": 199,
+    "turnBasedSessions": 163,
+    "totalCostUSD": 2475.3531,
+    "avgCostPerSession": 12.3768,
+    "costSampleSize": 200,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -7981,6 +7981,40 @@
         "messageCount": 63
       },
       "sessionCostUSD": 1.9874
+    },
+    {
+      "sessionId": "session_213",
+      "topicSlug": "pd-deferred-skill",
+      "topic": "\"/pd\" 이연스킬 생성",
+      "startedAt": "2026-05-08T10:00:00.000Z",
+      "closedAt": "2026-05-08T11:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 23,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "dev",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 9048923,
+        "ioTokens": 79766,
+        "inputTokens": 229,
+        "outputTokens": 79537,
+        "cacheCreate": 873958,
+        "cacheRead": 8095199,
+        "cacheHitRate": 0.8946035898415756,
+        "messageCount": 108
+      },
+      "sessionCostUSD": 6.8996
     }
   ],
   "roleFrequency": [
@@ -8085,7 +8119,7 @@
     },
     {
       "role": "edi",
-      "count": 177,
+      "count": 178,
       "sessions": [
         "session_050",
         "session_051",
@@ -8245,7 +8279,8 @@
         "session_209",
         "session_210",
         "session_211",
-        "session_212"
+        "session_212",
+        "session_213"
       ]
     },
     {
@@ -8341,7 +8376,7 @@
     },
     {
       "role": "dev",
-      "count": 114,
+      "count": 115,
       "sessions": [
         "session_047",
         "session_048",
@@ -8433,7 +8468,8 @@
         "session_199",
         "session_205",
         "session_206",
-        "session_207"
+        "session_207",
+        "session_213"
       ]
     },
     {
@@ -14656,6 +14692,24 @@
           "role": "edi",
           "phase": "compile",
           "turnIdx": 0,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_213",
+      "topic": "\"/pd\" 이연스킬 생성",
+      "sequence": [
+        {
+          "role": "dev",
+          "phase": "implement",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 1,
           "recallReason": null
         }
       ]
