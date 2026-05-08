@@ -1,11 +1,11 @@
 {
-  "computedAt": "2026-05-08T20:29:15.721Z",
+  "computedAt": "2026-05-08T20:30:04.079Z",
   "registryVersion": "v1.1",
-  "durationMs": 1,
+  "durationMs": 2,
   "slaWarnMs": 3000,
   "slaBreached": false,
   "sourceJsonl": "memory\\growth\\self_scores.jsonl",
-  "recordCount": 158,
+  "recordCount": 165,
   "metricCount": 51,
   "aggregates": [
     {
@@ -13,7 +13,7 @@
       "role": "jobs",
       "view": "all",
       "mean": 100,
-      "n": 12,
+      "n": 13,
       "std": 0,
       "ci95": [
         100,
@@ -49,7 +49,7 @@
       "role": "jobs",
       "view": "all",
       "mean": 80,
-      "n": 12,
+      "n": 13,
       "std": 0,
       "ci95": [
         80,
@@ -84,108 +84,108 @@
       "metricId": "jobs.bias_count",
       "role": "jobs",
       "view": "all",
-      "mean": 58.2,
-      "n": 11,
-      "std": 32.8,
+      "mean": 53.3,
+      "n": 12,
+      "std": 35.5,
       "ci95": [
-        38.8,
-        77.6
+        33.2,
+        73.4
       ]
     },
     {
       "metricId": "jobs.bias_count",
       "role": "jobs",
       "view": "recent10",
-      "mean": 56,
+      "mean": 48,
       "n": 10,
-      "std": 33.7,
+      "std": 36.8,
       "ci95": [
-        35.1,
-        76.9
+        25.2,
+        70.8
       ]
     },
     {
       "metricId": "jobs.bias_count",
+      "role": "jobs",
+      "view": "recent3",
+      "mean": 13.3,
+      "n": 3,
+      "std": 23.1,
+      "ci95": [
+        -12.8,
+        39.5
+      ]
+    },
+    {
+      "metricId": "jobs.scope_no_count",
+      "role": "jobs",
+      "view": "all",
+      "mean": 78.3,
+      "n": 12,
+      "std": 24.8,
+      "ci95": [
+        64.3,
+        92.4
+      ]
+    },
+    {
+      "metricId": "jobs.scope_no_count",
+      "role": "jobs",
+      "view": "recent10",
+      "mean": 74,
+      "n": 10,
+      "std": 25,
+      "ci95": [
+        58.5,
+        89.5
+      ]
+    },
+    {
+      "metricId": "jobs.scope_no_count",
       "role": "jobs",
       "view": "recent3",
       "mean": 46.7,
       "n": 3,
-      "std": 50.3,
+      "std": 11.5,
       "ci95": [
-        -10.3,
-        103.6
-      ]
-    },
-    {
-      "metricId": "jobs.scope_no_count",
-      "role": "jobs",
-      "view": "all",
-      "mean": 81.8,
-      "n": 11,
-      "std": 22.7,
-      "ci95": [
-        68.4,
-        95.2
-      ]
-    },
-    {
-      "metricId": "jobs.scope_no_count",
-      "role": "jobs",
-      "view": "recent10",
-      "mean": 80,
-      "n": 10,
-      "std": 23.1,
-      "ci95": [
-        65.7,
-        94.3
-      ]
-    },
-    {
-      "metricId": "jobs.scope_no_count",
-      "role": "jobs",
-      "view": "recent3",
-      "mean": 66.7,
-      "n": 3,
-      "std": 30.6,
-      "ci95": [
-        32.1,
-        101.2
+        33.6,
+        59.7
       ]
     },
     {
       "metricId": "zero.ref_count",
       "role": "zero",
       "view": "all",
-      "mean": 25.4,
-      "n": 20,
-      "std": 30.3,
+      "mean": 24.9,
+      "n": 21,
+      "std": 29.7,
       "ci95": [
-        12.1,
-        38.7
+        12.2,
+        37.5
       ]
     },
     {
       "metricId": "zero.ref_count",
       "role": "zero",
       "view": "recent10",
-      "mean": 4.8,
+      "mean": 5.6,
       "n": 10,
-      "std": 4.2,
+      "std": 5.1,
       "ci95": [
-        2.2,
-        7.4
+        2.4,
+        8.8
       ]
     },
     {
       "metricId": "zero.ref_count",
       "role": "zero",
       "view": "recent3",
-      "mean": 4.7,
+      "mean": 9.3,
       "n": 3,
       "std": 8.1,
       "ci95": [
-        -4.5,
-        13.8
+        0.2,
+        18.5
       ]
     },
     {
@@ -193,7 +193,7 @@
       "role": "zero",
       "view": "all",
       "mean": 0,
-      "n": 20,
+      "n": 21,
       "std": 0,
       "ci95": [
         0,
@@ -229,7 +229,7 @@
       "role": "zero",
       "view": "all",
       "mean": 100,
-      "n": 20,
+      "n": 21,
       "std": 0,
       "ci95": [
         100,
