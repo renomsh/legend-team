@@ -1,12 +1,13 @@
 {
-  "sessionId": "session_210",
-  "topicId": "topic_177",
-  "topic": "ops 대시보드 hook 0% 오류 수정",
-  "topicSlug": "ops-dashboard-hook-fix",
-  "reportPath": "reports/2026-05-08_ops-dashboard-hook-fix",
+  "sessionId": "session_211",
+  "topicId": "topic_178",
+  "topic": "PD-066 상태 확인",
+  "topicSlug": "pd-066-status-check",
+  "reportPath": "reports/2026-05-08_pd-066-status-check",
   "status": "closed",
-  "closedAt": "2026-05-08T06:00:00.000Z",
-  "startedAt": "2026-05-08T00:00:00.000Z",
+  "startedAt": "2026-05-08T07:00:00.000Z",
+  "closedAt": "2026-05-08T08:00:00.000Z",
+  "oneLineSummary": "topic_178 PD-066 상태 확인: 3조건 충족 confirmed, resolved 박제 + topic_176 completed 종료",
   "mode": "observation",
   "grade": "C",
   "topicType": "standalone",
@@ -24,39 +25,40 @@
   "decisionsAdded": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [],
+  "pendingDeferralsResolved": [
+    "PD-066"
+  ],
   "openMasterAlerts": [],
   "agentsCompleted": [
     "edi"
   ],
-  "oneLineSummary": "topic_177 ops 대시보드 hook 0% 수정: auto-push.js에 main→worktree log sync 추가",
   "notes": [
-    "원인: session-end-tokens.js가 main project cwd에 hook-diagnostics.log 씀. build.js는 worktree logs/ 복사 → 파일 없어서 0%",
-    "수정: runHookChain에 syncHookDiagnosticsFromMain() 추가 — build.js 직전 main→worktree 복사"
+    "PD-066 resolve 3조건 모두 충족: ① joinOrphanPendingTurns P5 PASS ② GATE β PASS ③ /open step 1-a orphan scan 박제",
+    "topic_176 병렬 토픽 및 세션 구조 설계 → completed 종료 (session_211)"
   ],
   "tokenUsage": {
-    "input_tokens": 107,
-    "output_tokens": 79950,
-    "cache_creation_input_tokens": 544335,
-    "cache_read_input_tokens": 6207591,
-    "messageCount": 90,
-    "masterTurns": 4,
-    "total_billable": 6831983
+    "input_tokens": 229,
+    "output_tokens": 79537,
+    "cache_creation_input_tokens": 873958,
+    "cache_read_input_tokens": 8095199,
+    "messageCount": 108,
+    "masterTurns": 23,
+    "total_billable": 9048923
   },
   "gaps": [
     {
       "type": "mechanical-fallback-graded",
-      "sessionId": "session_210",
+      "sessionId": "session_211",
       "grade": "C",
       "severity": "info"
     },
     {
       "type": "edi-llm-report-absent",
-      "sessionId": "session_210",
-      "reportPath": "reports/2026-05-08_ops-dashboard-hook-fix",
+      "sessionId": "session_211",
+      "reportPath": "reports/2026-05-08_pd-066-status-check",
       "grade": "C",
       "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
     }
   ],
-  "finalizedAt": "2026-05-08T05:44:37.950Z"
+  "finalizedAt": "2026-05-08T05:53:30.282Z"
 }

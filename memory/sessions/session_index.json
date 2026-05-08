@@ -9833,8 +9833,30 @@
       "note": "원인: session-end-tokens.js가 main project cwd에 hook-diagnostics.log 씀. build.js는 worktree logs/ 복사 → 파일 없어서 0% | 수정: runHookChain에 syncHookDiagnosticsFromMain() 추가 — build.js 직전 main→worktree 복사",
       "oneLineSummary": "topic_177 ops 대시보드 hook 0% 수정: auto-push.js에 main→worktree log sync 추가",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_211",
+      "topicSlug": "pd-066-status-check",
+      "topic": "PD-066 상태 확인",
+      "startedAt": "2026-05-08T07:00:00.000Z",
+      "closedAt": "2026-05-08T08:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "edi",
+          "turnIdx": 0,
+          "phase": "compile"
+        }
+      ],
+      "grade": "C",
+      "note": "PD-066 resolve 3조건 모두 충족: ① joinOrphanPendingTurns P5 PASS ② GATE β PASS ③ /open step 1-a orphan scan 박제 | topic_176 병렬 토픽 및 세션 구조 설계 → completed 종료 (session_211)",
+      "oneLineSummary": "topic_178 PD-066 상태 확인: 3조건 충족 confirmed, resolved 박제 + topic_176 completed 종료",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-08T05:44:22.594Z",
+  "lastUpdated": "2026-05-08T05:53:14.224Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

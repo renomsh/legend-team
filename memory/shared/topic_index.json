@@ -1,6 +1,23 @@
 {
   "topics": [
     {
+      "id": "topic_178",
+      "title": "PD-066 상태 확인",
+      "status": "completed",
+      "phase": "validated",
+      "hold": null,
+      "created": "2026-05-08",
+      "grade": "C",
+      "topicType": "standalone",
+      "controlPath": "topics/topic_178",
+      "reportPath": "reports/2026-05-08_pd-066-status-check",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_211",
+      "path": "topics/topic_178",
+      "lastUpdated": "2026-05-08"
+    },
+    {
       "id": "topic_177",
       "title": "ops 대시보드 hook 0% 오류 수정",
       "status": "completed",
@@ -22,8 +39,8 @@
     {
       "id": "topic_176",
       "title": "병렬 토픽 및 세션 구조 설계",
-      "status": "implementing",
-      "phase": "implementing",
+      "status": "completed",
+      "phase": "validated",
       "hold": null,
       "grade": "S",
       "topicType": "framing",
@@ -35,7 +52,8 @@
       "reopenedInSession": "session_209",
       "path": "topics/topic_176",
       "lastUpdated": "2026-05-08",
-      "closedInSession": "session_209"
+      "closedInSession": "session_211",
+      "outcome": "G안 전체 구현 완료 (P1~P9 PASS) + PD-066 resolved (session_211) — pending_turns crash recovery 박제 및 검증 완료"
     },
     {
       "id": "topic_175",
@@ -3390,5 +3408,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-08T05:44:30.855Z"
+  "lastUpdated": "2026-05-08T05:53:23.271Z"
 }

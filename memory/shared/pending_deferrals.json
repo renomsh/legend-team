@@ -11,15 +11,16 @@
       "createdAt": "2026-05-08",
       "title": "Nexus crash 시 pending_turns 영구 손실 방지 복구",
       "item": "Nexus crash recovery — turnPushMode=nexus 모드에서 Nexus crash 발생 시 pending_turns_{sessionId}.jsonl 잔존 후 (a) 다음 세션 안 열림(휴지기), (b) 다른 토픽 → sessionId mismatch skip → 영구 손실 risk. 다음 세션 finalize hook이 read+merge+turns[] 복구하는 알고리즘 코드 박제. Arki rev4 §6/§7.7 명세 기반 — 세션 시작 pending_turns scan + 주기 cron orphan scan + sessionId mismatch 시 orphan 폴더 이동 + Master 알림 채널.",
-      "status": "open",
+      "status": "resolved",
+      "resolvedAt": "2026-05-08",
+      "resolvedBy": "session_211",
+      "resolveNote": "① joinOrphanPendingTurns P5 20/20 PASS (session_209), ② GATE β 13/13 PASS, ③ /open step 1-a orphan scan 박제 완료 — 3조건 모두 충족",
       "resolveCondition": "복구 알고리즘 코드 박제(session-end-finalize.js read+merge + cron orphan scan) + GATE β 통과(crash 시뮬레이션 turn 손실 0건) + Phase 진입 게이트 G-FINALIZE 통과",
       "fallback": "turnPushMode='hook' 강제 (legacy 동작 보존, race risk 잔존)",
       "dependsOn": [],
       "relatedDecisions": ["D-166", "D-170-A1", "D-171"],
       "relatedTopic": "topic_176",
-      "blockers": [
-        "Phase 진입 게이트 G-PRE 통과 조건 (D-171) — resolved OR fallback 박제 강제"
-      ]
+      "blockers": []
     }
   ]
 }

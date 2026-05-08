@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_210",
-  "nextSessionId": "session_211",
+  "lastSessionId": "session_211",
+  "nextSessionId": "session_212",
   "currentVersion": "v0.968",
   "openTopics": [
     {
@@ -63,23 +63,18 @@
       ]
     },
     {
+      "sessionId": "session_211",
+      "topicSlug": "pd-066-status-check",
+      "closedAt": "2026-05-08T08:00:00.000Z",
+      "oneLineSummary": "topic_178 PD-066 상태 확인: 3조건 충족 confirmed, resolved 박제 + topic_176 completed 종료",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_210",
       "topicSlug": "ops-dashboard-hook-fix",
       "closedAt": "2026-05-08T06:00:00.000Z",
       "oneLineSummary": "topic_177 ops 대시보드 hook 0% 수정: auto-push.js에 main→worktree log sync 추가",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_208",
-      "topicSlug": "parallel-topic-session-design",
-      "closedAt": "2026-05-08T02:00:00.000Z",
-      "oneLineSummary": "topic_176 토론형 frame 박제 — D-170/A1/A2/D-171 + Arki rev4 spc_lck=Y + PD-066 신설, 코드 박제 다음 세션 분리",
-      "decisionsAdded": [
-        "D-170",
-        "D-170-A1",
-        "D-170-A2",
-        "D-171"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -99,5 +94,5 @@
       "relatedTopic": "topic_144"
     }
   ],
-  "lastUpdated": "2026-05-08T05:44:37.854Z"
+  "lastUpdated": "2026-05-08T05:53:30.168Z"
 }
