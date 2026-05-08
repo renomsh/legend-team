@@ -9,7 +9,8 @@
       "Bash(npx ts-node scripts/auto-close-topics.ts)",
       "Bash(npx ts-node scripts/resolve-pending-deferrals.ts)",
       "Bash(npx ts-node scripts/load-context-briefs.ts)",
-      "Bash(npx ts-node scripts/validate-session-turns.ts *)"
+      "Bash(npx ts-node scripts/validate-session-turns.ts *)",
+      "Bash(npx ts-node scripts/manage-pd.ts *)"
     ]
   },
   "hooks": {
