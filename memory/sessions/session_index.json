@@ -9905,8 +9905,30 @@
       "note": "PD-058: 프롬프트 입력 시 스킬을 훅으로 자동 발동 구현 (등록됨) | PD-059: 대시보드 훅 성공율 0% 표시 문제 — logs/ gitignore 예외 수정으로 해소, PD 삭제 불필요",
       "oneLineSummary": "/pd 커맨드 생성(manage-pd.ts + pd.md) + 대시보드 훅 성공율 0% 원인(logs/ gitignore) 수정",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_214",
+      "topicSlug": "pd-skill-bug-fix",
+      "topic": "PD스킬 버그 수정",
+      "startedAt": "2026-05-08T12:00:00.000Z",
+      "closedAt": "2026-05-08T13:10:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "edi",
+          "turnIdx": 0,
+          "phase": "compile"
+        }
+      ],
+      "grade": "B",
+      "note": "manage-pd.ts: session_213 commit 누락 재생성. SOT=pending_deferrals.json | PD-057: system_state.json → pending_deferrals.json migrate | PD-068: session_213 원의 '프롬프트 입력 시 스킬 훅 자동 발동' 등록 | PD-069: 병행세션 병행토픽 시스템 검토 caseB 등록 | verification-before-completion: obra/superpowers TDD 원칙 1줄 흡수",
+      "oneLineSummary": "manage-pd.ts 신규 생성 + PD-057 migrate + verification-before-completion TDD 원칙 흡수",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-08T09:08:33.704Z",
+  "lastUpdated": "2026-05-08T13:04:32.307Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

@@ -1,6 +1,22 @@
 {
   "topics": [
     {
+      "id": "topic_181",
+      "title": "PD스킬 버그 수정",
+      "status": "completed",
+      "phase": "framing",
+      "hold": null,
+      "created": "2026-05-08",
+      "controlPath": "topics/topic_181",
+      "reportPath": "reports/2026-05-08_pd-skill-bug-fix",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_214",
+      "path": "topics/topic_181",
+      "grade": "B",
+      "lastUpdated": "2026-05-08"
+    },
+    {
       "id": "topic_180",
       "title": "\"/pd\" 이연스킬 생성",
       "status": "completed",
@@ -3439,5 +3455,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-08T09:08:41.646Z"
+  "lastUpdated": "2026-05-08T13:04:44.048Z"
 }

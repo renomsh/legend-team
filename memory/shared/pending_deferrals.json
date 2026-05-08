@@ -2,8 +2,25 @@
   "schema": "pending_deferrals.v1",
   "createdAt": "2026-05-08",
   "createdBy": "edi (session_208)",
-  "note": "Pending Deferrals SOT. session_208 Edi compile 신설. 기존 PD 인용은 decision_ledger.json caveats[] 정본 유지 — 본 파일은 새 PD 박제부터 운영.",
+  "note": "Pending Deferrals SOT. session_208 Edi compile 신설. session_214 PD-057 migrate (system_state.json → 본 파일 통합). 이후 모든 PD 등록·조회는 본 파일 단일 경유.",
   "items": [
+    {
+      "id": "PD-057",
+      "fromSession": "session_167",
+      "fromTopic": "topic_144",
+      "createdAt": "2026-04-28",
+      "title": "Grade 임계 자체 재검토",
+      "item": "Grade 임계 자체 재검토 — Master Q3 Scope OUT 박제. C/D 자동 분기 키워드 매칭(bug·fix·patch 등)이 적절한지 누적 데이터로 검증. gradeMismatch 충분 시 재오픈.",
+      "status": "pending",
+      "resolveCondition": "gradeMismatch ≥ 10건 누적 OR Master 명시 재오픈",
+      "dependsOn": [],
+      "relatedDecisions": [
+        "D-074",
+        "D-130",
+        "D-144"
+      ],
+      "relatedTopic": "topic_144"
+    },
     {
       "id": "PD-066",
       "fromSession": "session_208",
@@ -18,9 +35,39 @@
       "resolveCondition": "복구 알고리즘 코드 박제(session-end-finalize.js read+merge + cron orphan scan) + GATE β 통과(crash 시뮬레이션 turn 손실 0건) + Phase 진입 게이트 G-FINALIZE 통과",
       "fallback": "turnPushMode='hook' 강제 (legacy 동작 보존, race risk 잔존)",
       "dependsOn": [],
-      "relatedDecisions": ["D-166", "D-170-A1", "D-171"],
+      "relatedDecisions": [
+        "D-166",
+        "D-170-A1",
+        "D-171"
+      ],
       "relatedTopic": "topic_176",
       "blockers": []
+    },
+    {
+      "id": "PD-067",
+      "fromSession": "session_214",
+      "fromTopic": "pd-skill-bug-fix",
+      "createdAt": "2026-05-08",
+      "item": "테스트 항목 — 검증용",
+      "status": "resolved",
+      "resolvedAt": "2026-05-08",
+      "resolvedBy": "session_214"
+    },
+    {
+      "id": "PD-068",
+      "fromSession": "session_213",
+      "fromTopic": "pd-deferred-skill",
+      "createdAt": "2026-05-08",
+      "item": "프롬프트 입력 시 스킬을 훅으로 자동 발동 구현",
+      "status": "pending"
+    },
+    {
+      "id": "PD-069",
+      "fromSession": "session_214",
+      "fromTopic": "pd-skill-bug-fix",
+      "createdAt": "2026-05-08",
+      "item": "병행세션 병행토픽 시스템 검토 caseB",
+      "status": "pending"
     }
   ]
 }

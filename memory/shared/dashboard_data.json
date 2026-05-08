@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-08T10:14:42.545Z",
-  "totalSessions": 209,
+  "generatedAt": "2026-05-08T13:05:06.491Z",
+  "totalSessions": 210,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 209
+      "undefined": 210
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -16,23 +16,23 @@
     "archiveCount": 0
   },
   "metrics": {
-    "avgMasterTurns": 21.09,
-    "avgCacheHitRate": 0.9322,
-    "cacheSampleSize": 179,
-    "cacheSampleTotal": 209,
+    "avgMasterTurns": 21.1,
+    "avgCacheHitRate": 0.932,
+    "cacheSampleSize": 180,
+    "cacheSampleTotal": 210,
     "avgAdoptionRate": 0,
     "totalDecisions": 174,
     "gradeDistribution": {
       "S": 98,
       "A": 41,
       "B": 43,
-      "C": 18,
+      "C": 19,
       "D": 9
     },
     "topicGradeDistribution": {
       "S": 19,
       "A": 60,
-      "B": 57,
+      "B": 58,
       "C": 32,
       "D": 7
     },
@@ -53,10 +53,10 @@
       "session_203"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 163,
-    "totalCostUSD": 2482.2528,
-    "avgCostPerSession": 12.4113,
-    "costSampleSize": 200,
+    "turnBasedSessions": 164,
+    "totalCostUSD": 2489.1524,
+    "avgCostPerSession": 12.3838,
+    "costSampleSize": 201,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -8015,6 +8015,39 @@
         "messageCount": 216
       },
       "sessionCostUSD": 13.7993
+    },
+    {
+      "sessionId": "session_214",
+      "topicSlug": "pd-skill-bug-fix",
+      "topic": "PD스킬 버그 수정",
+      "startedAt": "2026-05-08T12:00:00.000Z",
+      "closedAt": "2026-05-08T13:10:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 23,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 9048923,
+        "ioTokens": 79766,
+        "inputTokens": 229,
+        "outputTokens": 79537,
+        "cacheCreate": 873958,
+        "cacheRead": 8095199,
+        "cacheHitRate": 0.8946035898415756,
+        "messageCount": 108
+      },
+      "sessionCostUSD": 6.8996
     }
   ],
   "roleFrequency": [
@@ -8119,7 +8152,7 @@
     },
     {
       "role": "edi",
-      "count": 178,
+      "count": 179,
       "sessions": [
         "session_050",
         "session_051",
@@ -8280,7 +8313,8 @@
         "session_210",
         "session_211",
         "session_212",
-        "session_213"
+        "session_213",
+        "session_214"
       ]
     },
     {
@@ -14713,6 +14747,18 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_214",
+      "topic": "PD스킬 버그 수정",
+      "sequence": [
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 0,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -15357,6 +15403,11 @@
           "date": "2026-04-21",
           "feedbackId": "MF-046",
           "summary": "PD-020b 실집행은 새 세션으로 분할 진행. 본 세션은 framing+실행계획만."
+        },
+        {
+          "date": "2026-05-08",
+          "feedbackId": "MF-111",
+          "summary": "PD 등록 시 내용 추측 금지 — 번호(예: '58')만 말하면 원 등록자 의도를 session notes에"
         }
       ]
     },
@@ -15486,6 +15537,11 @@
           "date": "2026-04-18",
           "feedbackId": "MF-S034-1",
           "summary": "어중간한 절충안 금지. 목표(고IF 최고점수) 기준 단일 최적해만 제시. 의견 조율은 Master 몫. Ac"
+        },
+        {
+          "date": "2026-05-08",
+          "feedbackId": "MF-111",
+          "summary": "PD 등록 시 내용 추측 금지 — 번호(예: '58')만 말하면 원 등록자 의도를 session notes에"
         }
       ]
     },

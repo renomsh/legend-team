@@ -1432,6 +1432,18 @@
       "source": "hook",
       "feedback": "Grade S 세션 session_206에서 Edi LLM 미호출 — mechanical fallback(edi_auto_rev1.md) 박제됨. role-edi.md §6.4 검토 필요.",
       "status": "pending"
+    },
+    {
+      "id": "MF-111",
+      "date": "2026-05-08",
+      "session": "session_214",
+      "sessionId": "session_214",
+      "topic": "topic_181",
+      "phase": "implement",
+      "type": "correction",
+      "feedback": "PD 등록 시 내용 추측 금지 — 번호(예: '58')만 말하면 원 등록자 의도를 session notes에서 먼저 확인하고 등록해야 함. 내 분석 내용을 임의로 붙이면 안 됨.",
+      "directive": "content-verification-before-pd-add",
+      "status": "resolved"
     }
   ],
   "statusValues": [

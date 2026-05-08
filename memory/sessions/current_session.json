@@ -1,27 +1,22 @@
 {
-  "sessionId": "session_213",
-  "topicId": "topic_180",
-  "topic": "\"/pd\" 이연스킬 생성",
-  "topicSlug": "pd-deferred-skill",
-  "reportPath": "reports/2026-05-08_pd-deferred-skill",
+  "sessionId": "session_214",
+  "topicId": "topic_181",
+  "topic": "PD스킬 버그 수정",
+  "topicSlug": "pd-skill-bug-fix",
+  "reportPath": "reports/2026-05-08_pd-skill-bug-fix",
   "status": "closed",
-  "startedAt": "2026-05-08T10:00:00.000Z",
-  "closedAt": "2026-05-08T11:00:00.000Z",
-  "oneLineSummary": "/pd 커맨드 생성(manage-pd.ts + pd.md) + 대시보드 훅 성공율 0% 원인(logs/ gitignore) 수정",
+  "startedAt": "2026-05-08T12:00:00.000Z",
+  "closedAt": "2026-05-08T13:10:00.000Z",
+  "oneLineSummary": "manage-pd.ts 신규 생성 + PD-057 migrate + verification-before-completion TDD 원칙 흡수",
   "mode": "observation",
-  "grade": "C",
+  "grade": "B",
   "topicType": "standalone",
   "framingLevel": 0,
   "framingSkipped": true,
   "turns": [
     {
-      "role": "dev",
-      "turnIdx": 0,
-      "phase": "implement"
-    },
-    {
       "role": "edi",
-      "turnIdx": 1,
+      "turnIdx": 0,
       "phase": "compile"
     }
   ],
@@ -30,42 +25,46 @@
   "decisionsAdded": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [
-    "PD-058",
-    "PD-059"
+    "PD-067",
+    "PD-068",
+    "PD-069"
   ],
   "pendingDeferralsResolved": [],
-  "openMasterAlerts": [],
+  "openMasterAlerts": [
+    {
+      "severity": "high",
+      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.1)",
+      "addedBy": "checkVersionBumpConfirmation",
+      "ref": "D-140"
+    }
+  ],
   "agentsCompleted": [
-    "dev",
     "edi"
   ],
   "notes": [
-    "PD-058: 프롬프트 입력 시 스킬을 훅으로 자동 발동 구현 (등록됨)",
-    "PD-059: 대시보드 훅 성공율 0% 표시 문제 — logs/ gitignore 예외 수정으로 해소, PD 삭제 불필요"
+    "manage-pd.ts: session_213 commit 누락 재생성. SOT=pending_deferrals.json",
+    "PD-057: system_state.json → pending_deferrals.json migrate",
+    "PD-068: session_213 원의 '프롬프트 입력 시 스킬 훅 자동 발동' 등록",
+    "PD-069: 병행세션 병행토픽 시스템 검토 caseB 등록",
+    "verification-before-completion: obra/superpowers TDD 원칙 1줄 흡수"
   ],
   "gaps": [
     {
-      "type": "mechanical-fallback-graded",
-      "sessionId": "session_213",
-      "grade": "C",
-      "severity": "info"
+      "type": "edi-agent-source-missing",
+      "sessionId": "session_214",
+      "grade": "B",
+      "severity": "high",
+      "detectedAt": "2026-05-08T13:04:32.297Z",
+      "note": "turns[]에 role=edi && source=agent turn 없음 — D-066(Grade A/S 서브에이전트 강제) + D4(hook 박제) 위반",
+      "ref": "D-138"
     },
     {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-08_pd-deferred-skill/dev_rev1.md"
-    },
-    {
-      "type": "mechanical-fallback-graded",
-      "sessionId": "session_213",
-      "grade": "C",
-      "severity": "info"
-    },
-    {
-      "type": "edi-llm-report-absent",
-      "sessionId": "session_213",
-      "reportPath": "reports/2026-05-08_pd-deferred-skill",
-      "grade": "C",
-      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
+      "type": "version-bump-edi-unconfirmed",
+      "severity": "high",
+      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
+      "addedBy": "checkVersionBumpConfirmation",
+      "ref": "D-140",
+      "suggestedValue": 0.1
     }
   ],
   "tokenUsage": {
@@ -80,15 +79,16 @@
   "versionBumpSuggested": {
     "value": 0.1,
     "type": "structural",
-    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 1건 (memory/roles/dev_memory.json)",
-    "autoDetectedAt": "2026-05-08T09:08:46.178Z",
+    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 1건 (.claude/skills/verification-before-completion/SKILL.md)",
+    "autoDetectedAt": "2026-05-08T13:04:51.438Z",
     "changedFiles": [
+      ".claude/skills/verification-before-completion/SKILL.md",
       "logs/hook-diagnostics.log",
-      "memory/roles/dev_memory.json",
+      "memory/master/master_feedback_log.json",
       "memory/sessions/current_session.json",
       "memory/sessions/session_index.json",
       "memory/sessions/token_log.json",
-      "memory/shared/system_state.json",
+      "memory/shared/pending_deferrals.json",
       "memory/shared/topic_index.json",
       "\"Data/Databook/01_2026/353/205/204_databook_/354/267/250/355/225/251_260507_/354/231/204/353/243/214.xlsx\"",
       "Data/Databook/20260507/",
@@ -101,22 +101,11 @@
       "Data/Databook/p0_prev.json",
       "Data/Databook/personal_check.json",
       "Data/Databook/personal_stats.json",
-      "Data/Databook/sheets.json",
-      "Data/Databook/team_check.json"
+      "Data/Databook/sheets.json"
     ],
-    "changedFilesCount": 27,
+    "changedFilesCount": 30,
     "cappedAt": 0.1,
-    "confirmedBy": "nexus"
+    "confirmedBy": null
   },
-  "versionBump": {
-    "value": 0.1,
-    "type": "structural",
-    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 1건 (memory/roles/dev_memory.json)",
-    "from": "0.010",
-    "to": "0.110",
-    "confirmedBy": "nexus",
-    "confirmedAt": "2026-05-08T09:08:46.178Z",
-    "autoDetectedAt": "2026-05-08T09:08:46.178Z"
-  },
-  "finalizedAt": "2026-05-08T09:08:48.273Z"
+  "finalizedAt": "2026-05-08T13:04:55.168Z"
 }
