@@ -62,6 +62,33 @@ Rules:
 - **S grade + `/auto`**: grade 필드는 S 유지, orchestrationMode만 전환.
 - 스킬: `.claude/skills/orchestration-mode/SKILL.md` (`/auto`·`/master` 통합)
 
+### 토픽 운영 유형 (D-170, 2026-05-07)
+
+`operationType` 필드 — `current_session.json`에 저장. 기본값 `structured`.
+
+- **`structured`** (default): 역할 순차 발언 → `/ace-synthesis` 명시 호출 가능.
+- **`discussion`**: 5단계 phase 메커니즘. `/ace-synthesis` 사용 불가 (D-170-A2). Grade와 직교.
+- 세션 중 전환: `/discussion` · `/structured` 명령어로 전환 가능.
+
+#### Discussion 모드 5단계 Phase (D-170-A1)
+
+| Phase | 이름 | 동작 |
+|---|---|---|
+| 1 | `framing` | Jobs/Nexus가 Why·What·범위 결정 |
+| 2 | `blind-parallel` | 각 역할 격리 실행 — 다른 역할 발언 미열람. hook이 sessionLayer 억제 |
+| 3 | `open` | 격리 해제, 전체 발언 공개 |
+| 4 | `debate` | N round 찬반 토론. Nexus 중재, round 상한 없음 |
+| 5 | `synthesis` | Edi 단일 호출로 종합 박제. Ace dispatch 차단 (D-170-A2) |
+
+- **우선순위 축:** `phase` > `operationMode` > `grade`
+- **격리 강도 기본값:** `prompt_prepend_only` (blind-parallel phase 한정 강제)
+- **hook 박제:** `pre-tool-use-task.js` — ① blind-parallel domain marker inject ② sessionLayer 억제 ③ synthesis+discussion Ace 차단
+- **SOT:** `memory/shared/dispatch_config.json` — phase_enum·debate_round·debate_state_schema·role_domain_template
+
+#### /ace-synthesis 적용 범위 (D-170-A2)
+- `structured` 모드 한정. `discussion` 모드에서는 사용 불가.
+- discussion 모드 synthesis phase에서 Ace dispatch 시 hook(`pre-tool-use-task.js`)이 자동 차단.
+
 ## Topic Lifecycle System (D-056 / D-057, 2026-04-21)
 
 토픽 간 프레이밍↔구현 관계 + PD 자동 전이 + 저마찰 자동 종결.

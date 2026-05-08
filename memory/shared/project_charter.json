@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "0.210",
+    "version": "0.310",
     "versionSchema": {
       "format": "X.YYY (3자리 소수 float, 점 하나)",
       "incrementRules": {
@@ -331,6 +331,12 @@
       "date": "2026-05-08",
       "summary": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 1건 (memory/roles/dev_memory.json)",
       "sessionId": "session_213"
+    },
+    {
+      "version": "0.310",
+      "date": "2026-05-08",
+      "summary": "Discussion 모드 D-170/A1/A2 구조 박제 — operationType enum, 5단계 phase 메커니즘, /ace-synthesis structured 한정 정책이 CLAUDE.md + 신규 명령어 2건으로 확정",
+      "sessionId": "session_215"
     }
   ],
   "lastUpdated": "2026-05-08"

@@ -9927,8 +9927,62 @@
       "note": "manage-pd.ts: session_213 commit 누락 재생성. SOT=pending_deferrals.json | PD-057: system_state.json → pending_deferrals.json migrate | PD-068: session_213 원의 '프롬프트 입력 시 스킬 훅 자동 발동' 등록 | PD-069: 병행세션 병행토픽 시스템 검토 caseB 등록 | verification-before-completion: obra/superpowers TDD 원칙 1줄 흡수",
       "oneLineSummary": "manage-pd.ts 신규 생성 + PD-057 migrate + verification-before-completion TDD 원칙 흡수",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_215",
+      "topicSlug": "discussion-mode-impl",
+      "topic": "Discussion 모드 구현 (D-170/A1/A2)",
+      "startedAt": "2026-05-08T14:00:00.000Z",
+      "closedAt": "2026-05-08T15:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\flamboyant-boyd-b7dfc8",
+      "agentsCompleted": [
+        "zero",
+        "edi",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "zero",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 0,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 1,
+          "source": "agent",
+          "phase": "synthesis",
+          "selfScores": {
+            "scc": 1,
+            "cs_cnt": 4,
+            "art_cmp": 1,
+            "gap_fc": 3,
+            "gp_acc": 0.8
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 2,
+          "source": "agent",
+          "selfScores": {
+            "scc": "Y",
+            "cs_cnt": 4,
+            "art_cmp": 1,
+            "gap_fc": 3,
+            "gp_acc": 0.8
+          }
+        }
+      ],
+      "grade": "B",
+      "note": "TDD 방식: 테스트 먼저(실패) → 구현 → 테스트(통과). hook 5케이스 + 문서 7케이스 = 12/12 PASS | pre-tool-use-task.js: sess.phase 체크 추가, sessionLayer blind-parallel 억제, evaluateSynthesisAceBlock 신규 | /discussion·/structured 명령어 신규 생성",
+      "oneLineSummary": "D-170/A1/A2 hook+문서 박제: blind-parallel 격리, synthesis Ace 차단, /discussion·/structured 명령어 신규",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-08T13:04:32.307Z",
+  "lastUpdated": "2026-05-08T14:06:11.770Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

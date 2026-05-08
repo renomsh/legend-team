@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_214",
-  "nextSessionId": "session_215",
-  "currentVersion": "v0.210",
+  "lastSessionId": "session_215",
+  "nextSessionId": "session_216",
+  "currentVersion": "v0.310",
   "openTopics": [
     {
       "id": "topic_175",
@@ -52,6 +52,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_215",
+      "topicSlug": "discussion-mode-impl",
+      "closedAt": "2026-05-08T15:30:00.000Z",
+      "oneLineSummary": "D-170/A1/A2 hook+문서 박제: blind-parallel 격리, synthesis Ace 차단, /discussion·/structured 명령어 신규",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_214",
       "topicSlug": "pd-skill-bug-fix",
       "closedAt": "2026-05-08T13:10:00.000Z",
@@ -68,13 +75,6 @@
         "D-170-A2",
         "D-169-P0"
       ]
-    },
-    {
-      "sessionId": "session_213",
-      "topicSlug": "pd-deferred-skill",
-      "closedAt": "2026-05-08T11:00:00.000Z",
-      "oneLineSummary": "/pd 커맨드 생성(manage-pd.ts + pd.md) + 대시보드 훅 성공율 0% 원인(logs/ gitignore) 수정",
-      "decisionsAdded": []
     }
   ],
   "pendingDeferrals": [
@@ -112,5 +112,5 @@
       "status": "pending"
     }
   ],
-  "lastUpdated": "2026-05-08T13:11:24.570Z"
+  "lastUpdated": "2026-05-08T14:06:40.164Z"
 }
