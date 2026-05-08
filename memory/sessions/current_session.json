@@ -1,13 +1,13 @@
 {
-  "sessionId": "session_211",
-  "topicId": "topic_178",
-  "topic": "PD-066 상태 확인",
-  "topicSlug": "pd-066-status-check",
-  "reportPath": "reports/2026-05-08_pd-066-status-check",
+  "sessionId": "session_212",
+  "topicId": "topic_179",
+  "topic": "D 회피 확인",
+  "topicSlug": "d-evasion-check",
+  "reportPath": "reports/2026-05-08_d-evasion-check",
   "status": "closed",
-  "startedAt": "2026-05-08T07:00:00.000Z",
-  "closedAt": "2026-05-08T08:00:00.000Z",
-  "oneLineSummary": "PD-066 resolved + topic_176 completed + Grade C/D versionBump Nexus 확정 버그 수정",
+  "startedAt": "2026-05-08T09:00:00.000Z",
+  "closedAt": "2026-05-08T09:30:00.000Z",
+  "oneLineSummary": "D-138·D-143 caveat resolve 처리 — ackedButUnresolved 0건",
   "mode": "observation",
   "grade": "C",
   "topicType": "standalone",
@@ -25,41 +25,60 @@
   "decisionsAdded": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [
-    "PD-066"
-  ],
+  "pendingDeferralsResolved": [],
   "openMasterAlerts": [],
   "agentsCompleted": [
     "edi"
   ],
   "notes": [
-    "PD-066 resolve 3조건 모두 충족: ① joinOrphanPendingTurns P5 PASS ② GATE β PASS ③ /open step 1-a orphan scan 박제",
-    "topic_176 병렬 토픽 및 세션 구조 설계 → completed 종료 (session_211)",
-    "versionBump 버그 수정: session-end-finalize.js Grade C/D early return 제거 — Nexus 즉시 확정(confirmedBy: nexus) 경로 추가. applyVersionBump/checkVersionBumpConfirmation nexus 허용. commit 5152376"
+    "D-138 caveat resolvedAt: 2026-05-08 — D-143(session_165)에서 rules.edi 신설로 이미 해소",
+    "D-143 caveat resolvedAt: 2026-05-08 — Opt-α 의도적 설계로 accepted"
   ],
   "tokenUsage": {
-    "input_tokens": 229,
-    "output_tokens": 79537,
-    "cache_creation_input_tokens": 873958,
-    "cache_read_input_tokens": 8095199,
-    "messageCount": 108,
-    "masterTurns": 23,
-    "total_billable": 9048923
+    "input_tokens": 96,
+    "output_tokens": 27301,
+    "cache_creation_input_tokens": 161805,
+    "cache_read_input_tokens": 3236014,
+    "messageCount": 63,
+    "masterTurns": 11,
+    "total_billable": 3425216
   },
   "gaps": [
     {
       "type": "mechanical-fallback-graded",
-      "sessionId": "session_211",
+      "sessionId": "session_212",
       "grade": "C",
       "severity": "info"
-    },
-    {
-      "type": "edi-llm-report-absent",
-      "sessionId": "session_211",
-      "reportPath": "reports/2026-05-08_pd-066-status-check",
-      "grade": "C",
-      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
     }
   ],
-  "finalizedAt": "2026-05-08T05:53:30.282Z"
+  "versionBumpSuggested": {
+    "value": 0.01,
+    "type": "capacity",
+    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (memory/shared/decision_ledger.json)",
+    "autoDetectedAt": "2026-05-08T08:32:09.078Z",
+    "changedFiles": [
+      "logs/master-first.log",
+      "memory/sessions/current_session.json",
+      "memory/sessions/session_index.json",
+      "memory/sessions/token_log.json",
+      "memory/shared/dashboard_data.json",
+      "memory/shared/decision_ledger.json",
+      "memory/shared/topic_index.json",
+      "topics/topic_179/"
+    ],
+    "changedFilesCount": 8,
+    "cappedAt": 0.1,
+    "confirmedBy": "nexus"
+  },
+  "versionBump": {
+    "value": 0.01,
+    "type": "capacity",
+    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (memory/shared/decision_ledger.json)",
+    "from": "v0.968",
+    "to": "0.010",
+    "confirmedBy": "nexus",
+    "confirmedAt": "2026-05-08T08:32:09.078Z",
+    "autoDetectedAt": "2026-05-08T08:32:09.078Z"
+  },
+  "finalizedAt": "2026-05-08T08:32:11.158Z"
 }

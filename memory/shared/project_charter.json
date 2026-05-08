@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "v0.968",
+    "version": "0.010",
     "versionSchema": {
       "format": "X.YYY (3자리 소수 float, 점 하나)",
       "incrementRules": {
@@ -319,6 +319,12 @@
       "date": "2026-05-08",
       "summary": "session_208 framing 박제 — D-170(operationMode enum)·D-170-A1(5번째 축)·D-170-A2(토론형 5종합 Edi 단일)·D-171(Case B Phase 진입 게이트) decision_ledger 신설 4건 + Arki rev4 spc_lck=Y plan 박제 + PD-066 신설. 코드 박제는 다음 세션 분리(structural 0건). capacity 범주.",
       "sessionId": "session_208"
+    },
+    {
+      "version": "0.010",
+      "date": "2026-05-08",
+      "summary": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (memory/shared/decision_ledger.json)",
+      "sessionId": "session_212"
     }
   ],
   "lastUpdated": "2026-05-08"
