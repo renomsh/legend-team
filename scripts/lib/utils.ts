@@ -31,9 +31,10 @@ export function appendLog(context: string, message: string): void {
  * @param entries - array of objects with `id` string field
  * @param prefix - e.g. 'MF-', 'E-', 'session_'
  */
-export function nextId(entries: Array<{ id: string }>, prefix: string): string {
+export function nextId(entries: Array<{ id?: string }>, prefix: string): string {
   const nums = entries
-    .map(e => parseInt(e.id.replace(prefix, ''), 10))
+    .filter(e => typeof e.id === 'string')
+    .map(e => parseInt(e.id!.replace(prefix, ''), 10))
     .filter(n => !isNaN(n));
   const next = nums.length > 0 ? Math.max(...nums) + 1 : 1;
   return `${prefix}${String(next).padStart(3, '0')}`;
