@@ -196,14 +196,7 @@
   "pendingDeferralsResolved": [
     "PD-057"
   ],
-  "openMasterAlerts": [
-    {
-      "severity": "high",
-      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.1)",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140"
-    }
-  ],
+  "openMasterAlerts": [],
   "gaps": [
     {
       "type": "frontmatter-patch-failed",
@@ -334,5 +327,14 @@
     "cappedAt": 0.1,
     "confirmedBy": null
   },
-  "finalizedAt": "2026-05-08T20:29:11.941Z"
+  "finalizedAt": "2026-05-08T20:29:11.941Z",
+  "versionBump": {
+    "value": 0.1,
+    "from": "v1.379",
+    "to": "v1.479",
+    "reason": "Grade 시스템 전면 재정의(D-172·D-173): 2축 판정 원칙 + Grade C blast_radius 기반 재정의 + S 로스터 확정",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-09T21:00:00.000Z",
+    "overrideReason": null
+  }
 }
