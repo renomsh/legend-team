@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-08T02:11:23.899Z",
+  "generatedAt": "2026-05-08T05:23:41.018Z",
   "totalSessions": 204,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [
@@ -19,8 +19,8 @@
     }
   ],
   "metrics": {
-    "avgMasterTurns": 20.76,
-    "avgCacheHitRate": 0.9328,
+    "avgMasterTurns": 20.86,
+    "avgCacheHitRate": 0.9327,
     "cacheSampleSize": 175,
     "cacheSampleTotal": 204,
     "avgAdoptionRate": 0,
@@ -57,8 +57,8 @@
     ],
     "framingSkippedCount": 0,
     "turnBasedSessions": 158,
-    "totalCostUSD": 2418.1123,
-    "avgCostPerSession": 12.3373,
+    "totalCostUSD": 2440.6641,
+    "avgCostPerSession": 12.4524,
     "costSampleSize": 196
   },
   "sessions": [
@@ -7827,7 +7827,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 23,
+      "masterTurns": 44,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
@@ -7840,16 +7840,16 @@
         "edi"
       ],
       "tokenUsage": {
-        "totalBillable": 21047856,
-        "ioTokens": 181813,
-        "inputTokens": 4314,
-        "outputTokens": 177499,
-        "cacheCreate": 703684,
-        "cacheRead": 20162359,
-        "cacheHitRate": 0.9579293491935711,
-        "messageCount": 136
+        "totalBillable": 57040626,
+        "ioTokens": 453241,
+        "inputTokens": 4942,
+        "outputTokens": 448299,
+        "cacheCreate": 2956272,
+        "cacheRead": 53631113,
+        "cacheHitRate": 0.9402265851710674,
+        "messageCount": 453
       },
-      "sessionCostUSD": 11.3629
+      "sessionCostUSD": 33.9147
     }
   ],
   "roleFrequency": [

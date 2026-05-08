@@ -95,6 +95,28 @@
         "cs_cnt": 5,
         "gap_fc": 4
       }
+    },
+    {
+      "role": "jobs",
+      "turnIdx": 8,
+      "source": "agent",
+      "selfScores": {
+        "focus_sharp": 5,
+        "bloat_idx": 1,
+        "bias_cnt": 2,
+        "no_cnt": 3
+      }
+    },
+    {
+      "role": "arki",
+      "turnIdx": 9,
+      "source": "agent",
+      "selfScores": {
+        "aud_rcl": 0.8,
+        "str_fd": 3,
+        "spc_lck": "N",
+        "sa_rnd": 2
+      }
     }
   ],
   "decisions": [],
@@ -263,6 +285,30 @@
     {
       "type": "inline-role-header-missing-frontmatter",
       "file": "reports/2026-05-07_parallel-topic-session-design/session_summary.md"
+    },
+    {
+      "type": "missing-report",
+      "role": "jobs",
+      "turnIdx": 8,
+      "reportPath": "reports/2026-05-07_parallel-topic-session-design",
+      "detectedAt": "2026-05-08T03:02:30.735Z",
+      "note": "jobs turn8 완료 후 reports/jobs_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "frontmatter-patch-failed",
+      "role": "arki",
+      "turnIdx": 9,
+      "reportsPath": "`reports/2026-05-08_parallel-topic-session-design/arki_session209_rev1.md`",
+      "detectedAt": "2026-05-08T03:06:01.687Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-08_parallel-topic-session-design/arki_session209_rev1.md`"
+    },
+    {
+      "type": "missing-report",
+      "role": "arki",
+      "turnIdx": 9,
+      "reportPath": "reports/2026-05-07_parallel-topic-session-design",
+      "detectedAt": "2026-05-08T03:06:01.690Z",
+      "note": "arki turn9 완료 후 reports/arki_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
     }
   ],
   "openMasterAlerts": [],
@@ -277,13 +323,13 @@
     "edi"
   ],
   "tokenUsage": {
-    "input_tokens": 4314,
-    "output_tokens": 177499,
-    "cache_creation_input_tokens": 703684,
-    "cache_read_input_tokens": 20162359,
-    "messageCount": 136,
-    "masterTurns": 23,
-    "total_billable": 21047856
+    "input_tokens": 628,
+    "output_tokens": 270800,
+    "cache_creation_input_tokens": 2252588,
+    "cache_read_input_tokens": 33468754,
+    "messageCount": 317,
+    "masterTurns": 21,
+    "total_billable": 35992770
   },
   "finalizedAt": "2026-05-08T02:11:16.571Z"
 }
