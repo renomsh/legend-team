@@ -99,5 +99,22 @@
       "relatedTopic": "topic_144"
     }
   ],
-  "lastUpdated": "2026-05-08T05:16:46.294Z"
+  "lastUpdated": "2026-05-08T05:44:54.154Z",
+  "worktreeMergeFailures": [
+    {
+      "branch": "claude/dreamy-ardinghelli-7a9167",
+      "detectedAt": "2026-05-08T05:23:49.878Z",
+      "message": "Command failed: git merge claude/dreamy-ardinghelli-7a9167 --no-ff -m \"merge: claude/dreamy-ardinghelli-7a9167\""
+    },
+    {
+      "branch": "claude/epic-albattani-1df8cc",
+      "detectedAt": "2026-05-08T05:29:07.284Z",
+      "message": "error: Merging is not possible because you have unmerged files.\nhint: Fix them up in the work tree, and then use 'git add/rm <file>'\nhint: as appropriate to mark resolution and make a commit.\nfatal: Exiting because of an unresolved conflict.\n"
+    },
+    {
+      "branch": "claude/nostalgic-khayyam-6125a7",
+      "detectedAt": "2026-05-08T05:44:54.152Z",
+      "message": "warning: in the working copy of 'memory/shared/system_state.json', LF will be replaced by CRLF the next time Git touches it\nerror: Your local changes to the following files would be overwritten by merge:\n\tmemory/shared/system_state.json\nPlease commit your changes or stash them before you merge.\nAbor"
+    }
+  ]
 }
