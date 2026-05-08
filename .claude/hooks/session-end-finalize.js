@@ -1139,123 +1139,6 @@ function applyPendingDeferralsResolved(sess) {
 }
 
 /**
- * D-169 P5 (session_209, topic_176, 2026-05-08) — Nexus crash recovery.
- *
- * turnPushMode='nexus' 세션 종료 시 pending_turns_{sessionId}.jsonl이 남아있으면
- * Nexus crash로 미처리된 orphan entries로 판단하고 turns[]에 join하여 박제.
- *
- * 흐름:
- *   1. turnPushMode !== 'nexus' → skip (hook 모드는 이미 직접 push됨)
- *   2. pending_turns 파일 없음 → skip (정상 종료)
- *   3. 파일 읽기 → __hook_origin 검증 (D1 sentinel)
- *   4. valid entries를 ts 기준 정렬 → turns[] append
- *   5. gap: nexus-crash-recovery 박제
- *   6. pending_turns archive 처리
- */
-function joinOrphanPendingTurns(sess) {
-  if (sess.turnPushMode !== 'nexus') {
-    log('joinOrphanPendingTurns skip: turnPushMode !== nexus');
-    return;
-  }
-
-  const sessionId = sess.sessionId;
-
-  // pendingTurnsPath inline (turn-push-mode.js 동적 require 불필요)
-  const pendingPath = path.join(CWD, 'memory', 'sessions', `pending_turns_${sessionId}.jsonl`);
-
-  if (!fs.existsSync(pendingPath)) {
-    log('joinOrphanPendingTurns skip: pending_turns 없음 (정상 종료)');
-    return;
-  }
-
-  // Nexus crash로 미처리 파일 감지
-  log(`⚠ joinOrphanPendingTurns: pending_turns_${sessionId}.jsonl 발견 — Nexus crash recovery 시작`);
-
-  const raw = fs.readFileSync(pendingPath, 'utf8');
-  const lines = raw.split('\n').filter(l => l.trim());
-
-  const HOOK_ORIGIN_SENTINEL = 'post-tool-use-task';
-  const validEntries = [];
-  const invalidEntries = [];
-
-  for (const line of lines) {
-    let entry;
-    try { entry = JSON.parse(line); } catch { continue; }
-    if (entry.__hook_origin === HOOK_ORIGIN_SENTINEL) {
-      validEntries.push(entry);
-    } else {
-      invalidEntries.push(entry);
-    }
-  }
-
-  // invalid entries → gap 박제 (origin 위변조 or 누락)
-  if (invalidEntries.length > 0) {
-    sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
-    sess.gaps.push({
-      type: 'nexus-crash-recovery-invalid-origin',
-      count: invalidEntries.length,
-      detail: invalidEntries.map(e => ({ agentId: e.agentId, role: e.role, origin: e.__hook_origin })),
-    });
-    log(`joinOrphanPendingTurns: invalid __hook_origin ${invalidEntries.length}건 → gap 박제 (D1 sentinel)`);
-  }
-
-  if (validEntries.length === 0) {
-    log('joinOrphanPendingTurns: valid entries 없음 (all invalid origin)');
-  } else {
-    // ts 기준 정렬 (dispatch_order 정보 없음 — crash 시 순서 복원)
-    validEntries.sort((a, b) => {
-      const ta = a.ts ? new Date(a.ts).getTime() : 0;
-      const tb = b.ts ? new Date(b.ts).getTime() : 0;
-      return ta - tb;
-    });
-
-    const existingTurns = Array.isArray(sess.turns) ? sess.turns : [];
-    let turnIdx = existingTurns.length;
-
-    for (const entry of validEntries) {
-      const turn = {
-        role: entry.role,
-        turnIdx,
-        source: 'agent',
-        ...(entry.selfScores && { selfScores: entry.selfScores }),
-        sort_key: turnIdx,  // crash recovery: ts 순서 그대로 sort_key 부여
-        _crashRecovery: true,
-        _pendingTs: entry.ts || null,
-      };
-      existingTurns.push(turn);
-      turnIdx++;
-    }
-    sess.turns = existingTurns;
-
-    // gap: crash recovery 박제
-    sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
-    sess.gaps.push({
-      type: 'nexus-crash-recovery',
-      recovered: validEntries.length,
-      invalid: invalidEntries.length,
-      note: 'Nexus 미처리 pending_turns entries — crash recovery로 turns[] join',
-      ref: 'D-169-P5',
-    });
-
-    log(`joinOrphanPendingTurns: valid ${validEntries.length}건 → turns[] join 완료`);
-  }
-
-  // pending_turns archive
-  try {
-    const archiveDir = path.join(CWD, 'memory', 'sessions', 'pending_turns_archive');
-    if (!fs.existsSync(archiveDir)) fs.mkdirSync(archiveDir, { recursive: true });
-    const archiveName = `${path.basename(pendingPath, '.jsonl')}_crash_${Date.now()}.jsonl`;
-    fs.renameSync(pendingPath, path.join(archiveDir, archiveName));
-    log(`joinOrphanPendingTurns: pending_turns archived → ${archiveName}`);
-  } catch (e) {
-    log(`joinOrphanPendingTurns: archive 실패 (${e && e.message}) — 파일 삭제 시도`);
-    try { fs.unlinkSync(pendingPath); } catch {}
-  }
-
-  writeJson(CURRENT_SESSION_PATH, sess);
-}
-
-/**
  * D-130 (session_146, topic_131, 2026-04-30): versionBump 자동 감지.
  *
  * Nexus 자동 감지 → versionBumpSuggested 박제 → Edi 세션 종료 시 확정 (D-130 책임 분배).
@@ -1748,7 +1631,6 @@ function runSyncSystemState() {
       process.exit(0);
     }
 
-    joinOrphanPendingTurns(sess); // D-169 P5: nexus crash recovery
     checkSelfScoreScale(sess);
     checkCommonPolicyCap(sess);
     ensureEdiInAgents(sess);

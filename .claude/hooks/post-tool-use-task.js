@@ -31,9 +31,6 @@ const TARGET_TOOL_NAMES = ['Task', 'Agent']; // 양쪽 모두 cover
 const ROLE_AGENT_PREFIX = 'role-';
 // PD-059 resolved (session_179): KNOWN_ROLES 단일 출처 — lib/known-roles.js SOT
 const { KNOWN_ROLES } = require('./lib/known-roles');
-// D-169 P3 — turnPushMode 분기 (session_209)
-// CWD 기준 동적 require: hook이 다른 cwd에서 실행될 수 있으므로 top-level 고정 경로 회피.
-// readTurnPushMode / pendingTurnsPath 는 main IIFE 진입 후 cwd 확정 시점에 호출.
 
 function readStdin() {
   return new Promise((resolve) => {
@@ -345,129 +342,83 @@ function spikeLog(phase, extra = {}) {
       process.exit(0);
     }
 
-    // D-169 P3 — turnPushMode 분기 read (session_209)
-    let turnPushModeFn, pendingTurnsPathFn;
-    try {
-      const tpm = require(path.join(cwd, 'scripts', 'lib', 'turn-push-mode'));
-      turnPushModeFn = tpm.readTurnPushMode;
-      pendingTurnsPathFn = tpm.pendingTurnsPath;
-    } catch {
-      turnPushModeFn = () => 'hook';
-      pendingTurnsPathFn = (sid, c) => path.join(c || cwd, 'memory', 'sessions', `pending_turns_${sid}.jsonl`);
-    }
-    const turnPushMode = turnPushModeFn(currentSessionPath);
+    spikeLog('turns-read-before', { sessionPath: currentSessionPath }); // SPIKE-R6
+    const turns = Array.isArray(sess.turns) ? sess.turns : [];
+    const turnIdx = turns.length;
+    spikeLog('turns-read-after', { turnsLen: turns.length, plannedTurnIdx: turnIdx }); // SPIKE-R6
+    const newTurn = {
+      role,
+      turnIdx,
+      source: 'agent', // PD-052: Agent 툴 경유 마킹
+    };
 
-    // self-scores 자동 추출 — PostToolUse에서 tool_response 파싱 (nexus / hook 공통)
+    // self-scores 자동 추출 — PostToolUse에서 tool_response 파싱
     const selfScores = extractSelfScores(input.tool_response || input.toolResponse);
     if (selfScores) {
+      newTurn.selfScores = selfScores;
       log(`selfScores 추출: role=${role} keys=[${Object.keys(selfScores).join(',')}]`);
     }
 
-    if (turnPushMode === 'nexus') {
-      // ─── nexus 모드 (D-169 Case B) ─────────────────────────────────────────
-      // ③ turns[] 직접 push skip. ② self-scores → pending_turns append + __hook_origin sentinel.
-      const sessionId = sess.sessionId;
-      if (!sessionId) {
-        log('nexus 모드: sessionId 없음, pending_turns skip');
-        process.exit(0);
-      }
-      const agentId = (input.tool_response && input.tool_response.agentId) || null;
-      const pendingPath = pendingTurnsPathFn(sessionId, cwd);
-      const pendingEntry = {
-        ts: new Date().toISOString(),
-        sessionId,
-        agentId,
-        role,
-        ...(selfScores && { selfScores }),
-        __hook_origin: 'post-tool-use-task', // D1 sentinel (Arki rev4 §5.3)
-      };
-      try {
-        const dir = path.dirname(pendingPath);
-        if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-        fs.appendFileSync(pendingPath, JSON.stringify(pendingEntry) + '\n', 'utf8');
-        log(`nexus: pending_turns append: role=${role} agentId=${agentId} path=${pendingPath}`);
-      } catch (e) {
-        log(`nexus: pending_turns append 실패 (silent): ${e && e.message}`);
-      }
-      // ③ skip 완료 — turns[] write 없음. Nexus가 직접 push.
+    // D-141 caveat resolved (session_168, topic_145, D-145) —
+    // duplicate-agent-turn warn gap 폐기. feedback_no_auto_role_recall_surveillance 정합.
+    // Master 의도적 재호출(예: phase-transition)과 진짜 중복 구분 불가 → false positive ROI 0.
+
+    turns.push(newTurn);
+    sess.turns = turns;
+
+    spikeLog('turns-write-before', { turnIdx, role }); // SPIKE-R6
+    if (writeJsonFile(currentSessionPath, sess)) {
+      log(`turn push: role=${role} turnIdx=${turnIdx}`);
+      spikeLog('turns-write-after', { turnIdx, role, ok: true }); // SPIKE-R6
     } else {
-      // ─── hook 모드 (legacy, default) ───────────────────────────────────────
-      spikeLog('turns-read-before', { sessionPath: currentSessionPath }); // SPIKE-R6
-      const turns = Array.isArray(sess.turns) ? sess.turns : [];
-      const turnIdx = turns.length;
-      spikeLog('turns-read-after', { turnsLen: turns.length, plannedTurnIdx: turnIdx }); // SPIKE-R6
-      const newTurn = {
-        role,
-        turnIdx,
-        source: 'agent', // PD-052: Agent 툴 경유 마킹
-      };
-      if (selfScores) newTurn.selfScores = selfScores;
-
-      // D-141 caveat resolved (session_168, topic_145, D-145) —
-      // duplicate-agent-turn warn gap 폐기. feedback_no_auto_role_recall_surveillance 정합.
-      // Master 의도적 재호출(예: phase-transition)과 진짜 중복 구분 불가 → false positive ROI 0.
-
-      turns.push(newTurn);
-      sess.turns = turns;
-
-      spikeLog('turns-write-before', { turnIdx, role }); // SPIKE-R6
-      if (writeJsonFile(currentSessionPath, sess)) {
-        log(`turn push: role=${role} turnIdx=${turnIdx}`);
-        spikeLog('turns-write-after', { turnIdx, role, ok: true }); // SPIKE-R6
-      } else {
-        log('current_session.json write 실패, silent pass');
-        spikeLog('turns-write-after', { turnIdx, role, ok: false }); // SPIKE-R6
-      }
+      log('current_session.json write 실패, silent pass');
+      spikeLog('turns-write-after', { turnIdx, role, ok: false }); // SPIKE-R6
     }
 
-    // Asset #3·#4·#5 (Arki rev4 §5.5) — turn_log·frontmatter·turn_log
-    // nexus 모드: ④ frontmatter·⑤ turn_log는 Nexus가 turnIdx 부여 후 처리 → hook skip.
-    // hook 모드: hook ④⑤ 직접 처리 (legacy).
+    // Asset #3 (Arki rev4 Sec 2.2) — turn_log.jsonl 자동 append
     const topicId = sess.topicId;
-    const _sessionId = sess.sessionId;
-    if (topicId && _sessionId && turnPushMode !== 'nexus') {
-      // hook 모드 전용: turnIdx는 hook 분기에서 정의됨
-      const _turnIdx = Array.isArray(sess.turns) ? sess.turns.length - 1 : 0; // push 완료 후 last idx
+    const sessionId = sess.sessionId;
+    if (topicId && sessionId) {
       const reportsPath = extractReportsPath(input.tool_response || input.toolResponse);
 
       // frontmatter turnId 패치 — D-067/PD-055 (session_178)
+      // 서브에이전트가 자가 추정한 turnId가 틀릴 수 있으므로 hook이 정확한 turnIdx로 교체.
       if (reportsPath) {
         const absReportPath = path.isAbsolute(reportsPath)
           ? reportsPath
           : path.join(cwd, reportsPath);
-        const patched = patchFrontmatterTurnId(absReportPath, _turnIdx);
+        const patched = patchFrontmatterTurnId(absReportPath, turnIdx);
         if (patched) {
-          log(`frontmatter turnId 패치: ${reportsPath} → turnId: ${_turnIdx}`);
+          log(`frontmatter turnId 패치: ${reportsPath} → turnId: ${turnIdx}`);
         } else {
+          // 패치 실패 — gaps 기록 (turns push는 독립 실행, 차단 없음)
           sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
           const alreadyRecorded = sess.gaps.some(
-            g => g.type === 'frontmatter-patch-failed' && g.role === role && g.turnIdx === _turnIdx
+            g => g.type === 'frontmatter-patch-failed' && g.role === role && g.turnIdx === turnIdx
           );
           if (!alreadyRecorded) {
             sess.gaps.push({
               type: 'frontmatter-patch-failed',
               role,
-              turnIdx: _turnIdx,
+              turnIdx,
               reportsPath,
               detectedAt: new Date().toISOString(),
               note: `frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: ${reportsPath}`,
             });
             writeJsonFile(currentSessionPath, sess);
-            log(`⚠ frontmatter-patch-failed gap 기록: ${role} turn${_turnIdx} (${reportsPath})`);
+            log(`⚠ frontmatter-patch-failed gap 기록: ${role} turn${turnIdx} (${reportsPath})`);
           }
         }
       }
 
-      const ok = writeTurnLogEntry(cwd, topicId, role, _turnIdx, _sessionId, {
+      const ok = writeTurnLogEntry(cwd, topicId, role, turnIdx, sessionId, {
         ...(reportsPath && { reportsPath }),
       });
       if (ok) {
-        log(`turn_log append: ${topicId} turn=${_turnIdx} role=${role}${reportsPath ? ' reportsPath=' + reportsPath : ''}`);
+        log(`turn_log append: ${topicId} turn=${turnIdx} role=${role}${reportsPath ? ' reportsPath=' + reportsPath : ''}`);
       } else {
         log(`turn_log append 실패 (silent): topicId=${topicId}`);
       }
-    } else if (turnPushMode === 'nexus') {
-      log(`nexus 모드: turn_log·frontmatter 패치 skip (Nexus turnIdx 부여 후 처리)`);
     } else {
       log(`turn_log skip: topicId 또는 sessionId 없음`);
     }
@@ -488,21 +439,20 @@ function spikeLog(phase, extra = {}) {
           // 보고서 없음 → gaps 기록
           sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
           // 중복 기록 방지
-          const gapTurnIdx = Array.isArray(sess.turns) ? sess.turns.length - 1 : 0;
           const alreadyRecorded = sess.gaps.some(
-            g => g.type === 'missing-report' && g.role === role && g.turnIdx === gapTurnIdx
+            g => g.type === 'missing-report' && g.role === role && g.turnIdx === turnIdx
           );
           if (!alreadyRecorded) {
             sess.gaps.push({
               type: 'missing-report',
               role,
-              turnIdx: gapTurnIdx,
+              turnIdx,
               reportPath,
               detectedAt: new Date().toISOString(),
-              note: `${role} turn${gapTurnIdx} 완료 후 reports/${role}_rev*.md 미발견 — 다음 에이전트에게 내용 미전달`,
+              note: `${role} turn${turnIdx} 완료 후 reports/${role}_rev*.md 미발견 — 다음 에이전트에게 내용 미전달`,
             });
             writeJsonFile(currentSessionPath, sess);
-            log(`⚠ missing-report gap 기록: ${role} turn${gapTurnIdx} (${reportPath})`);
+            log(`⚠ missing-report gap 기록: ${role} turn${turnIdx} (${reportPath})`);
           }
         }
       }
