@@ -15,7 +15,7 @@ Session Start 체크리스트 순서대로 실행.
 3-d. **Master-first audit** — `logs/master-first-audit.md` 마지막 5행 (없으면 스킵)
 4. `memory/sessions/session_index.json` — 다음 sessionId
 5. **Grade 판정** — CLAUDE.md `Topic Grade System` 참조. 기본값 A.
-6. `current_session.json` 갱신: sessionId, topic, topicSlug, status="open", startedAt(ISO), mode="observation", grade, framingLevel=0, framingSkipped=true
+6. `current_session.json` 갱신: sessionId, topic, topicSlug, status="open", startedAt(ISO), mode="observation", grade, framingLevel=0, framingSkipped=true, operationType="structured", phase="framing"
 7. **토픽 ID 분기**
 
    **분기 A — 기존 토픽 재사용** (`/open topic_NNN ...`):
