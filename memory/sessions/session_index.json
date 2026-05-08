@@ -9981,8 +9981,210 @@
       "note": "TDD 방식: 테스트 먼저(실패) → 구현 → 테스트(통과). hook 5케이스 + 문서 7케이스 = 12/12 PASS | pre-tool-use-task.js: sess.phase 체크 추가, sessionLayer blind-parallel 억제, evaluateSynthesisAceBlock 신규 | /discussion·/structured 명령어 신규 생성",
       "oneLineSummary": "D-170/A1/A2 hook+문서 박제: blind-parallel 격리, synthesis Ace 차단, /discussion·/structured 명령어 신규",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_216",
+      "topicSlug": "pd-057-grade-review",
+      "topic": "PD-057 Grade 임계 재검토",
+      "startedAt": "2026-05-09T00:00:00.000Z",
+      "closedAt": "2026-05-09T21:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\serene-feistel-be5b95",
+      "agentsCompleted": [
+        "jobs",
+        "nova",
+        "riki",
+        "arki",
+        "ace",
+        "jobs",
+        "nova",
+        "ace",
+        "arki",
+        "riki",
+        "arki",
+        "jobs",
+        "riki",
+        "ace",
+        "edi",
+        "zero",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "jobs",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "focus_sharp": 5,
+            "bloat_idx": 1,
+            "bias_cnt": 4,
+            "no_cnt": 5
+          }
+        },
+        {
+          "role": "nova",
+          "turnIdx": 1,
+          "source": "agent",
+          "selfScores": {
+            "inv_prm": 0.5,
+            "blnd_spt": "Y",
+            "spc_axs": 4
+          }
+        },
+        {
+          "role": "riki",
+          "turnIdx": 2,
+          "source": "agent",
+          "selfScores": {
+            "crt_rcl": 0.8,
+            "cr_val": "Y",
+            "prd_rej": "Y",
+            "fp_rt": 0.1
+          }
+        },
+        {
+          "role": "arki",
+          "turnIdx": 3,
+          "source": "agent",
+          "selfScores": {
+            "str_fd": 4,
+            "aud_rcl": 0.8,
+            "spc_lck": "N",
+            "sa_rnd": 3
+          }
+        },
+        {
+          "role": "ace",
+          "turnIdx": 4,
+          "source": "agent",
+          "selfScores": {
+            "rfrm_trg": "Y",
+            "ctx_car": 4,
+            "mst_fr": 0,
+            "ang_nov": 4
+          }
+        },
+        {
+          "role": "jobs",
+          "turnIdx": 5,
+          "source": "agent",
+          "selfScores": {
+            "focus_sharp": 5,
+            "bloat_idx": 1,
+            "bias_cnt": 1,
+            "no_cnt": 2
+          }
+        },
+        {
+          "role": "nova",
+          "turnIdx": 6,
+          "source": "agent"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 7,
+          "source": "agent",
+          "selfScores": {
+            "rfrm_trg": "Y",
+            "ctx_car": 5,
+            "mst_fr": 0,
+            "ang_nov": 3
+          }
+        },
+        {
+          "role": "arki",
+          "turnIdx": 8,
+          "source": "agent",
+          "selfScores": {
+            "str_fd": 3,
+            "aud_rcl": 0.8,
+            "spc_lck": "N",
+            "sa_rnd": 1
+          }
+        },
+        {
+          "role": "riki",
+          "turnIdx": 9,
+          "source": "agent",
+          "selfScores": {
+            "crt_rcl": 0.85,
+            "cr_val": "Y",
+            "prd_rej": "Y",
+            "fp_rt": 0.1
+          }
+        },
+        {
+          "role": "arki",
+          "turnIdx": 10,
+          "source": "agent",
+          "selfScores": {
+            "aud_rcl": 1,
+            "str_fd": 5,
+            "spc_lck": "N",
+            "sa_rnd": 3
+          }
+        },
+        {
+          "role": "jobs",
+          "turnIdx": 11,
+          "source": "agent",
+          "selfScores": {
+            "focus_sharp": 5,
+            "bloat_idx": 1,
+            "bias_cnt": 0,
+            "no_cnt": 2
+          }
+        },
+        {
+          "role": "riki",
+          "turnIdx": 12,
+          "source": "agent",
+          "selfScores": {
+            "crt_rcl": 0.8,
+            "cr_val": "Y",
+            "prd_rej": "N",
+            "fp_rt": 0
+          }
+        },
+        {
+          "role": "ace",
+          "turnIdx": 13,
+          "source": "agent",
+          "selfScores": {
+            "rfrm_trg": "Y",
+            "ctx_car": 5,
+            "mst_fr": 0,
+            "ang_nov": 4
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 14,
+          "source": "agent"
+        },
+        {
+          "role": "zero",
+          "turnIdx": 15,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 14,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 16,
+          "source": "agent"
+        }
+      ],
+      "grade": "S",
+      "oneLineSummary": "PD-057 Grade 재검토: 2축 판정+4패턴 원칙(D-172), Grade C 재정의·blast_radius 경계·S 로스터 확정(D-173)",
+      "decisionsAdded": [
+        "D-172",
+        "D-173"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-08T14:06:11.770Z",
+  "lastUpdated": "2026-05-08T20:28:58.719Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

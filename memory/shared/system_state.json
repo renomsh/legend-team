@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_215",
-  "nextSessionId": "session_216",
+  "lastSessionId": "session_216",
+  "nextSessionId": "session_217",
   "currentVersion": "v1.379",
   "openTopics": [
     {
@@ -20,6 +20,18 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-173",
+      "date": "2026-05-09",
+      "axis": "Grade 5단계 재정의 — C 재정의, B vs C blast_radius 경계, S 로스터 확정",
+      "summary": "Grade 5단계 재정의 — C 재정의, B vs C blast_radius 경계, S 로스터 확정"
+    },
+    {
+      "id": "D-172",
+      "date": "2026-05-09",
+      "axis": "주제 유형별 역할 순서 원칙 도입 — 2축 판정 패턴",
+      "summary": "주제 유형별 역할 순서 원칙 도입 — 2축 판정 패턴"
+    },
+    {
       "id": "D-171",
       "date": "2026-05-07",
       "axis": "Case B Phase 진입 게이트 강제 (M3+M4 통합) — Arki rev4 spc_lck=Y + PD-066 resolved 3건 코드 박제",
@@ -36,21 +48,19 @@
       "date": "2026-05-07",
       "axis": "D-170 amendment 5번째 축 — blind 격리 phase 한정 / 우선순위 phase>operationMode>grade / 격리 강도 default=prepend 차단 / 수렴 토론 round 무한+Nexus 분배",
       "summary": "D-170 amendment 5번째 축 — blind 격리 phase 한정 / 우선순위 phase>operationMode>grade / 격리 강도 default=prepend 차단 / 수렴 토론 round 무한+Nexus 분배"
-    },
-    {
-      "id": "D-170",
-      "date": "2026-05-07",
-      "axis": "토픽 운영 유형 enum 추가 — structured(default) / discussion. Grade와 직교, 별도 명령어로 세션 중 전환 가능",
-      "summary": "토픽 운영 유형 enum 추가 — structured(default) / discussion. Grade와 직교, 별도 명령어로 세션 중 전환 가능"
-    },
-    {
-      "id": "D-169",
-      "date": "2026-05-07",
-      "axis": "turnPushMode 분기 + Nexus 직접 push frame 박제 — D-166 부분 supersede (Case B 한정)",
-      "summary": "turnPushMode 분기 + Nexus 직접 push frame 박제 — D-166 부분 supersede (Case B 한정)"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_216",
+      "topicSlug": "pd-057-grade-review",
+      "closedAt": "2026-05-09T21:00:00.000Z",
+      "oneLineSummary": "PD-057 Grade 재검토: 2축 판정+4패턴 원칙(D-172), Grade C 재정의·blast_radius 경계·S 로스터 확정(D-173)",
+      "decisionsAdded": [
+        "D-172",
+        "D-173"
+      ]
+    },
     {
       "sessionId": "session_215",
       "topicSlug": "discussion-mode-impl",
@@ -64,17 +74,6 @@
       "closedAt": "2026-05-08T13:10:00.000Z",
       "oneLineSummary": "manage-pd.ts 신규 생성 + PD-057 migrate + verification-before-completion TDD 원칙 흡수",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_209",
-      "topicSlug": "parallel-topic-session-design",
-      "closedAt": "2026-05-08T12:00:00.000Z",
-      "oneLineSummary": "topic_176 G안 구현 완료: P1-P9 전체 PASS, nexus push/crash recovery/blind-parallel domain/dispatch_config SOT 박제. PD-066 /open scan 잔여.",
-      "decisionsAdded": [
-        "D-170-A1",
-        "D-170-A2",
-        "D-169-P0"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -112,5 +111,5 @@
       "status": "pending"
     }
   ],
-  "lastUpdated": "2026-05-08T14:06:40.164Z"
+  "lastUpdated": "2026-05-08T20:29:11.862Z"
 }

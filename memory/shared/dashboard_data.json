@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-08T19:40:37.314Z",
-  "totalSessions": 211,
+  "generatedAt": "2026-05-08T20:29:17.623Z",
+  "totalSessions": 212,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 211
+      "undefined": 212
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -16,21 +16,21 @@
     "archiveCount": 0
   },
   "metrics": {
-    "avgMasterTurns": 21.35,
+    "avgMasterTurns": 21.28,
     "avgCacheHitRate": 0.932,
-    "cacheSampleSize": 181,
-    "cacheSampleTotal": 211,
+    "cacheSampleSize": 182,
+    "cacheSampleTotal": 212,
     "avgAdoptionRate": 0,
-    "totalDecisions": 174,
+    "totalDecisions": 176,
     "gradeDistribution": {
-      "S": 98,
+      "S": 99,
       "A": 42,
       "B": 43,
       "C": 19,
       "D": 9
     },
     "topicGradeDistribution": {
-      "S": 19,
+      "S": 20,
       "A": 60,
       "B": 59,
       "C": 32,
@@ -53,10 +53,10 @@
       "session_203"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 165,
-    "totalCostUSD": 2517.787,
-    "avgCostPerSession": 12.4643,
-    "costSampleSize": 202,
+    "turnBasedSessions": 166,
+    "totalCostUSD": 2525.014,
+    "avgCostPerSession": 12.4385,
+    "costSampleSize": 203,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -8083,12 +8083,65 @@
         "messageCount": 337
       },
       "sessionCostUSD": 20.3815
+    },
+    {
+      "sessionId": "session_216",
+      "topicSlug": "pd-057-grade-review",
+      "topic": "PD-057 Grade 임계 재검토",
+      "startedAt": "2026-05-09T00:00:00.000Z",
+      "closedAt": "2026-05-09T21:00:00.000Z",
+      "decisionCount": 2,
+      "decisionAxes": 2,
+      "decisions": [
+        "D-172",
+        "D-173"
+      ],
+      "rolesCalled": 17,
+      "rolesRecalled": 10,
+      "sessionsSpanned": 1,
+      "size": 44,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 7,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "jobs",
+        "nova",
+        "riki",
+        "arki",
+        "ace",
+        "jobs",
+        "nova",
+        "ace",
+        "arki",
+        "riki",
+        "arki",
+        "jobs",
+        "riki",
+        "ace",
+        "edi",
+        "zero",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 10423276,
+        "ioTokens": 174173,
+        "inputTokens": 168,
+        "outputTokens": 174005,
+        "cacheCreate": 446880,
+        "cacheRead": 9802223,
+        "cacheHitRate": 0.9404167173545054,
+        "messageCount": 104
+      },
+      "sessionCostUSD": 7.227
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 181,
+      "count": 183,
       "sessions": [
         "session_050",
         "session_051",
@@ -8251,12 +8304,13 @@
         "session_212",
         "session_213",
         "session_214",
-        "session_215"
+        "session_215",
+        "session_216"
       ]
     },
     {
       "role": "ace",
-      "count": 179,
+      "count": 182,
       "sessions": [
         "session_047",
         "session_048",
@@ -8350,12 +8404,13 @@
         "session_200",
         "session_205",
         "session_206",
-        "session_208"
+        "session_208",
+        "session_216"
       ]
     },
     {
       "role": "arki",
-      "count": 150,
+      "count": 153,
       "sessions": [
         "session_048",
         "session_049",
@@ -8441,7 +8496,8 @@
         "session_205",
         "session_206",
         "session_207",
-        "session_208"
+        "session_208",
+        "session_216"
       ]
     },
     {
@@ -8544,7 +8600,7 @@
     },
     {
       "role": "riki",
-      "count": 111,
+      "count": 114,
       "sessions": [
         "session_049",
         "session_053",
@@ -8629,12 +8685,13 @@
         "session_205",
         "session_206",
         "session_207",
-        "session_208"
+        "session_208",
+        "session_216"
       ]
     },
     {
       "role": "zero",
-      "count": 35,
+      "count": 36,
       "sessions": [
         "session_153",
         "session_175",
@@ -8657,7 +8714,8 @@
         "session_204",
         "session_207",
         "session_208",
-        "session_215"
+        "session_215",
+        "session_216"
       ]
     },
     {
@@ -8694,7 +8752,7 @@
     },
     {
       "role": "jobs",
-      "count": 25,
+      "count": 28,
       "sessions": [
         "session_151",
         "session_152",
@@ -8712,7 +8770,8 @@
         "session_193",
         "session_196",
         "session_205",
-        "session_208"
+        "session_208",
+        "session_216"
       ]
     },
     {
@@ -8732,13 +8791,14 @@
     },
     {
       "role": "nova",
-      "count": 5,
+      "count": 7,
       "sessions": [
         "session_066",
         "session_077",
         "session_082",
         "session_138",
-        "session_205"
+        "session_205",
+        "session_216"
       ]
     }
   ],
@@ -14817,6 +14877,114 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_216",
+      "topic": "PD-057 Grade 임계 재검토",
+      "sequence": [
+        {
+          "role": "jobs",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "nova",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "jobs",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "nova",
+          "phase": null,
+          "turnIdx": 6,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 7,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 8,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 9,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 10,
+          "recallReason": null
+        },
+        {
+          "role": "jobs",
+          "phase": null,
+          "turnIdx": 11,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 12,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 13,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 14,
+          "recallReason": null
+        },
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 15,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 16,
           "recallReason": null
         }
       ]

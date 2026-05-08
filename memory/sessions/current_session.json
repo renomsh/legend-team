@@ -1,115 +1,338 @@
 {
-  "sessionId": "session_215",
-  "topicId": "topic_182",
-  "topic": "Discussion 모드 구현 (D-170/A1/A2)",
-  "topicSlug": "discussion-mode-impl",
-  "reportPath": "reports/2026-05-08_discussion-mode-impl",
+  "sessionId": "session_216",
+  "topicId": "topic_183",
+  "topic": "PD-057 Grade 임계 재검토",
+  "topicSlug": "pd-057-grade-review",
+  "reportPath": "reports/2026-05-09_pd-057-grade-review",
   "status": "closed",
-  "startedAt": "2026-05-08T14:00:00.000Z",
-  "closedAt": "2026-05-08T15:30:00.000Z",
+  "startedAt": "2026-05-09T00:00:00.000Z",
+  "closedAt": "2026-05-09T21:00:00.000Z",
+  "oneLineSummary": "PD-057 Grade 재검토: 2축 판정+4패턴 원칙(D-172), Grade C 재정의·blast_radius 경계·S 로스터 확정(D-173)",
   "mode": "observation",
-  "grade": "B",
+  "grade": "S",
   "topicType": "standalone",
+  "operationType": "discussion",
   "framingLevel": 0,
   "framingSkipped": true,
+  "phase": "synthesis",
+  "modelSwitchFailed": true,
   "turns": [
     {
-      "role": "zero",
+      "role": "jobs",
       "turnIdx": 0,
       "source": "agent",
       "selfScores": {
-        "ref_cnt": 0,
+        "focus_sharp": 5,
+        "bloat_idx": 1,
+        "bias_cnt": 4,
+        "no_cnt": 5
+      }
+    },
+    {
+      "role": "nova",
+      "turnIdx": 1,
+      "source": "agent",
+      "selfScores": {
+        "inv_prm": 0.5,
+        "blnd_spt": "Y",
+        "spc_axs": 4
+      }
+    },
+    {
+      "role": "riki",
+      "turnIdx": 2,
+      "source": "agent",
+      "selfScores": {
+        "crt_rcl": 0.8,
+        "cr_val": "Y",
+        "prd_rej": "Y",
+        "fp_rt": 0.1
+      }
+    },
+    {
+      "role": "arki",
+      "turnIdx": 3,
+      "source": "agent",
+      "selfScores": {
+        "str_fd": 4,
+        "aud_rcl": 0.8,
+        "spc_lck": "N",
+        "sa_rnd": 3
+      }
+    },
+    {
+      "role": "ace",
+      "turnIdx": 4,
+      "source": "agent",
+      "selfScores": {
+        "rfrm_trg": "Y",
+        "ctx_car": 4,
+        "mst_fr": 0,
+        "ang_nov": 4
+      }
+    },
+    {
+      "role": "jobs",
+      "turnIdx": 5,
+      "source": "agent",
+      "selfScores": {
+        "focus_sharp": 5,
+        "bloat_idx": 1,
+        "bias_cnt": 1,
+        "no_cnt": 2
+      }
+    },
+    {
+      "role": "nova",
+      "turnIdx": 6,
+      "source": "agent"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 7,
+      "source": "agent",
+      "selfScores": {
+        "rfrm_trg": "Y",
+        "ctx_car": 5,
+        "mst_fr": 0,
+        "ang_nov": 3
+      }
+    },
+    {
+      "role": "arki",
+      "turnIdx": 8,
+      "source": "agent",
+      "selfScores": {
+        "str_fd": 3,
+        "aud_rcl": 0.8,
+        "spc_lck": "N",
+        "sa_rnd": 1
+      }
+    },
+    {
+      "role": "riki",
+      "turnIdx": 9,
+      "source": "agent",
+      "selfScores": {
+        "crt_rcl": 0.85,
+        "cr_val": "Y",
+        "prd_rej": "Y",
+        "fp_rt": 0.1
+      }
+    },
+    {
+      "role": "arki",
+      "turnIdx": 10,
+      "source": "agent",
+      "selfScores": {
+        "aud_rcl": 1,
+        "str_fd": 5,
+        "spc_lck": "N",
+        "sa_rnd": 3
+      }
+    },
+    {
+      "role": "jobs",
+      "turnIdx": 11,
+      "source": "agent",
+      "selfScores": {
+        "focus_sharp": 5,
+        "bloat_idx": 1,
+        "bias_cnt": 0,
+        "no_cnt": 2
+      }
+    },
+    {
+      "role": "riki",
+      "turnIdx": 12,
+      "source": "agent",
+      "selfScores": {
+        "crt_rcl": 0.8,
+        "cr_val": "Y",
+        "prd_rej": "N",
+        "fp_rt": 0
+      }
+    },
+    {
+      "role": "ace",
+      "turnIdx": 13,
+      "source": "agent",
+      "selfScores": {
+        "rfrm_trg": "Y",
+        "ctx_car": 5,
+        "mst_fr": 0,
+        "ang_nov": 4
+      }
+    },
+    {
+      "role": "edi",
+      "turnIdx": 14,
+      "source": "agent"
+    },
+    {
+      "role": "zero",
+      "turnIdx": 15,
+      "source": "agent",
+      "selfScores": {
+        "ref_cnt": 14,
         "hc_found": 0,
         "cln_rt": 1
       }
     },
     {
       "role": "edi",
-      "turnIdx": 1,
-      "source": "agent",
-      "phase": "synthesis",
-      "selfScores": {
-        "scc": 1,
-        "cs_cnt": 4,
-        "art_cmp": 1,
-        "gap_fc": 3,
-        "gp_acc": 0.8
-      }
-    },
-    {
-      "role": "edi",
-      "turnIdx": 2,
-      "source": "agent",
-      "selfScores": {
-        "scc": "Y",
-        "cs_cnt": 4,
-        "art_cmp": 1,
-        "gap_fc": 3,
-        "gp_acc": 0.8
-      }
+      "turnIdx": 16,
+      "source": "agent"
     }
   ],
   "decisions": [],
   "masterDecisions": [],
-  "decisionsAdded": [],
+  "decisionsAdded": [
+    "D-172",
+    "D-173"
+  ],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [],
-  "openMasterAlerts": [],
-  "agentsCompleted": [
-    "zero",
-    "edi",
-    "edi"
+  "pendingDeferralsResolved": [
+    "PD-057"
   ],
-  "oneLineSummary": "D-170/A1/A2 hook+문서 박제: blind-parallel 격리, synthesis Ace 차단, /discussion·/structured 명령어 신규",
-  "notes": [
-    "TDD 방식: 테스트 먼저(실패) → 구현 → 테스트(통과). hook 5케이스 + 문서 7케이스 = 12/12 PASS",
-    "pre-tool-use-task.js: sess.phase 체크 추가, sessionLayer blind-parallel 억제, evaluateSynthesisAceBlock 신규",
-    "/discussion·/structured 명령어 신규 생성"
+  "openMasterAlerts": [
+    {
+      "severity": "high",
+      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.1)",
+      "addedBy": "checkVersionBumpConfirmation",
+      "ref": "D-140"
+    }
   ],
-  "versionBump": {
-    "value": 0.1,
-    "from": "0.210",
-    "to": "v1.379",
-    "reason": "Discussion 모드 D-170/A1/A2 구조 박제 — operationType enum, 5단계 phase 메커니즘, /ace-synthesis structured 한정 정책이 CLAUDE.md + 신규 명령어 2건으로 확정 [정정: session_212 리셋 버그 수정으로 올바른 누적 버전 반영]",
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-08T15:00:00.000Z",
-    "overrideReason": null
-  },
   "gaps": [
     {
       "type": "frontmatter-patch-failed",
-      "role": "zero",
+      "role": "jobs",
       "turnIdx": 0,
-      "reportsPath": "`reports/2026-05-08_discussion-mode-impl/session_condensed.md`",
-      "detectedAt": "2026-05-08T14:02:47.873Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-08_discussion-mode-impl/session_condensed.md`"
-    },
-    {
-      "type": "missing-report",
-      "role": "zero",
-      "turnIdx": 0,
-      "reportPath": "reports/2026-05-08_discussion-mode-impl",
-      "detectedAt": "2026-05-08T14:02:47.876Z",
-      "note": "zero turn0 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+      "reportsPath": "`reports/2026-05-09_pd-057-grade-review/jobs_rev1.md`",
+      "detectedAt": "2026-05-08T19:58:10.389Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-09_pd-057-grade-review/jobs_rev1.md`"
     },
     {
       "type": "frontmatter-patch-failed",
-      "role": "edi",
-      "turnIdx": 2,
-      "reportsPath": "`reports/2026-05-08_discussion-mode-impl/edi_rev1.md`",
-      "detectedAt": "2026-05-08T14:05:17.953Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-08_discussion-mode-impl/edi_rev1.md`"
+      "role": "nova",
+      "turnIdx": 6,
+      "reportsPath": "`reports/20260509_grade-threshold-review/nova_rev2.md`",
+      "detectedAt": "2026-05-08T20:12:29.129Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/20260509_grade-threshold-review/nova_rev2.md`"
+    },
+    {
+      "type": "frontmatter-patch-failed",
+      "role": "arki",
+      "turnIdx": 8,
+      "reportsPath": "`reports/20260509_grade-threshold-review/arki_debate_r1.md`",
+      "detectedAt": "2026-05-08T20:13:31.282Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/20260509_grade-threshold-review/arki_debate_r1.md`"
+    },
+    {
+      "type": "frontmatter-patch-failed",
+      "role": "riki",
+      "turnIdx": 9,
+      "reportsPath": "`C:\\Projects\\legend-team\\.claude\\worktrees\\serene-feistel-be5b95\\reports\\20260509_grade-threshold-review\\riki_debate_r1.md`",
+      "detectedAt": "2026-05-08T20:13:53.537Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `C:\\Projects\\legend-team\\.claude\\worktrees\\serene-feistel-be5b95\\reports\\20260509_grade-threshold-review\\riki_debate_r1.md`"
+    },
+    {
+      "type": "frontmatter-patch-failed",
+      "role": "arki",
+      "turnIdx": 10,
+      "reportsPath": "`reports/2026-05-09_grade-redefinition-debate/arki_rev2.md`",
+      "detectedAt": "2026-05-08T20:16:32.186Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-09_grade-redefinition-debate/arki_rev2.md`"
+    },
+    {
+      "type": "frontmatter-patch-failed",
+      "role": "riki",
+      "turnIdx": 12,
+      "reportsPath": "`reports/20260509_grade-threshold-review/riki_debate_r2.md`",
+      "detectedAt": "2026-05-08T20:16:54.905Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/20260509_grade-threshold-review/riki_debate_r2.md`"
+    },
+    {
+      "type": "frontmatter-patch-failed",
+      "role": "zero",
+      "turnIdx": 15,
+      "reportsPath": "reports/2026-05-09_pd-057-grade-review/session_condensed.md**",
+      "detectedAt": "2026-05-08T20:23:54.041Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-09_pd-057-grade-review/session_condensed.md**"
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-09_pd-057-grade-review/jobs_rev1.md",
+      "expected": "jobs",
+      "actualInTurns": "nova",
+      "turnId": 1
+    },
+    {
+      "type": "version-bump-edi-unconfirmed",
+      "severity": "high",
+      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
+      "addedBy": "checkVersionBumpConfirmation",
+      "ref": "D-140",
+      "suggestedValue": 0.1
     }
   ],
   "tokenUsage": {
-    "input_tokens": 229,
-    "output_tokens": 79537,
-    "cache_creation_input_tokens": 873958,
-    "cache_read_input_tokens": 8095199,
-    "messageCount": 108,
-    "masterTurns": 23,
-    "total_billable": 9048923
+    "input_tokens": 168,
+    "output_tokens": 174005,
+    "cache_creation_input_tokens": 446880,
+    "cache_read_input_tokens": 9802223,
+    "messageCount": 104,
+    "masterTurns": 7,
+    "total_billable": 10423276
   },
-  "finalizedAt": "2026-05-08T14:06:40.332Z"
+  "agentsCompleted": [
+    "jobs",
+    "nova",
+    "riki",
+    "arki",
+    "ace",
+    "jobs",
+    "nova",
+    "ace",
+    "arki",
+    "riki",
+    "arki",
+    "jobs",
+    "riki",
+    "ace",
+    "edi",
+    "zero",
+    "edi"
+  ],
+  "versionBumpSuggested": {
+    "value": 0.1,
+    "type": "structural",
+    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 3건 (CLAUDE.md, memory/roles/ace_memory.json, memory/roles/arki_memory.json)",
+    "autoDetectedAt": "2026-05-08T20:29:10.200Z",
+    "changedFiles": [
+      "CLAUDE.md",
+      "logs/hook-diagnostics.log",
+      "logs/master-first.log",
+      "logs/pre-tool-use-task.log",
+      "logs/sage-gate.log",
+      "memory/roles/ace_memory.json",
+      "memory/roles/arki_memory.json",
+      "memory/sessions/current_session.json",
+      "memory/sessions/session_index.json",
+      "memory/sessions/token_log.json",
+      "memory/shared/decision_ledger.json",
+      "memory/shared/system_state.json",
+      "memory/shared/topic_index.json",
+      "reports/2026-05-09_grade-redefinition-debate/",
+      "reports/2026-05-09_pd-057-grade-review/",
+      "reports/2026-05-09_topic183-grade-threshold/",
+      "reports/20260509_grade-threshold-review/",
+      "topics/topic_183/"
+    ],
+    "changedFilesCount": 18,
+    "cappedAt": 0.1,
+    "confirmedBy": null
+  },
+  "finalizedAt": "2026-05-08T20:29:11.941Z"
 }

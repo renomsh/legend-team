@@ -35,17 +35,19 @@ Rules:
 - `session_index.json`은 `append-session.ts` 스크립트로만 수정. Edit 도구 직접 수정 금지. (D-028, 2026-04-17)
 - 자가평가 단순화 (D-092, 2026-04-25): 지표 정의 단일 출처는 `memory/roles/{role}_memory.json[].metrics` + `memory/growth/derived_metrics.json` + `memory/growth/composite_inputs.json`. `compile-metrics-registry.ts`가 `memory/growth/metrics_registry.json`로 빌드. 다른 위치(특히 `memory/shared/metrics_registry.json`)에 지표 정의 두지 않는다. 역할 turn 박제 시 `selfScores: {shortKey: value, ...}` 동봉, 점수만 남기면 됨. propagation·자동 알림·자동 게이트 폐기. Master 수동 대시보드 열람이 단일 피드백 경로.
 
-## Topic Grade System (D-074, 2026-04-24)
+## Topic Grade System (D-074 / D-172·D-173 갱신, 2026-05-09)
 
 토픽 난이도·성격 등급. `/open` 시 선언, `compute-dashboard.ts`가 실측 Size로 사후 검증.
 
-| Grade | Size | 성격 | 프레이밍 (D-130: 자동 트리거 없음) | 첫 주자 | 기본 역할 구성 | 선택 역할 |
-|---|---|---|---|---|---|---|
-| **S** | 무관 | 오픈 탐색형 (Master 선언 전용) | `/jobs-framing` 명시 호출 시에만 Jobs 발동 | Master | Jobs(framing)→Ace(구조·흐름 판정)→Arki·Riki 꼬리물기, Edi | Fin, Dev, Nova, Vera |
-| **A** | 11+ | 닫힌 실행형 (기본값) | `/jobs-framing` 명시 호출 시에만 Jobs 발동 | Arki | Jobs(framing)→Arki→Fin→Riki→Ace(`/ace-synthesis` 시)→Dev→Edi | Nova, Vera |
-| **B** | 6~10 | 명확 결정건 (Nova 추천 없음) | `/jobs-framing` 명시 호출 시에만 Jobs 발동 | Arki | Jobs(framing)→Arki→Riki→Ace(`/ace-synthesis` 시)→Edi | Fin, Dev, Vera |
-| **C** | ≤5 | 경량 + 판단 여지 있음 | 없음 (`/jobs-framing` 호출 시만) | Dev | Dev→Arki 검토→Dev 수정→Edi | — |
-| **D** | ≤5 | 명백 단순 작업 | 없음 | Dev | Dev 직행 (Edi 생략, hook 자동 기록) | — |
+**공통 원칙**: Grade = 결정 파급 범위 × 불확실성 × 2축 적용 여부
+
+| Grade | 정의 | 파급 범위 | 2축 적용 | 첫 주자 | 기본 역할 구성 |
+|---|---|---|---|---|---|
+| **S** | 오픈 탐색형. Master 명시 선언 전용 | 조직·전략 전체 | full | Jobs(`/jobs-framing` 명시 시) or Ace | Jobs→Ace→Arki·Riki→Fin→Edi. Nova·Vera 선택. **Jobs: `/jobs-framing` 명시 호출 시만. S 선언 = Jobs 자동 트리거 아님.** **Nova: Riki 🔴 2개+ 미해소 OR 역할 교착 → Nexus 추천. Master 승인 필요.** |
+| **A** | 닫힌 실행형. 결과가 다수 시스템 인풋 | 시스템 경계 횡단 | full | 2축 패턴 기반 | 2축 판정→패턴 적용→Ace(선택,`/ace-synthesis`)→Dev→Edi |
+| **B** | 명확 결정건. blast_radius ≥ 2. 결과가 다른 시스템·결정 인풋 | 모듈 경계 횡단 | 2축 판별 | Arki | Arki→Riki→Ace(선택,`/ace-synthesis`)→Dev→Edi |
+| **C** | 경량 처리. blast_radius ≤ 1. 단일 모듈 내 완결 | 단일 모듈 내 | 신호 매칭 | Dev 기본 (신호에 따라 가변) | Dev 기본 + 신호 조건부 선제 호출 |
+| **D** | 명백 단순. D 키워드 매칭 | 로컬 | 없음 | Dev | Dev 직행 (Edi 생략 가능). 파일 간 의존 감지 시 → C 격상 |
 
 ### Grade 선언 규칙
 - **S**: Master 명시 선언 전용. Ace는 "S 승격 검토" 추천 후 Master 승인.
@@ -53,6 +55,37 @@ Rules:
 - **C/D 자동 분기**: D 키워드(`bug`, `fix`, `patch`, `log`, `오타`, `수정`(단독), `deploy`, `rollback`) 매칭 시 D. 애매하면 C. Master 강제 전환 가능.
 - C/B 진행 중 구조적 문제 발견 시 → Ace 재소집 필수
 - 사후 검증: `grade` vs `gradeActual` 불일치는 대시보드 gradeMismatch 패널에 누적
+
+### B vs C 경계 기준 (D-173)
+
+> **blast_radius**: 변경이 닿는 컴포넌트 레이어 종류 수. ≥ 2 → B. ≤ 1 → C. 파일 수는 2차 신호.
+
+### C grade 역할 호출 신호 (D-173)
+
+| 신호 | 호출 역할 |
+|---|---|
+| 파일 간 의존 관계 변경 or 스키마 영향 | Arki (선두로) |
+| 신규 인터페이스·API 표면 변경 | Arki |
+| 비용·자원 조정 포함 | Fin |
+| 리스크 명시 ("테스트 없음", "레거시 건드림") | Riki |
+| 위 신호 없음 | Dev 단독 |
+| blast_radius 사후 2+ 확인 | → B 격상 |
+
+### 주제 유형별 역할 순서 원칙 (D-172, 2026-05-09)
+
+Nexus 판단 보조 도구. Nexus 컨텍스트 판단이 아래 패턴보다 항상 우선.
+
+**2축 판정:**
+- 축 1 (불확실성): `closed` (목표·전제 닫힘) / `open` (목표 불확실)
+- 축 2 (결과물): `decision` (의사결정 주목표) / `execution` (구현·산출 주목표)
+
+| | closed | open |
+|---|---|---|
+| **decision** | Arki→Fin→Riki→Ace(선택)→Edi | Jobs→Ace→Riki→Fin→Edi |
+| **execution** | Arki→Dev→Riki→Edi | Jobs→Ace→Arki→Dev→Edi |
+
+미매칭 시: 불확실 → Grade A 기본값 + Nexus open-form 1문장 선언 (closed-form 금지).
+Arki 5종 subjectType: 세션 출력 레이블 전용. dispatch 기준 아님.
 
 ### 오케스트레이션 모드 (D-074)
 - **기본: manual** — Ace가 매 분기마다 Master 확인. Master 무응답=대기.
