@@ -1,8 +1,8 @@
 {
   "$schema": "internal://dispatch-config-v0.1",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "introducedBy": "D-126/D-127/D-128 (session_142, topic_131, 2026-04-29)",
-  "lastUpdatedBy": "topic_142 (session_165, 2026-05-02) — rules.edi 신설 (8역할 정책 일관성). D-138 enforcement는 finalize.js 인라인 유지, 본 박제는 정책 단일 출처 비대칭 해소만 — finalize.js 미변경.",
+  "lastUpdatedBy": "topic_176 (session_209, 2026-05-08) — P7 확정 박제: path_policy.pending_turns_pattern 신설 + 키 7종 SOT 완성. (D-170-A1·A2 amendment 포함)",
   "comment": "역할 호출 트리거·격리 정책 단일 출처. pre-tool-use-task-sage-gate.js가 sage 격리 read. NCL 전면 폐기(D-133)로 ncl_emission 필드 deprecated. rules.edi는 정책 박제용으로 hook이 read하지 않음(Opt-α, session_165) — D-138 surveillance 영구 박제 회피(Riki R-1).",
   "rules": {
     "jobs": {
@@ -90,5 +90,62 @@
       "enforcement_note": "D-138 enforcement(enforceEdiAgentSource·auditEdiLlmInvocation·copyEdiReportToSessionContributions)는 .claude/hooks/session-end-finalize.js에 인라인 박제됨. 본 rule은 정책 일관성 박제용으로 hook이 read하지 않음 — Opt-α (session_165, topic_142). config로 enforcement 영구 박제 회피로 D-142 'ROI 0 자동 감시 금지' 정신과 양립. PD-064 P2 (session_194): version_bump_override_requires_reason 필드 추가 — finalize.js#checkVersionBumpConfirmation이 suggested vs confirmed 차이 + overrideReason 부재 시 info gap 박제.",
       "introducedBy": "topic_142 (session_165, 2026-05-02) — 8역할 정책 비대칭 해소"
     }
+  },
+  "discussion_mode": {
+    "_introducedBy": "D-170-A2 (session_208, topic_176, 2026-05-07)",
+    "synthesis_role": "edi",
+    "ace_synthesis_allowed_modes": ["structured"]
+  },
+  "priority_axis_order": ["phase", "operationMode", "grade"],
+  "isolation_strength_default": "prompt_prepend_only",
+  "debate_round": {
+    "_introducedBy": "D-170-A1 sub-axis (d) (session_208, topic_176, 2026-05-07)",
+    "nexus_arbitrator": true,
+    "master_interrupt": "anytime",
+    "round_max": null,
+    "end_policy": "nexus_judge_then_master_query"
+  },
+  "parallel_turn_sort_key": "dispatch_order",
+  "_parallel_turn_sort_key_note": "D-169 P7 확정 박제. nexus 모드에서 병렬 turns[] 정렬 기준. dispatch_order = Nexus가 Agent 툴 호출한 순서(0-based).",
+  "phase_enum": {
+    "_introducedBy": "D-169 P9 (session_209, topic_176, 2026-05-08)",
+    "_note": "session/topic phase 값 enum SOT. pre-tool-use-task.js blind-parallel 분기 키. magic string 제거 목적.",
+    "values": ["framing", "blind-parallel", "open", "debate", "synthesis"],
+    "descriptions": {
+      "framing": "Jobs/Nexus가 Why·What·범위를 결정하는 단계. role_domain_template 참조 시작.",
+      "blind-parallel": "각 역할이 다른 역할의 발언을 볼 수 없는 격리 실행 단계. pre-tool-use-task.js가 prepend 차단.",
+      "open": "격리 해제 후 전체 발언 공개 상태. 일반 관찰 모드.",
+      "debate": "N round 찬반 토론. nexus_arbitrator=true, round 상한 없음.",
+      "synthesis": "Edi 단일 호출로 종합 박제. ace_synthesis 차단(structured 모드 한정으로 격리)."
+    }
+  },
+  "debate_state_schema": {
+    "_introducedBy": "D-169 P9 (session_209, topic_176, 2026-05-08)",
+    "_note": "current_session.json.debate_state 필드 스키마. Nexus가 debate phase 진입 시 초기화. 라운드 진행 중 업데이트.",
+    "fields": {
+      "round_idx": "number — 현재 라운드 인덱스 (0-based). Nexus가 dispatch 전 +1.",
+      "last_progress_ts": "ISO string — 가장 최근 진전(새 주장·근거 등장) 시각. Nexus 판단 기준.",
+      "divergence_signal": "boolean | null — 라운드 간 발산 감지 여부. true 시 Nexus가 수렴 판정 후 end_policy 실행.",
+      "positions": "Record<role, string> — 역할별 현재 입장 요약 (Nexus 업데이트). optional.",
+      "convergence_summary": "string | null — Nexus가 수렴 판정 시 요약. end_policy='nexus_judge_then_master_query' 실행 전 박제."
+    }
+  },
+  "path_policy": {
+    "_introducedBy": "D-169 P7 (session_209, topic_176, 2026-05-08)",
+    "_note": "파일명·경로 convention SOT. hook과 lib(nexus-turn-push.ts, turn-push-mode.ts)가 이 패턴을 기준으로 경로를 생성.",
+    "pending_turns_pattern": "pending_turns_{sessionId}.jsonl",
+    "pending_turns_dir": "memory/sessions",
+    "pending_turns_archive_dir": "memory/sessions/pending_turns_archive",
+    "pending_turns_archive_crash_suffix": "_crash_{timestamp}.jsonl"
+  },
+  "role_domain_template": {
+    "_introducedBy": "D-170-A1 + Arki rev4 §4 (session_209, topic_176, 2026-05-08)",
+    "_note": "토픽별 Jobs/Nexus가 override 가능. blind-parallel phase 진입 시 framing 단계에서 이 template 참조.",
+    "arki": "구조·의존성·게이트",
+    "riki": "실패 모드·전제 분쇄",
+    "fin": "자원·재무·비용 안분",
+    "ace": "구조·흐름 종합 (structured 모드 한정)",
+    "jobs": "본질·Why·What·Focus",
+    "edi": "산출물 박제·version_bump 확정·anchor governance"
   }
 }

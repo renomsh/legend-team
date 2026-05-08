@@ -9776,8 +9776,43 @@
         "D-170-A2",
         "D-171"
       ]
+    },
+    {
+      "sessionId": "session_209",
+      "topicSlug": "parallel-topic-session-design",
+      "topic": "병렬 토픽 및 세션 구조 설계 — G안 구현",
+      "startedAt": "2026-05-08T03:00:00.000Z",
+      "closedAt": "2026-05-08T12:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "decisions": [
+        {
+          "phase": "gate-alpha",
+          "decision": "옵션 A 채택 — hook → pending_turns_{sessionId}.jsonl append → Nexus agentId join. D1 sentinel __hook_origin 코드 박제 가능. 옵션 B는 sentinel 구조 없음.",
+          "verbatim": "A",
+          "context": "Jobs(옵션 B 권고) vs Arki(D1 sentinel 구조 차이 명시) 토론 후 Master 직접 결정. 혼합 금지.",
+          "ledgerId": "GATE-α"
+        }
+      ],
+      "agentsCompleted": [
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "edi",
+          "turnIdx": 0,
+          "phase": "compile"
+        }
+      ],
+      "grade": "S",
+      "note": "session_208 인계: G-PRE 검증 → P0 진입 세션 | G-PRE PASS (2026-05-08): C1(spc_lck=Y) C2(D-170-A1·A2 박제) C3(turnPushMode=hook fallback) 모두 충족 | P0 완료: D-169 갱신 (D-166 부분 supersede + turnPushMode frame), scripts/validate-phase-gate.ts 신설, D-170-A1·A2 decision_ledger 박제, dispatch_config.json D-170 amendment 박제 | P1 완료: spike GATE α PASS (A 100%·B 0% truncation). Master → 옵션 A 채택 (D1 sentinel 구조 우위) | 다음 작업: P2 — turnPushMode 플래그 + scripts/lib/turn-push-mode.ts 신설 | turnPushMode='hook' 박제 — PD-066 미해결 fallback (Arki rev4 §7.1 정합)",
+      "oneLineSummary": "topic_176 G안 구현 완료: P1-P9 전체 PASS, nexus push/crash recovery/blind-parallel domain/dispatch_config SOT 박제. PD-066 /open scan 잔여.",
+      "decisionsAdded": [
+        "D-170-A1",
+        "D-170-A2",
+        "D-169-P0"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-08T02:10:54.481Z",
+  "lastUpdated": "2026-05-08T05:16:30.743Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

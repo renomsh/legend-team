@@ -2572,19 +2572,28 @@
     {
       "id": "D-169",
       "date": "2026-05-07",
-      "session": "session_206",
+      "session": "session_207 (원박제) / session_209 (P0 갱신)",
       "topic": "topic_176",
-      "axis": "현 세션 framing 종결, 구현은 다음 세션 위임",
-      "summary": "부분 구현 0 → silent corruption 위험 0 (R-D-15 미발생). 결정만 ledger 박제, 다음 세션에서 P0~P6 실행. 임시 spike 박제(SPIKE-R6 마커) 동반 cleanup.",
-      "decision": "topic_176 status = design-approved, 다음 세션 재오픈 시 implementing 진입.",
+      "axis": "turnPushMode 분기 + Nexus 직접 push frame 박제 — D-166 부분 supersede (Case B 한정)",
+      "summary": "Case B Phase 구현 진입 frame 확정. turnPushMode enum {hook(default), nexus(병렬)}. D-166 부분 supersede 범위: turns_append jsonl + finalize merge + archive 자산 폐기. D-166 보존 범위: pending_turns·turn_log·atomic 검증 산출물. Case A는 PD-065에 위임(D-167 직교, 변경 없음). session_207 원래 박제(프레이밍 종결 결정)는 context 보존 — 본 P0 박제가 frame 확정본.",
+      "decision": "turnPushMode 플래그 SOT = current_session.json.turnPushMode. hook=legacy(D-166 D-168 정합), nexus=Nexus 직접 push(turn + pending_turns + reports frontmatter). D-166 turns_append jsonl/finalize merge/archive 3 자산 폐기. pending_turns·turn_log·atomic 검증 산출물 보존. 모든 hook이 scripts/lib/turn-push-mode.ts 통해 단일 read.",
       "caveats": [],
       "relatedDecisions": [
         "D-166",
         "D-167",
-        "D-168"
+        "D-168",
+        "D-170",
+        "D-171"
       ],
       "relatedFiles": [],
-      "status": "active"
+      "status": "active",
+      "supersedes": [
+        "D-166-partial"
+      ],
+      "supersedesNote": "D-166 중 turns_append jsonl + finalize merge + archive 자산만 부분 supersede. D-166 원본은 active 상태 유지(Case A 영역 보존).",
+      "updatedInSession": "session_209",
+      "updatedAt": "2026-05-08",
+      "originalAxis": "현 세션 framing 종결, 구현은 다음 세션 위임 (session_207 원박제 보존)"
     },
     {
       "id": "D-170",
@@ -2663,6 +2672,37 @@
           "supersededBy": null
         }
       ]
+    },
+    {
+      "id": "D-170-A1",
+      "date": "2026-05-07",
+      "session": "session_208",
+      "topic": "topic_176",
+      "axis": "D-170 amendment 5번째 축 — blind 격리 phase 한정 / 우선순위 phase>operationMode>grade / 격리 강도 default=prepend 차단 / 수렴 토론 round 무한+Nexus 분배",
+      "summary": "Master M2 결정. 4 sub-axis: (a) blind 격리 = phase 한정(open/debate 진입 시 일괄 공개), (b) 충돌 시 phase 최우선 — phase > operationMode > grade, (c) 격리 강도 임시 default = prompt prepend 차단만, (d) 수렴 토론 = N round 상한 없음 + Nexus 자율 발언자 분배 + Master anytime interrupt + 수렴 판정 = Nexus 자연어 + 어려움 시 Master 질의(continue/양립/종료).",
+      "decision": "D-170 5번째 축 amendment 4 sub-axis 박제. 코드 박제 위치: pre-tool-use-task.js (a/b), dispatch_config.json priority_axis_order/isolation_strength_default/debate_round (b/c/d). warn-only 아님(early return).",
+      "masterVerbatim": "1-3동의하고 각자 발언하고 나서는 서로 내용을 보면서 토론을 해야지. b는 OK / c는 default = prompt prepend 차단만",
+      "relatedDecisions": [
+        "D-170"
+      ],
+      "relatedTopic": "topic_176",
+      "status": "active"
+    },
+    {
+      "id": "D-170-A2",
+      "date": "2026-05-07",
+      "session": "session_208",
+      "topic": "topic_176",
+      "axis": "토론형 (5)종합 = Edi 단일 호출. /ace-synthesis = structured 모드 한정",
+      "summary": "Master M5 결정. 토론형(discussion mode) 5단계 종합은 Edi 단일 호출 — Ace synthesis 호출 X. Ace의 단일 권고 강제(D-130)가 토론형 양립 보존 frame과 충돌하므로 Edi가 양립 의견 그대로 박제. /ace-synthesis 명시 호출은 structured 모드 한정.",
+      "decision": "토론형 synthesis_role=edi 박제. dispatch_config.json에 discussion_mode.synthesis_role: edi, ace_synthesis_allowed_modes: [structured] 박제. Edi는 독자 합성 없이 양립 의견 그대로 박제.",
+      "masterVerbatim": "5단계는 Edi 단일 호출로 해보자. 에이스 종합결론으로 가면 양립된 의견도 하나로 합칠테니",
+      "relatedDecisions": [
+        "D-170",
+        "D-130"
+      ],
+      "relatedTopic": "topic_176",
+      "status": "active"
     },
     {
       "id": "D-171",

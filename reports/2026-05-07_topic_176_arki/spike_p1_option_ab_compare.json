@@ -1,0 +1,165 @@
+{
+  "spec": "topic_176 / Arki rev4 §3 / session_209 P1 spike — 옵션 A·B 동시 검증",
+  "date": "2026-05-08T02:45:05.131Z",
+  "sessionId": "session_209",
+  "N": 10,
+  "optionA": {
+    "mechanism": "hook → pending_turns_{sessionId}.jsonl append → Nexus agentId join",
+    "matchRate": 1,
+    "matchedCount": 10,
+    "corruptCount": 0,
+    "appendDurationMs": 19,
+    "pendingEntriesCount": 10,
+    "detail": "N=10 concurrent appends. matched=10/10 (100%). corrupt=0. appendDurationMs=19",
+    "gateAlpha_pass": true,
+    "caveat": "pre-implementation feasibility spike. P2-P3 코드 박제 후 live re-validation 필요 (agentId 실제 필드 존재 여부는 live dispatch 시 확정)."
+  },
+  "optionB": {
+    "mechanism": "Nexus message stream self-scores 직접 파싱 (extractSelfScores hook 코드)",
+    "truncationRate": 0,
+    "truncatedCount": 0,
+    "trials": [
+      {
+        "trialIdx": 0,
+        "role": "arki",
+        "payloadBytes": 662,
+        "truncated": false,
+        "keyMatch": true,
+        "parsedKeys": [
+          "aud_rcl",
+          "str_fd",
+          "spc_lck",
+          "sa_rnd"
+        ]
+      },
+      {
+        "trialIdx": 1,
+        "role": "jobs",
+        "payloadBytes": 670,
+        "truncated": false,
+        "keyMatch": true,
+        "parsedKeys": [
+          "focus_sharp",
+          "bloat_idx",
+          "bias_cnt",
+          "no_cnt"
+        ]
+      },
+      {
+        "trialIdx": 2,
+        "role": "riki",
+        "payloadBytes": 664,
+        "truncated": false,
+        "keyMatch": true,
+        "parsedKeys": [
+          "crt_rcl",
+          "cr_val",
+          "prd_rej",
+          "fp_rt"
+        ]
+      },
+      {
+        "trialIdx": 3,
+        "role": "ace",
+        "payloadBytes": 662,
+        "truncated": false,
+        "keyMatch": true,
+        "parsedKeys": [
+          "rfrm_trg",
+          "ctx_car",
+          "mst_fr",
+          "ang_nov"
+        ]
+      },
+      {
+        "trialIdx": 4,
+        "role": "zero",
+        "payloadBytes": 652,
+        "truncated": false,
+        "keyMatch": true,
+        "parsedKeys": [
+          "ref_cnt",
+          "hc_found",
+          "cln_rt"
+        ]
+      },
+      {
+        "trialIdx": 5,
+        "role": "edi",
+        "payloadBytes": 667,
+        "truncated": false,
+        "keyMatch": true,
+        "parsedKeys": [
+          "art_cmp",
+          "gp_acc",
+          "scc",
+          "cs_cnt",
+          "gap_fc"
+        ]
+      },
+      {
+        "trialIdx": 6,
+        "role": "fin",
+        "payloadBytes": 662,
+        "truncated": false,
+        "keyMatch": true,
+        "parsedKeys": [
+          "cst_acc",
+          "roi_dir",
+          "res_cov",
+          "bdg_fit"
+        ]
+      },
+      {
+        "trialIdx": 7,
+        "role": "nova",
+        "payloadBytes": 663,
+        "truncated": false,
+        "keyMatch": true,
+        "parsedKeys": [
+          "spec_nov",
+          "feas",
+          "risk_adj",
+          "creativ"
+        ]
+      },
+      {
+        "trialIdx": 8,
+        "role": "arki",
+        "payloadBytes": 662,
+        "truncated": false,
+        "keyMatch": true,
+        "parsedKeys": [
+          "aud_rcl",
+          "str_fd",
+          "spc_lck",
+          "sa_rnd"
+        ]
+      },
+      {
+        "trialIdx": 9,
+        "role": "jobs",
+        "payloadBytes": 670,
+        "truncated": false,
+        "keyMatch": true,
+        "parsedKeys": [
+          "focus_sharp",
+          "bloat_idx",
+          "bias_cnt",
+          "no_cnt"
+        ]
+      }
+    ],
+    "detail": "N=10 trials. truncated=0/10 (0%). payloadBytes range: 652~670",
+    "gateAlpha_pass": true,
+    "session208Evidence": "session_208: 8회 dispatch 중 7/8 selfScores 추출 성공 (zero turn5 제외 — # self-scores 블록 미박제). 실제 live 검증 완료."
+  },
+  "gateAlpha": {
+    "optionA_pass": true,
+    "optionB_pass": true,
+    "recommendation": "A",
+    "verdict": "PASS",
+    "note": "옵션 A·B 모두 통과 — Master 선택 (단일 선택 의무, D-170-A1 정합). 혼합 금지.",
+    "masterAction": "판정=Master / 박제=Edi (Arki rev4 §5.2)"
+  }
+}

@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_208",
-  "nextSessionId": "session_209",
+  "lastSessionId": "session_209",
+  "nextSessionId": "session_210",
   "currentVersion": "v0.968",
   "openTopics": [
     {
@@ -26,6 +26,18 @@
       "summary": "Case B Phase 진입 게이트 강제 (M3+M4 통합) — Arki rev4 spc_lck=Y + PD-066 resolved 3건 코드 박제"
     },
     {
+      "id": "D-170-A2",
+      "date": "2026-05-07",
+      "axis": "토론형 (5)종합 = Edi 단일 호출. /ace-synthesis = structured 모드 한정",
+      "summary": "토론형 (5)종합 = Edi 단일 호출. /ace-synthesis = structured 모드 한정"
+    },
+    {
+      "id": "D-170-A1",
+      "date": "2026-05-07",
+      "axis": "D-170 amendment 5번째 축 — blind 격리 phase 한정 / 우선순위 phase>operationMode>grade / 격리 강도 default=prepend 차단 / 수렴 토론 round 무한+Nexus 분배",
+      "summary": "D-170 amendment 5번째 축 — blind 격리 phase 한정 / 우선순위 phase>operationMode>grade / 격리 강도 default=prepend 차단 / 수렴 토론 round 무한+Nexus 분배"
+    },
+    {
       "id": "D-170",
       "date": "2026-05-07",
       "axis": "토픽 운영 유형 enum 추가 — structured(default) / discussion. Grade와 직교, 별도 명령어로 세션 중 전환 가능",
@@ -34,23 +46,22 @@
     {
       "id": "D-169",
       "date": "2026-05-07",
-      "axis": "현 세션 framing 종결, 구현은 다음 세션 위임",
-      "summary": "현 세션 framing 종결, 구현은 다음 세션 위임"
-    },
-    {
-      "id": "D-168",
-      "date": "2026-05-07",
-      "axis": "Arki rev1 plan 단순화 — P3(lock 인프라) 삭제, N=1 fallback 폐기",
-      "summary": "Arki rev1 plan 단순화 — P3(lock 인프라) 삭제, N=1 fallback 폐기"
-    },
-    {
-      "id": "D-167",
-      "date": "2026-05-07",
-      "axis": "병렬 토픽 명명 = mtopic_NNN 독립 카운터 namespace",
-      "summary": "병렬 토픽 명명 = mtopic_NNN 독립 카운터 namespace"
+      "axis": "turnPushMode 분기 + Nexus 직접 push frame 박제 — D-166 부분 supersede (Case B 한정)",
+      "summary": "turnPushMode 분기 + Nexus 직접 push frame 박제 — D-166 부분 supersede (Case B 한정)"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_209",
+      "topicSlug": "parallel-topic-session-design",
+      "closedAt": "2026-05-08T12:00:00.000Z",
+      "oneLineSummary": "topic_176 G안 구현 완료: P1-P9 전체 PASS, nexus push/crash recovery/blind-parallel domain/dispatch_config SOT 박제. PD-066 /open scan 잔여.",
+      "decisionsAdded": [
+        "D-170-A1",
+        "D-170-A2",
+        "D-169-P0"
+      ]
+    },
     {
       "sessionId": "session_208",
       "topicSlug": "parallel-topic-session-design",
@@ -69,18 +80,6 @@
       "closedAt": "2026-05-07T12:30:00.000Z",
       "oneLineSummary": "topic_176 Case A/B 분리 frame 확립, P1 atomic spike PASS(47K line 0%), Arki rev2 Case B 한정 plan 박제, PD-065(Case A 분리) 신설, P2~P3 다음 세션 안전 분리",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_206",
-      "topicSlug": "parallel-topic-session-design",
-      "closedAt": "2026-05-07T04:00:00.000Z",
-      "oneLineSummary": "topic_176 G안 채택(append-only JSONL+mtopic_NNN), spike R-6 race 양성 → lock-free 가정 폐기, 구현 다음 세션 위임 (D-166~D-169 박제)",
-      "decisionsAdded": [
-        "D-166",
-        "D-167",
-        "D-168",
-        "D-169"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -100,5 +99,5 @@
       "relatedTopic": "topic_144"
     }
   ],
-  "lastUpdated": "2026-05-08T02:11:16.392Z"
+  "lastUpdated": "2026-05-08T05:16:46.294Z"
 }

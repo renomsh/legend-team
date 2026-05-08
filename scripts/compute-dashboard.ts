@@ -11,6 +11,7 @@
  *   ts-node scripts/compute-dashboard.ts
  */
 
+import * as fs from 'fs';
 import * as path from 'path';
 import { ROOT, readJson, writeJson, appendLog } from './lib/utils';
 import { Turn } from './lib/turn-types';
@@ -241,6 +242,67 @@ function extractKeywords(text: string): string[] {
     .split(/\s+/)
     .filter(w => w.length >= 2 && !stopWords.has(w))
     .slice(0, 5);
+}
+
+// ── D-169 P8: nexus push 운영 통계 ──────────────────────────────────────────
+/**
+ * nexus/hook 모드 분포 + 운영 이상 집계.
+ * session_index.sessions의 gaps + pending_turns 파일 현황으로 구성.
+ */
+export function computeNexusPushStats(
+  sessionIdx: { sessions: Array<{ sessionId: string; turnPushMode?: string; turns?: Turn[]; gaps?: unknown[] }> },
+  cwd: string = ROOT
+): {
+  turnPushModeDistribution: Record<string, number>;
+  crashRecoveryCount: number;
+  hookOriginViolations: number;
+  nexusPushMissing: number;
+  orphanPendingFiles: Array<{ file: string; sizeBytes: number; lines: number }>;
+  archiveCount: number;
+} {
+  const dist: Record<string, number> = { hook: 0, nexus: 0, undefined: 0 };
+  let crashRecoveryCount = 0;
+  let hookOriginViolations = 0;
+  let nexusPushMissing = 0;
+
+  for (const s of sessionIdx.sessions) {
+    const mode = s.turnPushMode ?? 'undefined';
+    dist[mode] = (dist[mode] ?? 0) + 1;
+    if (Array.isArray(s.turns)) {
+      for (const t of s.turns) {
+        if ((t as any)._crashRecovery) crashRecoveryCount++;
+      }
+    }
+    if (Array.isArray(s.gaps)) {
+      for (const g of s.gaps as Array<{ type?: string }>) {
+        if (g.type === 'hook-origin-invalid') hookOriginViolations++;
+        if (g.type === 'nexus-push-missing') nexusPushMissing++;
+      }
+    }
+  }
+
+  const sessionsDir = path.join(cwd, 'memory', 'sessions');
+  const orphanPendingFiles: Array<{ file: string; sizeBytes: number; lines: number }> = [];
+  try {
+    for (const f of fs.readdirSync(sessionsDir)) {
+      if (f.startsWith('pending_turns_') && f.endsWith('.jsonl')) {
+        try {
+          const fullPath = path.join(sessionsDir, f);
+          const stat = fs.statSync(fullPath);
+          const lines = fs.readFileSync(fullPath, 'utf8').split('\n').filter(l => l.trim()).length;
+          orphanPendingFiles.push({ file: f, sizeBytes: stat.size, lines });
+        } catch {}
+      }
+    }
+  } catch {}
+
+  let archiveCount = 0;
+  try {
+    const archiveDir = path.join(sessionsDir, 'pending_turns_archive');
+    if (fs.existsSync(archiveDir)) archiveCount = fs.readdirSync(archiveDir).filter(f => f.endsWith('.jsonl')).length;
+  } catch {}
+
+  return { turnPushModeDistribution: dist, crashRecoveryCount, hookOriginViolations, nexusPushMissing, orphanPendingFiles, archiveCount };
 }
 
 // ── 메인 ──────────────────────────────────────────────────────────────────
@@ -511,12 +573,16 @@ function main() {
     2 // TTL=2 (Master 결정, D-145)
   );
 
+  // ── D-169 P8: nexus push 운영 통계 ──────────────────────────────────────
+  const nexusPushStats = computeNexusPushStats(sessionIndex as any, ROOT);
+
   // ── 출력 ─────────────────────────────────────────────────────────────────
   const output = {
     generatedAt: new Date().toISOString(),
     totalSessions,
     autoDataFrom: AUTO_START_SESSION,
     ackedButUnresolved,
+    nexusPushStats,
     metrics: {
       avgMasterTurns: parseFloat(avgMasterTurns.toFixed(2)),
       avgCacheHitRate: parseFloat(avgCacheHitRate.toFixed(4)),
@@ -533,6 +599,10 @@ function main() {
       totalCostUSD,
       avgCostPerSession,
       costSampleSize: costSessions.length,
+      // D-169 P8: nexus push 운영 요약
+      nexusModeSessions: nexusPushStats.turnPushModeDistribution['nexus'] ?? 0,
+      orphanPendingCount: nexusPushStats.orphanPendingFiles.length,
+      crashRecoveryCount: nexusPushStats.crashRecoveryCount,
     },
     sessions,
     roleFrequency,
