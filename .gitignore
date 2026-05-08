@@ -6,4 +6,5 @@ dist/
 *.tsbuildinfo
 .claude/worktrees/
 .claude/scratch/
-logs/
+logs/*
+!logs/hook-diagnostics.log
