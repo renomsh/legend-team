@@ -1088,8 +1088,8 @@ function auditRoleImpersonation(sess) {
 }
 
 /**
- * current_session.pendingDeferralsResolved 배열 기반으로 system_state.pendingDeferrals 갱신.
- * resolved 처리된 PD를 system_state에서 status='resolved'로 마킹.
+ * current_session.pendingDeferralsResolved 배열 기반으로 system_state.pendingDeferrals 및
+ * pending_deferrals.json(SOT) 동시 갱신. (PD-070 fix)
  */
 function applyPendingDeferralsResolved(sess) {
   const resolved = Array.isArray(sess.pendingDeferralsResolved) ? sess.pendingDeferralsResolved : [];
@@ -1098,43 +1098,83 @@ function applyPendingDeferralsResolved(sess) {
     return;
   }
 
+  const resolvedDate = new Date().toISOString().slice(0, 10);
+  const sessionId = sess.sessionId || null;
+
+  // 1. system_state.json pendingDeferrals 갱신 (mirror)
   const statePath = path.join(CWD, 'memory', 'shared', 'system_state.json');
   if (!fs.existsSync(statePath)) {
     log('applyPendingDeferralsResolved skip: system_state.json 없음');
-    return;
-  }
+  } else {
+    let state;
+    try {
+      state = JSON.parse(fs.readFileSync(statePath, 'utf8'));
+    } catch (e) {
+      log(`applyPendingDeferralsResolved system_state 파싱 실패 — ${e && e.message}`);
+      state = null;
+    }
 
-  let state;
-  try {
-    state = JSON.parse(fs.readFileSync(statePath, 'utf8'));
-  } catch (e) {
-    log(`applyPendingDeferralsResolved skip: 파싱 실패 — ${e && e.message}`);
-    return;
-  }
-
-  if (!Array.isArray(state.pendingDeferrals)) {
-    log('applyPendingDeferralsResolved skip: pendingDeferrals 없음');
-    return;
-  }
-
-  let changed = 0;
-  for (const pd of state.pendingDeferrals) {
-    if (resolved.includes(pd.id) && pd.status !== 'resolved') {
-      pd.status = 'resolved';
-      pd.resolvedInSession = sess.sessionId || null;
-      changed++;
+    if (state && Array.isArray(state.pendingDeferrals)) {
+      let changed = 0;
+      for (const pd of state.pendingDeferrals) {
+        if (resolved.includes(pd.id) && pd.status !== 'resolved') {
+          pd.status = 'resolved';
+          pd.resolvedInSession = sessionId;
+          changed++;
+        }
+      }
+      if (changed > 0) {
+        try {
+          writeJson(statePath, state);
+          log(`applyPendingDeferralsResolved system_state 완료 — ${changed}건: ${resolved.join(', ')}`);
+        } catch (e) {
+          log(`applyPendingDeferralsResolved system_state 쓰기 실패: ${e && e.message}`);
+        }
+      } else {
+        log(`applyPendingDeferralsResolved system_state — resolved 대상 없음 (${resolved.join(', ')})`);
+      }
     }
   }
 
-  if (changed > 0) {
+  // 2. pending_deferrals.json(SOT) 갱신 (PD-070)
+  const pdPath = path.join(CWD, 'memory', 'shared', 'pending_deferrals.json');
+  if (!fs.existsSync(pdPath)) {
+    log('applyPendingDeferralsResolved skip: pending_deferrals.json 없음');
+    return;
+  }
+
+  let pdFile;
+  try {
+    pdFile = JSON.parse(fs.readFileSync(pdPath, 'utf8'));
+  } catch (e) {
+    log(`applyPendingDeferralsResolved pending_deferrals 파싱 실패 — ${e && e.message}`);
+    return;
+  }
+
+  if (!Array.isArray(pdFile.items)) {
+    log('applyPendingDeferralsResolved skip: pending_deferrals.items 없음');
+    return;
+  }
+
+  let sotChanged = 0;
+  for (const item of pdFile.items) {
+    if (resolved.includes(item.id) && item.status !== 'resolved') {
+      item.status = 'resolved';
+      item.resolvedAt = resolvedDate;
+      item.resolvedBy = sessionId;
+      sotChanged++;
+    }
+  }
+
+  if (sotChanged > 0) {
     try {
-      writeJson(statePath, state);
-      log(`applyPendingDeferralsResolved 완료 — ${changed}건 resolved: ${resolved.join(', ')}`);
+      writeJson(pdPath, pdFile);
+      log(`applyPendingDeferralsResolved SOT 완료 — ${sotChanged}건 resolved: ${resolved.join(', ')}`);
     } catch (e) {
-      log(`applyPendingDeferralsResolved 실패: ${e && e.message}`);
+      log(`applyPendingDeferralsResolved SOT 쓰기 실패: ${e && e.message}`);
     }
   } else {
-    log(`applyPendingDeferralsResolved — resolved 대상 없음 (${resolved.join(', ')} 이미 resolved 또는 미존재)`);
+    log(`applyPendingDeferralsResolved SOT — resolved 대상 없음 (${resolved.join(', ')} 이미 resolved 또는 미존재)`);
   }
 }
 

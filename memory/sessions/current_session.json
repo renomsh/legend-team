@@ -1,13 +1,13 @@
 {
-  "sessionId": "session_218",
-  "topicId": "topic_184",
-  "topic": "C 표시 변경 로직 구현",
-  "topicSlug": "c-indicator-display-change",
-  "reportPath": "reports/2026-05-09_c-indicator-display-change",
+  "sessionId": "session_219",
+  "topicId": "topic_185",
+  "topic": "PD-070 구현 — session-end-finalize.js pendingDeferralsResolved 전파",
+  "topicSlug": "pd-070-finalize-pending-resolved",
+  "reportPath": "reports/2026-05-09_pd-070-finalize-pending-resolved",
   "status": "closed",
-  "startedAt": "2026-05-09T00:00:00.000Z",
-  "closedAt": "2026-05-09T23:00:00.000Z",
-  "oneLineSummary": "upgrade페이지 Acked Caveat→Active Alarms 교체, Zero 발언순서 추가, PD-071 등록",
+  "startedAt": "2026-05-09T01:40:00.000Z",
+  "closedAt": "2026-05-09T01:50:00.000Z",
+  "oneLineSummary": "PD-070 resolved: session-end-finalize.js pending_deferrals.json SOT 갱신 블록 추가",
   "mode": "observation",
   "grade": "C",
   "topicType": "standalone",
@@ -25,13 +25,11 @@
   "decisions": [],
   "masterDecisions": [],
   "decisionsAdded": [],
-  "masterFeedback": [
-    "MF-113"
+  "masterFeedback": [],
+  "pendingDeferralsAdded": [],
+  "pendingDeferralsResolved": [
+    "PD-070"
   ],
-  "pendingDeferralsAdded": [
-    "PD-071"
-  ],
-  "pendingDeferralsResolved": [],
   "openMasterAlerts": [],
   "gaps": [
     {
@@ -39,34 +37,54 @@
       "note": "Grade C 세션 — Edi LLM 미호출, report 파일 없음. session-log audit 경고 발생 (known pattern)."
     },
     {
-      "type": "apply-feedback-script-error",
-      "note": "apply-feedback.ts utils.ts:36 TypeError — MF-113 수동 Edit으로 대체 (PD-070 연관 버그)"
-    },
-    {
       "type": "mechanical-fallback-graded",
-      "sessionId": "session_218",
+      "sessionId": "session_219",
       "grade": "C",
       "severity": "info"
-    },
-    {
-      "type": "edi-llm-report-absent",
-      "sessionId": "session_218",
-      "reportPath": "reports/2026-05-09_c-indicator-display-change",
-      "grade": "C",
-      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
     }
   ],
   "tokenUsage": {
-    "input_tokens": 200,
-    "output_tokens": 56188,
-    "cache_creation_input_tokens": 246633,
-    "cache_read_input_tokens": 9024130,
-    "messageCount": 130,
-    "masterTurns": 12,
-    "total_billable": 9327151
+    "input_tokens": 2390,
+    "output_tokens": 21914,
+    "cache_creation_input_tokens": 159874,
+    "cache_read_input_tokens": 2635371,
+    "messageCount": 53,
+    "masterTurns": 3,
+    "total_billable": 2819549
   },
   "agentsCompleted": [
     "edi"
   ],
-  "finalizedAt": "2026-05-09T01:32:18.853Z"
+  "versionBumpSuggested": {
+    "value": 0.01,
+    "type": "capacity",
+    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/session-end-finalize.js)",
+    "autoDetectedAt": "2026-05-09T01:38:02.711Z",
+    "changedFiles": [
+      ".claude/hooks/session-end-finalize.js",
+      "logs/hook-diagnostics.log",
+      "logs/master-first.log",
+      "memory/sessions/current_session.json",
+      "memory/sessions/session_index.json",
+      "memory/sessions/token_log.json",
+      "memory/shared/pending_deferrals.json",
+      "memory/shared/system_state.json",
+      "memory/shared/topic_index.json",
+      "topics/topic_185/"
+    ],
+    "changedFilesCount": 10,
+    "cappedAt": 0.1,
+    "confirmedBy": "nexus"
+  },
+  "versionBump": {
+    "value": 0.01,
+    "type": "capacity",
+    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/session-end-finalize.js)",
+    "from": "v1.579",
+    "to": "0.010",
+    "confirmedBy": "nexus",
+    "confirmedAt": "2026-05-09T01:38:02.711Z",
+    "autoDetectedAt": "2026-05-09T01:38:02.711Z"
+  },
+  "finalizedAt": "2026-05-09T01:38:06.098Z"
 }

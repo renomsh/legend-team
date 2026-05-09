@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_218",
-  "nextSessionId": "session_219",
-  "currentVersion": "v1.579",
+  "lastSessionId": "session_219",
+  "nextSessionId": "session_220",
+  "currentVersion": "v0.010",
   "openTopics": [
     {
       "id": "topic_175",
@@ -97,14 +97,6 @@
       "status": "pending"
     },
     {
-      "id": "PD-070",
-      "fromSession": "session_217",
-      "fromTopic": "pd-057-grade-review",
-      "createdAt": "2026-05-09",
-      "item": "session-end-finalize.js — pendingDeferralsResolved 전파 누락. current_session.pendingDeferralsResolved 배열을 읽어 pending_deferrals.json status를 resolved로 갱신하는 로직 추가 필요. session_216 종료 시 PD-057 미전파로 발견.",
-      "status": "pending"
-    },
-    {
       "id": "PD-071",
       "fromSession": "session_218",
       "fromTopic": "c-indicator-display-change",
@@ -113,5 +105,5 @@
       "status": "pending"
     }
   ],
-  "lastUpdated": "2026-05-09T01:32:18.706Z"
+  "lastUpdated": "2026-05-09T01:38:05.942Z"
 }
