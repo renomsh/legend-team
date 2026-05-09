@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_223",
-  "nextSessionId": "session_224",
+  "lastSessionId": "session_224",
+  "nextSessionId": "session_225",
   "currentVersion": "v1.619",
   "openTopics": [
     {
@@ -20,6 +20,18 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-177",
+      "date": "2026-05-09",
+      "axis": "Plugin Skill RECOMMEND 시스템 명세 — UserPromptSubmit hook + plugin_skill_index.json + 매 프롬프트 평가",
+      "summary": "Plugin Skill RECOMMEND 시스템 명세 — UserPromptSubmit hook + plugin_skill_index.json + 매 프롬프트 평가"
+    },
+    {
+      "id": "D-176",
+      "date": "2026-05-09",
+      "axis": "Plugin Skill 자동 발동 방식 — BLOCK 폐기, RECOMMEND 전환",
+      "summary": "Plugin Skill 자동 발동 방식 — BLOCK 폐기, RECOMMEND 전환"
+    },
+    {
       "id": "D-175",
       "date": "2026-05-09",
       "axis": "Grade C/D 통합 — D 폐기, D 키워드 fast-path C에 흡수",
@@ -36,18 +48,6 @@
       "date": "2026-05-09",
       "axis": "Grade 5단계 재정의 — C 재정의, B vs C blast_radius 경계, S 로스터 확정",
       "summary": "Grade 5단계 재정의 — C 재정의, B vs C blast_radius 경계, S 로스터 확정"
-    },
-    {
-      "id": "D-172",
-      "date": "2026-05-09",
-      "axis": "주제 유형별 역할 순서 원칙 도입 — 2축 판정 패턴",
-      "summary": "주제 유형별 역할 순서 원칙 도입 — 2축 판정 패턴"
-    },
-    {
-      "id": "D-171",
-      "date": "2026-05-07",
-      "axis": "Case B Phase 진입 게이트 강제 (M3+M4 통합) — Arki rev4 spc_lck=Y + PD-066 resolved 3건 코드 박제",
-      "summary": "Case B Phase 진입 게이트 강제 (M3+M4 통합) — Arki rev4 spc_lck=Y + PD-066 resolved 3건 코드 박제"
     }
   ],
   "recentSessionSummaries": [
@@ -81,14 +81,6 @@
   ],
   "pendingDeferrals": [
     {
-      "id": "PD-068",
-      "fromSession": "session_213",
-      "fromTopic": "pd-deferred-skill",
-      "createdAt": "2026-05-08",
-      "item": "프롬프트 입력 시 스킬을 훅으로 자동 발동 구현",
-      "status": "pending"
-    },
-    {
       "id": "PD-069",
       "fromSession": "session_214",
       "fromTopic": "pd-skill-bug-fix",
@@ -97,5 +89,5 @@
       "status": "pending"
     }
   ],
-  "lastUpdated": "2026-05-09T09:46:20.225Z"
+  "lastUpdated": "2026-05-09T11:00:01.564Z"
 }

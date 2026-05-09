@@ -10389,8 +10389,127 @@
       "grade": "C",
       "oneLineSummary": "token_log 복원(3→212개) + Nexus gold 색 + Ops hook 테이블 개선 + Growth/오픈토픽 진단",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_224",
+      "topicSlug": "skill-hook-auto-trigger",
+      "topic": "스킬 훅 자동 발동 구현",
+      "startedAt": "2026-05-09T11:00:00.000Z",
+      "closedAt": "2026-05-09T12:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\cool-haslett-0e9c6e",
+      "decisions": [
+        "자동화 대상 = plugin skill ~150+ (레전드팀 12개 제외)",
+        "BLOCK 방식 폐기 → RECOMMEND 전환",
+        "추천 빈도 = 매 프롬프트 조용히 평가",
+        "출력 = 표 top-3 + skill 역할 1줄 + '추천 보여주지마' 영구 제외",
+        "1차 PoC = 인덱스 수집부터 직렬",
+        "Riki ROI 가설 검증 기각 — Master 직접 사용 후 결정",
+        "폐기 임계 박제 불필요 — Master 가름마"
+      ],
+      "agentsCompleted": [
+        "jobs",
+        "arki",
+        "riki",
+        "fin",
+        "ace",
+        "jobs",
+        "arki",
+        "riki",
+        "fin",
+        "ace",
+        "edi",
+        "zero",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "jobs",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "focus_sharp": 5,
+            "bloat_idx": 2,
+            "bias_cnt": 3,
+            "no_cnt": 5
+          }
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "source": "agent"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 2,
+          "source": "agent"
+        },
+        {
+          "role": "fin",
+          "turnIdx": 3,
+          "source": "agent"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 4,
+          "source": "agent"
+        },
+        {
+          "role": "jobs",
+          "turnIdx": 5,
+          "source": "agent"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 6,
+          "source": "agent"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 7,
+          "source": "agent"
+        },
+        {
+          "role": "fin",
+          "turnIdx": 8,
+          "source": "agent"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 9,
+          "source": "agent"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 10,
+          "source": "agent"
+        },
+        {
+          "role": "zero",
+          "turnIdx": 11,
+          "source": "agent"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 12,
+          "source": "agent",
+          "selfScores": {
+            "scc": "Y",
+            "cs_cnt": 4,
+            "art_cmp": 1,
+            "gap_fc": 4,
+            "gp_acc": 0.85,
+            "versionBumpSuggested": "{to: \"1.620\", reason: \"D-176/D-177 결정 박제 (capacity +0.01)\"}"
+          }
+        }
+      ],
+      "grade": "A",
+      "oneLineSummary": "Plugin skill 자동발동: BLOCK 폐기 → RECOMMEND 전환 (D-176/D-177), PD-068 in-progress, UserPromptSubmit hook 명세 확정",
+      "decisionsAdded": [
+        "D-176",
+        "D-177"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-09T09:46:05.312Z",
+  "lastUpdated": "2026-05-09T10:59:46.954Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

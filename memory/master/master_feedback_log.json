@@ -1477,6 +1477,18 @@
       "feedback": "Grade C 선언(제목 첫 글자 'C')을 topic 제목으로 오독하여 Grade B로 임의 상향했음.",
       "directive": "단일 문자 S/A/B/C 선두 파싱 규칙 준수. Master 명시 grade 임의 상향 금지.",
       "status": "resolved"
+    },
+    {
+      "id": "MF-114",
+      "topicId": "topic_190",
+      "date": "2026-05-09",
+      "phase": "blind-parallel",
+      "feedback": "PD 등록 시 의도 추측 금지 — Master가 PD-068 정정 시 자동화 대상 = plugin skill ~150+ (레전드팀 12개 아님)",
+      "directive": "PD 의도 확인 강화 시그널",
+      "appliedTo": [
+        "all"
+      ],
+      "status": "applied"
     }
   ],
   "statusValues": [

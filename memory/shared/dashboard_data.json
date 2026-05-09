@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-09T09:46:31.321Z",
-  "totalSessions": 219,
+  "generatedAt": "2026-05-09T11:00:08.153Z",
+  "totalSessions": 220,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 219
+      "undefined": 220
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -18,19 +18,19 @@
   "metrics": {
     "avgMasterTurns": 21.24,
     "avgCacheHitRate": 0.9325,
-    "cacheSampleSize": 189,
-    "cacheSampleTotal": 219,
+    "cacheSampleSize": 190,
+    "cacheSampleTotal": 220,
     "avgAdoptionRate": 0,
-    "totalDecisions": 178,
+    "totalDecisions": 180,
     "gradeDistribution": {
-      "S": 100,
+      "S": 101,
       "A": 44,
       "B": 47,
       "C": 28
     },
     "topicGradeDistribution": {
       "S": 20,
-      "A": 60,
+      "A": 61,
       "B": 60,
       "C": 44
     },
@@ -42,10 +42,10 @@
       "session_202"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 173,
-    "totalCostUSD": 2599.723,
-    "avgCostPerSession": 12.3796,
-    "costSampleSize": 210,
+    "turnBasedSessions": 174,
+    "totalCostUSD": 2609.9486,
+    "avgCostPerSession": 12.3694,
+    "costSampleSize": 211,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -8364,12 +8364,61 @@
         "messageCount": 205
       },
       "sessionCostUSD": 9.6327
+    },
+    {
+      "sessionId": "session_224",
+      "topicSlug": "skill-hook-auto-trigger",
+      "topic": "스킬 훅 자동 발동 구현",
+      "startedAt": "2026-05-09T11:00:00.000Z",
+      "closedAt": "2026-05-09T12:00:00.000Z",
+      "decisionCount": 2,
+      "decisionAxes": 2,
+      "decisions": [
+        "D-176",
+        "D-177"
+      ],
+      "rolesCalled": 13,
+      "rolesRecalled": 6,
+      "sessionsSpanned": 1,
+      "size": 32,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 20,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "jobs",
+        "arki",
+        "riki",
+        "fin",
+        "ace",
+        "jobs",
+        "arki",
+        "riki",
+        "fin",
+        "ace",
+        "edi",
+        "zero",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 12599744,
+        "ioTokens": 340049,
+        "inputTokens": 4253,
+        "outputTokens": 335796,
+        "cacheCreate": 434200,
+        "cacheRead": 11825495,
+        "cacheHitRate": 0.9385504181672263,
+        "messageCount": 101
+      },
+      "sessionCostUSD": 10.2256
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 191,
+      "count": 193,
       "sessions": [
         "session_050",
         "session_051",
@@ -8540,12 +8589,13 @@
         "session_220",
         "session_221",
         "session_222",
-        "session_223"
+        "session_223",
+        "session_224"
       ]
     },
     {
       "role": "ace",
-      "count": 182,
+      "count": 184,
       "sessions": [
         "session_047",
         "session_048",
@@ -8640,12 +8690,13 @@
         "session_205",
         "session_206",
         "session_208",
-        "session_216"
+        "session_216",
+        "session_224"
       ]
     },
     {
       "role": "arki",
-      "count": 153,
+      "count": 155,
       "sessions": [
         "session_048",
         "session_049",
@@ -8732,7 +8783,100 @@
         "session_206",
         "session_207",
         "session_208",
-        "session_216"
+        "session_216",
+        "session_224"
+      ]
+    },
+    {
+      "role": "riki",
+      "count": 116,
+      "sessions": [
+        "session_049",
+        "session_053",
+        "session_054",
+        "session_059",
+        "session_060",
+        "session_063",
+        "session_066",
+        "session_067",
+        "session_068",
+        "session_069",
+        "session_071",
+        "session_075",
+        "session_077",
+        "session_080",
+        "session_081",
+        "session_082",
+        "session_086",
+        "session_087",
+        "session_092",
+        "session_093",
+        "session_094",
+        "session_095",
+        "session_097",
+        "session_098",
+        "session_100",
+        "session_101",
+        "session_103",
+        "session_104",
+        "session_105",
+        "session_106",
+        "session_107",
+        "session_108",
+        "session_109",
+        "session_119",
+        "session_120",
+        "session_123",
+        "session_125",
+        "session_127",
+        "session_128",
+        "session_129",
+        "session_130",
+        "session_134",
+        "session_137",
+        "session_138",
+        "session_139",
+        "session_140",
+        "session_141",
+        "session_142",
+        "session_144",
+        "session_145",
+        "session_147",
+        "session_151",
+        "session_152",
+        "session_153",
+        "session_155",
+        "session_156",
+        "session_160",
+        "session_163",
+        "session_165",
+        "session_167",
+        "session_173",
+        "session_175",
+        "session_178",
+        "session_179",
+        "session_181",
+        "session_182",
+        "session_185",
+        "session_187",
+        "session_188",
+        "session_190",
+        "session_191",
+        "session_192",
+        "session_194",
+        "session_195",
+        "session_196",
+        "session_197",
+        "session_200",
+        "session_201",
+        "session_202",
+        "session_204",
+        "session_205",
+        "session_206",
+        "session_207",
+        "session_208",
+        "session_216",
+        "session_224"
       ]
     },
     {
@@ -8834,99 +8978,8 @@
       ]
     },
     {
-      "role": "riki",
-      "count": 114,
-      "sessions": [
-        "session_049",
-        "session_053",
-        "session_054",
-        "session_059",
-        "session_060",
-        "session_063",
-        "session_066",
-        "session_067",
-        "session_068",
-        "session_069",
-        "session_071",
-        "session_075",
-        "session_077",
-        "session_080",
-        "session_081",
-        "session_082",
-        "session_086",
-        "session_087",
-        "session_092",
-        "session_093",
-        "session_094",
-        "session_095",
-        "session_097",
-        "session_098",
-        "session_100",
-        "session_101",
-        "session_103",
-        "session_104",
-        "session_105",
-        "session_106",
-        "session_107",
-        "session_108",
-        "session_109",
-        "session_119",
-        "session_120",
-        "session_123",
-        "session_125",
-        "session_127",
-        "session_128",
-        "session_129",
-        "session_130",
-        "session_134",
-        "session_137",
-        "session_138",
-        "session_139",
-        "session_140",
-        "session_141",
-        "session_142",
-        "session_144",
-        "session_145",
-        "session_147",
-        "session_151",
-        "session_152",
-        "session_153",
-        "session_155",
-        "session_156",
-        "session_160",
-        "session_163",
-        "session_165",
-        "session_167",
-        "session_173",
-        "session_175",
-        "session_178",
-        "session_179",
-        "session_181",
-        "session_182",
-        "session_185",
-        "session_187",
-        "session_188",
-        "session_190",
-        "session_191",
-        "session_192",
-        "session_194",
-        "session_195",
-        "session_196",
-        "session_197",
-        "session_200",
-        "session_201",
-        "session_202",
-        "session_204",
-        "session_205",
-        "session_206",
-        "session_207",
-        "session_208",
-        "session_216"
-      ]
-    },
-    {
       "role": "zero",
-      "count": 37,
+      "count": 38,
       "sessions": [
         "session_153",
         "session_175",
@@ -8951,12 +9004,13 @@
         "session_208",
         "session_215",
         "session_216",
-        "session_222"
+        "session_222",
+        "session_224"
       ]
     },
     {
       "role": "fin",
-      "count": 28,
+      "count": 30,
       "sessions": [
         "session_053",
         "session_054",
@@ -8983,12 +9037,13 @@
         "session_144",
         "session_173",
         "session_196",
-        "session_205"
+        "session_205",
+        "session_224"
       ]
     },
     {
       "role": "jobs",
-      "count": 28,
+      "count": 30,
       "sessions": [
         "session_151",
         "session_152",
@@ -9007,7 +9062,8 @@
         "session_196",
         "session_205",
         "session_208",
-        "session_216"
+        "session_216",
+        "session_224"
       ]
     },
     {
@@ -15340,6 +15396,90 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_224",
+      "topic": "스킬 훅 자동 발동 구현",
+      "sequence": [
+        {
+          "role": "jobs",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "jobs",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 6,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 7,
+          "recallReason": null
+        },
+        {
+          "role": "fin",
+          "phase": null,
+          "turnIdx": 8,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 9,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 10,
+          "recallReason": null
+        },
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 11,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 12,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -15455,6 +15595,11 @@
           "date": "2026-04-21",
           "feedbackId": "MF-042",
           "summary": "grade 선언 의도 확인 원칙: Master가 grade를 명시해도 Ace가 실제 토픽을 분석해서 더 낮은"
+        },
+        {
+          "date": "2026-05-09",
+          "feedbackId": "MF-114",
+          "summary": "PD 등록 시 의도 추측 금지 — Master가 PD-068 정정 시 자동화 대상 = plugin skill"
         }
       ]
     },
@@ -16029,6 +16174,11 @@
           "date": "2026-05-08",
           "feedbackId": "MF-111",
           "summary": "PD 등록 시 내용 추측 금지 — 번호(예: '58')만 말하면 원 등록자 의도를 session notes에"
+        },
+        {
+          "date": "2026-05-09",
+          "feedbackId": "MF-114",
+          "summary": "PD 등록 시 의도 추측 금지 — Master가 PD-068 정정 시 자동화 대상 = plugin skill"
         }
       ]
     },
@@ -16163,6 +16313,11 @@
           "date": "2026-05-08",
           "feedbackId": "MF-111",
           "summary": "PD 등록 시 내용 추측 금지 — 번호(예: '58')만 말하면 원 등록자 의도를 session notes에"
+        },
+        {
+          "date": "2026-05-09",
+          "feedbackId": "MF-114",
+          "summary": "PD 등록 시 의도 추측 금지 — Master가 PD-068 정정 시 자동화 대상 = plugin skill"
         }
       ]
     },
@@ -16858,6 +17013,36 @@
           "date": "2026-05-09",
           "feedbackId": "MF-AUTO-session_217-edi",
           "summary": "Grade S 세션 session_217에서 Edi LLM 미호출 — mechanical fallback(e"
+        }
+      ]
+    },
+    {
+      "keyword": "등록",
+      "occurrences": [
+        {
+          "date": "2026-05-08",
+          "feedbackId": "MF-111",
+          "summary": "PD 등록 시 내용 추측 금지 — 번호(예: '58')만 말하면 원 등록자 의도를 session notes에"
+        },
+        {
+          "date": "2026-05-09",
+          "feedbackId": "MF-114",
+          "summary": "PD 등록 시 의도 추측 금지 — Master가 PD-068 정정 시 자동화 대상 = plugin skill"
+        }
+      ]
+    },
+    {
+      "keyword": "추측",
+      "occurrences": [
+        {
+          "date": "2026-05-08",
+          "feedbackId": "MF-111",
+          "summary": "PD 등록 시 내용 추측 금지 — 번호(예: '58')만 말하면 원 등록자 의도를 session notes에"
+        },
+        {
+          "date": "2026-05-09",
+          "feedbackId": "MF-114",
+          "summary": "PD 등록 시 의도 추측 금지 — Master가 PD-068 정정 시 자동화 대상 = plugin skill"
         }
       ]
     }

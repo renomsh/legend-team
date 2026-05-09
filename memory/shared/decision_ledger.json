@@ -2797,7 +2797,42 @@
       ],
       "session": "session_217",
       "topic": "topic_183"
+    },
+    {
+      "id": "D-176",
+      "date": "2026-05-09",
+      "session": "session_224",
+      "topic": "topic_190",
+      "owningTopicId": "topic_190",
+      "axis": "Plugin Skill 자동 발동 방식 — BLOCK 폐기, RECOMMEND 전환",
+      "summary": "기존 PreToolUse hook BLOCK 강제 차단 방식 폐기. 이유: (1) plugin skill ~150+의 인지 실패 문제는 차단으로 해결 불가 — 인지 ≠ 강제, (2) PreToolUse(Skill) BLOCK 메커니즘 spike 미검증, (3) FP blast radius=세션 전체. 대신 RECOMMEND 시스템 전환: UserPromptSubmit hook이 매 prompt 조용히 평가 → top-3 추천 표(skill명 + 역할 1줄) → Master 1키 선택 시 호출. 자동 1순위 호출 금지(D2/D4 정합).",
+      "decision": "Plugin skill enforcement 전략을 BLOCK → RECOMMEND로 전환. 강제력 0, 정확도가 유일한 생존 변수.",
+      "tags": ["plugin", "skill", "hook", "recommend", "policy-pivot"],
+      "relatedDecisions": ["D-130", "D-164"],
+      "status": "active"
+    },
+    {
+      "id": "D-177",
+      "date": "2026-05-09",
+      "session": "session_224",
+      "topic": "topic_190",
+      "owningTopicId": "topic_190",
+      "axis": "Plugin Skill RECOMMEND 시스템 명세 — UserPromptSubmit hook + plugin_skill_index.json + 매 프롬프트 평가",
+      "summary": "구현 명세: (1) Hook 위치=UserPromptSubmit 단일. (2) SOT=memory/shared/plugin_skill_index.json (스키마: name·namespace·description·descriptionHash·tags·trustLevel{unverified|verified|blocked}·blockedReason). (3) 매칭=하이브리드(substring/tag 1차 top-N → LLM 의도 분류 2차 top-3). (4) 추천 빈도=매 프롬프트 조용히 평가. (5) 출력=system-reminder 채널 prepend, 표 top-3 + skill 역할 1줄. (6) Master 인터랙션: 1/2/3키→호출, 무응답→무시, '이 skill 추천하지마'→trustLevel:blocked 영구 강등. (7) fail-open: 인덱스 손상 시 추천 생략 정상 통과. (8) Phase 분해: P1(인덱스 수집, G1: skill≥100 + hash 안정) → P2(매칭 PoC, G2: 샘플 20건 top-3 적합도 ≥70%) → P3(hook 통합, G3: Master 직접 사용 후 결정).",
+      "decision": "RECOMMEND 시스템 구현 명세 확정. Master 가름마 우선, 폐기 임계·ROI 가설 검증 박제 안 함.",
+      "caveats": [
+        "추천 노이즈 위험은 Master 직접 사용 후 재평가",
+        "PreToolUse(Skill) BLOCK 미검증은 본 결정 범위 외(BLOCK 폐기로 무관)",
+        "추천 정확도 측정은 Master 자가 평가, 자동 측정 인프라 박제 안 함"
+      ],
+      "relatedDecisions": ["D-176", "D-125"],
+      "relatedFiles": [
+        "reports/2026-05-09_skill-hook-auto-trigger/edi_rev1.md",
+        "reports/2026-05-09_skill-hook-auto-trigger/condensed.md"
+      ],
+      "tags": ["plugin", "skill", "userPromptSubmit", "implementation-spec"],
+      "status": "active"
     }
   ],
-  "lastUpdated": "2026-05-09T00:00:00.000Z"
+  "lastUpdated": "2026-05-09T11:30:00.000Z"
 }
