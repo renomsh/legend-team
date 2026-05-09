@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-09T07:32:00.393Z",
-  "totalSessions": 217,
+  "generatedAt": "2026-05-09T08:02:14.056Z",
+  "totalSessions": 218,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 217
+      "undefined": 218
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -16,23 +16,23 @@
     "archiveCount": 0
   },
   "metrics": {
-    "avgMasterTurns": 13,
-    "avgCacheHitRate": 0.9224,
-    "cacheSampleSize": 2,
-    "cacheSampleTotal": 217,
+    "avgMasterTurns": 12.67,
+    "avgCacheHitRate": 0.9329,
+    "cacheSampleSize": 3,
+    "cacheSampleTotal": 218,
     "avgAdoptionRate": 0,
     "totalDecisions": 178,
     "gradeDistribution": {
       "S": 100,
       "A": 44,
-      "B": 46,
+      "B": 47,
       "C": 27
     },
     "topicGradeDistribution": {
       "S": 20,
       "A": 60,
       "B": 60,
-      "C": 42
+      "C": 43
     },
     "gradeMismatchCount": 4,
     "gradeMismatchSessions": [
@@ -42,10 +42,10 @@
       "session_202"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 171,
-    "totalCostUSD": 9.6532,
-    "avgCostPerSession": 4.8266,
-    "costSampleSize": 2,
+    "turnBasedSessions": 172,
+    "totalCostUSD": 14.3037,
+    "avgCostPerSession": 4.7679,
+    "costSampleSize": 3,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -6031,12 +6031,46 @@
         "messageCount": 78
       },
       "sessionCostUSD": 2.7536
+    },
+    {
+      "sessionId": "session_222",
+      "topicSlug": "grade-d-cleanup-and-small-items",
+      "topic": "C 작은 여러 내용 확인 및 적용 + Grade D 잔존 정리",
+      "startedAt": "2026-05-09T08:35:00.000Z",
+      "closedAt": "2026-05-09T09:35:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 12,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "zero",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 9033071,
+        "ioTokens": 44741,
+        "inputTokens": 172,
+        "outputTokens": 44569,
+        "cacheCreate": 372451,
+        "cacheRead": 8615879,
+        "cacheHitRate": 0.9538150425254047,
+        "messageCount": 100
+      },
+      "sessionCostUSD": 4.6505
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 189,
+      "count": 190,
       "sessions": [
         "session_050",
         "session_051",
@@ -6205,7 +6239,8 @@
         "session_218",
         "session_219",
         "session_220",
-        "session_221"
+        "session_221",
+        "session_222"
       ]
     },
     {
@@ -6591,7 +6626,7 @@
     },
     {
       "role": "zero",
-      "count": 36,
+      "count": 37,
       "sessions": [
         "session_153",
         "session_175",
@@ -6615,7 +6650,8 @@
         "session_207",
         "session_208",
         "session_215",
-        "session_216"
+        "session_216",
+        "session_222"
       ]
     },
     {
@@ -12971,6 +13007,24 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_222",
+      "topic": "C 작은 여러 내용 확인 및 적용 + Grade D 잔존 정리",
+      "sequence": [
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 1,
           "recallReason": null
         }
       ]

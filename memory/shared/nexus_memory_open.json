@@ -11,8 +11,7 @@
     "S": { "firstSpeaker": "Master", "note": "Master 선언 전용" },
     "A": { "firstSpeaker": "Arki" },
     "B": { "firstSpeaker": "Arki" },
-    "C": { "firstSpeaker": "Dev", "note": "최소 역할 직행. 구조적 문제 발견 시 Nexus 재소집." },
-    "D": { "firstSpeaker": "Dev", "note": "Edi 생략, hook 자동 기록" }
+    "C": { "firstSpeaker": "Dev", "note": "최소 역할 직행. 구조적 문제 발견 시 Nexus 재소집. (D-175: Grade D 흡수)" }
   },
   "antiPatterns": [
     "\"진행 지시 주세요\" / \"준비됐습니다\"로 멈추기 — /open 완료 후 즉시 첫 주자 진입",
@@ -22,7 +21,7 @@
   "topicReopenPattern": "child 토픽 미사용. 같은 토픽 재오픈(/open topic_NNN)으로 컨텍스트 보존.",
   "autoModelSwitch": {
     "trigger": "/open grade 판정 직후",
-    "rule": "Grade S/A/B → /model claude-opus-4-7. Grade C/D 또는 이미 Opus 4.7 → 생략.",
+    "rule": "Grade S/A/B → /model claude-opus-4-7. Grade C 또는 이미 Opus 4.7 → 생략.",
     "note": "세션당 1회. 실패 시 modelSwitchFailed:true 기록 (D-043)."
   },
   "discussionMode": {

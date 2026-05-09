@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "1.609",
+    "version": "1.619",
     "versionSchema": {
       "format": "X.YYY (3자리 소수 float, 점 하나)",
       "incrementRules": {
@@ -379,8 +379,14 @@
       "date": "2026-05-09",
       "summary": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/pre-tool-use-task.js)",
       "sessionId": "session_221"
+    },
+    {
+      "version": "1.619",
+      "date": "2026-05-09",
+      "summary": "hooks 2건 신규/수정(post-tool-use-verification.js + session-end-finalize.js) + policy 파일 추가(_common.md 검증 섹션) → capacity 범주",
+      "sessionId": "session_222"
     }
   ],
   "lastUpdated": "2026-05-09",
-  "version": "v1.479"
+  "version": "1.619"
 }

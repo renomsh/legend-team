@@ -1,13 +1,13 @@
 {
-  "sessionId": "session_221",
-  "topicId": "topic_187",
-  "topic": "PD-072 — Grade C Edi lite 호출",
-  "topicSlug": "pd-072-grade-c-edi-lite",
-  "reportPath": "reports/2026-05-09_pd-072-grade-c-edi-lite",
+  "sessionId": "session_222",
+  "topicId": "topic_188",
+  "topic": "C 작은 여러 내용 확인 및 적용 + Grade D 잔존 정리",
+  "topicSlug": "grade-d-cleanup-and-small-items",
+  "reportPath": "reports/2026-05-09_grade-d-cleanup-and-small-items",
   "status": "closed",
-  "startedAt": "2026-05-09T08:00:00.000Z",
-  "closedAt": "2026-05-09T08:30:00.000Z",
-  "oneLineSummary": "PD-072 resolved: close.md Grade C Edi lite 분기 + hook evaluateZeroCondenseGate Grade C 면제",
+  "startedAt": "2026-05-09T08:35:00.000Z",
+  "closedAt": "2026-05-09T09:35:00.000Z",
+  "oneLineSummary": "Grade D 잔존 5파일 정리 + verification hook 전역 적용 + project_charter 버전 불일치 수정",
   "mode": "observation",
   "grade": "C",
   "topicType": "standalone",
@@ -17,25 +17,22 @@
   "phase": "framing",
   "turns": [
     {
-      "role": "nexus",
+      "role": "zero",
       "turnIdx": 0,
-      "phase": "execution",
-      "source": "direct",
-      "_autoInserted": false,
-      "note": "close.md Step 1.5 Grade C Edi lite 분기 추가 + §Edi lite 프롬프트 섹션 추가"
+      "source": "agent",
+      "selfScores": {
+        "ref_cnt": 14,
+        "hc_found": 0,
+        "cln_rt": 1
+      }
     },
     {
       "role": "edi",
       "turnIdx": 1,
-      "source": "agent"
-    },
-    {
-      "role": "edi",
-      "turnIdx": 2,
       "source": "agent",
       "selfScores": {
         "scc": "Y",
-        "cs_cnt": 2,
+        "cs_cnt": 4,
         "art_cmp": 1,
         "gap_fc": 0,
         "gp_acc": 1
@@ -47,58 +44,30 @@
   "decisionsAdded": [],
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [
-    "PD-072"
-  ],
+  "pendingDeferralsResolved": [],
   "openMasterAlerts": [],
   "agentsCompleted": [
-    "nexus",
-    "edi",
+    "zero",
     "edi"
   ],
-  "tokenUsage": {
-    "input_tokens": 107,
-    "output_tokens": 41526,
-    "cache_creation_input_tokens": 199454,
-    "cache_read_input_tokens": 4608049,
-    "messageCount": 78,
-    "masterTurns": 3,
-    "total_billable": 4849136
-  },
-  "versionBumpSuggested": {
-    "value": 0.01,
-    "type": "capacity",
-    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/pre-tool-use-task.js)",
-    "autoDetectedAt": "2026-05-09T07:31:45.208Z",
-    "changedFiles": [
-      ".claude/commands/close.md",
-      ".claude/hooks/pre-tool-use-task.js",
-      "logs/hook-diagnostics.log",
-      "logs/master-first.log",
-      "logs/pre-tool-use-task.log",
-      "logs/sage-gate.log",
-      "memory/sessions/current_session.json",
-      "memory/sessions/session_index.json",
-      "memory/sessions/token_log.json",
-      "memory/shared/pending_deferrals.json",
-      "memory/shared/system_state.json",
-      "memory/shared/topic_index.json",
-      "reports/2026-05-09_pd-072-grade-c-edi-lite/",
-      "topics/topic_187/"
-    ],
-    "changedFilesCount": 14,
-    "cappedAt": 0.1,
-    "confirmedBy": "nexus"
-  },
   "versionBump": {
     "value": 0.01,
-    "type": "capacity",
-    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/pre-tool-use-task.js)",
-    "from": "1.599",
-    "to": "1.609",
-    "confirmedBy": "nexus",
-    "confirmedAt": "2026-05-09T07:31:45.208Z",
-    "autoDetectedAt": "2026-05-09T07:31:45.208Z"
+    "from": "1.609",
+    "to": "1.619",
+    "reason": "hooks 2건 신규/수정(post-tool-use-verification.js + session-end-finalize.js) + policy 파일 추가(_common.md 검증 섹션) → capacity 범주",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-09T09:30:00.000Z",
+    "overrideReason": null,
+    "basedOn": "edi-override"
   },
-  "finalizedAt": "2026-05-09T07:31:48.975Z"
+  "tokenUsage": {
+    "input_tokens": 172,
+    "output_tokens": 44569,
+    "cache_creation_input_tokens": 372451,
+    "cache_read_input_tokens": 8615879,
+    "messageCount": 100,
+    "masterTurns": 12,
+    "total_billable": 9033071
+  },
+  "finalizedAt": "2026-05-09T08:02:07.534Z"
 }
