@@ -1,11 +1,11 @@
 {
-  "computedAt": "2026-05-09T12:01:08.395Z",
+  "computedAt": "2026-05-09T13:37:57.963Z",
   "registryVersion": "v1.1",
-  "durationMs": 4,
+  "durationMs": 5,
   "slaWarnMs": 3000,
   "slaBreached": false,
   "sourceJsonl": "memory\\growth\\self_scores.jsonl",
-  "recordCount": 181,
+  "recordCount": 184,
   "metricCount": 51,
   "aggregates": [
     {
@@ -156,36 +156,36 @@
       "metricId": "zero.ref_count",
       "role": "zero",
       "view": "all",
-      "mean": 22.2,
-      "n": 25,
-      "std": 27.9,
+      "mean": 21.7,
+      "n": 26,
+      "std": 27.4,
       "ci95": [
-        11.3,
-        33.2
+        11.1,
+        32.2
       ]
     },
     {
       "metricId": "zero.ref_count",
       "role": "zero",
       "view": "recent10",
-      "mean": 6.7,
+      "mean": 7,
       "n": 10,
       "std": 6.5,
       "ci95": [
-        2.6,
-        10.8
+        3,
+        11
       ]
     },
     {
       "metricId": "zero.ref_count",
       "role": "zero",
       "view": "recent3",
-      "mean": 6.7,
+      "mean": 4.7,
       "n": 3,
-      "std": 6.7,
+      "std": 3.5,
       "ci95": [
-        -0.9,
-        14.2
+        0.7,
+        8.6
       ]
     },
     {
@@ -193,7 +193,7 @@
       "role": "zero",
       "view": "all",
       "mean": 0,
-      "n": 25,
+      "n": 26,
       "std": 0,
       "ci95": [
         0,
@@ -228,36 +228,36 @@
       "metricId": "zero.clean_rate",
       "role": "zero",
       "view": "all",
-      "mean": 100,
-      "n": 25,
-      "std": 0,
+      "mean": 98.7,
+      "n": 26,
+      "std": 6.9,
       "ci95": [
-        100,
-        100
+        96,
+        101.3
       ]
     },
     {
       "metricId": "zero.clean_rate",
       "role": "zero",
       "view": "recent10",
-      "mean": 100,
+      "mean": 96.5,
       "n": 10,
-      "std": 0,
+      "std": 11.1,
       "ci95": [
-        100,
-        100
+        89.6,
+        103.4
       ]
     },
     {
       "metricId": "zero.clean_rate",
       "role": "zero",
       "view": "recent3",
-      "mean": 100,
+      "mean": 88.3,
       "n": 3,
-      "std": 0,
+      "std": 20.2,
       "ci95": [
-        100,
-        100
+        65.5,
+        111.2
       ]
     },
     {

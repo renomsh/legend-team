@@ -1,0 +1,40 @@
+{
+  "version": "1.0",
+  "created": "2026-05-09",
+  "session": "session_227",
+  "topic": "topic_190",
+  "phase": "B (Gate G2)",
+  "threshold": 0.22,
+  "totalSamples": 20,
+  "distribution": {
+    "engineering": 5,
+    "data": 4,
+    "docs_pm": 3,
+    "sales_marketing_ops": 3,
+    "finance_legal": 2,
+    "hr_design": 2,
+    "noise": 1
+  },
+  "samples": [
+    { "id": 1, "domain": "engineering", "prompt": "production deployment is throwing 500 errors after the latest release, help me debug this", "groundTruth": "engineering:debug" },
+    { "id": 2, "domain": "engineering", "prompt": "we have a major incident, prod is down, run incident response", "groundTruth": "engineering:incident-response" },
+    { "id": 3, "domain": "engineering", "prompt": "draft an architecture decision record comparing Kafka and Kinesis for our event pipeline", "groundTruth": "engineering:architecture" },
+    { "id": 4, "domain": "engineering", "prompt": "build a deployment checklist before we ship to production tomorrow", "groundTruth": "engineering:deploy-checklist" },
+    { "id": 5, "domain": "engineering", "prompt": "audit our codebase for technical debt and refactoring priorities", "groundTruth": "engineering:tech-debt" },
+    { "id": 6, "domain": "data", "prompt": "explore this new dataset and profile null rates and column distributions", "groundTruth": "data:explore-data" },
+    { "id": 7, "domain": "data", "prompt": "build an interactive HTML dashboard with filters and KPI cards from the query output", "groundTruth": "data:build-dashboard" },
+    { "id": 8, "domain": "data", "prompt": "run statistical analysis with hypothesis testing on the conversion experiment", "groundTruth": "data:statistical-analysis" },
+    { "id": 9, "domain": "data", "prompt": "validate the methodology and aggregation logic of this analysis before sharing", "groundTruth": "data:validate-data" },
+    { "id": 10, "domain": "docs_pm", "prompt": "create a pptx presentation deck for the quarterly business review", "groundTruth": "anthropic-skills:pptx" },
+    { "id": 11, "domain": "docs_pm", "prompt": "write a feature spec PRD turning this user request into a structured document with goals", "groundTruth": "product-management:write-spec" },
+    { "id": 12, "domain": "docs_pm", "prompt": "update the roadmap and reprioritize initiatives after the new strategic input", "groundTruth": "product-management:roadmap-update" },
+    { "id": 13, "domain": "sales_marketing_ops", "prompt": "research this prospect company and draft personalized outreach email", "groundTruth": "sales:draft-outreach" },
+    { "id": 14, "domain": "sales_marketing_ops", "prompt": "create a vendor review with cost analysis and risk assessment for renewal decision", "groundTruth": "operations:vendor-review" },
+    { "id": 15, "domain": "sales_marketing_ops", "prompt": "generate a weighted sales forecast with best worst commit scenarios for the quarter", "groundTruth": "sales:forecast" },
+    { "id": 16, "domain": "finance_legal", "prompt": "prepare a journal entry for month-end accruals with debits credits and supporting documentation", "groundTruth": "finance:journal-entry" },
+    { "id": 17, "domain": "finance_legal", "prompt": "review this incoming NDA contract and triage as green yellow or red", "groundTruth": "legal:triage-nda" },
+    { "id": 18, "domain": "hr_design", "prompt": "build an onboarding checklist and first-week plan for the new hire starting Monday", "groundTruth": "human-resources:onboarding" },
+    { "id": 19, "domain": "hr_design", "prompt": "run an accessibility WCAG audit on the landing page design", "groundTruth": "design:accessibility-review" },
+    { "id": 20, "domain": "noise", "prompt": "오늘 점심 뭐 먹을까 고민중이야 추천해줘", "groundTruth": null }
+  ]
+}

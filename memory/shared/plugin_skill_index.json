@@ -1,12 +1,152 @@
 {
   "version": "1.0.0",
-  "lastSync": "2026-05-09T11:44:52.336Z",
-  "totalCount": 160,
+  "lastSync": "2026-05-09T13:05:38.376Z",
+  "totalCount": 174,
   "bySource": {
     "marketplace": 26,
-    "cowork": 134
+    "cowork": 148
   },
   "skills": [
+    {
+      "name": "canvas-design",
+      "namespace": "anthropic-skills",
+      "description": "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations. license: Complete terms in LICENSE.txt",
+      "descriptionHash": "91e428c217169eb4",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\skills-plugin\\81618b3d-bbb0-43da-93c8-2473158c0e41\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\skills\\canvas-design\\SKILL.md"
+    },
+    {
+      "name": "consolidate-memory",
+      "namespace": "anthropic-skills",
+      "description": "Reflective pass over your memory files — merge duplicates, fix stale facts, prune the index.",
+      "descriptionHash": "b7acf3809369b88a",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\skills-plugin\\81618b3d-bbb0-43da-93c8-2473158c0e41\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\skills\\consolidate-memory\\SKILL.md"
+    },
+    {
+      "name": "doc-coauthoring",
+      "namespace": "anthropic-skills",
+      "description": "Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This workflow helps users efficiently transfer context, refine content through iteration, and verify the doc works for readers. Trigger when user mentions writing docs, creating proposals, drafting specs, or similar documentation tasks.",
+      "descriptionHash": "1a1433d4314dd907",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\skills-plugin\\81618b3d-bbb0-43da-93c8-2473158c0e41\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\skills\\doc-coauthoring\\SKILL.md"
+    },
+    {
+      "name": "docx",
+      "namespace": "anthropic-skills",
+      "description": "Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files). Triggers include: any mention of 'Word doc', 'word document', '.docx', or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. Also use when extracting or reorganizing content from .docx files, inserting or replacing images in documents, performing find-and-replace in Word files, working with tracked changes or comments, or converting content into a polished Word document. If the user asks for a 'report', 'memo', 'letter', 'template', or similar deliverable as a Word or .docx file, use this skill. Do NOT use for PDFs, spreadsheets, Google Docs, or general coding tasks unrelated to document generation.",
+      "descriptionHash": "fccb2bdad8b58f86",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\skills-plugin\\81618b3d-bbb0-43da-93c8-2473158c0e41\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\skills\\docx\\SKILL.md"
+    },
+    {
+      "name": "internal-comms",
+      "namespace": "anthropic-skills",
+      "description": "A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.).",
+      "descriptionHash": "3e5a92014a9adb40",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\skills-plugin\\81618b3d-bbb0-43da-93c8-2473158c0e41\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\skills\\internal-comms\\SKILL.md"
+    },
+    {
+      "name": "mcp-builder",
+      "namespace": "anthropic-skills",
+      "description": "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK).",
+      "descriptionHash": "dd9ba25d52050d05",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\skills-plugin\\81618b3d-bbb0-43da-93c8-2473158c0e41\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\skills\\mcp-builder\\SKILL.md"
+    },
+    {
+      "name": "pdf",
+      "namespace": "anthropic-skills",
+      "description": "Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging multiple PDFs into one, splitting PDFs apart, rotating pages, adding watermarks, creating new PDFs, filling PDF forms, encrypting/decrypting PDFs, extracting images, and OCR on scanned PDFs to make them searchable. If the user mentions a .pdf file or asks to produce one, use this skill.",
+      "descriptionHash": "d1906e2fc005cb80",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\skills-plugin\\81618b3d-bbb0-43da-93c8-2473158c0e41\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\skills\\pdf\\SKILL.md"
+    },
+    {
+      "name": "pptx",
+      "namespace": "anthropic-skills",
+      "description": "Use this skill any time a .pptx file is involved in any way — as input, output, or both. This includes: creating slide decks, pitch decks, or presentations; reading, parsing, or extracting text from any .pptx file (even if the extracted content will be used elsewhere, like in an email or summary); editing, modifying, or updating existing presentations; combining or splitting slide files; working with templates, layouts, speaker notes, or comments. Trigger whenever the user mentions \\\"deck,\\\" \\\"slides,\\\" \\\"presentation,\\\" or references a .pptx filename, regardless of what they plan to do with the content afterward. If a .pptx file needs to be opened, created, or touched, use this skill.",
+      "descriptionHash": "86117798a68d4608",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\skills-plugin\\81618b3d-bbb0-43da-93c8-2473158c0e41\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\skills\\pptx\\SKILL.md"
+    },
+    {
+      "name": "schedule",
+      "namespace": "anthropic-skills",
+      "description": "Create a scheduled task that can be run on demand or automatically on an interval.",
+      "descriptionHash": "85848ebfb1becdd2",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\skills-plugin\\81618b3d-bbb0-43da-93c8-2473158c0e41\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\skills\\schedule\\SKILL.md"
+    },
+    {
+      "name": "setup-cowork",
+      "namespace": "anthropic-skills",
+      "description": "Guided Cowork setup — install role-matched plugins, connect your tools, try a skill.",
+      "descriptionHash": "17d2eb9a739606d8",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\skills-plugin\\81618b3d-bbb0-43da-93c8-2473158c0e41\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\skills\\setup-cowork\\SKILL.md"
+    },
+    {
+      "name": "skill-creator",
+      "namespace": "anthropic-skills",
+      "description": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.",
+      "descriptionHash": "dc3522ad3e3e4645",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\skills-plugin\\81618b3d-bbb0-43da-93c8-2473158c0e41\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\skills\\skill-creator\\SKILL.md"
+    },
+    {
+      "name": "theme-factory",
+      "namespace": "anthropic-skills",
+      "description": "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly.",
+      "descriptionHash": "35f48ac45701d5cd",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\skills-plugin\\81618b3d-bbb0-43da-93c8-2473158c0e41\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\skills\\theme-factory\\SKILL.md"
+    },
+    {
+      "name": "web-artifacts-builder",
+      "namespace": "anthropic-skills",
+      "description": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.",
+      "descriptionHash": "ba76113a90155d78",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\skills-plugin\\81618b3d-bbb0-43da-93c8-2473158c0e41\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\skills\\web-artifacts-builder\\SKILL.md"
+    },
+    {
+      "name": "xlsx",
+      "namespace": "anthropic-skills",
+      "description": "Use this skill any time a spreadsheet file is the primary input or output. This means any task where the user wants to: open, read, edit, or fix an existing .xlsx, .xlsm, .csv, or .tsv file (e.g., adding columns, computing formulas, formatting, charting, cleaning messy data); create a new spreadsheet from scratch or from other data sources; or convert between tabular file formats. Trigger especially when the user references a spreadsheet file by name or path — even casually (like \\\"the xlsx in my downloads\\\") — and wants something done to it or produced from it. Also trigger for cleaning or restructuring messy tabular data files (malformed rows, misplaced headers, junk data) into proper spreadsheets. The deliverable must be a spreadsheet file. Do NOT trigger when the primary deliverable is a Word document, HTML report, standalone Python script, database pipeline, or Google Sheets API integration, even if tabular data is involved.",
+      "descriptionHash": "0df737eb52ae66bd",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\skills-plugin\\81618b3d-bbb0-43da-93c8-2473158c0e41\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\skills\\xlsx\\SKILL.md"
+    },
     {
       "name": "instrument-data-to-allotrope",
       "namespace": "bio-research",

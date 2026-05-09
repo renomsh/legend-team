@@ -10594,8 +10594,158 @@
       "grade": "A",
       "oneLineSummary": "topic_190 Phase 1·2 구현: 직독 재검증으로 cowork 148 발견 → 인덱스 160(G1 PASS) + matcher PoC 4/4, 임계 0.5 과대 발견",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_227",
+      "topicSlug": "skill-hook-auto-trigger",
+      "topic": "스킬 훅 자동 발동 구현 (phase2 — 임계 보정 + Phase 3 hook)",
+      "startedAt": "2026-05-09T16:00:00.000Z",
+      "closedAt": "2026-05-09T16:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\interesting-mclean-0b5400",
+      "agentsCompleted": [
+        "arki",
+        "dev",
+        "dev",
+        "dev",
+        "riki",
+        "dev",
+        "dev",
+        "dev",
+        "dev",
+        "zero",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "arki",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "str_cmp": 0.85,
+            "risk_cnt": 7,
+            "ref_cnt": 4,
+            "plan_phase": 4
+          }
+        },
+        {
+          "role": "dev",
+          "turnIdx": 1,
+          "source": "agent",
+          "selfScores": {
+            "vfy_pass": 1,
+            "top1_acc": 1,
+            "thr_pass": 1,
+            "files_chg": 2,
+            "hc_found": 0
+          }
+        },
+        {
+          "role": "dev",
+          "turnIdx": 2,
+          "source": "agent",
+          "selfScores": {
+            "g2_pass": 1,
+            "fit_rate": 0.9,
+            "fp_cnt": 0,
+            "ns_div": 0.31,
+            "top1_acc": 0.89
+          }
+        },
+        {
+          "role": "dev",
+          "turnIdx": 3,
+          "source": "agent",
+          "selfScores": {
+            "hk_work": 1,
+            "lat_ms": 28,
+            "fail_safe": 1,
+            "files_chg": 2,
+            "hc_found": 0
+          }
+        },
+        {
+          "role": "riki",
+          "turnIdx": 4,
+          "source": "agent",
+          "selfScores": {
+            "risk_cnt": 14,
+            "red_cnt": 3,
+            "yel_cnt": 7,
+            "ref_cnt": 5,
+            "poc_cnt": 5,
+            "go_judg": "CONDITIONAL"
+          }
+        },
+        {
+          "role": "dev",
+          "turnIdx": 5,
+          "source": "agent",
+          "selfScores": {
+            "fix_done": 1,
+            "poc_block": 1,
+            "regr_pass": 1,
+            "lat_ms": 204,
+            "files_chg": 2
+          }
+        },
+        {
+          "role": "dev",
+          "turnIdx": 6,
+          "source": "agent",
+          "selfScores": {
+            "gap_idx": 14,
+            "cause_id": "C1",
+            "fix_done": 1,
+            "g2_pass": 1,
+            "ref_cnt": 8
+          }
+        },
+        {
+          "role": "dev",
+          "turnIdx": 7,
+          "source": "agent"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 8,
+          "source": "agent",
+          "selfScores": {
+            "hyp_id": "none",
+            "verdict": "harmless",
+            "ref_cnt": 4,
+            "ns_count": 33,
+            "sp_count": 2
+          }
+        },
+        {
+          "role": "zero",
+          "turnIdx": 9,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 8,
+            "hc_found": 0,
+            "cln_rt": 0.65
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 10,
+          "source": "agent",
+          "selfScores": {
+            "scc": "Y",
+            "cs_cnt": 4,
+            "art_cmp": 1,
+            "gap_fc": 2,
+            "gp_acc": 0.6,
+            "versionBumpSuggested": 0.01
+          }
+        }
+      ],
+      "grade": "A",
+      "oneLineSummary": "topic_190 phase2: matcher A+B 보정+.js 단일화, UserPromptSubmit hook, Riki R2/R4/R9 박제, Layout B fix(+14), Phase D 잠정 PASS",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-09T12:00:20.361Z",
+  "lastUpdated": "2026-05-09T13:36:22.508Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
