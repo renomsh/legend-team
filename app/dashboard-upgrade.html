@@ -338,11 +338,11 @@ a{color:inherit;text-decoration:none}
       <div class="card">
         <div class="card-h">
           <div>
-            <div class="card-title">Acked but Unresolved Caveats · 회피 가시화</div>
-            <div class="card-sub">ack 이후 TTL=2 세션 경과 + 미해결 caveat (D-145, PD-056)</div>
+            <div class="card-title">Active Alarms · 운영 경보</div>
+            <div class="card-sub">dashboard_data.json alarms[] — severity red/yellow</div>
           </div>
         </div>
-        <div id="ackedButUnresolvedPanel"></div>
+        <div id="upgradeAlarmPanel"></div>
       </div>
     </div>
 
@@ -380,9 +380,7 @@ async function init() {
   allSessions = data.sessions ?? [];
   globalMetrics = data.metrics ?? {};
   globalRoleFreq = data.roleFrequency ?? [];
-  window.dashboardData = data; // D-145: ackedButUnresolved 등 추가 필드 전역 접근
-
-  const total = allSessions.length;
+const total = allSessions.length;
   const avgSize = total ? (allSessions.reduce((a,s)=>a+(s.size||0),0)/total).toFixed(1) : '—';
 
   // buildDate / sessionBadge / buildTs → nav.js 단일 주입 (id 제거됨)
@@ -461,7 +459,7 @@ function renderAll() {
   renderLine();
   renderGradeDist();
   renderGradeMismatch();
-  renderAckedButUnresolved(window.dashboardData);
+  renderUpgradeAlarms(data);
 }
 
 function renderKPIs() {
@@ -787,36 +785,20 @@ function renderGradeMismatch() {
   </div>`;
 }
 
-function renderAckedButUnresolved(data) {
-  const el = document.getElementById('ackedButUnresolvedPanel');
+function renderUpgradeAlarms(data) {
+  const el = document.getElementById('upgradeAlarmPanel');
   if (!el) return;
-  const items = (data && Array.isArray(data.ackedButUnresolved)) ? data.ackedButUnresolved : [];
-  if (!items.length) {
-    el.innerHTML = '<div style="color:var(--text-3);font-size:12px;padding:8px 0">현재 미해결 ack 0건 ✅ — 회피된 caveat이 보이지 않습니다 (TTL=2 세션)</div>';
+  const alarms = data?.alarms ?? [];
+  if (alarms.length === 0) {
+    el.innerHTML = '<div class="alarm-none">경보 없음 ✅</div>';
     return;
   }
-  // decisionId 별 그룹핑
-  const byId = items.reduce((acc, it) => {
-    (acc[it.decisionId] = acc[it.decisionId] || []).push(it);
-    return acc;
-  }, {});
-  const rows = Object.entries(byId).map(([id, list]) => {
-    const ageMax = Math.max.apply(null, list.map(x => x.ageInSessions));
-    const ageColor = ageMax >= 5 ? '#EF4444' : ageMax >= 3 ? '#F59E0B' : 'var(--text-2)';
-    const caveats = list.map(it => `<li style="margin:4px 0;font-size:11px;color:var(--text-2);line-height:1.4">${it.caveat}</li>`).join('');
-    const acked = list[0].ackedBySession || '—';
-    return `<div style="margin-bottom:12px;padding:10px 12px;background:var(--panel-2);border:1px solid var(--line);border-radius:8px">
-      <div style="display:flex;align-items:center;gap:8px;font-size:12px;margin-bottom:6px">
-        <span class="dtag">${id}</span>
-        <span style="color:var(--text-3);font-size:11px">acked: ${acked}</span>
-        <span style="margin-left:auto;color:${ageColor};font-weight:700;font-size:11px">${ageMax} 세션 경과</span>
-      </div>
-      <ul style="margin:0;padding-left:18px">${caveats}</ul>
-    </div>`;
-  }).join('');
-  el.innerHTML = rows + `<div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--line);font-size:11px;color:var(--text-3)">
-    총 <strong style="color:var(--text-2)">${items.length}건</strong> 미해결 caveat — TTL=2 세션 기준 (D-145, PD-056)
-  </div>`;
+  el.innerHTML = alarms.slice(0, 10).map(a =>
+    `<div class="alarm-item alarm-${a.severity||''}">
+      <span style="color:${a.severity==='red'?'#EF4444':'#F59E0B'}">[${a.ruleId||''}]</span>
+      <span>${a.sessionId?`<strong>${a.sessionId}</strong> — `:''}${a.description||''}</span>
+    </div>`
+  ).join('');
 }
 
 function spark(id, data, color) {

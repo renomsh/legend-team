@@ -1,102 +1,25 @@
 {
-  "sessionId": "session_217",
-  "topicId": "topic_183",
-  "topic": "PD-057 Grade 임계 재검토 (연장)",
-  "topicSlug": "pd-057-grade-review",
-  "reportPath": "reports/2026-05-09_pd-057-grade-review-ext",
-  "status": "closed",
+  "sessionId": "session_218",
+  "topicId": "topic_184",
+  "topic": "C 표시 변경 로직 구현",
+  "topicSlug": "c-indicator-display-change",
+  "reportPath": "reports/2026-05-09_c-indicator-display-change",
+  "status": "open",
   "startedAt": "2026-05-09T00:00:00.000Z",
-  "closedAt": "2026-05-09T22:00:00.000Z",
-  "oneLineSummary": "D-174 S grade Nova 기본 포함 + D-175 C/D 통합(D 폐기) + PD-057 resolved + PD-070 등록",
   "mode": "observation",
-  "grade": "S",
+  "grade": "C",
   "topicType": "standalone",
   "operationType": "structured",
   "framingLevel": 0,
   "framingSkipped": true,
-  "phase": "synthesis",
-  "turns": [
-    {
-      "role": "edi",
-      "turnIdx": 0,
-      "phase": "compile"
-    }
-  ],
+  "phase": "framing",
+  "turns": [],
   "decisions": [],
   "masterDecisions": [],
-  "decisionsAdded": [
-    "D-174",
-    "D-175"
-  ],
-  "masterFeedback": [
-    "MF-112"
-  ],
-  "pendingDeferralsAdded": [
-    "PD-070"
-  ],
-  "pendingDeferralsResolved": [
-    "PD-057"
-  ],
+  "decisionsAdded": [],
+  "masterFeedback": [],
+  "pendingDeferralsAdded": [],
+  "pendingDeferralsResolved": [],
   "openMasterAlerts": [],
-  "gaps": [
-    {
-      "type": "no-role-subagents",
-      "note": "Grade S이나 역할 서브에이전트 미호출 — 인라인 Nexus 작업만 진행. Edi mechanical auto 박제."
-    },
-    {
-      "type": "apply-feedback-script-error",
-      "note": "apply-feedback.ts utils.ts:36 TypeError — master_feedback_log.json 수동 Edit으로 대체 (MF-112)"
-    },
-    {
-      "type": "edi-llm-skipped",
-      "sessionId": "session_217",
-      "grade": "S",
-      "severity": "high",
-      "detectedAt": "2026-05-09T01:08:47.144Z",
-      "note": "Grade A/B/S 세션에서 Edi LLM 미호출 — mechanical fallback 박제됨"
-    },
-    {
-      "type": "edi-agent-source-missing",
-      "sessionId": "session_217",
-      "grade": "S",
-      "severity": "high",
-      "detectedAt": "2026-05-09T01:08:47.154Z",
-      "note": "turns[]에 role=edi && source=agent turn 없음 — D-066(Grade A/S 서브에이전트 강제) + D4(hook 박제) 위반",
-      "ref": "D-138"
-    },
-    {
-      "type": "edi-llm-report-absent",
-      "sessionId": "session_217",
-      "reportPath": "reports/2026-05-09_pd-057-grade-review-ext",
-      "grade": "S",
-      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
-    }
-  ],
-  "versionBumpSuggested": {
-    "value": 0.1,
-    "type": "structural",
-    "reason": "Grade 시스템 개편 2건: D-174(S Nova 기본), D-175(C/D 통합 D 폐기) + 소급 마이그레이션",
-    "confirmedBy": "edi"
-  },
-  "versionBump": {
-    "value": 0.1,
-    "from": "v1.479",
-    "to": "v1.579",
-    "reason": "D-174 S grade Nova 기본 포함 + D-175 C/D 통합(D 폐기, 4단계로 단순화)",
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-09T22:00:00.000Z"
-  },
-  "tokenUsage": {
-    "input_tokens": 300,
-    "output_tokens": 84112,
-    "cache_creation_input_tokens": 614237,
-    "cache_read_input_tokens": 16704237,
-    "messageCount": 188,
-    "masterTurns": 19,
-    "total_billable": 17402886
-  },
-  "agentsCompleted": [
-    "edi"
-  ],
-  "finalizedAt": "2026-05-09T01:09:22.566Z"
+  "gaps": []
 }
