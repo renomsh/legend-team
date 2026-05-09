@@ -5,8 +5,9 @@
 ## 체크리스트
 
 1. `memory/sessions/current_session.json` 읽기 — 현재 열린 세션 확인. 열린 세션이 없으면 Master에게 알림.
-1.5. **[D-131 / D-166] Zero→Edi 호출 게이트**
+1.5. **[D-131 / D-166 / PD-073] Zero→Edi 호출 게이트**
    - `current_session.json.grade`가 `S/A/B`인 경우:
+     0. **Zero invocation gate (PD-073)** — 먼저 `node scripts/check-zero-trigger.js` 실행. 출력 JSON의 `recommend_zero`가 `false`면 Zero 호출 skip하고 사유(`skip_reason`)를 `current_session.json.gaps`에 `{type:"zero-skipped", reason, in_scope_count:0}`로 박제 후 1.5의 Edi 단계로 직행. `true`면 다음 단계 진행.
      1. **Zero 서브에이전트 먼저 호출** — D.Condense 게이트 실행: `reports/{reportPath}/condensed.md` + `_zero_condense.json` 마커 작성. prompt 첫 줄 `## ROLE: zero` 명시.
      2. Zero 완료 후 → **Edi 서브에이전트 호출**하여 `edi_rev1.md` 작성 후 Step 2 진행.
    - **Grade C — Edi lite (PD-072)**: Zero 생략. **Edi 서브에이전트 호출** → `reports/{reportPath}/edi_rev1.md` 박제. hook이 자동으로 `session_contributions/{sessionId}_edi_report.md` 복사. prompt 첫 줄 `## ROLE: edi` 명시 + 아래 §Edi lite 프롬프트 사용.
