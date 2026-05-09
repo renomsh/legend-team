@@ -215,9 +215,9 @@ function evaluateZeroCondenseGate(cwd, role, sess) {
   if (role !== 'edi') return null;
   if (!sess || !sess.reportPath || !sess.sessionId) return null;
 
-  // Grade C: Edi lite 호출 — Zero 게이트 면제 (PD-072)
+  // Grade C: Edi lite 호출 — Zero 게이트 면제 (PD-072, D-175로 Grade D 폐기)
   const grade = (sess.grade || '').toUpperCase();
-  if (grade === 'C' || grade === 'D') return null;
+  if (grade === 'C') return null;
 
   // PD-064 P1 (session_194): zero-condense-marker SOT 헬퍼 사용 + legacy 키 호환 read.
   // silent catch 제거 — 파싱 실패 시 BLOCK 메시지에 reason 포함.

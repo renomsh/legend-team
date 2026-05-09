@@ -10,7 +10,6 @@
      1. **Zero 서브에이전트 먼저 호출** — D.Condense 게이트 실행: `reports/{reportPath}/condensed.md` + `_zero_condense.json` 마커 작성. prompt 첫 줄 `## ROLE: zero` 명시.
      2. Zero 완료 후 → **Edi 서브에이전트 호출**하여 `edi_rev1.md` 작성 후 Step 2 진행.
    - **Grade C — Edi lite (PD-072)**: Zero 생략. **Edi 서브에이전트 호출** → `reports/{reportPath}/edi_rev1.md` 박제. hook이 자동으로 `session_contributions/{sessionId}_edi_report.md` 복사. prompt 첫 줄 `## ROLE: edi` 명시 + 아래 §Edi lite 프롬프트 사용.
-   - **Grade D (legacy, D-175로 사실상 미도달)**: 본 게이트 면제 — mechanical fallback만 박제.
    - skip 시 hook(`auditEdiLlmInvocation`)이 다축 4신호(gaps + openMasterAlerts + master_feedback_log + log) 자동 박제. fallback은 `edi_auto_rev1.md`로 별도 박제됨.
    - **참고**: hook 자체는 LLM 호출 못 하므로 본 step은 skill 차원 권고. 실제 enforcement는 hook의 다축 신호(`auditEdiLlmInvocation`) + Zero Condense 게이트(`evaluateZeroCondenseGate`).
 2. 에이전트 출력물 저장:

@@ -53,5 +53,5 @@ Ace는 auto 모드라도 다음 2개 지점에서 **반드시** Master 확인 �
 
 - `/auto`는 언제든 입력 가능 (Grade·Phase 무관)
 - S grade + `/auto` → grade 필드는 S 유지, 운영 모드만 전환
-- C/D grade는 `/auto` 불필요 (Master 개입 없이 직행)
+- C grade는 `/auto` 불필요 (Master 개입 없이 직행)
 - 역할 sequencing은 auto 모드에서도 Ace 판단 (D-019)
