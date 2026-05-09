@@ -12,6 +12,41 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 
+const TIMING_LOG = path.join(ROOT, 'logs', 'close-timing.log');
+const __timings = [];
+function timed(label, fn) {
+  const t0 = Date.now();
+  let ok = true;
+  let err;
+  try {
+    return fn();
+  } catch (e) {
+    ok = false;
+    err = e;
+    throw e;
+  } finally {
+    const ms = Date.now() - t0;
+    __timings.push({ label, ms, ok });
+    console.log(`[auto-push:timing] ${label}: ${ms}ms${ok ? '' : ' (FAILED)'}`);
+  }
+}
+function flushTimings() {
+  try {
+    fs.mkdirSync(path.dirname(TIMING_LOG), { recursive: true });
+    const total = __timings.reduce((a, t) => a + t.ms, 0);
+    const entry = {
+      ts: new Date().toISOString(),
+      total_ms: total,
+      steps: __timings.slice(),
+    };
+    fs.appendFileSync(TIMING_LOG, JSON.stringify(entry) + '\n', 'utf8');
+    console.log(`[auto-push:timing] TOTAL: ${total}ms (logged → logs/close-timing.log)`);
+  } catch (e) {
+    console.error('[auto-push:timing] flush failed:', e.message);
+  }
+}
+process.on('exit', flushTimings);
+
 function run(cmd) {
   try {
     return execSync(cmd, { cwd: ROOT, encoding: 'utf8', stdio: 'pipe' });
@@ -135,7 +170,7 @@ function runHookChain(mainRoot) {
   ];
   for (const cmd of preSteps) {
     try {
-      execSync(cmd, { cwd: ROOT, stdio: 'inherit' });
+      timed(cmd, () => execSync(cmd, { cwd: ROOT, stdio: 'inherit' }));
     } catch (e) {
       console.error(`[auto-push] Hook chain step failed: ${cmd}`);
       console.error(e.message);
@@ -143,9 +178,9 @@ function runHookChain(mainRoot) {
     }
   }
   // Mirror hook-diagnostics.log from main project before build copies worktree/logs/
-  syncHookDiagnosticsFromMain(mainRoot);
+  timed('syncHookDiagnosticsFromMain', () => syncHookDiagnosticsFromMain(mainRoot));
   try {
-    execSync('node scripts/build.js', { cwd: ROOT, stdio: 'inherit' });
+    timed('node scripts/build.js', () => execSync('node scripts/build.js', { cwd: ROOT, stdio: 'inherit' }));
   } catch (e) {
     console.error('[auto-push] Hook chain step failed: node scripts/build.js');
     console.error(e.message);
@@ -159,7 +194,7 @@ function autoPush() {
   const mainRoot = getMainRepoRoot();
 
   console.log('[auto-push] Running hook chain (finalize → compute → build)...');
-  if (!runHookChain(mainRoot)) {
+  if (!timed('runHookChain(total)', () => runHookChain(mainRoot))) {
     console.error('[auto-push] Aborting: hook chain failed.');
     process.exit(1);
   }
@@ -167,7 +202,7 @@ function autoPush() {
   console.log('[auto-push] Checking for changes...');
 
   // Check if there are changes
-  const status = run('git status --porcelain');
+  const status = timed('git status', () => run('git status --porcelain'));
   if (!status || status.trim() === '') {
     console.log('[auto-push] No changes to push.');
     return;
@@ -178,12 +213,14 @@ function autoPush() {
 
   // Stage all tracked + new files (memory, reports, app, scripts)
   const paths = ['memory/', 'reports/', 'app/', 'scripts/', 'CLAUDE.md', 'logs/', 'dist/', '.claude/'];
-  for (const p of paths) {
-    run(`git add "${p}"`);
-  }
+  timed('git add (all paths)', () => {
+    for (const p of paths) {
+      run(`git add "${p}"`);
+    }
+  });
 
   // Commit
-  const commitResult = run(`git commit -m "${message}"`);
+  const commitResult = timed('git commit', () => run(`git commit -m "${message}"`));
   if (!commitResult) {
     console.log('[auto-push] Nothing to commit or commit failed.');
     return;
@@ -203,11 +240,13 @@ function autoPush() {
     }
 
     // .claude/ 동기화 후 main repo에서 add + commit (변경분 있을 때만)
-    syncClaudeDir(mainRoot);
+    timed('syncClaudeDir', () => syncClaudeDir(mainRoot));
     try {
-      execSync('git add .claude/', { cwd: mainRoot, encoding: 'utf8', stdio: 'pipe' });
-      execSync(`git commit -m "sync: .claude from worktree ${currentBranch}"`, {
-        cwd: mainRoot, encoding: 'utf8', stdio: 'pipe'
+      timed('main: git add .claude + commit', () => {
+        execSync('git add .claude/', { cwd: mainRoot, encoding: 'utf8', stdio: 'pipe' });
+        execSync(`git commit -m "sync: .claude from worktree ${currentBranch}"`, {
+          cwd: mainRoot, encoding: 'utf8', stdio: 'pipe'
+        });
       });
       console.log('[auto-push] Committed .claude/ sync to main.');
     } catch {
@@ -217,17 +256,17 @@ function autoPush() {
     // Merge from the main repo's working directory (where main is checked out)
     let mergeOk = false;
     try {
-      execSync(`git merge ${currentBranch} --ff-only`, {
+      timed('git merge --ff-only', () => execSync(`git merge ${currentBranch} --ff-only`, {
         cwd: mainRoot, encoding: 'utf8', stdio: 'pipe'
-      });
+      }));
       console.log(`[auto-push] Merged ${currentBranch} into main.`);
       mergeOk = true;
     } catch {
       // ff 불가(sync commit으로 diverged) → --no-ff로 재시도
       try {
-        execSync(`git merge ${currentBranch} --no-ff -m "merge: ${currentBranch}"`, {
+        timed('git merge --no-ff', () => execSync(`git merge ${currentBranch} --no-ff -m "merge: ${currentBranch}"`, {
           cwd: mainRoot, encoding: 'utf8', stdio: 'pipe'
-        });
+        }));
         console.log(`[auto-push] Merged ${currentBranch} into main (no-ff).`);
         mergeOk = true;
       } catch (e2) {
@@ -243,9 +282,9 @@ function autoPush() {
 
     // Push main from the main repo root
     try {
-      execSync('git push origin main', {
+      timed('git push origin main (worktree)', () => execSync('git push origin main', {
         cwd: mainRoot, encoding: 'utf8', stdio: 'pipe'
-      });
+      }));
       console.log('[auto-push] Pushed main to origin successfully.');
     } catch (e) {
       console.error('[auto-push] Push failed. Manual push required.');
@@ -253,7 +292,7 @@ function autoPush() {
     }
   } else {
     // On main — push directly
-    const pushResult = run('git push origin main');
+    const pushResult = timed('git push origin main', () => run('git push origin main'));
     if (pushResult !== null) {
       console.log('[auto-push] Pushed to origin successfully.');
     } else {

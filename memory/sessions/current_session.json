@@ -1,150 +1,30 @@
 {
-  "sessionId": "session_227",
-  "topicId": "topic_190",
-  "topic": "스킬 훅 자동 발동 구현 (phase2 — 임계 보정 + Phase 3 hook)",
-  "topicSlug": "skill-hook-auto-trigger",
-  "reportPath": "reports/2026-05-09_skill-hook-auto-trigger",
+  "sessionId": "session_228",
+  "topicId": "topic_191",
+  "topic": "Close 속도 원인 파악",
+  "topicSlug": "close-speed-diagnosis",
+  "reportPath": "reports/2026-05-09_close-speed-diagnosis",
   "status": "closed",
-  "closedAt": "2026-05-09T16:30:00.000Z",
-  "oneLineSummary": "topic_190 phase2: matcher A+B 보정+.js 단일화, UserPromptSubmit hook, Riki R2/R4/R9 박제, Layout B fix(+14), Phase D 잠정 PASS",
-  "startedAt": "2026-05-09T16:00:00.000Z",
+  "startedAt": "2026-05-09T17:00:00.000Z",
   "mode": "observation",
-  "grade": "A",
-  "topicType": "framing",
+  "grade": "C",
+  "topicType": "standalone",
   "operationType": "structured",
   "phase": "framing",
   "framingLevel": 0,
   "framingSkipped": true,
-  "carryOver": {
-    "fromSession": "session_226",
-    "phase1_complete": "scripts/build-plugin-skill-index.ts + memory/shared/plugin_skill_index.json (160 skill, G1 PASS)",
-    "phase2_complete": "scripts/lib/skill-matcher.ts (top-1 4/4, 임계 0.5 과대)",
-    "next": "임계 보정 옵션 A/B/C 결정 → Gate G2 → Phase 3 hook"
-  },
+  "closedAt": "2026-05-10T01:00:00.000Z",
+  "oneLineSummary": "topic_191 진단: close 병목 ts-node×4 cold start 추정. timing 계측 + Zero gate 추가, 측정값은 다음 세션 분석",
   "turns": [
     {
-      "role": "arki",
+      "role": "dev",
       "turnIdx": 0,
-      "source": "agent",
-      "selfScores": {
-        "str_cmp": 0.85,
-        "risk_cnt": 7,
-        "ref_cnt": 4,
-        "plan_phase": 4
-      }
-    },
-    {
-      "role": "dev",
-      "turnIdx": 1,
-      "source": "agent",
-      "selfScores": {
-        "vfy_pass": 1,
-        "top1_acc": 1,
-        "thr_pass": 1,
-        "files_chg": 2,
-        "hc_found": 0
-      }
-    },
-    {
-      "role": "dev",
-      "turnIdx": 2,
-      "source": "agent",
-      "selfScores": {
-        "g2_pass": 1,
-        "fit_rate": 0.9,
-        "fp_cnt": 0,
-        "ns_div": 0.31,
-        "top1_acc": 0.89
-      }
-    },
-    {
-      "role": "dev",
-      "turnIdx": 3,
-      "source": "agent",
-      "selfScores": {
-        "hk_work": 1,
-        "lat_ms": 28,
-        "fail_safe": 1,
-        "files_chg": 2,
-        "hc_found": 0
-      }
-    },
-    {
-      "role": "riki",
-      "turnIdx": 4,
-      "source": "agent",
-      "selfScores": {
-        "risk_cnt": 14,
-        "red_cnt": 3,
-        "yel_cnt": 7,
-        "ref_cnt": 5,
-        "poc_cnt": 5,
-        "go_judg": "CONDITIONAL"
-      }
-    },
-    {
-      "role": "dev",
-      "turnIdx": 5,
-      "source": "agent",
-      "selfScores": {
-        "fix_done": 1,
-        "poc_block": 1,
-        "regr_pass": 1,
-        "lat_ms": 204,
-        "files_chg": 2
-      }
-    },
-    {
-      "role": "dev",
-      "turnIdx": 6,
-      "source": "agent",
-      "selfScores": {
-        "gap_idx": 14,
-        "cause_id": "C1",
-        "fix_done": 1,
-        "g2_pass": 1,
-        "ref_cnt": 8
-      }
-    },
-    {
-      "role": "dev",
-      "turnIdx": 7,
       "source": "agent"
     },
     {
-      "role": "dev",
-      "turnIdx": 8,
-      "source": "agent",
-      "selfScores": {
-        "hyp_id": "none",
-        "verdict": "harmless",
-        "ref_cnt": 4,
-        "ns_count": 33,
-        "sp_count": 2
-      }
-    },
-    {
-      "role": "zero",
-      "turnIdx": 9,
-      "source": "agent",
-      "selfScores": {
-        "ref_cnt": 8,
-        "hc_found": 0,
-        "cln_rt": 0.65
-      }
-    },
-    {
       "role": "edi",
-      "turnIdx": 10,
-      "source": "agent",
-      "selfScores": {
-        "scc": "Y",
-        "cs_cnt": 4,
-        "art_cmp": 1,
-        "gap_fc": 2,
-        "gp_acc": 0.6,
-        "versionBumpSuggested": 0.01
-      }
+      "turnIdx": 1,
+      "source": "agent"
     }
   ],
   "decisions": [],
@@ -154,245 +34,64 @@
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "pendingDeferralsTransitioned": [],
-  "openMasterAlerts": [
-    {
-      "severity": "high",
-      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.01)",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140"
-    }
-  ],
+  "openMasterAlerts": [],
   "agentsCompleted": [
-    "arki",
     "dev",
-    "dev",
-    "dev",
-    "riki",
-    "dev",
-    "dev",
-    "dev",
-    "dev",
-    "zero",
     "edi"
   ],
   "gaps": [
     {
-      "type": "missing-report",
-      "role": "arki",
-      "turnIdx": 0,
-      "reportPath": "reports/2026-05-09_skill-hook-auto-trigger",
-      "detectedAt": "2026-05-09T12:16:46.715Z",
-      "note": "arki turn0 완료 후 reports/arki_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "missing-report",
-      "role": "dev",
-      "turnIdx": 1,
-      "reportPath": "reports/2026-05-09_skill-hook-auto-trigger",
-      "detectedAt": "2026-05-09T12:35:59.178Z",
-      "note": "dev turn1 완료 후 reports/dev_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "missing-report",
-      "role": "dev",
-      "turnIdx": 2,
-      "reportPath": "reports/2026-05-09_skill-hook-auto-trigger",
-      "detectedAt": "2026-05-09T12:38:55.584Z",
-      "note": "dev turn2 완료 후 reports/dev_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "missing-report",
-      "role": "dev",
-      "turnIdx": 3,
-      "reportPath": "reports/2026-05-09_skill-hook-auto-trigger",
-      "detectedAt": "2026-05-09T12:42:13.447Z",
-      "note": "dev turn3 완료 후 reports/dev_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "missing-report",
-      "role": "riki",
-      "turnIdx": 4,
-      "reportPath": "reports/2026-05-09_skill-hook-auto-trigger",
-      "detectedAt": "2026-05-09T12:50:54.410Z",
-      "note": "riki turn4 완료 후 reports/riki_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "missing-report",
-      "role": "dev",
-      "turnIdx": 5,
-      "reportPath": "reports/2026-05-09_skill-hook-auto-trigger",
-      "detectedAt": "2026-05-09T13:01:02.959Z",
-      "note": "dev turn5 완료 후 reports/dev_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "missing-report",
-      "role": "dev",
-      "turnIdx": 6,
-      "reportPath": "reports/2026-05-09_skill-hook-auto-trigger",
-      "detectedAt": "2026-05-09T13:07:12.972Z",
-      "note": "dev turn6 완료 후 reports/dev_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "missing-report",
-      "role": "dev",
-      "turnIdx": 7,
-      "reportPath": "reports/2026-05-09_skill-hook-auto-trigger",
-      "detectedAt": "2026-05-09T13:12:11.949Z",
-      "note": "dev turn7 완료 후 reports/dev_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "missing-report",
-      "role": "dev",
-      "turnIdx": 8,
-      "reportPath": "reports/2026-05-09_skill-hook-auto-trigger",
-      "detectedAt": "2026-05-09T13:17:29.909Z",
-      "note": "dev turn8 완료 후 reports/dev_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
       "type": "frontmatter-patch-failed",
-      "role": "zero",
-      "turnIdx": 9,
-      "reportsPath": "reports/2026-05-09_skill-hook-auto-trigger/condensed_session227.md",
-      "detectedAt": "2026-05-09T13:31:55.094Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-09_skill-hook-auto-trigger/condensed_session227.md"
-    },
-    {
-      "type": "missing-report",
-      "role": "zero",
-      "turnIdx": 9,
-      "reportPath": "reports/2026-05-09_skill-hook-auto-trigger",
-      "detectedAt": "2026-05-09T13:31:55.102Z",
-      "note": "zero turn9 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "self-score-scale-violation",
-      "count": 1,
-      "detail": [
-        {
-          "role": "dev",
-          "turnIdx": 5,
-          "key": "lat_ms",
-          "val": 204,
-          "reason": "out-of-range"
-        }
-      ]
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-09_skill-hook-auto-trigger/00_INDEX.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-09_skill-hook-auto-trigger/01_jobs_framing_phase1.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-09_skill-hook-auto-trigger/02_arki_blind_parallel.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-09_skill-hook-auto-trigger/03_riki_blind_parallel.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-09_skill-hook-auto-trigger/04_fin_blind_parallel.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-09_skill-hook-auto-trigger/05_ace_blind_parallel.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-09_skill-hook-auto-trigger/06_jobs_deep_blind_parallel.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-09_skill-hook-auto-trigger/07_arki_debate_r1.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-09_skill-hook-auto-trigger/08_riki_debate_r1.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-09_skill-hook-auto-trigger/09_fin_debate_r1.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-09_skill-hook-auto-trigger/10_ace_debate_r1.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-09_skill-hook-auto-trigger/condensed.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-09_skill-hook-auto-trigger/condensed_session225.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-09_skill-hook-auto-trigger/condensed_session226.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-09_skill-hook-auto-trigger/edi_rev1.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-09_skill-hook-auto-trigger/edi_rev2.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-09_skill-hook-auto-trigger/edi_rev3.md"
-    },
-    {
-      "type": "version-bump-edi-unconfirmed",
-      "severity": "high",
-      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140",
-      "suggestedValue": 0.01
+      "role": "edi",
+      "turnIdx": 0,
+      "reportsPath": "C:\\Projects\\legend-team\\.claude\\worktrees\\funny-feynman-ae25a0\\reports\\2026-05-09_close-speed-diagnosis\\edi_rev1.md",
+      "detectedAt": "2026-05-09T20:44:50.249Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: C:\\Projects\\legend-team\\.claude\\worktrees\\funny-feynman-ae25a0\\reports\\2026-05-09_close-speed-diagnosis\\edi_rev1.md"
     }
   ],
   "tokenUsage": {
-    "input_tokens": 363,
-    "output_tokens": 113247,
-    "cache_creation_input_tokens": 655785,
-    "cache_read_input_tokens": 8286795,
-    "messageCount": 91,
-    "masterTurns": 19,
-    "total_billable": 9056190
+    "input_tokens": 254,
+    "output_tokens": 57152,
+    "cache_creation_input_tokens": 627188,
+    "cache_read_input_tokens": 5445714,
+    "messageCount": 69,
+    "masterTurns": 7,
+    "total_billable": 6130308
   },
   "versionBumpSuggested": {
-    "value": 0.01,
-    "type": "capacity",
-    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/user-prompt-submit-skill-recommend.js)",
-    "autoDetectedAt": "2026-05-09T13:37:30.274Z",
+    "value": 0.001,
+    "type": "bugfix",
+    "reason": "버그·패치 자동 감지 (Grade C): 2건 (scripts/auto-push.js, scripts/check-zero-trigger.js)",
+    "autoDetectedAt": "2026-05-09T20:45:48.822Z",
     "changedFiles": [
-      ".claude/settings.json",
+      ".claude/commands/close.md",
       "logs/hook-diagnostics.log",
       "logs/master-first.log",
       "logs/pre-tool-use-task.log",
       "logs/sage-gate.log",
+      "memory/master/master_feedback_log.json",
       "memory/sessions/current_session.json",
       "memory/sessions/session_index.json",
       "memory/sessions/token_log.json",
-      "memory/shared/plugin_skill_index.json",
       "memory/shared/topic_index.json",
-      "reports/2026-05-09_skill-hook-auto-trigger/_zero_condense.json",
-      "scripts/build-plugin-skill-index.ts",
-      "scripts/lib/skill-matcher.ts",
-      ".claude/hooks/user-prompt-submit-skill-recommend.js",
-      "memory/shared/plugin_skill_index.sha256",
-      "reports/2026-05-09_skill-hook-auto-trigger/arki_phase2_plan.md",
-      "reports/2026-05-09_skill-hook-auto-trigger/condensed_session227.md",
-      "reports/2026-05-09_skill-hook-auto-trigger/dev_dedupe_audit.md",
-      "reports/2026-05-09_skill-hook-auto-trigger/dev_index_gap_diagnosis.md",
-      "reports/2026-05-09_skill-hook-auto-trigger/dev_phaseA_verify.md"
+      "scripts/auto-push.js",
+      "reports/2026-05-09_close-speed-diagnosis/",
+      "scripts/check-zero-trigger.js",
+      "topics/topic_191/"
     ],
-    "changedFilesCount": 32,
+    "changedFilesCount": 14,
     "cappedAt": 0.1,
-    "confirmedBy": null
+    "confirmedBy": "nexus"
   },
-  "finalizedAt": "2026-05-09T13:37:39.662Z"
+  "versionBump": {
+    "value": 0.001,
+    "type": "bugfix",
+    "reason": "버그·패치 자동 감지 (Grade C): 2건 (scripts/auto-push.js, scripts/check-zero-trigger.js)",
+    "from": "1.619",
+    "to": "1.620",
+    "confirmedBy": "nexus",
+    "confirmedAt": "2026-05-09T20:45:48.822Z",
+    "autoDetectedAt": "2026-05-09T20:45:48.822Z"
+  },
+  "finalizedAt": "2026-05-09T20:45:50.811Z"
 }

@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-09T13:38:05.485Z",
-  "totalSessions": 223,
+  "generatedAt": "2026-05-09T20:45:57.039Z",
+  "totalSessions": 224,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 223
+      "undefined": 224
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -16,23 +16,23 @@
     "archiveCount": 0
   },
   "metrics": {
-    "avgMasterTurns": 21.11,
-    "avgCacheHitRate": 0.9327,
-    "cacheSampleSize": 193,
-    "cacheSampleTotal": 223,
+    "avgMasterTurns": 21.04,
+    "avgCacheHitRate": 0.9324,
+    "cacheSampleSize": 194,
+    "cacheSampleTotal": 224,
     "avgAdoptionRate": 0,
     "totalDecisions": 180,
     "gradeDistribution": {
       "S": 104,
       "A": 44,
-      "B": 47,
+      "B": 48,
       "C": 28
     },
     "topicGradeDistribution": {
       "S": 20,
       "A": 61,
       "B": 60,
-      "C": 44
+      "C": 45
     },
     "gradeMismatchCount": 4,
     "gradeMismatchSessions": [
@@ -42,10 +42,10 @@
       "session_202"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 177,
-    "totalCostUSD": 2624.8506,
-    "avgCostPerSession": 12.2657,
-    "costSampleSize": 214,
+    "turnBasedSessions": 178,
+    "totalCostUSD": 2629.6943,
+    "avgCostPerSession": 12.2311,
+    "costSampleSize": 215,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -8525,12 +8525,46 @@
         "messageCount": 91
       },
       "sessionCostUSD": 6.645
+    },
+    {
+      "sessionId": "session_228",
+      "topicSlug": "close-speed-diagnosis",
+      "topic": "Close 속도 원인 파악",
+      "startedAt": "2026-05-09T17:00:00.000Z",
+      "closedAt": "2026-05-10T01:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 7,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "dev",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 6130308,
+        "ioTokens": 57406,
+        "inputTokens": 254,
+        "outputTokens": 57152,
+        "cacheCreate": 627188,
+        "cacheRead": 5445714,
+        "cacheHitRate": 0.8883263287913103,
+        "messageCount": 69
+      },
+      "sessionCostUSD": 4.8437
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 196,
+      "count": 197,
       "sessions": [
         "session_050",
         "session_051",
@@ -8705,7 +8739,8 @@
         "session_224",
         "session_225",
         "session_226",
-        "session_227"
+        "session_227",
+        "session_228"
       ]
     },
     {
@@ -8905,7 +8940,7 @@
     },
     {
       "role": "dev",
-      "count": 122,
+      "count": 123,
       "sessions": [
         "session_047",
         "session_048",
@@ -8999,7 +9034,8 @@
         "session_206",
         "session_207",
         "session_213",
-        "session_227"
+        "session_227",
+        "session_228"
       ]
     },
     {
@@ -15715,6 +15751,24 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_228",
+      "topic": "Close 속도 원인 파악",
+      "sequence": [
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -17193,6 +17247,21 @@
           "date": "2026-04-25",
           "feedbackId": "MF-090",
           "summary": "구현은 후속 child토픽으로 분화해도 되는데 일단 해보고. 분화하면 제대로 진행이 안돼."
+        }
+      ]
+    },
+    {
+      "keyword": "close",
+      "occurrences": [
+        {
+          "date": "2026-04-24",
+          "feedbackId": "MF-081",
+          "summary": "자동 close와 수동 /close 스킬 실행 결과 차이가 뭔지 검토 필요."
+        },
+        {
+          "date": "2026-05-09",
+          "feedbackId": "MF-115",
+          "summary": "Zero는 살리고 close 자체(hook chain)를 줄이는 방향으로 전환. 1차 조치는 timing 계"
         }
       ]
     },
