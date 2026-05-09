@@ -2740,8 +2740,14 @@
       "axis": "주제 유형별 역할 순서 원칙 도입 — 2축 판정 패턴",
       "summary": "Grade 단일 축 체계에 2축 판정(불확실성: closed/open × 결과물: decision/execution)을 보조 도구로 추가. 4패턴 역할 순서 정의: closed+decision=Arki→Fin→Riki→Ace(선택)→Edi, open+decision=Jobs→Ace→Riki→Fin→Edi, closed+execution=Arki→Dev→Riki→Edi, open+execution=Jobs→Ace→Arki→Dev→Edi. Nexus 컨텍스트 판단이 패턴보다 항상 우선. 미매칭 시 Grade A 기본값 + open-form 질문. Arki 5종 subjectType은 세션 출력 레이블 전용 — dispatch 기준 아님.",
       "decision": "2축 판정 패턴 도입. 보조 도구 위상 확정(Nexus 판단 우선). Arki subjectType dispatch 기준 역할 폐기.",
-      "relatedDecisions": ["D-074", "D-130", "D-173"],
-      "relatedFiles": ["CLAUDE.md"],
+      "relatedDecisions": [
+        "D-074",
+        "D-130",
+        "D-173"
+      ],
+      "relatedFiles": [
+        "CLAUDE.md"
+      ],
       "status": "active"
     },
     {
@@ -2756,9 +2762,41 @@
         "blast_radius 측정은 Nexus 컨텍스트 판단 — 자동 계산 도구 아님",
         "C 신호 목록은 가이드라인, 전수 체크리스트 아님"
       ],
-      "relatedDecisions": ["D-074", "D-130", "D-172"],
-      "relatedFiles": ["CLAUDE.md", "reports/2026-05-09_pd-057-grade-review/edi_rev1.md"],
+      "relatedDecisions": [
+        "D-074",
+        "D-130",
+        "D-172"
+      ],
+      "relatedFiles": [
+        "CLAUDE.md",
+        "reports/2026-05-09_pd-057-grade-review/edi_rev1.md"
+      ],
       "status": "active"
+    },
+    {
+      "id": "D-174",
+      "date": "2026-05-09",
+      "axis": "Grade S 기본 역할 구성 변경 — Nova Jobs 직후 기본 포함",
+      "summary": "S grade 역할 순서: Jobs→Nova→Ace→Arki·Riki→Fin→Edi. Nova는 Master 제외 지시 시만 생략. 이전: Nova·Vera 선택, Riki 🔴 2개+ 시 Nexus 추천.",
+      "tags": [
+        "grade",
+        "nova",
+        "orchestration"
+      ],
+      "session": "session_217",
+      "topic": "topic_183"
+    },
+    {
+      "id": "D-175",
+      "date": "2026-05-09",
+      "axis": "Grade C/D 통합 — D 폐기, D 키워드 fast-path C에 흡수",
+      "summary": "Grade 4단계(S/A/B/C)로 단순화. C: 경량 처리 + 키워드 fast-path(bug·fix·patch·log·오타·수정·deploy·rollback) 통합. 레거시 D→C 소급 마이그레이션(topic 7건·session 11건). blast_radius 사후 2+ → B 격상.",
+      "tags": [
+        "grade",
+        "simplification"
+      ],
+      "session": "session_217",
+      "topic": "topic_183"
     }
   ],
   "lastUpdated": "2026-05-09T00:00:00.000Z"

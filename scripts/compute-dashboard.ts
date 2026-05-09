@@ -51,8 +51,8 @@ interface SessionIndexEntry {
   agentsCompleted?: string[];
   masterTurns?: number;
   grade?: string;
-  gradeDeclared?: 'S' | 'A' | 'B' | 'C' | 'D';
-  gradeActual?: 'S' | 'A' | 'B' | 'C' | 'D';
+  gradeDeclared?: 'S' | 'A' | 'B' | 'C';
+  gradeActual?: 'S' | 'A' | 'B' | 'C';
   gradeMismatch?: boolean;
   framingSkipped?: boolean;
   turns?: Turn[];
@@ -177,8 +177,8 @@ interface SessionData {
   rolesRecalled: number;
   sessionsSpanned: number;
   size: number;
-  gradeDeclared: 'S' | 'A' | 'B' | 'C' | 'D';
-  gradeActual: 'S' | 'A' | 'B' | 'C' | 'D';
+  gradeDeclared: 'S' | 'A' | 'B' | 'C';
+  gradeActual: 'S' | 'A' | 'B' | 'C';
   gradeMismatch: boolean;
   framingSkipped: boolean;
   masterTurns: number;
@@ -383,9 +383,9 @@ function main() {
 
     const size = computeSize(decisionAxes, rolesCalled, rolesRecalled, sessionsSpanned);
     const gradeActual = sizeToGrade(size);
-    // s.grade='D' is the canonical D signal (keyword-matched at /open). s.gradeDeclared may be absent.
-    const rawDeclared = s.grade === 'D' ? 'D' : s.gradeDeclared;
-    const gradeDeclared = (rawDeclared ?? gradeActual) as 'S' | 'A' | 'B' | 'C' | 'D';
+    // legacy: s.grade='D' (pre-D-174) → map to 'C'
+    const rawDeclared = s.grade === 'D' ? 'C' : s.gradeDeclared;
+    const gradeDeclared = (rawDeclared ?? gradeActual) as 'S' | 'A' | 'B' | 'C';
     const gradeMismatch = gradeDeclared !== gradeActual;
     const framingSkipped = s.framingSkipped ?? false;
 
@@ -442,20 +442,20 @@ function main() {
   });
 
   // ── grade 통계 ───────────────────────────────────────────────────────────
-  const gradeCount = { S: 0, A: 0, B: 0, C: 0, D: 0 };
+  const gradeCount = { S: 0, A: 0, B: 0, C: 0 };
   let gradeMismatchCount = 0;
   let framingSkippedCount = 0;
   const mismatchSessions: string[] = [];
   for (const s of sessions) {
-    gradeCount[s.gradeDeclared === 'D' ? 'D' : s.gradeActual]++;
+    gradeCount[s.gradeActual]++;
     if (s.gradeMismatch) { gradeMismatchCount++; mismatchSessions.push(s.sessionId); }
     if (s.framingSkipped) framingSkippedCount++;
   }
 
   // ── 토픽 grade 분포 (topic_index 기준) ───────────────────────────────────
-  const topicGradeCount = { S: 0, A: 0, B: 0, C: 0, D: 0 };
+  const topicGradeCount = { S: 0, A: 0, B: 0, C: 0 };
   for (const t of topicIndex.topics) {
-    const g = t.grade as 'S' | 'A' | 'B' | 'C' | 'D' | undefined;
+    const g = t.grade as 'S' | 'A' | 'B' | 'C' | undefined;
     if (g && g in topicGradeCount) topicGradeCount[g]++;
   }
 

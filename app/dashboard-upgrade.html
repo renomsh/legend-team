@@ -733,16 +733,16 @@ function renderLine() {
   window.addEventListener('resize',()=>chart.resize());
 }
 
-const GRADE_COLORS = { S:'#8B5CF6', A:'#06B6D4', B:'#F59E0B', C:'#6E6E78', D:'#94A3B8' };
-const GRADE_LABELS = { S:'Lv. S — 최고 복잡도 (Size 12+)', A:'Lv. A — 고복잡도 (Size 8~11)', B:'Lv. B — 중복잡도 (Size 5~7)', C:'Lv. C — 단순 (Size 4)', D:'Lv. D — 명백 단순 (bug/fix/patch)' };
+const GRADE_COLORS = { S:'#8B5CF6', A:'#06B6D4', B:'#F59E0B', C:'#6E6E78' };
+const GRADE_LABELS = { S:'Lv. S — 최고 복잡도 (Size 12+)', A:'Lv. A — 고복잡도 (Size 8~11)', B:'Lv. B — 중복잡도 (Size 5~7)', C:'Lv. C — 경량 (키워드 fast-path 포함)' };
 function lvLabel(g) { return `Lv. ${g}`; }
 
 function renderGradeDist() {
   const el = document.getElementById('gradeDistPanel');
   if (!el) return;
-  const count = globalMetrics.topicGradeDistribution ?? {S:0,A:0,B:0,C:0,D:0};
+  const count = globalMetrics.topicGradeDistribution ?? {S:0,A:0,B:0,C:0};
   const total = Object.values(count).reduce((a,b) => a + b, 0) || 1;
-  const rows = ['S','A','B','C','D'].map(g => {
+  const rows = ['S','A','B','C'].map(g => {
     const n = count[g] ?? 0;
     const pct = (n/total*100).toFixed(0);
     const bar = `<div style="flex:1;background:var(--panel-2);border-radius:4px;height:8px;overflow:hidden">
@@ -770,7 +770,7 @@ function renderGradeMismatch() {
   const rows = mismatches.map(s => {
     const dc = GRADE_COLORS[s.gradeDeclared] ?? '#6E6E78';
     const ac = GRADE_COLORS[s.gradeActual] ?? '#6E6E78';
-    const arrow = ['S','A','B','C','D'].indexOf(s.gradeActual) < ['S','A','B','C','D'].indexOf(s.gradeDeclared) ? '⬆ 실제 더 복잡' : '⬇ 실제 더 단순';
+    const arrow = ['S','A','B','C'].indexOf(s.gradeActual) < ['S','A','B','C'].indexOf(s.gradeDeclared) ? '⬆ 실제 더 복잡' : '⬇ 실제 더 단순';
     return `<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:12px">
       <span style="color:var(--text-3);width:78px">${s.sessionId}</span>
       <span style="color:${dc};font-weight:700">Lv. ${s.gradeDeclared}</span>
@@ -780,7 +780,7 @@ function renderGradeMismatch() {
       <span style="margin-left:auto;font-size:10px;color:var(--text-3)">${arrow}</span>
     </div>`;
   }).join('');
-  const upCount = mismatches.filter(s => ['S','A','B','C','D'].indexOf(s.gradeActual) < ['S','A','B','C','D'].indexOf(s.gradeDeclared)).length;
+  const upCount = mismatches.filter(s => ['S','A','B','C'].indexOf(s.gradeActual) < ['S','A','B','C'].indexOf(s.gradeDeclared)).length;
   el.innerHTML = rows + `<div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--line);font-size:11px;color:var(--text-3)">
     총 ${mismatches.length}건 불일치 · 과소 선언(실제 더 복잡): <strong style="color:#F59E0B">${upCount}건</strong>
     &nbsp;·&nbsp; 과대 선언: <strong style="color:var(--text-2)">${mismatches.length - upCount}건</strong>

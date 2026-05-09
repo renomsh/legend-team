@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-08T20:30:06.030Z",
-  "totalSessions": 212,
+  "generatedAt": "2026-05-09T01:09:40.580Z",
+  "totalSessions": 213,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 212
+      "undefined": 213
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -16,47 +16,36 @@
     "archiveCount": 0
   },
   "metrics": {
-    "avgMasterTurns": 21.31,
-    "avgCacheHitRate": 0.932,
-    "cacheSampleSize": 182,
-    "cacheSampleTotal": 212,
+    "avgMasterTurns": 21.3,
+    "avgCacheHitRate": 0.9322,
+    "cacheSampleSize": 183,
+    "cacheSampleTotal": 213,
     "avgAdoptionRate": 0,
-    "totalDecisions": 176,
+    "totalDecisions": 178,
     "gradeDistribution": {
-      "S": 99,
-      "A": 42,
-      "B": 43,
-      "C": 19,
-      "D": 9
+      "S": 100,
+      "A": 43,
+      "B": 45,
+      "C": 25
     },
     "topicGradeDistribution": {
       "S": 20,
       "A": 60,
       "B": 59,
-      "C": 32,
-      "D": 7
+      "C": 39
     },
-    "gradeMismatchCount": 13,
+    "gradeMismatchCount": 4,
     "gradeMismatchSessions": [
       "session_013",
       "session_015",
       "session_057",
-      "session_099",
-      "session_102",
-      "session_133",
-      "session_135",
-      "session_169",
-      "session_170",
-      "session_171",
-      "session_172",
-      "session_202",
-      "session_203"
+      "session_202"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 166,
-    "totalCostUSD": 2532.6863,
-    "avgCostPerSession": 12.4763,
-    "costSampleSize": 203,
+    "turnBasedSessions": 167,
+    "totalCostUSD": 2541.2635,
+    "avgCostPerSession": 12.4572,
+    "costSampleSize": 204,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -3661,9 +3650,9 @@
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
       "size": 4,
-      "gradeDeclared": "D",
+      "gradeDeclared": "C",
       "gradeActual": "C",
-      "gradeMismatch": true,
+      "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 4,
       "dataQuality": "auto",
@@ -3790,9 +3779,9 @@
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
       "size": 5,
-      "gradeDeclared": "D",
+      "gradeDeclared": "B",
       "gradeActual": "B",
-      "gradeMismatch": true,
+      "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 3,
       "dataQuality": "auto",
@@ -4998,9 +4987,9 @@
       "rolesRecalled": 0,
       "sessionsSpanned": 6,
       "size": 20,
-      "gradeDeclared": "D",
+      "gradeDeclared": "S",
       "gradeActual": "S",
-      "gradeMismatch": true,
+      "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 3,
       "dataQuality": "auto",
@@ -5070,9 +5059,9 @@
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
       "size": 5,
-      "gradeDeclared": "D",
+      "gradeDeclared": "B",
       "gradeActual": "B",
-      "gradeMismatch": true,
+      "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 3,
       "dataQuality": "auto",
@@ -6373,9 +6362,9 @@
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
       "size": 4,
-      "gradeDeclared": "D",
+      "gradeDeclared": "C",
       "gradeActual": "C",
-      "gradeMismatch": true,
+      "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 33,
       "dataQuality": "auto",
@@ -6406,9 +6395,9 @@
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
       "size": 4,
-      "gradeDeclared": "D",
+      "gradeDeclared": "C",
       "gradeActual": "C",
-      "gradeMismatch": true,
+      "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 7,
       "dataQuality": "auto",
@@ -6439,9 +6428,9 @@
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
       "size": 4,
-      "gradeDeclared": "D",
+      "gradeDeclared": "C",
       "gradeActual": "C",
-      "gradeMismatch": true,
+      "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 6,
       "dataQuality": "auto",
@@ -6472,9 +6461,9 @@
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
       "size": 4,
-      "gradeDeclared": "D",
+      "gradeDeclared": "C",
       "gradeActual": "C",
-      "gradeMismatch": true,
+      "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 3,
       "dataQuality": "auto",
@@ -7645,9 +7634,9 @@
       "rolesRecalled": 0,
       "sessionsSpanned": 1,
       "size": 4,
-      "gradeDeclared": "D",
+      "gradeDeclared": "C",
       "gradeActual": "C",
-      "gradeMismatch": true,
+      "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 0,
       "dataQuality": "auto"
@@ -8098,8 +8087,8 @@
       ],
       "rolesCalled": 17,
       "rolesRecalled": 10,
-      "sessionsSpanned": 1,
-      "size": 44,
+      "sessionsSpanned": 2,
+      "size": 47,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -8136,12 +8125,49 @@
         "messageCount": 214
       },
       "sessionCostUSD": 14.8993
+    },
+    {
+      "sessionId": "session_217",
+      "topicSlug": "pd-057-grade-review",
+      "topic": "PD-057 Grade 임계 재검토 (연장)",
+      "startedAt": "2026-05-09T00:00:00.000Z",
+      "closedAt": "2026-05-09T22:00:00.000Z",
+      "decisionCount": 2,
+      "decisionAxes": 2,
+      "decisions": [
+        "D-174",
+        "D-175"
+      ],
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 2,
+      "size": 11,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 19,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 17402886,
+        "ioTokens": 84412,
+        "inputTokens": 300,
+        "outputTokens": 84112,
+        "cacheCreate": 614237,
+        "cacheRead": 16704237,
+        "cacheHitRate": 0.9598544172501043,
+        "messageCount": 188
+      },
+      "sessionCostUSD": 8.5772
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 183,
+      "count": 184,
       "sessions": [
         "session_050",
         "session_051",
@@ -8305,7 +8331,8 @@
         "session_213",
         "session_214",
         "session_215",
-        "session_216"
+        "session_216",
+        "session_217"
       ]
     },
     {
@@ -14988,6 +15015,18 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_217",
+      "topic": "PD-057 Grade 임계 재검토 (연장)",
+      "sequence": [
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 0,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -15068,6 +15107,11 @@
           "date": "2026-05-07",
           "feedbackId": "MF-AUTO-session_206-edi",
           "summary": "Grade S 세션 session_206에서 Edi LLM 미호출 — mechanical fallback(e"
+        },
+        {
+          "date": "2026-05-09",
+          "feedbackId": "MF-AUTO-session_217-edi",
+          "summary": "Grade S 세션 session_217에서 Edi LLM 미호출 — mechanical fallback(e"
         }
       ]
     },
@@ -15163,6 +15207,11 @@
           "date": "2026-05-07",
           "feedbackId": "MF-AUTO-session_206-edi",
           "summary": "Grade S 세션 session_206에서 Edi LLM 미호출 — mechanical fallback(e"
+        },
+        {
+          "date": "2026-05-09",
+          "feedbackId": "MF-AUTO-session_217-edi",
+          "summary": "Grade S 세션 session_217에서 Edi LLM 미호출 — mechanical fallback(e"
         }
       ]
     },
@@ -15233,6 +15282,11 @@
           "date": "2026-05-07",
           "feedbackId": "MF-AUTO-session_206-edi",
           "summary": "Grade S 세션 session_206에서 Edi LLM 미호출 — mechanical fallback(e"
+        },
+        {
+          "date": "2026-05-09",
+          "feedbackId": "MF-AUTO-session_217-edi",
+          "summary": "Grade S 세션 session_217에서 Edi LLM 미호출 — mechanical fallback(e"
         }
       ]
     },
@@ -15447,6 +15501,21 @@
           "date": "2026-05-02",
           "feedbackId": "F-session_168",
           "summary": "Master 결정 10건 압축: (1) spec 5건→실측 6건으로 진행 (2) caveats string["
+        }
+      ]
+    },
+    {
+      "keyword": "박제",
+      "occurrences": [
+        {
+          "date": "2026-04-29",
+          "feedbackId": "MF-107",
+          "summary": "세션 중단. 결정 박제 0건"
+        },
+        {
+          "date": "2026-05-09",
+          "feedbackId": "MF-112",
+          "summary": "박제·종결 전 Master 승인 필수. /auto 또는 명시 승인 없으면 Edi 박제·토픽 종결 진행 금지"
         }
       ]
     },
@@ -15923,6 +15992,11 @@
           "date": "2026-05-02",
           "feedbackId": "F-session_168",
           "summary": "Master 결정 10건 압축: (1) spec 5건→실측 6건으로 진행 (2) caveats string["
+        },
+        {
+          "date": "2026-05-09",
+          "feedbackId": "MF-112",
+          "summary": "박제·종결 전 Master 승인 필수. /auto 또는 명시 승인 없으면 Edi 박제·토픽 종결 진행 금지"
         }
       ]
     },
@@ -16441,6 +16515,11 @@
           "date": "2026-05-07",
           "feedbackId": "MF-AUTO-session_206-edi",
           "summary": "Grade S 세션 session_206에서 Edi LLM 미호출 — mechanical fallback(e"
+        },
+        {
+          "date": "2026-05-09",
+          "feedbackId": "MF-AUTO-session_217-edi",
+          "summary": "Grade S 세션 session_217에서 Edi LLM 미호출 — mechanical fallback(e"
         }
       ]
     }

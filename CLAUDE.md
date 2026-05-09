@@ -35,7 +35,7 @@ Rules:
 - `session_index.json`은 `append-session.ts` 스크립트로만 수정. Edit 도구 직접 수정 금지. (D-028, 2026-04-17)
 - 자가평가 단순화 (D-092, 2026-04-25): 지표 정의 단일 출처는 `memory/roles/{role}_memory.json[].metrics` + `memory/growth/derived_metrics.json` + `memory/growth/composite_inputs.json`. `compile-metrics-registry.ts`가 `memory/growth/metrics_registry.json`로 빌드. 다른 위치(특히 `memory/shared/metrics_registry.json`)에 지표 정의 두지 않는다. 역할 turn 박제 시 `selfScores: {shortKey: value, ...}` 동봉, 점수만 남기면 됨. propagation·자동 알림·자동 게이트 폐기. Master 수동 대시보드 열람이 단일 피드백 경로.
 
-## Topic Grade System (D-074 / D-172·D-173 갱신, 2026-05-09)
+## Topic Grade System (D-074 / D-172·D-173·D-174·D-175 갱신, 2026-05-09)
 
 토픽 난이도·성격 등급. `/open` 시 선언, `compute-dashboard.ts`가 실측 Size로 사후 검증.
 
@@ -43,16 +43,15 @@ Rules:
 
 | Grade | 정의 | 파급 범위 | 2축 적용 | 첫 주자 | 기본 역할 구성 |
 |---|---|---|---|---|---|
-| **S** | 오픈 탐색형. Master 명시 선언 전용 | 조직·전략 전체 | full | Jobs(`/jobs-framing` 명시 시) or Ace | Jobs→Ace→Arki·Riki→Fin→Edi. Nova·Vera 선택. **Jobs: `/jobs-framing` 명시 호출 시만. S 선언 = Jobs 자동 트리거 아님.** **Nova: Riki 🔴 2개+ 미해소 OR 역할 교착 → Nexus 추천. Master 승인 필요.** |
+| **S** | 오픈 탐색형. Master 명시 선언 전용 | 조직·전략 전체 | full | Jobs(`/jobs-framing` 명시 시) or Ace | Jobs→**Nova**→Ace→Arki·Riki→Fin→Edi. Vera 선택. **Jobs: `/jobs-framing` 명시 호출 시만. S 선언 = Jobs 자동 트리거 아님.** **Nova: S grade 기본 포함 (D-174). Master가 제외 지시 시만 생략.** |
 | **A** | 닫힌 실행형. 결과가 다수 시스템 인풋 | 시스템 경계 횡단 | full | 2축 패턴 기반 | 2축 판정→패턴 적용→Ace(선택,`/ace-synthesis`)→Dev→Edi |
 | **B** | 명확 결정건. blast_radius ≥ 2. 결과가 다른 시스템·결정 인풋 | 모듈 경계 횡단 | 2축 판별 | Arki | Arki→Riki→Ace(선택,`/ace-synthesis`)→Dev→Edi |
-| **C** | 경량 처리. blast_radius ≤ 1. 단일 모듈 내 완결 | 단일 모듈 내 | 신호 매칭 | Dev 기본 (신호에 따라 가변) | Dev 기본 + 신호 조건부 선제 호출 |
-| **D** | 명백 단순. D 키워드 매칭 | 로컬 | 없음 | Dev | Dev 직행 (Edi 생략 가능). 파일 간 의존 감지 시 → C 격상 |
+| **C** | 경량 처리. blast_radius ≤ 1. 단일 모듈 내 완결. 키워드 fast-path 포함 | 단일 모듈 내 | 신호 매칭 | Dev 기본 (신호에 따라 가변) | Dev 기본 + 신호 조건부 선제 호출. Edi 생략 가능. blast_radius 사후 2+ → B 격상 |
 
 ### Grade 선언 규칙
 - **S**: Master 명시 선언 전용. Ace는 "S 승격 검토" 추천 후 Master 승인.
-- **A/B/C/D**: Nexus 자동 추론 가능. Master 명시 우선. 기본값: **A**
-- **C/D 자동 분기**: D 키워드(`bug`, `fix`, `patch`, `log`, `오타`, `수정`(단독), `deploy`, `rollback`) 매칭 시 D. 애매하면 C. Master 강제 전환 가능.
+- **A/B/C**: Nexus 자동 추론 가능. Master 명시 우선. 기본값: **A**
+- **C 자동 분기**: 키워드(`bug`, `fix`, `patch`, `log`, `오타`, `수정`(단독), `deploy`, `rollback`) 매칭 시 C fast-path (Dev 직행). 애매하면 C 기본. Master 강제 전환 가능.
 - C/B 진행 중 구조적 문제 발견 시 → Ace 재소집 필수
 - 사후 검증: `grade` vs `gradeActual` 불일치는 대시보드 gradeMismatch 패널에 누적
 
@@ -236,12 +235,13 @@ Master may switch modes at any time by stating the mode name.
 - **dispatch_config rules.edi 박제 (D-143, 2026-05-02):** `memory/shared/dispatch_config.json`의 `rules.edi`가 정책 단일 출처. session_isolation: `"shared"` (Sage `"exclusive"`와 대비 — Edi는 다른 페르소나와 공존 가능). ownership 3종: `artifact_compile` · `version_bump_confirm` · `anchor_governance` = true. framing·grade·orchestration·synthesis = false. auto_hook: true (finalize.js 미호출 시 mechanical fallback). config는 hook에서 read되지 않음 — enforcement 인라인 유지(enforcement_note 명문화).
 
 ### Nova Protocol
-- Never invoked unless Master explicitly requests it
+- **Grade S: Jobs 직후 기본 포함 (D-174).** Master가 제외 지시 시만 생략.
+- Grade S 외: Master 명시 요청 시만 발동
 - Always labeled speculative
-- Speaks after Riki and before Edi when invoked
+- Speaks after Jobs (Grade S) or after Riki (other grades) and before Edi when invoked
 - Outputs remain separate from the main synthesis unless Master explicitly promotes them
 
-**Nova invocation signals (advisory — Master decides):**
+**Nova invocation signals (Grade S 외 — advisory, Master decides):**
 - Riki flags 2+ critical (🔴) risks with no clear mitigation path
 - All agents reach a structural deadlock (contradictions unresolvable within existing framing)
 - Master wants an unconventional angle before committing to a decision
@@ -249,7 +249,7 @@ Master may switch modes at any time by stating the mode name.
 **Nova must never:**
 - Be treated as authoritative without explicit Master promotion
 - Replace Riki's adversarial analysis
-- Speak unless Master says so — even if the above signals are present
+- Speak (Grade S 외) unless Master says so — even if the above signals are present
 
 ### Turn Push Protocol (C1) (D-048)
 

@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_216",
-  "nextSessionId": "session_217",
-  "currentVersion": "v1.379",
+  "lastSessionId": "session_217",
+  "nextSessionId": "session_218",
+  "currentVersion": "v1.579",
   "openTopics": [
     {
       "id": "topic_175",
@@ -20,6 +20,18 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-175",
+      "date": "2026-05-09",
+      "axis": "Grade C/D 통합 — D 폐기, D 키워드 fast-path C에 흡수",
+      "summary": "Grade C/D 통합 — D 폐기, D 키워드 fast-path C에 흡수"
+    },
+    {
+      "id": "D-174",
+      "date": "2026-05-09",
+      "axis": "Grade S 기본 역할 구성 변경 — Nova Jobs 직후 기본 포함",
+      "summary": "Grade S 기본 역할 구성 변경 — Nova Jobs 직후 기본 포함"
+    },
+    {
       "id": "D-173",
       "date": "2026-05-09",
       "axis": "Grade 5단계 재정의 — C 재정의, B vs C blast_radius 경계, S 로스터 확정",
@@ -36,21 +48,19 @@
       "date": "2026-05-07",
       "axis": "Case B Phase 진입 게이트 강제 (M3+M4 통합) — Arki rev4 spc_lck=Y + PD-066 resolved 3건 코드 박제",
       "summary": "Case B Phase 진입 게이트 강제 (M3+M4 통합) — Arki rev4 spc_lck=Y + PD-066 resolved 3건 코드 박제"
-    },
-    {
-      "id": "D-170-A2",
-      "date": "2026-05-07",
-      "axis": "토론형 (5)종합 = Edi 단일 호출. /ace-synthesis = structured 모드 한정",
-      "summary": "토론형 (5)종합 = Edi 단일 호출. /ace-synthesis = structured 모드 한정"
-    },
-    {
-      "id": "D-170-A1",
-      "date": "2026-05-07",
-      "axis": "D-170 amendment 5번째 축 — blind 격리 phase 한정 / 우선순위 phase>operationMode>grade / 격리 강도 default=prepend 차단 / 수렴 토론 round 무한+Nexus 분배",
-      "summary": "D-170 amendment 5번째 축 — blind 격리 phase 한정 / 우선순위 phase>operationMode>grade / 격리 강도 default=prepend 차단 / 수렴 토론 round 무한+Nexus 분배"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_217",
+      "topicSlug": "pd-057-grade-review",
+      "closedAt": "2026-05-09T22:00:00.000Z",
+      "oneLineSummary": "D-174 S grade Nova 기본 포함 + D-175 C/D 통합(D 폐기) + PD-057 resolved + PD-070 등록",
+      "decisionsAdded": [
+        "D-174",
+        "D-175"
+      ]
+    },
     {
       "sessionId": "session_216",
       "topicSlug": "pd-057-grade-review",
@@ -67,33 +77,9 @@
       "closedAt": "2026-05-08T15:30:00.000Z",
       "oneLineSummary": "D-170/A1/A2 hook+문서 박제: blind-parallel 격리, synthesis Ace 차단, /discussion·/structured 명령어 신규",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_214",
-      "topicSlug": "pd-skill-bug-fix",
-      "closedAt": "2026-05-08T13:10:00.000Z",
-      "oneLineSummary": "manage-pd.ts 신규 생성 + PD-057 migrate + verification-before-completion TDD 원칙 흡수",
-      "decisionsAdded": []
     }
   ],
   "pendingDeferrals": [
-    {
-      "id": "PD-057",
-      "fromSession": "session_167",
-      "fromTopic": "topic_144",
-      "createdAt": "2026-04-28",
-      "title": "Grade 임계 자체 재검토",
-      "item": "Grade 임계 자체 재검토 — Master Q3 Scope OUT 박제. C/D 자동 분기 키워드 매칭(bug·fix·patch 등)이 적절한지 누적 데이터로 검증. gradeMismatch 충분 시 재오픈.",
-      "status": "pending",
-      "resolveCondition": "gradeMismatch ≥ 10건 누적 OR Master 명시 재오픈",
-      "dependsOn": [],
-      "relatedDecisions": [
-        "D-074",
-        "D-130",
-        "D-144"
-      ],
-      "relatedTopic": "topic_144"
-    },
     {
       "id": "PD-068",
       "fromSession": "session_213",
@@ -109,7 +95,15 @@
       "createdAt": "2026-05-08",
       "item": "병행세션 병행토픽 시스템 검토 caseB",
       "status": "pending"
+    },
+    {
+      "id": "PD-070",
+      "fromSession": "session_217",
+      "fromTopic": "pd-057-grade-review",
+      "createdAt": "2026-05-09",
+      "item": "session-end-finalize.js — pendingDeferralsResolved 전파 누락. current_session.pendingDeferralsResolved 배열을 읽어 pending_deferrals.json status를 resolved로 갱신하는 로직 추가 필요. session_216 종료 시 PD-057 미전파로 발견.",
+      "status": "pending"
     }
   ],
-  "lastUpdated": "2026-05-08T20:29:11.862Z"
+  "lastUpdated": "2026-05-09T01:09:22.371Z"
 }

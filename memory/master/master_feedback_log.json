@@ -1444,6 +1444,28 @@
       "feedback": "PD 등록 시 내용 추측 금지 — 번호(예: '58')만 말하면 원 등록자 의도를 session notes에서 먼저 확인하고 등록해야 함. 내 분석 내용을 임의로 붙이면 안 됨.",
       "directive": "content-verification-before-pd-add",
       "status": "resolved"
+    },
+    {
+      "id": "MF-112",
+      "date": "2026-05-09",
+      "session": "session_217",
+      "topic": "topic_183",
+      "phase": "synthesis",
+      "feedback": "박제·종결 전 Master 승인 필수. /auto 또는 명시 승인 없으면 Edi 박제·토픽 종결 진행 금지",
+      "directive": "박제 및 종결 전 Master 확인 후 진행",
+      "status": "resolved"
+    },
+    {
+      "id": "MF-AUTO-session_217-edi",
+      "date": "2026-05-09",
+      "session": "session_217",
+      "sessionId": "session_217",
+      "topic": "topic_183",
+      "type": "edi-llm-skipped",
+      "severity": "high",
+      "source": "hook",
+      "feedback": "Grade S 세션 session_217에서 Edi LLM 미호출 — mechanical fallback(edi_auto_rev1.md) 박제됨. role-edi.md §6.4 검토 필요.",
+      "status": "pending"
     }
   ],
   "statusValues": [

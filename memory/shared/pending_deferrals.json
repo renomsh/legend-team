@@ -11,7 +11,7 @@
       "createdAt": "2026-04-28",
       "title": "Grade 임계 자체 재검토",
       "item": "Grade 임계 자체 재검토 — Master Q3 Scope OUT 박제. C/D 자동 분기 키워드 매칭(bug·fix·patch 등)이 적절한지 누적 데이터로 검증. gradeMismatch 충분 시 재오픈.",
-      "status": "pending",
+      "status": "resolved",
       "resolveCondition": "gradeMismatch ≥ 10건 누적 OR Master 명시 재오픈",
       "dependsOn": [],
       "relatedDecisions": [
@@ -19,7 +19,9 @@
         "D-130",
         "D-144"
       ],
-      "relatedTopic": "topic_144"
+      "relatedTopic": "topic_144",
+      "resolvedAt": "2026-05-09",
+      "resolvedBy": "session_217"
     },
     {
       "id": "PD-066",
@@ -67,6 +69,14 @@
       "fromTopic": "pd-skill-bug-fix",
       "createdAt": "2026-05-08",
       "item": "병행세션 병행토픽 시스템 검토 caseB",
+      "status": "pending"
+    },
+    {
+      "id": "PD-070",
+      "fromSession": "session_217",
+      "fromTopic": "pd-057-grade-review",
+      "createdAt": "2026-05-09",
+      "item": "session-end-finalize.js — pendingDeferralsResolved 전파 누락. current_session.pendingDeferralsResolved 배열을 읽어 pending_deferrals.json status를 resolved로 갱신하는 로직 추가 필요. session_216 종료 시 PD-057 미전파로 발견.",
       "status": "pending"
     }
   ]

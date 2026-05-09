@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "1.379",
+    "version": "v1.579",
     "versionSchema": {
       "format": "X.YYY (3자리 소수 float, 점 하나)",
       "incrementRules": {
@@ -355,6 +355,12 @@
       "date": "2026-05-08",
       "summary": "Discussion 모드 D-170/A1/A2 구조 박제 — operationType enum, 5단계 phase 메커니즘, /ace-synthesis structured 한정 정책이 CLAUDE.md + 신규 명령어 2건으로 확정. structural +0.1. [정정: 0.310 → v1.379]",
       "sessionId": "session_215"
+    },
+    {
+      "version": "v1.579",
+      "date": "2026-05-09",
+      "summary": "D-174 S grade Nova 기본 포함 + D-175 C/D 통합(D 폐기, 4단계로 단순화)",
+      "sessionId": "session_217"
     }
   ],
   "lastUpdated": "2026-05-09",

@@ -3878,7 +3878,7 @@
           "phase": "compile"
         }
       ],
-      "grade": "D",
+      "grade": "C",
       "note": "PD-037 resolveCondition 2조건 모두 충족: (1) memory/roles/personas/role-vera.md 파일 존재, (2) git commit f238672 pd037-vera-signature-review 실사용 확인 | system_state.json PD-037 status → resolved 갱신 완료",
       "oneLineSummary": "PD-037 resolved: role-vera.md 존재 확인 + vera-signature-review 실사용 확인",
       "decisionsAdded": []
@@ -4109,7 +4109,7 @@
           "phase": "compile"
         }
       ],
-      "grade": "D",
+      "grade": "C",
       "note": "A-1: D-087~D-091 decision_ledger.json에 이미 완전 동기화(decision+value 필드 모두 존재). session_101 note 기준 동작 불필요. | A-2: PD-036 resolved — session_097(pd036-3session-summary-autoload) 구현 완료, 3세션 summary 자동 생성 + /open step 3.5-b 동작 확인. | A-5: editor.gap_pinning_accuracy(settlementOffset/settlementStrategy → _reserved 이동) + nova.promotion_rate(deprecated/deprecatedAt/replacedBy → lifecycleState:deprecated/supersededBy/_reserved 재매핑). compile-metrics-registry OK 통과.",
       "oneLineSummary": "A-1 확인(D-087~D-091 기존 동기화), A-2 PD-036 resolved, A-5 compile-metrics-registry Ajv 스키마 fix",
       "decisionsAdded": []
@@ -5604,7 +5604,7 @@
           "phase": "compile"
         }
       ],
-      "grade": "D",
+      "grade": "C",
       "note": "D grade 검증 세션: topic-status.ts updateTopicStatus() 4시나리오 + finalize R-6 checkSelfScoreScale() 3시나리오 | 32/32 PASS — 전체 통과 | topic_127 completed 전환 완료 (P0~P4 + 검증 전 단계 완결)",
       "oneLineSummary": "검증 완료: topic-status.ts 32/32 PASS + finalize R-6 dry-run 7/7 PASS, topic_127 completed",
       "decisionsAdded": []
@@ -5686,7 +5686,7 @@
           "phase": "compile"
         }
       ],
-      "grade": "D",
+      "grade": "C",
       "note": "Fix 1: applyPendingDeferralsResolved() in session-end-finalize.js — pendingDeferralsResolved 배열을 system_state에 반영 | Fix 2: sync-system-state.ts currentVersion → project_charter.json에서 동기화 | Fix 3: dashboard-ops.html hookRate — 터미널 이벤트(OK/ERROR/ABORT)만 계산 대상 | session_134 소급: PD-052 system_state resolved 처리 완료",
       "oneLineSummary": "system-state 3버그 수정: PD-052 resolved 전파 누락·currentVersion 고착·hookRate 측정 오류",
       "decisionsAdded": []
@@ -7347,7 +7347,7 @@
           "phase": "compile"
         }
       ],
-      "grade": "D",
+      "grade": "C",
       "note": "Master 'C수정' 호출 — 토픽 키워드 '수정'으로 D 자동 분기 (CLAUDE.md Grade 판정 §2). gradeDeclared=C 보존, grade=D 실측. | 원인: project_charter.json version='v0.01' (이미 v 포함) + 클라이언트 3곳(nav.js, index.html, dashboard-upgrade.html)이 v 재 prepend → vv0.01. | 수정: 3곳 모두 startsWith('v') 체크 후 prepend. sync-system-state.ts:163의 .replace(/^vv/, 'v') 방어 로직과 정합.",
       "oneLineSummary": "dashboard-version-double-v-fix 완료: vv0.01 수정·에이전트 카드 3종 추가·EDI 색상·사이드바 브랜드명",
       "decisionsAdded": []
@@ -7369,7 +7369,7 @@
           "phase": "compile"
         }
       ],
-      "grade": "D",
+      "grade": "C",
       "oneLineSummary": "Grade D 버그 3건 수정: D카운팅·ROLE_ORDER(jobs/sage/zero)·topics grade 컬럼+필터",
       "decisionsAdded": []
     },
@@ -7390,7 +7390,7 @@
           "phase": "compile"
         }
       ],
-      "grade": "D",
+      "grade": "C",
       "oneLineSummary": "grade null 7건 소급 할당(legacy topics) → grade합계=전체 144건 일치",
       "decisionsAdded": []
     },
@@ -7411,7 +7411,7 @@
           "phase": "compile"
         }
       ],
-      "grade": "D",
+      "grade": "C",
       "oneLineSummary": "section-grid-2col 1.7fr→1fr 1fr 변경, 좌우 5:5 비율 + 높이 정렬 완료",
       "decisionsAdded": []
     },
@@ -9224,9 +9224,9 @@
       "topic": "auto-push 오류 확인: logs/app.log 머지 충돌",
       "startedAt": "2026-05-06T05:00:00.000Z",
       "closedAt": "2026-05-06T11:00:00.000Z",
-      "grade": "D",
-      "gradeDeclared": "D",
-      "gradeActual": "D",
+      "grade": "C",
+      "gradeDeclared": "C",
+      "gradeActual": "C",
       "gradeMismatch": false,
       "turns": [],
       "note": "auto-push logs/app.log 머지 충돌 버그 수정. frosty-feistel worktree. 최소 세션 (turns 0건).",
@@ -10183,8 +10183,32 @@
         "D-172",
         "D-173"
       ]
+    },
+    {
+      "sessionId": "session_217",
+      "topicSlug": "pd-057-grade-review",
+      "topic": "PD-057 Grade 임계 재검토 (연장)",
+      "startedAt": "2026-05-09T00:00:00.000Z",
+      "closedAt": "2026-05-09T22:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\goofy-heyrovsky-683f97",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "edi",
+          "turnIdx": 0,
+          "phase": "compile"
+        }
+      ],
+      "grade": "S",
+      "oneLineSummary": "D-174 S grade Nova 기본 포함 + D-175 C/D 통합(D 폐기) + PD-057 resolved + PD-070 등록",
+      "decisionsAdded": [
+        "D-174",
+        "D-175"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-08T20:28:58.719Z",
+  "lastUpdated": "2026-05-09T01:08:47.180Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

@@ -236,7 +236,7 @@
         return;
       }
       // Grade badge color tokens (D-144, session_167) — tokens.css 정합 fallback
-      const GRADE_BADGE = { S:'#8B5CF6', A:'#06B6D4', B:'#F59E0B', C:'#6E6E78', D:'#94A3B8' };
+      const GRADE_BADGE = { S:'#8B5CF6', A:'#06B6D4', B:'#F59E0B', C:'#6E6E78' };
       list.innerHTML = suspended.map(t => {
         const gradeBadge = t.grade
           ? `<span class="topic-grade-badge" style="display:inline-block;padding:1px 6px;border-radius:3px;font-size:10px;font-weight:700;color:#fff;background:${GRADE_BADGE[t.grade] || '#6E6E78'};margin-right:6px">${t.grade}</span>`

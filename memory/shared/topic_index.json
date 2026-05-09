@@ -11,11 +11,12 @@
       "reportPath": "reports/2026-05-08_pd-057-grade-review",
       "reportFiles": [],
       "published": false,
-      "closedInSession": "session_216",
       "path": "topics/topic_183",
       "grade": "S",
       "topicType": "standalone",
-      "lastUpdated": "2026-05-08"
+      "lastUpdated": "2026-05-09",
+      "closedInSession": "session_217",
+      "outcome": "D-174(S grade Nova 기본 포함) + D-175(C/D 통합, D 폐기 4단계로 단순화). compute-dashboard·HTML·topic/session index 소급 마이그레이션 완료. PD-057 resolved."
     },
     {
       "id": "topic_182",
@@ -444,10 +445,10 @@
       "reportPath": "reports/2026-05-04_open-close-lightweight",
       "reportFiles": [],
       "published": false,
-      "closedInSession": "session_184",
       "path": "topics/topic_157",
       "grade": "B",
-      "outcome": "Zero D.Condense Phase A+B 구현 완료. 전체 inject -57%(51,075B→21,937B, ~7,285 tokens). G-3/G-7 → PD-058/PD-059 별도 토픽 인계."
+      "outcome": "Zero D.Condense Phase A+B 구현 완료. 전체 inject -57%(51,075B→21,937B, ~7,285 tokens). G-3/G-7 → PD-058/PD-059 별도 토픽 인계.",
+      "closedInSession": "session_184"
     },
     {
       "id": "topic_156",
@@ -589,7 +590,7 @@
       "published": false,
       "closedInSession": "session_172",
       "path": "topics/topic_149",
-      "grade": "D",
+      "grade": "C",
       "topicType": "standalone",
       "outcome": "section-grid-2col grid-template-columns 1.7fr 1fr → 1fr 1fr. Session flow·Role frequency 좌우 5:5 비율, 높이 자동 정렬."
     },
@@ -606,7 +607,7 @@
       "published": false,
       "closedInSession": "session_171",
       "path": "topics/topic_148",
-      "grade": "D",
+      "grade": "C",
       "topicType": "standalone",
       "outcome": "grade null 7건 소급 할당(C/A/D) → grade 합계=총계 144건 일치. 빌드+푸시 완료."
     },
@@ -614,7 +615,7 @@
       "id": "topic_147",
       "title": "대시보드 업그레이드 페이지 캐릭터 추가",
       "status": "completed",
-      "grade": "D",
+      "grade": "C",
       "phase": "framing",
       "hold": null,
       "created": "2026-05-02",
@@ -629,7 +630,7 @@
       "id": "topic_146",
       "title": "Dashboard 버전 표기 vv0.01 중복 v 제거",
       "status": "completed",
-      "grade": "D",
+      "grade": "C",
       "phase": "completed",
       "hold": null,
       "created": "2026-05-02",
@@ -960,7 +961,7 @@
       "published": false,
       "closedInSession": "session_135",
       "path": "topics/topic_129",
-      "grade": "D"
+      "grade": "C"
     },
     {
       "id": "topic_128",
@@ -1360,7 +1361,7 @@
       "published": false,
       "closedInSession": "session_102",
       "path": "topics/topic_107",
-      "grade": "D",
+      "grade": "C",
       "outcome": "A-1: D-087~D-091 decision_ledger 이미 동기화 완료 확인. A-2: PD-036 resolved 전이. A-5: compile-metrics-registry Ajv 스키마 추가 프로퍼티 오류 수정(editor+nova)."
     },
     {
@@ -1945,7 +1946,7 @@
       "published": false,
       "path": "topics/topic_078",
       "note": "오작동으로 생성된 더미 토픽. 무시.",
-      "grade": "D"
+      "grade": "C"
     },
     {
       "id": "topic_077",
@@ -3489,5 +3490,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-08T20:29:06.167Z"
+  "lastUpdated": "2026-05-09T01:09:10.715Z"
 }
