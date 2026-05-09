@@ -10361,8 +10361,36 @@
       "grade": "C",
       "oneLineSummary": "Grade D 잔존 5파일 정리 + verification hook 전역 적용 + project_charter 버전 불일치 수정",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_223",
+      "topicSlug": "dashboard-status-check",
+      "topic": "대시보드 현황 점검",
+      "startedAt": "2026-05-09T09:45:00.000Z",
+      "closedAt": "2026-05-09T10:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\dreamy-hofstadter-5e7e1d",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "edi",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "scc": "Y",
+            "cs_cnt": 2,
+            "art_cmp": 1,
+            "gap_fc": 2,
+            "gp_acc": 1
+          }
+        }
+      ],
+      "grade": "C",
+      "oneLineSummary": "token_log 복원(3→212개) + Nexus gold 색 + Ops hook 테이블 개선 + Growth/오픈토픽 진단",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-09T08:01:52.694Z",
+  "lastUpdated": "2026-05-09T09:46:05.312Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

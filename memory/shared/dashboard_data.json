@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-09T09:08:00.300Z",
-  "totalSessions": 218,
+  "generatedAt": "2026-05-09T09:46:31.321Z",
+  "totalSessions": 219,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 218
+      "undefined": 219
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -16,17 +16,17 @@
     "archiveCount": 0
   },
   "metrics": {
-    "avgMasterTurns": 21.33,
-    "avgCacheHitRate": 0.9323,
-    "cacheSampleSize": 188,
-    "cacheSampleTotal": 218,
+    "avgMasterTurns": 21.24,
+    "avgCacheHitRate": 0.9325,
+    "cacheSampleSize": 189,
+    "cacheSampleTotal": 219,
     "avgAdoptionRate": 0,
     "totalDecisions": 178,
     "gradeDistribution": {
       "S": 100,
       "A": 44,
       "B": 47,
-      "C": 27
+      "C": 28
     },
     "topicGradeDistribution": {
       "S": 20,
@@ -42,10 +42,10 @@
       "session_202"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 172,
-    "totalCostUSD": 2590.0903,
-    "avgCostPerSession": 12.3928,
-    "costSampleSize": 209,
+    "turnBasedSessions": 173,
+    "totalCostUSD": 2599.723,
+    "avgCostPerSession": 12.3796,
+    "costSampleSize": 210,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -8331,12 +8331,45 @@
         "messageCount": 208
       },
       "sessionCostUSD": 11.5502
+    },
+    {
+      "sessionId": "session_223",
+      "topicSlug": "dashboard-status-check",
+      "topic": "대시보드 현황 점검",
+      "startedAt": "2026-05-09T09:45:00.000Z",
+      "closedAt": "2026-05-09T10:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 4,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 21771127,
+        "ioTokens": 85473,
+        "inputTokens": 5914,
+        "outputTokens": 79559,
+        "cacheCreate": 555340,
+        "cacheRead": 21130314,
+        "cacheHitRate": 0.9705659243088335,
+        "messageCount": 205
+      },
+      "sessionCostUSD": 9.6327
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 190,
+      "count": 191,
       "sessions": [
         "session_050",
         "session_051",
@@ -8506,7 +8539,8 @@
         "session_219",
         "session_220",
         "session_221",
-        "session_222"
+        "session_222",
+        "session_223"
       ]
     },
     {
@@ -15291,6 +15325,18 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_223",
+      "topic": "대시보드 현황 점검",
+      "sequence": [
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 0,
           "recallReason": null
         }
       ]

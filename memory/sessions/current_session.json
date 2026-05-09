@@ -4,8 +4,10 @@
   "topic": "대시보드 현황 점검",
   "topicSlug": "dashboard-status-check",
   "reportPath": "reports/2026-05-09_dashboard-status-check",
-  "status": "open",
+  "status": "closed",
   "startedAt": "2026-05-09T09:45:00.000Z",
+  "closedAt": "2026-05-09T10:30:00.000Z",
+  "oneLineSummary": "token_log 복원(3→212개) + Nexus gold 색 + Ops hook 테이블 개선 + Growth/오픈토픽 진단",
   "mode": "observation",
   "grade": "C",
   "topicType": "standalone",
@@ -13,7 +15,20 @@
   "framingLevel": 0,
   "framingSkipped": true,
   "phase": "framing",
-  "turns": [],
+  "turns": [
+    {
+      "role": "edi",
+      "turnIdx": 0,
+      "source": "agent",
+      "selfScores": {
+        "scc": "Y",
+        "cs_cnt": 2,
+        "art_cmp": 1,
+        "gap_fc": 2,
+        "gp_acc": 1
+      }
+    }
+  ],
   "decisions": [],
   "masterDecisions": [],
   "decisionsAdded": [],
@@ -21,5 +36,17 @@
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "openMasterAlerts": [],
-  "agentsCompleted": []
+  "agentsCompleted": [
+    "edi"
+  ],
+  "tokenUsage": {
+    "input_tokens": 5914,
+    "output_tokens": 79559,
+    "cache_creation_input_tokens": 555340,
+    "cache_read_input_tokens": 21130314,
+    "messageCount": 205,
+    "masterTurns": 4,
+    "total_billable": 21771127
+  },
+  "finalizedAt": "2026-05-09T09:46:20.326Z"
 }
