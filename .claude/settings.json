@@ -30,6 +30,10 @@
           {
             "type": "command",
             "command": "node .claude/hooks/user-prompt-submit-master-first.js"
+          },
+          {
+            "type": "command",
+            "command": "node .claude/hooks/user-prompt-submit-skill-recommend.js"
           }
         ]
       }
