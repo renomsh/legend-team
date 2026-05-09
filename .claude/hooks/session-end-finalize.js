@@ -1519,10 +1519,13 @@ function applyVersionBump(sess) {
   const prevVersion = (charter.charter && charter.charter.version) || '0.00';
 
   // bump.to 미설정 시 value + 현재 버전으로 계산 (Edi가 from/to를 비워둔 경우 대응)
-  // 형식: X.YYY (3자리 소수 float). 점 하나만 허용.
+  // 형식: vX.YYY ("v" prefix 보존). parseFloat 전 "v" 제거 후 재부착.
   if (!bump.to && bump.value) {
-    const prev = parseFloat(prevVersion) || 0;
-    const next = (prev + bump.value).toFixed(3);
+    const hasVPrefix = /^v/.test(prevVersion);
+    const prevNumeric = prevVersion.replace(/^v/, '');
+    const prev = parseFloat(prevNumeric) || 0;
+    const nextNumeric = (prev + bump.value).toFixed(3);
+    const next = hasVPrefix ? 'v' + nextNumeric : nextNumeric;
     bump.to = next;
     bump.from = prevVersion;
     log(`applyVersionBump: bump.to 미설정 → 계산으로 보완 ${prevVersion} + ${bump.value} = ${next}`);
