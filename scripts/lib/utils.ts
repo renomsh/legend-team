@@ -33,6 +33,7 @@ export function appendLog(context: string, message: string): void {
  */
 export function nextId(entries: Array<{ id: string }>, prefix: string): string {
   const nums = entries
+    .filter(e => e && e.id)
     .map(e => parseInt(e.id.replace(prefix, ''), 10))
     .filter(n => !isNaN(n));
   const next = nums.length > 0 ? Math.max(...nums) + 1 : 1;
