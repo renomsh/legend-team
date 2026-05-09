@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_220",
-  "nextSessionId": "session_221",
-  "currentVersion": "v1.599",
+  "lastSessionId": "session_221",
+  "nextSessionId": "session_222",
+  "currentVersion": "v1.609",
   "openTopics": [
     {
       "id": "topic_175",
@@ -95,18 +95,7 @@
       "createdAt": "2026-05-08",
       "item": "병행세션 병행토픽 시스템 검토 caseB",
       "status": "pending"
-    },
-    {
-      "id": "PD-072",
-      "fromSession": "session_220",
-      "fromTopic": "pd-071-nexus-direct-turns-insert",
-      "createdAt": "2026-05-09",
-      "title": "Grade C 세션 Edi lite 호출 — 기록 품질 개선",
-      "item": "Grade C 세션은 현재 mechanical fallback(edi_auto_rev1.md)만 생성되어 session_contributions에 복사되지 않음. reasoning layer(결정 이유·맥락) 누락으로 토픽 history 품질 저하. 해결 방향: /close skill에서 Grade C일 때도 Edi lite(무슨 일 했는지 + 결정 이유 한 줄씩, 1-page 포맷) Agent 호출하도록 close.md 수정. Zero 추가 불필요(기록 목적, 품질 검토 아님).",
-      "status": "pending",
-      "dependsOn": [],
-      "relatedDecisions": []
     }
   ],
-  "lastUpdated": "2026-05-09T07:22:22.508Z"
+  "lastUpdated": "2026-05-09T07:31:48.807Z"
 }

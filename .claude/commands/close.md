@@ -5,11 +5,12 @@
 ## 체크리스트
 
 1. `memory/sessions/current_session.json` 읽기 — 현재 열린 세션 확인. 열린 세션이 없으면 Master에게 알림.
-1.5. **[D-131 / D-166] Zero→Edi 호출 게이트 (Grade S/A/B 전용)**
+1.5. **[D-131 / D-166] Zero→Edi 호출 게이트**
    - `current_session.json.grade`가 `S/A/B`인 경우:
      1. **Zero 서브에이전트 먼저 호출** — D.Condense 게이트 실행: `reports/{reportPath}/condensed.md` + `_zero_condense.json` 마커 작성. prompt 첫 줄 `## ROLE: zero` 명시.
      2. Zero 완료 후 → **Edi 서브에이전트 호출**하여 `edi_rev1.md` 작성 후 Step 2 진행.
-   - **Grade C/D는 본 게이트 면제** — Edi 직행. mechanical fallback만 박제.
+   - **Grade C — Edi lite (PD-072)**: Zero 생략. **Edi 서브에이전트 호출** → `reports/{reportPath}/edi_rev1.md` 박제. hook이 자동으로 `session_contributions/{sessionId}_edi_report.md` 복사. prompt 첫 줄 `## ROLE: edi` 명시 + 아래 §Edi lite 프롬프트 사용.
+   - **Grade D (legacy, D-175로 사실상 미도달)**: 본 게이트 면제 — mechanical fallback만 박제.
    - skip 시 hook(`auditEdiLlmInvocation`)이 다축 4신호(gaps + openMasterAlerts + master_feedback_log + log) 자동 박제. fallback은 `edi_auto_rev1.md`로 별도 박제됨.
    - **참고**: hook 자체는 LLM 호출 못 하므로 본 step은 skill 차원 권고. 실제 enforcement는 hook의 다축 신호(`auditEdiLlmInvocation`) + Zero Condense 게이트(`evaluateZeroCondenseGate`).
 2. 에이전트 출력물 저장:
@@ -63,6 +64,31 @@ session-end-tokens.js → session-end-finalize.js → compute-dashboard.ts → b
 Hook 발동 진단 로그: `logs/hook-diagnostics.log` 확인. 미발동 시 수동 실행:
 - `npx ts-node scripts/sync-system-state.ts`
 - `npx ts-node scripts/compute-dashboard.ts && node scripts/build.js`
+
+## Edi lite 프롬프트 (Grade C 전용, PD-072)
+
+Grade C `/close` 시 아래 프롬프트로 Edi 서브에이전트 호출. 출력 파일: `reports/{reportPath}/edi_rev1.md`.
+
+```
+## ROLE: edi
+
+Grade C 세션 종료 보고서 (Edi lite)를 작성합니다.
+
+참조:
+- memory/sessions/current_session.json (sessionId, topicId, topicSlug, grade, turns, decisions, pendingDeferralsAdded, pendingDeferralsResolved, versionBump, masterFeedback)
+
+출력 파일: reports/{reportPath}/edi_rev1.md
+
+포맷 규칙:
+1. frontmatter: role/session/topic/topicSlug/date/rev/format:lite
+2. 섹션 최대 4개 — 1-page 유지 (≤60줄)
+3. 각 섹션:
+   - ## 작업 내용 — 무슨 코드/문서/설정을 변경했는지 bullet (파일명 포함)
+   - ## 결정 이유 — decisionsAdded 각 항목: "D-NNN: 이유 한 줄"
+   - ## PD 변동 — added/resolved 목록
+   - ## versionBump — bump 있으면 type·value·reason 한 줄. 없으면 생략
+4. 분석·평가·권고 금지. 사실 기술만.
+```
 
 ## 규칙
 - 각 단계 완료 시 체크 표시하며 진행

@@ -1,6 +1,23 @@
 {
   "topics": [
     {
+      "id": "topic_187",
+      "title": "PD-072 — Grade C Edi lite 호출",
+      "status": "completed",
+      "phase": "framing",
+      "hold": null,
+      "created": "2026-05-09",
+      "controlPath": "topics/topic_187",
+      "reportPath": "reports/2026-05-09_pd-072-grade-c-edi-lite",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_221",
+      "path": "topics/topic_187",
+      "grade": "C",
+      "topicType": "standalone",
+      "lastUpdated": "2026-05-09"
+    },
+    {
       "id": "topic_186",
       "title": "PD-071 구현 — Nexus 직접작업 turns[] 자동삽입",
       "status": "completed",
@@ -3539,5 +3556,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-09T07:22:15.998Z"
+  "lastUpdated": "2026-05-09T07:31:35.963Z"
 }
