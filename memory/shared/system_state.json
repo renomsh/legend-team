@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_217",
-  "nextSessionId": "session_218",
+  "lastSessionId": "session_218",
+  "nextSessionId": "session_219",
   "currentVersion": "v1.579",
   "openTopics": [
     {
@@ -52,6 +52,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_218",
+      "topicSlug": "c-indicator-display-change",
+      "closedAt": "2026-05-09T23:00:00.000Z",
+      "oneLineSummary": "upgrade페이지 Acked Caveat→Active Alarms 교체, Zero 발언순서 추가, PD-071 등록",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_217",
       "topicSlug": "pd-057-grade-review",
       "closedAt": "2026-05-09T22:00:00.000Z",
@@ -70,13 +77,6 @@
         "D-172",
         "D-173"
       ]
-    },
-    {
-      "sessionId": "session_215",
-      "topicSlug": "discussion-mode-impl",
-      "closedAt": "2026-05-08T15:30:00.000Z",
-      "oneLineSummary": "D-170/A1/A2 hook+문서 박제: blind-parallel 격리, synthesis Ace 차단, /discussion·/structured 명령어 신규",
-      "decisionsAdded": []
     }
   ],
   "pendingDeferrals": [
@@ -103,7 +103,15 @@
       "createdAt": "2026-05-09",
       "item": "session-end-finalize.js — pendingDeferralsResolved 전파 누락. current_session.pendingDeferralsResolved 배열을 읽어 pending_deferrals.json status를 resolved로 갱신하는 로직 추가 필요. session_216 종료 시 PD-057 미전파로 발견.",
       "status": "pending"
+    },
+    {
+      "id": "PD-071",
+      "fromSession": "session_218",
+      "fromTopic": "c-indicator-display-change",
+      "createdAt": "2026-05-09",
+      "item": "Nexus 직접 작업(Agent 툴 미경유) 시 turns[] 미기록 문제. 현재 turn push 흐름은 Agent 호출 → pending_turns → pushTurnsFromPending()만 커버. Nexus가 직접 파일 수정·커밋·답변 등 작업한 세션은 turns[] 빈 채로 종료됨. 수정 방향: session-end-finalize.js에서 turns[] 비어있을 때 {role:'nexus', source:'direct'} 1건 자동 삽입(방법 A) 검토.",
+      "status": "pending"
     }
   ],
-  "lastUpdated": "2026-05-09T01:09:22.371Z"
+  "lastUpdated": "2026-05-09T01:32:18.706Z"
 }

@@ -10207,8 +10207,29 @@
         "D-174",
         "D-175"
       ]
+    },
+    {
+      "sessionId": "session_218",
+      "topicSlug": "c-indicator-display-change",
+      "topic": "C 표시 변경 로직 구현",
+      "startedAt": "2026-05-09T00:00:00.000Z",
+      "closedAt": "2026-05-09T23:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\determined-noether-0cd978",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "edi",
+          "turnIdx": 0,
+          "phase": "compile"
+        }
+      ],
+      "grade": "C",
+      "oneLineSummary": "upgrade페이지 Acked Caveat→Active Alarms 교체, Zero 발언순서 추가, PD-071 등록",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-09T01:08:47.180Z",
+  "lastUpdated": "2026-05-09T01:31:52.835Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

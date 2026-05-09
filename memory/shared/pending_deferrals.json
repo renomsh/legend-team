@@ -78,6 +78,14 @@
       "createdAt": "2026-05-09",
       "item": "session-end-finalize.js — pendingDeferralsResolved 전파 누락. current_session.pendingDeferralsResolved 배열을 읽어 pending_deferrals.json status를 resolved로 갱신하는 로직 추가 필요. session_216 종료 시 PD-057 미전파로 발견.",
       "status": "pending"
+    },
+    {
+      "id": "PD-071",
+      "fromSession": "session_218",
+      "fromTopic": "c-indicator-display-change",
+      "createdAt": "2026-05-09",
+      "item": "Nexus 직접 작업(Agent 툴 미경유) 시 turns[] 미기록 문제. 현재 turn push 흐름은 Agent 호출 → pending_turns → pushTurnsFromPending()만 커버. Nexus가 직접 파일 수정·커밋·답변 등 작업한 세션은 turns[] 빈 채로 종료됨. 수정 방향: session-end-finalize.js에서 turns[] 비어있을 때 {role:'nexus', source:'direct'} 1건 자동 삽입(방법 A) 검토.",
+      "status": "pending"
     }
   ]
 }

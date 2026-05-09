@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-09T01:09:40.580Z",
-  "totalSessions": 213,
+  "generatedAt": "2026-05-09T01:32:31.008Z",
+  "totalSessions": 214,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 213
+      "undefined": 214
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -16,23 +16,23 @@
     "archiveCount": 0
   },
   "metrics": {
-    "avgMasterTurns": 21.3,
-    "avgCacheHitRate": 0.9322,
-    "cacheSampleSize": 183,
-    "cacheSampleTotal": 213,
+    "avgMasterTurns": 21.25,
+    "avgCacheHitRate": 0.9324,
+    "cacheSampleSize": 184,
+    "cacheSampleTotal": 214,
     "avgAdoptionRate": 0,
     "totalDecisions": 178,
     "gradeDistribution": {
       "S": 100,
       "A": 43,
       "B": 45,
-      "C": 25
+      "C": 26
     },
     "topicGradeDistribution": {
       "S": 20,
       "A": 60,
       "B": 59,
-      "C": 39
+      "C": 40
     },
     "gradeMismatchCount": 4,
     "gradeMismatchSessions": [
@@ -42,10 +42,10 @@
       "session_202"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 167,
-    "totalCostUSD": 2541.2635,
-    "avgCostPerSession": 12.4572,
-    "costSampleSize": 204,
+    "turnBasedSessions": 168,
+    "totalCostUSD": 2545.739,
+    "avgCostPerSession": 12.4182,
+    "costSampleSize": 205,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -8162,12 +8162,45 @@
         "messageCount": 188
       },
       "sessionCostUSD": 8.5772
+    },
+    {
+      "sessionId": "session_218",
+      "topicSlug": "c-indicator-display-change",
+      "topic": "C 표시 변경 로직 구현",
+      "startedAt": "2026-05-09T00:00:00.000Z",
+      "closedAt": "2026-05-09T23:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 12,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 9327151,
+        "ioTokens": 56388,
+        "inputTokens": 200,
+        "outputTokens": 56188,
+        "cacheCreate": 246633,
+        "cacheRead": 9024130,
+        "cacheHitRate": 0.9675119444297621,
+        "messageCount": 130
+      },
+      "sessionCostUSD": 4.4755
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 184,
+      "count": 185,
       "sessions": [
         "session_050",
         "session_051",
@@ -8332,7 +8365,8 @@
         "session_214",
         "session_215",
         "session_216",
-        "session_217"
+        "session_217",
+        "session_218"
       ]
     },
     {
@@ -15027,6 +15061,18 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_218",
+      "topic": "C 표시 변경 로직 구현",
+      "sequence": [
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 0,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -15287,6 +15333,11 @@
           "date": "2026-05-09",
           "feedbackId": "MF-AUTO-session_217-edi",
           "summary": "Grade S 세션 session_217에서 Edi LLM 미호출 — mechanical fallback(e"
+        },
+        {
+          "date": "2026-05-09",
+          "feedbackId": "MF-113",
+          "summary": "Grade C 선언(제목 첫 글자 'C')을 topic 제목으로 오독하여 Grade B로 임의 상향했음."
         }
       ]
     },
@@ -15307,6 +15358,11 @@
           "date": "2026-04-19",
           "feedbackId": "MF-S036-3",
           "summary": "Grade 조정권은 Ace가 가져. 선언 grade와 실제 gap 발생 시 Ace가 조정."
+        },
+        {
+          "date": "2026-05-09",
+          "feedbackId": "MF-113",
+          "summary": "Grade C 선언(제목 첫 글자 'C')을 topic 제목으로 오독하여 Grade B로 임의 상향했음."
         }
       ]
     },
@@ -16480,6 +16536,21 @@
           "date": "2026-04-25",
           "feedbackId": "MF-090",
           "summary": "구현은 후속 child토픽으로 분화해도 되는데 일단 해보고. 분화하면 제대로 진행이 안돼."
+        }
+      ]
+    },
+    {
+      "keyword": "topic",
+      "occurrences": [
+        {
+          "date": "2026-04-29",
+          "feedbackId": "MF-110",
+          "summary": "발언 순서 grade × topic 매트릭스 운영 — Nexus 셀 결정 + Master 승인"
+        },
+        {
+          "date": "2026-05-09",
+          "feedbackId": "MF-113",
+          "summary": "Grade C 선언(제목 첫 글자 'C')을 topic 제목으로 오독하여 Grade B로 임의 상향했음."
         }
       ]
     },

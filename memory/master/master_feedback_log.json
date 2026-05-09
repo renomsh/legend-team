@@ -1466,6 +1466,17 @@
       "source": "hook",
       "feedback": "Grade S 세션 session_217에서 Edi LLM 미호출 — mechanical fallback(edi_auto_rev1.md) 박제됨. role-edi.md §6.4 검토 필요.",
       "status": "pending"
+    },
+    {
+      "id": "MF-113",
+      "date": "2026-05-09",
+      "session": "session_218",
+      "sessionId": "session_218",
+      "topic": "topic_184",
+      "phase": "framing",
+      "feedback": "Grade C 선언(제목 첫 글자 'C')을 topic 제목으로 오독하여 Grade B로 임의 상향했음.",
+      "directive": "단일 문자 S/A/B/C 선두 파싱 규칙 준수. Master 명시 grade 임의 상향 금지.",
+      "status": "resolved"
     }
   ],
   "statusValues": [

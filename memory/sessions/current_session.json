@@ -4,8 +4,10 @@
   "topic": "C 표시 변경 로직 구현",
   "topicSlug": "c-indicator-display-change",
   "reportPath": "reports/2026-05-09_c-indicator-display-change",
-  "status": "open",
+  "status": "closed",
   "startedAt": "2026-05-09T00:00:00.000Z",
+  "closedAt": "2026-05-09T23:00:00.000Z",
+  "oneLineSummary": "upgrade페이지 Acked Caveat→Active Alarms 교체, Zero 발언순서 추가, PD-071 등록",
   "mode": "observation",
   "grade": "C",
   "topicType": "standalone",
@@ -13,13 +15,58 @@
   "framingLevel": 0,
   "framingSkipped": true,
   "phase": "framing",
-  "turns": [],
+  "turns": [
+    {
+      "role": "edi",
+      "turnIdx": 0,
+      "phase": "compile"
+    }
+  ],
   "decisions": [],
   "masterDecisions": [],
   "decisionsAdded": [],
-  "masterFeedback": [],
-  "pendingDeferralsAdded": [],
+  "masterFeedback": [
+    "MF-113"
+  ],
+  "pendingDeferralsAdded": [
+    "PD-071"
+  ],
   "pendingDeferralsResolved": [],
   "openMasterAlerts": [],
-  "gaps": []
+  "gaps": [
+    {
+      "type": "no-report-files",
+      "note": "Grade C 세션 — Edi LLM 미호출, report 파일 없음. session-log audit 경고 발생 (known pattern)."
+    },
+    {
+      "type": "apply-feedback-script-error",
+      "note": "apply-feedback.ts utils.ts:36 TypeError — MF-113 수동 Edit으로 대체 (PD-070 연관 버그)"
+    },
+    {
+      "type": "mechanical-fallback-graded",
+      "sessionId": "session_218",
+      "grade": "C",
+      "severity": "info"
+    },
+    {
+      "type": "edi-llm-report-absent",
+      "sessionId": "session_218",
+      "reportPath": "reports/2026-05-09_c-indicator-display-change",
+      "grade": "C",
+      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
+    }
+  ],
+  "tokenUsage": {
+    "input_tokens": 200,
+    "output_tokens": 56188,
+    "cache_creation_input_tokens": 246633,
+    "cache_read_input_tokens": 9024130,
+    "messageCount": 130,
+    "masterTurns": 12,
+    "total_billable": 9327151
+  },
+  "agentsCompleted": [
+    "edi"
+  ],
+  "finalizedAt": "2026-05-09T01:32:18.853Z"
 }
