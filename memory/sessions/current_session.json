@@ -1,15 +1,15 @@
 {
-  "sessionId": "session_220",
-  "topicId": "topic_186",
-  "topic": "PD-071 구현 — Nexus 직접작업 turns[] 자동삽입",
-  "topicSlug": "pd-071-nexus-direct-turns-insert",
-  "reportPath": "reports/2026-05-09_pd-071-nexus-direct-turns-insert",
+  "sessionId": "session_221",
+  "topicId": "topic_187",
+  "topic": "PD-072 — Grade C Edi lite 호출",
+  "topicSlug": "pd-072-grade-c-edi-lite",
+  "reportPath": "reports/2026-05-09_pd-072-grade-c-edi-lite",
   "status": "closed",
-  "startedAt": "2026-05-09T05:00:00.000Z",
-  "closedAt": "2026-05-09T07:25:00.000Z",
-  "oneLineSummary": "PD-071 resolved: ensureNexusTurnIfDirectWork 추가(turns[] 자동삽입). PD-072 등록(Grade C Edi lite)",
+  "startedAt": "2026-05-09T08:00:00.000Z",
+  "closedAt": "2026-05-09T08:30:00.000Z",
+  "oneLineSummary": "PD-072 resolved: close.md Grade C Edi lite 분기 + hook evaluateZeroCondenseGate Grade C 면제",
   "mode": "observation",
-  "grade": "B",
+  "grade": "C",
   "topicType": "standalone",
   "operationType": "structured",
   "framingLevel": 0,
@@ -19,66 +19,86 @@
     {
       "role": "nexus",
       "turnIdx": 0,
-      "source": "direct",
       "phase": "execution",
-      "_autoInserted": true,
-      "_ref": "PD-071"
+      "source": "direct",
+      "_autoInserted": false,
+      "note": "close.md Step 1.5 Grade C Edi lite 분기 추가 + §Edi lite 프롬프트 섹션 추가"
     },
     {
       "role": "edi",
       "turnIdx": 1,
-      "phase": "compile"
+      "source": "agent"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 2,
+      "source": "agent",
+      "selfScores": {
+        "scc": "Y",
+        "cs_cnt": 2,
+        "art_cmp": 1,
+        "gap_fc": 0,
+        "gp_acc": 1
+      }
     }
   ],
   "decisions": [],
   "masterDecisions": [],
   "decisionsAdded": [],
   "masterFeedback": [],
-  "pendingDeferralsAdded": [
+  "pendingDeferralsAdded": [],
+  "pendingDeferralsResolved": [
     "PD-072"
   ],
-  "pendingDeferralsResolved": [
-    "PD-071"
-  ],
   "openMasterAlerts": [],
+  "agentsCompleted": [
+    "nexus",
+    "edi",
+    "edi"
+  ],
+  "tokenUsage": {
+    "input_tokens": 107,
+    "output_tokens": 41526,
+    "cache_creation_input_tokens": 199454,
+    "cache_read_input_tokens": 4608049,
+    "messageCount": 78,
+    "masterTurns": 3,
+    "total_billable": 4849136
+  },
+  "versionBumpSuggested": {
+    "value": 0.01,
+    "type": "capacity",
+    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/pre-tool-use-task.js)",
+    "autoDetectedAt": "2026-05-09T07:31:45.208Z",
+    "changedFiles": [
+      ".claude/commands/close.md",
+      ".claude/hooks/pre-tool-use-task.js",
+      "logs/hook-diagnostics.log",
+      "logs/master-first.log",
+      "logs/pre-tool-use-task.log",
+      "logs/sage-gate.log",
+      "memory/sessions/current_session.json",
+      "memory/sessions/session_index.json",
+      "memory/sessions/token_log.json",
+      "memory/shared/pending_deferrals.json",
+      "memory/shared/system_state.json",
+      "memory/shared/topic_index.json",
+      "reports/2026-05-09_pd-072-grade-c-edi-lite/",
+      "topics/topic_187/"
+    ],
+    "changedFilesCount": 14,
+    "cappedAt": 0.1,
+    "confirmedBy": "nexus"
+  },
   "versionBump": {
     "value": 0.01,
     "type": "capacity",
-    "reason": "역량 확장: session-end-finalize.js ensureNexusTurnIfDirectWork 추가 (PD-071)",
-    "from": "v1.589",
-    "to": "1.599",
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-09T07:19:40.000Z"
+    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/pre-tool-use-task.js)",
+    "from": "1.599",
+    "to": "1.609",
+    "confirmedBy": "nexus",
+    "confirmedAt": "2026-05-09T07:31:45.208Z",
+    "autoDetectedAt": "2026-05-09T07:31:45.208Z"
   },
-  "tokenUsage": {
-    "input_tokens": 229,
-    "output_tokens": 79537,
-    "cache_creation_input_tokens": 873958,
-    "cache_read_input_tokens": 8095199,
-    "messageCount": 108,
-    "masterTurns": 23,
-    "total_billable": 9048923
-  },
-  "agentsCompleted": [
-    "nexus",
-    "edi"
-  ],
-  "gaps": [
-    {
-      "type": "turn-not-found",
-      "file": "reports/2026-05-09_pd-071-nexus-direct-turns-insert/zero_condense.md",
-      "turnId": 2,
-      "note": "frontmatter turnId가 turns[]에 존재하지 않음"
-    },
-    {
-      "type": "edi-agent-source-missing",
-      "sessionId": "session_220",
-      "grade": "B",
-      "severity": "high",
-      "detectedAt": "2026-05-09T07:22:07.931Z",
-      "note": "turns[]에 role=edi && source=agent turn 없음 — D-066(Grade A/S 서브에이전트 강제) + D4(hook 박제) 위반",
-      "ref": "D-138"
-    }
-  ],
-  "finalizedAt": "2026-05-09T07:22:22.603Z"
+  "finalizedAt": "2026-05-09T07:31:48.975Z"
 }

@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-09T07:22:29.129Z",
-  "totalSessions": 216,
+  "generatedAt": "2026-05-09T07:32:00.393Z",
+  "totalSessions": 217,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 216
+      "undefined": 217
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -16,15 +16,15 @@
     "archiveCount": 0
   },
   "metrics": {
-    "avgMasterTurns": 23,
-    "avgCacheHitRate": 0.8946,
-    "cacheSampleSize": 1,
-    "cacheSampleTotal": 216,
+    "avgMasterTurns": 13,
+    "avgCacheHitRate": 0.9224,
+    "cacheSampleSize": 2,
+    "cacheSampleTotal": 217,
     "avgAdoptionRate": 0,
     "totalDecisions": 178,
     "gradeDistribution": {
       "S": 100,
-      "A": 43,
+      "A": 44,
       "B": 46,
       "C": 27
     },
@@ -32,7 +32,7 @@
       "S": 20,
       "A": 60,
       "B": 60,
-      "C": 41
+      "C": 42
     },
     "gradeMismatchCount": 4,
     "gradeMismatchSessions": [
@@ -42,10 +42,10 @@
       "session_202"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 170,
-    "totalCostUSD": 6.8996,
-    "avgCostPerSession": 6.8996,
-    "costSampleSize": 1,
+    "turnBasedSessions": 171,
+    "totalCostUSD": 9.6532,
+    "avgCostPerSession": 4.8266,
+    "costSampleSize": 2,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -5996,12 +5996,47 @@
         "messageCount": 108
       },
       "sessionCostUSD": 6.8996
+    },
+    {
+      "sessionId": "session_221",
+      "topicSlug": "pd-072-grade-c-edi-lite",
+      "topic": "PD-072 — Grade C Edi lite 호출",
+      "startedAt": "2026-05-09T08:00:00.000Z",
+      "closedAt": "2026-05-09T08:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 8,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 3,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "nexus",
+        "edi",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 4849136,
+        "ioTokens": 41633,
+        "inputTokens": 107,
+        "outputTokens": 41526,
+        "cacheCreate": 199454,
+        "cacheRead": 4608049,
+        "cacheHitRate": 0.9502824833124911,
+        "messageCount": 78
+      },
+      "sessionCostUSD": 2.7536
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 187,
+      "count": 189,
       "sessions": [
         "session_050",
         "session_051",
@@ -6169,7 +6204,8 @@
         "session_217",
         "session_218",
         "session_219",
-        "session_220"
+        "session_220",
+        "session_221"
       ]
     },
     {
@@ -6667,9 +6703,10 @@
     },
     {
       "role": "nexus",
-      "count": 1,
+      "count": 2,
       "sessions": [
-        "session_220"
+        "session_220",
+        "session_221"
       ]
     }
   ],
@@ -12910,6 +12947,30 @@
           "role": "edi",
           "phase": "compile",
           "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_221",
+      "topic": "PD-072 — Grade C Edi lite 호출",
+      "sequence": [
+        {
+          "role": "nexus",
+          "phase": "execution",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 2,
           "recallReason": null
         }
       ]

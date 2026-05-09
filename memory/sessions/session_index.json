@@ -10279,8 +10279,51 @@
       "grade": "B",
       "oneLineSummary": "PD-071 resolved: ensureNexusTurnIfDirectWork 추가(turns[] 자동삽입). PD-072 등록(Grade C Edi lite)",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_221",
+      "topicSlug": "pd-072-grade-c-edi-lite",
+      "topic": "PD-072 — Grade C Edi lite 호출",
+      "startedAt": "2026-05-09T08:00:00.000Z",
+      "closedAt": "2026-05-09T08:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\strange-nightingale-abb5cb",
+      "agentsCompleted": [
+        "nexus",
+        "edi",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "nexus",
+          "turnIdx": 0,
+          "phase": "execution",
+          "source": "direct",
+          "_autoInserted": false,
+          "note": "close.md Step 1.5 Grade C Edi lite 분기 추가 + §Edi lite 프롬프트 섹션 추가"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 1,
+          "source": "agent"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 2,
+          "source": "agent",
+          "selfScores": {
+            "scc": "Y",
+            "cs_cnt": 2,
+            "art_cmp": 1,
+            "gap_fc": 0,
+            "gp_acc": 1
+          }
+        }
+      ],
+      "grade": "C",
+      "oneLineSummary": "PD-072 resolved: close.md Grade C Edi lite 분기 + hook evaluateZeroCondenseGate Grade C 면제",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-09T07:22:07.941Z",
+  "lastUpdated": "2026-05-09T07:31:20.264Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
