@@ -41,6 +41,7 @@ interface SkillIndex {
 const HOME = os.homedir();
 const PROJECT_ROOT = process.cwd();
 const OUTPUT = path.join(PROJECT_ROOT, "memory/shared/plugin_skill_index.json");
+const OUTPUT_HASH = path.join(PROJECT_ROOT, "memory/shared/plugin_skill_index.sha256");
 const INDEX_VERSION = "1.0.0";
 const GATE_G1_MIN = 100;
 
@@ -183,29 +184,67 @@ function collectCowork(): SkillEntry[] {
   for (const sessionDir of listDirs(COWORK_ROOT)) {
     const sessionRoot = path.join(COWORK_ROOT, sessionDir);
     for (const subDir of listDirs(sessionRoot)) {
-      const rpmDir = path.join(sessionRoot, subDir, "rpm");
-      if (!safeStat(rpmDir)) continue;
-      const idToName = readCoworkManifest(rpmDir);
-      for (const pluginIdDir of listDirs(rpmDir)) {
-        if (!pluginIdDir.startsWith("plugin_")) continue;
-        const skillsDir = path.join(rpmDir, pluginIdDir, "skills");
-        if (!safeStat(skillsDir)) continue;
-        const namespace = idToName.get(pluginIdDir) ?? pluginIdDir;
-        for (const skillDir of listDirs(skillsDir)) {
-          const skillMd = path.join(skillsDir, skillDir, "SKILL.md");
-          if (!safeStat(skillMd)) continue;
-          const fm = readSkillFile(skillMd);
-          if (!fm) continue;
-          out.push({
-            name: fm.name,
-            namespace,
-            description: fm.description,
-            descriptionHash: hashDescription(fm.description),
-            tags: [],
-            trustLevel: "unverified",
-            source: "cowork",
-            sourcePath: skillMd,
-          });
+      const subRoot = path.join(sessionRoot, subDir);
+
+      // Layout A: <session>/<sub>/rpm/plugin_<id>/skills/<skill>/SKILL.md
+      // (manifest.json supplies plugin_id ↔ name mapping)
+      const rpmDir = path.join(subRoot, "rpm");
+      if (safeStat(rpmDir)) {
+        const idToName = readCoworkManifest(rpmDir);
+        for (const pluginIdDir of listDirs(rpmDir)) {
+          if (!pluginIdDir.startsWith("plugin_")) continue;
+          const skillsDir = path.join(rpmDir, pluginIdDir, "skills");
+          if (!safeStat(skillsDir)) continue;
+          const namespace = idToName.get(pluginIdDir) ?? pluginIdDir;
+          for (const skillDir of listDirs(skillsDir)) {
+            const skillMd = path.join(skillsDir, skillDir, "SKILL.md");
+            if (!safeStat(skillMd)) continue;
+            const fm = readSkillFile(skillMd);
+            if (!fm) continue;
+            out.push({
+              name: fm.name,
+              namespace,
+              description: fm.description,
+              descriptionHash: hashDescription(fm.description),
+              tags: [],
+              trustLevel: "unverified",
+              source: "cowork",
+              sourcePath: skillMd,
+            });
+          }
+        }
+      }
+
+      // Layout B (D-178, topic_190 phase2): named-bundle session dirs use
+      //   <bundleName>/<uuidA>/<uuidB>/skills/<skill>/SKILL.md
+      // (manifest.json sits next to skills/ but only carries id+description,
+      // SKILL.md frontmatter is canonical.) The anthropic-skills bundle lives
+      // under sessionDir="skills-plugin" → namespace "anthropic-skills" to
+      // match the system-reminder label.
+      const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-/.test(sessionDir);
+      if (!isUuid) {
+        for (const subSubDir of listDirs(subRoot)) {
+          const flatSkillsDir = path.join(subRoot, subSubDir, "skills");
+          if (!safeStat(flatSkillsDir)) continue;
+          const namespace = sessionDir === "skills-plugin"
+            ? "anthropic-skills"
+            : sessionDir;
+          for (const skillDir of listDirs(flatSkillsDir)) {
+            const skillMd = path.join(flatSkillsDir, skillDir, "SKILL.md");
+            if (!safeStat(skillMd)) continue;
+            const fm = readSkillFile(skillMd);
+            if (!fm) continue;
+            out.push({
+              name: fm.name,
+              namespace,
+              description: fm.description,
+              descriptionHash: hashDescription(fm.description),
+              tags: [],
+              trustLevel: "unverified",
+              source: "cowork",
+              sourcePath: skillMd,
+            });
+          }
         }
       }
     }
@@ -315,8 +354,17 @@ function main(): void {
     return;
   }
 
-  writeAtomic(OUTPUT, JSON.stringify(index, null, 2) + "\n");
+  const payload = JSON.stringify(index, null, 2) + "\n";
+  writeAtomic(OUTPUT, payload);
   console.log(`[skill-index] wrote ${path.relative(PROJECT_ROOT, OUTPUT)}`);
+
+  // R-4: SHA-256 integrity hash for hook verification.
+  const hashHex = crypto.createHash("sha256").update(payload).digest("hex");
+  writeAtomic(OUTPUT_HASH, hashHex + "\n");
+  console.log(
+    `[skill-index] wrote ${path.relative(PROJECT_ROOT, OUTPUT_HASH)} (sha256=${hashHex.slice(0, 16)}…)`,
+  );
+
   if (!gateG1) process.exitCode = 2;
 }
 
