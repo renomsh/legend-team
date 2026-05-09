@@ -77,7 +77,9 @@
       "fromTopic": "pd-057-grade-review",
       "createdAt": "2026-05-09",
       "item": "session-end-finalize.js — pendingDeferralsResolved 전파 누락. current_session.pendingDeferralsResolved 배열을 읽어 pending_deferrals.json status를 resolved로 갱신하는 로직 추가 필요. session_216 종료 시 PD-057 미전파로 발견.",
-      "status": "pending"
+      "status": "resolved",
+      "resolvedAt": "2026-05-09",
+      "resolvedBy": "session_219"
     },
     {
       "id": "PD-071",
