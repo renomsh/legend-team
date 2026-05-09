@@ -62,6 +62,12 @@
       "port": 8098
     }
     ,{
+      "name": "kind-mayer-preview",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "C:/Projects/legend-team/.claude/worktrees/kind-mayer-8c9ab2/dist", "-p", "8099", "-c-1"],
+      "port": 8099
+    }
+    ,{
       "name": "vr-host",
       "runtimeExecutable": "npx",
       "runtimeArgs": ["http-server", "C:/Projects/legend-team/dist", "-p", "8788", "-c-1"],
