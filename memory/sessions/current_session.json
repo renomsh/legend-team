@@ -1,18 +1,19 @@
 {
-  "sessionId": "session_224",
+  "sessionId": "session_225",
   "topicId": "topic_190",
   "topic": "스킬 훅 자동 발동 구현",
   "topicSlug": "skill-hook-auto-trigger",
   "reportPath": "reports/2026-05-09_skill-hook-auto-trigger",
   "status": "closed",
-  "startedAt": "2026-05-09T11:00:00.000Z",
-  "closedAt": "2026-05-09T12:00:00.000Z",
-  "oneLineSummary": "Plugin skill 자동발동: BLOCK 폐기 → RECOMMEND 전환 (D-176/D-177), PD-068 in-progress, UserPromptSubmit hook 명세 확정",
+  "startedAt": "2026-05-09T12:00:00.000Z",
+  "closedAt": "2026-05-09T13:00:00.000Z",
+  "oneLineSummary": "Phase 1 feasibility 갭 발견 — cowork ~140 skill 디스크 부재, 옵션 A/B/C Master 결정 보류",
+  "notes": "Edi가 session_224 edi_rev1.md를 덮어쓴 사고 발생 → git에서 rev1 복구, 본 세션 보고서는 edi_rev2.md로 저장.",
   "mode": "observation",
   "grade": "A",
   "topicType": "framing",
-  "operationType": "discussion",
-  "phase": "synthesis",
+  "operationType": "structured",
+  "phase": "implementation",
   "framingLevel": 0,
   "framingSkipped": true,
   "relatedPD": [
@@ -20,164 +21,66 @@
   ],
   "turns": [
     {
-      "role": "jobs",
+      "role": "zero",
       "turnIdx": 0,
       "source": "agent",
       "selfScores": {
-        "focus_sharp": 5,
-        "bloat_idx": 2,
-        "bias_cnt": 3,
-        "no_cnt": 5
+        "ref_cnt": 1,
+        "hc_found": 0,
+        "cln_rt": 1
       }
     },
     {
-      "role": "arki",
+      "role": "edi",
       "turnIdx": 1,
-      "source": "agent"
-    },
-    {
-      "role": "riki",
-      "turnIdx": 2,
-      "source": "agent"
-    },
-    {
-      "role": "fin",
-      "turnIdx": 3,
-      "source": "agent"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 4,
-      "source": "agent"
-    },
-    {
-      "role": "jobs",
-      "turnIdx": 5,
-      "source": "agent"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 6,
-      "source": "agent"
-    },
-    {
-      "role": "riki",
-      "turnIdx": 7,
-      "source": "agent"
-    },
-    {
-      "role": "fin",
-      "turnIdx": 8,
-      "source": "agent"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 9,
-      "source": "agent"
-    },
-    {
-      "role": "edi",
-      "turnIdx": 10,
-      "source": "agent"
-    },
-    {
-      "role": "zero",
-      "turnIdx": 11,
-      "source": "agent"
-    },
-    {
-      "role": "edi",
-      "turnIdx": 12,
       "source": "agent",
       "selfScores": {
         "scc": "Y",
-        "cs_cnt": 4,
+        "cs_cnt": 0,
         "art_cmp": 1,
-        "gap_fc": 4,
-        "gp_acc": 0.85,
-        "versionBumpSuggested": "{to: \"1.620\", reason: \"D-176/D-177 결정 박제 (capacity +0.01)\"}"
+        "gap_fc": 2,
+        "gp_acc": 0.9,
+        "versionBumpSuggested": "null"
       }
     }
   ],
-  "decisions": [
-    "D-176",
-    "D-177"
-  ],
-  "masterDecisions": [
-    "자동화 대상 = plugin skill ~150+ (레전드팀 12개 제외)",
-    "BLOCK 방식 폐기 → RECOMMEND 전환",
-    "추천 빈도 = 매 프롬프트 조용히 평가",
-    "출력 = 표 top-3 + skill 역할 1줄 + '추천 보여주지마' 영구 제외",
-    "1차 PoC = 인덱스 수집부터 직렬",
-    "Riki ROI 가설 검증 기각 — Master 직접 사용 후 결정",
-    "폐기 임계 박제 불필요 — Master 가름마"
-  ],
-  "decisionsAdded": [
-    "D-176",
-    "D-177"
-  ],
-  "masterFeedback": [
-    {
-      "phase": "blind-parallel",
-      "feedback": "PD-068 의도 명확화: 자동화 대상은 plugin skill (anthropic-skills, data, engineering 등 ~150+)이지 레전드팀 자체 12개가 아님",
-      "directive": "기존 BLOCK 방식 분석 무효화, plugin recommend 방식으로 재설계"
-    }
-  ],
+  "decisions": [],
+  "masterDecisions": [],
+  "decisionsAdded": [],
+  "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
-  "pendingDeferralsTransitioned": [
-    {
-      "id": "PD-068",
-      "from": "pending",
-      "to": "in-progress"
-    }
-  ],
-  "versionBump": {
-    "to": "1.620",
-    "from": "1.619",
-    "reason": "D-176/D-177 결정 박제 (capacity +0.01)"
-  },
+  "pendingDeferralsTransitioned": [],
   "openMasterAlerts": [],
   "agentsCompleted": [
-    "jobs",
-    "arki",
-    "riki",
-    "fin",
-    "ace",
-    "jobs",
-    "arki",
-    "riki",
-    "fin",
-    "ace",
-    "edi",
     "zero",
     "edi"
   ],
-  "tokenUsage": {
-    "input_tokens": 4253,
-    "output_tokens": 335796,
-    "cache_creation_input_tokens": 434200,
-    "cache_read_input_tokens": 11825495,
-    "messageCount": 101,
-    "masterTurns": 20,
-    "total_billable": 12599744
+  "carryOver": {
+    "fromSession": "session_224",
+    "decisions": [
+      "D-176",
+      "D-177"
+    ],
+    "phase1_target": "scripts/build-plugin-skill-index.ts + memory/shared/plugin_skill_index.json",
+    "gateG1": "인덱싱 skill ≥100건 + descriptionHash 안정"
   },
   "gaps": [
     {
-      "type": "missing-report",
-      "role": "edi",
-      "turnIdx": 10,
-      "reportPath": "reports/2026-05-09_skill-hook-auto-trigger",
-      "detectedAt": "2026-05-09T10:50:01.604Z",
-      "note": "edi turn10 완료 후 reports/edi_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+      "type": "frontmatter-patch-failed",
+      "role": "zero",
+      "turnIdx": 0,
+      "reportsPath": "reports/2026-05-09_skill-hook-auto-trigger/condensed_session225.md",
+      "detectedAt": "2026-05-09T11:20:31.025Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-09_skill-hook-auto-trigger/condensed_session225.md"
     },
     {
       "type": "missing-report",
       "role": "zero",
-      "turnIdx": 11,
+      "turnIdx": 0,
       "reportPath": "reports/2026-05-09_skill-hook-auto-trigger",
-      "detectedAt": "2026-05-09T10:52:36.325Z",
-      "note": "zero turn11 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+      "detectedAt": "2026-05-09T11:20:31.033Z",
+      "note": "zero turn0 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
     },
     {
       "type": "inline-role-header-missing-frontmatter",
@@ -228,15 +131,22 @@
       "file": "reports/2026-05-09_skill-hook-auto-trigger/condensed.md"
     },
     {
-      "type": "version-bump-unverified",
-      "sessionId": "session_224",
-      "attempted": {
-        "to": "1.620",
-        "from": "1.619",
-        "reason": "D-176/D-177 결정 박제 (capacity +0.01)"
-      },
-      "note": "confirmedBy !== edi/nexus 또는 confirmedAt 부재 — project_charter 미반영"
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-09_skill-hook-auto-trigger/condensed_session225.md"
+    },
+    {
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-09_skill-hook-auto-trigger/edi_rev1.md"
     }
   ],
-  "finalizedAt": "2026-05-09T11:00:01.669Z"
+  "tokenUsage": {
+    "input_tokens": 149,
+    "output_tokens": 35225,
+    "cache_creation_input_tokens": 266422,
+    "cache_read_input_tokens": 5424672,
+    "messageCount": 66,
+    "masterTurns": 9,
+    "total_billable": 5726468
+  },
+  "finalizedAt": "2026-05-09T11:23:28.774Z"
 }

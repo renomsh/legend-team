@@ -10508,8 +10508,48 @@
         "D-176",
         "D-177"
       ]
+    },
+    {
+      "sessionId": "session_225",
+      "topicSlug": "skill-hook-auto-trigger",
+      "topic": "스킬 훅 자동 발동 구현",
+      "startedAt": "2026-05-09T12:00:00.000Z",
+      "closedAt": "2026-05-09T13:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\distracted-bouman-2b7b71",
+      "agentsCompleted": [
+        "zero",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "zero",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 1,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 1,
+          "source": "agent",
+          "selfScores": {
+            "scc": "Y",
+            "cs_cnt": 0,
+            "art_cmp": 1,
+            "gap_fc": 2,
+            "gp_acc": 0.9,
+            "versionBumpSuggested": "null"
+          }
+        }
+      ],
+      "grade": "A",
+      "oneLineSummary": "Phase 1 feasibility 갭 발견 — cowork ~140 skill 디스크 부재, 옵션 A/B/C Master 결정 보류",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-09T10:59:46.954Z",
+  "lastUpdated": "2026-05-09T11:23:00.426Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

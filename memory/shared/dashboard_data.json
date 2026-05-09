@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-09T11:00:08.153Z",
-  "totalSessions": 220,
+  "generatedAt": "2026-05-09T11:23:43.986Z",
+  "totalSessions": 221,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 220
+      "undefined": 221
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -16,15 +16,15 @@
     "archiveCount": 0
   },
   "metrics": {
-    "avgMasterTurns": 21.24,
-    "avgCacheHitRate": 0.9325,
-    "cacheSampleSize": 190,
-    "cacheSampleTotal": 220,
+    "avgMasterTurns": 21.18,
+    "avgCacheHitRate": 0.9326,
+    "cacheSampleSize": 191,
+    "cacheSampleTotal": 221,
     "avgAdoptionRate": 0,
     "totalDecisions": 180,
     "gradeDistribution": {
       "S": 101,
-      "A": 44,
+      "A": 45,
       "B": 47,
       "C": 28
     },
@@ -42,10 +42,10 @@
       "session_202"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 174,
-    "totalCostUSD": 2609.9486,
-    "avgCostPerSession": 12.3694,
-    "costSampleSize": 211,
+    "turnBasedSessions": 175,
+    "totalCostUSD": 2613.1039,
+    "avgCostPerSession": 12.326,
+    "costSampleSize": 212,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -8379,8 +8379,8 @@
       ],
       "rolesCalled": 13,
       "rolesRecalled": 6,
-      "sessionsSpanned": 1,
-      "size": 32,
+      "sessionsSpanned": 2,
+      "size": 35,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -8413,12 +8413,46 @@
         "messageCount": 101
       },
       "sessionCostUSD": 10.2256
+    },
+    {
+      "sessionId": "session_225",
+      "topicSlug": "skill-hook-auto-trigger",
+      "topic": "스킬 훅 자동 발동 구현",
+      "startedAt": "2026-05-09T12:00:00.000Z",
+      "closedAt": "2026-05-09T13:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 2,
+      "size": 8,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 9,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "zero",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 5726468,
+        "ioTokens": 35374,
+        "inputTokens": 149,
+        "outputTokens": 35225,
+        "cacheCreate": 266422,
+        "cacheRead": 5424672,
+        "cacheHitRate": 0.9472980552759572,
+        "messageCount": 66
+      },
+      "sessionCostUSD": 3.1553
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 193,
+      "count": 194,
       "sessions": [
         "session_050",
         "session_051",
@@ -8590,7 +8624,8 @@
         "session_221",
         "session_222",
         "session_223",
-        "session_224"
+        "session_224",
+        "session_225"
       ]
     },
     {
@@ -8979,7 +9014,7 @@
     },
     {
       "role": "zero",
-      "count": 38,
+      "count": 39,
       "sessions": [
         "session_153",
         "session_175",
@@ -9005,7 +9040,8 @@
         "session_215",
         "session_216",
         "session_222",
-        "session_224"
+        "session_224",
+        "session_225"
       ]
     },
     {
@@ -15477,6 +15513,24 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 12,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_225",
+      "topic": "스킬 훅 자동 발동 구현",
+      "sequence": [
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 1,
           "recallReason": null
         }
       ]
