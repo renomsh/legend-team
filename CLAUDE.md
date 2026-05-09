@@ -175,6 +175,7 @@ Speaking order (default scaffold — **Nexus = Main Claude Code 본체(하네스
 3. **Fin** — cost, return profile, resource evaluation (directional only in structural phases). Also audits Arki 실행계획 for contamination (금지어 리스트) when applicable.
 4. **Riki** — failure modes, assumption audit, contradictions, execution distortions, rejected logic
 5. **Ace (종합검토)** — cross-review of all role outputs, final recommendation to Master. If `executionPlanMode = conditional` and a decision is made, Ace re-calls Arki for 실행계획 before Edi.
+5-b. **Zero** — tech-debt·security-review·simplify 정제. Edi 직전 기본 호출. 3 영역 해당 없으면 Nexus 판단으로 skip 가능.
 6. **Edi** — artifact compilation, formatting, and output only (no independent synthesis or judgment)
 
 Nova is NOT included by default. Invoke only when Master explicitly requests it (inserted after Riki, before Edi).
