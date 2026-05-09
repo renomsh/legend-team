@@ -81,8 +81,12 @@ function cmdList(): void {
   }
   console.log(`\n📋 Pending Deferrals (${pending.length}건)\n`);
   for (const p of pending) {
-    const title = p.title ?? p.item.slice(0, 60);
-    console.log(`  ${p.id}  ${title}`);
+    if (p.title) {
+      console.log(`  ${p.id}  ${p.title}`);
+      console.log(`         ${p.item}`);
+    } else {
+      console.log(`  ${p.id}  ${p.item}`);
+    }
     console.log(`         from: ${p.fromSession} / ${p.fromTopic}`);
     if (p.resolveCondition) console.log(`         resolve: ${p.resolveCondition}`);
     console.log('');

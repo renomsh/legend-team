@@ -33,4 +33,5 @@ npx ts-node scripts/manage-pd.ts rm <ID>
 
 ## 출력
 
-스크립트 stdout을 그대로 보여준다. 추가 해설 없음.
+- **list**: 스크립트 결과를 인라인 마크다운으로 포맷해서 응답에 직접 표시한다. 각 항목은 `**PD-NNN** 제목` 형식, from은 코드 블록.
+- **add / rm**: 스크립트 stdout을 그대로 보여준다.

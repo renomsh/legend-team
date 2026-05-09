@@ -87,7 +87,21 @@
       "fromTopic": "c-indicator-display-change",
       "createdAt": "2026-05-09",
       "item": "Nexus 직접 작업(Agent 툴 미경유) 시 turns[] 미기록 문제. 현재 turn push 흐름은 Agent 호출 → pending_turns → pushTurnsFromPending()만 커버. Nexus가 직접 파일 수정·커밋·답변 등 작업한 세션은 turns[] 빈 채로 종료됨. 수정 방향: session-end-finalize.js에서 turns[] 비어있을 때 {role:'nexus', source:'direct'} 1건 자동 삽입(방법 A) 검토.",
-      "status": "pending"
+      "status": "resolved",
+      "resolvedAt": "2026-05-09",
+      "resolvedBy": "session_220",
+      "resolveNote": "session-end-finalize.js에 ensureNexusTurnIfDirectWork() 추가 — turns[] 비어있을 때 {role:'nexus', source:'direct'} 1건 자동 삽입. syntax OK + 동작 테스트 pass."
+    },
+    {
+      "id": "PD-072",
+      "fromSession": "session_220",
+      "fromTopic": "pd-071-nexus-direct-turns-insert",
+      "createdAt": "2026-05-09",
+      "title": "Grade C 세션 Edi lite 호출 — 기록 품질 개선",
+      "item": "Grade C 세션은 현재 mechanical fallback(edi_auto_rev1.md)만 생성되어 session_contributions에 복사되지 않음. reasoning layer(결정 이유·맥락) 누락으로 토픽 history 품질 저하. 해결 방향: /close skill에서 Grade C일 때도 Edi lite(무슨 일 했는지 + 결정 이유 한 줄씩, 1-page 포맷) Agent 호출하도록 close.md 수정. Zero 추가 불필요(기록 목적, 품질 검토 아님).",
+      "status": "pending",
+      "dependsOn": [],
+      "relatedDecisions": []
     }
   ]
 }

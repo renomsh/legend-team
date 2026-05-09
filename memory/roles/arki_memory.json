@@ -262,6 +262,10 @@
     {
       "session": "session_216",
       "learning": "blast_radius(컴포넌트 레이어 종류 수)가 B vs C 경계 단일 기준으로 채택됨. 5종 subjectType은 dispatch 기준 아님 — 출력 레이블로만 사용. 2축 판정이 판별 인터페이스."
+    },
+    {
+      "session": "session_220",
+      "learning": "turns[] 채우기 경로는 Agent 툴 경유만 커버. Nexus 직접 작업(Edit/Write/Bash 직접) 세션은 pending_turns를 거치지 않아 turns[] 비어있음. hook 구조 분석 시 '데이터 흐름 경로 다수 존재' 가능성을 선제 확인해야 단단한 진단이 됨."
     }
   ],
   "selfAuditProtocol": {

@@ -10249,8 +10249,38 @@
       "grade": "C",
       "oneLineSummary": "PD-070 resolved: session-end-finalize.js pending_deferrals.json SOT 갱신 블록 추가",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_220",
+      "topicSlug": "pd-071-nexus-direct-turns-insert",
+      "topic": "PD-071 구현 — Nexus 직접작업 turns[] 자동삽입",
+      "startedAt": "2026-05-09T05:00:00.000Z",
+      "closedAt": "2026-05-09T07:25:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "nexus",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "nexus",
+          "turnIdx": 0,
+          "source": "direct",
+          "phase": "execution",
+          "_autoInserted": true,
+          "_ref": "PD-071"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 1,
+          "phase": "compile"
+        }
+      ],
+      "grade": "B",
+      "oneLineSummary": "PD-071 resolved: ensureNexusTurnIfDirectWork 추가(turns[] 자동삽입). PD-072 등록(Grade C Edi lite)",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-09T01:37:42.230Z",
+  "lastUpdated": "2026-05-09T07:22:07.941Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

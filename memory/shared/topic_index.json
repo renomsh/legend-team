@@ -1,6 +1,23 @@
 {
   "topics": [
     {
+      "id": "topic_186",
+      "title": "PD-071 구현 — Nexus 직접작업 turns[] 자동삽입",
+      "status": "completed",
+      "phase": "framing",
+      "grade": "B",
+      "topicType": "standalone",
+      "hold": null,
+      "created": "2026-05-09",
+      "controlPath": "topics/topic_186",
+      "reportPath": "reports/2026-05-09_pd-071-nexus-direct-turns-insert",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_220",
+      "path": "topics/topic_186",
+      "lastUpdated": "2026-05-09"
+    },
+    {
       "id": "topic_185",
       "title": "PD-070 구현 — session-end-finalize.js pendingDeferralsResolved 전파",
       "status": "completed",
@@ -3522,5 +3539,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-09T01:37:54.984Z"
+  "lastUpdated": "2026-05-09T07:22:15.998Z"
 }

@@ -1,15 +1,15 @@
 {
-  "sessionId": "session_219",
-  "topicId": "topic_185",
-  "topic": "PD-070 구현 — session-end-finalize.js pendingDeferralsResolved 전파",
-  "topicSlug": "pd-070-finalize-pending-resolved",
-  "reportPath": "reports/2026-05-09_pd-070-finalize-pending-resolved",
+  "sessionId": "session_220",
+  "topicId": "topic_186",
+  "topic": "PD-071 구현 — Nexus 직접작업 turns[] 자동삽입",
+  "topicSlug": "pd-071-nexus-direct-turns-insert",
+  "reportPath": "reports/2026-05-09_pd-071-nexus-direct-turns-insert",
   "status": "closed",
-  "startedAt": "2026-05-09T01:40:00.000Z",
-  "closedAt": "2026-05-09T01:50:00.000Z",
-  "oneLineSummary": "PD-070 resolved: session-end-finalize.js pending_deferrals.json SOT 갱신 블록 추가",
+  "startedAt": "2026-05-09T05:00:00.000Z",
+  "closedAt": "2026-05-09T07:25:00.000Z",
+  "oneLineSummary": "PD-071 resolved: ensureNexusTurnIfDirectWork 추가(turns[] 자동삽입). PD-072 등록(Grade C Edi lite)",
   "mode": "observation",
-  "grade": "C",
+  "grade": "B",
   "topicType": "standalone",
   "operationType": "structured",
   "framingLevel": 0,
@@ -17,8 +17,16 @@
   "phase": "framing",
   "turns": [
     {
-      "role": "edi",
+      "role": "nexus",
       "turnIdx": 0,
+      "source": "direct",
+      "phase": "execution",
+      "_autoInserted": true,
+      "_ref": "PD-071"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 1,
       "phase": "compile"
     }
   ],
@@ -26,23 +34,22 @@
   "masterDecisions": [],
   "decisionsAdded": [],
   "masterFeedback": [],
-  "pendingDeferralsAdded": [],
+  "pendingDeferralsAdded": [
+    "PD-072"
+  ],
   "pendingDeferralsResolved": [
-    "PD-070"
+    "PD-071"
   ],
   "openMasterAlerts": [],
-  "gaps": [
-    {
-      "type": "no-report-files",
-      "note": "Grade C 세션 — Edi LLM 미호출, report 파일 없음. session-log audit 경고 발생 (known pattern)."
-    },
-    {
-      "type": "mechanical-fallback-graded",
-      "sessionId": "session_219",
-      "grade": "C",
-      "severity": "info"
-    }
-  ],
+  "versionBump": {
+    "value": 0.01,
+    "type": "capacity",
+    "reason": "역량 확장: session-end-finalize.js ensureNexusTurnIfDirectWork 추가 (PD-071)",
+    "from": "v1.589",
+    "to": "1.599",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-09T07:19:40.000Z"
+  },
   "tokenUsage": {
     "input_tokens": 229,
     "output_tokens": 79537,
@@ -53,38 +60,25 @@
     "total_billable": 9048923
   },
   "agentsCompleted": [
+    "nexus",
     "edi"
   ],
-  "versionBumpSuggested": {
-    "value": 0.01,
-    "type": "capacity",
-    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/session-end-finalize.js)",
-    "autoDetectedAt": "2026-05-09T01:38:02.711Z",
-    "changedFiles": [
-      ".claude/hooks/session-end-finalize.js",
-      "logs/hook-diagnostics.log",
-      "logs/master-first.log",
-      "memory/sessions/current_session.json",
-      "memory/sessions/session_index.json",
-      "memory/sessions/token_log.json",
-      "memory/shared/pending_deferrals.json",
-      "memory/shared/system_state.json",
-      "memory/shared/topic_index.json",
-      "topics/topic_185/"
-    ],
-    "changedFilesCount": 10,
-    "cappedAt": 0.1,
-    "confirmedBy": "nexus"
-  },
-  "versionBump": {
-    "value": 0.01,
-    "type": "capacity",
-    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/session-end-finalize.js)",
-    "from": "v1.579",
-    "to": "0.010",
-    "confirmedBy": "nexus",
-    "confirmedAt": "2026-05-09T01:38:02.711Z",
-    "autoDetectedAt": "2026-05-09T01:38:02.711Z"
-  },
-  "finalizedAt": "2026-05-09T01:38:06.098Z"
+  "gaps": [
+    {
+      "type": "turn-not-found",
+      "file": "reports/2026-05-09_pd-071-nexus-direct-turns-insert/zero_condense.md",
+      "turnId": 2,
+      "note": "frontmatter turnId가 turns[]에 존재하지 않음"
+    },
+    {
+      "type": "edi-agent-source-missing",
+      "sessionId": "session_220",
+      "grade": "B",
+      "severity": "high",
+      "detectedAt": "2026-05-09T07:22:07.931Z",
+      "note": "turns[]에 role=edi && source=agent turn 없음 — D-066(Grade A/S 서브에이전트 강제) + D4(hook 박제) 위반",
+      "ref": "D-138"
+    }
+  ],
+  "finalizedAt": "2026-05-09T07:22:22.603Z"
 }

@@ -1179,6 +1179,45 @@ function applyPendingDeferralsResolved(sess) {
 }
 
 /**
+ * PD-071 (session_220, topic_186, 2026-05-09) — Nexus 직접 작업 세션 turns[] 자동삽입.
+ *
+ * Agent 툴 미경유 Nexus 직접 작업(Edit/Write/Bash 직접, 인라인 답변)은
+ * pending_turns 경로를 거치지 않아 turns[]가 비어있는 채로 세션이 종료된다.
+ * joinOrphanPendingTurns 이후에도 turns[] 비어있으면 Nexus 직접 작업 세션으로 판단하고
+ * {role:'nexus', source:'direct'} 1건을 자동 삽입한다.
+ *
+ * 삽입 조건:
+ *   - sess.legacy !== true
+ *   - joinOrphanPendingTurns 이후에도 turns[] 비어있음
+ *
+ * 효과:
+ *   - agentsCompleted: ['edi'] → ['nexus', 'edi']
+ *   - session_index.turns 전파에 nexus turn 포함
+ */
+function ensureNexusTurnIfDirectWork(sess) {
+  if (sess.legacy === true) {
+    log('ensureNexusTurnIfDirectWork skip: legacy 세션');
+    return;
+  }
+  const turns = Array.isArray(sess.turns) ? sess.turns : [];
+  if (turns.length > 0) {
+    log(`ensureNexusTurnIfDirectWork skip: turns[]=${turns.length}건 이미 존재`);
+    return;
+  }
+  const nexusTurn = {
+    role: 'nexus',
+    turnIdx: 0,
+    source: 'direct',
+    phase: 'execution',
+    _autoInserted: true,
+    _ref: 'PD-071',
+  };
+  sess.turns = [nexusTurn];
+  writeJson(CURRENT_SESSION_PATH, sess);
+  log('ensureNexusTurnIfDirectWork: turns[] 비어있음 → nexus direct turn 자동 삽입 (PD-071)');
+}
+
+/**
  * D-169 P5 (session_209, topic_176, 2026-05-08) — Nexus crash recovery.
  *
  * turnPushMode='nexus' 세션 종료 시 pending_turns_{sessionId}.jsonl이 남아있으면
@@ -1811,6 +1850,7 @@ function runSyncSystemState() {
     }
 
     joinOrphanPendingTurns(sess); // D-169 P5: nexus crash recovery
+    ensureNexusTurnIfDirectWork(sess); // PD-071: Nexus 직접 작업 세션 turns[] 자동 삽입
     checkSelfScoreScale(sess);
     checkCommonPolicyCap(sess);
     ensureEdiInAgents(sess);

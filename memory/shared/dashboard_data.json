@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-09T01:54:55.142Z",
-  "totalSessions": 215,
+  "generatedAt": "2026-05-09T07:22:29.129Z",
+  "totalSessions": 216,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 215
+      "undefined": 216
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -16,22 +16,22 @@
     "archiveCount": 0
   },
   "metrics": {
-    "avgMasterTurns": 21.37,
-    "avgCacheHitRate": 0.9324,
-    "cacheSampleSize": 185,
-    "cacheSampleTotal": 215,
+    "avgMasterTurns": 23,
+    "avgCacheHitRate": 0.8946,
+    "cacheSampleSize": 1,
+    "cacheSampleTotal": 216,
     "avgAdoptionRate": 0,
     "totalDecisions": 178,
     "gradeDistribution": {
       "S": 100,
       "A": 43,
-      "B": 45,
+      "B": 46,
       "C": 27
     },
     "topicGradeDistribution": {
       "S": 20,
       "A": 60,
-      "B": 59,
+      "B": 60,
       "C": 41
     },
     "gradeMismatchCount": 4,
@@ -42,10 +42,10 @@
       "session_202"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 169,
-    "totalCostUSD": 2567.9697,
-    "avgCostPerSession": 12.4659,
-    "costSampleSize": 206,
+    "turnBasedSessions": 170,
+    "totalCostUSD": 6.8996,
+    "avgCostPerSession": 6.8996,
+    "costSampleSize": 1,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -151,19 +151,8 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 11,
-      "dataQuality": "manual",
-      "tokenUsage": {
-        "totalBillable": 5372893,
-        "ioTokens": 46077,
-        "inputTokens": 2832,
-        "outputTokens": 43245,
-        "cacheCreate": 203456,
-        "cacheRead": 5123360,
-        "cacheHitRate": 0.9535570501776232,
-        "messageCount": 91
-      },
-      "sessionCostUSD": 2.9571
+      "masterTurns": 0,
+      "dataQuality": "manual"
     },
     {
       "sessionId": "session_006",
@@ -180,19 +169,8 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 12,
-      "dataQuality": "manual",
-      "tokenUsage": {
-        "totalBillable": 3180568,
-        "ioTokens": 19555,
-        "inputTokens": 124,
-        "outputTokens": 19431,
-        "cacheCreate": 131508,
-        "cacheRead": 3029505,
-        "cacheHitRate": 0.9525043954413174,
-        "messageCount": 80
-      },
-      "sessionCostUSD": 1.6938
+      "masterTurns": 0,
+      "dataQuality": "manual"
     },
     {
       "sessionId": "session_007",
@@ -215,23 +193,12 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 7,
+      "masterTurns": 0,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 8579025,
-        "ioTokens": 45202,
-        "inputTokens": 5605,
-        "outputTokens": 39597,
-        "cacheCreate": 282668,
-        "cacheRead": 8251155,
-        "cacheHitRate": 0.9617823703742558,
-        "messageCount": 139
-      },
-      "sessionCostUSD": 4.1461
+      ]
     },
     {
       "sessionId": "session_008",
@@ -248,23 +215,12 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 8,
+      "masterTurns": 0,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "ace",
         "arki"
-      ],
-      "tokenUsage": {
-        "totalBillable": 1718456,
-        "ioTokens": 13213,
-        "inputTokens": 88,
-        "outputTokens": 13125,
-        "cacheCreate": 232884,
-        "cacheRead": 1472359,
-        "cacheHitRate": 0.8567917944945929,
-        "messageCount": 42
-      },
-      "sessionCostUSD": 1.5122
+      ]
     },
     {
       "sessionId": "session_009",
@@ -281,7 +237,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 20,
+      "masterTurns": 0,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "ace",
@@ -289,18 +245,7 @@
         "fin",
         "riki",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 16407855,
-        "ioTokens": 55119,
-        "inputTokens": 6562,
-        "outputTokens": 48557,
-        "cacheCreate": 656058,
-        "cacheRead": 15696678,
-        "cacheHitRate": 0.9566563088228168,
-        "messageCount": 203
-      },
-      "sessionCostUSD": 7.9173
+      ]
     },
     {
       "sessionId": "session_010",
@@ -317,22 +262,11 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 20,
+      "masterTurns": 0,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 16407855,
-        "ioTokens": 55119,
-        "inputTokens": 6562,
-        "outputTokens": 48557,
-        "cacheCreate": 656058,
-        "cacheRead": 15696678,
-        "cacheHitRate": 0.9566563088228168,
-        "messageCount": 203
-      },
-      "sessionCostUSD": 7.9173
+      ]
     },
     {
       "sessionId": "session_011",
@@ -352,25 +286,14 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 14,
+      "masterTurns": 0,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "arki",
         "riki",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 3875975,
-        "ioTokens": 22628,
-        "inputTokens": 121,
-        "outputTokens": 22507,
-        "cacheCreate": 405680,
-        "cacheRead": 3447667,
-        "cacheHitRate": 0.8894967072801038,
-        "messageCount": 82
-      },
-      "sessionCostUSD": 2.8936
+      ]
     },
     {
       "sessionId": "session_012",
@@ -390,7 +313,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 22,
+      "masterTurns": 0,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "ace",
@@ -398,18 +321,7 @@
         "fin",
         "riki",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 6598910,
-        "ioTokens": 35581,
-        "inputTokens": 8109,
-        "outputTokens": 27472,
-        "cacheCreate": 370373,
-        "cacheRead": 6192956,
-        "cacheHitRate": 0.9384816583344825,
-        "messageCount": 111
-      },
-      "sessionCostUSD": 3.6832
+      ]
     },
     {
       "sessionId": "session_013",
@@ -449,24 +361,13 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 18,
+      "masterTurns": 0,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "ace",
         "edi",
         "nova"
-      ],
-      "tokenUsage": {
-        "totalBillable": 9332346,
-        "ioTokens": 60715,
-        "inputTokens": 6607,
-        "outputTokens": 54108,
-        "cacheCreate": 332889,
-        "cacheRead": 8938742,
-        "cacheHitRate": 0.9578236812051332,
-        "messageCount": 109
-      },
-      "sessionCostUSD": 4.7614
+      ]
     },
     {
       "sessionId": "session_015",
@@ -483,24 +384,13 @@
       "gradeActual": "A",
       "gradeMismatch": true,
       "framingSkipped": false,
-      "masterTurns": 22,
+      "masterTurns": 0,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "arki",
         "edi",
         "nova"
-      ],
-      "tokenUsage": {
-        "totalBillable": 21864665,
-        "ioTokens": 61965,
-        "inputTokens": 3800,
-        "outputTokens": 58165,
-        "cacheCreate": 701541,
-        "cacheRead": 21101159,
-        "cacheHitRate": 0.9650803705430657,
-        "messageCount": 216
-      },
-      "sessionCostUSD": 9.845
+      ]
     },
     {
       "sessionId": "session_016",
@@ -517,7 +407,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 24,
+      "masterTurns": 0,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "ace",
@@ -525,18 +415,7 @@
         "fin",
         "riki",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 14757847,
-        "ioTokens": 211458,
-        "inputTokens": 7730,
-        "outputTokens": 203728,
-        "cacheCreate": 1631437,
-        "cacheRead": 12914952,
-        "cacheHitRate": 0.8751243999209369,
-        "messageCount": 120
-      },
-      "sessionCostUSD": 13.0715
+      ]
     },
     {
       "sessionId": "session_017",
@@ -553,22 +432,11 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 26,
+      "masterTurns": 0,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 11321676,
-        "ioTokens": 149453,
-        "inputTokens": 335,
-        "outputTokens": 149118,
-        "cacheCreate": 1720649,
-        "cacheRead": 9451574,
-        "cacheHitRate": 0.834821098925636,
-        "messageCount": 116
-      },
-      "sessionCostUSD": 11.5257
+      ]
     },
     {
       "sessionId": "session_018",
@@ -591,24 +459,13 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 10,
+      "masterTurns": 0,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "edi",
         "ace",
         "arki"
-      ],
-      "tokenUsage": {
-        "totalBillable": 3687949,
-        "ioTokens": 43934,
-        "inputTokens": 131,
-        "outputTokens": 43803,
-        "cacheCreate": 411230,
-        "cacheRead": 3232785,
-        "cacheHitRate": 0.8765807227811447,
-        "messageCount": 46
-      },
-      "sessionCostUSD": 3.1694
+      ]
     },
     {
       "sessionId": "session_019",
@@ -628,23 +485,12 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 21,
+      "masterTurns": 0,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "edi",
         "ace"
-      ],
-      "tokenUsage": {
-        "totalBillable": 9499713,
-        "ioTokens": 25447,
-        "inputTokens": 166,
-        "outputTokens": 25281,
-        "cacheCreate": 1093883,
-        "cacheRead": 8380383,
-        "cacheHitRate": 0.8821722298347329,
-        "messageCount": 105
-      },
-      "sessionCostUSD": 6.9959
+      ]
     },
     {
       "sessionId": "session_020",
@@ -664,23 +510,12 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 48,
+      "masterTurns": 0,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "edi",
         "dev"
-      ],
-      "tokenUsage": {
-        "totalBillable": 28749668,
-        "ioTokens": 81248,
-        "inputTokens": 3181,
-        "outputTokens": 78067,
-        "cacheCreate": 1647520,
-        "cacheRead": 27020900,
-        "cacheHitRate": 0.9398682447393827,
-        "messageCount": 340
-      },
-      "sessionCostUSD": 15.465
+      ]
     },
     {
       "sessionId": "session_021",
@@ -697,22 +532,11 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 6,
+      "masterTurns": 0,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 6497689,
-        "ioTokens": 18549,
-        "inputTokens": 129,
-        "outputTokens": 18420,
-        "cacheCreate": 1016767,
-        "cacheRead": 5462373,
-        "cacheHitRate": 0.8406639652959691,
-        "messageCount": 93
-      },
-      "sessionCostUSD": 5.7283
+      ]
     },
     {
       "sessionId": "session_022",
@@ -729,22 +553,11 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 18,
+      "masterTurns": 0,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 7646816,
-        "ioTokens": 34977,
-        "inputTokens": 155,
-        "outputTokens": 34822,
-        "cacheCreate": 687995,
-        "cacheRead": 6923844,
-        "cacheHitRate": 0.9054545055092211,
-        "messageCount": 97
-      },
-      "sessionCostUSD": 5.1799
+      ]
     },
     {
       "sessionId": "session_023",
@@ -761,22 +574,11 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 11,
+      "masterTurns": 0,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 10676683,
-        "ioTokens": 48681,
-        "inputTokens": 170,
-        "outputTokens": 48511,
-        "cacheCreate": 284635,
-        "cacheRead": 10343367,
-        "cacheHitRate": 0.9687809406723044,
-        "messageCount": 121
-      },
-      "sessionCostUSD": 4.8986
+      ]
     },
     {
       "sessionId": "session_024",
@@ -796,24 +598,13 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 43,
+      "masterTurns": 0,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "ace",
         "fin",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 36066355,
-        "ioTokens": 173177,
-        "inputTokens": 643,
-        "outputTokens": 172534,
-        "cacheCreate": 1380697,
-        "cacheRead": 34512481,
-        "cacheHitRate": 0.9569162450710642,
-        "messageCount": 406
-      },
-      "sessionCostUSD": 18.1213
+      ]
     },
     {
       "sessionId": "session_025",
@@ -834,22 +625,11 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 17,
+      "masterTurns": 0,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 7148400,
-        "ioTokens": 42201,
-        "inputTokens": 201,
-        "outputTokens": 42000,
-        "cacheCreate": 772401,
-        "cacheRead": 6333798,
-        "cacheHitRate": 0.886044149739802,
-        "messageCount": 103
-      },
-      "sessionCostUSD": 5.4272
+      ]
     },
     {
       "sessionId": "session_026",
@@ -867,23 +647,12 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 17,
+      "masterTurns": 0,
       "dataQuality": "backfill",
       "agentsCompleted": [
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 7148400,
-        "ioTokens": 42201,
-        "inputTokens": 201,
-        "outputTokens": 42000,
-        "cacheCreate": 772401,
-        "cacheRead": 6333798,
-        "cacheHitRate": 0.886044149739802,
-        "messageCount": 103
-      },
-      "sessionCostUSD": 5.4272
+      ]
     },
     {
       "sessionId": "session_027",
@@ -906,19 +675,8 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 26,
-      "dataQuality": "auto",
-      "tokenUsage": {
-        "totalBillable": 12667688,
-        "ioTokens": 123301,
-        "inputTokens": 529,
-        "outputTokens": 122772,
-        "cacheCreate": 656925,
-        "cacheRead": 11887462,
-        "cacheHitRate": 0.9384081767722728,
-        "messageCount": 111
-      },
-      "sessionCostUSD": 7.8729
+      "masterTurns": 0,
+      "dataQuality": "auto"
     },
     {
       "sessionId": "session_028",
@@ -940,22 +698,11 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 42,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 41400594,
-        "ioTokens": 226513,
-        "inputTokens": 885,
-        "outputTokens": 225628,
-        "cacheCreate": 2012610,
-        "cacheRead": 39161471,
-        "cacheHitRate": 0.9459156793740688,
-        "messageCount": 454
-      },
-      "sessionCostUSD": 22.6828
+      ]
     },
     {
       "sessionId": "session_029",
@@ -973,22 +720,11 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 5,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 13407225,
-        "ioTokens": 73199,
-        "inputTokens": 444,
-        "outputTokens": 72755,
-        "cacheCreate": 704934,
-        "cacheRead": 12629092,
-        "cacheHitRate": 0.9419616661911768,
-        "messageCount": 173
-      },
-      "sessionCostUSD": 7.5249
+      ]
     },
     {
       "sessionId": "session_030",
@@ -1005,24 +741,13 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 26,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "vera",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 35518851,
-        "ioTokens": 368450,
-        "inputTokens": 635,
-        "outputTokens": 367815,
-        "cacheCreate": 2742954,
-        "cacheRead": 32407447,
-        "cacheHitRate": 0.9124013330273549,
-        "messageCount": 397
-      },
-      "sessionCostUSD": 25.5274
+      ]
     },
     {
       "sessionId": "session_031",
@@ -1040,7 +765,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 45,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -1050,18 +775,7 @@
         "ace-review",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 69003386,
-        "ioTokens": 384514,
-        "inputTokens": 20011,
-        "outputTokens": 364503,
-        "cacheCreate": 3445218,
-        "cacheRead": 65173654,
-        "cacheHitRate": 0.9444993612342444,
-        "messageCount": 597
-      },
-      "sessionCostUSD": 37.9992
+      ]
     },
     {
       "sessionId": "session_032",
@@ -1084,22 +798,11 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 39,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "Dev"
-      ],
-      "tokenUsage": {
-        "totalBillable": 52416796,
-        "ioTokens": 293865,
-        "inputTokens": 9203,
-        "outputTokens": 284662,
-        "cacheCreate": 2877844,
-        "cacheRead": 49245087,
-        "cacheHitRate": 0.9394905976321025,
-        "messageCount": 422
-      },
-      "sessionCostUSD": 29.863
+      ]
     },
     {
       "sessionId": "session_033",
@@ -1121,7 +824,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 12,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "Ace",
@@ -1130,18 +833,7 @@
         "Fin",
         "Riki",
         "Edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 27996556,
-        "ioTokens": 121254,
-        "inputTokens": 781,
-        "outputTokens": 120473,
-        "cacheCreate": 1404034,
-        "cacheRead": 26471268,
-        "cacheHitRate": 0.9455187273748957,
-        "messageCount": 302
-      },
-      "sessionCostUSD": 15.0159
+      ]
     },
     {
       "sessionId": "session_034",
@@ -1167,7 +859,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 49,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -1175,18 +867,7 @@
         "riki",
         "nova",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 60893038,
-        "ioTokens": 485527,
-        "inputTokens": 3285,
-        "outputTokens": 482242,
-        "cacheCreate": 2709606,
-        "cacheRead": 57697905,
-        "cacheHitRate": 0.9475287634688222,
-        "messageCount": 461
-      },
-      "sessionCostUSD": 34.7139
+      ]
     },
     {
       "sessionId": "session_035",
@@ -1204,22 +885,11 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 15,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "Dev"
-      ],
-      "tokenUsage": {
-        "totalBillable": 16441299,
-        "ioTokens": 62508,
-        "inputTokens": 225,
-        "outputTokens": 62283,
-        "cacheCreate": 898467,
-        "cacheRead": 15480324,
-        "cacheHitRate": 0.9415511511590416,
-        "messageCount": 155
-      },
-      "sessionCostUSD": 8.9483
+      ]
     },
     {
       "sessionId": "session_036",
@@ -1240,23 +910,12 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 12,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "Ace",
         "Dev"
-      ],
-      "tokenUsage": {
-        "totalBillable": 14040801,
-        "ioTokens": 141394,
-        "inputTokens": 31887,
-        "outputTokens": 109507,
-        "cacheCreate": 943815,
-        "cacheRead": 12955592,
-        "cacheHitRate": 0.922710321156179,
-        "messageCount": 130
-      },
-      "sessionCostUSD": 9.1642
+      ]
     },
     {
       "sessionId": "session_037",
@@ -1277,7 +936,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 12,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "Ace",
@@ -1288,18 +947,7 @@
         "Dev",
         "Vera",
         "Edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 9712667,
-        "ioTokens": 93582,
-        "inputTokens": 214,
-        "outputTokens": 93368,
-        "cacheCreate": 279775,
-        "cacheRead": 9339310,
-        "cacheHitRate": 0.9615597857931297,
-        "messageCount": 89
-      },
-      "sessionCostUSD": 5.2521
+      ]
     },
     {
       "sessionId": "session_038",
@@ -1320,7 +968,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 8,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "Ace",
@@ -1329,18 +977,7 @@
         "Vera",
         "Riki",
         "Edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 11994992,
-        "ioTokens": 93369,
-        "inputTokens": 5534,
-        "outputTokens": 87835,
-        "cacheCreate": 416022,
-        "cacheRead": 11485601,
-        "cacheHitRate": 0.95753302711665,
-        "messageCount": 115
-      },
-      "sessionCostUSD": 6.3399
+      ]
     },
     {
       "sessionId": "session_040",
@@ -1358,23 +995,12 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 25,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "dev"
-      ],
-      "tokenUsage": {
-        "totalBillable": 39843153,
-        "ioTokens": 317359,
-        "inputTokens": 605,
-        "outputTokens": 316754,
-        "cacheCreate": 2233968,
-        "cacheRead": 37291826,
-        "cacheHitRate": 0.9359657354426745,
-        "messageCount": 391
-      },
-      "sessionCostUSD": 24.3181
+      ]
     },
     {
       "sessionId": "session_041",
@@ -1395,7 +1021,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 17,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -1406,18 +1032,7 @@
         "edi",
         "arki-review",
         "editor-full"
-      ],
-      "tokenUsage": {
-        "totalBillable": 15726496,
-        "ioTokens": 211101,
-        "inputTokens": 30190,
-        "outputTokens": 180911,
-        "cacheCreate": 1221853,
-        "cacheRead": 14293542,
-        "cacheHitRate": 0.9088828178889945,
-        "messageCount": 89
-      },
-      "sessionCostUSD": 11.6742
+      ]
     },
     {
       "sessionId": "session_042",
@@ -1435,7 +1050,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 17,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -1444,18 +1059,7 @@
         "fin",
         "ace-review",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 29761321,
-        "ioTokens": 290234,
-        "inputTokens": 338,
-        "outputTokens": 289896,
-        "cacheCreate": 1063963,
-        "cacheRead": 28407124,
-        "cacheHitRate": 0.9544980883073033,
-        "messageCount": 141
-      },
-      "sessionCostUSD": 16.8615
+      ]
     },
     {
       "sessionId": "session_043",
@@ -1478,7 +1082,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 35,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -1489,18 +1093,7 @@
         "dev",
         "ace-review",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 54853620,
-        "ioTokens": 420146,
-        "inputTokens": 754,
-        "outputTokens": 419392,
-        "cacheCreate": 1047460,
-        "cacheRead": 53386014,
-        "cacheHitRate": 0.9732450474553913,
-        "messageCount": 244
-      },
-      "sessionCostUSD": 26.2369
+      ]
     },
     {
       "sessionId": "session_044",
@@ -1521,22 +1114,11 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 19,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev"
-      ],
-      "tokenUsage": {
-        "totalBillable": 19336313,
-        "ioTokens": 95793,
-        "inputTokens": 723,
-        "outputTokens": 95070,
-        "cacheCreate": 1219956,
-        "cacheRead": 18020564,
-        "cacheHitRate": 0.9319545044600799,
-        "messageCount": 181
-      },
-      "sessionCostUSD": 11.4092
+      ]
     },
     {
       "sessionId": "session_045",
@@ -1557,7 +1139,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 18,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -1572,18 +1154,7 @@
         "arki",
         "vera",
         "ace"
-      ],
-      "tokenUsage": {
-        "totalBillable": 10165334,
-        "ioTokens": 106895,
-        "inputTokens": 279,
-        "outputTokens": 106616,
-        "cacheCreate": 358221,
-        "cacheRead": 9700218,
-        "cacheHitRate": 0.954244887575755,
-        "messageCount": 96
-      },
-      "sessionCostUSD": 5.8535
+      ]
     },
     {
       "sessionId": "session_046",
@@ -1601,23 +1172,12 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 8,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "dev"
-      ],
-      "tokenUsage": {
-        "totalBillable": 9202102,
-        "ioTokens": 68374,
-        "inputTokens": 3266,
-        "outputTokens": 65108,
-        "cacheCreate": 701878,
-        "cacheRead": 8431850,
-        "cacheHitRate": 0.9162960810475693,
-        "messageCount": 162
-      },
-      "sessionCostUSD": 6.148
+      ]
     },
     {
       "sessionId": "session_047",
@@ -1635,23 +1195,12 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 5,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "dev"
-      ],
-      "tokenUsage": {
-        "totalBillable": 14154508,
-        "ioTokens": 80879,
-        "inputTokens": 220,
-        "outputTokens": 80659,
-        "cacheCreate": 792093,
-        "cacheRead": 13281536,
-        "cacheHitRate": 0.9383255143873599,
-        "messageCount": 189
-      },
-      "sessionCostUSD": 8.1654
+      ]
     },
     {
       "sessionId": "session_048",
@@ -1669,25 +1218,14 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 9,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "dev",
         "arki",
         "dev"
-      ],
-      "tokenUsage": {
-        "totalBillable": 6834750,
-        "ioTokens": 44440,
-        "inputTokens": 147,
-        "outputTokens": 44293,
-        "cacheCreate": 341868,
-        "cacheRead": 6448442,
-        "cacheHitRate": 0.9434788397527342,
-        "messageCount": 101
-      },
-      "sessionCostUSD": 3.8814
+      ]
     },
     {
       "sessionId": "session_049",
@@ -1708,7 +1246,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 16,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -1718,18 +1256,7 @@
         "vera",
         "ace",
         "arki"
-      ],
-      "tokenUsage": {
-        "totalBillable": 14459023,
-        "ioTokens": 154353,
-        "inputTokens": 382,
-        "outputTokens": 153971,
-        "cacheCreate": 1046834,
-        "cacheRead": 13257836,
-        "cacheHitRate": 0.9169247465752008,
-        "messageCount": 121
-      },
-      "sessionCostUSD": 10.2137
+      ]
     },
     {
       "sessionId": "session_050",
@@ -1747,23 +1274,12 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 6,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 2630496,
-        "ioTokens": 22469,
-        "inputTokens": 77,
-        "outputTokens": 22392,
-        "cacheCreate": 254690,
-        "cacheRead": 2353337,
-        "cacheHitRate": 0.8946362206975415,
-        "messageCount": 52
-      },
-      "sessionCostUSD": 1.9972
+      ]
     },
     {
       "sessionId": "session_051",
@@ -1781,24 +1297,13 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 7,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 6683452,
-        "ioTokens": 44693,
-        "inputTokens": 156,
-        "outputTokens": 44537,
-        "cacheCreate": 265917,
-        "cacheRead": 6372842,
-        "cacheHitRate": 0.9535255134622048,
-        "messageCount": 108
-      },
-      "sessionCostUSD": 3.5776
+      ]
     },
     {
       "sessionId": "session_052",
@@ -1819,7 +1324,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 2,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -1828,18 +1333,7 @@
         "vera",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 160333,
-        "ioTokens": 1826,
-        "inputTokens": 13,
-        "outputTokens": 1813,
-        "cacheCreate": 35186,
-        "cacheRead": 123321,
-        "cacheHitRate": 0.7691554452296159,
-        "messageCount": 5
-      },
-      "sessionCostUSD": 0.1962
+      ]
     },
     {
       "sessionId": "session_053",
@@ -1860,7 +1354,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 10,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -1872,18 +1366,7 @@
         "ace",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 4312254,
-        "ioTokens": 77793,
-        "inputTokens": 130,
-        "outputTokens": 77663,
-        "cacheCreate": 364691,
-        "cacheRead": 3869770,
-        "cacheHitRate": 0.897389161213602,
-        "messageCount": 48
-      },
-      "sessionCostUSD": 3.6939
+      ]
     },
     {
       "sessionId": "session_054",
@@ -1904,7 +1387,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 13,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -1915,18 +1398,7 @@
         "ace",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 5138559,
-        "ioTokens": 89057,
-        "inputTokens": 202,
-        "outputTokens": 88855,
-        "cacheCreate": 498051,
-        "cacheRead": 4551451,
-        "cacheHitRate": 0.8857446221790973,
-        "messageCount": 55
-      },
-      "sessionCostUSD": 4.5666
+      ]
     },
     {
       "sessionId": "session_055",
@@ -1944,24 +1416,13 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 16,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 7320867,
-        "ioTokens": 50125,
-        "inputTokens": 171,
-        "outputTokens": 49954,
-        "cacheCreate": 445190,
-        "cacheRead": 6825552,
-        "cacheHitRate": 0.9323420299808752,
-        "messageCount": 92
-      },
-      "sessionCostUSD": 4.467
+      ]
     },
     {
       "sessionId": "session_056",
@@ -1979,24 +1440,13 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 9,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 6928948,
-        "ioTokens": 40056,
-        "inputTokens": 130,
-        "outputTokens": 39926,
-        "cacheCreate": 648402,
-        "cacheRead": 6240490,
-        "cacheHitRate": 0.9006403280844365,
-        "messageCount": 90
-      },
-      "sessionCostUSD": 4.9029
+      ]
     },
     {
       "sessionId": "session_057",
@@ -2014,23 +1464,12 @@
       "gradeActual": "B",
       "gradeMismatch": true,
       "framingSkipped": false,
-      "masterTurns": 16,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 9801231,
-        "ioTokens": 84472,
-        "inputTokens": 170,
-        "outputTokens": 84302,
-        "cacheCreate": 432031,
-        "cacheRead": 9284728,
-        "cacheHitRate": 0.9473022317298715,
-        "messageCount": 146
-      },
-      "sessionCostUSD": 5.6706
+      ]
     },
     {
       "sessionId": "session_058",
@@ -2048,23 +1487,12 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 9,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 4424362,
-        "ioTokens": 34201,
-        "inputTokens": 113,
-        "outputTokens": 34088,
-        "cacheCreate": 305109,
-        "cacheRead": 4085052,
-        "cacheHitRate": 0.9233087166013992,
-        "messageCount": 77
-      },
-      "sessionCostUSD": 2.8813
+      ]
     },
     {
       "sessionId": "session_059",
@@ -2085,7 +1513,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 16,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -2095,18 +1523,7 @@
         "arki",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 7461024,
-        "ioTokens": 63403,
-        "inputTokens": 203,
-        "outputTokens": 63200,
-        "cacheCreate": 875618,
-        "cacheRead": 6522003,
-        "cacheHitRate": 0.874143147106885,
-        "messageCount": 96
-      },
-      "sessionCostUSD": 6.1888
+      ]
     },
     {
       "sessionId": "session_060",
@@ -2127,7 +1544,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 11,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -2138,18 +1555,7 @@
         "arki",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 13280887,
-        "ioTokens": 104805,
-        "inputTokens": 235,
-        "outputTokens": 104570,
-        "cacheCreate": 593416,
-        "cacheRead": 12582666,
-        "cacheHitRate": 0.9474266289593458,
-        "messageCount": 113
-      },
-      "sessionCostUSD": 7.5694
+      ]
     },
     {
       "sessionId": "session_061",
@@ -2167,25 +1573,14 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 9,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "arki",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 13515571,
-        "ioTokens": 73335,
-        "inputTokens": 198,
-        "outputTokens": 73137,
-        "cacheCreate": 644540,
-        "cacheRead": 12797696,
-        "cacheHitRate": 0.9468853369199126,
-        "messageCount": 146
-      },
-      "sessionCostUSD": 7.354
+      ]
     },
     {
       "sessionId": "session_062",
@@ -2203,24 +1598,13 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 6,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 4624153,
-        "ioTokens": 36646,
-        "inputTokens": 101,
-        "outputTokens": 36545,
-        "cacheCreate": 346778,
-        "cacheRead": 4240729,
-        "cacheHitRate": 0.9170823283745153,
-        "messageCount": 76
-      },
-      "sessionCostUSD": 3.1211
+      ]
     },
     {
       "sessionId": "session_063",
@@ -2241,7 +1625,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 9,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -2250,18 +1634,7 @@
         "riki",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 2889497,
-        "ioTokens": 40152,
-        "inputTokens": 104,
-        "outputTokens": 40048,
-        "cacheCreate": 213413,
-        "cacheRead": 2635932,
-        "cacheHitRate": 0.9122459722228471,
-        "messageCount": 37
-      },
-      "sessionCostUSD": 2.1921
+      ]
     },
     {
       "sessionId": "session_064",
@@ -2279,7 +1652,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 14,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -2287,18 +1660,7 @@
         "dev",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 24146698,
-        "ioTokens": 172162,
-        "inputTokens": 395,
-        "outputTokens": 171767,
-        "cacheCreate": 1830882,
-        "cacheRead": 22143654,
-        "cacheHitRate": 0.9170468773825722,
-        "messageCount": 301
-      },
-      "sessionCostUSD": 16.0866
+      ]
     },
     {
       "sessionId": "session_065",
@@ -2316,23 +1678,12 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 8,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 10196911,
-        "ioTokens": 68714,
-        "inputTokens": 181,
-        "outputTokens": 68533,
-        "cacheCreate": 277620,
-        "cacheRead": 9850577,
-        "cacheHitRate": 0.9660354003285897,
-        "messageCount": 140
-      },
-      "sessionCostUSD": 5.0248
+      ]
     },
     {
       "sessionId": "session_066",
@@ -2353,7 +1704,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 15,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -2363,18 +1714,7 @@
         "riki",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 4249202,
-        "ioTokens": 48136,
-        "inputTokens": 169,
-        "outputTokens": 47967,
-        "cacheCreate": 168819,
-        "cacheRead": 4032247,
-        "cacheHitRate": 0.9489421778489232,
-        "messageCount": 48
-      },
-      "sessionCostUSD": 2.5628
+      ]
     },
     {
       "sessionId": "session_067",
@@ -2395,7 +1735,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 11,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -2406,18 +1746,7 @@
         "arki",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 18550709,
-        "ioTokens": 105904,
-        "inputTokens": 253,
-        "outputTokens": 105651,
-        "cacheCreate": 861467,
-        "cacheRead": 17583338,
-        "cacheHitRate": 0.9478526130726325,
-        "messageCount": 145
-      },
-      "sessionCostUSD": 10.091
+      ]
     },
     {
       "sessionId": "session_068",
@@ -2438,7 +1767,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 34,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -2447,18 +1776,7 @@
         "riki",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 20649590,
-        "ioTokens": 191710,
-        "inputTokens": 484,
-        "outputTokens": 191226,
-        "cacheCreate": 1475081,
-        "cacheRead": 18982799,
-        "cacheHitRate": 0.9192821261826506,
-        "messageCount": 225
-      },
-      "sessionCostUSD": 14.0962
+      ]
     },
     {
       "sessionId": "session_069",
@@ -2476,7 +1794,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 7,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -2485,18 +1803,7 @@
         "riki",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 3359405,
-        "ioTokens": 42228,
-        "inputTokens": 81,
-        "outputTokens": 42147,
-        "cacheCreate": 232027,
-        "cacheRead": 3085150,
-        "cacheHitRate": 0.9183620313716269,
-        "messageCount": 55
-      },
-      "sessionCostUSD": 2.4281
+      ]
     },
     {
       "sessionId": "session_070",
@@ -2514,24 +1821,13 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 16,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 20850796,
-        "ioTokens": 102010,
-        "inputTokens": 444,
-        "outputTokens": 101566,
-        "cacheCreate": 1127144,
-        "cacheRead": 19621642,
-        "cacheHitRate": 0.941050020344547,
-        "messageCount": 288
-      },
-      "sessionCostUSD": 11.6381
+      ]
     },
     {
       "sessionId": "session_071",
@@ -2552,7 +1848,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 8,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -2561,18 +1857,7 @@
         "riki",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 8185955,
-        "ioTokens": 73628,
-        "inputTokens": 175,
-        "outputTokens": 73453,
-        "cacheCreate": 526667,
-        "cacheRead": 7585660,
-        "cacheHitRate": 0.9266676887424864,
-        "messageCount": 82
-      },
-      "sessionCostUSD": 5.353
+      ]
     },
     {
       "sessionId": "session_072",
@@ -2590,24 +1875,13 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 12,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 17440440,
-        "ioTokens": 114638,
-        "inputTokens": 306,
-        "outputTokens": 114332,
-        "cacheCreate": 813002,
-        "cacheRead": 16512800,
-        "cacheHitRate": 0.9468109749524668,
-        "messageCount": 228
-      },
-      "sessionCostUSD": 9.7185
+      ]
     },
     {
       "sessionId": "session_073",
@@ -2625,24 +1899,13 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 6,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 6228732,
-        "ioTokens": 57490,
-        "inputTokens": 130,
-        "outputTokens": 57360,
-        "cacheCreate": 458228,
-        "cacheRead": 5713014,
-        "cacheHitRate": 0.9172033730139617,
-        "messageCount": 87
-      },
-      "sessionCostUSD": 4.293
+      ]
     },
     {
       "sessionId": "session_074",
@@ -2660,24 +1923,13 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 14,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 8849828,
-        "ioTokens": 77759,
-        "inputTokens": 192,
-        "outputTokens": 77567,
-        "cacheCreate": 634919,
-        "cacheRead": 8137150,
-        "cacheHitRate": 0.9194698473235864,
-        "messageCount": 133
-      },
-      "sessionCostUSD": 5.9862
+      ]
     },
     {
       "sessionId": "session_075",
@@ -2695,7 +1947,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 7,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -2703,18 +1955,7 @@
         "riki",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 7656904,
-        "ioTokens": 62118,
-        "inputTokens": 394,
-        "outputTokens": 61724,
-        "cacheCreate": 286498,
-        "cacheRead": 7308288,
-        "cacheHitRate": 0.9544703707921636,
-        "messageCount": 105
-      },
-      "sessionCostUSD": 4.1939
+      ]
     },
     {
       "sessionId": "session_076",
@@ -2738,23 +1979,12 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 8,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 2751856,
-        "ioTokens": 30548,
-        "inputTokens": 115,
-        "outputTokens": 30433,
-        "cacheCreate": 254261,
-        "cacheRead": 2467047,
-        "cacheHitRate": 0.8965029420144077,
-        "messageCount": 35
-      },
-      "sessionCostUSD": 2.1504
+      ]
     },
     {
       "sessionId": "session_077",
@@ -2775,7 +2005,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 13,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -2793,18 +2023,7 @@
         "ace",
         "edi",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 10410196,
-        "ioTokens": 133555,
-        "inputTokens": 236,
-        "outputTokens": 133319,
-        "cacheCreate": 543650,
-        "cacheRead": 9732991,
-        "cacheHitRate": 0.9349479106829497,
-        "messageCount": 96
-      },
-      "sessionCostUSD": 6.9591
+      ]
     },
     {
       "sessionId": "session_078",
@@ -2822,7 +2041,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 8,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -2831,18 +2050,7 @@
         "dev",
         "edi",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 8111340,
-        "ioTokens": 95252,
-        "inputTokens": 193,
-        "outputTokens": 95059,
-        "cacheCreate": 552775,
-        "cacheRead": 7463313,
-        "cacheHitRate": 0.9201085147460223,
-        "messageCount": 80
-      },
-      "sessionCostUSD": 5.7384
+      ]
     },
     {
       "sessionId": "session_079",
@@ -2860,24 +2068,13 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 3,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 7551257,
-        "ioTokens": 73203,
-        "inputTokens": 120,
-        "outputTokens": 73083,
-        "cacheCreate": 324790,
-        "cacheRead": 7153264,
-        "cacheHitRate": 0.9472944703113667,
-        "messageCount": 103
-      },
-      "sessionCostUSD": 4.4605
+      ]
     },
     {
       "sessionId": "session_080",
@@ -2898,7 +2095,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 21,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "fin",
@@ -2906,18 +2103,7 @@
         "riki",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 27597952,
-        "ioTokens": 233447,
-        "inputTokens": 449,
-        "outputTokens": 232998,
-        "cacheCreate": 1451442,
-        "cacheRead": 25913063,
-        "cacheHitRate": 0.9389487669229949,
-        "messageCount": 305
-      },
-      "sessionCostUSD": 16.7131
+      ]
     },
     {
       "sessionId": "session_081",
@@ -2938,7 +2124,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 22,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -2959,18 +2145,7 @@
         "vera",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 16443804,
-        "ioTokens": 250053,
-        "inputTokens": 11890,
-        "outputTokens": 238163,
-        "cacheCreate": 527324,
-        "cacheRead": 15666427,
-        "cacheHitRate": 0.9527252331638105,
-        "messageCount": 114
-      },
-      "sessionCostUSD": 10.2855
+      ]
     },
     {
       "sessionId": "session_082",
@@ -2991,7 +2166,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 22,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -3014,18 +2189,7 @@
         "riki",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 8257411,
-        "ioTokens": 217117,
-        "inputTokens": 295,
-        "outputTokens": 216822,
-        "cacheCreate": 384848,
-        "cacheRead": 7655446,
-        "cacheHitRate": 0.9271000317169631,
-        "messageCount": 67
-      },
-      "sessionCostUSD": 6.993
+      ]
     },
     {
       "sessionId": "session_083",
@@ -3043,23 +2207,12 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 7,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 13513151,
-        "ioTokens": 271533,
-        "inputTokens": 205,
-        "outputTokens": 271328,
-        "cacheCreate": 1115420,
-        "cacheRead": 12126198,
-        "cacheHitRate": 0.8973627246524515,
-        "messageCount": 118
-      },
-      "sessionCostUSD": 11.8912
+      ]
     },
     {
       "sessionId": "session_084",
@@ -3077,23 +2230,12 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 5,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 13436629,
-        "ioTokens": 58354,
-        "inputTokens": 206,
-        "outputTokens": 58148,
-        "cacheCreate": 835440,
-        "cacheRead": 12542835,
-        "cacheHitRate": 0.9334807859917841,
-        "messageCount": 113
-      },
-      "sessionCostUSD": 7.7686
+      ]
     },
     {
       "sessionId": "session_086",
@@ -3111,7 +2253,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 9,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -3119,18 +2261,7 @@
         "riki",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 13348847,
-        "ioTokens": 99991,
-        "inputTokens": 267,
-        "outputTokens": 99724,
-        "cacheCreate": 920602,
-        "cacheRead": 12328254,
-        "cacheHitRate": 0.9235444829055274,
-        "messageCount": 124
-      },
-      "sessionCostUSD": 8.6474
+      ]
     },
     {
       "sessionId": "session_087",
@@ -3148,7 +2279,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 16,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -3160,18 +2291,7 @@
         "ace",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 14402623,
-        "ioTokens": 159112,
-        "inputTokens": 433,
-        "outputTokens": 158679,
-        "cacheCreate": 732152,
-        "cacheRead": 13511359,
-        "cacheHitRate": 0.9381179386560351,
-        "messageCount": 115
-      },
-      "sessionCostUSD": 9.1805
+      ]
     },
     {
       "sessionId": "session_088",
@@ -3192,25 +2312,14 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 8,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "ace",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 6958203,
-        "ioTokens": 47345,
-        "inputTokens": 188,
-        "outputTokens": 47157,
-        "cacheCreate": 518811,
-        "cacheRead": 6392047,
-        "cacheHitRate": 0.9186347394578744,
-        "messageCount": 66
-      },
-      "sessionCostUSD": 4.5711
+      ]
     },
     {
       "sessionId": "session_089",
@@ -3231,25 +2340,14 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 53,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "arki",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 58219382,
-        "ioTokens": 319826,
-        "inputTokens": 908,
-        "outputTokens": 318918,
-        "cacheCreate": 1475024,
-        "cacheRead": 56424532,
-        "cacheHitRate": 0.9691709197462797,
-        "messageCount": 368
-      },
-      "sessionCostUSD": 27.2452
+      ]
     },
     {
       "sessionId": "session_090",
@@ -3270,7 +2368,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 26,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -3284,18 +2382,7 @@
         "ace",
         "arki",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 29019835,
-        "ioTokens": 210698,
-        "inputTokens": 488,
-        "outputTokens": 210210,
-        "cacheCreate": 921431,
-        "cacheRead": 27887706,
-        "cacheHitRate": 0.9609877519979008,
-        "messageCount": 177
-      },
-      "sessionCostUSD": 14.9763
+      ]
     },
     {
       "sessionId": "session_091",
@@ -3319,22 +2406,11 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 20,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 18779199,
-        "ioTokens": 217649,
-        "inputTokens": 473,
-        "outputTokens": 217176,
-        "cacheCreate": 744669,
-        "cacheRead": 17816881,
-        "cacheHitRate": 0.9487561743181911,
-        "messageCount": 145
-      },
-      "sessionCostUSD": 11.3966
+      ]
     },
     {
       "sessionId": "session_092",
@@ -3357,25 +2433,14 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 18,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "arki",
         "riki",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 13611239,
-        "ioTokens": 145162,
-        "inputTokens": 1627,
-        "outputTokens": 143535,
-        "cacheCreate": 912414,
-        "cacheRead": 12553663,
-        "cacheHitRate": 0.9223012688264456,
-        "messageCount": 141
-      },
-      "sessionCostUSD": 9.3456
+      ]
     },
     {
       "sessionId": "session_093",
@@ -3396,7 +2461,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 23,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -3406,18 +2471,7 @@
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 16479461,
-        "ioTokens": 175157,
-        "inputTokens": 11407,
-        "outputTokens": 163750,
-        "cacheCreate": 1166119,
-        "cacheRead": 15138185,
-        "cacheHitRate": 0.918609231212113,
-        "messageCount": 166
-      },
-      "sessionCostUSD": 11.4049
+      ]
     },
     {
       "sessionId": "session_094",
@@ -3443,7 +2497,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 17,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -3455,18 +2509,7 @@
         "arki",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 13738060,
-        "ioTokens": 147002,
-        "inputTokens": 338,
-        "outputTokens": 146664,
-        "cacheCreate": 410122,
-        "cacheRead": 13180936,
-        "cacheHitRate": 0.9594466758770889,
-        "messageCount": 100
-      },
-      "sessionCostUSD": 7.6932
+      ]
     },
     {
       "sessionId": "session_095",
@@ -3492,7 +2535,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 56,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -3509,18 +2552,7 @@
         "arki",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 37467519,
-        "ioTokens": 302025,
-        "inputTokens": 844,
-        "outputTokens": 301181,
-        "cacheCreate": 1395170,
-        "cacheRead": 35770324,
-        "cacheHitRate": 0.9547022315515473,
-        "messageCount": 340
-      },
-      "sessionCostUSD": 20.4832
+      ]
     },
     {
       "sessionId": "session_096",
@@ -3538,25 +2570,14 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 15,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "vera",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 6277439,
-        "ioTokens": 34528,
-        "inputTokens": 166,
-        "outputTokens": 34362,
-        "cacheCreate": 340000,
-        "cacheRead": 5902911,
-        "cacheHitRate": 0.9403374529007769,
-        "messageCount": 81
-      },
-      "sessionCostUSD": 3.5618
+      ]
     },
     {
       "sessionId": "session_097",
@@ -3574,7 +2595,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 11,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -3583,18 +2604,7 @@
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 6466344,
-        "ioTokens": 56020,
-        "inputTokens": 124,
-        "outputTokens": 55896,
-        "cacheCreate": 464607,
-        "cacheRead": 5945717,
-        "cacheHitRate": 0.9194866527360747,
-        "messageCount": 74
-      },
-      "sessionCostUSD": 4.3648
+      ]
     },
     {
       "sessionId": "session_098",
@@ -3615,7 +2625,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 10,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -3625,18 +2635,7 @@
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 7502480,
-        "ioTokens": 38190,
-        "inputTokens": 145,
-        "outputTokens": 38045,
-        "cacheCreate": 420080,
-        "cacheRead": 7044210,
-        "cacheHitRate": 0.9389175312696602,
-        "messageCount": 79
-      },
-      "sessionCostUSD": 4.2597
+      ]
     },
     {
       "sessionId": "session_099",
@@ -3654,22 +2653,11 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 4,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 2416763,
-        "ioTokens": 16502,
-        "inputTokens": 57,
-        "outputTokens": 16445,
-        "cacheCreate": 137321,
-        "cacheRead": 2262940,
-        "cacheHitRate": 0.9363516406035677,
-        "messageCount": 41
-      },
-      "sessionCostUSD": 1.4407
+      ]
     },
     {
       "sessionId": "session_100",
@@ -3693,7 +2681,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 8,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -3705,18 +2693,7 @@
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 7460184,
-        "ioTokens": 70759,
-        "inputTokens": 176,
-        "outputTokens": 70583,
-        "cacheCreate": 307755,
-        "cacheRead": 7081670,
-        "cacheHitRate": 0.9492621093527988,
-        "messageCount": 69
-      },
-      "sessionCostUSD": 4.3379
+      ]
     },
     {
       "sessionId": "session_101",
@@ -3737,7 +2714,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 31,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -3754,18 +2731,7 @@
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 30675149,
-        "ioTokens": 201898,
-        "inputTokens": 524,
-        "outputTokens": 201374,
-        "cacheCreate": 927038,
-        "cacheRead": 29546213,
-        "cacheHitRate": 0.9631970491814074,
-        "messageCount": 202
-      },
-      "sessionCostUSD": 15.3624
+      ]
     },
     {
       "sessionId": "session_102",
@@ -3783,23 +2749,12 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 3,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 4890662,
-        "ioTokens": 45398,
-        "inputTokens": 78,
-        "outputTokens": 45320,
-        "cacheCreate": 275300,
-        "cacheRead": 4569964,
-        "cacheHitRate": 0.9344264641473895,
-        "messageCount": 68
-      },
-      "sessionCostUSD": 3.0834
+      ]
     },
     {
       "sessionId": "session_103",
@@ -3820,7 +2775,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 21,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -3830,18 +2785,7 @@
         "arki",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 13704904,
-        "ioTokens": 105740,
-        "inputTokens": 308,
-        "outputTokens": 105432,
-        "cacheCreate": 726984,
-        "cacheRead": 12872180,
-        "cacheHitRate": 0.939238976062875,
-        "messageCount": 117
-      },
-      "sessionCostUSD": 8.1702
+      ]
     },
     {
       "sessionId": "session_104",
@@ -3866,7 +2810,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 40,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -3886,18 +2830,7 @@
         "vera",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 41025884,
-        "ioTokens": 224366,
-        "inputTokens": 713,
-        "outputTokens": 223653,
-        "cacheCreate": 1159077,
-        "cacheRead": 39642441,
-        "cacheHitRate": 0.9662787765889457,
-        "messageCount": 236
-      },
-      "sessionCostUSD": 19.5962
+      ]
     },
     {
       "sessionId": "session_105",
@@ -3915,7 +2848,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 12,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -3925,18 +2858,7 @@
         "dev",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 20765492,
-        "ioTokens": 132662,
-        "inputTokens": 465,
-        "outputTokens": 132197,
-        "cacheCreate": 678258,
-        "cacheRead": 19954572,
-        "cacheHitRate": 0.9609486738864651,
-        "messageCount": 149
-      },
-      "sessionCostUSD": 10.5142
+      ]
     },
     {
       "sessionId": "session_106",
@@ -3957,7 +2879,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 6,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -3969,18 +2891,7 @@
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 13894583,
-        "ioTokens": 133275,
-        "inputTokens": 227,
-        "outputTokens": 133048,
-        "cacheCreate": 649595,
-        "cacheRead": 13111713,
-        "cacheHitRate": 0.9436564594993603,
-        "messageCount": 151
-      },
-      "sessionCostUSD": 8.3659
+      ]
     },
     {
       "sessionId": "session_107",
@@ -4001,7 +2912,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 11,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -4010,18 +2921,7 @@
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 8792436,
-        "ioTokens": 101357,
-        "inputTokens": 320,
-        "outputTokens": 101037,
-        "cacheCreate": 286851,
-        "cacheRead": 8404228,
-        "cacheHitRate": 0.9558475034677534,
-        "messageCount": 77
-      },
-      "sessionCostUSD": 5.1135
+      ]
     },
     {
       "sessionId": "session_108",
@@ -4045,7 +2945,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 5,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -4053,18 +2953,7 @@
         "riki",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 5854897,
-        "ioTokens": 55902,
-        "inputTokens": 104,
-        "outputTokens": 55798,
-        "cacheCreate": 299813,
-        "cacheRead": 5499182,
-        "cacheHitRate": 0.9392448748457914,
-        "messageCount": 72
-      },
-      "sessionCostUSD": 3.6113
+      ]
     },
     {
       "sessionId": "session_109",
@@ -4096,7 +2985,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 7,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -4107,18 +2996,7 @@
         "dev",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 5372173,
-        "ioTokens": 64612,
-        "inputTokens": 118,
-        "outputTokens": 64494,
-        "cacheCreate": 513126,
-        "cacheRead": 4794435,
-        "cacheHitRate": 0.8924572980058535,
-        "messageCount": 57
-      },
-      "sessionCostUSD": 4.3303
+      ]
     },
     {
       "sessionId": "session_110",
@@ -4136,22 +3014,11 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 59,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 329259873,
-        "ioTokens": 868036,
-        "inputTokens": 2916,
-        "outputTokens": 865120,
-        "cacheCreate": 11126769,
-        "cacheRead": 317265068,
-        "cacheHitRate": 0.9635704014257456,
-        "messageCount": 1318
-      },
-      "sessionCostUSD": 149.8905
+      ]
     },
     {
       "sessionId": "session_111",
@@ -4169,25 +3036,14 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 10,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "arki",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 26738495,
-        "ioTokens": 129560,
-        "inputTokens": 682,
-        "outputTokens": 128878,
-        "cacheCreate": 1329563,
-        "cacheRead": 25279372,
-        "cacheHitRate": 0.9454298755408634,
-        "messageCount": 233
-      },
-      "sessionCostUSD": 14.5049
+      ]
     },
     {
       "sessionId": "session_112",
@@ -4205,7 +3061,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 14,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -4213,18 +3069,7 @@
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 41868304,
-        "ioTokens": 251505,
-        "inputTokens": 3999,
-        "outputTokens": 247506,
-        "cacheCreate": 1444617,
-        "cacheRead": 40172182,
-        "cacheHitRate": 0.9594891161581324,
-        "messageCount": 365
-      },
-      "sessionCostUSD": 21.1936
+      ]
     },
     {
       "sessionId": "session_113",
@@ -4242,24 +3087,13 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 11,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 35288269,
-        "ioTokens": 207215,
-        "inputTokens": 596,
-        "outputTokens": 206619,
-        "cacheCreate": 1180582,
-        "cacheRead": 33900472,
-        "cacheHitRate": 0.9606725679856952,
-        "messageCount": 342
-      },
-      "sessionCostUSD": 17.6984
+      ]
     },
     {
       "sessionId": "session_114",
@@ -4277,24 +3111,13 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 7,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 7267530,
-        "ioTokens": 30791,
-        "inputTokens": 162,
-        "outputTokens": 30629,
-        "cacheCreate": 469509,
-        "cacheRead": 6767230,
-        "cacheHitRate": 0.9311595548969183,
-        "messageCount": 108
-      },
-      "sessionCostUSD": 4.2507
+      ]
     },
     {
       "sessionId": "session_115",
@@ -4312,22 +3135,11 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 21,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 17543809,
-        "ioTokens": 81709,
-        "inputTokens": 338,
-        "outputTokens": 81371,
-        "cacheCreate": 1150460,
-        "cacheRead": 16311640,
-        "cacheHitRate": 0.9297661642349161,
-        "messageCount": 169
-      },
-      "sessionCostUSD": 10.4293
+      ]
     },
     {
       "sessionId": "session_116",
@@ -4345,23 +3157,12 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 7,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 5992946,
-        "ioTokens": 46386,
-        "inputTokens": 120,
-        "outputTokens": 46266,
-        "cacheCreate": 454714,
-        "cacheRead": 5491846,
-        "cacheHitRate": 0.9163850300002703,
-        "messageCount": 86
-      },
-      "sessionCostUSD": 4.0471
+      ]
     },
     {
       "sessionId": "session_117",
@@ -4386,24 +3187,13 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 12,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 5510900,
-        "ioTokens": 39947,
-        "inputTokens": 120,
-        "outputTokens": 39827,
-        "cacheCreate": 255301,
-        "cacheRead": 5215652,
-        "cacheHitRate": 0.9464247219147508,
-        "messageCount": 70
-      },
-      "sessionCostUSD": 3.1198
+      ]
     },
     {
       "sessionId": "session_118",
@@ -4421,23 +3211,12 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 38,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 144967416,
-        "ioTokens": 731595,
-        "inputTokens": 1609,
-        "outputTokens": 729986,
-        "cacheCreate": 5247051,
-        "cacheRead": 138988770,
-        "cacheHitRate": 0.9587586909874974,
-        "messageCount": 773
-      },
-      "sessionCostUSD": 72.3277
+      ]
     },
     {
       "sessionId": "session_119",
@@ -4458,7 +3237,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 14,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
@@ -4466,18 +3245,7 @@
         "riki",
         "edi",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 14181704,
-        "ioTokens": 106718,
-        "inputTokens": 392,
-        "outputTokens": 106326,
-        "cacheCreate": 602638,
-        "cacheRead": 13472348,
-        "cacheHitRate": 0.9499809049744657,
-        "messageCount": 132
-      },
-      "sessionCostUSD": 7.8977
+      ]
     },
     {
       "sessionId": "session_120",
@@ -4498,7 +3266,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 8,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "riki",
@@ -4506,18 +3274,7 @@
         "vera",
         "arki",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 8024965,
-        "ioTokens": 68826,
-        "inputTokens": 194,
-        "outputTokens": 68632,
-        "cacheCreate": 358206,
-        "cacheRead": 7597933,
-        "cacheHitRate": 0.9467870576382577,
-        "messageCount": 72
-      },
-      "sessionCostUSD": 4.6527
+      ]
     },
     {
       "sessionId": "session_121",
@@ -4539,23 +3296,12 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 14,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 55964253,
-        "ioTokens": 215425,
-        "inputTokens": 1132,
-        "outputTokens": 214293,
-        "cacheCreate": 2360844,
-        "cacheRead": 53387984,
-        "cacheHitRate": 0.953965810997245,
-        "messageCount": 398
-      },
-      "sessionCostUSD": 28.0874
+      ]
     },
     {
       "sessionId": "session_122",
@@ -4573,25 +3319,14 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 12,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "ace",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 6181506,
-        "ioTokens": 55889,
-        "inputTokens": 150,
-        "outputTokens": 55739,
-        "cacheCreate": 378460,
-        "cacheRead": 5747157,
-        "cacheHitRate": 0.9297341133374294,
-        "messageCount": 74
-      },
-      "sessionCostUSD": 3.9799
+      ]
     },
     {
       "sessionId": "session_123",
@@ -4612,7 +3347,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 101,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -4627,18 +3362,7 @@
         "dev",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 89233115,
-        "ioTokens": 894455,
-        "inputTokens": 1781,
-        "outputTokens": 892674,
-        "cacheCreate": 6669137,
-        "cacheRead": 81669523,
-        "cacheHitRate": 0.9152378351915653,
-        "messageCount": 701
-      },
-      "sessionCostUSD": 62.9056
+      ]
     },
     {
       "sessionId": "session_124",
@@ -4656,24 +3380,13 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 12,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 4833387,
-        "ioTokens": 26230,
-        "inputTokens": 104,
-        "outputTokens": 26126,
-        "cacheCreate": 396422,
-        "cacheRead": 4410735,
-        "cacheHitRate": 0.9125557295536236,
-        "messageCount": 56
-      },
-      "sessionCostUSD": 3.202
+      ]
     },
     {
       "sessionId": "session_125",
@@ -4691,7 +3404,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 14,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -4699,18 +3412,7 @@
         "riki",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 10819124,
-        "ioTokens": 96147,
-        "inputTokens": 188,
-        "outputTokens": 95959,
-        "cacheCreate": 579460,
-        "cacheRead": 10143517,
-        "cacheHitRate": 0.9375543713150898,
-        "messageCount": 128
-      },
-      "sessionCostUSD": 6.656
+      ]
     },
     {
       "sessionId": "session_126",
@@ -4728,22 +3430,11 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 16,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 15593703,
-        "ioTokens": 95080,
-        "inputTokens": 264,
-        "outputTokens": 94816,
-        "cacheCreate": 828175,
-        "cacheRead": 14670448,
-        "cacheHitRate": 0.9407930880817725,
-        "messageCount": 174
-      },
-      "sessionCostUSD": 8.9298
+      ]
     },
     {
       "sessionId": "session_127",
@@ -4764,7 +3455,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 12,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -4775,18 +3466,7 @@
         "edi",
         "edi",
         "dev"
-      ],
-      "tokenUsage": {
-        "totalBillable": 13738137,
-        "ioTokens": 139997,
-        "inputTokens": 229,
-        "outputTokens": 139768,
-        "cacheCreate": 1151633,
-        "cacheRead": 12446507,
-        "cacheHitRate": 0.9059821575516389,
-        "messageCount": 157
-      },
-      "sessionCostUSD": 10.1498
+      ]
     },
     {
       "sessionId": "session_128",
@@ -4804,25 +3484,14 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 9,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "arki",
         "riki",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 11151820,
-        "ioTokens": 93389,
-        "inputTokens": 162,
-        "outputTokens": 93227,
-        "cacheCreate": 349427,
-        "cacheRead": 10709004,
-        "cacheHitRate": 0.9602920420164601,
-        "messageCount": 120
-      },
-      "sessionCostUSD": 5.9219
+      ]
     },
     {
       "sessionId": "session_129",
@@ -4840,7 +3509,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 8,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -4849,18 +3518,7 @@
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 15374327,
-        "ioTokens": 261261,
-        "inputTokens": 990,
-        "outputTokens": 260271,
-        "cacheCreate": 906659,
-        "cacheRead": 14206407,
-        "cacheHitRate": 0.9240343983837471,
-        "messageCount": 124
-      },
-      "sessionCostUSD": 11.5689
+      ]
     },
     {
       "sessionId": "session_130",
@@ -4881,7 +3539,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 24,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -4891,18 +3549,7 @@
         "dev",
         "edi",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 11227970,
-        "ioTokens": 175440,
-        "inputTokens": 270,
-        "outputTokens": 175170,
-        "cacheCreate": 1798442,
-        "cacheRead": 9254088,
-        "cacheHitRate": 0.824199565905502,
-        "messageCount": 106
-      },
-      "sessionCostUSD": 12.1487
+      ]
     },
     {
       "sessionId": "session_131",
@@ -4920,23 +3567,12 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 21,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 14317793,
-        "ioTokens": 142850,
-        "inputTokens": 219,
-        "outputTokens": 142631,
-        "cacheCreate": 721839,
-        "cacheRead": 13453104,
-        "cacheHitRate": 0.9396073822271351,
-        "messageCount": 123
-      },
-      "sessionCostUSD": 8.8829
+      ]
     },
     {
       "sessionId": "session_132",
@@ -4957,23 +3593,12 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 11,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 8450481,
-        "ioTokens": 55507,
-        "inputTokens": 298,
-        "outputTokens": 55209,
-        "cacheCreate": 507855,
-        "cacheRead": 7887119,
-        "cacheHitRate": 0.9333337356772946,
-        "messageCount": 94
-      },
-      "sessionCostUSD": 5.0996
+      ]
     },
     {
       "sessionId": "session_133",
@@ -4991,23 +3616,12 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 3,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 4556082,
-        "ioTokens": 37524,
-        "inputTokens": 658,
-        "outputTokens": 36866,
-        "cacheCreate": 265827,
-        "cacheRead": 4252731,
-        "cacheHitRate": 0.9334184503263989,
-        "messageCount": 61
-      },
-      "sessionCostUSD": 2.8276
+      ]
     },
     {
       "sessionId": "session_134",
@@ -5025,7 +3639,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 3,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -5034,18 +3648,7 @@
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 8633337,
-        "ioTokens": 47015,
-        "inputTokens": 123,
-        "outputTokens": 46892,
-        "cacheCreate": 427722,
-        "cacheRead": 8158600,
-        "cacheHitRate": 0.9450111816554827,
-        "messageCount": 95
-      },
-      "sessionCostUSD": 4.7553
+      ]
     },
     {
       "sessionId": "session_135",
@@ -5063,23 +3666,12 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 3,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 6393343,
-        "ioTokens": 48314,
-        "inputTokens": 103,
-        "outputTokens": 48211,
-        "cacheCreate": 603337,
-        "cacheRead": 5741692,
-        "cacheHitRate": 0.8980735117762335,
-        "messageCount": 80
-      },
-      "sessionCostUSD": 4.7085
+      ]
     },
     {
       "sessionId": "session_136",
@@ -5097,23 +3689,12 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 22,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 11164302,
-        "ioTokens": 87850,
-        "inputTokens": 265,
-        "outputTokens": 87585,
-        "cacheCreate": 1958116,
-        "cacheRead": 9118336,
-        "cacheHitRate": 0.8167403568982637,
-        "messageCount": 113
-      },
-      "sessionCostUSD": 11.393
+      ]
     },
     {
       "sessionId": "session_137",
@@ -5134,7 +3715,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 8,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -5142,18 +3723,7 @@
         "riki",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 7195617,
-        "ioTokens": 45962,
-        "inputTokens": 166,
-        "outputTokens": 45796,
-        "cacheCreate": 327630,
-        "cacheRead": 6822025,
-        "cacheHitRate": 0.9480806162973933,
-        "messageCount": 89
-      },
-      "sessionCostUSD": 3.9627
+      ]
     },
     {
       "sessionId": "session_138",
@@ -5181,7 +3751,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 28,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -5194,18 +3764,7 @@
         "riki",
         "riki",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 37963582,
-        "ioTokens": 512375,
-        "inputTokens": 33663,
-        "outputTokens": 478712,
-        "cacheCreate": 1533101,
-        "cacheRead": 35918106,
-        "cacheHitRate": 0.9461200473653935,
-        "messageCount": 255
-      },
-      "sessionCostUSD": 23.8062
+      ]
     },
     {
       "sessionId": "session_139",
@@ -5223,7 +3782,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 18,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -5232,18 +3791,7 @@
         "riki",
         "riki",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 10510521,
-        "ioTokens": 124129,
-        "inputTokens": 4349,
-        "outputTokens": 119780,
-        "cacheCreate": 717869,
-        "cacheRead": 9668523,
-        "cacheHitRate": 0.9198899845212241,
-        "messageCount": 95
-      },
-      "sessionCostUSD": 7.4023
+      ]
     },
     {
       "sessionId": "session_140",
@@ -5270,7 +3818,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 32,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -5286,18 +3834,7 @@
         "fin",
         "riki",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 12229197,
-        "ioTokens": 157776,
-        "inputTokens": 502,
-        "outputTokens": 157274,
-        "cacheCreate": 1419463,
-        "cacheRead": 10651958,
-        "cacheHitRate": 0.8710267730579531,
-        "messageCount": 124
-      },
-      "sessionCostUSD": 10.8792
+      ]
     },
     {
       "sessionId": "session_141",
@@ -5321,7 +3858,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 11,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -5332,18 +3869,7 @@
         "fin",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 6342030,
-        "ioTokens": 79223,
-        "inputTokens": 149,
-        "outputTokens": 79074,
-        "cacheCreate": 578859,
-        "cacheRead": 5683948,
-        "cacheHitRate": 0.8962348017905939,
-        "messageCount": 66
-      },
-      "sessionCostUSD": 5.0625
+      ]
     },
     {
       "sessionId": "session_142",
@@ -5366,7 +3892,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 28,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
@@ -5376,18 +3902,7 @@
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 18837684,
-        "ioTokens": 171816,
-        "inputTokens": 496,
-        "outputTokens": 171320,
-        "cacheCreate": 762086,
-        "cacheRead": 17903782,
-        "cacheHitRate": 0.9504237357416124,
-        "messageCount": 150
-      },
-      "sessionCostUSD": 10.8002
+      ]
     },
     {
       "sessionId": "session_143",
@@ -5409,23 +3924,12 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 8,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 3410485,
-        "ioTokens": 21407,
-        "inputTokens": 112,
-        "outputTokens": 21295,
-        "cacheCreate": 207025,
-        "cacheRead": 3182053,
-        "cacheHitRate": 0.9330206700806484,
-        "messageCount": 30
-      },
-      "sessionCostUSD": 2.0507
+      ]
     },
     {
       "sessionId": "session_144",
@@ -5446,7 +3950,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 17,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "fin",
@@ -5454,18 +3958,7 @@
         "riki",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 11078219,
-        "ioTokens": 62120,
-        "inputTokens": 4561,
-        "outputTokens": 57559,
-        "cacheCreate": 298181,
-        "cacheRead": 10717918,
-        "cacheHitRate": 0.9674766313971587,
-        "messageCount": 80
-      },
-      "sessionCostUSD": 5.2106
+      ]
     },
     {
       "sessionId": "session_145",
@@ -5486,23 +3979,12 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 19,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "riki",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 33791935,
-        "ioTokens": 177608,
-        "inputTokens": 415,
-        "outputTokens": 177193,
-        "cacheCreate": 1493667,
-        "cacheRead": 32120660,
-        "cacheHitRate": 0.9505421929818461,
-        "messageCount": 162
-      },
-      "sessionCostUSD": 17.8966
+      ]
     },
     {
       "sessionId": "session_146",
@@ -5529,22 +4011,11 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 6,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 12751084,
-        "ioTokens": 67080,
-        "inputTokens": 156,
-        "outputTokens": 66924,
-        "cacheCreate": 1045012,
-        "cacheRead": 11638992,
-        "cacheHitRate": 0.9127845130657127,
-        "messageCount": 83
-      },
-      "sessionCostUSD": 8.4148
+      ]
     },
     {
       "sessionId": "session_147",
@@ -5565,23 +4036,12 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 12,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "riki",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 9122957,
-        "ioTokens": 76178,
-        "inputTokens": 270,
-        "outputTokens": 75908,
-        "cacheCreate": 767206,
-        "cacheRead": 8279573,
-        "cacheHitRate": 0.907553658314952,
-        "messageCount": 72
-      },
-      "sessionCostUSD": 6.5003
+      ]
     },
     {
       "sessionId": "session_148",
@@ -5599,22 +4059,11 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 17,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 13733500,
-        "ioTokens": 77625,
-        "inputTokens": 202,
-        "outputTokens": 77423,
-        "cacheCreate": 993062,
-        "cacheRead": 12662813,
-        "cacheHitRate": 0.9220383005060618,
-        "messageCount": 120
-      },
-      "sessionCostUSD": 8.6848
+      ]
     },
     {
       "sessionId": "session_149",
@@ -5632,22 +4081,11 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 30,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 29596929,
-        "ioTokens": 220540,
-        "inputTokens": 433,
-        "outputTokens": 220107,
-        "cacheCreate": 1298591,
-        "cacheRead": 28077798,
-        "cacheHitRate": 0.9486726815474673,
-        "messageCount": 241
-      },
-      "sessionCostUSD": 16.596
+      ]
     },
     {
       "sessionId": "session_150",
@@ -5665,24 +4103,13 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 15,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 17684515,
-        "ioTokens": 116899,
-        "inputTokens": 26607,
-        "outputTokens": 90292,
-        "cacheCreate": 551418,
-        "cacheRead": 17016198,
-        "cacheHitRate": 0.9622089155399512,
-        "messageCount": 148
-      },
-      "sessionCostUSD": 8.6069
+      ]
     },
     {
       "sessionId": "session_151",
@@ -5700,7 +4127,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 46,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "riki",
@@ -5708,18 +4135,7 @@
         "jobs",
         "riki",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 68535576,
-        "ioTokens": 333480,
-        "inputTokens": 912,
-        "outputTokens": 332568,
-        "cacheCreate": 1906406,
-        "cacheRead": 66295690,
-        "cacheHitRate": 0.967317908001532,
-        "messageCount": 420
-      },
-      "sessionCostUSD": 32.029
+      ]
     },
     {
       "sessionId": "session_152",
@@ -5740,7 +4156,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 5,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
@@ -5748,18 +4164,7 @@
         "jobs",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 5811064,
-        "ioTokens": 69493,
-        "inputTokens": 3498,
-        "outputTokens": 65995,
-        "cacheCreate": 468232,
-        "cacheRead": 5273339,
-        "cacheHitRate": 0.9074653109998444,
-        "messageCount": 56
-      },
-      "sessionCostUSD": 4.3383
+      ]
     },
     {
       "sessionId": "session_153",
@@ -5780,7 +4185,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 48,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "jobs",
@@ -5808,18 +4213,7 @@
         "dev",
         "edi",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 37708762,
-        "ioTokens": 275666,
-        "inputTokens": 2604,
-        "outputTokens": 273062,
-        "cacheCreate": 2094726,
-        "cacheRead": 35338370,
-        "cacheHitRate": 0.9371394902861038,
-        "messageCount": 274
-      },
-      "sessionCostUSD": 22.5605
+      ]
     },
     {
       "sessionId": "session_154",
@@ -5837,23 +4231,12 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 160,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 136133136,
-        "ioTokens": 971949,
-        "inputTokens": 9101,
-        "outputTokens": 962848,
-        "cacheCreate": 9141599,
-        "cacheRead": 126019588,
-        "cacheHitRate": 0.925708403573396,
-        "messageCount": 1088
-      },
-      "sessionCostUSD": 86.5569
+      ]
     },
     {
       "sessionId": "session_155",
@@ -5871,7 +4254,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 7,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -5880,18 +4263,7 @@
         "dev",
         "edi",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 10004109,
-        "ioTokens": 91921,
-        "inputTokens": 148,
-        "outputTokens": 91773,
-        "cacheCreate": 1041145,
-        "cacheRead": 8871043,
-        "cacheHitRate": 0.886739938559246,
-        "messageCount": 104
-      },
-      "sessionCostUSD": 7.9426
+      ]
     },
     {
       "sessionId": "session_156",
@@ -5912,7 +4284,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 17,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "riki",
@@ -5921,18 +4293,7 @@
         "ace",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 16082083,
-        "ioTokens": 147728,
-        "inputTokens": 19561,
-        "outputTokens": 128167,
-        "cacheCreate": 922694,
-        "cacheRead": 15011661,
-        "cacheHitRate": 0.9334400898192106,
-        "messageCount": 115
-      },
-      "sessionCostUSD": 9.9448
+      ]
     },
     {
       "sessionId": "session_157",
@@ -5950,23 +4311,12 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 68,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 88679730,
-        "ioTokens": 576096,
-        "inputTokens": 25339,
-        "outputTokens": 550757,
-        "cacheCreate": 6142275,
-        "cacheRead": 81961359,
-        "cacheHitRate": 0.9242400602708195,
-        "messageCount": 733
-      },
-      "sessionCostUSD": 55.9593
+      ]
     },
     {
       "sessionId": "session_158",
@@ -5984,23 +4334,12 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 5,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 5268472,
-        "ioTokens": 21832,
-        "inputTokens": 325,
-        "outputTokens": 21507,
-        "cacheCreate": 349779,
-        "cacheRead": 4896861,
-        "cacheHitRate": 0.9294651276499144,
-        "messageCount": 51
-      },
-      "sessionCostUSD": 3.1043
+      ]
     },
     {
       "sessionId": "session_159",
@@ -6022,22 +4361,11 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 16,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 26298007,
-        "ioTokens": 166258,
-        "inputTokens": 460,
-        "outputTokens": 165798,
-        "cacheCreate": 1155303,
-        "cacheRead": 24976446,
-        "cacheHitRate": 0.9497467241528987,
-        "messageCount": 173
-      },
-      "sessionCostUSD": 14.3137
+      ]
     },
     {
       "sessionId": "session_160",
@@ -6058,7 +4386,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 12,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -6068,18 +4396,7 @@
         "dev",
         "edi",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 6715010,
-        "ioTokens": 52096,
-        "inputTokens": 103,
-        "outputTokens": 51993,
-        "cacheCreate": 516536,
-        "cacheRead": 6146378,
-        "cacheHitRate": 0.9153192623689317,
-        "messageCount": 69
-      },
-      "sessionCostUSD": 4.5611
+      ]
     },
     {
       "sessionId": "session_161",
@@ -6100,7 +4417,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 3,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -6108,18 +4425,7 @@
         "dev",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 2386238,
-        "ioTokens": 18223,
-        "inputTokens": 116,
-        "outputTokens": 18107,
-        "cacheCreate": 253976,
-        "cacheRead": 2114039,
-        "cacheHitRate": 0.8859296516106105,
-        "messageCount": 28
-      },
-      "sessionCostUSD": 1.8586
+      ]
     },
     {
       "sessionId": "session_162",
@@ -6140,22 +4446,11 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 22,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 53364194,
-        "ioTokens": 278336,
-        "inputTokens": 1541,
-        "outputTokens": 276795,
-        "cacheCreate": 1919933,
-        "cacheRead": 51165925,
-        "cacheHitRate": 0.9588062924739386,
-        "messageCount": 495
-      },
-      "sessionCostUSD": 26.7061
+      ]
     },
     {
       "sessionId": "session_163",
@@ -6176,7 +4471,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 4,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "jobs",
@@ -6184,18 +4479,7 @@
         "riki",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 12358659,
-        "ioTokens": 106550,
-        "inputTokens": 767,
-        "outputTokens": 105783,
-        "cacheCreate": 731368,
-        "cacheRead": 11520741,
-        "cacheHitRate": 0.9321999255744494,
-        "messageCount": 121
-      },
-      "sessionCostUSD": 7.7879
+      ]
     },
     {
       "sessionId": "session_164",
@@ -6216,22 +4500,11 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 10,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 12990862,
-        "ioTokens": 65495,
-        "inputTokens": 1914,
-        "outputTokens": 63581,
-        "cacheCreate": 631747,
-        "cacheRead": 12293620,
-        "cacheHitRate": 0.9463282729044462,
-        "messageCount": 84
-      },
-      "sessionCostUSD": 7.0166
+      ]
     },
     {
       "sessionId": "session_165",
@@ -6252,7 +4525,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 41,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "ace",
@@ -6261,18 +4534,7 @@
         "dev",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 34393095,
-        "ioTokens": 200339,
-        "inputTokens": 611,
-        "outputTokens": 199728,
-        "cacheCreate": 1951018,
-        "cacheRead": 32241738,
-        "cacheHitRate": 0.9374479964655696,
-        "messageCount": 233
-      },
-      "sessionCostUSD": 19.9866
+      ]
     },
     {
       "sessionId": "session_166",
@@ -6290,23 +4552,12 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 7,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 4377855,
-        "ioTokens": 15888,
-        "inputTokens": 65,
-        "outputTokens": 15823,
-        "cacheCreate": 790381,
-        "cacheRead": 3571586,
-        "cacheHitRate": 0.8158301268543613,
-        "messageCount": 42
-      },
-      "sessionCostUSD": 4.2729
+      ]
     },
     {
       "sessionId": "session_167",
@@ -6327,7 +4578,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 11,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "jobs",
@@ -6337,18 +4588,7 @@
         "dev",
         "edi",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 10402011,
-        "ioTokens": 77029,
-        "inputTokens": 210,
-        "outputTokens": 76819,
-        "cacheCreate": 329912,
-        "cacheRead": 9995070,
-        "cacheHitRate": 0.9608786224125315,
-        "messageCount": 75
-      },
-      "sessionCostUSD": 5.3886
+      ]
     },
     {
       "sessionId": "session_169",
@@ -6366,22 +4606,11 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 33,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 81604546,
-        "ioTokens": 450086,
-        "inputTokens": 8787,
-        "outputTokens": 441299,
-        "cacheCreate": 7067053,
-        "cacheRead": 74087407,
-        "cacheHitRate": 0.9078833304213224,
-        "messageCount": 641
-      },
-      "sessionCostUSD": 55.3735
+      ]
     },
     {
       "sessionId": "session_170",
@@ -6399,22 +4628,11 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 7,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 45013932,
-        "ioTokens": 118047,
-        "inputTokens": 545,
-        "outputTokens": 117502,
-        "cacheCreate": 1448057,
-        "cacheRead": 43447828,
-        "cacheHitRate": 0.9652084603495646,
-        "messageCount": 387
-      },
-      "sessionCostUSD": 20.2287
+      ]
     },
     {
       "sessionId": "session_171",
@@ -6432,22 +4650,11 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 6,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 19287725,
-        "ioTokens": 69465,
-        "inputTokens": 263,
-        "outputTokens": 69202,
-        "cacheCreate": 670978,
-        "cacheRead": 18547282,
-        "cacheHitRate": 0.9616106617032335,
-        "messageCount": 203
-      },
-      "sessionCostUSD": 9.1192
+      ]
     },
     {
       "sessionId": "session_172",
@@ -6465,22 +4672,11 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 3,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 5716477,
-        "ioTokens": 15947,
-        "inputTokens": 86,
-        "outputTokens": 15861,
-        "cacheCreate": 225051,
-        "cacheRead": 5475479,
-        "cacheHitRate": 0.9578415167243741,
-        "messageCount": 63
-      },
-      "sessionCostUSD": 2.7248
+      ]
     },
     {
       "sessionId": "session_173",
@@ -6501,7 +4697,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 16,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
@@ -6513,18 +4709,7 @@
         "arki",
         "edi",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 20680733,
-        "ioTokens": 91465,
-        "inputTokens": 281,
-        "outputTokens": 91184,
-        "cacheCreate": 982971,
-        "cacheRead": 19606297,
-        "cacheHitRate": 0.9480465223355478,
-        "messageCount": 115
-      },
-      "sessionCostUSD": 10.9366
+      ]
     },
     {
       "sessionId": "session_174",
@@ -6545,7 +4730,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 21,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "jobs",
@@ -6553,18 +4738,7 @@
         "jobs",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 25336225,
-        "ioTokens": 117178,
-        "inputTokens": 511,
-        "outputTokens": 116667,
-        "cacheCreate": 594772,
-        "cacheRead": 24624275,
-        "cacheHitRate": 0.9718999180027806,
-        "messageCount": 136
-      },
-      "sessionCostUSD": 11.3692
+      ]
     },
     {
       "sessionId": "session_175",
@@ -6585,7 +4759,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 39,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "jobs",
@@ -6600,18 +4774,7 @@
         "edi",
         "jobs",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 70863892,
-        "ioTokens": 408597,
-        "inputTokens": 742,
-        "outputTokens": 407855,
-        "cacheCreate": 2185782,
-        "cacheRead": 68269513,
-        "cacheHitRate": 0.9633892674142143,
-        "messageCount": 279
-      },
-      "sessionCostUSD": 34.7976
+      ]
     },
     {
       "sessionId": "session_176",
@@ -6635,25 +4798,14 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 11,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "vera",
         "vera",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 32475028,
-        "ioTokens": 215566,
-        "inputTokens": 2210,
-        "outputTokens": 213356,
-        "cacheCreate": 1346372,
-        "cacheRead": 30913090,
-        "cacheHitRate": 0.9519034132934389,
-        "messageCount": 179
-      },
-      "sessionCostUSD": 17.5298
+      ]
     },
     {
       "sessionId": "session_177",
@@ -6671,22 +4823,11 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 55,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 52833532,
-        "ioTokens": 508070,
-        "inputTokens": 1599,
-        "outputTokens": 506471,
-        "cacheCreate": 1277925,
-        "cacheRead": 51047537,
-        "cacheHitRate": 0.9661958053457415,
-        "messageCount": 463
-      },
-      "sessionCostUSD": 27.7083
+      ]
     },
     {
       "sessionId": "session_178",
@@ -6707,25 +4848,14 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 16,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "riki",
         "jobs",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 8506389,
-        "ioTokens": 61856,
-        "inputTokens": 162,
-        "outputTokens": 61694,
-        "cacheCreate": 403945,
-        "cacheRead": 8040588,
-        "cacheHitRate": 0.9452410417628444,
-        "messageCount": 80
-      },
-      "sessionCostUSD": 4.8529
+      ]
     },
     {
       "sessionId": "session_179",
@@ -6746,25 +4876,14 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 57,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
         "riki",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 47136014,
-        "ioTokens": 298036,
-        "inputTokens": 800,
-        "outputTokens": 297236,
-        "cacheCreate": 2449132,
-        "cacheRead": 44388846,
-        "cacheHitRate": 0.9417182793606604,
-        "messageCount": 438
-      },
-      "sessionCostUSD": 26.9618
+      ]
     },
     {
       "sessionId": "session_180",
@@ -6782,22 +4901,11 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 16,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 10873034,
-        "ioTokens": 164697,
-        "inputTokens": 133,
-        "outputTokens": 164564,
-        "cacheCreate": 1259644,
-        "cacheRead": 9448693,
-        "cacheHitRate": 0.8690024329915643,
-        "messageCount": 101
-      },
-      "sessionCostUSD": 10.0271
+      ]
     },
     {
       "sessionId": "session_181",
@@ -6818,7 +4926,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 78,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
@@ -6828,18 +4936,7 @@
         "riki",
         "edi",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 41119904,
-        "ioTokens": 224105,
-        "inputTokens": 719,
-        "outputTokens": 223386,
-        "cacheCreate": 1389968,
-        "cacheRead": 39505831,
-        "cacheHitRate": 0.9607471603046545,
-        "messageCount": 356
-      },
-      "sessionCostUSD": 20.4171
+      ]
     },
     {
       "sessionId": "session_182",
@@ -6857,7 +4954,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 18,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
@@ -6868,18 +4965,7 @@
         "riki",
         "zero",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 9418587,
-        "ioTokens": 93937,
-        "inputTokens": 2530,
-        "outputTokens": 91407,
-        "cacheCreate": 582973,
-        "cacheRead": 8741677,
-        "cacheHitRate": 0.9281304085209384,
-        "messageCount": 94
-      },
-      "sessionCostUSD": 6.1873
+      ]
     },
     {
       "sessionId": "session_183",
@@ -6900,23 +4986,12 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 18,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "zero",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 17041736,
-        "ioTokens": 186039,
-        "inputTokens": 50809,
-        "outputTokens": 135230,
-        "cacheCreate": 885110,
-        "cacheRead": 15970587,
-        "cacheHitRate": 0.9371455466743529,
-        "messageCount": 151
-      },
-      "sessionCostUSD": 10.2912
+      ]
     },
     {
       "sessionId": "session_184",
@@ -6937,24 +5012,13 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 11,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "zero",
         "zero",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 15154875,
-        "ioTokens": 186149,
-        "inputTokens": 19308,
-        "outputTokens": 166841,
-        "cacheCreate": 827707,
-        "cacheRead": 14141019,
-        "cacheHitRate": 0.9331003389998268,
-        "messageCount": 136
-      },
-      "sessionCostUSD": 9.9067
+      ]
     },
     {
       "sessionId": "session_185",
@@ -6972,24 +5036,13 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 22,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
         "riki",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 19917990,
-        "ioTokens": 96655,
-        "inputTokens": 310,
-        "outputTokens": 96345,
-        "cacheCreate": 830075,
-        "cacheRead": 18991260,
-        "cacheHitRate": 0.9534727148673134,
-        "messageCount": 188
-      },
-      "sessionCostUSD": 10.2563
+      ]
     },
     {
       "sessionId": "session_186",
@@ -7007,24 +5060,13 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 120,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "zero",
         "zero",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 43857993,
-        "ioTokens": 303301,
-        "inputTokens": 992,
-        "outputTokens": 302309,
-        "cacheCreate": 3430973,
-        "cacheRead": 40123719,
-        "cacheHitRate": 0.9148553377716121,
-        "messageCount": 356
-      },
-      "sessionCostUSD": 29.4409
+      ]
     },
     {
       "sessionId": "session_187",
@@ -7045,7 +5087,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 148,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
@@ -7054,18 +5096,7 @@
         "zero",
         "zero",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 91558902,
-        "ioTokens": 588012,
-        "inputTokens": 9340,
-        "outputTokens": 578672,
-        "cacheCreate": 2115740,
-        "cacheRead": 88855150,
-        "cacheHitRate": 0.9704698075125453,
-        "messageCount": 920
-      },
-      "sessionCostUSD": 43.2987
+      ]
     },
     {
       "sessionId": "session_188",
@@ -7086,7 +5117,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 27,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
@@ -7095,18 +5126,7 @@
         "zero",
         "zero",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 20867700,
-        "ioTokens": 132593,
-        "inputTokens": 5655,
-        "outputTokens": 126938,
-        "cacheCreate": 798433,
-        "cacheRead": 19936674,
-        "cacheHitRate": 0.9553843499762791,
-        "messageCount": 190
-      },
-      "sessionCostUSD": 10.8962
+      ]
     },
     {
       "sessionId": "session_189",
@@ -7127,23 +5147,12 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 5,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 9231310,
-        "ioTokens": 68775,
-        "inputTokens": 131,
-        "outputTokens": 68644,
-        "cacheCreate": 212744,
-        "cacheRead": 8949791,
-        "cacheHitRate": 0.969503894896824,
-        "messageCount": 109
-      },
-      "sessionCostUSD": 4.5128
+      ]
     },
     {
       "sessionId": "session_190",
@@ -7164,7 +5173,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 8,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "zero",
@@ -7173,18 +5182,7 @@
         "zero",
         "zero",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 6534102,
-        "ioTokens": 38015,
-        "inputTokens": 554,
-        "outputTokens": 37461,
-        "cacheCreate": 352592,
-        "cacheRead": 6143495,
-        "cacheHitRate": 0.9402202475565885,
-        "messageCount": 70
-      },
-      "sessionCostUSD": 3.7288
+      ]
     },
     {
       "sessionId": "session_191",
@@ -7205,7 +5203,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 11,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
@@ -7214,18 +5212,7 @@
         "riki",
         "zero",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 6115928,
-        "ioTokens": 63086,
-        "inputTokens": 182,
-        "outputTokens": 62904,
-        "cacheCreate": 247382,
-        "cacheRead": 5805460,
-        "cacheHitRate": 0.949236158437444,
-        "messageCount": 60
-      },
-      "sessionCostUSD": 3.6134
+      ]
     },
     {
       "sessionId": "session_192",
@@ -7247,7 +5234,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 20,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
@@ -7262,18 +5249,7 @@
         "zero",
         "zero",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 21566147,
-        "ioTokens": 152352,
-        "inputTokens": 378,
-        "outputTokens": 151974,
-        "cacheCreate": 478234,
-        "cacheRead": 20935561,
-        "cacheHitRate": 0.9707603773636524,
-        "messageCount": 144
-      },
-      "sessionCostUSD": 10.3548
+      ]
     },
     {
       "sessionId": "session_193",
@@ -7294,7 +5270,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 27,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
@@ -7303,18 +5279,7 @@
         "zero",
         "edi",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 9538889,
-        "ioTokens": 69950,
-        "inputTokens": 380,
-        "outputTokens": 69570,
-        "cacheCreate": 609029,
-        "cacheRead": 8859910,
-        "cacheHitRate": 0.9288199076433324,
-        "messageCount": 107
-      },
-      "sessionCostUSD": 5.9865
+      ]
     },
     {
       "sessionId": "session_194",
@@ -7335,7 +5300,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 9,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
@@ -7344,18 +5309,7 @@
         "edi",
         "zero",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 4645675,
-        "ioTokens": 54513,
-        "inputTokens": 160,
-        "outputTokens": 54353,
-        "cacheCreate": 365129,
-        "cacheRead": 4226033,
-        "cacheHitRate": 0.9096703923541789,
-        "messageCount": 49
-      },
-      "sessionCostUSD": 3.4528
+      ]
     },
     {
       "sessionId": "session_195",
@@ -7376,7 +5330,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 9,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
@@ -7384,18 +5338,7 @@
         "edi",
         "zero",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 12529975,
-        "ioTokens": 80843,
-        "inputTokens": 215,
-        "outputTokens": 80628,
-        "cacheCreate": 756902,
-        "cacheRead": 11692230,
-        "cacheHitRate": 0.9331407285329779,
-        "messageCount": 145
-      },
-      "sessionCostUSD": 7.5561
+      ]
     },
     {
       "sessionId": "session_196",
@@ -7416,7 +5359,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 8,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
@@ -7425,18 +5368,7 @@
         "jobs",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 7886254,
-        "ioTokens": 55743,
-        "inputTokens": 129,
-        "outputTokens": 55614,
-        "cacheCreate": 250100,
-        "cacheRead": 7580411,
-        "cacheHitRate": 0.9612182158981945,
-        "messageCount": 89
-      },
-      "sessionCostUSD": 4.0466
+      ]
     },
     {
       "sessionId": "session_197",
@@ -7457,7 +5389,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 15,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
@@ -7466,18 +5398,7 @@
         "edi",
         "zero",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 13140312,
-        "ioTokens": 112432,
-        "inputTokens": 392,
-        "outputTokens": 112040,
-        "cacheCreate": 447027,
-        "cacheRead": 12580853,
-        "cacheHitRate": 0.9574242224994354,
-        "messageCount": 178
-      },
-      "sessionCostUSD": 7.1324
+      ]
     },
     {
       "sessionId": "session_199",
@@ -7495,23 +5416,12 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 24,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 15079889,
-        "ioTokens": 128790,
-        "inputTokens": 319,
-        "outputTokens": 128471,
-        "cacheCreate": 931392,
-        "cacheRead": 14019707,
-        "cacheHitRate": 0.929695636353822,
-        "messageCount": 197
-      },
-      "sessionCostUSD": 9.6267
+      ]
     },
     {
       "sessionId": "session_200",
@@ -7529,7 +5439,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 28,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
@@ -7537,18 +5447,7 @@
         "ace",
         "zero",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 15503057,
-        "ioTokens": 136252,
-        "inputTokens": 333,
-        "outputTokens": 135919,
-        "cacheCreate": 1198054,
-        "cacheRead": 14168751,
-        "cacheHitRate": 0.9139327166248566,
-        "messageCount": 181
-      },
-      "sessionCostUSD": 10.7831
+      ]
     },
     {
       "sessionId": "session_201",
@@ -7566,7 +5465,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 92,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
@@ -7578,18 +5477,7 @@
         "zero",
         "edi",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 36195692,
-        "ioTokens": 319064,
-        "inputTokens": 916,
-        "outputTokens": 318148,
-        "cacheCreate": 3495832,
-        "cacheRead": 32380796,
-        "cacheHitRate": 0.8946035898415756,
-        "messageCount": 432
-      },
-      "sessionCostUSD": 27.5986
+      ]
     },
     {
       "sessionId": "session_202",
@@ -7687,7 +5575,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 78,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "nova",
@@ -7699,18 +5587,7 @@
         "jobs",
         "ace",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 29960597,
-        "ioTokens": 316428,
-        "inputTokens": 1798,
-        "outputTokens": 314630,
-        "cacheCreate": 2261799,
-        "cacheRead": 27382370,
-        "cacheHitRate": 0.9139460739050026,
-        "messageCount": 321
-      },
-      "sessionCostUSD": 21.4213
+      ]
     },
     {
       "sessionId": "session_206",
@@ -7733,7 +5610,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 17,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
@@ -7743,18 +5620,7 @@
         "arki",
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 10114614,
-        "ioTokens": 81982,
-        "inputTokens": 255,
-        "outputTokens": 81727,
-        "cacheCreate": 444375,
-        "cacheRead": 9588257,
-        "cacheHitRate": 0.9479607427431239,
-        "messageCount": 85
-      },
-      "sessionCostUSD": 5.7696
+      ]
     },
     {
       "sessionId": "session_207",
@@ -7772,7 +5638,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 70,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
@@ -7782,18 +5648,7 @@
         "zero",
         "zero",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 45438124,
-        "ioTokens": 422556,
-        "inputTokens": 3281,
-        "outputTokens": 419275,
-        "cacheCreate": 4561471,
-        "cacheRead": 40454097,
-        "cacheHitRate": 0.8903117787169206,
-        "messageCount": 431
-      },
-      "sessionCostUSD": 35.5407
+      ]
     },
     {
       "sessionId": "session_208",
@@ -7817,7 +5672,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 44,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
@@ -7828,18 +5683,7 @@
         "zero",
         "zero",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 57040626,
-        "ioTokens": 453241,
-        "inputTokens": 4942,
-        "outputTokens": 448299,
-        "cacheCreate": 2956272,
-        "cacheRead": 53631113,
-        "cacheHitRate": 0.9402265851710674,
-        "messageCount": 453
-      },
-      "sessionCostUSD": 33.9147
+      ]
     },
     {
       "sessionId": "session_209",
@@ -7888,22 +5732,11 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 4,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 6831983,
-        "ioTokens": 80057,
-        "inputTokens": 107,
-        "outputTokens": 79950,
-        "cacheCreate": 544335,
-        "cacheRead": 6207591,
-        "cacheHitRate": 0.9086075009261586,
-        "messageCount": 90
-      },
-      "sessionCostUSD": 5.1031
+      ]
     },
     {
       "sessionId": "session_211",
@@ -7921,22 +5754,11 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 69,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 27146769,
-        "ioTokens": 239298,
-        "inputTokens": 687,
-        "outputTokens": 238611,
-        "cacheCreate": 2621874,
-        "cacheRead": 24285597,
-        "cacheHitRate": 0.8946035898415756,
-        "messageCount": 324
-      },
-      "sessionCostUSD": 20.6989
+      ]
     },
     {
       "sessionId": "session_212",
@@ -7954,22 +5776,11 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 11,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 3425216,
-        "ioTokens": 27397,
-        "inputTokens": 96,
-        "outputTokens": 27301,
-        "cacheCreate": 161805,
-        "cacheRead": 3236014,
-        "cacheHitRate": 0.9447620237672603,
-        "messageCount": 63
-      },
-      "sessionCostUSD": 1.9874
+      ]
     },
     {
       "sessionId": "session_213",
@@ -7987,23 +5798,12 @@
       "gradeActual": "B",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 46,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "dev",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 18097846,
-        "ioTokens": 159532,
-        "inputTokens": 458,
-        "outputTokens": 159074,
-        "cacheCreate": 1747916,
-        "cacheRead": 16190398,
-        "cacheHitRate": 0.8946035898415756,
-        "messageCount": 216
-      },
-      "sessionCostUSD": 13.7993
+      ]
     },
     {
       "sessionId": "session_214",
@@ -8021,22 +5821,11 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 53,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 20803515,
-        "ioTokens": 172782,
-        "inputTokens": 547,
-        "outputTokens": 172235,
-        "cacheCreate": 1848796,
-        "cacheRead": 18781937,
-        "cacheHitRate": 0.9028251716116242,
-        "messageCount": 271
-      },
-      "sessionCostUSD": 15.1527
+      ]
     },
     {
       "sessionId": "session_215",
@@ -8054,24 +5843,13 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 40,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "zero",
         "edi",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 29916805,
-        "ioTokens": 285382,
-        "inputTokens": 554,
-        "outputTokens": 284828,
-        "cacheCreate": 2092175,
-        "cacheRead": 27539248,
-        "cacheHitRate": 0.920527710094711,
-        "messageCount": 337
-      },
-      "sessionCostUSD": 20.3815
+      ]
     },
     {
       "sessionId": "session_216",
@@ -8093,7 +5871,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 14,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "jobs",
@@ -8113,18 +5891,7 @@
         "edi",
         "zero",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 21798534,
-        "ioTokens": 354024,
-        "inputTokens": 342,
-        "outputTokens": 353682,
-        "cacheCreate": 915856,
-        "cacheRead": 20528654,
-        "cacheHitRate": 0.941744706318324,
-        "messageCount": 214
-      },
-      "sessionCostUSD": 14.8993
+      ]
     },
     {
       "sessionId": "session_217",
@@ -8146,22 +5913,11 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 19,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 17402886,
-        "ioTokens": 84412,
-        "inputTokens": 300,
-        "outputTokens": 84112,
-        "cacheCreate": 614237,
-        "cacheRead": 16704237,
-        "cacheHitRate": 0.9598544172501043,
-        "messageCount": 188
-      },
-      "sessionCostUSD": 8.5772
+      ]
     },
     {
       "sessionId": "session_218",
@@ -8179,22 +5935,11 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 12,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 9327151,
-        "ioTokens": 56388,
-        "inputTokens": 200,
-        "outputTokens": 56188,
-        "cacheCreate": 246633,
-        "cacheRead": 9024130,
-        "cacheHitRate": 0.9675119444297621,
-        "messageCount": 130
-      },
-      "sessionCostUSD": 4.4755
+      ]
     },
     {
       "sessionId": "session_219",
@@ -8212,28 +5957,51 @@
       "gradeActual": "C",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 45,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "edi"
+      ]
+    },
+    {
+      "sessionId": "session_220",
+      "topicSlug": "pd-071-nexus-direct-turns-insert",
+      "topic": "PD-071 구현 — Nexus 직접작업 turns[] 자동삽입",
+      "startedAt": "2026-05-09T05:00:00.000Z",
+      "closedAt": "2026-05-09T07:25:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 23,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "nexus",
+        "edi"
       ],
       "tokenUsage": {
-        "totalBillable": 34867809,
-        "ioTokens": 271105,
-        "inputTokens": 10043,
-        "outputTokens": 261062,
-        "cacheCreate": 2291495,
-        "cacheRead": 32305209,
-        "cacheHitRate": 0.9265052759695913,
-        "messageCount": 498
+        "totalBillable": 9048923,
+        "ioTokens": 79766,
+        "inputTokens": 229,
+        "outputTokens": 79537,
+        "cacheCreate": 873958,
+        "cacheRead": 8095199,
+        "cacheHitRate": 0.8946035898415756,
+        "messageCount": 108
       },
-      "sessionCostUSD": 22.2307
+      "sessionCostUSD": 6.8996
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 186,
+      "count": 187,
       "sessions": [
         "session_050",
         "session_051",
@@ -8400,7 +6168,8 @@
         "session_216",
         "session_217",
         "session_218",
-        "session_219"
+        "session_219",
+        "session_220"
       ]
     },
     {
@@ -8894,6 +6663,13 @@
         "session_138",
         "session_205",
         "session_216"
+      ]
+    },
+    {
+      "role": "nexus",
+      "count": 1,
+      "sessions": [
+        "session_220"
       ]
     }
   ],
@@ -15116,6 +12892,24 @@
           "role": "edi",
           "phase": "compile",
           "turnIdx": 0,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_220",
+      "topic": "PD-071 구현 — Nexus 직접작업 turns[] 자동삽입",
+      "sequence": [
+        {
+          "role": "nexus",
+          "phase": "execution",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 1,
           "recallReason": null
         }
       ]
