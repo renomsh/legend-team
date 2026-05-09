@@ -1489,6 +1489,18 @@
         "all"
       ],
       "status": "applied"
+    },
+    {
+      "id": "MF-115",
+      "topicId": "topic_191",
+      "date": "2026-05-09",
+      "phase": "close",
+      "feedback": "Zero는 살리고 close 자체(hook chain)를 줄이는 방향으로 전환. 1차 조치는 timing 계측만, 단축안은 다음 세션에서 측정 데이터 기반으로 결정.",
+      "directive": "다음 세션 첫 단계: logs/close-timing.log 1차 측정값 분석 → ts-node 통합/build incremental/push 백그라운드 중 최대 ROI 1개 적용. Zero invocation gate(check-zero-trigger.js + close.md step 0)는 보수적이라 일단 유지, 롤백 여부는 측정 후 재검토.",
+      "appliedTo": [
+        "all"
+      ],
+      "status": "applied"
     }
   ],
   "statusValues": [

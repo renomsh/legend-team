@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_227",
-  "nextSessionId": "session_228",
-  "currentVersion": "v1.619",
+  "lastSessionId": "session_228",
+  "nextSessionId": "session_229",
+  "currentVersion": "v1.620",
   "openTopics": [
     {
       "id": "topic_175",
@@ -52,6 +52,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_228",
+      "topicSlug": "close-speed-diagnosis",
+      "closedAt": "2026-05-10T01:00:00.000Z",
+      "oneLineSummary": "topic_191 진단: close 병목 ts-node×4 cold start 추정. timing 계측 + Zero gate 추가, 측정값은 다음 세션 분석",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_218",
       "topicSlug": "c-indicator-display-change",
       "closedAt": "2026-05-09T23:00:00.000Z",
@@ -67,16 +74,6 @@
         "D-174",
         "D-175"
       ]
-    },
-    {
-      "sessionId": "session_216",
-      "topicSlug": "pd-057-grade-review",
-      "closedAt": "2026-05-09T21:00:00.000Z",
-      "oneLineSummary": "PD-057 Grade 재검토: 2축 판정+4패턴 원칙(D-172), Grade C 재정의·blast_radius 경계·S 로스터 확정(D-173)",
-      "decisionsAdded": [
-        "D-172",
-        "D-173"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -89,5 +86,17 @@
       "status": "pending"
     }
   ],
-  "lastUpdated": "2026-05-09T13:37:39.325Z"
+  "lastUpdated": "2026-05-09T21:24:14.795Z",
+  "worktreeMergeFailures": [
+    {
+      "branch": "claude/funny-feynman-ae25a0",
+      "detectedAt": "2026-05-09T20:46:02.647Z",
+      "message": "Command failed: git merge claude/funny-feynman-ae25a0 --no-ff -m \"merge: claude/funny-feynman-ae25a0\""
+    },
+    {
+      "branch": "claude/modest-thompson-04aab6",
+      "detectedAt": "2026-05-09T21:24:14.795Z",
+      "message": "error: Merging is not possible because you have unmerged files.\nhint: Fix them up in the work tree, and then use 'git add/rm <file>'\nhint: as appropriate to mark resolution and make a commit.\nfatal: Exiting because of an unresolved conflict.\n"
+    }
+  ]
 }

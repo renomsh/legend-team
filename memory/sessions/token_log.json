@@ -3257,20 +3257,35 @@
       }
     },
     {
-      "capturedAt": "2026-05-09T20:36:13.687Z",
-      "cliSessionId": "cea00e70-d340-47c0-8f28-66b271b7d031",
+      "capturedAt": "2026-05-09T13:36:21.776Z",
+      "cliSessionId": null,
       "legendSessionId": "session_227",
-      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--projects-legend-team\\aa63c3ec-4478-446e-b8a1-853b7ffc24e5.jsonl",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-interesting-mclean-0b5400\\413f6353-82c5-44be-bfbc-119398d42751.jsonl",
       "usage": {
-        "input_tokens": 592,
-        "output_tokens": 192784,
-        "cache_creation_input_tokens": 1529743,
-        "cache_read_input_tokens": 16381994,
-        "messageCount": 199,
-        "masterTurns": 42,
-        "total_billable": 18105113
+        "input_tokens": 363,
+        "output_tokens": 113247,
+        "cache_creation_input_tokens": 655785,
+        "cache_read_input_tokens": 8286795,
+        "messageCount": 91,
+        "masterTurns": 19,
+        "total_billable": 9056190
+      }
+    },
+    {
+      "capturedAt": "2026-05-09T20:45:36.549Z",
+      "cliSessionId": null,
+      "legendSessionId": "session_228",
+      "transcriptPath": "C:\\Users\\문성훈\\.claude\\projects\\C--Projects-legend-team--claude-worktrees-funny-feynman-ae25a0\\9f85d8e8-a981-4e9b-ae70-e1e0764edeef.jsonl",
+      "usage": {
+        "input_tokens": 254,
+        "output_tokens": 57152,
+        "cache_creation_input_tokens": 627188,
+        "cache_read_input_tokens": 5445714,
+        "messageCount": 69,
+        "masterTurns": 7,
+        "total_billable": 6130308
       }
     }
   ],
-  "lastUpdated": "2026-05-09T20:36:13.690Z"
+  "lastUpdated": "2026-05-09T20:45:36.552Z"
 }

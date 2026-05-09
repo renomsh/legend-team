@@ -1,11 +1,11 @@
 {
-  "computedAt": "2026-05-09T20:36:23.875Z",
+  "computedAt": "2026-05-09T20:45:54.966Z",
   "registryVersion": "v1.1",
   "durationMs": 2,
   "slaWarnMs": 3000,
   "slaBreached": false,
   "sourceJsonl": "memory\\growth\\self_scores.jsonl",
-  "recordCount": 187,
+  "recordCount": 184,
   "metricCount": 51,
   "aggregates": [
     {
@@ -156,36 +156,36 @@
       "metricId": "zero.ref_count",
       "role": "zero",
       "view": "all",
-      "mean": 21.2,
-      "n": 27,
-      "std": 27,
+      "mean": 21.7,
+      "n": 26,
+      "std": 27.4,
       "ci95": [
-        11,
-        31.4
+        11.1,
+        32.2
       ]
     },
     {
       "metricId": "zero.ref_count",
       "role": "zero",
       "view": "recent10",
-      "mean": 7.8,
-      "n": 10,
-      "std": 6.1,
-      "ci95": [
-        4,
-        11.6
-      ]
-    },
-    {
-      "metricId": "zero.ref_count",
-      "role": "zero",
-      "view": "recent3",
       "mean": 7,
-      "n": 3,
-      "std": 1.7,
+      "n": 10,
+      "std": 6.5,
       "ci95": [
-        5,
-        9
+        3,
+        11
+      ]
+    },
+    {
+      "metricId": "zero.ref_count",
+      "role": "zero",
+      "view": "recent3",
+      "mean": 4.7,
+      "n": 3,
+      "std": 3.5,
+      "ci95": [
+        0.7,
+        8.6
       ]
     },
     {
@@ -193,7 +193,7 @@
       "role": "zero",
       "view": "all",
       "mean": 0,
-      "n": 27,
+      "n": 26,
       "std": 0,
       "ci95": [
         0,
@@ -228,36 +228,36 @@
       "metricId": "zero.clean_rate",
       "role": "zero",
       "view": "all",
-      "mean": 97.4,
-      "n": 27,
-      "std": 9.3,
+      "mean": 98.7,
+      "n": 26,
+      "std": 6.9,
       "ci95": [
-        93.9,
-        100.9
+        96,
+        101.3
       ]
     },
     {
       "metricId": "zero.clean_rate",
       "role": "zero",
       "view": "recent10",
-      "mean": 93,
+      "mean": 96.5,
       "n": 10,
-      "std": 14.8,
+      "std": 11.1,
       "ci95": [
-        83.9,
-        102.1
+        89.6,
+        103.4
       ]
     },
     {
       "metricId": "zero.clean_rate",
       "role": "zero",
       "view": "recent3",
-      "mean": 76.7,
+      "mean": 88.3,
       "n": 3,
       "std": 20.2,
       "ci95": [
-        53.8,
-        99.5
+        65.5,
+        111.2
       ]
     },
     {
