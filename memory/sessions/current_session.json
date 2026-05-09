@@ -1,46 +1,57 @@
 {
-  "sessionId": "session_225",
+  "sessionId": "session_226",
   "topicId": "topic_190",
   "topic": "스킬 훅 자동 발동 구현",
   "topicSlug": "skill-hook-auto-trigger",
   "reportPath": "reports/2026-05-09_skill-hook-auto-trigger",
   "status": "closed",
-  "startedAt": "2026-05-09T12:00:00.000Z",
-  "closedAt": "2026-05-09T13:00:00.000Z",
-  "oneLineSummary": "Phase 1 feasibility 갭 발견 — cowork ~140 skill 디스크 부재, 옵션 A/B/C Master 결정 보류",
-  "notes": "Edi가 session_224 edi_rev1.md를 덮어쓴 사고 발생 → git에서 rev1 복구, 본 세션 보고서는 edi_rev2.md로 저장.",
+  "closedAt": "2026-05-09T15:40:00.000Z",
+  "oneLineSummary": "topic_190 Phase 1·2 구현: 직독 재검증으로 cowork 148 발견 → 인덱스 160(G1 PASS) + matcher PoC 4/4, 임계 0.5 과대 발견",
+  "startedAt": "2026-05-09T14:00:00.000Z",
   "mode": "observation",
   "grade": "A",
   "topicType": "framing",
   "operationType": "structured",
-  "phase": "implementation",
+  "phase": "framing",
   "framingLevel": 0,
   "framingSkipped": true,
-  "relatedPD": [
-    "PD-068"
-  ],
+  "carryOver": {
+    "fromSession": "session_225",
+    "pendingDecision": "옵션 A/B/C 중 택 1",
+    "decisions": [
+      "D-176",
+      "D-177"
+    ],
+    "phase1_target": "scripts/build-plugin-skill-index.ts + memory/shared/plugin_skill_index.json",
+    "gateG1": "인덱싱 skill ≥100건 + descriptionHash 안정"
+  },
   "turns": [
     {
       "role": "zero",
       "turnIdx": 0,
       "source": "agent",
       "selfScores": {
-        "ref_cnt": 1,
+        "ref_cnt": 5,
         "hc_found": 0,
         "cln_rt": 1
       }
     },
     {
-      "role": "edi",
+      "role": "zero",
       "turnIdx": 1,
+      "source": "agent"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 2,
       "source": "agent",
       "selfScores": {
         "scc": "Y",
         "cs_cnt": 0,
         "art_cmp": 1,
-        "gap_fc": 2,
-        "gp_acc": 0.9,
-        "versionBumpSuggested": "null"
+        "gap_fc": 1,
+        "gp_acc": 0.95,
+        "versionBumpSuggested": 0.01
       }
     }
   ],
@@ -54,33 +65,25 @@
   "openMasterAlerts": [],
   "agentsCompleted": [
     "zero",
+    "zero",
     "edi"
   ],
-  "carryOver": {
-    "fromSession": "session_224",
-    "decisions": [
-      "D-176",
-      "D-177"
-    ],
-    "phase1_target": "scripts/build-plugin-skill-index.ts + memory/shared/plugin_skill_index.json",
-    "gateG1": "인덱싱 skill ≥100건 + descriptionHash 안정"
-  },
   "gaps": [
-    {
-      "type": "frontmatter-patch-failed",
-      "role": "zero",
-      "turnIdx": 0,
-      "reportsPath": "reports/2026-05-09_skill-hook-auto-trigger/condensed_session225.md",
-      "detectedAt": "2026-05-09T11:20:31.025Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-09_skill-hook-auto-trigger/condensed_session225.md"
-    },
     {
       "type": "missing-report",
       "role": "zero",
       "turnIdx": 0,
       "reportPath": "reports/2026-05-09_skill-hook-auto-trigger",
-      "detectedAt": "2026-05-09T11:20:31.033Z",
+      "detectedAt": "2026-05-09T11:56:23.921Z",
       "note": "zero turn0 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "missing-report",
+      "role": "zero",
+      "turnIdx": 1,
+      "reportPath": "reports/2026-05-09_skill-hook-auto-trigger",
+      "detectedAt": "2026-05-09T11:57:18.317Z",
+      "note": "zero turn1 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
     },
     {
       "type": "inline-role-header-missing-frontmatter",
@@ -137,16 +140,20 @@
     {
       "type": "inline-role-header-missing-frontmatter",
       "file": "reports/2026-05-09_skill-hook-auto-trigger/edi_rev1.md"
+    },
+    {
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-09_skill-hook-auto-trigger/edi_rev2.md"
     }
   ],
   "tokenUsage": {
-    "input_tokens": 149,
-    "output_tokens": 35225,
-    "cache_creation_input_tokens": 266422,
-    "cache_read_input_tokens": 5424672,
-    "messageCount": 66,
-    "masterTurns": 9,
-    "total_billable": 5726468
+    "input_tokens": 245,
+    "output_tokens": 64102,
+    "cache_creation_input_tokens": 345440,
+    "cache_read_input_tokens": 9480161,
+    "messageCount": 102,
+    "masterTurns": 8,
+    "total_billable": 9889948
   },
-  "finalizedAt": "2026-05-09T11:23:28.774Z"
+  "finalizedAt": "2026-05-09T12:00:57.040Z"
 }

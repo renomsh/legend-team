@@ -10548,8 +10548,54 @@
       "grade": "A",
       "oneLineSummary": "Phase 1 feasibility 갭 발견 — cowork ~140 skill 디스크 부재, 옵션 A/B/C Master 결정 보류",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_226",
+      "topicSlug": "skill-hook-auto-trigger",
+      "topic": "스킬 훅 자동 발동 구현",
+      "startedAt": "2026-05-09T14:00:00.000Z",
+      "closedAt": "2026-05-09T15:40:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\trusting-chandrasekhar-0b49ce",
+      "agentsCompleted": [
+        "zero",
+        "zero",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "zero",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 5,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "zero",
+          "turnIdx": 1,
+          "source": "agent"
+        },
+        {
+          "role": "edi",
+          "turnIdx": 2,
+          "source": "agent",
+          "selfScores": {
+            "scc": "Y",
+            "cs_cnt": 0,
+            "art_cmp": 1,
+            "gap_fc": 1,
+            "gp_acc": 0.95,
+            "versionBumpSuggested": 0.01
+          }
+        }
+      ],
+      "grade": "A",
+      "oneLineSummary": "topic_190 Phase 1·2 구현: 직독 재검증으로 cowork 148 발견 → 인덱스 160(G1 PASS) + matcher PoC 4/4, 임계 0.5 과대 발견",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-09T11:23:00.426Z",
+  "lastUpdated": "2026-05-09T12:00:20.361Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

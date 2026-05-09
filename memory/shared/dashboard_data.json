@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-09T11:23:43.986Z",
-  "totalSessions": 221,
+  "generatedAt": "2026-05-09T12:01:14.722Z",
+  "totalSessions": 222,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 221
+      "undefined": 222
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -16,14 +16,14 @@
     "archiveCount": 0
   },
   "metrics": {
-    "avgMasterTurns": 21.18,
-    "avgCacheHitRate": 0.9326,
-    "cacheSampleSize": 191,
-    "cacheSampleTotal": 221,
+    "avgMasterTurns": 21.12,
+    "avgCacheHitRate": 0.9327,
+    "cacheSampleSize": 192,
+    "cacheSampleTotal": 222,
     "avgAdoptionRate": 0,
     "totalDecisions": 180,
     "gradeDistribution": {
-      "S": 101,
+      "S": 102,
       "A": 45,
       "B": 47,
       "C": 28
@@ -42,10 +42,10 @@
       "session_202"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 175,
-    "totalCostUSD": 2613.1039,
-    "avgCostPerSession": 12.326,
-    "costSampleSize": 212,
+    "turnBasedSessions": 176,
+    "totalCostUSD": 2618.2056,
+    "avgCostPerSession": 12.292,
+    "costSampleSize": 213,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -8379,8 +8379,8 @@
       ],
       "rolesCalled": 13,
       "rolesRecalled": 6,
-      "sessionsSpanned": 2,
-      "size": 35,
+      "sessionsSpanned": 3,
+      "size": 38,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -8424,8 +8424,8 @@
       "decisionAxes": 0,
       "rolesCalled": 2,
       "rolesRecalled": 0,
-      "sessionsSpanned": 2,
-      "size": 8,
+      "sessionsSpanned": 3,
+      "size": 11,
       "gradeDeclared": "A",
       "gradeActual": "A",
       "gradeMismatch": false,
@@ -8447,12 +8447,47 @@
         "messageCount": 66
       },
       "sessionCostUSD": 3.1553
+    },
+    {
+      "sessionId": "session_226",
+      "topicSlug": "skill-hook-auto-trigger",
+      "topic": "스킬 훅 자동 발동 구현",
+      "startedAt": "2026-05-09T14:00:00.000Z",
+      "closedAt": "2026-05-09T15:40:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 3,
+      "size": 14,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 8,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "zero",
+        "zero",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 9889948,
+        "ioTokens": 64347,
+        "inputTokens": 245,
+        "outputTokens": 64102,
+        "cacheCreate": 345440,
+        "cacheRead": 9480161,
+        "cacheHitRate": 0.9585653028711577,
+        "messageCount": 102
+      },
+      "sessionCostUSD": 5.1017
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 194,
+      "count": 195,
       "sessions": [
         "session_050",
         "session_051",
@@ -8625,7 +8660,8 @@
         "session_222",
         "session_223",
         "session_224",
-        "session_225"
+        "session_225",
+        "session_226"
       ]
     },
     {
@@ -9014,7 +9050,7 @@
     },
     {
       "role": "zero",
-      "count": 39,
+      "count": 41,
       "sessions": [
         "session_153",
         "session_175",
@@ -9041,7 +9077,8 @@
         "session_216",
         "session_222",
         "session_224",
-        "session_225"
+        "session_225",
+        "session_226"
       ]
     },
     {
@@ -15531,6 +15568,30 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_226",
+      "topic": "스킬 훅 자동 발동 구현",
+      "sequence": [
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 2,
           "recallReason": null
         }
       ]

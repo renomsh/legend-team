@@ -1,0 +1,1611 @@
+{
+  "version": "1.0.0",
+  "lastSync": "2026-05-09T11:44:52.336Z",
+  "totalCount": 160,
+  "bySource": {
+    "marketplace": 26,
+    "cowork": 134
+  },
+  "skills": [
+    {
+      "name": "instrument-data-to-allotrope",
+      "namespace": "bio-research",
+      "description": "Convert laboratory instrument output files (PDF, CSV, Excel, TXT) to Allotrope Simple Model (ASM) JSON format or flattened 2D CSV. Use this skill when scientists need to standardize instrument data for LIMS systems, data lakes, or downstream analysis. Supports auto-detection of instrument types. Outputs include full ASM JSON, flattened CSV for easy import, and exportable Python code for data engineers. Common triggers include converting instrument files, standardizing lab data, preparing data for upload to LIMS/ELN systems, or generating parser code for production pipelines.",
+      "descriptionHash": "eed639b6c15777ca",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01DZdK2sP1iWnY1hRYRcFc9W\\skills\\instrument-data-to-allotrope\\SKILL.md"
+    },
+    {
+      "name": "nextflow-development",
+      "namespace": "bio-research",
+      "description": "Run nf-core bioinformatics pipelines (rnaseq, sarek, atacseq) on sequencing data. Use when analyzing RNA-seq, WGS/WES, or ATAC-seq data—either local FASTQs or public datasets from GEO/SRA. Triggers on nf-core, Nextflow, FASTQ analysis, variant calling, gene expression, differential expression, GEO reanalysis, GSE/GSM/SRR accessions, or samplesheet creation.",
+      "descriptionHash": "c04c442c82c5be21",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01DZdK2sP1iWnY1hRYRcFc9W\\skills\\nextflow-development\\SKILL.md"
+    },
+    {
+      "name": "scientific-problem-selection",
+      "namespace": "bio-research",
+      "description": "This skill should be used when scientists need help with research problem selection, project ideation, troubleshooting stuck projects, or strategic scientific decisions. Use this skill when users ask to pitch a new research idea, work through a project problem, evaluate project risks, plan research strategy, navigate decision trees, or get help choosing what scientific problem to work on. Typical requests include \"I have an idea for a project\", \"I'm stuck on my research\", \"help me evaluate this project\", \"what should I work on\", or \"I need strategic advice about my research\".",
+      "descriptionHash": "fe9e5f745c339cc8",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01DZdK2sP1iWnY1hRYRcFc9W\\skills\\scientific-problem-selection\\SKILL.md"
+    },
+    {
+      "name": "scvi-tools",
+      "namespace": "bio-research",
+      "description": "Deep learning for single-cell analysis using scvi-tools. This skill should be used when users need (1) data integration and batch correction with scVI/scANVI, (2) ATAC-seq analysis with PeakVI, (3) CITE-seq multi-modal analysis with totalVI, (4) multiome RNA+ATAC analysis with MultiVI, (5) spatial transcriptomics deconvolution with DestVI, (6) label transfer and reference mapping with scANVI/scArches, (7) RNA velocity with veloVI, or (8) any deep learning-based single-cell method. Triggers include mentions of scVI, scANVI, totalVI, PeakVI, MultiVI, DestVI, veloVI, sysVI, scArches, variational autoencoder, VAE, batch correction, data integration, multi-modal, CITE-seq, multiome, reference mapping, latent space.",
+      "descriptionHash": "9de82b63854a82c9",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01DZdK2sP1iWnY1hRYRcFc9W\\skills\\scvi-tools\\SKILL.md"
+    },
+    {
+      "name": "single-cell-rna-qc",
+      "namespace": "bio-research",
+      "description": "Performs quality control on single-cell RNA-seq data (.h5ad or .h5 files) using scverse best practices with MAD-based filtering and comprehensive visualizations. Use when users request QC analysis, filtering low-quality cells, assessing data quality, or following scverse/scanpy best practices for single-cell analysis.",
+      "descriptionHash": "2b17d23ee67da5c3",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01DZdK2sP1iWnY1hRYRcFc9W\\skills\\single-cell-rna-qc\\SKILL.md"
+    },
+    {
+      "name": "start",
+      "namespace": "bio-research",
+      "description": "Set up your bio-research environment and explore available tools. Use when first getting oriented with the plugin, checking which literature, drug-discovery, or visualization MCP servers are connected, or surveying available analysis skills before starting a new project.",
+      "descriptionHash": "4cbf12bd0cd417dc",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01DZdK2sP1iWnY1hRYRcFc9W\\skills\\start\\SKILL.md"
+    },
+    {
+      "name": "claude-automation-recommender",
+      "namespace": "claude-code-setup",
+      "description": "Analyze a codebase and recommend Claude Code automations (hooks, subagents, skills, plugins, MCP servers). Use when user asks for automation recommendations, wants to optimize their Claude Code setup, mentions improving Claude Code workflows, asks how to first set up Claude Code for a project, or wants to know what Claude Code features they should use.",
+      "descriptionHash": "db90afcde3c999d6",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\plugins\\claude-code-setup\\skills\\claude-automation-recommender\\SKILL.md"
+    },
+    {
+      "name": "claude-md-improver",
+      "namespace": "claude-md-management",
+      "description": "Audit and improve CLAUDE.md files in repositories. Use when user asks to check, audit, update, improve, or fix CLAUDE.md files. Scans for all CLAUDE.md files, evaluates quality against templates, outputs quality report, then makes targeted updates. Also use when the user mentions \"CLAUDE.md maintenance\" or \"project memory optimization\".",
+      "descriptionHash": "983b0daec178f0ee",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\plugins\\claude-md-management\\skills\\claude-md-improver\\SKILL.md"
+    },
+    {
+      "name": "customer-escalation",
+      "namespace": "customer-support",
+      "description": "Package an escalation for engineering, product, or leadership with full context. Use when a bug needs engineering attention beyond normal support, multiple customers report the same issue, a customer is threatening to churn, or an issue has sat unresolved past its SLA.",
+      "descriptionHash": "f11c0df42ca732ee",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_016kCmK4LhtWJEFSRVcTBZeB\\skills\\customer-escalation\\SKILL.md"
+    },
+    {
+      "name": "customer-research",
+      "namespace": "customer-support",
+      "description": "Multi-source research on a customer question or topic with source attribution. Use when a customer asks something you need to look up, investigating whether a bug has been reported before, checking what was previously told to a specific account, or gathering background before drafting a response.",
+      "descriptionHash": "e77ddac8e0a88d83",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_016kCmK4LhtWJEFSRVcTBZeB\\skills\\customer-research\\SKILL.md"
+    },
+    {
+      "name": "draft-response",
+      "namespace": "customer-support",
+      "description": "Draft a professional customer-facing response tailored to the situation and relationship. Use when answering a product question, responding to an escalation or outage, delivering bad news like a delay or won't-fix, declining a feature request, or replying to a billing issue.",
+      "descriptionHash": "adca83e94c5a2d8d",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_016kCmK4LhtWJEFSRVcTBZeB\\skills\\draft-response\\SKILL.md"
+    },
+    {
+      "name": "kb-article",
+      "namespace": "customer-support",
+      "description": "Draft a knowledge base article from a resolved issue or common question. Use when a ticket resolution is worth documenting for self-service, the same question keeps coming up, a workaround needs to be published, or a known issue should be communicated to customers.",
+      "descriptionHash": "57bdd6afd638aad5",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_016kCmK4LhtWJEFSRVcTBZeB\\skills\\kb-article\\SKILL.md"
+    },
+    {
+      "name": "ticket-triage",
+      "namespace": "customer-support",
+      "description": "Triage and prioritize a support ticket or customer issue. Use when a new ticket comes in and needs categorization, assigning P1-P4 priority, deciding which team should handle it, or checking whether it's a duplicate or known issue before routing.",
+      "descriptionHash": "271de51e6331be45",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_016kCmK4LhtWJEFSRVcTBZeB\\skills\\ticket-triage\\SKILL.md"
+    },
+    {
+      "name": "build-model",
+      "namespace": "daloopa",
+      "description": "Build a multi-tab Excel financial model",
+      "descriptionHash": "11756f9321de5d48",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01V1R16a6ddw8RHNUXM3ZAEC\\skills\\build-model\\SKILL.md"
+    },
+    {
+      "name": "bull-bear",
+      "namespace": "daloopa",
+      "description": "Bull/bear/base case scenario framework for a given company",
+      "descriptionHash": "890b183c0d85af24",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01V1R16a6ddw8RHNUXM3ZAEC\\skills\\bull-bear\\SKILL.md"
+    },
+    {
+      "name": "capital-allocation",
+      "namespace": "daloopa",
+      "description": "Deep dive into capital deployment, buybacks, dividends, and shareholder yield",
+      "descriptionHash": "10c73b0bd1428c18",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01V1R16a6ddw8RHNUXM3ZAEC\\skills\\capital-allocation\\SKILL.md"
+    },
+    {
+      "name": "comp-sheet",
+      "namespace": "daloopa",
+      "description": "Build an industry comp sheet Excel model with deep operational KPIs",
+      "descriptionHash": "e462c327255d9a7c",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01V1R16a6ddw8RHNUXM3ZAEC\\skills\\comp-sheet\\SKILL.md"
+    },
+    {
+      "name": "comps",
+      "namespace": "daloopa",
+      "description": "Trading comparables analysis with peer multiples and implied valuation",
+      "descriptionHash": "8713dee40753db41",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01V1R16a6ddw8RHNUXM3ZAEC\\skills\\comps\\SKILL.md"
+    },
+    {
+      "name": "dcf",
+      "namespace": "daloopa",
+      "description": "Discounted cash flow valuation with sensitivity analysis",
+      "descriptionHash": "6c3d4a26ae105a90",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01V1R16a6ddw8RHNUXM3ZAEC\\skills\\dcf\\SKILL.md"
+    },
+    {
+      "name": "earnings",
+      "namespace": "daloopa",
+      "description": "Full earnings analysis with guidance tracking for a given company",
+      "descriptionHash": "e27360606cf00e2f",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01V1R16a6ddw8RHNUXM3ZAEC\\skills\\earnings\\SKILL.md"
+    },
+    {
+      "name": "earnings-flash",
+      "namespace": "daloopa",
+      "description": "Rapid first-read earnings flash for a given company",
+      "descriptionHash": "54104eef4a2f9e66",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01V1R16a6ddw8RHNUXM3ZAEC\\skills\\earnings-flash\\SKILL.md"
+    },
+    {
+      "name": "earnings-prep",
+      "namespace": "daloopa",
+      "description": "Pre-earnings preparation report for the night before a company reports",
+      "descriptionHash": "4b96e9db1e8786c3",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01V1R16a6ddw8RHNUXM3ZAEC\\skills\\earnings-prep\\SKILL.md"
+    },
+    {
+      "name": "guidance-tracker",
+      "namespace": "daloopa",
+      "description": "Track management guidance accuracy over time for a given company",
+      "descriptionHash": "1f9b938d33fdce27",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01V1R16a6ddw8RHNUXM3ZAEC\\skills\\guidance-tracker\\SKILL.md"
+    },
+    {
+      "name": "ib-deck",
+      "namespace": "daloopa",
+      "description": "Generate an institutional-grade investment banking pitch deck (HTML)",
+      "descriptionHash": "593af6258b6f95c8",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01V1R16a6ddw8RHNUXM3ZAEC\\skills\\ib-deck\\SKILL.md"
+    },
+    {
+      "name": "industry",
+      "namespace": "daloopa",
+      "description": "Cross-company industry comparison across multiple tickers",
+      "descriptionHash": "156206c213aa4498",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01V1R16a6ddw8RHNUXM3ZAEC\\skills\\industry\\SKILL.md"
+    },
+    {
+      "name": "inflection",
+      "namespace": "daloopa",
+      "description": "Auto-detect biggest acceleration/deceleration inflections across all metrics",
+      "descriptionHash": "b800c7c80f40891c",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01V1R16a6ddw8RHNUXM3ZAEC\\skills\\inflection\\SKILL.md"
+    },
+    {
+      "name": "initiate",
+      "namespace": "daloopa",
+      "description": "Initiate coverage — generate both research note (HTML) and Excel model (.xlsx)",
+      "descriptionHash": "7370be8ee7347a9c",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01V1R16a6ddw8RHNUXM3ZAEC\\skills\\initiate\\SKILL.md"
+    },
+    {
+      "name": "precedent-transactions",
+      "namespace": "daloopa",
+      "description": "Precedent M&A transactions analysis with deal multiples and acquisition history",
+      "descriptionHash": "00ba0e20ade1bfe5",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01V1R16a6ddw8RHNUXM3ZAEC\\skills\\precedent-transactions\\SKILL.md"
+    },
+    {
+      "name": "research-note",
+      "namespace": "daloopa",
+      "description": "Generate a professional Word document research note",
+      "descriptionHash": "c044548af9d68511",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01V1R16a6ddw8RHNUXM3ZAEC\\skills\\research-note\\SKILL.md"
+    },
+    {
+      "name": "setup",
+      "namespace": "daloopa",
+      "description": "Verify Daloopa MCP connection and show available skills",
+      "descriptionHash": "a2ef3def2fe6384c",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01V1R16a6ddw8RHNUXM3ZAEC\\skills\\setup\\SKILL.md"
+    },
+    {
+      "name": "supply-chain",
+      "namespace": "daloopa",
+      "description": "Interactive supply chain dashboard mapping suppliers, customers, and financial interdependencies",
+      "descriptionHash": "b2041d4d424a03ea",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01V1R16a6ddw8RHNUXM3ZAEC\\skills\\supply-chain\\SKILL.md"
+    },
+    {
+      "name": "tearsheet",
+      "namespace": "daloopa",
+      "description": "Quick one-page company overview and snapshot",
+      "descriptionHash": "3fcb5348b4320e42",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01V1R16a6ddw8RHNUXM3ZAEC\\skills\\tearsheet\\SKILL.md"
+    },
+    {
+      "name": "unit-economics",
+      "namespace": "daloopa",
+      "description": "Bottoms-up unit economics decomposition for any public company",
+      "descriptionHash": "2d567ded61424c7c",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01V1R16a6ddw8RHNUXM3ZAEC\\skills\\unit-economics\\SKILL.md"
+    },
+    {
+      "name": "working-capital",
+      "namespace": "daloopa",
+      "description": "Cash conversion cycle, earnings quality, and working capital deep-dive",
+      "descriptionHash": "609c73af134e28a8",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01V1R16a6ddw8RHNUXM3ZAEC\\skills\\working-capital\\SKILL.md"
+    },
+    {
+      "name": "analyze",
+      "namespace": "data",
+      "description": "Answer data questions -- from quick lookups to full analyses. Use when looking up a single metric, investigating what's driving a trend or drop, comparing segments over time, or preparing a formal data report for stakeholders.",
+      "descriptionHash": "84dbf03177317a39",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01VTbvGZYaCVU2CNSvhDCnkg\\skills\\analyze\\SKILL.md"
+    },
+    {
+      "name": "build-dashboard",
+      "namespace": "data",
+      "description": "Build an interactive HTML dashboard with charts, filters, and tables. Use when creating an executive overview with KPI cards, turning query results into a shareable self-contained report, building a team monitoring snapshot, or needing multiple charts with filters in one browser-openable file.",
+      "descriptionHash": "e906cc44bedde440",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01VTbvGZYaCVU2CNSvhDCnkg\\skills\\build-dashboard\\SKILL.md"
+    },
+    {
+      "name": "create-viz",
+      "namespace": "data",
+      "description": "Create publication-quality visualizations with Python. Use when turning query results or a DataFrame into a chart, selecting the right chart type for a trend or comparison, generating a plot for a report or presentation, or needing an interactive chart with hover and zoom.",
+      "descriptionHash": "d63057a59a4510ca",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01VTbvGZYaCVU2CNSvhDCnkg\\skills\\create-viz\\SKILL.md"
+    },
+    {
+      "name": "data-context-extractor",
+      "namespace": "data",
+      "description": "> Generate or improve a company-specific data analysis skill by extracting tribal knowledge from analysts. BOOTSTRAP MODE - Triggers: \"Create a data context skill\", \"Set up data analysis for our warehouse\", \"Help me create a skill for our database\", \"Generate a data skill for [company]\" → Discovers schemas, asks key questions, generates initial skill with reference files ITERATION MODE - Triggers: \"Add context about [domain]\", \"The skill needs more info about [topic]\", \"Update the data skill with [metrics/tables/terminology]\", \"Improve the [domain] reference\" → Loads existing skill, asks targeted questions, appends/updates reference files Use when data analysts want Claude to understand their company's specific data warehouse, terminology, metrics definitions, and common query patterns.",
+      "descriptionHash": "7bd7aa3b4908637d",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01VTbvGZYaCVU2CNSvhDCnkg\\skills\\data-context-extractor\\SKILL.md"
+    },
+    {
+      "name": "data-visualization",
+      "namespace": "data",
+      "description": "Create effective data visualizations with Python (matplotlib, seaborn, plotly). Use when building charts, choosing the right chart type for a dataset, creating publication-quality figures, or applying design principles like accessibility and color theory.",
+      "descriptionHash": "2e6e48c4fb061e32",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01VTbvGZYaCVU2CNSvhDCnkg\\skills\\data-visualization\\SKILL.md"
+    },
+    {
+      "name": "explore-data",
+      "namespace": "data",
+      "description": "Profile and explore a dataset to understand its shape, quality, and patterns. Use when encountering a new table or file, checking null rates and column distributions, spotting data quality issues like duplicates or suspicious values, or deciding which dimensions and metrics to analyze.",
+      "descriptionHash": "ff508f0b794fdd41",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01VTbvGZYaCVU2CNSvhDCnkg\\skills\\explore-data\\SKILL.md"
+    },
+    {
+      "name": "sql-queries",
+      "namespace": "data",
+      "description": "Write correct, performant SQL across all major data warehouse dialects (Snowflake, BigQuery, Databricks, PostgreSQL, etc.). Use when writing queries, optimizing slow SQL, translating between dialects, or building complex analytical queries with CTEs, window functions, or aggregations.",
+      "descriptionHash": "dd2a3d12c9c9b76b",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01VTbvGZYaCVU2CNSvhDCnkg\\skills\\sql-queries\\SKILL.md"
+    },
+    {
+      "name": "statistical-analysis",
+      "namespace": "data",
+      "description": "Apply statistical methods including descriptive stats, trend analysis, outlier detection, and hypothesis testing. Use when analyzing distributions, testing for significance, detecting anomalies, computing correlations, or interpreting statistical results.",
+      "descriptionHash": "9f971773e077fcc9",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01VTbvGZYaCVU2CNSvhDCnkg\\skills\\statistical-analysis\\SKILL.md"
+    },
+    {
+      "name": "validate-data",
+      "namespace": "data",
+      "description": "QA an analysis before sharing -- methodology, accuracy, and bias checks. Use when reviewing an analysis before a stakeholder presentation, spot-checking calculations and aggregation logic, verifying a SQL query's results look right, or assessing whether conclusions are actually supported by the data.",
+      "descriptionHash": "d6f46d3ef2e07e53",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01VTbvGZYaCVU2CNSvhDCnkg\\skills\\validate-data\\SKILL.md"
+    },
+    {
+      "name": "write-query",
+      "namespace": "data",
+      "description": "Write optimized SQL for your dialect with best practices. Use when translating a natural-language data need into SQL, building a multi-CTE query with joins and aggregations, optimizing a query against a large partitioned table, or getting dialect-specific syntax for Snowflake, BigQuery, Postgres, etc.",
+      "descriptionHash": "451286c83ef7d642",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01VTbvGZYaCVU2CNSvhDCnkg\\skills\\write-query\\SKILL.md"
+    },
+    {
+      "name": "accessibility-review",
+      "namespace": "design",
+      "description": "Run a WCAG 2.1 AA accessibility audit on a design or page. Trigger with \"audit accessibility\", \"check a11y\", \"is this accessible?\", or when reviewing a design for color contrast, keyboard navigation, touch target size, or screen reader behavior before handoff.",
+      "descriptionHash": "e142c57a09777812",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01XXJmxLXPEhPMmnxmrgntNw\\skills\\accessibility-review\\SKILL.md"
+    },
+    {
+      "name": "design-critique",
+      "namespace": "design",
+      "description": "Get structured design feedback on usability, hierarchy, and consistency. Trigger with \"review this design\", \"critique this mockup\", \"what do you think of this screen?\", or when sharing a Figma link or screenshot for feedback at any stage from exploration to final polish.",
+      "descriptionHash": "32f415b584db2ce4",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01XXJmxLXPEhPMmnxmrgntNw\\skills\\design-critique\\SKILL.md"
+    },
+    {
+      "name": "design-handoff",
+      "namespace": "design",
+      "description": "Generate developer handoff specs from a design. Use when a design is ready for engineering and needs a spec sheet covering layout, design tokens, component props, interaction states, responsive breakpoints, edge cases, and animation details.",
+      "descriptionHash": "7c3e2c1eaf4d41b0",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01XXJmxLXPEhPMmnxmrgntNw\\skills\\design-handoff\\SKILL.md"
+    },
+    {
+      "name": "design-system",
+      "namespace": "design",
+      "description": "Audit, document, or extend your design system. Use when checking for naming inconsistencies or hardcoded values across components, writing documentation for a component's variants, states, and accessibility notes, or designing a new pattern that fits the existing system.",
+      "descriptionHash": "ed7ed9304720c5c3",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01XXJmxLXPEhPMmnxmrgntNw\\skills\\design-system\\SKILL.md"
+    },
+    {
+      "name": "research-synthesis",
+      "namespace": "design",
+      "description": "Synthesize user research into themes, insights, and recommendations. Use when you have interview transcripts, survey results, usability test notes, support tickets, or NPS responses that need to be distilled into patterns, user segments, and prioritized next steps.",
+      "descriptionHash": "68827d0cb6e86505",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01XXJmxLXPEhPMmnxmrgntNw\\skills\\research-synthesis\\SKILL.md"
+    },
+    {
+      "name": "user-research",
+      "namespace": "design",
+      "description": "Plan, conduct, and synthesize user research. Trigger with \"user research plan\", \"interview guide\", \"usability test\", \"survey design\", \"research questions\", or when the user needs help with any aspect of understanding their users through research.",
+      "descriptionHash": "06bbf4b8cd700a93",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01XXJmxLXPEhPMmnxmrgntNw\\skills\\user-research\\SKILL.md"
+    },
+    {
+      "name": "ux-copy",
+      "namespace": "design",
+      "description": "Write or review UX copy — microcopy, error messages, empty states, CTAs. Trigger with \"write copy for\", \"what should this button say?\", \"review this error message\", or when naming a CTA, wording a confirmation dialog, filling an empty state, or writing onboarding text.",
+      "descriptionHash": "69ee7fee511a6e20",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01XXJmxLXPEhPMmnxmrgntNw\\skills\\ux-copy\\SKILL.md"
+    },
+    {
+      "name": "access",
+      "namespace": "discord",
+      "description": "Manage Discord channel access — approve pairings, edit allowlists, set DM/group policy. Use when the user asks to pair, approve someone, check who's allowed, or change policy for the Discord channel.",
+      "descriptionHash": "3058933a14689d99",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\external_plugins\\discord\\skills\\access\\SKILL.md"
+    },
+    {
+      "name": "configure",
+      "namespace": "discord",
+      "description": "Set up the Discord channel — save the bot token and review access policy. Use when the user pastes a Discord bot token, asks to configure Discord, asks \"how do I set this up\" or \"who can reach me,\" or wants to check channel status.",
+      "descriptionHash": "95f7af8161c0b352",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\external_plugins\\discord\\skills\\configure\\SKILL.md"
+    },
+    {
+      "name": "architecture",
+      "namespace": "engineering",
+      "description": "Create or evaluate an architecture decision record (ADR). Use when choosing between technologies (e.g., Kafka vs SQS), documenting a design decision with trade-offs and consequences, reviewing a system design proposal, or designing a new component from requirements and constraints.",
+      "descriptionHash": "dbf22a1e84129c25",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01FTLa86dhbVJ3HB1LdHdhN7\\skills\\architecture\\SKILL.md"
+    },
+    {
+      "name": "code-review",
+      "namespace": "engineering",
+      "description": "Review code changes for security, performance, and correctness. Trigger with a PR URL or diff, \"review this before I merge\", \"is this code safe?\", or when checking a change for N+1 queries, injection risks, missing edge cases, or error handling gaps.",
+      "descriptionHash": "a5217af7e826dbe8",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01FTLa86dhbVJ3HB1LdHdhN7\\skills\\code-review\\SKILL.md"
+    },
+    {
+      "name": "debug",
+      "namespace": "engineering",
+      "description": "Structured debugging session — reproduce, isolate, diagnose, and fix. Trigger with an error message or stack trace, \"this works in staging but not prod\", \"something broke after the deploy\", or when behavior diverges from expected and the cause isn't obvious.",
+      "descriptionHash": "2b425dc7e85e5d40",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01FTLa86dhbVJ3HB1LdHdhN7\\skills\\debug\\SKILL.md"
+    },
+    {
+      "name": "deploy-checklist",
+      "namespace": "engineering",
+      "description": "Pre-deployment verification checklist. Use when about to ship a release, deploying a change with database migrations or feature flags, verifying CI status and approvals before going to production, or documenting rollback triggers ahead of time.",
+      "descriptionHash": "ef79c34819d87bfb",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01FTLa86dhbVJ3HB1LdHdhN7\\skills\\deploy-checklist\\SKILL.md"
+    },
+    {
+      "name": "documentation",
+      "namespace": "engineering",
+      "description": "Write and maintain technical documentation. Trigger with \"write docs for\", \"document this\", \"create a README\", \"write a runbook\", \"onboarding guide\", or when the user needs help with any form of technical writing — API docs, architecture docs, or operational runbooks.",
+      "descriptionHash": "8bb11501c4aa4c63",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01FTLa86dhbVJ3HB1LdHdhN7\\skills\\documentation\\SKILL.md"
+    },
+    {
+      "name": "incident-response",
+      "namespace": "engineering",
+      "description": "Run an incident response workflow — triage, communicate, and write postmortem. Trigger with \"we have an incident\", \"production is down\", an alert that needs severity assessment, a status update mid-incident, or when writing a blameless postmortem after resolution.",
+      "descriptionHash": "a82085450a452104",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01FTLa86dhbVJ3HB1LdHdhN7\\skills\\incident-response\\SKILL.md"
+    },
+    {
+      "name": "standup",
+      "namespace": "engineering",
+      "description": "Generate a standup update from recent activity. Use when preparing for daily standup, summarizing yesterday's commits and PRs and ticket moves, formatting work into yesterday/today/blockers, or structuring a few rough notes into a shareable update.",
+      "descriptionHash": "9ff44e16cfbecca4",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01FTLa86dhbVJ3HB1LdHdhN7\\skills\\standup\\SKILL.md"
+    },
+    {
+      "name": "system-design",
+      "namespace": "engineering",
+      "description": "Design systems, services, and architectures. Trigger with \"design a system for\", \"how should we architect\", \"system design for\", \"what's the right architecture for\", or when the user needs help with API design, data modeling, or service boundaries.",
+      "descriptionHash": "587fee4be1d77f7f",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01FTLa86dhbVJ3HB1LdHdhN7\\skills\\system-design\\SKILL.md"
+    },
+    {
+      "name": "tech-debt",
+      "namespace": "engineering",
+      "description": "Identify, categorize, and prioritize technical debt. Trigger with \"tech debt\", \"technical debt audit\", \"what should we refactor\", \"code health\", or when the user asks about code quality, refactoring priorities, or maintenance backlog.",
+      "descriptionHash": "f5cae280bfa1f03e",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01FTLa86dhbVJ3HB1LdHdhN7\\skills\\tech-debt\\SKILL.md"
+    },
+    {
+      "name": "testing-strategy",
+      "namespace": "engineering",
+      "description": "Design test strategies and test plans. Trigger with \"how should we test\", \"test strategy for\", \"write tests for\", \"test plan\", \"what tests do we need\", or when the user needs help with testing approaches, coverage, or test architecture.",
+      "descriptionHash": "0017a2a56c9bd599",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01FTLa86dhbVJ3HB1LdHdhN7\\skills\\testing-strategy\\SKILL.md"
+    },
+    {
+      "name": "digest",
+      "namespace": "enterprise-search",
+      "description": "Generate a daily or weekly digest of activity across all connected sources. Use when catching up after time away, starting the day and wanting a summary of mentions and action items, or reviewing a week's decisions and document updates grouped by project.",
+      "descriptionHash": "759e819bb5ca7137",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01VyNDLNYUZHHyKf7A691D7V\\skills\\digest\\SKILL.md"
+    },
+    {
+      "name": "knowledge-synthesis",
+      "namespace": "enterprise-search",
+      "description": "Combines search results from multiple sources into coherent, deduplicated answers with source attribution. Handles confidence scoring based on freshness and authority, and summarizes large result sets effectively.",
+      "descriptionHash": "712cf135e24c3ea2",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01VyNDLNYUZHHyKf7A691D7V\\skills\\knowledge-synthesis\\SKILL.md"
+    },
+    {
+      "name": "search",
+      "namespace": "enterprise-search",
+      "description": "Search across all connected sources in one query. Trigger with \"find that doc about...\", \"what did we decide on...\", \"where was the conversation about...\", or when looking for a decision, document, or discussion that could live in chat, email, cloud storage, or a project tracker.",
+      "descriptionHash": "7245d055723e3695",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01VyNDLNYUZHHyKf7A691D7V\\skills\\search\\SKILL.md"
+    },
+    {
+      "name": "search-strategy",
+      "namespace": "enterprise-search",
+      "description": "Query decomposition and multi-source search orchestration. Breaks natural language questions into targeted searches per source, translates queries into source-specific syntax, ranks results by relevance, and handles ambiguity and fallback strategies.",
+      "descriptionHash": "67da0f53289b00f1",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01VyNDLNYUZHHyKf7A691D7V\\skills\\search-strategy\\SKILL.md"
+    },
+    {
+      "name": "source-management",
+      "namespace": "enterprise-search",
+      "description": "Manages connected MCP sources for enterprise search. Detects available sources, guides users to connect new ones, handles source priority ordering, and manages rate limiting awareness.",
+      "descriptionHash": "b9b800aa90df8538",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01VyNDLNYUZHHyKf7A691D7V\\skills\\source-management\\SKILL.md"
+    },
+    {
+      "name": "example-command",
+      "namespace": "example-plugin",
+      "description": "An example user-invoked skill that demonstrates frontmatter options and the skills/<name>/SKILL.md layout",
+      "descriptionHash": "78b91f41ab2367c4",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\plugins\\example-plugin\\skills\\example-command\\SKILL.md"
+    },
+    {
+      "name": "example-skill",
+      "namespace": "example-plugin",
+      "description": "This skill should be used when the user asks to \"demonstrate skills\", \"show skill format\", \"create a skill template\", or discusses skill development patterns. Provides a reference template for creating Claude Code plugin skills.",
+      "descriptionHash": "029e06bcd6f0e675",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\plugins\\example-plugin\\skills\\example-skill\\SKILL.md"
+    },
+    {
+      "name": "audit-support",
+      "namespace": "finance",
+      "description": "Support SOX 404 compliance with control testing methodology, sample selection, and documentation standards. Use when generating testing workpapers, selecting audit samples, classifying control deficiencies, or preparing for internal or external audits.",
+      "descriptionHash": "6c0f4fd703480b58",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01KmRfL8EXGF3PeqMRzef1TR\\skills\\audit-support\\SKILL.md"
+    },
+    {
+      "name": "close-management",
+      "namespace": "finance",
+      "description": "Manage the month-end close process with task sequencing, dependencies, and status tracking. Use when planning the close calendar, tracking close progress, identifying blockers, or sequencing close activities by day.",
+      "descriptionHash": "45c9d337b5e63ccd",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01KmRfL8EXGF3PeqMRzef1TR\\skills\\close-management\\SKILL.md"
+    },
+    {
+      "name": "financial-statements",
+      "namespace": "finance",
+      "description": "Generate financial statements (income statement, balance sheet, cash flow) with period-over-period comparison and variance analysis. Use when preparing a monthly or quarterly P&L, closing the books and need to flag material variances, comparing actuals to budget, building a financial summary for leadership review, or looking up GAAP presentation requirements and period-end adjustments.",
+      "descriptionHash": "9ef12d5bfa106c68",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01KmRfL8EXGF3PeqMRzef1TR\\skills\\financial-statements\\SKILL.md"
+    },
+    {
+      "name": "journal-entry",
+      "namespace": "finance",
+      "description": "Prepare journal entries with proper debits, credits, and supporting detail. Use when booking month-end accruals (AP, payroll, prepaid), recording depreciation or amortization, posting revenue recognition or deferred revenue adjustments, or documenting an entry for audit review.",
+      "descriptionHash": "e5572c3b937ebe6f",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01KmRfL8EXGF3PeqMRzef1TR\\skills\\journal-entry\\SKILL.md"
+    },
+    {
+      "name": "journal-entry-prep",
+      "namespace": "finance",
+      "description": "Prepare journal entries with proper debits, credits, and supporting documentation for month-end close. Use when booking accruals, prepaid amortization, fixed asset depreciation, payroll entries, revenue recognition, or any manual journal entry.",
+      "descriptionHash": "e19a5eaa8595bb55",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01KmRfL8EXGF3PeqMRzef1TR\\skills\\journal-entry-prep\\SKILL.md"
+    },
+    {
+      "name": "reconciliation",
+      "namespace": "finance",
+      "description": "Reconcile accounts by comparing GL balances to subledgers, bank statements, or third-party data. Use when performing bank reconciliations, GL-to-subledger recs, intercompany reconciliations, or identifying and categorizing reconciling items.",
+      "descriptionHash": "30ad3371c97ca29e",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01KmRfL8EXGF3PeqMRzef1TR\\skills\\reconciliation\\SKILL.md"
+    },
+    {
+      "name": "sox-testing",
+      "namespace": "finance",
+      "description": "Generate SOX sample selections, testing workpapers, and control assessments. Use when planning quarterly or annual SOX 404 testing, pulling a sample for a control (revenue, P2P, ITGC, close), building a testing workpaper template, or evaluating and classifying a control deficiency.",
+      "descriptionHash": "af3dacc47fd0a1e9",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01KmRfL8EXGF3PeqMRzef1TR\\skills\\sox-testing\\SKILL.md"
+    },
+    {
+      "name": "variance-analysis",
+      "namespace": "finance",
+      "description": "Decompose financial variances into drivers with narrative explanations and waterfall analysis. Use when analyzing budget vs. actual, period-over-period changes, revenue or expense variances, or preparing variance commentary for leadership.",
+      "descriptionHash": "6ef470b0d5d64267",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01KmRfL8EXGF3PeqMRzef1TR\\skills\\variance-analysis\\SKILL.md"
+    },
+    {
+      "name": "frontend-design",
+      "namespace": "frontend-design",
+      "description": "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, or applications. Generates creative, polished code that avoids generic AI aesthetics.",
+      "descriptionHash": "bb178422b4e47d51",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\plugins\\frontend-design\\skills\\frontend-design\\SKILL.md"
+    },
+    {
+      "name": "writing-hookify-rules",
+      "namespace": "hookify",
+      "description": "This skill should be used when the user asks to \"create a hookify rule\", \"write a hook rule\", \"configure hookify\", \"add a hookify rule\", or needs guidance on hookify rule syntax and patterns.",
+      "descriptionHash": "39e96d48cdefeb0b",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\plugins\\hookify\\skills\\writing-rules\\SKILL.md"
+    },
+    {
+      "name": "comp-analysis",
+      "namespace": "human-resources",
+      "description": "Analyze compensation — benchmarking, band placement, and equity modeling. Trigger with \"what should we pay a [role]\", \"is this offer competitive\", \"model this equity grant\", or when uploading comp data to find outliers and retention risks.",
+      "descriptionHash": "2dcccf50dd309700",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01BYoFffWxgV8R5TZ6fEVCih\\skills\\comp-analysis\\SKILL.md"
+    },
+    {
+      "name": "draft-offer",
+      "namespace": "human-resources",
+      "description": "Draft an offer letter with comp details and terms. Use when a candidate is ready for an offer, assembling a total comp package (base, equity, signing bonus), writing the offer letter text itself, or prepping negotiation guidance for the hiring manager.",
+      "descriptionHash": "f5ecb252d5dadc31",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01BYoFffWxgV8R5TZ6fEVCih\\skills\\draft-offer\\SKILL.md"
+    },
+    {
+      "name": "interview-prep",
+      "namespace": "human-resources",
+      "description": "Create structured interview plans with competency-based questions and scorecards. Trigger with \"interview plan for\", \"interview questions for\", \"how should we interview\", \"scorecard for\", or when the user is preparing to interview candidates.",
+      "descriptionHash": "ad011923ebdeaed5",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01BYoFffWxgV8R5TZ6fEVCih\\skills\\interview-prep\\SKILL.md"
+    },
+    {
+      "name": "onboarding",
+      "namespace": "human-resources",
+      "description": "Generate an onboarding checklist and first-week plan for a new hire. Use when someone has a start date coming up, building the pre-start task list (accounts, equipment, buddy), scheduling Day 1 and Week 1, or setting 30/60/90-day goals for a new team member.",
+      "descriptionHash": "15600cec39e2f589",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01BYoFffWxgV8R5TZ6fEVCih\\skills\\onboarding\\SKILL.md"
+    },
+    {
+      "name": "org-planning",
+      "namespace": "human-resources",
+      "description": "Headcount planning, org design, and team structure optimization. Trigger with \"org planning\", \"headcount plan\", \"team structure\", \"reorg\", \"who should we hire next\", or when the user is thinking about team size, reporting structure, or organizational design.",
+      "descriptionHash": "4553e8b27d36996d",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01BYoFffWxgV8R5TZ6fEVCih\\skills\\org-planning\\SKILL.md"
+    },
+    {
+      "name": "people-report",
+      "namespace": "human-resources",
+      "description": "Generate headcount, attrition, diversity, or org health reports. Use when pulling a headcount snapshot for leadership, analyzing turnover trends by team, preparing diversity representation metrics, or assessing span of control and flight risk across the org.",
+      "descriptionHash": "518188dd74295904",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01BYoFffWxgV8R5TZ6fEVCih\\skills\\people-report\\SKILL.md"
+    },
+    {
+      "name": "performance-review",
+      "namespace": "human-resources",
+      "description": "Structure a performance review with self-assessment, manager template, and calibration prep. Use when review season kicks off and you need a self-assessment template, writing a manager review for a direct report, prepping rating distributions and promotion cases for calibration, or turning vague feedback into specific behavioral examples.",
+      "descriptionHash": "800b3fac0289b099",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01BYoFffWxgV8R5TZ6fEVCih\\skills\\performance-review\\SKILL.md"
+    },
+    {
+      "name": "policy-lookup",
+      "namespace": "human-resources",
+      "description": "Find and explain company policies in plain language. Trigger with \"what's our PTO policy\", \"can I work remotely from another country\", \"how do expenses work\", or any plain-language question about benefits, travel, leave, or handbook rules.",
+      "descriptionHash": "9d56b8ad279813af",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01BYoFffWxgV8R5TZ6fEVCih\\skills\\policy-lookup\\SKILL.md"
+    },
+    {
+      "name": "recruiting-pipeline",
+      "namespace": "human-resources",
+      "description": "Track and manage recruiting pipeline stages. Trigger with \"recruiting update\", \"candidate pipeline\", \"how many candidates\", \"hiring status\", or when the user discusses sourcing, screening, interviewing, or extending offers.",
+      "descriptionHash": "f6c7b2ce46fdb69c",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01BYoFffWxgV8R5TZ6fEVCih\\skills\\recruiting-pipeline\\SKILL.md"
+    },
+    {
+      "name": "access",
+      "namespace": "imessage",
+      "description": "Manage iMessage channel access — approve pairings, edit allowlists, set DM/group policy. Use when the user asks to pair, approve someone, check who's allowed, or change policy for the iMessage channel.",
+      "descriptionHash": "89308c2bf4fedfc9",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\external_plugins\\imessage\\skills\\access\\SKILL.md"
+    },
+    {
+      "name": "configure",
+      "namespace": "imessage",
+      "description": "Check iMessage channel setup and review access policy. Use when the user asks to configure iMessage, asks \"how do I set this up\" or \"who can reach me,\" or wants to know why texts aren't reaching the assistant.",
+      "descriptionHash": "d8d15f2a4e1517f1",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\external_plugins\\imessage\\skills\\configure\\SKILL.md"
+    },
+    {
+      "name": "brief",
+      "namespace": "legal",
+      "description": "Generate contextual briefings for legal work — daily summary, topic research, or incident response. Use when starting your day and need a scan of legal-relevant items across email, calendar, and contracts, when researching a specific legal question across internal sources, or when a developing situation (data breach, litigation threat, regulatory inquiry) needs rapid context.",
+      "descriptionHash": "b29b7a433185eb46",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_012ABz1xjgtJYWKrcJkXW6ad\\skills\\brief\\SKILL.md"
+    },
+    {
+      "name": "compliance-check",
+      "namespace": "legal",
+      "description": "Run a compliance check on a proposed action, product feature, or business initiative, surfacing applicable regulations, required approvals, and risk areas. Use when launching a feature that touches personal data, when marketing or product proposes something with regulatory implications, or when you need to know which approvals and jurisdictional requirements apply before proceeding.",
+      "descriptionHash": "e47c87979d60cd16",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_012ABz1xjgtJYWKrcJkXW6ad\\skills\\compliance-check\\SKILL.md"
+    },
+    {
+      "name": "legal-response",
+      "namespace": "legal",
+      "description": "Generate a response to a common legal inquiry using configured templates, with built-in escalation checks for situations that shouldn't use a templated reply. Use when responding to data subject requests, litigation hold notices, vendor legal questions, NDA requests from business teams, or subpoenas.",
+      "descriptionHash": "984ec8793607fccd",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_012ABz1xjgtJYWKrcJkXW6ad\\skills\\legal-response\\SKILL.md"
+    },
+    {
+      "name": "legal-risk-assessment",
+      "namespace": "legal",
+      "description": "Assess and classify legal risks using a severity-by-likelihood framework with escalation criteria. Use when evaluating contract risk, assessing deal exposure, classifying issues by severity, or determining whether a matter needs senior counsel or outside legal review.",
+      "descriptionHash": "5fc02f0429b9f86d",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_012ABz1xjgtJYWKrcJkXW6ad\\skills\\legal-risk-assessment\\SKILL.md"
+    },
+    {
+      "name": "meeting-briefing",
+      "namespace": "legal",
+      "description": "Prepare structured briefings for meetings with legal relevance and track resulting action items. Use when preparing for contract negotiations, board meetings, compliance reviews, or any meeting where legal context, background research, or action tracking is needed.",
+      "descriptionHash": "e59c3757245f40d2",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_012ABz1xjgtJYWKrcJkXW6ad\\skills\\meeting-briefing\\SKILL.md"
+    },
+    {
+      "name": "review-contract",
+      "namespace": "legal",
+      "description": "Review a contract against your organization's negotiation playbook — flag deviations, generate redlines, provide business impact analysis. Use when reviewing vendor or customer agreements, when you need clause-by-clause analysis against standard positions, or when preparing a negotiation strategy with prioritized redlines and fallback positions.",
+      "descriptionHash": "fab4dc8f4fdd686b",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_012ABz1xjgtJYWKrcJkXW6ad\\skills\\review-contract\\SKILL.md"
+    },
+    {
+      "name": "signature-request",
+      "namespace": "legal",
+      "description": "Prepare and route a document for e-signature — run a pre-signature checklist, configure signing order, and send for execution. Use when a contract is finalized and ready to sign, when verifying entity names, exhibits, and signature blocks before sending, or when setting up an envelope with sequential or parallel signers.",
+      "descriptionHash": "480e8a609b7f8339",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_012ABz1xjgtJYWKrcJkXW6ad\\skills\\signature-request\\SKILL.md"
+    },
+    {
+      "name": "triage-nda",
+      "namespace": "legal",
+      "description": "Rapidly triage an incoming NDA and classify it as GREEN (standard approval), YELLOW (counsel review), or RED (full legal review). Use when a new NDA arrives from sales or business development, when screening for embedded non-solicits, non-competes, or missing carveouts, or when deciding whether an NDA can be signed under standard delegation.",
+      "descriptionHash": "7342b626251e7544",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_012ABz1xjgtJYWKrcJkXW6ad\\skills\\triage-nda\\SKILL.md"
+    },
+    {
+      "name": "vendor-check",
+      "namespace": "legal",
+      "description": "Check the status of existing agreements with a vendor across all connected systems — CLM, CRM, email, and document storage — with gap analysis and upcoming deadlines. Use when onboarding or renewing a vendor, when you need a consolidated view of what's signed and what's missing (MSA, DPA, SOW), or when checking for approaching expirations and surviving obligations.",
+      "descriptionHash": "2188b541b30da40d",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_012ABz1xjgtJYWKrcJkXW6ad\\skills\\vendor-check\\SKILL.md"
+    },
+    {
+      "name": "brand-review",
+      "namespace": "marketing",
+      "description": "Review content against your brand voice, style guide, and messaging pillars, flagging deviations by severity with specific before/after fixes. Use when checking a draft before it ships, when auditing copy for voice consistency and terminology, or when screening for unsubstantiated claims, missing disclaimers, and other legal flags.",
+      "descriptionHash": "54c4007081fd074c",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01Eeb9y5m4iFuY3yRtytYfdc\\skills\\brand-review\\SKILL.md"
+    },
+    {
+      "name": "campaign-plan",
+      "namespace": "marketing",
+      "description": "Generate a full campaign brief with objectives, audience, messaging, channel strategy, content calendar, and success metrics. Use when planning a product launch, lead-gen push, or awareness campaign, when you need a week-by-week content calendar with dependencies, or when translating a marketing goal into a structured, executable plan.",
+      "descriptionHash": "4affa1a8f8e56cf9",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01Eeb9y5m4iFuY3yRtytYfdc\\skills\\campaign-plan\\SKILL.md"
+    },
+    {
+      "name": "competitive-brief",
+      "namespace": "marketing",
+      "description": "Research competitors and generate a positioning and messaging comparison with content gaps, opportunities, and threats. Use when building sales battlecards, when finding positioning gaps and messaging angles competitors haven't claimed, or when a competitor makes a move and you need to assess the impact.",
+      "descriptionHash": "d9e72bfdca3edb62",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01Eeb9y5m4iFuY3yRtytYfdc\\skills\\competitive-brief\\SKILL.md"
+    },
+    {
+      "name": "content-creation",
+      "namespace": "marketing",
+      "description": "Draft marketing content across channels — blog posts, social media, email newsletters, landing pages, press releases, and case studies. Use when writing any marketing content, when you need channel-specific formatting, SEO-optimized copy, headline options, or calls to action.",
+      "descriptionHash": "f391e8ebd589dab1",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01Eeb9y5m4iFuY3yRtytYfdc\\skills\\content-creation\\SKILL.md"
+    },
+    {
+      "name": "draft-content",
+      "namespace": "marketing",
+      "description": "Draft blog posts, social media, email newsletters, landing pages, press releases, and case studies with channel-specific formatting and SEO recommendations. Use when writing any marketing content, when you need headline or subject line options, or when adapting a message for a specific platform, audience, and brand voice.",
+      "descriptionHash": "bb220c576d3ad986",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01Eeb9y5m4iFuY3yRtytYfdc\\skills\\draft-content\\SKILL.md"
+    },
+    {
+      "name": "email-sequence",
+      "namespace": "marketing",
+      "description": "Design and draft multi-email sequences with full copy, timing, branching logic, exit conditions, and performance benchmarks. Use when building onboarding, lead nurture, re-engagement, win-back, or product launch flows, when you need a complete drip campaign with A/B test suggestions, or when mapping a sequence end-to-end with a flow diagram.",
+      "descriptionHash": "15224985d8becb51",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01Eeb9y5m4iFuY3yRtytYfdc\\skills\\email-sequence\\SKILL.md"
+    },
+    {
+      "name": "performance-report",
+      "namespace": "marketing",
+      "description": "Build a marketing performance report with key metrics, trend analysis, wins and misses, and prioritized optimization recommendations. Use when wrapping a campaign, when preparing weekly, monthly, or quarterly channel summaries for stakeholders, or when you need data translated into an executive summary with next-period priorities.",
+      "descriptionHash": "a339c63763eba7f5",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01Eeb9y5m4iFuY3yRtytYfdc\\skills\\performance-report\\SKILL.md"
+    },
+    {
+      "name": "seo-audit",
+      "namespace": "marketing",
+      "description": "Run a comprehensive SEO audit — keyword research, on-page analysis, content gaps, technical checks, and competitor comparison. Use when assessing a site's SEO health, when finding keyword opportunities and content gaps competitors own, or when you need a prioritized action plan split into quick wins and strategic investments.",
+      "descriptionHash": "835fc53fdbcbfaee",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01Eeb9y5m4iFuY3yRtytYfdc\\skills\\seo-audit\\SKILL.md"
+    },
+    {
+      "name": "math-olympiad",
+      "namespace": "math-olympiad",
+      "description": "Solve competition math problems (IMO, Putnam, USAMO, AIME) with adversarial verification that catches the errors self-verification misses. Activates when asked to 'solve this IMO problem', 'prove this olympiad inequality', 'verify this competition proof', 'find a counterexample', 'is this proof correct', or for any problem with 'IMO', 'Putnam', 'USAMO', 'olympiad', or 'competition math' in it. Uses pure reasoning (no tools) — then a fresh-context adversarial verifier attacks the proof using specific failure patterns, not generic 'check logic'. Outputs calibrated confidence — will say 'no confident solution' rather than bluff. If LaTeX is available, produces a clean PDF after verification passes.",
+      "descriptionHash": "36524c83c41e8162",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\plugins\\math-olympiad\\skills\\math-olympiad\\SKILL.md"
+    },
+    {
+      "name": "build-mcp-app",
+      "namespace": "mcp-server-dev",
+      "description": "This skill should be used when the user wants to build an \"MCP app\", add \"interactive UI\" or \"widgets\" to an MCP server, \"render components in chat\", build \"MCP UI resources\", make a tool that shows a \"form\", \"picker\", \"dashboard\" or \"confirmation dialog\" inline in the conversation, or mentions \"apps SDK\" in the context of MCP. Use AFTER the build-mcp-server skill has settled the deployment model, or when the user already knows they want UI widgets.",
+      "descriptionHash": "5ee29aaa74992585",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\plugins\\mcp-server-dev\\skills\\build-mcp-app\\SKILL.md"
+    },
+    {
+      "name": "build-mcp-server",
+      "namespace": "mcp-server-dev",
+      "description": "This skill should be used when the user asks to \"build an MCP server\", \"create an MCP\", \"make an MCP integration\", \"wrap an API for Claude\", \"expose tools to Claude\", \"make an MCP app\", or discusses building something with the Model Context Protocol. It is the entry point for MCP server development — it interrogates the user about their use case, determines the right deployment model (remote HTTP, MCPB, local stdio), picks a tool-design pattern, and hands off to specialized skills.",
+      "descriptionHash": "a06d29f5b8b829e1",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\plugins\\mcp-server-dev\\skills\\build-mcp-server\\SKILL.md"
+    },
+    {
+      "name": "build-mcpb",
+      "namespace": "mcp-server-dev",
+      "description": "This skill should be used when the user wants to \"package an MCP server\", \"bundle an MCP\", \"make an MCPB\", \"ship a local MCP server\", \"distribute a local MCP\", discusses \".mcpb files\", mentions bundling a Node or Python runtime with their MCP server, or needs an MCP server that interacts with the local filesystem, desktop apps, or OS and must be installable without the user having Node/Python set up.",
+      "descriptionHash": "14db684b1da678bf",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\plugins\\mcp-server-dev\\skills\\build-mcpb\\SKILL.md"
+    },
+    {
+      "name": "miro-mcp",
+      "namespace": "miro",
+      "description": "This skill teaches how to use Miro MCP tools effectively for creating diagrams, documents, tables, and extracting context from Miro boards. Use when the user asks about Miro capabilities, wants to create content on Miro boards, or needs to work with Miro board data.",
+      "descriptionHash": "760cabc228303c17",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01XYoBMEPd2C7JxE1tsqPqpU\\skills\\miro-mcp\\SKILL.md"
+    },
+    {
+      "name": "capacity-plan",
+      "namespace": "operations",
+      "description": "Plan resource capacity — workload analysis and utilization forecasting. Use when heading into quarterly planning, the team feels overallocated and you need the numbers, deciding whether to hire or deprioritize, or stress-testing whether upcoming projects fit the people you have.",
+      "descriptionHash": "e8679b9625ef5e93",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_019TBdWa5NQJJuDFmEc4k6BJ\\skills\\capacity-plan\\SKILL.md"
+    },
+    {
+      "name": "change-request",
+      "namespace": "operations",
+      "description": "Create a change management request with impact analysis and rollback plan. Use when proposing a system or process change that needs approval, preparing a change record for CAB review, documenting risk and rollback steps before a deployment, or planning stakeholder communications for a rollout.",
+      "descriptionHash": "2629d37680dcb8a6",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_019TBdWa5NQJJuDFmEc4k6BJ\\skills\\change-request\\SKILL.md"
+    },
+    {
+      "name": "compliance-tracking",
+      "namespace": "operations",
+      "description": "Track compliance requirements and audit readiness. Trigger with \"compliance\", \"audit prep\", \"SOC 2\", \"ISO 27001\", \"GDPR\", \"regulatory requirement\", or when the user needs help tracking, preparing for, or documenting compliance activities.",
+      "descriptionHash": "70afc4a10f1b2214",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_019TBdWa5NQJJuDFmEc4k6BJ\\skills\\compliance-tracking\\SKILL.md"
+    },
+    {
+      "name": "process-doc",
+      "namespace": "operations",
+      "description": "Document a business process — flowcharts, RACI, and SOPs. Use when formalizing a process that lives in someone's head, building a RACI to clarify who owns what, writing an SOP for a handoff or audit, or capturing the exceptions and edge cases of how work actually gets done.",
+      "descriptionHash": "aedf2b48ead7ecb9",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_019TBdWa5NQJJuDFmEc4k6BJ\\skills\\process-doc\\SKILL.md"
+    },
+    {
+      "name": "process-optimization",
+      "namespace": "operations",
+      "description": "Analyze and improve business processes. Trigger with \"this process is slow\", \"how can we improve\", \"streamline this workflow\", \"too many steps\", \"bottleneck\", or when the user describes an inefficient process they want to fix.",
+      "descriptionHash": "81400893c5f4b0ef",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_019TBdWa5NQJJuDFmEc4k6BJ\\skills\\process-optimization\\SKILL.md"
+    },
+    {
+      "name": "risk-assessment",
+      "namespace": "operations",
+      "description": "Identify, assess, and mitigate operational risks. Trigger with \"what are the risks\", \"risk assessment\", \"risk register\", \"what could go wrong\", or when the user is evaluating risks associated with a project, vendor, process, or decision.",
+      "descriptionHash": "34f15cd88b3c75b7",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_019TBdWa5NQJJuDFmEc4k6BJ\\skills\\risk-assessment\\SKILL.md"
+    },
+    {
+      "name": "runbook",
+      "namespace": "operations",
+      "description": "Create or update an operational runbook for a recurring task or procedure. Use when documenting a task that on-call or ops needs to run repeatably, turning tribal knowledge into exact step-by-step commands, adding troubleshooting and rollback steps to an existing procedure, or writing escalation paths for when things go wrong.",
+      "descriptionHash": "e5c16ecfbba1528d",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_019TBdWa5NQJJuDFmEc4k6BJ\\skills\\runbook\\SKILL.md"
+    },
+    {
+      "name": "status-report",
+      "namespace": "operations",
+      "description": "Generate a status report with KPIs, risks, and action items. Use when writing a weekly or monthly update for leadership, summarizing project health with green/yellow/red status, surfacing risks and decisions that need stakeholder attention, or turning a pile of project tracker activity into a readable narrative.",
+      "descriptionHash": "eb04426ba60d3923",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_019TBdWa5NQJJuDFmEc4k6BJ\\skills\\status-report\\SKILL.md"
+    },
+    {
+      "name": "vendor-review",
+      "namespace": "operations",
+      "description": "Evaluate a vendor — cost analysis, risk assessment, and recommendation. Use when reviewing a new vendor proposal, deciding whether to renew or replace a contract, comparing two vendors side-by-side, or building a TCO breakdown and negotiation points before procurement sign-off.",
+      "descriptionHash": "5d6ed85a5b9064b1",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_019TBdWa5NQJJuDFmEc4k6BJ\\skills\\vendor-review\\SKILL.md"
+    },
+    {
+      "name": "view-pdf",
+      "namespace": "pdf-viewer",
+      "description": "Interactive PDF viewer. Use when the user wants to open, show, or view a PDF and collaborate on it visually — annotate, highlight, stamp, fill form fields, place signature/initials, or review markup together. Not for summarization or text extraction (use native Read instead).",
+      "descriptionHash": "c36eb2fc315d4ea2",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_011v5h6QUzBZvas64y44XLhy\\skills\\view-pdf\\SKILL.md"
+    },
+    {
+      "name": "playground",
+      "namespace": "playground",
+      "description": "Creates interactive HTML playgrounds — self-contained single-file explorers that let users configure something visually through controls, see a live preview, and copy out a prompt. Use when the user asks to make a playground, explorer, or interactive tool for a topic.",
+      "descriptionHash": "8c1535791d985781",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\plugins\\playground\\skills\\playground\\SKILL.md"
+    },
+    {
+      "name": "agent-development",
+      "namespace": "plugin-dev",
+      "description": "This skill should be used when the user asks to \"create an agent\", \"add an agent\", \"write a subagent\", \"agent frontmatter\", \"when to use description\", \"agent examples\", \"agent tools\", \"agent colors\", \"autonomous agent\", or needs guidance on agent structure, system prompts, triggering conditions, or agent development best practices for Claude Code plugins.",
+      "descriptionHash": "db8bdc97432b0d67",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\plugins\\plugin-dev\\skills\\agent-development\\SKILL.md"
+    },
+    {
+      "name": "command-development",
+      "namespace": "plugin-dev",
+      "description": "This skill should be used when the user asks to \"create a slash command\", \"add a command\", \"write a custom command\", \"define command arguments\", \"use command frontmatter\", \"organize commands\", \"create command with file references\", \"interactive command\", \"use AskUserQuestion in command\", or needs guidance on slash command structure, YAML frontmatter fields, dynamic arguments, bash execution in commands, user interaction patterns, or command development best practices for Claude Code.",
+      "descriptionHash": "bc1ec98e519d7a99",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\plugins\\plugin-dev\\skills\\command-development\\SKILL.md"
+    },
+    {
+      "name": "hook-development",
+      "namespace": "plugin-dev",
+      "description": "This skill should be used when the user asks to \"create a hook\", \"add a PreToolUse/PostToolUse/Stop hook\", \"validate tool use\", \"implement prompt-based hooks\", \"use ${CLAUDE_PLUGIN_ROOT}\", \"set up event-driven automation\", \"block dangerous commands\", or mentions hook events (PreToolUse, PostToolUse, Stop, SubagentStop, SessionStart, SessionEnd, UserPromptSubmit, PreCompact, Notification). Provides comprehensive guidance for creating and implementing Claude Code plugin hooks with focus on advanced prompt-based hooks API.",
+      "descriptionHash": "3267febd2cf87dc2",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\plugins\\plugin-dev\\skills\\hook-development\\SKILL.md"
+    },
+    {
+      "name": "mcp-integration",
+      "namespace": "plugin-dev",
+      "description": "This skill should be used when the user asks to \"add MCP server\", \"integrate MCP\", \"configure MCP in plugin\", \"use .mcp.json\", \"set up Model Context Protocol\", \"connect external service\", mentions \"${CLAUDE_PLUGIN_ROOT} with MCP\", or discusses MCP server types (SSE, stdio, HTTP, WebSocket). Provides comprehensive guidance for integrating Model Context Protocol servers into Claude Code plugins for external tool and service integration.",
+      "descriptionHash": "8d843d912670f981",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\plugins\\plugin-dev\\skills\\mcp-integration\\SKILL.md"
+    },
+    {
+      "name": "plugin-settings",
+      "namespace": "plugin-dev",
+      "description": "This skill should be used when the user asks about \"plugin settings\", \"store plugin configuration\", \"user-configurable plugin\", \".local.md files\", \"plugin state files\", \"read YAML frontmatter\", \"per-project plugin settings\", or wants to make plugin behavior configurable. Documents the .claude/plugin-name.local.md pattern for storing plugin-specific configuration with YAML frontmatter and markdown content.",
+      "descriptionHash": "0f799a0fd90cb1d4",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\plugins\\plugin-dev\\skills\\plugin-settings\\SKILL.md"
+    },
+    {
+      "name": "plugin-structure",
+      "namespace": "plugin-dev",
+      "description": "This skill should be used when the user asks to \"create a plugin\", \"scaffold a plugin\", \"understand plugin structure\", \"organize plugin components\", \"set up plugin.json\", \"use ${CLAUDE_PLUGIN_ROOT}\", \"add commands/agents/skills/hooks\", \"configure auto-discovery\", or needs guidance on plugin directory layout, manifest configuration, component organization, file naming conventions, or Claude Code plugin architecture best practices.",
+      "descriptionHash": "b4311a5ed6b2f566",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\plugins\\plugin-dev\\skills\\plugin-structure\\SKILL.md"
+    },
+    {
+      "name": "skill-development",
+      "namespace": "plugin-dev",
+      "description": "This skill should be used when the user wants to \"create a skill\", \"add a skill to plugin\", \"write a new skill\", \"improve skill description\", \"organize skill content\", or needs guidance on skill structure, progressive disclosure, or skill development best practices for Claude Code plugins.",
+      "descriptionHash": "f680065054e5e260",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\plugins\\plugin-dev\\skills\\skill-development\\SKILL.md"
+    },
+    {
+      "name": "competitive-brief",
+      "namespace": "product-management",
+      "description": "Create a competitive analysis brief for one or more competitors or a feature area. Use when informing product strategy or feature prioritization, building sales battle cards, prepping board or investor materials, or deciding where to differentiate vs. achieve parity.",
+      "descriptionHash": "dff7e248be757bfb",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01AYHYqVLaZRH2Vi6aHgDwEw\\skills\\competitive-brief\\SKILL.md"
+    },
+    {
+      "name": "metrics-review",
+      "namespace": "product-management",
+      "description": "Review and analyze product metrics with trend analysis and actionable insights. Use when running a weekly, monthly, or quarterly metrics review, investigating a sudden spike or drop, comparing performance against targets, or turning raw numbers into a scorecard with recommended actions.",
+      "descriptionHash": "9cd0b807f5bc7877",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01AYHYqVLaZRH2Vi6aHgDwEw\\skills\\metrics-review\\SKILL.md"
+    },
+    {
+      "name": "product-brainstorming",
+      "namespace": "product-management",
+      "description": "Brainstorm product ideas, explore problem spaces, and challenge assumptions as a thinking partner. Use when exploring a new opportunity, generating solutions to a product problem, stress-testing an idea, or when a PM needs to think out loud with a sharp sparring partner before converging on a direction.",
+      "descriptionHash": "22e2ddae91f2df9c",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01AYHYqVLaZRH2Vi6aHgDwEw\\skills\\product-brainstorming\\SKILL.md"
+    },
+    {
+      "name": "roadmap-update",
+      "namespace": "product-management",
+      "description": "Update, create, or reprioritize your product roadmap. Use when adding a new initiative and deciding what moves to make room, shifting priorities after new information comes in, moving timelines due to a dependency slip, or building a Now/Next/Later view from scratch.",
+      "descriptionHash": "3299b445739ad436",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01AYHYqVLaZRH2Vi6aHgDwEw\\skills\\roadmap-update\\SKILL.md"
+    },
+    {
+      "name": "sprint-planning",
+      "namespace": "product-management",
+      "description": "Plan a sprint — scope work, estimate capacity, set goals, and draft a sprint plan. Use when kicking off a new sprint, sizing a backlog against team availability (accounting for PTO and meetings), deciding what's P0 vs. stretch, or handling carryover from the last sprint.",
+      "descriptionHash": "5757802401178fbc",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01AYHYqVLaZRH2Vi6aHgDwEw\\skills\\sprint-planning\\SKILL.md"
+    },
+    {
+      "name": "stakeholder-update",
+      "namespace": "product-management",
+      "description": "Generate a stakeholder update tailored to audience and cadence. Use when writing a weekly or monthly status for leadership, announcing a launch, escalating a risk or blocker, or translating the same progress into exec-brief, engineering-detail, or customer-facing versions.",
+      "descriptionHash": "ab9faf35b19f86f5",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01AYHYqVLaZRH2Vi6aHgDwEw\\skills\\stakeholder-update\\SKILL.md"
+    },
+    {
+      "name": "synthesize-research",
+      "namespace": "product-management",
+      "description": "Synthesize user research from interviews, surveys, and feedback into structured insights. Use when you have a pile of interview notes, survey responses, or support tickets to make sense of, need to extract themes and rank findings by frequency and impact, or want to turn raw feedback into roadmap recommendations.",
+      "descriptionHash": "16111c049f4d1bf4",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01AYHYqVLaZRH2Vi6aHgDwEw\\skills\\synthesize-research\\SKILL.md"
+    },
+    {
+      "name": "write-spec",
+      "namespace": "product-management",
+      "description": "Write a feature spec or PRD from a problem statement or feature idea. Use when turning a vague idea or user request into a structured document, scoping a feature with goals and non-goals, defining success metrics and acceptance criteria, or breaking a big ask into a phased spec.",
+      "descriptionHash": "825526de4567e67c",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01AYHYqVLaZRH2Vi6aHgDwEw\\skills\\write-spec\\SKILL.md"
+    },
+    {
+      "name": "memory-management",
+      "namespace": "productivity",
+      "description": "Two-tier memory system that makes Claude a true workplace collaborator. Decodes shorthand, acronyms, nicknames, and internal language so Claude understands requests like a colleague would. CLAUDE.md for working memory, memory/ directory for the full knowledge base.",
+      "descriptionHash": "6042c6fcad24b948",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_014WxCYbLf7f3uw2isHFR9US\\skills\\memory-management\\SKILL.md"
+    },
+    {
+      "name": "start",
+      "namespace": "productivity",
+      "description": "Initialize the productivity system and open the dashboard. Use when setting up the plugin for the first time, bootstrapping working memory from your existing task list, or decoding the shorthand (nicknames, acronyms, project codenames) you use in your todos.",
+      "descriptionHash": "fcfe0b0cd5e17cb9",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_014WxCYbLf7f3uw2isHFR9US\\skills\\start\\SKILL.md"
+    },
+    {
+      "name": "task-management",
+      "namespace": "productivity",
+      "description": "Simple task management using a shared TASKS.md file. Reference this when the user asks about their tasks, wants to add/complete tasks, or needs help tracking commitments.",
+      "descriptionHash": "9a427c437d5cfaeb",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_014WxCYbLf7f3uw2isHFR9US\\skills\\task-management\\SKILL.md"
+    },
+    {
+      "name": "update",
+      "namespace": "productivity",
+      "description": "Sync tasks and refresh memory from your current activity. Use when pulling new assignments from your project tracker into TASKS.md, triaging stale or overdue tasks, filling memory gaps for unknown people or projects, or running a comprehensive scan to catch todos buried in chat and email.",
+      "descriptionHash": "5a235f517151aad7",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_014WxCYbLf7f3uw2isHFR9US\\skills\\update\\SKILL.md"
+    },
+    {
+      "name": "account-research",
+      "namespace": "sales",
+      "description": "Research a company or person and get actionable sales intel. Works standalone with web search, supercharged when you connect enrichment tools or your CRM. Trigger with \"research [company]\", \"look up [person]\", \"intel on [prospect]\", \"who is [name] at [company]\", or \"tell me about [company]\".",
+      "descriptionHash": "849e841bd0907e20",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01SfWJSiw6JtGbsuW75PKvPK\\skills\\account-research\\SKILL.md"
+    },
+    {
+      "name": "call-prep",
+      "namespace": "sales",
+      "description": "Prepare for a sales call with account context, attendee research, and suggested agenda. Works standalone with user input and web research, supercharged when you connect your CRM, email, chat, or transcripts. Trigger with \"prep me for my call with [company]\", \"I'm meeting with [company] prep me\", \"call prep [company]\", or \"get me ready for [meeting]\".",
+      "descriptionHash": "718f2b8e2849aa4a",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01SfWJSiw6JtGbsuW75PKvPK\\skills\\call-prep\\SKILL.md"
+    },
+    {
+      "name": "call-summary",
+      "namespace": "sales",
+      "description": "Process call notes or a transcript — extract action items, draft follow-up email, generate internal summary. Use when pasting rough notes or a transcript after a discovery, demo, or negotiation call, drafting a customer follow-up, logging the activity for your CRM, or capturing objections and next steps for your team.",
+      "descriptionHash": "55230b8ff6caff01",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01SfWJSiw6JtGbsuW75PKvPK\\skills\\call-summary\\SKILL.md"
+    },
+    {
+      "name": "competitive-intelligence",
+      "namespace": "sales",
+      "description": "Research your competitors and build an interactive battlecard. Outputs an HTML artifact with clickable competitor cards and a comparison matrix. Trigger with \"competitive intel\", \"research competitors\", \"how do we compare to [competitor]\", \"battlecard for [competitor]\", or \"what's new with [competitor]\".",
+      "descriptionHash": "1c74251c61b43092",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01SfWJSiw6JtGbsuW75PKvPK\\skills\\competitive-intelligence\\SKILL.md"
+    },
+    {
+      "name": "create-an-asset",
+      "namespace": "sales",
+      "description": "Generate tailored sales assets (landing pages, decks, one-pagers, workflow demos) from your deal context. Describe your prospect, audience, and goal — get a polished, branded asset ready to share with customers.",
+      "descriptionHash": "8c4ded9e93d391e3",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01SfWJSiw6JtGbsuW75PKvPK\\skills\\create-an-asset\\SKILL.md"
+    },
+    {
+      "name": "daily-briefing",
+      "namespace": "sales",
+      "description": "Start your day with a prioritized sales briefing. Works standalone when you tell me your meetings and priorities, supercharged when you connect your calendar, CRM, and email. Trigger with \"morning briefing\", \"daily brief\", \"what's on my plate today\", \"prep my day\", or \"start my day\".",
+      "descriptionHash": "87c16c8507319603",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01SfWJSiw6JtGbsuW75PKvPK\\skills\\daily-briefing\\SKILL.md"
+    },
+    {
+      "name": "draft-outreach",
+      "namespace": "sales",
+      "description": "Research a prospect then draft personalized outreach. Uses web research by default, supercharged with enrichment and CRM. Trigger with \"draft outreach to [person/company]\", \"write cold email to [prospect]\", \"reach out to [name]\".",
+      "descriptionHash": "c0bfe7dc23eba1cc",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01SfWJSiw6JtGbsuW75PKvPK\\skills\\draft-outreach\\SKILL.md"
+    },
+    {
+      "name": "forecast",
+      "namespace": "sales",
+      "description": "Generate a weighted sales forecast with best/likely/worst scenarios, commit vs. upside breakdown, and gap analysis. Use when preparing a quarterly forecast call, assessing gap-to-quota from a pipeline CSV, deciding which deals to commit vs. call upside, or checking pipeline coverage against your number.",
+      "descriptionHash": "a9b3462b52c26784",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01SfWJSiw6JtGbsuW75PKvPK\\skills\\forecast\\SKILL.md"
+    },
+    {
+      "name": "pipeline-review",
+      "namespace": "sales",
+      "description": "Analyze pipeline health — prioritize deals, flag risks, get a weekly action plan. Use when running a weekly pipeline review, deciding which deals to focus on this week, spotting stale or stuck opportunities, auditing for hygiene issues like bad close dates, or identifying single-threaded deals.",
+      "descriptionHash": "06b5a4f300d0d5d2",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01SfWJSiw6JtGbsuW75PKvPK\\skills\\pipeline-review\\SKILL.md"
+    },
+    {
+      "name": "session-report",
+      "namespace": "session-report",
+      "description": "Generate an explorable HTML report of Claude Code session usage (tokens, cache, subagents, skills, expensive prompts) from ~/.claude/projects transcripts.",
+      "descriptionHash": "956454d6b41e137a",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\plugins\\session-report\\skills\\session-report\\SKILL.md"
+    },
+    {
+      "name": "skill-creator",
+      "namespace": "skill-creator",
+      "description": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.",
+      "descriptionHash": "dc3522ad3e3e4645",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\plugins\\skill-creator\\skills\\skill-creator\\SKILL.md"
+    },
+    {
+      "name": "earnings-preview-single",
+      "namespace": "sp-global",
+      "description": "Generate a concise 4-5 page equity research earnings preview for a single company. Analyzes the most recent earnings transcript, competitor landscape, valuation, and recent news to produce a professional HTML report.",
+      "descriptionHash": "416081970e017e00",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01ALKqaEhmMkJxi3U6Z12zTx\\skills\\earnings-preview-beta\\SKILL.md"
+    },
+    {
+      "name": "funding-digest",
+      "namespace": "sp-global",
+      "description": "Generate a polished one-page PowerPoint slide summarizing key takeaways from recent funding rounds and notable capital markets activity across a user's watched sectors or companies. Use this skill when the user asks for a deal flow summary, weekly recap, funding digest, transaction roundup, or capital markets briefing. Triggers on: 'deal flow digest', 'weekly funding recap', 'deal roundup', 'transaction summary this week', 'what happened in [sector] this week', 'capital markets update', or any request to compile recent funding activity into a briefing slide. Produces a professional single-slide PPTX with key takeaways, valuation data, and Capital IQ deal links.",
+      "descriptionHash": "2ebdae2f82dc3ab0",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01ALKqaEhmMkJxi3U6Z12zTx\\skills\\funding-digest\\SKILL.md"
+    },
+    {
+      "name": "sp-capital-iq-excel-pro",
+      "namespace": "sp-global",
+      "description": "Use this skill any time a financial analysis spreadsheet is needed that pulls live or historical data from S&P Capital IQ. This means any task where the user wants to create financial models using Capital IQ data, build company profiles with financial metrics, construct peer analysis or comparable company tables, pull historical financial statements, analyze market data and trading multiples, or generate financial reports using Capital IQ datasets. Trigger when the user mentions Capital IQ, S&P data, company financials, peer analysis, or needs institutional-quality financial data in Excel. Also trigger for creating DCF models, LBO models, merger models, or any valuation analysis that benefits from live financial data feeds. The deliverable must be an Excel file with S&P Capital IQ formulas. Do NOT trigger when the user just needs basic Excel operations without financial data integration, or when they specifically request other data sources.",
+      "descriptionHash": "1f928b26c563911d",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01ALKqaEhmMkJxi3U6Z12zTx\\skills\\sp-capital-iq-excel-pro\\SKILL.md"
+    },
+    {
+      "name": "tear-sheet",
+      "namespace": "sp-global",
+      "description": "Generate professional company tear sheets using S&P Capital IQ data via the Kensho LLM-ready API MCP server. Use this skill whenever the user asks for a tear sheet, company one-pager, company profile, fact sheet, company snapshot, or company overview document — especially when they mention a specific company name or ticker. Also trigger when users ask for equity research summaries, M&A company profiles, corporate development target profiles, sales/BD meeting prep documents, or any concise single-company financial summary. This skill supports four audience types: equity research, investment banking/M&A, corporate development, and sales/business development. If the user doesn't specify an audience, ask. Works for both public and private companies.",
+      "descriptionHash": "ab38921f6988b5f9",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "cowork",
+      "sourcePath": "C:\\Users\\문성훈\\AppData\\Roaming\\Claude\\local-agent-mode-sessions\\ead37711-16c1-4402-8d7b-03ec6f5d6c8e\\81618b3d-bbb0-43da-93c8-2473158c0e41\\rpm\\plugin_01ALKqaEhmMkJxi3U6Z12zTx\\skills\\tear-sheet\\SKILL.md"
+    },
+    {
+      "name": "access",
+      "namespace": "telegram",
+      "description": "Manage Telegram channel access — approve pairings, edit allowlists, set DM/group policy. Use when the user asks to pair, approve someone, check who's allowed, or change policy for the Telegram channel.",
+      "descriptionHash": "8eaa875e0e2ce1c9",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\external_plugins\\telegram\\skills\\access\\SKILL.md"
+    },
+    {
+      "name": "configure",
+      "namespace": "telegram",
+      "description": "Set up the Telegram channel — save the bot token and review access policy. Use when the user pastes a Telegram bot token, asks to configure Telegram, asks \"how do I set this up\" or \"who can reach me,\" or wants to check channel status.",
+      "descriptionHash": "06b782cd5662d3f7",
+      "tags": [],
+      "trustLevel": "unverified",
+      "source": "marketplace",
+      "sourcePath": "C:\\Users\\문성훈\\.claude\\plugins\\marketplaces\\claude-plugins-official\\external_plugins\\telegram\\skills\\configure\\SKILL.md"
+    }
+  ]
+}

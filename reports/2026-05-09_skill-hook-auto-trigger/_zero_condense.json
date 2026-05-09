@@ -1,40 +1,11 @@
 {
-  "sessionId": "session_225",
+  "sessionId": "session_226",
   "topicId": "topic_190",
-  "completedAt": "2026-05-09T11:20:14.227Z",
-  "files": [
-    "00_INDEX.md",
-    "01_jobs_framing_phase1.md",
-    "02_arki_blind_parallel.md",
-    "03_riki_blind_parallel.md",
-    "04_fin_blind_parallel.md",
-    "05_ace_blind_parallel.md",
-    "06_jobs_deep_blind_parallel.md",
-    "07_arki_debate_r1.md",
-    "08_riki_debate_r1.md",
-    "09_fin_debate_r1.md",
-    "10_ace_debate_r1.md",
-    "condensed.md",
-    "condensed_session225.md",
-    "edi_rev1.md"
-  ],
-  "refinedRoles": [],
-  "skippedRoles": [
-    "security-review",
-    "simplify"
-  ],
-  "scope": "phase1-feasibility-gap",
-  "priorSession": "session_224",
-  "priorMarkerPreserved": false,
-  "findings": [
-    "plugin-skill-disk-readable=26",
-    "plugin-skill-runtime-injected=~140",
-    "tools-preload-irrelevant-to-skill-files",
-    "D-177-G1-threshold-unreachable-via-disk-only"
-  ],
-  "techDebtCount": 1,
-  "securityFindings": 0,
-  "simplifyFindings": 0,
-  "condensedFile": "condensed_session225.md",
-  "note": "session_224 marker overwritten — session_225 scope is feasibility audit, no role rev files produced"
+  "completedAt": "2026-05-09T15:30:00.000Z",
+  "files": ["condensed_session226.md"],
+  "passes": true,
+  "checks": {
+    "redundancy": "ok",
+    "structure": "ok"
+  }
 }
