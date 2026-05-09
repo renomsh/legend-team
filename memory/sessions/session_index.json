@@ -10322,8 +10322,47 @@
       "grade": "C",
       "oneLineSummary": "PD-072 resolved: close.md Grade C Edi lite 분기 + hook evaluateZeroCondenseGate Grade C 면제",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_222",
+      "topicSlug": "grade-d-cleanup-and-small-items",
+      "topic": "C 작은 여러 내용 확인 및 적용 + Grade D 잔존 정리",
+      "startedAt": "2026-05-09T08:35:00.000Z",
+      "closedAt": "2026-05-09T09:35:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\keen-morse-39235f",
+      "agentsCompleted": [
+        "zero",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "zero",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 14,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 1,
+          "source": "agent",
+          "selfScores": {
+            "scc": "Y",
+            "cs_cnt": 4,
+            "art_cmp": 1,
+            "gap_fc": 0,
+            "gp_acc": 1
+          }
+        }
+      ],
+      "grade": "C",
+      "oneLineSummary": "Grade D 잔존 5파일 정리 + verification hook 전역 적용 + project_charter 버전 불일치 수정",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-09T07:31:20.264Z",
+  "lastUpdated": "2026-05-09T08:01:52.694Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

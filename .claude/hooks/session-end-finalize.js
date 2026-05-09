@@ -718,11 +718,11 @@ function copyEdiReportToSessionContributions(sess) {
  * 그렇지 않으면 skip (LLM 산출물 보존).
  */
 function synthesizeMechanicalEdiReport(sess) {
-  // Grade C/D: Edi 생략이 설계 의도 (CLAUDE.md: Grade D = "Edi 생략", Grade C = 경량 선택)
+  // Grade C: Edi 생략이 설계 의도 (CLAUDE.md: Grade C = 경량 선택. D-175로 Grade D 폐기)
   const gradeUpper = (sess.grade || '').toUpperCase();
-  if (gradeUpper === 'C' || gradeUpper === 'D') {
-    log('grade C/D: edi mechanical fallback skipped by design');
-    return { skipped: true, reason: 'grade-cd-by-design' };
+  if (gradeUpper === 'C') {
+    log('grade C: edi mechanical fallback skipped by design');
+    return { skipped: true, reason: 'grade-c-by-design' };
   }
 
   const reportPath = sess.reportPath;
@@ -879,7 +879,6 @@ ${inheritance}
  *   - turns에 {role:'edi', source:'agent'} 있으면 LLM 호출됨
  *   - 또는 reports/.../edi_rev*.md 중 auto-compiled 아닌 것 존재
  *
- * Grade D는 enforcement 면제 (info-level만, R-6 mitigation).
  * Grade A/B/S에서 LLM 미호출 시:
  *   1. gaps 'edi-llm-skipped' 박제
  *   2. system_state.openMasterAlerts prepend
@@ -1458,7 +1457,7 @@ function detectVersionBump(sess) {
     bumpType = 'capacity';
   } else if (
     categories.bugfix.length > 0 &&
-    (sess.grade === 'C' || sess.grade === 'D')
+    sess.grade === 'C'
   ) {
     bumpValue = 0.001;
     bumpType = 'bugfix';
@@ -1491,8 +1490,8 @@ function detectVersionBump(sess) {
     confirmedBy: null,
   };
 
-  // Grade C/D: Edi LLM 미호출 → Nexus가 직접 확정 (Edi deadlock 없음)
-  if (grade === 'C' || grade === 'D') {
+  // Grade C: Edi LLM 미호출 → Nexus가 직접 확정 (Edi deadlock 없음, D-175로 Grade D 폐기)
+  if (grade === 'C') {
     const now = new Date().toISOString();
     sess.versionBump = {
       value: bumpValue,
@@ -1576,6 +1575,7 @@ function applyVersionBump(sess) {
   }
 
   charter.charter.version = bump.to;
+  charter.version = bump.to; // 최상위 version 필드 동기화 (charter.charter.version와 항상 일치)
   charter.lastUpdated = new Date().toISOString().slice(0, 10);
 
   // history 배열에 이미 해당 버전이 없으면 추가
@@ -1619,8 +1619,8 @@ function checkVersionBumpConfirmation(sess) {
 
   const grade = (sess.grade || '').toUpperCase();
 
-  // trigger 조건 2: Grade C/D + nexus 확정이면 skip (이미 자동 확정됨)
-  if ((grade === 'C' || grade === 'D') && sess.versionBump && sess.versionBump.confirmedBy === 'nexus') {
+  // trigger 조건 2: Grade C + nexus 확정이면 skip (이미 자동 확정됨, D-175로 Grade D 폐기)
+  if (grade === 'C' && sess.versionBump && sess.versionBump.confirmedBy === 'nexus') {
     log(`checkVersionBumpConfirmation skip: Grade ${grade} + nexus 확정됨`);
     return;
   }

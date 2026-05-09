@@ -71,6 +71,15 @@
             "command": "node .claude/hooks/post-tool-use-task.js"
           }
         ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/post-tool-use-verification.js"
+          }
+        ]
       }
     ]
   }
