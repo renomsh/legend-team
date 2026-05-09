@@ -1,13 +1,11 @@
 {
-  "sessionId": "session_222",
-  "topicId": "topic_188",
-  "topic": "C 작은 여러 내용 확인 및 적용 + Grade D 잔존 정리",
-  "topicSlug": "grade-d-cleanup-and-small-items",
-  "reportPath": "reports/2026-05-09_grade-d-cleanup-and-small-items",
-  "status": "closed",
-  "startedAt": "2026-05-09T08:35:00.000Z",
-  "closedAt": "2026-05-09T09:35:00.000Z",
-  "oneLineSummary": "Grade D 잔존 5파일 정리 + verification hook 전역 적용 + project_charter 버전 불일치 수정",
+  "sessionId": "session_223",
+  "topicId": "topic_189",
+  "topic": "대시보드 현황 점검",
+  "topicSlug": "dashboard-status-check",
+  "reportPath": "reports/2026-05-09_dashboard-status-check",
+  "status": "open",
+  "startedAt": "2026-05-09T09:45:00.000Z",
   "mode": "observation",
   "grade": "C",
   "topicType": "standalone",
@@ -15,30 +13,7 @@
   "framingLevel": 0,
   "framingSkipped": true,
   "phase": "framing",
-  "turns": [
-    {
-      "role": "zero",
-      "turnIdx": 0,
-      "source": "agent",
-      "selfScores": {
-        "ref_cnt": 14,
-        "hc_found": 0,
-        "cln_rt": 1
-      }
-    },
-    {
-      "role": "edi",
-      "turnIdx": 1,
-      "source": "agent",
-      "selfScores": {
-        "scc": "Y",
-        "cs_cnt": 4,
-        "art_cmp": 1,
-        "gap_fc": 0,
-        "gp_acc": 1
-      }
-    }
-  ],
+  "turns": [],
   "decisions": [],
   "masterDecisions": [],
   "decisionsAdded": [],
@@ -46,28 +21,5 @@
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "openMasterAlerts": [],
-  "agentsCompleted": [
-    "zero",
-    "edi"
-  ],
-  "versionBump": {
-    "value": 0.01,
-    "from": "1.609",
-    "to": "1.619",
-    "reason": "hooks 2건 신규/수정(post-tool-use-verification.js + session-end-finalize.js) + policy 파일 추가(_common.md 검증 섹션) → capacity 범주",
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-09T09:30:00.000Z",
-    "overrideReason": null,
-    "basedOn": "edi-override"
-  },
-  "tokenUsage": {
-    "input_tokens": 229,
-    "output_tokens": 79537,
-    "cache_creation_input_tokens": 873958,
-    "cache_read_input_tokens": 8095199,
-    "messageCount": 108,
-    "masterTurns": 23,
-    "total_billable": 9048923
-  },
-  "finalizedAt": "2026-05-09T08:02:07.534Z"
+  "agentsCompleted": []
 }

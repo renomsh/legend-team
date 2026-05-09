@@ -31,7 +31,8 @@ window.ROLE_COLORS = new Proxy({
   vera:         '#F472B6',
   jobs:         '#FB923C',
   sage:         '#A3E635',
-  zero:         '#64748B'
+  zero:         '#64748B',
+  nexus:        '#FACC15'
 }, {
   get(target, prop) {
     if (typeof prop !== 'string') return target[prop];

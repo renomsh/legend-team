@@ -48,6 +48,7 @@
   --c-jobs:    #FB923C;   /* 7.12:1 on --panel — framing 페르소나 */
   --c-sage:    #A3E635;   /* 8.50:1 on --panel — 메타 진화 페르소나 */
   --c-zero:    #64748B;   /* 6.10:1 on --panel — 정제 페르소나 */
+  --c-nexus:   #FACC15;   /* ~12.0:1 on --panel — 오케스트레이터 */
 
   /* ── 간당값 fallback candidate (vera_rev2 §D 박제, rev4 실측 정정) ─
    * tokens.css 자동 swap 대상 (lint-contrast.ts FAIL/ALARM 시 후보) */

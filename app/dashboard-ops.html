@@ -283,7 +283,8 @@
     function renderHookEvents(hookLog) {
       const tbody = document.getElementById('hookTable');
       const allLines = (hookLog || '').trim().split('\n');
-      const events = parseHookLines(allLines).slice(-10).reverse();
+      const terminalStatuses = new Set(['OK', 'ERROR', 'ABORT']);
+      const events = parseHookLines(allLines).filter(e => terminalStatuses.has(e.status)).slice(-10).reverse();
       if (events.length === 0) {
         tbody.innerHTML = '<tr><td colspan="4" class="empty-state">No hook events</td></tr>';
         return;
