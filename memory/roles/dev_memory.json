@@ -74,7 +74,8 @@
     ]
   },
   "lessonLog": [
-  {"session": "session_213", "learning": "Claude Code 슬래시 커맨드(.claude/commands/)는 세션 CWD 기준으로 로드된다. 메인 프로젝트와 git worktree는 별도 브랜치이므로 커맨드 파일을 양쪽에 각각 생성해야 한다. 또한 logs/ 전체를 gitignore 처리하면 Cloudflare Pages 빌드 환경에 로그가 없어 클라이언트 계산이 0%로 고정된다 — 배포 필요 파일은 ! 예외로 개별 허용할 것."}
+  {"session": "session_233", "learning": "audit-decision-ledger-status.ts 단순 키워드 매칭(supersede|폐기|deprecat) 분류는 self-undeclared vs referent-undeclared 구분 못 함 — Phase 2에서 33건 self-undeclared 정밀 분석 결과 100% false positive. lesson: 텍스트 분류 audit 신설 시 self/referent 양축 분리 + 다른 ledger 결정 cross-check 필수. 단순 grep 결과를 mismatch 결론으로 직행 금지."},
+  {"session": "session_213", "learning": "Claude Code 슬래시 커맨드(.claude/commands/)는 세션 CWD 기준으로 로드된다. 메인 프로젝트와 git worktree는 별도 브랜치이므로 커맨드 파일을 양쪽에 각각 생성해야 한다. 또한 logs/ 전체를 gitignore 처리하면 Cloudflare Pages 빌드 환경에 로그가 없어 클라이언트 계산이 0%로 고정된다 — 배포 필요 파일은 ! 예외로 개별 허용할 것."},
     {
       "session": "session_207",
       "learning": "P1 appendFile atomic spike — Windows 6 셀 매트릭스(0.5KB·1KB·5KB × 5·10 child) × 5 round 약 47K line 누적, corrupt 0%·loss 0%. fs.appendFileSync atomicity 가정 실측 통과. POSIX(WSL/Mac) 후속 round 의무. spike 매트릭스를 atomicity 검증 + line 크기 ceiling 권고를 분리해서 잡음으로써 GATE α' 판정과 운용 권고를 동시 산출."

@@ -10971,8 +10971,118 @@
       "grade": "B",
       "oneLineSummary": "topic_194 오프 시간 단축: build.js 증분화·finalize.js spawnSync→in-process·open.md pre-compiled JS·자동빌드 훅 구현",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_233",
+      "topicSlug": "agent-dispatch-speed",
+      "topic": "Agent 호출 시간 단축 + 시스템 정제 (cap·CLAUDE.md·skill·MCP 슬림화)",
+      "startedAt": "2026-05-10T03:30:00.000Z",
+      "closedAt": "2026-05-10T11:17:08.960Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\pedantic-merkle-e84645",
+      "decisions": [
+        "Q1 agents/ 부재 정상 — CLAUDE.md 명칭 정정으로 분류",
+        "Q2 13건 archive 일괄 승인 (원칙 채택 + 추가 7건 흡수 검증 완료)",
+        "Q3 ace-framing 스킬 유지 — Jobs/Ace framing 관점 분리. CLAUDE.md DEPRECATED 표기 정정 필요",
+        "Q4 signature_metrics_aggregate.json 명칭 유지",
+        "Q5 Phase 1 audit 스크립트 4종 신설 동의",
+        "Q6 Zero 외부 skill 흡수 재검토 → PD-075 등록",
+        "토픽 통합: dispatch 속도 + 시스템 정제 (PD-074 흡수)"
+      ],
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "arki",
+        "riki",
+        "dev",
+        "dev",
+        "zero",
+        "dev",
+        "edi",
+        "zero",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "arki",
+          "turnIdx": 0,
+          "source": "agent"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 1,
+          "source": "agent"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 2,
+          "source": "agent"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 3,
+          "source": "agent"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 4,
+          "source": "agent"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 5,
+          "source": "agent",
+          "selfScores": {
+            "rt_cov": 1,
+            "gt_pas": 1,
+            "hc_rt": 0,
+            "spc_drf": 0
+          }
+        },
+        {
+          "role": "zero",
+          "turnIdx": 6,
+          "source": "agent"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 7,
+          "source": "agent",
+          "selfScores": {
+            "rt_cov": 1,
+            "gt_pas": 1,
+            "hc_rt": 0,
+            "spc_drf": 0
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 8,
+          "source": "agent"
+        },
+        {
+          "role": "zero",
+          "turnIdx": 9,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 7,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 10,
+          "source": "agent"
+        }
+      ],
+      "grade": "B",
+      "oneLineSummary": "MEMORY 38→25건 정리(D-178 원칙 + D-179 13건 archive), audit 4 스크립트 신설(817L), CLAUDE.md broken link 정정, dev_memory JSON syntax fix.",
+      "decisionsAdded": [
+        "D-178",
+        "D-179"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-10T03:18:20.722Z",
+  "lastUpdated": "2026-05-10T11:20:40.703Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

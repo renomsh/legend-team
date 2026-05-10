@@ -1,6 +1,32 @@
 {
   "decisions": [
     {
+      "id": "D-178",
+      "date": "2026-05-10",
+      "session": "session_233",
+      "topic": "topic_196",
+      "axis": "MEMORY 피드백 정리 원칙",
+      "summary": "MEMORY 피드백은 role policies/personas 또는 decision_ledger에 흡수된 시점에 archive(history 보존). MEMORY는 잔여 reminder만 유지. memorial reminder는 ledger 인용으로 충분. Edi 박제 시 D-NNN 부여.",
+      "decision": "MEMORY 피드백 항목은 role-{r}.md(policies/personas) 또는 decision_ledger에 흡수되면 ~/.claude/projects/C--Projects-legend-team/memory/archive/feedback/ 로 archive. MEMORY.md 인덱스에서는 제거. archive 시 한줄 사유(흡수처 명시) 박제. memorial(D-XXX 인용만 남는 항목)은 ledger 인용으로 충분 — 별도 reminder 불요.",
+      "relatedDecisions": [
+        "D-179"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "D-179",
+      "date": "2026-05-10",
+      "session": "session_233",
+      "topic": "topic_196",
+      "axis": "MEMORY 13건 archive 일괄 (session_233)",
+      "summary": "MEMORY.md 38→25건. 13건 archive: C-1 db_mapping(도메인 휴면) / C-2 planning_structure(Jobs framing 흡수) / C-3 fin_stage(role-fin 흡수) / C-7 ace_orchestration(D-130/D-133 흡수) / C-25 proactive_questioning(global L55) / C-28 low_friction_no_redundant_gate(global L56) / #8 no_middle_ground(role-ace 흡수) / #6 fin_nonfinancial_asset_cost(role-fin 흡수) / #17 cost_allocation_distortion(role-fin 흡수) / #13 external_anchor_mandatory(D-059 memorial) / #16 pragmatic_weapon_not_art(D-062 memorial) / #20 grade_a_subagent_enforcement(D-066 deprecated 인용) / #21 simple_growth_not_measurement(D-092 memorial).",
+      "decision": "archive 디렉터리: ~/.claude/projects/C--Projects-legend-team/memory/archive/feedback/. D-178 정리 원칙 1차 적용 사례.",
+      "relatedDecisions": [
+        "D-178"
+      ],
+      "status": "active"
+    },
+    {
       "id": "D-163",
       "date": "2026-05-05",
       "session": "session_195",
@@ -2807,8 +2833,17 @@
       "axis": "Plugin Skill 자동 발동 방식 — BLOCK 폐기, RECOMMEND 전환",
       "summary": "기존 PreToolUse hook BLOCK 강제 차단 방식 폐기. 이유: (1) plugin skill ~150+의 인지 실패 문제는 차단으로 해결 불가 — 인지 ≠ 강제, (2) PreToolUse(Skill) BLOCK 메커니즘 spike 미검증, (3) FP blast radius=세션 전체. 대신 RECOMMEND 시스템 전환: UserPromptSubmit hook이 매 prompt 조용히 평가 → top-3 추천 표(skill명 + 역할 1줄) → Master 1키 선택 시 호출. 자동 1순위 호출 금지(D2/D4 정합).",
       "decision": "Plugin skill enforcement 전략을 BLOCK → RECOMMEND로 전환. 강제력 0, 정확도가 유일한 생존 변수.",
-      "tags": ["plugin", "skill", "hook", "recommend", "policy-pivot"],
-      "relatedDecisions": ["D-130", "D-164"],
+      "tags": [
+        "plugin",
+        "skill",
+        "hook",
+        "recommend",
+        "policy-pivot"
+      ],
+      "relatedDecisions": [
+        "D-130",
+        "D-164"
+      ],
       "status": "active"
     },
     {
@@ -2825,12 +2860,20 @@
         "PreToolUse(Skill) BLOCK 미검증은 본 결정 범위 외(BLOCK 폐기로 무관)",
         "추천 정확도 측정은 Master 자가 평가, 자동 측정 인프라 박제 안 함"
       ],
-      "relatedDecisions": ["D-176", "D-125"],
+      "relatedDecisions": [
+        "D-176",
+        "D-125"
+      ],
       "relatedFiles": [
         "reports/2026-05-09_skill-hook-auto-trigger/edi_rev1.md",
         "reports/2026-05-09_skill-hook-auto-trigger/condensed.md"
       ],
-      "tags": ["plugin", "skill", "userPromptSubmit", "implementation-spec"],
+      "tags": [
+        "plugin",
+        "skill",
+        "userPromptSubmit",
+        "implementation-spec"
+      ],
       "status": "active"
     }
   ],

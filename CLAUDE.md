@@ -18,8 +18,8 @@ Rules:
 - Keep role separation: jobs, ace, arki, fin, riki, designer/vera, edi, nova, sage, zero
 - Nova is optional and speculative unless explicitly promoted
 - Designer (Vera) handles visual system: color, typography, spacing, gradient, component spec. Receives direction from Ace, delivers spec to Edi. Does NOT make UX strategy or data decisions. (D-029, 2026-04-17)
-- **Sage (D-126/D-133):** 메타 진화·자기성찰 read-only 페르소나. Master/Nexus 명시 호출 한정. write 권한 0(박제는 Edi). same-session `exclusive`. 상세 → `agents/role-sage.md`.
-- **Zero (D-127/D-146):** 정제 페르소나, 3 영역(tech-debt·security-review·simplify). anchor governance는 Edi(D-125). 상세 → `agents/role-zero.md`.
+- **Sage (D-126/D-133):** 메타 진화·자기성찰 read-only 페르소나. Master/Nexus 명시 호출 한정. write 권한 0(박제는 Edi). same-session `exclusive`. 상세 → `memory/roles/personas/role-sage.md` (정체성), `memory/roles/policies/role-sage.md` (정책).
+- **Zero (D-127/D-146):** 정제 페르소나, 3 영역(tech-debt·security-review·simplify). anchor governance는 Edi(D-125). 상세 → `memory/roles/personas/role-zero.md` (정체성), `memory/roles/policies/role-zero.md` (정책).
 - **Same-session 격리 (D-128):** Sage는 다른 페르소나 공존 금지. `pre-tool-use-task-sage-gate.js`가 강제.
 - **Ace·Jobs 분리 (D-130):** Ace=전략(구조·흐름 판정 + `/ace-synthesis`). Jobs=기획(framing 주체, `/jobs-framing` 명시 호출). Orchestration=Nexus. versionBump=Nexus 자동 감지+Edi 확정. ace-framing DEPRECATED.
 - **Master-first 모드 (D-129/D-139):** 주제 모호 시 Nexus가 질문. Grade S/A/B 대상, C/D 제외. HookA(UserPromptSubmit)+HookB(PreToolUse Task) warn-only. Config → `memory/shared/master_first_config.json`.
@@ -260,7 +260,7 @@ Master may switch modes at any time by stating the mode name.
 
 **Session Start checklist:** → `/open` 명령이 실행. 상세 절차는 `.claude/commands/open.md` 참조.
 
-**Session End checklist:** → `/close` 명령이 실행. 상세 절차는 `.claude/skills/close/SKILL.md` 참조. 체크리스트 누락 시 `current_session.json`에 gap 기록.
+**Session End checklist:** → `/close` 명령이 실행. 상세 절차는 `.claude/commands/close.md` 참조. 체크리스트 누락 시 `current_session.json`에 gap 기록.
 
 ### Asset Protocols (D-012)
 

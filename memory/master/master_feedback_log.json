@@ -1513,6 +1513,18 @@
         "all"
       ],
       "status": "applied"
+    },
+    {
+      "id": "MF-117",
+      "topicId": "topic_196",
+      "date": "2026-05-10",
+      "phase": "close",
+      "feedback": "Arki/Riki가 dispatch 옵션 frame에 묶여 PD-074 분리 권고했으나 Master 직관(통합)이 옳았음 — 정제가 진짜 lever. 또 'agents/ broken link' 결론도 Master 설계(memory/personas/policies 3층)를 미인식한 frame 오류",
+      "directive": "역할들의 frame 자기검증 강화 — Master 의도/기존 설계 cross-check 후 단언",
+      "appliedTo": [
+        "all"
+      ],
+      "status": "applied"
     }
   ],
   "statusValues": [
