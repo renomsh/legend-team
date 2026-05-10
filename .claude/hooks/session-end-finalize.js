@@ -20,10 +20,22 @@ const { spawnSync } = require('child_process');
 // PD-073: TRANSPILE_ONLY for remaining subprocess ts-node calls
 process.env.TS_NODE_TRANSPILE_ONLY = '1';
 // PD-073: register ts-node once for in-process require of .ts scripts
+// skipProject: true — bypass tsconfig rootDir/include checks (TS5011)
+// ignoreDeprecations: '6.0' — suppress node10 moduleResolution deprecation (TS5107)
 try {
-  require('ts-node').register({ transpileOnly: true });
+  require('ts-node').register({
+    transpileOnly: true,
+    skipProject: true,
+    compilerOptions: {
+      module: 'commonjs',
+      target: 'es2020',
+      esModuleInterop: true,
+      skipLibCheck: true,
+      ignoreDeprecations: '6.0',
+    },
+  });
 } catch (_e) {
-  // ts-node unavailable — spawnSync fallback still present
+  // ts-node unavailable — in-process require will throw, gaps will be recorded
 }
 
 const CWD = process.env.FINALIZE_CWD || process.cwd();
@@ -186,23 +198,19 @@ function runL2Writer(sess) {
   const nextAction = sess.nextAction
     || (Array.isArray(sess.notes) && sess.notes.length > 0 ? sess.notes[0] : undefined);
 
-  const args = ['ts-node', scriptPath, topicId, sessionId];
+  const args = [topicId, sessionId];
   if (nextAction) args.push(`--next-action=${nextAction}`);
 
-  const cmd = 'npx';
-  const result = spawnSync(cmd, args, {
-    cwd: CWD,
-    encoding: 'utf8',
-    shell: true,
-  });
-  if (result.error || result.status !== 0) {
-    const detail = result.error ? result.error.message : (result.stderr || result.stdout || '');
-    log(`L2-writer 실패 (code ${result.status}): ${detail}`);
-    sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
-    sess.gaps.push({ type: 'spawn-failed', fn: 'runL2Writer', topicId, sessionId, detail: String(detail).slice(0, 200) });
-    writeJson(CURRENT_SESSION_PATH, sess);
-  } else {
+  try {
+    const { main } = require(scriptPath);
+    main(args);
     log(`L2-writer 완료 — ${topicId}/${sessionId}`);
+  } catch (err) {
+    const detail = String(err && err.message ? err.message : err).slice(0, 200);
+    log(`L2-writer 실패: ${detail}`);
+    sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
+    sess.gaps.push({ type: 'spawn-failed', fn: 'runL2Writer', topicId, sessionId, detail });
+    writeJson(CURRENT_SESSION_PATH, sess);
   }
 }
 
@@ -228,20 +236,16 @@ function runL3Regenerator(sess) {
     return;
   }
 
-  const cmd = 'npx';
-  const result = spawnSync(cmd, ['ts-node', scriptPath, topicId], {
-    cwd: CWD,
-    encoding: 'utf8',
-    shell: true,
-  });
-  if (result.error || result.status !== 0) {
-    const detail = result.error ? result.error.message : (result.stderr || result.stdout || '');
-    log(`L3-regenerator 실패 (code ${result.status}): ${detail}`);
-    sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
-    sess.gaps.push({ type: 'spawn-failed', fn: 'runL3Regenerator', topicId, detail: String(detail).slice(0, 200) });
-    writeJson(CURRENT_SESSION_PATH, sess);
-  } else {
+  try {
+    const { main } = require(scriptPath);
+    main([topicId]);
     log(`L3-regenerator 완료 — ${topicId}`);
+  } catch (err) {
+    const detail = String(err && err.message ? err.message : err).slice(0, 200);
+    log(`L3-regenerator 실패: ${detail}`);
+    sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
+    sess.gaps.push({ type: 'spawn-failed', fn: 'runL3Regenerator', topicId, detail });
+    writeJson(CURRENT_SESSION_PATH, sess);
   }
 }
 
@@ -255,17 +259,22 @@ function runCheckPendingDeferrals(sess) {
     log('check-pending-deferrals skip: 스크립트 없음');
     return;
   }
-  const cmd = 'npx';
-  const result = spawnSync(cmd, ['ts-node', scriptPath], {
-    cwd: CWD,
-    encoding: 'utf8',
-    shell: true,
-  });
-  const output = (result.stdout || '') + (result.stderr || '');
-  if (output.includes('⚠️')) {
-    log(`[PD 역검사 경고]\n${output.trim()}`);
-  } else {
-    log('PD 역검사 완료 — 이상 없음');
+
+  try {
+    const { checkPendingDeferrals, formatDeferralCheckResult } = require(scriptPath);
+    const result = checkPendingDeferrals();
+    const out = formatDeferralCheckResult(result);
+    if (out && out.includes('⚠️')) {
+      log(`[PD 역검사 경고]\n${out.trim()}`);
+    } else {
+      log('PD 역검사 완료 — 이상 없음');
+    }
+  } catch (err) {
+    const detail = String(err && err.message ? err.message : err).slice(0, 200);
+    log(`check-pending-deferrals 실패: ${detail}`);
+    sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
+    sess.gaps.push({ type: 'spawn-failed', fn: 'runCheckPendingDeferrals', detail });
+    writeJson(CURRENT_SESSION_PATH, sess);
   }
 }
 
@@ -297,7 +306,7 @@ function updateClosedInSession(sess) {
     main(['--topicId', topicId, '--sessionId', sessionId]);
     log(`updateClosedInSession 완료 — ${topicId}.closedInSession = "${sessionId}"`);
   } catch (err) {
-    const errMsg = err.message;
+    const errMsg = String(err && err.message ? err.message : err).slice(0, 200);
     log(`updateClosedInSession 실패: ${errMsg}`);
     sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
     sess.gaps.push({ type: 'topic-index-write-failed', topicId, sessionId, detail: errMsg });
