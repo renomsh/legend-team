@@ -307,7 +307,7 @@ export function computeNexusPushStats(
 }
 
 // ── 메인 ──────────────────────────────────────────────────────────────────
-function main() {
+export function main() {
   console.log('📊 compute-dashboard.ts 시작...');
 
   const sessionIndex = readJson<{ sessions: SessionIndexEntry[] }>(
@@ -623,4 +623,4 @@ function main() {
   console.log(`   세션: ${totalSessions}개 | 경보: ${alarms.length}개 | 피드백 재발: ${feedbackRecurrences.length}개`);
 }
 
-main();
+if (require.main === module) main();

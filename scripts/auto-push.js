@@ -163,19 +163,32 @@ function syncHookDiagnosticsFromMain(mainRoot) {
 }
 
 function runHookChain(mainRoot) {
+  // PD-073: register ts-node once for in-process requires
+  try { require('ts-node').register({ transpileOnly: true }); } catch (_e) {}
+
+  function ip(label, fn) { return { label, fn }; }
+
   const preSteps = [
     'node .claude/hooks/session-end-tokens.js',
     'node .claude/hooks/session-end-finalize.js',
-    'npx ts-node scripts/finalize-self-scores.ts',
-    'npx ts-node scripts/compute-signature-metrics.ts',
-    'npx ts-node scripts/compute-dashboard.ts',
+    ip('npx ts-node scripts/finalize-self-scores.ts', () => {
+      require(path.join(ROOT, 'scripts/finalize-self-scores.ts')).finalize();
+    }),
+    ip('npx ts-node scripts/compute-signature-metrics.ts', () => {
+      require(path.join(ROOT, 'scripts/compute-signature-metrics.ts')).compute();
+    }),
+    ip('npx ts-node scripts/compute-dashboard.ts', () => {
+      require(path.join(ROOT, 'scripts/compute-dashboard.ts')).main();
+    }),
     'npx ts-node scripts/validate-prime-directive.ts',
   ];
-  for (const cmd of preSteps) {
+  for (const step of preSteps) {
+    const label = typeof step === 'string' ? step : step.label;
+    const fn = typeof step === 'string' ? () => execSync(step, { cwd: ROOT, stdio: 'inherit' }) : step.fn;
     try {
-      timed(cmd, () => execSync(cmd, { cwd: ROOT, stdio: 'inherit' }));
+      timed(label, fn);
     } catch (e) {
-      console.error(`[auto-push] Hook chain step failed: ${cmd}`);
+      console.error(`[auto-push] Hook chain step failed: ${label}`);
       console.error(e.message);
       return false;
     }
