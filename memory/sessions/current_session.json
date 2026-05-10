@@ -1,121 +1,19 @@
 {
-  "sessionId": "session_232",
-  "topicId": "topic_194",
-  "topic": "오프 시간 단축",
-  "topicSlug": "off-time-reduction",
-  "reportPath": "reports/2026-05-10_off-time-reduction",
-  "status": "closed",
-  "startedAt": "2026-05-10T05:00:00.000Z",
-  "closedAt": "2026-05-10T06:00:00.000Z",
-  "oneLineSummary": "topic_194 오프 시간 단축: build.js 증분화·finalize.js spawnSync→in-process·open.md pre-compiled JS·자동빌드 훅 구현",
+  "sessionId": "session_233",
+  "topicId": "topic_196",
+  "topic": "pd list 대시보드판 미출력",
+  "topicSlug": "pd-dashboard-fix",
+  "reportPath": "reports/2026-05-10_pd-dashboard-fix",
+  "status": "open",
+  "startedAt": "2026-05-10T13:06:00.000Z",
   "mode": "observation",
-  "grade": "B",
+  "grade": "C",
   "topicType": "standalone",
   "operationType": "structured",
   "phase": "framing",
   "framingLevel": 0,
   "framingSkipped": true,
-  "turns": [
-    {
-      "role": "arki",
-      "turnIdx": 0,
-      "source": "agent",
-      "selfScores": {
-        "str_fd": 4,
-        "sa_rnd": 3,
-        "spc_lck": "N",
-        "aud_rcl": 0.8
-      }
-    },
-    {
-      "role": "riki",
-      "turnIdx": 1,
-      "source": "agent",
-      "selfScores": {
-        "crt_rcl": 1,
-        "cr_val": "Y",
-        "prd_rej": "N",
-        "fp_rt": 0
-      }
-    },
-    {
-      "role": "dev",
-      "turnIdx": 2,
-      "source": "agent",
-      "selfScores": {
-        "rt_cov": 1,
-        "gt_pas": 1,
-        "hc_rt": 0,
-        "spc_drf": 0
-      }
-    },
-    {
-      "role": "arki",
-      "turnIdx": 3,
-      "source": "agent",
-      "selfScores": {
-        "str_fd": 3,
-        "spc_lck": "N",
-        "sa_rnd": 3,
-        "aud_rcl": 1
-      }
-    },
-    {
-      "role": "dev",
-      "turnIdx": 4,
-      "source": "agent",
-      "selfScores": {
-        "rt_cov": 1,
-        "gt_pas": 1,
-        "hc_rt": 0,
-        "spc_drf": 0
-      }
-    },
-    {
-      "role": "dev",
-      "turnIdx": 5,
-      "source": "agent",
-      "selfScores": {
-        "rt_cov": 1,
-        "gt_pas": 1,
-        "hc_rt": 0,
-        "spc_drf": 0
-      }
-    },
-    {
-      "role": "dev",
-      "turnIdx": 6,
-      "source": "agent",
-      "selfScores": {
-        "rt_cov": 1,
-        "gt_pas": 1,
-        "hc_rt": 0,
-        "spc_drf": 0
-      }
-    },
-    {
-      "role": "zero",
-      "turnIdx": 7,
-      "source": "agent",
-      "selfScores": {
-        "ref_cnt": 2,
-        "hc_found": 0,
-        "cln_rt": 1
-      }
-    },
-    {
-      "role": "edi",
-      "turnIdx": 8,
-      "source": "agent",
-      "selfScores": {
-        "gp_acc": 0.8,
-        "scc": "Y",
-        "cs_cnt": 3,
-        "art_cmp": 1,
-        "gap_fc": 3
-      }
-    }
-  ],
+  "turns": [],
   "decisions": [],
   "masterDecisions": [],
   "decisionsAdded": [],
@@ -123,130 +21,8 @@
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "pendingDeferralsTransitioned": [],
-  "openMasterAlerts": [
-    {
-      "severity": "high",
-      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.01)",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140"
-    }
-  ],
-  "agentsCompleted": [
-    "arki",
-    "riki",
-    "dev",
-    "arki",
-    "dev",
-    "dev",
-    "dev",
-    "zero",
-    "edi"
-  ],
+  "openMasterAlerts": [],
+  "agentsCompleted": [],
   "notes": [],
-  "gaps": [
-    {
-      "type": "frontmatter-patch-failed",
-      "role": "arki",
-      "turnIdx": 0,
-      "reportsPath": "본",
-      "detectedAt": "2026-05-10T02:23:05.231Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: 본"
-    },
-    {
-      "type": "frontmatter-patch-failed",
-      "role": "riki",
-      "turnIdx": 1,
-      "reportsPath": "`reports/2026-05-10_session-close-speed/riki_rev1.md`",
-      "detectedAt": "2026-05-10T02:26:59.655Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-10_session-close-speed/riki_rev1.md`"
-    },
-    {
-      "type": "frontmatter-patch-failed",
-      "role": "arki",
-      "turnIdx": 3,
-      "reportsPath": "reports/2026-05-10_open-speed-diagnosis/arki_rev1.md**",
-      "detectedAt": "2026-05-10T02:34:22.709Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-10_open-speed-diagnosis/arki_rev1.md**"
-    },
-    {
-      "type": "frontmatter-patch-failed",
-      "role": "dev",
-      "turnIdx": 6,
-      "reportsPath": "완료",
-      "detectedAt": "2026-05-10T02:51:04.948Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: 완료"
-    },
-    {
-      "type": "frontmatter-patch-failed",
-      "role": "zero",
-      "turnIdx": 7,
-      "reportsPath": "`reports/2026-05-10_off-time-reduction/zero_rev1.md`",
-      "detectedAt": "2026-05-10T03:16:13.553Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-10_off-time-reduction/zero_rev1.md`"
-    },
-    {
-      "type": "frontmatter-patch-failed",
-      "role": "edi",
-      "turnIdx": 8,
-      "reportsPath": "`reports/2026-05-10_off-time-reduction/edi_rev1.md`",
-      "detectedAt": "2026-05-10T03:17:45.284Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-10_off-time-reduction/edi_rev1.md`"
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-10_off-time-reduction/zero_rev1.md",
-      "expected": "zero",
-      "actualInTurns": "edi",
-      "turnId": 8
-    },
-    {
-      "type": "version-bump-edi-unconfirmed",
-      "severity": "high",
-      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140",
-      "suggestedValue": 0.01
-    }
-  ],
-  "tokenUsage": {
-    "input_tokens": 229,
-    "output_tokens": 79537,
-    "cache_creation_input_tokens": 873958,
-    "cache_read_input_tokens": 8095199,
-    "messageCount": 108,
-    "masterTurns": 23,
-    "total_billable": 9048923
-  },
-  "versionBumpSuggested": {
-    "value": 0.01,
-    "type": "capacity",
-    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 2건 (.claude/hooks/session-end-finalize.js, .claude/hooks/post-tool-use-build-scripts.js)",
-    "autoDetectedAt": "2026-05-10T03:18:21.916Z",
-    "changedFiles": [
-      ".claude/commands/open.md",
-      ".claude/hooks/session-end-finalize.js",
-      ".claude/settings.json",
-      "logs/hook-diagnostics.log",
-      "logs/master-first.log",
-      "logs/pre-tool-use-task.log",
-      "logs/sage-gate.log",
-      "memory/sessions/current_session.json",
-      "memory/sessions/session_index.json",
-      "memory/sessions/token_log.json",
-      "memory/shared/topic_index.json",
-      "package.json",
-      "scripts/auto-push.js",
-      "scripts/build.js",
-      "scripts/check-pending-deferrals.ts",
-      "scripts/log-evidence.ts",
-      "scripts/regenerate-context-brief.ts",
-      "scripts/write-session-contribution.ts",
-      ".claude/hooks/post-tool-use-build-scripts.js",
-      "reports/2026-05-10_incremental-build/"
-    ],
-    "changedFilesCount": 30,
-    "cappedAt": 0.1,
-    "confirmedBy": "edi"
-  },
-  "finalizedAt": "2026-05-10T03:18:21.994Z"
+  "gaps": []
 }
