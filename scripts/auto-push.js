@@ -164,7 +164,20 @@ function syncHookDiagnosticsFromMain(mainRoot) {
 
 function runHookChain(mainRoot) {
   // PD-073: register ts-node once for in-process requires
-  try { require('ts-node').register({ transpileOnly: true }); } catch (_e) {}
+  // skipProject/ignoreDeprecations: bypass TS5011/TS5107 from tsconfig rootDir+include combination
+  try {
+    require('ts-node').register({
+      transpileOnly: true,
+      skipProject: true,
+      compilerOptions: {
+        module: 'commonjs',
+        target: 'es2020',
+        esModuleInterop: true,
+        skipLibCheck: true,
+        ignoreDeprecations: '6.0',
+      },
+    });
+  } catch (_e) {}
 
   function ip(label, fn) { return { label, fn }; }
 
@@ -180,11 +193,16 @@ function runHookChain(mainRoot) {
     ip('npx ts-node scripts/compute-dashboard.ts', () => {
       require(path.join(ROOT, 'scripts/compute-dashboard.ts')).main();
     }),
-    'npx ts-node scripts/validate-prime-directive.ts',
+    ip('npx ts-node scripts/validate-prime-directive.ts', () => {
+      const { validate } = require(path.join(ROOT, 'scripts/validate-prime-directive.ts'));
+      const result = validate();
+      if (!result.ok) throw new Error(`[validate-prime-directive] ${result.message}`);
+      console.log(`[validate-prime-directive] OK (${result.actual.substring(0, 12)}...)`);
+    }),
   ];
   for (const step of preSteps) {
     const label = typeof step === 'string' ? step : step.label;
-    const fn = typeof step === 'string' ? () => execSync(step, { cwd: ROOT, stdio: 'inherit' }) : step.fn;
+    const fn = typeof step === 'string' ? () => execSync(step, { cwd: ROOT, stdio: 'inherit', env: { ...process.env, TS_NODE_TRANSPILE_ONLY: '1' } }) : step.fn;
     try {
       timed(label, fn);
     } catch (e) {

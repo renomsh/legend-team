@@ -228,26 +228,27 @@ export function writeSessionContribution(
   console.log(`OK: wrote ${outPath}`);
 }
 
-// ── CLI entry point ──────────────────────────────────────────────────────────
-if (require.main === module) {
-  const args = process.argv.slice(2);
+// ── Programmatic entry point (in-process require) ───────────────────────────
+export async function main(args: string[] = []): Promise<void> {
   const [topicId, sessionId, ...rest] = args;
 
   if (!topicId || !sessionId) {
-    console.error('Usage: ts-node write-session-contribution.ts <topicId> <sessionId> [--next-action="..."] [--overwrite]');
-    process.exit(1);
+    throw new Error('Usage: write-session-contribution <topicId> <sessionId> [--next-action="..."] [--overwrite]');
   }
 
   const nextActionArg = rest.find(a => a.startsWith('--next-action='))?.split('=').slice(1).join('=') ?? undefined;
   const overwrite = rest.includes('--overwrite');
 
-  try {
-    writeSessionContribution(topicId, sessionId, {
-      ...(nextActionArg !== undefined ? { nextAction: nextActionArg } : {}),
-      overwrite,
-    });
-  } catch (err) {
+  writeSessionContribution(topicId, sessionId, {
+    ...(nextActionArg !== undefined ? { nextAction: nextActionArg } : {}),
+    overwrite,
+  });
+}
+
+// ── CLI entry point ──────────────────────────────────────────────────────────
+if (require.main === module) {
+  main(process.argv.slice(2)).catch(err => {
     console.error(`Error: ${(err as Error).message}`);
     process.exit(1);
-  }
+  });
 }

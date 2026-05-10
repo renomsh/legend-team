@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-10T02:17:11.504Z",
-  "totalSessions": 227,
+  "generatedAt": "2026-05-10T03:20:49.976Z",
+  "totalSessions": 228,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 227
+      "undefined": 228
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -139,22 +139,22 @@
     }
   ],
   "metrics": {
-    "avgMasterTurns": 21.19,
+    "avgMasterTurns": 21.22,
     "avgCacheHitRate": 0.9323,
-    "cacheSampleSize": 197,
-    "cacheSampleTotal": 227,
+    "cacheSampleSize": 198,
+    "cacheSampleTotal": 228,
     "avgAdoptionRate": 0,
     "totalDecisions": 180,
     "gradeDistribution": {
-      "S": 104,
+      "S": 105,
       "A": 45,
       "B": 48,
       "C": 30
     },
     "topicGradeDistribution": {
       "S": 20,
-      "A": 61,
-      "B": 60,
+      "A": 62,
+      "B": 61,
       "C": 47
     },
     "gradeMismatchCount": 4,
@@ -165,10 +165,10 @@
       "session_202"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 181,
-    "totalCostUSD": 2666.8309,
-    "avgCostPerSession": 12.2332,
-    "costSampleSize": 218,
+    "turnBasedSessions": 182,
+    "totalCostUSD": 2678.1631,
+    "avgCostPerSession": 12.2291,
+    "costSampleSize": 219,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -8781,12 +8781,53 @@
         "messageCount": 324
       },
       "sessionCostUSD": 20.6989
+    },
+    {
+      "sessionId": "session_232",
+      "topicSlug": "off-time-reduction",
+      "topic": "오프 시간 단축",
+      "startedAt": "2026-05-10T05:00:00.000Z",
+      "closedAt": "2026-05-10T06:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 9,
+      "rolesRecalled": 4,
+      "sessionsSpanned": 1,
+      "size": 20,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 27,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "dev",
+        "arki",
+        "dev",
+        "dev",
+        "dev",
+        "zero",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 17071795,
+        "ioTokens": 223705,
+        "inputTokens": 611,
+        "outputTokens": 223094,
+        "cacheCreate": 849127,
+        "cacheRead": 15998963,
+        "cacheHitRate": 0.9371576333947309,
+        "messageCount": 234
+      },
+      "sessionCostUSD": 11.3322
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 200,
+      "count": 201,
       "sessions": [
         "session_050",
         "session_051",
@@ -8965,7 +9006,8 @@
         "session_228",
         "session_229",
         "session_230",
-        "session_231"
+        "session_231",
+        "session_232"
       ]
     },
     {
@@ -9071,7 +9113,7 @@
     },
     {
       "role": "arki",
-      "count": 156,
+      "count": 158,
       "sessions": [
         "session_048",
         "session_049",
@@ -9160,12 +9202,13 @@
         "session_208",
         "session_216",
         "session_224",
-        "session_227"
+        "session_227",
+        "session_232"
       ]
     },
     {
       "role": "dev",
-      "count": 123,
+      "count": 127,
       "sessions": [
         "session_047",
         "session_048",
@@ -9260,12 +9303,13 @@
         "session_207",
         "session_213",
         "session_227",
-        "session_228"
+        "session_228",
+        "session_232"
       ]
     },
     {
       "role": "riki",
-      "count": 117,
+      "count": 118,
       "sessions": [
         "session_049",
         "session_053",
@@ -9353,12 +9397,13 @@
         "session_208",
         "session_216",
         "session_224",
-        "session_227"
+        "session_227",
+        "session_232"
       ]
     },
     {
       "role": "zero",
-      "count": 42,
+      "count": 43,
       "sessions": [
         "session_153",
         "session_175",
@@ -9387,7 +9432,8 @@
         "session_224",
         "session_225",
         "session_226",
-        "session_227"
+        "session_227",
+        "session_232"
       ]
     },
     {
@@ -16027,6 +16073,66 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 0,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_232",
+      "topic": "오프 시간 단축",
+      "sequence": [
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 6,
+          "recallReason": null
+        },
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 7,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 8,
           "recallReason": null
         }
       ]
