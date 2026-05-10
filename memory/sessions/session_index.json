@@ -10820,8 +10820,36 @@
       "grade": "C",
       "oneLineSummary": "topic_192: compute-dashboard.ts pendingDeferrals 컴파일 추가, deferrals.html·index.html dashboard_data.json 소스 전환",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_231",
+      "topicSlug": "finalize-inprocess-require",
+      "topic": "finalize.js in-process require 통합 (PD-073)",
+      "startedAt": "2026-05-10T03:00:00.000Z",
+      "closedAt": "2026-05-10T04:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "edi",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "scc": "Y",
+            "cs_cnt": 2,
+            "art_cmp": 1,
+            "gap_fc": 0
+          }
+        }
+      ],
+      "grade": "C",
+      "note": "PD-073 구현 완료. finalize.js 4× spawnSync→in-process require. auto-push.js TRANSPILE_ONLY 추가(optionA 미병합분 적용)",
+      "oneLineSummary": "topic_193 PD-073 구현: 4개 스크립트 in-process require 전환 + TRANSPILE_ONLY 적용",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-10T01:36:56.709Z",
+  "lastUpdated": "2026-05-10T02:02:21.780Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

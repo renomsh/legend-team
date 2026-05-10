@@ -17,6 +17,15 @@ const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
 
+// PD-073: TRANSPILE_ONLY for remaining subprocess ts-node calls
+process.env.TS_NODE_TRANSPILE_ONLY = '1';
+// PD-073: register ts-node once for in-process require of .ts scripts
+try {
+  require('ts-node').register({ transpileOnly: true });
+} catch (_e) {
+  // ts-node unavailable — spawnSync fallback still present
+}
+
 const CWD = process.env.FINALIZE_CWD || process.cwd();
 const CURRENT_SESSION_PATH = process.env.FINALIZE_CURRENT_SESSION || path.join(CWD, 'memory', 'sessions', 'current_session.json');
 const SESSION_INDEX_PATH = process.env.FINALIZE_SESSION_INDEX || path.join(CWD, 'memory', 'sessions', 'session_index.json');
@@ -283,21 +292,16 @@ function updateClosedInSession(sess) {
     return;
   }
 
-  const cmd = 'npx';
-  const result = spawnSync(cmd, ['ts-node', scriptPath, '--topicId', topicId, '--sessionId', sessionId], {
-    cwd: CWD,
-    encoding: 'utf8',
-    shell: true,
-  });
-
-  if (result.error || result.status !== 0) {
-    const errMsg = result.error ? result.error.message : (result.stderr || result.stdout || '').trim();
-    log(`updateClosedInSession 실패 (code ${result.status}): ${errMsg}`);
+  try {
+    const { main } = require(scriptPath);
+    main(['--topicId', topicId, '--sessionId', sessionId]);
+    log(`updateClosedInSession 완료 — ${topicId}.closedInSession = "${sessionId}"`);
+  } catch (err) {
+    const errMsg = err.message;
+    log(`updateClosedInSession 실패: ${errMsg}`);
     sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
     sess.gaps.push({ type: 'topic-index-write-failed', topicId, sessionId, detail: errMsg });
     writeJson(CURRENT_SESSION_PATH, sess);
-  } else {
-    log(`updateClosedInSession 완료 — ${topicId}.closedInSession = "${sessionId}"`);
   }
 }
 
@@ -312,15 +316,12 @@ function runAutoCloseDryRun() {
     log('auto-close-topics skip: 스크립트 없음');
     return;
   }
-  const cmd = 'npx';
-  const result = spawnSync(cmd, ['ts-node', scriptPath], {
-    cwd: CWD, encoding: 'utf8', shell: true,
-  });
-  const out = (result.stdout || '').trim();
-  if (out.includes('proposals: 0')) {
-    log('auto-close dry-run — 제안 없음');
-  } else if (out) {
-    log(`[auto-close dry-run 제안]\n${out}`);
+  try {
+    const { main } = require(scriptPath);
+    main([]);
+    log('auto-close dry-run 완료');
+  } catch (err) {
+    log(`auto-close dry-run 실패: ${err.message}`);
   }
 }
 
@@ -330,15 +331,12 @@ function runResolvePDDryRun() {
     log('resolve-pending-deferrals skip: 스크립트 없음');
     return;
   }
-  const cmd = 'npx';
-  const result = spawnSync(cmd, ['ts-node', scriptPath], {
-    cwd: CWD, encoding: 'utf8', shell: true,
-  });
-  const out = (result.stdout || '').trim();
-  if (out.includes('matches: 0') && !out.includes('⚠')) {
-    log('resolve-PD dry-run — 전이 제안 없음');
-  } else if (out) {
-    log(`[resolve-PD dry-run]\n${out}`);
+  try {
+    const { main } = require(scriptPath);
+    main([]);
+    log('resolve-PD dry-run 완료');
+  } catch (err) {
+    log(`resolve-PD dry-run 실패: ${err.message}`);
   }
 }
 
@@ -1803,16 +1801,12 @@ function runSyncSystemState() {
     log('sync-system-state.ts 없음, 스킵');
     return;
   }
-  const cmd = 'npx';
-  const result = spawnSync(cmd, ['ts-node', tsPath], {
-    cwd: CWD,
-    encoding: 'utf8',
-    shell: true,
-  });
-  if (result.status !== 0) {
-    log(`sync-system-state 실패 (code ${result.status}): ${result.stderr || ''}`);
-  } else {
+  try {
+    const { main } = require(tsPath);
+    main();
     log('sync-system-state 완료');
+  } catch (err) {
+    log(`sync-system-state 실패: ${err.message}`);
   }
 }
 

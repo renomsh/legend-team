@@ -42,8 +42,8 @@ interface Proposal {
   childStatuses: Record<string, string>;
 }
 
-function main() {
-  const apply = process.argv.includes('--apply');
+export function main(args: string[] = process.argv.slice(2)) {
+  const apply = args.includes('--apply');
   const raw = fs.readFileSync(TOPIC_INDEX, 'utf-8');
   const data = JSON.parse(raw);
   const topics: TopicEntry[] = data.topics;
@@ -102,4 +102,4 @@ function main() {
   }
 }
 
-main();
+if (require.main === module) main();

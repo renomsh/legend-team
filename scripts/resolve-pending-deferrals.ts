@@ -40,8 +40,8 @@ interface Topic {
   [k: string]: any;
 }
 
-function main() {
-  const apply = process.argv.includes('--apply');
+export function main(args: string[] = process.argv.slice(2)) {
+  const apply = args.includes('--apply');
 
   const state = JSON.parse(fs.readFileSync(SYSTEM_STATE, 'utf-8'));
   const topicIdx = JSON.parse(fs.readFileSync(TOPIC_INDEX, 'utf-8'));
@@ -168,4 +168,4 @@ function main() {
   }
 }
 
-main();
+if (require.main === module) main();

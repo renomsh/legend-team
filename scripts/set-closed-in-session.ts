@@ -28,8 +28,7 @@ interface TopicIndex {
   lastUpdated: string;
 }
 
-function parseArgs(): { topicId: string | undefined; sessionId: string | undefined } {
-  const args = process.argv.slice(2);
+function parseArgs(args: string[]): { topicId: string | undefined; sessionId: string | undefined } {
   const parsed = new Map<string, string>();
   for (let i = 0; i < args.length; i++) {
     const arg = args[i];
@@ -45,26 +44,23 @@ function parseArgs(): { topicId: string | undefined; sessionId: string | undefin
   };
 }
 
-function main(): void {
-  const { topicId, sessionId } = parseArgs();
+export function main(args: string[] = process.argv.slice(2)): void {
+  const { topicId, sessionId } = parseArgs(args);
 
   if (!topicId || !sessionId) {
-    process.stderr.write('❌ 필수 인수 누락: --topicId <id> --sessionId <id>\n');
-    process.exit(1);
+    throw new Error('❌ 필수 인수 누락: --topicId <id> --sessionId <id>');
   }
 
   let index: TopicIndex;
   try {
     index = readJson<TopicIndex>(TOPIC_INDEX_PATH, { topics: [], lastUpdated: new Date().toISOString() });
   } catch (err) {
-    process.stderr.write(`❌ topic_index.json 읽기 실패: ${(err as Error).message}\n`);
-    process.exit(1);
+    throw new Error(`❌ topic_index.json 읽기 실패: ${(err as Error).message}`);
   }
 
   const entry = index.topics.find(t => t.id === topicId);
   if (!entry) {
-    process.stderr.write(`❌ topicId not found: ${topicId}\n`);
-    process.exit(1);
+    throw new Error(`❌ topicId not found: ${topicId}`);
   }
 
   entry.closedInSession = sessionId;
@@ -73,12 +69,17 @@ function main(): void {
   try {
     writeJson(TOPIC_INDEX_PATH, index);
   } catch (err) {
-    process.stderr.write(`❌ topic_index.json 쓰기 실패: ${(err as Error).message}\n`);
-    process.exit(1);
+    throw new Error(`❌ topic_index.json 쓰기 실패: ${(err as Error).message}`);
   }
 
   console.log(`✅ topic_index.json 갱신 — ${topicId}.closedInSession = "${sessionId}"`);
-  process.exit(0);
 }
 
-main();
+if (require.main === module) {
+  try {
+    main();
+  } catch (e) {
+    process.stderr.write((e as Error).message + '\n');
+    process.exit(1);
+  }
+}

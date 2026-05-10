@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_230",
-  "nextSessionId": "session_231",
-  "currentVersion": "v1.631",
+  "lastSessionId": "session_231",
+  "nextSessionId": "session_232",
+  "currentVersion": "v1.641",
   "openTopics": [
     {
       "id": "topic_175",
@@ -52,6 +52,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_231",
+      "topicSlug": "finalize-inprocess-require",
+      "closedAt": "2026-05-10T04:00:00.000Z",
+      "oneLineSummary": "topic_193 PD-073 구현: 4개 스크립트 in-process require 전환 + TRANSPILE_ONLY 적용",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_230",
       "topicSlug": "dashboard-pending-deferrals",
       "closedAt": "2026-05-10T02:30:00.000Z",
@@ -64,13 +71,6 @@
       "closedAt": "2026-05-10T01:30:00.000Z",
       "oneLineSummary": "topic_191 옵션A 적용: TS_NODE_TRANSPILE_ONLY=1 (auto-push.js + finalize.js), 벤치 -35% 확인, 옵션C는 PD-073로 분리",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_228",
-      "topicSlug": "close-speed-diagnosis",
-      "closedAt": "2026-05-10T01:00:00.000Z",
-      "oneLineSummary": "topic_191 진단: close 병목 ts-node×4 cold start 추정. timing 계측 + Zero gate 추가, 측정값은 다음 세션 분석",
-      "decisionsAdded": []
     }
   ],
   "pendingDeferrals": [
@@ -81,15 +81,7 @@
       "createdAt": "2026-05-08",
       "item": "병행세션 병행토픽 시스템 검토 caseB",
       "status": "pending"
-    },
-    {
-      "id": "PD-073",
-      "fromSession": "session_229",
-      "fromTopic": "close-speed-diagnosis",
-      "createdAt": "2026-05-10",
-      "item": "옵션 C — finalize.js 내부 6× ts-node spawnSync를 in-process require로 통합 (auto-close-topics, resolve-pending-deferrals, set-closed-in-session, sync-system-state 4개 스크립트 리팩터: process.exit→throw, main(args) 인자화, require.main 가드 추가, export 추가) → 추가 ~6-8초 절감 예상. session_229 옵션A 적용 후 실측 검증 결과 보고 진행 결정",
-      "status": "pending"
     }
   ],
-  "lastUpdated": "2026-05-10T01:37:11.888Z"
+  "lastUpdated": "2026-05-10T02:02:25.993Z"
 }

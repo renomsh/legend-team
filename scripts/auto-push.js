@@ -10,6 +10,9 @@ const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
+// PD-073 / optionA: reduce ts-node cold start for subprocess calls
+process.env.TS_NODE_TRANSPILE_ONLY = '1';
+
 const ROOT = path.resolve(__dirname, '..');
 
 const TIMING_LOG = path.join(ROOT, 'logs', 'close-timing.log');

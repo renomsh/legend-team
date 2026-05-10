@@ -120,7 +120,10 @@
       "fromTopic": "close-speed-diagnosis",
       "createdAt": "2026-05-10",
       "item": "옵션 C — finalize.js 내부 6× ts-node spawnSync를 in-process require로 통합 (auto-close-topics, resolve-pending-deferrals, set-closed-in-session, sync-system-state 4개 스크립트 리팩터: process.exit→throw, main(args) 인자화, require.main 가드 추가, export 추가) → 추가 ~6-8초 절감 예상. session_229 옵션A 적용 후 실측 검증 결과 보고 진행 결정",
-      "status": "pending"
+      "status": "resolved",
+      "resolvedAt": "2026-05-10",
+      "resolvedBy": "session_231",
+      "resolveNote": "4개 스크립트 export+main(args) 인자화 완료. finalize.js ts-node.register({transpileOnly,rootDir:'.'}) + in-process require 전환. auto-push.js TRANSPILE_ONLY 추가. in-process 검증 4/4 통과."
     }
   ]
 }

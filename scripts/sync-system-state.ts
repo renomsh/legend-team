@@ -85,7 +85,7 @@ function pad3(n: number): string {
   return String(n).padStart(3, '0');
 }
 
-function main() {
+export function main() {
   console.log('🔄 sync-system-state.ts 시작...');
 
   const CHARTER_PATH = path.join(ROOT, 'memory', 'shared', 'project_charter.json');
@@ -182,4 +182,4 @@ function main() {
   console.log(`✅ system_state.json 갱신 — last=${lastSessionId} next=${nextSessionId} openTopics=${openTopics.length} recentSummaries=${recentSessionSummaries.length} deferrals(pending)=${next.pendingDeferrals.filter(d => d.status === 'pending').length}`);
 }
 
-main();
+if (require.main === module) main();
