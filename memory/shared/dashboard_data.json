@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-10T13:26:14.492Z",
+  "generatedAt": "2026-05-10T13:57:19.672Z",
   "totalSessions": 229,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
@@ -175,6 +175,14 @@
       "title": "audit-decision-ledger-status 분류 로직 정밀화 (self vs referent 구분)",
       "item": "Phase 1 신설 audit-decision-ledger-status.ts의 단순 키워드 매칭(supersede|폐기|deprecat)은 self-undeclared와 referent-undeclared를 구분 못 함. session_233 Phase 2에서 33건 self-undeclared 정밀 분석 결과 100% false positive (모두 다른 결정을 supersede한다는 referent 의미였음). 정밀화 옵션: (a) supersededBy/deprecates 필드 cross-check (b) 문맥 분석 (c) self-undeclared 카운트 폐기, referent만 유지. 본 audit 스크립트가 향후 정제 라운드의 토대이므로 정밀화 필수.",
       "status": "pending"
+    },
+    {
+      "id": "PD-078",
+      "fromSession": "session_233",
+      "fromTopic": "pd-dashboard-fix",
+      "createdAt": "2026-05-10",
+      "item": "L2 / L1 / inline 재도입",
+      "status": "pending"
     }
   ],
   "metrics": {
@@ -183,7 +191,7 @@
     "cacheSampleSize": 198,
     "cacheSampleTotal": 229,
     "avgAdoptionRate": 0,
-    "totalDecisions": 182,
+    "totalDecisions": 183,
     "gradeDistribution": {
       "S": 106,
       "A": 45,
@@ -8868,16 +8876,17 @@
       "topic": "Agent 호출 시간 단축 + 시스템 정제 (cap·CLAUDE.md·skill·MCP 슬림화)",
       "startedAt": "2026-05-10T03:30:00.000Z",
       "closedAt": "2026-05-10T11:17:08.960Z",
-      "decisionCount": 2,
-      "decisionAxes": 2,
+      "decisionCount": 3,
+      "decisionAxes": 3,
       "decisions": [
+        "D-180",
         "D-178",
         "D-179"
       ],
       "rolesCalled": 11,
       "rolesRecalled": 6,
       "sessionsSpanned": 1,
-      "size": 30,
+      "size": 32,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -16493,6 +16502,11 @@
           "date": "2026-04-21",
           "feedbackId": "MF-049",
           "summary": "기본적인 제안은 Ace가 하고 Master가 조정 — 지금까지 해온 방식 유지. 세부 결정(enum 구성 등"
+        },
+        {
+          "date": "2026-05-10",
+          "feedbackId": "MF-119",
+          "summary": "Nexus는 과제 본질이 불명확할 때 Master가 별도 설명 안 해도 능동적으로 질문해야 함. 추정으로 오"
         }
       ]
     },
@@ -16917,6 +16931,11 @@
           "date": "2026-04-24",
           "feedbackId": "MF-081",
           "summary": "긴급 과제 끼어들기 후 PD 상태 drift가 이번 재구현 오사고의 근본 원인 — 구조적 대안 검토 필요"
+        },
+        {
+          "date": "2026-05-10",
+          "feedbackId": "MF-119",
+          "summary": "Nexus는 과제 본질이 불명확할 때 Master가 별도 설명 안 해도 능동적으로 질문해야 함. 추정으로 오"
         }
       ]
     },
@@ -17786,6 +17805,21 @@
           "date": "2026-04-25",
           "feedbackId": "MF-090",
           "summary": "구현은 후속 child토픽으로 분화해도 되는데 일단 해보고. 분화하면 제대로 진행이 안돼."
+        }
+      ]
+    },
+    {
+      "keyword": "자동",
+      "occurrences": [
+        {
+          "date": "2026-04-24",
+          "feedbackId": "MF-081",
+          "summary": "자동 close와 수동 /close 스킬 실행 결과 차이가 뭔지 검토 필요."
+        },
+        {
+          "date": "2026-05-10",
+          "feedbackId": "MF-118",
+          "summary": "머지 충돌 시 --ours 자동 처리 금지. 어느 버전 선택할지 Master에게 먼저 확인해야 함"
         }
       ]
     },
