@@ -19,3 +19,5 @@ M2 D-170 amendment 5번째 축이란걸 |
 | 2026-05-08 00:49:15 | 01a5b41b-bd7b-43be-8454-e7427d5142f3 | UserPromptSubmit | echo-trigger | `동의, OK, ok` | 1-3동의하고 각자 발언하고 나서는 서로 내용을 보면서 토론을 해야지.  b는 OK
 c는 default =  |
 | 2026-05-08 01:05:17 | 01a5b41b-bd7b-43be-8454-e7427d5142f3 | UserPromptSubmit | echo-trigger | `OK, ok` | PD-066이 뭐지? M3 OK. M5 상세설명 |
+| 2026-05-10 09:50:05 | 2e1060bb-99a9-4056-a996-45e461fa5330 | UserPromptSubmit | echo-trigger | `동의` | q2. 상세하게 다시 설명줘. q5는 동의
+그리고 이게 스킬 기반으로 검증한거라는 거지? |
