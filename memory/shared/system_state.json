@@ -83,5 +83,12 @@
       "status": "pending"
     }
   ],
-  "lastUpdated": "2026-05-10T03:18:21.991Z"
+  "lastUpdated": "2026-05-10T11:20:45.618Z",
+  "worktreeMergeFailures": [
+    {
+      "branch": "claude/pedantic-merkle-e84645",
+      "detectedAt": "2026-05-10T11:20:45.618Z",
+      "message": "error: Your local changes to the following files would be overwritten by merge:\n\tCLAUDE.md\n\tmemory/roles/dev_memory.json\nPlease commit your changes or stash them before you merge.\nAborting\nMerge with strategy ort failed.\n"
+    }
+  ]
 }

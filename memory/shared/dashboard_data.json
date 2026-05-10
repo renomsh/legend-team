@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-10T03:20:49.976Z",
+  "generatedAt": "2026-05-10T13:01:58.897Z",
   "totalSessions": 228,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
@@ -139,7 +139,7 @@
     }
   ],
   "metrics": {
-    "avgMasterTurns": 21.22,
+    "avgMasterTurns": 21.32,
     "avgCacheHitRate": 0.9323,
     "cacheSampleSize": 198,
     "cacheSampleTotal": 228,
@@ -166,8 +166,8 @@
     ],
     "framingSkippedCount": 0,
     "turnBasedSessions": 182,
-    "totalCostUSD": 2678.1631,
-    "avgCostPerSession": 12.2291,
+    "totalCostUSD": 2685.0627,
+    "avgCostPerSession": 12.2606,
     "costSampleSize": 219,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
@@ -8798,7 +8798,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 27,
+      "masterTurns": 50,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
@@ -8812,16 +8812,16 @@
         "edi"
       ],
       "tokenUsage": {
-        "totalBillable": 17071795,
-        "ioTokens": 223705,
-        "inputTokens": 611,
-        "outputTokens": 223094,
-        "cacheCreate": 849127,
-        "cacheRead": 15998963,
-        "cacheHitRate": 0.9371576333947309,
-        "messageCount": 234
+        "totalBillable": 26120718,
+        "ioTokens": 303471,
+        "inputTokens": 840,
+        "outputTokens": 302631,
+        "cacheCreate": 1723085,
+        "cacheRead": 24094162,
+        "cacheHitRate": 0.9224157620782093,
+        "messageCount": 342
       },
-      "sessionCostUSD": 11.3322
+      "sessionCostUSD": 18.2318
     }
   ],
   "roleFrequency": [
@@ -16156,6 +16156,11 @@
       "severity": "yellow",
       "sessionId": "session_153",
       "description": "역할 과호출: rolesRecalled=18 (임계값 11, grade=S)"
+    },
+    {
+      "ruleId": "R-MERGE",
+      "severity": "red",
+      "description": "worktree merge 실패: claude/pedantic-merkle-e84645 (2026-05-10) — 수동 머지 필요"
     }
   ],
   "feedbackRecurrences": [
