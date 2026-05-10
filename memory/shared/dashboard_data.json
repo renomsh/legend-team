@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-10T00:23:19.656Z",
-  "totalSessions": 225,
+  "generatedAt": "2026-05-10T01:37:18.609Z",
+  "totalSessions": 226,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 225
+      "undefined": 226
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -15,24 +15,144 @@
     "orphanPendingFiles": [],
     "archiveCount": 0
   },
+  "pendingDeferrals": [
+    {
+      "id": "PD-057",
+      "fromSession": "session_167",
+      "fromTopic": "topic_144",
+      "createdAt": "2026-04-28",
+      "title": "Grade 임계 자체 재검토",
+      "item": "Grade 임계 자체 재검토 — Master Q3 Scope OUT 박제. C/D 자동 분기 키워드 매칭(bug·fix·patch 등)이 적절한지 누적 데이터로 검증. gradeMismatch 충분 시 재오픈.",
+      "status": "resolved",
+      "resolveCondition": "gradeMismatch ≥ 10건 누적 OR Master 명시 재오픈",
+      "dependsOn": [],
+      "relatedDecisions": [
+        "D-074",
+        "D-130",
+        "D-144"
+      ],
+      "relatedTopic": "topic_144",
+      "resolvedAt": "2026-05-09",
+      "resolvedBy": "session_217"
+    },
+    {
+      "id": "PD-066",
+      "fromSession": "session_208",
+      "fromTopic": "topic_176",
+      "createdAt": "2026-05-08",
+      "title": "Nexus crash 시 pending_turns 영구 손실 방지 복구",
+      "item": "Nexus crash recovery — turnPushMode=nexus 모드에서 Nexus crash 발생 시 pending_turns_{sessionId}.jsonl 잔존 후 (a) 다음 세션 안 열림(휴지기), (b) 다른 토픽 → sessionId mismatch skip → 영구 손실 risk. 다음 세션 finalize hook이 read+merge+turns[] 복구하는 알고리즘 코드 박제. Arki rev4 §6/§7.7 명세 기반 — 세션 시작 pending_turns scan + 주기 cron orphan scan + sessionId mismatch 시 orphan 폴더 이동 + Master 알림 채널.",
+      "status": "resolved",
+      "resolvedAt": "2026-05-08",
+      "resolvedBy": "session_211",
+      "resolveNote": "① joinOrphanPendingTurns P5 20/20 PASS (session_209), ② GATE β 13/13 PASS, ③ /open step 1-a orphan scan 박제 완료 — 3조건 모두 충족",
+      "resolveCondition": "복구 알고리즘 코드 박제(session-end-finalize.js read+merge + cron orphan scan) + GATE β 통과(crash 시뮬레이션 turn 손실 0건) + Phase 진입 게이트 G-FINALIZE 통과",
+      "fallback": "turnPushMode='hook' 강제 (legacy 동작 보존, race risk 잔존)",
+      "dependsOn": [],
+      "relatedDecisions": [
+        "D-166",
+        "D-170-A1",
+        "D-171"
+      ],
+      "relatedTopic": "topic_176",
+      "blockers": []
+    },
+    {
+      "id": "PD-067",
+      "fromSession": "session_214",
+      "fromTopic": "pd-skill-bug-fix",
+      "createdAt": "2026-05-08",
+      "item": "테스트 항목 — 검증용",
+      "status": "resolved",
+      "resolvedAt": "2026-05-08",
+      "resolvedBy": "session_214"
+    },
+    {
+      "id": "PD-068",
+      "fromSession": "session_213",
+      "fromTopic": "pd-deferred-skill",
+      "createdAt": "2026-05-08",
+      "item": "프롬프트 입력 시 스킬을 훅으로 자동 발동 구현",
+      "status": "in-progress",
+      "resolveCondition": "Phase 3 hook(user-prompt-submit-skill-recommend.js) 통합 완료 + Master 직접 사용 검증 통과",
+      "relatedDecisions": [
+        "D-176",
+        "D-177"
+      ],
+      "relatedTopic": "topic_190",
+      "scopeRedefined": "session_224에서 대상 명확화: plugin skill ~150+ (레전드팀 자체 12개 제외). 방식 RECOMMEND로 전환(BLOCK 폐기).",
+      "lastUpdatedAt": "2026-05-09",
+      "lastUpdatedBy": "session_224"
+    },
+    {
+      "id": "PD-069",
+      "fromSession": "session_214",
+      "fromTopic": "pd-skill-bug-fix",
+      "createdAt": "2026-05-08",
+      "item": "병행세션 병행토픽 시스템 검토 caseB",
+      "status": "pending"
+    },
+    {
+      "id": "PD-070",
+      "fromSession": "session_217",
+      "fromTopic": "pd-057-grade-review",
+      "createdAt": "2026-05-09",
+      "item": "session-end-finalize.js — pendingDeferralsResolved 전파 누락. current_session.pendingDeferralsResolved 배열을 읽어 pending_deferrals.json status를 resolved로 갱신하는 로직 추가 필요. session_216 종료 시 PD-057 미전파로 발견.",
+      "status": "resolved",
+      "resolvedAt": "2026-05-09",
+      "resolvedBy": "session_219"
+    },
+    {
+      "id": "PD-071",
+      "fromSession": "session_218",
+      "fromTopic": "c-indicator-display-change",
+      "createdAt": "2026-05-09",
+      "item": "Nexus 직접 작업(Agent 툴 미경유) 시 turns[] 미기록 문제. 현재 turn push 흐름은 Agent 호출 → pending_turns → pushTurnsFromPending()만 커버. Nexus가 직접 파일 수정·커밋·답변 등 작업한 세션은 turns[] 빈 채로 종료됨. 수정 방향: session-end-finalize.js에서 turns[] 비어있을 때 {role:'nexus', source:'direct'} 1건 자동 삽입(방법 A) 검토.",
+      "status": "resolved",
+      "resolvedAt": "2026-05-09",
+      "resolvedBy": "session_220",
+      "resolveNote": "session-end-finalize.js에 ensureNexusTurnIfDirectWork() 추가 — turns[] 비어있을 때 {role:'nexus', source:'direct'} 1건 자동 삽입. syntax OK + 동작 테스트 pass."
+    },
+    {
+      "id": "PD-072",
+      "fromSession": "session_220",
+      "fromTopic": "pd-071-nexus-direct-turns-insert",
+      "createdAt": "2026-05-09",
+      "title": "Grade C 세션 Edi lite 호출 — 기록 품질 개선",
+      "item": "Grade C 세션은 현재 mechanical fallback(edi_auto_rev1.md)만 생성되어 session_contributions에 복사되지 않음. reasoning layer(결정 이유·맥락) 누락으로 토픽 history 품질 저하. 해결 방향: /close skill에서 Grade C일 때도 Edi lite(무슨 일 했는지 + 결정 이유 한 줄씩, 1-page 포맷) Agent 호출하도록 close.md 수정. Zero 추가 불필요(기록 목적, 품질 검토 아님).",
+      "status": "resolved",
+      "dependsOn": [],
+      "relatedDecisions": [],
+      "resolvedAt": "2026-05-09",
+      "resolvedBy": "session_221"
+    },
+    {
+      "id": "PD-073",
+      "fromSession": "session_229",
+      "fromTopic": "close-speed-diagnosis",
+      "createdAt": "2026-05-10",
+      "item": "옵션 C — finalize.js 내부 6× ts-node spawnSync를 in-process require로 통합 (auto-close-topics, resolve-pending-deferrals, set-closed-in-session, sync-system-state 4개 스크립트 리팩터: process.exit→throw, main(args) 인자화, require.main 가드 추가, export 추가) → 추가 ~6-8초 절감 예상. session_229 옵션A 적용 후 실측 검증 결과 보고 진행 결정",
+      "status": "pending"
+    }
+  ],
   "metrics": {
-    "avgMasterTurns": 21.05,
-    "avgCacheHitRate": 0.9324,
-    "cacheSampleSize": 195,
-    "cacheSampleTotal": 225,
+    "avgMasterTurns": 20.97,
+    "avgCacheHitRate": 0.9325,
+    "cacheSampleSize": 196,
+    "cacheSampleTotal": 226,
     "avgAdoptionRate": 0,
     "totalDecisions": 180,
     "gradeDistribution": {
       "S": 104,
       "A": 45,
       "B": 48,
-      "C": 28
+      "C": 29
     },
     "topicGradeDistribution": {
       "S": 20,
       "A": 61,
       "B": 60,
-      "C": 45
+      "C": 46
     },
     "gradeMismatchCount": 4,
     "gradeMismatchSessions": [
@@ -42,10 +162,10 @@
       "session_202"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 179,
-    "totalCostUSD": 2642.1992,
-    "avgCostPerSession": 12.2324,
-    "costSampleSize": 216,
+    "turnBasedSessions": 180,
+    "totalCostUSD": 2646.132,
+    "avgCostPerSession": 12.1942,
+    "costSampleSize": 217,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -8592,12 +8712,45 @@
         "messageCount": 246
       },
       "sessionCostUSD": 12.5049
+    },
+    {
+      "sessionId": "session_230",
+      "topicSlug": "dashboard-pending-deferrals",
+      "topic": "compute-dashboard.ts에 pendingDeferrals 컴파일 추가",
+      "startedAt": "2026-05-10T02:00:00.000Z",
+      "closedAt": "2026-05-10T02:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 4,
+      "gradeDeclared": "C",
+      "gradeActual": "C",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 5,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 7376298,
+        "ioTokens": 39989,
+        "inputTokens": 165,
+        "outputTokens": 39824,
+        "cacheCreate": 328699,
+        "cacheRead": 7007610,
+        "cacheHitRate": 0.9500172037518007,
+        "messageCount": 110
+      },
+      "sessionCostUSD": 3.9328
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 198,
+      "count": 199,
       "sessions": [
         "session_050",
         "session_051",
@@ -8774,7 +8927,8 @@
         "session_226",
         "session_227",
         "session_228",
-        "session_229"
+        "session_229",
+        "session_230"
       ]
     },
     {
@@ -15815,6 +15969,18 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_230",
+      "topic": "compute-dashboard.ts에 pendingDeferrals 컴파일 추가",
+      "sequence": [
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -15835,16 +16001,6 @@
       "severity": "yellow",
       "sessionId": "session_153",
       "description": "역할 과호출: rolesRecalled=18 (임계값 11, grade=S)"
-    },
-    {
-      "ruleId": "R-MERGE",
-      "severity": "red",
-      "description": "worktree merge 실패: claude/funny-feynman-ae25a0 (2026-05-09) — 수동 머지 필요"
-    },
-    {
-      "ruleId": "R-MERGE",
-      "severity": "red",
-      "description": "worktree merge 실패: claude/modest-thompson-04aab6 (2026-05-09) — 수동 머지 필요"
     }
   ],
   "feedbackRecurrences": [

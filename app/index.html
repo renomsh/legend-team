@@ -207,13 +207,14 @@
 
     async function init() {
       // KPI + hero chart (token-based)
-      const [topicIdx, decIdx, sessionIdx, tokenLog, sysState, charter] = await Promise.all([
+      const [topicIdx, decIdx, sessionIdx, tokenLog, sysState, charter, dashData] = await Promise.all([
         DataLoader.getTopicIndex(),
         DataLoader.getDecisionLedger(),
         DataLoader.getSessionIndex().catch(() => null),
         DataLoader.getTokenLog().catch(() => null),
         DataLoader.getSystemState().catch(() => null),
-        DataLoader.getProjectCharter().catch(() => null)
+        DataLoader.getProjectCharter().catch(() => null),
+        DataLoader.getDashboardData().catch(() => null)
       ]);
 
       // Sessions hero-meta = session ID 최대 (ID-기준 통일, Master 직관)
@@ -265,8 +266,8 @@
       }
 
       // Pending Deferrals — defer-row 스타일 + 5줄 accordion
-      if (sysState?.pendingDeferrals) {
-        const pending = sysState.pendingDeferrals.filter(p => p.status === 'pending');
+      if (dashData?.pendingDeferrals) {
+        const pending = dashData.pendingDeferrals.filter(p => p.status === 'pending');
         document.getElementById('pdMeta').textContent = `${pending.length} pending →`;
         const SHOW = 5;
         const container = document.getElementById('pendingList');

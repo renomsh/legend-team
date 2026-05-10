@@ -324,9 +324,9 @@ function renderGraph(deferrals) {
 }
 
 async function init() {
-  const sys = await DataLoader.fetchJSON('memory/shared/system_state.json');
+  const dash = await DataLoader.getDashboardData();
   const sidx = await DataLoader.getSessionIndex();
-  state.all = sys?.pendingDeferrals || [];
+  state.all = dash?.pendingDeferrals || [];
 
   // map session_NNN → date for age calc
   const dates = {};

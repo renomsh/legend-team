@@ -1,13 +1,13 @@
 {
-  "sessionId": "session_229",
-  "topicId": "topic_191",
-  "topic": "Close 속도 원인 파악",
-  "topicSlug": "close-speed-diagnosis",
-  "reportPath": "reports/2026-05-10_close-speed-diagnosis",
+  "sessionId": "session_230",
+  "topicId": "topic_192",
+  "topic": "compute-dashboard.ts에 pendingDeferrals 컴파일 추가",
+  "topicSlug": "dashboard-pending-deferrals",
+  "reportPath": "reports/2026-05-10_dashboard-pending-deferrals",
   "status": "closed",
-  "startedAt": "2026-05-10T00:00:00.000Z",
-  "closedAt": "2026-05-10T01:30:00.000Z",
-  "oneLineSummary": "topic_191 옵션A 적용: TS_NODE_TRANSPILE_ONLY=1 (auto-push.js + finalize.js), 벤치 -35% 확인, 옵션C는 PD-073로 분리",
+  "startedAt": "2026-05-10T02:00:00.000Z",
+  "closedAt": "2026-05-10T02:30:00.000Z",
+  "oneLineSummary": "topic_192: compute-dashboard.ts pendingDeferrals 컴파일 추가, deferrals.html·index.html dashboard_data.json 소스 전환",
   "mode": "observation",
   "grade": "C",
   "topicType": "standalone",
@@ -19,87 +19,70 @@
     {
       "role": "edi",
       "turnIdx": 0,
-      "source": "agent"
+      "source": "agent",
+      "selfScores": {
+        "scc": "Y",
+        "art_cmp": 1,
+        "cs_cnt": 2,
+        "gap_fc": 1,
+        "gp_acc": 1
+      }
     }
   ],
   "decisions": [],
   "masterDecisions": [],
   "decisionsAdded": [],
   "masterFeedback": [],
-  "pendingDeferralsAdded": [
-    "PD-073"
-  ],
+  "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [],
   "pendingDeferralsTransitioned": [],
   "openMasterAlerts": [],
   "agentsCompleted": [
     "edi"
   ],
-  "gaps": [
-    {
-      "type": "spawn-failed",
-      "fn": "runL2Writer",
-      "topicId": "topic_191",
-      "sessionId": "session_229",
-      "detail": "C:\\Projects\\legend-team\\.claude\\worktrees\\funny-khorana-fbe8e9\\node_modules\\ts-node\\src\\index.ts:859\n    return new TSError(diagnosticText, diagnosticCodes, diagnostics);\n           ^\nTSError: ⨯ Unabl"
-    },
-    {
-      "type": "spawn-failed",
-      "fn": "runL3Regenerator",
-      "topicId": "topic_191",
-      "detail": "C:\\Projects\\legend-team\\.claude\\worktrees\\funny-khorana-fbe8e9\\node_modules\\ts-node\\src\\index.ts:859\n    return new TSError(diagnosticText, diagnosticCodes, diagnostics);\n           ^\nTSError: ⨯ Unabl"
-    },
-    {
-      "type": "topic-index-write-failed",
-      "topicId": "topic_191",
-      "sessionId": "session_229",
-      "detail": "C:\\Projects\\legend-team\\.claude\\worktrees\\funny-khorana-fbe8e9\\node_modules\\ts-node\\src\\index.ts:859\n    return new TSError(diagnosticText, diagnosticCodes, diagnostics);\n           ^\nTSError: ⨯ Unable to compile TypeScript:\nerror TS5011: The common source directory of 'tsconfig.json' is './scripts'. The 'rootDir' setting must be explicitly set to this or another path to adjust your output's file layout.\r\n  Visit https://aka.ms/ts6 for migration information.\r\n\n    at createTSError (C:\\Projects\\legend-team\\.claude\\worktrees\\funny-khorana-fbe8e9\\node_modules\\ts-node\\src\\index.ts:859:12)\n    at reportTSError (C:\\Projects\\legend-team\\.claude\\worktrees\\funny-khorana-fbe8e9\\node_modules\\ts-node\\src\\index.ts:863:19)\n    at C:\\Projects\\legend-team\\.claude\\worktrees\\funny-khorana-fbe8e9\\node_modules\\ts-node\\src\\index.ts:1379:34\n    at Object.compile (C:\\Projects\\legend-team\\.claude\\worktrees\\funny-khorana-fbe8e9\\node_modules\\ts-node\\src\\index.ts:1458:13)\n    at Module.m._compile (C:\\Projects\\legend-team\\.claude\\worktrees\\funny-khorana-fbe8e9\\node_modules\\ts-node\\src\\index.ts:1617:30)\n    at node:internal/modules/cjs/loader:1943:10\n    at Object.require.extensions.<computed> [as .ts] (C:\\Projects\\legend-team\\.claude\\worktrees\\funny-khorana-fbe8e9\\node_modules\\ts-node\\src\\index.ts:1621:12)\n    at Module.load (node:internal/modules/cjs/loader:1533:32)\n    at Module._load (node:internal/modules/cjs/loader:1335:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19) {\n  diagnosticCodes: [ 5011 ]\n}"
-    }
-  ],
   "tokenUsage": {
-    "input_tokens": 234,
-    "output_tokens": 61670,
-    "cache_creation_input_tokens": 514051,
-    "cache_read_input_tokens": 8132600,
-    "messageCount": 101,
-    "masterTurns": 9,
-    "total_billable": 8708555
+    "input_tokens": 165,
+    "output_tokens": 39824,
+    "cache_creation_input_tokens": 328699,
+    "cache_read_input_tokens": 7007610,
+    "messageCount": 110,
+    "masterTurns": 5,
+    "total_billable": 7376298
   },
   "versionBumpSuggested": {
-    "value": 0.01,
-    "type": "capacity",
-    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/session-end-finalize.js)",
-    "autoDetectedAt": "2026-05-10T00:22:11.671Z",
+    "value": 0.001,
+    "type": "bugfix",
+    "reason": "버그·패치 자동 감지 (Grade C): 1건 (scripts/compute-dashboard.ts)",
+    "autoDetectedAt": "2026-05-10T01:37:09.858Z",
     "changedFiles": [
-      ".claude/hooks/session-end-finalize.js",
+      "app/deferrals.html",
+      "app/index.html",
       "logs/hook-diagnostics.log",
       "logs/master-first.log",
       "logs/pre-tool-use-task.log",
       "logs/sage-gate.log",
-      "memory/master/master_feedback_log.json",
       "memory/sessions/current_session.json",
       "memory/sessions/session_index.json",
       "memory/sessions/token_log.json",
       "memory/shared/dashboard_data.json",
-      "memory/shared/pending_deferrals.json",
       "memory/shared/topic_index.json",
-      "scripts/auto-push.js",
-      "reports/2026-05-10_close-speed-diagnosis/",
-      "topics/topic_191/"
+      "scripts/compute-dashboard.ts",
+      "reports/2026-05-10_dashboard-pending-deferrals/",
+      "topics/topic_192/"
     ],
-    "changedFilesCount": 15,
+    "changedFilesCount": 14,
     "cappedAt": 0.1,
     "confirmedBy": "nexus"
   },
   "versionBump": {
-    "value": 0.01,
-    "type": "capacity",
-    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/session-end-finalize.js)",
-    "from": "1.620",
-    "to": "1.630",
+    "value": 0.001,
+    "type": "bugfix",
+    "reason": "버그·패치 자동 감지 (Grade C): 1건 (scripts/compute-dashboard.ts)",
+    "from": "1.630",
+    "to": "1.631",
     "confirmedBy": "nexus",
-    "confirmedAt": "2026-05-10T00:22:11.671Z",
-    "autoDetectedAt": "2026-05-10T00:22:11.671Z"
+    "confirmedAt": "2026-05-10T01:37:09.858Z",
+    "autoDetectedAt": "2026-05-10T01:37:09.858Z"
   },
-  "finalizedAt": "2026-05-10T00:22:12.859Z"
+  "finalizedAt": "2026-05-10T01:37:11.985Z"
 }

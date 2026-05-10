@@ -10792,8 +10792,36 @@
       "grade": "C",
       "oneLineSummary": "topic_191 옵션A 적용: TS_NODE_TRANSPILE_ONLY=1 (auto-push.js + finalize.js), 벤치 -35% 확인, 옵션C는 PD-073로 분리",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_230",
+      "topicSlug": "dashboard-pending-deferrals",
+      "topic": "compute-dashboard.ts에 pendingDeferrals 컴파일 추가",
+      "startedAt": "2026-05-10T02:00:00.000Z",
+      "closedAt": "2026-05-10T02:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\festive-chatterjee-28c913",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "edi",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "scc": "Y",
+            "art_cmp": 1,
+            "cs_cnt": 2,
+            "gap_fc": 1,
+            "gp_acc": 1
+          }
+        }
+      ],
+      "grade": "C",
+      "oneLineSummary": "topic_192: compute-dashboard.ts pendingDeferrals 컴파일 추가, deferrals.html·index.html dashboard_data.json 소스 전환",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-10T00:22:04.503Z",
+  "lastUpdated": "2026-05-10T01:36:56.709Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

@@ -23,8 +23,9 @@ const DECISION_LEDGER_PATH = process.env.COMPUTE_DECISION_LEDGER ?? path.join(RO
 const TOKEN_LOG_PATH      = process.env.COMPUTE_TOKEN_LOG       ?? path.join(ROOT, 'memory', 'sessions', 'token_log.json');
 const FEEDBACK_LOG_PATH   = process.env.COMPUTE_FEEDBACK_LOG    ?? path.join(ROOT, 'memory', 'master', 'master_feedback_log.json');
 const PROPOSAL_LOG_PATH   = process.env.COMPUTE_PROPOSAL_LOG    ?? path.join(ROOT, 'memory', 'sessions', 'proposal_log.json');
-const SYSTEM_STATE_PATH   = process.env.COMPUTE_SYSTEM_STATE    ?? path.join(ROOT, 'memory', 'shared', 'system_state.json');
-const OUTPUT_PATH         = process.env.COMPUTE_OUTPUT_PATH     ?? path.join(ROOT, 'memory', 'shared', 'dashboard_data.json');
+const SYSTEM_STATE_PATH         = process.env.COMPUTE_SYSTEM_STATE         ?? path.join(ROOT, 'memory', 'shared', 'system_state.json');
+const PENDING_DEFERRALS_PATH    = process.env.COMPUTE_PENDING_DEFERRALS    ?? path.join(ROOT, 'memory', 'shared', 'pending_deferrals.json');
+const OUTPUT_PATH               = process.env.COMPUTE_OUTPUT_PATH          ?? path.join(ROOT, 'memory', 'shared', 'dashboard_data.json');
 
 // Sonnet 4.6 단가 ($ per 1M tokens)
 const COST_PER_MTOK = { input: 3.0, output: 15.0, cache_creation: 3.75, cache_read: 0.30 };
@@ -331,6 +332,10 @@ function main() {
   const systemState = readJson<{ worktreeMergeFailures?: Array<{ branch: string; detectedAt: string; message: string }> }>(
     SYSTEM_STATE_PATH, {}
   );
+  const pendingDeferralsData = readJson<{ items?: Array<Record<string, unknown>> }>(
+    PENDING_DEFERRALS_PATH, { items: [] }
+  );
+  const pendingDeferrals = pendingDeferralsData.items ?? [];
 
   // 토픽별 세션 수 (sessionsSpanned 계산용)
   const topicSlugToSessions = new Map<string, number>();
@@ -583,6 +588,7 @@ function main() {
     autoDataFrom: AUTO_START_SESSION,
     ackedButUnresolved,
     nexusPushStats,
+    pendingDeferrals,
     metrics: {
       avgMasterTurns: parseFloat(avgMasterTurns.toFixed(2)),
       avgCacheHitRate: parseFloat(avgCacheHitRate.toFixed(4)),
