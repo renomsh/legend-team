@@ -4,7 +4,9 @@
   "topic": "pd list 대시보드판 미출력",
   "topicSlug": "pd-dashboard-fix",
   "reportPath": "reports/2026-05-10_pd-dashboard-fix",
-  "status": "open",
+  "status": "closed",
+  "closedAt": "2026-05-10T15:00:00.000Z",
+  "oneLineSummary": "pd-dashboard-fix: 머지 완료로 PD 미출력 해결, Riki 보안감사, D-180 박제, PD-078 등록",
   "startedAt": "2026-05-10T13:06:00.000Z",
   "mode": "observation",
   "grade": "C",
@@ -16,13 +18,25 @@
   "turns": [],
   "decisions": [],
   "masterDecisions": [],
-  "decisionsAdded": [],
+  "decisionsAdded": ["D-180"],
   "masterFeedback": [],
-  "pendingDeferralsAdded": [],
+  "pendingDeferralsAdded": [
+    "PD-078"
+  ],
   "pendingDeferralsResolved": [],
   "pendingDeferralsTransitioned": [],
   "openMasterAlerts": [],
-  "agentsCompleted": [],
+  "agentsCompleted": ["edi"],
   "notes": [],
-  "gaps": []
+  "gaps": [],
+  "versionBump": {
+    "value": 0.01,
+    "from": "1.651",
+    "to": "1.661",
+    "reason": "decision_ledger D-180 신규 박제(Nexus 능동 질문 원칙) + PD-078 등록(L2/L1/inline 재도입). 신규 페르소나·구조 변경 없음 — capacity 증분.",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-10T13:30:00.000Z",
+    "overrideReason": "versionBumpSuggested 부재. Edi 직접 판단: decision_ledger 신규 항목 기준 capacity(+0.01) 적용.",
+    "basedOn": "edi-override"
+  }
 }

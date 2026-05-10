@@ -1,4 +1,29 @@
 {
   "topicId": "topic_196",
-  "feedback": []
+  "feedback": [
+    {
+      "id": "MF-118",
+      "topicId": "topic_196",
+      "date": "2026-05-10",
+      "phase": "execution",
+      "feedback": "머지 충돌 시 --ours 자동 처리 금지. 어느 버전 선택할지 Master에게 먼저 확인해야 함",
+      "directive": "충돌 파일별 버전 선택은 Master에게 확인 후 진행",
+      "appliedTo": [
+        "all"
+      ],
+      "status": "applied"
+    },
+    {
+      "id": "MF-119",
+      "topicId": "topic_196",
+      "date": "2026-05-10",
+      "phase": "execution",
+      "feedback": "Nexus는 과제 본질이 불명확할 때 Master가 별도 설명 안 해도 능동적으로 질문해야 함. 추정으로 오케스트레이션 시작 금지",
+      "directive": "과제 본질(방향·범위·의도·우선순위) 불명확 시 실행 전 질문 먼저",
+      "appliedTo": [
+        "all"
+      ],
+      "status": "applied"
+    }
+  ]
 }
