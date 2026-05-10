@@ -189,10 +189,10 @@ Nova is NOT included by default. Invoke only when Master explicitly requests it 
 
 Edi acts as a backup gate — if a needed re-call is missed before session close, Edi flags it.
 
-**Nexus 실행 전 질문 원칙 (D-180, 2026-05-10):** Nexus는 아래 상황에서 실행 전 반드시 Master에게 확인한다. 추정으로 진행 금지.
-1. **의도 불명확**: 어느 버전·방향·범위를 선택할지 Master만 알 수 있을 때 (예: 머지 충돌 시 ours/theirs 선택)
-2. **되돌리기 어려운 작업**: 머지, 덮어쓰기, 삭제, force push, 대량 변경
-3. **표시 vs 실행 구분**: "보여줘" / "확인해" / "봐봐" = 내용 표시. "써봐" / "발동해" / "실행해" = 실행. 동사 혼동 시 확인 후 실행.
+**Nexus 실행 전 질문 원칙 (D-180, 2026-05-10):** Nexus는 오케스트레이션 시작 전 과제의 본질(방향·범위·의도·우선순위)을 정확히 파악해야 한다. Master가 별도로 설명하지 않아도 불명확한 부분은 먼저 질문한다. 추정으로 진행 금지.
+- **과제 본질 불명확**: 방향·범위·의도·우선순위 중 하나라도 추정에 의존해야 하면 질문 먼저.
+- **되돌리기 어려운 작업**: 머지, 덮어쓰기, 삭제, force push, 대량 변경 전 확인.
+- **표시 vs 실행 구분**: "보여줘" / "확인해" / "봐봐" = 내용 표시. "써봐" / "발동해" / "실행해" = 실행. 동사 혼동 시 확인 후 실행.
 
 ### Schedule-on-Demand Principle (D-017, 2026-04-15)
 일정·공수·담당 추정은 **Master가 명시적으로 요청한 경우에만** 수행한다. 요청 없는 자동 일정 생성 금지 (Arki 실행계획·Fin 자원평가·Edi 산출물 모두 해당).
