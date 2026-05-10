@@ -1,11 +1,13 @@
 {
-  "sessionId": "session_228",
+  "sessionId": "session_229",
   "topicId": "topic_191",
   "topic": "Close 속도 원인 파악",
   "topicSlug": "close-speed-diagnosis",
-  "reportPath": "reports/2026-05-09_close-speed-diagnosis",
+  "reportPath": "reports/2026-05-10_close-speed-diagnosis",
   "status": "closed",
-  "startedAt": "2026-05-09T17:00:00.000Z",
+  "startedAt": "2026-05-10T00:00:00.000Z",
+  "closedAt": "2026-05-10T01:30:00.000Z",
+  "oneLineSummary": "topic_191 옵션A 적용: TS_NODE_TRANSPILE_ONLY=1 (auto-push.js + finalize.js), 벤치 -35% 확인, 옵션C는 PD-073로 분리",
   "mode": "observation",
   "grade": "C",
   "topicType": "standalone",
@@ -13,17 +15,10 @@
   "phase": "framing",
   "framingLevel": 0,
   "framingSkipped": true,
-  "closedAt": "2026-05-10T01:00:00.000Z",
-  "oneLineSummary": "topic_191 진단: close 병목 ts-node×4 cold start 추정. timing 계측 + Zero gate 추가, 측정값은 다음 세션 분석",
   "turns": [
     {
-      "role": "dev",
-      "turnIdx": 0,
-      "source": "agent"
-    },
-    {
       "role": "edi",
-      "turnIdx": 1,
+      "turnIdx": 0,
       "source": "agent"
     }
   ],
@@ -31,40 +26,52 @@
   "masterDecisions": [],
   "decisionsAdded": [],
   "masterFeedback": [],
-  "pendingDeferralsAdded": [],
+  "pendingDeferralsAdded": [
+    "PD-073"
+  ],
   "pendingDeferralsResolved": [],
   "pendingDeferralsTransitioned": [],
   "openMasterAlerts": [],
   "agentsCompleted": [
-    "dev",
     "edi"
   ],
   "gaps": [
     {
-      "type": "frontmatter-patch-failed",
-      "role": "edi",
-      "turnIdx": 0,
-      "reportsPath": "C:\\Projects\\legend-team\\.claude\\worktrees\\funny-feynman-ae25a0\\reports\\2026-05-09_close-speed-diagnosis\\edi_rev1.md",
-      "detectedAt": "2026-05-09T20:44:50.249Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: C:\\Projects\\legend-team\\.claude\\worktrees\\funny-feynman-ae25a0\\reports\\2026-05-09_close-speed-diagnosis\\edi_rev1.md"
+      "type": "spawn-failed",
+      "fn": "runL2Writer",
+      "topicId": "topic_191",
+      "sessionId": "session_229",
+      "detail": "C:\\Projects\\legend-team\\.claude\\worktrees\\funny-khorana-fbe8e9\\node_modules\\ts-node\\src\\index.ts:859\n    return new TSError(diagnosticText, diagnosticCodes, diagnostics);\n           ^\nTSError: ⨯ Unabl"
+    },
+    {
+      "type": "spawn-failed",
+      "fn": "runL3Regenerator",
+      "topicId": "topic_191",
+      "detail": "C:\\Projects\\legend-team\\.claude\\worktrees\\funny-khorana-fbe8e9\\node_modules\\ts-node\\src\\index.ts:859\n    return new TSError(diagnosticText, diagnosticCodes, diagnostics);\n           ^\nTSError: ⨯ Unabl"
+    },
+    {
+      "type": "topic-index-write-failed",
+      "topicId": "topic_191",
+      "sessionId": "session_229",
+      "detail": "C:\\Projects\\legend-team\\.claude\\worktrees\\funny-khorana-fbe8e9\\node_modules\\ts-node\\src\\index.ts:859\n    return new TSError(diagnosticText, diagnosticCodes, diagnostics);\n           ^\nTSError: ⨯ Unable to compile TypeScript:\nerror TS5011: The common source directory of 'tsconfig.json' is './scripts'. The 'rootDir' setting must be explicitly set to this or another path to adjust your output's file layout.\r\n  Visit https://aka.ms/ts6 for migration information.\r\n\n    at createTSError (C:\\Projects\\legend-team\\.claude\\worktrees\\funny-khorana-fbe8e9\\node_modules\\ts-node\\src\\index.ts:859:12)\n    at reportTSError (C:\\Projects\\legend-team\\.claude\\worktrees\\funny-khorana-fbe8e9\\node_modules\\ts-node\\src\\index.ts:863:19)\n    at C:\\Projects\\legend-team\\.claude\\worktrees\\funny-khorana-fbe8e9\\node_modules\\ts-node\\src\\index.ts:1379:34\n    at Object.compile (C:\\Projects\\legend-team\\.claude\\worktrees\\funny-khorana-fbe8e9\\node_modules\\ts-node\\src\\index.ts:1458:13)\n    at Module.m._compile (C:\\Projects\\legend-team\\.claude\\worktrees\\funny-khorana-fbe8e9\\node_modules\\ts-node\\src\\index.ts:1617:30)\n    at node:internal/modules/cjs/loader:1943:10\n    at Object.require.extensions.<computed> [as .ts] (C:\\Projects\\legend-team\\.claude\\worktrees\\funny-khorana-fbe8e9\\node_modules\\ts-node\\src\\index.ts:1621:12)\n    at Module.load (node:internal/modules/cjs/loader:1533:32)\n    at Module._load (node:internal/modules/cjs/loader:1335:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19) {\n  diagnosticCodes: [ 5011 ]\n}"
     }
   ],
   "tokenUsage": {
-    "input_tokens": 254,
-    "output_tokens": 57152,
-    "cache_creation_input_tokens": 627188,
-    "cache_read_input_tokens": 5445714,
-    "messageCount": 69,
-    "masterTurns": 7,
-    "total_billable": 6130308
+    "input_tokens": 234,
+    "output_tokens": 61670,
+    "cache_creation_input_tokens": 514051,
+    "cache_read_input_tokens": 8132600,
+    "messageCount": 101,
+    "masterTurns": 9,
+    "total_billable": 8708555
   },
   "versionBumpSuggested": {
-    "value": 0.001,
-    "type": "bugfix",
-    "reason": "버그·패치 자동 감지 (Grade C): 2건 (scripts/auto-push.js, scripts/check-zero-trigger.js)",
-    "autoDetectedAt": "2026-05-09T20:45:48.822Z",
+    "value": 0.01,
+    "type": "capacity",
+    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/session-end-finalize.js)",
+    "autoDetectedAt": "2026-05-10T00:22:11.671Z",
     "changedFiles": [
-      ".claude/commands/close.md",
+      ".claude/hooks/session-end-finalize.js",
       "logs/hook-diagnostics.log",
       "logs/master-first.log",
       "logs/pre-tool-use-task.log",
@@ -73,25 +80,26 @@
       "memory/sessions/current_session.json",
       "memory/sessions/session_index.json",
       "memory/sessions/token_log.json",
+      "memory/shared/dashboard_data.json",
+      "memory/shared/pending_deferrals.json",
       "memory/shared/topic_index.json",
       "scripts/auto-push.js",
-      "reports/2026-05-09_close-speed-diagnosis/",
-      "scripts/check-zero-trigger.js",
+      "reports/2026-05-10_close-speed-diagnosis/",
       "topics/topic_191/"
     ],
-    "changedFilesCount": 14,
+    "changedFilesCount": 15,
     "cappedAt": 0.1,
     "confirmedBy": "nexus"
   },
   "versionBump": {
-    "value": 0.001,
-    "type": "bugfix",
-    "reason": "버그·패치 자동 감지 (Grade C): 2건 (scripts/auto-push.js, scripts/check-zero-trigger.js)",
-    "from": "1.619",
-    "to": "1.620",
+    "value": 0.01,
+    "type": "capacity",
+    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/session-end-finalize.js)",
+    "from": "1.620",
+    "to": "1.630",
     "confirmedBy": "nexus",
-    "confirmedAt": "2026-05-09T20:45:48.822Z",
-    "autoDetectedAt": "2026-05-09T20:45:48.822Z"
+    "confirmedAt": "2026-05-10T00:22:11.671Z",
+    "autoDetectedAt": "2026-05-10T00:22:11.671Z"
   },
-  "finalizedAt": "2026-05-09T20:45:50.811Z"
+  "finalizedAt": "2026-05-10T00:22:12.859Z"
 }

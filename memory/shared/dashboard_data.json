@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-09T20:45:57.039Z",
-  "totalSessions": 224,
+  "generatedAt": "2026-05-10T00:23:19.656Z",
+  "totalSessions": 225,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 224
+      "undefined": 225
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -16,15 +16,15 @@
     "archiveCount": 0
   },
   "metrics": {
-    "avgMasterTurns": 21.04,
+    "avgMasterTurns": 21.05,
     "avgCacheHitRate": 0.9324,
-    "cacheSampleSize": 194,
-    "cacheSampleTotal": 224,
+    "cacheSampleSize": 195,
+    "cacheSampleTotal": 225,
     "avgAdoptionRate": 0,
     "totalDecisions": 180,
     "gradeDistribution": {
       "S": 104,
-      "A": 44,
+      "A": 45,
       "B": 48,
       "C": 28
     },
@@ -42,10 +42,10 @@
       "session_202"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 178,
-    "totalCostUSD": 2629.6943,
-    "avgCostPerSession": 12.2311,
-    "costSampleSize": 215,
+    "turnBasedSessions": 179,
+    "totalCostUSD": 2642.1992,
+    "avgCostPerSession": 12.2324,
+    "costSampleSize": 216,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -8536,10 +8536,10 @@
       "decisionAxes": 0,
       "rolesCalled": 2,
       "rolesRecalled": 0,
-      "sessionsSpanned": 1,
-      "size": 5,
-      "gradeDeclared": "B",
-      "gradeActual": "B",
+      "sessionsSpanned": 2,
+      "size": 8,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
       "masterTurns": 7,
@@ -8559,12 +8559,45 @@
         "messageCount": 69
       },
       "sessionCostUSD": 4.8437
+    },
+    {
+      "sessionId": "session_229",
+      "topicSlug": "close-speed-diagnosis",
+      "topic": "Close 속도 원인 파악",
+      "startedAt": "2026-05-10T00:00:00.000Z",
+      "closedAt": "2026-05-10T01:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 2,
+      "size": 7,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 22,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 20255459,
+        "ioTokens": 141983,
+        "inputTokens": 562,
+        "outputTokens": 141421,
+        "cacheCreate": 1260239,
+        "cacheRead": 18853237,
+        "cacheHitRate": 0.930773131332151,
+        "messageCount": 246
+      },
+      "sessionCostUSD": 12.5049
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 197,
+      "count": 198,
       "sessions": [
         "session_050",
         "session_051",
@@ -8740,7 +8773,8 @@
         "session_225",
         "session_226",
         "session_227",
-        "session_228"
+        "session_228",
+        "session_229"
       ]
     },
     {
@@ -15769,6 +15803,18 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_229",
+      "topic": "Close 속도 원인 파악",
+      "sequence": [
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -15789,6 +15835,16 @@
       "severity": "yellow",
       "sessionId": "session_153",
       "description": "역할 과호출: rolesRecalled=18 (임계값 11, grade=S)"
+    },
+    {
+      "ruleId": "R-MERGE",
+      "severity": "red",
+      "description": "worktree merge 실패: claude/funny-feynman-ae25a0 (2026-05-09) — 수동 머지 필요"
+    },
+    {
+      "ruleId": "R-MERGE",
+      "severity": "red",
+      "description": "worktree merge 실패: claude/modest-thompson-04aab6 (2026-05-09) — 수동 머지 필요"
     }
   ],
   "feedbackRecurrences": [
@@ -17067,6 +17123,21 @@
       ]
     },
     {
+      "keyword": "확정",
+      "occurrences": [
+        {
+          "date": "2026-04-13",
+          "feedbackId": "MF-009",
+          "summary": "1) 폴더 기반 설계 확정. 2) MCP 불필요. 3) 자율수정 초기엔 전건 확인. 4) 스키마부터 고정 후"
+        },
+        {
+          "date": "2026-05-10",
+          "feedbackId": "MF-116",
+          "summary": "옵션 A로 확정, 옵션 C는 PD 등록 후 다음 세션에 이어서"
+        }
+      ]
+    },
+    {
       "keyword": "프로젝트",
       "occurrences": [
         {
@@ -17347,6 +17418,21 @@
           "date": "2026-05-09",
           "feedbackId": "MF-114",
           "summary": "PD 등록 시 의도 추측 금지 — Master가 PD-068 정정 시 자동화 대상 = plugin skill"
+        }
+      ]
+    },
+    {
+      "keyword": "옵션",
+      "occurrences": [
+        {
+          "date": "2026-05-10",
+          "feedbackId": "MF-116",
+          "summary": "옵션 A로 확정, 옵션 C는 PD 등록 후 다음 세션에 이어서"
+        },
+        {
+          "date": "2026-05-10",
+          "feedbackId": "MF-116",
+          "summary": "옵션 A로 확정, 옵션 C는 PD 등록 후 다음 세션에 이어서"
         }
       ]
     }

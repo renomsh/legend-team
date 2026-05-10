@@ -10771,8 +10771,29 @@
       "grade": "C",
       "oneLineSummary": "topic_191 진단: close 병목 ts-node×4 cold start 추정. timing 계측 + Zero gate 추가, 측정값은 다음 세션 분석",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_229",
+      "topicSlug": "close-speed-diagnosis",
+      "topic": "Close 속도 원인 파악",
+      "startedAt": "2026-05-10T00:00:00.000Z",
+      "closedAt": "2026-05-10T01:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\funny-khorana-fbe8e9",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "edi",
+          "turnIdx": 0,
+          "source": "agent"
+        }
+      ],
+      "grade": "C",
+      "oneLineSummary": "topic_191 옵션A 적용: TS_NODE_TRANSPILE_ONLY=1 (auto-push.js + finalize.js), 벤치 -35% 확인, 옵션C는 PD-073로 분리",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-09T20:45:36.660Z",
+  "lastUpdated": "2026-05-10T00:22:04.503Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

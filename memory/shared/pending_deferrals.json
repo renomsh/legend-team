@@ -63,7 +63,10 @@
       "item": "프롬프트 입력 시 스킬을 훅으로 자동 발동 구현",
       "status": "in-progress",
       "resolveCondition": "Phase 3 hook(user-prompt-submit-skill-recommend.js) 통합 완료 + Master 직접 사용 검증 통과",
-      "relatedDecisions": ["D-176", "D-177"],
+      "relatedDecisions": [
+        "D-176",
+        "D-177"
+      ],
       "relatedTopic": "topic_190",
       "scopeRedefined": "session_224에서 대상 명확화: plugin skill ~150+ (레전드팀 자체 12개 제외). 방식 RECOMMEND로 전환(BLOCK 폐기).",
       "lastUpdatedAt": "2026-05-09",
@@ -110,6 +113,14 @@
       "relatedDecisions": [],
       "resolvedAt": "2026-05-09",
       "resolvedBy": "session_221"
+    },
+    {
+      "id": "PD-073",
+      "fromSession": "session_229",
+      "fromTopic": "close-speed-diagnosis",
+      "createdAt": "2026-05-10",
+      "item": "옵션 C — finalize.js 내부 6× ts-node spawnSync를 in-process require로 통합 (auto-close-topics, resolve-pending-deferrals, set-closed-in-session, sync-system-state 4개 스크립트 리팩터: process.exit→throw, main(args) 인자화, require.main 가드 추가, export 추가) → 추가 ~6-8초 절감 예상. session_229 옵션A 적용 후 실측 검증 결과 보고 진행 결정",
+      "status": "pending"
     }
   ]
 }

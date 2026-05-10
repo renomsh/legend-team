@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "1.620",
+    "version": "1.630",
     "versionSchema": {
       "format": "X.YYY (3자리 소수 float, 점 하나)",
       "incrementRules": {
@@ -391,8 +391,14 @@
       "date": "2026-05-09",
       "summary": "버그·패치 자동 감지 (Grade C): 2건 (scripts/auto-push.js, scripts/check-zero-trigger.js)",
       "sessionId": "session_228"
+    },
+    {
+      "version": "1.630",
+      "date": "2026-05-10",
+      "summary": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/session-end-finalize.js)",
+      "sessionId": "session_229"
     }
   ],
-  "lastUpdated": "2026-05-09",
-  "version": "1.620"
+  "lastUpdated": "2026-05-10",
+  "version": "1.630"
 }

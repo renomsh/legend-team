@@ -1501,6 +1501,18 @@
         "all"
       ],
       "status": "applied"
+    },
+    {
+      "id": "MF-116",
+      "topicId": "topic_191",
+      "date": "2026-05-10",
+      "phase": "implementation",
+      "feedback": "옵션 A로 확정, 옵션 C는 PD 등록 후 다음 세션에 이어서",
+      "directive": "PD-073 등록 후 토픽 open 유지하고 close",
+      "appliedTo": [
+        "all"
+      ],
+      "status": "applied"
     }
   ],
   "statusValues": [
