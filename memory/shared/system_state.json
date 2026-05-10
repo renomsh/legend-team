@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_231",
-  "nextSessionId": "session_232",
+  "lastSessionId": "session_232",
+  "nextSessionId": "session_233",
   "currentVersion": "v1.641",
   "openTopics": [
     {
@@ -52,6 +52,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_232",
+      "topicSlug": "off-time-reduction",
+      "closedAt": "2026-05-10T06:00:00.000Z",
+      "oneLineSummary": "topic_194 오프 시간 단축: build.js 증분화·finalize.js spawnSync→in-process·open.md pre-compiled JS·자동빌드 훅 구현",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_231",
       "topicSlug": "finalize-inprocess-require",
       "closedAt": "2026-05-10T04:00:00.000Z",
@@ -63,13 +70,6 @@
       "topicSlug": "dashboard-pending-deferrals",
       "closedAt": "2026-05-10T02:30:00.000Z",
       "oneLineSummary": "topic_192: compute-dashboard.ts pendingDeferrals 컴파일 추가, deferrals.html·index.html dashboard_data.json 소스 전환",
-      "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_229",
-      "topicSlug": "close-speed-diagnosis",
-      "closedAt": "2026-05-10T01:30:00.000Z",
-      "oneLineSummary": "topic_191 옵션A 적용: TS_NODE_TRANSPILE_ONLY=1 (auto-push.js + finalize.js), 벤치 -35% 확인, 옵션C는 PD-073로 분리",
       "decisionsAdded": []
     }
   ],
@@ -83,5 +83,5 @@
       "status": "pending"
     }
   ],
-  "lastUpdated": "2026-05-10T02:02:25.993Z"
+  "lastUpdated": "2026-05-10T03:18:21.991Z"
 }

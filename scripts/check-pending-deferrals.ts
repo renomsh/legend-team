@@ -86,9 +86,18 @@ export function formatDeferralCheckResult(r: DeferralCheckResult): string {
   return lines.join('\n');
 }
 
-if (require.main === module) {
+// ── Programmatic entry point (in-process require) ────────────────────────────
+export async function main(_args: string[] = []): Promise<void> {
   const result = checkPendingDeferrals();
   const out = formatDeferralCheckResult(result);
   if (out) console.warn(out);
   else console.log('[PD 역검사] 이상 없음.');
+}
+
+// ── CLI entry point ───────────────────────────────────────────────────────────
+if (require.main === module) {
+  main(process.argv.slice(2)).catch(err => {
+    console.error(`Error: ${(err as Error).message}`);
+    process.exit(1);
+  });
 }

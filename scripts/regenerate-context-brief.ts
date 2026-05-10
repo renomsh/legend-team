@@ -254,17 +254,19 @@ export function regenerateContextBrief(topicId: string): void {
   console.log(`OK: wrote ${outPath} (${actualSizeBytes}B, ${contributions.length} sessions)`);
 }
 
+// ── Programmatic entry point (in-process require) ────────────────────────────
+export async function main(args: string[] = []): Promise<void> {
+  const [topicId] = args;
+  if (!topicId) {
+    throw new Error('Usage: regenerate-context-brief <topicId>');
+  }
+  regenerateContextBrief(topicId);
+}
+
 // ── CLI entry point ───────────────────────────────────────────────────────────
 if (require.main === module) {
-  const [, , topicId] = process.argv;
-  if (!topicId) {
-    console.error('Usage: ts-node regenerate-context-brief.ts <topicId>');
-    process.exit(1);
-  }
-  try {
-    regenerateContextBrief(topicId);
-  } catch (err) {
+  main(process.argv.slice(2)).catch(err => {
     console.error(`Error: ${(err as Error).message}`);
     process.exit(1);
-  }
+  });
 }
