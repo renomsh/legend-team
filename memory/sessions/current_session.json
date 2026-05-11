@@ -1,80 +1,144 @@
 {
-  "sessionId": "session_233",
-  "topicId": "topic_196",
-  "topic": "pd list 대시보드판 미출력",
-  "topicSlug": "pd-dashboard-fix",
-  "reportPath": "reports/2026-05-10_pd-dashboard-fix",
+  "sessionId": "session_234",
+  "topicId": "topic_197",
+  "topic": "PD-069 병행세션 병행토픽 시스템 검토",
+  "topicSlug": "pd-069-parallel-session",
+  "reportPath": "reports/2026-05-10_pd-069-parallel-session",
   "status": "closed",
-  "closedAt": "2026-05-10T15:00:00.000Z",
-  "oneLineSummary": "pd-dashboard-fix: 머지 완료로 PD 미출력 해결, Riki 보안감사, D-180 박제, PD-078 등록",
-  "startedAt": "2026-05-10T13:06:00.000Z",
+  "closedAt": "2026-05-11T00:30:00.000Z",
+  "startedAt": "2026-05-10T14:06:00.000Z",
   "mode": "observation",
-  "grade": "C",
+  "grade": "S",
   "topicType": "standalone",
   "operationType": "structured",
   "phase": "framing",
   "framingLevel": 0,
-  "framingSkipped": true,
+  "framingSkipped": false,
   "turns": [
     {
-      "role": "nexus",
+      "role": "riki",
       "turnIdx": 0,
-      "source": "direct",
-      "phase": "execution",
-      "_autoInserted": true,
-      "_ref": "PD-071"
+      "source": "agent",
+      "selfScores": {
+        "crt_rcl": 0.83,
+        "cr_val": "Y",
+        "prd_rej": "N",
+        "fp_rt": 0.1
+      }
+    },
+    {
+      "role": "arki",
+      "turnIdx": 1,
+      "source": "agent",
+      "selfScores": {
+        "aud_rcl": 0.5,
+        "str_fd": 5,
+        "spc_lck": "N",
+        "sa_rnd": 1
+      }
     },
     {
       "role": "edi",
-      "turnIdx": 1,
-      "phase": "compile"
+      "turnIdx": 2,
+      "source": "agent"
+    },
+    {
+      "role": "zero",
+      "turnIdx": 3,
+      "source": "agent",
+      "selfScores": {
+        "td_fd": 0,
+        "sec_fd": 0,
+        "smp_app": 1,
+        "cdn_chr": 1180,
+        "cln_rt": 1
+      }
+    },
+    {
+      "role": "edi",
+      "turnIdx": 4,
+      "source": "agent"
     }
   ],
-  "decisions": [],
+  "decisions": [
+    "D-181"
+  ],
   "masterDecisions": [],
   "decisionsAdded": [
-    "D-180"
+    "D-181"
   ],
   "masterFeedback": [],
   "pendingDeferralsAdded": [
-    "PD-078",
     "PD-079",
     "PD-080"
   ],
-  "pendingDeferralsResolved": [],
+  "pendingDeferralsResolved": [
+    "PD-069"
+  ],
   "pendingDeferralsTransitioned": [],
   "openMasterAlerts": [],
   "agentsCompleted": [
-    "nexus",
+    "riki",
+    "arki",
+    "edi",
+    "zero",
     "edi"
   ],
-  "notes": [],
+  "oneLineSummary": "topic_197: 병행세션 병행토픽 시스템 설계 확정(D-181, m* prefix + 옵션 A' 자동 마이그레이션 + 8 미티게이션). PD-069 resolved, PD-079 구현 후속.",
+  "versionBump": {
+    "value": 0.1,
+    "from": "1.651",
+    "to": "1.751",
+    "reason": "병행세션 병행토픽 시스템 신설(D-181) — m* prefix 네임스페이스 + 자동 마이그레이션(옵션 A') + 8 미티게이션. 신규 구조 도입(structural).",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-11T00:00:00.000Z",
+    "basedOn": "edi-direct",
+    "overrideReason": null
+  },
+  "notes": [
+    "역할 발언 1차는 Nexus 직접 작성(PD-033 위반 가능성) — Arki·Riki 재검증 및 Edi·Zero만 Agent dispatch 독립 수행",
+    "Master 진행해 override 발효(2026-05-11) — D-181 박제 + PD 갱신 + versionBump +0.1 확정",
+    "Master 지정값 from='1.661'→to='1.761'이었으나 실제 project_charter.version=1.651 → 정직성 원칙(global L13-14)에 따라 from='1.651'→to='1.751' 박제"
+  ],
   "gaps": [
     {
-      "type": "turn-not-found",
-      "file": "reports/2026-05-10_pd-dashboard-fix/edi_rev1.md",
-      "turnId": 10,
-      "note": "frontmatter turnId가 turns[]에 존재하지 않음"
+      "type": "frontmatter-patch-failed",
+      "role": "zero",
+      "turnIdx": 3,
+      "reportsPath": "reports/2026-05-10_pd-069-parallel-session/condensed.md",
+      "detectedAt": "2026-05-11T08:16:50.280Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-10_pd-069-parallel-session/condensed.md"
+    },
+    {
+      "type": "missing-report",
+      "role": "zero",
+      "turnIdx": 3,
+      "reportPath": "reports/2026-05-10_pd-069-parallel-session",
+      "detectedAt": "2026-05-11T08:16:50.283Z",
+      "note": "zero turn3 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "self-score-scale-violation",
+      "count": 1,
+      "detail": [
+        {
+          "role": "zero",
+          "turnIdx": 3,
+          "key": "cdn_chr",
+          "val": 1180,
+          "reason": "out-of-range"
+        }
+      ]
     }
   ],
-  "versionBump": {
-    "value": 0.01,
-    "from": "1.651",
-    "to": "1.661",
-    "reason": "decision_ledger D-180 신규 박제(Nexus 능동 질문 원칙) + PD-078 등록(L2/L1/inline 재도입). 신규 페르소나·구조 변경 없음 — capacity 증분.",
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-10T13:30:00.000Z",
-    "overrideReason": "versionBumpSuggested 부재. Edi 직접 판단: decision_ledger 신규 항목 기준 capacity(+0.01) 적용.",
-    "basedOn": "edi-override"
-  },
   "tokenUsage": {
-    "input_tokens": 229,
-    "output_tokens": 79537,
-    "cache_creation_input_tokens": 873958,
-    "cache_read_input_tokens": 8095199,
-    "messageCount": 108,
-    "masterTurns": 23,
-    "total_billable": 9048923
+    "input_tokens": 377,
+    "output_tokens": 185422,
+    "cache_creation_input_tokens": 1861697,
+    "cache_read_input_tokens": 11666146,
+    "messageCount": 138,
+    "masterTurns": 33,
+    "total_billable": 13713642
   },
-  "finalizedAt": "2026-05-11T05:22:11.907Z"
+  "finalizedAt": "2026-05-11T11:33:14.521Z"
 }

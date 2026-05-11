@@ -1,6 +1,32 @@
 {
   "decisions": [
     {
+      "id": "D-181",
+      "date": "2026-05-11",
+      "session": "session_234",
+      "topic": "topic_197",
+      "axis": "병행세션 병행토픽 시스템 — m* prefix 별도 넘버링 + 자동 마이그레이션(옵션 A')",
+      "summary": "병행세션 병행토픽 시스템 신설. (1) m* prefix 별도 넘버링: mtopic·msession·mD·mPD — 공식 SOT(D·PD·topic)와 의도적 분리. (2) msession ID = git worktree 이름(재사용 회피 Master 수동). (3) 파일 분리: memory/shared/m_decision_ledger_{worktreeId}.json, m_topic_index_{worktreeId}.json, m_pending_deferrals_{worktreeId}.json. (4) mtopic /close = status 'closed' 마킹만, 마이그레이션 없음. (5) 같은 토픽 동시 오픈 금지 + lock check. (6) 자동 마이그레이션(옵션 A'): 매 /open 시 closed msession 승격. 8 미티게이션: ①실패 시 non-blocking ②2단계 미리보기(cosine ≥ 30% Master 확인, 미달 자동 통과) ③별도 commit(migrate: prefix) ④staging 공유 경로 ⑤schema validate + m_quarantine/ 격리 ⑥mD↔D cross-check(mD↔mD 불필요) ⑦2-phase commit(.staging → fsync → atomic rename) ⑧명령어 분기(/open mtopic A '<title>' 신규, /open mtopic_XXXXX A 재오픈). migration.lock 폐기(Master 시간차 운영으로 race 회피).",
+      "decision": "병행세션 병행토픽 시스템 설계 확정. 공식 SOT와 m* 네임스페이스 의도적 분리, 자동 마이그레이션 옵션 A' + 8 미티게이션. 구현은 PD-079로 분리.",
+      "caveats": [
+        "유사도 임계 30%는 시작값 — 운영 중 조정 여지",
+        "schema drift 격리 후 수동 검토 절차 미정(R-3)",
+        "mD↔D cross-check 빈도 미확정(R-4)"
+      ],
+      "relatedDecisions": [],
+      "relatedPDs": ["PD-069"],
+      "relatedFiles": [
+        "reports/2026-05-10_pd-069-parallel-session/condensed.md"
+      ],
+      "tags": [
+        "parallel-session",
+        "namespace",
+        "migration",
+        "worktree"
+      ],
+      "status": "active"
+    },
+    {
       "id": "D-180",
       "date": "2026-05-10",
       "session": "session_233",
@@ -2888,5 +2914,5 @@
       "status": "active"
     }
   ],
-  "lastUpdated": "2026-05-09T11:30:00.000Z"
+  "lastUpdated": "2026-05-11T00:00:00.000Z"
 }

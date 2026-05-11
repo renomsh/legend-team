@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "1.661",
+    "version": "1.751",
     "versionSchema": {
       "format": "X.YYY (3자리 소수 float, 점 하나)",
       "incrementRules": {
@@ -417,12 +417,12 @@
       "sessionId": "session_233"
     },
     {
-      "version": "1.661",
+      "version": "1.751",
       "date": "2026-05-11",
-      "summary": "decision_ledger D-180 신규 박제(Nexus 능동 질문 원칙) + PD-078 등록(L2/L1/inline 재도입). 신규 페르소나·구조 변경 없음 — capacity 증분.",
-      "sessionId": "session_233"
+      "summary": "병행세션 병행토픽 시스템 신설(D-181) — m* prefix 네임스페이스 + 자동 마이그레이션(옵션 A') + 8 미티게이션. 신규 구조 도입(structural).",
+      "sessionId": "session_234"
     }
   ],
   "lastUpdated": "2026-05-11",
-  "version": "1.661"
+  "version": "1.751"
 }

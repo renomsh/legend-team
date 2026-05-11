@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_233",
-  "nextSessionId": "session_234",
-  "currentVersion": "v1.661",
+  "lastSessionId": "session_234",
+  "nextSessionId": "session_235",
+  "currentVersion": "v1.751",
   "openTopics": [
     {
       "id": "topic_175",
@@ -19,6 +19,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-181",
+      "date": "2026-05-11",
+      "axis": "병행세션 병행토픽 시스템 — m* prefix 별도 넘버링 + 자동 마이그레이션(옵션 A')",
+      "summary": "병행세션 병행토픽 시스템 — m* prefix 별도 넘버링 + 자동 마이그레이션(옵션 A')"
+    },
     {
       "id": "D-180",
       "date": "2026-05-10",
@@ -42,22 +48,26 @@
       "date": "2026-05-09",
       "axis": "Plugin Skill RECOMMEND 시스템 명세 — UserPromptSubmit hook + plugin_skill_index.json + 매 프롬프트 평가",
       "summary": "Plugin Skill RECOMMEND 시스템 명세 — UserPromptSubmit hook + plugin_skill_index.json + 매 프롬프트 평가"
-    },
-    {
-      "id": "D-176",
-      "date": "2026-05-09",
-      "axis": "Plugin Skill 자동 발동 방식 — BLOCK 폐기, RECOMMEND 전환",
-      "summary": "Plugin Skill 자동 발동 방식 — BLOCK 폐기, RECOMMEND 전환"
     }
   ],
   "recentSessionSummaries": [
     {
-      "sessionId": "session_233",
-      "topicSlug": "pd-dashboard-fix",
-      "closedAt": "2026-05-10T15:00:00.000Z",
-      "oneLineSummary": "pd-dashboard-fix: 머지 완료로 PD 미출력 해결, Riki 보안감사, D-180 박제, PD-078 등록",
+      "sessionId": "session_234",
+      "topicSlug": "pd-069-parallel-session",
+      "closedAt": "2026-05-11T00:30:00.000Z",
+      "oneLineSummary": "topic_197: 병행세션 병행토픽 시스템 설계 확정(D-181, m* prefix + 옵션 A' 자동 마이그레이션 + 8 미티게이션). PD-069 resolved, PD-079 구현 후속.",
       "decisionsAdded": [
-        "D-180"
+        "D-181"
+      ]
+    },
+    {
+      "sessionId": "session_233",
+      "topicSlug": "agent-dispatch-speed",
+      "closedAt": "2026-05-10T11:17:08.960Z",
+      "oneLineSummary": "MEMORY 38→25건 정리(D-178 원칙 + D-179 13건 archive), audit 4 스크립트 신설(817L), CLAUDE.md broken link 정정, dev_memory JSON syntax fix.",
+      "decisionsAdded": [
+        "D-178",
+        "D-179"
       ]
     },
     {
@@ -66,23 +76,24 @@
       "closedAt": "2026-05-10T06:00:00.000Z",
       "oneLineSummary": "topic_194 오프 시간 단축: build.js 증분화·finalize.js spawnSync→in-process·open.md pre-compiled JS·자동빌드 훅 구현",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_231",
-      "topicSlug": "finalize-inprocess-require",
-      "closedAt": "2026-05-10T04:00:00.000Z",
-      "oneLineSummary": "topic_193 PD-073 구현: 4개 스크립트 in-process require 전환 + TRANSPILE_ONLY 적용",
-      "decisionsAdded": []
     }
   ],
   "pendingDeferrals": [
     {
-      "id": "PD-069",
-      "fromSession": "session_214",
-      "fromTopic": "pd-skill-bug-fix",
-      "createdAt": "2026-05-08",
-      "item": "병행세션 병행토픽 시스템 검토 caseB",
-      "status": "pending"
+      "id": "PD-079",
+      "fromSession": "session_234",
+      "fromTopic": "pd-069-parallel-session",
+      "createdAt": "2026-05-11",
+      "title": "병행세션 시스템 구현 — D-181 8 미티게이션 코드 박제",
+      "item": "m_* 파일 스키마(m_decision_ledger_{worktreeId}.json, m_topic_index_{worktreeId}.json, m_pending_deferrals_{worktreeId}.json) · /open 자동 마이그레이션 hook (옵션 A' — 매 /open 시 closed msession 승격, non-blocking) · 2-phase commit(.staging → fsync → atomic rename) · schema validate + m_quarantine/ 격리 · cosine 유사도 미리보기(임계 30%, 미달 자동 통과) · mD↔D cross-check(mD↔mD 불필요) · 별도 commit(migrate: prefix) · 명령어 분기(/open mtopic A '<title>' 신규, /open mtopic_XXXXX A 재오픈) 코드 박제.",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-181"
+      ],
+      "dependsOn": [
+        "PD-077"
+      ],
+      "relatedTopic": "topic_197"
     },
     {
       "id": "PD-075",
@@ -120,21 +131,17 @@
       "status": "pending"
     },
     {
-      "id": "PD-079",
-      "fromSession": "session_233",
-      "fromTopic": "pd-dashboard-fix",
-      "createdAt": "2026-05-10",
-      "item": "페르소나 개인 스타일 적용",
-      "status": "pending"
-    },
-    {
       "id": "PD-080",
-      "fromSession": "session_233",
-      "fromTopic": "pd-dashboard-fix",
-      "createdAt": "2026-05-10",
-      "item": "Agent 발언권 요청 옵션 신설",
-      "status": "pending"
+      "fromSession": "session_234",
+      "fromTopic": "pd-069-parallel-session",
+      "createdAt": "2026-05-11",
+      "title": "Hook 인식 확장 — Zero D.Condense gate 산출물(condensed.md)",
+      "item": "Zero D.Condense gate 산출물은 일반 역할 발언과 달리 <role>_rev<N>.md 대신 condensed.md 단일 파일. (a) PostToolUse hook(frontmatter-patch)이 condensed.md를 인식하지 못해 turnId frontmatter 패치 실패 박제 (b) finalize hook의 missing-report 검사가 zero turn 후 zero_rev*.md 부재를 gap으로 박제 — D.Condense gate는 면제 처리 필요. session_234 turn3에서 발견(gaps 2건). 옵션 (b) 채택: hook 코드 수정으로 condensed.md 표준 인정 + D.Condense gate 면제 분기 추가.",
+      "status": "pending",
+      "relatedDecisions": [],
+      "dependsOn": [],
+      "relatedTopic": "topic_197"
     }
   ],
-  "lastUpdated": "2026-05-11T05:22:11.905Z"
+  "lastUpdated": "2026-05-11T11:33:14.519Z"
 }

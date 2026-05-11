@@ -1,6 +1,26 @@
 {
   "topics": [
     {
+      "id": "topic_197",
+      "title": "PD-069 병행세션 병행토픽 시스템 검토",
+      "status": "completed",
+      "phase": "framing",
+      "hold": null,
+      "created": "2026-05-10",
+      "lastUpdated": "2026-05-11",
+      "controlPath": "topics/topic_197",
+      "reportPath": "reports/2026-05-10_pd-069-parallel-session",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_234",
+      "path": "topics/topic_197",
+      "grade": "S",
+      "topicSlug": "pd-069-parallel-session",
+      "decisions": [
+        "D-181"
+      ]
+    },
+    {
       "id": "topic_196",
       "title": "pd list 대시보드판 미출력",
       "status": "completed",
@@ -12,7 +32,7 @@
       "reportPath": "reports/2026-05-10_pd-dashboard-fix",
       "reportFiles": [],
       "published": false,
-      "closedInSession": "session_233",
+      "closedInSession": null,
       "path": "topics/topic_196",
       "lastUpdated": "2026-05-10"
     },
@@ -3702,5 +3722,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-11T05:22:11.513Z"
+  "lastUpdated": "2026-05-11T11:33:14.272Z"
 }

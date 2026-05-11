@@ -10974,11 +10974,11 @@
     },
     {
       "sessionId": "session_233",
-      "topicSlug": "pd-dashboard-fix",
-      "topic": "pd list 대시보드판 미출력",
-      "startedAt": "2026-05-10T13:06:00.000Z",
-      "closedAt": "2026-05-10T15:00:00.000Z",
-      "cwd": "C:\\Projects\\legend-team",
+      "topicSlug": "agent-dispatch-speed",
+      "topic": "Agent 호출 시간 단축 + 시스템 정제 (cap·CLAUDE.md·skill·MCP 슬림화)",
+      "startedAt": "2026-05-10T03:30:00.000Z",
+      "closedAt": "2026-05-10T11:17:08.960Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\pedantic-merkle-e84645",
       "decisions": [
         "Q1 agents/ 부재 정상 — CLAUDE.md 명칭 정정으로 분류",
         "Q2 13건 archive 일괄 승인 (원칙 채택 + 추가 7건 흡수 검증 완료)",
@@ -10989,31 +10989,167 @@
         "토픽 통합: dispatch 속도 + 시스템 정제 (PD-074 흡수)"
       ],
       "agentsCompleted": [
-        "nexus",
+        "arki",
+        "riki",
+        "arki",
+        "riki",
+        "dev",
+        "dev",
+        "zero",
+        "dev",
+        "edi",
+        "zero",
         "edi"
       ],
       "turns": [
         {
-          "role": "nexus",
+          "role": "arki",
           "turnIdx": 0,
-          "source": "direct",
-          "phase": "execution",
-          "_autoInserted": true,
-          "_ref": "PD-071"
+          "source": "agent"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 1,
+          "source": "agent"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 2,
+          "source": "agent"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 3,
+          "source": "agent"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 4,
+          "source": "agent"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 5,
+          "source": "agent",
+          "selfScores": {
+            "rt_cov": 1,
+            "gt_pas": 1,
+            "hc_rt": 0,
+            "spc_drf": 0
+          }
+        },
+        {
+          "role": "zero",
+          "turnIdx": 6,
+          "source": "agent"
+        },
+        {
+          "role": "dev",
+          "turnIdx": 7,
+          "source": "agent",
+          "selfScores": {
+            "rt_cov": 1,
+            "gt_pas": 1,
+            "hc_rt": 0,
+            "spc_drf": 0
+          }
         },
         {
           "role": "edi",
-          "turnIdx": 1,
-          "phase": "compile"
+          "turnIdx": 8,
+          "source": "agent"
+        },
+        {
+          "role": "zero",
+          "turnIdx": 9,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 7,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 10,
+          "source": "agent"
         }
       ],
-      "grade": "C",
-      "oneLineSummary": "pd-dashboard-fix: 머지 완료로 PD 미출력 해결, Riki 보안감사, D-180 박제, PD-078 등록",
+      "grade": "B",
+      "oneLineSummary": "MEMORY 38→25건 정리(D-178 원칙 + D-179 13건 archive), audit 4 스크립트 신설(817L), CLAUDE.md broken link 정정, dev_memory JSON syntax fix.",
       "decisionsAdded": [
-        "D-180"
+        "D-178",
+        "D-179"
+      ]
+    },
+    {
+      "sessionId": "session_234",
+      "topicSlug": "pd-069-parallel-session",
+      "topic": "PD-069 병행세션 병행토픽 시스템 검토",
+      "startedAt": "2026-05-10T14:06:00.000Z",
+      "closedAt": "2026-05-11T00:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\relaxed-fermat-7e8973",
+      "agentsCompleted": [
+        "riki",
+        "arki",
+        "edi",
+        "zero",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "riki",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "crt_rcl": 0.83,
+            "cr_val": "Y",
+            "prd_rej": "N",
+            "fp_rt": 0.1
+          }
+        },
+        {
+          "role": "arki",
+          "turnIdx": 1,
+          "source": "agent",
+          "selfScores": {
+            "aud_rcl": 0.5,
+            "str_fd": 5,
+            "spc_lck": "N",
+            "sa_rnd": 1
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 2,
+          "source": "agent"
+        },
+        {
+          "role": "zero",
+          "turnIdx": 3,
+          "source": "agent",
+          "selfScores": {
+            "td_fd": 0,
+            "sec_fd": 0,
+            "smp_app": 1,
+            "cdn_chr": 1180,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 4,
+          "source": "agent"
+        }
+      ],
+      "grade": "S",
+      "note": "역할 발언 1차는 Nexus 직접 작성(PD-033 위반 가능성) — Arki·Riki 재검증 및 Edi·Zero만 Agent dispatch 독립 수행 | Master 진행해 override 발효(2026-05-11) — D-181 박제 + PD 갱신 + versionBump +0.1 확정 | Master 지정값 from='1.661'→to='1.761'이었으나 실제 project_charter.version=1.651 → 정직성 원칙(global L13-14)에 따라 from='1.651'→to='1.751' 박제",
+      "oneLineSummary": "topic_197: 병행세션 병행토픽 시스템 설계 확정(D-181, m* prefix + 옵션 A' 자동 마이그레이션 + 8 미티게이션). PD-069 resolved, PD-079 구현 후속.",
+      "decisionsAdded": [
+        "D-181"
       ]
     }
   ],
-  "lastUpdated": "2026-05-11T05:22:11.301Z",
+  "lastUpdated": "2026-05-11T11:33:14.124Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
