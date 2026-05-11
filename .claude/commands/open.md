@@ -9,7 +9,7 @@ Session Start 체크리스트 순서대로 실행.
 2. `memory/shared/system_state.json` (fast-path) — nextSessionId, openTopics, recentDecisions, pendingDeferrals
 2-b. `memory/shared/nexus_memory_open.json` — Nexus 오케스트레이션 지침 (gradeDispatch, antiPatterns, autoModelSwitch)
 3. **이연 항목 List-up** — openTopics + pendingDeferrals 브리핑
-3-a. `node scripts/dist/load-context-briefs.js` — hold=null 토픽의 context_brief.md 자동 로드 (pre-compiled; dist 없으면 `npm run build:scripts` 먼저 실행)
+3-a. `npx ts-node scripts/load-context-briefs.ts` — hold=null 토픽의 context_brief.md 자동 로드 (in-process TS, PD-073 방향)
 3-b. **이전 세션 Edi 보고서** (분기 A 또는 진행중 토픽 존재 시) — `topics/{topicId}/session_contributions/*_edi_report.md` 최신 1~2건 요약
 3-c. **최근 3세션 요약** — `system_state.recentSessionSummaries[]` 브리핑
 3-d. **Master-first audit** — `logs/master-first-audit.md` 마지막 5행 (없으면 스킵)
@@ -25,7 +25,7 @@ Session Start 체크리스트 순서대로 실행.
    - `create-topic.ts` 실행 금지
 
    **분기 B — 신규 토픽 생성** (토픽 ID 미명시):
-   - `node scripts/dist/create-topic.js "<title>" <slug>` 실행 (topic_index 등록·정렬·Asset #4 init 자동; pre-compiled)
+   - `npx ts-node scripts/create-topic.ts "<title>" <slug>` 실행 (topic_index 등록·정렬·Asset #4 init 자동)
    - 출력 topic_id를 current_session.topicId에 기록
    - 별도 Edit으로 해당 엔트리에 `grade: "<S|A|B|C>"` 추가
 
