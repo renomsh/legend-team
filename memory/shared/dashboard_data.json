@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-10T13:57:19.672Z",
-  "totalSessions": 229,
+  "generatedAt": "2026-05-11T11:33:14.730Z",
+  "totalSessions": 230,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 229
+      "undefined": 230
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -90,7 +90,30 @@
       "fromTopic": "pd-skill-bug-fix",
       "createdAt": "2026-05-08",
       "item": "병행세션 병행토픽 시스템 검토 caseB",
-      "status": "pending"
+      "status": "resolved",
+      "resolvedAt": "2026-05-11",
+      "resolvedBy": "session_234",
+      "resolveNote": "설계 확정 — D-181 박제(m* prefix 별도 넘버링 + 자동 마이그레이션 옵션 A' + 8 미티게이션). 구현은 PD-079로 분리.",
+      "relatedDecisions": [
+        "D-181"
+      ],
+      "relatedTopic": "topic_197"
+    },
+    {
+      "id": "PD-079",
+      "fromSession": "session_234",
+      "fromTopic": "pd-069-parallel-session",
+      "createdAt": "2026-05-11",
+      "title": "병행세션 시스템 구현 — D-181 8 미티게이션 코드 박제",
+      "item": "m_* 파일 스키마(m_decision_ledger_{worktreeId}.json, m_topic_index_{worktreeId}.json, m_pending_deferrals_{worktreeId}.json) · /open 자동 마이그레이션 hook (옵션 A' — 매 /open 시 closed msession 승격, non-blocking) · 2-phase commit(.staging → fsync → atomic rename) · schema validate + m_quarantine/ 격리 · cosine 유사도 미리보기(임계 30%, 미달 자동 통과) · mD↔D cross-check(mD↔mD 불필요) · 별도 commit(migrate: prefix) · 명령어 분기(/open mtopic A '<title>' 신규, /open mtopic_XXXXX A 재오픈) 코드 박제.",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-181"
+      ],
+      "dependsOn": [
+        "PD-077"
+      ],
+      "relatedTopic": "topic_197"
     },
     {
       "id": "PD-070",
@@ -183,23 +206,35 @@
       "createdAt": "2026-05-10",
       "item": "L2 / L1 / inline 재도입",
       "status": "pending"
+    },
+    {
+      "id": "PD-080",
+      "fromSession": "session_234",
+      "fromTopic": "pd-069-parallel-session",
+      "createdAt": "2026-05-11",
+      "title": "Hook 인식 확장 — Zero D.Condense gate 산출물(condensed.md)",
+      "item": "Zero D.Condense gate 산출물은 일반 역할 발언과 달리 <role>_rev<N>.md 대신 condensed.md 단일 파일. (a) PostToolUse hook(frontmatter-patch)이 condensed.md를 인식하지 못해 turnId frontmatter 패치 실패 박제 (b) finalize hook의 missing-report 검사가 zero turn 후 zero_rev*.md 부재를 gap으로 박제 — D.Condense gate는 면제 처리 필요. session_234 turn3에서 발견(gaps 2건). 옵션 (b) 채택: hook 코드 수정으로 condensed.md 표준 인정 + D.Condense gate 면제 분기 추가.",
+      "status": "pending",
+      "relatedDecisions": [],
+      "dependsOn": [],
+      "relatedTopic": "topic_197"
     }
   ],
   "metrics": {
-    "avgMasterTurns": 21.32,
-    "avgCacheHitRate": 0.9323,
-    "cacheSampleSize": 198,
-    "cacheSampleTotal": 229,
+    "avgMasterTurns": 21.38,
+    "avgCacheHitRate": 0.9319,
+    "cacheSampleSize": 199,
+    "cacheSampleTotal": 230,
     "avgAdoptionRate": 0,
-    "totalDecisions": 183,
+    "totalDecisions": 184,
     "gradeDistribution": {
-      "S": 106,
+      "S": 107,
       "A": 45,
       "B": 48,
       "C": 30
     },
     "topicGradeDistribution": {
-      "S": 20,
+      "S": 21,
       "A": 62,
       "B": 61,
       "C": 48
@@ -212,10 +247,10 @@
       "session_202"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 183,
-    "totalCostUSD": 2685.0627,
-    "avgCostPerSession": 12.2606,
-    "costSampleSize": 219,
+    "turnBasedSessions": 184,
+    "totalCostUSD": 2698.3264,
+    "avgCostPerSession": 12.2651,
+    "costSampleSize": 220,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -8906,12 +8941,52 @@
         "zero",
         "edi"
       ]
+    },
+    {
+      "sessionId": "session_234",
+      "topicSlug": "pd-069-parallel-session",
+      "topic": "PD-069 병행세션 병행토픽 시스템 검토",
+      "startedAt": "2026-05-10T14:06:00.000Z",
+      "closedAt": "2026-05-11T00:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-181"
+      ],
+      "rolesCalled": 5,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 12,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 33,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "riki",
+        "arki",
+        "edi",
+        "zero",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 13713642,
+        "ioTokens": 185799,
+        "inputTokens": 377,
+        "outputTokens": 185422,
+        "cacheCreate": 1861697,
+        "cacheRead": 11666146,
+        "cacheHitRate": 0.8506964087293514,
+        "messageCount": 138
+      },
+      "sessionCostUSD": 13.2637
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 203,
+      "count": 205,
       "sessions": [
         "session_050",
         "session_051",
@@ -9092,7 +9167,8 @@
         "session_230",
         "session_231",
         "session_232",
-        "session_233"
+        "session_233",
+        "session_234"
       ]
     },
     {
@@ -9198,7 +9274,7 @@
     },
     {
       "role": "arki",
-      "count": 160,
+      "count": 161,
       "sessions": [
         "session_048",
         "session_049",
@@ -9289,7 +9365,8 @@
         "session_224",
         "session_227",
         "session_232",
-        "session_233"
+        "session_233",
+        "session_234"
       ]
     },
     {
@@ -9396,7 +9473,7 @@
     },
     {
       "role": "riki",
-      "count": 120,
+      "count": 121,
       "sessions": [
         "session_049",
         "session_053",
@@ -9486,12 +9563,13 @@
         "session_224",
         "session_227",
         "session_232",
-        "session_233"
+        "session_233",
+        "session_234"
       ]
     },
     {
       "role": "zero",
-      "count": 45,
+      "count": 46,
       "sessions": [
         "session_153",
         "session_175",
@@ -9522,7 +9600,8 @@
         "session_226",
         "session_227",
         "session_232",
-        "session_233"
+        "session_233",
+        "session_234"
       ]
     },
     {
@@ -16297,6 +16376,42 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_234",
+      "topic": "PD-069 병행세션 병행토픽 시스템 검토",
+      "sequence": [
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -16572,6 +16687,11 @@
           "date": "2026-05-09",
           "feedbackId": "MF-113",
           "summary": "Grade C 선언(제목 첫 글자 'C')을 topic 제목으로 오독하여 Grade B로 임의 상향했음."
+        },
+        {
+          "date": "2026-05-11",
+          "feedbackId": "MF-120",
+          "summary": "Grade S 세션에서 역할 발언(Jobs·Nova·Arki 1차·Fin·Riki 1차·Ace)을 Nexus"
         }
       ]
     },
@@ -17185,6 +17305,11 @@
           "date": "2026-04-29",
           "feedbackId": "MF-110",
           "summary": "발언 순서 grade × topic 매트릭스 운영 — Nexus 셀 결정 + Master 승인"
+        },
+        {
+          "date": "2026-05-11",
+          "feedbackId": "MF-120",
+          "summary": "Grade S 세션에서 역할 발언(Jobs·Nova·Arki 1차·Fin·Riki 1차·Ace)을 Nexus"
         }
       ]
     },
@@ -17576,6 +17701,11 @@
         {
           "date": "2026-04-19",
           "summary": "각자 희망 캐릭터 벤치마킹했으니 역할 수행 시 '그 인물이라면 어떻게 했을까' 관점으로 접근할 것."
+        },
+        {
+          "date": "2026-05-11",
+          "feedbackId": "MF-120",
+          "summary": "Grade S 세션에서 역할 발언(Jobs·Nova·Arki 1차·Fin·Riki 1차·Ace)을 Nexus"
         }
       ]
     },

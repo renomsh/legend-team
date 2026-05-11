@@ -78,7 +78,24 @@
       "fromTopic": "pd-skill-bug-fix",
       "createdAt": "2026-05-08",
       "item": "병행세션 병행토픽 시스템 검토 caseB",
-      "status": "pending"
+      "status": "resolved",
+      "resolvedAt": "2026-05-11",
+      "resolvedBy": "session_234",
+      "resolveNote": "설계 확정 — D-181 박제(m* prefix 별도 넘버링 + 자동 마이그레이션 옵션 A' + 8 미티게이션). 구현은 PD-079로 분리.",
+      "relatedDecisions": ["D-181"],
+      "relatedTopic": "topic_197"
+    },
+    {
+      "id": "PD-079",
+      "fromSession": "session_234",
+      "fromTopic": "pd-069-parallel-session",
+      "createdAt": "2026-05-11",
+      "title": "병행세션 시스템 구현 — D-181 8 미티게이션 코드 박제",
+      "item": "m_* 파일 스키마(m_decision_ledger_{worktreeId}.json, m_topic_index_{worktreeId}.json, m_pending_deferrals_{worktreeId}.json) · /open 자동 마이그레이션 hook (옵션 A' — 매 /open 시 closed msession 승격, non-blocking) · 2-phase commit(.staging → fsync → atomic rename) · schema validate + m_quarantine/ 격리 · cosine 유사도 미리보기(임계 30%, 미달 자동 통과) · mD↔D cross-check(mD↔mD 불필요) · 별도 commit(migrate: prefix) · 명령어 분기(/open mtopic A '<title>' 신규, /open mtopic_XXXXX A 재오픈) 코드 박제.",
+      "status": "pending",
+      "relatedDecisions": ["D-181"],
+      "dependsOn": ["PD-077"],
+      "relatedTopic": "topic_197"
     },
     {
       "id": "PD-070",
@@ -171,6 +188,18 @@
       "createdAt": "2026-05-10",
       "item": "L2 / L1 / inline 재도입",
       "status": "pending"
+    },
+    {
+      "id": "PD-080",
+      "fromSession": "session_234",
+      "fromTopic": "pd-069-parallel-session",
+      "createdAt": "2026-05-11",
+      "title": "Hook 인식 확장 — Zero D.Condense gate 산출물(condensed.md)",
+      "item": "Zero D.Condense gate 산출물은 일반 역할 발언과 달리 <role>_rev<N>.md 대신 condensed.md 단일 파일. (a) PostToolUse hook(frontmatter-patch)이 condensed.md를 인식하지 못해 turnId frontmatter 패치 실패 박제 (b) finalize hook의 missing-report 검사가 zero turn 후 zero_rev*.md 부재를 gap으로 박제 — D.Condense gate는 면제 처리 필요. session_234 turn3에서 발견(gaps 2건). 옵션 (b) 채택: hook 코드 수정으로 condensed.md 표준 인정 + D.Condense gate 면제 분기 추가.",
+      "status": "pending",
+      "relatedDecisions": [],
+      "dependsOn": [],
+      "relatedTopic": "topic_197"
     }
   ]
 }

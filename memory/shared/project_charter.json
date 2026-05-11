@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "1.651",
+    "version": "1.751",
     "versionSchema": {
       "format": "X.YYY (3자리 소수 float, 점 하나)",
       "incrementRules": {
@@ -415,8 +415,14 @@
       "date": "2026-05-10",
       "summary": "MEMORY 정리 원칙(D-178) + 13건 archive(D-179) + audit 4 스크립트 신설(817L) + audit-helpers.ts + dev_memory.json syntax fix + CLAUDE.md broken link 정정. capacity +0.01.",
       "sessionId": "session_233"
+    },
+    {
+      "version": "1.751",
+      "date": "2026-05-11",
+      "summary": "병행세션 병행토픽 시스템 신설(D-181) — m* prefix 네임스페이스 + 자동 마이그레이션(옵션 A') + 8 미티게이션. 신규 구조 도입(structural).",
+      "sessionId": "session_234"
     }
   ],
-  "lastUpdated": "2026-05-10",
-  "version": "1.651"
+  "lastUpdated": "2026-05-11",
+  "version": "1.751"
 }

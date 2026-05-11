@@ -314,5 +314,8 @@
     "framing",
     "implementation",
     "standalone"
+  ],
+  "lessonLog": [
+    {"session": "session_234", "learning": "병행세션 시스템 구조 감사에서 migration.lock 위치(worktree 내부 vs cross-worktree 공유경로)를 1차 분석에서 누락. 공유 파일 설계 시 worktree 경계를 항상 먼저 확인해야 함. Agent 재검증 2차에서 발견."}
   ]
 }
