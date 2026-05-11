@@ -82,10 +82,6 @@
           {
             "type": "command",
             "command": "node .claude/hooks/post-tool-use-verification.js"
-          },
-          {
-            "type": "command",
-            "command": "node .claude/hooks/post-tool-use-build-scripts.js"
           }
         ]
       }

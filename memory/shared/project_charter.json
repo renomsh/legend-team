@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "1.751",
+    "version": "1.761",
     "versionSchema": {
       "format": "X.YYY (3자리 소수 float, 점 하나)",
       "incrementRules": {
@@ -421,8 +421,14 @@
       "date": "2026-05-11",
       "summary": "병행세션 병행토픽 시스템 신설(D-181) — m* prefix 네임스페이스 + 자동 마이그레이션(옵션 A') + 8 미티게이션. 신규 구조 도입(structural).",
       "sessionId": "session_234"
+    },
+    {
+      "version": "1.761",
+      "date": "2026-05-11",
+      "summary": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/post-tool-use-build-scripts.js)",
+      "sessionId": "session_235"
     }
   ],
   "lastUpdated": "2026-05-11",
-  "version": "1.751"
+  "version": "1.761"
 }
