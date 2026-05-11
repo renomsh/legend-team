@@ -170,7 +170,10 @@
       "createdAt": "2026-05-10",
       "title": "package.json 'build:scripts' npm script 누락",
       "item": "PostToolUse(Edit) hook이 'npm run build:scripts'를 호출하나 package.json에 해당 script 미존재 → 매 Edit마다 npm ENOENT 에러 발생. open.md L34에서도 'npm run build:scripts' 사전 빌드 가이드 언급. 누락 원인: pre-compiled JS 마이그레이션(session_232) 단계에서 script 정의 누락. 옵션: (a) build:scripts script 추가 (b) hook이 build:scripts 호출 안 하도록 수정 (c) hook 자체 폐기. session_233에서 발견.",
-      "status": "pending"
+      "status": "resolved",
+      "resolvedAt": "2026-05-11",
+      "resolvedBy": "session_235",
+      "resolveNote": "옵션 (d') 채택 — pre-compiled dist 자체 폐기, PD-073 in-process TS 방향과 정합. 변경: open.md L12/L28 `node scripts/dist/*.js` → `npx ts-node scripts/*.ts`, .claude/hooks/post-tool-use-build-scripts.js 삭제, settings.json L88 hook 등록 제거, scripts/tsconfig.scripts.json 삭제. 검증: load-context-briefs.ts in-process 실행 성공."
     },
     {
       "id": "PD-076",

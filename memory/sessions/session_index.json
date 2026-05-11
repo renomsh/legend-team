@@ -11148,8 +11148,30 @@
       "decisionsAdded": [
         "D-181"
       ]
+    },
+    {
+      "sessionId": "session_235",
+      "topicSlug": "pd-077-build-scripts",
+      "topic": "PD-077 build:scripts 추가",
+      "startedAt": "2026-05-11T11:40:00.000Z",
+      "closedAt": "2026-05-11T12:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\xenodochial-galileo-d0d577",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "edi",
+          "turnIdx": 0,
+          "source": "agent"
+        }
+      ],
+      "grade": "C",
+      "note": "PD-077 옵션 (d') 채택 — dist/ 폐기 + in-process TS 방향 일관화. 변경: open.md L12/L28, settings.json L88, .claude/hooks/post-tool-use-build-scripts.js 삭제, scripts/tsconfig.scripts.json 삭제. 검증: load-context-briefs.ts in-process 실행 성공. | PD-081 처리 시도 옵션 (a) 임의 채택 → Master 정정 → git checkout으로 원복. 추가 정보 수신: 중간 commit 목적 = 최종 단일 commit 크기 축소, (g) 비동기 push는 병행 2-세션 race 우려. 결국 Grade B 재오픈 결정. | 병행 2-세션 구조에서 mainRoot 직렬화가 핵심 — 후속 토픽에서 (h) lockfile / (o) staging / (i) per-branch / (q) pull-rebase-retry 4가지 대안 + PD-079(D-181 m* prefix) 정합 검토 필요.",
+      "oneLineSummary": "PD-077 resolved (옵션 d': dist 폐기 + in-process TS 일관화). PD-081 옵션 a 임의 채택 → 원복 → Grade B 재오픈 예정.",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-11T11:33:14.124Z",
+  "lastUpdated": "2026-05-11T12:23:08.775Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
