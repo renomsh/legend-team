@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-10T13:57:19.672Z",
+  "generatedAt": "2026-05-11T05:22:12.349Z",
   "totalSessions": 229,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
@@ -183,18 +183,34 @@
       "createdAt": "2026-05-10",
       "item": "L2 / L1 / inline 재도입",
       "status": "pending"
+    },
+    {
+      "id": "PD-079",
+      "fromSession": "session_233",
+      "fromTopic": "pd-dashboard-fix",
+      "createdAt": "2026-05-10",
+      "item": "페르소나 개인 스타일 적용",
+      "status": "pending"
+    },
+    {
+      "id": "PD-080",
+      "fromSession": "session_233",
+      "fromTopic": "pd-dashboard-fix",
+      "createdAt": "2026-05-10",
+      "item": "Agent 발언권 요청 옵션 신설",
+      "status": "pending"
     }
   ],
   "metrics": {
-    "avgMasterTurns": 21.32,
-    "avgCacheHitRate": 0.9323,
-    "cacheSampleSize": 198,
+    "avgMasterTurns": 21.33,
+    "avgCacheHitRate": 0.9321,
+    "cacheSampleSize": 199,
     "cacheSampleTotal": 229,
     "avgAdoptionRate": 0,
     "totalDecisions": 183,
     "gradeDistribution": {
-      "S": 106,
-      "A": 45,
+      "S": 105,
+      "A": 46,
       "B": 48,
       "C": 30
     },
@@ -213,9 +229,9 @@
     ],
     "framingSkippedCount": 0,
     "turnBasedSessions": 183,
-    "totalCostUSD": 2685.0627,
-    "avgCostPerSession": 12.2606,
-    "costSampleSize": 219,
+    "totalCostUSD": 2691.9623,
+    "avgCostPerSession": 12.2362,
+    "costSampleSize": 220,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -8872,10 +8888,10 @@
     },
     {
       "sessionId": "session_233",
-      "topicSlug": "agent-dispatch-speed",
-      "topic": "Agent 호출 시간 단축 + 시스템 정제 (cap·CLAUDE.md·skill·MCP 슬림화)",
-      "startedAt": "2026-05-10T03:30:00.000Z",
-      "closedAt": "2026-05-10T11:17:08.960Z",
+      "topicSlug": "pd-dashboard-fix",
+      "topic": "pd list 대시보드판 미출력",
+      "startedAt": "2026-05-10T13:06:00.000Z",
+      "closedAt": "2026-05-10T15:00:00.000Z",
       "decisionCount": 3,
       "decisionAxes": 3,
       "decisions": [
@@ -8883,35 +8899,37 @@
         "D-178",
         "D-179"
       ],
-      "rolesCalled": 11,
-      "rolesRecalled": 6,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
       "sessionsSpanned": 1,
-      "size": 32,
-      "gradeDeclared": "S",
-      "gradeActual": "S",
+      "size": 11,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 0,
+      "masterTurns": 23,
       "dataQuality": "auto",
       "agentsCompleted": [
-        "arki",
-        "riki",
-        "arki",
-        "riki",
-        "dev",
-        "dev",
-        "zero",
-        "dev",
-        "edi",
-        "zero",
+        "nexus",
         "edi"
-      ]
+      ],
+      "tokenUsage": {
+        "totalBillable": 9048923,
+        "ioTokens": 79766,
+        "inputTokens": 229,
+        "outputTokens": 79537,
+        "cacheCreate": 873958,
+        "cacheRead": 8095199,
+        "cacheHitRate": 0.8946035898415756,
+        "messageCount": 108
+      },
+      "sessionCostUSD": 6.8996
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 203,
+      "count": 202,
       "sessions": [
         "session_050",
         "session_051",
@@ -9198,7 +9216,7 @@
     },
     {
       "role": "arki",
-      "count": 160,
+      "count": 158,
       "sessions": [
         "session_048",
         "session_049",
@@ -9288,13 +9306,12 @@
         "session_216",
         "session_224",
         "session_227",
-        "session_232",
-        "session_233"
+        "session_232"
       ]
     },
     {
       "role": "dev",
-      "count": 130,
+      "count": 127,
       "sessions": [
         "session_047",
         "session_048",
@@ -9390,13 +9407,12 @@
         "session_213",
         "session_227",
         "session_228",
-        "session_232",
-        "session_233"
+        "session_232"
       ]
     },
     {
       "role": "riki",
-      "count": 120,
+      "count": 118,
       "sessions": [
         "session_049",
         "session_053",
@@ -9485,13 +9501,12 @@
         "session_216",
         "session_224",
         "session_227",
-        "session_232",
-        "session_233"
+        "session_232"
       ]
     },
     {
       "role": "zero",
-      "count": 45,
+      "count": 43,
       "sessions": [
         "session_153",
         "session_175",
@@ -9521,8 +9536,7 @@
         "session_225",
         "session_226",
         "session_227",
-        "session_232",
-        "session_233"
+        "session_232"
       ]
     },
     {
@@ -9612,10 +9626,11 @@
     },
     {
       "role": "nexus",
-      "count": 2,
+      "count": 3,
       "sessions": [
         "session_220",
-        "session_221"
+        "session_221",
+        "session_233"
       ]
     }
   ],
@@ -16228,72 +16243,18 @@
     },
     {
       "sessionId": "session_233",
-      "topic": "Agent 호출 시간 단축 + 시스템 정제 (cap·CLAUDE.md·skill·MCP 슬림화)",
+      "topic": "pd list 대시보드판 미출력",
       "sequence": [
         {
-          "role": "arki",
-          "phase": null,
+          "role": "nexus",
+          "phase": "execution",
           "turnIdx": 0,
           "recallReason": null
         },
         {
-          "role": "riki",
-          "phase": null,
+          "role": "edi",
+          "phase": "compile",
           "turnIdx": 1,
-          "recallReason": null
-        },
-        {
-          "role": "arki",
-          "phase": null,
-          "turnIdx": 2,
-          "recallReason": null
-        },
-        {
-          "role": "riki",
-          "phase": null,
-          "turnIdx": 3,
-          "recallReason": null
-        },
-        {
-          "role": "dev",
-          "phase": null,
-          "turnIdx": 4,
-          "recallReason": null
-        },
-        {
-          "role": "dev",
-          "phase": null,
-          "turnIdx": 5,
-          "recallReason": null
-        },
-        {
-          "role": "zero",
-          "phase": null,
-          "turnIdx": 6,
-          "recallReason": null
-        },
-        {
-          "role": "dev",
-          "phase": null,
-          "turnIdx": 7,
-          "recallReason": null
-        },
-        {
-          "role": "edi",
-          "phase": null,
-          "turnIdx": 8,
-          "recallReason": null
-        },
-        {
-          "role": "zero",
-          "phase": null,
-          "turnIdx": 9,
-          "recallReason": null
-        },
-        {
-          "role": "edi",
-          "phase": null,
-          "turnIdx": 10,
           "recallReason": null
         }
       ]

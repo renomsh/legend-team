@@ -15,20 +15,48 @@
   "phase": "framing",
   "framingLevel": 0,
   "framingSkipped": true,
-  "turns": [],
+  "turns": [
+    {
+      "role": "nexus",
+      "turnIdx": 0,
+      "source": "direct",
+      "phase": "execution",
+      "_autoInserted": true,
+      "_ref": "PD-071"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 1,
+      "phase": "compile"
+    }
+  ],
   "decisions": [],
   "masterDecisions": [],
-  "decisionsAdded": ["D-180"],
+  "decisionsAdded": [
+    "D-180"
+  ],
   "masterFeedback": [],
   "pendingDeferralsAdded": [
-    "PD-078"
+    "PD-078",
+    "PD-079",
+    "PD-080"
   ],
   "pendingDeferralsResolved": [],
   "pendingDeferralsTransitioned": [],
   "openMasterAlerts": [],
-  "agentsCompleted": ["edi"],
+  "agentsCompleted": [
+    "nexus",
+    "edi"
+  ],
   "notes": [],
-  "gaps": [],
+  "gaps": [
+    {
+      "type": "turn-not-found",
+      "file": "reports/2026-05-10_pd-dashboard-fix/edi_rev1.md",
+      "turnId": 10,
+      "note": "frontmatter turnId가 turns[]에 존재하지 않음"
+    }
+  ],
   "versionBump": {
     "value": 0.01,
     "from": "1.651",
@@ -38,5 +66,15 @@
     "confirmedAt": "2026-05-10T13:30:00.000Z",
     "overrideReason": "versionBumpSuggested 부재. Edi 직접 판단: decision_ledger 신규 항목 기준 capacity(+0.01) 적용.",
     "basedOn": "edi-override"
-  }
+  },
+  "tokenUsage": {
+    "input_tokens": 229,
+    "output_tokens": 79537,
+    "cache_creation_input_tokens": 873958,
+    "cache_read_input_tokens": 8095199,
+    "messageCount": 108,
+    "masterTurns": 23,
+    "total_billable": 9048923
+  },
+  "finalizedAt": "2026-05-11T05:22:11.907Z"
 }

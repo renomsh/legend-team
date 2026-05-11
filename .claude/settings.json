@@ -86,6 +86,10 @@
           {
             "type": "command",
             "command": "node .claude/hooks/post-tool-use-build-scripts.js"
+          },
+          {
+            "type": "command",
+            "command": "node .claude/hooks/post-tool-use-skill-index-hash.js"
           }
         ]
       }

@@ -10974,11 +10974,11 @@
     },
     {
       "sessionId": "session_233",
-      "topicSlug": "agent-dispatch-speed",
-      "topic": "Agent 호출 시간 단축 + 시스템 정제 (cap·CLAUDE.md·skill·MCP 슬림화)",
-      "startedAt": "2026-05-10T03:30:00.000Z",
-      "closedAt": "2026-05-10T11:17:08.960Z",
-      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\pedantic-merkle-e84645",
+      "topicSlug": "pd-dashboard-fix",
+      "topic": "pd list 대시보드판 미출력",
+      "startedAt": "2026-05-10T13:06:00.000Z",
+      "closedAt": "2026-05-10T15:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team",
       "decisions": [
         "Q1 agents/ 부재 정상 — CLAUDE.md 명칭 정정으로 분류",
         "Q2 13건 archive 일괄 승인 (원칙 채택 + 추가 7건 흡수 검증 완료)",
@@ -10989,100 +10989,31 @@
         "토픽 통합: dispatch 속도 + 시스템 정제 (PD-074 흡수)"
       ],
       "agentsCompleted": [
-        "arki",
-        "riki",
-        "arki",
-        "riki",
-        "dev",
-        "dev",
-        "zero",
-        "dev",
-        "edi",
-        "zero",
+        "nexus",
         "edi"
       ],
       "turns": [
         {
-          "role": "arki",
+          "role": "nexus",
           "turnIdx": 0,
-          "source": "agent"
+          "source": "direct",
+          "phase": "execution",
+          "_autoInserted": true,
+          "_ref": "PD-071"
         },
         {
-          "role": "riki",
+          "role": "edi",
           "turnIdx": 1,
-          "source": "agent"
-        },
-        {
-          "role": "arki",
-          "turnIdx": 2,
-          "source": "agent"
-        },
-        {
-          "role": "riki",
-          "turnIdx": 3,
-          "source": "agent"
-        },
-        {
-          "role": "dev",
-          "turnIdx": 4,
-          "source": "agent"
-        },
-        {
-          "role": "dev",
-          "turnIdx": 5,
-          "source": "agent",
-          "selfScores": {
-            "rt_cov": 1,
-            "gt_pas": 1,
-            "hc_rt": 0,
-            "spc_drf": 0
-          }
-        },
-        {
-          "role": "zero",
-          "turnIdx": 6,
-          "source": "agent"
-        },
-        {
-          "role": "dev",
-          "turnIdx": 7,
-          "source": "agent",
-          "selfScores": {
-            "rt_cov": 1,
-            "gt_pas": 1,
-            "hc_rt": 0,
-            "spc_drf": 0
-          }
-        },
-        {
-          "role": "edi",
-          "turnIdx": 8,
-          "source": "agent"
-        },
-        {
-          "role": "zero",
-          "turnIdx": 9,
-          "source": "agent",
-          "selfScores": {
-            "ref_cnt": 7,
-            "hc_found": 0,
-            "cln_rt": 1
-          }
-        },
-        {
-          "role": "edi",
-          "turnIdx": 10,
-          "source": "agent"
+          "phase": "compile"
         }
       ],
-      "grade": "B",
-      "oneLineSummary": "MEMORY 38→25건 정리(D-178 원칙 + D-179 13건 archive), audit 4 스크립트 신설(817L), CLAUDE.md broken link 정정, dev_memory JSON syntax fix.",
+      "grade": "C",
+      "oneLineSummary": "pd-dashboard-fix: 머지 완료로 PD 미출력 해결, Riki 보안감사, D-180 박제, PD-078 등록",
       "decisionsAdded": [
-        "D-178",
-        "D-179"
+        "D-180"
       ]
     }
   ],
-  "lastUpdated": "2026-05-10T11:20:40.703Z",
+  "lastUpdated": "2026-05-11T05:22:11.301Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
