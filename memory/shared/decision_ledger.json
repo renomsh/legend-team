@@ -1,32 +1,6 @@
 {
   "decisions": [
     {
-      "id": "D-182",
-      "date": "2026-05-11",
-      "session": "session_236",
-      "topic": "topic_199",
-      "owningTopicId": "topic_199",
-      "scopeCheck": "PD-081 auto-push 순서 꼬임 — .claude/ 이중 박힘 분기·충돌 차단 + 시간 압축 효과 보존",
-      "axis": "워크트리 branch에 sync commit 이전 (cwd 재배치) + 실측 게이트 채택",
-      "decision": "scripts/auto-push.js L249 paths 배열에서 '.claude/' 제거 + L277~288 블록 cwd mainRoot→ROOT 전환(워크트리 branch에 commit_B로 sync commit 박음) + syncClaudeDir 호출 시점 재배치(commit_B 이후, merge 이전) + --no-ff fallback(L298~311) 유지 + commit_B 메시지에 [claude-sync] 태그. 채택 절차: Phase 0 baseline 3회 측정 → Phase 1 구현 → Phase 2 R3 후 3회 측정 → Phase 3 단계별 ms 비교 → 시간 손실 시 원 코드 롤백.",
-      "value": "session_234에서 실측 발화한 mainRoot 분기 conflict 차단 (eb3aaa9 + 0945eab 1초 race 메커니즘). 시간 압축 효과(2-commit 별개 cwd) 가설 보존. 실측 게이트로 가설 실패 시 안전 롤백 경로 확보.",
-      "relatedDecisions": [],
-      "relatedPDs": ["PD-081"],
-      "relatedFiles": [
-        "reports/2026-05-11_pd-081-auto-push-order/arki_rev3.md",
-        "reports/2026-05-11_pd-081-auto-push-order/riki_rev1.md",
-        "reports/2026-05-11_pd-081-auto-push-order/edi_rev1.md"
-      ],
-      "tags": [
-        "auto-push",
-        "worktree",
-        "git-merge",
-        "race-condition",
-        "spec"
-      ],
-      "status": "active"
-    },
-    {
       "id": "D-181",
       "date": "2026-05-11",
       "session": "session_234",

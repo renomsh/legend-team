@@ -1,10 +1,13 @@
 {
   "sessionId": "session_236",
+  "status": "quarantined",
+  "quarantinedAt": "2026-05-11T13:55:00.000Z",
+  "quarantinedBy": "master_directive",
+  "quarantineReason": "Master 명시 폐기 결정 (2026-05-11). 오염 세션으로 정의. 폐기하되 삭제하지 않음. 어떤 정책·메모리·레저에도 반영 금지. 후속 세션·토픽 지침으로 사용 금지. 허용되는 사용은 실패 패턴 분석 뿐.",
   "topicId": "topic_199",
   "topic": "PD-081 auto-push 순서 꼬임 해소",
   "topicSlug": "pd-081-auto-push-order",
   "reportPath": "reports/2026-05-11_pd-081-auto-push-order",
-  "status": "open",
   "startedAt": "2026-05-11T13:00:00.000Z",
   "mode": "observation",
   "grade": "A",
@@ -145,12 +148,12 @@
   ],
   "oneLineSummary": "PD-081 해소 spec 확정 (R3 + Riki 보강 4건 + close-timing 실측 게이트). 구현은 topic_199 재오픈 후속.",
   "tokenUsage": {
-    "input_tokens": 615,
-    "output_tokens": 167079,
-    "cache_creation_input_tokens": 504780,
-    "cache_read_input_tokens": 13785104,
-    "messageCount": 110,
-    "masterTurns": 25,
-    "total_billable": 14457578
+    "input_tokens": 756,
+    "output_tokens": 219203,
+    "cache_creation_input_tokens": 971779,
+    "cache_read_input_tokens": 23977338,
+    "messageCount": 161,
+    "masterTurns": 34,
+    "total_billable": 25169076
   }
 }
