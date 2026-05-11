@@ -1,9 +1,12 @@
 {
-  "lastMasterUtterance": "a",
-  "echoTriggerDetected": false,
+  "lastMasterUtterance": "OK. \n/close",
+  "echoTriggerDetected": true,
   "intentReconfirmRequested": false,
-  "matchedKeywords": [],
-  "sessionId": "2e1060bb-99a9-4056-a996-45e461fa5330",
-  "updatedAt": "2026-05-10T11:07:30.660Z",
+  "matchedKeywords": [
+    "OK",
+    "ok"
+  ],
+  "sessionId": "ef54a436-fd76-4e56-b5ba-0c770f2f1939",
+  "updatedAt": "2026-05-11T13:39:16.639Z",
   "jobsFramingActive": true
 }

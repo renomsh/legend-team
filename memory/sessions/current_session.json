@@ -1,14 +1,13 @@
 {
-  "sessionId": "session_235",
-  "topicId": "topic_198",
-  "topic": "PD-077 build:scripts 추가",
-  "topicSlug": "pd-077-build-scripts",
-  "reportPath": "reports/2026-05-11_pd-077-build-scripts",
-  "status": "closed",
-  "closedAt": "2026-05-11T12:30:00.000Z",
-  "startedAt": "2026-05-11T11:40:00.000Z",
+  "sessionId": "session_236",
+  "topicId": "topic_199",
+  "topic": "PD-081 auto-push 순서 꼬임 해소",
+  "topicSlug": "pd-081-auto-push-order",
+  "reportPath": "reports/2026-05-11_pd-081-auto-push-order",
+  "status": "open",
+  "startedAt": "2026-05-11T13:00:00.000Z",
   "mode": "observation",
-  "grade": "C",
+  "grade": "A",
   "topicType": "standalone",
   "operationType": "structured",
   "phase": "framing",
@@ -16,90 +15,142 @@
   "framingSkipped": true,
   "turns": [
     {
-      "role": "edi",
+      "role": "arki",
       "turnIdx": 0,
+      "source": "agent",
+      "selfScores": {
+        "aud_rcl": 1,
+        "str_fd": 3,
+        "spc_lck": "Y",
+        "sa_rnd": 3
+      }
+    },
+    {
+      "role": "arki",
+      "turnIdx": 1,
+      "source": "agent",
+      "selfScores": {
+        "aud_rcl": 1,
+        "str_fd": 4,
+        "spc_lck": "Y",
+        "sa_rnd": 3
+      }
+    },
+    {
+      "role": "arki",
+      "turnIdx": 2,
+      "source": "agent",
+      "selfScores": {
+        "aud_rcl": 1,
+        "str_fd": 4,
+        "spc_lck": "Y",
+        "sa_rnd": 3
+      }
+    },
+    {
+      "role": "riki",
+      "turnIdx": 3,
       "source": "agent"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 4,
+      "source": "agent"
+    },
+    {
+      "role": "zero",
+      "turnIdx": 5,
+      "source": "agent",
+      "selfScores": {
+        "ref_cnt": 0,
+        "hc_found": 0,
+        "cln_rt": 1
+      }
+    },
+    {
+      "role": "zero",
+      "turnIdx": 6,
+      "source": "agent"
+    },
+    {
+      "role": "edi",
+      "turnIdx": 7,
+      "source": "agent",
+      "selfScores": {
+        "gp_acc": 0.8,
+        "scc": "Y",
+        "cs_cnt": 4,
+        "art_cmp": 1,
+        "gap_fc": 3
+      }
     }
   ],
   "decisions": [],
   "masterDecisions": [],
   "decisionsAdded": [],
-  "masterFeedback": [
-    {
-      "phase": "implementation",
-      "feedback": "옵션 a 임의 채택 금지",
-      "directive": "옵션이 여러 개 제시된 상태에서 Master 명시 채택 없이 진행하지 말 것 — '진행해'는 옵션 선택 권한 위임이 아님. 옵션 선택은 별도 확인 필요.",
-      "session": "session_235"
-    }
-  ],
+  "masterFeedback": [],
   "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [
-    "PD-077"
-  ],
+  "pendingDeferralsResolved": [],
   "pendingDeferralsTransitioned": [],
   "openMasterAlerts": [],
   "agentsCompleted": [
-    "edi"
+    "arki",
+    "riki"
   ],
   "notes": [
-    "PD-077 옵션 (d') 채택 — dist/ 폐기 + in-process TS 방향 일관화. 변경: open.md L12/L28, settings.json L88, .claude/hooks/post-tool-use-build-scripts.js 삭제, scripts/tsconfig.scripts.json 삭제. 검증: load-context-briefs.ts in-process 실행 성공.",
-    "PD-081 처리 시도 옵션 (a) 임의 채택 → Master 정정 → git checkout으로 원복. 추가 정보 수신: 중간 commit 목적 = 최종 단일 commit 크기 축소, (g) 비동기 push는 병행 2-세션 race 우려. 결국 Grade B 재오픈 결정.",
-    "병행 2-세션 구조에서 mainRoot 직렬화가 핵심 — 후속 토픽에서 (h) lockfile / (o) staging / (i) per-branch / (q) pull-rebase-retry 4가지 대안 + PD-079(D-181 m* prefix) 정합 검토 필요."
+    "PD-081 (auto-push 순서 꼬임) 해소 spec 확정. Arki 3 turn (turn1=옵션B 1라인, turn2=R1 sync commit 폐지, turn3=R3 워크트리 cwd 이전) + Riki 1 turn 보강 4건.",
+    "최종 채택: R3 + 보강 4건. (1) L249 paths에서 .claude/ 제거 (2) L277~288 cwd mainRoot→ROOT 전환 (3) syncClaudeDir 호출 시점 재배치 (4) --no-ff fallback 유지 (5) commit_B에 [claude-sync] 태그.",
+    "실측 게이트: Phase 0 baseline 3회 → Phase 1 구현 → Phase 2 R3 적용 후 3회 → Phase 3 비교. 시간 손실 시 롤백.",
+    "실측 발화 확인: commit 8b40141 = session_234 종료 시 단일 워크트리 내부 1초 차이 race (eb3aaa9 mainRoot sync + 0945eab worktree session end) → Master worktree version adopted 수동 해결.",
+    "후속: 같은 topic_199 재오픈으로 Phase 0~3 실행 (D-057 child 토픽 미사용 원칙)."
   ],
-  "oneLineSummary": "PD-077 resolved (옵션 d': dist 폐기 + in-process TS 일관화). PD-081 옵션 a 임의 채택 → 원복 → Grade B 재오픈 예정.",
-  "tokenUsage": {
-    "input_tokens": 468,
-    "output_tokens": 109407,
-    "cache_creation_input_tokens": 678038,
-    "cache_read_input_tokens": 17351081,
-    "messageCount": 158,
-    "masterTurns": 15,
-    "total_billable": 18138994
-  },
   "gaps": [
     {
-      "type": "spawn-failed",
-      "fn": "runCheckPendingDeferrals",
-      "detail": "n.includes is not a function"
+      "type": "zero-skipped",
+      "reason": "no in-scope code/hook/skill changes",
+      "in_scope_count": 0
+    },
+    {
+      "type": "missing-report",
+      "role": "edi",
+      "turnIdx": 4,
+      "reportPath": "reports/2026-05-11_pd-081-auto-push-order",
+      "detectedAt": "2026-05-11T13:41:12.998Z",
+      "note": "edi turn4 완료 후 reports/edi_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "frontmatter-patch-failed",
+      "role": "zero",
+      "turnIdx": 5,
+      "reportsPath": "reports/2026-05-11_pd-081-auto-push-order/condensed.md",
+      "detectedAt": "2026-05-11T13:42:37.008Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-11_pd-081-auto-push-order/condensed.md"
+    },
+    {
+      "type": "missing-report",
+      "role": "zero",
+      "turnIdx": 5,
+      "reportPath": "reports/2026-05-11_pd-081-auto-push-order",
+      "detectedAt": "2026-05-11T13:42:37.012Z",
+      "note": "zero turn5 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "missing-report",
+      "role": "zero",
+      "turnIdx": 6,
+      "reportPath": "reports/2026-05-11_pd-081-auto-push-order",
+      "detectedAt": "2026-05-11T13:43:20.231Z",
+      "note": "zero turn6 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
     }
   ],
-  "versionBumpSuggested": {
-    "value": 0.01,
-    "type": "capacity",
-    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/post-tool-use-build-scripts.js)",
-    "autoDetectedAt": "2026-05-11T12:23:09.258Z",
-    "changedFiles": [
-      ".claude/commands/open.md",
-      ".claude/hooks/post-tool-use-build-scripts.js",
-      ".claude/settings.json",
-      "logs/hook-diagnostics.log",
-      "logs/master-first.log",
-      "logs/pre-tool-use-task.log",
-      "logs/sage-gate.log",
-      "memory/master/master_feedback_log.json",
-      "memory/sessions/current_session.json",
-      "memory/sessions/session_index.json",
-      "memory/sessions/token_log.json",
-      "memory/shared/pending_deferrals.json",
-      "memory/shared/system_state.json",
-      "memory/shared/topic_index.json",
-      "scripts/tsconfig.scripts.json",
-      "reports/2026-05-11_pd-077-build-scripts/",
-      "topics/topic_198/"
-    ],
-    "changedFilesCount": 17,
-    "cappedAt": 0.1,
-    "confirmedBy": "nexus"
-  },
-  "versionBump": {
-    "value": 0.01,
-    "type": "capacity",
-    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/post-tool-use-build-scripts.js)",
-    "from": "1.751",
-    "to": "1.761",
-    "confirmedBy": "nexus",
-    "confirmedAt": "2026-05-11T12:23:09.258Z",
-    "autoDetectedAt": "2026-05-11T12:23:09.258Z"
-  },
-  "finalizedAt": "2026-05-11T12:23:09.284Z"
+  "oneLineSummary": "PD-081 해소 spec 확정 (R3 + Riki 보강 4건 + close-timing 실측 게이트). 구현은 topic_199 재오픈 후속.",
+  "tokenUsage": {
+    "input_tokens": 615,
+    "output_tokens": 167079,
+    "cache_creation_input_tokens": 504780,
+    "cache_read_input_tokens": 13785104,
+    "messageCount": 110,
+    "masterTurns": 25,
+    "total_billable": 14457578
+  }
 }
