@@ -11151,27 +11151,145 @@
     },
     {
       "sessionId": "session_235",
-      "topicSlug": "pd-077-build-scripts",
-      "topic": "PD-077 build:scripts 추가",
-      "startedAt": "2026-05-11T11:40:00.000Z",
-      "closedAt": "2026-05-11T12:30:00.000Z",
-      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\xenodochial-galileo-d0d577",
+      "topicSlug": "nexus-tao-grading",
+      "topic": "Nexus 지침 — Truth/Authority/Origin 등급 시스템",
+      "startedAt": "2026-05-11T14:30:00.000Z",
+      "closedAt": "2026-05-11T23:20:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\distracted-ptolemy-5214ae",
       "agentsCompleted": [
+        "arki",
+        "riki",
+        "ace",
+        "riki",
+        "edi",
+        "zero",
+        "edi",
+        "riki",
+        "edi",
         "edi"
       ],
       "turns": [
         {
-          "role": "edi",
+          "role": "arki",
           "turnIdx": 0,
-          "source": "agent"
+          "source": "agent",
+          "selfScores": {
+            "aud_rcl": 0.8,
+            "str_fd": 3,
+            "spc_lck": "N",
+            "sa_rnd": 1
+          }
+        },
+        {
+          "role": "riki",
+          "turnIdx": 1,
+          "source": "agent",
+          "selfScores": {
+            "crt_rcl": 0.75,
+            "cr_val": "Y",
+            "prd_rej": "Y",
+            "fp_rt": 0.1
+          }
+        },
+        {
+          "role": "ace",
+          "turnIdx": 2,
+          "source": "agent",
+          "selfScores": {
+            "rfrm_trg": "Y",
+            "ctx_car": 4,
+            "mst_fr": 0,
+            "ang_nov": 3
+          }
+        },
+        {
+          "role": "riki",
+          "turnIdx": 3,
+          "source": "agent",
+          "selfScores": {
+            "crt_rcl": 0.85,
+            "cr_val": "Y",
+            "prd_rej": "Y",
+            "fp_rt": 0.15
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 4,
+          "source": "agent",
+          "selfScores": {
+            "scc": "Y",
+            "cs_cnt": 4,
+            "art_cmp": 1
+          }
+        },
+        {
+          "role": "zero",
+          "turnIdx": 5,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 23,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 6,
+          "source": "agent",
+          "selfScores": {
+            "gp_acc": 0.8,
+            "scc": "Y",
+            "cs_cnt": 4,
+            "art_cmp": 1,
+            "gap_fc": 4
+          }
+        },
+        {
+          "role": "riki",
+          "turnIdx": 7,
+          "source": "agent",
+          "selfScores": {
+            "crt_rcl": 0.6,
+            "cr_val": "Y",
+            "prd_rej": "N",
+            "fp_rt": 0.15
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 8,
+          "source": "agent",
+          "selfScores": {
+            "gp_acc": 0.85,
+            "scc": "Y",
+            "cs_cnt": 5,
+            "art_cmp": 1,
+            "gap_fc": 4
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 9,
+          "source": "agent",
+          "selfScores": {
+            "gp_acc": 0.85,
+            "scc": "Y",
+            "cs_cnt": 5,
+            "art_cmp": 1,
+            "gap_fc": 4
+          }
         }
       ],
-      "grade": "C",
+      "grade": "A",
       "note": "PD-077 옵션 (d') 채택 — dist/ 폐기 + in-process TS 방향 일관화. 변경: open.md L12/L28, settings.json L88, .claude/hooks/post-tool-use-build-scripts.js 삭제, scripts/tsconfig.scripts.json 삭제. 검증: load-context-briefs.ts in-process 실행 성공. | PD-081 처리 시도 옵션 (a) 임의 채택 → Master 정정 → git checkout으로 원복. 추가 정보 수신: 중간 commit 목적 = 최종 단일 commit 크기 축소, (g) 비동기 push는 병행 2-세션 race 우려. 결국 Grade B 재오픈 결정. | 병행 2-세션 구조에서 mainRoot 직렬화가 핵심 — 후속 토픽에서 (h) lockfile / (o) staging / (i) per-branch / (q) pull-rebase-retry 4가지 대안 + PD-079(D-181 m* prefix) 정합 검토 필요.",
-      "oneLineSummary": "PD-077 resolved (옵션 d': dist 폐기 + in-process TS 일관화). PD-081 옵션 a 임의 채택 → 원복 → Grade B 재오픈 예정.",
-      "decisionsAdded": []
+      "oneLineSummary": "T/A/O 3축 등급 schema(D-183) + 보강 D-184(존대말·baseline·자연분포) 박제. PD-082/083/084 등록(Turn.tao·등급상한·종료조건). 시범 운영 단계.",
+      "decisionsAdded": [
+        "D-183",
+        "D-184"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-11T12:23:08.775Z",
+  "lastUpdated": "2026-05-11T23:15:43.141Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

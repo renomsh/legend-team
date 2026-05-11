@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-11T15:26:46.986Z",
+  "generatedAt": "2026-05-11T23:15:43.903Z",
   "totalSessions": 231,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
@@ -233,24 +233,73 @@
       "relatedDecisions": [],
       "dependsOn": [],
       "relatedTopic": "topic_197"
+    },
+    {
+      "id": "PD-082",
+      "fromSession": "session_235",
+      "fromTopic": "nexus-tao-grading",
+      "createdAt": "2026-05-11",
+      "title": "T/A/O 측정 인프라 — Turn.tao optional 필드",
+      "item": "scripts/lib/turn-types.ts에 Turn.tao?: {t: 1-5, a: 0-4, o: 1-5} optional 필드 추가. nexus-turn-push.ts에서 자동 부착 로직(현재는 selfScores 패턴 재사용 가능). hook 자동 강등 알고리즘은 PD-084 별개. 자가 측정 시작 인프라.",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-183",
+        "D-184"
+      ],
+      "dependsOn": [],
+      "relatedTopic": "topic_200"
+    },
+    {
+      "id": "PD-083",
+      "fromSession": "session_235",
+      "fromTopic": "nexus-tao-grading",
+      "createdAt": "2026-05-11",
+      "title": "T/A/O 페르소나별 등급 상한 enum (시범 후 결정)",
+      "item": "Riki rev2 C-1 대안 — 페르소나별 Authority 등급 상한 (예: Nexus A1 max, Arki·Riki·Ace A2 max, Edi A3, Master·decision_ledger A4). 시범 후 자가 측정 분포 데이터 누적 후 enum 확정 결정. 분포 데이터 없이 박제 시 자의적·하향 평탄화 회피 유발 (Riki R-6).",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-183",
+        "D-184"
+      ],
+      "dependsOn": [
+        "PD-082"
+      ],
+      "relatedTopic": "topic_200"
+    },
+    {
+      "id": "PD-084",
+      "fromSession": "session_235",
+      "fromTopic": "nexus-tao-grading",
+      "createdAt": "2026-05-11",
+      "title": "T/A/O 시범 종료 조건 정량 신호",
+      "item": "Ace Q4 권고 — 3세션 + (부착률 0.5 OR 인플레이션 2건 OR 평균 T≤2.0). 자가 측정 데이터 누적 후 임계값 확정. baseline은 session_235 V1=5/V2=9+/V3=9/V4=8+ total 31+. hook 자동 강등 알고리즘(G2/G3) 별도 검토 — Master 후속 판단 대기.",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-183",
+        "D-184"
+      ],
+      "dependsOn": [
+        "PD-082"
+      ],
+      "relatedTopic": "topic_200"
     }
   ],
   "metrics": {
-    "avgMasterTurns": 21.42,
-    "avgCacheHitRate": 0.932,
+    "avgMasterTurns": 21.5,
+    "avgCacheHitRate": 0.9319,
     "cacheSampleSize": 200,
     "cacheSampleTotal": 231,
     "avgAdoptionRate": 0,
-    "totalDecisions": 184,
+    "totalDecisions": 186,
     "gradeDistribution": {
-      "S": 107,
+      "S": 108,
       "A": 45,
       "B": 48,
-      "C": 31
+      "C": 30
     },
     "topicGradeDistribution": {
       "S": 21,
-      "A": 63,
+      "A": 64,
       "B": 61,
       "C": 49
     },
@@ -263,8 +312,8 @@
     ],
     "framingSkippedCount": 0,
     "turnBasedSessions": 185,
-    "totalCostUSD": 2716.7239,
-    "avgCostPerSession": 12.2929,
+    "totalCostUSD": 2722.3121,
+    "avgCostPerSession": 12.3182,
     "costSampleSize": 221,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
@@ -8999,42 +9048,55 @@
     },
     {
       "sessionId": "session_235",
-      "topicSlug": "pd-077-build-scripts",
-      "topic": "PD-077 build:scripts 추가",
-      "startedAt": "2026-05-11T11:40:00.000Z",
-      "closedAt": "2026-05-11T12:30:00.000Z",
-      "decisionCount": 0,
-      "decisionAxes": 0,
-      "rolesCalled": 1,
-      "rolesRecalled": 0,
+      "topicSlug": "nexus-tao-grading",
+      "topic": "Nexus 지침 — Truth/Authority/Origin 등급 시스템",
+      "startedAt": "2026-05-11T14:30:00.000Z",
+      "closedAt": "2026-05-11T23:20:00.000Z",
+      "decisionCount": 2,
+      "decisionAxes": 2,
+      "decisions": [
+        "D-183",
+        "D-184"
+      ],
+      "rolesCalled": 10,
+      "rolesRecalled": 5,
       "sessionsSpanned": 1,
-      "size": 4,
-      "gradeDeclared": "C",
-      "gradeActual": "C",
+      "size": 27,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 30,
+      "masterTurns": 49,
       "dataQuality": "auto",
       "agentsCompleted": [
+        "arki",
+        "riki",
+        "ace",
+        "riki",
+        "edi",
+        "zero",
+        "edi",
+        "riki",
+        "edi",
         "edi"
       ],
       "tokenUsage": {
-        "totalBillable": 35253995,
-        "ioTokens": 216859,
-        "inputTokens": 930,
-        "outputTokens": 215929,
-        "cacheCreate": 1346257,
-        "cacheRead": 33690879,
-        "cacheHitRate": 0.9556613087396194,
-        "messageCount": 310
+        "totalBillable": 42243232,
+        "ioTokens": 328228,
+        "inputTokens": 1211,
+        "outputTokens": 327017,
+        "cacheCreate": 1884734,
+        "cacheRead": 40030270,
+        "cacheHitRate": 0.947613809473669,
+        "messageCount": 379
       },
-      "sessionCostUSD": 18.3975
+      "sessionCostUSD": 23.9857
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 206,
+      "count": 209,
       "sessions": [
         "session_050",
         "session_051",
@@ -9222,7 +9284,7 @@
     },
     {
       "role": "ace",
-      "count": 184,
+      "count": 185,
       "sessions": [
         "session_047",
         "session_048",
@@ -9318,12 +9380,13 @@
         "session_206",
         "session_208",
         "session_216",
-        "session_224"
+        "session_224",
+        "session_235"
       ]
     },
     {
       "role": "arki",
-      "count": 161,
+      "count": 162,
       "sessions": [
         "session_048",
         "session_049",
@@ -9415,7 +9478,8 @@
         "session_227",
         "session_232",
         "session_233",
-        "session_234"
+        "session_234",
+        "session_235"
       ]
     },
     {
@@ -9522,7 +9586,7 @@
     },
     {
       "role": "riki",
-      "count": 121,
+      "count": 124,
       "sessions": [
         "session_049",
         "session_053",
@@ -9613,12 +9677,13 @@
         "session_227",
         "session_232",
         "session_233",
-        "session_234"
+        "session_234",
+        "session_235"
       ]
     },
     {
       "role": "zero",
-      "count": 46,
+      "count": 47,
       "sessions": [
         "session_153",
         "session_175",
@@ -9650,7 +9715,8 @@
         "session_227",
         "session_232",
         "session_233",
-        "session_234"
+        "session_234",
+        "session_235"
       ]
     },
     {
@@ -16464,12 +16530,66 @@
     },
     {
       "sessionId": "session_235",
-      "topic": "PD-077 build:scripts 추가",
+      "topic": "Nexus 지침 — Truth/Authority/Origin 등급 시스템",
       "sequence": [
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
         {
           "role": "edi",
           "phase": null,
-          "turnIdx": 0,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 6,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 7,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 8,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 9,
           "recallReason": null
         }
       ]
@@ -16972,6 +17092,11 @@
           "date": "2026-05-02",
           "feedbackId": "F-session_168",
           "summary": "Master 결정 10건 압축: (1) spec 5건→실측 6건으로 진행 (2) caveats string["
+        },
+        {
+          "date": "2026-05-11",
+          "feedbackId": "MF-122",
+          "summary": "T/A/O 등급 schema 시범 운영 결정 + 자가 측정 추이 우선·정책 Fix 후행 원칙 + Nexus "
         }
       ]
     },
@@ -17673,6 +17798,21 @@
           "date": "2026-04-19",
           "feedbackId": "MF-028",
           "summary": "하드코딩 최소화, 데이터를 호출하는 형태로. 구조설계·코딩 전반에 적용."
+        }
+      ]
+    },
+    {
+      "keyword": "운영",
+      "occurrences": [
+        {
+          "date": "2026-04-21",
+          "feedbackId": "MF-040",
+          "summary": "1) 세션-토픽 다대다는 운영 복잡도 대비 비효율 — N:1 단방향(토픽 하나에 여러 세션)으로 단순화. 여"
+        },
+        {
+          "date": "2026-05-11",
+          "feedbackId": "MF-122",
+          "summary": "T/A/O 등급 schema 시범 운영 결정 + 자가 측정 추이 우선·정책 Fix 후행 원칙 + Nexus "
         }
       ]
     },

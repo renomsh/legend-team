@@ -14,7 +14,9 @@
         "mD↔D cross-check 빈도 미확정(R-4)"
       ],
       "relatedDecisions": [],
-      "relatedPDs": ["PD-069"],
+      "relatedPDs": [
+        "PD-069"
+      ],
       "relatedFiles": [
         "reports/2026-05-10_pd-069-parallel-session/condensed.md"
       ],
@@ -2912,7 +2914,77 @@
         "implementation-spec"
       ],
       "status": "active"
+    },
+    {
+      "id": "D-183",
+      "date": "2026-05-11",
+      "session": "session_235",
+      "topic": "topic_200",
+      "axis": "Nexus 발화 등급 표기 시스템 — Truth/Authority/Origin 3축 + Nexus 감사 Riki 담당",
+      "summary": "모든 역할(Nexus 포함) 핵심 단언(사실 주장·권고·결정)에 [Tn/An/On] 3축 등급 태그 부착 의무. Truth(T1 추정/T2 대화 맥락/T3 문서·로그·파일/T4 원문·라인·실행결과/T5 독립 재현), Authority(A0 임시/A1 1회성/A2 반복·명시/A3 Master 규칙·정책 명시/A4 박제됨), Origin(O1 출처 없음/O2 Master 직접/O3 현 세션/O4 에이전트 산출물/O5 로그·파일·ID 추적). 면제: 절차 진술·질문·메타 발화. 박제 자격: T3+A2 충족 시 D-NNN 후보(Edi 박제, 자동 트리거 아님). Nexus 본체 발화 감사 = Riki 담당(V1 미부착/V2 인플레이션/V3 권한외/V4 무인용 cross-review). 시범 운영 단계 — 인프라(Turn.tao 스키마·hook 자동 강등·페르소나별 등급 상한·존대말 묶음·종료 조건 정량 신호)는 별도 PD로 후속 처리.",
+      "decision": "T/A/O 3축 등급 schema + Riki Nexus 감사 책임 박제. 인프라 보강은 후속 PD.",
+      "caveats": [
+        "자가 채점 양방향 인플레이션(Riki R-6) 잔존 — 정량 측정 전까지 미지",
+        "A 등급 자동 판정 불가(Arki 충돌-2) — 자가 부착 + Edi 박제 검증 의존",
+        "본 세션 위반 baseline V1=5 / V2=9+ / V3=9 / V4=8+ (Riki rev2)"
+      ],
+      "relatedDecisions": [
+        "D-125",
+        "D-130",
+        "D-143",
+        "D-178"
+      ],
+      "relatedPDs": [],
+      "relatedFiles": [
+        "reports/2026-05-11_nexus-tao-grading/condensed.md",
+        "reports/2026-05-11_nexus-tao-grading/arki_rev1.md",
+        "reports/2026-05-11_nexus-tao-grading/riki_rev2.md",
+        "reports/2026-05-11_nexus-tao-grading/ace_rev1.md"
+      ],
+      "tags": [
+        "tao-grading",
+        "statement-grading",
+        "nexus-audit",
+        "riki-cross-review",
+        "trial-operation"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "D-184",
+      "date": "2026-05-11",
+      "session": "session_235",
+      "topic": "topic_200",
+      "axis": "T/A/O 시범 운영 보강 — 존대말 기본 적용 + baseline 즉시 측정 + 상황별 자연 분포 원칙",
+      "summary": "(1) 모든 역할 한국어 존대말 기본 적용. (2) M-1 위반 baseline 비교 즉시 적용 — 본 세션 V1=5/V2=9+/V3=9/V4=8+ total 31+가 다음 세션 Riki cross-review baseline. (3) 모든 발화가 T·A·O 모두 높을 수는 없음 — 상황별·케이스별 자연 분포 인정, 하향 평탄화·상향 인플레이션 양방향 압력 무효화. D-183 amendment.",
+      "decision": "D-183 시범 운영 보강 3건 박제. 인프라(Turn.tao·페르소나 상한·종료 조건)는 PD-082~084로 이연.",
+      "caveats": [
+        "baseline 31+는 단일 세션 측정값 — 다음 세션 비교 시 변동성 고려",
+        "자연 분포 원칙은 자가 채점 검증 자체를 약화시킬 위험 — Riki cross-review로 인플레이션 적출 유지"
+      ],
+      "relatedDecisions": [
+        "D-183"
+      ],
+      "amends": [
+        "D-183"
+      ],
+      "relatedPDs": [
+        "PD-082",
+        "PD-083",
+        "PD-084"
+      ],
+      "relatedFiles": [
+        "reports/2026-05-11_nexus-tao-grading/edi_rev2.md"
+      ],
+      "tags": [
+        "tao-grading",
+        "trial-operation",
+        "baseline",
+        "natural-distribution",
+        "honorifics"
+      ],
+      "status": "active"
     }
   ],
-  "lastUpdated": "2026-05-11T00:00:00.000Z"
+  "lastUpdated": "2026-05-11"
 }

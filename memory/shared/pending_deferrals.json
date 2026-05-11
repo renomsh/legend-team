@@ -215,6 +215,42 @@
       "relatedDecisions": [],
       "dependsOn": [],
       "relatedTopic": "topic_197"
+    },
+    {
+      "id": "PD-082",
+      "fromSession": "session_235",
+      "fromTopic": "nexus-tao-grading",
+      "createdAt": "2026-05-11",
+      "title": "T/A/O 측정 인프라 — Turn.tao optional 필드",
+      "item": "scripts/lib/turn-types.ts에 Turn.tao?: {t: 1-5, a: 0-4, o: 1-5} optional 필드 추가. nexus-turn-push.ts에서 자동 부착 로직(현재는 selfScores 패턴 재사용 가능). hook 자동 강등 알고리즘은 PD-084 별개. 자가 측정 시작 인프라.",
+      "status": "pending",
+      "relatedDecisions": ["D-183", "D-184"],
+      "dependsOn": [],
+      "relatedTopic": "topic_200"
+    },
+    {
+      "id": "PD-083",
+      "fromSession": "session_235",
+      "fromTopic": "nexus-tao-grading",
+      "createdAt": "2026-05-11",
+      "title": "T/A/O 페르소나별 등급 상한 enum (시범 후 결정)",
+      "item": "Riki rev2 C-1 대안 — 페르소나별 Authority 등급 상한 (예: Nexus A1 max, Arki·Riki·Ace A2 max, Edi A3, Master·decision_ledger A4). 시범 후 자가 측정 분포 데이터 누적 후 enum 확정 결정. 분포 데이터 없이 박제 시 자의적·하향 평탄화 회피 유발 (Riki R-6).",
+      "status": "pending",
+      "relatedDecisions": ["D-183", "D-184"],
+      "dependsOn": ["PD-082"],
+      "relatedTopic": "topic_200"
+    },
+    {
+      "id": "PD-084",
+      "fromSession": "session_235",
+      "fromTopic": "nexus-tao-grading",
+      "createdAt": "2026-05-11",
+      "title": "T/A/O 시범 종료 조건 정량 신호",
+      "item": "Ace Q4 권고 — 3세션 + (부착률 0.5 OR 인플레이션 2건 OR 평균 T≤2.0). 자가 측정 데이터 누적 후 임계값 확정. baseline은 session_235 V1=5/V2=9+/V3=9/V4=8+ total 31+. hook 자동 강등 알고리즘(G2/G3) 별도 검토 — Master 후속 판단 대기.",
+      "status": "pending",
+      "relatedDecisions": ["D-183", "D-184"],
+      "dependsOn": ["PD-082"],
+      "relatedTopic": "topic_200"
     }
   ]
 }
