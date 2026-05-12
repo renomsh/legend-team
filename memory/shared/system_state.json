@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_241",
-  "nextSessionId": "session_242",
+  "lastSessionId": "session_242",
+  "nextSessionId": "session_243",
   "currentVersion": "v1.793",
   "openTopics": [
     {
@@ -19,6 +19,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-188",
+      "date": "2026-05-12",
+      "axis": "finalize.js 1893줄 → 5 lib 모듈 + orchestrator 분해. 단일 hook entry 유지. 실패 시 git revert 단일 커밋 원복 경로 박제.",
+      "summary": "(a) silent corruption detection 가능 — 각 모듈 try/catch에서 finalize-module-fail gap 박제. (b) SRP 회복 — 31 함수 5 모듈 분리. (c) 원복 단위 명확 — 단일 머지 커밋. (d) 검증 게이트 명시 — 5세션 dry-run diff = 0 강제. (e) D-143 (4) 외 정신 보존 — supersedeScope 명시."
+    },
     {
       "id": "D-187",
       "date": "2026-05-12",
@@ -42,15 +48,18 @@
       "date": "2026-05-11",
       "axis": "Nexus 발화 등급 표기 시스템 — Truth/Authority/Origin 3축 + Nexus 감사 Riki 담당",
       "summary": "Nexus 발화 등급 표기 시스템 — Truth/Authority/Origin 3축 + Nexus 감사 Riki 담당"
-    },
-    {
-      "id": "D-181",
-      "date": "2026-05-11",
-      "axis": "병행세션 병행토픽 시스템 — m* prefix 별도 넘버링 + 자동 마이그레이션(옵션 A')",
-      "summary": "병행세션 병행토픽 시스템 — m* prefix 별도 넘버링 + 자동 마이그레이션(옵션 A')"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_242",
+      "topicSlug": "nexus-architecture-audit",
+      "closedAt": "2026-05-12T12:30:00.000Z",
+      "oneLineSummary": "D-188 supersedes D-143 (4) — finalize.js 5 모듈 분해 + C2 auto-push 격리 + 5세션 byte-diff=0 + 롤백 PASS.",
+      "decisionsAdded": [
+        "D-188"
+      ]
+    },
     {
       "sessionId": "session_241",
       "topicSlug": "worktree-b-close-merge-conflict",
@@ -64,15 +73,6 @@
       "closedAt": "2026-05-12T06:00:00.000Z",
       "oneLineSummary": "D-187 A+B 구현 완료 — .githooks/pre-commit + .gitattributes(9종 merge=ours) + install 스크립트 + CLAUDE.md 박제. Test 1-4 PASS.",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_239",
-      "topicSlug": "worktree-b-close-merge-conflict",
-      "closedAt": "2026-05-12T04:00:00.000Z",
-      "oneLineSummary": "worktree-b-close-merge-conflict 진단·결정: A+B 채택(D-187), PD-073 무죄, ②경로 PD-086 분리. MF-124.",
-      "decisionsAdded": [
-        "D-187"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -179,5 +179,5 @@
       "resolveCondition": "topics/{topicId}/session_contributions/ 신규 파일이 자동 commit + 워크트리·main 양쪽에서 git status untracked 0건"
     }
   ],
-  "lastUpdated": "2026-05-12T06:34:33.088Z"
+  "lastUpdated": "2026-05-12T12:22:34.902Z"
 }

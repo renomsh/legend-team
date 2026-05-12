@@ -11677,8 +11677,84 @@
       "note": "PD-086 작업 — hook의 main 워킹디렉토리 직접 write 경로 차단 (②경로 분리) | session_240에서 D-187 A+B 완료. 본 세션은 ②경로 분리 항목 처리. | 구현: scripts/auto-push.js + .claude/hooks/session-end-tokens.js + memory/shared/pending_deferrals.json | 검증: node -c PASS, guard 실측 (main+worktree-session FIRES / worktree 통과), main git status clean",
       "oneLineSummary": "PD-086 옵션(a) 구현 완료 — auto-push sync 함수 2종 제거 + session-end-tokens cwd guard. PD-087 분리.",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_242",
+      "topicSlug": "nexus-architecture-audit",
+      "topic": "A Legend Nexus 아키텍처 감사",
+      "startedAt": "2026-05-12T09:00:00.000Z",
+      "closedAt": "2026-05-12T12:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\competent-ishizaka-39eadd",
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "dev",
+        "zero",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "arki",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "aud_rcl": 0.5,
+            "str_fd": 4,
+            "spc_lck": "N",
+            "sa_rnd": 1
+          }
+        },
+        {
+          "role": "riki",
+          "turnIdx": 1,
+          "source": "agent",
+          "selfScores": {
+            "crt_rcl": 0.75,
+            "cr_val": "Y",
+            "prd_rej": "Y",
+            "fp_rt": 0.1
+          }
+        },
+        {
+          "role": "dev",
+          "turnIdx": 2,
+          "source": "inline-main",
+          "phase": "implementation",
+          "selfScores": {
+            "vrf": "Y",
+            "rollback": "Y"
+          }
+        },
+        {
+          "role": "zero",
+          "turnIdx": 3,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 5,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 4,
+          "source": "agent",
+          "selfScores": {
+            "art_cmp": 1,
+            "cs_cnt": 4,
+            "gap_fc": 0,
+            "scc": "Y"
+          }
+        }
+      ],
+      "grade": "A",
+      "note": "Master 요청: Nexus 전체 아키텍처 구조 감사 (장기 운영·확장·학습·자동화 견딜 수 있는지) | 점검 범위 8개 + 산출물 A~G 형식 지정. 첫 주자 Arki (Grade A). | 외부 engineering:architecture ADR 병행 (Master 선택 b). Arki·외부 ADR 모두 finalize.js 분해 권고. | Riki 적출: 외부 ADR #3·#4 NO-GO (병행세션 D-181 IMPACT), C2·G1 GO. D-143 (4) Arki Opt-1 거부 박제 적출. | Master (β) D-143 supersede 결정 — '실패해서 원복하는 거잖아' 발언. D-188 박제 + rollback 경로 명시. | 구현: writing-plans → executing-plans → verification-before-completion 3 스킬 흐름. 검증 게이트 10건 PASS. | 본 세션 close가 분해된 finalize.js 첫 실측 실행 — 실패 시 git revert 단일 커밋 원복.",
+      "oneLineSummary": "D-188 supersedes D-143 (4) — finalize.js 5 모듈 분해 + C2 auto-push 격리 + 5세션 byte-diff=0 + 롤백 PASS.",
+      "decisionsAdded": [
+        "D-188"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-12T06:34:32.562Z",
+  "lastUpdated": "2026-05-12T12:22:34.405Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

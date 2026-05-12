@@ -164,6 +164,9 @@ function runHookChain(mainRoot) {
       console.log(`[validate-prime-directive] OK (${result.actual.substring(0, 12)}...)`);
     }),
   ];
+  // C2 (session_242): preSteps try/catch 격리 — best-effort. 한 단계 실패해도 후속 진행.
+  // 실패 누적 후 끝에 current_session.json gaps 박제.
+  const stepFailures = [];
   for (const step of preSteps) {
     const label = typeof step === 'string' ? step : step.label;
     const fn = typeof step === 'string' ? () => execSync(step, { cwd: ROOT, stdio: 'inherit', env: { ...process.env, TS_NODE_TRANSPILE_ONLY: '1' } }) : step.fn;
@@ -172,7 +175,29 @@ function runHookChain(mainRoot) {
     } catch (e) {
       console.error(`[auto-push] Hook chain step failed: ${label}`);
       console.error(e.message);
-      return false;
+      stepFailures.push({ label, message: String(e && e.message || e) });
+    }
+  }
+  if (stepFailures.length > 0) {
+    console.error(`[auto-push] ${stepFailures.length}/${preSteps.length} preSteps failed (continuing best-effort).`);
+    try {
+      const sessPath = path.join(ROOT, 'memory', 'sessions', 'current_session.json');
+      const raw = fs.readFileSync(sessPath, 'utf8');
+      const sess = JSON.parse(raw);
+      if (!Array.isArray(sess.gaps)) sess.gaps = [];
+      for (const f of stepFailures) {
+        sess.gaps.push({
+          type: 'hook-chain-step-failed',
+          severity: 'high',
+          label: f.label,
+          message: f.message,
+          addedBy: 'auto-push.runHookChain',
+          addedAt: new Date().toISOString(),
+        });
+      }
+      fs.writeFileSync(sessPath, JSON.stringify(sess, null, 2) + '\n', 'utf8');
+    } catch (gapErr) {
+      console.error('[auto-push] Failed to record gaps:', gapErr.message);
     }
   }
   try {

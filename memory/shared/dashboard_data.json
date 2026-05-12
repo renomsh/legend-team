@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-12T06:34:33.313Z",
-  "totalSessions": 237,
+  "generatedAt": "2026-05-12T12:22:35.101Z",
+  "totalSessions": 238,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 237
+      "undefined": 238
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -335,21 +335,21 @@
     }
   ],
   "metrics": {
-    "avgMasterTurns": 21.85,
-    "avgCacheHitRate": 0.9323,
-    "cacheSampleSize": 206,
-    "cacheSampleTotal": 237,
+    "avgMasterTurns": 21.86,
+    "avgCacheHitRate": 0.9324,
+    "cacheSampleSize": 207,
+    "cacheSampleTotal": 238,
     "avgAdoptionRate": 0,
-    "totalDecisions": 188,
+    "totalDecisions": 189,
     "gradeDistribution": {
       "S": 111,
-      "A": 46,
+      "A": 47,
       "B": 50,
       "C": 30
     },
     "topicGradeDistribution": {
       "S": 21,
-      "A": 64,
+      "A": 65,
       "B": 63,
       "C": 49
     },
@@ -361,10 +361,10 @@
       "session_202"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 191,
-    "totalCostUSD": 2807.2665,
-    "avgCostPerSession": 12.3668,
-    "costSampleSize": 227,
+    "turnBasedSessions": 192,
+    "totalCostUSD": 2818.6082,
+    "avgCostPerSession": 12.3623,
+    "costSampleSize": 228,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -9365,12 +9365,52 @@
         "messageCount": 225
       },
       "sessionCostUSD": 15.44
+    },
+    {
+      "sessionId": "session_242",
+      "topicSlug": "nexus-architecture-audit",
+      "topic": "A Legend Nexus 아키텍처 감사",
+      "startedAt": "2026-05-12T09:00:00.000Z",
+      "closedAt": "2026-05-12T12:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-188"
+      ],
+      "rolesCalled": 5,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 10,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 24,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "dev",
+        "zero",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 21697189,
+        "ioTokens": 206526,
+        "inputTokens": 20006,
+        "outputTokens": 186520,
+        "cacheCreate": 590340,
+        "cacheRead": 20900323,
+        "cacheHitRate": 0.9632733069707786,
+        "messageCount": 143
+      },
+      "sessionCostUSD": 11.3417
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 216,
+      "count": 217,
       "sessions": [
         "session_050",
         "session_051",
@@ -9559,7 +9599,8 @@
         "session_238",
         "session_239",
         "session_240",
-        "session_241"
+        "session_241",
+        "session_242"
       ]
     },
     {
@@ -9668,7 +9709,7 @@
     },
     {
       "role": "arki",
-      "count": 165,
+      "count": 166,
       "sessions": [
         "session_048",
         "session_049",
@@ -9763,12 +9804,13 @@
         "session_234",
         "session_235",
         "session_238",
-        "session_239"
+        "session_239",
+        "session_242"
       ]
     },
     {
       "role": "dev",
-      "count": 130,
+      "count": 131,
       "sessions": [
         "session_047",
         "session_048",
@@ -9865,12 +9907,13 @@
         "session_227",
         "session_228",
         "session_232",
-        "session_233"
+        "session_233",
+        "session_242"
       ]
     },
     {
       "role": "riki",
-      "count": 126,
+      "count": 127,
       "sessions": [
         "session_049",
         "session_053",
@@ -9964,12 +10007,13 @@
         "session_234",
         "session_235",
         "session_238",
-        "session_239"
+        "session_239",
+        "session_242"
       ]
     },
     {
       "role": "zero",
-      "count": 52,
+      "count": 53,
       "sessions": [
         "session_153",
         "session_175",
@@ -10006,7 +10050,8 @@
         "session_238",
         "session_239",
         "session_240",
-        "session_241"
+        "session_241",
+        "session_242"
       ]
     },
     {
@@ -17075,6 +17120,42 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_242",
+      "topic": "A Legend Nexus 아키텍처 감사",
+      "sequence": [
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": "implementation",
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 4,
           "recallReason": null
         }
       ]

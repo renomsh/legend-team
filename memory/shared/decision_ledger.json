@@ -375,7 +375,12 @@
         "ackedAt": "2026-05-02",
         "resolvedAt": "2026-05-08",
         "resolvedBySession": "session_212"
-      }
+      },
+      "status": "partially-superseded",
+      "supersededBy": [
+        "D-188"
+      ],
+      "supersedeScope": "(4) Arki Opt-1 G1 거부 항목만. rules.edi 박제 정책·D-138 enforcement 인라인 유지·D-142 양립 정신은 보존."
     },
     {
       "id": "D-142",
@@ -3045,6 +3050,39 @@
         "gitattributes",
         "merge-driver"
       ],
+      "status": "active"
+    },
+    {
+      "id": "D-188",
+      "date": "2026-05-12",
+      "session": "session_242",
+      "topic": "topic_204",
+      "owningTopicId": "topic_204",
+      "scopeCheck": "session-end-finalize.js 모듈 분해 재시도 — D-143 (4) supersede",
+      "axis": "finalize.js 1893줄 → 5 lib 모듈 + orchestrator 분해. 단일 hook entry 유지. 실패 시 git revert 단일 커밋 원복 경로 박제.",
+      "decision": "session_242 Arki+Riki 감사: finalize.js 1893줄/31함수 + writeJson 22회 호출 + finalizedAt 단일 가드 → silent corruption 위험 (B1). D-143 (session_165) 동일 G1을 over-engineered로 거부했으나 본 세션 Master 명시 승인: 재분해 진행. 분해 구조 — .claude/hooks/lib/finalize/{turns,session-index,gaps,version-bump,propagation}.js 5 모듈 + shared.js 유틸 + orchestrator(~200줄). settings.json 무수정(Node startup 부하 무변동). 검증 게이트: 분해 전후 마지막 5세션(session_237~241) session_index entry dry-run diff = 0. 실패 시 git revert {merge-commit-sha} 단일 명령 원복. D-143 supersede 범위는 (4) Arki Opt-1 G1 거부 항목만 — rules.edi 박제 정책·D-138 enforcement 인라인 유지·D-142 양립 정신은 보존.",
+      "value": "(a) silent corruption detection 가능 — 각 모듈 try/catch에서 finalize-module-fail gap 박제. (b) SRP 회복 — 31 함수 5 모듈 분리. (c) 원복 단위 명확 — 단일 머지 커밋. (d) 검증 게이트 명시 — 5세션 dry-run diff = 0 강제. (e) D-143 (4) 외 정신 보존 — supersedeScope 명시.",
+      "caveats": [
+        "orchestrator 단일 writeJson도 그 직전 모듈이 sess를 mutate 후 throw하면 부분 상태 일부 박제 가능 — 단, finalize-module-fail gap이 시인성 제공.",
+        "D-143 supersede 무게는 박제 무게로 측정 — 본 결정 실패 시 git revert로 D-143 정신 복원 가능 (rollback 필드 참조).",
+        "5세션 dry-run diff는 finalizedAt 가드로 session_237~241 entry 불변 보장이 전제 — 가드 동작 자체가 깨지면 검증 무효화."
+      ],
+      "relatedDecisions": [
+        "D-143",
+        "D-138",
+        "D-142",
+        "D-070",
+        "D-101"
+      ],
+      "relatedTopics": [
+        "topic_204",
+        "topic_142"
+      ],
+      "supersedes": [
+        "D-143"
+      ],
+      "supersedeScope": "D-143 (4) Arki Opt-1 G1 거부 항목만",
+      "rollback": "git revert {merge-commit-sha} 단일 명령. 5 lib 모듈 + orchestrator + lib/finalize 디렉토리를 하나의 머지 커밋으로 박제하여 원복 단위 보장.",
       "status": "active"
     }
   ],
