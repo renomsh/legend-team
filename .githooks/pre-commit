@@ -1,0 +1,22 @@
+#!/bin/sh
+# D-187 Phase 1: main 직커밋 차단
+# 우회: ALLOW_MAIN_COMMIT=1 git commit ...
+# 설치: scripts/install-git-hooks.sh (core.hooksPath=.githooks)
+
+branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+
+if [ "$branch" = "main" ]; then
+  if [ "$ALLOW_MAIN_COMMIT" = "1" ]; then
+    echo "[pre-commit] main 직커밋 허용 (ALLOW_MAIN_COMMIT=1)" >&2
+    exit 0
+  fi
+  echo "" >&2
+  echo "[pre-commit] BLOCKED: main 워킹디렉토리 직커밋 금지 (D-187)" >&2
+  echo "  사유: 워크트리 클로즈 시 머지 충돌 누적 원인" >&2
+  echo "  우회: ALLOW_MAIN_COMMIT=1 git commit ..." >&2
+  echo "  정규: 워크트리에서 작업 후 머지" >&2
+  echo "" >&2
+  exit 1
+fi
+
+exit 0

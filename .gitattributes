@@ -1,0 +1,15 @@
+# D-187 Phase 2: 워크트리 클로즈 머지 충돌 차단
+# merge=ours: 머지 시 현재 브랜치 버전 유지 (자동 충돌 회피)
+# 전제: setup 1회 실행 — git config merge.ours.driver true
+#       (scripts/install-git-hooks.sh)
+# 미설정 시 .gitattributes 무력화 → 일반 머지 동작
+
+dist/**                                       merge=ours
+.claude/settings.local.json                   merge=ours
+memory/shared/topic_index.json                merge=ours
+memory/shared/decision_ledger.json            merge=ours
+memory/shared/master_first_state.json         merge=ours
+memory/shared/dashboard_data.json             merge=ours
+memory/sessions/current_session.json          merge=ours
+memory/sessions/token_log.json                merge=ours
+memory/growth/self_scores.jsonl               merge=ours

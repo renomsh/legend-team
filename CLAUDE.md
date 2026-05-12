@@ -156,6 +156,15 @@ Arki 5종 subjectType: 세션 출력 레이블 전용. dispatch 기준 아님.
 - `scripts/validate-schema-lifecycle.ts` — drift 감시
 - `scripts/validate-topic-closure.ts` — Edi 역검사용
 
+## Worktree Merge Safety (D-187, 2026-05-12)
+
+워크트리 B 클로즈 시 반복 머지 충돌 차단. 근본 원인 = main 워킹디렉토리 직커밋 누적.
+
+- **A. pre-commit hook on main** — `.githooks/pre-commit`이 `branch==main` 시 차단. 우회: `ALLOW_MAIN_COMMIT=1 git commit ...`
+- **B. .gitattributes merge=ours** — 보호 9종 자동 ours 채택: `dist/**` · `.claude/settings.local.json` · `memory/shared/{topic_index,decision_ledger,master_first_state,dashboard_data}.json` · `memory/sessions/{current_session,token_log}.json` · `memory/growth/self_scores.jsonl`
+- **설치 (1회/워크트리):** `sh scripts/install-git-hooks.sh` — `core.hooksPath=.githooks` + `merge.ours.driver=true` 설정 + `backups/git-config-{ts}/restore.sh` 자동 생성
+- **분리 항목:** PD-086 (hook의 main 워킹디렉토리 직접 write 경로 — `syncClaudeDir`·`session-end-tokens.js`)
+
 ## Viewer Policy (updated 2026-05-04, D-002 revised)
 - `app/` directory is a multi-page static viewer for file-based outputs
 - JSX, React 허용. UI 변경은 Claude Code 경유. (D-002 revised 2026-05-04)
