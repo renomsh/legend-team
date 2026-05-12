@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_236",
-  "nextSessionId": "session_237",
-  "currentVersion": "v1.762",
+  "lastSessionId": "session_237",
+  "nextSessionId": "session_238",
+  "currentVersion": "v1.763",
   "openTopics": [
     {
       "id": "topic_175",
@@ -52,6 +52,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_237",
+      "topicSlug": "nexus-tao-grading",
+      "closedAt": "2026-05-12T00:45:00.000Z",
+      "oneLineSummary": "PD-082 구현 완료: Turn.tao optional 필드 + nexus-turn-push 자동 부착 + validate 범위 검증. tsc·negative·extract 테스트 모두 통과.",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_236",
       "topicSlug": "pd-081-auto-push-order",
       "closedAt": "2026-05-12T00:30:00.000Z",
@@ -66,15 +73,6 @@
       "decisionsAdded": [
         "D-183",
         "D-184"
-      ]
-    },
-    {
-      "sessionId": "session_234",
-      "topicSlug": "pd-069-parallel-session",
-      "closedAt": "2026-05-11T00:30:00.000Z",
-      "oneLineSummary": "topic_197: 병행세션 병행토픽 시스템 설계 확정(D-181, m* prefix + 옵션 A' 자동 마이그레이션 + 8 미티게이션). PD-069 resolved, PD-079 구현 후속.",
-      "decisionsAdded": [
-        "D-181"
       ]
     }
   ],
@@ -134,21 +132,6 @@
       "relatedTopic": "topic_197"
     },
     {
-      "id": "PD-082",
-      "fromSession": "session_235",
-      "fromTopic": "nexus-tao-grading",
-      "createdAt": "2026-05-11",
-      "title": "T/A/O 측정 인프라 — Turn.tao optional 필드",
-      "item": "scripts/lib/turn-types.ts에 Turn.tao?: {t: 1-5, a: 0-4, o: 1-5} optional 필드 추가. nexus-turn-push.ts에서 자동 부착 로직(현재는 selfScores 패턴 재사용 가능). hook 자동 강등 알고리즘은 PD-084 별개. 자가 측정 시작 인프라.",
-      "status": "pending",
-      "relatedDecisions": [
-        "D-183",
-        "D-184"
-      ],
-      "dependsOn": [],
-      "relatedTopic": "topic_200"
-    },
-    {
       "id": "PD-083",
       "fromSession": "session_235",
       "fromTopic": "nexus-tao-grading",
@@ -183,5 +166,5 @@
       "relatedTopic": "topic_200"
     }
   ],
-  "lastUpdated": "2026-05-12T00:04:26.352Z"
+  "lastUpdated": "2026-05-12T00:33:47.962Z"
 }

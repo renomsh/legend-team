@@ -11322,8 +11322,35 @@
       "note": "PD-081 원문 부정확 확인: session_191~232 5개 세션 원문 검증, push/commit 순서 변경 코드 0건. git log -S 'git commit -m \"sync' = 09e952e 단일. | Master 통찰: '나누어져 있던 프로세스를 하나로 묶어서 충돌' — 워크트리 commit과 main sync commit이 동일 .claude/를 양사이드 수정 → merge conflict. D-2 = 충돌 부분 직렬화(main sync commit 제거).",
       "oneLineSummary": "PD-081 resolved (D-2): main repo의 .claude sync commit 제거 — main 분기 차단, ff-only 머지 가능. syncClaudeDir 파일 복사는 유지. PD 원문 '중간 push'는 session_231 사후 follow-up commit 오기록으로 확인.",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_237",
+      "topicSlug": "nexus-tao-grading",
+      "topic": "PD-082 T/A/O Turn.tao optional 필드 구현",
+      "startedAt": "2026-05-12T00:35:00.000Z",
+      "closedAt": "2026-05-12T00:45:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\practical-sinoussi-ed1ba8",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "edi",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "scc": "Y",
+            "cs_cnt": 3,
+            "art_cmp": 1
+          }
+        }
+      ],
+      "grade": "C",
+      "note": "topic_200 재오픈 — PD-082 구현 (Turn.tao optional 필드) | 테스트 파일 2개 회귀용 보존: scripts/test-tao-validation.ts, scripts/test-tao-extract.ts",
+      "oneLineSummary": "PD-082 구현 완료: Turn.tao optional 필드 + nexus-turn-push 자동 부착 + validate 범위 검증. tsc·negative·extract 테스트 모두 통과.",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-12T00:04:25.640Z",
+  "lastUpdated": "2026-05-12T00:33:47.234Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-12T00:07:08.294Z",
-  "totalSessions": 232,
+  "generatedAt": "2026-05-12T00:33:48.193Z",
+  "totalSessions": 233,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 232
+      "undefined": 233
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -244,13 +244,15 @@
       "createdAt": "2026-05-11",
       "title": "T/A/O 측정 인프라 — Turn.tao optional 필드",
       "item": "scripts/lib/turn-types.ts에 Turn.tao?: {t: 1-5, a: 0-4, o: 1-5} optional 필드 추가. nexus-turn-push.ts에서 자동 부착 로직(현재는 selfScores 패턴 재사용 가능). hook 자동 강등 알고리즘은 PD-084 별개. 자가 측정 시작 인프라.",
-      "status": "pending",
+      "status": "resolved",
       "relatedDecisions": [
         "D-183",
         "D-184"
       ],
       "dependsOn": [],
-      "relatedTopic": "topic_200"
+      "relatedTopic": "topic_200",
+      "resolvedAt": "2026-05-12",
+      "resolvedBy": "session_237"
     },
     {
       "id": "PD-083",
@@ -288,16 +290,16 @@
     }
   ],
   "metrics": {
-    "avgMasterTurns": 21.95,
-    "avgCacheHitRate": 0.932,
-    "cacheSampleSize": 201,
-    "cacheSampleTotal": 232,
+    "avgMasterTurns": 21.89,
+    "avgCacheHitRate": 0.9321,
+    "cacheSampleSize": 202,
+    "cacheSampleTotal": 233,
     "avgAdoptionRate": 0,
     "totalDecisions": 186,
     "gradeDistribution": {
       "S": 108,
       "A": 45,
-      "B": 49,
+      "B": 50,
       "C": 30
     },
     "topicGradeDistribution": {
@@ -314,10 +316,10 @@
       "session_202"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 186,
-    "totalCostUSD": 2763.6073,
-    "avgCostPerSession": 12.4487,
-    "costSampleSize": 222,
+    "turnBasedSessions": 187,
+    "totalCostUSD": 2768.0512,
+    "avgCostPerSession": 12.4128,
+    "costSampleSize": 223,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -9063,8 +9065,8 @@
       ],
       "rolesCalled": 10,
       "rolesRecalled": 5,
-      "sessionsSpanned": 1,
-      "size": 27,
+      "sessionsSpanned": 2,
+      "size": 30,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -9128,12 +9130,45 @@
         "messageCount": 467
       },
       "sessionCostUSD": 34.8966
+    },
+    {
+      "sessionId": "session_237",
+      "topicSlug": "nexus-tao-grading",
+      "topic": "PD-082 T/A/O Turn.tao optional 필드 구현",
+      "startedAt": "2026-05-12T00:35:00.000Z",
+      "closedAt": "2026-05-12T00:45:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 1,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 2,
+      "size": 7,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 8,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 8493604,
+        "ioTokens": 41591,
+        "inputTokens": 235,
+        "outputTokens": 41356,
+        "cacheCreate": 373126,
+        "cacheRead": 8078887,
+        "cacheHitRate": 0.9511730238424113,
+        "messageCount": 93
+      },
+      "sessionCostUSD": 4.4439
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 210,
+      "count": 211,
       "sessions": [
         "session_050",
         "session_051",
@@ -9317,7 +9352,8 @@
         "session_233",
         "session_234",
         "session_235",
-        "session_236"
+        "session_236",
+        "session_237"
       ]
     },
     {
@@ -16647,6 +16683,18 @@
           "role": "edi",
           "phase": "compile",
           "turnIdx": 1,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_237",
+      "topic": "PD-082 T/A/O Turn.tao optional 필드 구현",
+      "sequence": [
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 0,
           "recallReason": null
         }
       ]

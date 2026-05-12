@@ -1,12 +1,10 @@
 {
-  "sessionId": "session_236",
-  "status": "closed",
-  "topicId": "topic_201",
-  "topic": "PD-081 auto-push 순서 꼬임 해결 대안 검토",
-  "topicSlug": "pd-081-auto-push-order",
-  "reportPath": "reports/2026-05-11_pd-081-auto-push-order",
-  "startedAt": "2026-05-12T00:00:00.000Z",
-  "closedAt": "2026-05-12T00:30:00.000Z",
+  "sessionId": "session_237",
+  "topicId": "topic_200",
+  "topic": "PD-082 T/A/O Turn.tao optional 필드 구현",
+  "topicSlug": "nexus-tao-grading",
+  "reportPath": "reports/2026-05-12_nexus-tao-grading",
+  "startedAt": "2026-05-12T00:35:00.000Z",
   "mode": "observation",
   "grade": "C",
   "topicType": "standalone",
@@ -16,20 +14,14 @@
   "framingSkipped": true,
   "turns": [
     {
-      "role": "nexus",
-      "turnIdx": 0,
-      "source": "main",
-      "phase": "dev",
-      "tao": {
-        "t": 4,
-        "a": 1,
-        "o": 5
-      }
-    },
-    {
       "role": "edi",
-      "turnIdx": 1,
-      "phase": "compile"
+      "turnIdx": 0,
+      "source": "agent",
+      "selfScores": {
+        "scc": "Y",
+        "cs_cnt": 3,
+        "art_cmp": 1
+      }
     }
   ],
   "decisions": [],
@@ -38,84 +30,79 @@
   "masterFeedback": [],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [
-    "PD-081"
+    "PD-082"
   ],
   "pendingDeferralsTransitioned": [],
   "openMasterAlerts": [],
   "agentsCompleted": [
-    "nexus",
     "edi"
   ],
-  "oneLineSummary": "PD-081 resolved (D-2): main repo의 .claude sync commit 제거 — main 분기 차단, ff-only 머지 가능. syncClaudeDir 파일 복사는 유지. PD 원문 '중간 push'는 session_231 사후 follow-up commit 오기록으로 확인.",
+  "status": "closed",
+  "closedAt": "2026-05-12T00:45:00.000Z",
+  "oneLineSummary": "PD-082 구현 완료: Turn.tao optional 필드 + nexus-turn-push 자동 부착 + validate 범위 검증. tsc·negative·extract 테스트 모두 통과.",
   "notes": [
-    "PD-081 원문 부정확 확인: session_191~232 5개 세션 원문 검증, push/commit 순서 변경 코드 0건. git log -S 'git commit -m \"sync' = 09e952e 단일.",
-    "Master 통찰: '나누어져 있던 프로세스를 하나로 묶어서 충돌' — 워크트리 commit과 main sync commit이 동일 .claude/를 양사이드 수정 → merge conflict. D-2 = 충돌 부분 직렬화(main sync commit 제거)."
+    "topic_200 재오픈 — PD-082 구현 (Turn.tao optional 필드)",
+    "테스트 파일 2개 회귀용 보존: scripts/test-tao-validation.ts, scripts/test-tao-extract.ts"
   ],
   "gaps": [
     {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-11_pd-081-auto-push-order/arki_rev1.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-11_pd-081-auto-push-order/arki_rev2.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-11_pd-081-auto-push-order/arki_rev3.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-11_pd-081-auto-push-order/condensed.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-11_pd-081-auto-push-order/edi_rev1.md"
-    },
-    {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-11_pd-081-auto-push-order/riki_rev1.md"
+      "type": "frontmatter-patch-failed",
+      "role": "edi",
+      "turnIdx": 0,
+      "reportsPath": "reports/2026-05-12_nexus-tao-grading/edi_rev1.md",
+      "detectedAt": "2026-05-12T00:32:59.439Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-12_nexus-tao-grading/edi_rev1.md"
     }
   ],
   "tokenUsage": {
-    "input_tokens": 345,
-    "output_tokens": 75345,
-    "cache_creation_input_tokens": 461089,
-    "cache_read_input_tokens": 12355761,
-    "messageCount": 105,
-    "masterTurns": 22,
-    "total_billable": 12892540
+    "input_tokens": 235,
+    "output_tokens": 41356,
+    "cache_creation_input_tokens": 373126,
+    "cache_read_input_tokens": 8078887,
+    "messageCount": 93,
+    "masterTurns": 8,
+    "total_billable": 8493604
   },
   "versionBumpSuggested": {
     "value": 0.001,
     "type": "bugfix",
-    "reason": "버그·패치 자동 감지 (Grade C): 1건 (scripts/auto-push.js)",
-    "autoDetectedAt": "2026-05-12T00:04:26.315Z",
+    "reason": "버그·패치 자동 감지 (Grade C): 14건 (scripts/lib/nexus-turn-push.d.ts, scripts/lib/nexus-turn-push.d.ts.map, scripts/lib/nexus-turn-push.js …)",
+    "autoDetectedAt": "2026-05-12T00:33:47.924Z",
     "changedFiles": [
       "logs/hook-diagnostics.log",
       "logs/master-first.log",
+      "logs/pre-tool-use-task.log",
+      "logs/sage-gate.log",
       "memory/sessions/current_session.json",
       "memory/sessions/session_index.json",
       "memory/sessions/token_log.json",
       "memory/shared/pending_deferrals.json",
       "memory/shared/system_state.json",
       "memory/shared/topic_index.json",
-      "scripts/auto-push.js",
-      "topics/topic_201/"
+      "scripts/lib/nexus-turn-push.d.ts",
+      "scripts/lib/nexus-turn-push.d.ts.map",
+      "scripts/lib/nexus-turn-push.js",
+      "scripts/lib/nexus-turn-push.ts",
+      "scripts/lib/turn-types.d.ts",
+      "scripts/lib/turn-types.d.ts.map",
+      "scripts/lib/turn-types.js",
+      "scripts/lib/turn-types.ts",
+      "scripts/validate-session-turns.d.ts",
+      "scripts/validate-session-turns.d.ts.map"
     ],
-    "changedFilesCount": 10,
+    "changedFilesCount": 26,
     "cappedAt": 0.1,
     "confirmedBy": "nexus"
   },
   "versionBump": {
     "value": 0.001,
     "type": "bugfix",
-    "reason": "버그·패치 자동 감지 (Grade C): 1건 (scripts/auto-push.js)",
-    "from": "1.761",
-    "to": "1.762",
+    "reason": "버그·패치 자동 감지 (Grade C): 14건 (scripts/lib/nexus-turn-push.d.ts, scripts/lib/nexus-turn-push.d.ts.map, scripts/lib/nexus-turn-push.js …)",
+    "from": "1.762",
+    "to": "1.763",
     "confirmedBy": "nexus",
-    "confirmedAt": "2026-05-12T00:04:26.315Z",
-    "autoDetectedAt": "2026-05-12T00:04:26.315Z"
+    "confirmedAt": "2026-05-12T00:33:47.924Z",
+    "autoDetectedAt": "2026-05-12T00:33:47.924Z"
   },
-  "finalizedAt": "2026-05-12T00:04:26.354Z"
+  "finalizedAt": "2026-05-12T00:33:47.963Z"
 }

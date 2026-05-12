@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "1.762",
+    "version": "1.763",
     "versionSchema": {
       "format": "X.YYY (3자리 소수 float, 점 하나)",
       "incrementRules": {
@@ -433,8 +433,14 @@
       "date": "2026-05-12",
       "summary": "버그·패치 자동 감지 (Grade C): 1건 (scripts/auto-push.js)",
       "sessionId": "session_236"
+    },
+    {
+      "version": "1.763",
+      "date": "2026-05-12",
+      "summary": "버그·패치 자동 감지 (Grade C): 14건 (scripts/lib/nexus-turn-push.d.ts, scripts/lib/nexus-turn-push.d.ts.map, scripts/lib/nexus-turn-push.js …)",
+      "sessionId": "session_237"
     }
   ],
   "lastUpdated": "2026-05-12",
-  "version": "1.762"
+  "version": "1.763"
 }

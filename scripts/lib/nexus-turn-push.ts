@@ -20,6 +20,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { pendingTurnsPath } from './turn-push-mode';
+import type { TaoGrade } from './turn-types';
 
 const CWD = process.cwd();
 const DEFAULT_SESSION_PATH = path.join(CWD, 'memory', 'sessions', 'current_session.json');
@@ -42,6 +43,7 @@ export interface PendingTurnEntry {
   agentId: string | null;
   role: string;
   selfScores?: Record<string, unknown>;
+  tao?: TaoGrade;
   __hook_origin: string;
 }
 
@@ -50,6 +52,7 @@ export interface PushedTurn {
   turnIdx: number;
   source: 'agent';
   selfScores?: Record<string, unknown>;
+  tao?: TaoGrade;
   sort_key: number;
 }
 
@@ -89,6 +92,36 @@ export function extractSelfScoresFromContent(
     scores[key] = Number.isFinite(num) && /^-?\d/.test(valRaw) ? num : valRaw;
   }
   return Object.keys(scores).length > 0 ? scores : null;
+}
+
+// ─── extractTao (PD-082 / D-183) ──────────────────────────
+// 컨텐츠 내 `# tao` 블록에서 t/a/o 3축 등급을 파싱한다.
+// 형식 예: `# tao\nt: 4\na: 2\no: 5` 또는 한 줄 `# tao\nt:4 a:2 o:5`.
+// 범위 검증 실패 시 null. selfScores 패턴 재사용.
+
+export function extractTaoFromContent(
+  content: Array<{ type: string; text: string }> | undefined
+): TaoGrade | null {
+  if (!content) return null;
+  const text = content
+    .filter(c => c.type === 'text')
+    .map(c => c.text)
+    .join('\n');
+
+  const idx = text.lastIndexOf('# tao');
+  if (idx === -1) return null;
+
+  const block = text.slice(idx + '# tao'.length, idx + '# tao'.length + 200);
+  const tMatch = block.match(/\bt\s*:\s*([1-5])\b/);
+  const aMatch = block.match(/\ba\s*:\s*([0-4])\b/);
+  const oMatch = block.match(/\bo\s*:\s*([1-5])\b/);
+  if (!tMatch || !aMatch || !oMatch) return null;
+
+  return {
+    t: Number(tMatch[1]) as TaoGrade['t'],
+    a: Number(aMatch[1]) as TaoGrade['a'],
+    o: Number(oMatch[1]) as TaoGrade['o'],
+  };
 }
 
 // ─── pending_turns 읽기 ───────────────────────────────────
@@ -178,11 +211,23 @@ export async function pushTurnsFromPending(
       }
     }
 
+    // tao 결정: pending entry 우선, 없으면 content fallback
+    let tao: TaoGrade | undefined;
+    if (pendingEntry?.tao) {
+      tao = pendingEntry.tao;
+    } else if (toolResult?.content) {
+      const extracted = extractTaoFromContent(
+        toolResult.content as Array<{ type: string; text: string }>
+      );
+      if (extracted) tao = extracted;
+    }
+
     const turn: PushedTurn = {
       role,
       turnIdx,
       source: 'agent',
       ...(selfScores && { selfScores }),
+      ...(tao && { tao }),
       sort_key: dispatchOrder,
     };
 

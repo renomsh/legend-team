@@ -35,6 +35,20 @@ export const VALID_RECALL_REASONS: RecallReason[] = [
   'post-intervention', 'post-master', 'phase-transition', 'master-direct-nomination', 'manual',
 ];
 
+/**
+ * D-183 / D-184 / PD-082 — Truth/Authority/Origin 3축 등급.
+ * 핵심 단언(사실 주장·권고·결정)에 부착. 절차·질문·메타 발화는 면제.
+ * 범위: t 1-5, a 0-4, o 1-5. 시범 운영 단계 (D-184 baseline 측정 대상).
+ */
+export interface TaoGrade {
+  /** Truth: 1 추정 / 2 대화 맥락 / 3 문서·로그·파일 / 4 원문·라인·실행결과 / 5 독립 재현 */
+  t: 1 | 2 | 3 | 4 | 5;
+  /** Authority: 0 임시 / 1 1회성 / 2 반복·명시 / 3 Master 정책 / 4 박제됨 */
+  a: 0 | 1 | 2 | 3 | 4;
+  /** Origin: 1 출처 없음 / 2 Master 직접 / 3 현 세션 / 4 에이전트 산출물 / 5 로그·파일·ID 추적 */
+  o: 1 | 2 | 3 | 4 | 5;
+}
+
 export interface Turn {
   role: string;
   turnIdx: number;
@@ -45,6 +59,8 @@ export interface Turn {
   segments?: number;
   /** PD-052: Agent 툴 경유 마킹. post-tool-use-task.js가 'agent'로 박제. 없으면 legacy-unmarked. */
   source?: string;
+  /** PD-082 / D-183: T/A/O 3축 등급. optional — 부착 면제 발화 다수. */
+  tao?: TaoGrade;
 }
 
 /** role report frontmatter link 표준. */

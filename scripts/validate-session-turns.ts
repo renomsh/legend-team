@@ -106,6 +106,31 @@ export function validateTurns(
     if (turn.segments !== undefined && typeof turn.segments !== 'number') {
       result.warnings.push(`${prefix}: segments가 숫자가 아님`);
     }
+
+    // PD-082 / D-183: tao 3축 등급 범위 검증
+    if (turn.tao !== undefined) {
+      const tao = turn.tao as { t?: unknown; a?: unknown; o?: unknown };
+      if (tao === null || typeof tao !== 'object') {
+        result.errors.push(`${prefix}: tao가 객체가 아님`);
+        result.ok = false;
+      } else {
+        const t = tao.t;
+        const a = tao.a;
+        const o = tao.o;
+        if (typeof t !== 'number' || !Number.isInteger(t) || t < 1 || t > 5) {
+          result.errors.push(`${prefix}: tao.t 범위 위반 (1-5 정수): ${String(t)}`);
+          result.ok = false;
+        }
+        if (typeof a !== 'number' || !Number.isInteger(a) || a < 0 || a > 4) {
+          result.errors.push(`${prefix}: tao.a 범위 위반 (0-4 정수): ${String(a)}`);
+          result.ok = false;
+        }
+        if (typeof o !== 'number' || !Number.isInteger(o) || o < 1 || o > 5) {
+          result.errors.push(`${prefix}: tao.o 범위 위반 (1-5 정수): ${String(o)}`);
+          result.ok = false;
+        }
+      }
+    }
   });
 
   return result;
