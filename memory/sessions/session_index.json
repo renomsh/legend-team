@@ -11593,8 +11593,53 @@
       "decisionsAdded": [
         "D-187"
       ]
+    },
+    {
+      "sessionId": "session_240",
+      "topicSlug": "worktree-b-close-merge-conflict",
+      "topic": "워크트리 B 클로즈 머지 충돌 원인 분석",
+      "startedAt": "2026-05-12T05:00:00.000Z",
+      "closedAt": "2026-05-12T06:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\condescending-agnesi-684d4c",
+      "agentsCompleted": [
+        "zero",
+        "zero",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "zero",
+          "turnIdx": 0,
+          "source": "agent"
+        },
+        {
+          "role": "zero",
+          "turnIdx": 1,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 0,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 2,
+          "source": "agent",
+          "selfScores": {
+            "scc": "Y",
+            "art_cmp": 1,
+            "cs_cnt": 3,
+            "gap_fc": 1
+          }
+        }
+      ],
+      "grade": "B",
+      "note": "topic_203 재오픈 (구현 단계). D-187 A+B 6 phase 실행. | session_239 versionBumpSuggested 0.01 미확정 — 본 세션 종료 시 versionBump에 합산 검토",
+      "oneLineSummary": "D-187 A+B 구현 완료 — .githooks/pre-commit + .gitattributes(9종 merge=ours) + install 스크립트 + CLAUDE.md 박제. Test 1-4 PASS.",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-12T04:42:15.135Z",
+  "lastUpdated": "2026-05-12T05:03:34.317Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

@@ -1,31 +1,50 @@
 ---
 role: zero
-session: session_239
+session: session_240
 topic: topic_203
 topicSlug: worktree-b-close-merge-conflict
 date: 2026-05-12
 format: condensed
-turnId: 7
+turnId: 2
 invocationMode: subagent
+phase: condense-phaseA
 ---
 
-# Condensed — topic_203 워크트리 B 클로즈 머지 충돌 원인 분석
+# Condensed — session_240 (D-187 A+B 구현)
 
-**진짜 원인**: main 워킹디렉토리 직접 작업 패턴 누적(eb3aaa9·0b14144·b4ec123·8e496d8) → 워크트리 B 클로즈 시 9종 공유 자산 양방향 변경 충돌.
+**작업 본질**: session_239에서 채택된 D-187(A+B) 구현 세션. main 직커밋 차단 + worktree merge 자동 보호 hook 박제.
 
-**PD-073 무죄 확정**: in-process 통합(`runCloseInProcess`)은 본 충돌과 무관. Master 정정으로 확립.
+## 구현 산출물
 
-**채택 결정 (A+B)**:
-- **A**: pre-commit hook on main, `ALLOW_MAIN_COMMIT=1` 환경변수 우회. 일상적 main 직커밋 차단.
-- **B**: `.gitattributes` `merge=ours` 9종 적용(dist·settings.local·topic_index·decision_ledger·master_first_state·dashboard_data·current_session·token_log·self_scores).
+| 파일 | 역할 |
+|---|---|
+| `.githooks/pre-commit` | main 직커밋 차단 (`ALLOW_MAIN_COMMIT=1` 우회, 22줄 exec) |
+| `.gitattributes` | 보호 9종 `merge=ours` (dist·settings.local·topic_index·decision_ledger·master_first_state·dashboard_data·current_session·token_log·self_scores) |
+| `scripts/install-git-hooks.sh` | `core.hooksPath=.githooks` + `merge.ours.driver` setup, backup + restore.sh 자동 생성 |
+| `CLAUDE.md` | `## Worktree Merge Safety (D-187)` 섹션 추가 |
 
-**Phase 분해(Arki)**: 1) hook 스크립트 + ENV gate → 2) .gitattributes 9종 박제 → 3) ours driver 등록 → 4) 검증(dry-run 머지) → 5) 문서 박제 → 6) PD-086 분리 처리.
+설치 실행 → `backups/git-config-20260512-135548/` 백업 생성.
 
-**PD-086 분리**: hook의 main write 경로(②) 별도 토픽으로 격리. 본 세션 범위 외.
+## 실증 검증
+
+| Test | 결과 |
+|---|---|
+| 1. main 직커밋 차단 | PASS (1차 fail은 `.githooks` main 브랜치 미존재 원인 → b666f90 main fast-forward 후 재검증 통과) |
+| 2. `ALLOW_MAIN_COMMIT=1` 우회 | PASS |
+| 3. worktree merge `merge=ours` 9종 보호 | PASS |
+| 4. `restore.sh` 복구 | PASS |
+
+## 신규 결정/PD
+
+없음. D-187·PD-086은 session_239 박제분.
 
 ## 3 영역 정제
 
-본 세션 산출물은 PD 등록·보고서 박제 중심(코드 변경 0건). tech-debt / security-review / simplify 해당 없음 — **DEFER**.
+- **tech-debt**: `ALLOW_MAIN_COMMIT=1` 남용 가능성 monitor 후보 — 정량 근거 부재로 별도 PD 박제 안 함, 본 보고서 언급만.
+- **security-review**: DEFER (신규 hook code, hardcoded secret/credential 없음).
+- **simplify**: DEFER (22줄 pre-commit 이미 최소 형태).
+
+정제 처리 0건.
 
 [ROLE:zero]
 # self-scores

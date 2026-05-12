@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-12T04:42:16.043Z",
-  "totalSessions": 235,
+  "generatedAt": "2026-05-12T05:03:35.230Z",
+  "totalSessions": 236,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 235
+      "undefined": 236
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -319,15 +319,15 @@
     }
   ],
   "metrics": {
-    "avgMasterTurns": 21.89,
+    "avgMasterTurns": 21.83,
     "avgCacheHitRate": 0.9324,
-    "cacheSampleSize": 204,
-    "cacheSampleTotal": 235,
+    "cacheSampleSize": 205,
+    "cacheSampleTotal": 236,
     "avgAdoptionRate": 0,
     "totalDecisions": 188,
     "gradeDistribution": {
       "S": 110,
-      "A": 45,
+      "A": 46,
       "B": 50,
       "C": 30
     },
@@ -345,10 +345,10 @@
       "session_202"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 189,
-    "totalCostUSD": 2785.8455,
-    "avgCostPerSession": 12.3815,
-    "costSampleSize": 225,
+    "turnBasedSessions": 190,
+    "totalCostUSD": 2791.8265,
+    "avgCostPerSession": 12.3532,
+    "costSampleSize": 226,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -9249,8 +9249,8 @@
       ],
       "rolesCalled": 10,
       "rolesRecalled": 4,
-      "sessionsSpanned": 1,
-      "size": 23,
+      "sessionsSpanned": 2,
+      "size": 26,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -9280,12 +9280,47 @@
         "messageCount": 127
       },
       "sessionCostUSD": 9.9872
+    },
+    {
+      "sessionId": "session_240",
+      "topicSlug": "worktree-b-close-merge-conflict",
+      "topic": "워크트리 B 클로즈 머지 충돌 원인 분석",
+      "startedAt": "2026-05-12T05:00:00.000Z",
+      "closedAt": "2026-05-12T06:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 3,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 2,
+      "size": 11,
+      "gradeDeclared": "A",
+      "gradeActual": "A",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 8,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "zero",
+        "zero",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 10070886,
+        "ioTokens": 81481,
+        "inputTokens": 27224,
+        "outputTokens": 54257,
+        "cacheCreate": 605420,
+        "cacheRead": 9383985,
+        "cacheHitRate": 0.9317933893800406,
+        "messageCount": 107
+      },
+      "sessionCostUSD": 5.981
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 214,
+      "count": 215,
       "sessions": [
         "session_050",
         "session_051",
@@ -9472,7 +9507,8 @@
         "session_236",
         "session_237",
         "session_238",
-        "session_239"
+        "session_239",
+        "session_240"
       ]
     },
     {
@@ -9882,7 +9918,7 @@
     },
     {
       "role": "zero",
-      "count": 49,
+      "count": 51,
       "sessions": [
         "session_153",
         "session_175",
@@ -9917,7 +9953,8 @@
         "session_234",
         "session_235",
         "session_238",
-        "session_239"
+        "session_239",
+        "session_240"
       ]
     },
     {
@@ -16944,6 +16981,30 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 9,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_240",
+      "topic": "워크트리 B 클로즈 머지 충돌 원인 분석",
+      "sequence": [
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 2,
           "recallReason": null
         }
       ]
