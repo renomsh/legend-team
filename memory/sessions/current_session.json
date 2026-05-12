@@ -1,12 +1,12 @@
 {
-  "sessionId": "session_237",
-  "topicId": "topic_200",
-  "topic": "PD-082 T/A/O Turn.tao optional 필드 구현",
-  "topicSlug": "nexus-tao-grading",
-  "reportPath": "reports/2026-05-12_nexus-tao-grading",
-  "startedAt": "2026-05-12T00:35:00.000Z",
+  "sessionId": "session_238",
+  "topicId": "topic_202",
+  "topic": "Nexus fabrication 방지 — D-180 확장 (읽을 범위 게이트 + 반례 탐색)",
+  "topicSlug": "nexus-fabrication-prevent",
+  "reportPath": "reports/2026-05-12_nexus-fabrication-prevent",
+  "startedAt": "2026-05-12T01:00:00.000Z",
   "mode": "observation",
-  "grade": "C",
+  "grade": "B",
   "topicType": "standalone",
   "operationType": "structured",
   "phase": "framing",
@@ -14,95 +14,194 @@
   "framingSkipped": true,
   "turns": [
     {
-      "role": "edi",
+      "role": "ace",
       "turnIdx": 0,
       "source": "agent",
       "selfScores": {
+        "rfrm_trg": "Y",
+        "ctx_car": 4,
+        "mst_fr": 0,
+        "ang_nov": 3
+      }
+    },
+    {
+      "role": "jobs",
+      "turnIdx": 1,
+      "source": "agent",
+      "selfScores": {
+        "focus_sharp": 5,
+        "bloat_idx": 1,
+        "bias_cnt": 5,
+        "no_cnt": 4
+      }
+    },
+    {
+      "role": "arki",
+      "turnIdx": 2,
+      "source": "agent",
+      "selfScores": {
+        "aud_rcl": 0.8,
+        "str_fd": 2,
+        "spc_lck": "Y",
+        "sa_rnd": 1
+      }
+    },
+    {
+      "role": "riki",
+      "turnIdx": 3,
+      "source": "agent",
+      "selfScores": {
+        "crt_rcl": 1,
+        "cr_val": "Y",
+        "prd_rej": "N",
+        "fp_rt": 0
+      }
+    },
+    {
+      "role": "ace",
+      "turnIdx": 4,
+      "source": "agent",
+      "selfScores": {
+        "rfrm_trg": "N",
+        "ctx_car": 5,
+        "mst_fr": 0,
+        "ang_nov": 3
+      }
+    },
+    {
+      "role": "jobs",
+      "turnIdx": 5,
+      "source": "agent",
+      "selfScores": {
+        "focus_sharp": 5,
+        "bloat_idx": 1,
+        "bias_cnt": 4,
+        "no_cnt": 4
+      }
+    },
+    {
+      "role": "zero",
+      "turnIdx": 6,
+      "source": "agent",
+      "selfScores": {
+        "ref_cnt": 1,
+        "hc_found": 0,
+        "cln_rt": 1
+      }
+    },
+    {
+      "role": "edi",
+      "turnIdx": 7,
+      "source": "agent",
+      "selfScores": {
         "scc": "Y",
-        "cs_cnt": 3,
-        "art_cmp": 1
+        "cs_cnt": 4,
+        "art_cmp": 1,
+        "gap_fc": 3
       }
     }
   ],
-  "decisions": [],
-  "masterDecisions": [],
-  "decisionsAdded": [],
-  "masterFeedback": [],
-  "pendingDeferralsAdded": [],
+  "decisions": [
+    "D-185"
+  ],
+  "masterDecisions": [
+    "D-185"
+  ],
+  "decisionsAdded": [
+    "D-185"
+  ],
+  "masterFeedback": [
+    "MF-123"
+  ],
+  "pendingDeferralsAdded": [
+    "PD-085"
+  ],
   "pendingDeferralsResolved": [
-    "PD-082"
+    "PD-080"
   ],
   "pendingDeferralsTransitioned": [],
-  "openMasterAlerts": [],
+  "openMasterAlerts": [
+    {
+      "severity": "high",
+      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.1)",
+      "addedBy": "checkVersionBumpConfirmation",
+      "ref": "D-140"
+    }
+  ],
   "agentsCompleted": [
+    "ace",
+    "jobs",
+    "arki",
+    "riki",
+    "ace",
+    "jobs",
+    "zero",
     "edi"
   ],
   "status": "closed",
-  "closedAt": "2026-05-12T00:45:00.000Z",
-  "oneLineSummary": "PD-082 구현 완료: Turn.tao optional 필드 + nexus-turn-push 자동 부착 + validate 범위 검증. tsc·negative·extract 테스트 모두 통과.",
+  "closedAt": "2026-05-12T02:30:00.000Z",
+  "oneLineSummary": "PD-080 resolved (hook condensed.md 인식 추가) + D-185 박제 (Nexus fabrication 방지 A+C). PD-085 added.",
   "notes": [
-    "topic_200 재오픈 — PD-082 구현 (Turn.tao optional 필드)",
-    "테스트 파일 2개 회귀용 보존: scripts/test-tao-validation.ts, scripts/test-tao-extract.ts"
+    "원래 /open B PD-80 (hook 면제 분기) 의도였으나 Nexus fabrication 발견(Riki 감사 단언2·3 허위) → 방향 전환. PD-80은 보류.",
+    "Master 지시 'A+C 조합으로 지금 반영해' → CLAUDE.md D-180 확장 edit 완료 (session_238 박제 대상)"
   ],
   "gaps": [
     {
       "type": "frontmatter-patch-failed",
-      "role": "edi",
-      "turnIdx": 0,
-      "reportsPath": "reports/2026-05-12_nexus-tao-grading/edi_rev1.md",
-      "detectedAt": "2026-05-12T00:32:59.439Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-12_nexus-tao-grading/edi_rev1.md"
+      "role": "zero",
+      "turnIdx": 6,
+      "reportsPath": "`reports/2026-05-12_nexus-fabrication-prevent/condensed.md`",
+      "detectedAt": "2026-05-12T02:06:02.428Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-12_nexus-fabrication-prevent/condensed.md`"
+    },
+    {
+      "type": "version-bump-edi-unconfirmed",
+      "severity": "high",
+      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
+      "addedBy": "checkVersionBumpConfirmation",
+      "ref": "D-140",
+      "suggestedValue": 0.1
     }
   ],
   "tokenUsage": {
-    "input_tokens": 235,
-    "output_tokens": 41356,
-    "cache_creation_input_tokens": 373126,
-    "cache_read_input_tokens": 8078887,
-    "messageCount": 93,
-    "masterTurns": 8,
-    "total_billable": 8493604
+    "input_tokens": 389,
+    "output_tokens": 119508,
+    "cache_creation_input_tokens": 309469,
+    "cache_read_input_tokens": 16175886,
+    "messageCount": 133,
+    "masterTurns": 23,
+    "total_billable": 16605252
   },
   "versionBumpSuggested": {
-    "value": 0.001,
-    "type": "bugfix",
-    "reason": "버그·패치 자동 감지 (Grade C): 14건 (scripts/lib/nexus-turn-push.d.ts, scripts/lib/nexus-turn-push.d.ts.map, scripts/lib/nexus-turn-push.js …)",
-    "autoDetectedAt": "2026-05-12T00:33:47.924Z",
+    "value": 0.1,
+    "type": "structural",
+    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 1건 (CLAUDE.md)",
+    "autoDetectedAt": "2026-05-12T02:08:21.072Z",
     "changedFiles": [
+      ".claude/hooks/post-tool-use-task.js",
+      ".claude/settings.local.json",
+      "CLAUDE.md",
       "logs/hook-diagnostics.log",
+      "logs/master-first-audit.md",
       "logs/master-first.log",
       "logs/pre-tool-use-task.log",
       "logs/sage-gate.log",
+      "memory/master/master_feedback_log.json",
       "memory/sessions/current_session.json",
       "memory/sessions/session_index.json",
       "memory/sessions/token_log.json",
+      "memory/shared/decision_ledger.json",
+      "memory/shared/master_first_state.json",
       "memory/shared/pending_deferrals.json",
       "memory/shared/system_state.json",
       "memory/shared/topic_index.json",
-      "scripts/lib/nexus-turn-push.d.ts",
-      "scripts/lib/nexus-turn-push.d.ts.map",
-      "scripts/lib/nexus-turn-push.js",
-      "scripts/lib/nexus-turn-push.ts",
-      "scripts/lib/turn-types.d.ts",
-      "scripts/lib/turn-types.d.ts.map",
-      "scripts/lib/turn-types.js",
-      "scripts/lib/turn-types.ts",
-      "scripts/validate-session-turns.d.ts",
-      "scripts/validate-session-turns.d.ts.map"
+      "reports/2026-05-12_nexus-fabrication-prevent/",
+      "reports/2026-05-12_pd-080-zero-marker-fp/",
+      "scripts/test-pd80-fix.js"
     ],
-    "changedFilesCount": 26,
+    "changedFilesCount": 22,
     "cappedAt": 0.1,
-    "confirmedBy": "nexus"
+    "confirmedBy": null
   },
-  "versionBump": {
-    "value": 0.001,
-    "type": "bugfix",
-    "reason": "버그·패치 자동 감지 (Grade C): 14건 (scripts/lib/nexus-turn-push.d.ts, scripts/lib/nexus-turn-push.d.ts.map, scripts/lib/nexus-turn-push.js …)",
-    "from": "1.762",
-    "to": "1.763",
-    "confirmedBy": "nexus",
-    "confirmedAt": "2026-05-12T00:33:47.924Z",
-    "autoDetectedAt": "2026-05-12T00:33:47.924Z"
-  },
-  "finalizedAt": "2026-05-12T00:33:47.963Z"
+  "finalizedAt": "2026-05-12T02:08:21.103Z"
 }

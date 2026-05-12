@@ -1,6 +1,23 @@
 {
   "topics": [
     {
+      "id": "topic_202",
+      "title": "Nexus fabrication 방지 — D-180 확장 (읽을 범위 게이트 + 반례 탐색)",
+      "status": "completed",
+      "phase": "framing",
+      "hold": null,
+      "created": "2026-05-12",
+      "controlPath": "topics/topic_202",
+      "reportPath": "reports/2026-05-12_nexus-fabrication-prevent",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_238",
+      "path": "topics/topic_202",
+      "grade": "B",
+      "topicType": "standalone",
+      "lastUpdated": "2026-05-12"
+    },
+    {
       "id": "topic_201",
       "title": "PD-081 auto-push 순서 꼬임 해결 대안 검토",
       "status": "open",
@@ -3784,5 +3801,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-12T00:33:47.404Z"
+  "lastUpdated": "2026-05-12T02:08:20.729Z"
 }

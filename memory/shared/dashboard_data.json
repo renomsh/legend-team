@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-12T00:33:48.193Z",
-  "totalSessions": 233,
+  "generatedAt": "2026-05-12T02:08:21.304Z",
+  "totalSessions": 234,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 233
+      "undefined": 234
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -232,10 +232,13 @@
       "createdAt": "2026-05-11",
       "title": "Hook 인식 확장 — Zero D.Condense gate 산출물(condensed.md)",
       "item": "Zero D.Condense gate 산출물은 일반 역할 발언과 달리 <role>_rev<N>.md 대신 condensed.md 단일 파일. (a) PostToolUse hook(frontmatter-patch)이 condensed.md를 인식하지 못해 turnId frontmatter 패치 실패 박제 (b) finalize hook의 missing-report 검사가 zero turn 후 zero_rev*.md 부재를 gap으로 박제 — D.Condense gate는 면제 처리 필요. session_234 turn3에서 발견(gaps 2건). 옵션 (b) 채택: hook 코드 수정으로 condensed.md 표준 인정 + D.Condense gate 면제 분기 추가.",
-      "status": "pending",
+      "status": "resolved",
       "relatedDecisions": [],
       "dependsOn": [],
-      "relatedTopic": "topic_197"
+      "relatedTopic": "topic_197",
+      "resolvedAt": "2026-05-12",
+      "resolvedBy": "session_238",
+      "resolveNote": "post-tool-use-task.js 2곳 수정 — frontmatter-patch + missing-report 검사에 _zero_condense.json 마커 인식 분기 추가. scripts/test-pd80-fix.js 4건 PASS (session_234 실측 산출물 대상)."
     },
     {
       "id": "PD-082",
@@ -287,17 +290,30 @@
         "PD-082"
       ],
       "relatedTopic": "topic_200"
+    },
+    {
+      "id": "PD-085",
+      "fromSession": "session_238",
+      "fromTopic": "topic_202",
+      "createdAt": "2026-05-12",
+      "title": "Tech debt — post-tool-use hook 인라인 마커 검증 SOT 일관화",
+      "item": "post-tool-use-task.js가 _zero_condense.json 마커를 인라인 fs.readFileSync + JSON.parse로 read (line ~442, ~510). pre-tool-use-task.js는 scripts/lib/zero-condense-marker.js의 readAndValidateMarker 헬퍼 사용 (SOT). 헬퍼는 legacy 키(marker.session vs marker.sessionId) fallback 포함, post-tool-use 인라인은 marker.sessionId만 검사. legacy 마커 1건 실측 (reports/2026-05-05_self-score-table-format-unify/_zero_condense.json). 향후 legacy 마커 증가 시 false-positive 가능. 단, 회귀 테스트(scripts/test-pd80-fix.js)로 현재 안전. 헬퍼 치환 시 files.includes(fileName) 검증 인라인 보존 필수 (Riki 적출 — 헬퍼는 sessionId·completedAt만, files 검증 caller 책임).",
+      "status": "pending",
+      "relatedDecisions": [],
+      "dependsOn": [],
+      "relatedTopic": "topic_202",
+      "resolveCondition": "post-tool-use-task.js 두 인라인 read를 readAndValidateMarker 호출로 치환 + files.includes 인라인 보존 + scripts/test-pd80-fix.js 재실행 4건 PASS 유지"
     }
   ],
   "metrics": {
     "avgMasterTurns": 21.89,
-    "avgCacheHitRate": 0.9321,
-    "cacheSampleSize": 202,
-    "cacheSampleTotal": 233,
+    "avgCacheHitRate": 0.9323,
+    "cacheSampleSize": 203,
+    "cacheSampleTotal": 234,
     "avgAdoptionRate": 0,
-    "totalDecisions": 186,
+    "totalDecisions": 187,
     "gradeDistribution": {
-      "S": 108,
+      "S": 109,
       "A": 45,
       "B": 50,
       "C": 30
@@ -305,7 +321,7 @@
     "topicGradeDistribution": {
       "S": 21,
       "A": 64,
-      "B": 61,
+      "B": 62,
       "C": 49
     },
     "gradeMismatchCount": 4,
@@ -316,10 +332,10 @@
       "session_202"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 187,
-    "totalCostUSD": 2768.0512,
-    "avgCostPerSession": 12.4128,
-    "costSampleSize": 223,
+    "turnBasedSessions": 188,
+    "totalCostUSD": 2775.8583,
+    "avgCostPerSession": 12.3922,
+    "costSampleSize": 224,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -9163,12 +9179,55 @@
         "messageCount": 93
       },
       "sessionCostUSD": 4.4439
+    },
+    {
+      "sessionId": "session_238",
+      "topicSlug": "nexus-fabrication-prevent",
+      "topic": "Nexus fabrication 방지 — D-180 확장 (읽을 범위 게이트 + 반례 탐색)",
+      "startedAt": "2026-05-12T01:00:00.000Z",
+      "closedAt": "2026-05-12T02:30:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-185"
+      ],
+      "rolesCalled": 8,
+      "rolesRecalled": 2,
+      "sessionsSpanned": 1,
+      "size": 17,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 23,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "ace",
+        "jobs",
+        "arki",
+        "riki",
+        "ace",
+        "jobs",
+        "zero",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 16605252,
+        "ioTokens": 119897,
+        "inputTokens": 389,
+        "outputTokens": 119508,
+        "cacheCreate": 309469,
+        "cacheRead": 16175886,
+        "cacheHitRate": 0.9741427591704118,
+        "messageCount": 133
+      },
+      "sessionCostUSD": 7.8071
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 211,
+      "count": 212,
       "sessions": [
         "session_050",
         "session_051",
@@ -9353,12 +9412,13 @@
         "session_234",
         "session_235",
         "session_236",
-        "session_237"
+        "session_237",
+        "session_238"
       ]
     },
     {
       "role": "ace",
-      "count": 185,
+      "count": 187,
       "sessions": [
         "session_047",
         "session_048",
@@ -9455,12 +9515,13 @@
         "session_208",
         "session_216",
         "session_224",
-        "session_235"
+        "session_235",
+        "session_238"
       ]
     },
     {
       "role": "arki",
-      "count": 162,
+      "count": 163,
       "sessions": [
         "session_048",
         "session_049",
@@ -9553,7 +9614,8 @@
         "session_232",
         "session_233",
         "session_234",
-        "session_235"
+        "session_235",
+        "session_238"
       ]
     },
     {
@@ -9660,7 +9722,7 @@
     },
     {
       "role": "riki",
-      "count": 124,
+      "count": 125,
       "sessions": [
         "session_049",
         "session_053",
@@ -9752,12 +9814,13 @@
         "session_232",
         "session_233",
         "session_234",
-        "session_235"
+        "session_235",
+        "session_238"
       ]
     },
     {
       "role": "zero",
-      "count": 47,
+      "count": 48,
       "sessions": [
         "session_153",
         "session_175",
@@ -9790,7 +9853,34 @@
         "session_232",
         "session_233",
         "session_234",
-        "session_235"
+        "session_235",
+        "session_238"
+      ]
+    },
+    {
+      "role": "jobs",
+      "count": 32,
+      "sessions": [
+        "session_151",
+        "session_152",
+        "session_153",
+        "session_156",
+        "session_163",
+        "session_167",
+        "session_173",
+        "session_174",
+        "session_175",
+        "session_178",
+        "session_181",
+        "session_191",
+        "session_192",
+        "session_193",
+        "session_196",
+        "session_205",
+        "session_208",
+        "session_216",
+        "session_224",
+        "session_238"
       ]
     },
     {
@@ -9823,31 +9913,6 @@
         "session_173",
         "session_196",
         "session_205",
-        "session_224"
-      ]
-    },
-    {
-      "role": "jobs",
-      "count": 30,
-      "sessions": [
-        "session_151",
-        "session_152",
-        "session_153",
-        "session_156",
-        "session_163",
-        "session_167",
-        "session_173",
-        "session_174",
-        "session_175",
-        "session_178",
-        "session_181",
-        "session_191",
-        "session_192",
-        "session_193",
-        "session_196",
-        "session_205",
-        "session_208",
-        "session_216",
         "session_224"
       ]
     },
@@ -16698,6 +16763,60 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_238",
+      "topic": "Nexus fabrication 방지 — D-180 확장 (읽을 범위 게이트 + 반례 탐색)",
+      "sequence": [
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "jobs",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "jobs",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 6,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 7,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -16908,6 +17027,11 @@
           "date": "2026-05-10",
           "feedbackId": "MF-119",
           "summary": "Nexus는 과제 본질이 불명확할 때 Master가 별도 설명 안 해도 능동적으로 질문해야 함. 추정으로 오"
+        },
+        {
+          "date": "2026-05-12",
+          "feedbackId": "MF-123",
+          "summary": "헬퍼 치환을 MUST_NOW로 권고했으나 Master가 PD-80 5분 버그 scope 외로 판정 — Job"
         }
       ]
     },

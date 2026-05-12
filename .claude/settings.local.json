@@ -64,7 +64,8 @@
       "Read(//c/Projects/legend-team/topics/topic_131//**)",
       "Read(//c/Projects/legend-team/memory/sessions/**)",
       "Bash(node scripts/auto-push.js \"session end: big-bang-legend-nexus-p1\")",
-      "Bash(python3 -c ' *)"
+      "Bash(python3 -c ' *)",
+      "Bash(awk -F: '{print $2\":\"$3}')"
     ],
     "defaultMode": "bypassPermissions"
   }

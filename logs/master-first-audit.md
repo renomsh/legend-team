@@ -31,3 +31,6 @@ c는 default =  |
 /close |
 | 2026-05-11 13:44:34 | ef54a436-fd76-4e56-b5ba-0c770f2f1939 | Agent | echo-trigger | `OK, ok` | OK. 
 /close |
+| 2026-05-12 01:40:44 | 0ce44e6b-90cf-4ef4-a51b-d15b76f85d03 | UserPromptSubmit | echo-trigger | `OK, ok` | D-80 원문제: hook이 condensed.md 인식 못함 → 5분 운영 버그부터 진행 |
+| 2026-05-12 01:45:52 | 0ce44e6b-90cf-4ef4-a51b-d15b76f85d03 | UserPromptSubmit | echo-trigger | `좋아` | 좋아. 내 용어가 혼동 되었던것 인정하고.
+아키 먼저 검토부터해. |

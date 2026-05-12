@@ -11349,8 +11349,124 @@
       "note": "topic_200 재오픈 — PD-082 구현 (Turn.tao optional 필드) | 테스트 파일 2개 회귀용 보존: scripts/test-tao-validation.ts, scripts/test-tao-extract.ts",
       "oneLineSummary": "PD-082 구현 완료: Turn.tao optional 필드 + nexus-turn-push 자동 부착 + validate 범위 검증. tsc·negative·extract 테스트 모두 통과.",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_238",
+      "topicSlug": "nexus-fabrication-prevent",
+      "topic": "Nexus fabrication 방지 — D-180 확장 (읽을 범위 게이트 + 반례 탐색)",
+      "startedAt": "2026-05-12T01:00:00.000Z",
+      "closedAt": "2026-05-12T02:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\jovial-elgamal-67fb66",
+      "decisions": [
+        "D-185"
+      ],
+      "agentsCompleted": [
+        "ace",
+        "jobs",
+        "arki",
+        "riki",
+        "ace",
+        "jobs",
+        "zero",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "ace",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "rfrm_trg": "Y",
+            "ctx_car": 4,
+            "mst_fr": 0,
+            "ang_nov": 3
+          }
+        },
+        {
+          "role": "jobs",
+          "turnIdx": 1,
+          "source": "agent",
+          "selfScores": {
+            "focus_sharp": 5,
+            "bloat_idx": 1,
+            "bias_cnt": 5,
+            "no_cnt": 4
+          }
+        },
+        {
+          "role": "arki",
+          "turnIdx": 2,
+          "source": "agent",
+          "selfScores": {
+            "aud_rcl": 0.8,
+            "str_fd": 2,
+            "spc_lck": "Y",
+            "sa_rnd": 1
+          }
+        },
+        {
+          "role": "riki",
+          "turnIdx": 3,
+          "source": "agent",
+          "selfScores": {
+            "crt_rcl": 1,
+            "cr_val": "Y",
+            "prd_rej": "N",
+            "fp_rt": 0
+          }
+        },
+        {
+          "role": "ace",
+          "turnIdx": 4,
+          "source": "agent",
+          "selfScores": {
+            "rfrm_trg": "N",
+            "ctx_car": 5,
+            "mst_fr": 0,
+            "ang_nov": 3
+          }
+        },
+        {
+          "role": "jobs",
+          "turnIdx": 5,
+          "source": "agent",
+          "selfScores": {
+            "focus_sharp": 5,
+            "bloat_idx": 1,
+            "bias_cnt": 4,
+            "no_cnt": 4
+          }
+        },
+        {
+          "role": "zero",
+          "turnIdx": 6,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 1,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 7,
+          "source": "agent",
+          "selfScores": {
+            "scc": "Y",
+            "cs_cnt": 4,
+            "art_cmp": 1,
+            "gap_fc": 3
+          }
+        }
+      ],
+      "grade": "B",
+      "note": "원래 /open B PD-80 (hook 면제 분기) 의도였으나 Nexus fabrication 발견(Riki 감사 단언2·3 허위) → 방향 전환. PD-80은 보류. | Master 지시 'A+C 조합으로 지금 반영해' → CLAUDE.md D-180 확장 edit 완료 (session_238 박제 대상)",
+      "oneLineSummary": "PD-080 resolved (hook condensed.md 인식 추가) + D-185 박제 (Nexus fabrication 방지 A+C). PD-085 added.",
+      "decisionsAdded": [
+        "D-185"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-12T00:33:47.234Z",
+  "lastUpdated": "2026-05-12T02:08:20.587Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

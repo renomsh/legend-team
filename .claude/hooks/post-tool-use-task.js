@@ -431,29 +431,48 @@ function spikeLog(phase, extra = {}) {
       const reportsPath = extractReportsPath(input.tool_response || input.toolResponse);
 
       // frontmatter turnId 패치 — D-067/PD-055 (session_178)
+      // PD-80 (session_238): Zero D.Condense 산출물(condensed.md 등)은 _zero_condense.json 마커로 식별, 패치 우회
       if (reportsPath) {
         const absReportPath = path.isAbsolute(reportsPath)
           ? reportsPath
           : path.join(cwd, reportsPath);
-        const patched = patchFrontmatterTurnId(absReportPath, _turnIdx);
-        if (patched) {
-          log(`frontmatter turnId 패치: ${reportsPath} → turnId: ${_turnIdx}`);
+
+        let isZeroCondenseOutput = false;
+        try {
+          const markerPath = path.join(path.dirname(absReportPath), '_zero_condense.json');
+          if (fs.existsSync(markerPath)) {
+            const marker = JSON.parse(fs.readFileSync(markerPath, 'utf8'));
+            const fileName = path.basename(absReportPath);
+            if (marker && marker.sessionId === _sessionId &&
+                Array.isArray(marker.files) && marker.files.includes(fileName)) {
+              isZeroCondenseOutput = true;
+            }
+          }
+        } catch {}
+
+        if (isZeroCondenseOutput) {
+          log(`frontmatter patch skip (Zero D.Condense output, marker-verified): ${reportsPath}`);
         } else {
-          sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
-          const alreadyRecorded = sess.gaps.some(
-            g => g.type === 'frontmatter-patch-failed' && g.role === role && g.turnIdx === _turnIdx
-          );
-          if (!alreadyRecorded) {
-            sess.gaps.push({
-              type: 'frontmatter-patch-failed',
-              role,
-              turnIdx: _turnIdx,
-              reportsPath,
-              detectedAt: new Date().toISOString(),
-              note: `frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: ${reportsPath}`,
-            });
-            writeJsonFile(currentSessionPath, sess);
-            log(`⚠ frontmatter-patch-failed gap 기록: ${role} turn${_turnIdx} (${reportsPath})`);
+          const patched = patchFrontmatterTurnId(absReportPath, _turnIdx);
+          if (patched) {
+            log(`frontmatter turnId 패치: ${reportsPath} → turnId: ${_turnIdx}`);
+          } else {
+            sess.gaps = Array.isArray(sess.gaps) ? sess.gaps : [];
+            const alreadyRecorded = sess.gaps.some(
+              g => g.type === 'frontmatter-patch-failed' && g.role === role && g.turnIdx === _turnIdx
+            );
+            if (!alreadyRecorded) {
+              sess.gaps.push({
+                type: 'frontmatter-patch-failed',
+                role,
+                turnIdx: _turnIdx,
+                reportsPath,
+                detectedAt: new Date().toISOString(),
+                note: `frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: ${reportsPath}`,
+              });
+              writeJsonFile(currentSessionPath, sess);
+              log(`⚠ frontmatter-patch-failed gap 기록: ${role} turn${_turnIdx} (${reportsPath})`);
+            }
           }
         }
       }
@@ -475,6 +494,7 @@ function spikeLog(phase, extra = {}) {
     // Item 3 (2026-04-28) — 보고서 파일 존재 검증 (silent fail 감지)
     // 에이전트가 발언 후 reports/{role}_rev{n}.md를 쓰지 않으면 다음 에이전트에게 내용 미전달.
     // 차단은 하지 않되 current_session.json.gaps에 경고 기록.
+    // PD-80 (session_238): Zero D.Condense 게이트는 condensed.md 단일 파일 산출 → _zero_condense.json 마커로 검증.
     const reportPath = sess.reportPath;
     if (reportPath && role && role !== 'unknown') {
       const reportsDir = path.join(cwd, reportPath);
@@ -482,7 +502,29 @@ function spikeLog(phase, extra = {}) {
         let hasReport = false;
         try {
           const files = fs.readdirSync(reportsDir);
-          hasReport = files.some(f => f.startsWith(`${role}_rev`) && f.endsWith('.md'));
+          if (role === 'zero') {
+            // Zero D.Condense: _zero_condense.json 마커 우선 인식. sessionId 일치 + files 등록 확인.
+            const markerPath = path.join(reportsDir, '_zero_condense.json');
+            if (fs.existsSync(markerPath)) {
+              try {
+                const marker = JSON.parse(fs.readFileSync(markerPath, 'utf8'));
+                if (marker && marker.sessionId === _sessionId &&
+                    Array.isArray(marker.files) && marker.files.length > 0 &&
+                    marker.files.every(f => files.includes(f))) {
+                  hasReport = true;
+                }
+              } catch {}
+            }
+            // Fallback: zero_rev*.md (Zero 일반 발언 경로) 또는 condensed.md (마커 없는 D.Condense)
+            if (!hasReport) {
+              hasReport = files.some(f =>
+                (f.startsWith('zero_rev') && f.endsWith('.md')) ||
+                f === 'condensed.md' || f === 'zero_condensed.md'
+              );
+            }
+          } else {
+            hasReport = files.some(f => f.startsWith(`${role}_rev`) && f.endsWith('.md'));
+          }
         } catch {}
         if (!hasReport) {
           // 보고서 없음 → gaps 기록

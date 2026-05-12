@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_237",
-  "nextSessionId": "session_238",
+  "lastSessionId": "session_238",
+  "nextSessionId": "session_239",
   "currentVersion": "v1.763",
   "openTopics": [
     {
@@ -19,6 +19,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-185",
+      "date": "2026-05-12",
+      "axis": "Nexus fabrication 방지 — D-180 확장 (읽을 범위 게이트 + 반례 탐색)",
+      "summary": "Nexus fabrication 방지 — D-180 확장 (읽을 범위 게이트 + 반례 탐색)"
+    },
     {
       "id": "D-184",
       "date": "2026-05-11",
@@ -42,15 +48,18 @@
       "date": "2026-05-10",
       "axis": "Nexus 실행 전 질문 원칙",
       "summary": "Nexus 실행 전 질문 원칙"
-    },
-    {
-      "id": "D-179",
-      "date": "2026-05-10",
-      "axis": "MEMORY 13건 archive 일괄 (session_233)",
-      "summary": "MEMORY 13건 archive 일괄 (session_233)"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_238",
+      "topicSlug": "nexus-fabrication-prevent",
+      "closedAt": "2026-05-12T02:30:00.000Z",
+      "oneLineSummary": "PD-080 resolved (hook condensed.md 인식 추가) + D-185 박제 (Nexus fabrication 방지 A+C). PD-085 added.",
+      "decisionsAdded": [
+        "D-185"
+      ]
+    },
     {
       "sessionId": "session_237",
       "topicSlug": "nexus-tao-grading",
@@ -64,16 +73,6 @@
       "closedAt": "2026-05-12T00:30:00.000Z",
       "oneLineSummary": "PD-081 resolved (D-2): main repo의 .claude sync commit 제거 — main 분기 차단, ff-only 머지 가능. syncClaudeDir 파일 복사는 유지. PD 원문 '중간 push'는 session_231 사후 follow-up commit 오기록으로 확인.",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_235",
-      "topicSlug": "nexus-tao-grading",
-      "closedAt": "2026-05-11T23:20:00.000Z",
-      "oneLineSummary": "T/A/O 3축 등급 schema(D-183) + 보강 D-184(존대말·baseline·자연분포) 박제. PD-082/083/084 등록(Turn.tao·등급상한·종료조건). 시범 운영 단계.",
-      "decisionsAdded": [
-        "D-183",
-        "D-184"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -120,18 +119,6 @@
       "status": "pending"
     },
     {
-      "id": "PD-080",
-      "fromSession": "session_234",
-      "fromTopic": "pd-069-parallel-session",
-      "createdAt": "2026-05-11",
-      "title": "Hook 인식 확장 — Zero D.Condense gate 산출물(condensed.md)",
-      "item": "Zero D.Condense gate 산출물은 일반 역할 발언과 달리 <role>_rev<N>.md 대신 condensed.md 단일 파일. (a) PostToolUse hook(frontmatter-patch)이 condensed.md를 인식하지 못해 turnId frontmatter 패치 실패 박제 (b) finalize hook의 missing-report 검사가 zero turn 후 zero_rev*.md 부재를 gap으로 박제 — D.Condense gate는 면제 처리 필요. session_234 turn3에서 발견(gaps 2건). 옵션 (b) 채택: hook 코드 수정으로 condensed.md 표준 인정 + D.Condense gate 면제 분기 추가.",
-      "status": "pending",
-      "relatedDecisions": [],
-      "dependsOn": [],
-      "relatedTopic": "topic_197"
-    },
-    {
       "id": "PD-083",
       "fromSession": "session_235",
       "fromTopic": "nexus-tao-grading",
@@ -164,7 +151,20 @@
         "PD-082"
       ],
       "relatedTopic": "topic_200"
+    },
+    {
+      "id": "PD-085",
+      "fromSession": "session_238",
+      "fromTopic": "topic_202",
+      "createdAt": "2026-05-12",
+      "title": "Tech debt — post-tool-use hook 인라인 마커 검증 SOT 일관화",
+      "item": "post-tool-use-task.js가 _zero_condense.json 마커를 인라인 fs.readFileSync + JSON.parse로 read (line ~442, ~510). pre-tool-use-task.js는 scripts/lib/zero-condense-marker.js의 readAndValidateMarker 헬퍼 사용 (SOT). 헬퍼는 legacy 키(marker.session vs marker.sessionId) fallback 포함, post-tool-use 인라인은 marker.sessionId만 검사. legacy 마커 1건 실측 (reports/2026-05-05_self-score-table-format-unify/_zero_condense.json). 향후 legacy 마커 증가 시 false-positive 가능. 단, 회귀 테스트(scripts/test-pd80-fix.js)로 현재 안전. 헬퍼 치환 시 files.includes(fileName) 검증 인라인 보존 필수 (Riki 적출 — 헬퍼는 sessionId·completedAt만, files 검증 caller 책임).",
+      "status": "pending",
+      "relatedDecisions": [],
+      "dependsOn": [],
+      "relatedTopic": "topic_202",
+      "resolveCondition": "post-tool-use-task.js 두 인라인 read를 readAndValidateMarker 호출로 치환 + files.includes 인라인 보존 + scripts/test-pd80-fix.js 재실행 4건 PASS 유지"
     }
   ],
-  "lastUpdated": "2026-05-12T00:33:47.962Z"
+  "lastUpdated": "2026-05-12T02:08:21.102Z"
 }

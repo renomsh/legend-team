@@ -1,6 +1,37 @@
 {
   "decisions": [
     {
+      "id": "D-185",
+      "date": "2026-05-12",
+      "session": "session_238",
+      "topic": "topic_202",
+      "axis": "Nexus fabrication 방지 — D-180 확장 (읽을 범위 게이트 + 반례 탐색)",
+      "summary": "D-180 Nexus 실행 전 질문 원칙을 읽기·답변 작업에도 확장. (A) 단언 전 반례 1건 능동 탐색: 비-질문 단언(권고·진단·구조 설명)도 Grep/Glob/Read로 반례 1건 탐색 후 발화. (C) 읽을 범위 선언 게이트: Master 확인 동사('확인해/맞나/있나/그래?/어떻게 동작해') 응답 전 ①읽을 파일·라인 범위 선언 ②예상 반례 가설 1건 ③용어 정의 불일치 의심 시 정의 먼저 확인. 가설→검증 순서 강제. (자가 검증 한계 명문화) D-183 자가 등급은 근거 형식만 검증, 충분성은 자가 판정 불가(D4 정합) — T4 자가 부여가 fabrication을 막지 않는다. Master/Riki 외부 검증이 최종 게이트.",
+      "decision": "CLAUDE.md D-180 절에 D-185 확장 추가. 메인 enforcement는 prompt(CLAUDE.md). hook 키워드 감지(옵션 B) 기각 — false-positive 폭증. 상시 Riki 감사(옵션 D) 기각 — feedback_no_auto_role_recall_surveillance 위반.",
+      "caveats": [
+        "자가 룰은 D4(모델 설득 무력화 전제)로 약화 가능 — Master 외부 검증 필요",
+        "확인 동사 인식은 Nexus 자율 — 누락 시 fabrication 재발 위험",
+        "hook enforcement 없음 — prompt 단독 의존"
+      ],
+      "relatedDecisions": [
+        "D-180",
+        "D-183",
+        "D-113"
+      ],
+      "relatedPDs": [],
+      "relatedFiles": [
+        "CLAUDE.md"
+      ],
+      "tags": [
+        "nexus",
+        "fabrication",
+        "prompt-rule",
+        "self-verification-limit"
+      ],
+      "status": "active",
+      "origin": "session_238 PD-80 hook 면제 분기 토픽 진행 중 Riki 감사로 Nexus 단언 2건 허위 확인 → 재발 방지 처방 채택. Riki 옵션 C+A 권고를 Master가 채택."
+    },
+    {
       "id": "D-181",
       "date": "2026-05-11",
       "session": "session_234",

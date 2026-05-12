@@ -1585,6 +1585,18 @@
         "all"
       ],
       "status": "applied"
+    },
+    {
+      "id": "MF-123",
+      "topicId": "topic_202",
+      "date": "2026-05-12",
+      "phase": "framing",
+      "feedback": "헬퍼 치환을 MUST_NOW로 권고했으나 Master가 PD-80 5분 버그 scope 외로 판정 — Jobs framing 채택, 헬퍼 치환은 PD-085로 분리",
+      "directive": "버그 수정과 리팩토링을 한 토픽에 묶지 말 것. scope 정의 안에 들어가지 않는 품질 개선은 별 PD 등록 후 종료. Master 확인 질문에 fabrication 발생 시 즉시 멈춤+상태 보고+원복 의사 확인 (변호 금지).",
+      "appliedTo": [
+        "all"
+      ],
+      "status": "applied"
     }
   ],
   "statusValues": [
