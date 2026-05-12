@@ -273,19 +273,10 @@ function autoPush() {
       return;
     }
 
-    // .claude/ 동기화 후 main repo에서 add + commit (변경분 있을 때만)
+    // .claude/ 파일 복사만 수행 (PD-081 D-2: main 분기 commit 제거 — 충돌 원인 차단).
+    // .claude/ 변경은 워크트리 commit에 포함되어 merge로 main에 전파됨.
+    // main 루트의 .claude/는 다음 main 작업 시점에 stage.
     timed('syncClaudeDir', () => syncClaudeDir(mainRoot));
-    try {
-      timed('main: git add .claude + commit', () => {
-        execSync('git add .claude/', { cwd: mainRoot, encoding: 'utf8', stdio: 'pipe' });
-        execSync(`git commit -m "sync: .claude from worktree ${currentBranch}"`, {
-          cwd: mainRoot, encoding: 'utf8', stdio: 'pipe'
-        });
-      });
-      console.log('[auto-push] Committed .claude/ sync to main.');
-    } catch {
-      // 변경 없으면 commit 실패 — 정상
-    }
 
     // Merge from the main repo's working directory (where main is checked out)
     let mergeOk = false;

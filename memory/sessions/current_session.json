@@ -1,14 +1,14 @@
 {
-  "sessionId": "session_235",
+  "sessionId": "session_236",
   "status": "closed",
-  "closedAt": "2026-05-11T23:20:00.000Z",
-  "topicId": "topic_200",
-  "topic": "Nexus 지침 — Truth/Authority/Origin 등급 시스템",
-  "topicSlug": "nexus-tao-grading",
-  "reportPath": "reports/2026-05-11_nexus-tao-grading",
-  "startedAt": "2026-05-11T14:30:00.000Z",
+  "topicId": "topic_201",
+  "topic": "PD-081 auto-push 순서 꼬임 해결 대안 검토",
+  "topicSlug": "pd-081-auto-push-order",
+  "reportPath": "reports/2026-05-11_pd-081-auto-push-order",
+  "startedAt": "2026-05-12T00:00:00.000Z",
+  "closedAt": "2026-05-12T00:30:00.000Z",
   "mode": "observation",
-  "grade": "A",
+  "grade": "C",
   "topicType": "standalone",
   "operationType": "structured",
   "phase": "framing",
@@ -16,272 +16,106 @@
   "framingSkipped": true,
   "turns": [
     {
-      "role": "arki",
+      "role": "nexus",
       "turnIdx": 0,
-      "source": "agent",
-      "selfScores": {
-        "aud_rcl": 0.8,
-        "str_fd": 3,
-        "spc_lck": "N",
-        "sa_rnd": 1
+      "source": "main",
+      "phase": "dev",
+      "tao": {
+        "t": 4,
+        "a": 1,
+        "o": 5
       }
     },
     {
-      "role": "riki",
+      "role": "edi",
       "turnIdx": 1,
-      "source": "agent",
-      "selfScores": {
-        "crt_rcl": 0.75,
-        "cr_val": "Y",
-        "prd_rej": "Y",
-        "fp_rt": 0.1
-      }
-    },
-    {
-      "role": "ace",
-      "turnIdx": 2,
-      "source": "agent",
-      "selfScores": {
-        "rfrm_trg": "Y",
-        "ctx_car": 4,
-        "mst_fr": 0,
-        "ang_nov": 3
-      }
-    },
-    {
-      "role": "riki",
-      "turnIdx": 3,
-      "source": "agent",
-      "selfScores": {
-        "crt_rcl": 0.85,
-        "cr_val": "Y",
-        "prd_rej": "Y",
-        "fp_rt": 0.15
-      }
-    },
-    {
-      "role": "edi",
-      "turnIdx": 4,
-      "source": "agent",
-      "selfScores": {
-        "scc": "Y",
-        "cs_cnt": 4,
-        "art_cmp": 1
-      }
-    },
-    {
-      "role": "zero",
-      "turnIdx": 5,
-      "source": "agent",
-      "selfScores": {
-        "ref_cnt": 23,
-        "hc_found": 0,
-        "cln_rt": 1
-      }
-    },
-    {
-      "role": "edi",
-      "turnIdx": 6,
-      "source": "agent",
-      "selfScores": {
-        "gp_acc": 0.8,
-        "scc": "Y",
-        "cs_cnt": 4,
-        "art_cmp": 1,
-        "gap_fc": 4
-      }
-    },
-    {
-      "role": "riki",
-      "turnIdx": 7,
-      "source": "agent",
-      "selfScores": {
-        "crt_rcl": 0.6,
-        "cr_val": "Y",
-        "prd_rej": "N",
-        "fp_rt": 0.15
-      }
-    },
-    {
-      "role": "edi",
-      "turnIdx": 8,
-      "source": "agent",
-      "selfScores": {
-        "gp_acc": 0.85,
-        "scc": "Y",
-        "cs_cnt": 5,
-        "art_cmp": 1,
-        "gap_fc": 4
-      }
-    },
-    {
-      "role": "edi",
-      "turnIdx": 9,
-      "source": "agent",
-      "selfScores": {
-        "gp_acc": 0.85,
-        "scc": "Y",
-        "cs_cnt": 5,
-        "art_cmp": 1,
-        "gap_fc": 4
-      }
+      "phase": "compile"
     }
   ],
-  "decisions": [
-    "D-183",
-    "D-184"
-  ],
+  "decisions": [],
   "masterDecisions": [],
-  "decisionsAdded": [
-    "D-183",
-    "D-184"
-  ],
+  "decisionsAdded": [],
   "masterFeedback": [],
-  "pendingDeferralsAdded": [
-    "PD-082",
-    "PD-083",
-    "PD-084"
+  "pendingDeferralsAdded": [],
+  "pendingDeferralsResolved": [
+    "PD-081"
   ],
-  "pendingDeferralsResolved": [],
   "pendingDeferralsTransitioned": [],
-  "openMasterAlerts": [
-    {
-      "severity": "high",
-      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.1)",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140"
-    }
-  ],
+  "openMasterAlerts": [],
   "agentsCompleted": [
-    "arki",
-    "riki",
-    "ace",
-    "riki",
-    "edi",
-    "zero",
-    "edi",
-    "riki",
-    "edi",
+    "nexus",
     "edi"
   ],
-  "oneLineSummary": "T/A/O 3축 등급 schema(D-183) + 보강 D-184(존대말·baseline·자연분포) 박제. PD-082/083/084 등록(Turn.tao·등급상한·종료조건). 시범 운영 단계.",
-  "notes": [],
+  "oneLineSummary": "PD-081 resolved (D-2): main repo의 .claude sync commit 제거 — main 분기 차단, ff-only 머지 가능. syncClaudeDir 파일 복사는 유지. PD 원문 '중간 push'는 session_231 사후 follow-up commit 오기록으로 확인.",
+  "notes": [
+    "PD-081 원문 부정확 확인: session_191~232 5개 세션 원문 검증, push/commit 순서 변경 코드 0건. git log -S 'git commit -m \"sync' = 09e952e 단일.",
+    "Master 통찰: '나누어져 있던 프로세스를 하나로 묶어서 충돌' — 워크트리 commit과 main sync commit이 동일 .claude/를 양사이드 수정 → merge conflict. D-2 = 충돌 부분 직렬화(main sync commit 제거)."
+  ],
   "gaps": [
     {
-      "type": "frontmatter-patch-failed",
-      "role": "arki",
-      "turnIdx": 0,
-      "reportsPath": "reports/2026-05-11_nexus-tao-grading/arki_rev1.md",
-      "detectedAt": "2026-05-11T15:58:44.814Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-11_nexus-tao-grading/arki_rev1.md"
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-11_pd-081-auto-push-order/arki_rev1.md"
     },
     {
-      "type": "frontmatter-patch-failed",
-      "role": "riki",
-      "turnIdx": 1,
-      "reportsPath": "reports/2026-05-11_nexus-tao-grading/riki_rev1.md",
-      "detectedAt": "2026-05-11T16:36:25.196Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-11_nexus-tao-grading/riki_rev1.md"
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-11_pd-081-auto-push-order/arki_rev2.md"
     },
     {
-      "type": "frontmatter-patch-failed",
-      "role": "ace",
-      "turnIdx": 2,
-      "reportsPath": "reports/2026-05-11_nexus-tao-grading/ace_rev1.md",
-      "detectedAt": "2026-05-11T16:43:12.076Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-11_nexus-tao-grading/ace_rev1.md"
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-11_pd-081-auto-push-order/arki_rev3.md"
     },
     {
-      "type": "frontmatter-patch-failed",
-      "role": "riki",
-      "turnIdx": 3,
-      "reportsPath": "reports/2026-05-11_nexus-tao-grading/riki_rev2.md",
-      "detectedAt": "2026-05-11T16:59:45.868Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-11_nexus-tao-grading/riki_rev2.md"
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-11_pd-081-auto-push-order/condensed.md"
     },
     {
-      "type": "missing-report",
-      "role": "edi",
-      "turnIdx": 4,
-      "reportPath": "reports/2026-05-11_nexus-tao-grading",
-      "detectedAt": "2026-05-11T17:04:48.060Z",
-      "note": "edi turn4 완료 후 reports/edi_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-11_pd-081-auto-push-order/edi_rev1.md"
     },
     {
-      "type": "missing-report",
-      "role": "zero",
-      "turnIdx": 5,
-      "reportPath": "reports/2026-05-11_nexus-tao-grading",
-      "detectedAt": "2026-05-11T17:06:16.039Z",
-      "note": "zero turn5 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "frontmatter-patch-failed",
-      "role": "edi",
-      "turnIdx": 6,
-      "reportsPath": "reports/2026-05-11_nexus-tao-grading/edi_rev1.md**",
-      "detectedAt": "2026-05-11T17:09:09.931Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-11_nexus-tao-grading/edi_rev1.md**"
-    },
-    {
-      "type": "frontmatter-patch-failed",
-      "role": "riki",
-      "turnIdx": 7,
-      "reportsPath": "reports/2026-05-11_nexus-tao-grading/riki_rev3.md",
-      "detectedAt": "2026-05-11T23:04:22.776Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-11_nexus-tao-grading/riki_rev3.md"
-    },
-    {
-      "type": "frontmatter-patch-failed",
-      "role": "edi",
-      "turnIdx": 9,
-      "reportsPath": "reports/2026-05-11_nexus-tao-grading/edi_rev2.md",
-      "detectedAt": "2026-05-11T23:14:01.052Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-11_nexus-tao-grading/edi_rev2.md"
-    },
-    {
-      "type": "version-bump-edi-unconfirmed",
-      "severity": "high",
-      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140",
-      "suggestedValue": 0.1
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-11_pd-081-auto-push-order/riki_rev1.md"
     }
   ],
   "tokenUsage": {
-    "input_tokens": 309,
-    "output_tokens": 122184,
-    "cache_creation_input_tokens": 560502,
-    "cache_read_input_tokens": 8210136,
-    "messageCount": 82,
+    "input_tokens": 301,
+    "output_tokens": 68249,
+    "cache_creation_input_tokens": 441364,
+    "cache_read_input_tokens": 9952178,
+    "messageCount": 91,
     "masterTurns": 20,
-    "total_billable": 8893131
+    "total_billable": 10462092
   },
   "versionBumpSuggested": {
-    "value": 0.1,
-    "type": "structural",
-    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 2건 (CLAUDE.md, memory/roles/personas/role-riki.md)",
-    "autoDetectedAt": "2026-05-11T23:15:43.640Z",
+    "value": 0.001,
+    "type": "bugfix",
+    "reason": "버그·패치 자동 감지 (Grade C): 1건 (scripts/auto-push.js)",
+    "autoDetectedAt": "2026-05-12T00:04:26.315Z",
     "changedFiles": [
-      "CLAUDE.md",
       "logs/hook-diagnostics.log",
       "logs/master-first.log",
-      "logs/pre-tool-use-task.log",
-      "logs/sage-gate.log",
-      "memory/master/master_feedback_log.json",
-      "memory/roles/personas/role-riki.md",
       "memory/sessions/current_session.json",
       "memory/sessions/session_index.json",
       "memory/sessions/token_log.json",
-      "memory/shared/decision_ledger.json",
       "memory/shared/pending_deferrals.json",
+      "memory/shared/system_state.json",
       "memory/shared/topic_index.json",
-      "reports/2026-05-11_nexus-tao-grading/",
-      "topics/topic_200/"
+      "scripts/auto-push.js",
+      "topics/topic_201/"
     ],
-    "changedFilesCount": 15,
+    "changedFilesCount": 10,
     "cappedAt": 0.1,
-    "confirmedBy": null
+    "confirmedBy": "nexus"
   },
-  "finalizedAt": "2026-05-11T23:15:43.683Z"
+  "versionBump": {
+    "value": 0.001,
+    "type": "bugfix",
+    "reason": "버그·패치 자동 감지 (Grade C): 1건 (scripts/auto-push.js)",
+    "from": "1.761",
+    "to": "1.762",
+    "confirmedBy": "nexus",
+    "confirmedAt": "2026-05-12T00:04:26.315Z",
+    "autoDetectedAt": "2026-05-12T00:04:26.315Z"
+  },
+  "finalizedAt": "2026-05-12T00:04:26.354Z"
 }

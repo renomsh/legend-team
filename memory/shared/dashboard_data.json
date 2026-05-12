@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-11T23:17:47.841Z",
-  "totalSessions": 231,
+  "generatedAt": "2026-05-12T00:04:26.570Z",
+  "totalSessions": 232,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 231
+      "undefined": 232
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -207,9 +207,12 @@
       "fromSession": "session_234",
       "fromTopic": "pd-069-parallel-session",
       "createdAt": "2026-05-11",
+      "resolvedAt": "2026-05-12",
+      "resolvedBy": "session_236 / topic_201",
+      "resolution": "옵션 D-2 적용: main repo의 .claude sync commit 제거(scripts/auto-push.js). .claude/는 워크트리 commit에서만 stage → main 분기 제거 → ff-only 머지 가능 → 충돌 원인 차단. syncClaudeDir 파일 복사는 유지. PD 원문의 '중간 push' 표현은 운영 1회성 사건(session_231 사후 follow-up commit) 오기록으로 확인됨.",
       "title": "auto-push 순서 꼬임 — .claude sync 중간 push가 merge conflict 유발",
       "item": "session_232 오프타임 단축 작업에서 .claude/ sync commit을 세션 종료 전 중간에 먼저 push하도록 순서 변경됨. 결과: main이 .claude sync 시점에 분기 → 이후 session end commit(memory/shared/*.json 변경)이 merge 시 충돌. 해소 옵션: (a) .claude sync 중간 push 제거 = 기존 단일 push 구조 복원(crash 중간 저장 포기) / (c) 순서 변경 — session_end commit 먼저 push → .claude sync 나중 push(2회 유지하되 충돌 원인 제거). b(.gitattributes merge driver)는 다른 문제 유발로 제외.",
-      "status": "pending",
+      "status": "resolved",
       "relatedDecisions": [],
       "dependsOn": [],
       "relatedTopic": "topic_197"
@@ -285,16 +288,16 @@
     }
   ],
   "metrics": {
-    "avgMasterTurns": 21.59,
-    "avgCacheHitRate": 0.9319,
-    "cacheSampleSize": 200,
-    "cacheSampleTotal": 231,
+    "avgMasterTurns": 21.85,
+    "avgCacheHitRate": 0.932,
+    "cacheSampleSize": 201,
+    "cacheSampleTotal": 232,
     "avgAdoptionRate": 0,
     "totalDecisions": 186,
     "gradeDistribution": {
       "S": 108,
       "A": 45,
-      "B": 48,
+      "B": 49,
       "C": 30
     },
     "topicGradeDistribution": {
@@ -311,10 +314,10 @@
       "session_202"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 185,
-    "totalCostUSD": 2728.7107,
-    "avgCostPerSession": 12.3471,
-    "costSampleSize": 221,
+    "turnBasedSessions": 186,
+    "totalCostUSD": 2757.0403,
+    "avgCostPerSession": 12.4191,
+    "costSampleSize": 222,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -9091,12 +9094,46 @@
         "messageCount": 461
       },
       "sessionCostUSD": 30.3843
+    },
+    {
+      "sessionId": "session_236",
+      "topicSlug": "pd-081-auto-push-order",
+      "topic": "PD-081 auto-push 순서 꼬임 해결 대안 검토",
+      "startedAt": "2026-05-12T00:00:00.000Z",
+      "closedAt": "2026-05-12T00:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 2,
+      "rolesRecalled": 0,
+      "sessionsSpanned": 1,
+      "size": 5,
+      "gradeDeclared": "B",
+      "gradeActual": "B",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 79,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "nexus",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 50088746,
+        "ioTokens": 456203,
+        "inputTokens": 1672,
+        "outputTokens": 454531,
+        "cacheCreate": 1917923,
+        "cacheRead": 47714620,
+        "cacheHitRate": 0.9526016083533015,
+        "messageCount": 362
+      },
+      "sessionCostUSD": 28.3296
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 209,
+      "count": 210,
       "sessions": [
         "session_050",
         "session_051",
@@ -9279,7 +9316,8 @@
         "session_232",
         "session_233",
         "session_234",
-        "session_235"
+        "session_235",
+        "session_236"
       ]
     },
     {
@@ -9806,10 +9844,11 @@
     },
     {
       "role": "nexus",
-      "count": 2,
+      "count": 3,
       "sessions": [
         "session_220",
-        "session_221"
+        "session_221",
+        "session_236"
       ]
     }
   ],
@@ -16590,6 +16629,24 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 9,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_236",
+      "topic": "PD-081 auto-push 순서 꼬임 해결 대안 검토",
+      "sequence": [
+        {
+          "role": "nexus",
+          "phase": "dev",
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": "compile",
+          "turnIdx": 1,
           "recallReason": null
         }
       ]

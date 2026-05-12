@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_235",
-  "nextSessionId": "session_236",
-  "currentVersion": "v1.761",
+  "lastSessionId": "session_236",
+  "nextSessionId": "session_237",
+  "currentVersion": "v1.762",
   "openTopics": [
     {
       "id": "topic_175",
@@ -52,6 +52,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_236",
+      "topicSlug": "pd-081-auto-push-order",
+      "closedAt": "2026-05-12T00:30:00.000Z",
+      "oneLineSummary": "PD-081 resolved (D-2): main repo의 .claude sync commit 제거 — main 분기 차단, ff-only 머지 가능. syncClaudeDir 파일 복사는 유지. PD 원문 '중간 push'는 session_231 사후 follow-up commit 오기록으로 확인.",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_235",
       "topicSlug": "nexus-tao-grading",
       "closedAt": "2026-05-11T23:20:00.000Z",
@@ -68,16 +75,6 @@
       "oneLineSummary": "topic_197: 병행세션 병행토픽 시스템 설계 확정(D-181, m* prefix + 옵션 A' 자동 마이그레이션 + 8 미티게이션). PD-069 resolved, PD-079 구현 후속.",
       "decisionsAdded": [
         "D-181"
-      ]
-    },
-    {
-      "sessionId": "session_233",
-      "topicSlug": "agent-dispatch-speed",
-      "closedAt": "2026-05-10T11:17:08.960Z",
-      "oneLineSummary": "MEMORY 38→25건 정리(D-178 원칙 + D-179 13건 archive), audit 4 스크립트 신설(817L), CLAUDE.md broken link 정정, dev_memory JSON syntax fix.",
-      "decisionsAdded": [
-        "D-178",
-        "D-179"
       ]
     }
   ],
@@ -115,18 +112,6 @@
       "title": "audit-decision-ledger-status 분류 로직 정밀화 (self vs referent 구분)",
       "item": "Phase 1 신설 audit-decision-ledger-status.ts의 단순 키워드 매칭(supersede|폐기|deprecat)은 self-undeclared와 referent-undeclared를 구분 못 함. session_233 Phase 2에서 33건 self-undeclared 정밀 분석 결과 100% false positive (모두 다른 결정을 supersede한다는 referent 의미였음). 정밀화 옵션: (a) supersededBy/deprecates 필드 cross-check (b) 문맥 분석 (c) self-undeclared 카운트 폐기, referent만 유지. 본 audit 스크립트가 향후 정제 라운드의 토대이므로 정밀화 필수.",
       "status": "pending"
-    },
-    {
-      "id": "PD-081",
-      "fromSession": "session_234",
-      "fromTopic": "pd-069-parallel-session",
-      "createdAt": "2026-05-11",
-      "title": "auto-push 순서 꼬임 — .claude sync 중간 push가 merge conflict 유발",
-      "item": "session_232 오프타임 단축 작업에서 .claude/ sync commit을 세션 종료 전 중간에 먼저 push하도록 순서 변경됨. 결과: main이 .claude sync 시점에 분기 → 이후 session end commit(memory/shared/*.json 변경)이 merge 시 충돌. 해소 옵션: (a) .claude sync 중간 push 제거 = 기존 단일 push 구조 복원(crash 중간 저장 포기) / (c) 순서 변경 — session_end commit 먼저 push → .claude sync 나중 push(2회 유지하되 충돌 원인 제거). b(.gitattributes merge driver)는 다른 문제 유발로 제외.",
-      "status": "pending",
-      "relatedDecisions": [],
-      "dependsOn": [],
-      "relatedTopic": "topic_197"
     },
     {
       "id": "PD-078",
@@ -198,5 +183,5 @@
       "relatedTopic": "topic_200"
     }
   ],
-  "lastUpdated": "2026-05-11T23:15:43.681Z"
+  "lastUpdated": "2026-05-12T00:04:26.352Z"
 }

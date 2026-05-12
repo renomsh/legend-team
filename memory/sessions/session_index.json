@@ -11288,8 +11288,42 @@
         "D-183",
         "D-184"
       ]
+    },
+    {
+      "sessionId": "session_236",
+      "topicSlug": "pd-081-auto-push-order",
+      "topic": "PD-081 auto-push 순서 꼬임 해결 대안 검토",
+      "startedAt": "2026-05-12T00:00:00.000Z",
+      "closedAt": "2026-05-12T00:30:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\blissful-benz-7c8d61",
+      "agentsCompleted": [
+        "nexus",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "nexus",
+          "turnIdx": 0,
+          "source": "main",
+          "phase": "dev",
+          "tao": {
+            "t": 4,
+            "a": 1,
+            "o": 5
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 1,
+          "phase": "compile"
+        }
+      ],
+      "grade": "C",
+      "note": "PD-081 원문 부정확 확인: session_191~232 5개 세션 원문 검증, push/commit 순서 변경 코드 0건. git log -S 'git commit -m \"sync' = 09e952e 단일. | Master 통찰: '나누어져 있던 프로세스를 하나로 묶어서 충돌' — 워크트리 commit과 main sync commit이 동일 .claude/를 양사이드 수정 → merge conflict. D-2 = 충돌 부분 직렬화(main sync commit 제거).",
+      "oneLineSummary": "PD-081 resolved (D-2): main repo의 .claude sync commit 제거 — main 분기 차단, ff-only 머지 가능. syncClaudeDir 파일 복사는 유지. PD 원문 '중간 push'는 session_231 사후 follow-up commit 오기록으로 확인.",
+      "decisionsAdded": []
     }
   ],
-  "lastUpdated": "2026-05-11T23:15:43.141Z",
+  "lastUpdated": "2026-05-12T00:04:25.640Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

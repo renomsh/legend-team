@@ -189,9 +189,12 @@
       "fromSession": "session_234",
       "fromTopic": "pd-069-parallel-session",
       "createdAt": "2026-05-11",
+      "resolvedAt": "2026-05-12",
+      "resolvedBy": "session_236 / topic_201",
+      "resolution": "옵션 D-2 적용: main repo의 .claude sync commit 제거(scripts/auto-push.js). .claude/는 워크트리 commit에서만 stage → main 분기 제거 → ff-only 머지 가능 → 충돌 원인 차단. syncClaudeDir 파일 복사는 유지. PD 원문의 '중간 push' 표현은 운영 1회성 사건(session_231 사후 follow-up commit) 오기록으로 확인됨.",
       "title": "auto-push 순서 꼬임 — .claude sync 중간 push가 merge conflict 유발",
       "item": "session_232 오프타임 단축 작업에서 .claude/ sync commit을 세션 종료 전 중간에 먼저 push하도록 순서 변경됨. 결과: main이 .claude sync 시점에 분기 → 이후 session end commit(memory/shared/*.json 변경)이 merge 시 충돌. 해소 옵션: (a) .claude sync 중간 push 제거 = 기존 단일 push 구조 복원(crash 중간 저장 포기) / (c) 순서 변경 — session_end commit 먼저 push → .claude sync 나중 push(2회 유지하되 충돌 원인 제거). b(.gitattributes merge driver)는 다른 문제 유발로 제외.",
-      "status": "pending",
+      "status": "resolved",
       "relatedDecisions": [],
       "dependsOn": [],
       "relatedTopic": "topic_197"
