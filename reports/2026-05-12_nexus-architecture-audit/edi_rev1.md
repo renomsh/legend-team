@@ -24,7 +24,7 @@ EDI_WRITE_DONE: reports/2026-05-12_nexus-architecture-audit/edi_rev1.md
 - `scripts/auto-push.js` (L167~205) — preSteps 5단계 직렬 호출을 각 step try/catch 격리로 변경. 실패 누적·종료 시 집계, `current_session.json.gaps`에 `type=hook-chain-step-failed severity=high` 박제 (C2)
 - `.claude/hooks/session-end-finalize.js` — 1,893줄 → 120줄 orchestrator로 축소. 28 step try/catch 격리 호출, 부분 실패 시 `finalize-module-fail` gap 박제 후 다음 step 진행 (G1)
 - `memory/shared/decision_ledger.json` — D-143 `status="partially-superseded"` + `supersededBy=["D-188"]` + `supersedeScope` 명시. D-188 신규 entry append
-- `memory/sessions/current_session.json` — `decisionsAdded=["D-188"]`, `versionBumpConfirmed` 박제
+- `memory/sessions/current_session.json` — `decisionsAdded=["D-188"]`, `versionBump` 박제
 
 ### 신규 파일
 - `.claude/hooks/lib/finalize/shared.js` (43줄)
@@ -89,7 +89,7 @@ EDI_WRITE_DONE: reports/2026-05-12_nexus-architecture-audit/edi_rev1.md
 
 ### 박제 (current_session.json)
 ```json
-"versionBumpConfirmed": {
+"versionBump": {
   "value": 0.01,
   "from": "1.793",
   "to": "1.803",

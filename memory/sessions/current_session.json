@@ -95,43 +95,16 @@
   ],
   "masterFeedback": [],
   "pendingDeferralsTransitioned": [],
-  "openMasterAlerts": [
-    {
-      "severity": "high",
-      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.01)",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140"
-    }
-  ],
-  "gaps": [
-    {
-      "type": "version-bump-edi-unconfirmed",
-      "severity": "high",
-      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140",
-      "suggestedValue": 0.01
-    }
-  ],
-  "versionBumpConfirmed": {
-    "value": 0.01,
-    "from": "1.793",
-    "to": "1.803",
-    "type": "capacity",
-    "reason": "D-188 신규 결정 박제 (D-143 partial-supersede). G1 finalize.js 분해는 D-188 종속 구현.",
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-12T00:00:00.000Z",
-    "basedOn": "versionBumpSuggested",
-    "overrideReason": null
-  },
+  "openMasterAlerts": [],
+  "gaps": [],
   "tokenUsage": {
-    "input_tokens": 20006,
-    "output_tokens": 186520,
-    "cache_creation_input_tokens": 590340,
-    "cache_read_input_tokens": 20900323,
-    "messageCount": 143,
-    "masterTurns": 24,
-    "total_billable": 21697189
+    "input_tokens": 20075,
+    "output_tokens": 208063,
+    "cache_creation_input_tokens": 620505,
+    "cache_read_input_tokens": 27424414,
+    "messageCount": 172,
+    "masterTurns": 28,
+    "total_billable": 28273057
   },
   "versionBumpSuggested": {
     "value": 0.01,
@@ -162,5 +135,16 @@
     "cappedAt": 0.1,
     "confirmedBy": null
   },
-  "finalizedAt": "2026-05-12T12:22:34.903Z"
+  "finalizedAt": "2026-05-12T12:22:34.903Z",
+  "versionBump": {
+    "value": 0.01,
+    "from": "1.793",
+    "to": "1.803",
+    "type": "capacity",
+    "reason": "D-188 신규 결정 박제 (D-143 partial-supersede). G1 finalize.js 분해는 D-188 종속 구현.",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-12T00:00:00.000Z",
+    "basedOn": "versionBumpSuggested",
+    "overrideReason": null
+  }
 }
