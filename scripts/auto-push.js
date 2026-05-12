@@ -246,7 +246,7 @@ function autoPush() {
   console.log(status);
 
   // Stage all tracked + new files (memory, reports, app, scripts)
-  const paths = ['memory/', 'reports/', 'app/', 'scripts/', 'CLAUDE.md', 'logs/', 'dist/', '.claude/'];
+  const paths = ['memory/', 'reports/', 'app/', 'scripts/', 'CLAUDE.md', 'logs/', '.claude/'];
   timed('git add (all paths)', () => {
     for (const p of paths) {
       run(`git add "${p}"`);
