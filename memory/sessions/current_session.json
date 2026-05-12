@@ -120,14 +120,7 @@
     "PD-080"
   ],
   "pendingDeferralsTransitioned": [],
-  "openMasterAlerts": [
-    {
-      "severity": "high",
-      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.1)",
-      "addedBy": "checkVersionBumpConfirmation",
-      "ref": "D-140"
-    }
-  ],
+  "openMasterAlerts": [],
   "agentsCompleted": [
     "ace",
     "jobs",
@@ -202,6 +195,16 @@
     "changedFilesCount": 22,
     "cappedAt": 0.1,
     "confirmedBy": null
+  },
+  "versionBump": {
+    "value": 0.01,
+    "type": "capacity",
+    "reason": "Edi override: CLAUDE.md 변경은 D-180 기존 확장이라 structural 하향. PD-080 hook 수정 + D-185 박제 = capacity 확장.",
+    "from": "1.763",
+    "to": "1.773",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-12T02:35:00.000Z",
+    "autoDetectedAt": "2026-05-12T02:08:21.072Z"
   },
   "finalizedAt": "2026-05-12T02:08:21.103Z"
 }

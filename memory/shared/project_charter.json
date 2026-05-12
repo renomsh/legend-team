@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "1.763",
+    "version": "1.773",
     "versionSchema": {
       "format": "X.YYY (3자리 소수 float, 점 하나)",
       "incrementRules": {
@@ -439,8 +439,14 @@
       "date": "2026-05-12",
       "summary": "버그·패치 자동 감지 (Grade C): 14건 (scripts/lib/nexus-turn-push.d.ts, scripts/lib/nexus-turn-push.d.ts.map, scripts/lib/nexus-turn-push.js …)",
       "sessionId": "session_237"
+    },
+    {
+      "version": "1.773",
+      "date": "2026-05-12",
+      "summary": "Capacity: PD-080 resolved (hook condensed.md 인식) + D-185 박제 (Nexus fabrication 방지 A+C).",
+      "sessionId": "session_238"
     }
   ],
   "lastUpdated": "2026-05-12",
-  "version": "1.763"
+  "version": "1.773"
 }
