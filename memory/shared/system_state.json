@@ -2,7 +2,7 @@
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
   "lastSessionId": "session_240",
   "nextSessionId": "session_241",
-  "currentVersion": "v1.773",
+  "currentVersion": "v1.793",
   "openTopics": [
     {
       "id": "topic_175",
@@ -181,5 +181,5 @@
       "resolveCondition": "syncClaudeDir + syncHookDiagnosticsFromMain 제거 또는 hook input 계약 변경으로 main 워킹디렉토리 직접 write 0건 + 새 세션 1회 종료 시 main에 git status 깨끗(untracked 0건) 확인"
     }
   ],
-  "lastUpdated": "2026-05-12T05:03:34.948Z"
+  "lastUpdated": "2026-05-12T05:05:32.959Z"
 }
