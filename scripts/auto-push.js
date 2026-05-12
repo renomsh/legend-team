@@ -78,33 +78,9 @@ function getMainRepoRoot() {
   return path.resolve(resolved, '..');
 }
 
-function syncClaudeDir(mainRoot) {
-  // 워크트리 안의 .claude/ → main repo .claude/ 동기화
-  // 워크트리가 아닌 경우(ROOT === mainRoot) 스킵
-  if (!mainRoot || path.resolve(mainRoot) === path.resolve(ROOT)) return;
-
-  const src = path.join(ROOT, '.claude');
-  const dst = path.join(mainRoot, '.claude');
-  if (!fs.existsSync(src)) return;
-
-  function copyDir(s, d) {
-    fs.mkdirSync(d, { recursive: true });
-    for (const entry of fs.readdirSync(s, { withFileTypes: true })) {
-      // worktrees/, scratch/ 하위는 복사 금지
-      if (entry.name === 'worktrees' || entry.name === 'scratch') continue;
-      const sp = path.join(s, entry.name);
-      const dp = path.join(d, entry.name);
-      if (entry.isDirectory()) {
-        copyDir(sp, dp);
-      } else {
-        fs.copyFileSync(sp, dp);
-      }
-    }
-  }
-
-  copyDir(src, dst);
-  console.log('[auto-push] Synced .claude/ worktree → main repo');
-}
+// syncClaudeDir 제거 (PD-086, 2026-05-12)
+// .claude/ 변경은 워크트리 commit → merge로 main에 전파됨.
+// main 워킹디렉토리 직접 write 경로 제거 — D-187 commit 차단과 정합.
 
 const STATE_PATH_IN_MAIN = (mainRoot) => path.join(mainRoot, 'memory', 'shared', 'system_state.json');
 
@@ -146,21 +122,9 @@ function clearMergeFailureAlert(mainRoot, branch) {
   }
 }
 
-function syncHookDiagnosticsFromMain(mainRoot) {
-  // session-end-tokens.js always writes to input.cwd (= main project root, not worktree).
-  // build.js copies from worktree/logs/ → so we need to mirror the file before build runs.
-  if (!mainRoot || path.resolve(mainRoot) === path.resolve(ROOT)) return;
-  const src = path.join(mainRoot, 'logs', 'hook-diagnostics.log');
-  const dst = path.join(ROOT, 'logs', 'hook-diagnostics.log');
-  if (!fs.existsSync(src)) return;
-  try {
-    fs.mkdirSync(path.dirname(dst), { recursive: true });
-    fs.copyFileSync(src, dst);
-    console.log('[auto-push] Synced hook-diagnostics.log: main → worktree');
-  } catch (e) {
-    console.error('[auto-push] hook-diagnostics.log sync failed:', e.message);
-  }
-}
+// syncHookDiagnosticsFromMain 제거 (PD-086, 2026-05-12)
+// session-end-tokens.js의 main-write 경로 제거(cwd guard)로 main 측 hook-diagnostics 생성 차단.
+// build.js는 hook-diagnostics 미참조 — 제거 안전.
 
 function runHookChain(mainRoot) {
   // PD-073: register ts-node once for in-process requires
@@ -211,8 +175,6 @@ function runHookChain(mainRoot) {
       return false;
     }
   }
-  // Mirror hook-diagnostics.log from main project before build copies worktree/logs/
-  timed('syncHookDiagnosticsFromMain', () => syncHookDiagnosticsFromMain(mainRoot));
   try {
     timed('node scripts/build.js', () => execSync('node scripts/build.js', { cwd: ROOT, stdio: 'inherit' }));
   } catch (e) {
@@ -273,10 +235,8 @@ function autoPush() {
       return;
     }
 
-    // .claude/ 파일 복사만 수행 (PD-081 D-2: main 분기 commit 제거 — 충돌 원인 차단).
-    // .claude/ 변경은 워크트리 commit에 포함되어 merge로 main에 전파됨.
-    // main 루트의 .claude/는 다음 main 작업 시점에 stage.
-    timed('syncClaudeDir', () => syncClaudeDir(mainRoot));
+    // .claude/ 변경은 워크트리 commit → merge로 main에 전파됨.
+    // syncClaudeDir 제거됨 (PD-086) — main 워킹디렉토리 직접 write 차단.
 
     // Merge from the main repo's working directory (where main is checked out)
     let mergeOk = false;

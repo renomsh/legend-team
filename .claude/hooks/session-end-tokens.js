@@ -217,6 +217,32 @@ function logDiag(cwd, msg) {
   } catch {}
 }
 
+// PD-086 (2026-05-12): cwd guard — main 워킹디렉토리 직접 write 차단.
+// cwd가 main 프로젝트 루트이고 lastSessionId가 워크트리 세션이면 abort.
+// 위조 대신 거부 (Riki R-2: SOT 신뢰성 보존).
+function isMainCwdForWorktreeSession(cwd) {
+  if (!cwd) return false;
+  // worktree cwd는 경로에 '/worktrees/' 포함 — 그 외는 main 후보
+  const normalized = cwd.replace(/\\/g, '/');
+  if (normalized.includes('/worktrees/')) return false;
+  // main cwd 확정 → system_state.json의 lastSessionId가 워크트리 소속인지 확인
+  try {
+    const statePath = path.join(cwd, 'memory', 'shared', 'system_state.json');
+    if (!fs.existsSync(statePath)) return false;
+    const state = JSON.parse(fs.readFileSync(statePath, 'utf-8'));
+    const lastId = state.lastSessionId;
+    if (!lastId) return false;
+    const indexPath = path.join(cwd, 'memory', 'sessions', 'session_index.json');
+    if (!fs.existsSync(indexPath)) return false;
+    const idx = JSON.parse(fs.readFileSync(indexPath, 'utf-8'));
+    const entry = (idx.sessions || []).find(s => s.sessionId === lastId);
+    if (!entry || !entry.cwd) return false;
+    return entry.cwd.replace(/\\/g, '/').includes('/worktrees/');
+  } catch {
+    return false;
+  }
+}
+
 (async () => {
   const firedAt = new Date().toISOString();
   try {
@@ -225,6 +251,12 @@ function logDiag(cwd, msg) {
     const transcriptPath = input.transcript_path;
     const cwd = input.cwd || process.cwd();
     const cliSessionId = input.session_id || null;
+
+    // PD-086: main cwd + 워크트리 세션이면 abort (write 거부)
+    if (isMainCwdForWorktreeSession(cwd)) {
+      console.error(`[session-end-tokens] PD-086 GUARD: main cwd + worktree session → abort. cwd=${cwd}`);
+      process.exit(0);
+    }
 
     logDiag(cwd, `FIRED transcript=${transcriptPath || 'MISSING'} cliSession=${cliSessionId || 'null'} cwd=${cwd}`);
 

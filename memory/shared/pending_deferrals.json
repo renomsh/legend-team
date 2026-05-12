@@ -299,11 +299,27 @@
       "createdAt": "2026-05-12",
       "title": "Hook의 main 워킹디렉토리 직접 write 경로 차단 — ②경로 분리",
       "item": "본 토픽(topic_203) anchor 밖 분리 항목. A+B(pre-commit hook + .gitattributes merge=ours)는 main 직접 *commit* 표면만 차단. 그러나 박제 신뢰성 침해의 다른 표면 = hook이 main 워킹디렉토리에 *파일 직접 write*하는 경로는 commit 아니므로 A 통과, 보호 9종 외 파일이면 B도 미적용. 대상: (1) scripts/auto-push.js:81~107 syncClaudeDir — 워크트리 .claude/ 파일을 main 워킹디렉토리에 fs.copyFileSync 복사 (현재 untracked topics/topic_196/session_contributions/ 잔존이 흔적). (2) scripts/auto-push.js:149~163 syncHookDiagnosticsFromMain — main→worktree 역방향 sync, 그 자체가 main에 write되는 session-end-tokens.js 우회 로직. (3) .claude/hooks/session-end-tokens.js — auto-push.js:150 주석에 명시 'always writes to input.cwd (= main project root, not worktree)'. 옵션: (a) 모든 main-write 경로 제거, hook 출력을 워크트리 내부 한정 (Arki 안 A 원안과 정합) (b) hook input 계약 변경(write target을 worktree로 강제) — Riki R-3 적출 항목. 본 분리는 D-185 위반 재발 방지 (한 토픽에 표면 2개 묶지 않기, Ace turn 5 + Jobs turn 6 동의).",
+      "status": "resolved",
+      "relatedDecisions": [],
+      "dependsOn": [],
+      "relatedTopic": "topic_203",
+      "resolveCondition": "syncClaudeDir + syncHookDiagnosticsFromMain 제거 또는 hook input 계약 변경으로 main 워킹디렉토리 직접 write 0건 + 새 세션 1회 종료 시 main에 git status 깨끗(untracked 0건) 확인",
+      "resolvedAt": "2026-05-12",
+      "resolvedBy": "session_241",
+      "resolution": "옵션 (a) 채택. ① auto-push.js syncClaudeDir 함수+호출부 제거. ② auto-push.js syncHookDiagnosticsFromMain 함수+호출부 제거 (build.js 미참조 확인). ③ session-end-tokens.js cwd guard 추가 — main cwd + lastSessionId가 워크트리 세션이면 abort (위조 회피, Riki R-2). 검증: main+worktree-session → GUARD FIRES 실측, worktree cwd → 통과. ④ main 잔존 untracked (topics/topic_196/session_contributions/) 삭제, git status clean. PD-087 분리(auto-push staging path topics/ 누락)."
+    },
+    {
+      "id": "PD-087",
+      "fromSession": "session_241",
+      "fromTopic": "topic_203",
+      "createdAt": "2026-05-12",
+      "title": "auto-push.js staging path에 topics/ 누락 — Edi session_contributions commit 안 됨",
+      "item": "scripts/auto-push.js:249 staging paths = ['memory/', 'reports/', 'app/', 'scripts/', 'CLAUDE.md', 'logs/', '.claude/'] — topics/ 빠짐. write-session-contribution.ts가 topics/{topicId}/session_contributions/{sessionId}.md를 정상 생성하지만 auto-push가 자동 stage 안 함 → 어느 워크트리도 commit 안 됨 → 워크트리에 untracked 누적 + 다른 sync 경로로 main mirror됨(PD-086으로 그 sync 경로는 차단 완료). 실증: session_233 topic_196 session_contributions 2건이 origin worktree(pedantic-merkle-e84645)도 untracked + main에 mirror 잔존(본 세션 cleanup). 옵션: (a) staging paths에 topics/ 추가 (b) write-session-contribution.ts에서 git add 호출 (c) topics/ 전체 git ignore 해제 정책 재검토. PD-086 분리 (D-185 정합 — 표면 2개 묶지 않기).",
       "status": "pending",
       "relatedDecisions": [],
       "dependsOn": [],
       "relatedTopic": "topic_203",
-      "resolveCondition": "syncClaudeDir + syncHookDiagnosticsFromMain 제거 또는 hook input 계약 변경으로 main 워킹디렉토리 직접 write 0건 + 새 세션 1회 종료 시 main에 git status 깨끗(untracked 0건) 확인"
+      "resolveCondition": "topics/{topicId}/session_contributions/ 신규 파일이 자동 commit + 워크트리·main 양쪽에서 git status untracked 0건"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_240",
-  "nextSessionId": "session_241",
+  "lastSessionId": "session_241",
+  "nextSessionId": "session_242",
   "currentVersion": "v1.793",
   "openTopics": [
     {
@@ -52,6 +52,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_241",
+      "topicSlug": "worktree-b-close-merge-conflict",
+      "closedAt": "2026-05-12T08:00:00.000Z",
+      "oneLineSummary": "PD-086 옵션(a) 구현 완료 — auto-push sync 함수 2종 제거 + session-end-tokens cwd guard. PD-087 분리.",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_240",
       "topicSlug": "worktree-b-close-merge-conflict",
       "closedAt": "2026-05-12T06:00:00.000Z",
@@ -65,15 +72,6 @@
       "oneLineSummary": "worktree-b-close-merge-conflict 진단·결정: A+B 채택(D-187), PD-073 무죄, ②경로 PD-086 분리. MF-124.",
       "decisionsAdded": [
         "D-187"
-      ]
-    },
-    {
-      "sessionId": "session_238",
-      "topicSlug": "nexus-fabrication-prevent",
-      "closedAt": "2026-05-12T02:30:00.000Z",
-      "oneLineSummary": "PD-080 resolved (hook condensed.md 인식 추가) + D-185 박제 (Nexus fabrication 방지 A+C). PD-085 added.",
-      "decisionsAdded": [
-        "D-185"
       ]
     }
   ],
@@ -168,18 +166,18 @@
       "resolveCondition": "post-tool-use-task.js 두 인라인 read를 readAndValidateMarker 호출로 치환 + files.includes 인라인 보존 + scripts/test-pd80-fix.js 재실행 4건 PASS 유지"
     },
     {
-      "id": "PD-086",
-      "fromSession": "session_239",
+      "id": "PD-087",
+      "fromSession": "session_241",
       "fromTopic": "topic_203",
       "createdAt": "2026-05-12",
-      "title": "Hook의 main 워킹디렉토리 직접 write 경로 차단 — ②경로 분리",
-      "item": "본 토픽(topic_203) anchor 밖 분리 항목. A+B(pre-commit hook + .gitattributes merge=ours)는 main 직접 *commit* 표면만 차단. 그러나 박제 신뢰성 침해의 다른 표면 = hook이 main 워킹디렉토리에 *파일 직접 write*하는 경로는 commit 아니므로 A 통과, 보호 9종 외 파일이면 B도 미적용. 대상: (1) scripts/auto-push.js:81~107 syncClaudeDir — 워크트리 .claude/ 파일을 main 워킹디렉토리에 fs.copyFileSync 복사 (현재 untracked topics/topic_196/session_contributions/ 잔존이 흔적). (2) scripts/auto-push.js:149~163 syncHookDiagnosticsFromMain — main→worktree 역방향 sync, 그 자체가 main에 write되는 session-end-tokens.js 우회 로직. (3) .claude/hooks/session-end-tokens.js — auto-push.js:150 주석에 명시 'always writes to input.cwd (= main project root, not worktree)'. 옵션: (a) 모든 main-write 경로 제거, hook 출력을 워크트리 내부 한정 (Arki 안 A 원안과 정합) (b) hook input 계약 변경(write target을 worktree로 강제) — Riki R-3 적출 항목. 본 분리는 D-185 위반 재발 방지 (한 토픽에 표면 2개 묶지 않기, Ace turn 5 + Jobs turn 6 동의).",
+      "title": "auto-push.js staging path에 topics/ 누락 — Edi session_contributions commit 안 됨",
+      "item": "scripts/auto-push.js:249 staging paths = ['memory/', 'reports/', 'app/', 'scripts/', 'CLAUDE.md', 'logs/', '.claude/'] — topics/ 빠짐. write-session-contribution.ts가 topics/{topicId}/session_contributions/{sessionId}.md를 정상 생성하지만 auto-push가 자동 stage 안 함 → 어느 워크트리도 commit 안 됨 → 워크트리에 untracked 누적 + 다른 sync 경로로 main mirror됨(PD-086으로 그 sync 경로는 차단 완료). 실증: session_233 topic_196 session_contributions 2건이 origin worktree(pedantic-merkle-e84645)도 untracked + main에 mirror 잔존(본 세션 cleanup). 옵션: (a) staging paths에 topics/ 추가 (b) write-session-contribution.ts에서 git add 호출 (c) topics/ 전체 git ignore 해제 정책 재검토. PD-086 분리 (D-185 정합 — 표면 2개 묶지 않기).",
       "status": "pending",
       "relatedDecisions": [],
       "dependsOn": [],
       "relatedTopic": "topic_203",
-      "resolveCondition": "syncClaudeDir + syncHookDiagnosticsFromMain 제거 또는 hook input 계약 변경으로 main 워킹디렉토리 직접 write 0건 + 새 세션 1회 종료 시 main에 git status 깨끗(untracked 0건) 확인"
+      "resolveCondition": "topics/{topicId}/session_contributions/ 신규 파일이 자동 commit + 워크트리·main 양쪽에서 git status untracked 0건"
     }
   ],
-  "lastUpdated": "2026-05-12T05:05:32.959Z"
+  "lastUpdated": "2026-05-12T06:34:33.088Z"
 }

@@ -1,10 +1,10 @@
 {
-  "sessionId": "session_240",
+  "sessionId": "session_241",
   "topicId": "topic_203",
   "topic": "워크트리 B 클로즈 머지 충돌 원인 분석",
   "topicSlug": "worktree-b-close-merge-conflict",
   "reportPath": "reports/2026-05-12_worktree-b-close-merge-conflict",
-  "startedAt": "2026-05-12T05:00:00.000Z",
+  "startedAt": "2026-05-12T07:00:00.000Z",
   "mode": "observation",
   "grade": "B",
   "topicType": "standalone",
@@ -13,17 +13,51 @@
   "framingLevel": 0,
   "framingSkipped": true,
   "status": "closed",
-  "closedAt": "2026-05-12T06:00:00.000Z",
-  "oneLineSummary": "D-187 A+B 구현 완료 — .githooks/pre-commit + .gitattributes(9종 merge=ours) + install 스크립트 + CLAUDE.md 박제. Test 1-4 PASS.",
+  "closedAt": "2026-05-12T08:00:00.000Z",
+  "oneLineSummary": "PD-086 옵션(a) 구현 완료 — auto-push sync 함수 2종 제거 + session-end-tokens cwd guard. PD-087 분리.",
+  "notes": [
+    "PD-086 작업 — hook의 main 워킹디렉토리 직접 write 경로 차단 (②경로 분리)",
+    "session_240에서 D-187 A+B 완료. 본 세션은 ②경로 분리 항목 처리.",
+    "구현: scripts/auto-push.js + .claude/hooks/session-end-tokens.js + memory/shared/pending_deferrals.json",
+    "검증: node -c PASS, guard 실측 (main+worktree-session FIRES / worktree 통과), main git status clean"
+  ],
+  "pendingDeferralsAdded": [],
+  "pendingDeferralsResolved": [],
+  "agentsCompleted": [
+    "zero",
+    "edi"
+  ],
+  "versionBumpSuggested": {
+    "value": 0.01,
+    "type": "capacity",
+    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/session-end-tokens.js)",
+    "autoDetectedAt": "2026-05-12T06:34:33.056Z",
+    "changedFiles": [
+      ".claude/hooks/session-end-tokens.js",
+      "logs/hook-diagnostics.log",
+      "logs/master-first.log",
+      "logs/pre-tool-use-task.log",
+      "logs/sage-gate.log",
+      "memory/sessions/current_session.json",
+      "memory/sessions/session_index.json",
+      "memory/sessions/token_log.json",
+      "memory/shared/pending_deferrals.json",
+      "memory/shared/topic_index.json",
+      "reports/2026-05-12_worktree-b-close-merge-conflict/_zero_condense.json",
+      "reports/2026-05-12_worktree-b-close-merge-conflict/condensed.md",
+      "scripts/auto-push.js",
+      "Projectslegend-team/",
+      "reports/2026-05-12_worktree-b-close-merge-conflict/edi_rev3.md",
+      "topics/topic_203/"
+    ],
+    "changedFilesCount": 16,
+    "cappedAt": 0.1,
+    "confirmedBy": null
+  },
   "turns": [
     {
       "role": "zero",
       "turnIdx": 0,
-      "source": "agent"
-    },
-    {
-      "role": "zero",
-      "turnIdx": 1,
       "source": "agent",
       "selfScores": {
         "ref_cnt": 0,
@@ -33,13 +67,13 @@
     },
     {
       "role": "edi",
-      "turnIdx": 2,
+      "turnIdx": 1,
       "source": "agent",
       "selfScores": {
-        "scc": "Y",
         "art_cmp": 1,
         "cs_cnt": 3,
-        "gap_fc": 1
+        "gap_fc": 0,
+        "scc": "Y"
       }
     }
   ],
@@ -47,45 +81,41 @@
   "masterDecisions": [],
   "decisionsAdded": [],
   "masterFeedback": [],
-  "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [],
   "pendingDeferralsTransitioned": [],
-  "openMasterAlerts": [],
-  "agentsCompleted": [
-    "zero",
-    "zero",
-    "edi"
-  ],
-  "notes": [
-    "topic_203 재오픈 (구현 단계). D-187 A+B 6 phase 실행.",
-    "session_239 versionBumpSuggested 0.01 미확정 — 본 세션 종료 시 versionBump에 합산 검토"
+  "openMasterAlerts": [
+    {
+      "severity": "high",
+      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.01)",
+      "addedBy": "checkVersionBumpConfirmation",
+      "ref": "D-140"
+    }
   ],
   "gaps": [
     {
-      "type": "zero-skipped",
-      "reason": "no in-scope code/hook/skill changes (committed in b666f90 before close)",
-      "in_scope_count": 0
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-12_worktree-b-close-merge-conflict/condensed.md",
-      "expected": "zero",
-      "actualInTurns": "edi",
-      "turnId": 2
+      "type": "inline-role-header-missing-frontmatter",
+      "file": "reports/2026-05-12_worktree-b-close-merge-conflict/edi_rev1.md"
     },
     {
       "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-12_worktree-b-close-merge-conflict/edi_rev1.md"
+      "file": "reports/2026-05-12_worktree-b-close-merge-conflict/edi_rev2.md"
+    },
+    {
+      "type": "version-bump-edi-unconfirmed",
+      "severity": "high",
+      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
+      "addedBy": "checkVersionBumpConfirmation",
+      "ref": "D-140",
+      "suggestedValue": 0.01
     }
   ],
   "tokenUsage": {
-    "input_tokens": 27224,
-    "output_tokens": 54257,
-    "cache_creation_input_tokens": 605420,
-    "cache_read_input_tokens": 9383985,
-    "messageCount": 107,
-    "masterTurns": 8,
-    "total_billable": 10070886
+    "input_tokens": 312,
+    "output_tokens": 78175,
+    "cache_creation_input_tokens": 784527,
+    "cache_read_input_tokens": 13094398,
+    "messageCount": 129,
+    "masterTurns": 12,
+    "total_billable": 13957412
   },
-  "finalizedAt": "2026-05-12T05:03:34.949Z"
+  "finalizedAt": "2026-05-12T06:34:33.089Z"
 }

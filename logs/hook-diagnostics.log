@@ -859,3 +859,13 @@
 [2026-05-11T14:55:44.462Z] [session-end-tokens] FIRED transcript=C:\Users\문성훈\.claude\projects\C--Projects-legend-team\54da665f-2e85-48c2-83fb-b17fbfcf067f.jsonl cliSession=54da665f-2e85-48c2-83fb-b17fbfcf067f cwd=C:\Projects\legend-team
 [2026-05-11T14:55:44.489Z] [session-end-tokens] FALLBACK: found transcript at C:\Users\문성훈\.claude\projects\C--projects-legend-team\aa63c3ec-4478-446e-b8a1-853b7ffc24e5.jsonl
 [2026-05-11T14:55:44.518Z] [session-end-tokens] OK legend=session_236 total=9048923 master=23 msg=108
+[2026-05-12T05:24:20.766Z] [session-end-tokens] FIRED transcript=MISSING cliSession=null cwd=C:\Projects\legend-team\.claude\worktrees\relaxed-lichterman-ceacd3
+[2026-05-12T05:24:20.775Z] [session-end-tokens] PD-016 FALLBACK: transcript_path missing, found via cliSessionId at C:\Users\문성훈\.claude\projects\C--Projects-legend-team--claude-worktrees-relaxed-lichterman-ceacd3\05d542a8-9a19-42d5-8001-2c8a06329ae8.jsonl
+[2026-05-12T05:24:20.793Z] [session-end-tokens] OK legend=session_241 total=3933577 master=7 msg=46
+[2026-05-12T05:24:30.706Z] [session-end-tokens] FIRED transcript=MISSING cliSession=null cwd=C:\Projects\legend-team\.claude\worktrees\relaxed-lichterman-ceacd3
+[2026-05-12T05:24:30.720Z] [session-end-tokens] PD-016 FALLBACK: transcript_path missing, found via cliSessionId at C:\Users\문성훈\.claude\projects\C--Projects-legend-team--claude-worktrees-relaxed-lichterman-ceacd3\05d542a8-9a19-42d5-8001-2c8a06329ae8.jsonl
+[2026-05-12T05:24:30.741Z] [session-end-tokens] OK legend=session_241 total=4354023 master=7 msg=50
+[2026-05-12T05:24:34.901Z] [session-end-tokens] ERROR Bad escaped character in JSON at position 11 (line 1 column 12)
+[2026-05-12T06:34:32.209Z] [session-end-tokens] FIRED transcript=MISSING cliSession=null cwd=C:\Projects\legend-team\.claude\worktrees\relaxed-lichterman-ceacd3
+[2026-05-12T06:34:32.216Z] [session-end-tokens] PD-016 FALLBACK: transcript_path missing, found via cliSessionId at C:\Users\문성훈\.claude\projects\C--Projects-legend-team--claude-worktrees-relaxed-lichterman-ceacd3\05d542a8-9a19-42d5-8001-2c8a06329ae8.jsonl
+[2026-05-12T06:34:32.231Z] [session-end-tokens] OK legend=session_241 total=13957412 master=12 msg=129
