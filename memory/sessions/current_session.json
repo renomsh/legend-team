@@ -1,10 +1,10 @@
 {
-  "sessionId": "session_238",
-  "topicId": "topic_202",
-  "topic": "Nexus fabrication 방지 — D-180 확장 (읽을 범위 게이트 + 반례 탐색)",
-  "topicSlug": "nexus-fabrication-prevent",
-  "reportPath": "reports/2026-05-12_nexus-fabrication-prevent",
-  "startedAt": "2026-05-12T01:00:00.000Z",
+  "sessionId": "session_239",
+  "topicId": "topic_203",
+  "topic": "워크트리 B 클로즈 머지 충돌 원인 분석",
+  "topicSlug": "worktree-b-close-merge-conflict",
+  "reportPath": "reports/2026-05-12_worktree-b-close-merge-conflict",
+  "startedAt": "2026-05-12T03:00:00.000Z",
   "mode": "observation",
   "grade": "B",
   "topicType": "standalone",
@@ -12,57 +12,71 @@
   "phase": "framing",
   "framingLevel": 0,
   "framingSkipped": true,
+  "status": "closed",
+  "closedAt": "2026-05-12T04:00:00.000Z",
+  "oneLineSummary": "worktree-b-close-merge-conflict 진단·결정: A+B 채택(D-187), PD-073 무죄, ②경로 PD-086 분리. MF-124.",
   "turns": [
     {
-      "role": "ace",
+      "role": "arki",
       "turnIdx": 0,
       "source": "agent",
       "selfScores": {
-        "rfrm_trg": "Y",
-        "ctx_car": 4,
-        "mst_fr": 0,
-        "ang_nov": 3
-      }
-    },
-    {
-      "role": "jobs",
-      "turnIdx": 1,
-      "source": "agent",
-      "selfScores": {
-        "focus_sharp": 5,
-        "bloat_idx": 1,
-        "bias_cnt": 5,
-        "no_cnt": 4
-      }
-    },
-    {
-      "role": "arki",
-      "turnIdx": 2,
-      "source": "agent",
-      "selfScores": {
-        "aud_rcl": 0.8,
-        "str_fd": 2,
-        "spc_lck": "Y",
+        "aud_rcl": 0.6,
+        "str_fd": 4,
+        "spc_lck": "N",
         "sa_rnd": 1
       }
     },
     {
       "role": "riki",
-      "turnIdx": 3,
+      "turnIdx": 1,
       "source": "agent",
       "selfScores": {
-        "crt_rcl": 1,
+        "crt_rcl": 0.75,
         "cr_val": "Y",
         "prd_rej": "N",
         "fp_rt": 0
       }
     },
     {
-      "role": "ace",
+      "role": "jobs",
+      "turnIdx": 2,
+      "source": "agent",
+      "selfScores": {
+        "focus_sharp": 5,
+        "bloat_idx": 1,
+        "bias_cnt": 3,
+        "no_cnt": 3
+      }
+    },
+    {
+      "role": "jobs",
+      "turnIdx": 3,
+      "source": "agent",
+      "selfScores": {
+        "focus_sharp": 5,
+        "bloat_idx": 1,
+        "bias_cnt": 2,
+        "no_cnt": 4
+      }
+    },
+    {
+      "role": "arki",
       "turnIdx": 4,
       "source": "agent",
       "selfScores": {
-        "rfrm_trg": "N",
+        "aud_rcl": 0.85,
+        "str_fd": 3,
+        "spc_lck": "Y",
+        "sa_rnd": 1
+      }
+    },
+    {
+      "role": "ace",
+      "turnIdx": 5,
+      "source": "agent",
+      "selfScores": {
+        "rfrm_trg": "Y",
         "ctx_car": 5,
         "mst_fr": 0,
         "ang_nov": 3
@@ -70,82 +84,93 @@
     },
     {
       "role": "jobs",
-      "turnIdx": 5,
+      "turnIdx": 6,
       "source": "agent",
       "selfScores": {
         "focus_sharp": 5,
         "bloat_idx": 1,
-        "bias_cnt": 4,
-        "no_cnt": 4
+        "bias_cnt": 0,
+        "no_cnt": 2
       }
     },
     {
+      "role": "edi",
+      "turnIdx": 7,
+      "source": "agent"
+    },
+    {
       "role": "zero",
-      "turnIdx": 6,
+      "turnIdx": 8,
       "source": "agent",
       "selfScores": {
-        "ref_cnt": 1,
+        "ref_cnt": 0,
         "hc_found": 0,
         "cln_rt": 1
       }
     },
     {
       "role": "edi",
-      "turnIdx": 7,
-      "source": "agent",
-      "selfScores": {
-        "scc": "Y",
-        "cs_cnt": 4,
-        "art_cmp": 1,
-        "gap_fc": 3
-      }
+      "turnIdx": 9,
+      "source": "agent"
     }
   ],
   "decisions": [
-    "D-185"
+    "D-187"
   ],
   "masterDecisions": [
-    "D-185"
+    "D-187"
   ],
   "decisionsAdded": [
-    "D-185"
+    "D-187"
   ],
   "masterFeedback": [
-    "MF-123"
+    "MF-124"
   ],
   "pendingDeferralsAdded": [
-    "PD-085"
+    "PD-086"
   ],
-  "pendingDeferralsResolved": [
-    "PD-080"
-  ],
+  "pendingDeferralsResolved": [],
   "pendingDeferralsTransitioned": [],
-  "openMasterAlerts": [],
+  "openMasterAlerts": [
+    {
+      "severity": "high",
+      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.01)",
+      "addedBy": "checkVersionBumpConfirmation",
+      "ref": "D-140"
+    }
+  ],
   "agentsCompleted": [
-    "ace",
-    "jobs",
     "arki",
     "riki",
+    "jobs",
+    "jobs",
+    "arki",
     "ace",
     "jobs",
+    "edi",
     "zero",
     "edi"
   ],
-  "status": "closed",
-  "closedAt": "2026-05-12T02:30:00.000Z",
-  "oneLineSummary": "PD-080 resolved (hook condensed.md 인식 추가) + D-185 박제 (Nexus fabrication 방지 A+C). PD-085 added.",
   "notes": [
-    "원래 /open B PD-80 (hook 면제 분기) 의도였으나 Nexus fabrication 발견(Riki 감사 단언2·3 허위) → 방향 전환. PD-80은 보류.",
-    "Master 지시 'A+C 조합으로 지금 반영해' → CLAUDE.md D-180 확장 edit 완료 (session_238 박제 대상)"
+    "Master 사전 가설 'PD-073 in-process 통합'은 무죄 확정 — Master가 직접 정정 (D-185 위반 사례)",
+    "Ace turn 5에서 권한 밖 결정 변경(A 단독) → Master 정정 → A+B 확정 유지",
+    "Nexus 분기 게이트 남발 (memory/feedback_low_friction_autonomy.md 위반) — Master 정정"
   ],
   "gaps": [
     {
       "type": "frontmatter-patch-failed",
-      "role": "zero",
-      "turnIdx": 6,
-      "reportsPath": "`reports/2026-05-12_nexus-fabrication-prevent/condensed.md`",
-      "detectedAt": "2026-05-12T02:06:02.428Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: `reports/2026-05-12_nexus-fabrication-prevent/condensed.md`"
+      "role": "arki",
+      "turnIdx": 0,
+      "reportsPath": "(메인이",
+      "detectedAt": "2026-05-12T02:21:55.926Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: (메인이"
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-12_worktree-b-close-merge-conflict/condensed.md",
+      "expected": "zero",
+      "actualInTurns": "edi",
+      "turnId": 7
     },
     {
       "type": "version-bump-edi-unconfirmed",
@@ -153,29 +178,25 @@
       "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
       "addedBy": "checkVersionBumpConfirmation",
       "ref": "D-140",
-      "suggestedValue": 0.1
+      "suggestedValue": 0.01
     }
   ],
   "tokenUsage": {
-    "input_tokens": 389,
-    "output_tokens": 119508,
-    "cache_creation_input_tokens": 309469,
-    "cache_read_input_tokens": 16175886,
-    "messageCount": 133,
-    "masterTurns": 23,
-    "total_billable": 16605252
+    "input_tokens": 423,
+    "output_tokens": 167324,
+    "cache_creation_input_tokens": 774643,
+    "cache_read_input_tokens": 15237363,
+    "messageCount": 127,
+    "masterTurns": 21,
+    "total_billable": 16179753
   },
   "versionBumpSuggested": {
-    "value": 0.1,
-    "type": "structural",
-    "reason": "구조 변경 자동 감지: persona/policy/skill/CLAUDE.md 1건 (CLAUDE.md)",
-    "autoDetectedAt": "2026-05-12T02:08:21.072Z",
+    "value": 0.01,
+    "type": "capacity",
+    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (memory/shared/decision_ledger.json)",
+    "autoDetectedAt": "2026-05-12T04:42:15.767Z",
     "changedFiles": [
-      ".claude/hooks/post-tool-use-task.js",
-      ".claude/settings.local.json",
-      "CLAUDE.md",
       "logs/hook-diagnostics.log",
-      "logs/master-first-audit.md",
       "logs/master-first.log",
       "logs/pre-tool-use-task.log",
       "logs/sage-gate.log",
@@ -184,27 +205,14 @@
       "memory/sessions/session_index.json",
       "memory/sessions/token_log.json",
       "memory/shared/decision_ledger.json",
-      "memory/shared/master_first_state.json",
       "memory/shared/pending_deferrals.json",
-      "memory/shared/system_state.json",
       "memory/shared/topic_index.json",
-      "reports/2026-05-12_nexus-fabrication-prevent/",
-      "reports/2026-05-12_pd-080-zero-marker-fp/",
-      "scripts/test-pd80-fix.js"
+      "reports/2026-05-12_worktree-b-close-merge-conflict/",
+      "topics/topic_203/"
     ],
-    "changedFilesCount": 22,
+    "changedFilesCount": 13,
     "cappedAt": 0.1,
     "confirmedBy": null
   },
-  "versionBump": {
-    "value": 0.01,
-    "type": "capacity",
-    "reason": "Edi override: CLAUDE.md 변경은 D-180 기존 확장이라 structural 하향. PD-080 hook 수정 + D-185 박제 = capacity 확장.",
-    "from": "1.763",
-    "to": "1.773",
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-12T02:35:00.000Z",
-    "autoDetectedAt": "2026-05-12T02:08:21.072Z"
-  },
-  "finalizedAt": "2026-05-12T02:08:21.103Z"
+  "finalizedAt": "2026-05-12T04:42:15.805Z"
 }

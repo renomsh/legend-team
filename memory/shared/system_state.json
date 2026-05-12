@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_238",
-  "nextSessionId": "session_239",
+  "lastSessionId": "session_239",
+  "nextSessionId": "session_240",
   "currentVersion": "v1.773",
   "openTopics": [
     {
@@ -19,6 +19,12 @@
     }
   ],
   "recentDecisions": [
+    {
+      "id": "D-187",
+      "date": "2026-05-12",
+      "axis": "워크트리 머지 충돌 차단 — pre-commit hook on main + .gitattributes merge=ours",
+      "summary": "워크트리 머지 충돌 차단 — pre-commit hook on main + .gitattributes merge=ours"
+    },
     {
       "id": "D-185",
       "date": "2026-05-12",
@@ -42,15 +48,18 @@
       "date": "2026-05-11",
       "axis": "병행세션 병행토픽 시스템 — m* prefix 별도 넘버링 + 자동 마이그레이션(옵션 A')",
       "summary": "병행세션 병행토픽 시스템 — m* prefix 별도 넘버링 + 자동 마이그레이션(옵션 A')"
-    },
-    {
-      "id": "D-180",
-      "date": "2026-05-10",
-      "axis": "Nexus 실행 전 질문 원칙",
-      "summary": "Nexus 실행 전 질문 원칙"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_239",
+      "topicSlug": "worktree-b-close-merge-conflict",
+      "closedAt": "2026-05-12T04:00:00.000Z",
+      "oneLineSummary": "worktree-b-close-merge-conflict 진단·결정: A+B 채택(D-187), PD-073 무죄, ②경로 PD-086 분리. MF-124.",
+      "decisionsAdded": [
+        "D-187"
+      ]
+    },
     {
       "sessionId": "session_238",
       "topicSlug": "nexus-fabrication-prevent",
@@ -65,13 +74,6 @@
       "topicSlug": "nexus-tao-grading",
       "closedAt": "2026-05-12T00:45:00.000Z",
       "oneLineSummary": "PD-082 구현 완료: Turn.tao optional 필드 + nexus-turn-push 자동 부착 + validate 범위 검증. tsc·negative·extract 테스트 모두 통과.",
-      "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_236",
-      "topicSlug": "pd-081-auto-push-order",
-      "closedAt": "2026-05-12T00:30:00.000Z",
-      "oneLineSummary": "PD-081 resolved (D-2): main repo의 .claude sync commit 제거 — main 분기 차단, ff-only 머지 가능. syncClaudeDir 파일 복사는 유지. PD 원문 '중간 push'는 session_231 사후 follow-up commit 오기록으로 확인.",
       "decisionsAdded": []
     }
   ],
@@ -164,7 +166,20 @@
       "dependsOn": [],
       "relatedTopic": "topic_202",
       "resolveCondition": "post-tool-use-task.js 두 인라인 read를 readAndValidateMarker 호출로 치환 + files.includes 인라인 보존 + scripts/test-pd80-fix.js 재실행 4건 PASS 유지"
+    },
+    {
+      "id": "PD-086",
+      "fromSession": "session_239",
+      "fromTopic": "topic_203",
+      "createdAt": "2026-05-12",
+      "title": "Hook의 main 워킹디렉토리 직접 write 경로 차단 — ②경로 분리",
+      "item": "본 토픽(topic_203) anchor 밖 분리 항목. A+B(pre-commit hook + .gitattributes merge=ours)는 main 직접 *commit* 표면만 차단. 그러나 박제 신뢰성 침해의 다른 표면 = hook이 main 워킹디렉토리에 *파일 직접 write*하는 경로는 commit 아니므로 A 통과, 보호 9종 외 파일이면 B도 미적용. 대상: (1) scripts/auto-push.js:81~107 syncClaudeDir — 워크트리 .claude/ 파일을 main 워킹디렉토리에 fs.copyFileSync 복사 (현재 untracked topics/topic_196/session_contributions/ 잔존이 흔적). (2) scripts/auto-push.js:149~163 syncHookDiagnosticsFromMain — main→worktree 역방향 sync, 그 자체가 main에 write되는 session-end-tokens.js 우회 로직. (3) .claude/hooks/session-end-tokens.js — auto-push.js:150 주석에 명시 'always writes to input.cwd (= main project root, not worktree)'. 옵션: (a) 모든 main-write 경로 제거, hook 출력을 워크트리 내부 한정 (Arki 안 A 원안과 정합) (b) hook input 계약 변경(write target을 worktree로 강제) — Riki R-3 적출 항목. 본 분리는 D-185 위반 재발 방지 (한 토픽에 표면 2개 묶지 않기, Ace turn 5 + Jobs turn 6 동의).",
+      "status": "pending",
+      "relatedDecisions": [],
+      "dependsOn": [],
+      "relatedTopic": "topic_203",
+      "resolveCondition": "syncClaudeDir + syncHookDiagnosticsFromMain 제거 또는 hook input 계약 변경으로 main 워킹디렉토리 직접 write 0건 + 새 세션 1회 종료 시 main에 git status 깨끗(untracked 0건) 확인"
     }
   ],
-  "lastUpdated": "2026-05-12T02:08:21.102Z"
+  "lastUpdated": "2026-05-12T04:42:15.803Z"
 }

@@ -291,6 +291,19 @@
       "dependsOn": [],
       "relatedTopic": "topic_202",
       "resolveCondition": "post-tool-use-task.js 두 인라인 read를 readAndValidateMarker 호출로 치환 + files.includes 인라인 보존 + scripts/test-pd80-fix.js 재실행 4건 PASS 유지"
+    },
+    {
+      "id": "PD-086",
+      "fromSession": "session_239",
+      "fromTopic": "topic_203",
+      "createdAt": "2026-05-12",
+      "title": "Hook의 main 워킹디렉토리 직접 write 경로 차단 — ②경로 분리",
+      "item": "본 토픽(topic_203) anchor 밖 분리 항목. A+B(pre-commit hook + .gitattributes merge=ours)는 main 직접 *commit* 표면만 차단. 그러나 박제 신뢰성 침해의 다른 표면 = hook이 main 워킹디렉토리에 *파일 직접 write*하는 경로는 commit 아니므로 A 통과, 보호 9종 외 파일이면 B도 미적용. 대상: (1) scripts/auto-push.js:81~107 syncClaudeDir — 워크트리 .claude/ 파일을 main 워킹디렉토리에 fs.copyFileSync 복사 (현재 untracked topics/topic_196/session_contributions/ 잔존이 흔적). (2) scripts/auto-push.js:149~163 syncHookDiagnosticsFromMain — main→worktree 역방향 sync, 그 자체가 main에 write되는 session-end-tokens.js 우회 로직. (3) .claude/hooks/session-end-tokens.js — auto-push.js:150 주석에 명시 'always writes to input.cwd (= main project root, not worktree)'. 옵션: (a) 모든 main-write 경로 제거, hook 출력을 워크트리 내부 한정 (Arki 안 A 원안과 정합) (b) hook input 계약 변경(write target을 worktree로 강제) — Riki R-3 적출 항목. 본 분리는 D-185 위반 재발 방지 (한 토픽에 표면 2개 묶지 않기, Ace turn 5 + Jobs turn 6 동의).",
+      "status": "pending",
+      "relatedDecisions": [],
+      "dependsOn": [],
+      "relatedTopic": "topic_203",
+      "resolveCondition": "syncClaudeDir + syncHookDiagnosticsFromMain 제거 또는 hook input 계약 변경으로 main 워킹디렉토리 직접 write 0건 + 새 세션 1회 종료 시 main에 git status 깨끗(untracked 0건) 확인"
     }
   ]
 }

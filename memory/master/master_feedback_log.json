@@ -1597,6 +1597,18 @@
         "all"
       ],
       "status": "applied"
+    },
+    {
+      "id": "MF-124",
+      "topicId": "topic_203",
+      "date": "2026-05-12",
+      "phase": "close",
+      "feedback": "Master가 PD-073 anchor를 직접 정정. Nexus·Arki·Jobs가 검증 없이 anchor 수용해 D-185 위반 사례 발생.",
+      "directive": "anchor 수용 전 1축 이상 능동 검증 의무화. 본 세션이 학습 신호.",
+      "appliedTo": [
+        "all"
+      ],
+      "status": "applied"
     }
   ],
   "statusValues": [

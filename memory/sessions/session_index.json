@@ -11465,8 +11465,136 @@
       "decisionsAdded": [
         "D-185"
       ]
+    },
+    {
+      "sessionId": "session_239",
+      "topicSlug": "worktree-b-close-merge-conflict",
+      "topic": "워크트리 B 클로즈 머지 충돌 원인 분석",
+      "startedAt": "2026-05-12T03:00:00.000Z",
+      "closedAt": "2026-05-12T04:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\bold-jang-50aade",
+      "decisions": [
+        "D-187"
+      ],
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "jobs",
+        "jobs",
+        "arki",
+        "ace",
+        "jobs",
+        "edi",
+        "zero",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "arki",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "aud_rcl": 0.6,
+            "str_fd": 4,
+            "spc_lck": "N",
+            "sa_rnd": 1
+          }
+        },
+        {
+          "role": "riki",
+          "turnIdx": 1,
+          "source": "agent",
+          "selfScores": {
+            "crt_rcl": 0.75,
+            "cr_val": "Y",
+            "prd_rej": "N",
+            "fp_rt": 0
+          }
+        },
+        {
+          "role": "jobs",
+          "turnIdx": 2,
+          "source": "agent",
+          "selfScores": {
+            "focus_sharp": 5,
+            "bloat_idx": 1,
+            "bias_cnt": 3,
+            "no_cnt": 3
+          }
+        },
+        {
+          "role": "jobs",
+          "turnIdx": 3,
+          "source": "agent",
+          "selfScores": {
+            "focus_sharp": 5,
+            "bloat_idx": 1,
+            "bias_cnt": 2,
+            "no_cnt": 4
+          }
+        },
+        {
+          "role": "arki",
+          "turnIdx": 4,
+          "source": "agent",
+          "selfScores": {
+            "aud_rcl": 0.85,
+            "str_fd": 3,
+            "spc_lck": "Y",
+            "sa_rnd": 1
+          }
+        },
+        {
+          "role": "ace",
+          "turnIdx": 5,
+          "source": "agent",
+          "selfScores": {
+            "rfrm_trg": "Y",
+            "ctx_car": 5,
+            "mst_fr": 0,
+            "ang_nov": 3
+          }
+        },
+        {
+          "role": "jobs",
+          "turnIdx": 6,
+          "source": "agent",
+          "selfScores": {
+            "focus_sharp": 5,
+            "bloat_idx": 1,
+            "bias_cnt": 0,
+            "no_cnt": 2
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 7,
+          "source": "agent"
+        },
+        {
+          "role": "zero",
+          "turnIdx": 8,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 0,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 9,
+          "source": "agent"
+        }
+      ],
+      "grade": "B",
+      "note": "Master 사전 가설 'PD-073 in-process 통합'은 무죄 확정 — Master가 직접 정정 (D-185 위반 사례) | Ace turn 5에서 권한 밖 결정 변경(A 단독) → Master 정정 → A+B 확정 유지 | Nexus 분기 게이트 남발 (memory/feedback_low_friction_autonomy.md 위반) — Master 정정",
+      "oneLineSummary": "worktree-b-close-merge-conflict 진단·결정: A+B 채택(D-187), PD-073 무죄, ②경로 PD-086 분리. MF-124.",
+      "decisionsAdded": [
+        "D-187"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-12T02:08:20.587Z",
+  "lastUpdated": "2026-05-12T04:42:15.135Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

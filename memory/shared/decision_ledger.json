@@ -3015,7 +3015,38 @@
         "honorifics"
       ],
       "status": "active"
+    },
+    {
+      "id": "D-187",
+      "date": "2026-05-12",
+      "session": "session_239",
+      "topic": "topic_203",
+      "axis": "워크트리 머지 충돌 차단 — pre-commit hook on main + .gitattributes merge=ours",
+      "summary": "B 클로즈 시 반복 머지 충돌의 근본 원인 = main 워킹디렉토리 직접 작업 패턴 누적 (eb3aaa9 sync .claude / 0b14144 dashboard+dist rebuild / b4ec123 session end auto / 8e496d8 follow-up hotfix). PD-073 in-process require 통합은 무죄 확정 (compute-dashboard·finalize-self-scores·compute-signature-metrics 모두 __dirname 기준 ROOT 사용). 채택안: A(.githooks/pre-commit이 branch==main 시 차단, ALLOW_MAIN_COMMIT=1 우회 게이트) + B(.gitattributes merge=ours, 보호 9종: dist/** / .claude/settings.local.json / memory/shared/topic_index.json / memory/shared/decision_ledger.json / memory/shared/master_first_state.json / memory/shared/dashboard_data.json / memory/sessions/current_session.json / memory/sessions/token_log.json / memory/growth/self_scores.jsonl). Driver: ours driver 등록 (setup 스크립트에 git config merge.ours.driver true). Phase 6단계: 1.hook 작성 / 2.gitattributes / 3.install-git-hooks.sh / 4.문서 박제 / 5.setup 1회 실행(별도 PD) / 6.실증 검증. ②경로(hook의 main 직접 write: syncClaudeDir·session-end-tokens.js)는 본 토픽 anchor 밖, PD-086 분리.",
+      "decision": "A+B 채택. ②경로(hook main write) PD-086 분리.",
+      "caveats": [
+        "merge=ours driver는 git built-in 아님 — setup 1회 실행 미수행 시 .gitattributes 무력",
+        "ALLOW_MAIN_COMMIT=1 우회 게이트 남용 시 보호 무력화 위험"
+      ],
+      "relatedDecisions": [
+        "D-185"
+      ],
+      "relatedPDs": [
+        "PD-086"
+      ],
+      "relatedFiles": [
+        "reports/2026-05-12_worktree-b-close-merge-conflict/condensed.md",
+        "reports/2026-05-12_worktree-b-close-merge-conflict/edi_rev1.md"
+      ],
+      "tags": [
+        "worktree",
+        "merge-conflict",
+        "pre-commit-hook",
+        "gitattributes",
+        "merge-driver"
+      ],
+      "status": "active"
     }
   ],
-  "lastUpdated": "2026-05-11"
+  "lastUpdated": "2026-05-12"
 }

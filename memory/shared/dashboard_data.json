@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-12T02:08:21.304Z",
-  "totalSessions": 234,
+  "generatedAt": "2026-05-12T04:42:16.043Z",
+  "totalSessions": 235,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 234
+      "undefined": 235
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -303,17 +303,30 @@
       "dependsOn": [],
       "relatedTopic": "topic_202",
       "resolveCondition": "post-tool-use-task.js 두 인라인 read를 readAndValidateMarker 호출로 치환 + files.includes 인라인 보존 + scripts/test-pd80-fix.js 재실행 4건 PASS 유지"
+    },
+    {
+      "id": "PD-086",
+      "fromSession": "session_239",
+      "fromTopic": "topic_203",
+      "createdAt": "2026-05-12",
+      "title": "Hook의 main 워킹디렉토리 직접 write 경로 차단 — ②경로 분리",
+      "item": "본 토픽(topic_203) anchor 밖 분리 항목. A+B(pre-commit hook + .gitattributes merge=ours)는 main 직접 *commit* 표면만 차단. 그러나 박제 신뢰성 침해의 다른 표면 = hook이 main 워킹디렉토리에 *파일 직접 write*하는 경로는 commit 아니므로 A 통과, 보호 9종 외 파일이면 B도 미적용. 대상: (1) scripts/auto-push.js:81~107 syncClaudeDir — 워크트리 .claude/ 파일을 main 워킹디렉토리에 fs.copyFileSync 복사 (현재 untracked topics/topic_196/session_contributions/ 잔존이 흔적). (2) scripts/auto-push.js:149~163 syncHookDiagnosticsFromMain — main→worktree 역방향 sync, 그 자체가 main에 write되는 session-end-tokens.js 우회 로직. (3) .claude/hooks/session-end-tokens.js — auto-push.js:150 주석에 명시 'always writes to input.cwd (= main project root, not worktree)'. 옵션: (a) 모든 main-write 경로 제거, hook 출력을 워크트리 내부 한정 (Arki 안 A 원안과 정합) (b) hook input 계약 변경(write target을 worktree로 강제) — Riki R-3 적출 항목. 본 분리는 D-185 위반 재발 방지 (한 토픽에 표면 2개 묶지 않기, Ace turn 5 + Jobs turn 6 동의).",
+      "status": "pending",
+      "relatedDecisions": [],
+      "dependsOn": [],
+      "relatedTopic": "topic_203",
+      "resolveCondition": "syncClaudeDir + syncHookDiagnosticsFromMain 제거 또는 hook input 계약 변경으로 main 워킹디렉토리 직접 write 0건 + 새 세션 1회 종료 시 main에 git status 깨끗(untracked 0건) 확인"
     }
   ],
   "metrics": {
     "avgMasterTurns": 21.89,
-    "avgCacheHitRate": 0.9323,
-    "cacheSampleSize": 203,
-    "cacheSampleTotal": 234,
+    "avgCacheHitRate": 0.9324,
+    "cacheSampleSize": 204,
+    "cacheSampleTotal": 235,
     "avgAdoptionRate": 0,
-    "totalDecisions": 187,
+    "totalDecisions": 188,
     "gradeDistribution": {
-      "S": 109,
+      "S": 110,
       "A": 45,
       "B": 50,
       "C": 30
@@ -332,10 +345,10 @@
       "session_202"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 188,
-    "totalCostUSD": 2775.8583,
-    "avgCostPerSession": 12.3922,
-    "costSampleSize": 224,
+    "turnBasedSessions": 189,
+    "totalCostUSD": 2785.8455,
+    "avgCostPerSession": 12.3815,
+    "costSampleSize": 225,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -9222,12 +9235,57 @@
         "messageCount": 133
       },
       "sessionCostUSD": 7.8071
+    },
+    {
+      "sessionId": "session_239",
+      "topicSlug": "worktree-b-close-merge-conflict",
+      "topic": "워크트리 B 클로즈 머지 충돌 원인 분석",
+      "startedAt": "2026-05-12T03:00:00.000Z",
+      "closedAt": "2026-05-12T04:00:00.000Z",
+      "decisionCount": 1,
+      "decisionAxes": 1,
+      "decisions": [
+        "D-187"
+      ],
+      "rolesCalled": 10,
+      "rolesRecalled": 4,
+      "sessionsSpanned": 1,
+      "size": 23,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 21,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "jobs",
+        "jobs",
+        "arki",
+        "ace",
+        "jobs",
+        "edi",
+        "zero",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 16179753,
+        "ioTokens": 167747,
+        "inputTokens": 423,
+        "outputTokens": 167324,
+        "cacheCreate": 774643,
+        "cacheRead": 15237363,
+        "cacheHitRate": 0.9417549822917569,
+        "messageCount": 127
+      },
+      "sessionCostUSD": 9.9872
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 212,
+      "count": 214,
       "sessions": [
         "session_050",
         "session_051",
@@ -9413,12 +9471,13 @@
         "session_235",
         "session_236",
         "session_237",
-        "session_238"
+        "session_238",
+        "session_239"
       ]
     },
     {
       "role": "ace",
-      "count": 187,
+      "count": 188,
       "sessions": [
         "session_047",
         "session_048",
@@ -9516,12 +9575,13 @@
         "session_216",
         "session_224",
         "session_235",
-        "session_238"
+        "session_238",
+        "session_239"
       ]
     },
     {
       "role": "arki",
-      "count": 163,
+      "count": 165,
       "sessions": [
         "session_048",
         "session_049",
@@ -9615,7 +9675,8 @@
         "session_233",
         "session_234",
         "session_235",
-        "session_238"
+        "session_238",
+        "session_239"
       ]
     },
     {
@@ -9722,7 +9783,7 @@
     },
     {
       "role": "riki",
-      "count": 125,
+      "count": 126,
       "sessions": [
         "session_049",
         "session_053",
@@ -9815,12 +9876,13 @@
         "session_233",
         "session_234",
         "session_235",
-        "session_238"
+        "session_238",
+        "session_239"
       ]
     },
     {
       "role": "zero",
-      "count": 48,
+      "count": 49,
       "sessions": [
         "session_153",
         "session_175",
@@ -9854,12 +9916,13 @@
         "session_233",
         "session_234",
         "session_235",
-        "session_238"
+        "session_238",
+        "session_239"
       ]
     },
     {
       "role": "jobs",
-      "count": 32,
+      "count": 35,
       "sessions": [
         "session_151",
         "session_152",
@@ -9880,7 +9943,8 @@
         "session_208",
         "session_216",
         "session_224",
-        "session_238"
+        "session_238",
+        "session_239"
       ]
     },
     {
@@ -16817,6 +16881,72 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_239",
+      "topic": "워크트리 B 클로즈 머지 충돌 원인 분석",
+      "sequence": [
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "jobs",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "jobs",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "jobs",
+          "phase": null,
+          "turnIdx": 6,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 7,
+          "recallReason": null
+        },
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 8,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 9,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -17032,6 +17162,11 @@
           "date": "2026-05-12",
           "feedbackId": "MF-123",
           "summary": "헬퍼 치환을 MUST_NOW로 권고했으나 Master가 PD-80 5분 버그 scope 외로 판정 — Job"
+        },
+        {
+          "date": "2026-05-12",
+          "feedbackId": "MF-124",
+          "summary": "Master가 PD-073 anchor를 직접 정정. Nexus·Arki·Jobs가 검증 없이 anchor "
         }
       ]
     },
@@ -17430,6 +17565,21 @@
       ]
     },
     {
+      "keyword": "직접",
+      "occurrences": [
+        {
+          "date": "2026-04-25",
+          "feedbackId": "MF-097",
+          "summary": "2 (Vera 정정안 직접 채택, Arki 재소집 생략)"
+        },
+        {
+          "date": "2026-05-12",
+          "feedbackId": "MF-124",
+          "summary": "Master가 PD-073 anchor를 직접 정정. Nexus·Arki·Jobs가 검증 없이 anchor "
+        }
+      ]
+    },
+    {
       "keyword": "Arki",
       "occurrences": [
         {
@@ -17551,6 +17701,11 @@
           "date": "2026-05-09",
           "feedbackId": "MF-114",
           "summary": "PD 등록 시 의도 추측 금지 — Master가 PD-068 정정 시 자동화 대상 = plugin skill"
+        },
+        {
+          "date": "2026-05-12",
+          "feedbackId": "MF-124",
+          "summary": "Master가 PD-073 anchor를 직접 정정. Nexus·Arki·Jobs가 검증 없이 anchor "
         }
       ]
     },
