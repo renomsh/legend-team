@@ -165,6 +165,22 @@ Arki 5종 subjectType: 세션 출력 레이블 전용. dispatch 기준 아님.
 - **설치 (1회/워크트리):** `sh scripts/install-git-hooks.sh` — `core.hooksPath=.githooks` + `merge.ours.driver=true` 설정 + `backups/git-config-{ts}/restore.sh` 자동 생성
 - **분리 항목:** PD-086 (hook의 main 워킹디렉토리 직접 write 경로 — `syncClaudeDir`·`session-end-tokens.js`)
 
+## m* 병행세션 시스템 (PD-079 / D-181, 2026-05-13)
+
+워크트리-로컬 임시 buffer로 결정·PD를 격리하여 공식 SOT 오염 차단. 마이그는 `/open` 시점에 자동-1 silent + 사후 감사 로그.
+
+- **D1 (격리 구조):** `m_topic_index_{wid}.json` · `m_decision_ledger_{wid}.json` · `m_pending_deferrals_{wid}.json` — 워크트리당 1세트. 공식 `topic_index.json` · `decision_ledger.json` · `pending_deferrals.json`과 완전 분리.
+- **D2 (자동-1 silent 마이그):** closed mtopic은 다음 `/open` step 7-c에서 동기 호출 (`scripts/lib/auto-migrate-on-open.ts`). `migrate:` prefix 커밋으로 박제. SHA가 `m_migration_log.json` entry에 기록 → Master `git show <sha>` 검증.
+- **임시 buffer 원칙:** mtopic은 영구 저장소 아님. close 후 자동 승격이 의무.
+- **운영 KPI 3종** (`memory/shared/m_kpi.json`): `orphanCount`(고아 wid) · `executionRate`(최근 30일 success/시도) · `accuracyProxy`(dedupe 정확도, 1.0에 가까울수록 dedupe miss 없음).
+- **워크트리 고아 처리:** 자동 삭제 금지 — KPI 카운트만. 수동 정리는 별도 PD (`m-orphan-cleanup.ts`).
+- **D-187 정합:** `m_migration_log.json` · `m_kpi.json`은 `.gitattributes merge=ours`. `migrate:` 커밋은 워크트리에서만 허용, main 브랜치 차단.
+- **Lock 없음 (Q1B):** 동시 `/open` 가능성은 Master 수동 조정으로 회피. 충돌 시 Master 즉시 처리.
+- **명령어:**
+  - `/open-mtopic [grade] "<title>"` — 신규 mtopic 생성
+  - `/open-mtopic mtopic_NNN_W{hash}` — 기존 mtopic 재오픈
+  - `/open` (공식) — step 7-c에서 마이그 트리거 (mtopic 무관)
+
 ## Viewer Policy (updated 2026-05-04, D-002 revised)
 - `app/` directory is a multi-page static viewer for file-based outputs
 - JSX, React 허용. UI 변경은 Claude Code 경유. (D-002 revised 2026-05-04)

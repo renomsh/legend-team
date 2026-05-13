@@ -14,5 +14,18 @@
     "pendingDeferral": "PD-\\d{3,}",
     "_comment": "cross-check 직교 시그널(R-2). regex 변경 시 본 필드만 수정."
   },
+  "autoMigrate": {
+    "timeoutMs": 30000,
+    "_comment": "P6 /open step 7-c 동기 마이그 timeout 캡. 초과 시 자식 종료 후 warn log."
+  },
+  "commit": {
+    "prefix": "migrate: m* → SOT",
+    "_comment": "P6 migration-commit.ts. D-187 정합: main 브랜치에서는 차단(워크트리에서만 commit)."
+  },
+  "kpi": {
+    "snapshotPath": "memory/shared/m_kpi.json",
+    "accuracySampleSize": 20,
+    "_comment": "최근 N건 migrated D-NNN axis를 공식 ledger 재유사도 측정 (dedupeThreshold 기준)."
+  },
   "version": "v1"
 }

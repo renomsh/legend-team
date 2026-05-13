@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-13T08:37:50.912Z",
-  "totalSessions": 240,
+  "generatedAt": "2026-05-13T11:24:59.551Z",
+  "totalSessions": 241,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 240
+      "undefined": 241
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -332,17 +332,86 @@
       "dependsOn": [],
       "relatedTopic": "topic_203",
       "resolveCondition": "topics/{topicId}/session_contributions/ 신규 파일이 자동 commit + 워크트리·main 양쪽에서 git status untracked 0건"
+    },
+    {
+      "id": "PD-088",
+      "fromSession": "session_245",
+      "fromTopic": "pd-069-parallel-session",
+      "createdAt": "2026-05-13",
+      "title": "mD→공식 D 매핑 fallback 정합화 (authority/scopeCheck legacy-ambiguous)",
+      "item": "convertMDToOfficial fallback 경로에서 authority·scopeCheck 필드가 legacy-ambiguous 상태로 통과. 본 세션 D-191·D-192는 수동 박제로 authority=master·scopeCheck=in-scope 명기했지만, 자동 마이그 경로의 mD→D 변환 시 fallback 분기는 두 필드 누락 가능. 정합화 옵션: (a) convertMDToOfficial 내부에서 두 필드 default(authority=master, scopeCheck=in-scope) 강제 주입 (b) m_decision_ledger 스키마에 두 필드 required 추가 (c) fallback 차단 + 명시 입력 강제.",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-191",
+        "D-192"
+      ],
+      "dependsOn": [],
+      "relatedTopic": "topic_197"
+    },
+    {
+      "id": "PD-089",
+      "fromSession": "session_245",
+      "fromTopic": "pd-069-parallel-session",
+      "createdAt": "2026-05-13",
+      "title": "processMTopic export 표면 정리",
+      "item": "scripts/lib/auto-migrate-on-open.ts에서 processMTopic 함수가 외부 export. verifiability(테스트 hook) ↑ vs API 표면 +1. 옵션: (a) export 유지 — 게이트 단위 테스트 직접 호출 가능 (b) export 제거 + internal export(테스트 전용 _processMTopic) 별도 분리 (c) 게이트 통합 후(PD-090) 함수 자체 폐기.",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-192"
+      ],
+      "dependsOn": [],
+      "relatedTopic": "topic_197"
+    },
+    {
+      "id": "PD-090",
+      "fromSession": "session_245",
+      "fromTopic": "pd-069-parallel-session",
+      "createdAt": "2026-05-13",
+      "title": "verify 5중복 패턴 → gate-runner.ts 추출 + snap/restore 통합 (Zero S1' 정합)",
+      "item": "g3·g4·g5·g6·g7·g6-apply-smoke 6개 게이트 스크립트가 GateResult record 구조 + snap/restore 보일러플레이트를 중복 박제. Zero D.Condense S1'(P5 누적 4→6 중복 격상) 정합. 추출 대상: (a) GateResult/record interface → scripts/lib/gate-runner.ts (b) snap/restore 2-duplicate 단일 함수화(D1'). 게이트 통합 후 g* 스크립트는 게이트 정의만 선언.",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-192"
+      ],
+      "dependsOn": [],
+      "relatedTopic": "topic_197"
+    },
+    {
+      "id": "PD-091",
+      "fromSession": "session_245",
+      "fromTopic": "pd-069-parallel-session",
+      "createdAt": "2026-05-13",
+      "title": "convertMDToOfficial fallback 로그 명문화 (Zero D3' 정합)",
+      "item": "convertMDToOfficial fallback 분기(인용 변환 실패 등)가 m_migration_log entry.details에 명시되지 않음 — 사후 감사 시 fallback 발동 여부 추적 불가. 정합화: entry.details에 fallback: {triggered: bool, reason: string, originalRefs: string[]} 필드 추가. Zero D3'(= 이전 S2) 정합.",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-192"
+      ],
+      "dependsOn": [],
+      "relatedTopic": "topic_197"
+    },
+    {
+      "id": "PD-092",
+      "fromSession": "session_245",
+      "fromTopic": "pd-069-parallel-session",
+      "createdAt": "2026-05-13",
+      "title": "subagent body 영속화 — turn 본문 손실 차단",
+      "item": "session_244 Arki turn 0 본문이 디스크에 박제되지 않은 채 세션 종료 (Master 인용 시점에 reports/*.md grep 0건). current_session.json.turns[]에는 selfScores만 박제, body는 휘발. 본 세션도 arki·riki 본문 reports/ 미발견(gaps missing-report 박제). 옵션: (a) Task 결과 자동 reports/{role}_rev*.md 박제 hook 추가 (b) memory/sessions/turn_log.jsonl에 body 포함 (c) post-tool-use-task hook에서 turn body 후속 박제. 옵션 (a)가 frontmatter 의무(D-067) 정합.",
+      "status": "pending",
+      "relatedDecisions": [],
+      "dependsOn": [],
+      "relatedTopic": "topic_197"
     }
   ],
   "metrics": {
-    "avgMasterTurns": 22.07,
-    "avgCacheHitRate": 0.9325,
-    "cacheSampleSize": 209,
-    "cacheSampleTotal": 240,
+    "avgMasterTurns": 22.08,
+    "avgCacheHitRate": 0.9326,
+    "cacheSampleSize": 210,
+    "cacheSampleTotal": 241,
     "avgAdoptionRate": 0,
-    "totalDecisions": 191,
+    "totalDecisions": 193,
     "gradeDistribution": {
-      "S": 113,
+      "S": 114,
       "A": 47,
       "B": 50,
       "C": 30
@@ -361,10 +430,10 @@
       "session_202"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 194,
-    "totalCostUSD": 2861.2359,
-    "avgCostPerSession": 12.4402,
-    "costSampleSize": 230,
+    "turnBasedSessions": 195,
+    "totalCostUSD": 2878.3206,
+    "avgCostPerSession": 12.4603,
+    "costSampleSize": 231,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -9069,8 +9138,8 @@
       ],
       "rolesCalled": 5,
       "rolesRecalled": 1,
-      "sessionsSpanned": 2,
-      "size": 15,
+      "sessionsSpanned": 3,
+      "size": 18,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -9455,8 +9524,8 @@
       "decisionAxes": 0,
       "rolesCalled": 10,
       "rolesRecalled": 4,
-      "sessionsSpanned": 2,
-      "size": 24,
+      "sessionsSpanned": 3,
+      "size": 27,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -9486,12 +9555,53 @@
         "messageCount": 132
       },
       "sessionCostUSD": 11.3548
+    },
+    {
+      "sessionId": "session_245",
+      "topicSlug": "pd-069-parallel-session",
+      "topic": "PD-079 병행세션 시스템 구현 P6+P7",
+      "startedAt": "2026-05-13T09:30:00.000Z",
+      "closedAt": "2026-05-13T12:00:00.000Z",
+      "decisionCount": 2,
+      "decisionAxes": 2,
+      "decisions": [
+        "D-191",
+        "D-192"
+      ],
+      "rolesCalled": 5,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 3,
+      "size": 20,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 25,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "zero",
+        "zero",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 33104616,
+        "ioTokens": 183712,
+        "inputTokens": 637,
+        "outputTokens": 183075,
+        "cacheCreate": 1292871,
+        "cacheRead": 31628033,
+        "cacheHitRate": 0.955396461931472,
+        "messageCount": 219
+      },
+      "sessionCostUSD": 17.0847
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 220,
+      "count": 221,
       "sessions": [
         "session_050",
         "session_051",
@@ -9683,7 +9793,8 @@
         "session_241",
         "session_242",
         "session_243",
-        "session_244"
+        "session_244",
+        "session_245"
       ]
     },
     {
@@ -9793,7 +9904,7 @@
     },
     {
       "role": "arki",
-      "count": 167,
+      "count": 168,
       "sessions": [
         "session_048",
         "session_049",
@@ -9890,7 +10001,8 @@
         "session_238",
         "session_239",
         "session_242",
-        "session_244"
+        "session_244",
+        "session_245"
       ]
     },
     {
@@ -9999,7 +10111,7 @@
     },
     {
       "role": "riki",
-      "count": 128,
+      "count": 129,
       "sessions": [
         "session_049",
         "session_053",
@@ -10095,12 +10207,13 @@
         "session_238",
         "session_239",
         "session_242",
-        "session_244"
+        "session_244",
+        "session_245"
       ]
     },
     {
       "role": "zero",
-      "count": 55,
+      "count": 57,
       "sessions": [
         "session_153",
         "session_175",
@@ -10140,7 +10253,8 @@
         "session_241",
         "session_242",
         "session_243",
-        "session_244"
+        "session_244",
+        "session_245"
       ]
     },
     {
@@ -17338,6 +17452,42 @@
           "recallReason": null
         }
       ]
+    },
+    {
+      "sessionId": "session_245",
+      "topic": "PD-079 병행세션 시스템 구현 P6+P7",
+      "sequence": [
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        }
+      ]
     }
   ],
   "alarms": [
@@ -17952,6 +18102,11 @@
           "date": "2026-05-11",
           "feedbackId": "MF-121",
           "summary": "옵션 a 임의 채택 금지"
+        },
+        {
+          "date": "2026-05-13",
+          "feedbackId": "MF-126",
+          "summary": "M-1 비동기 detached 안 채택 — 동기 7-c 위치 채택 (Master 통제로 race 차단). 충"
         }
       ]
     },
@@ -17967,6 +18122,11 @@
           "date": "2026-05-12",
           "feedbackId": "MF-124",
           "summary": "Master가 PD-073 anchor를 직접 정정. Nexus·Arki·Jobs가 검증 없이 anchor "
+        },
+        {
+          "date": "2026-05-13",
+          "feedbackId": "MF-125",
+          "summary": "Master 직접 인용 텍스트만이 P6/P7 설계의 유일한 access 경로 (subagent body 미박"
         }
       ]
     },
@@ -18403,6 +18563,11 @@
           "date": "2026-05-09",
           "feedbackId": "MF-112",
           "summary": "박제·종결 전 Master 승인 필수. /auto 또는 명시 승인 없으면 Edi 박제·토픽 종결 진행 금지"
+        },
+        {
+          "date": "2026-05-13",
+          "feedbackId": "MF-125",
+          "summary": "Master 직접 인용 텍스트만이 P6/P7 설계의 유일한 access 경로 (subagent body 미박"
         }
       ]
     },

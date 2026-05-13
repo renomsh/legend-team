@@ -29,6 +29,12 @@ Session Start 체크리스트 순서대로 실행.
    - 출력 topic_id를 current_session.topicId에 기록
    - 별도 Edit으로 해당 엔트리에 `grade: "<S|A|B|C>"` 추가
 
+7-c. **m* 자동 마이그레이션 (PD-079 / D-181)** — 토픽 분기 후, 첫 응답 직전 동기 실행.
+   - 실행: `npx ts-node scripts/lib/auto-migrate-on-open.ts --apply` (closed mtopic 0건 시 ~10ms early exit)
+   - 결과 1줄: "마이그 N건 / skip M건 / err K건 / sha=<short>" — 보고에 동봉
+   - non-blocking: 자식 실패는 Nexus에 throw 안 함 (`error` 필드만 표시)
+   - lock 없음 (Master 수동 조정 정합, Q1B)
+
 8. 세션 오픈 보고 후 Grade에 따라 첫 주자 진입 (자동 framing 없음 — `/jobs-framing` 명시 호출 시만 Jobs 발동). 단, Master 메시지 불충분 시 의도·scope 먼저 질문 (`nexus_memory_open.json §orchestration.intentConfirm` 참조)
 
 ## Grade 명시 파싱

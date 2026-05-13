@@ -35,6 +35,8 @@ export interface MigrationLogEntry {
   wid: string;
   mtopicId: string;
   action: MigrationAction;
+  /** P6 R-4 K-5 mitigation: `migrate:` prefix 커밋 SHA. Master `git show <sha>` 검증 경로. */
+  commitSha?: string;
   details?: Record<string, unknown>;
   error?: string;
 }

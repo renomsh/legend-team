@@ -1,19 +1,24 @@
 {
-  "sessionId": "session_244",
+  "schema": "_zero_condense.v1",
+  "sessionId": "session_245",
   "topicId": "topic_197",
-  "completedAt": "2026-05-13T08:34:34.395Z",
+  "completedAt": "2026-05-13T09:00:00.000Z",
   "files": [
     "condensed.md"
   ],
+  "filesScanned": 12,
   "refinedRoles": [],
   "skippedRoles": [],
-  "in_scope_count": 23,
+  "in_scope_count": 12,
   "findings": 7,
   "findingsBreakdown": {
     "must_fix": 0,
-    "should_fix": 2,
-    "defer_ok": 5
+    "should_fix": 1,
+    "defer_ok": 6
   },
+  "mustFixCount": 0,
+  "shouldFixCount": 1,
+  "deferOkCount": 6,
   "domains": [
     "tech-debt",
     "security-review",
@@ -22,11 +27,11 @@
   "techDebtFound": 2,
   "securityIssues": 0,
   "simplifyAppliedTo": [
-    "g3/g4/g5-verify GateResult/record/snapshotFile duplication (defer-PD S1)",
-    "safeReadJson 4-duplicate (defer-OK D1)",
-    "mD->D conversion fallback ambiguity (defer-PD S2)"
+    "GateResult/record duplication escalated 4→6 (S1', PD-NEW-A)",
+    "snap/restore 2-duplicate (D1', merge into PD-NEW-A)",
+    "convertMDToOfficial fallback unlogged (D3' = prior S2, PD-NEW-B)"
   ],
   "gateExecutedBy": "zero",
   "qualityGrade": "B+",
-  "nextSessionGate": "P6/P7 entry OK"
+  "nextSessionGate": "P6/P7 박제 OK — must-fix 0, G6 9/9 + G7 5/5 + apply smoke PASS"
 }

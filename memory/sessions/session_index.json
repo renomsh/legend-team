@@ -11932,8 +11932,92 @@
       "note": "PD-079 구현 진입 — D-181 설계(m* prefix 병행세션·자동 마이그레이션 옵션 A'·8 미티게이션) 코드 박제 | topic_197 재오픈 (검토→구현 워크플로, child 토픽 미사용 원칙) | dependsOn PD-077 — 선결 여부 확인 필요",
       "oneLineSummary": "PD-079 m* 병행세션 시스템 P1~P5 PASS — 22 신규 파일·5 게이트 통과·P6+P7 잔여, 박제 예약 D1/D2",
       "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_245",
+      "topicId": "topic_197",
+      "topicSlug": "pd-069-parallel-session",
+      "topic": "PD-079 병행세션 시스템 구현 P6+P7",
+      "startedAt": "2026-05-13T09:30:00.000Z",
+      "closedAt": "2026-05-13T12:00:00.000Z",
+      "grade": "S",
+      "decisions": [
+        "D-191",
+        "D-192"
+      ],
+      "plannedSequence": [
+        "arki",
+        "riki",
+        "zero",
+        "edi"
+      ],
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "zero",
+        "zero",
+        "edi"
+      ],
+      "note": "topic_197 재오픈 — PD-079 P6+P7 구현 진입 | P6: migration-commit.ts (migrate: prefix) + /open 자동 마이그 hook + pre-commit hook(D-187) 호환 검증 | P7: e2e smoke + D-NNN 박제(D1·D2) + KPI 3종(mtopic_orphan_count·migration_execution_rate·migration_accuracy_proxy) + 워크트리 고아 처리 정책 + CLAUDE.md m* 절 + PD 4건 등록 | PD-077 dependsOn 해소 확인 — session_235에서 resolved (pre-compiled dist 폐기, npx ts-node 직접 호출 정합)",
+      "oneLineSummary": "PD-079 D-191·D-192 박제 + 8 미티게이션 코드 완성 — G6 9/9·G7 5/5·apply smoke PASS",
+      "decisionsAdded": [
+        "D-191",
+        "D-192"
+      ],
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\fervent-buck-e30ff5",
+      "turns": [
+        {
+          "role": "arki",
+          "turnIdx": 0,
+          "source": "agent",
+          "selfScores": {
+            "aud_rcl": 0.7,
+            "str_fd": 4,
+            "spc_lck": "N",
+            "sa_rnd": 1
+          }
+        },
+        {
+          "role": "riki",
+          "turnIdx": 1,
+          "source": "agent",
+          "selfScores": {
+            "crt_rcl": 0.8,
+            "cr_val": "Y",
+            "prd_rej": "N",
+            "fp_rt": 0.1
+          }
+        },
+        {
+          "role": "zero",
+          "turnIdx": 2,
+          "source": "agent"
+        },
+        {
+          "role": "zero",
+          "turnIdx": 3,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 7,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 4,
+          "source": "agent",
+          "selfScores": {
+            "gp_acc": 0.85,
+            "scc": "Y",
+            "cs_cnt": 4,
+            "art_cmp": 1,
+            "gap_fc": 4
+          }
+        }
+      ]
     }
   ],
-  "lastUpdated": "2026-05-13T08:37:50.155Z",
+  "lastUpdated": "2026-05-13T11:24:58.804Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

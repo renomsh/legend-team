@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_244",
-  "nextSessionId": "session_245",
-  "currentVersion": "v1.883",
+  "lastSessionId": "session_245",
+  "nextSessionId": "session_246",
+  "currentVersion": "v1.983",
   "openTopics": [
     {
       "id": "topic_175",
@@ -20,6 +20,18 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-192",
+      "date": "2026-05-13",
+      "axis": "자동-1 silent 마이그 + 8 미티게이션 코드 박제 (PD-079 / D-181)",
+      "summary": "(a) 자동 마이그 — 사용자 마찰 0, (b) 8 미티게이션 코드 박제 — Riki 적출 risk 전수 차단, (c) e2e 게이트 통과 — 실측 회귀 보호, (d) merge=ours 추가 — D-187 워크트리 안전 정합."
+    },
+    {
+      "id": "D-191",
+      "date": "2026-05-13",
+      "axis": "m_* 네임스페이스 워크트리 격리 (PD-079 / D-181)",
+      "summary": "(a) 병행 워크트리에서 D-NNN ID 발급 충돌 방지 (b) 임시 buffer로 미완성 작업 보호 (c) 공식 ledger 오염 차단 (d) auto-migrate로 사용자 마찰 0."
+    },
+    {
       "id": "D-190",
       "date": "2026-05-13",
       "axis": "Q4 active-only D-NNN 인용 enforcement — validate-decision-citations.js (WARN-only) + pre-commit hook",
@@ -36,21 +48,19 @@
       "date": "2026-05-12",
       "axis": "finalize.js 1893줄 → 5 lib 모듈 + orchestrator 분해. 단일 hook entry 유지. 실패 시 git revert 단일 커밋 원복 경로 박제.",
       "summary": "(a) silent corruption detection 가능 — 각 모듈 try/catch에서 finalize-module-fail gap 박제. (b) SRP 회복 — 31 함수 5 모듈 분리. (c) 원복 단위 명확 — 단일 머지 커밋. (d) 검증 게이트 명시 — 5세션 dry-run diff = 0 강제. (e) D-143 (4) 외 정신 보존 — supersedeScope 명시."
-    },
-    {
-      "id": "D-187",
-      "date": "2026-05-12",
-      "axis": "워크트리 머지 충돌 차단 — pre-commit hook on main + .gitattributes merge=ours",
-      "summary": "워크트리 머지 충돌 차단 — pre-commit hook on main + .gitattributes merge=ours"
-    },
-    {
-      "id": "D-185",
-      "date": "2026-05-12",
-      "axis": "Nexus fabrication 방지 — D-180 확장 (읽을 범위 게이트 + 반례 탐색)",
-      "summary": "Nexus fabrication 방지 — D-180 확장 (읽을 범위 게이트 + 반례 탐색)"
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_245",
+      "topicSlug": "pd-069-parallel-session",
+      "closedAt": "2026-05-13T12:00:00.000Z",
+      "oneLineSummary": "PD-079 D-191·D-192 박제 + 8 미티게이션 코드 완성 — G6 9/9·G7 5/5·apply smoke PASS",
+      "decisionsAdded": [
+        "D-191",
+        "D-192"
+      ]
+    },
     {
       "sessionId": "session_244",
       "topicSlug": "pd-069-parallel-session",
@@ -66,15 +76,6 @@
       "decisionsAdded": [
         "D-189",
         "D-190"
-      ]
-    },
-    {
-      "sessionId": "session_242",
-      "topicSlug": "nexus-architecture-audit",
-      "closedAt": "2026-05-12T12:30:00.000Z",
-      "oneLineSummary": "D-188 supersedes D-143 (4) — finalize.js 5 모듈 분해 + C2 auto-push 격리 + 5세션 byte-diff=0 + 롤백 PASS.",
-      "decisionsAdded": [
-        "D-188"
       ]
     }
   ],
@@ -180,7 +181,76 @@
       "dependsOn": [],
       "relatedTopic": "topic_203",
       "resolveCondition": "topics/{topicId}/session_contributions/ 신규 파일이 자동 commit + 워크트리·main 양쪽에서 git status untracked 0건"
+    },
+    {
+      "id": "PD-088",
+      "fromSession": "session_245",
+      "fromTopic": "pd-069-parallel-session",
+      "createdAt": "2026-05-13",
+      "title": "mD→공식 D 매핑 fallback 정합화 (authority/scopeCheck legacy-ambiguous)",
+      "item": "convertMDToOfficial fallback 경로에서 authority·scopeCheck 필드가 legacy-ambiguous 상태로 통과. 본 세션 D-191·D-192는 수동 박제로 authority=master·scopeCheck=in-scope 명기했지만, 자동 마이그 경로의 mD→D 변환 시 fallback 분기는 두 필드 누락 가능. 정합화 옵션: (a) convertMDToOfficial 내부에서 두 필드 default(authority=master, scopeCheck=in-scope) 강제 주입 (b) m_decision_ledger 스키마에 두 필드 required 추가 (c) fallback 차단 + 명시 입력 강제.",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-191",
+        "D-192"
+      ],
+      "dependsOn": [],
+      "relatedTopic": "topic_197"
+    },
+    {
+      "id": "PD-089",
+      "fromSession": "session_245",
+      "fromTopic": "pd-069-parallel-session",
+      "createdAt": "2026-05-13",
+      "title": "processMTopic export 표면 정리",
+      "item": "scripts/lib/auto-migrate-on-open.ts에서 processMTopic 함수가 외부 export. verifiability(테스트 hook) ↑ vs API 표면 +1. 옵션: (a) export 유지 — 게이트 단위 테스트 직접 호출 가능 (b) export 제거 + internal export(테스트 전용 _processMTopic) 별도 분리 (c) 게이트 통합 후(PD-090) 함수 자체 폐기.",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-192"
+      ],
+      "dependsOn": [],
+      "relatedTopic": "topic_197"
+    },
+    {
+      "id": "PD-090",
+      "fromSession": "session_245",
+      "fromTopic": "pd-069-parallel-session",
+      "createdAt": "2026-05-13",
+      "title": "verify 5중복 패턴 → gate-runner.ts 추출 + snap/restore 통합 (Zero S1' 정합)",
+      "item": "g3·g4·g5·g6·g7·g6-apply-smoke 6개 게이트 스크립트가 GateResult record 구조 + snap/restore 보일러플레이트를 중복 박제. Zero D.Condense S1'(P5 누적 4→6 중복 격상) 정합. 추출 대상: (a) GateResult/record interface → scripts/lib/gate-runner.ts (b) snap/restore 2-duplicate 단일 함수화(D1'). 게이트 통합 후 g* 스크립트는 게이트 정의만 선언.",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-192"
+      ],
+      "dependsOn": [],
+      "relatedTopic": "topic_197"
+    },
+    {
+      "id": "PD-091",
+      "fromSession": "session_245",
+      "fromTopic": "pd-069-parallel-session",
+      "createdAt": "2026-05-13",
+      "title": "convertMDToOfficial fallback 로그 명문화 (Zero D3' 정합)",
+      "item": "convertMDToOfficial fallback 분기(인용 변환 실패 등)가 m_migration_log entry.details에 명시되지 않음 — 사후 감사 시 fallback 발동 여부 추적 불가. 정합화: entry.details에 fallback: {triggered: bool, reason: string, originalRefs: string[]} 필드 추가. Zero D3'(= 이전 S2) 정합.",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-192"
+      ],
+      "dependsOn": [],
+      "relatedTopic": "topic_197"
+    },
+    {
+      "id": "PD-092",
+      "fromSession": "session_245",
+      "fromTopic": "pd-069-parallel-session",
+      "createdAt": "2026-05-13",
+      "title": "subagent body 영속화 — turn 본문 손실 차단",
+      "item": "session_244 Arki turn 0 본문이 디스크에 박제되지 않은 채 세션 종료 (Master 인용 시점에 reports/*.md grep 0건). current_session.json.turns[]에는 selfScores만 박제, body는 휘발. 본 세션도 arki·riki 본문 reports/ 미발견(gaps missing-report 박제). 옵션: (a) Task 결과 자동 reports/{role}_rev*.md 박제 hook 추가 (b) memory/sessions/turn_log.jsonl에 body 포함 (c) post-tool-use-task hook에서 turn body 후속 박제. 옵션 (a)가 frontmatter 의무(D-067) 정합.",
+      "status": "pending",
+      "relatedDecisions": [],
+      "dependsOn": [],
+      "relatedTopic": "topic_197"
     }
   ],
-  "lastUpdated": "2026-05-13T08:37:50.671Z"
+  "lastUpdated": "2026-05-13T11:24:59.316Z"
 }

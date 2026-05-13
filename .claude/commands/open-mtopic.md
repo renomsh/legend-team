@@ -5,9 +5,11 @@ PD-079 / D-181 Phase 2. 워크트리 격리 mtopic 생성·재오픈 전용 슬�
 mtopic은 worktree-local 임시 buffer (D1 결정). 본 커맨드는 `m_topic_index_{wid}.json` 만 갱신.
 `topic_index.json` (공식 SOT) · `topics/{id}/` 컨트롤플레인 디렉토리는 **사용하지 않음**.
 
-## Phase 5 마이그 hook 진입점
+## 마이그 트리거 위치 (P6 확정, 2026-05-13)
 
-세션 종료 시 자동-1 silent 마이그 트리거 자리 (Phase 5에서 구현). 현재는 placeholder.
+본 커맨드는 마이그를 트리거하지 않습니다. 자동-1 silent 마이그는 **`/open` (공식 토픽 오픈) step 7-c**에서만 발동 (D-181 정합).
+- mtopic 생성·재오픈은 워크트리-로컬 임시 buffer 조작만 수행
+- mtopic close 후 다음 `/open` 시점에 마이그 1회 — 공식 SOT 승격
 
 ## 체크리스트
 

@@ -1609,6 +1609,30 @@
         "all"
       ],
       "status": "applied"
+    },
+    {
+      "id": "MF-125",
+      "topicId": "topic_197",
+      "date": "2026-05-13",
+      "phase": "implementation",
+      "feedback": "Master 직접 인용 텍스트만이 P6/P7 설계의 유일한 access 경로 (subagent body 미박제). 디스크 grep 0건 확인 후 fabrication 회피 — D-185 정합",
+      "directive": "session_244 Arki subagent 본문 손실 사례를 PD-092로 분리. 디스크 fact-check 강제 (D-185).",
+      "appliedTo": [
+        "all"
+      ],
+      "status": "applied"
+    },
+    {
+      "id": "MF-126",
+      "topicId": "topic_197",
+      "date": "2026-05-13",
+      "phase": "implementation",
+      "feedback": "M-1 비동기 detached 안 채택 — 동기 7-c 위치 채택 (Master 통제로 race 차단). 충돌 시 즉시 처리 원칙.",
+      "directive": "Q1B(락 없음 + Master 수동 조정) + Q2(JSON 유지) + Q3(7-c sync) 조합으로 결정.",
+      "appliedTo": [
+        "all"
+      ],
+      "status": "applied"
     }
   ],
   "statusValues": [

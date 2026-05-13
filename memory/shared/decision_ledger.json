@@ -3206,7 +3206,58 @@
       "supersedeScope": "D-143 (4) Arki Opt-1 G1 거부 항목만",
       "rollback": "git revert {merge-commit-sha} 단일 명령. 5 lib 모듈 + orchestrator + lib/finalize 디렉토리를 하나의 머지 커밋으로 박제하여 원복 단위 보장.",
       "status": "deprecated"
+    },
+    {
+      "id": "D-191",
+      "date": "2026-05-13",
+      "session": "session_245",
+      "topicId": "topic_197",
+      "topic": "topic_197",
+      "authority": "master",
+      "scopeCheck": "in-scope",
+      "axis": "m_* 네임스페이스 워크트리 격리 (PD-079 / D-181)",
+      "summary": "m_decision_ledger_{worktreeId}.json · m_topic_index_{worktreeId}.json · m_pending_deferrals_{worktreeId}.json · m_migration_log_{worktreeId}.json · m_kpi_{worktreeId}.json 5종 스키마 박제. mtopic은 임시 buffer(D-181 정신) — 워크트리 내부에서 격리된 채 진행되다 /open 시 자동 마이그를 통해 공식 D/topic으로 승격. 워크트리 간 ID 충돌 방지를 위해 m* 파일명에 worktreeId suffix 부착. .gitattributes에 m_migration_log·m_kpi merge=ours 추가(D-187 워크트리 머지 안전 정합).",
+      "decision": "격리 buffer + 자동 마이그(silent) 채택. mtopic = 임시 buffer로 워크트리 내부 작업 보호, /open step 7-c에서 closed mtopic을 동기 호출로 공식 D/topic으로 승격.",
+      "value": "(a) 병행 워크트리에서 D-NNN ID 발급 충돌 방지 (b) 임시 buffer로 미완성 작업 보호 (c) 공식 ledger 오염 차단 (d) auto-migrate로 사용자 마찰 0.",
+      "caveats": [
+        "Lock 없음(Q1B) — 동일 워크트리 동시 /open 2회 race 시 마이그 중복 가능, 단 idempotency 가드로 무해.",
+        "worktreeId 충돌 시 m* 파일이 mix될 위험 — git worktree add 시점 ID 유일성 전제."
+      ],
+      "relatedDecisions": [
+        "D-181",
+        "D-187"
+      ],
+      "relatedTopics": [
+        "topic_197"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "D-192",
+      "date": "2026-05-13",
+      "session": "session_245",
+      "topicId": "topic_197",
+      "topic": "topic_197",
+      "authority": "master",
+      "scopeCheck": "in-scope",
+      "axis": "자동-1 silent 마이그 + 8 미티게이션 코드 박제 (PD-079 / D-181)",
+      "summary": "/open step 7-c에 자동 마이그 entry point 동기 호출 박제 + 8 미티게이션 코드 완성. (1) migration-commit.ts: migrate: prefix 커밋 + commitSha back-fill(R-4 K-5 mitigation), (2) auto-migrate-on-open.ts: /open step 7-c 동기 호출 entry, (3) m-kpi.ts: KPI 3종(mtopic_orphan_count·migration_execution_rate·migration_accuracy_proxy), (4) g6-verify.ts 9종 + g7-verify.ts 5종 + g6-apply-smoke.ts apply 경로 1-shot 실측. 8 미티게이션: R-1 hash·R-2 availability·R-3 임계 config·R-4 atomic-write·R-5 직교·K-5 사후 감사+SHA·D4 함수 차단·idempotency.",
+      "decision": "Master 동기 결정 5건(Q1A·Q1B·Q3·Q4·m_kpi-merge=ours) 반영. Lock 없음(Q1B) — idempotency로 race 방지. apply smoke 실측 PASS(migrated=1, commitSha 박제, KPI write, cleanup OK). G6 9/9·G7 5/5 PASS.",
+      "value": "(a) 자동 마이그 — 사용자 마찰 0, (b) 8 미티게이션 코드 박제 — Riki 적출 risk 전수 차단, (c) e2e 게이트 통과 — 실측 회귀 보호, (d) merge=ours 추가 — D-187 워크트리 안전 정합.",
+      "caveats": [
+        "step 7-c 동기 호출이 /open 응답 시간 +N초 증가 가능 — timeoutMs config로 제어, 단 누적 closed mtopic 다수 시 첫 /open 지연 가능.",
+        "auto-migrate 실패 시 fallback은 m_quarantine/ 격리 + 다음 /open 재시도 — 무한 quarantine 누적 시 PD-090 게이트 추출과 함께 후속 정리 필요."
+      ],
+      "relatedDecisions": [
+        "D-181",
+        "D-187",
+        "D-191"
+      ],
+      "relatedTopics": [
+        "topic_197"
+      ],
+      "status": "active"
     }
   ],
-  "lastUpdated": "2026-05-12"
+  "lastUpdated": "2026-05-13"
 }
