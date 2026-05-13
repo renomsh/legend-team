@@ -13,7 +13,8 @@
 .count-chip{display:inline-block;margin-left:10px;padding:3px 12px;font-size:14px;font-weight:600;color:#F59E0B;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.3);border-radius:999px;vertical-align:middle}
 .meta-pill{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;font-size:11px;font-weight:500;border-radius:4px;border:1px solid var(--line);color:var(--text-2)}
 .meta-pill.confirmed{color:#10B981;background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.25)}
-.meta-pill.pending{color:#F59E0B;background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.25)}
+.meta-pill.active{color:#10B981;background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.25)}
+.meta-pill.superseded{color:#6B7280;background:rgba(107,114,128,0.08);border-color:rgba(107,114,128,0.25)}
 .meta-pill.deprecated{color:#6E6E78;background:rgba(110,110,120,0.08)}
 
 .list-toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px;padding:12px 14px;background:var(--panel);border:1px solid var(--line);border-radius:8px}
@@ -67,9 +68,9 @@
     </select>
     <select class="list-select" id="filterStatus" onchange="onStatusFilter(this.value)">
       <option value="">All statuses</option>
-      <option value="confirmed">Confirmed</option>
-      <option value="pending">Pending</option>
+      <option value="active">Active</option>
       <option value="deprecated">Deprecated</option>
+      <option value="superseded">Superseded</option>
     </select>
   </div>
 
@@ -93,7 +94,7 @@ function applyFilters() {
   const q = state.search.toLowerCase();
   return state.all.filter(d => {
     if (state.topic && d.topic !== state.topic && d.owningTopicId !== state.topic) return false;
-    if (state.status && (d.status || 'pending') !== state.status) return false;
+    if (state.status && (d.status || 'active') !== state.status) return false;
     if (q) {
       const blob = `${d.id} ${d.axis||''} ${d.value||''} ${d.decision||''} ${d.scopeCheck||''} ${d.session||''} ${d.topic||''}`.toLowerCase();
       if (!blob.includes(q)) return false;
@@ -122,8 +123,8 @@ function renderList() {
   }
 
   wrap.innerHTML = slice.map(d => {
-    const status = d.status || 'pending';
-    const statusCls = status === 'confirmed' ? 'confirmed' : (status === 'deprecated' ? 'deprecated' : 'pending');
+    const status = d.status || 'active';
+    const statusCls = status === 'deprecated' ? 'deprecated' : (status === 'superseded' ? 'superseded' : 'active');
     const sessLink = d.session ? `<a class="dec-link" href="session.html?id=${d.session}" onclick="event.stopPropagation()">${d.session}</a>` : '';
     const topicId = d.owningTopicId || d.topic;
     const topicLink = topicId && /^topic_\d+$/.test(topicId)
@@ -210,13 +211,13 @@ async function init() {
   state.all = list;
 
   document.getElementById('decCount').textContent = list.length;
-  const c = list.filter(d => (d.status || 'pending') === 'confirmed').length;
-  const p = list.filter(d => (d.status || 'pending') === 'pending').length;
+  const act = list.filter(d => (d.status || 'active') === 'active').length;
   const dep = list.filter(d => d.status === 'deprecated').length;
+  const sup = list.filter(d => d.status === 'superseded').length;
   document.getElementById('decMeta').innerHTML =
-    `<span class="meta-pill confirmed">Confirmed ${c}</span>` +
-    `<span class="meta-pill pending">Pending ${p}</span>` +
-    (dep > 0 ? `<span class="meta-pill deprecated">Deprecated ${dep}</span>` : '');
+    `<span class="meta-pill active">Active ${act}</span>` +
+    `<span class="meta-pill deprecated">Deprecated ${dep}</span>` +
+    `<span class="meta-pill superseded">Superseded ${sup}</span>`;
 
   // populate topic filter
   const topics = Array.from(new Set(list.map(d => d.owningTopicId || d.topic).filter(Boolean))).sort();

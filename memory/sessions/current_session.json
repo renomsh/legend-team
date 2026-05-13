@@ -1,150 +1,96 @@
 {
-  "sessionId": "session_242",
-  "topicId": "topic_204",
-  "topic": "A Legend Nexus 아키텍처 감사",
-  "topicSlug": "nexus-architecture-audit",
-  "reportPath": "reports/2026-05-12_nexus-architecture-audit",
-  "startedAt": "2026-05-12T09:00:00.000Z",
+  "sessionId": "session_243",
+  "topicId": "topic_205",
+  "topic": "A D-NNN status 규격화 + 전수 검사",
+  "topicSlug": "decision-status-standardize",
+  "reportPath": "reports/2026-05-12_decision-status-standardize",
+  "startedAt": "2026-05-12T13:00:00.000Z",
   "mode": "observation",
   "grade": "A",
-  "topicType": "standalone",
+  "topicType": "framing",
   "operationType": "structured",
   "phase": "framing",
   "framingLevel": 0,
   "framingSkipped": true,
   "status": "closed",
-  "closedAt": "2026-05-12T12:30:00.000Z",
-  "oneLineSummary": "D-188 supersedes D-143 (4) — finalize.js 5 모듈 분해 + C2 auto-push 격리 + 5세션 byte-diff=0 + 롤백 PASS.",
   "notes": [
-    "Master 요청: Nexus 전체 아키텍처 구조 감사 (장기 운영·확장·학습·자동화 견딜 수 있는지)",
-    "점검 범위 8개 + 산출물 A~G 형식 지정. 첫 주자 Arki (Grade A).",
-    "외부 engineering:architecture ADR 병행 (Master 선택 b). Arki·외부 ADR 모두 finalize.js 분해 권고.",
-    "Riki 적출: 외부 ADR #3·#4 NO-GO (병행세션 D-181 IMPACT), C2·G1 GO. D-143 (4) Arki Opt-1 거부 박제 적출.",
-    "Master (β) D-143 supersede 결정 — '실패해서 원복하는 거잖아' 발언. D-188 박제 + rollback 경로 명시.",
-    "구현: writing-plans → executing-plans → verification-before-completion 3 스킬 흐름. 검증 게이트 10건 PASS.",
-    "본 세션 close가 분해된 finalize.js 첫 실측 실행 — 실패 시 git revert 단일 커밋 원복."
-  ],
-  "pendingDeferralsAdded": [],
-  "pendingDeferralsResolved": [],
-  "agentsCompleted": [
-    "arki",
-    "riki",
-    "dev",
-    "zero",
-    "edi"
+    "Master 요청: decision_ledger status 3종 규격화 (active/deprecated/superseded) + 189건 전수 검사",
+    "검수 방식: Master가 대시보드에서 1건씩 직접 검토. Nexus는 호출·질문 시만 응답 또는 status 변경 수행.",
+    "Q4 확정: 향후 인용은 active만 가능 — 코드 enforcement (hook). 본 토픽 범위 포함."
   ],
   "turns": [
     {
-      "role": "arki",
+      "role": "edi",
       "turnIdx": 0,
-      "source": "agent",
-      "selfScores": {
-        "aud_rcl": 0.5,
-        "str_fd": 4,
-        "spc_lck": "N",
-        "sa_rnd": 1
-      }
-    },
-    {
-      "role": "riki",
-      "turnIdx": 1,
-      "source": "agent",
-      "selfScores": {
-        "crt_rcl": 0.75,
-        "cr_val": "Y",
-        "prd_rej": "Y",
-        "fp_rt": 0.1
-      }
-    },
-    {
-      "role": "dev",
-      "turnIdx": 2,
-      "source": "inline-main",
-      "phase": "implementation",
-      "selfScores": {
-        "vrf": "Y",
-        "rollback": "Y"
-      }
+      "source": "agent"
     },
     {
       "role": "zero",
-      "turnIdx": 3,
+      "turnIdx": 1,
       "source": "agent",
       "selfScores": {
-        "ref_cnt": 5,
+        "ref_cnt": 0,
         "hc_found": 0,
         "cln_rt": 1
       }
     },
     {
       "role": "edi",
-      "turnIdx": 4,
+      "turnIdx": 2,
       "source": "agent",
       "selfScores": {
-        "art_cmp": 1,
+        "gp_acc": 0.75,
+        "scc": "Y",
         "cs_cnt": 4,
-        "gap_fc": 0,
-        "scc": "Y"
+        "art_cmp": 0.8,
+        "gap_fc": 3
       }
     }
   ],
-  "decisions": [],
-  "masterDecisions": [],
   "decisionsAdded": [
-    "D-188"
+    "D-189",
+    "D-190"
   ],
   "masterFeedback": [],
-  "pendingDeferralsTransitioned": [],
+  "pendingDeferralsAdded": [],
+  "pendingDeferralsResolved": [],
+  "agentsCompleted": [
+    "edi",
+    "zero",
+    "edi"
+  ],
   "openMasterAlerts": [],
-  "gaps": [],
-  "tokenUsage": {
-    "input_tokens": 20075,
-    "output_tokens": 208063,
-    "cache_creation_input_tokens": 620505,
-    "cache_read_input_tokens": 27424414,
-    "messageCount": 172,
-    "masterTurns": 28,
-    "total_billable": 28273057
-  },
-  "versionBumpSuggested": {
-    "value": 0.01,
-    "type": "capacity",
-    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 3건 (.claude/hooks/session-end-finalize.js, memory/shared/decision_ledger.json, .claude/hooks/lib/finalize/)",
-    "autoDetectedAt": "2026-05-12T12:22:34.870Z",
-    "changedFiles": [
-      ".claude/hooks/session-end-finalize.js",
-      "logs/hook-diagnostics.log",
-      "logs/master-first.log",
-      "logs/pre-tool-use-task.log",
-      "logs/sage-gate.log",
-      "memory/sessions/current_session.json",
-      "memory/sessions/session_index.json",
-      "memory/sessions/token_log.json",
-      "memory/shared/decision_ledger.json",
-      "memory/shared/topic_index.json",
-      "scripts/auto-push.js",
-      ".claude/hooks/lib/finalize/",
-      "docs/plans/",
-      "reports/2026-05-12_nexus-architecture-audit/",
-      "scripts/g1-baseline-capture.ts",
-      "scripts/g1-verify-diff.ts",
-      "tmp/",
-      "topics/topic_204/"
-    ],
-    "changedFilesCount": 18,
-    "cappedAt": 0.1,
-    "confirmedBy": null
-  },
-  "finalizedAt": "2026-05-12T12:22:34.903Z",
   "versionBump": {
-    "value": 0.01,
-    "from": "1.793",
-    "to": "1.803",
-    "type": "capacity",
-    "reason": "D-188 신규 결정 박제 (D-143 partial-supersede). G1 finalize.js 분해는 D-188 종속 구현.",
+    "value": 0.1,
+    "from": "1.773",
+    "to": "1.873",
+    "reason": "role-ace.md 페르소나 갱신(Munger+Grove + Master 프로파일 섹션) + master_profile.json 신규 — structural 변경",
     "confirmedBy": "edi",
-    "confirmedAt": "2026-05-12T00:00:00.000Z",
-    "basedOn": "versionBumpSuggested",
-    "overrideReason": null
-  }
+    "confirmedAt": "2026-05-13T06:00:00.000Z",
+    "overrideReason": "versionBumpSuggested 미박제 상태에서 Edi 수동 산정. role-ace.md + master_profile.json 신규가 structural(+0.1) 기준 충족.",
+    "basedOn": "edi-override"
+  },
+  "gaps": [
+    {
+      "type": "zero-skipped",
+      "reason": "no role agent reports in session — D.Condense 대상 없음",
+      "in_scope_count": 0
+    },
+    {
+      "type": "legacy-citations",
+      "reason": "Q4 레거시 인용 101건 잔존 — 별도 정리 토픽 필요"
+    }
+  ],
+  "closedAt": "2026-05-13T00:00:00.000Z",
+  "oneLineSummary": "decision_ledger 189건 전수검사 완료 — 3종 규격화, Q4 enforcement hook 신규, D-189·D-190 박제",
+  "tokenUsage": {
+    "input_tokens": 573,
+    "output_tokens": 202015,
+    "cache_creation_input_tokens": 1305895,
+    "cache_read_input_tokens": 32028193,
+    "messageCount": 278,
+    "masterTurns": 54,
+    "total_billable": 33536676
+  },
+  "finalizedAt": "2026-05-13T05:35:36.777Z"
 }

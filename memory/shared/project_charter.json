@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "1.793",
+    "version": "1.873",
     "versionSchema": {
       "format": "X.YYY (3자리 소수 float, 점 하나)",
       "incrementRules": {
@@ -450,8 +450,14 @@
       "version": "1.793",
       "date": "2026-05-12",
       "summary": "D-187 worktree merge safety 구현 — session_239(박제+PD-086 분리, capacity +0.01) + session_240(.githooks/pre-commit + .gitattributes 9종 merge=ours + install-git-hooks.sh + CLAUDE.md, capacity +0.01). 워크트리 기준 합산 +0.02."
+    },
+    {
+      "version": "1.873",
+      "date": "2026-05-13",
+      "summary": "role-ace.md 페르소나 갱신(Munger+Grove + Master 프로파일 섹션) + master_profile.json 신규 — structural 변경",
+      "sessionId": "session_243"
     }
   ],
-  "lastUpdated": "2026-05-12",
-  "version": "1.773"
+  "lastUpdated": "2026-05-13",
+  "version": "1.873"
 }

@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-12T12:33:29.479Z",
-  "totalSessions": 238,
+  "generatedAt": "2026-05-13T05:35:36.982Z",
+  "totalSessions": 239,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 238
+      "undefined": 239
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -335,21 +335,21 @@
     }
   ],
   "metrics": {
-    "avgMasterTurns": 21.98,
-    "avgCacheHitRate": 0.9324,
-    "cacheSampleSize": 207,
-    "cacheSampleTotal": 238,
+    "avgMasterTurns": 22.12,
+    "avgCacheHitRate": 0.9325,
+    "cacheSampleSize": 208,
+    "cacheSampleTotal": 239,
     "avgAdoptionRate": 0,
-    "totalDecisions": 189,
+    "totalDecisions": 191,
     "gradeDistribution": {
-      "S": 111,
+      "S": 112,
       "A": 47,
       "B": 50,
       "C": 30
     },
     "topicGradeDistribution": {
       "S": 21,
-      "A": 65,
+      "A": 66,
       "B": 63,
       "C": 49
     },
@@ -361,10 +361,10 @@
       "session_202"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 192,
-    "totalCostUSD": 2832.3436,
-    "avgCostPerSession": 12.4226,
-    "costSampleSize": 228,
+    "turnBasedSessions": 193,
+    "totalCostUSD": 2849.8811,
+    "avgCostPerSession": 12.4449,
+    "costSampleSize": 229,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -9405,12 +9405,51 @@
         "messageCount": 315
       },
       "sessionCostUSD": 25.0771
+    },
+    {
+      "sessionId": "session_243",
+      "topicSlug": "decision-status-standardize",
+      "topic": "A D-NNN status 규격화 + 전수 검사",
+      "startedAt": "2026-05-12T13:00:00.000Z",
+      "closedAt": "2026-05-13T00:00:00.000Z",
+      "decisionCount": 2,
+      "decisionAxes": 2,
+      "decisions": [
+        "D-189",
+        "D-190"
+      ],
+      "rolesCalled": 3,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 12,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 54,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "edi",
+        "zero",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 33536676,
+        "ioTokens": 202588,
+        "inputTokens": 573,
+        "outputTokens": 202015,
+        "cacheCreate": 1305895,
+        "cacheRead": 32028193,
+        "cacheHitRate": 0.9550199011971252,
+        "messageCount": 278
+      },
+      "sessionCostUSD": 17.5375
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 217,
+      "count": 219,
       "sessions": [
         "session_050",
         "session_051",
@@ -9600,7 +9639,8 @@
         "session_239",
         "session_240",
         "session_241",
-        "session_242"
+        "session_242",
+        "session_243"
       ]
     },
     {
@@ -10013,7 +10053,7 @@
     },
     {
       "role": "zero",
-      "count": 53,
+      "count": 54,
       "sessions": [
         "session_153",
         "session_175",
@@ -10051,7 +10091,8 @@
         "session_239",
         "session_240",
         "session_241",
-        "session_242"
+        "session_242",
+        "session_243"
       ]
     },
     {
@@ -17156,6 +17197,30 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 4,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_243",
+      "topic": "A D-NNN status 규격화 + 전수 검사",
+      "sequence": [
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 2,
           "recallReason": null
         }
       ]

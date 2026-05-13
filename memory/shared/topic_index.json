@@ -1,6 +1,24 @@
 {
   "topics": [
     {
+      "id": "topic_205",
+      "title": "D-NNN status 규격화 + 전수 검사",
+      "status": "completed",
+      "phase": "framing",
+      "hold": null,
+      "created": "2026-05-12",
+      "controlPath": "topics/topic_205",
+      "reportPath": "reports/2026-05-12_decision-status-standardize",
+      "reportFiles": [],
+      "published": false,
+      "closedInSession": "session_243",
+      "path": "topics/topic_205",
+      "grade": "A",
+      "topicType": "framing",
+      "outcome": "decision_ledger 189건 전수 검사 완료. status 3종 규격화(active 97/deprecated 84/superseded 8). Q4 enforcement hook 구현. D-189·D-190 박제.",
+      "closedAt": "2026-05-13T00:00:00.000Z"
+    },
+    {
       "id": "topic_204",
       "title": "A Legend Nexus 아키텍처 감사",
       "status": "completed",
@@ -3833,5 +3851,5 @@
       "legacy": true
     }
   ],
-  "lastUpdated": "2026-05-12T12:22:34.549Z"
+  "lastUpdated": "2026-05-13T05:35:36.464Z"
 }
