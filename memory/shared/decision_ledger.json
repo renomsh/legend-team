@@ -1,6 +1,46 @@
 {
   "decisions": [
     {
+      "id": "D-189",
+      "date": "2026-05-13",
+      "session": "session_243",
+      "topicId": "topic_205",
+      "topic": "topic_205",
+      "axis": "decision_ledger status 3종 규격화 + 189건 전수 검사 완료 — active/deprecated/superseded",
+      "summary": "(1) status 표준 3종 확정: active(현행 정책·구현) / deprecated(폐기·대체·완료) / superseded(후속 결정 존재). 기존 비표준 상태값(confirmed/partially-superseded/resolved/pending) 전부 정규화. (2) 189건 전수 검사 완료: active 97건 / deprecated 84건 / superseded 8건. (3) decisions.html viewer 수정: fallback || pending → || active, 필터·pill·카운트 3종 갱신.",
+      "decision": "3종 표준 외 상태값 0건 달성. decisions.html fallback pending 제거.",
+      "status": "active",
+      "relatedDecisions": [],
+      "tags": [
+        "decision-ledger",
+        "status-standardize",
+        "governance"
+      ]
+    },
+    {
+      "id": "D-190",
+      "date": "2026-05-13",
+      "session": "session_243",
+      "topicId": "topic_205",
+      "topic": "topic_205",
+      "axis": "Q4 active-only D-NNN 인용 enforcement — validate-decision-citations.js (WARN-only) + pre-commit hook",
+      "summary": "향후 인용은 active D-NNN만 허용 정책 코드 박제. scripts/validate-decision-citations.js: staged(pre-commit) / all(수동 감사) 2모드. 대상 파일: CLAUDE.md / hooks / skills / commands / memory/roles. 제외: decision_ledger.json / sessions / reports / topics. exit 0 WARN-only. pre-commit hook(.githooks/pre-commit)에 staged 모드 자동 연결. 기존 레거시 인용 101건은 별도 정리 토픽 대상.",
+      "decision": "WARN-only(exit 0) — 커밋 차단 없음. 레거시 101건 소급 정리는 별도 토픽.",
+      "status": "active",
+      "caveats": [
+        "레거시 인용 101건 잔존 — 별도 정리 토픽 필요"
+      ],
+      "relatedDecisions": [
+        "D-189"
+      ],
+      "tags": [
+        "enforcement",
+        "citation-check",
+        "pre-commit",
+        "q4"
+      ]
+    },
+    {
       "id": "D-185",
       "date": "2026-05-12",
       "session": "session_238",
@@ -94,7 +134,7 @@
       "relatedDecisions": [
         "D-178"
       ],
-      "status": "active"
+      "status": "deprecated"
     },
     {
       "id": "D-163",
@@ -107,7 +147,7 @@
       "relatedDecisions": [
         "D-160"
       ],
-      "status": "active"
+      "status": "deprecated"
     },
     {
       "id": "D-162",
@@ -136,7 +176,7 @@
       ],
       "relatedTopic": "topic_167",
       "relatedPD": "PD-064",
-      "status": "active"
+      "status": "deprecated"
     },
     {
       "id": "D-161",
@@ -159,7 +199,7 @@
       ],
       "relatedTopic": "topic_166",
       "relatedPD": "PD-062",
-      "status": "active"
+      "status": "deprecated"
     },
     {
       "id": "D-157",
@@ -173,7 +213,7 @@
         "Zero 청구 1,030B 대비 9% 적용 — Riki 적대적 검토가 페르소나 drift 위험 차단",
         "PD-058 resolved (1차 D-155 -5,407B + 2차 D-157 -91B)"
       ],
-      "status": "active"
+      "status": "deprecated"
     },
     {
       "id": "D-156",
@@ -198,7 +238,7 @@
         "Ace §4 폐기 발언 구조는 LLM drift 차단 목적으로 HOLD — 제거 금지",
         "PD-060: Self-Score 표 형식 통일은 별도 토픽"
       ],
-      "status": "active"
+      "status": "deprecated"
     },
     {
       "id": "D-154",
@@ -251,7 +291,7 @@
         "49세션(session_130~178) 소급 복구는 이번 범위 외 — 옵션 B(transcript 스캔) 별도 구현 검토 필요",
         "수정 후 silent fail 위험(R-2): 단위 테스트 4건 PASS로 완화. 다음 세션 자연 검증으로 최종 확인"
       ],
-      "status": "active"
+      "status": "deprecated"
     },
     {
       "id": "D-149",
@@ -266,7 +306,7 @@
         "R-3(silent skip): 패치 실패 감지 불가 이슈 별도 토픽으로 분화 검토",
         "Grade B 임에도 Riki inline 발언 — Nexus 오케스트레이션 월권 MF-106 박제"
       ],
-      "status": "active"
+      "status": "deprecated"
     },
     {
       "id": "D-148",
@@ -284,7 +324,7 @@
         "Reference [26] Linden 2020 Stata J [verify] 잔존 — Stata Journal PubMed 비등재로 자동 검증 불가",
         "DOI mint은 권은진 박사 manual 작업 (Zenodo 5분), 5단계 가이드 README 박제"
       ],
-      "status": "active",
+      "status": "deprecated",
       "caveatsMeta": {
         "acked": false,
         "ackedBySession": null,
@@ -316,7 +356,8 @@
       "caveatsMeta": {
         "acked": false,
         "resolvedAt": null
-      }
+      },
+      "status": "deprecated"
     },
     {
       "id": "D-144",
@@ -347,7 +388,8 @@
         "ackedAt": "2026-05-02",
         "resolvedAt": "2026-05-02",
         "resolvedBySession": "session_168"
-      }
+      },
+      "status": "deprecated"
     },
     {
       "id": "D-143",
@@ -376,7 +418,7 @@
         "resolvedAt": "2026-05-08",
         "resolvedBySession": "session_212"
       },
-      "status": "partially-superseded",
+      "status": "deprecated",
       "supersededBy": [
         "D-188"
       ],
@@ -401,7 +443,8 @@
         "ackedAt": "2026-05-02",
         "resolvedAt": "2026-05-02",
         "resolvedBySession": "session_168"
-      }
+      },
+      "status": "active"
     },
     {
       "id": "D-140",
@@ -410,7 +453,7 @@
       "topic": "topic_141",
       "title": "G-1 versionBump Edi 확정 hard enforcement",
       "description": "checkVersionBumpConfirmation warn-only → hard enforcement: severity warn→high, Grade A/B/S 한정, console.warn→console.error(⛔), ref D-140 박제. R-1(single-hook-self→info 강등) 유지. Grade C/D skip 추가.",
-      "status": "active",
+      "status": "deprecated",
       "supersedes": null
     },
     {
@@ -432,7 +475,8 @@
         "ackedAt": "2026-05-02",
         "resolvedAt": "2026-05-08",
         "resolvedBySession": "session_212"
-      }
+      },
+      "status": "active"
     },
     {
       "id": "D-137",
@@ -453,7 +497,8 @@
         "ackedAt": "2026-05-02",
         "resolvedAt": "2026-05-01",
         "resolvedBySession": "session_161"
-      }
+      },
+      "status": "deprecated"
     },
     {
       "id": "D-135",
@@ -467,7 +512,8 @@
       "value": "Master 메모리 feedback_pragmatic_weapon_not_art(\"효과 대비 비용 낮으면 즉시 기각\") + feedback_simple_growth_not_measurement(\"측정 위한 측정 금지\") 정합. SRP(Martin 2003) — 시스템 표면적 축소.",
       "deprecates": [
         "D-122"
-      ]
+      ],
+      "status": "deprecated"
     },
     {
       "id": "D-136",
@@ -482,7 +528,8 @@
       "deprecates": [
         "D-111",
         "D-118"
-      ]
+      ],
+      "status": "deprecated"
     },
     {
       "id": "D-134",
@@ -507,7 +554,8 @@
       "amendments": [
         "D-129 (P1~P3 본체 보존)"
       ],
-      "caveat": "측정 sink 범위 확장(UserPromptSubmit 시점 audit-emit 트리거 평가)은 별도 child 토픽 권고 — 본 결정 범위 외. P5 enforce 차단 hook 패턴은 미래 echo chamber 패턴 발견 시 별도 토픽으로 재진입 가능."
+      "caveat": "측정 sink 범위 확장(UserPromptSubmit 시점 audit-emit 트리거 평가)은 별도 child 토픽 권고 — 본 결정 범위 외. P5 enforce 차단 hook 패턴은 미래 echo chamber 패턴 발견 시 별도 토픽으로 재진입 가능.",
+      "status": "deprecated"
     },
     {
       "id": "D-133",
@@ -536,7 +584,8 @@
         "D-118 (NCL 데이터 흐름 부분)",
         "D-120 (Phase A enforcement 부분)"
       ],
-      "caveat": "본 폐기로 R-1 자기참조 paradox(D-115 carveout)는 NCL 자체가 사라져 자동 해소. 단, Sage hook(D-128) 자체의 R-1(Sage가 자신을 차단하는 hook을 생성하는 자기참조)은 D-132에서 별도 처리 완료(role-sage.md caveat 박제)."
+      "caveat": "본 폐기로 R-1 자기참조 paradox(D-115 carveout)는 NCL 자체가 사라져 자동 해소. 단, Sage hook(D-128) 자체의 R-1(Sage가 자신을 차단하는 hook을 생성하는 자기참조)은 D-132에서 별도 처리 완료(role-sage.md caveat 박제).",
+      "status": "deprecated"
     },
     {
       "id": "D-132",
@@ -550,7 +599,8 @@
       "value": "D-128 same-session 격리 원칙의 실질 작동 보장. sage-gate KNOWN_ROLES 불일치로 인한 turns 박제 누락 → 차단 무력화 구조적 결함(Riki R-1 🔴) 해소. 이중 마커 검증으로 마커 위조 시도 차단. 케이스 C(컨텐츠 레벨 자기참조)는 hook 불가 → role-sage.md 정책 박제로 봉인.",
       "externalAnchors": [],
       "supersedes": null,
-      "caveat": "케이스 C(Sage가 자신의 이전 분석을 근거로 현재 분석 수행 — 컨텐츠 레벨 자기참조 루프)는 hook 레벨 완전 차단 불가. role-sage.md caveat에 '3축 교차 근거 의무 + 단일 자기참조 루프 형성 시 신뢰도 0' 정책 박제로 봉인."
+      "caveat": "케이스 C(Sage가 자신의 이전 분석을 근거로 현재 분석 수행 — 컨텐츠 레벨 자기참조 루프)는 hook 레벨 완전 차단 불가. role-sage.md caveat에 '3축 교차 근거 의무 + 단일 자기참조 루프 형성 시 신뢰도 0' 정책 박제로 봉인.",
+      "status": "active"
     },
     {
       "id": "D-131",
@@ -569,7 +619,8 @@
         "Prime Directive D4 (D-113): model persuasion nullification — hook enforcement over model judgment"
       ],
       "supersedes": [],
-      "caveat": "D-131 첫 live test: 본 세션 /close 후 edi_auto_rev1.md 생성 + 4축 신호 박제 확인 필요. jobs-framing skill 신설, 10역할 PD-053 검토 잔여 8역할은 다음 세션."
+      "caveat": "D-131 첫 live test: 본 세션 /close 후 edi_auto_rev1.md 생성 + 4축 신호 박제 확인 필요. jobs-framing skill 신설, 10역할 PD-053 검토 잔여 8역할은 다음 세션.",
+      "status": "deprecated"
     },
     {
       "id": "D-130",
@@ -595,7 +646,8 @@
         "D-040 (Grade 조정권 owner)",
         "D-104 (versionBump 박제 주체 부분)"
       ],
-      "caveat": "Jobs persona/policy/memory 신설은 본 세션 박제 완료, jobs-framing skill 신설 + dispatch_config jobs entry 본격 박제 + CLAUDE.md Topic Grade 표 갱신은 다음 세션 (Master Jobs 검토 후) 같은 토픽으로 이어감. 중간 상태 — Ace는 자동 트리거 폐기 되었으나 jobs-framing 미신설 시점이므로 framing이 필요한 토픽은 Master 명시 호출 또는 신설 전까지 인라인 진행."
+      "caveat": "Jobs persona/policy/memory 신설은 본 세션 박제 완료, jobs-framing skill 신설 + dispatch_config jobs entry 본격 박제 + CLAUDE.md Topic Grade 표 갱신은 다음 세션 (Master Jobs 검토 후) 같은 토픽으로 이어감. 중간 상태 — Ace는 자동 트리거 폐기 되었으나 jobs-framing 미신설 시점이므로 framing이 필요한 토픽은 Master 명시 호출 또는 신설 전까지 인라인 진행.",
+      "status": "active"
     },
     {
       "id": "D-129",
@@ -613,7 +665,7 @@
         "Robert C. Martin (2003) — Single Responsibility Principle (hook 2건 분리)"
       ],
       "caveat": "F-205/R-301 (자가검사 LLM 메타 회귀) 잔존 — false-negative 게이트 + dual-trigger로 측정. 30세션 후 재설계 조건부.",
-      "status": "partially-superseded",
+      "status": "deprecated",
       "supersededBy": [
         "D-134"
       ],
@@ -633,7 +685,8 @@
         "Robert C. Martin, 'Agile Software Development: Principles, Patterns, and Practices' (2003) — Single Responsibility Principle",
         "NIST SP 800-160 Vol.2 §3.4.5 — Defense in Depth (multiple independent enforcement layers)"
       ],
-      "caveat": "permissionDecision 미가용 환경(현 hook v3 정책)에서 fallback은 prompt 마커 prepend + persona 본문 'SAGE_ISOLATION_VIOLATION 마커 시 발화 거부' 박제 의존이 잔존(R-2' β). 본 결정은 process.exit(2) 별도 hook으로 enforcement해 β 의존 경로 폐지."
+      "caveat": "permissionDecision 미가용 환경(현 hook v3 정책)에서 fallback은 prompt 마커 prepend + persona 본문 'SAGE_ISOLATION_VIOLATION 마커 시 발화 거부' 박제 의존이 잔존(R-2' β). 본 결정은 process.exit(2) 별도 hook으로 enforcement해 β 의존 경로 폐지.",
+      "status": "active"
     },
     {
       "id": "D-127",
@@ -651,7 +704,8 @@
       ],
       "supersedes": [
         "D-110"
-      ]
+      ],
+      "status": "active"
     },
     {
       "id": "D-126",
@@ -672,7 +726,8 @@
       "supersedes": [
         "D-112"
       ],
-      "caveat": "현 시점 D4 보장 coverage 부분. 자기참조 paradox 잔존 — extractRole()이 `## ROLE: sage` 마커 우선 신뢰하므로 마커 위조 시 same-session isolation 우회 가능. mitigation: pre-tool-use-task-sage-gate.js (D-128) 본 세션 박제 + PostToolUse 재검증은 후속 토픽(topic_138 후보)에서 subagent_type AND marker 이중 검증 hook으로 강화 예정. PD-052 동형 사례 — '코드 박제 best-effort, 자기참조 paradox는 정직 박제'."
+      "caveat": "현 시점 D4 보장 coverage 부분. 자기참조 paradox 잔존 — extractRole()이 `## ROLE: sage` 마커 우선 신뢰하므로 마커 위조 시 same-session isolation 우회 가능. mitigation: pre-tool-use-task-sage-gate.js (D-128) 본 세션 박제 + PostToolUse 재검증은 후속 토픽(topic_138 후보)에서 subagent_type AND marker 이중 검증 hook으로 강화 예정. PD-052 동형 사례 — '코드 박제 best-effort, 자기참조 paradox는 정직 박제'.",
+      "status": "active"
     },
     {
       "id": "D-114",
@@ -683,7 +738,8 @@
       "scopeCheck": "Big Bang P1 — 마이그레이션 Phase 분해 (Riki R-4 mitigation)",
       "axis": "Big Bang 마이그레이션 = Phase 분해 5단계 (10→5 단순화, Master 권고)",
       "decision": "P1=종합 설계 박제(현세션 완료) / P2=페르소나 박제(Zero+Sage 동시) / P3=Nexus 골격+Hook chain 확장+dispatch_config v2 / P4=학습·정책 시스템(Instinct+rules+contexts+5 프로필, canonical 분리·PD-044 해소 포함) / P5=통합 마이그레이션(CLAUDE.md 전면 개정+ecc2 패턴+dual-log 검증). 각 Phase 2~3세션 (메모리 implementation_within_3_sessions 정합). rollback 태그 의무. 첫 3 세션 dual-log. 다음 세션은 본 결정의 방향성 연장 검토 (Phase 진행 아님).",
-      "value": "10단계 과세분화 회피 (Riki 메타 진단 — 추상화 격상 충동 적발 후 단순화). 자연스러운 의존 게이트(페르소나→인프라→학습·정책→통합). 토픽 총 8~11세션 예상."
+      "value": "10단계 과세분화 회피 (Riki 메타 진단 — 추상화 격상 충동 적발 후 단순화). 자연스러운 의존 게이트(페르소나→인프라→학습·정책→통합). 토픽 총 8~11세션 예상.",
+      "status": "deprecated"
     },
     {
       "id": "D-113",
@@ -694,7 +750,8 @@
       "scopeCheck": "Big Bang P1 — 보안 도그마 prime directive 박제",
       "axis": "Affaan 4 도그마 → Legend Nexus prime directive",
       "decision": "(1) 악의적 텍스트가 컨텍스트에 들어올 것을 전제 (2) 도구 설명이 거짓말할 수 있다 전제 (3) 저장소가 오염될 수 있다 전제 (4) 모델이 설득당해도 시스템 안전. Riki + Zero 정책 베이스. CLAUDE.md prime directive 섹션 신설 예정 (P10).",
-      "value": "Riki adversarial 분석 + Zero 정제의 보안 기반. 시스템 진화 시 prompt injection·tool poisoning 등 외부 위협 모델 명시."
+      "value": "Riki adversarial 분석 + Zero 정제의 보안 기반. 시스템 진화 시 prompt injection·tool poisoning 등 외부 위협 모델 명시.",
+      "status": "active"
     },
     {
       "id": "D-112",
@@ -744,7 +801,9 @@
       "scopeCheck": "Big Bang P1 — Ace 강화 (책임 재분배)",
       "axis": "Ace 강화 — Master 대리인 + 깊은 프레이밍 + 종합검토 집중",
       "decision": "이전 3중 부담(프레이밍+오케스트레이션+종합검토)에서 오케스트레이션 책임을 Nexus가 흡수. Ace는 깊은 프레이밍과 종합검토 품질에 집중. 단, Ace 발화 패턴 메타 감시 필요(R-2 잔여 + Riki 진단: 추상화 격상 충동·★ 권고 압력).",
-      "value": "Ace 부담 완화 + 깊이 강화. Sage 신설 후 Ace 발화 패턴 분기별 감사로 모니터링."
+      "value": "Ace 부담 완화 + 깊이 강화. Sage 신설 후 Ace 발화 패턴 분기별 감사로 모니터링.",
+      "status": "superseded",
+      "supersededBy": "D-130"
     },
     {
       "id": "D-108",
@@ -755,7 +814,8 @@
       "scopeCheck": "Big Bang P1 — Nexus 정의 (Master 직접 결정 — Ace 우회)",
       "axis": "Nexus = 코드 레이어 오케스트레이션 허브. 3축 중 A·B 유지 + C축 Ace 종속 제거",
       "decision": "A.Grade 투입 조율 (Master 원본 유지). B.데이터 파이프라인 (Master 정정 #2 가변 흐름 — Dev→Zero→Ace 직렬은 단일 사례). C축은 'Ace 의사결정 서포트' 정의 폐기 (Master 통찰: Ace 종속 제거 시 R-2 구조 해소). C축 신규 정의는 후속 세션 합의.",
-      "value": "Nexus·Zero 모두 Ace 종속 제거 → R-2(Echo Chamber) 발생 경로 구조적 차단. Ace 발언 검토 결과 편향 왜곡(정합도 35/100) 직접 대응."
+      "value": "Nexus·Zero 모두 Ace 종속 제거 → R-2(Echo Chamber) 발생 경로 구조적 차단. Ace 발언 검토 결과 편향 왜곡(정합도 35/100) 직접 대응.",
+      "status": "active"
     },
     {
       "id": "D-107",
@@ -767,7 +827,8 @@
       "axis": "시스템 명 — legend-team → Legend Nexus ver.0.0",
       "decision": "ECC(하네스 엔지니어링) 카테고리 정합. ver.0.0은 Phase 분해 마이그레이션 진행 중 표시. 1.0 승격 게이트는 후속 결정.",
       "value": "Big Bang P1 시작점. 시스템 정체성 재정의.",
-      "statusNote": " | 2026-05-01: 운영 반영 미완(package.json name=legend-team 잔존). Nexus reset 시 일괄 정리 deferred."
+      "statusNote": " | 2026-05-01: 운영 반영 미완(package.json name=legend-team 잔존). Nexus reset 시 일괄 정리 deferred.",
+      "status": "active"
     },
     {
       "id": "D-106",
@@ -778,7 +839,8 @@
       "scopeCheck": "self-score 파이프라인 결함 수정 방향 — Option B 채택 (_common.md 지시 강화)",
       "axis": "extractSelfScores tool_response 의존 결함 / Option A(파일 스캔) 기각 / Option B(_common.md 2개 지시 추가) 채택",
       "decision": "근본 원인: post-tool-use-task.js의 extractSelfScores(toolResponse)가 tool_response 전문을 파싱하나, 서브에이전트는 Write 툴로 파일에만 전문 저장 후 채팅 응답에는 짧은 마커만 반환 → session_129 이후 7세션 연속 0건 적재. Option A(파일 스캔 + frontmatter 파싱) 기각: Riki R-1 — parseYamlBlocks가 [ROLE:xxx] 인라인 마커 전용이며 frontmatter role: 필드 미인식 → 파일 스캔해도 역할 식별 0건. R-2(중복 집계)·R-3(병합 SOT 충돌) 추가 발생. Option B 채택: memory/roles/policies/_common.md Self-Score YAML 출력 계약 섹션에 2개 지시 추가 — (1) # self-scores 블록을 파일+채팅 응답 양쪽에 출력 의무화, (2) 블록 직전 [ROLE:{역할명}] 마커 출력 의무화. 코드 수정 없음, 파서 재사용.",
-      "value": "수정 범위 최소화(파일 1개) + 기존 parseYamlBlocks 재사용. R-2·R-3 없음. turns[].selfScores 단일 경로 유지. session_129 이후 누락된 자가평가 적재 복구."
+      "value": "수정 범위 최소화(파일 1개) + 기존 parseYamlBlocks 재사용. R-2·R-3 없음. turns[].selfScores 단일 경로 유지. session_129 이후 누락된 자가평가 적재 복구.",
+      "status": "active"
     },
     {
       "id": "D-105",
@@ -789,7 +851,8 @@
       "scopeCheck": "P4 박제 — D-E·D-F·D-G CLAUDE.md 정책 공식화 + topic-status.ts SOT 헬퍼 구현",
       "axis": "trigger 어휘 분리(D-E) / topic_index SOT + topic_meta mirror 정책(D-F) / transition checkpoint 적용 범위 + 활성화 조건(D-G)",
       "decision": "D-E: 구현 진입 승인 trigger = '구현 진입'/'approve-impl'. '진행해'는 D-020(Ace override) 전용 — 혼용 금지. D-F: topic_index.json=SOT / topic_meta.json=mirror. updateTopicStatus() 헬퍼(scripts/lib/topic-status.ts)가 동시 갱신 책임. 수동 mirror-only 편집 금지. D-B status enum 7종 확정(open|framing|design-approved|implementing|completed|suspended|cancelled). D-G: transition checkpoint 적용 범위 = Grade A/B/S framing 토픽. Grade C/D optional. 활성화 = PD-052 resolved 이후. 미해결 시 warn-only. 구현: CLAUDE.md 'Topic Status SOT 정책' + 'Transition Checkpoint 정책' 섹션 신설. scripts/lib/topic-status.ts 신규(updateTopicStatus 함수).",
-      "value": "D-104-s130에서 동결된 D-E·D-F·D-G 결정을 CLAUDE.md에 정책으로 공식 박제. topic-status.ts 헬퍼로 SOT 표류(D-F) 구조적 방지. trigger 어휘 혼용 방지(D-E)로 D-020과 충돌 차단. 활성화 조건 명시(D-G)로 false-sense-of-security 방지."
+      "value": "D-104-s130에서 동결된 D-E·D-F·D-G 결정을 CLAUDE.md에 정책으로 공식 박제. topic-status.ts 헬퍼로 SOT 표류(D-F) 구조적 방지. trigger 어휘 혼용 방지(D-E)로 D-020과 충돌 차단. 활성화 조건 명시(D-G)로 false-sense-of-security 방지.",
+      "status": "active"
     },
     {
       "id": "D-104-s130",
@@ -800,7 +863,8 @@
       "scopeCheck": "persona·role policy·metrics 3층 분리 + hook v3 + transition checkpoint — P2 완료 결정 (D-A~D-G 동결)",
       "axis": "hook v3 buildPersonaLayer + evaluateTransitionCheckpoint 두 함수 분리 / status enum 7종 확정 / trigger 어휘 분리 / SOT·mirror 정의 / Grade 적용 범위 + PD-052 dependency",
       "decision": "D-A: persona·role policy·common 3층 분리 + metrics SOT 정합 — 동결. D-B: status enum 7종 = {open, framing, design-approved, implementing, completed, suspended, cancelled} — R-2 SOT 표류 흡수. D-C: transition checkpoint = 1회 알림, tool blocker 아님 — R-1(d) 사후 적발 추가. D-D: hook v3 두 책임 분리 (buildPersonaLayer + evaluateTransitionCheckpoint). D-E: trigger 어휘 = '구현 진입'/'approve-impl', '진행해'는 D-020 전용 유지 — R-3 흡수. D-F(신규): topic_index.json=SOT / topic_meta.json=mirror, topic-status.ts 헬퍼가 동시 갱신 책임 — R-2 흡수. D-G(신규): transition checkpoint 적용 = Grade A/B/S framing 토픽. Grade C/D optional. 활성화는 PD-052 resolved 후 — R-4+R-5 흡수. 구현 완료: hook v3 G2 PASS 4/4 + validate-hook-registration 4/4.",
-      "value": "P2 hook v3 완료 — 3층 persona compose + transition checkpoint 알림 메커니즘. Riki 5건 리스크 모두 흡수(R-1은 finalize 사후 적발 + PD-052 의존). D-F·D-G는 SOT 표류와 Grade 범위 명시로 향후 정책 혼선 방지. 활성화 시점을 PD-052 dependency로 명시하여 false-sense-of-security 방지."
+      "value": "P2 hook v3 완료 — 3층 persona compose + transition checkpoint 알림 메커니즘. Riki 5건 리스크 모두 흡수(R-1은 finalize 사후 적발 + PD-052 의존). D-F·D-G는 SOT 표류와 Grade 범위 명시로 향후 정책 혼선 방지. 활성화 시점을 PD-052 dependency로 명시하여 false-sense-of-security 방지.",
+      "status": "deprecated"
     },
     {
       "id": "D-103",
@@ -811,7 +875,8 @@
       "scopeCheck": "PD-033 + PD-043 + PD-044 통합 — 서브에이전트 연속성 인프라",
       "axis": "PreToolUse(Task) hook 기반 토픽×세션 2축 자동 prompt inject + role 식별 강화 + 사칭 검증 hook + dispatch 규약 박제",
       "decision": "(1) Master 비전: 토픽은 여러 세션 걸침 / 같은 토픽 다음 세션은 이전 세션 발언 read / 같은 세션 내 다른 역할 발언 자동 read. (2) 5축 결정 — C1-α PreToolUse(Task) hook + C2-γ 양축 inject(토픽 layer + 세션 layer) + C3-γ 토픽 layer = topics/{id}/turn_log.jsonl + context_brief.md + role 필터 + C4-α 세션 layer = current_session.turns[] + reports/{role}_rev{n}.md + C5-α 토픽 종결 시도 read 보존. (3) 신설 자산 5건 + dispatch 규약 1건: #1 .claude/hooks/pre-tool-use-task.js (252줄, 토픽+세션 layer auto-prepend) / #2 session-end-finalize.js validateInlineRoleHeaders +88줄 (PD-043) / #3 post-tool-use-task.js turn_log 자동 작성 + role 식별 마커 우선 / #4 .claude/commands/open.md 1줄(신규 토픽 turn_log/context_brief 자동 init) / #5 .claude/settings.json PreToolUse(Task) 영구 등록 / #6 CLAUDE.md dispatch 규약 +3줄(prompt 첫 줄 '## ROLE: <name>' 표준). (4) K6 검증 = static-PASS(Anthropic 공식 docs updatedInput mutation + Task tool 적용) + unit-PASS(spike hook stdin/stdout JSON 정확) + dynamic-PASS(메인 echo dispatch에서 서브가 mutated prompt 정확 수신, logs/k6-spike.log 2 entry). (5) 첫 실 fire 검증(Edi rev1) — 토픽 layer(context_brief + 11 entries turn_log) + 세션 layer(직전 3 reports) + role-detected 모두 정확 prepend. logs/pre-tool-use-task.log 4 entries. 무한루프 skip 정상.",
-      "value": "Master 비전 'meeting needs continuity' 직역. 다중 호출이 monologue 집합이 아닌 누적 회의로 작동. 인프라 신설 5건 + 규약 1건으로 PD-033/043/044 동시 해소. K6 PASS 직접 증거 위에 박제. PreToolUse hook 첫 실 fire 즉시 검증."
+      "value": "Master 비전 'meeting needs continuity' 직역. 다중 호출이 monologue 집합이 아닌 누적 회의로 작동. 인프라 신설 5건 + 규약 1건으로 PD-033/043/044 동시 해소. K6 PASS 직접 증거 위에 박제. PreToolUse hook 첫 실 fire 즉시 검증.",
+      "status": "active"
     },
     {
       "id": "D-102",
@@ -822,7 +887,8 @@
       "scopeCheck": "PD-049/PD-050 통합 — ECharts 동적 색 검출 + axis label fixture 정합",
       "axis": "ECharts gradient 토큰화 + esprima 부분 AST lint + VR 3축 fixture freeze + WARN→ERROR 승격 시한",
       "decision": "(1) Detection: ECharts `new echarts.graphic.LinearGradient/RadialGradient` 인수 + `setOption({...color/itemStyle.color/areaStyle.color})` 정적 hex literal까지 esprima 부분 AST로 검출. 변수·template literal·theme spread는 의도적 out (A1 좁음 정신). (2) Tokens: gradient stop 단위 단일 색 토큰 6종 — `--c-chart-bar-from/to`(#F472B6/#8B5CF6), `--c-chart-bar2-from/to`(#14B8A6/#0891B2), `--a-chart-area-from/to`(0.33/0.00). 신규 helper `chart-tokens.js`(`echGrad()` 등) 도입. tokens.css 단일 출처. role-colors.js 패턴 동형. (3) VR fixture: dashboard.mock.json `_meta`에 `sessionsLength`·`schemaVersion: v2-3axis-freeze` 박제 + `verify-fixture-stability.ts` 신설(길이·단조성 검증). axis label은 코드 inline literal(yAxis.name)이므로 lint 검출 대상 포함. snapshot stability check (`verify-axis-label-stability.ts`) 신설 — 두 번 렌더 SVG text diff 0 게이트. (4) WARN→ERROR 승격: 환경변수 `LINT_ECHARTS_LEVEL=warn|error`. D-102 박제 후 본 토픽 내 6건 토큰화 완료 + grep 잔존 0건 게이트 통과 후 ERROR 승격. (5) VR baseline pixel-perfect 0 게이트 — 토큰화 swap이 hex 1:1 동일이므로 의도된 1건(:716 area α .20→.33) 외 diff 0 강제. 의도 변경 영역만 mask. (6) Phase 분해 1~8 (Token→Helper→Swap→Lint→Fixture freeze→Stability check→VR rebaseline→ERROR 승격). 본 토픽 단일 완결 (D1).",
-      "value": "PD-049 G1 lint 사각지대(런타임 색 주입) 폐쇄 + PD-050 VR axis 결정점 freeze 통합 해소. 실무용 병기 원칙 — A1 좁음 + B1 WARN→ERROR 단계 도입으로 즉시 차단 강제 회피. esprima 부분 AST는 회피 패턴 1단계 차단(Riki R-1 수용). 차트 색 단일 출처 일관성 — role-colors.js 동형. 본 토픽 단일 완결 D1 — 3세션 이내 원칙 정합. PD-049/050 spec lock + 실행계획 박제까지가 본 세션. 구현(Phase 1~8)은 본 토픽 후속 세션."
+      "value": "PD-049 G1 lint 사각지대(런타임 색 주입) 폐쇄 + PD-050 VR axis 결정점 freeze 통합 해소. 실무용 병기 원칙 — A1 좁음 + B1 WARN→ERROR 단계 도입으로 즉시 차단 강제 회피. esprima 부분 AST는 회피 패턴 1단계 차단(Riki R-1 수용). 차트 색 단일 출처 일관성 — role-colors.js 동형. 본 토픽 단일 완결 D1 — 3세션 이내 원칙 정합. PD-049/050 spec lock + 실행계획 박제까지가 본 세션. 구현(Phase 1~8)은 본 토픽 후속 세션.",
+      "status": "active"
     },
     {
       "id": "D-101",
@@ -833,7 +899,8 @@
       "scopeCheck": "PD-039 해소 — 자동 close vs 수동 /close 산출물 일관성",
       "axis": "자연어 자동 close 시 14단계 delta-check 게이트 + PD-039 resolved",
       "decision": "(1) finalize hook(.claude/hooks/session-end-finalize.js)에 14단계 delta-check 추가. 핵심 4개 단계(3 decision_ledger / 4 topic_index / 6 master_feedback_log / 7 role_memory) 누락 검출 시 logs/hook-diagnostics.log + console에 WARN 출력. ERROR 게이트 아님 — Master가 누락 인지 후 재-close로 보완. (2) close.md commands→skills 이전·Stop hook 자동 14단계 트리거는 폐기(과투자). (3) PD-039 resolved: 두 경로 산출물 diff 분석 완료(R-1 동일 슬러그 2회 commit 4건이 직접 증거, ~10% 침묵 누락률). 일관성 확보 방안 = delta-check WARN. (4) close.md L20 H-08 footnote 추가: 'finalize hook이 단계 3·4·6·7 누락 시 WARN. Master 재-close로 보완.' ",
-      "value": "Master 정책 일관: 자동화 = 검출만, 강제 게이트 X. 누락 인지 책임은 Master로 명시. 자율성 원칙(low-friction autonomy)과 정합. ~10% 침묵 누락의 가시화로 재-close 판단 근거 제공."
+      "value": "Master 정책 일관: 자동화 = 검출만, 강제 게이트 X. 누락 인지 책임은 Master로 명시. 자율성 원칙(low-friction autonomy)과 정합. ~10% 침묵 누락의 가시화로 재-close 판단 근거 제공.",
+      "status": "active"
     },
     {
       "id": "D-093",
@@ -844,7 +911,8 @@
       "scopeCheck": "PD-041 test-regression MVP — D-092 정신 일관 적용",
       "axis": "회귀 검증 인프라 최소화 원칙 박제 — fixture 2종 + 수동 CLI, 자동 감시 패턴 배제",
       "decision": "(1) PD-041 MVP: fixture 2종(01_empty·02_baseline_n3) + scripts/test-regression.ts(callable export + enumerate + NON_DETERMINISTIC_FIELDS 제외). hook 편입·feature_flag·3중 차단·compute 수정 전부 폐기. (2) PD-040 deprecated: 실 drift 0건 + 육안 검출 충분 + D-092 자동 감시 패턴 동류. (3) 회귀 검증 확장 원칙: 실 incident 발생 시 PD 등록. 선제 투자 금지. (4) PD-043 신규: 역할 사칭 검증 hook(PD-033 dependsOn). (5) PD-044 신규: 역할 페르소나에 정책 박제(selfAuditProtocol 등) — canonical 분리 원칙 확립. (6) PD-028 deprecated: 회사 cross-check 미실행, 효용 없음.",
-      "value": "D-092 정신 일관 적용 — 자동 감시 인프라는 실 incident 근거 없이 선제 투자 금지. Arki scopeDriftCheck 우회(placeholder→spec 오독) 사례 박제로 재발 방지."
+      "value": "D-092 정신 일관 적용 — 자동 감시 인프라는 실 incident 근거 없이 선제 투자 금지. Arki scopeDriftCheck 우회(placeholder→spec 오독) 사례 박제로 재발 방지.",
+      "status": "active"
     },
     {
       "id": "D-092",
@@ -855,7 +923,8 @@
       "scopeCheck": "PD-023 운영 가동 점검 — 자가평가 단순화 + canonical 단일화",
       "axis": "자가평가 자동 감시·propagation·게이트 폐기 + 지표 정의 단일 출처 박제 + PD-023 close",
       "decision": "(1) propagation/default-fallback/자동 알림/SLA 경보/auto-resolve 게이트 전부 폐기. Master 수동 대시보드 열람이 단일 피드백. (2) 지표 정의 단일 출처: memory/roles/{role}_memory.json[].metrics + derived_metrics.json + composite_inputs.json → compile-metrics-registry → growth/metrics_registry.json. shared/metrics_registry.json(11 metrics 구버전) 삭제, compute-growth.ts·resolve-deferred-scores.ts 삭제, feature_flags 5필드 제거, finalize-self-scores default 분기 + participationExpectedTopicTypes 게이트 제거. (3) 발언한 역할 = 점수 적재 (토픽 타입별 expected 제한 폐기). (4) PD-023 resolveCondition 5토픽 누적 ✅(6 distinct topics) → resolved. (5) PD-025/026/027 폐기(자동 감시 영역). (6) legacy 70 records → _quarantine/legacy_propagation_session083-089.jsonl 이관, jsonl fresh start. (7) CLAUDE.md 1줄 추가. (8) 시범 적재 검증: ace 5 + arki 4 + riki 4 + dev 7 = 20 records 정상.",
-      "value": "본질 회귀: 점수 기록 + Master 수동 열람. 시스템 자동 감시 인프라가 자가평가 의미를 propagation 86%로 오염시킨 전례 차단. 단일 출처 박제로 잘못 참조 사고 봉쇄."
+      "value": "본질 회귀: 점수 기록 + Master 수동 열람. 시스템 자동 감시 인프라가 자가평가 의미를 propagation 86%로 오염시킨 전례 차단. 단일 출처 박제로 잘못 참조 사고 봉쇄.",
+      "status": "active"
     },
     {
       "id": "D-091",
@@ -866,7 +935,8 @@
       "scopeCheck": "PD-023 구현 점검 — 스키마 거버넌스 트랙 분리",
       "axis": "operationalStatus·triggerType·absorbed enum 박제 + 재호출 강제 원칙",
       "decision": "operationalStatus·triggerType·absorbed enum 정의 + PD/topic 재호출 강제 원칙 → PD-040 신설. PD-020 거버넌스 트랙으로 이관. validate-schema-lifecycle.ts 갱신 + 1회 실적용을 resolveCondition으로 결합.",
-      "value": "PD/topic 양쪽에서 임시 활용 중인 enum의 영구 박제. 스키마 drift 차단."
+      "value": "PD/topic 양쪽에서 임시 활용 중인 enum의 영구 박제. 스키마 drift 차단.",
+      "status": "active"
     },
     {
       "id": "D-090",
@@ -877,7 +947,8 @@
       "scopeCheck": "PD-023 Quick-win 본 세션 구현 + followup PD 분리",
       "axis": "batch-score-helper.ts + validate-self-scores.ts + followup-A/B 분리",
       "decision": "scripts/batch-score-helper.ts (152줄, 대화형 CLI, --help/--dry-run, atomic write) + scripts/validate-self-scores.ts (131줄, Ajv + orphan + scale 검증) 본 세션 완료. 검증: total=70 valid=70 exit 0. followup-A test-regression → PD-041 분리 등록. followup-B signature.html nav 통합 → PD-042 분리 등록 (topic_082 closed 후 promote).",
-      "value": "PD-023 P3 진입장벽(YAML 직접 타이핑) 해소 도구 완비. followup 트랙 분리로 본 토픽 범위 유지."
+      "value": "PD-023 P3 진입장벽(YAML 직접 타이핑) 해소 도구 완비. followup 트랙 분리로 본 토픽 범위 유지.",
+      "status": "active"
     },
     {
       "id": "D-089",
@@ -888,7 +959,8 @@
       "scopeCheck": "PD-023 resolveCondition 재정의 + 매트릭스 표기 이원화",
       "axis": "resolveCondition 재정의 + 코드 done / 운영 KPI open 이원화",
       "decision": "PD-023 resolveCondition='Quick-win 2건 done + followup-A PD 등록 + (5토픽 누적 OR fallback<30%). 단 fallback<30% 단독 트리거 시 Master 게이트 자동 발동'. 매트릭스 표기 이원화: 코드 done / 운영 KPI open. statusNote 활용하여 KPI 미달 명시.",
-      "value": "기존 'G6 통과' 모호 해소. 코드 완료와 운영 KPI 분리로 false-resolved 차단."
+      "value": "기존 'G6 통과' 모호 해소. 코드 완료와 운영 KPI 분리로 false-resolved 차단.",
+      "status": "deprecated"
     },
     {
       "id": "D-088",
@@ -899,7 +971,8 @@
       "scopeCheck": "PD-031 ↔ PD-023 트랙 중복 해소",
       "axis": "PD-031 흡수 → PD-023 단일 트랙",
       "decision": "PD-031 실가동 감사 항목을 PD-023 P3 운영 KPI 잔여로 재정의하여 흡수. PD-031 status=resolved + statusNote='absorbed-by-PD-023'. 원본 item 텍스트(원인 6가지 가설)는 statusNote에 보존. 트랙 단일화로 중복 관리 비용 제거.",
-      "value": "PD-031 진단 컨텍스트 손실 없이 트랙 단일화. PD-023 P3 운영 KPI에서 실가동 감사 항목을 직접 측정."
+      "value": "PD-031 진단 컨텍스트 손실 없이 트랙 단일화. PD-023 P3 운영 KPI에서 실가동 감사 항목을 직접 측정.",
+      "status": "deprecated"
     },
     {
       "id": "D-087",
@@ -910,7 +983,8 @@
       "scopeCheck": "PD-036 구현 핵심 설계",
       "axis": "PD-036 finalize hook 위임 패턴 + guard 로직 + 500자 상한",
       "decision": "(1) updateClosedInSession: finalize hook 내 topic_index 직접 쓰기 금지. set-closed-in-session.ts 신규 스크립트를 spawnSync 위임 패턴으로 호출 (R-2 대응). (2) oneLineSummary guard: finalize hook에 빈값 시 [summary 없음 — {topicSlug}] placeholder 자동 삽입 + /close SKILL.md 체크리스트 항목 추가 (R-1 대응). (3) recentSessionSummaries 세션당 500자 상한. 초과 시 truncate + console.warn. (4) decisionsAdded 기존 decisions 키 유지 + decisionsAdded 병기 (하위 호환). (5) set-closed-in-session.ts 신규 파일: --topicId --sessionId 인수, exit code 0/1 명시.",
-      "value": "R-1(누락 시 영구 공백) + R-2(race condition + 조용한 실패) 동시 해소. 위임 패턴으로 hook chain 안정성 확보."
+      "value": "R-1(누락 시 영구 공백) + R-2(race condition + 조용한 실패) 동시 해소. 위임 패턴으로 hook chain 안정성 확보.",
+      "status": "active"
     },
     {
       "id": "D-074",
@@ -920,7 +994,7 @@
       "owningTopicId": "topic_098",
       "scopeCheck": "Grade 시스템 + orchestrationMode + D-058 dispatcher 폐기",
       "axis": "Grade 재정의, L0/L1/L2 폐기, Dispatcher 아키텍처 전체 폐기, orchestrationMode 신설",
-      "decision": "5단 Grade(S/A/B/C/D) 확정. L0/L1/L2 framingLevel 레이어 폐기(90세션 기록 없음 확인). D-058 dispatcher fiction 전체 폐기: dispatch_config.json, opus-dispatcher skill, role-*.md 4개, agents/*.md 7개 → memory/archive/ 이동. /auto + /master slash command로 orchestrationMode(manual|auto) 전환. auto 모드 Master 강제 확인점 2곳(D-xxx 박제 직전, Edi 호출 직전). Turn.invocationMode/subagentId 제거. 모델 선택은 Grade와 완전 분리(Master 수동: /fast, /model).",
+      "decision": "5단 Grade(S/A/B/C) 확정. L0/L1/L2 framingLevel 레이어 폐기(90세션 기록 없음 확인). D-058 dispatcher fiction 전체 폐기: dispatch_config.json, opus-dispatcher skill, role-*.md 4개, agents/*.md 7개 → memory/archive/ 이동. /auto + /master slash command로 orchestrationMode(manual|auto) 전환. auto 모드 Master 강제 확인점 2곳(D-xxx 박제 직전, Edi 호출 직전). Turn.invocationMode/subagentId 제거. 모델 선택은 Grade와 완전 분리(Master 수동: /fast, /model).",
       "value": "22세션 동안 작동하지 않은 dispatcher 허구 인프라 제거. Grade 시스템을 실제 운용 패턴에 맞게 재정의. orchestrationMode로 Master 개입 수준 명시적 제어.",
       "rejectedAlternatives": [
         {
@@ -946,7 +1020,8 @@
         ".claude/hooks/post-tool-use-task.js (invocationMode/subagentId 제거)",
         "scripts/validate-session-turns.ts (dispatch_config 참조 제거)",
         "memory/archive/ (13개 아카이브 파일)"
-      ]
+      ],
+      "status": "active"
     },
     {
       "id": "D-073",
@@ -966,7 +1041,8 @@
       ],
       "appliedTo": [
         "archive/agents/legacy-d058/ (후속 토픽이 이동 수행)"
-      ]
+      ],
+      "status": "active"
     },
     {
       "id": "D-072",
@@ -981,7 +1057,8 @@
       "rejectedAlternatives": [],
       "appliedTo": [
         "후속 모든 인프라 토픽의 G1 정의"
-      ]
+      ],
+      "status": "active"
     },
     {
       "id": "D-071",
@@ -1006,7 +1083,8 @@
       "appliedTo": [
         "memory/shared/decision_ledger.json (D-058/D-066/D-068/D-070 deprecated, D-067/D-069 redefined)",
         "후속 토픽이 코드/파일 unwind 처리 예정"
-      ]
+      ],
+      "status": "deprecated"
     },
     {
       "id": "D-070",
@@ -1051,7 +1129,7 @@
       "appliedTo": [
         ".claude/hooks/session-end-finalize.js (filterAgentsCompletedByDualSatisfaction)"
       ],
-      "status": "redefined",
+      "status": "deprecated",
       "redefinedInSession": "session_092",
       "redefinedNote": "agentsCompleted 4조건 필터 폐기. inline 모드 기준 단순 role 기록으로 환원. legacy:true 세션 처리는 그대로 유지."
     },
@@ -1101,7 +1179,7 @@
         "scripts/lib/turn-types.ts",
         ".claude/agents/role-{ace,arki,fin,riki}.md"
       ],
-      "status": "redefined",
+      "status": "deprecated",
       "redefinedInSession": "session_092",
       "redefinedNote": "양자 baseline(report+turnId 매칭) 폐기. turnId/invocationMode 필드는 inline 모드 의미로 재정의: invocationMode는 inline|sub|tool 중 inline이 정상값, subagent는 미래 spike 통과 후에만 사용."
     },
@@ -1181,7 +1259,9 @@
         "memory/master/master_feedback_log.json 신규 feedback 등재",
         "memory/MEMORY.md 색인 1행 추가"
       ],
-      "implementationNote": "D1은 본 세션에서 skill 파일 편집으로 즉시 박제. D3 실구현(자동 훅)은 PD-030으로 지연 — 별도 Grade B 토픽."
+      "implementationNote": "D1은 본 세션에서 skill 파일 편집으로 즉시 박제. D3 실구현(자동 훅)은 PD-030으로 지연 — 별도 Grade B 토픽.",
+      "status": "superseded",
+      "supersededBy": "D-145"
     },
     {
       "id": "D-064",
@@ -1210,7 +1290,8 @@
           "option": "Figma 연결 즉시 추진",
           "reason": "Master: 필요하면 나중에. PD-005 유지."
         }
-      ]
+      ],
+      "status": "active"
     },
     {
       "id": "D-063",
@@ -1244,7 +1325,9 @@
           "tagger": "fin",
           "validatedOutcome": null
         }
-      ]
+      ],
+      "status": "superseded",
+      "supersededBy": "D-092"
     },
     {
       "id": "D-060",
@@ -1285,7 +1368,8 @@
           "tagger": "ace",
           "validatedOutcome": null
         }
-      ]
+      ],
+      "status": "active"
     },
     {
       "id": "D-059",
@@ -1296,7 +1380,7 @@
       "decision": "(A) 128배 괴리 원인 규명: CC 대시보드 '총 토큰' = input + output (cache 제외), 레전드팀 total_billable = 4필드 전합. 정의 불일치, 양쪽 모두 내부 정본. (B) KPI 재정의 v2 (Master 재조정): Primary = 사용량(I/O 토큰 누적) + 효율(캐시 히트율). Master는 정액제(Max $100 + 버퍼 $120) — 결제액 트래킹이 목적이 아닌 '얼마나 쓰고 얼마나 효율적인지'가 목적. 결제 $는 Secondary로 강등(구독 가치 증명용). raw total_billable은 상세 접기 패널. (C) 세션당 $ 배분 규칙 (최종): 실결제 $104.28 × I/O 토큰 비중 (1번) — session_N $ = cumulativeBilled × (sessionN_IO / ΣallIO). $104.28은 Master 청구 페이지 참조 누적 증가값. API 환산 $ ($602)는 상세 패널 참고용. (D) 외부 앵커 cross-check 의무 원칙 신설: 측정 지표 '맞음' 선언 시 외부 앵커(제3자 시스템·공식 문서·청구서) 최소 1개 cross-check 증거를 evidence_index E-NNN에 필수 등록. 내부 재현만으로는 불충분. (E) 이전 'session_066/067/068 재현 맞다' 결론 부분 기각: 비용 계산 로직(PD-018)은 유지, 대시보드 레이블·raw 노출은 재작업 대상. (F) child 토픽 3건 분기 예정: KPI 개편(사용량·효율 Primary) / 캐시 패널 분리 / 외부 앵커 원칙 evidence 등록.",
       "value": "session_066/067/068 폐쇄루프 허위검증 사고 방지 원칙 박제. 128배 괴리가 오류가 아닌 정의 불일치임을 규명해 Master 신뢰 회복. Max 구독 실결제 기준 대시보드로 전환해 Master 실제 경험과 정합. cache 히트율 93.7%라는 구조적 특성을 제거하지 않고 보조 지표로 보존해 효율성 트래킹 유지.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_074",
       "scopeCheck": "standalone",
       "relatedTopics": [
@@ -1337,7 +1421,7 @@
       "decision": "(A) 스키마 구현: topicType(framing|implementation|standalone, undefined 허용) + parentTopicId + childTopicIds를 topic_index에, resolveCondition(자연어 string)을 PD에. scripts/lib/topic-lifecycle.ts 단일원천. (B) 소급 범위 축소: topic_062/066 2건 한정 테스트 케이스. 나머지 68개 레거시는 topicType undefined 유지·무변경 — Master 지침 '과거 소급 이유 없음, 2건은 회로 검증 목적'. (C) 자동 종결 dry-run 2단: auto-close-topics.ts + resolve-pending-deferrals.ts, /close 훅 체인 + /open step 3.6 배치, 저마찰 원칙(무응답=보류, --apply 재호출로 적용). (D) Ace Step 0: ace-framing SKILL.md 최상단에 topicType/parentTopicId 판정 블록(Grade A/S 전체, B/C 1줄 인라인). create-topic.ts --topicType/--parentTopicId 플래그로 전달. (E) 강제 레이어: reclassify-topic.ts(revision_history 자동 기록, R-4 방어) + validate-topic-closure.ts(Editor 역검사) + validate-schema-lifecycle.ts(drift 감시). (F) Riki 리스크 흡수: R-2(stale PD 리포트 별도 출력) + R-3(B/C 1줄 인라인) + R-4(revision_history append) 전원 내장. (G) executionPlanMode=conditional 완결. 전 Phase·게이트 G1/G2/G3 통과. (H) Ace 학습: '소급=관성' 경계 — feedback_ace_grade_intent_check 연장선 피드백 기록.",
       "value": "D-056에서 확정된 토픽 생명주기 모델을 실제 시스템에 안전하게 착륙. Master 지침으로 소급 범위 2건 한정 → R-1(숨은 쌍 오분류) 리스크 원천 차단. 자동 종결 dry-run 2단으로 저마찰 원칙 박제. 신규 토픽부터 Ace Step 0로 topicType 판정 자동화 — '나 없이도 사고하는 팀'(Nova N4) 로드맵 진전.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_070",
       "scopeCheck": "cross-topic",
       "relatedTopics": [
@@ -1355,7 +1439,7 @@
       "decision": "(A) 스키마 확장: topic_index에 topicType(framing|implementation|standalone|abandoned|pending-classification) + parentTopicId(nullable) + childTopicIds(파생). pendingDeferrals에 resolveCondition({type:'topic-completed', topicId}) 선택 필드. (B) Ace 프레이밍 Step 0: /open 직후 openTopics·최근 세션 스캔 → parentTopicId·topicType 추론 제시 → Master 무응답=승인. Nova N3 채택. (C) /close auto-close: dry-run 리포트 출력 → Master 무응답=승인 → apply. 최대 깊이 2. Silent 전이 금지. (D) PD 자동 전이: resolveCondition.topicId 존재 검증 → 미존재 시 error 로그 + skip. create-topic.ts 참조 카운터로 삭제 차단. (E) 재분류 경로: /reclassify-topic <id> <type> [parent] 신설. pending-classification → 확정 type 승격 정식 경로. (F) 강제 레이어: validate-topic-closure.ts (/close 차단) + Session End 체크리스트 'PD resolved 판정' 명문화. (G) 기존 PD 5건 backfill 미실시 — 수동 운영 유지, 신규 PD부터 적용. (H) 원칙 박제: 'Master 무응답=승인' 기본값. 필수 응답은 🔴 데이터 손상급에만(최대 깊이 2 초과 auto-close 1건). 이 원칙을 깨는 향후 설계는 자동 기각. (I) 장기 로드맵: ~1000세션 학습 후 Nova N4(Zero-/open) 자율 판정 전환 목표. (J) 소급 정리: topic_062·066 topicType=framing 백필, 레거시 전 토픽 standalone 일괄 마이그레이션 — PD-022 P1에서 수행. (K) executionPlanMode=conditional → PD-022로 구현 분기(Arki 4-Phase 재소집 필요). Riki 🔴 R1(dry-run 2단) R2(참조 무결성) + 🟡 R3(pending-classification) R4(abandoned) 전원 내장.",
       "value": "session_062~065에서 드러난 프레이밍↔구현 토픽 생명주기 누수 + PD resolved 누락의 구조적 해소. Master save 수동 관행 → 시스템 자동화 흐름(D-051·D-053) 연장. 저마찰 원칙 박제로 향후 설계의 요구량 증가 차단. '나 없이도 사고하는 팀' 비전 로드맵(Nova N4) 장기 목표 명문화.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_069",
       "scopeCheck": "cross-topic",
       "relatedTopics": [
@@ -1373,7 +1457,7 @@
       "decision": "PD-020c 4요소(A6-1 owningTopicId / A6-2 lifecycle / A6-3 앵커 / A6-4 실시간 PD append)를 강제 강도로 재분류 — Master '별것 아닌 자동화는 경고만, 과부화 회피' 지침 수용. 🔴 하드 강제 2건: A6-1(데이터 정합성, 회복 불가) + A6-4(휘발 방지, Editor 역검사 백업). 🟡 경고만 2건: A6-2 lifecycle(/open 시 stale 브리핑만, 자동 status 변경 없음, expectedDuration 예외) + A6-3 앵커 lint(Editor 차단 없음, legacy 면제). 결정축 확정: D1 scopeCheck 4값 enum(topic-local|cross-topic|global|legacy-ambiguous), 의심 시 기본값 cross-topic+relatedTopics, global은 CLAUDE.md 등재 동반. D2 경고만. D3 경고만+legacy 면제. D4 발언 직후 즉시+Editor 백업. executionPlanMode=plan. Arki 실행계획: P1(하드·데이터정합성: 스키마 확장+백필+validate) → P2(경고계층)∥P3(실시간 append). 게이트 A/B/C. Riki R1(legacy-ambiguous 예외) R2(expectedDuration 예외) R3(legacy brief 면제) R4(Editor 역검사) 전원 흡수. Fin 금지어 감사 통과. 구현은 별도 세션 분할(PD-020a/b 전례).",
       "value": "Ace 기본제안 → Master 조정 원칙 재확인(session_063). 과부화 회피 선택으로 신규 자동화의 운영비용 절감. 결정 소유권 강제(owningTopicId+scopeCheck)로 토픽 간 오염 차단 근거 확보. PD-020 3부작 프레이밍 단계 완결 — 구현 단계로 이행 가능.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_066",
       "scopeCheck": "cross-topic",
       "relatedTopics": [
@@ -1391,7 +1475,7 @@
       "decision": "(A) turns[]가 세션 역할 발언의 단일 원천. agentsCompleted는 session-end-finalize.js에서 turns.role 순서·중복 허용으로 자동 파생 — D-048 '중복 허용 배열' 원칙 실질 보장, Set-dedup 버그 근절. (B) phase_catalog v1.1: 'implementation' phase 신설(Dev 실집행). PhaseId 타입 동기화. (C) Context 3층 스키마 v1.0 확정: L1 TurnLogEntry(topics/{id}/turn_log.jsonl 단일원천, append-only, topicId 경계 검증 필수), L2 SessionContributionFrontmatter(nextAction 필수, 5 섹션 강제), L3 ContextBriefFrontmatter(고정 5섹션, 5KB 상한). 전용 검증함수 throws-on-invalid 패턴. (D) L1 실패 격리 정책: 단건 무시+로그, 누적 3건 경보+quality 플래그. (E) session_060 자체 L1은 session_061에서 소급 기록(RK-4 옵션 B). (F) validate-schema-vs-data.ts 신설 — TS 타입↔JSON 데이터 drift 감시 (session_060 오픈 차단 재발 방지, GA-1). (G) P0 전수 13 세션 검증 결과: 초기 FAIL 11건 → C1 phase drift 30건 + C2 agentsCompleted Set-dedup 4건 → 루트 수정 + 백필 → 재검증 13/13 OK.",
       "value": "PD-020b 구현의 토대 정비 완료. turns[] 단일원천 구조로 agentsCompleted 왜곡 근절. 3층 스키마 TS+검증함수 단일원천으로 확정 → session_061 L1/L2/L3 writer 구현이 깨끗한 인터페이스 위에 진행 가능. drift 감시 도구로 type↔data 동기화 실패 재발 차단.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_063",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1404,7 +1488,7 @@
       "decision": "3층 책임 분리 확정: L1 topics/{id}/turn_log.jsonl(append-only, hook 자동, sessionId 중복검사) / L2 topics/{id}/session_contributions/session_NNN.md(hook 골격 + Editor 본문 혼합, quality 플래그 editor-written|hook-fallback) / L3 topics/{id}/context_brief.md(매 /close 전체 재생성, ~500토큰 상한). /open 자동 로드는 hold=false 토픽 한정, 활성 토픽 N>7 시 현재 토픽만 로드 fallback(PD-020c 완료 시 제거). 7 Phase 실행계획(v2): P0 turns[] 무결성 검증 + C1 강제화 선결 / P1 스키마 정의+디렉토리 부트스트랩 / P2 L1 turn-log-writer.js / P3 L2 session-contribution-writer.js (quality 플래그) / P4 L3 regenerate-context-brief.js (degraded 분리) / P5 auto-push.js 훅 체인 통합 / P6 /open 로더 + N>7 fallback. 게이트 G0~G6 순차 통과. Riki 3개 리스크 전원 흡수: RK-1(turns[] 미기록 전제 위반)→P0 신규, RK-2(Editor 우회 침묵 실패)→quality 플래그+degraded 분리, RK-3(토큰 폭발 갭)→N>7 fallback. 본 세션 스코프 = 프레이밍+실행계획. 실집행은 session_060+ 분할 진행.",
       "value": "Master save01~05 수동 관행을 시스템이 흡수 — 성장 루프 병목을 인지부하에서 자동화로 이전. C1 강제화 선결로 L1 무효화 전제 위반 차단. quality 플래그로 Editor 우회 silent failure 방지. PD-020c 전 임시 fallback으로 토큰 폭발 갭 방어. PD-020b 프레이밍 단계 resolved.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_062",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1417,7 +1501,7 @@
       "decision": "5축 확정: (1) topic_meta.sessions[] 삭제 — 단일원천 = session_index.topicId. (2) topic_index 미러(phase, hold) 삭제 — 단일원천 = topic_meta. (3) hold = HoldState|null 객체 표현, hold===null ⇔ active, hold.reason은 catalog enum. (4) phase_catalog.json + hold_reasons_catalog.json 신설 — aliases·deprecated·schemaVersion 필수 필드 (RK-1 대응). (5) 마이그레이션 = phase:null, hold:null, legacy:true — 추측 백필 금지. 부속: phaseHistory 인라인 유지(JSONL 분리 거부 — 토픽당 4건 빈도에 부적합), validate-topic-schema.ts에 assertPhase/assertHold type guards export 강제(RK-2), legacy:true ⇒ phase·hold 항상 null 보장 명문화. antiPatterns 3건 본문 명시: (a) topic_meta.sessions[] 부활 금지 (b) topic_index 미러 부활 금지 (c) topic→sessions 캐시 파일 금지. 5 Phase 실행계획(P1 catalog+spec / P2 validator+guards / P3 writer / P4 migration with git tag / P5 verify) 산출. 비채택: phase_events.jsonl 분리(과잉 추상화), decision_ledger antiPatterns 필드 신설(PD-020c 영역), 절충안. 본 세션 스코프 = 설계+명세+계획. 실제 P1~P5 구현은 별도 실행 세션.",
       "value": "D-051 토대 구체화. 단일원천·확장성·디버깅 가능성을 1회성 구현비용보다 우선(Master 평가기준). 미러·중복·추측백필 전면 금지로 PD-020b/c가 깨끗한 토대 위에 진행 가능. catalog 패턴(D-047 status_catalog 확장)으로 enum 변경 호환성 사전 확보.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_057",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1430,7 +1514,7 @@
       "decision": "A1 토픽 1급 승격. A2 N:1 단방향 topic.sessions[]. A3 이중 성장축(세션=실행/토픽=누적). A4 점진 이행 legacy:true 52세션 소급. A5 phase(framing/design/implementation/validated)×hold(active/heldAt/heldAtPhase/reason) 2차원. A6 decision owningTopicId + agenda.md 충돌 검사 기계화. A7 /open 자동 context 로드 hold=false 토픽만. A8 3층 context(turn_log.jsonl / session_contributions/*.md / context_brief.md) hold 토픽 brief 동결. Riki 공격 4개(RK-1 수명폭증 / RK-2 brief신뢰성 / RK-3 Ace과부하 / RK-4 이연부재) 모두 운영규칙으로 흡수. 실제 구현은 PD-020a/b/c 3개 Grade A로 분해 이연.",
       "value": "Master 수동 save01~05 관행을 시스템이 흡수 — 성장 루프 병목을 Master 인지부하에서 시스템 자동화로 이전. 양방향 훅 제거(N:1 단방향) + phase×hold 직교화로 운영 복잡도 억제. PD-019 resolved.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_056",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1443,7 +1527,7 @@
       "decision": "app/js/role-colors.js 신설 — window.ROLE_COLORS + window.ROLE_LABELS 단일 원천. Turn Sequence dot 크기 확대(r8→10), Role Frequency ECharts→HTML 트랙 바 교체. dev=blue cool 계열 의도적 유지(Master: 코딩은 차가워야 함). nova↔edi 색상 교체(nova=#10B981, edi=#9CA3AF). 전 페이지 캐릭터 카드 색상 통일.",
       "value": "canonical palette v1.13: ace=#8B5CF6, arki=#06B6D4, fin=#F59E0B, riki=#EF4444, nova=#10B981, edi=#9CA3AF, dev=#3B82F6, vera=#F472B6. cool cluster(ace/arki/dev) 수용 — 수치보다 역할 성격 우선. ROLE_LABELS: editor→edi 표시명. v1.12→v1.13.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_055",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1456,7 +1540,7 @@
       "decision": "adopt conditional self-invocation matrix for design:* plugin skills; Vera directly prototypes new visualization grammars (one-shot), Editor handles existing-grammar compositions",
       "value": "(A) Vera skills 조건부 매트릭스 — design-critique/system/handoff/a11y/theme-factory 각 트리거·skipWhen·invocationMode(skill-call|pattern-reference|external) 필드 강제. design-system 발동 우선 판정자는 '토큰 신규 추가 여부' (Riki #3). (B) 구현 주체 경계: 신규 시각화 문법(D3 sequence처럼 기존 템플릿 없음) 최초 1회 Vera 직접 프로토타입 / 기존 문법 조합(카드·탭·그리드) Editor 위임. Editor 판단 영역 제로 체크리스트 6항목 Vera 스펙 의무 포함. (C) design_rules.json 신설 — R-D01(dashed-border=recall marker), R-D02(brand-purple-tint α∈{.12,.18,.25}=connector). (D) sequence 패널 v1.0 confirmed — D3 SVG 96px label+16px node+28px gap+280px height, ROLE_COLORS 재사용 신규 토큰 0개. (E) Claude Design(claude.ai/design 웹) ≠ design:* 플러그인 명시 — vera_memory.skills.external 필드 분리 + feedback 메모리 신설. 이월: 색 대비 전역(--text-3)·PD-018 $ 패널·PD-019 토픽 중심 아키텍처는 별도 토픽.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_052",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1469,7 +1553,7 @@
       "decision": "restructure agentsCompleted from Set-semantics string[] to structured Turn[] + plannedSequence + Claude Code realtime split judgment",
       "value": "(A) 스키마: agentsCompleted를 Turn[]으로 재정의 {role,turnIdx,phase?,recallReason?,splitReason?,chars?,segments?}. plannedSequence 및 plannedSequenceRevisions 신설. 기존 필드는 legacy alias로 병행. (B) 재호출 정의: Claude Code 실시간 판정 + 4조건 프로토콜 — ①다른 역할 개입 후 복귀 자동분리 ②Master 개입 후 재발언 자동분리 ③phase 전환 시 phase_catalog.json enum 참조하여 분리 ④같은 phase 내 연속 병합. 조건1·2·3 적용 시 recallReason/splitReason 기록 필수. (C) 기록 시점: C1(역할 발언 직후 current_session push) + C2(session-end-finalize.js 검증) 병행. (D) 집계: compute-dashboard.ts seen.has 제거, D3 sequence 1급, turn 타임라인+gap 뷰. 부대 조치: phase_catalog.json 신설(R-2), B/C도 plannedSequence 1줄 강제(R-4), Size 임계 유지하되 10세션 gradeMismatch 경보 억제(R-5), 과거 44세션 legacy:true 플래그로 집계 배제(R-6). 비채택: 자기판정 감사 패널(R-1, R-2로 자동 소멸), plan immutable Goodhart 방어(R-3, 시스템 인센티브 모델 부적합). motif 자동 분석은 100세션 축적 후 별도 토픽. PD-011 해소, PD-019(토픽 중심 아키텍처) 파생.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_048",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1482,7 +1566,7 @@
       "decision": "adopt status_catalog.json as single source + enforce create-topic.ts auto-call in /open",
       "value": "(1) status_catalog.json 신설 (open/in-progress/completed/suspended + closed→completed alias). UI·커맨드·타입 모두 카탈로그 참조, 하드코딩 금지. (2) topic_index.json 파일 자체를 topic_id desc 자연정렬로 저장 + app/js/nav.js sortTopicsDesc + create-topic.ts 자동 정렬 삽입 (3중 방어). (3) /open 체크리스트 step 7에 create-topic.ts 자동 호출 강제 — session_036~041 topic_index 등록 누락 재발 방지. (4) 중간지점 정비: 중복 topic_013 분리(→045), 고아 upgrade-delta-pack 등록(→046), 현 세션 등록(→047). 01-41 전체 재번호는 참조 무결성 훼손 리스크로 채택 안함.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_047",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1495,7 +1579,7 @@
       "decision": "adopt",
       "value": "향후 정량 원고 세션은 /open 시 current_session.json에 canonical_data 필드(경로+md5)를 기록. 본문 모든 정량 주장은 canonical 앵커 인용. 출처 없는 숫자는 [pending: source] 플래그 필수. Editor 숫자 기입 시 출처 주석 의무. Riki 공격영역에 'data provenance' 신설. 근거: session_041 ver3.0_E 작성 시 canonical Xlsx 미확인하고 save04.md 캐시 숫자·LLM 합성 CI로 7차 검토 루프가 오염 동결(E-xxx 등록).",
       "authority": "master-implied",
-      "status": "protocol-adopted",
+      "status": "deprecated",
       "owningTopicId": "topic_044",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1508,7 +1592,7 @@
       "decision": "(e)",
       "value": "Y1 primary (mediation novelty 유지) + Y1-Y3 강력 pre-specified sensitivity (TE significance 확보). Riki의 HARKing·sister paper·mediation 윈도우 비정합 3대 반대점 모두 해소. Y1-Y3를 primary로 전환하지 않음. 대신 Results §Sensitivity에 3-year TE OR 1.72 (1.07-2.76, p=0.025) 및 p-for-trend 0.013을 핵심 sensitivity로 승격 강조. Nova N1이 계기(5-window sweep 촉발), Ace 합성(Riki 반대 통합). 소유권: Ace 제안, Master 승인.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "deprecated",
       "owningTopicId": "topic_044",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1521,7 +1605,7 @@
       "decision": "ver1.0 raw 기반 재분석",
       "value": "Master 확정 필터: Enroll_COPDNOTCOPD ∈ {1,3,4} (PRISm은 stratifier로 유지, non-COPD 제외), age≥40, exclude military(27)/housewife(28), 학생(30)은 age≥40 필터로 자동 제외. Canonical cohort n=2,779. 기존 Xlsx (ver2.0 폴더, n=2,932)는 cohort 필터 불일치로 폐기. prev_exac 공변량은 self-reported KO1_P_EX_YN(HIRA 불필요)으로 확보. canonical 폴더: C:/Projects/COPD/canonical_ver3.5/. 새 숫자: Y1 primary NIE OR 1.12 (1.02-1.25), TE OR 1.55 (0.76-3.14); Y1-Y3 sensitivity TE OR 1.72 (1.07-2.76), p-trend 0.013; NB rate crude IRR 1.44 (1.12-1.86).",
       "authority": "master",
-      "status": "confirmed",
+      "status": "deprecated",
       "owningTopicId": "topic_044",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1534,7 +1618,7 @@
       "decision": "A",
       "value": "메모리 초기화 + reports/ 구조 생성만으로 v0.2.0 선언. TS 자동화는 v0.3.0으로 이연.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "deprecated",
       "owningTopicId": "topic_002",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1547,7 +1631,7 @@
       "decision": "A",
       "value": "Claude Code가 세션 중 직접 파일 기록하는 수동 프로토콜 채택.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "deprecated",
       "owningTopicId": "topic_002",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1560,7 +1644,7 @@
       "decision": "B → revised 2026-04-04",
       "value": "app/ 디렉토리를 읽기 전용 다중 페이지 정적 뷰어로 확장 허용. 읽기 인터랙션(네비게이션, 필터, 검색) 허용. 쓰기 인터랙션(폼, 입력, 상태 변경) 금지. 프레임워크 도입 금지 유지.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "deprecated",
       "revisedAt": "2026-04-04",
       "revisedIn": "session_003",
       "priorValue": "app/internal-viewer.html로 이름 변경. CLAUDE.md에 내부 뷰어 예외 조항 추가.",
@@ -1576,7 +1660,7 @@
       "decision": "제안대로",
       "value": "reports/{YYYY-MM-DD}_{topic-slug}/{role}_rev{n}.md",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_002",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1589,7 +1673,7 @@
       "decision": "유지",
       "value": "Master가 명시적으로 요청할 때만 Nova 호출. 자동 트리거 조건 미정의.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_002",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1602,7 +1686,7 @@
       "decision": "A",
       "value": "정적 사이트 배포 (Cloudflare Pages + Cloudflare Access). 모바일/PC 브라우저로 접근.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_003",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1615,7 +1699,7 @@
       "decision": "A → revised",
       "value": "전체 배포 (memory/master/ 포함). Master는 모든 것을 봐야 함. 보안은 Cloudflare Access 인증에 위임.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "revisedAt": "2026-04-04",
       "priorValue": "reports/ + memory/shared/ 일부만 배포. memory/master/는 완전 제외.",
       "owningTopicId": "topic_003",
@@ -1630,7 +1714,7 @@
       "decision": "B",
       "value": "git hook 또는 스크립트로 세션 종료 시 자동 push.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_003",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1643,9 +1727,10 @@
       "decision": "Master 지시",
       "value": "Ace가 종합검토 수행. Editor는 결과물 작성/정리/출력만 담당. Editor에서 synthesis 역할 완전 분리.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "superseded",
       "owningTopicId": "topic_003",
-      "scopeCheck": "legacy-ambiguous"
+      "scopeCheck": "legacy-ambiguous",
+      "supersededBy": "D-130"
     },
     {
       "id": "D-010",
@@ -1656,7 +1741,7 @@
       "decision": "B",
       "value": "자동화 + 자산 실질화. 세션 자동화 확장(H-01/H-02) + 자산 프로토콜 정의(N-01/N-03) + 스크립트 정리.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "deprecated",
       "owningTopicId": "topic_005",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1669,7 +1754,7 @@
       "decision": "A",
       "value": "스크립트 보조. session-log.ts 확장 + validate-output.ts 연동. Claude Code가 호출하되 풀 오케스트레이션은 아님.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "deprecated",
       "owningTopicId": "topic_005",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1682,7 +1767,7 @@
       "decision": "A",
       "value": "v0.4.0에 포함. evidence_index 운용 프로토콜 + glossary 운용 기준 정의. 프로토콜 문서 수준.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "deprecated",
       "owningTopicId": "topic_005",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1695,7 +1780,7 @@
       "decision": "Master 지시",
       "value": "session_003~006 성과(CF Pages 배포, 다중 페이지 뷰어, 역할 재정의, 운영 부채 폐쇄, main 브랜치 통일)를 v0.3.0으로 소급 확정. project.json 즉시 반영.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "deprecated",
       "owningTopicId": "topic_005",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1708,7 +1793,7 @@
       "decision": "Master 지시",
       "value": "FR-002(Ace 오케스트레이션 강화), FR-003(작업 정의 선행), FR-004(Master 피드백 확대 해석 금지), DX-003(세션 체크리스트 charter 버전 확인) 채택 적용. DX-004/DX-006/조건부 항목 미적용. 분류 체계 별도 토픽 이연.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "deprecated",
       "owningTopicId": "topic_009",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1721,7 +1806,7 @@
       "decision": "Master 지시",
       "value": "Ace를 Master의 판단 대리인으로 재정의. 후행 통합기→선행 제안기 진화 경로 확정(승격 시점은 Master 결정). Ace는 종합+자기판단 필수, Master 미응답 시 능동 질문. Arki 데이터구조 포함. Fin Financial 유지(사업적 재무 주력). Riki 실행왜곡+Ace초안 포함 adversarial 명시. Editor 기록자(편집판단만, 내용판단/선행제안 불가). Nova 현행유지.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "deprecated",
       "owningTopicId": "topic_010",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1734,7 +1819,7 @@
       "decision": "Arki 통합",
       "value": "Arki 발언에 '구조적 실행계획' 4번째 섹션을 추가. 내용: Phase 분해, 의존 그래프, 입력/출력/검증 게이트, 임계경로·병목·롤백, 전제·중단 조건. 발동은 Ace가 executionPlanMode(plan/conditional/none)로 판정. Ace=실행계획, Arki=구조설계자 본업 연장, 역할 수 증가 없음.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "deprecated",
       "owningTopicId": "topic_015",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1747,7 +1832,7 @@
       "decision": "Master 요청 시에만 수행",
       "value": "일정·공수·담당 추정은 Master가 명시적으로 요청한 경우에만 수행. 요청 없는 자동 일정 생성 금지. Arki 실행계획은 시간축 제외(구조적 선후만). Fin은 구조 단계에서 방향성만 평가. Editor는 평시 일정 섹션 생성 금지. 이유: 실측 근거 없는 일정은 현실성 결여 → 의사결정 왜곡.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "deprecated",
       "owningTopicId": "topic_015",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1760,7 +1845,7 @@
       "decision": "3카테고리 금지 + Fin 감사",
       "value": "금지어 3카테고리: (1) 절대시간(D+N일, N주차, MM/DD, 구체 날짜) (2) 인력배정(담당자:, 특정 이름, PD, MM) (3) 공수 단위(N시간, N일 소요, 공수). 허용: 구조적 선후 표현(Phase 완료→다음, 게이트 통과 후, 전제조건 충족 시). Fin이 첫 실행계획 산출 후 1회 감사, 감사 기준은 Fin memory에 축적.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "deprecated",
       "owningTopicId": "topic_015",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1773,7 +1858,7 @@
       "decision": "Ace=Orchestrator",
       "value": "역할 호출 순서·횟수·재호출 여부는 Ace의 판단. 1역할 1발언 순차 순환은 초기 스캐폴드이며 프로토콜의 본질이 아님. Ace는 토픽 특성에 맞춰 reorder/re-call/skip/extend 가능. 판단 근거는 ace_memory.masterSelectionPatterns에 누적(topic type → role call pattern). 초기=수동+기록, 성숙기=패턴 매칭 자동화. Editor가 백업 게이트 역할(누락 시 경고).",
       "authority": "master",
-      "status": "confirmed",
+      "status": "deprecated",
       "owningTopicId": "topic_015",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1786,7 +1871,7 @@
       "decision": "검증 후 수용",
       "value": "Ace는 Master 피드백을 즉시 수용하지 않고 검증-질문-확인 루프를 거친다. 충돌 감지 시 능동 질문. Master는 '진행해'로 즉시 종료 가능. 판단 결과는 ace_memory learningLoop에 기록하여 자가판단 능력으로 진화. ace-learning-loop skill 신규 자작.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "deprecated",
       "owningTopicId": "topic_016",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1799,7 +1884,7 @@
       "decision": "Master 동의",
       "value": "Dev(데브) 에이전트 신설. 구현·디버깅·테스트 전담. Arki 설계 인수 → Dev 구현 → Editor 산출물 파이프라인 확립. 호출 조건: 구현·디버깅 토픽에서만. Arki↔Dev 경계: 인터페이스·구조까지 Arki, 이후 Dev. Editor 디자인 권한 확장: 시각 표현·레이아웃·다이어그램·HTML 형식 판단 허용, 내용·전략 판단 불가. v0.7.0 선언.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_017",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1812,7 +1897,7 @@
       "decision": "Master 선언",
       "value": "세션 종료 시 Ace가 실제 수행 내용과 명명된 토픽명을 대조. 불일치 시 수정 토픽명을 제안하고 Master 확인 후 확정. topic_index.json title·topicSlug·reportPath 일괄 반영. /close 체크리스트 1a에 명문화.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_021",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1825,7 +1910,7 @@
       "decision": "3개 스타일 + HTML 기준",
       "value": "HTML 보고서 기준 3개 스타일 체계 확정. Style 1(Navy/Blue, 기존 레전드팀 스타일 정형화), Style 2(Black/Red, 임팩트 강조), Style 3(Gold/Editorial, 서사형). Word/PPT는 색상 토큰 참조 수준. 신규 보고서부터 적용. 디자인 시스템 구현: 토큰 JSON 3개 + base.css + style*.css 3개 + echarts 테마 3개 + report-base.html 템플릿 + CRITIQUE_CHECKLIST.md. v0.9.0 선언.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_022",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1838,7 +1923,7 @@
       "decision": "Master 승인",
       "value": "대시보드 KPI 계산을 위한 4-레이블 체계 확정. 명시적 채택(decision_ledger D-번호 등재) / 묵시적 채택(Master 개입 없이 다음 단계 진행 = 통과·자율성 신호) / 기각(master_feedback_log 기각 표기) / 보류(pendingDeferrals PD-번호 등재). 채택률 = (명시적+묵시적 채택) / 전체 제안. 엣지: E1 수정후 등재 → 명시적 채택 + modifiedFromProposal:true, E2 부분 채택 → 축 단위 분리 레이블링, E3 무응답 → 묵시적 채택으로 재분류. Phase 0 통과, Phase 0.5(발언 태깅 룰) 진입 가능.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_024",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1851,7 +1936,7 @@
       "decision": "Master 승인",
       "value": "대시보드 2뷰 체계(업그레이드 뷰/과제 운영 뷰), 5군 역할 평가 분리(프레이밍/구조/검증/자원/산출), Phase 0~3 측정 설계(bottom-up), 자율성 카드(masterTurns 최상단), 효율성 그래프(Size×채택률×사용량%×개입 버블차트), Size 공식(decisionAxes×2 + rolesCalled + rolesRecalled×2 + sessionsSpanned×3 + masterTurns×1). 허수 금지·배제 대신 정교화 원칙. 워밍업 플래그(군별 차등: Ace/산출 5, 구조/검증/자원 10). 경보: 섹션별 흡수 + 지휘판 상단 카운터.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_024",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1864,7 +1949,7 @@
       "decision": "Master 승인",
       "value": "Claude Code transcript .jsonl 파싱으로 세션 토큰 직접 집계 가능 확인. .claude/hooks/session-end-tokens.js 신규. SessionEnd hook 등록(settings.json). memory/sessions/token_log.json 신규. current_session.tokenUsage 자동 삽입. Phase 3a 경로 (i) 채택. 이연: PD-006(Windows 경로 검증), PD-007(중복 제거), PD-008(masterTurns 분리 파싱).",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_024",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1877,7 +1962,7 @@
       "decision": "Master 승인",
       "value": "Size = (decisionAxes × 2) + rolesCalled + (rolesRecalled × 2) + (sessionsSpanned × 3). masterTurns를 공식에서 제거하고 버블 색상 독립 변수로 유지. 복잡도(Size)와 자율성(masterTurns) 개념 분리.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_025",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1890,7 +1975,7 @@
       "decision": "Master 승인",
       "value": "세션 종료 시 compute-dashboard.ts를 auto-push.js 직전에 자동 실행. dashboard_data.json 항상 최신 상태 유지. 수동 트리거 경로 제거.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_025",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1903,7 +1988,7 @@
       "decision": "Master 승인 (묵시적)",
       "value": "session-end-finalize.js 신설: current_session.json status=closed 시 session_index 자동 append(agentsCompleted·decisions·note 포함). sync-system-state.ts 신설: system_state.json openTopics·recentDecisions 자동 재계산. Hook 체인: tokens→finalize→compute-dashboard→build. PD-009 이행.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_029",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1916,7 +2001,7 @@
       "decision": "Master 승인 (묵시적)",
       "value": "컨텍스트 압축(compaction)으로 동일 Legend 세션에 복수 Claude Code 세션이 생길 경우, token_log.json의 동일 legendSessionId 항목을 덮어쓰기 대신 usage 누산으로 변경. 토큰 유실 방지.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_029",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1929,7 +2014,7 @@
       "decision": "Master 지시 (\"구현해. 도대체 몇번째야.\")",
       "value": "auto-push.js에 syncClaudeDir() 추가. 워크트리 감지 시 .claude/(worktrees/ 제외)를 main repo로 복사 후 commit → merge → push. 워크트리 .claude/ 수정사항이 매 세션 자동으로 main에 반영됨.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_029",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1942,7 +2027,9 @@
       "decision": "A",
       "value": "Grade S/A→L2 스킬, B→L1 인라인, C→L0 생략. Size 역산으로 사후 검증(gradeMismatch). /open 시 단일 문자 B/A/S/C로 선언. 대시보드 Lv. 표기.",
       "owningTopicId": "topic_030",
-      "scopeCheck": "legacy-ambiguous"
+      "scopeCheck": "legacy-ambiguous",
+      "status": "superseded",
+      "supersededBy": "D-074"
     },
     {
       "id": "D-033",
@@ -1953,7 +2040,12 @@
       "decision": "A",
       "value": "project_charter.json이 버전 유일 소스. nav.js가 모든 페이지에 자동 반영. 규칙: 큰 변화 +0.1, 작은 변화 +0.01. 현재 v1.01.",
       "owningTopicId": "topic_030",
-      "scopeCheck": "legacy-ambiguous"
+      "scopeCheck": "legacy-ambiguous",
+      "status": "superseded",
+      "supersededBy": [
+        "D-104",
+        "D-156"
+      ]
     },
     {
       "id": "D-034",
@@ -1964,7 +2056,7 @@
       "decision": "B",
       "value": "COPD+PRISm n=2,719 (Wan 2014 FEV1/FVC<0.70 또는 ≥0.70&FEV1%pred<80). Normal 폐기능군 337명 제외. Phenotype은 binary covariate로 투입 (moderator 아님).",
       "authority": "master",
-      "status": "confirmed",
+      "status": "deprecated",
       "owningTopicId": "topic_045",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1977,7 +2069,7 @@
       "decision": "single",
       "value": "Age, Sex, Phenotype(PRISm binary), Previous exacerbation 1yr, Post-BDR FEV1%pred, Hospital(GEE cluster). Smoking status 제거(Pack-years 매개와 이중계상 회피). BMI/Comorbidity/WBC는 민감도로만.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "deprecated",
       "owningTopicId": "topic_045",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -1990,7 +2082,7 @@
       "decision": "parallel4",
       "value": "Pack-years + SGRQ Symptoms + SGRQ Activity + SGRQ Impact (4개 병렬). CAT total 제거(SGRQ와 중복), SGRQ total 제거(subscale 분해로 대체).",
       "authority": "master",
-      "status": "confirmed",
+      "status": "deprecated",
       "owningTopicId": "topic_045",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -2003,7 +2095,7 @@
       "decision": "2+3 only",
       "value": "궤도 2(modifiable mediator 서사)·궤도 3(near-universal coverage context) 채용. 궤도 4(effect modification) 기각. 궤도 1(PRISm outcome)은 PD-012로 이연(Paper B 씨앗).",
       "authority": "master",
-      "status": "confirmed",
+      "status": "deprecated",
       "owningTopicId": "topic_045",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -2016,7 +2108,7 @@
       "decision": "Thorax-first",
       "value": "Thorax → Int J Epidemiol → Chest → ERJ Open Res → Int J COPD. 기대 base band IF 5~10 (Chest 현실 target, Thorax stretch goal).",
       "authority": "master",
-      "status": "confirmed",
+      "status": "deprecated",
       "owningTopicId": "topic_045",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -2029,7 +2121,7 @@
       "decision": "pooled",
       "value": "PRISm complete-case n=51/events=3으로 moderated mediation 식별 불가. Primary analysis를 Pooled CMA로 강등. Phenotype은 covariate로 투입, phenotype-stratified는 descriptive sensitivity만.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "deprecated",
       "owningTopicId": "topic_045",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -2039,10 +2131,10 @@
       "session": "session_036",
       "topic": "legend-team-upgrade-v2",
       "axis": "Grade 조정권",
-      "decision": "A",
-      "value": "Ace가 Grade 조정권 보유. Master 선언 grade와 실제 작업 gap 발생 시 Ace가 자율 상향/유지 조정. 이번 세션 첫 행사(B→A 상향 선언, 실제 진행은 B). gradeActual 불일치는 gradeMismatch 패널에 누적.",
+      "decision": "Nexus 판정",
+      "value": "Nexus가 Grade 조정권 보유. Master 선언 grade와 실제 작업 gap 발생 시 Nexus가 자율 상향/유지 조정. 이번 세션 첫 행사(B→A 상향 선언, 실제 진행은 B). gradeActual 불일치는 gradeMismatch 패널에 누적.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_032",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -2053,9 +2145,9 @@
       "topic": "persona-top01-redefinition",
       "axis": "Top 0.1% 페르소나 재정의",
       "decision": "8 roles × 3 fields (persona/scope/hitRateRubric)",
-      "value": "8개 역할(Ace·Arki·Fin·Riki·Nova·Dev·Vera·Editor) 페르소나 재정의. 3층 구조 확정(대변층=Ace / 전문가층 6 / 실행층=Editor). 공통 스키마 확장: persona(identity/originSource/style/antiPattern/nonNegotiables) + scope(notOwnerOf 우선/ownerOf) + hitRateRubric(hitCriteria/missCriteria/judgmentTiming/evidenceSource). 실존 인물 레퍼런스: Ace=Master복제 / Arki=Rich Hickey / Fin=Aswath Damodaran / Riki=Nassim Taleb / Nova=Alan Kay / Dev=John Carmack / Vera=Dieter Rams / Editor=Strunk & White. Riki 특례: 일치율 아닌 '기각 후 실현율'. Dev-Arki 양방향 협의 관계 확정. notOwnerOf 우위 원칙(Top 0.1% 지문=침묵 영역).",
+      "value": "8개 역할(Ace·Arki·Fin·Riki·Nova·Dev·Vera·Editor) 페르소나 재정의. 3층 구조 확정(대변층=Ace / 전문가층 6 / 실행층=Editor). 공통 스키마 확장: persona(identity/originSource/style/antiPattern/nonNegotiables) + scope(notOwnerOf 우선/ownerOf) + hitRateRubric(hitCriteria/missCriteria/judgmentTiming/evidenceSource). 실존 인물 레퍼런스: Ace=Charlie Munger(다학제 모델 합성·역방향 사고) + Andy Grove(전략적 변곡점 감지·결심) / Arki=Fred Brooks(개념적 무결성·복잡계 관리) + John von Neumann(아키텍처 근본 구조·전체 시야) / Fin=Aswath Damodaran / Riki=Nassim Taleb / Nova=Alan Kay / Dev=John Carmack / Vera=Dieter Rams / Editor=Strunk & White. Riki 특례: 일치율 아닌 '기각 후 실현율'. Dev-Arki 양방향 협의 관계 확정. notOwnerOf 우위 원칙(Top 0.1% 지문=침묵 영역).",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_033",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -2068,7 +2160,7 @@
       "decision": "confirmed",
       "value": "8개 역할 role memory에 skills 필드 신설(core/conditional/methods). 전역 스킬: auto-model-switch(Grade A/S → /fast Opus, opusplan 패턴 기반, 세션당 1회, 구현은 PD-017). 역할별 핵심: Ace(ace-framing·learning-loop·writing-plans) / Arki(engineering:architecture·system-design·tech-debt + ADR·C4 방법론) / Fin(finance:financial-statements·variance-analysis + EBITDA·DCF·Scenario 프레임) / Riki(operations:risk-assessment, R-03 레이어불일치로 재분류) / Nova(product-management:product-brainstorming, 침묵 원칙) / Dev(systematic-debugging·verification·subagent-driven) / Vera(design:design-system·critique·handoff, web-artifacts-builder 소유권=Editor) / Editor(web-artifacts-builder·doc-coauthoring). 버전 정책: 마일스톤형(역할·구조 변경=+0.1 / 역량 확장=+0.01 / 버그수정=+0.001). session_037 소급 v1.1, session_038 완료 시 v1.11.",
       "authority": "master",
-      "status": "confirmed",
+      "status": "active",
       "owningTopicId": "topic_034",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -2081,7 +2173,7 @@
       "decision": "confirmed",
       "value": "D-042 구체화. 발동 범위: Grade S/A/B (C만 제외). 커맨드: /model claude-opus-4-7 (기존 /fast Opus 4.6 → Opus 4.7로 수정). 이미 Opus 4.7 계열(1M 포함) 상태면 안내 생략·유지. 세션당 1회, /open 보고 말미. 스킬 파일: .claude/skills/auto-model-switch/SKILL.md",
       "authority": "master",
-      "status": "confirmed",
+      "status": "deprecated",
       "owningTopicId": "topic_042",
       "scopeCheck": "legacy-ambiguous"
     },
@@ -2095,7 +2187,8 @@
       "axis": "D-060 G1 Gate — 성장지표 registry v2 + L3.autonomy proxy + Phase 2 Go",
       "decision": "Phase 2 Go 판정. registry v2: Phase 2 지표 7개 draft 전환(compute-growth.ts 제외). L3.autonomy: session_note 파싱 버그 → token_log proxy 공식(1 - masterTurns/agentTurns)으로 수정, proxyMode=true 레이블 Board 구현 시 처리. resolvePendingLag에 status=active 필터 추가(R-2). active 지표 4개: L1.cumulativeLearning / L3.autonomy / dev.firstPassRate / nova.promotionRate.",
       "value": "compute-growth.ts 실행 메트릭 11→4 (64% 감소). nonNull rate 37%→51%. L3.autonomy 0%→95% 복구. 매 세션 hook 오버헤드 대폭 감소 — 느린 /open·/close 개선 기여.",
-      "rejectedAlternatives": []
+      "rejectedAlternatives": [],
+      "status": "active"
     },
     {
       "id": "D-062",
@@ -2136,7 +2229,8 @@
           "tagger": "riki",
           "validatedOutcome": null
         }
-      ]
+      ],
+      "status": "active"
     },
     {
       "id": "D-075",
@@ -2144,7 +2238,8 @@
       "session": "session_094",
       "topic": "topic_099",
       "axis": "role-persona integration path",
-      "summary": "D-073 부분 rescind + 페르소나 통합경로 memory/roles/personas/ 확정. 분산된 활성 7 + legacy 7 파일을 한 디렉토리에 통합. D-073 \"archive 이동\"을 \"통합경로 재배치\"로 부분 수정."
+      "summary": "D-073 부분 rescind + 페르소나 통합경로 memory/roles/personas/ 확정. 분산된 활성 7 + legacy 7 파일을 한 디렉토리에 통합. D-073 \"archive 이동\"을 \"통합경로 재배치\"로 부분 수정.",
+      "status": "deprecated"
     },
     {
       "id": "D-076",
@@ -2152,7 +2247,8 @@
       "session": "session_094",
       "topic": "topic_099",
       "axis": "PD-031 root cause re-judgment",
-      "summary": "PD-031 root cause 재판정 — 파이프라인 정상. 결함은 입력 공급선(역할 YAML instruction dev/editor만 보유). Arki v1 오진을 Riki 공격으로 수정."
+      "summary": "PD-031 root cause 재판정 — 파이프라인 정상. 결함은 입력 공급선(역할 YAML instruction dev/editor만 보유). Arki v1 오진을 Riki 공격으로 수정.",
+      "status": "deprecated"
     },
     {
       "id": "D-077",
@@ -2160,7 +2256,8 @@
       "session": "session_094",
       "topic": "topic_099",
       "axis": "3-session summary auto-load system",
-      "summary": "3세션 summary 자동 로드 시스템 신설 — system_state.recentSessionSummaries[]. 생성 주체 sync-system-state.ts. 필드 스펙 Arki v2/v3. /open step 3.5에서 Master 브리핑 자동 포함."
+      "summary": "3세션 summary 자동 로드 시스템 신설 — system_state.recentSessionSummaries[]. 생성 주체 sync-system-state.ts. 필드 스펙 Arki v2/v3. /open step 3.5에서 Master 브리핑 자동 포함.",
+      "status": "deprecated"
     },
     {
       "id": "D-078",
@@ -2168,7 +2265,8 @@
       "session": "session_094",
       "topic": "topic_099",
       "axis": "Arki audit protocol v2",
-      "summary": "Arki 감사 프로토콜 v2 — hook chain(auto-push.js) 전수 확인 + 실측 증거 우선. 파일 1개만 보고 단정 금지."
+      "summary": "Arki 감사 프로토콜 v2 — hook chain(auto-push.js) 전수 확인 + 실측 증거 우선. 파일 1개만 보고 단정 금지.",
+      "status": "deprecated"
     },
     {
       "id": "D-079",
@@ -2176,7 +2274,8 @@
       "session": "session_094",
       "topic": "topic_099",
       "axis": "Grade D exclusion from self-scores",
-      "summary": "Grade D 토픽 self-scores 대상 외 명문화. Grade D는 self-scores jsonl 기록 대상 아님. participation 분모에서 자동 제외."
+      "summary": "Grade D 토픽 self-scores 대상 외 명문화. Grade D는 self-scores jsonl 기록 대상 아님. participation 분모에서 자동 제외.",
+      "status": "deprecated"
     },
     {
       "id": "D-080",
@@ -2184,7 +2283,8 @@
       "session": "session_094",
       "topic": "topic_099",
       "axis": "PD-023 Phase remapping",
-      "summary": "PD-023 Phase 재매핑 — P3-supplementary(역할 YAML instruction 보강) 최우선. P3'(hook 재구현) 기각."
+      "summary": "PD-023 Phase 재매핑 — P3-supplementary(역할 YAML instruction 보강) 최우선. P3'(hook 재구현) 기각.",
+      "status": "deprecated"
     },
     {
       "id": "D-081",
@@ -2192,7 +2292,8 @@
       "session": "session_095",
       "topic": "topic_100",
       "axis": "8역할 YAML Self-Score 출력 계약 확정",
-      "summary": "8 persona 파일 전체에 `## Self-Score YAML 출력 계약` 섹션 삽입 완료. shortKey·weight·polarity 32건 동결. composite = Σ(normalized × weight), invoked-sessions-only. lower-better 정규화: 100 - raw_pct."
+      "summary": "8 persona 파일 전체에 `## Self-Score YAML 출력 계약` 섹션 삽입 완료. shortKey·weight·polarity 32건 동결. composite = Σ(normalized × weight), invoked-sessions-only. lower-better 정규화: 100 - raw_pct.",
+      "status": "active"
     },
     {
       "id": "D-082",
@@ -2200,7 +2301,8 @@
       "session": "session_095",
       "topic": "topic_100",
       "axis": "dev 지표 확정 (reg_zr 삭제 / hc_rt 신설 / core 재배분)",
-      "summary": "dev.reg_zr 삭제. dev.hc_rt(하드코딩률, lower-better) 신설. 최종 4건: rt_cov 0.35(core) / gt_pas 0.25(core) / hc_rt 0.25(standard) / spc_drf 0.15(standard). DEV-LL-006 정합."
+      "summary": "dev.reg_zr 삭제. dev.hc_rt(하드코딩률, lower-better) 신설. 최종 4건: rt_cov 0.35(core) / gt_pas 0.25(core) / hc_rt 0.25(standard) / spc_drf 0.15(standard). DEV-LL-006 정합.",
+      "status": "active"
     },
     {
       "id": "D-083",
@@ -2208,7 +2310,8 @@
       "session": "session_095",
       "topic": "topic_100",
       "axis": "nova 지표 재편 (prm_rt deprecate / blnd_spt 신설)",
-      "summary": "nova.prm_rt deprecated(replacedBy: inv_prm). blnd_spt(Riki 미포착 블라인드 스팟 발견률) 신설. nova 3건: inv_prm 0.35(core) / blnd_spt 0.30(core) / spc_axs 0.35(extended)."
+      "summary": "nova.prm_rt deprecated(replacedBy: inv_prm). blnd_spt(Riki 미포착 블라인드 스팟 발견률) 신설. nova 3건: inv_prm 0.35(core) / blnd_spt 0.30(core) / spc_axs 0.35(extended).",
+      "status": "active"
     },
     {
       "id": "D-084",
@@ -2216,7 +2319,8 @@
       "session": "session_095",
       "topic": "topic_100",
       "axis": "vera persona canonical 선언",
-      "summary": "memory/roles/personas/role-vera.md 신규 생성. raterId=vera canonical 선언. designer는 레거시 role 분류로 격하. vera 3지표: tk_drf0 0.45(core) / spc_cpl 0.35 / tk_cns 0.20."
+      "summary": "memory/roles/personas/role-vera.md 신규 생성. raterId=vera canonical 선언. designer는 레거시 role 분류로 격하. vera 3지표: tk_drf0 0.45(core) / spc_cpl 0.35 / tk_cns 0.20.",
+      "status": "active"
     },
     {
       "id": "D-085",
@@ -2224,7 +2328,8 @@
       "session": "session_095",
       "topic": "topic_100",
       "axis": "editor gp_acc deferred-settlement 설계",
-      "summary": "editor.gp_acc: timing=deferred, settlementOffset=3, settlementStrategy=retroactive-injection. 현세션 자가 선언 단발 기록 방식으로 운용. 3세션 후 실측 주입 프로토콜은 향후 PD로 이연."
+      "summary": "editor.gp_acc: timing=deferred, settlementOffset=3, settlementStrategy=retroactive-injection. 현세션 자가 선언 단발 기록 방식으로 운용. 3세션 후 실측 주입 프로토콜은 향후 PD로 이연.",
+      "status": "deprecated"
     },
     {
       "id": "D-086",
@@ -2232,7 +2337,8 @@
       "session": "session_095",
       "topic": "topic_100",
       "axis": "invoked-sessions-only 참여 판정 자가 선언 단일화",
-      "summary": "turns 자동 산출·deferred-settlement 메커니즘 전량 스코프 제외(단순화). 참여 판정은 자가 선언 기준. 재정밀화 조건(기록률 ≥70% 3세션 관찰 후) 충족 시 별도 PD 오픈."
+      "summary": "turns 자동 산출·deferred-settlement 메커니즘 전량 스코프 제외(단순화). 참여 판정은 자가 선언 기준. 재정밀화 조건(기록률 ≥70% 3세션 관찰 후) 충족 시 별도 PD 오픈.",
+      "status": "active"
     },
     {
       "id": "D-094",
@@ -2240,7 +2346,8 @@
       "session": "session_104",
       "topic": "topic_082",
       "axis": "대시보드 IA 전면 개편 — 사이드바 6 메뉴(Home/Dashboard/Growth/People/Records/System) + Records 5 sub(Topics·Sessions·Decisions·Feedback·Deferrals) + 토픽-세션 chip 매핑 + Sessions 3탭 + Deferrals D3.js dependsOn 그래프",
-      "summary": "STATUS: derived from ia-spec.md (downgraded by D-100, topic_110). | topic_082 framing 21일 hold 해제 후 전면 IA 박제. Records 정문 = Topics, 토픽 카드에 매핑 세션 시간순 chip. People 4×2, Growth D-060 안 β 본체. Home 가벼운 랜딩 / Dashboard 풀 KPI 분리."
+      "summary": "STATUS: derived from ia-spec.md (downgraded by D-100, topic_110). | topic_082 framing 21일 hold 해제 후 전면 IA 박제. Records 정문 = Topics, 토픽 카드에 매핑 세션 시간순 chip. People 4×2, Growth D-060 안 β 본체. Home 가벼운 랜딩 / Dashboard 풀 KPI 분리.",
+      "status": "deprecated"
     },
     {
       "id": "D-095",
@@ -2248,7 +2355,8 @@
       "session": "session_104",
       "topic": "topic_082",
       "axis": "반응형 2축 단일 분기 1024px 정책 박제",
-      "summary": "1024px 이상=데스크톱 풀, 미만=모바일 단일 처리. Vera 4단 breakpoint·태블릿 collapsed sidebar 폐기. 모바일 = off-canvas drawer 280px. 데스크톱 기준 + 모바일 안 깨짐(가로 스크롤·텍스트 잘림 0) Master 정책 직접 충족."
+      "summary": "1024px 이상=데스크톱 풀, 미만=모바일 단일 처리. Vera 4단 breakpoint·태블릿 collapsed sidebar 폐기. 모바일 = off-canvas drawer 280px. 데스크톱 기준 + 모바일 안 깨짐(가로 스크롤·텍스트 잘림 0) Master 정책 직접 충족.",
+      "status": "active"
     },
     {
       "id": "D-096",
@@ -2256,7 +2364,8 @@
       "session": "session_104",
       "topic": "topic_082",
       "axis": "VR 인프라 spec 박제 — Playwright docker pin + mock fixture + 24 baseline + bbox + maxDiffPixelRatio 0.02",
-      "summary": "mcr.microsoft.com/playwright:v1.45.0-jammy 핀 + reducedMotion + ko-KR/Asia/Seoul + dark. 6 페이지 × 4 viewport(1920/1440/1280/375)=24 baseline. mock fixture 10항목 + bbox 영역 마킹(data-vr-bbox) + diff 임계 2%. PD-034 본 토픽 안 흡수."
+      "summary": "mcr.microsoft.com/playwright:v1.45.0-jammy 핀 + reducedMotion + ko-KR/Asia/Seoul + dark. 6 페이지 × 4 viewport(1920/1440/1280/375)=24 baseline. mock fixture 10항목 + bbox 영역 마킹(data-vr-bbox) + diff 임계 2%. PD-034 본 토픽 안 흡수.",
+      "status": "active"
     },
     {
       "id": "D-097",
@@ -2264,7 +2373,8 @@
       "session": "session_104",
       "topic": "topic_082",
       "axis": "dashboard-upgrade canonical reference + 컴포넌트 카탈로그 단일화",
-      "summary": "STATUS: derived from ia-spec.md + page-checklist/dashboard-upgrade.md (downgraded by D-100, topic_110). | app/dashboard-upgrade.html이 viewer 디자인 reference. 색·토큰뿐 아니라 컴포넌트 클래스(.kpi-row/.section-grid/.card/.flow-row 등) 표준 카탈로그. dashboard-ops .command-grid 등은 PD-046로 흡수. tokens.css 단일 출처. Master 직접 명시."
+      "summary": "STATUS: derived from ia-spec.md + page-checklist/dashboard-upgrade.md (downgraded by D-100, topic_110). | app/dashboard-upgrade.html이 viewer 디자인 reference. 색·토큰뿐 아니라 컴포넌트 클래스(.kpi-row/.section-grid/.card/.flow-row 등) 표준 카탈로그. dashboard-ops .command-grid 등은 PD-046로 흡수. tokens.css 단일 출처. Master 직접 명시.",
+      "status": "deprecated"
     },
     {
       "id": "D-098",
@@ -2272,7 +2382,8 @@
       "session": "session_104",
       "topic": "topic_082",
       "axis": "G1 lint(--c-* 색 토큰) + G3 자동 contrast check + Hard breaker B1·B2·B3 + 부분 출시 4 페이지 + partial 로딩 패턴",
-      "summary": "G1=색 토큰만 빌드 실패(레이아웃은 PD-045 이연). G3=WCAG AA 4.5:1 자동 contrast lint(scripts/lint-contrast.ts) + accent-only lint. 분화 금지 원칙 유지하되 Hard breaker B1·B2·B3 한정 child 분기 허용. 부분 출시 가능 4 페이지: Home/Dashboard-Upgrade/Dashboard-Ops/Records-Topics. Partial 로딩=<template>+build-time inline(Master M1)."
+      "summary": "G1=색 토큰만 빌드 실패(레이아웃은 PD-045 이연). G3=WCAG AA 4.5:1 자동 contrast lint(scripts/lint-contrast.ts) + accent-only lint. 분화 금지 원칙 유지하되 Hard breaker B1·B2·B3 한정 child 분기 허용. 부분 출시 가능 4 페이지: Home/Dashboard-Upgrade/Dashboard-Ops/Records-Topics. Partial 로딩=<template>+build-time inline(Master M1).",
+      "status": "active"
     },
     {
       "id": "D-099",
@@ -2282,7 +2393,8 @@
       "topicId": "topic_109",
       "axis": "vr-compare.ts 스펙 확정 + PD-051 핀 정정 통합",
       "summary": "vr-compare.ts: diff=diffPixelCount/(w×h), 임계 2%, 이미지 크기 불일치 FAIL, pixelmatch+pngjs. Docker 이미지 핀 v1.45.0-jammy → v1.59.1-jammy 정정. vr:capture --add-host=host.docker.internal:host-gateway + VR_BASE_URL 추가.",
-      "owningTopicId": "topic_109"
+      "owningTopicId": "topic_109",
+      "status": "active"
     },
     {
       "id": "D-100",
@@ -2292,7 +2404,8 @@
       "topicId": "topic_110",
       "axis": "G0.5 spec 정합 게이트 도입 + 정본 3종 + Phase A→B→C + R6~R9 mitigation",
       "summary": "P-3 채택 후 spec ↔ 구현 단절 메타 결함 해소. 정본 = memory/specs/ia-spec.md + app/dashboard-upgrade.html canonical + memory/specs/page-checklist/<page>.md 6종. D-094/D-097 derived 강등(STATUS inline). G0.5 = G1 앞 + G5 직전 재확인. People 신규 포함, Phase A spec 박제 / Phase B 6페이지 report + 임계 (i)(ii) 동시 박제 / Phase C enforce + VR baseline 재lock. R8 보강: (ii) 미달분 자동 follow-up topic 예고. R9 fallback: Phase B 2세션 hard cap, 미달 시 (ii) 단일값 lock.",
-      "owningTopicId": "topic_110"
+      "owningTopicId": "topic_110",
+      "status": "active"
     },
     {
       "id": "D-104",
@@ -2320,7 +2433,8 @@
       "session": "session_140",
       "topic": "topic_131",
       "axis": "self-scores YAML 병행 유지 (D-092 호환)",
-      "summary": "기존 self-scores YAML(D-092)을 폐기하지 않고 Sage 외부 채점과 병행 운영. 자가 채점(발언자)과 외부 채점(Sage)이 양립 작동. cross-check를 통한 편향 상쇄."
+      "summary": "기존 self-scores YAML(D-092)을 폐기하지 않고 Sage 외부 채점과 병행 운영. 자가 채점(발언자)과 외부 채점(Sage)이 양립 작동. cross-check를 통한 편향 상쇄.",
+      "status": "deprecated"
     },
     {
       "id": "D-117",
@@ -2329,7 +2443,7 @@
       "topic": "topic_131",
       "axis": "Big Bang 5 Phase 순서 (D-114 supersede)",
       "summary": "P1=종합 설계 박제(s140 종료)/P2=페르소나·정책 박제(prime directive + Sage + Zero + Ace/Riki)/P3=Nexus 골격+Hook+dispatch/P4=NCL 인프라+Sage 파이프라인/P5=마이그레이션. 각 Phase 게이트(G1~G4) 통과 후 진행. D-114 5단계 분해 구체화.",
-      "status": "partially-superseded",
+      "status": "deprecated",
       "supersededBy": "D-133",
       "statusNote": "D-133(2026-05-01)에 의해 P4(NCL 인프라+Sage 파이프라인) 부분 supersede. P1·P2·P3·P5 단계 본체는 보존."
     },
@@ -2350,7 +2464,8 @@
       "session": "session_140",
       "topic": "topic_131",
       "axis": "Zero = 정제 페르소나 (D-110 supersede)",
-      "summary": "Zero = 정제(refinement) 페르소나, 산출물 레이어 정제. 포함 영역 3개: ① 부채 정리(tech-debt) ② 보안 리뷰(security-review, 하드코딩 secrets 포함) ③ simplify(재사용·품질·효율, 코드 다이어트). Cut/Refine/Audit 3 스킬은 페르소나 내부 도구로 격하. 별칭: 하드코딩 섬멸 + 코드 다이어트. D-110(원본 유지) supersede. 매핑 1턴 작업은 P2 진입 시 수행."
+      "summary": "Zero = 정제(refinement) 페르소나, 산출물 레이어 정제. 포함 영역 3개: ① 부채 정리(tech-debt) ② 보안 리뷰(security-review, 하드코딩 secrets 포함) ③ simplify(재사용·품질·효율, 코드 다이어트). Cut/Refine/Audit 3 스킬은 페르소나 내부 도구로 격하. 별칭: 하드코딩 섬멸 + 코드 다이어트. D-110(원본 유지) supersede. 매핑 1턴 작업은 P2 진입 시 수행.",
+      "status": "deprecated"
     },
     {
       "id": "D-120",
@@ -2361,7 +2476,7 @@
       "summary": "Affaan 4 도그마(악의 텍스트 컨텍스트 유입 전제 / 도구 설명 거짓말 전제 / 저장소 오염 전제 / 모델 설득당해도 시스템 안전)를 CLAUDE.md prime directive 섹션 신설하여 박제. enforcement Phase A: NCL violation flag append-only + Master 대시보드 정기 점검 알림 hook. 판정 주체는 P2(s141)에서 결정. Phase B(실시간 통보+게이트) 보류, P4 데이터 본 후 결정. 외부 anchor: NIST SP 800-160 Vol.2 Defense in Depth + Wingspread 1998 Precautionary Principle.",
       "statusNote": "P2 1/3(session_141)에서 판정 주체 = 코드 자동 flag + Master 점검 + Ace ack-only 확정. D-124로 supersede. D-133(2026-05-01)에 의해 Phase A enforcement(NCL violation flag append-only) 부분 추가 deprecated. prime directive 본체(Affaan 4 텍스트)는 보존.",
       "supersededBy": "D-124",
-      "status": "resolved"
+      "status": "deprecated"
     },
     {
       "id": "D-121",
@@ -2369,7 +2484,8 @@
       "session": "session_140",
       "topic": "topic_131",
       "axis": "발언 순서 grade × topic 매트릭스 운영 (D-019 강화)",
-      "summary": "발언 순서는 grade × topic 유형 매트릭스로 관리. 셀 미정 시 Nexus(오케스트레이션 허브)가 결정 → Master 승인 → 진행. 동일 셀 반복 패턴 발생 시 매트릭스 셀 정책으로 점진 박제. 매트릭스 본체는 미리 채우지 않고 실측 누적 시 박제(과투자 회피)."
+      "summary": "발언 순서는 grade × topic 유형 매트릭스로 관리. 셀 미정 시 Nexus(오케스트레이션 허브)가 결정 → Master 승인 → 진행. 동일 셀 반복 패턴 발생 시 매트릭스 셀 정책으로 점진 박제. 매트릭스 본체는 미리 채우지 않고 실측 누적 시 박제(과투자 회피).",
+      "status": "active"
     },
     {
       "id": "D-122",
@@ -2410,7 +2526,8 @@
       "value": "D-120 미결 종결. R-3 silent dismiss 3 누수 경로(보고 누락·stale·자가 우선순위 강등) 모두 차단. echo chamber(s139) 회귀 차단. 외부 anchor: ITIL 4 + Google SRE Book Ch.6.",
       "supersedes": [
         "D-120"
-      ]
+      ],
+      "status": "deprecated"
     },
     {
       "id": "D-125",
@@ -2423,7 +2540,8 @@
       "decision": "Zero 3 미션 영역 × 도구 매핑 — ① 부채 정리: Audit→Cut, ② 보안 리뷰(secrets): Audit 단독(발견 시 Master 보고+Dev 토픽 분리), ③ Simplify: Refine→Cut. 동일 turn 내 중복 호출 시 우선순위 = Audit > Refine > Cut. NCL raw 영역(memory/shared/ncl_violations.jsonl)은 Zero 페르소나 prompt에서 hard-exclude(dispatch_config.json[persona.zero.excludedAssets] 등록). Zero 첫 호출(P3 이후)은 dry-run 의무, Master 사후 승인 후 production 전환.",
       "value": "D-115 페르소나 노출 차단 정합. Zero가 violation flag 직접 read해 자기 검열·자기 조작하는 경로 차단. anchor governance 책임은 Edi(R-2 mitigation)로 분담 — Zero는 청소·검증, Edi는 anchor 거버넌스로 권한 분리.",
       "statusNote": "D-133(2026-05-01) NCL 전면 폐기 후 본문 \"memory/shared/ncl_violations.jsonl\" 명시는 dead pointer (보호 대상 부재). self-exclusion 일반 원칙은 D-146(session_173) Zero persona SOT로 이전. 본 결정 본문은 보존(D-134 정신).",
-      "amendedBy": "D-146"
+      "amendedBy": "D-146",
+      "status": "active"
     },
     {
       "id": "D-139",
@@ -2433,7 +2551,7 @@
       "sessionId": "session_162",
       "axis": "grade별 자동 프레이밍 완전 제거 — open.md Grade→Framing Level 매핑 삭제, CLAUDE.md Ace Step 0 deprecated",
       "summary": "D-130(framing 자동 트리거 폐기) 선언만 있고 open.md 코드에 S/A/B→L2 ace-framing 매핑이 잔존하여 세션마다 자동 프레이밍 발동. open.md Grade→Framing Level 테이블 제거 + 모든 Grade framingLevel=0 고정 + CLAUDE.md Grade System 테이블 열명/내용 정정 + Ace Step 0 DEPRECATED 박제. 이제 /jobs-framing 명시 호출만이 유일 트리거.",
-      "status": "confirmed"
+      "status": "active"
     },
     {
       "id": "D-141",
@@ -2449,7 +2567,7 @@
         "Riki R-1: recallReason 추출 로직 post-tool-use-task.js에 없음 → 재호출과 진짜 중복 구분 불가 → Phase 2 warn-only 유지",
         "dispatch_config Edi rule 미박제 상태 유지 — pre-tool-use-task.js enforce hook 구현(별도 토픽) 선행 필요"
       ],
-      "status": "active",
+      "status": "deprecated",
       "confirmedAt": "2026-05-01T19:50:00.000Z",
       "caveatsMeta": {
         "acked": true,
@@ -2511,7 +2629,8 @@
         "context-optimization",
         "sync-system-state",
         "pendingDeferrals"
-      ]
+      ],
+      "status": "deprecated"
     },
     {
       "id": "D-160",
@@ -2547,7 +2666,7 @@
         "aggregate",
         "PD-063"
       ],
-      "status": "active",
+      "status": "deprecated",
       "resolvesPD": "PD-063"
     },
     {
@@ -2569,7 +2688,7 @@
         "policy-normalization",
         "PD-060"
       ],
-      "status": "active"
+      "status": "deprecated"
     },
     {
       "id": "D-164",
@@ -2583,7 +2702,8 @@
         "token-optimization",
         "context-reduction",
         "status-sot"
-      ]
+      ],
+      "status": "deprecated"
     },
     {
       "id": "D-165",
@@ -2610,7 +2730,7 @@
         "memory/roles/zero_memory.json",
         "memory/roles/dev_memory.json"
       ],
-      "status": "active"
+      "status": "deprecated"
     },
     {
       "id": "D-166",
@@ -2668,7 +2788,7 @@
       "relatedFiles": [
         "reports/2026-05-07_topic_176_arki/arki_rev1.md"
       ],
-      "status": "active"
+      "status": "deprecated"
     },
     {
       "id": "D-169",
@@ -2831,7 +2951,7 @@
         "reports/2026-05-07_topic_176_riki/riki_rev1.md",
         "reports/2026-05-07_topic_176_ace/ace_rev1.md"
       ],
-      "status": "active"
+      "status": "deprecated"
     },
     {
       "id": "D-172",
@@ -2849,7 +2969,7 @@
       "relatedFiles": [
         "CLAUDE.md"
       ],
-      "status": "active"
+      "status": "deprecated"
     },
     {
       "id": "D-173",
@@ -2885,7 +3005,8 @@
         "orchestration"
       ],
       "session": "session_217",
-      "topic": "topic_183"
+      "topic": "topic_183",
+      "status": "active"
     },
     {
       "id": "D-175",
@@ -2897,7 +3018,8 @@
         "simplification"
       ],
       "session": "session_217",
-      "topic": "topic_183"
+      "topic": "topic_183",
+      "status": "active"
     },
     {
       "id": "D-176",
@@ -3083,7 +3205,7 @@
       ],
       "supersedeScope": "D-143 (4) Arki Opt-1 G1 거부 항목만",
       "rollback": "git revert {merge-commit-sha} 단일 명령. 5 lib 모듈 + orchestrator + lib/finalize 디렉토리를 하나의 머지 커밋으로 박제하여 원복 단위 보장.",
-      "status": "active"
+      "status": "deprecated"
     }
   ],
   "lastUpdated": "2026-05-12"

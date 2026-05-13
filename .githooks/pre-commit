@@ -19,4 +19,9 @@ if [ "$branch" = "main" ]; then
   exit 1
 fi
 
+# Q4: staged 파일 내 deprecated/superseded D-NNN 인용 검출 (WARN-only)
+if command -v node >/dev/null 2>&1; then
+  node "$(git rev-parse --show-toplevel)/scripts/validate-decision-citations.js" staged 2>&1
+fi
+
 exit 0

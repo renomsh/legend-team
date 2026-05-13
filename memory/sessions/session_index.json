@@ -11753,8 +11753,57 @@
       "decisionsAdded": [
         "D-188"
       ]
+    },
+    {
+      "sessionId": "session_243",
+      "topicSlug": "decision-status-standardize",
+      "topic": "A D-NNN status 규격화 + 전수 검사",
+      "startedAt": "2026-05-12T13:00:00.000Z",
+      "closedAt": "2026-05-13T00:00:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\competent-chaplygin-966806",
+      "agentsCompleted": [
+        "edi",
+        "zero",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "edi",
+          "turnIdx": 0,
+          "source": "agent"
+        },
+        {
+          "role": "zero",
+          "turnIdx": 1,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 0,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 2,
+          "source": "agent",
+          "selfScores": {
+            "gp_acc": 0.75,
+            "scc": "Y",
+            "cs_cnt": 4,
+            "art_cmp": 0.8,
+            "gap_fc": 3
+          }
+        }
+      ],
+      "grade": "A",
+      "note": "Master 요청: decision_ledger status 3종 규격화 (active/deprecated/superseded) + 189건 전수 검사 | 검수 방식: Master가 대시보드에서 1건씩 직접 검토. Nexus는 호출·질문 시만 응답 또는 status 변경 수행. | Q4 확정: 향후 인용은 active만 가능 — 코드 enforcement (hook). 본 토픽 범위 포함.",
+      "oneLineSummary": "decision_ledger 189건 전수검사 완료 — 3종 규격화, Q4 enforcement hook 신규, D-189·D-190 박제",
+      "decisionsAdded": [
+        "D-189",
+        "D-190"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-12T12:22:34.405Z",
+  "lastUpdated": "2026-05-13T05:35:36.326Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }
