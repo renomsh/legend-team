@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_243",
-  "nextSessionId": "session_244",
-  "currentVersion": "v1.873",
+  "lastSessionId": "session_244",
+  "nextSessionId": "session_245",
+  "currentVersion": "v1.883",
   "openTopics": [
     {
       "id": "topic_175",
@@ -52,6 +52,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_244",
+      "topicSlug": "pd-069-parallel-session",
+      "closedAt": "2026-05-13T09:00:00.000Z",
+      "oneLineSummary": "PD-079 m* 병행세션 시스템 P1~P5 PASS — 22 신규 파일·5 게이트 통과·P6+P7 잔여, 박제 예약 D1/D2",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_243",
       "topicSlug": "decision-status-standardize",
       "closedAt": "2026-05-13T00:00:00.000Z",
@@ -69,13 +76,6 @@
       "decisionsAdded": [
         "D-188"
       ]
-    },
-    {
-      "sessionId": "session_241",
-      "topicSlug": "worktree-b-close-merge-conflict",
-      "closedAt": "2026-05-12T08:00:00.000Z",
-      "oneLineSummary": "PD-086 옵션(a) 구현 완료 — auto-push sync 함수 2종 제거 + session-end-tokens cwd guard. PD-087 분리.",
-      "decisionsAdded": []
     }
   ],
   "pendingDeferrals": [
@@ -182,5 +182,5 @@
       "resolveCondition": "topics/{topicId}/session_contributions/ 신규 파일이 자동 commit + 워크트리·main 양쪽에서 git status untracked 0건"
     }
   ],
-  "lastUpdated": "2026-05-13T05:35:36.776Z"
+  "lastUpdated": "2026-05-13T08:37:50.671Z"
 }

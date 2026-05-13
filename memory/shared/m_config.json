@@ -1,0 +1,18 @@
+{
+  "_comment": "PD-079 / D-181 m* 시스템 설정. 임계값 단일 출처 (Riki R-2). 코드 하드코딩 금지.",
+  "similarity": {
+    "previewThreshold": 0.2,
+    "dedupeThreshold": 0.85,
+    "_comment": "초기값 보수적. P5 마이그 1차 실행 후 실측 분포로 재캘리브레이션 (D-181 caveat R-3)."
+  },
+  "migration": {
+    "mode": "silent-1",
+    "_comment": "자동-1 silent + 사후 감사 로그. D2 + Riki R-3 정합. opt-in preview 가능."
+  },
+  "idPatterns": {
+    "decision": "D-\\d{3,}",
+    "pendingDeferral": "PD-\\d{3,}",
+    "_comment": "cross-check 직교 시그널(R-2). regex 변경 시 본 필드만 수정."
+  },
+  "version": "v1"
+}

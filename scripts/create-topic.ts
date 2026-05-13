@@ -17,8 +17,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import type { TopicIndex, TopicIndexEntry } from '../src/types/index';
-import { ROOT, readJson, writeJson, nextId } from './lib/utils';
-import { compareTopicDesc } from './migrate-topic-index';
+import { ROOT, readJson, writeJson } from './lib/utils';
+import { nextId, compareTopicDesc, slugify } from './lib/topic-create-common';
 
 const TOPIC_INDEX_PATH = path.join(ROOT, 'memory/shared/topic_index.json');
 
@@ -65,15 +65,6 @@ function agendaTemplate(id: string, topicSlug: string, title: string, date: stri
     '## Open Questions',
     '',
   ].join('\n');
-}
-
-function slugify(title: string): string {
-  return title
-    .toLowerCase()
-    .replace(/[^a-z0-9가-힣\s-]/g, '')
-    .trim()
-    .replace(/\s+/g, '-')
-    .slice(0, 50);
 }
 
 const VALID_GRADES = new Set(['S', 'A', 'B', 'C']);

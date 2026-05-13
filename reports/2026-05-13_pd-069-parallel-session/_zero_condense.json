@@ -1,0 +1,32 @@
+{
+  "sessionId": "session_244",
+  "topicId": "topic_197",
+  "completedAt": "2026-05-13T08:34:34.395Z",
+  "files": [
+    "condensed.md"
+  ],
+  "refinedRoles": [],
+  "skippedRoles": [],
+  "in_scope_count": 23,
+  "findings": 7,
+  "findingsBreakdown": {
+    "must_fix": 0,
+    "should_fix": 2,
+    "defer_ok": 5
+  },
+  "domains": [
+    "tech-debt",
+    "security-review",
+    "simplify"
+  ],
+  "techDebtFound": 2,
+  "securityIssues": 0,
+  "simplifyAppliedTo": [
+    "g3/g4/g5-verify GateResult/record/snapshotFile duplication (defer-PD S1)",
+    "safeReadJson 4-duplicate (defer-OK D1)",
+    "mD->D conversion fallback ambiguity (defer-PD S2)"
+  ],
+  "gateExecutedBy": "zero",
+  "qualityGrade": "B+",
+  "nextSessionGate": "P6/P7 entry OK"
+}

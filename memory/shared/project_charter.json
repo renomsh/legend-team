@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "1.873",
+    "version": "1.883",
     "versionSchema": {
       "format": "X.YYY (3자리 소수 float, 점 하나)",
       "incrementRules": {
@@ -456,8 +456,14 @@
       "date": "2026-05-13",
       "summary": "role-ace.md 페르소나 갱신(Munger+Grove + Master 프로파일 섹션) + master_profile.json 신규 — structural 변경",
       "sessionId": "session_243"
+    },
+    {
+      "version": "1.883",
+      "date": "2026-05-13",
+      "summary": "m* prefix 병행세션 인프라 22 파일 신설 — 역량 확장 (구조 박제 D1/D2는 P7 이월)",
+      "sessionId": "session_244"
     }
   ],
   "lastUpdated": "2026-05-13",
-  "version": "1.873"
+  "version": "1.883"
 }

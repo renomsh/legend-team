@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-13T05:35:36.982Z",
-  "totalSessions": 239,
+  "generatedAt": "2026-05-13T08:37:50.912Z",
+  "totalSessions": 240,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 239
+      "undefined": 240
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -335,14 +335,14 @@
     }
   ],
   "metrics": {
-    "avgMasterTurns": 22.12,
+    "avgMasterTurns": 22.07,
     "avgCacheHitRate": 0.9325,
-    "cacheSampleSize": 208,
-    "cacheSampleTotal": 239,
+    "cacheSampleSize": 209,
+    "cacheSampleTotal": 240,
     "avgAdoptionRate": 0,
     "totalDecisions": 191,
     "gradeDistribution": {
-      "S": 112,
+      "S": 113,
       "A": 47,
       "B": 50,
       "C": 30
@@ -361,10 +361,10 @@
       "session_202"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 193,
-    "totalCostUSD": 2849.8811,
-    "avgCostPerSession": 12.4449,
-    "costSampleSize": 229,
+    "turnBasedSessions": 194,
+    "totalCostUSD": 2861.2359,
+    "avgCostPerSession": 12.4402,
+    "costSampleSize": 230,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -9069,8 +9069,8 @@
       ],
       "rolesCalled": 5,
       "rolesRecalled": 1,
-      "sessionsSpanned": 1,
-      "size": 12,
+      "sessionsSpanned": 2,
+      "size": 15,
       "gradeDeclared": "S",
       "gradeActual": "S",
       "gradeMismatch": false,
@@ -9444,12 +9444,54 @@
         "messageCount": 278
       },
       "sessionCostUSD": 17.5375
+    },
+    {
+      "sessionId": "session_244",
+      "topicSlug": "pd-069-parallel-session",
+      "topic": "PD-079 병행세션 시스템 구현",
+      "startedAt": "2026-05-13T06:00:00.000Z",
+      "closedAt": "2026-05-13T09:00:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 10,
+      "rolesRecalled": 4,
+      "sessionsSpanned": 2,
+      "size": 24,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 10,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "ace",
+        "dev",
+        "dev",
+        "dev",
+        "dev",
+        "dev",
+        "zero",
+        "edi"
+      ],
+      "tokenUsage": {
+        "totalBillable": 17953369,
+        "ioTokens": 133758,
+        "inputTokens": 315,
+        "outputTokens": 133443,
+        "cacheCreate": 1161266,
+        "cacheRead": 16658345,
+        "cacheHitRate": 0.927867354589548,
+        "messageCount": 132
+      },
+      "sessionCostUSD": 11.3548
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 219,
+      "count": 220,
       "sessions": [
         "session_050",
         "session_051",
@@ -9640,12 +9682,13 @@
         "session_240",
         "session_241",
         "session_242",
-        "session_243"
+        "session_243",
+        "session_244"
       ]
     },
     {
       "role": "ace",
-      "count": 188,
+      "count": 189,
       "sessions": [
         "session_047",
         "session_048",
@@ -9744,12 +9787,13 @@
         "session_224",
         "session_235",
         "session_238",
-        "session_239"
+        "session_239",
+        "session_244"
       ]
     },
     {
       "role": "arki",
-      "count": 166,
+      "count": 167,
       "sessions": [
         "session_048",
         "session_049",
@@ -9845,12 +9889,13 @@
         "session_235",
         "session_238",
         "session_239",
-        "session_242"
+        "session_242",
+        "session_244"
       ]
     },
     {
       "role": "dev",
-      "count": 131,
+      "count": 136,
       "sessions": [
         "session_047",
         "session_048",
@@ -9948,12 +9993,13 @@
         "session_228",
         "session_232",
         "session_233",
-        "session_242"
+        "session_242",
+        "session_244"
       ]
     },
     {
       "role": "riki",
-      "count": 127,
+      "count": 128,
       "sessions": [
         "session_049",
         "session_053",
@@ -10048,12 +10094,13 @@
         "session_235",
         "session_238",
         "session_239",
-        "session_242"
+        "session_242",
+        "session_244"
       ]
     },
     {
       "role": "zero",
-      "count": 54,
+      "count": 55,
       "sessions": [
         "session_153",
         "session_175",
@@ -10092,7 +10139,8 @@
         "session_240",
         "session_241",
         "session_242",
-        "session_243"
+        "session_243",
+        "session_244"
       ]
     },
     {
@@ -17221,6 +17269,72 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 2,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_244",
+      "topic": "PD-079 병행세션 시스템 구현",
+      "sequence": [
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 6,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 7,
+          "recallReason": null
+        },
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 8,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 9,
           "recallReason": null
         }
       ]
