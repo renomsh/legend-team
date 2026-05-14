@@ -92,6 +92,39 @@
       "role": "dev",
       "turnIdx": 10,
       "source": "agent"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 11,
+      "source": "agent",
+      "selfScores": {
+        "rt_cov": 0,
+        "gt_pas": 0,
+        "hc_rt": 0,
+        "spc_drf": 0
+      }
+    },
+    {
+      "role": "dev",
+      "turnIdx": 12,
+      "source": "agent",
+      "selfScores": {
+        "rt_cov": 0.5,
+        "gt_pas": 0.5,
+        "hc_rt": 0,
+        "spc_drf": 0
+      }
+    },
+    {
+      "role": "dev",
+      "turnIdx": 13,
+      "source": "agent",
+      "selfScores": {
+        "rt_cov": 1,
+        "gt_pas": 1,
+        "hc_rt": 0,
+        "spc_drf": 0
+      }
     }
   ],
   "masterFeedback": [],
@@ -215,6 +248,46 @@
       "reportPath": "reports/2026-05-14_sage-system-state-review",
       "detectedAt": "2026-05-14T11:50:39.717Z",
       "note": "dev turn10 완료 후 reports/dev_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "missing-report",
+      "role": "dev",
+      "turnIdx": 11,
+      "reportPath": "reports/2026-05-14_sage-system-state-review",
+      "detectedAt": "2026-05-14T12:06:13.162Z",
+      "note": "dev turn11 완료 후 reports/dev_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "frontmatter-patch-failed",
+      "role": "dev",
+      "turnIdx": 12,
+      "reportsPath": "reports/2026-05-14_arki-emergency-hooks/dev_rev6_merge.md",
+      "detectedAt": "2026-05-14T12:23:34.699Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-14_arki-emergency-hooks/dev_rev6_merge.md"
+    },
+    {
+      "type": "missing-report",
+      "role": "dev",
+      "turnIdx": 12,
+      "reportPath": "reports/2026-05-14_sage-system-state-review",
+      "detectedAt": "2026-05-14T12:23:34.707Z",
+      "note": "dev turn12 완료 후 reports/dev_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "frontmatter-patch-failed",
+      "role": "dev",
+      "turnIdx": 13,
+      "reportsPath": "reports/2026-05-14_arki-emergency-hooks/dev_rev7_merge.md",
+      "detectedAt": "2026-05-14T12:42:44.418Z",
+      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-14_arki-emergency-hooks/dev_rev7_merge.md"
+    },
+    {
+      "type": "missing-report",
+      "role": "dev",
+      "turnIdx": 13,
+      "reportPath": "reports/2026-05-14_sage-system-state-review",
+      "detectedAt": "2026-05-14T12:42:44.441Z",
+      "note": "dev turn13 완료 후 reports/dev_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
     }
   ],
   "notes": [

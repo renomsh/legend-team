@@ -441,3 +441,4 @@
 {"ts":"2026-05-14T04:08:57.923Z","phase":"sage-gate-reject","role":"sage","markerRole":"sage","subagentRole":"general-purpose","reason":"Sage dispatch contract violation: marker=sage but subagent_type='general-purpose'. Both must be sage. (topic_135 Phase 2, D-128)"}
 {"ts":"2026-05-14T04:12:00.404Z","phase":"sage-gate-pass","role":"sage","turnRolesCount":0}
 {"ts":"2026-05-14T04:35:36.964Z","phase":"sage-gate-pass","role":"sage","turnRolesCount":1}
+{"ts":"2026-05-14T12:01:35.637Z","phase":"sage-gate-reject","role":"dev","turnRoles":["sage","sage","edi","arki","dev","dev","dev","riki","dev","dev","dev"],"reason":"This session contains Sage turn (idx=0). Sage exclusive — no other persona allowed in same session. (D-128)"}
