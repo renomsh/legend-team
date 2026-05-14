@@ -252,5 +252,17 @@
       "relatedTopic": "topic_197"
     }
   ],
-  "lastUpdated": "2026-05-13T11:24:59.316Z"
+  "lastUpdated": "2026-05-14T03:27:17.612Z",
+  "worktreeMergeFailures": [
+    {
+      "branch": "claude/practical-pare-60a262",
+      "detectedAt": "2026-05-14T02:27:35.124Z",
+      "message": "error: Your local changes to the following files would be overwritten by merge:\n  memory/growth/self_scores.jsonl memory/shared/dashboard_data.json\nMerge with strategy ort failed.\n"
+    },
+    {
+      "branch": "claude/zen-dewdney-2c01e4",
+      "detectedAt": "2026-05-14T03:27:17.612Z",
+      "message": "warning: in the working copy of 'memory/shared/system_state.json', LF will be replaced by CRLF the next time Git touches it\nerror: Your local changes to the following files would be overwritten by merge:\n  memory/growth/self_scores.jsonl memory/shared/dashboard_data.json\nMerge with strategy ort fail"
+    }
+  ]
 }
