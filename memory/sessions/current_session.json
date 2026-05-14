@@ -1,86 +1,107 @@
 {
-  "sessionId": "session_245",
-  "topicId": "topic_197",
-  "topic": "PD-079 병행세션 시스템 구현 P6+P7",
-  "topicSlug": "pd-069-parallel-session",
-  "reportPath": "reports/2026-05-13_pd-069-parallel-session",
-  "startedAt": "2026-05-13T09:30:00.000Z",
+  "sessionId": "session_246",
+  "topicId": "topic_206",
+  "topic": "PD-075 Zero 외부 skill 흡수 재검토",
+  "topicSlug": "zero-external-skill-review",
+  "reportPath": "reports/2026-05-13_zero-external-skill-review",
+  "startedAt": "2026-05-13T12:30:00.000Z",
   "mode": "observation",
-  "grade": "S",
+  "grade": "B",
   "topicType": "framing",
   "operationType": "structured",
   "phase": "framing",
   "framingLevel": 0,
   "framingSkipped": true,
   "status": "closed",
-  "closedAt": "2026-05-13T12:00:00.000Z",
-  "oneLineSummary": "PD-079 D-191·D-192 박제 + 8 미티게이션 코드 완성 — G6 9/9·G7 5/5·apply smoke PASS",
+  "closedAt": "2026-05-13T23:59:00.000Z",
+  "oneLineSummary": "PD-075 resolved: Zero absorbs and applies all external skills — 강화된 M1 (외부 skill 자체 호출 0, hook 자동 0, 영역 차등 없음). 신규 D-193·D-194 (D-127 amendment + 인계 원문 보존 정책). Zero spec L28·L49 정정 + dispatch_config rules.zero 3 필드 신설 (external_skills_call=forbidden / external_skills_absorb_apply=required / hook_auto_invoke=forbidden).",
   "decisionsAdded": [
-    "D-191",
-    "D-192"
+    "D-193",
+    "D-194"
+  ],
+  "pendingDeferralsResolved": [
+    "PD-075"
   ],
   "pendingDeferralsAdded": [
-    "PD-088",
-    "PD-089",
-    "PD-090",
-    "PD-091",
-    "PD-092"
+    "PD-093"
   ],
-  "pendingDeferralsResolved": [],
   "versionBump": {
     "value": 0.1,
-    "from": "1.883",
-    "to": "1.983",
-    "reason": "PD-079 / D-181 D1·D2 박제 완료 — m* 병행세션 시스템 구조 박제 (open.md step 7-c + 8 미티게이션 + KPI 3종 신규 5 파일 + 수정 6 파일). 구조 변경 카테고리(+0.1).",
+    "from": "1.983",
+    "to": "2.083",
+    "reason": "PD-075 강화된 M1 결정 (D-127 amendment + 신규 D-193·D-194) + 인계 원문 보존 정책 + Zero spec 정정 + dispatch_config rules.zero 3 필드 신설",
     "confirmedBy": "edi",
-    "confirmedAt": "2026-05-13T12:00:00.000Z",
-    "basedOn": "edi-judgment",
+    "confirmedAt": "2026-05-13T23:59:00.000Z",
+    "basedOn": "nexus-suggested + edi-judgment",
     "overrideReason": null
   },
-  "agentsCompleted": [
-    "arki",
-    "riki",
-    "zero",
-    "zero",
-    "edi"
-  ],
-  "notes": [
-    "topic_197 재오픈 — PD-079 P6+P7 구현 진입",
-    "P6: migration-commit.ts (migrate: prefix) + /open 자동 마이그 hook + pre-commit hook(D-187) 호환 검증",
-    "P7: e2e smoke + D-NNN 박제(D1·D2) + KPI 3종(mtopic_orphan_count·migration_execution_rate·migration_accuracy_proxy) + 워크트리 고아 처리 정책 + CLAUDE.md m* 절 + PD 4건 등록",
-    "PD-077 dependsOn 해소 확인 — session_235에서 resolved (pre-compiled dist 폐기, npx ts-node 직접 호출 정합)"
-  ],
   "turns": [
     {
       "role": "arki",
       "turnIdx": 0,
-      "source": "agent",
-      "selfScores": {
-        "aud_rcl": 0.7,
-        "str_fd": 4,
-        "spc_lck": "N",
-        "sa_rnd": 1
-      }
+      "source": "agent"
     },
     {
       "role": "riki",
       "turnIdx": 1,
       "source": "agent",
       "selfScores": {
-        "crt_rcl": 0.8,
+        "crt_rcl": 0.5,
         "cr_val": "Y",
         "prd_rej": "N",
-        "fp_rt": 0.1
+        "fp_rt": 0
       }
     },
     {
-      "role": "zero",
+      "role": "jobs",
       "turnIdx": 2,
       "source": "agent"
     },
     {
-      "role": "zero",
+      "role": "arki",
       "turnIdx": 3,
+      "source": "agent",
+      "selfScores": {
+        "aud_rcl": 0.5,
+        "str_fd": 0,
+        "spc_lck": "N",
+        "sa_rnd": 2
+      }
+    },
+    {
+      "role": "riki",
+      "turnIdx": 4,
+      "source": "agent"
+    },
+    {
+      "role": "ace",
+      "turnIdx": 5,
+      "source": "agent",
+      "selfScores": {
+        "rfrm_trg": "Y",
+        "ctx_car": 4,
+        "mst_fr": 0,
+        "ang_nov": 3
+      }
+    },
+    {
+      "role": "jobs",
+      "turnIdx": 6,
+      "source": "agent"
+    },
+    {
+      "role": "zero",
+      "turnIdx": 7,
+      "source": "agent",
+      "selfScores": {
+        "ref_cnt": 14,
+        "hc_found": 0,
+        "cln_rt": 1
+      }
+    },
+    {
+      "role": "zero",
+      "turnIdx": 8,
       "source": "agent",
       "selfScores": {
         "ref_cnt": 7,
@@ -89,73 +110,141 @@
       }
     },
     {
-      "role": "edi",
-      "turnIdx": 4,
+      "role": "jobs",
+      "turnIdx": 9,
       "source": "agent",
       "selfScores": {
-        "gp_acc": 0.85,
-        "scc": "Y",
-        "cs_cnt": 4,
-        "art_cmp": 1,
-        "gap_fc": 4
+        "focus_sharp": 5,
+        "bloat_idx": 1,
+        "bias_cnt": 2,
+        "no_cnt": 1
       }
+    },
+    {
+      "role": "jobs",
+      "turnIdx": 10,
+      "source": "agent",
+      "selfScores": {
+        "focus_sharp": 4,
+        "bloat_idx": 2,
+        "bias_cnt": 3,
+        "no_cnt": 0
+      }
+    },
+    {
+      "role": "edi",
+      "turnIdx": 11,
+      "source": "agent"
+    },
+    {
+      "role": "zero",
+      "turnIdx": 12,
+      "source": "agent",
+      "selfScores": {
+        "ref_cnt": 0,
+        "hc_found": 0,
+        "cln_rt": 1
+      }
+    },
+    {
+      "role": "edi",
+      "turnIdx": 13,
+      "source": "agent"
     }
   ],
   "masterFeedback": [],
   "openMasterAlerts": [],
   "gaps": [
     {
-      "type": "frontmatter-patch-failed",
-      "role": "arki",
-      "turnIdx": 0,
-      "reportsPath": "(콘솔",
-      "detectedAt": "2026-05-13T09:56:34.320Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: (콘솔"
+      "type": "missing-report",
+      "role": "ace",
+      "turnIdx": 5,
+      "reportPath": "reports/2026-05-13_zero-external-skill-review",
+      "detectedAt": "2026-05-13T13:23:03.185Z",
+      "note": "ace turn5 완료 후 reports/ace_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
     },
     {
       "type": "missing-report",
-      "role": "arki",
-      "turnIdx": 0,
-      "reportPath": "reports/2026-05-13_pd-069-parallel-session",
-      "detectedAt": "2026-05-13T09:56:34.325Z",
-      "note": "arki turn0 완료 후 reports/arki_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "missing-report",
-      "role": "riki",
-      "turnIdx": 1,
-      "reportPath": "reports/2026-05-13_pd-069-parallel-session",
-      "detectedAt": "2026-05-13T10:25:54.846Z",
-      "note": "riki turn1 완료 후 reports/riki_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "frontmatter-patch-failed",
       "role": "zero",
-      "turnIdx": 3,
-      "reportsPath": "reports/2026-05-13_",
-      "detectedAt": "2026-05-13T11:17:13.440Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-13_"
+      "turnIdx": 7,
+      "reportPath": "reports/2026-05-13_zero-external-skill-review",
+      "detectedAt": "2026-05-13T13:31:26.272Z",
+      "note": "zero turn7 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "missing-report",
+      "role": "zero",
+      "turnIdx": 8,
+      "reportPath": "reports/2026-05-13_zero-external-skill-review",
+      "detectedAt": "2026-05-13T13:45:30.450Z",
+      "note": "zero turn8 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "missing-report",
+      "role": "edi",
+      "turnIdx": 11,
+      "reportPath": "reports/2026-05-13_zero-external-skill-review",
+      "detectedAt": "2026-05-14T01:34:51.281Z",
+      "note": "edi turn11 완료 후 reports/edi_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
     },
     {
       "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-13_pd-069-parallel-session/condensed.md",
+      "file": "reports/2026-05-13_zero-external-skill-review/m1_zero_absorbed.md",
       "expected": "zero",
-      "actualInTurns": "edi",
+      "actualInTurns": "riki",
       "turnId": 4
     },
     {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-13_pd-069-parallel-session/edi_rev1.md"
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-13_zero-external-skill-review/m2_zero_delegated.md",
+      "expected": "zero-m2",
+      "actualInTurns": "ace",
+      "turnId": 5
+    },
+    {
+      "type": "inline-role-header-h1-mismatch",
+      "file": "reports/2026-05-13_zero-external-skill-review/m2_zero_delegated.md",
+      "frontmatterRole": "zero-m2",
+      "h1Role": "zero"
+    },
+    {
+      "type": "inline-role-header-mismatch",
+      "file": "reports/2026-05-13_zero-external-skill-review/m3_external_only.md",
+      "expected": "external-skill-only",
+      "actualInTurns": "jobs",
+      "turnId": 6
     }
   ],
+  "notes": [
+    "PD-075 재검토 — Zero 페르소나 외부 skill 흡수 결정(외부 skill 파일 부재 명분) 재검토. session_233에서 분리, 본 세션에서 정식 처리.",
+    "Master 결정: 'Zero absorbs and applies all external skills' — Ace 권고(영역 차등)를 단순화한 강화된 M1. D-193 박제. 영역 차등 없음 (tech-debt·security-review·simplify 전체 적용).",
+    "Master 결정 2: 인계 시 설계 내용 원문 보존, 과도 요약 금지. D-194 박제. 본 세션부터 적용 — Edi·context_brief·session_contributions·oneLineSummary 모두 design content 원문 보존.",
+    "Master 적출: D-193 박제는 정책 선언만, Zero 도구 SOP 실질 흡수 미수행. PD-093 신규 등록 (옵션 B 채택) — role-zero.md 내부 도구 섹션 확장 + 외부 skill SOP 패턴 7종 (Source Map·Confidence Matrix·Evidence Hierarchy·Contradiction Mapping·Open Questions·표준 카테고리·Theme Clusters) 통합 구현 후속 트랙."
+  ],
   "tokenUsage": {
-    "input_tokens": 637,
-    "output_tokens": 183075,
-    "cache_creation_input_tokens": 1292871,
-    "cache_read_input_tokens": 31628033,
-    "messageCount": 219,
-    "masterTurns": 25,
-    "total_billable": 33104616
+    "input_tokens": 285,
+    "output_tokens": 214007,
+    "cache_creation_input_tokens": 962475,
+    "cache_read_input_tokens": 13205749,
+    "messageCount": 102,
+    "masterTurns": 15,
+    "total_billable": 14382516
   },
-  "finalizedAt": "2026-05-13T11:24:59.317Z"
+  "agentsCompleted": [
+    "arki",
+    "riki",
+    "jobs",
+    "arki",
+    "riki",
+    "ace",
+    "jobs",
+    "zero",
+    "zero",
+    "jobs",
+    "jobs",
+    "edi",
+    "zero",
+    "edi"
+  ],
+  "finalizedAt": "2026-05-14T02:27:31.246Z"
 }

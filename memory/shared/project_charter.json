@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "1.983",
+    "version": "2.083",
     "versionSchema": {
       "format": "X.YYY (3자리 소수 float, 점 하나)",
       "incrementRules": {
@@ -468,8 +468,14 @@
       "date": "2026-05-13",
       "summary": "PD-079 / D-181 D1·D2 박제 완료 — m* 병행세션 시스템 구조 박제 (open.md step 7-c + 8 미티게이션 + KPI 3종 신규 5 파일 + 수정 6 파일). 구조 변경 카테고리(+0.1).",
       "sessionId": "session_245"
+    },
+    {
+      "version": "2.083",
+      "date": "2026-05-14",
+      "summary": "PD-075 강화된 M1 결정 (D-127 amendment + 신규 D-193·D-194) + 인계 원문 보존 정책 + Zero spec 정정 + dispatch_config rules.zero 3 필드 신설",
+      "sessionId": "session_246"
     }
   ],
-  "lastUpdated": "2026-05-13",
-  "version": "1.983"
+  "lastUpdated": "2026-05-14",
+  "version": "2.083"
 }

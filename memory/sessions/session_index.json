@@ -12016,8 +12016,156 @@
           }
         }
       ]
+    },
+    {
+      "sessionId": "session_246",
+      "topicSlug": "zero-external-skill-review",
+      "topic": "PD-075 Zero 외부 skill 흡수 재검토",
+      "startedAt": "2026-05-13T12:30:00.000Z",
+      "closedAt": "2026-05-13T23:59:00.000Z",
+      "cwd": "C:\\Projects\\legend-team\\.claude\\worktrees\\practical-pare-60a262",
+      "agentsCompleted": [
+        "arki",
+        "riki",
+        "jobs",
+        "arki",
+        "riki",
+        "ace",
+        "jobs",
+        "zero",
+        "zero",
+        "jobs",
+        "jobs",
+        "edi",
+        "zero",
+        "edi"
+      ],
+      "turns": [
+        {
+          "role": "arki",
+          "turnIdx": 0,
+          "source": "agent"
+        },
+        {
+          "role": "riki",
+          "turnIdx": 1,
+          "source": "agent",
+          "selfScores": {
+            "crt_rcl": 0.5,
+            "cr_val": "Y",
+            "prd_rej": "N",
+            "fp_rt": 0
+          }
+        },
+        {
+          "role": "jobs",
+          "turnIdx": 2,
+          "source": "agent"
+        },
+        {
+          "role": "arki",
+          "turnIdx": 3,
+          "source": "agent",
+          "selfScores": {
+            "aud_rcl": 0.5,
+            "str_fd": 0,
+            "spc_lck": "N",
+            "sa_rnd": 2
+          }
+        },
+        {
+          "role": "riki",
+          "turnIdx": 4,
+          "source": "agent"
+        },
+        {
+          "role": "ace",
+          "turnIdx": 5,
+          "source": "agent",
+          "selfScores": {
+            "rfrm_trg": "Y",
+            "ctx_car": 4,
+            "mst_fr": 0,
+            "ang_nov": 3
+          }
+        },
+        {
+          "role": "jobs",
+          "turnIdx": 6,
+          "source": "agent"
+        },
+        {
+          "role": "zero",
+          "turnIdx": 7,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 14,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "zero",
+          "turnIdx": 8,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 7,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "jobs",
+          "turnIdx": 9,
+          "source": "agent",
+          "selfScores": {
+            "focus_sharp": 5,
+            "bloat_idx": 1,
+            "bias_cnt": 2,
+            "no_cnt": 1
+          }
+        },
+        {
+          "role": "jobs",
+          "turnIdx": 10,
+          "source": "agent",
+          "selfScores": {
+            "focus_sharp": 4,
+            "bloat_idx": 2,
+            "bias_cnt": 3,
+            "no_cnt": 0
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 11,
+          "source": "agent"
+        },
+        {
+          "role": "zero",
+          "turnIdx": 12,
+          "source": "agent",
+          "selfScores": {
+            "ref_cnt": 0,
+            "hc_found": 0,
+            "cln_rt": 1
+          }
+        },
+        {
+          "role": "edi",
+          "turnIdx": 13,
+          "source": "agent"
+        }
+      ],
+      "grade": "B",
+      "note": "PD-075 재검토 — Zero 페르소나 외부 skill 흡수 결정(외부 skill 파일 부재 명분) 재검토. session_233에서 분리, 본 세션에서 정식 처리. | Master 결정: 'Zero absorbs and applies all external skills' — Ace 권고(영역 차등)를 단순화한 강화된 M1. D-193 박제. 영역 차등 없음 (tech-debt·security-review·simplify 전체 적용). | Master 결정 2: 인계 시 설계 내용 원문 보존, 과도 요약 금지. D-194 박제. 본 세션부터 적용 — Edi·context_brief·session_contributions·oneLineSummary 모두 design content 원문 보존. | Master 적출: D-193 박제는 정책 선언만, Zero 도구 SOP 실질 흡수 미수행. PD-093 신규 등록 (옵션 B 채택) — role-zero.md 내부 도구 섹션 확장 + 외부 skill SOP 패턴 7종 (Source Map·Confidence Matrix·Evidence Hierarchy·Contradiction Mapping·Open Questions·표준 카테고리·Theme Clusters) 통합 구현 후속 트랙.",
+      "oneLineSummary": "PD-075 resolved: Zero absorbs and applies all external skills — 강화된 M1 (외부 skill 자체 호출 0, hook 자동 0, 영역 차등 없음). 신규 D-193·D-194 (D-127 amendment + 인계 원문 보존 정책). Zero spec L28·L49 정정 + dispatch_config rules.zero 3 필드 신설 (external_skills_call=forbidden / external_skills_absorb_apply=required / hook_auto_invoke=forbidden).",
+      "decisionsAdded": [
+        "D-193",
+        "D-194"
+      ]
     }
   ],
-  "lastUpdated": "2026-05-13T11:24:58.804Z",
+  "lastUpdated": "2026-05-14T02:27:30.809Z",
   "note": "session_001~004는 session-log.ts 도입 이전 또는 end 미실행으로 소급 재구성됨 (OP-06, session_005)"
 }

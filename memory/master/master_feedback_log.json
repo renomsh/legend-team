@@ -1633,6 +1633,18 @@
         "all"
       ],
       "status": "applied"
+    },
+    {
+      "id": "MF-127",
+      "topicId": "topic_206",
+      "date": "2026-05-14",
+      "phase": "implementation",
+      "feedback": "박제만으로는 실질 동작 보장 안 됨 — Zero 정책 선언과 도구 SOP 실질 흡수는 분리 작업",
+      "directive": "다음부터 결정 박제 시 (1) 정책 선언 박제 (2) 실질 구현 박제 2 트랙 명시 분리. 정책 박제만으로 종결 선언 금지 — Master 확인 후 PD 분기",
+      "appliedTo": [
+        "all"
+      ],
+      "status": "applied"
     }
   ],
   "statusValues": [
