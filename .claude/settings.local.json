@@ -65,7 +65,8 @@
       "Read(//c/Projects/legend-team/memory/sessions/**)",
       "Bash(node scripts/auto-push.js \"session end: big-bang-legend-nexus-p1\")",
       "Bash(python3 -c ' *)",
-      "Bash(awk -F: '{print $2\":\"$3}')"
+      "Bash(awk -F: '{print $2\":\"$3}')",
+      "Bash(mv .claude/hooks/pre-tool-use-task-sage-gate.js .claude/hooks/pre-tool-use-task-sage-gate.js.emergency-disabled && echo \"sage-gate 응급 비활성화 OK\")"
     ],
     "defaultMode": "bypassPermissions"
   }

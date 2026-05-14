@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-14T04:48:03.228Z",
+  "generatedAt": "2026-05-14T11:52:17.774Z",
   "totalSessions": 243,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
@@ -87,7 +87,7 @@
       "fromTopic": "topic_207",
       "createdAt": "2026-05-14",
       "title": "decision_ledger enforcementMechanism 필드 강제 + 자동 무효화 (Sage O4 1순위, DVA-B 메타 차단)",
-      "item": "Sage 적출 (session_247 turn 1, 옵션 O4 1순위): Nexus 반복 결함 'DVA-B 정책 박제형' 메타 차단. D-185 박제 자체가 D4 위반의 구조적 증거 — 박제일(2026-05-12) 이틀 후(2026-05-14) session_247에서 동일 패턴 재발. 'prompt-only 정책 = 해결' 거짓 안도가 메타 메커니즘.\n\n메커니즘: decision_ledger schema에 다음 3 필드 강제\n- enforcementMechanism: 'prompt' | 'hook' | 'test' | 'manual-review'\n- enforcementSinceSession: 정책 enforce 시작 세션 ID (NULL 허용 시 prompt-only)\n- selfNullifyByDate: prompt-only 정책의 경우 N세션/N일 내 hook 미박제 시 자동 무효화 (status: 'self-nullified')\n\n전수 마이그 동반: 기존 D-NNN 200+건에 enforcementMechanism 일괄 부여. 옵션:\n(a) Master+Edi 수동 분류 (정확도 ↑, 비용 ↑↑)\n(b) 자동 분류 후 수동 검수 (text+anchor 매칭으로 hook/test 자동 식별, 나머지는 prompt 디폴트)\n(c) Greenfield only — 신규 D-NNN부터 적용, 기존은 enforcementMechanism: NULL 허용\n\n메타 D4 정합 최상: '정책 박제 후 enforcement 코드 미박제 시 정책 자동 무효화'가 D-185 같은 prompt-only 무한 박제 루프를 메타 차단.\n\n별도 토픽 분리 권장 (Grade A): schema 변경 + 마이그 + validator + ledger 200건 검수는 단일 세션 처리 불가. Arki 구조 진단 + Riki 마이그 risk + Master 검수 path 설계 의무.",
+      "item": "Sage 적출 (session_247 turn 1, 옵션 O4 1순위): Nexus 반복 결함 'DVA-B 정책 박제형' 메타 차단. D-185 박제 자체가 D4 위반의 구조적 증거 — 박제일(2026-05-12) 이틀 후(2026-05-14) session_247에서 동일 패턴 재발. 'prompt-only 정책 = 해결' 거짓 안도가 메타 메커니즘.\n\n메커니즘: decision_ledger schema에 다음 3 필드 강제\n- enforcementMechanism: 'prompt' | 'hook' | 'test' | 'manual-review'\n- enforcementSinceSession: 정책 enforce 시작 세션 ID (NULL 허용 시 prompt-only)\n- selfNullifyByDate: prompt-only 정책의 경우 N세션/N일 내 hook 미박제 시 자동 무효화 (구체 동작·N값·status enum은 Master 결정 사항)\n\n전수 마이그 동반: 기존 D-NNN 200+건에 enforcementMechanism 일괄 부여. 옵션:\n(a) Master+Edi 수동 분류 (정확도 ↑, 비용 ↑↑)\n(b) 자동 분류 후 수동 검수 (text+anchor 매칭으로 hook/test 자동 식별, 나머지는 prompt 디폴트)\n(c) Greenfield only — 신규 D-NNN부터 적용, 기존은 enforcementMechanism: NULL 허용\n\n메타 D4 정합 최상: '정책 박제 후 enforcement 코드 미박제 시 정책 자동 무효화'가 D-185 같은 prompt-only 무한 박제 루프를 메타 차단.\n\n별도 토픽 분리 권장 (Grade A): schema 변경 + 마이그 + validator + ledger 200건 검수는 단일 세션 처리 불가. Arki 구조 진단 + Riki 마이그 risk + Master 검수 path 설계 의무.",
       "status": "pending",
       "relatedDecisions": [
         "D-185",
@@ -206,14 +206,17 @@
       "createdAt": "2026-05-11",
       "title": "병행세션 시스템 구현 — D-181 8 미티게이션 코드 박제",
       "item": "m_* 파일 스키마(m_decision_ledger_{worktreeId}.json, m_topic_index_{worktreeId}.json, m_pending_deferrals_{worktreeId}.json) · /open 자동 마이그레이션 hook (옵션 A' — 매 /open 시 closed msession 승격, non-blocking) · 2-phase commit(.staging → fsync → atomic rename) · schema validate + m_quarantine/ 격리 · cosine 유사도 미리보기(임계 30%, 미달 자동 통과) · mD↔D cross-check(mD↔mD 불필요) · 별도 commit(migrate: prefix) · 명령어 분기(/open mtopic A '<title>' 신규, /open mtopic_XXXXX A 재오픈) 코드 박제.",
-      "status": "pending",
+      "status": "resolved",
       "relatedDecisions": [
         "D-181"
       ],
       "dependsOn": [
         "PD-077"
       ],
-      "relatedTopic": "topic_197"
+      "relatedTopic": "topic_197",
+      "resolvedAt": "2026-05-13T12:00:00.000Z",
+      "resolvedBy": "session_245",
+      "resolveNote": "본문 작업(D-181 8 미티게이션 코드 박제) D-191/D-192로 완료. Riki R-3 적출 (PD-079 dependsOn=[PD-077] resolved + 본문 사실상 완료). session_247 Master 결정."
     },
     {
       "id": "PD-070",
@@ -326,7 +329,10 @@
       "fromTopic": "pd-dashboard-fix",
       "createdAt": "2026-05-10",
       "item": "L2 / L1 / inline 재도입",
-      "status": "pending"
+      "status": "cancelled",
+      "cancelledAt": "2026-05-14T11:36:18.736Z",
+      "cancelledBy": "session_247",
+      "cancelledReason": "본문 4단어 단편 ('L2 / L1 / inline 재도입'), 의미 복원 Master만 가능. session_247 Master 결정으로 cancel."
     },
     {
       "id": "PD-080",
@@ -367,7 +373,7 @@
       "createdAt": "2026-05-11",
       "title": "T/A/O 페르소나별 등급 상한 enum (시범 후 결정)",
       "item": "Riki rev2 C-1 대안 — 페르소나별 Authority 등급 상한 (예: Nexus A1 max, Arki·Riki·Ace A2 max, Edi A3, Master·decision_ledger A4). 시범 후 자가 측정 분포 데이터 누적 후 enum 확정 결정. 분포 데이터 없이 박제 시 자의적·하향 평탄화 회피 유발 (Riki R-6).",
-      "status": "pending",
+      "status": "cancelled",
       "relatedDecisions": [
         "D-183",
         "D-184"
@@ -375,7 +381,10 @@
       "dependsOn": [
         "PD-082"
       ],
-      "relatedTopic": "topic_200"
+      "relatedTopic": "topic_200",
+      "cancelledAt": "2026-05-14T11:36:18.736Z",
+      "cancelledBy": "session_247",
+      "cancelledReason": "dependsOn=[PD-082] resolved + 시범 종료 트리거 stale. T/A/O 시범 enum 결정은 별도 트랙으로. Riki R-7 적출. session_247 Master 결정."
     },
     {
       "id": "PD-084",
@@ -384,7 +393,7 @@
       "createdAt": "2026-05-11",
       "title": "T/A/O 시범 종료 조건 정량 신호",
       "item": "Ace Q4 권고 — 3세션 + (부착률 0.5 OR 인플레이션 2건 OR 평균 T≤2.0). 자가 측정 데이터 누적 후 임계값 확정. baseline은 session_235 V1=5/V2=9+/V3=9/V4=8+ total 31+. hook 자동 강등 알고리즘(G2/G3) 별도 검토 — Master 후속 판단 대기.",
-      "status": "pending",
+      "status": "cancelled",
       "relatedDecisions": [
         "D-183",
         "D-184"
@@ -392,7 +401,10 @@
       "dependsOn": [
         "PD-082"
       ],
-      "relatedTopic": "topic_200"
+      "relatedTopic": "topic_200",
+      "cancelledAt": "2026-05-14T11:36:18.736Z",
+      "cancelledBy": "session_247",
+      "cancelledReason": "dependsOn=[PD-082] resolved + 시범 종료 조건 정량 신호 미정. Riki R-8 적출. session_247 Master 결정."
     },
     {
       "id": "PD-085",
@@ -507,8 +519,8 @@
     }
   ],
   "metrics": {
-    "avgMasterTurns": 22.02,
-    "avgCacheHitRate": 0.9326,
+    "avgMasterTurns": 22.23,
+    "avgCacheHitRate": 0.9327,
     "cacheSampleSize": 212,
     "cacheSampleTotal": 243,
     "avgAdoptionRate": 0,
@@ -534,8 +546,8 @@
     ],
     "framingSkippedCount": 0,
     "turnBasedSessions": 197,
-    "totalCostUSD": 2895.4713,
-    "avgCostPerSession": 12.4269,
+    "totalCostUSD": 2925.8087,
+    "avgCostPerSession": 12.5571,
     "costSampleSize": 233,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
@@ -9766,7 +9778,7 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 16,
+      "masterTurns": 65,
       "dataQuality": "auto",
       "agentsCompleted": [
         "sage",
@@ -9774,16 +9786,16 @@
         "edi"
       ],
       "tokenUsage": {
-        "totalBillable": 11159067,
-        "ioTokens": 103135,
-        "inputTokens": 249,
-        "outputTokens": 102886,
-        "cacheCreate": 437071,
-        "cacheRead": 10618861,
-        "cacheHitRate": 0.9515903972975518,
-        "messageCount": 101
+        "totalBillable": 68854464,
+        "ioTokens": 470628,
+        "inputTokens": 1176,
+        "outputTokens": 469452,
+        "cacheCreate": 2650904,
+        "cacheRead": 65732932,
+        "cacheHitRate": 0.9546647839710146,
+        "messageCount": 400
       },
-      "sessionCostUSD": 6.3687
+      "sessionCostUSD": 36.7061
     }
   ],
   "roleFrequency": [

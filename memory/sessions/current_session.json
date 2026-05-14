@@ -40,6 +40,58 @@
       "role": "edi",
       "turnIdx": 2,
       "phase": "compile"
+    },
+    {
+      "role": "arki",
+      "turnIdx": 3,
+      "source": "agent"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 4,
+      "source": "agent",
+      "selfScores": {
+        "rt_cov": 0.92,
+        "gt_pas": 0.92,
+        "hc_rt": 0.6,
+        "spc_drf": 1
+      }
+    },
+    {
+      "role": "dev",
+      "turnIdx": 5,
+      "source": "agent"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 6,
+      "source": "agent"
+    },
+    {
+      "role": "riki",
+      "turnIdx": 7,
+      "source": "agent"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 8,
+      "source": "agent",
+      "selfScores": {
+        "rt_cov": 1,
+        "gt_pas": 1,
+        "hc_rt": 0,
+        "spc_drf": 0
+      }
+    },
+    {
+      "role": "dev",
+      "turnIdx": 9,
+      "source": "agent"
+    },
+    {
+      "role": "dev",
+      "turnIdx": 10,
+      "source": "agent"
     }
   ],
   "masterFeedback": [],
@@ -99,6 +151,70 @@
       "addedBy": "checkVersionBumpConfirmation",
       "ref": "D-140",
       "suggestedValue": 0.01
+    },
+    {
+      "type": "missing-report",
+      "role": "arki",
+      "turnIdx": 3,
+      "reportPath": "reports/2026-05-14_sage-system-state-review",
+      "detectedAt": "2026-05-14T10:06:22.616Z",
+      "note": "arki turn3 완료 후 reports/arki_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "missing-report",
+      "role": "dev",
+      "turnIdx": 4,
+      "reportPath": "reports/2026-05-14_sage-system-state-review",
+      "detectedAt": "2026-05-14T10:24:26.349Z",
+      "note": "dev turn4 완료 후 reports/dev_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "missing-report",
+      "role": "dev",
+      "turnIdx": 5,
+      "reportPath": "reports/2026-05-14_sage-system-state-review",
+      "detectedAt": "2026-05-14T10:52:45.449Z",
+      "note": "dev turn5 완료 후 reports/dev_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "missing-report",
+      "role": "dev",
+      "turnIdx": 6,
+      "reportPath": "reports/2026-05-14_sage-system-state-review",
+      "detectedAt": "2026-05-14T11:00:07.026Z",
+      "note": "dev turn6 완료 후 reports/dev_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "missing-report",
+      "role": "riki",
+      "turnIdx": 7,
+      "reportPath": "reports/2026-05-14_sage-system-state-review",
+      "detectedAt": "2026-05-14T11:09:45.617Z",
+      "note": "riki turn7 완료 후 reports/riki_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "missing-report",
+      "role": "dev",
+      "turnIdx": 8,
+      "reportPath": "reports/2026-05-14_sage-system-state-review",
+      "detectedAt": "2026-05-14T11:10:54.990Z",
+      "note": "dev turn8 완료 후 reports/dev_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "missing-report",
+      "role": "dev",
+      "turnIdx": 9,
+      "reportPath": "reports/2026-05-14_sage-system-state-review",
+      "detectedAt": "2026-05-14T11:41:02.439Z",
+      "note": "dev turn9 완료 후 reports/dev_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+    },
+    {
+      "type": "missing-report",
+      "role": "dev",
+      "turnIdx": 10,
+      "reportPath": "reports/2026-05-14_sage-system-state-review",
+      "detectedAt": "2026-05-14T11:50:39.717Z",
+      "note": "dev turn10 완료 후 reports/dev_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
     }
   ],
   "notes": [
@@ -114,13 +230,13 @@
     "reports/2026-05-14_sage-system-state-review/edi_auto_rev1.md (Nexus fallback 신규)"
   ],
   "tokenUsage": {
-    "input_tokens": 249,
-    "output_tokens": 102886,
-    "cache_creation_input_tokens": 437071,
-    "cache_read_input_tokens": 10618861,
-    "messageCount": 101,
-    "masterTurns": 16,
-    "total_billable": 11159067
+    "input_tokens": 927,
+    "output_tokens": 366566,
+    "cache_creation_input_tokens": 2213833,
+    "cache_read_input_tokens": 55114071,
+    "messageCount": 299,
+    "masterTurns": 49,
+    "total_billable": 57695397
   },
   "agentsCompleted": [
     "sage",
