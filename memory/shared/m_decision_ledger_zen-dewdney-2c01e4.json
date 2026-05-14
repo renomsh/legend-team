@@ -1,0 +1,28 @@
+{
+  "schema": "m_decision_ledger.v1",
+  "worktreeId": "zen-dewdney-2c01e4",
+  "decisions": [
+    {
+      "id": "D-193",
+      "date": "2026-05-14",
+      "session": "session_246",
+      "topicId": "mtopic_001_W3677250a",
+      "topic": "PD-076 status 운영 정책 단순화",
+      "axis": "decision_ledger status 박제 운영 정책 — active 기본 + 충돌 시 Master 문의",
+      "summary": "신규 결정 박제 시 status=active 기본. 기존 결정 폐기·대체 충돌 발생 시 Master에게 옵션(active/deprecated/superseded) 제시 후 답변 그대로 기재. LLM 추론·자동 추정·박제 시점 hook 신설 안 함. audit-decision-ledger-status.ts 폐기 (B1) — 본문 자연어 매칭이 self/referent 구분 불가, 100% false positive 양산. D-189 표준 3종(active/deprecated/superseded) 그대로 유지, 본 정책은 박제 흐름만 규정.",
+      "decision": "status 박제 = active 기본 + 충돌 시 Master 직접 선택. 추정·자동화 0.",
+      "status": "active",
+      "relatedDecisions": [
+        "D-189"
+      ],
+      "resolvesPD": "PD-076",
+      "tags": [
+        "decision-ledger",
+        "status-policy",
+        "simplify",
+        "b1-deprecation"
+      ]
+    }
+  ],
+  "lastUpdated": "2026-05-14T03:51:14.488Z"
+}

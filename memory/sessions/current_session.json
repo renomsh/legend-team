@@ -16,19 +16,21 @@
   "status": "closed",
   "sourcePD": "PD-076",
   "oneLineSummary": "B1 audit script 삭제 + PD-076 resolved + status 정책 단순화 (active 기본 + 충돌 시 Master 문의, D 박제 없음)",
-  "decisionsAdded": [],
+  "decisionsAdded": [
+    "D-193"
+  ],
   "pendingDeferralsAdded": [],
   "pendingDeferralsResolved": [
     "PD-076"
   ],
   "versionBump": {
-    "value": 0.001,
-    "reason": "scripts/audit-decision-ledger-status.ts 삭제 + PD-076 resolved + status 운영 정책 단순화 (active 기본 + 충돌 시 Master 문의). D-NNN 박제 없음, 본문 정책만. bugfix·patch 카테고리.",
+    "value": 0.01,
+    "reason": "D-193 박제 — status 운영 정책 단순화 (active 기본 + 충돌 시 Master 문의). audit-decision-ledger-status.ts 삭제 (B1) + PD-076 resolved. 역량 확장 카테고리(+0.01).",
     "confirmedBy": "edi",
-    "confirmedAt": "2026-05-14T13:30:00.000Z",
-    "basedOn": "edi-judgment",
-    "overrideReason": null,
-    "to": "1.984",
+    "confirmedAt": "2026-05-14T13:35:00.000Z",
+    "basedOn": "master-directive",
+    "overrideReason": "Master 명령으로 D-193 박제 추가 — 정책 단일 박제 = 역량 확장",
+    "to": "1.993",
     "from": "1.983"
   },
   "agentsCompleted": [
@@ -170,13 +172,13 @@
     }
   ],
   "tokenUsage": {
-    "input_tokens": 589,
-    "output_tokens": 212353,
-    "cache_creation_input_tokens": 582895,
-    "cache_read_input_tokens": 18371509,
-    "messageCount": 136,
-    "masterTurns": 41,
-    "total_billable": 19167346
+    "input_tokens": 606,
+    "output_tokens": 219206,
+    "cache_creation_input_tokens": 591531,
+    "cache_read_input_tokens": 19850077,
+    "messageCount": 143,
+    "masterTurns": 42,
+    "total_billable": 20661420
   },
   "finalizedAt": "2026-05-14T03:27:13.729Z"
 }
