@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "1.983",
+    "version": "1.984",
     "versionSchema": {
       "format": "X.YYY (3자리 소수 float, 점 하나)",
       "incrementRules": {
@@ -468,8 +468,14 @@
       "date": "2026-05-13",
       "summary": "PD-079 / D-181 D1·D2 박제 완료 — m* 병행세션 시스템 구조 박제 (open.md step 7-c + 8 미티게이션 + KPI 3종 신규 5 파일 + 수정 6 파일). 구조 변경 카테고리(+0.1).",
       "sessionId": "session_245"
+    },
+    {
+      "version": "1.984",
+      "date": "2026-05-14",
+      "summary": "scripts/audit-decision-ledger-status.ts 삭제 + PD-076 resolved + status 운영 정책 단순화 (active 기본 + 충돌 시 Master 문의). D-NNN 박제 없음, 본문 정책만. bugfix·patch 카테고리.",
+      "sessionId": "session_246"
     }
   ],
-  "lastUpdated": "2026-05-13",
-  "version": "1.983"
+  "lastUpdated": "2026-05-14",
+  "version": "1.984"
 }

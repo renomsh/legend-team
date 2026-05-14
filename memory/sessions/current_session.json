@@ -1,161 +1,182 @@
 {
-  "sessionId": "session_245",
-  "topicId": "topic_197",
-  "topic": "PD-079 병행세션 시스템 구현 P6+P7",
-  "topicSlug": "pd-069-parallel-session",
-  "reportPath": "reports/2026-05-13_pd-069-parallel-session",
-  "startedAt": "2026-05-13T09:30:00.000Z",
+  "sessionId": "session_246",
+  "mtopicId": "mtopic_001_W3677250a",
+  "worktreeId": "zen-dewdney-2c01e4",
+  "topic": "PD-076 audit-decision-ledger-status 분류 로직 정밀화 (self vs referent)",
+  "topicSlug": "pd-076-audit-classification-precision",
+  "reportPath": "reports/2026-05-13_pd-076-audit-classification-precision",
+  "startedAt": "2026-05-13T13:00:00.000Z",
+  "closedAt": "2026-05-14T13:30:00.000Z",
   "mode": "observation",
-  "grade": "S",
-  "topicType": "framing",
-  "operationType": "structured",
-  "phase": "framing",
+  "grade": "B",
   "framingLevel": 0,
   "framingSkipped": true,
+  "operationType": "structured",
+  "phase": "framing",
   "status": "closed",
-  "closedAt": "2026-05-13T12:00:00.000Z",
-  "oneLineSummary": "PD-079 D-191·D-192 박제 + 8 미티게이션 코드 완성 — G6 9/9·G7 5/5·apply smoke PASS",
-  "decisionsAdded": [
-    "D-191",
-    "D-192"
+  "sourcePD": "PD-076",
+  "oneLineSummary": "B1 audit script 삭제 + PD-076 resolved + status 정책 단순화 (active 기본 + 충돌 시 Master 문의, D 박제 없음)",
+  "decisionsAdded": [],
+  "pendingDeferralsAdded": [],
+  "pendingDeferralsResolved": [
+    "PD-076"
   ],
-  "pendingDeferralsAdded": [
-    "PD-088",
-    "PD-089",
-    "PD-090",
-    "PD-091",
-    "PD-092"
-  ],
-  "pendingDeferralsResolved": [],
   "versionBump": {
-    "value": 0.1,
-    "from": "1.883",
-    "to": "1.983",
-    "reason": "PD-079 / D-181 D1·D2 박제 완료 — m* 병행세션 시스템 구조 박제 (open.md step 7-c + 8 미티게이션 + KPI 3종 신규 5 파일 + 수정 6 파일). 구조 변경 카테고리(+0.1).",
+    "value": 0.001,
+    "reason": "scripts/audit-decision-ledger-status.ts 삭제 + PD-076 resolved + status 운영 정책 단순화 (active 기본 + 충돌 시 Master 문의). D-NNN 박제 없음, 본문 정책만. bugfix·patch 카테고리.",
     "confirmedBy": "edi",
-    "confirmedAt": "2026-05-13T12:00:00.000Z",
+    "confirmedAt": "2026-05-14T13:30:00.000Z",
     "basedOn": "edi-judgment",
-    "overrideReason": null
+    "overrideReason": null,
+    "to": "1.984",
+    "from": "1.983"
   },
   "agentsCompleted": [
+    "jobs",
+    "ace",
     "arki",
     "riki",
-    "zero",
+    "arki",
+    "dev",
     "zero",
     "edi"
   ],
-  "notes": [
-    "topic_197 재오픈 — PD-079 P6+P7 구현 진입",
-    "P6: migration-commit.ts (migrate: prefix) + /open 자동 마이그 hook + pre-commit hook(D-187) 호환 검증",
-    "P7: e2e smoke + D-NNN 박제(D1·D2) + KPI 3종(mtopic_orphan_count·migration_execution_rate·migration_accuracy_proxy) + 워크트리 고아 처리 정책 + CLAUDE.md m* 절 + PD 4건 등록",
-    "PD-077 dependsOn 해소 확인 — session_235에서 resolved (pre-compiled dist 폐기, npx ts-node 직접 호출 정합)"
-  ],
   "turns": [
     {
-      "role": "arki",
+      "role": "jobs",
       "turnIdx": 0,
       "source": "agent",
       "selfScores": {
-        "aud_rcl": 0.7,
+        "focus_sharp": 5,
+        "bloat_idx": 1,
+        "bias_cnt": 4,
+        "no_cnt": 5
+      }
+    },
+    {
+      "role": "ace",
+      "turnIdx": 1,
+      "source": "agent",
+      "selfScores": {
+        "rfrm_trg": "Y",
+        "ctx_car": 4,
+        "mst_fr": 0,
+        "ang_nov": 3
+      }
+    },
+    {
+      "role": "arki",
+      "turnIdx": 2,
+      "source": "agent",
+      "selfScores": {
+        "aud_rcl": 1,
         "str_fd": 4,
         "spc_lck": "N",
-        "sa_rnd": 1
+        "sa_rnd": 2
       }
     },
     {
       "role": "riki",
-      "turnIdx": 1,
+      "turnIdx": 3,
       "source": "agent",
       "selfScores": {
-        "crt_rcl": 0.8,
+        "crt_rcl": 0.83,
         "cr_val": "Y",
         "prd_rej": "N",
-        "fp_rt": 0.1
+        "fp_rt": 0
+      }
+    },
+    {
+      "role": "arki",
+      "turnIdx": 4,
+      "source": "agent",
+      "selfScores": {
+        "aud_rcl": 1,
+        "str_fd": 3,
+        "spc_lck": "N",
+        "sa_rnd": 3
+      }
+    },
+    {
+      "role": "dev",
+      "turnIdx": 5,
+      "source": "agent",
+      "selfScores": {
+        "rt_cov": 1,
+        "gt_pas": 1,
+        "hc_rt": 0,
+        "spc_drf": 0
       }
     },
     {
       "role": "zero",
-      "turnIdx": 2,
-      "source": "agent"
-    },
-    {
-      "role": "zero",
-      "turnIdx": 3,
+      "turnIdx": 6,
       "source": "agent",
       "selfScores": {
-        "ref_cnt": 7,
+        "ref_cnt": 1,
         "hc_found": 0,
         "cln_rt": 1
       }
     },
     {
       "role": "edi",
-      "turnIdx": 4,
+      "turnIdx": 7,
       "source": "agent",
       "selfScores": {
-        "gp_acc": 0.85,
+        "gp_acc": 1,
         "scc": "Y",
-        "cs_cnt": 4,
+        "cs_cnt": 3,
         "art_cmp": 1,
-        "gap_fc": 4
+        "gap_fc": 0
       }
     }
   ],
-  "masterFeedback": [],
+  "masterFeedback": [
+    {
+      "phase": "framing",
+      "feedback": "self-state·self-status는 Nexus가 만든 용어 — 시스템에 존재하지 않음. audit script의 self-undeclared 카테고리 이름에서 빌린 환상",
+      "directive": "용어 만들지 말고 실제 코드·필드만 참조"
+    },
+    {
+      "phase": "synthesis",
+      "feedback": "Nexus 판단 금지, 명령만 수행, 진실만, 추측/사실 구분",
+      "directive": "[T/A/O] 등급 부착 강제. 추측은 T1/T2 명시"
+    },
+    {
+      "phase": "redesign",
+      "feedback": "겨우 추천하고 등록하는 게 이렇게 어렵나 — LLM·hook·마이그·화이트리스트 전부 폐기, 단순 운영으로 회귀",
+      "directive": "active 기본 + 충돌 시 Master 문의. 자동 추정 없음"
+    }
+  ],
   "openMasterAlerts": [],
+  "notes": [
+    "mtopic 생성 — PD-076 정밀화. blast_radius=1(단일 스크립트) but 3옵션 구조결정 + 향후 정제 라운드 토대 → B grade",
+    "PD-076 원문: audit-decision-ledger-status.ts 단순 키워드 매칭이 self-undeclared(33건 100% false positive)와 referent-undeclared 미구분",
+    "본질 재정의 흐름 — Master 발견: 한국어 자연어 인식 한계 (PD-076 표면 증상). N1(Nexus 확인 질문) + N2(LLM 추론) 결합 검토 후 폐기.",
+    "최종 결정: B1 audit 삭제 + status 운영 정책 단순화. C2 정책 박제·hook 신설·마이그·화이트리스트 전부 폐기."
+  ],
   "gaps": [
     {
-      "type": "frontmatter-patch-failed",
-      "role": "arki",
-      "turnIdx": 0,
-      "reportsPath": "(콘솔",
-      "detectedAt": "2026-05-13T09:56:34.320Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: (콘솔"
-    },
-    {
-      "type": "missing-report",
-      "role": "arki",
-      "turnIdx": 0,
-      "reportPath": "reports/2026-05-13_pd-069-parallel-session",
-      "detectedAt": "2026-05-13T09:56:34.325Z",
-      "note": "arki turn0 완료 후 reports/arki_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "missing-report",
-      "role": "riki",
-      "turnIdx": 1,
-      "reportPath": "reports/2026-05-13_pd-069-parallel-session",
-      "detectedAt": "2026-05-13T10:25:54.846Z",
-      "note": "riki turn1 완료 후 reports/riki_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "frontmatter-patch-failed",
-      "role": "zero",
-      "turnIdx": 3,
-      "reportsPath": "reports/2026-05-13_",
-      "detectedAt": "2026-05-13T11:17:13.440Z",
-      "note": "frontmatter turnId 패치 실패 — 파일 없거나 frontmatter 없음: reports/2026-05-13_"
-    },
-    {
       "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-13_pd-069-parallel-session/condensed.md",
+      "file": "reports/2026-05-13_pd-076-audit-classification-precision/condensed.md",
       "expected": "zero",
       "actualInTurns": "edi",
-      "turnId": 4
+      "turnId": 7
     },
     {
-      "type": "inline-role-header-missing-frontmatter",
-      "file": "reports/2026-05-13_pd-069-parallel-session/edi_rev1.md"
+      "type": "spawn-failed",
+      "fn": "runCheckPendingDeferrals",
+      "detail": "n.includes is not a function"
     }
   ],
   "tokenUsage": {
-    "input_tokens": 637,
-    "output_tokens": 183075,
-    "cache_creation_input_tokens": 1292871,
-    "cache_read_input_tokens": 31628033,
-    "messageCount": 219,
-    "masterTurns": 25,
-    "total_billable": 33104616
+    "input_tokens": 589,
+    "output_tokens": 212353,
+    "cache_creation_input_tokens": 582895,
+    "cache_read_input_tokens": 18371509,
+    "messageCount": 136,
+    "masterTurns": 41,
+    "total_billable": 19167346
   },
-  "finalizedAt": "2026-05-13T11:24:59.317Z"
+  "finalizedAt": "2026-05-14T03:27:13.729Z"
 }

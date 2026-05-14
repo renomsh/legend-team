@@ -34,3 +34,24 @@ c는 default =  |
 | 2026-05-12 01:40:44 | 0ce44e6b-90cf-4ef4-a51b-d15b76f85d03 | UserPromptSubmit | echo-trigger | `OK, ok` | D-80 원문제: hook이 condensed.md 인식 못함 → 5분 운영 버그부터 진행 |
 | 2026-05-12 01:45:52 | 0ce44e6b-90cf-4ef4-a51b-d15b76f85d03 | UserPromptSubmit | echo-trigger | `좋아` | 좋아. 내 용어가 혼동 되었던것 인정하고.
 아키 먼저 검토부터해. |
+| 2026-05-13 13:28:38 | f1aad2df-b062-4d2b-b8c1-e3bcc285f673 | UserPromptSubmit | echo-trigger | `좋아` | 좋아. 내가 발견한 본질은 다른거야.
+자연어. 특히 한국어로 자연어를 이야기하는 경우 제대로 인식이 안되는  |
+| 2026-05-13 13:38:18 | f1aad2df-b062-4d2b-b8c1-e3bcc285f673 | UserPromptSubmit | intent-reconfirm | `다음` | 이미 이렇게 정의했는데 1번은 또 바꾼거네?
+active	현행 정책·구현 (살아있음)
+deprecated	폐 |
+| 2026-05-14 00:30:06 | f1aad2df-b062-4d2b-b8c1-e3bcc285f673 | UserPromptSubmit | echo-trigger | `OK, ok, 확정` | Q1. s2
+Q2. 확정
+3. If I already predefined and fixed the state |
+| 2026-05-14 01:15:31 | f1aad2df-b062-4d2b-b8c1-e3bcc285f673 | UserPromptSubmit | echo-trigger | `OK, ok` | #2 β
+#3 β로 추천을 하되 옵션 리스트로 #1, 4, 6처럼
+#4 α
+#5 α
+#6 hook 즉시 구현 |
+| 2026-05-14 01:16:37 | f1aad2df-b062-4d2b-b8c1-e3bcc285f673 | Agent | echo-trigger | `OK, ok` | #2 β
+#3 β로 추천을 하되 옵션 리스트로 #1, 4, 6처럼
+#4 α
+#5 α
+#6 hook 즉시 구현 |
+| 2026-05-14 01:39:27 | f1aad2df-b062-4d2b-b8c1-e3bcc285f673 | UserPromptSubmit | echo-trigger | `OK, ok` | PreToolUse hook이 박제 경로 자체 봉쇄 설명해봐. |
+| 2026-05-14 02:02:22 | f1aad2df-b062-4d2b-b8c1-e3bcc285f673 | UserPromptSubmit | echo-trigger | `맞아` | O3인데, 포함 안된 것 맞아? |
+| 2026-05-14 03:02:06 | f1aad2df-b062-4d2b-b8c1-e3bcc285f673 | UserPromptSubmit | echo-trigger | `OK, ok` | 발견 1: Phase 1 hook caller path 식별이 process tree 의존 — 신뢰성 낮음  |

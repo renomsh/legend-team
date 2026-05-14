@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_245",
-  "nextSessionId": "session_246",
-  "currentVersion": "v1.983",
+  "lastSessionId": "session_246",
+  "nextSessionId": "session_247",
+  "currentVersion": "v1.984",
   "openTopics": [
     {
       "id": "topic_175",
@@ -52,6 +52,13 @@
   ],
   "recentSessionSummaries": [
     {
+      "sessionId": "session_246",
+      "topicSlug": "pd-076-audit-classification-precision",
+      "closedAt": "2026-05-14T13:30:00.000Z",
+      "oneLineSummary": "B1 audit script 삭제 + PD-076 resolved + status 정책 단순화 (active 기본 + 충돌 시 Master 문의, D 박제 없음)",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_245",
       "topicSlug": "pd-069-parallel-session",
       "closedAt": "2026-05-13T12:00:00.000Z",
@@ -67,16 +74,6 @@
       "closedAt": "2026-05-13T09:00:00.000Z",
       "oneLineSummary": "PD-079 m* 병행세션 시스템 P1~P5 PASS — 22 신규 파일·5 게이트 통과·P6+P7 잔여, 박제 예약 D1/D2",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_243",
-      "topicSlug": "decision-status-standardize",
-      "closedAt": "2026-05-13T00:00:00.000Z",
-      "oneLineSummary": "decision_ledger 189건 전수검사 완료 — 3종 규격화, Q4 enforcement hook 신규, D-189·D-190 박제",
-      "decisionsAdded": [
-        "D-189",
-        "D-190"
-      ]
     }
   ],
   "pendingDeferrals": [
@@ -103,15 +100,6 @@
       "createdAt": "2026-05-10",
       "title": "Zero 외부 skill 흡수 결정 재검토 — engineering:tech-debt·simplify",
       "item": "Zero 페르소나(memory/roles/personas/role-zero.md L28·L49)가 'engineering:tech-debt·simplify skill 외부 호출 폐기' 명시. 폐기 명분 '외부 skill 파일 부재'였으나 현재 명백히 존재함 (available skills 리스트 노출). 재검토 옵션: (a) 흡수 유지 — 호출 절감 우선 (b) 참조 정정 — 사실관계만 수정 (c) 위임 전환 — Zero를 wrapper로 슬림화. session_233에서 분리 결정.",
-      "status": "pending"
-    },
-    {
-      "id": "PD-076",
-      "fromSession": "session_233",
-      "fromTopic": "agent-dispatch-speed",
-      "createdAt": "2026-05-10",
-      "title": "audit-decision-ledger-status 분류 로직 정밀화 (self vs referent 구분)",
-      "item": "Phase 1 신설 audit-decision-ledger-status.ts의 단순 키워드 매칭(supersede|폐기|deprecat)은 self-undeclared와 referent-undeclared를 구분 못 함. session_233 Phase 2에서 33건 self-undeclared 정밀 분석 결과 100% false positive (모두 다른 결정을 supersede한다는 referent 의미였음). 정밀화 옵션: (a) supersededBy/deprecates 필드 cross-check (b) 문맥 분석 (c) self-undeclared 카운트 폐기, referent만 유지. 본 audit 스크립트가 향후 정제 라운드의 토대이므로 정밀화 필수.",
       "status": "pending"
     },
     {
@@ -252,5 +240,5 @@
       "relatedTopic": "topic_197"
     }
   ],
-  "lastUpdated": "2026-05-13T11:24:59.316Z"
+  "lastUpdated": "2026-05-14T03:27:13.727Z"
 }
