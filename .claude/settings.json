@@ -64,6 +64,25 @@
             "command": "node .claude/hooks/pre-tool-use-skill-jobs-framing.js"
           }
         ]
+      },
+      {
+        "matcher": "Edit|Write|Bash|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/pre-tool-use-no-autonomous-decision.js"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/stop-nexus-self-censor.js"
+          }
+        ]
       }
     ],
     "PostToolUse": [

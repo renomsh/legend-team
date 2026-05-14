@@ -1645,6 +1645,18 @@
         "all"
       ],
       "status": "applied"
+    },
+    {
+      "id": "MF-AUTO-session_247-edi",
+      "date": "2026-05-14",
+      "session": "session_247",
+      "sessionId": "session_247",
+      "topic": "topic_207",
+      "type": "edi-llm-skipped",
+      "severity": "high",
+      "source": "hook",
+      "feedback": "Grade A 세션 session_247에서 Edi LLM 미호출 — mechanical fallback(edi_auto_rev1.md) 박제됨. role-edi.md §6.4 검토 필요.",
+      "status": "pending"
     }
   ],
   "statusValues": [

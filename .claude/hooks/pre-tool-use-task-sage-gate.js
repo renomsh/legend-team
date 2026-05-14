@@ -129,12 +129,10 @@ function reject(cwd, ts, payload, reason) {
         ? subagentType.slice(ROLE_AGENT_PREFIX.length)
         : subagentType;
 
-      // 마커가 sage인데 subagent_type이 role-sage가 아님 → 위조 의심
-      if (markerRole === 'sage' && subagentRole !== 'sage') {
-        reject(cwd, ts, { role, markerRole, subagentRole },
-          `Sage dispatch contract violation: marker=sage but subagent_type='${subagentType}'. Both must be sage. (topic_135 Phase 2, D-128)`);
-      }
-      // subagent_type이 role-sage인데 마커가 sage가 아님 → 비정상 호출
+      // session_247 (2026-05-14, Master 승인): D-073/D-105 노선상 .claude/agents/role-sage.md 영구 부재 →
+      // markerRole==='sage' + subagentRole==='general-purpose' 경로를 정상 dispatch로 인정.
+      // hook persona inject(pre-tool-use-task.js L188)가 memory/roles/personas/role-sage.md SOT에서 주입.
+      // forgery 가드는 한 방향만 유지: subagent_type=role-sage인데 marker가 다른 경우만 차단.
       if (subagentRole === 'sage' && markerRole !== 'sage') {
         reject(cwd, ts, { role, markerRole, subagentRole },
           `Sage dispatch contract violation: subagent_type=role-sage but marker='${markerRole || 'none'}'. Both must be sage. (topic_135 Phase 2, D-128)`);
