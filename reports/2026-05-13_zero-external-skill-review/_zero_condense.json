@@ -1,0 +1,33 @@
+{
+  "sessionId": "session_246",
+  "topicId": "topic_206",
+  "completedAt": "2026-05-14T01:37:44.311Z",
+  "files": [
+    "ace_synthesis.md",
+    "arki_rev1.md",
+    "arki_rev2.md",
+    "condensed.md",
+    "jobs_rev1.md",
+    "jobs_rev2.md",
+    "m1_zero_absorbed.md",
+    "m2_zero_delegated.md",
+    "m3_external_only.md",
+    "riki_rev1.md",
+    "riki_rev2.md"
+  ],
+  "refinedRoles": [
+    "arki",
+    "riki",
+    "jobs",
+    "zero-m1",
+    "zero-m2",
+    "zero-m3",
+    "ace"
+  ],
+  "skippedRoles": [],
+  "preservePolicy": "design-content-verbatim",
+  "inputReportCount": 10,
+  "outputCondensedFile": "condensed.md",
+  "mode": "D.Condense Phase A",
+  "pd": "PD-075"
+}

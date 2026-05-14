@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_245",
-  "nextSessionId": "session_246",
-  "currentVersion": "v1.983",
+  "lastSessionId": "session_246",
+  "nextSessionId": "session_247",
+  "currentVersion": "v2.083",
   "openTopics": [
     {
       "id": "topic_175",
@@ -20,6 +20,18 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-194",
+      "date": "2026-05-13",
+      "axis": "인계 시 설계 원문 보존 정책 — 과도 요약 금지",
+      "summary": "인계 시 설계 원문 보존 정책 — 과도 요약 금지"
+    },
+    {
+      "id": "D-193",
+      "date": "2026-05-13",
+      "axis": "Zero 외부 skill 흡수·적용 운용 모드 (강화된 M1) — Zero absorbs and applies all external skills",
+      "summary": "Zero 외부 skill 흡수·적용 운용 모드 (강화된 M1) — Zero absorbs and applies all external skills"
+    },
+    {
       "id": "D-192",
       "date": "2026-05-13",
       "axis": "자동-1 silent 마이그 + 8 미티게이션 코드 박제 (PD-079 / D-181)",
@@ -36,21 +48,19 @@
       "date": "2026-05-13",
       "axis": "Q4 active-only D-NNN 인용 enforcement — validate-decision-citations.js (WARN-only) + pre-commit hook",
       "summary": "Q4 active-only D-NNN 인용 enforcement — validate-decision-citations.js (WARN-only) + pre-commit hook"
-    },
-    {
-      "id": "D-189",
-      "date": "2026-05-13",
-      "axis": "decision_ledger status 3종 규격화 + 189건 전수 검사 완료 — active/deprecated/superseded",
-      "summary": "decision_ledger status 3종 규격화 + 189건 전수 검사 완료 — active/deprecated/superseded"
-    },
-    {
-      "id": "D-188",
-      "date": "2026-05-12",
-      "axis": "finalize.js 1893줄 → 5 lib 모듈 + orchestrator 분해. 단일 hook entry 유지. 실패 시 git revert 단일 커밋 원복 경로 박제.",
-      "summary": "(a) silent corruption detection 가능 — 각 모듈 try/catch에서 finalize-module-fail gap 박제. (b) SRP 회복 — 31 함수 5 모듈 분리. (c) 원복 단위 명확 — 단일 머지 커밋. (d) 검증 게이트 명시 — 5세션 dry-run diff = 0 강제. (e) D-143 (4) 외 정신 보존 — supersedeScope 명시."
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_246",
+      "topicSlug": "zero-external-skill-review",
+      "closedAt": "2026-05-13T23:59:00.000Z",
+      "oneLineSummary": "PD-075 resolved: Zero absorbs and applies all external skills — 강화된 M1 (외부 skill 자체 호출 0, hook 자동 0, 영역 차등 없음). 신규 D-193·D-194 (D-127 amendment + 인계 원문 보존 정책). Zero spec L28·L49 정정 + dispatch_config rules.zero 3 필드 신설 (external_skills_call=forbidden / external_skills_absorb_apply=required / hook_auto_invoke=forbidden).",
+      "decisionsAdded": [
+        "D-193",
+        "D-194"
+      ]
+    },
     {
       "sessionId": "session_245",
       "topicSlug": "pd-069-parallel-session",
@@ -67,19 +77,27 @@
       "closedAt": "2026-05-13T09:00:00.000Z",
       "oneLineSummary": "PD-079 m* 병행세션 시스템 P1~P5 PASS — 22 신규 파일·5 게이트 통과·P6+P7 잔여, 박제 예약 D1/D2",
       "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_243",
-      "topicSlug": "decision-status-standardize",
-      "closedAt": "2026-05-13T00:00:00.000Z",
-      "oneLineSummary": "decision_ledger 189건 전수검사 완료 — 3종 규격화, Q4 enforcement hook 신규, D-189·D-190 박제",
-      "decisionsAdded": [
-        "D-189",
-        "D-190"
-      ]
     }
   ],
   "pendingDeferrals": [
+    {
+      "id": "PD-093",
+      "fromSession": "session_246",
+      "fromTopic": "topic_206",
+      "createdAt": "2026-05-13",
+      "title": "Zero 도구 SOP에 외부 skill 패턴 실질 흡수 구현 (D-193 정책 박제 후속)",
+      "item": "D-193 (강화된 M1, session_246) 박제는 정책 선언·dispatch_config 플래그·role-zero.md L28·L49 문구 정정에 그침. Zero 내부 도구 정의(role-zero.md L39~L49 표 — Cut/Refine/Audit 3 도구) 자체는 미변경. 따라서 다음 세션 Zero 호출 시 흡수 이전과 동일 SOP로 작동 (D-193 본문의 '흡수·통합' 실질 효력 부재).\n\n흡수 대상 외부 skill 패턴 7종 (Zero 도구 SOP에 통합 의무):\n1. Source Map — 입력 자료 1줄 요약 표 (보고서명·역할·핵심 주장)\n2. Confidence Matrix — 발견별 High/Med/Low 등급 (T/A/O 등급과 정합 필요)\n3. Evidence Hierarchy — Primary(직접 측정)/Secondary(추론)/Tertiary(가정) 3 tier 구분\n4. Contradiction Mapping — 자료 간 충돌 + 해결 상태 표\n5. Open Questions / Gaps — 미해결 명시 섹션\n6. 표준 카테고리 분류 — tech-debt 7-category SOP·security-review 6-category 등 영역별 표준 분류 체계\n7. Theme Clusters — 반복 패턴 묶음 + supporting evidence\n\n구현 옵션:\n(a) role-zero.md '내부 도구' 섹션 확장 — 3 도구 표에 '흡수된 SOP 패턴' 컬럼 추가\n(b) 별도 섹션 신설 — '흡수된 외부 skill SOP 카탈로그' (7 패턴 + 적용 trigger + Zero 도구 매핑)\n(c) memory/roles/policies/role-zero.md 신규 섹션 — SOP 카탈로그 + 호출 시 자동 적용 규칙\n(d) hook 신설 — Zero dispatch 시 prompt에 흡수 SOP 7종 inject (D-128 dispatch hook 패턴 정합)\n\n검증 메트릭: 다음 Zero 호출 결과물에 (1) Source Map 또는 Evidence Hierarchy 또는 Confidence Matrix 중 최소 1건 명시 등장 (2) 영역별 표준 카테고리 분류 사용 (tech-debt = 7-category 또는 명시적 단순화 사유) (3) Open Questions 섹션 존재. 3 조건 충족 시 흡수 실질 작동 인정.\n\nD-194 정합: 본 PD 본문 자체가 design content 원문 보존 — 향후 세션 진입 시 압축 금지.\n\nD-185 정합: 흡수 미수행이 fabrication 차단 약화 (D-193 선언만으로는 다음 세션 Zero가 흡수 이전 동일 SOP 사용, 외부 skill의 grep·반례 탐색 패턴 미적용)으로 위험.",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-193",
+        "D-194",
+        "D-127",
+        "D-185"
+      ],
+      "dependsOn": [],
+      "relatedTopic": "topic_206",
+      "resolveCondition": "role-zero.md 또는 role-zero.md policy에 흡수된 외부 skill SOP 패턴 7종 명시 박제 + 다음 Zero 호출 결과물 3 검증 조건 충족 (Source Map/Evidence/Confidence 1건 + 표준 카테고리 + Open Questions)"
+    },
     {
       "id": "PD-079",
       "fromSession": "session_234",
@@ -95,15 +113,6 @@
         "PD-077"
       ],
       "relatedTopic": "topic_197"
-    },
-    {
-      "id": "PD-075",
-      "fromSession": "session_233",
-      "fromTopic": "agent-dispatch-speed",
-      "createdAt": "2026-05-10",
-      "title": "Zero 외부 skill 흡수 결정 재검토 — engineering:tech-debt·simplify",
-      "item": "Zero 페르소나(memory/roles/personas/role-zero.md L28·L49)가 'engineering:tech-debt·simplify skill 외부 호출 폐기' 명시. 폐기 명분 '외부 skill 파일 부재'였으나 현재 명백히 존재함 (available skills 리스트 노출). 재검토 옵션: (a) 흡수 유지 — 호출 절감 우선 (b) 참조 정정 — 사실관계만 수정 (c) 위임 전환 — Zero를 wrapper로 슬림화. session_233에서 분리 결정.",
-      "status": "pending"
     },
     {
       "id": "PD-076",
@@ -252,5 +261,5 @@
       "relatedTopic": "topic_197"
     }
   ],
-  "lastUpdated": "2026-05-13T11:24:59.316Z"
+  "lastUpdated": "2026-05-14T02:27:31.245Z"
 }

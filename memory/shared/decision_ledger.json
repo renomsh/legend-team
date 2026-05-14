@@ -1,6 +1,51 @@
 {
   "decisions": [
     {
+      "id": "D-193",
+      "date": "2026-05-13",
+      "session": "session_246",
+      "topicId": "topic_206",
+      "topic": "topic_206",
+      "owningTopicId": "topic_206",
+      "axis": "Zero 외부 skill 흡수·적용 운용 모드 (강화된 M1) — Zero absorbs and applies all external skills",
+      "summary": "Zero 페르소나는 외부 skill을 자체 호출하지 않음. 외부 skill의 SOP·포맷·패턴(Source Map, Confidence Matrix, Evidence Hierarchy, Contradiction Mapping, Open Questions, 표준 카테고리 분류 등)을 Zero 내부 도구(Cut/Refine/Audit)에 흡수·통합하여 Zero 자체 출력에 적용. 영역 차등 없음 — tech-debt·security-review·simplify 3 영역 전체 적용. hook 자동 발동(M3 모드)은 채택 안 함.",
+      "decision": "강화된 M1 — Zero 외부 skill 흡수·적용 운용 모드 박제 (PD-075 resolves)\n\n[정의]\n- Zero 페르소나는 외부 skill(engineering:tech-debt, simplify, engineering:code-review 등)을 자체 호출하지 않음\n- 외부 skill의 SOP·포맷·패턴(예: Source Map, Confidence Matrix, Evidence Hierarchy, Contradiction Mapping, Open Questions, 표준 카테고리 분류 등)을 Zero 내부 도구(Cut/Refine/Audit)에 흡수·통합하여 Zero 자체 출력에 적용\n- 영역 차등 없음 — tech-debt·security-review·simplify 3 영역 전체 적용\n- hook 자동 발동(M3 모드)은 채택 안 함\n\n[근거]\n- 본 세션 실측 (scripts/lib/topic-status.ts × tech-debt 영역):\n  - M1 (Zero 흡수): 적출 7건, fabrication 0건, 호출처 grep 5종, legend-team 정책 인용 6건\n  - M2 (Zero 재량 외부 skill 호출): 적출 18건, false positive 1건 (테스트 부재 단언, 실재 32/32 PASS 무시), legend-team 의도 충돌 1건\n  - M3 (외부 skill 단독): 적출 20건, fabrication 4건 (테스트·동시성·롤백·atomic write), D-017 Schedule-on-Demand 정면 위반 (Phase 1/2/3·Week 1·person-days·hours 금지어 다수)\n- Riki rev2 적대 감사: M3 신뢰도 ≤ 25%, M1 fabrication 0건 정합 확인\n- Ace 종합 권고: M1 default 유지 / M3 폐기 / M2 sec-review 한정\n- Jobs framing cross-check: 80% 정합, K1·B5 보강 요청\n- Master 결정: Ace 권고 단순화 — 영역 차등 없이 강화된 M1 단일 채택. 외부 skill의 형식 가치(self-containment·Source Map 등)는 Zero가 흡수해서 적용\n\n[한계 자기검열 — Jobs M-1·M-2 보강]\n- 본 결정 근거 = tech-debt 1 영역 실측 + 2 영역 (security-review·simplify) 정성 추론\n- K1 (품질 메트릭 비교 가능성) 미충족 영역은 실측 후 amendment 가능\n- M1·M2 자기보고는 Riki 외부 검증으로 cross-check 완료 — Zero 자기평가 단독 신뢰 금지 (B5 confirmation 차단)\n\n[운영 구현]\n- memory/roles/personas/role-zero.md L28·L49 정정\n- memory/shared/dispatch_config.json rules.zero 3 필드 신설:\n  - external_skills_call: \"forbidden\" (외부 skill 자체 호출 금지)\n  - external_skills_absorb_apply: \"required\" (외부 skill 가치 흡수해서 적용 의무)\n  - hook_auto_invoke: \"forbidden\" (M3 hook 자동 발동 금지)\n\n[PD-075 resolves]\n- session_233에서 분리된 PD-075 본 결정으로 resolved",
+      "status": "active",
+      "authority": "master",
+      "scopeCheck": "in-scope",
+      "amends": ["D-127"],
+      "relatedDecisions": ["D-127", "D-017", "D-185", "D-146", "D-184"],
+      "relatedPDs": ["PD-075"],
+      "tags": [
+        "zero",
+        "external-skill",
+        "absorption",
+        "strengthened-m1",
+        "pd-075"
+      ]
+    },
+    {
+      "id": "D-194",
+      "date": "2026-05-13",
+      "session": "session_246",
+      "topicId": "topic_206",
+      "topic": "topic_206",
+      "owningTopicId": "topic_206",
+      "axis": "인계 시 설계 원문 보존 정책 — 과도 요약 금지",
+      "summary": "세션 분할 시 인계 자료(Edi 박제·context_brief·session_contributions·session_index summary·oneLineSummary 등)에서 설계 내용(design content)은 원문 보존. 설계 내용 범위: 구체 액션 항목, 구현 명세, 실측 결과, 결정 근거 체인. 요약 가능 범위: 일반 토론 맥락·역할 발언 흐름·과정 진술.",
+      "decision": "인계 시 설계 원문 보존 정책 — 과도 요약 금지\n\n[정의]\n- 세션 분할 시 인계 자료(Edi 박제·context_brief·session_contributions·session_index summary·oneLineSummary 등)에서 설계 내용(design content)은 원문 보존\n- 설계 내용 범위:\n  - 구체 액션 항목 (박제할 D-NNN 본문·정정 대상 파일/라인·dispatch_config 필드 변경 등)\n  - 구현 명세 (코드 경로·함수 시그니처·hook 정의·스키마 필드 등)\n  - 실측 결과 (수치·인용·grep 결과·테스트 PASS/FAIL 등)\n  - 결정 근거 체인 (어느 측정·어느 정책·어느 충돌)\n- 요약 가능 범위: 일반 토론 맥락·역할 발언 흐름·과정 진술\n\n[사유]\n- 지금까지 세션 분할 시 과도한 요약으로 다음 세션 진입 시 무엇을 어디까지 진행했는지 불명확\n- 다음 세션 Nexus 시점에서 설계 본문 재구성 비용 증가 → context_brief read만으로 액션 진입 어려움\n\n[적용 시점]\n- 본 세션(session_246) 박제부터 적용\n- Edi 박제: 본 D-NNN 박제 시점부터 design content 원문 보존\n- context_brief: 다음 정기 regen부터 적용\n- session_contributions: 다음 작성부터 적용\n- oneLineSummary: design content가 있으면 1줄 압축 대신 원문 인용 또는 reportPath 명시\n\n[운영 가이드]\n- 요약과 인용의 구분:\n  - 요약 (가능): \"Zero가 외부 skill 흡수 결정\", \"M3 폐기 권고\"\n  - 원문 보존 (필수): D-NNN 본문, dispatch_config 신설 필드명, role-zero.md L28·L49 정확한 문구, 실측 fabrication 4건 항목 등\n- 길이 제한 회피 안 됨 — context_brief가 길어져도 design content는 원문\n- 검증: 다음 세션 진입 시 \"이 자료만으로 다음 액션 진입 가능?\" 자가 체크\n\n[관련]\n- D-185 (단언 전 반례 1건) 정합 — 원문 보존이 fabrication 차단의 1차 방어\n- PD-075 본 토픽 진행에서 도출 (session_246 turn 11~)",
+      "status": "active",
+      "authority": "master",
+      "scopeCheck": "in-scope",
+      "relatedDecisions": ["D-185"],
+      "tags": [
+        "handoff",
+        "design-content",
+        "verbatim",
+        "session-bridge"
+      ]
+    },
+    {
       "id": "D-189",
       "date": "2026-05-13",
       "session": "session_243",
@@ -694,10 +739,10 @@
       "session": "session_142",
       "topic": "topic_131",
       "owningTopicId": "topic_131",
-      "scopeCheck": "Big Bang P2(1/3) — Zero 페르소나 갱신 (D-119 본문 박제)",
-      "axis": "Zero 페르소나 = 정제 산출물 레이어, 3 영역 한정 + Cut/Refine/Audit 내부 흡수",
-      "decision": "Zero 페르소나 본문 박제: 미션=정제(refinement), 산출물 레이어. 3 영역 한정 — ① tech-debt(부채 정리) ② security-review(하드코딩 secrets·credentials·절대 경로) ③ simplify(재사용·품질·효율, 코드 다이어트). Cut/Refine/Audit 3 도구는 페르소나 내부 도구로 흡수 (외부 skill 호출 폐기, 물리 파일 부재 확인). violation flag direct read 차단 (Goodhart 회피, dispatch_config.zero.excludedAssets에 `memory/shared/ncl_violations.jsonl`+`memory/shared/violations/*` 박제). anchor governance는 Edi 분담 (D-125 정합). NCL produce 가능(Sage와 다름). session_isolation: shared. 별칭: 하드코딩 섬멸 + 코드 다이어트.",
-      "value": "D-119 supersede D-110 본문 박제 완결. 산출물 레이어 정제 단일 책임 명문화. Goodhart's Law 회피로 violation flag 자기검열 우회 차단.",
+      "scopeCheck": "Big Bang P2(1/3) — Zero 페르소나 갱신 (D-119 본문 박제) / 2026-05-13 D-193 amendment",
+      "axis": "Zero absorbs and applies all external skills — Zero 자체 도구 유지 + 외부 skill SOP·형식·패턴 흡수해서 Zero 출력에 통합. 외부 skill 자체 호출 0건, hook 자동 발동 0건. 영역 차등 없음.",
+      "decision": "Zero absorbs and applies all external skills — 강화된 M1 운용 모드. Zero 자체 도구(Cut/Refine/Audit) 유지 + 외부 skill(engineering:tech-debt·simplify·engineering:code-review 등) SOP·형식·패턴(Source Map·Confidence Matrix·Evidence Hierarchy·Contradiction Mapping·Open Questions·표준 카테고리 분류 등) 흡수해서 Zero 출력에 통합. 외부 skill 자체 호출 0건 (M2 미채택), hook 자동 발동 0건 (M3 미채택). 영역 차등 없음 — tech-debt·security-review·simplify 3 영역 전체 적용. (원래 본문: Zero 페르소나 본문 박제 — 미션=정제(refinement), 산출물 레이어. 3 영역 한정. Cut/Refine/Audit 3 도구는 페르소나 내부 도구로 흡수. violation flag direct read 차단, anchor governance는 Edi 분담(D-125), session_isolation: shared.)",
+      "value": "D-119 supersede D-110 본문 박제 완결. 산출물 레이어 정제 단일 책임 명문화. Goodhart's Law 회피로 violation flag 자기검열 우회 차단. 2026-05-13 D-193 amendment로 외부 skill 흡수·적용 운용 모드 확정.",
       "externalAnchors": [
         "Marie Kondo (정제·spark joy 판단)",
         "Bjarne Stroustrup, 'C++ Core Guidelines' (조기 추상화 회피, 인라인 vs 함수화 판단)"
@@ -705,6 +750,7 @@
       "supersedes": [
         "D-110"
       ],
+      "amendedBy": ["D-193"],
       "status": "active"
     },
     {

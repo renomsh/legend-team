@@ -59,7 +59,10 @@
       "session_isolation": "shared",
       "auto_hook": false,
       "internal_tools": ["Cut", "Refine", "Audit"],
-      "supersedes": ["D-110"]
+      "external_skills_call": "forbidden",
+      "external_skills_absorb_apply": "required",
+      "hook_auto_invoke": "forbidden",
+      "supersedes": ["D-110", "D-193"]
     },
     "edi": {
       "trigger": {
