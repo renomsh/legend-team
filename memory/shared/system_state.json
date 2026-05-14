@@ -1,8 +1,8 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_245",
-  "nextSessionId": "session_246",
-  "currentVersion": "v1.983",
+  "lastSessionId": "session_247",
+  "nextSessionId": "session_248",
+  "currentVersion": "v2.083",
   "openTopics": [
     {
       "id": "topic_175",
@@ -20,6 +20,18 @@
   ],
   "recentDecisions": [
     {
+      "id": "D-194",
+      "date": "2026-05-13",
+      "axis": "인계 시 설계 원문 보존 정책 — 과도 요약 금지",
+      "summary": "인계 시 설계 원문 보존 정책 — 과도 요약 금지"
+    },
+    {
+      "id": "D-193",
+      "date": "2026-05-13",
+      "axis": "Zero 외부 skill 흡수·적용 운용 모드 (강화된 M1) — Zero absorbs and applies all external skills",
+      "summary": "Zero 외부 skill 흡수·적용 운용 모드 (강화된 M1) — Zero absorbs and applies all external skills"
+    },
+    {
       "id": "D-192",
       "date": "2026-05-13",
       "axis": "자동-1 silent 마이그 + 8 미티게이션 코드 박제 (PD-079 / D-181)",
@@ -36,21 +48,26 @@
       "date": "2026-05-13",
       "axis": "Q4 active-only D-NNN 인용 enforcement — validate-decision-citations.js (WARN-only) + pre-commit hook",
       "summary": "Q4 active-only D-NNN 인용 enforcement — validate-decision-citations.js (WARN-only) + pre-commit hook"
-    },
-    {
-      "id": "D-189",
-      "date": "2026-05-13",
-      "axis": "decision_ledger status 3종 규격화 + 189건 전수 검사 완료 — active/deprecated/superseded",
-      "summary": "decision_ledger status 3종 규격화 + 189건 전수 검사 완료 — active/deprecated/superseded"
-    },
-    {
-      "id": "D-188",
-      "date": "2026-05-12",
-      "axis": "finalize.js 1893줄 → 5 lib 모듈 + orchestrator 분해. 단일 hook entry 유지. 실패 시 git revert 단일 커밋 원복 경로 박제.",
-      "summary": "(a) silent corruption detection 가능 — 각 모듈 try/catch에서 finalize-module-fail gap 박제. (b) SRP 회복 — 31 함수 5 모듈 분리. (c) 원복 단위 명확 — 단일 머지 커밋. (d) 검증 게이트 명시 — 5세션 dry-run diff = 0 강제. (e) D-143 (4) 외 정신 보존 — supersedeScope 명시."
     }
   ],
   "recentSessionSummaries": [
+    {
+      "sessionId": "session_247",
+      "topicSlug": "sage-system-state-review",
+      "closedAt": "2026-05-14T04:30:00.000Z",
+      "oneLineSummary": "Sage 시스템 점검 — DVA 패턴 적출, PD 5건 등록(O4/O1/D-187잔여/D-194잔여/resolveCondition 의무화), sage-gate hook L133 패치",
+      "decisionsAdded": []
+    },
+    {
+      "sessionId": "session_246",
+      "topicSlug": "zero-external-skill-review",
+      "closedAt": "2026-05-13T23:59:00.000Z",
+      "oneLineSummary": "PD-075 resolved: Zero absorbs and applies all external skills — 강화된 M1 (외부 skill 자체 호출 0, hook 자동 0, 영역 차등 없음). 신규 D-193·D-194 (D-127 amendment + 인계 원문 보존 정책). Zero spec L28·L49 정정 + dispatch_config rules.zero 3 필드 신설 (external_skills_call=forbidden / external_skills_absorb_apply=required / hook_auto_invoke=forbidden).",
+      "decisionsAdded": [
+        "D-193",
+        "D-194"
+      ]
+    },
     {
       "sessionId": "session_245",
       "topicSlug": "pd-069-parallel-session",
@@ -60,26 +77,109 @@
         "D-191",
         "D-192"
       ]
-    },
-    {
-      "sessionId": "session_244",
-      "topicSlug": "pd-069-parallel-session",
-      "closedAt": "2026-05-13T09:00:00.000Z",
-      "oneLineSummary": "PD-079 m* 병행세션 시스템 P1~P5 PASS — 22 신규 파일·5 게이트 통과·P6+P7 잔여, 박제 예약 D1/D2",
-      "decisionsAdded": []
-    },
-    {
-      "sessionId": "session_243",
-      "topicSlug": "decision-status-standardize",
-      "closedAt": "2026-05-13T00:00:00.000Z",
-      "oneLineSummary": "decision_ledger 189건 전수검사 완료 — 3종 규격화, Q4 enforcement hook 신규, D-189·D-190 박제",
-      "decisionsAdded": [
-        "D-189",
-        "D-190"
-      ]
     }
   ],
   "pendingDeferrals": [
+    {
+      "id": "PD-098",
+      "fromSession": "session_247",
+      "fromTopic": "topic_207",
+      "createdAt": "2026-05-14",
+      "title": "PD resolveCondition 필드 required 의무화 + validate-pd-schema.ts hook",
+      "item": "Sage 적출 (session_247 turn 0, M-1): system_state.pendingDeferrals 13건 중 11건이 resolveCondition 미명기 → D-056/D-057 lifecycle 자동 전이 시스템 84% 무력화. PD가 영구 buffer로 변질, '수동 검토만 의존하는 무한 큐' 패턴.\n\n구현 옵션:\n(a) pending_deferrals.v1 → v2 schema 갱신: resolveCondition required 필드. PD 등록 시점에 명기 강제\n(b) validate-pd-schema.ts 신규 hook: PostToolUse(Edit/Write) on pending_deferrals.json. resolveCondition 누락 시 PR 차단 또는 warn-only 알림\n(c) 기존 11건 backfill: Master/Edi가 누락 PD에 resolveCondition 소급 부여 — 강제 시 LLM 추측 위험, 수동 권장\n(d) auto-resolve trigger: scripts/resolve-pending-deferrals.ts가 resolveCondition 자연어 매칭으로 자동 status 전이\n\nD-185 정합 강화: 본 PD 자체가 'prompt-only 정책 무한 박제'를 메타 차단하는 구조적 fix. D-185 본문 '메인 enforcement는 prompt' 한계의 직접 대응.\n\nD-194 정합: 본 PD 본문 design content 원문 보존.",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-056",
+        "D-057",
+        "D-185"
+      ],
+      "dependsOn": [],
+      "relatedTopic": "topic_207",
+      "resolveCondition": "pending_deferrals.json schema에 resolveCondition required 필드 박제 + validate-pd-schema.ts hook 동작 확인 (PR 1건 차단 또는 warn-only 알림 1건 발동) + 신규 PD 등록 5건 연속 resolveCondition 명기"
+    },
+    {
+      "id": "PD-097",
+      "fromSession": "session_247",
+      "fromTopic": "topic_207",
+      "createdAt": "2026-05-14",
+      "title": "session-end-finalize hook 변형 파일명 인식 패턴 정밀화 (D-194 잔여)",
+      "item": "Sage 적출 (session_247 turn 0, 축 3): session_246 'missing-report 4건' (ace turn5, zero turn7/8, edi turn11) gap의 실체는 subagent body 휘발이 아닌 hook 패턴 정밀도 결함. 실제 reports/2026-05-13_zero-external-skill-review/에는 ace_synthesis.md, zero_rev1·rev2·m1·m2·m3, edi_rev1.md가 모두 박제됐으나 hook이 '{role}_rev*.md' 단일 패턴만 인식 → 변형 파일명(ace_synthesis.md, m1_*.md 등) 미감지.\n\nrole-skill 출력 다양성 vs hook 패턴 단일 강제 = D2 prime directive 위반 (description '{role}_rev*.md 박제 의무' vs 실제 산출 패턴 drift).\n\n또한 Nexus가 turn 0 프롬프트에서 'gaps 8건 (missing-report 4 + inline-role-header-mismatch 4)' 단언 → Sage cross-check 시 inline-role-header-mismatch 4건은 session_index/edi_rev1에 미발견. 실제는 current_session.json에는 8건 박제, session_index 전파 시 4건만 통과 = **gap propagation 결함** 추가 발견.\n\n구현 옵션:\n(a) session-end-finalize.js 패턴 확장: '{role}_*.md' (ace_synthesis, zero_m1 등 prefix-match)\n(b) reports/{date}_{slug}/ 디렉토리 전수 스캔 + frontmatter role 필드 매칭 (frontmatter 의무 D-067 정합)\n(c) gap propagation 결함 별도 처리: current_session → session_index 전파 시 gaps 배열 전수 복제 보장\n\nD-194 정합: 본 PD 자체가 D-194 박제 직후 동일 세션 내 위반의 직접 산물.",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-194",
+        "D-067"
+      ],
+      "dependsOn": [],
+      "relatedTopic": "topic_207",
+      "resolveCondition": "session-end-finalize.js 패턴 확장 박제 + 다음 5세션 missing-report gaps 0건 + gap propagation 결함 별도 처리 (current_session.gaps 8건 → session_index 전파 시 8건 보존)"
+    },
+    {
+      "id": "PD-096",
+      "fromSession": "session_247",
+      "fromTopic": "topic_207",
+      "createdAt": "2026-05-14",
+      "title": "워크트리 머지 직전 working tree dirty 차단 경로 (D-187 잔여, formerly PD-086 in CLAUDE.md L91)",
+      "item": "Sage 적출 (session_247 turn 0, 축 1): system_state.worktreeMergeFailures 누적 2건 (claude/practical-pare-60a262 2026-05-14T02:27, claude/zen-dewdney-2c01e4 2026-05-14T03:27) 모두 동일 파일쌍(memory/growth/self_scores.jsonl + memory/shared/dashboard_data.json) 충돌. 두 워크트리 git config 직접 조회 시 core.hooksPath + merge.ours.driver=true 정상 설정. .gitattributes 두 파일 모두 merge=ours 등재 정상.\n\n실패 원인: 머지 단계가 아닌 머지 직전 working tree dirty 상태. 에러 본문 'Your local changes to the following files would be overwritten by merge' — merge=ours driver는 충돌 해결 단계에서 작동하나, working tree 미커밋 변경이 있으면 git이 머지 자체를 시작 못 함.\n\nD-187 박제 시 'main 직커밋 차단 + .gitattributes merge=ours = 머지 충돌 차단 완성'으로 인식되었으나 차단된 것은 충돌 해결 단계만. **머지-전 working tree 오염 경로는 잔존**. CLAUDE.md L91이 '분리 항목: PD-086 (hook의 main 워킹디렉토리 직접 write 경로 — syncClaudeDir·session-end-tokens.js)'로 명시했으나 PD-086 자체가 system_state.pendingDeferrals 명단에 부재 = 추적 부재 = Sage M-1 메타 패턴('분리 처리 의도 vs 실제 PD 등록 누락') 직접 사례.\n\n구현 옵션:\n(a) syncClaudeDir 직접 write 경로 차단 — main 워킹디렉토리 mutation 시 워크트리 우선\n(b) session-end-tokens.js write 경로 워크트리 한정\n(c) 워크트리 머지 전 git stash 자동 호출 후 머지 → unstash 순서 (auto-merge.js 신규)",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-187"
+      ],
+      "dependsOn": [],
+      "relatedTopic": "topic_207",
+      "resolveCondition": "syncClaudeDir / session-end-tokens.js 워킹디렉토리 직접 write 경로 차단 박제 + 동일 파일쌍(self_scores.jsonl + dashboard_data.json) 머지 충돌 14일 연속 0건"
+    },
+    {
+      "id": "PD-095",
+      "fromSession": "session_247",
+      "fromTopic": "topic_207",
+      "createdAt": "2026-05-14",
+      "title": "수치/카운트 단언 출처 매칭 hook MVP (DVA-A 차단, Sage O1 MVP)",
+      "item": "Sage 적출 (session_247 turn 1, 옵션 O1): Nexus 반복 결함 'DVA-A 사실 단언형' 차단 hook MVP. 본 세션 turn 0 'gaps 8건' 단언이 정확히 이 카테고리 — 수치/카운트를 검증된 듯 발화.\n\n메커니즘: PostToolUse hook (Nexus assistant 메시지 대상). 수치+단위·카운트·N건 같은 정량 단언이 있으면 직전 N턴 Read/Grep/Bash 출처 매칭. 매칭 0건 시 다음 턴 차단 + Master 알림 (warn-only MVP).\n\n영역 한정 (false-positive 폭증 회피, D-185 옵션 B 기각 사유 정합):\n- 1차 영역: 'N건', 'N개', 'N% 누적' 등 카운트 표현만\n- 2차 영역(미적용): '구조적', '안전한' 등 정성 단언 — 별도 결정 후 확장\n\nD4 정합: 모델 자율 판단 0, 코드 enforce. 단 정규식·NLP 단언 추출 정확도 이슈가 핵심 risk — Riki 적출 의무.\n\n별도 토픽 분리 권장 (Grade B): 본 PD를 시드로 토픽 오픈 시 Arki(hook 구조)·Riki(false-positive risk)·Dev(구현) 3 역할 정식 진행.",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-185"
+      ],
+      "dependsOn": [
+        "PD-094"
+      ],
+      "relatedTopic": "topic_207",
+      "resolveCondition": "별도 Grade B 토픽 오픈 → MVP 영역 정의 박제 + PostToolUse hook 1개 박제 + 5세션 dry-run 시 false-positive 5% 이하 + 실측 DVA-A 사례 1건 차단 또는 알림"
+    },
+    {
+      "id": "PD-094",
+      "fromSession": "session_247",
+      "fromTopic": "topic_207",
+      "createdAt": "2026-05-14",
+      "title": "decision_ledger enforcementMechanism 필드 강제 + 자동 무효화 (Sage O4 1순위, DVA-B 메타 차단)",
+      "item": "Sage 적출 (session_247 turn 1, 옵션 O4 1순위): Nexus 반복 결함 'DVA-B 정책 박제형' 메타 차단. D-185 박제 자체가 D4 위반의 구조적 증거 — 박제일(2026-05-12) 이틀 후(2026-05-14) session_247에서 동일 패턴 재발. 'prompt-only 정책 = 해결' 거짓 안도가 메타 메커니즘.\n\n메커니즘: decision_ledger schema에 다음 3 필드 강제\n- enforcementMechanism: 'prompt' | 'hook' | 'test' | 'manual-review'\n- enforcementSinceSession: 정책 enforce 시작 세션 ID (NULL 허용 시 prompt-only)\n- selfNullifyByDate: prompt-only 정책의 경우 N세션/N일 내 hook 미박제 시 자동 무효화 (status: 'self-nullified')\n\n전수 마이그 동반: 기존 D-NNN 200+건에 enforcementMechanism 일괄 부여. 옵션:\n(a) Master+Edi 수동 분류 (정확도 ↑, 비용 ↑↑)\n(b) 자동 분류 후 수동 검수 (text+anchor 매칭으로 hook/test 자동 식별, 나머지는 prompt 디폴트)\n(c) Greenfield only — 신규 D-NNN부터 적용, 기존은 enforcementMechanism: NULL 허용\n\n메타 D4 정합 최상: '정책 박제 후 enforcement 코드 미박제 시 정책 자동 무효화'가 D-185 같은 prompt-only 무한 박제 루프를 메타 차단.\n\n별도 토픽 분리 권장 (Grade A): schema 변경 + 마이그 + validator + ledger 200건 검수는 단일 세션 처리 불가. Arki 구조 진단 + Riki 마이그 risk + Master 검수 path 설계 의무.",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-185",
+        "D-184",
+        "D-189"
+      ],
+      "dependsOn": [],
+      "relatedTopic": "topic_207",
+      "resolveCondition": "별도 Grade A 토픽 오픈 → schema 3 필드 박제 + 마이그 옵션 (a/b/c) 결정 + validator 1건 박제 + 신규 D-NNN 5건 연속 enforcementMechanism 명기 + 기존 D-185 자체에 enforcementMechanism: 'prompt' + selfNullifyByDate 사후 부여"
+    },
+    {
+      "id": "PD-093",
+      "fromSession": "session_246",
+      "fromTopic": "topic_206",
+      "createdAt": "2026-05-13",
+      "title": "Zero 도구 SOP에 외부 skill 패턴 실질 흡수 구현 (D-193 정책 박제 후속)",
+      "item": "D-193 (강화된 M1, session_246) 박제는 정책 선언·dispatch_config 플래그·role-zero.md L28·L49 문구 정정에 그침. Zero 내부 도구 정의(role-zero.md L39~L49 표 — Cut/Refine/Audit 3 도구) 자체는 미변경. 따라서 다음 세션 Zero 호출 시 흡수 이전과 동일 SOP로 작동 (D-193 본문의 '흡수·통합' 실질 효력 부재).\n\n흡수 대상 외부 skill 패턴 7종 (Zero 도구 SOP에 통합 의무):\n1. Source Map — 입력 자료 1줄 요약 표 (보고서명·역할·핵심 주장)\n2. Confidence Matrix — 발견별 High/Med/Low 등급 (T/A/O 등급과 정합 필요)\n3. Evidence Hierarchy — Primary(직접 측정)/Secondary(추론)/Tertiary(가정) 3 tier 구분\n4. Contradiction Mapping — 자료 간 충돌 + 해결 상태 표\n5. Open Questions / Gaps — 미해결 명시 섹션\n6. 표준 카테고리 분류 — tech-debt 7-category SOP·security-review 6-category 등 영역별 표준 분류 체계\n7. Theme Clusters — 반복 패턴 묶음 + supporting evidence\n\n구현 옵션:\n(a) role-zero.md '내부 도구' 섹션 확장 — 3 도구 표에 '흡수된 SOP 패턴' 컬럼 추가\n(b) 별도 섹션 신설 — '흡수된 외부 skill SOP 카탈로그' (7 패턴 + 적용 trigger + Zero 도구 매핑)\n(c) memory/roles/policies/role-zero.md 신규 섹션 — SOP 카탈로그 + 호출 시 자동 적용 규칙\n(d) hook 신설 — Zero dispatch 시 prompt에 흡수 SOP 7종 inject (D-128 dispatch hook 패턴 정합)\n\n검증 메트릭: 다음 Zero 호출 결과물에 (1) Source Map 또는 Evidence Hierarchy 또는 Confidence Matrix 중 최소 1건 명시 등장 (2) 영역별 표준 카테고리 분류 사용 (tech-debt = 7-category 또는 명시적 단순화 사유) (3) Open Questions 섹션 존재. 3 조건 충족 시 흡수 실질 작동 인정.\n\nD-194 정합: 본 PD 본문 자체가 design content 원문 보존 — 향후 세션 진입 시 압축 금지.\n\nD-185 정합: 흡수 미수행이 fabrication 차단 약화 (D-193 선언만으로는 다음 세션 Zero가 흡수 이전 동일 SOP 사용, 외부 skill의 grep·반례 탐색 패턴 미적용)으로 위험.",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-193",
+        "D-194",
+        "D-127",
+        "D-185"
+      ],
+      "dependsOn": [],
+      "relatedTopic": "topic_206",
+      "resolveCondition": "role-zero.md 또는 role-zero.md policy에 흡수된 외부 skill SOP 패턴 7종 명시 박제 + 다음 Zero 호출 결과물 3 검증 조건 충족 (Source Map/Evidence/Confidence 1건 + 표준 카테고리 + Open Questions)"
+    },
     {
       "id": "PD-079",
       "fromSession": "session_234",
@@ -95,15 +195,6 @@
         "PD-077"
       ],
       "relatedTopic": "topic_197"
-    },
-    {
-      "id": "PD-075",
-      "fromSession": "session_233",
-      "fromTopic": "agent-dispatch-speed",
-      "createdAt": "2026-05-10",
-      "title": "Zero 외부 skill 흡수 결정 재검토 — engineering:tech-debt·simplify",
-      "item": "Zero 페르소나(memory/roles/personas/role-zero.md L28·L49)가 'engineering:tech-debt·simplify skill 외부 호출 폐기' 명시. 폐기 명분 '외부 skill 파일 부재'였으나 현재 명백히 존재함 (available skills 리스트 노출). 재검토 옵션: (a) 흡수 유지 — 호출 절감 우선 (b) 참조 정정 — 사실관계만 수정 (c) 위임 전환 — Zero를 wrapper로 슬림화. session_233에서 분리 결정.",
-      "status": "pending"
     },
     {
       "id": "PD-076",
@@ -252,17 +343,5 @@
       "relatedTopic": "topic_197"
     }
   ],
-  "lastUpdated": "2026-05-14T03:27:17.612Z",
-  "worktreeMergeFailures": [
-    {
-      "branch": "claude/practical-pare-60a262",
-      "detectedAt": "2026-05-14T02:27:35.124Z",
-      "message": "error: Your local changes to the following files would be overwritten by merge:\n  memory/growth/self_scores.jsonl memory/shared/dashboard_data.json\nMerge with strategy ort failed.\n"
-    },
-    {
-      "branch": "claude/zen-dewdney-2c01e4",
-      "detectedAt": "2026-05-14T03:27:17.612Z",
-      "message": "warning: in the working copy of 'memory/shared/system_state.json', LF will be replaced by CRLF the next time Git touches it\nerror: Your local changes to the following files would be overwritten by merge:\n  memory/growth/self_scores.jsonl memory/shared/dashboard_data.json\nMerge with strategy ort fail"
-    }
-  ]
+  "lastUpdated": "2026-05-14T04:48:03.043Z"
 }

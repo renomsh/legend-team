@@ -1,250 +1,156 @@
 {
-  "sessionId": "session_246",
-  "topicId": "topic_206",
-  "topic": "PD-075 Zero 외부 skill 흡수 재검토",
-  "topicSlug": "zero-external-skill-review",
-  "reportPath": "reports/2026-05-13_zero-external-skill-review",
-  "startedAt": "2026-05-13T12:30:00.000Z",
+  "sessionId": "session_247",
+  "topicId": "topic_207",
+  "topic": "시스템 상태 점검 — Sage 회고",
+  "topicSlug": "sage-system-state-review",
+  "reportPath": "reports/2026-05-14_sage-system-state-review",
+  "startedAt": "2026-05-14T03:30:00.000Z",
   "mode": "observation",
-  "grade": "B",
-  "topicType": "framing",
+  "grade": "A",
+  "topicType": "standalone",
   "operationType": "structured",
-  "phase": "framing",
+  "phase": "validated",
   "framingLevel": 0,
   "framingSkipped": true,
   "status": "closed",
-  "closedAt": "2026-05-13T23:59:00.000Z",
-  "oneLineSummary": "PD-075 resolved: Zero absorbs and applies all external skills — 강화된 M1 (외부 skill 자체 호출 0, hook 자동 0, 영역 차등 없음). 신규 D-193·D-194 (D-127 amendment + 인계 원문 보존 정책). Zero spec L28·L49 정정 + dispatch_config rules.zero 3 필드 신설 (external_skills_call=forbidden / external_skills_absorb_apply=required / hook_auto_invoke=forbidden).",
-  "decisionsAdded": [
-    "D-193",
-    "D-194"
-  ],
-  "pendingDeferralsResolved": [
-    "PD-075"
-  ],
+  "closedAt": "2026-05-14T04:30:00.000Z",
+  "oneLineSummary": "Sage 시스템 점검 — DVA 패턴 적출, PD 5건 등록(O4/O1/D-187잔여/D-194잔여/resolveCondition 의무화), sage-gate hook L133 패치",
+  "decisionsAdded": [],
   "pendingDeferralsAdded": [
-    "PD-093"
+    "PD-094",
+    "PD-095",
+    "PD-096",
+    "PD-097",
+    "PD-098"
   ],
-  "versionBump": {
-    "value": 0.1,
-    "from": "1.983",
-    "to": "2.083",
-    "reason": "PD-075 강화된 M1 결정 (D-127 amendment + 신규 D-193·D-194) + 인계 원문 보존 정책 + Zero spec 정정 + dispatch_config rules.zero 3 필드 신설",
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-13T23:59:00.000Z",
-    "basedOn": "nexus-suggested + edi-judgment",
-    "overrideReason": null
-  },
+  "pendingDeferralsResolved": [],
+  "versionBump": null,
   "turns": [
     {
-      "role": "arki",
+      "role": "sage",
       "turnIdx": 0,
       "source": "agent"
     },
     {
-      "role": "riki",
+      "role": "sage",
       "turnIdx": 1,
-      "source": "agent",
-      "selfScores": {
-        "crt_rcl": 0.5,
-        "cr_val": "Y",
-        "prd_rej": "N",
-        "fp_rt": 0
-      }
+      "source": "agent"
     },
     {
-      "role": "jobs",
+      "role": "edi",
       "turnIdx": 2,
-      "source": "agent"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 3,
-      "source": "agent",
-      "selfScores": {
-        "aud_rcl": 0.5,
-        "str_fd": 0,
-        "spc_lck": "N",
-        "sa_rnd": 2
-      }
-    },
-    {
-      "role": "riki",
-      "turnIdx": 4,
-      "source": "agent"
-    },
-    {
-      "role": "ace",
-      "turnIdx": 5,
-      "source": "agent",
-      "selfScores": {
-        "rfrm_trg": "Y",
-        "ctx_car": 4,
-        "mst_fr": 0,
-        "ang_nov": 3
-      }
-    },
-    {
-      "role": "jobs",
-      "turnIdx": 6,
-      "source": "agent"
-    },
-    {
-      "role": "zero",
-      "turnIdx": 7,
-      "source": "agent",
-      "selfScores": {
-        "ref_cnt": 14,
-        "hc_found": 0,
-        "cln_rt": 1
-      }
-    },
-    {
-      "role": "zero",
-      "turnIdx": 8,
-      "source": "agent",
-      "selfScores": {
-        "ref_cnt": 7,
-        "hc_found": 0,
-        "cln_rt": 1
-      }
-    },
-    {
-      "role": "jobs",
-      "turnIdx": 9,
-      "source": "agent",
-      "selfScores": {
-        "focus_sharp": 5,
-        "bloat_idx": 1,
-        "bias_cnt": 2,
-        "no_cnt": 1
-      }
-    },
-    {
-      "role": "jobs",
-      "turnIdx": 10,
-      "source": "agent",
-      "selfScores": {
-        "focus_sharp": 4,
-        "bloat_idx": 2,
-        "bias_cnt": 3,
-        "no_cnt": 0
-      }
-    },
-    {
-      "role": "edi",
-      "turnIdx": 11,
-      "source": "agent"
-    },
-    {
-      "role": "zero",
-      "turnIdx": 12,
-      "source": "agent",
-      "selfScores": {
-        "ref_cnt": 0,
-        "hc_found": 0,
-        "cln_rt": 1
-      }
-    },
-    {
-      "role": "edi",
-      "turnIdx": 13,
-      "source": "agent"
+      "phase": "compile"
     }
   ],
   "masterFeedback": [],
-  "openMasterAlerts": [],
+  "openMasterAlerts": [
+    {
+      "severity": "high",
+      "message": "versionBump 미확정: Edi가 confirmedBy: 'edi' 박제 필요 (suggested value: 0.01)",
+      "addedBy": "checkVersionBumpConfirmation",
+      "ref": "D-140"
+    }
+  ],
   "gaps": [
     {
-      "type": "missing-report",
-      "role": "ace",
-      "turnIdx": 5,
-      "reportPath": "reports/2026-05-13_zero-external-skill-review",
-      "detectedAt": "2026-05-13T13:23:03.185Z",
-      "note": "ace turn5 완료 후 reports/ace_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+      "type": "zero-skipped",
+      "reason": "sage-exclusive — Sage turn 존재로 D-128 hook이 다른 페르소나 차단. Zero D.Condense 게이트 정상 skip",
+      "in_scope_count": 0
     },
     {
-      "type": "missing-report",
-      "role": "zero",
-      "turnIdx": 7,
-      "reportPath": "reports/2026-05-13_zero-external-skill-review",
-      "detectedAt": "2026-05-13T13:31:26.272Z",
-      "note": "zero turn7 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+      "type": "edi-llm-skipped",
+      "reason": "sage-exclusive — Edi LLM 호출 sage-gate hook 차단 (D-128). edi_auto_rev1.md를 Nexus가 fallback 작성",
+      "fallbackFile": "reports/2026-05-14_sage-system-state-review/edi_auto_rev1.md"
     },
     {
-      "type": "missing-report",
-      "role": "zero",
-      "turnIdx": 8,
-      "reportPath": "reports/2026-05-13_zero-external-skill-review",
-      "detectedAt": "2026-05-13T13:45:30.450Z",
-      "note": "zero turn8 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+      "type": "nexus-dva-a-self-detected",
+      "turnIdx": 0,
+      "issue": "turn 0 프롬프트의 'gaps 8건' 단언이 Sage cross-check 결과 4건만 검증 가능. D-185 확장 (C) 위반 자가 적출. PD-095 직접 대응.",
+      "detectedBy": "sage turn 0"
     },
     {
-      "type": "missing-report",
-      "role": "edi",
-      "turnIdx": 11,
-      "reportPath": "reports/2026-05-13_zero-external-skill-review",
-      "detectedAt": "2026-05-14T01:34:51.281Z",
-      "note": "edi turn11 완료 후 reports/edi_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+      "type": "edi-llm-skipped",
+      "sessionId": "session_247",
+      "grade": "A",
+      "severity": "high",
+      "detectedAt": "2026-05-14T04:48:02.531Z",
+      "note": "Grade A/B/S 세션에서 Edi LLM 미호출 — mechanical fallback 박제됨"
     },
     {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-13_zero-external-skill-review/m1_zero_absorbed.md",
-      "expected": "zero",
-      "actualInTurns": "riki",
-      "turnId": 4
+      "type": "edi-agent-source-missing",
+      "sessionId": "session_247",
+      "grade": "A",
+      "severity": "high",
+      "detectedAt": "2026-05-14T04:48:02.535Z",
+      "note": "turns[]에 role=edi && source=agent turn 없음 — D-066(Grade A/S 서브에이전트 강제) + D4(hook 박제) 위반",
+      "ref": "D-138"
     },
     {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-13_zero-external-skill-review/m2_zero_delegated.md",
-      "expected": "zero-m2",
-      "actualInTurns": "ace",
-      "turnId": 5
+      "type": "edi-llm-report-absent",
+      "sessionId": "session_247",
+      "reportPath": "reports/2026-05-14_sage-system-state-review",
+      "grade": "A",
+      "note": "LLM Edi 작성 edi_rev*.md 부재 — session_contributions 복사 skip"
     },
     {
-      "type": "inline-role-header-h1-mismatch",
-      "file": "reports/2026-05-13_zero-external-skill-review/m2_zero_delegated.md",
-      "frontmatterRole": "zero-m2",
-      "h1Role": "zero"
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-13_zero-external-skill-review/m3_external_only.md",
-      "expected": "external-skill-only",
-      "actualInTurns": "jobs",
-      "turnId": 6
+      "type": "version-bump-edi-unconfirmed",
+      "severity": "high",
+      "detail": "versionBumpSuggested 존재하나 Edi 확정(confirmedBy: edi) 미기록",
+      "addedBy": "checkVersionBumpConfirmation",
+      "ref": "D-140",
+      "suggestedValue": 0.01
     }
   ],
   "notes": [
-    "PD-075 재검토 — Zero 페르소나 외부 skill 흡수 결정(외부 skill 파일 부재 명분) 재검토. session_233에서 분리, 본 세션에서 정식 처리.",
-    "Master 결정: 'Zero absorbs and applies all external skills' — Ace 권고(영역 차등)를 단순화한 강화된 M1. D-193 박제. 영역 차등 없음 (tech-debt·security-review·simplify 전체 적용).",
-    "Master 결정 2: 인계 시 설계 내용 원문 보존, 과도 요약 금지. D-194 박제. 본 세션부터 적용 — Edi·context_brief·session_contributions·oneLineSummary 모두 design content 원문 보존.",
-    "Master 적출: D-193 박제는 정책 선언만, Zero 도구 SOP 실질 흡수 미수행. PD-093 신규 등록 (옵션 B 채택) — role-zero.md 내부 도구 섹션 확장 + 외부 skill SOP 패턴 7종 (Source Map·Confidence Matrix·Evidence Hierarchy·Contradiction Mapping·Open Questions·표준 카테고리·Theme Clusters) 통합 구현 후속 트랙."
+    "Master 명시 호출: Sage 시스템 상태 점검 (option 3). 범위: worktreeMergeFailures 누적·PD 13건 누적·D-187/D-194 정책 정합성 회고.",
+    "Master 추가 질의: 'Nexus가 계속 지금과 같은데 어떻게 해야 하나?' → Sage turn 1로 DVA(Declaration-Verification Asymmetry) 패턴 진단 + 옵션 카드 5개 + O4 1순위 권고.",
+    "Master 결정: Sage turn 1 권고 2건 + turn 0 권고 3건 = 총 5건 PD 등록. Nexus가 직접 등록 (Sage exclusive로 Edi 호출 차단). 모두 resolveCondition 명기 (M-1 자기시정).",
+    "Hook 패치: pre-tool-use-task-sage-gate.js L133–140 — D-073/D-105 노선상 .claude/agents/role-sage.md 영구 부재 정합. markerRole=sage + subagent_type=general-purpose 통과 허용. 한 방향 forgery 가드만 유지."
+  ],
+  "infraChanges": [
+    ".claude/hooks/pre-tool-use-task-sage-gate.js (L133-140 dual-marker → marker-only 완화)",
+    "memory/shared/pending_deferrals.json (PD-094~098 5건 신규)",
+    "reports/2026-05-14_sage-system-state-review/sage_rev1.md (신규)",
+    "reports/2026-05-14_sage-system-state-review/edi_auto_rev1.md (Nexus fallback 신규)"
   ],
   "tokenUsage": {
-    "input_tokens": 285,
-    "output_tokens": 214007,
-    "cache_creation_input_tokens": 962475,
-    "cache_read_input_tokens": 13205749,
-    "messageCount": 102,
-    "masterTurns": 15,
-    "total_billable": 14382516
+    "input_tokens": 249,
+    "output_tokens": 102886,
+    "cache_creation_input_tokens": 437071,
+    "cache_read_input_tokens": 10618861,
+    "messageCount": 101,
+    "masterTurns": 16,
+    "total_billable": 11159067
   },
   "agentsCompleted": [
-    "arki",
-    "riki",
-    "jobs",
-    "arki",
-    "riki",
-    "ace",
-    "jobs",
-    "zero",
-    "zero",
-    "jobs",
-    "jobs",
-    "edi",
-    "zero",
+    "sage",
+    "sage",
     "edi"
   ],
-  "finalizedAt": "2026-05-14T02:27:31.246Z"
+  "versionBumpSuggested": {
+    "value": 0.01,
+    "type": "capacity",
+    "reason": "역량 확장 자동 감지: ledger/dispatch_config/hooks 1건 (.claude/hooks/pre-tool-use-task-sage-gate.js)",
+    "autoDetectedAt": "2026-05-14T04:48:03.013Z",
+    "changedFiles": [
+      ".claude/hooks/pre-tool-use-task-sage-gate.js",
+      "logs/hook-diagnostics.log",
+      "logs/master-first.log",
+      "logs/pre-tool-use-task.log",
+      "logs/sage-gate.log",
+      "memory/master/master_feedback_log.json",
+      "memory/sessions/current_session.json",
+      "memory/sessions/session_index.json",
+      "memory/sessions/token_log.json",
+      "memory/shared/pending_deferrals.json",
+      "memory/shared/system_state.json",
+      "memory/shared/topic_index.json",
+      "reports/2026-05-14_sage-system-state-review/",
+      "topics/topic_207/"
+    ],
+    "changedFilesCount": 14,
+    "cappedAt": 0.1,
+    "confirmedBy": null
+  },
+  "finalizedAt": "2026-05-14T04:48:03.044Z"
 }

@@ -1728,3 +1728,15 @@
 {"ts":"2026-05-14T02:20:39.542Z","phase":"classified","sessionId":"9e2eb970-fee0-439d-ad6e-441ca17a9eed","grade":"B","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":9}
 {"ts":"2026-05-14T02:22:41.388Z","phase":"classified","sessionId":"9e2eb970-fee0-439d-ad6e-441ca17a9eed","grade":"B","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":7}
 {"ts":"2026-05-14T02:26:37.639Z","phase":"classified","sessionId":"9e2eb970-fee0-439d-ad6e-441ca17a9eed","grade":"B","echoTriggerDetected":false,"intentReconfirmRequested":false,"matchedKeywords":[],"elapsedMs":11}
+{"ts":"2026-05-14T03:56:05.929Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"234fb7f3-bbb2-49ad-8658-b37a1b02657b","grade":"B"}
+{"ts":"2026-05-14T03:57:18.119Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"234fb7f3-bbb2-49ad-8658-b37a1b02657b","grade":"B"}
+{"ts":"2026-05-14T03:59:35.364Z","phase":"stale-state-skip","toolName":"Agent","stateSessionId":"9e2eb970-fee0-439d-ad6e-441ca17a9eed","currentSessionId":"234fb7f3-bbb2-49ad-8658-b37a1b02657b"}
+{"ts":"2026-05-14T04:02:33.293Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"234fb7f3-bbb2-49ad-8658-b37a1b02657b","grade":"A"}
+{"ts":"2026-05-14T04:06:37.164Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"234fb7f3-bbb2-49ad-8658-b37a1b02657b","grade":"A"}
+{"ts":"2026-05-14T04:07:43.840Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"234fb7f3-bbb2-49ad-8658-b37a1b02657b","grade":"A"}
+{"ts":"2026-05-14T04:08:57.935Z","phase":"stale-state-skip","toolName":"Agent","stateSessionId":"9e2eb970-fee0-439d-ad6e-441ca17a9eed","currentSessionId":"234fb7f3-bbb2-49ad-8658-b37a1b02657b"}
+{"ts":"2026-05-14T04:10:58.249Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"234fb7f3-bbb2-49ad-8658-b37a1b02657b","grade":"A"}
+{"ts":"2026-05-14T04:12:00.414Z","phase":"stale-state-skip","toolName":"Agent","stateSessionId":"9e2eb970-fee0-439d-ad6e-441ca17a9eed","currentSessionId":"234fb7f3-bbb2-49ad-8658-b37a1b02657b"}
+{"ts":"2026-05-14T04:34:54.767Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"234fb7f3-bbb2-49ad-8658-b37a1b02657b","grade":"A"}
+{"ts":"2026-05-14T04:35:36.974Z","phase":"stale-state-skip","toolName":"Agent","stateSessionId":"9e2eb970-fee0-439d-ad6e-441ca17a9eed","currentSessionId":"234fb7f3-bbb2-49ad-8658-b37a1b02657b"}
+{"ts":"2026-05-14T04:41:46.754Z","phase":"no-op","reason":"jobs-framing-not-active","sessionId":"234fb7f3-bbb2-49ad-8658-b37a1b02657b","grade":"A"}

@@ -437,3 +437,7 @@
 {"ts":"2026-05-14T01:34:43.382Z","phase":"sage-gate-pass","role":"edi","turnRolesCount":11}
 {"ts":"2026-05-14T01:35:34.987Z","phase":"sage-gate-pass","role":"zero","turnRolesCount":12}
 {"ts":"2026-05-14T01:39:12.314Z","phase":"sage-gate-pass","role":"edi","turnRolesCount":13}
+{"ts":"2026-05-14T03:59:35.347Z","phase":"sage-gate-pass","role":"sage","turnRolesCount":0}
+{"ts":"2026-05-14T04:08:57.923Z","phase":"sage-gate-reject","role":"sage","markerRole":"sage","subagentRole":"general-purpose","reason":"Sage dispatch contract violation: marker=sage but subagent_type='general-purpose'. Both must be sage. (topic_135 Phase 2, D-128)"}
+{"ts":"2026-05-14T04:12:00.404Z","phase":"sage-gate-pass","role":"sage","turnRolesCount":0}
+{"ts":"2026-05-14T04:35:36.964Z","phase":"sage-gate-pass","role":"sage","turnRolesCount":1}
