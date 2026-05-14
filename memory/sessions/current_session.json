@@ -1,40 +1,18 @@
 {
-  "sessionId": "session_246",
-  "topicId": "topic_206",
-  "topic": "PD-075 Zero 외부 skill 흡수 재검토",
-  "topicSlug": "zero-external-skill-review",
-  "reportPath": "reports/2026-05-13_zero-external-skill-review",
-  "startedAt": "2026-05-13T12:30:00.000Z",
+  "sessionId": "session_248",
+  "topicId": "topic_208",
+  "topic": "PD-085 post-tool-use hook 인라인 마커 검증 SOT 일관화",
+  "topicSlug": "pd-085-marker-sot-consolidation",
+  "reportPath": "reports/2026-05-14_pd-085-marker-sot-consolidation",
+  "startedAt": "2026-05-14T14:00:00.000Z",
   "mode": "observation",
   "grade": "B",
-  "topicType": "framing",
+  "topicType": "standalone",
   "operationType": "structured",
   "phase": "framing",
   "framingLevel": 0,
   "framingSkipped": true,
   "status": "closed",
-  "closedAt": "2026-05-13T23:59:00.000Z",
-  "oneLineSummary": "PD-075 resolved: Zero absorbs and applies all external skills — 강화된 M1 (외부 skill 자체 호출 0, hook 자동 0, 영역 차등 없음). 신규 D-193·D-194 (D-127 amendment + 인계 원문 보존 정책). Zero spec L28·L49 정정 + dispatch_config rules.zero 3 필드 신설 (external_skills_call=forbidden / external_skills_absorb_apply=required / hook_auto_invoke=forbidden).",
-  "decisionsAdded": [
-    "D-193",
-    "D-194"
-  ],
-  "pendingDeferralsResolved": [
-    "PD-075"
-  ],
-  "pendingDeferralsAdded": [
-    "PD-093"
-  ],
-  "versionBump": {
-    "value": 0.1,
-    "from": "1.983",
-    "to": "2.083",
-    "reason": "PD-075 강화된 M1 결정 (D-127 amendment + 신규 D-193·D-194) + 인계 원문 보존 정책 + Zero spec 정정 + dispatch_config rules.zero 3 필드 신설",
-    "confirmedBy": "edi",
-    "confirmedAt": "2026-05-13T23:59:00.000Z",
-    "basedOn": "nexus-suggested + edi-judgment",
-    "overrideReason": null
-  },
   "turns": [
     {
       "role": "arki",
@@ -49,210 +27,117 @@
         "crt_rcl": 0.5,
         "cr_val": "Y",
         "prd_rej": "N",
-        "fp_rt": 0
-      }
-    },
-    {
-      "role": "jobs",
-      "turnIdx": 2,
-      "source": "agent"
-    },
-    {
-      "role": "arki",
-      "turnIdx": 3,
-      "source": "agent",
-      "selfScores": {
-        "aud_rcl": 0.5,
-        "str_fd": 0,
-        "spc_lck": "N",
-        "sa_rnd": 2
+        "fp_rt": 0.25
       }
     },
     {
       "role": "riki",
-      "turnIdx": 4,
+      "turnIdx": 2,
       "source": "agent"
     },
     {
-      "role": "ace",
-      "turnIdx": 5,
+      "role": "dev",
+      "turnIdx": 3,
       "source": "agent",
       "selfScores": {
-        "rfrm_trg": "Y",
-        "ctx_car": 4,
-        "mst_fr": 0,
-        "ang_nov": 3
+        "rt_cov": 1,
+        "gt_pas": 1,
+        "hc_rt": 0,
+        "spc_drf": 0
       }
     },
     {
-      "role": "jobs",
-      "turnIdx": 6,
+      "role": "zero",
+      "turnIdx": 4,
+      "source": "agent",
+      "selfScores": {
+        "ref_cnt": 2,
+        "hc_found": 0,
+        "cln_rt": 1
+      }
+    },
+    {
+      "role": "edi",
+      "turnIdx": 5,
       "source": "agent"
     },
     {
       "role": "zero",
+      "turnIdx": 6,
+      "source": "agent",
+      "selfScores": {
+        "ref_cnt": 2,
+        "hc_found": 0,
+        "cln_rt": 1
+      }
+    },
+    {
+      "role": "edi",
       "turnIdx": 7,
       "source": "agent",
       "selfScores": {
-        "ref_cnt": 14,
-        "hc_found": 0,
-        "cln_rt": 1
+        "compile_complete": 1,
+        "redact_n": 0,
+        "version_bump": 0.001,
+        "art_cmp": 1,
+        "gp_acc": 1,
+        "scc": "Y",
+        "cs_cnt": 4,
+        "gap_fc": 4
       }
     },
     {
-      "role": "zero",
+      "role": "edi",
       "turnIdx": 8,
-      "source": "agent",
-      "selfScores": {
-        "ref_cnt": 7,
-        "hc_found": 0,
-        "cln_rt": 1
-      }
-    },
-    {
-      "role": "jobs",
-      "turnIdx": 9,
-      "source": "agent",
-      "selfScores": {
-        "focus_sharp": 5,
-        "bloat_idx": 1,
-        "bias_cnt": 2,
-        "no_cnt": 1
-      }
-    },
-    {
-      "role": "jobs",
-      "turnIdx": 10,
-      "source": "agent",
-      "selfScores": {
-        "focus_sharp": 4,
-        "bloat_idx": 2,
-        "bias_cnt": 3,
-        "no_cnt": 0
-      }
-    },
-    {
-      "role": "edi",
-      "turnIdx": 11,
-      "source": "agent"
-    },
-    {
-      "role": "zero",
-      "turnIdx": 12,
-      "source": "agent",
-      "selfScores": {
-        "ref_cnt": 0,
-        "hc_found": 0,
-        "cln_rt": 1
-      }
-    },
-    {
-      "role": "edi",
-      "turnIdx": 13,
       "source": "agent"
     }
   ],
+  "oneLineSummary": "PD-085 resolved — post-tool-use-task.js 인라인 마커 read 2곳을 readAndValidateMarker SOT 헬퍼 호출로 치환 (L442/L510), caller 잔존 검증(canonical.files.includes(fileName) / length>0 + every(...)) 유지, test-pd80-fix.js를 헬퍼 import로 재작성(Riki R-4 mitigation). Arki Option A 채택 + Riki 적출 4건(R-1 회귀 분포 정확화·R-2 completedAt 필수화 OK 분기·R-3 false-positive 단언 정정·R-4 G1 검증력 보강) 및 Zero Refine 2건 동시 적용. 게이트 5종 PASS (G1 4/4, G2 fixture 4종, G3-revised 디스크 29건 회귀 0건, G4 require 경로 정합, G5 walk-through behavior changes=1 안전 강화 방향). 후속 트리거 2건 박제(R-1 fallback opt-in 플래그 전환 / PostToolUse 외 hook 인라인 read 점검).",
+  "decisionsAdded": [],
+  "pendingDeferralsResolved": [
+    "PD-085"
+  ],
+  "versionBump": {
+    "value": 0.001,
+    "from": "v2.084",
+    "to": "v2.085",
+    "reason": "PD-085 resolved — post-tool-use-task.js 인라인 마커 read 2곳을 readAndValidateMarker SOT 헬퍼 호출로 치환 + test-pd80-fix.js 헬퍼 import 재작성 + 게이트 5종 PASS (Grade B 코드 patch, 신규 정책·페르소나·decision_ledger 0건)",
+    "confirmedBy": "edi",
+    "confirmedAt": "2026-05-14T15:00:00.000Z",
+    "overrideReason": "자동 감지 capacity(+0.01) → bugfix(+0.001) 하향 — Grade B 코드 patch, hook 인라인 read를 SOT 헬퍼 호출로 치환한 실질 변경, decision_ledger·페르소나·정책 신규 0건"
+  },
+  "closedAt": "2026-05-14T15:00:00.000Z",
+  "finalizedAt": "2026-05-14T15:00:00.000Z",
   "masterFeedback": [],
   "openMasterAlerts": [],
   "gaps": [
     {
       "type": "missing-report",
-      "role": "ace",
-      "turnIdx": 5,
-      "reportPath": "reports/2026-05-13_zero-external-skill-review",
-      "detectedAt": "2026-05-13T13:23:03.185Z",
-      "note": "ace turn5 완료 후 reports/ace_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "missing-report",
-      "role": "zero",
-      "turnIdx": 7,
-      "reportPath": "reports/2026-05-13_zero-external-skill-review",
-      "detectedAt": "2026-05-13T13:31:26.272Z",
-      "note": "zero turn7 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "missing-report",
-      "role": "zero",
-      "turnIdx": 8,
-      "reportPath": "reports/2026-05-13_zero-external-skill-review",
-      "detectedAt": "2026-05-13T13:45:30.450Z",
-      "note": "zero turn8 완료 후 reports/zero_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
+      "role": "riki",
+      "turnIdx": 1,
+      "reportPath": "reports/2026-05-14_pd-085-marker-sot-consolidation",
+      "detectedAt": "2026-05-14T14:14:28.602Z",
+      "note": "riki turn1 완료 후 reports/riki_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
     },
     {
       "type": "missing-report",
       "role": "edi",
-      "turnIdx": 11,
-      "reportPath": "reports/2026-05-13_zero-external-skill-review",
-      "detectedAt": "2026-05-14T01:34:51.281Z",
-      "note": "edi turn11 완료 후 reports/edi_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-13_zero-external-skill-review/m1_zero_absorbed.md",
-      "expected": "zero",
-      "actualInTurns": "riki",
-      "turnId": 4
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-13_zero-external-skill-review/m2_zero_delegated.md",
-      "expected": "zero-m2",
-      "actualInTurns": "ace",
-      "turnId": 5
-    },
-    {
-      "type": "inline-role-header-h1-mismatch",
-      "file": "reports/2026-05-13_zero-external-skill-review/m2_zero_delegated.md",
-      "frontmatterRole": "zero-m2",
-      "h1Role": "zero"
-    },
-    {
-      "type": "inline-role-header-mismatch",
-      "file": "reports/2026-05-13_zero-external-skill-review/m3_external_only.md",
-      "expected": "external-skill-only",
-      "actualInTurns": "jobs",
-      "turnId": 6
-    },
-    {
-      "type": "hook-chain-step-failed",
-      "severity": "high",
-      "label": "npx ts-node scripts/compute-dashboard.ts",
-      "message": "Expected double-quoted property name in JSON at position 379496 (line 12022 column 1)",
-      "addedBy": "auto-push.runHookChain",
-      "addedAt": "2026-05-14T09:25:19.645Z"
+      "turnIdx": 5,
+      "reportPath": "reports/2026-05-14_pd-085-marker-sot-consolidation",
+      "detectedAt": "2026-05-14T14:55:05.010Z",
+      "note": "edi turn5 완료 후 reports/edi_rev*.md 미발견 — 다음 에이전트에게 내용 미전달"
     }
   ],
   "notes": [
-    "PD-075 재검토 — Zero 페르소나 외부 skill 흡수 결정(외부 skill 파일 부재 명분) 재검토. session_233에서 분리, 본 세션에서 정식 처리.",
-    "Master 결정: 'Zero absorbs and applies all external skills' — Ace 권고(영역 차등)를 단순화한 강화된 M1. D-193 박제. 영역 차등 없음 (tech-debt·security-review·simplify 전체 적용).",
-    "Master 결정 2: 인계 시 설계 내용 원문 보존, 과도 요약 금지. D-194 박제. 본 세션부터 적용 — Edi·context_brief·session_contributions·oneLineSummary 모두 design content 원문 보존.",
-    "Master 적출: D-193 박제는 정책 선언만, Zero 도구 SOP 실질 흡수 미수행. PD-093 신규 등록 (옵션 B 채택) — role-zero.md 내부 도구 섹션 확장 + 외부 skill SOP 패턴 7종 (Source Map·Confidence Matrix·Evidence Hierarchy·Contradiction Mapping·Open Questions·표준 카테고리·Theme Clusters) 통합 구현 후속 트랙."
+    "PD-085 (session_238 등록) — post-tool-use-task.js 인라인 마커 read 2곳을 SOT 헬퍼(readAndValidateMarker)로 치환. Riki 적출: files.includes 검증 caller 보존 필수."
   ],
   "tokenUsage": {
-    "input_tokens": 229,
-    "output_tokens": 79537,
-    "cache_creation_input_tokens": 873958,
-    "cache_read_input_tokens": 8095199,
-    "messageCount": 108,
-    "masterTurns": 23,
-    "total_billable": 9048923
-  },
-  "agentsCompleted": [
-    "arki",
-    "riki",
-    "jobs",
-    "arki",
-    "riki",
-    "ace",
-    "jobs",
-    "zero",
-    "zero",
-    "jobs",
-    "jobs",
-    "edi",
-    "zero",
-    "edi"
-  ],
-  "finalizedAt": "2026-05-14T02:27:31.246Z"
+    "input_tokens": 303,
+    "output_tokens": 82711,
+    "cache_creation_input_tokens": 668918,
+    "cache_read_input_tokens": 11622990,
+    "messageCount": 105,
+    "masterTurns": 19,
+    "total_billable": 12374922
+  }
 }

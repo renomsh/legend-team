@@ -31,6 +31,9 @@ const TARGET_TOOL_NAMES = ['Task', 'Agent']; // 양쪽 모두 cover
 const ROLE_AGENT_PREFIX = 'role-';
 // PD-059 resolved (session_179): KNOWN_ROLES 단일 출처 — lib/known-roles.js SOT
 const { KNOWN_ROLES } = require('./lib/known-roles');
+// PD-085 (session_248): zero-condense marker read SOT 단일화 — pre-tool-use-task.js와 정합.
+// require 경로는 pre-tool-use-task.js L226과 동일 패턴.
+const { readAndValidateMarker } = require('../../scripts/lib/zero-condense-marker.js');
 // D-169 P3 — turnPushMode 분기 (session_209)
 // CWD 기준 동적 require: hook이 다른 cwd에서 실행될 수 있으므로 top-level 고정 경로 회피.
 // readTurnPushMode / pendingTurnsPath 는 main IIFE 진입 후 cwd 확정 시점에 호출.
@@ -437,18 +440,17 @@ function spikeLog(phase, extra = {}) {
           ? reportsPath
           : path.join(cwd, reportsPath);
 
+        // PD-085 (session_248): SOT 헬퍼 readAndValidateMarker 사용 — legacy 키 호환 + 검증 단일화.
+        // per-file membership 검증(files.includes(fileName))은 caller 책임으로 유지.
         let isZeroCondenseOutput = false;
-        try {
-          const markerPath = path.join(path.dirname(absReportPath), '_zero_condense.json');
-          if (fs.existsSync(markerPath)) {
-            const marker = JSON.parse(fs.readFileSync(markerPath, 'utf8'));
-            const fileName = path.basename(absReportPath);
-            if (marker && marker.sessionId === _sessionId &&
-                Array.isArray(marker.files) && marker.files.includes(fileName)) {
-              isZeroCondenseOutput = true;
-            }
+        const markerDir = path.dirname(absReportPath);
+        const result = readAndValidateMarker(markerDir, { sessionId: _sessionId });
+        if (result.valid) {
+          const fileName = path.basename(absReportPath);
+          if (result.canonical.files.includes(fileName)) {
+            isZeroCondenseOutput = true;
           }
-        } catch {}
+        }
 
         if (isZeroCondenseOutput) {
           log(`frontmatter patch skip (Zero D.Condense output, marker-verified): ${reportsPath}`);
@@ -503,17 +505,13 @@ function spikeLog(phase, extra = {}) {
         try {
           const files = fs.readdirSync(reportsDir);
           if (role === 'zero') {
-            // Zero D.Condense: _zero_condense.json 마커 우선 인식. sessionId 일치 + files 등록 확인.
-            const markerPath = path.join(reportsDir, '_zero_condense.json');
-            if (fs.existsSync(markerPath)) {
-              try {
-                const marker = JSON.parse(fs.readFileSync(markerPath, 'utf8'));
-                if (marker && marker.sessionId === _sessionId &&
-                    Array.isArray(marker.files) && marker.files.length > 0 &&
-                    marker.files.every(f => files.includes(f))) {
-                  hasReport = true;
-                }
-              } catch {}
+            // PD-085 (session_248): SOT 헬퍼 readAndValidateMarker 사용 — legacy 키 호환 + 검증 단일화.
+            // set-completeness 검증(length>0 + every f in disk)은 caller 책임으로 유지.
+            const result = readAndValidateMarker(reportsDir, { sessionId: _sessionId });
+            if (result.valid &&
+                result.canonical.files.length > 0 &&
+                result.canonical.files.every(f => files.includes(f))) {
+              hasReport = true;
             }
             // Fallback: zero_rev*.md (Zero 일반 발언 경로) 또는 condensed.md (마커 없는 D.Condense)
             if (!hasReport) {

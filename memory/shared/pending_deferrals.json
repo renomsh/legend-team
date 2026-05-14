@@ -382,11 +382,14 @@
       "createdAt": "2026-05-12",
       "title": "Tech debt — post-tool-use hook 인라인 마커 검증 SOT 일관화",
       "item": "post-tool-use-task.js가 _zero_condense.json 마커를 인라인 fs.readFileSync + JSON.parse로 read (line ~442, ~510). pre-tool-use-task.js는 scripts/lib/zero-condense-marker.js의 readAndValidateMarker 헬퍼 사용 (SOT). 헬퍼는 legacy 키(marker.session vs marker.sessionId) fallback 포함, post-tool-use 인라인은 marker.sessionId만 검사. legacy 마커 1건 실측 (reports/2026-05-05_self-score-table-format-unify/_zero_condense.json). 향후 legacy 마커 증가 시 false-positive 가능. 단, 회귀 테스트(scripts/test-pd80-fix.js)로 현재 안전. 헬퍼 치환 시 files.includes(fileName) 검증 인라인 보존 필수 (Riki 적출 — 헬퍼는 sessionId·completedAt만, files 검증 caller 책임).",
-      "status": "pending",
+      "status": "resolved",
       "relatedDecisions": [],
       "dependsOn": [],
       "relatedTopic": "topic_202",
-      "resolveCondition": "post-tool-use-task.js 두 인라인 read를 readAndValidateMarker 호출로 치환 + files.includes 인라인 보존 + scripts/test-pd80-fix.js 재실행 4건 PASS 유지"
+      "resolveCondition": "post-tool-use-task.js 두 인라인 read를 readAndValidateMarker 호출로 치환 + files.includes 인라인 보존 + scripts/test-pd80-fix.js 재실행 4건 PASS 유지",
+      "resolvedAt": "2026-05-14",
+      "resolvedInSession": "session_248",
+      "resolution": "Option A 적용 — post-tool-use-task.js top-level readAndValidateMarker require 추가, L442/L510 인라인 read를 헬퍼 호출로 치환, caller 잔존 검증(canonical.files.includes(fileName) / length>0 + every(...)) 유지. test-pd80-fix.js를 헬퍼 import로 재작성(Riki R-4 mitigation). 게이트 5종 PASS (G1 4/4, G2 fixture 4종, G3-revised 디스크 29건 회귀 0건, G4 require 경로 정합, G5 walk-through behavior changes=1 안전 강화 방향). 후속 트리거 2건 박제: (1) R-1 fallback opt-in 플래그 전환 트리거 (legacy 키 동일 sid caller 도달 시), (2) PostToolUse 외 hook 인라인 read 경로 점검."
     },
     {
       "id": "PD-086",

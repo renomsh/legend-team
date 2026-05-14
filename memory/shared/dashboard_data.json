@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-14T11:52:17.774Z",
-  "totalSessions": 243,
+  "generatedAt": "2026-05-14T17:55:44.346Z",
+  "totalSessions": 244,
   "autoDataFrom": "session_027",
   "ackedButUnresolved": [],
   "nexusPushStats": {
     "turnPushModeDistribution": {
       "hook": 0,
       "nexus": 0,
-      "undefined": 243
+      "undefined": 244
     },
     "crashRecoveryCount": 0,
     "hookOriginViolations": 0,
@@ -306,7 +306,10 @@
       "createdAt": "2026-05-10",
       "title": "audit-decision-ledger-status 분류 로직 정밀화 (self vs referent 구분)",
       "item": "Phase 1 신설 audit-decision-ledger-status.ts의 단순 키워드 매칭(supersede|폐기|deprecat)은 self-undeclared와 referent-undeclared를 구분 못 함. session_233 Phase 2에서 33건 self-undeclared 정밀 분석 결과 100% false positive (모두 다른 결정을 supersede한다는 referent 의미였음). 정밀화 옵션: (a) supersededBy/deprecates 필드 cross-check (b) 문맥 분석 (c) self-undeclared 카운트 폐기, referent만 유지. 본 audit 스크립트가 향후 정제 라운드의 토대이므로 정밀화 필수.",
-      "status": "pending"
+      "status": "resolved",
+      "resolvedAt": "2026-05-14",
+      "resolvedInSession": "session_246",
+      "resolution": "B1: scripts/audit-decision-ledger-status.ts 삭제. 신규 결정 status=active 기본, 충돌 시 Master 문의 (LLM/hook 없이 자연 흐름)."
     },
     {
       "id": "PD-081",
@@ -413,11 +416,14 @@
       "createdAt": "2026-05-12",
       "title": "Tech debt — post-tool-use hook 인라인 마커 검증 SOT 일관화",
       "item": "post-tool-use-task.js가 _zero_condense.json 마커를 인라인 fs.readFileSync + JSON.parse로 read (line ~442, ~510). pre-tool-use-task.js는 scripts/lib/zero-condense-marker.js의 readAndValidateMarker 헬퍼 사용 (SOT). 헬퍼는 legacy 키(marker.session vs marker.sessionId) fallback 포함, post-tool-use 인라인은 marker.sessionId만 검사. legacy 마커 1건 실측 (reports/2026-05-05_self-score-table-format-unify/_zero_condense.json). 향후 legacy 마커 증가 시 false-positive 가능. 단, 회귀 테스트(scripts/test-pd80-fix.js)로 현재 안전. 헬퍼 치환 시 files.includes(fileName) 검증 인라인 보존 필수 (Riki 적출 — 헬퍼는 sessionId·completedAt만, files 검증 caller 책임).",
-      "status": "pending",
+      "status": "resolved",
       "relatedDecisions": [],
       "dependsOn": [],
       "relatedTopic": "topic_202",
-      "resolveCondition": "post-tool-use-task.js 두 인라인 read를 readAndValidateMarker 호출로 치환 + files.includes 인라인 보존 + scripts/test-pd80-fix.js 재실행 4건 PASS 유지"
+      "resolveCondition": "post-tool-use-task.js 두 인라인 read를 readAndValidateMarker 호출로 치환 + files.includes 인라인 보존 + scripts/test-pd80-fix.js 재실행 4건 PASS 유지",
+      "resolvedAt": "2026-05-14",
+      "resolvedInSession": "session_248",
+      "resolution": "Option A 적용 — post-tool-use-task.js top-level readAndValidateMarker require 추가, L442/L510 인라인 read를 헬퍼 호출로 치환, caller 잔존 검증(canonical.files.includes(fileName) / length>0 + every(...)) 유지. test-pd80-fix.js를 헬퍼 import로 재작성(Riki R-4 mitigation). 게이트 5종 PASS (G1 4/4, G2 fixture 4종, G3-revised 디스크 29건 회귀 0건, G4 require 경로 정합, G5 walk-through behavior changes=1 안전 강화 방향). 후속 트리거 2건 박제: (1) R-1 fallback opt-in 플래그 전환 트리거 (legacy 키 동일 sid caller 도달 시), (2) PostToolUse 외 hook 인라인 read 경로 점검."
     },
     {
       "id": "PD-086",
@@ -519,14 +525,14 @@
     }
   ],
   "metrics": {
-    "avgMasterTurns": 22.23,
-    "avgCacheHitRate": 0.9327,
-    "cacheSampleSize": 212,
-    "cacheSampleTotal": 243,
+    "avgMasterTurns": 22.15,
+    "avgCacheHitRate": 0.9325,
+    "cacheSampleSize": 211,
+    "cacheSampleTotal": 244,
     "avgAdoptionRate": 0,
     "totalDecisions": 195,
     "gradeDistribution": {
-      "S": 115,
+      "S": 116,
       "A": 48,
       "B": 50,
       "C": 30
@@ -534,7 +540,7 @@
     "topicGradeDistribution": {
       "S": 21,
       "A": 67,
-      "B": 64,
+      "B": 65,
       "C": 49
     },
     "gradeMismatchCount": 4,
@@ -545,10 +551,10 @@
       "session_202"
     ],
     "framingSkippedCount": 0,
-    "turnBasedSessions": 197,
-    "totalCostUSD": 2925.8087,
-    "avgCostPerSession": 12.5571,
-    "costSampleSize": 233,
+    "turnBasedSessions": 198,
+    "totalCostUSD": 2896.0022,
+    "avgCostPerSession": 12.4828,
+    "costSampleSize": 232,
     "nexusModeSessions": 0,
     "orphanPendingCount": 0,
     "crashRecoveryCount": 0
@@ -9732,7 +9738,7 @@
       "gradeActual": "S",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 15,
+      "masterTurns": 38,
       "dataQuality": "auto",
       "agentsCompleted": [
         "arki",
@@ -9751,16 +9757,45 @@
         "edi"
       ],
       "tokenUsage": {
-        "totalBillable": 14382516,
-        "ioTokens": 214292,
-        "inputTokens": 285,
-        "outputTokens": 214007,
-        "cacheCreate": 962475,
-        "cacheRead": 13205749,
-        "cacheHitRate": 0.9181807272107328,
-        "messageCount": 102
+        "totalBillable": 23431439,
+        "ioTokens": 294058,
+        "inputTokens": 514,
+        "outputTokens": 293544,
+        "cacheCreate": 1836433,
+        "cacheRead": 21300948,
+        "cacheHitRate": 0.9090755373581623,
+        "messageCount": 210
       },
-      "sessionCostUSD": 10.782
+      "sessionCostUSD": 17.6816
+    },
+    {
+      "sessionId": "session_246b",
+      "topicSlug": "pd-076-audit-classification-precision",
+      "topic": "PD-076 audit-decision-ledger-status 분류 로직 정밀화 (self vs referent)",
+      "startedAt": "2026-05-13T13:00:00.000Z",
+      "closedAt": "2026-05-14T13:30:00.000Z",
+      "decisionCount": 0,
+      "decisionAxes": 0,
+      "rolesCalled": 8,
+      "rolesRecalled": 1,
+      "sessionsSpanned": 1,
+      "size": 13,
+      "gradeDeclared": "S",
+      "gradeActual": "S",
+      "gradeMismatch": false,
+      "framingSkipped": false,
+      "masterTurns": 0,
+      "dataQuality": "auto",
+      "agentsCompleted": [
+        "jobs",
+        "ace",
+        "arki",
+        "riki",
+        "arki",
+        "dev",
+        "zero",
+        "edi"
+      ]
     },
     {
       "sessionId": "session_247",
@@ -9778,30 +9813,19 @@
       "gradeActual": "A",
       "gradeMismatch": false,
       "framingSkipped": false,
-      "masterTurns": 65,
+      "masterTurns": 0,
       "dataQuality": "auto",
       "agentsCompleted": [
         "sage",
         "sage",
         "edi"
-      ],
-      "tokenUsage": {
-        "totalBillable": 68854464,
-        "ioTokens": 470628,
-        "inputTokens": 1176,
-        "outputTokens": 469452,
-        "cacheCreate": 2650904,
-        "cacheRead": 65732932,
-        "cacheHitRate": 0.9546647839710146,
-        "messageCount": 400
-      },
-      "sessionCostUSD": 36.7061
+      ]
     }
   ],
   "roleFrequency": [
     {
       "role": "edi",
-      "count": 224,
+      "count": 225,
       "sessions": [
         "session_050",
         "session_051",
@@ -9996,12 +10020,13 @@
         "session_244",
         "session_245",
         "session_246",
+        "session_246b",
         "session_247"
       ]
     },
     {
       "role": "ace",
-      "count": 190,
+      "count": 191,
       "sessions": [
         "session_047",
         "session_048",
@@ -10102,12 +10127,13 @@
         "session_238",
         "session_239",
         "session_244",
-        "session_246"
+        "session_246",
+        "session_246b"
       ]
     },
     {
       "role": "arki",
-      "count": 170,
+      "count": 172,
       "sessions": [
         "session_048",
         "session_049",
@@ -10206,12 +10232,13 @@
         "session_242",
         "session_244",
         "session_245",
-        "session_246"
+        "session_246",
+        "session_246b"
       ]
     },
     {
       "role": "dev",
-      "count": 136,
+      "count": 137,
       "sessions": [
         "session_047",
         "session_048",
@@ -10310,12 +10337,13 @@
         "session_232",
         "session_233",
         "session_242",
-        "session_244"
+        "session_244",
+        "session_246b"
       ]
     },
     {
       "role": "riki",
-      "count": 131,
+      "count": 132,
       "sessions": [
         "session_049",
         "session_053",
@@ -10413,12 +10441,13 @@
         "session_242",
         "session_244",
         "session_245",
-        "session_246"
+        "session_246",
+        "session_246b"
       ]
     },
     {
       "role": "zero",
-      "count": 60,
+      "count": 61,
       "sessions": [
         "session_153",
         "session_175",
@@ -10460,12 +10489,13 @@
         "session_243",
         "session_244",
         "session_245",
-        "session_246"
+        "session_246",
+        "session_246b"
       ]
     },
     {
       "role": "jobs",
-      "count": 39,
+      "count": 40,
       "sessions": [
         "session_151",
         "session_152",
@@ -10488,7 +10518,8 @@
         "session_224",
         "session_238",
         "session_239",
-        "session_246"
+        "session_246",
+        "session_246b"
       ]
     },
     {
@@ -17789,6 +17820,60 @@
           "role": "edi",
           "phase": null,
           "turnIdx": 13,
+          "recallReason": null
+        }
+      ]
+    },
+    {
+      "sessionId": "session_246b",
+      "topic": "PD-076 audit-decision-ledger-status 분류 로직 정밀화 (self vs referent)",
+      "sequence": [
+        {
+          "role": "jobs",
+          "phase": null,
+          "turnIdx": 0,
+          "recallReason": null
+        },
+        {
+          "role": "ace",
+          "phase": null,
+          "turnIdx": 1,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 2,
+          "recallReason": null
+        },
+        {
+          "role": "riki",
+          "phase": null,
+          "turnIdx": 3,
+          "recallReason": null
+        },
+        {
+          "role": "arki",
+          "phase": null,
+          "turnIdx": 4,
+          "recallReason": null
+        },
+        {
+          "role": "dev",
+          "phase": null,
+          "turnIdx": 5,
+          "recallReason": null
+        },
+        {
+          "role": "zero",
+          "phase": null,
+          "turnIdx": 6,
+          "recallReason": null
+        },
+        {
+          "role": "edi",
+          "phase": null,
+          "turnIdx": 7,
           "recallReason": null
         }
       ]
