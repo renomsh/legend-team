@@ -1,7 +1,7 @@
 {
   "_comment": "fast-path 파일. /open 시 최우선 로드. 원본 파일(session_index, topic_index, decision_ledger)에서 파생됨. /close 시 재계산하여 덮어씀.",
-  "lastSessionId": "session_246",
-  "nextSessionId": "session_247",
+  "lastSessionId": "session_247",
+  "nextSessionId": "session_248",
   "currentVersion": "v2.084",
   "openTopics": [
     {
@@ -59,6 +59,13 @@
       "decisionsAdded": []
     },
     {
+      "sessionId": "session_247",
+      "topicSlug": "sage-system-state-review",
+      "closedAt": "2026-05-14T04:30:00.000Z",
+      "oneLineSummary": "Sage 시스템 점검 — DVA 패턴 적출, PD 5건 등록(O4/O1/D-187잔여/D-194잔여/resolveCondition 의무화), sage-gate hook L133 패치",
+      "decisionsAdded": []
+    },
+    {
       "sessionId": "session_246",
       "topicSlug": "zero-external-skill-review",
       "closedAt": "2026-05-13T23:59:00.000Z",
@@ -67,19 +74,91 @@
         "D-193",
         "D-194"
       ]
-    },
-    {
-      "sessionId": "session_245",
-      "topicSlug": "pd-069-parallel-session",
-      "closedAt": "2026-05-13T12:00:00.000Z",
-      "oneLineSummary": "PD-079 D-191·D-192 박제 + 8 미티게이션 코드 완성 — G6 9/9·G7 5/5·apply smoke PASS",
-      "decisionsAdded": [
-        "D-191",
-        "D-192"
-      ]
     }
   ],
   "pendingDeferrals": [
+    {
+      "id": "PD-098",
+      "fromSession": "session_247",
+      "fromTopic": "topic_207",
+      "createdAt": "2026-05-14",
+      "title": "PD resolveCondition 필드 required 의무화 + validate-pd-schema.ts hook",
+      "item": "Sage 적출 (session_247 turn 0, M-1): system_state.pendingDeferrals 13건 중 11건이 resolveCondition 미명기 → D-056/D-057 lifecycle 자동 전이 시스템 84% 무력화. PD가 영구 buffer로 변질, '수동 검토만 의존하는 무한 큐' 패턴.\n\n구현 옵션:\n(a) pending_deferrals.v1 → v2 schema 갱신: resolveCondition required 필드. PD 등록 시점에 명기 강제\n(b) validate-pd-schema.ts 신규 hook: PostToolUse(Edit/Write) on pending_deferrals.json. resolveCondition 누락 시 PR 차단 또는 warn-only 알림\n(c) 기존 11건 backfill: Master/Edi가 누락 PD에 resolveCondition 소급 부여 — 강제 시 LLM 추측 위험, 수동 권장\n(d) auto-resolve trigger: scripts/resolve-pending-deferrals.ts가 resolveCondition 자연어 매칭으로 자동 status 전이\n\nD-185 정합 강화: 본 PD 자체가 'prompt-only 정책 무한 박제'를 메타 차단하는 구조적 fix. D-185 본문 '메인 enforcement는 prompt' 한계의 직접 대응.\n\nD-194 정합: 본 PD 본문 design content 원문 보존.",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-056",
+        "D-057",
+        "D-185"
+      ],
+      "dependsOn": [],
+      "relatedTopic": "topic_207",
+      "resolveCondition": "pending_deferrals.json schema에 resolveCondition required 필드 박제 + validate-pd-schema.ts hook 동작 확인 (PR 1건 차단 또는 warn-only 알림 1건 발동) + 신규 PD 등록 5건 연속 resolveCondition 명기"
+    },
+    {
+      "id": "PD-097",
+      "fromSession": "session_247",
+      "fromTopic": "topic_207",
+      "createdAt": "2026-05-14",
+      "title": "session-end-finalize hook 변형 파일명 인식 패턴 정밀화 (D-194 잔여)",
+      "item": "Sage 적출 (session_247 turn 0, 축 3): session_246 'missing-report 4건' (ace turn5, zero turn7/8, edi turn11) gap의 실체는 subagent body 휘발이 아닌 hook 패턴 정밀도 결함. 실제 reports/2026-05-13_zero-external-skill-review/에는 ace_synthesis.md, zero_rev1·rev2·m1·m2·m3, edi_rev1.md가 모두 박제됐으나 hook이 '{role}_rev*.md' 단일 패턴만 인식 → 변형 파일명(ace_synthesis.md, m1_*.md 등) 미감지.\n\nrole-skill 출력 다양성 vs hook 패턴 단일 강제 = D2 prime directive 위반 (description '{role}_rev*.md 박제 의무' vs 실제 산출 패턴 drift).\n\n또한 Nexus가 turn 0 프롬프트에서 'gaps 8건 (missing-report 4 + inline-role-header-mismatch 4)' 단언 → Sage cross-check 시 inline-role-header-mismatch 4건은 session_index/edi_rev1에 미발견. 실제는 current_session.json에는 8건 박제, session_index 전파 시 4건만 통과 = **gap propagation 결함** 추가 발견.\n\n구현 옵션:\n(a) session-end-finalize.js 패턴 확장: '{role}_*.md' (ace_synthesis, zero_m1 등 prefix-match)\n(b) reports/{date}_{slug}/ 디렉토리 전수 스캔 + frontmatter role 필드 매칭 (frontmatter 의무 D-067 정합)\n(c) gap propagation 결함 별도 처리: current_session → session_index 전파 시 gaps 배열 전수 복제 보장\n\nD-194 정합: 본 PD 자체가 D-194 박제 직후 동일 세션 내 위반의 직접 산물.",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-194",
+        "D-067"
+      ],
+      "dependsOn": [],
+      "relatedTopic": "topic_207",
+      "resolveCondition": "session-end-finalize.js 패턴 확장 박제 + 다음 5세션 missing-report gaps 0건 + gap propagation 결함 별도 처리 (current_session.gaps 8건 → session_index 전파 시 8건 보존)"
+    },
+    {
+      "id": "PD-096",
+      "fromSession": "session_247",
+      "fromTopic": "topic_207",
+      "createdAt": "2026-05-14",
+      "title": "워크트리 머지 직전 working tree dirty 차단 경로 (D-187 잔여, formerly PD-086 in CLAUDE.md L91)",
+      "item": "Sage 적출 (session_247 turn 0, 축 1): system_state.worktreeMergeFailures 누적 2건 (claude/practical-pare-60a262 2026-05-14T02:27, claude/zen-dewdney-2c01e4 2026-05-14T03:27) 모두 동일 파일쌍(memory/growth/self_scores.jsonl + memory/shared/dashboard_data.json) 충돌. 두 워크트리 git config 직접 조회 시 core.hooksPath + merge.ours.driver=true 정상 설정. .gitattributes 두 파일 모두 merge=ours 등재 정상.\n\n실패 원인: 머지 단계가 아닌 머지 직전 working tree dirty 상태. 에러 본문 'Your local changes to the following files would be overwritten by merge' — merge=ours driver는 충돌 해결 단계에서 작동하나, working tree 미커밋 변경이 있으면 git이 머지 자체를 시작 못 함.\n\nD-187 박제 시 'main 직커밋 차단 + .gitattributes merge=ours = 머지 충돌 차단 완성'으로 인식되었으나 차단된 것은 충돌 해결 단계만. **머지-전 working tree 오염 경로는 잔존**. CLAUDE.md L91이 '분리 항목: PD-086 (hook의 main 워킹디렉토리 직접 write 경로 — syncClaudeDir·session-end-tokens.js)'로 명시했으나 PD-086 자체가 system_state.pendingDeferrals 명단에 부재 = 추적 부재 = Sage M-1 메타 패턴('분리 처리 의도 vs 실제 PD 등록 누락') 직접 사례.\n\n구현 옵션:\n(a) syncClaudeDir 직접 write 경로 차단 — main 워킹디렉토리 mutation 시 워크트리 우선\n(b) session-end-tokens.js write 경로 워크트리 한정\n(c) 워크트리 머지 전 git stash 자동 호출 후 머지 → unstash 순서 (auto-merge.js 신규)",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-187"
+      ],
+      "dependsOn": [],
+      "relatedTopic": "topic_207",
+      "resolveCondition": "syncClaudeDir / session-end-tokens.js 워킹디렉토리 직접 write 경로 차단 박제 + 동일 파일쌍(self_scores.jsonl + dashboard_data.json) 머지 충돌 14일 연속 0건"
+    },
+    {
+      "id": "PD-095",
+      "fromSession": "session_247",
+      "fromTopic": "topic_207",
+      "createdAt": "2026-05-14",
+      "title": "수치/카운트 단언 출처 매칭 hook MVP (DVA-A 차단, Sage O1 MVP)",
+      "item": "Sage 적출 (session_247 turn 1, 옵션 O1): Nexus 반복 결함 'DVA-A 사실 단언형' 차단 hook MVP. 본 세션 turn 0 'gaps 8건' 단언이 정확히 이 카테고리 — 수치/카운트를 검증된 듯 발화.\n\n메커니즘: PostToolUse hook (Nexus assistant 메시지 대상). 수치+단위·카운트·N건 같은 정량 단언이 있으면 직전 N턴 Read/Grep/Bash 출처 매칭. 매칭 0건 시 다음 턴 차단 + Master 알림 (warn-only MVP).\n\n영역 한정 (false-positive 폭증 회피, D-185 옵션 B 기각 사유 정합):\n- 1차 영역: 'N건', 'N개', 'N% 누적' 등 카운트 표현만\n- 2차 영역(미적용): '구조적', '안전한' 등 정성 단언 — 별도 결정 후 확장\n\nD4 정합: 모델 자율 판단 0, 코드 enforce. 단 정규식·NLP 단언 추출 정확도 이슈가 핵심 risk — Riki 적출 의무.\n\n별도 토픽 분리 권장 (Grade B): 본 PD를 시드로 토픽 오픈 시 Arki(hook 구조)·Riki(false-positive risk)·Dev(구현) 3 역할 정식 진행.",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-185"
+      ],
+      "dependsOn": [
+        "PD-094"
+      ],
+      "relatedTopic": "topic_207",
+      "resolveCondition": "별도 Grade B 토픽 오픈 → MVP 영역 정의 박제 + PostToolUse hook 1개 박제 + 5세션 dry-run 시 false-positive 5% 이하 + 실측 DVA-A 사례 1건 차단 또는 알림"
+    },
+    {
+      "id": "PD-094",
+      "fromSession": "session_247",
+      "fromTopic": "topic_207",
+      "createdAt": "2026-05-14",
+      "title": "decision_ledger enforcementMechanism 필드 강제 + 자동 무효화 (Sage O4 1순위, DVA-B 메타 차단)",
+      "item": "Sage 적출 (session_247 turn 1, 옵션 O4 1순위): Nexus 반복 결함 'DVA-B 정책 박제형' 메타 차단. D-185 박제 자체가 D4 위반의 구조적 증거 — 박제일(2026-05-12) 이틀 후(2026-05-14) session_247에서 동일 패턴 재발. 'prompt-only 정책 = 해결' 거짓 안도가 메타 메커니즘.\n\n메커니즘: decision_ledger schema에 다음 3 필드 강제\n- enforcementMechanism: 'prompt' | 'hook' | 'test' | 'manual-review'\n- enforcementSinceSession: 정책 enforce 시작 세션 ID (NULL 허용 시 prompt-only)\n- selfNullifyByDate: prompt-only 정책의 경우 N세션/N일 내 hook 미박제 시 자동 무효화 (구체 동작·N값·status enum은 Master 결정 사항)\n\n전수 마이그 동반: 기존 D-NNN 200+건에 enforcementMechanism 일괄 부여. 옵션:\n(a) Master+Edi 수동 분류 (정확도 ↑, 비용 ↑↑)\n(b) 자동 분류 후 수동 검수 (text+anchor 매칭으로 hook/test 자동 식별, 나머지는 prompt 디폴트)\n(c) Greenfield only — 신규 D-NNN부터 적용, 기존은 enforcementMechanism: NULL 허용\n\n메타 D4 정합 최상: '정책 박제 후 enforcement 코드 미박제 시 정책 자동 무효화'가 D-185 같은 prompt-only 무한 박제 루프를 메타 차단.\n\n별도 토픽 분리 권장 (Grade A): schema 변경 + 마이그 + validator + ledger 200건 검수는 단일 세션 처리 불가. Arki 구조 진단 + Riki 마이그 risk + Master 검수 path 설계 의무.",
+      "status": "pending",
+      "relatedDecisions": [
+        "D-185",
+        "D-184",
+        "D-189"
+      ],
+      "dependsOn": [],
+      "relatedTopic": "topic_207",
+      "resolveCondition": "별도 Grade A 토픽 오픈 → schema 3 필드 박제 + 마이그 옵션 (a/b/c) 결정 + validator 1건 박제 + 신규 D-NNN 5건 연속 enforcementMechanism 명기 + 기존 D-185 자체에 enforcementMechanism: 'prompt' + selfNullifyByDate 사후 부여"
+    },
     {
       "id": "PD-093",
       "fromSession": "session_246",
@@ -97,64 +176,6 @@
       "dependsOn": [],
       "relatedTopic": "topic_206",
       "resolveCondition": "role-zero.md 또는 role-zero.md policy에 흡수된 외부 skill SOP 패턴 7종 명시 박제 + 다음 Zero 호출 결과물 3 검증 조건 충족 (Source Map/Evidence/Confidence 1건 + 표준 카테고리 + Open Questions)"
-    },
-    {
-      "id": "PD-079",
-      "fromSession": "session_234",
-      "fromTopic": "pd-069-parallel-session",
-      "createdAt": "2026-05-11",
-      "title": "병행세션 시스템 구현 — D-181 8 미티게이션 코드 박제",
-      "item": "m_* 파일 스키마(m_decision_ledger_{worktreeId}.json, m_topic_index_{worktreeId}.json, m_pending_deferrals_{worktreeId}.json) · /open 자동 마이그레이션 hook (옵션 A' — 매 /open 시 closed msession 승격, non-blocking) · 2-phase commit(.staging → fsync → atomic rename) · schema validate + m_quarantine/ 격리 · cosine 유사도 미리보기(임계 30%, 미달 자동 통과) · mD↔D cross-check(mD↔mD 불필요) · 별도 commit(migrate: prefix) · 명령어 분기(/open mtopic A '<title>' 신규, /open mtopic_XXXXX A 재오픈) 코드 박제.",
-      "status": "pending",
-      "relatedDecisions": [
-        "D-181"
-      ],
-      "dependsOn": [
-        "PD-077"
-      ],
-      "relatedTopic": "topic_197"
-    },
-    {
-      "id": "PD-078",
-      "fromSession": "session_233",
-      "fromTopic": "pd-dashboard-fix",
-      "createdAt": "2026-05-10",
-      "item": "L2 / L1 / inline 재도입",
-      "status": "pending"
-    },
-    {
-      "id": "PD-083",
-      "fromSession": "session_235",
-      "fromTopic": "nexus-tao-grading",
-      "createdAt": "2026-05-11",
-      "title": "T/A/O 페르소나별 등급 상한 enum (시범 후 결정)",
-      "item": "Riki rev2 C-1 대안 — 페르소나별 Authority 등급 상한 (예: Nexus A1 max, Arki·Riki·Ace A2 max, Edi A3, Master·decision_ledger A4). 시범 후 자가 측정 분포 데이터 누적 후 enum 확정 결정. 분포 데이터 없이 박제 시 자의적·하향 평탄화 회피 유발 (Riki R-6).",
-      "status": "pending",
-      "relatedDecisions": [
-        "D-183",
-        "D-184"
-      ],
-      "dependsOn": [
-        "PD-082"
-      ],
-      "relatedTopic": "topic_200"
-    },
-    {
-      "id": "PD-084",
-      "fromSession": "session_235",
-      "fromTopic": "nexus-tao-grading",
-      "createdAt": "2026-05-11",
-      "title": "T/A/O 시범 종료 조건 정량 신호",
-      "item": "Ace Q4 권고 — 3세션 + (부착률 0.5 OR 인플레이션 2건 OR 평균 T≤2.0). 자가 측정 데이터 누적 후 임계값 확정. baseline은 session_235 V1=5/V2=9+/V3=9/V4=8+ total 31+. hook 자동 강등 알고리즘(G2/G3) 별도 검토 — Master 후속 판단 대기.",
-      "status": "pending",
-      "relatedDecisions": [
-        "D-183",
-        "D-184"
-      ],
-      "dependsOn": [
-        "PD-082"
-      ],
-      "relatedTopic": "topic_200"
     },
     {
       "id": "PD-085",
@@ -252,5 +273,5 @@
       "relatedTopic": "topic_197"
     }
   ],
-  "lastUpdated": "2026-05-14T12:40:45.290Z"
+  "lastUpdated": "2026-05-14T13:40:30.122Z"
 }
