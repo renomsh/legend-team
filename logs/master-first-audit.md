@@ -37,7 +37,22 @@ c는 default =  |
 | 2026-05-13 13:54:50 | 9e2eb970-fee0-439d-ad6e-441ca17a9eed | UserPromptSubmit | echo-trigger | `좋아` | 내가 읽기에는 제로가 처음에 정리한게 좋아. 
 자, 이제 다른 세션에서 jobs 네가 제로가 정리한 내용과  |
 | 2026-05-13 13:55:21 | 9e2eb970-fee0-439d-ad6e-441ca17a9eed | Agent | echo-trigger | `좋아` | 내가 읽기에는 제로가 처음에 정리한게 좋아. 
-자, 이제 다른 세션에서 jobs 네가 제로가 정리한 내용과  |
 | 2026-05-13 13:56:44 | 9e2eb970-fee0-439d-ad6e-441ca17a9eed | Agent | echo-trigger | `좋아` | 내가 읽기에는 제로가 처음에 정리한게 좋아. 
-자, 이제 다른 세션에서 jobs 네가 제로가 정리한 내용과  |
 | 2026-05-13 14:01:11 | 9e2eb970-fee0-439d-ad6e-441ca17a9eed | UserPromptSubmit | intent-reconfirm | `다음` | 예를들어 여기서 작업한 내용을 다음 세션에서 이어가야해. Nexus 네가 이해하기에는? |
+| 2026-05-13 13:28:38 | f1aad2df-b062-4d2b-b8c1-e3bcc285f673 | UserPromptSubmit | echo-trigger | `좋아` | 좋아. 내가 발견한 본질은 다른거야.
+자연어. 특히 한국어로 자연어를 이야기하는 경우 제대로 인식이 안되는  |
+| 2026-05-13 13:38:18 | f1aad2df-b062-4d2b-b8c1-e3bcc285f673 | UserPromptSubmit | intent-reconfirm | `다음` | 이미 이렇게 정의했는데 1번은 또 바꾼거네?
+active	현행 정책·구현 (살아있음)
+deprecated	폐 |
+| 2026-05-14 00:30:06 | f1aad2df-b062-4d2b-b8c1-e3bcc285f673 | UserPromptSubmit | echo-trigger | `OK, ok, 확정` | Q1. s2
+Q2. 확정
+3. If I already predefined and fixed the state |
+| 2026-05-14 01:15:31 | f1aad2df-b062-4d2b-b8c1-e3bcc285f673 | UserPromptSubmit | echo-trigger | `OK, ok` | #2 β
+#3 β로 추천을 하되 옵션 리스트로 #1, 4, 6처럼
+#4 α
+#5 α
+#6 hook 즉시 구현 |
+| 2026-05-14 01:16:37 | f1aad2df-b062-4d2b-b8c1-e3bcc285f673 | Agent | echo-trigger | `OK, ok` | #2 β
+| 2026-05-14 01:39:27 | f1aad2df-b062-4d2b-b8c1-e3bcc285f673 | UserPromptSubmit | echo-trigger | `OK, ok` | PreToolUse hook이 박제 경로 자체 봉쇄 설명해봐. |
+| 2026-05-14 02:02:22 | f1aad2df-b062-4d2b-b8c1-e3bcc285f673 | UserPromptSubmit | echo-trigger | `맞아` | O3인데, 포함 안된 것 맞아? |
+| 2026-05-14 03:02:06 | f1aad2df-b062-4d2b-b8c1-e3bcc285f673 | UserPromptSubmit | echo-trigger | `OK, ok` | 발견 1: Phase 1 hook caller path 식별이 process tree 의존 — 신뢰성 낮음  |

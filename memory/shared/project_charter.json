@@ -1,7 +1,7 @@
 {
   "charter": {
     "name": "legend-nexus",
-    "version": "2.083",
+    "version": "2.084",
     "versionSchema": {
       "format": "X.YYY (3자리 소수 float, 점 하나)",
       "incrementRules": {
@@ -474,8 +474,20 @@
       "date": "2026-05-14",
       "summary": "PD-075 강화된 M1 결정 (D-127 amendment + 신규 D-193·D-194) + 인계 원문 보존 정책 + Zero spec 정정 + dispatch_config rules.zero 3 필드 신설",
       "sessionId": "session_246"
+    },
+    {
+      "version": "1.984",
+      "date": "2026-05-14",
+      "summary": "scripts/audit-decision-ledger-status.ts 삭제 + PD-076 resolved + status 운영 정책 단순화 (active 기본 + 충돌 시 Master 문의). D-NNN 박제 없음, 본문 정책만. bugfix·patch 카테고리.",
+      "sessionId": "session_246b"
+    },
+    {
+      "version": "2.084",
+      "date": "2026-05-14",
+      "summary": "Worktree merge integration: zen-dewdney(session_246b: status 운영 정책 + PD-076 resolved + audit-decision-ledger-status.ts 삭제) 통합. era_history 두 entry 모두 보존 (session_246=zero-external-skill-review, session_246b=pd-076-audit-classification-precision, Opt-1a rename). version float +0.001 bugfix.",
+      "sessionId": "session_247"
     }
   ],
   "lastUpdated": "2026-05-14",
-  "version": "2.083"
+  "version": "2.084"
 }

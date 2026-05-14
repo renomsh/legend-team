@@ -213,6 +213,14 @@
       "expected": "external-skill-only",
       "actualInTurns": "jobs",
       "turnId": 6
+    },
+    {
+      "type": "hook-chain-step-failed",
+      "severity": "high",
+      "label": "npx ts-node scripts/compute-dashboard.ts",
+      "message": "Expected double-quoted property name in JSON at position 379496 (line 12022 column 1)",
+      "addedBy": "auto-push.runHookChain",
+      "addedAt": "2026-05-14T09:25:19.645Z"
     }
   ],
   "notes": [
@@ -222,13 +230,13 @@
     "Master 적출: D-193 박제는 정책 선언만, Zero 도구 SOP 실질 흡수 미수행. PD-093 신규 등록 (옵션 B 채택) — role-zero.md 내부 도구 섹션 확장 + 외부 skill SOP 패턴 7종 (Source Map·Confidence Matrix·Evidence Hierarchy·Contradiction Mapping·Open Questions·표준 카테고리·Theme Clusters) 통합 구현 후속 트랙."
   ],
   "tokenUsage": {
-    "input_tokens": 285,
-    "output_tokens": 214007,
-    "cache_creation_input_tokens": 962475,
-    "cache_read_input_tokens": 13205749,
-    "messageCount": 102,
-    "masterTurns": 15,
-    "total_billable": 14382516
+    "input_tokens": 229,
+    "output_tokens": 79537,
+    "cache_creation_input_tokens": 873958,
+    "cache_read_input_tokens": 8095199,
+    "messageCount": 108,
+    "masterTurns": 23,
+    "total_billable": 9048923
   },
   "agentsCompleted": [
     "arki",
